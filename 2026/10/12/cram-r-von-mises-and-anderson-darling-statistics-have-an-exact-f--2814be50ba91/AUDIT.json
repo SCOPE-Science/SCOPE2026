@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The exact quadratic empirical-process decomposition yields one diagonal covariance and one degenerate two-sample kernel covariance. Explicit integration gives diagonal covariance 1/18 and cross-kernel integral 1/18, hence (2n-1)/(18n); the same decomposition yields both stated variances. The limiting correlation follows algebraically. Numerical replay independently recomputes the six integrals.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Laio develops Cramér–von Mises and Anderson–Darling marginal moments from empirical-process covariance kernels and treats finite-sample corrections, but the inspected article computes the statistics separately.",
+        "Hwang--Kuriki develop generalized Anderson–Darling and generalized Cramér–von Mises classes with separate covariance kernels and Karhunen–Loève spectra; the manuscript has primary MSC 62G10 and 62E20.",
+        "Neither inspected source states a joint finite-sample covariance or correlation between the two classical statistics."
+      ],
+      "reasoning": "Separate marginal distributions and eigenstructures do not determine a cross-covariance. The accepted result uses the shared empirical-process summands before the two different quadratic weights are separated.",
+      "searches": [
+        "DOI:10.1029/2004WR003204",
+        "arXiv:2404.06040",
+        "weighted Cramer von Mises Anderson Darling covariance kernel eigenstructure"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1029/2004WR003204",
+      "arXiv:2404.06040"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item 5b761aa7-91ae-4ed1-9826-f2a72f268b44 gives an exact Cramér–von Mises/Watson covariance, not an Anderson–Darling formula.",
+        "No other current or immediately prior own-ledger claim was found mentioning Anderson–Darling together with Cramér–von Mises.",
+        "The Watson identity does not imply the singular Anderson–Darling weighted kernel integral or its diagonal logarithmic correction."
+      ],
+      "reasoning": "Sharing one statistic does not transfer covariance to a different second statistic. The accepted proof requires new weighted diagonal and off-diagonal integrals.",
+      "searches": [
+        "own ledger Cramer von Mises Watson exact finite sample correlation",
+        "own ledger Anderson Darling Cramer von Mises",
+        "Cramer von Mises Anderson Darling joint moment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Queries covered covariance, correlation, joint distribution, Brownian-bridge quadratic functionals, weighted Cramér–von Mises functionals, and the exact rational finite-sample expression.",
+        "No located semantic record stated the formula (2n-1)/(18n), its exact finite-sample correlation, or the limiting correlation constant.",
+        "Hwang--Kuriki's full manuscript was searched for covariance and inspected across both generalized Anderson--Darling and generalized Cramér--von Mises sections."
+      ],
+      "reasoning": "The cross-covariance can be phrased either as a joint statistic formula or as a covariance of weighted squared Brownian-bridge/empirical-process functionals, so both aliases were checked.",
+      "searches": [
+        "Cramer von Mises Anderson Darling covariance correlation Brownian bridge",
+        "Anderson Darling Cramer von Mises asymptotic correlation",
+        "integrated squared Brownian bridge weighted unweighted covariance",
+        "goodness of fit statistics joint distribution Anderson Darling Cramer von Mises",
+        "covariance between Cramer-von Mises and Anderson-Darling statistics",
+        "Cramer von Mises Watson exact finite sample correlation",
+        "Cramer von Mises Anderson Darling exact finite sample covariance 2n-1 18n",
+        "Anderson Darling Cramer von Mises finite sample correlation",
+        "weighted Cramer von Mises cross covariance goodness of fit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula table or semantic record matching the finite covariance or asymptotic covariance 1/9 was located."
+      ],
+      "reasoning": "The claim is an all-sample-size symbolic identity, not a numerical table or a recomputation of one marginal distribution.",
+      "searches": [
+        "\"2n-1\" \"18n\" Anderson Darling Cramer von Mises covariance",
+        "\"1/9\" Anderson Darling Cramer von Mises covariance",
+        "\"Cramér-von Mises\" \"Anderson-Darling\" \"1/9\""
+      ]
+    },
+    "rationale": "Searches for the explicit covariance, correlation, Brownian-bridge cross moment, and weighted-CvM formulation found no matching statement. Full inspection of Laio and Hwang--Kuriki found separate marginal moment/eigenstructure treatments rather than the finite cross-statistic covariance. The nearest own claim concerns Cramér--von Mises and Watson and does not imply the Anderson--Darling result.",
+    "residual_risks": [
+      "A generic theorem for cross moments of two weighted Cramér–von Mises functionals may imply the result after specialization.",
+      "Older goodness-of-fit literature is extensive and may state the same covariance under omega-square or quadratic EDF terminology.",
+      "The result is restricted to the fully specified continuous null and does not transfer directly to estimated-parameter cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SEPARATE_MARGINAL_MOMENTS_WITHOUT_CROSS_STATISTIC_COVARIANCE",
+        "evidence": "The article computes marginal moments for W^2 and A^2 separately and discusses their covariance kernels; targeted search returned no joint-statistic statement and no cross-correlation formula.",
+        "identifier_or_url": "DOI:10.1029/2004WR003204",
+        "material_read": "Full public article text, including the empirical-process covariance section, moment construction, case-0 discussion, separate Cramér–von Mises and Anderson–Darling moment calculations, and targeted searches for covariance, correlation, and joint.",
+        "method": "Compared whether its covariance references concerned the underlying Gaussian process or a cross-covariance of the two test statistics, and searched for joint/correlation statements.",
+        "title": "Cramer–von Mises and Anderson–Darling goodness of fit tests for extreme value distributions with unknown parameters",
+        "trigger": "Archive-era full source treating both statistics, their empirical-process covariance kernels, marginal moments, and small-sample corrections."
+      },
+      {
+        "assessment": "UNIFIED_MARGINAL_SPECTRAL_THEORY_WITHOUT_ACCEPTED_CROSS_LAW",
+        "evidence": "The manuscript develops separate classes and covariance kernels but no matching finite-sample W^2/A^2 covariance or correlation was found.",
+        "identifier_or_url": "arXiv:2404.06040",
+        "material_read": "Full 71-page public manuscript in HTML, including literature review, generalized Anderson–Darling section, covariance-kernel theorem, generalized Cramér–von Mises section, and targeted searches for covariance and the classical names.",
+        "method": "Compared the separate limiting-process covariance kernels/eigenstructures with a joint finite-sample covariance between the two classical statistics.",
+        "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+        "trigger": "Strongest modern full source unifying generalized Anderson–Darling, Cramér–von Mises, and Watson statistics and explicitly classifying the work under primary MSC 62G10 and 62E20."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2814be50-ba91-4eb9-8d40-7c9a18f78c25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cramér–von Mises and Anderson–Darling are canonical companion EDF goodness-of-fit tests. The exact cross-covariance quantifies their redundancy at finite n, and the limiting correlation near 0.979 shows that their null fluctuations remain strongly aligned despite radically different tail weights. This is a natural joint calibration quantity not supplied by the separate marginal moment formulas.",
+    "status": "PASS"
+  }
+}
