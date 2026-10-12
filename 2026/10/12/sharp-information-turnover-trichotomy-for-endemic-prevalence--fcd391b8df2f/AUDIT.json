@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Equation (19) of the source becomes \\(c=I_k(\\beta+ku_1/(1+ku_2I_k))\\). The positive root is unique. Direct differentiation gives positive \\(F_I\\) and \\(F_k\\), hence \\(dI_k/dk<0\\). Multiplication gives the displayed quadratic, whose positive root yields the three asymptotic regimes by the sign of \\(u_1-cu_2\\). The claim is explicitly restricted to equilibrium algebra, so no unsupported stability inference is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buonomo et al., DOI 10.1002/mma.7808, uses a distinct meningitis model and numerically varies information coverage and vaccination sensitivity rather than the Fang--Liu--Du turnover ratio \\(a/b\\).",
+        "Kumar et al., DOI 10.1016/j.matcom.2018.09.024, studies a distinct SVIR model with saturated treatment and reports multiple equilibria and bifurcations; accessible abstract material does not state this law."
+      ],
+      "reasoning": "The nearby literature confirms that information saturation and memory can affect endemic behavior, but its state equations and parameters differ, so those results do not dominate or imply the source-specific three-regime theorem.",
+      "searches": [
+        "\"Nonlinear dynamics of infectious diseases via information-induced vaccination and saturated treatment\" \"endemic equilibrium\"",
+        "\"fast information\" vaccination endemic equilibrium saturation asymptotic epidemic",
+        "\"information growth rate\" endemic equilibrium vaccination saturation",
+        "\"a/b\" epidemic information vaccination endemic equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2026090",
+      "doi:10.1002/mma.7808",
+      "doi:10.1016/j.matcom.2018.09.024",
+      "published-finding corpus:2026/9/14/SCOPE021",
+      "published-finding corpus:2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly states that \\(u_0,u_2,a,b\\) do not affect the basic reproduction number, while its numerical section varies \\(u_0\\) and \\(u_2\\) for transient infection peaks.",
+        "Equation (19) nevertheless contains \\(a/b\\) through both rescaled saturation coefficients, which is sufficient for the new derivative and asymptotic analysis."
+      ],
+      "reasoning": "The prior reproduction-number statement concerns invasion threshold, whereas the new claim concerns endemic burden conditional on \\(\\mathcal R_0>1\\). Neither statement implies the other; the new theorem quantifies the dependence hidden inside the endemic equation.",
+      "searches": [
+        "information-dependent vaccination endemic equilibrium u0 u2",
+        "saturating information vaccination endemic equilibrium monotonicity epidemic",
+        "\"Dynamics of multiple time scale SIRM model with information-dependent vaccination\" Fang Liu Du 2026 92D30"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fang--Liu--Du, DOI 10.3934/dcdsb.2026090, Lemma 3.5 and equations (19)--(21), state unique endemicity but not the derivative with respect to \\(a/b\\) or the large-\\(a/b\\) trichotomy.",
+        "The exact-title and mechanism searches returned no indexed finding with the same equilibrium law."
+      ],
+      "reasoning": "Uniqueness of a positive quadratic root does not itself imply the strict parameter monotonicity or distinguish the three scaling regimes; those require the derivative and asymptotic comparison proved here.",
+      "searches": [
+        "information-dependent vaccination saturated response endemic equilibrium asymptotic growth decay ratio 1/k sqrt k floor",
+        "SIRM information vaccination saturation exact endemic prevalence limit fast information",
+        "Holling II information-dependent vaccination endemic prevalence monotonicity saturation threshold",
+        "Fang Liu Du 2026 SIRM information-dependent vaccination endemic equilibrium"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed hit 2026/9/14/SCOPE021 concerns coupled-SEIR reproduction-number bracketing, not information-dependent vaccination.",
+        "Closest indexed hit 2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf concerns threshold switching geometry, not endemic-turnover asymptotics.",
+        "No returned source-specific item states the same a/b monotonicity or trichotomy."
+      ],
+      "reasoning": "The searched index contains mathematically adjacent epidemic-threshold results but no table or finding covering the present scalar equilibrium dependence.",
+      "searches": [
+        "2026 epidemiology 92D30 additive noise positivity boundary stochastic disease-free equilibrium",
+        "2026 epidemic model backward bifurcation reinfection threshold exact scalar equation",
+        "2026 mathematical epidemiology threshold exact criterion monotonicity equilibrium",
+        "Fang Liu Du 2026 SIRM information-dependent vaccination endemic equilibrium"
+      ]
+    },
+    "rationale": "The motivating source contains the scalar endemic-equilibrium equation and uniqueness, but not the monotonicity in the information growth-to-decay ratio or the three asymptotic regimes. Related information-vaccination papers use different state equations or different behavioral parameters and do not imply the stated source-specific threshold law. Searches of the published-finding index by source, mechanism, aliases, and asymptotic language returned no equivalent claim.",
+    "residual_risks": [
+      "Behavioral-epidemiology literature is broad, so an unindexed or differently parameterized paper could contain an analogous asymptotic law.",
+      "The 2019 Kumar--Srivastava--Gupta article was compared from reliable abstract-level material rather than a verified full text; this is an access-limited residual originality risk, not evidence of coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the endemic equation and uniqueness but not monotonicity in \\(a/b\\) or the three-regime large-\\(a/b\\) law.",
+        "evidence": [
+          "Equation (19) defines the endemic scalar equation with rescaled coefficients \\((a/b)u_1\\) and \\((a/b)u_2\\).",
+          "Remark 3.2 says the information parameters do not change \\(\\mathcal R_0\\).",
+          "The numerical section varies \\(u_0\\) and \\(u_2\\) for peak behavior, not the \\(a/b\\) asymptotic."
+        ],
+        "identifier_or_url": "doi:10.3934/dcdsb.2026090",
+        "material_read": "Openly accessible full text, especially system (18), Lemma 3.5, equations (19)--(21), Remarks 3.1--3.2, and the numerical discussion of \\(u_0\\) and \\(u_2\\).",
+        "method": "Publisher metadata and public full-text copy.",
+        "title": "Dynamics of multiple time scale SIRM model with information-dependent vaccination",
+        "trigger": "Exact motivating reduced SIRM model with information-dependent Holling-II vaccination."
+      },
+      {
+        "assessment": "It reports endemic prevalence decreasing with information coverage and a vaccination-sensitivity slope in a different model; it does not contain the present turnover/saturation threshold law.",
+        "evidence": [
+          "Its information parameters have different roles from \\(a/b\\) in the Fang--Liu--Du model.",
+          "Its numerical endemic-prevalence comparison does not yield the three asymptotic regimes."
+        ],
+        "identifier_or_url": "doi:10.1002/mma.7808",
+        "material_read": "Publisher full text including model setup, endemic-equilibrium section, and numerical endemic-prevalence discussion.",
+        "method": "Open publisher HTML.",
+        "title": "Modeling the effects of information-dependent vaccination behavior on meningitis transmission",
+        "trigger": "Close behavioral-vaccination antecedent with endemic-equilibrium analysis."
+      },
+      {
+        "assessment": "The accessible material describes a different SVIR system with saturated treatment, multiple endemic equilibria, and bifurcations; no matching turnover asymptotic is visible.",
+        "evidence": [
+          "The abstract emphasizes saturated treatment, multiple endemic equilibria, Hopf bifurcations, and fading memory rather than the scalar reduced equilibrium law used here."
+        ],
+        "identifier_or_url": "doi:10.1016/j.matcom.2018.09.024",
+        "material_read": "Abstract, bibliographic record, and citation context; a reliable full-text copy was not available in the inspected public sources.",
+        "method": "Bibliographic and abstract sources.",
+        "title": "Nonlinear dynamics of infectious diseases via information-induced vaccination and saturated treatment",
+        "trigger": "Highly relevant title combining information-induced vaccination and saturation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fcd391b8-df2f-41c1-992f-d5a55084bf5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source stresses that information parameters do not affect \\(\\mathcal R_0\\), which leaves open how strongly they can change endemic burden. The theorem gives an exact answer: a natural saturation threshold separates asymptotic suppression from a positive floor, with a critical square-root slowdown. This is a structural property of the model parameters and not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
