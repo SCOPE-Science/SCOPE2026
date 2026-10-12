@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The full six-exception iff claim is proved by the three-new-vertex edge-subdivision lemma, a reduction of all cycle and bridge lengths to 231 base triples, and a complete finite certificate. The 225 positive triples carry explicit independently checked vertex sets. The remaining six have been exhaustively tested over every vertex subset using a separately constructed adjacency graph; the reported packing-subset counts are 22, 31, 26, 66, 97, 304 and all yield zero isolating packings. Both scripts were run from their actual package-source paths and recorded outputs reproduced. The proof handles d=0, d>=1, triangle cycles, and all cycle lengths without extrapolating from finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyer–Goddard–Henning Theorem 2 proves existence on all trees (cycle-rank zero), not the current bicyclic family (cycle-rank two).",
+        "Their Theorem 3 establishes general NP-hardness, not a bicyclic cactus characterization.",
+        "The nearest published record on chordal cactus squares treats a different graph-square property.",
+        "Bujtás et al., Section 3, characterize distance-packing domination on paths and individual cycles; they do not analyze simultaneous packing-isolation across a two-cycle attachment."
+      ],
+      "reasoning": "The all-tree statement cannot imply existence for graphs with two cycles; indeed the six computed obstructions demonstrate failures. General computational hardness likewise implies no exact finite obstruction set for this family. The maximum-degree-two classification omits the two degree-three/four attachment vertices. The Bujtás et al. distance-two dominating 2-packing condition is automatically feasible on all graphs (p<=d), while the current claim has six impossible graphs, so the stronger-sounding name does not imply the present property.",
+      "searches": [
+        "graphs with 2 cycle blocks packing isolation 2 packing vertex edge domination graph C5 bridge",
+        "barbell cactus connected cycles path packing isolation integer bridge length",
+        "\"packing isolating\" \"cactus\" graph",
+        "arXiv:2606.18172v1 Section 3",
+        "The d-distance p-packing domination number: complexity, cycles, and trees arXiv:2507.18272"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.18172v1",
+      "DOI:10.17654/DM027020183",
+      "arXiv:2507.18272v1",
+      "published-finding corpus published records concerning maximum-degree-two packing isolation and cactus chordality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyer–Goddard–Henning explicitly shows every tree has a packing-isolating set and notes \\(C_5\\) fails; the paper does not state the six-obstruction bicycle classification.",
+        "Radhika–Vijayan 2021 counts connected vertex-edge dominating sets of some graphs, including barbell graphs, and does not require the selected vertices to be 2-packed.",
+        "An exact packing-isolation polynomial on graphs of maximum degree two does not determine the effect of identifying or joining two cycles.",
+        "For the five-cycle, a singleton is a distance-two dominating 2-packing set, but it is not an isolating set. Thus the adjacent d-distance p-packing domination property does not imply the studied property."
+      ],
+      "reasoning": "The 2026 tree theorem, the 2021 connected-domination enumeration, and the maximum-degree-two classification neither individually nor jointly force the six obstruction triples: their statements do not impose or model simultaneous distance-three separation across connected cycles. The subdivision lemma and base obstruction analysis add non-implied information.",
+      "searches": [
+        "On the Relationships between Domination, Isolation, and Packing Sections 2 3",
+        "Connected vertex-edge domination polynomials of some graphs barbell Radhika Vijayan 2021",
+        "simultaneous packing isolating cycle path exact enumeration",
+        "arXiv:2507.18272v1 distance p packing domination cycles trees"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyer–Goddard–Henning, arXiv:2606.18172v1, Section 2: a packing has disjoint closed neighborhoods and an isolating set leaves an edgeless complement; Section 3 asks for both simultaneously.",
+        "Searches on the combined 2-packing and isolating property produced no connected two-cycle exact classification."
+      ],
+      "reasoning": "The claim is equivalently the existence of a distance-at-least-three vertex subset whose closed-neighborhood union touches every edge, or a pairwise disjoint edge-covering family of closed neighborhoods. A result solely on minimum vertex-edge domination, 2-packing number, or domination counts would not imply the simultaneous property.",
+      "searches": [
+        "isolating packing set unicyclic graphs every connected unicyclic except pentagon C5",
+        "packing and isolating set unicyclic graphs isolated packing C5 leaf attachment",
+        "packing isolating set dumbbell barbell bicyclic cactus two cycles connected by path exact exceptional obstructions",
+        "\"packing isolating\" \"barbell\" graph",
+        "\"packing isolating\" \"cactus\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The current finite table comprises 231 explicitly indexed base cases and six exhaustively verified negative graphs; no corresponding published barbell table was found.",
+        "The closest maximum-degree-two graph polynomial does not list two-cycle connected barbell graphs."
+      ],
+      "reasoning": "A known enumeration of individual cycles or disjoint paths does not encode compatibility through the connecting path. A published table of the exact same two-cycle triples would cover this claim even without a matching title, but no such table was located in the searches.",
+      "searches": [
+        "barbell graph 2-packing isolating set iff exception five cycles bridge lengths 0 1 3 4 7",
+        "packing isolating sets polynomial graphs maximum degree two paths cycles generating function cyclic gaps 3 4",
+        "packing isolating barbell graphs 5 5 7 six exceptions classification"
+      ]
+    },
+    "rationale": "The 2026 motivating full text proves the all-tree case and identifies C5 as an obstruction, but not two-cycle cacti. The 2021 barbell connected vertex-edge domination polynomial addresses a mathematically different selected-set constraint. Exact 2-packing isolation for maximum-degree-two components does not imply gluing of two cycles through a bridge. Direct formulation, parameter, alternate terminology, stronger-coverage and related database searches found no covering result, though unindexed and inaccessible texts remain residual risks.",
+    "residual_risks": [
+      "Only the publisher abstract, not full text, of Radhika–Vijayan 2021 was inspected; its abstract describes a different invariant.",
+      "Some equivalent characterization of bicyclic graphs could be unindexed or appear within literature with unexpected terminology.",
+      "The universal result is a computer-assisted finite certificate plus a mathematical lifting lemma; no independent human audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the six-obstruction two-cycle cactus theorem: Section 3 proves trees, supplies one-cycle examples, and gives general hardness, with no bridge-length classification.",
+        "evidence": [
+          "Section 2 defines packing as disjoint closed neighborhoods and isolation as edgeless remainder.",
+          "Section 3, Theorem 2: every tree admits a packing-isolating set; Section 3.2 mentions \\(C_5\\) and general NP-hardness."
+        ],
+        "identifier_or_url": "arXiv:2606.18172v1; https://www.researchgate.net/publication/407171402_On_the_Relationships_between_Domination_Isolation_and_Packing",
+        "material_read": "Full article text, especially Sections 2 and 3 (definitions, Theorems 2 and 3, obstruction examples), plus later sections and conclusions.",
+        "method": "Lawful open-access full-text HTML rendition of the publicly posted preprint, read in context.",
+        "title": "On the Relationships between Domination, Isolation, and Packing",
+        "trigger": "The exact definitions and motivating existence question originate here."
+      },
+      {
+        "assessment": "Different invariant: connected vertex-edge dominating sets, not pairwise distance-three packing-isolating sets. Abstract alone cannot rule out a passing mention elsewhere; residual risk recorded.",
+        "evidence": [
+          "Publisher abstract explicitly counts connected vertex-edge dominating sets and lists the barbell graph.",
+          "Pairwise 2-packed sets with at least two vertices are disconnected, so the selected-set connectivity constraint is incompatible."
+        ],
+        "identifier_or_url": "DOI:10.17654/DM027020183; https://www.pphmj.com/abstract/13915.htm",
+        "material_read": "Publisher abstract and bibliographic data only; full paper not available in inspected material.",
+        "method": "Publisher abstract inspection; same selected-set condition checked against the publisher definition.",
+        "title": "Connected Vertex-Edge Domination Polynomials of Some Graphs",
+        "trigger": "Names barbell graphs and vertex-edge domination, potentially adjacent to isolation."
+      },
+      {
+        "assessment": "NOT_COVERING: 2-distance dominating 2-packing sets are guaranteed to exist for every graph, whereas the six claimed exceptional graphs have no packing-isolating set. The two conditions are not equivalent, as exemplified by the 5-cycle.",
+        "evidence": [
+          "The authors state for p<=d every graph has a d-distance p-packing dominating set.",
+          "Section 3 gives necessary-and-sufficient conditions on individual cycles, not two cycles joined by a bridge.",
+          "The paper does not impose the edge-free undominated remainder required for isolation."
+        ],
+        "identifier_or_url": "arXiv:2507.18272v1; DOI:10.1007/s00010-026-01266-w; https://link.springer.com/article/10.1007/s00010-026-01266-w",
+        "material_read": "Open-access journal HTML, definitions in Section 1, graph existence statements, Section 3 cycle characterization and path theorem, plus section headings for later tree results.",
+        "method": "Publisher open-access full-text HTML read and searched for barbell, bicyclic graphs, and isolation condition.",
+        "title": "The d-distance p-packing domination number: complexity, cycles, and trees",
+        "trigger": "The 2026 motivating paper expressly cites this adjacent condition, and its title suggests an apparently broader distance-packing domination theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5839bc0-c5c5-41e8-9090-a596bd8e8c0f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a complete, natural, all-parameters classification on the basic infinite bicyclic cactus family, bridging a known all-tree guarantee and the first pentagonal failure. The precise nonmonotone bridge-length obstruction list, together with the unusual triangle–pentagon failure and the robust subdivision lemma, adds substantive structural information beyond routine isolated small examples or merely reproducing a known table.",
+    "status": "PASS"
+  }
+}
