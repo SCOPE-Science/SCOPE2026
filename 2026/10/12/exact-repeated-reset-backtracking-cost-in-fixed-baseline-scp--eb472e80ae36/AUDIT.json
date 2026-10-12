@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The primary algorithm was reconstructed from its stated fixed-baseline trial sequence, proximal subproblem, sufficient-decrease test, and stopping test. For the scalar quadratic, the surrogate constraint is exactly the original inactive quadratic constraint, so the multiplier vanishes. Direct substitution makes acceptance equivalent to \\(2L_i\\ge a+\\beta\\) and makes the stopping test equivalent to \\(C_*|z^k|\\le\\tau\\). The radius condition prevents projection clipping, the KL premise holds exactly with exponent \\(1/2\\), and the exceptional case \\(L_*=a\\) is separated. The finite verifier checks a representative instance but is not used as proof of the general identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2510.01168v3, Theorems 4 and 5",
+        "arXiv:2001.06998v2",
+        "arXiv:1210.3039v3"
+      ],
+      "reasoning": "The primary theorem covers the candidate only by an upper index bound. The older SCP analyses cover broader problem classes but employ different line-search state, so their complexity statements do not dominate the exact source-specific repeated-reset identity.",
+      "searches": [
+        "sequential convex programming backtracking complexity exact sharpness quadratic",
+        "proximal gradient backtracking repeated reset complexity scalar quadratic",
+        "SCP line search warm start Lipschitz estimate exact rejection count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.01168v3",
+      "arXiv:2001.06998v2",
+      "DOI:10.1137/20M1314057",
+      "arXiv:1210.3039v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2510.01168v3 fixes \\(L_{k,i}=\\underline L\\rho^i\\) and gives an upper bound for the accepted index.",
+        "arXiv:2001.06998v2 allows outer initial local constants from bounded intervals and searches objective and constraints separately.",
+        "arXiv:1210.3039v3 describes dynamic local Lipschitz initialization."
+      ],
+      "reasoning": "The primary upper bound does not imply that equality occurs, much less at every outer iteration, and it does not imply the exact stopping-time count. The two predecessor mechanisms lack the fixed reset that drives the repeated rejected sequence.",
+      "searches": [
+        "Lu Wang constrained nonconvex nonconcave minimax Algorithm 1 Theorem 4",
+        "Yu Pong Lu sequential convex programming line search initial Lipschitz constants",
+        "Lu structured nonlinear programming sequential convex programming dynamic local Lipschitz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.01168v3, Algorithm 1 and Theorem 4",
+        "arXiv:2001.06998v2, SCP_ls algorithm",
+        "arXiv:1210.3039v3, line-search SCP variant"
+      ],
+      "reasoning": "The claimed identity concerns exact repeated attainment of one source's fixed-baseline index and exact total rejected solves. The inspected related formulations use adjustable outer initial estimates or separate objective/constraint searches, so no algebraic equivalence to the fixed-reset count was found.",
+      "searches": [
+        "fixed-baseline sequential convex programming repeated backtracking scalar quadratic exact index",
+        "arXiv:2510.01168 scalar quadratic backtracking reset",
+        "sequential convex programming repeated rejected proximal subproblems"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact count or table was found in the inspected primary algorithm, theorem, or related SCP sources."
+      ],
+      "reasoning": "The finding is a symbolic theorem about an algorithmic trajectory rather than a recomputation of a catalogued numerical table. The primary source records only an upper bound, not the exact repeated sequence.",
+      "searches": [
+        "2510.01168 exact backtracking count",
+        "fixed baseline rho^i SCP exact rejected trials",
+        "sequential convex programming scalar quadratic line-search table"
+      ]
+    },
+    "rationale": "The primary paper gives a per-outer upper bound for the backtracking index but does not state its exact attainment on every outer iteration or the resulting repeated-rejection count. Two closely related sequential-convex-programming sources use materially different initialization and line-search mechanisms and therefore do not imply this fixed-baseline reset law. Targeted bibliographic and statement-level searches did not reveal an implication-equivalent result; this supports, but does not by itself prove, originality.",
+    "residual_risks": [
+      "An unindexed or inaccessible source may discuss a similar repeated-reset overhead in a different algorithm.",
+      "The originality claim is intentionally source-specific and does not assert that fixed-baseline backtracking sharpness is new for every optimization method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the fixed reset and an upper bound but not the exact every-outer sharpness or repeated-rejection count.",
+        "evidence": "Algorithm 1 uses \\(L_{k,i}=\\underline L\\rho^i\\); Theorem 4 bounds the accepted index by \\(\\lceil\\log_\\rho((\\beta+L)/(2\\underline L))\\rceil_+\\).",
+        "identifier_or_url": "arXiv:2510.01168v3",
+        "material_read": "Algorithm 1, its subproblem, acceptance test, stopping test, Assumption 3, and Theorems 4--5.",
+        "method": "Full-text formula and implication comparison.",
+        "title": "A first-order method for constrained nonconvex-nonconcave minimax optimization",
+        "trigger": "Primary source for the fixed-baseline algorithm and bound."
+      },
+      {
+        "assessment": "Not covering: outer initial local constants are selected from intervals and objective and constraints are line-searched separately.",
+        "evidence": "The algorithm permits iteration-dependent initial local constants instead of the fixed baseline analyzed in the claim.",
+        "identifier_or_url": "arXiv:2001.06998v2",
+        "material_read": "SCP_ls algorithm and its initialization/line-search rules.",
+        "method": "Full-text algorithm comparison.",
+        "title": "Convergence rate analysis of a sequential convex programming method with line search for a class of constrained difference-of-convex optimization problems",
+        "trigger": "Closest earlier line-search SCP framework cited by the primary source."
+      },
+      {
+        "assessment": "Not covering: the line-search state is dynamically initialized rather than reset to one fixed baseline.",
+        "evidence": "The inspected variant allows iteration-dependent local estimates chosen within bounds.",
+        "identifier_or_url": "arXiv:1210.3039v3",
+        "material_read": "Line-search SCP variant and initialization of local constants.",
+        "method": "Full-text algorithm comparison.",
+        "title": "Sequential Convex Programming Methods for A Class of Structured Nonlinear Programming",
+        "trigger": "Earlier SCP framework with dynamic local Lipschitz estimates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb472e80-ae36-4c96-8f30-046c5144c750",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result turns a qualitative inner-loop upper bound into an exact sharpness theorem on a natural admissible quadratic and shows that the same worst-case number of rejected proximal subproblems can recur at every outer iteration solely because of baseline reset. Since the source notes that each constrained proximal subproblem may itself require a conic solve, the exact rejected-solve count is algorithmically meaningful. The family-specific warm-start comparison quantifies the avoidable repeated calibration work without claiming a general modification theorem.",
+    "status": "PASS"
+  }
+}
