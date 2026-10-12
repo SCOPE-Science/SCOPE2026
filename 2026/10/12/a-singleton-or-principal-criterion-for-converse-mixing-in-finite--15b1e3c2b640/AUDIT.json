@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Define three operators by row/column family membership and the existence of a Cartesian rectangle from the two upward-closed proper families. Forward mixing follows from upward closure. For the converse, if each minimal outer neighborhood is singleton then one good row yields a rectangle; if the inner family has a unique minimal member then it serves as a uniform witness across all good rows. Conversely, if a minimal outer neighborhood U has at least two points and the inner family has distinct minimal V0,V1, assign those two minimal sections on U and empty sections outside; any permitted rectangle would require its outer U exactly and inner neighborhood contained in V0∩V1, impossible by minimality. Repeat symmetrically. Count antichains with D_n−2 and inclusion-exclusion. The standalone checker exhaustively evaluates 529 local-family pairs and 175682 valuations across factor sizes 1 to 3; larger finite carriers are covered by proof, not experiment. Properness, finiteness, and nonempty carriers are indispensable hypotheses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aghamov–Kudinov–Nguyen–Piribauer (2026), arXiv:2606.31852, DOI 10.4204/EPTCS.447.1: product modalities and mixing for normal filter neighborhoods, not the complete converse for nonnormal upward families.",
+        "Sano (2011), DOI 10.1016/j.entcs.2011.06.012: monotone product semantics studied with horizontal and vertical operators, not the additional rectangle-generated modality.",
+        "Kudinov (2014), Neighbourhood Frame Product KxK: normal neighborhood products, not the non-filter converse characterization."
+      ],
+      "reasoning": "General product-logic axiomatizations and normal-filter mixing theorems establish either sufficient principles or a more restricted class, not a finite non-filter iff criterion. The 2011 monotone product axiomatization uses no rectangle modality; neither theorem entails our classification.",
+      "searches": [
+        "On Modal Logics of Full Products of Neighborhood Frames Aghamov Kudinov Nguyen Piribauer 2026 rectangle sequential full product",
+        "Axiomatizing Hybrid Products of Monotone Neighborhood Frames Katsuhiko Sano 2011 product third modality interaction",
+        "\"monotone neighborhood\" \"full product\" \"composition\" \"rectangle\"",
+        "\"non-normal\" \"neighborhood\" \"full product\" \"mix\" equivalence"
+      ]
+    },
+    "checked_sources": [
+      "Aghamov–Kudinov–Nguyen–Piribauer (2026), arXiv:2606.31852, DOI 10.4204/EPTCS.447.1: product modalities and mixing for normal filter neighborhoods, not the complete converse for nonnormal upward families.",
+      "Sano (2011), DOI 10.1016/j.entcs.2011.06.012: monotone product semantics studied with horizontal and vertical operators, not the additional rectangle-generated modality.",
+      "Kudinov (2014), Neighbourhood Frame Product KxK: normal neighborhood products, not the non-filter converse characterization.",
+      "OEIS A000372 (Dedekind numbers), A007153 (proper antichain count shifted): numerical family totals are classical; only the cross-product selective formulas and sharp obstruction are proposed as new."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aghamov–Kudinov–Nguyen–Piribauer (2026), arXiv:2606.31852, DOI 10.4204/EPTCS.447.1: product modalities and mixing for normal filter neighborhoods, not the complete converse for nonnormal upward families.",
+        "Sano (2011), DOI 10.1016/j.entcs.2011.06.012: monotone product semantics studied with horizontal and vertical operators, not the additional rectangle-generated modality.",
+        "Kudinov (2014), Neighbourhood Frame Product KxK: normal neighborhood products, not the non-filter converse characterization.",
+        "The finite normal-filter restriction lies inside the principal branch P(F)∧P(G); the other nonnormal configurations are not covered by normal-filter logic."
+      ],
+      "reasoning": "A theorem over normal filters is not stronger coverage of nonnormal proper monotone families; all finite normal filters fall in P(F) and P(G), so they satisfy the conditions automatically. Reusing their implication does not derive necessity in nonnormal cases or Dedekind pair counts. Horizontal/vertical-only axioms similarly do not control extraction of a rectangle.",
+      "searches": [
+        "Exact finite monotone neighborhood frame product: when product rectangle modality equals sequential horizontal then vertical modalities; singleton-generated neighborhood versus principal neighborhood",
+        "2026 modal logic finite Kripke frames non-contingency dynamic epistemic logic characterization of modal operator algebra finite structures",
+        "\"neighbourhood\" \"rectangular\" \"sequential\" modal product",
+        "\"Sano\" \"monotone neighborhood\" \"product\" \"rectangle\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aghamov–Kudinov–Nguyen–Piribauer (2026), arXiv:2606.31852, DOI 10.4204/EPTCS.447.1: product modalities and mixing for normal filter neighborhoods, not the complete converse for nonnormal upward families.",
+        "Sano (2011), DOI 10.1016/j.entcs.2011.06.012: monotone product semantics studied with horizontal and vertical operators, not the additional rectangle-generated modality.",
+        "Kudinov (2014), Neighbourhood Frame Product KxK: normal neighborhood products, not the non-filter converse characterization."
+      ],
+      "reasoning": "The local [1][2] event condition is a quantified family-membership predicate, whereas the rectangle condition requires one common G-neighborhood. Compared this quantifier-interchange equivalence with named product modalities and monotone neighborhood literature; no equivalent outside the normal-filter (always principal) special case was found. Alternative hypergraph descriptions remain a residual risk.",
+      "searches": [
+        "Monotone neighborhood semantics Fubini product versus rectangular product equality complete classification antichains principal filters and singleton hitting families",
+        "finite antichains monotone neighborhood families exact iff principal or singleton-generated compositional full product converse mix",
+        "\"monotone\" \"neighborhood\" \"principal\" \"singleton\" product modal",
+        "\"Fubini product\" \"rectangle filter\" equality filters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000372 (Dedekind numbers), A007153 (proper antichain count shifted): numerical family totals are classical; only the cross-product selective formulas and sharp obstruction are proposed as new.",
+        "At n=m=3 the new local-pair counts are 203 one-way and 131 two-way out of 324; T3=18 and q3=7 are classical."
+      ],
+      "reasoning": "Antichain totals and monotone Boolean function counts themselves are existing entries; no exact database of the relation between two independent families and the two converse-mixing truth conditions was found. Novelty is not asserted for D_n, D_n−2, or q_n alone.",
+      "searches": [
+        "\"Dedekind numbers count antichains Boolean lattice monotone Boolean functions OEIS\"",
+        "\"monotone boolean function antichain enumeration number of singleton-generated principal upsets\""
+      ]
+    },
+    "rationale": "The 2026 full-product work proves forward mixing in normal-filter semantics, where finite local filters are principal. The result here isolates precisely when the converse survives outside that normal subclass: singleton-generated outer or principal inner local antichains, in each order. Sano studies monotone bifactor products but without the third rectangle modality. Finite normal filters occupy the principal branch but do not dominate the nonnormal classification; existing Dedekind sequences give input counts, not this two-order incidence formula. Targeted searches identified no statement implying the complete nonnormal criterion or sharp two-order census. Remaining risk: alternate formulations as quantifier-interchange or hypergraph transversal results may cover it.",
+    "residual_risks": [
+      "The local criterion could appear under quantifier-interchange, Boolean antichain, uniformization, or hypergraph-transversal terminology not surfaced by the searched records.",
+      "The computation only covers local carriers through three points; the arbitrary finite-size conclusion rests on the supplied combinatorial proof.",
+      "This review is not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses nonempty filters with finite-intersection closure; proves forward mixing but not nonnormal converse classification.",
+        "evidence": [
+          "Aghamov–Kudinov–Nguyen–Piribauer (2026), arXiv:2606.31852, DOI 10.4204/EPTCS.447.1: product modalities and mixing for normal filter neighborhoods, not the complete converse for nonnormal upward families."
+        ],
+        "identifier_or_url": "https://doi.org/10.4204/EPTCS.447.1",
+        "material_read": "Full openly accessible article text, definitions of normal neighborhoods and rectangle, mix principles and main axiomatization sections.",
+        "method": "Read public full-text HTML version, including product definitions and results, rather than abstract/snippets.",
+        "title": "On Modal Logics of Full Products of Neighborhood Frames",
+        "trigger": "2026 direct motivating product with third rectangle modality"
+      },
+      {
+        "assessment": "Horizontal/vertical modal structure, no third rectangle-generated operator or exact iff for its converse mixing.",
+        "evidence": [
+          "Sano (2011), DOI 10.1016/j.entcs.2011.06.012: monotone product semantics studied with horizontal and vertical operators, not the additional rectangle-generated modality."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.entcs.2011.06.012",
+        "material_read": "Public full-text article sections introducing monotone neighborhoods, hybrid two-coordinate products and axioms.",
+        "method": "Read available article full text in HTML mirror, not only abstract.",
+        "title": "Axiomatizing Hybrid Products of Monotone Neighborhood Frames",
+        "trigger": "Plausible dominating older axiomatization explicitly about monotone products"
+      },
+      {
+        "assessment": "Normal neighborhood product and logic, not non-filter structural dichotomy.",
+        "evidence": [
+          "Kudinov (2014), Neighbourhood Frame Product KxK: normal neighborhood products, not the non-filter converse characterization."
+        ],
+        "identifier_or_url": "Kudinov, Advances in Modal Logic 10 (2014)",
+        "material_read": "Accessible full text, introduction and main frame/product definitions and results.",
+        "method": "Read public article text in full-text HTML mirror.",
+        "title": "Neighbourhood Frame Product KxK",
+        "trigger": "Relevant 2014 neighborhood product semantics and possible equivalence"
+      },
+      {
+        "assessment": "Input counts known; no match to the two-factor converse-mixing enumeration.",
+        "evidence": [
+          "OEIS A000372 (Dedekind numbers), A007153 (proper antichain count shifted): numerical family totals are classical; only the cross-product selective formulas and sharp obstruction are proposed as new."
+        ],
+        "identifier_or_url": "https://oeis.org/A000372 and https://oeis.org/A007153",
+        "material_read": "Sequence definitions, initial terms and count interpretations.",
+        "method": "Read published online entries and compare interpretations to cross-family pair incidence.",
+        "title": "Dedekind-number and antichain enumeration records",
+        "trigger": "Potential prior exact numerical tables and classic count overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15b1e3c2-b640-4da2-b45b-190f29b5ccaf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The rectangle-generated modality is an intrinsically motivated third operation in full neighborhood products. The issue is when iterated row-wise/column-wise witnesses can be uniformized to one rectangle after finite-intersection closure is dropped. The exact iff criterion and symmetric two-order obstruction fully classify this natural logic boundary. The two-parameter Dedekind census counts incidence between independently selected proper local neighborhood families, and the 3-by-3 obstruction threshold is sharp. This is a complete classification with a motivated separation from normal-filter products, not a numerical table recomputation or a routine parameter shift. Limited to finite proper local semantics, with no axiomatizability claims.",
+    "status": "PASS"
+  }
+}
