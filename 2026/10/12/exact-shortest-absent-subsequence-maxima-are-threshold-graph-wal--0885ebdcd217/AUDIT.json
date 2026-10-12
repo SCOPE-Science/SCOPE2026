@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The general extremality premise is explicitly proved in Kosche–Koß–Manea–Siemer Proposition 3.14 and is restated/generalized in the later Adamson et al. work. For the extremal word itself, the new proof is self-contained: greedy matching advances one block exactly on the weak-zigzag inequalities, so an input of length k+1 is absent exactly when every transition advances. The parity reflection y_i=x_i for even i and y_i=sigma-1-x_i for odd i converts all zigzag inequalities to threshold-graph adjacencies. The packaged verifier independently confirms direct subsequence enumeration against this pattern, threshold-graph dynamic programming against reverse-accumulation, and exhaustive small-word bounds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kosche et al. Proposition 3.14 supplies extremality but not the exact A050447 evaluation.",
+        "Adamson et al. Theorem 2 generalizes the extremal alternating-arch structure to all subsequence lengths; its abstract notes that the closed form is for the lower absent-count bound.",
+        "Neither inspected source states the threshold-graph walk bijection."
+      ],
+      "reasoning": "The strongest direct literature already determines which word maximizes the count, so originality is restricted to the exact value and its structural counting equivalence; no stronger published formula was located.",
+      "searches": [
+        "Tight Bounds for the Number of Absent Subsequences upper bound shortest absent",
+        "Absent Subsequences in Words maximal number SAS A_k",
+        "shortest absent subsequences universality index maximum count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.13968v1 and later full text",
+      "arXiv:2407.18599v1 and current full text",
+      "OEIS A050447",
+      "targeted semantic-literature searches for maximum SAS, alternating arches, A050447, threshold graphs, and exact higher-alphabet rows",
+      "claim-level overlap checks against the available current and prior research ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly says the Proposition 3.10 lower estimate for |SAS(A_k)| is not tight and that a more careful analysis should improve it.",
+        "Proposition 3.14 proves only the extremal comparison |SAS(A_k)| >= |SAS(w)|.",
+        "The later paper credits the earlier result that the alternating construction has the fewest existing subsequences at length iota+1, equivalently the most absent ones."
+      ],
+      "reasoning": "Extremality alone does not supply the exact count. The new weak-zigzag/threshold-walk bijection evaluates the extremal quantity for all sigma and k and therefore is not merely a restatement of the published comparison theorem.",
+      "searches": [
+        "Kosche Proposition 3.10 not tight SAS A_k",
+        "Kosche Proposition 3.14 SAS A_k maximum",
+        "Adamson wmin fewest subsequences iota+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kosche et al. identify A_k as maximizing shortest absent subsequences and write alternating endpoint recurrences.",
+        "OEIS A050447 records the reverse-accumulate array and threshold-graph walk interpretation.",
+        "No checked indexed source links these two structures."
+      ],
+      "reasoning": "The searches cover the invariant, the extremal-word terminology, the exact OEIS identifier, the equivalent threshold-graph formulation, and the higher-alphabet numerical signatures.",
+      "searches": [
+        "maximum number shortest absent subsequences alphabet size universality index alternating permutation arches",
+        "shortest absent subsequences A050447 distributive lattices reverse accumulate",
+        "maximum shortest absent scattered factors general alphabet Fibonacci A050447",
+        "A050447 absent subsequences",
+        "threshold graph shortest absent subsequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A050447 contains rows 1,3,6,14,31,... and 1,4,10,30,85,... together with reverse-accumulate and threshold-graph interpretations.",
+        "Exact-sequence searches returned OEIS-related interpretations but no shortest-absent-subsequence attribution."
+      ],
+      "reasoning": "A prior table or OEIS cross-reference would directly cover the numerical identification, so multiple characteristic rows and both array identifiers were searched explicitly.",
+      "searches": [
+        "\"6, 14, 31, 70\" shortest absent subsequences",
+        "\"10, 30, 85, 246\" shortest absent subsequences",
+        "OEIS A050447 absent subsequences",
+        "A006357 shortest absent subsequences"
+      ]
+    },
+    "rationale": "The 2022 source proves the extremal construction but Proposition 3.10 provides only a non-tight exponential lower estimate and explicitly says that more careful analysis should improve it. It gives endpoint recurrences but does not identify or evaluate the exact general-alphabet maximum. The 2024 source supplies tight structural extremizers for arbitrary absent lengths but states that a closed form is provided for the opposite bound, not this maximal-absence count. Exact sequence, threshold-graph, characteristic-row, and alias searches found no published identification of the shortest-absent maximum with A050447.",
+    "residual_risks": [
+      "An unindexed note, thesis, or unpublished computation may already identify the same recurrence with A050447.",
+      "The published endpoint recurrences make the exact count accessible once one asks for it, so independent derivation is plausible.",
+      "The claim does not settle exact counts for absent subsequences longer than the shortest length."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves A_k is extremal but does not give the exact general-alphabet count or A050447/threshold-graph identification.",
+        "identifier_or_url": "arXiv:2108.13968v1 / DOI:10.46298/fi.9221",
+        "material_read": "Definitions of universality and SAS; Theorem 3.4; the definition of A_k; Proposition 3.10 including the endpoint recurrences and explicit statement that its exponential estimate is not tight; Proposition 3.14 and proof of maximality.",
+        "method": "Primary full-text PDF/HTML comparison.",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Direct source for shortest absent subsequences and the alternating extremal construction."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper generalizes structural extremality to arbitrary lengths and credits the older shortest-length result, but does not state the A050447 exact evaluation.",
+        "identifier_or_url": "arXiv:2407.18599v1",
+        "material_read": "Abstract, contribution section, Section 4 extremal alternating-arch construction, Lemma 9, Proposition 6, and Theorem 2; relevant pages were visually inspected.",
+        "method": "Primary arXiv PDF text plus page-image inspection.",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Later direct literature that could subsume the shortest-length extremum."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The array contains exactly the required counts but has no checked shortest-absent-subsequence interpretation.",
+        "identifier_or_url": "OEIS:A050447",
+        "material_read": "Definition, displayed rows, reverse-accumulate algorithm, threshold-graph walk interpretation, and matrix recurrence.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A050447",
+        "trigger": "Exact numerical rows produced by the shortest-absent recurrence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0885ebdc-d217-4e63-a104-28479d68273e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact maximum number of shortest absent subsequences is a natural extremal invariant already singled out by the source. The source proves the maximizing family but leaves its own counting estimate explicitly non-tight. The result closes that quantitative gap for every alphabet size and universality index, gives a transparent weak-zigzag description of every extremal shortest absent subsequence, and connects the extremum to a classical threshold-graph walk array with immediate linear recurrences and generating functions.",
+    "status": "PASS"
+  }
+}
