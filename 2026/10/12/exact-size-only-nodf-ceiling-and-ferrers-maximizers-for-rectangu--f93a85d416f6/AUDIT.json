@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every equal-degree pair contributes zero and every other pair at most one. Among the larger guild of \\(b=qa+r\\) vertices, degrees lie in \\(1,\\ldots,a\\); discrete convexity forces at least \\((a-r)\binom q2+r\binom{q+1}2\\) ties. Constructing the nested Ferrers incidence matrix with exactly balanced multiplicities makes every other pair contribute one, reaching the bound. At equality row neighborhoods must be a strict nested chain and the longer-guild degree histogram balanced, proving the complete classification. The packaged verifier checks 176554 matrices exhaustively and all maximizers for ten finite shapes, plus numerous larger constructed cases using exact integer arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Britton et al., Biomath 4 (2015), Section II.A (printed pages 3–6), formalizes NODF and proves that index one is possible only for a square full-triangular matrix and that index zero has a componentwise degree characterization.",
+        "Song et al. (2017) use a greedy algorithm to approximate maximum NODF subject to observed link count and both guild sizes.",
+        "Hoeppke and Simmons (2021), Introduction and Description, explicitly pose maxima with the number of rows, columns, AND links fixed and propose numerical heuristics, not a shape-only all-edge optimum."
+      ],
+      "reasoning": "The earlier square-case maximum is a special case recovered by the new formula, not a new discovery. The fixed-link optimizations yield values no larger than the dimension-only maximum but do not state or imply its exact closed form or its global maximizing family.",
+      "searches": [
+        "Which Matrices Show Perfect Nestedness or the Absence of Nestedness analytical performance NODF WNODF Britton 2016",
+        "Almeida-Neto consistent metric nestedness ecological systems NODF 2008",
+        "Why are some plant–pollinator networks more nested than others Song Rohr Saavedra 2017 maximum",
+        "maxnodf An R package for fair and fast comparisons of nestedness between networks Hoeppke Simmons 2021"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.0030-1299.2008.16644.x",
+      "doi:10.11145/j.biomath.2015.12.171",
+      "doi:10.1111/1365-2656.12749",
+      "doi:10.1111/2041-210X.13545",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Britton et al. establish the dichotomy of perfect NODF one and zero, but their theorems do not evaluate the best strictly intermediate index for each pair of rectangular dimensions.",
+        "Fixed-link procedures from Song et al. and Hoeppke–Simmons cannot be used as a proof of the claimed exact free-link maximum without an optimization over link counts, which their articles do not supply.",
+        "The present proof attains the lower bound on unavoidable equal-degree pairs and proves all other NODF pair terms simultaneously equal one, forcing and completely classifying extremizers."
+      ],
+      "reasoning": "Square perfect nestedness is already covered and is explicitly credited. Knowing only that rectangular shapes have maximum below one does not imply the formula or maximizer enumeration; approximate fixed-link optimizations likewise do not entail exact formula-level statements.",
+      "searches": [
+        "NODF = 1 only square triangular Britton Almeida Neto Corso 2016",
+        "maximum NODF with fixed rows columns links Song 2017",
+        "maxnodf exact optimization fixed edge count Hoeppke Simmons 2021",
+        "NODF shape only rectangular ceiling all possible links"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical NODF counts all unordered row and column pairs, sets tied-degree pairs to zero, and uses overlap divided by the smaller degree otherwise (Almeida-Neto et al. 2008; Britton et al. 2016, Section II.A).",
+        "The equivalent abstract problem is maximizing average strict-neighborhood containment of a bipartite graph with fixed part sizes but unrestricted edge count.",
+        "The targeted searches returned no identified exact rectangular maximum or Ferrers degree histogram classification."
+      ],
+      "reasoning": "Both the ecological NODF terminology and the bipartite graph/Ferrers matrix language were searched. Matching the word nestedness is insufficient; the novelty target is the exact optimized value without an edge-count condition, not generic perfect nestedness.",
+      "searches": [
+        "maximum NODF nestedness rectangular bipartite matrix with any fill exact formula using balanced degree frequency Ferrers",
+        "NODF attainable upper bound rectangle arbitrary edges unequal numbers of plant pollinator species degree multiplicities",
+        "maximal NODF rectangular matrix full classification row column ties minimum equal-degree pairs",
+        "NODF maximum rectangular matrix columns rows degree ties shape maximum nestedness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact-result source lists maximal NODF at shapes two-by-three equal to \\(3/4\\) and three-by-four equal to \\(8/9\\) together with a universal formula.",
+        "The independent exact checker exhausts all 176554 nonisolated labeled binary matrices in ten small shapes and matches every predicted value and number of maximizing degree-histogram classes.",
+        "The checked maxnodf package documentation describes approximate search over a given number of links, not a tabulation or proof for the dimension-only maximum."
+      ],
+      "reasoning": "The tested aliases target published upper-bound tables, NODF degree-tie formulas, Ferrers extremizers, and small rectangular cases. The search outcome supports but does not establish originality.",
+      "searches": [
+        "\"NODF\" \"pigeonhole\" \"maximum\" rectangular",
+        "\"NODF\" \"upper bound\" \"number of rows\" \"columns\"",
+        "\"NODF\" \"degree ties\" \"maximal\" \"rectangular\"",
+        "\"NODF\" \"Ferrers\" \"maximum\" unequal sides",
+        "\"maximum NODF\" \"rectangular\" matrix any number links closed form"
+      ]
+    },
+    "rationale": "The NODF definition and the square maximum-one characterization are explicitly prior results. No inspected primary source or targeted search located an exact dimension-only NODF maximum for all rectangular shapes, its balanced-degree Ferrers classification, or the isomorphism type count. Published fixed-edge-count maximization concerns a strictly more constrained optimization for each link count and reports heuristics rather than a closed universal rectangular formula; it does not itself imply the new equality classification.",
+    "residual_risks": [
+      "A differently phrased combinatorial or software result might state the same dimension-only NODF maximum without being indexed by NODF-specific searches.",
+      "Real ecological networks have a fixed link count; the shape-only optimum is an upper bound and may be unattainable at empirical connectance.",
+      "Tied-degree pair conventions, isolated species, weighted entries, and alternative pair denominators change the claimed optimization problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines classical NODF and documents why degree ties decrease the index, but does not optimize it over all incidence matrices at each rectangular shape.",
+        "evidence": "The paper defines NODF from decreasing fill and paired overlap, averages over the total number of row and column pairs, and attributes zero contributions to pairs with equal marginal totals. Its first public publisher date is 7 August 2008.",
+        "identifier_or_url": "doi:10.1111/j.0030-1299.2008.16644.x",
+        "material_read": "Full 13-page publication, especially the definitions and formula in the Methods section on printed pages 1228–1230 and the assessment of marginal ties and nestedness.",
+        "method": "Full-text PDF pages and public publisher article metadata.",
+        "title": "A consistent metric for nestedness analysis in ecological systems: reconciling concept and measurement",
+        "trigger": "Foundational source for the exact measure, guild pair denominator, and strict-degree tie rule; date anchor."
+      },
+      {
+        "assessment": "Already proves the square staircase case; does not provide the sharp rectangular supremum below one or the \\(\binom ar\\) maximizer family.",
+        "evidence": "The abstract explicitly states that its theorems classify the two extreme values zero and one, with index one restricted to a full triangular square matrix.",
+        "identifier_or_url": "doi:10.11145/j.biomath.2015.12.171",
+        "material_read": "Complete nine-page open article, Section II.A equations (3)–(10), proofs of the NODF=0 and NODF=1 characterizations on printed pages 3–6, and Section III conclusions.",
+        "method": "Full open PDF text and rendered-page figure/formula inspection.",
+        "title": "Which Matrices Show Perfect Nestedness or the Absence of Nestedness? An Analytical Study on the Performance of NODF and WNODF",
+        "trigger": "Closest mathematical analysis of NODF equality and zero, potentially dominating the claim."
+      },
+      {
+        "assessment": "Demonstrates practical need for upper-bound normalization with fixed links, but provides no exact unconstrained-edge rectangular formula.",
+        "evidence": "Its maximum-search algorithm adds interactions until the observed edge count is reached and reports a range of estimated maxima across ecological networks.",
+        "identifier_or_url": "doi:10.1111/1365-2656.12749",
+        "material_read": "Full free publisher HTML, Introduction, sections describing empirical maxima and greedy fixed-link procedure, and conclusions.",
+        "method": "Full publisher article inspection.",
+        "title": "Why are some plant–pollinator networks more nested than others?",
+        "trigger": "Potentially stronger coverage of highest attainable NODF and ecological relevance of maxima."
+      },
+      {
+        "assessment": "The package optimizes approximate maxima for a fixed number of rows, columns, and links; it does not provide the exact link-unrestricted ceiling or equality classification.",
+        "evidence": "The package takes a three-element input (rows, columns, links) and runs a greedy, hill-climbing, or simulated-annealing heuristic. Its authors explain why fixed-link optimization is nonconvex and hard.",
+        "identifier_or_url": "doi:10.1111/2041-210X.13545",
+        "material_read": "Full freely available publisher HTML, Introduction, Description, implementation/benchmarks, and Conclusions.",
+        "method": "Full published article and package documentation.",
+        "title": "maxnodf: An R package for fair and fast comparisons of nestedness between networks",
+        "trigger": "Most directly relevant algorithmic tool for maximizing NODF at known dimensions."
+      },
+      {
+        "assessment": "Species-incidence nestedness in ecological interaction networks belongs to ecology.",
+        "evidence": "The classification lists 92D40 as Ecology.",
+        "identifier_or_url": "MSC2020:92D40",
+        "material_read": "Classification entry identifying 92D40 as Ecology.",
+        "method": "Public classification database inspection.",
+        "title": "MSC classification: 92D40 Ecology",
+        "trigger": "Verify primary MSC ownership in ecology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f93a85d4-16f6-4dd2-a8f7-f6888867b4f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "NODF is used to quantify nestedness of empirical ecological bipartite networks and is known to have misleading comparisons without structural normalization. The derived sharp dimension-only ceiling isolates a constraint caused solely by rectangular guild imbalance; the balanced Ferrers family exhibits all attainable sharp architectures. Its exact formula and nonvanishing asymptotic penalty yield scientifically motivated baselines and upper-bound sanity checks without pretending to solve the distinct fixed-link optimization problem.",
+    "status": "PASS"
+  }
+}
