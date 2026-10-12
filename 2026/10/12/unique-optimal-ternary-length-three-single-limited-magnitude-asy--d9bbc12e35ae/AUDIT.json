@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The channel is defined directly by its finite output balls. The nine displayed conflict triples partition all 27 words and each is a clique in the confusability graph, so every correcting code has at most nine words. The nine-word candidate has pairwise disjoint balls. For uniqueness, the finalized verifier reconstructs every ball in two independent ways, exhaustively enumerates every maximal compatibility clique, and independently counts all compatible nine-subsets; both return exactly one maximum, namely the displayed code. The modulo-two lift identity is checked directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cassuto et al. develop general construction theorems, size formulas, asymptotic optimality, and comparisons with broader asymmetric-error models.",
+        "Their inspected finite example for a perfect ternary limited-magnitude code is length two; no q=3,n=3 equality theorem was located.",
+        "Kløve--Schwartz treats packing/covering aspects of limited-magnitude errors more broadly and is classified in coding-theory MSC 94B05/94B65, but the searched metadata and descriptions do not state this finite ternary equality classification."
+      ],
+      "reasoning": "General construction and asymptotic results do not imply uniqueness of the q=3,n=3 non-wraparound optimizer. The explicit conflict partition supplies a finite upper bound that is not obtained merely by quoting the construction.",
+      "searches": [
+        "Codes for Asymmetric Limited-Magnitude Errors With Application to Multilevel Flash Memories bounds construction",
+        "limited-magnitude errors codes q=3 n=3 upper bound",
+        "Linear covering codes error-correcting limited-magnitude errors"
+      ]
+    },
+    "checked_sources": [
+      "Caltech Paradise technical report index entry for etr080.pdf dated 2007-04-23",
+      "DOI:10.1109/ISIT.2007.4557123",
+      "DOI:10.1109/TIT.2010.2040971",
+      "DOI:10.1007/s10623-013-9917-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Construction 1 implies existence of the displayed nine-word code by lifting the binary repetition code.",
+        "Theorem 8 gives a size formula for constructed codes when the small alphabet is binary, but it is a construction-size statement rather than an all-code upper bound or equality classification.",
+        "The inspected primary text contains no n=3 or q=3 statement matching the final finite theorem."
+      ],
+      "reasoning": "Prior work covers the lower-bound witness. It does not logically imply that every competing code has at most nine words or that equality forces that same labeled set. Those are the new parts certified by the conflict partition and exhaustive equality census.",
+      "searches": [
+        "Cassuto Construction 1 q=3 n=3 binary repetition limited magnitude",
+        "asymmetric limited magnitude t=1 q=3 n=3 perfect code",
+        "ternary asymmetric limited magnitude unique optimal code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2010 full text defines the non-wraparound channel by y=x+e with at most t nonzero coordinates and 0<=e_i<=ell, and separately identifies wraparound as a generalization.",
+        "Construction 1 in the same full text defines C={x in Q^n : x mod (ell+1) in Sigma}; at ell=1 the binary repetition base code yields exactly the displayed nine-word candidate.",
+        "Candidate-specific indexed literature searches returned no record stating the nine-word optimum or uniqueness."
+      ],
+      "reasoning": "The final claim was checked under error-ball, asymmetric-distance, modulo-two-lift, and exact-codeword formulations. The construction equivalence is acknowledged rather than mistaken for novelty; no inspected equivalent formulation contains the finite upper bound plus uniqueness.",
+      "searches": [
+        "ternary length three asymmetric limited-magnitude one-error code nine unique",
+        "q=3 n=3 t=1 ell=1 asymmetric limited-magnitude code",
+        "000 002 020 022 111 200 202 220 222 limited magnitude",
+        "asymmetric limited magnitude ternary length 3 code",
+        "Cassuto Schwartz Bohossian Bruck Construction 1 q=3 binary repetition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite table or indexed literature record located by the searches states the value nine together with uniqueness.",
+        "The inspected defining and broader limited-magnitude sources do not provide a ternary length-three equality table."
+      ],
+      "reasoning": "A failed database search is not treated as proof of novelty; it is supporting evidence combined with statement-level inspection of the defining primary paper.",
+      "searches": [
+        "q=3 n=3 t=1 ell=1 asymmetric limited-magnitude code table",
+        "ternary length three limited magnitude code size 9",
+        "000 002 020 022 111 200 202 220 222 code"
+      ]
+    },
+    "rationale": "The primary literature already supplies the channel model and a construction that specializes to the nine-word candidate; that construction is explicitly treated as prior work. Full-text inspection and exact-parameter searches did not locate a finite theorem proving the q=3,n=3 maximum nine or uniqueness. The accepted claim is therefore the sharp finite extremal and equality classification, not the construction.",
+    "residual_risks": [
+      "An obscure or unindexed short-code enumeration could contain the same q=3,n=3 equality statement.",
+      "The early Caltech repository has migrated metadata with a report-number inconsistency; the dated Paradise file index and title were used for the earliest public-file date, while theorem comparison used the later full paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_MODEL_AND_CONSTRUCTION_NOT_EQUALITY_CLASSIFICATION",
+        "evidence": "The paper defines the exact channel and modulo-(ell+1) lifting construction; its located ternary finite example is length two, and searches found no target n=3 equality statement.",
+        "identifier_or_url": "DOI:10.1109/TIT.2010.2040971",
+        "material_read": "Full text: channel Definition 1, distance/correction discussion, Construction 1, Construction 1A, Theorems 5--8, finite Example 2, and asymptotic comparison section.",
+        "method": "Full-text HTML inspection of the accessible paper plus exact-term searches for n=3, q=3, and the candidate codeword list.",
+        "title": "Codes for Asymmetric Limited-Magnitude Errors With Application to Multilevel Flash Memories",
+        "trigger": "Defining full paper for the same non-wraparound asymmetric limited-magnitude channel and lifting construction."
+      },
+      {
+        "assessment": "EARLY_SOURCE_SAME_DIRECTION",
+        "evidence": "The Caltech Paradise file index records etr080.pdf on 2007-04-23 and identifies the corresponding multi-level flash limited-magnitude paper; the ISIT record dates the conference to June 24--29, 2007.",
+        "identifier_or_url": "Caltech Paradise technical report file etr080.pdf; ISIT DOI:10.1109/ISIT.2007.4557123",
+        "material_read": "Public repository metadata/index, abstract, and conference bibliographic record; the later full paper was used for theorem-level comparison.",
+        "method": "Repository index and publication-record inspection.",
+        "title": "Codes for Multi-Level Flash Memories: Correcting Asymmetric Limited-Magnitude Errors",
+        "trigger": "Earliest public source for the channel direction and construction lineage."
+      },
+      {
+        "assessment": "BROADER_MODEL_NOT_DECISIVE_FOR_FINITE_CLAIM",
+        "evidence": "The work is classified under 94B05 and 94B65 among its MSC codes and concerns limited-magnitude packing/covering generally; no target ternary length-three equality statement was located.",
+        "identifier_or_url": "DOI:10.1007/s10623-013-9917-1",
+        "material_read": "Bibliographic metadata, abstract/keywords, and MSC classifications.",
+        "method": "Metadata and abstract inspection.",
+        "title": "Linear covering codes and error-correcting codes for limited-magnitude errors",
+        "trigger": "Broader packing/covering work on limited-magnitude errors and verification of coding-theory MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9bbc12e-35ae-44a6-b436-53ff2e7c3940",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter is a natural boundary case of the foundational construction: the smallest odd outer alphabet above the binary residue alphabet and the length-three repetition base code. The result is not a mere recomputation of the known construction: it proves an all-code sharp upper bound and complete rigidity. The optimizer has a simple corners-plus-center geometry, and the nine conflict triples give a reusable human-checkable finite certificate for this nonuniform-boundary channel.",
+    "status": "PASS"
+  }
+}
