@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Cooper Theorem 6.1 identifies Z=sum(S_n/4^n)X^n, with Z^2=F in Z[[X]], F(0)=1 and f_1=3. The general binomial expansion shows v2(4^n binom(1/2,k))=2(n-k)+s2(k). By binary digit-sum subadditivity, k<n contributes valuation >=s2(n)+(n-k), while k=n uniquely attains s2(n) because f_1 is odd. For modulo 2^(s2(n)+2), k<=n-2 vanish; the k=n-1 term contains n-1 and has valuation >=2+s2(n-1)+v2(n-1)>=s2(n)+2. The k=n term equals 2(-1)^(n-1)3^n C_(n-1), establishing all quantifiers including n=1. Exact denominator and binary distribution follow; independent exact recurrence and rational square checks through n=350 agree. The arithmetic proof is unrestricted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorodetsky arXiv:2102.11839 introduction identifies 15 three-term sporadic sequences; Section 2.3 gives lower bounds only for those",
+        "Ulas 2019 abstract restricts powers to integer m and discusses different generating functions"
+      ],
+      "reasoning": "General p-adic lower bounds for different three-term families or integer powers do not specialize to the level-13 four-term sequence. Cooper provides the integral square-root identity but requires a new valuation/dominant-term analysis for the exact stated claim.",
+      "searches": [
+        "Gorodetsky New representations for all sporadic Apéry-like sequences p-adic valuation 15",
+        "Maciej Ulas 2-adic valuations coefficients integer powers formal series",
+        "formal power series F(x) with integer coefficients F(0)=1 odd linear coefficient, valuation v2 of 4^n [x^n] square root F(x) equals binary digit sum",
+        "2-adic valuations Catalan numbers generalized square roots formal series Ulas 2019"
+      ]
+    },
+    "checked_sources": [
+      "Shaun Cooper, arXiv:2302.00757v1; full Section 6 of accessible v2",
+      "Ofir Gorodetsky, arXiv:2102.11839v1/v2; introduction and Section 2.3",
+      "Maciej Ulas, DOI 10.1142/S1793042119500386; abstract and bibliography",
+      "Relevant publicly indexed number-theory records by 8 semantic queries and parameter aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cooper Section 6 (6.6) proves F=Z^2 integral with linear coefficient 3, which our new lemma uses",
+        "Cooper proves that S_n=4^n T_n is integer and asks for arithmetic properties, but gives no exact n-dependent v2",
+        "Gorodetsky Corollary 2.5 does not apply to this later, different recurrence"
+      ],
+      "reasoning": "Cooper's published assumptions are strong enough to make the new result an elementary, short corollary once the unique minimum-valuation lemma and the n-1 term bound are supplied; the claim is therefore not a new modular-parametrization theorem. Its genuinely additional conclusion is the exact all-index valuation, sharp reduced denominator and normalized unit congruence, not previously stated in examined sources. No stronger prior theorem covering these conclusions was located.",
+      "searches": [
+        "arXiv:2302.00757 Section 6 eqs (6.4)-(6.6) Theorem 6.1 full text",
+        "arXiv:2102.11839 Section 2.3 full text",
+        "formal square root integer coefficient 2-adic Catalan binary digit sum valuation 4^n",
+        "binary Hamming weight valuations Apéry-like sequences exact popcount"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cooper 2023 Section 6 records S(n) and Z^2 but no exact v2(S(n)) or reduced denominator exponent",
+        "Targeted searches using coefficient string, binary popcount, square root, and Catalan descriptions retrieved no equivalent indexed claim"
+      ],
+      "reasoning": "Compared equivalences via v2(S_n)=s2(n), exact powers of two in T_n denominators, Catalan-leading coefficient, and normalized odd part modulo four. None appeared in inspected primary paper or mathematical records; search absence alone is not proof of uniqueness.",
+      "searches": [
+        "\"1, 6, 182, 5148, 173862\" valuation parity",
+        "\"4^n\" \"binary digit\" square root Apéry",
+        "Shaun Cooper level 13 eta quotient Apéry-like S(n) exact 2-adic valuations binary digit sum",
+        "Cooper level 13 Apéry-like sequence S(n)=(1,6,182,5148,173862), 2-adic valuation equals binary digit sum popcount(n)",
+        "Shaun Cooper level 13 eta quotient Apéry-like S(n) exact 2-adic valuations binary digit sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cooper Theorem 6.1 displays eleven exact integer coefficients, starting 1,6,182,5148,173862",
+        "Exact coefficient strings and valuation-related search variants did not locate a table providing v2 for every index"
+      ],
+      "reasoning": "The finite table fixes initial terms and is compatible with the finding, but finitely many coefficients neither state nor imply the all-index theorem absent additional proof.",
+      "searches": [
+        "\"173862\" \"6266676\" \"2-adic\" Cooper",
+        "\"237979196\" \"9366227832\" \"binary\"",
+        "Apéry-like four-term recurrence level 13 1 6 182 5148 mod powers of two Lucas congruence"
+      ]
+    },
+    "rationale": "The full relevant 2023 primary source supplies integrality and the square-root representation but neither the exact digit-weight valuation nor the finer modulo-four leading unit or reduced denominator. An exact valuation is strictly stronger than integrality; the proof adds a uniform 2-adic leading-binomial dominance lemma plus a next-layer check. The 15 sporadic three-term families in Gorodetsky are not this sequence, and accessible abstract evidence for Ulas covers integer powers, not this fractional square root. Direct searches of statement, initial terms, parameter aliases, and closest published mathematical records found no equivalent theorem. The modest derivational distance to the 2023 primary identity is explicitly recognized as the chief originality risk.",
+    "residual_risks": [
+      "A valuation theorem equivalent to this one may be present in unindexed or uncited literature; a negative search cannot establish global priority.",
+      "Cooper's original binomial integrality expansion is close to this result; the valuation theorem might be regarded as a routine implicit corollary despite the explicit new all-index conclusion.",
+      "The full paper by Ulas was not exhaustively compared; its accessible abstract covers integer powers, but indirect techniques could apply."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the crucial integral square and original recurrence; proves weaker integrality but does not state exact binary valuations, Catalan modulo-four unit, or denominator exponent. These are a short further arithmetic consequence of its square-root expansion.",
+        "evidence": [
+          "Section 6 (6.6): Z^2=U^2(1+5w+13w^2); X=q+O(q^2)",
+          "Section 6 (6.6): coefficients Z^2=1+3X+25X^2+...",
+          "Theorem 6.1: four-term recurrence, integrality, S(n)=4^n T(n)",
+          "Last paragraph of Section 6: asks whether S(n) has interesting number-theoretic properties"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.00757v2",
+        "material_read": "Section 6 equations (6.4)-(6.6), Theorem 6.1, coefficient table and immediately following open question; introduction and prior classification",
+        "method": "Read open arXiv HTML full-text sections and checked recurrence coefficients term by term",
+        "title": "Apéry-like sequences defined by four-term recurrence relations",
+        "trigger": "Identical self-starting level-13 recurrence, complete nearest primary work"
+      },
+      {
+        "assessment": "The 15 are three-term sporadic Apéry-like families; the later level-13 four-term sequence is not included. Lower valuation bounds there do not imply this exact formula.",
+        "evidence": [
+          "Introduction lists 15 sequences in three-term quadratic/cubic classes",
+          "Section 2.3 Corollary 2.5 gives lower bounds for these 15, not the level-13 four-term recurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2102.11839v2",
+        "material_read": "Introduction and explicit 15-family tables; Section 2.3 on p-adic valuation; statement of general lower bound",
+        "method": "Read arXiv HTML complete relevant sections, compared differential recurrence classes and index parameters",
+        "title": "New representations for all sporadic Apéry-like sequences, with applications to congruences",
+        "trigger": "Title claims all sporadic Apéry-like sequences and contains 2-adic lower bounds"
+      },
+      {
+        "assessment": "The abstract states integer exponent m and bounded valuations for other sequences. No direct implication to coefficients of a fractional square root of level-13 modular series; a full unpublished analogue remains a residual risk.",
+        "evidence": [
+          "Abstract specifies m in the integers and Rudin–Shapiro-type coefficients",
+          "DOI 10.1142/S1793042119500386; 2019 publication"
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S1793042119500386",
+        "material_read": "Paper abstract and bibliographic identification describing exponents and Rudin–Shapiro examples",
+        "method": "Inspected publicly accessible abstract; no whole-document noncoverage inference",
+        "title": "2-Adic valuations of coefficients of certain integer powers of formal power series",
+        "trigger": "Potential wider valuation method for formal power series"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06e31043-81cf-4a29-8c0f-5cffeb9b0753",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cooper explicitly highlights that number-theoretic properties of his new self-starting level-13 sequence were unknown beyond integrality. The precise binary digital formula answers a natural global arithmetic-invariant question for every index and gives an exact reduced-denominator improvement to the published integrality normalization, rather than just a finite sample or arbitrary index slice. The first nontrivial unit congruence and exact binomial valuation frequencies are independently informative. The proof is short but the invariant is canonical for a sequence introduced to study congruences and modular parametrizations; no downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
