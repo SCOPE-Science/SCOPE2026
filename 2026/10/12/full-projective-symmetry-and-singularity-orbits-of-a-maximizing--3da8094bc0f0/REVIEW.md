@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** A degree-sensitive argument forces any projectivity preserving the reduced nonic to permute its three intrinsic line components. Coefficient comparison then forces the remaining diagonal transformations to be sign changes modulo scalar. The smooth-conic cubic-image argument proves the sextic irreducible, and the source's explicitly enumerated singularity list gives three orbits. The integer checker independently tests all candidate monomial matrices and orbit sets. The proof addresses projective, not abstract, automorphisms.
+
+**Originality — PASS (residual risk disclosed).** Full text of Dimca–Ilardi–Pokora–Sticlaru, arXiv:2301.01117, Example 6.4, establishes the curve, maximizing property and singularity basket but has no projective automorphism or symmetry classification. Meagher–Top show the classical signed-permutation S4 representation on a different smooth Ciani-quartic family; that cannot imply the *full* stabilizer of this reducible nonic. Published-search and published-finding corpus statement/alias queries did not identify the same group-and-orbit theorem. An earlier exact point-count finding for the identical divisor concerns finite-field zeta functions, not projective automorphisms. Unindexed computations, especially of the dual trinoidal quartic, are a genuine residual priority risk.
+
+**Value — PASS.** The fixed maximizing nonic is a distinguished natural construction at odd degree nine. Its complete intrinsic projective symmetry group and the induced three-orbit decomposition of its thirteen singular points are natural global geometric invariants not supplied by its established singularity basket or freeness exponents. The orbit structure explains how the unusually symmetric configuration is assembled; the answer is a full classification, not an arbitrary finite count. No general result for all maximizing curves is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
