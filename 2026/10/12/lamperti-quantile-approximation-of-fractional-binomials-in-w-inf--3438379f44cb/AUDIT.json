@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For 0<alpha<1 the strictly positive stable variable with Laplace transform exp(-t^alpha) exists by the integrable Poisson Levy measure. Tonelli and differentiation give E[1/(1+u S/S')]=1/(1+u^alpha). The Stieltjes inversion density is positive, normalized, and integrates to the stated explicit CDF and quantile. Differentiation of the Bernoulli log-MGF then gives the exact fractional-logistic identity. The empirical midpoint parameters converge to this law, so normalized log-MGFs and first two derivatives converge to that of alpha Bin(N,1/2). Chernoff upper bounds and exponential-tilt concentration prove matching one-sided logarithmic tails at every fixed interior threshold. A subsequential quantile contradiction using strict monotonicity of those rates on both sides of the common mean controls all quantile levels, including extremely small ones, and proves W_infinity/N->0. Boundaries alphaN versus floor(alphaN) are handled by the common support [0,alphaN].",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "James studies the Lamperti stable-ratio law itself, a background identity; his inspected abstract does not apply it to Bernoulli convolution approximation.",
+        "Mattner Theorem 1.1 proves finitely moment-constrained extremizers of Bernoulli convolutions rather than uniform quantile approximation to fractional binomials.",
+        "Closest published-record match 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda is about cumulant effective-trial inequalities, not matching full Cramer rates or W-infinity.",
+        "Liggett (2021) proves polynomial-root and Hurwitz-factorization theorems for integer rounding of fractional multiples, not sublinear infinity-Wasserstein approximation by another Poisson-binomial law."
+      ],
+      "reasoning": "A stable-ratio Stieltjes identity and finitely moment-constrained Bernoulli theorems do not directly give maximal transport approximation. The claim needs exact continuum parameter mixing and the separate all-level quantile argument.",
+      "searches": [
+        "James Lamperti type laws stable ratio density sin pi alpha x alpha-1 denominator 1+2 cos pi alpha x alpha+x2alpha arxiv",
+        "\"Extreme expectations of Bernoulli convolutions\" \"60E15\"",
+        "\"Poisson binomial\" \"scaled binomial\" \"o(n)\" infinity Wasserstein",
+        "probability statistics stochastic order distribution mixture sharp bounds Gaussian moment inequalities record values counterexamples",
+        "https://celebratio.org/Liggett_T/article/858/"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1908.10024v1 Section 4 full text",
+      "DOI:10.1214/22-STS852 journal PDF",
+      "arXiv:2204.06040v1 Theorems 1.1 and 1.2",
+      "arXiv:0708.0618 indexed abstract",
+      "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+      "2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "https://celebratio.org/Liggett_T/article/858/ full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tang and Tang Proposition 4.5 rules out any ordinary Bin(2n,p) in o(n) transport and they state Open Problem 4.6 for heterogeneous Bernoullis.",
+        "Their equispaced-parameter candidate is also shown to have linear loss; the newly proposed quantiles are not equispaced in p.",
+        "Mattner fixes a finite list of moments and optimizes expectations; this does not imply a full asymptotic rate-function match or infinity-Wasserstein coupling.",
+        "James gives the underlying stable-ratio distribution, not its application to the 2019 optimal-transport problem.",
+        "Liggett's full-text Theorem 4 gives the Hurwitz property of the rounded 2/k multiple and does not provide the Poisson-binomial W-infinity approximation of the unrounded fractional variable."
+      ],
+      "reasoning": "The exact o(n) question was open in the motivating preprint. Qualitative strong-Rayleigh membership, fixed-moment comparisons, and classical stable-ratio identities are insufficient to prove the all-quantiles coupling; the new derivation supplies the missing composition.",
+      "searches": [
+        "arXiv:1908.10024v1",
+        "arXiv:2204.06040v1",
+        "arXiv:0708.0618",
+        "https://celebratio.org/Liggett_T/article/858/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2019 full-text Open Problem 4.6 states the exact o(n) question for (2/3)Bin(3n,1/2).",
+        "Indexed searches for matching fractional-logistic cumulant mixtures and Poisson-binomial W-infinity transport found no theorem with the claimed implication."
+      ],
+      "reasoning": "The exact question, fractional scaling, heterogeneous Bernoulli law, strongly Rayleigh alias, stable odds-ratio transform, and full exponential-rate formulation were all checked as possible equivalent statements.",
+      "searches": [
+        "Optimal Wasserstein infinity approximation of 2/3 times a binomial random variable by a Poisson binomial, sublinear n, strongly Rayleigh",
+        "Lamperti probability mixture of Bernoulli log odds, fractional power logistic cumulant, exact Cramer rate binomial",
+        "Stieltjes transform 1/(1+u^(2/3)) giving heterogeneous Bernoulli probabilities, quantile large deviations",
+        "\"Lamperti\" \"Poisson binomial\" \"Wasserstein\" fractional binomial",
+        "\"1908.10024\" \"open problem 4.6\" solved approximation",
+        "Thomas Liggett approximating multiples of strong Rayleigh fractional binomial 2/3 Wasserstein infinity Lamperti",
+        "Tang Tang open problem 4.6 sublinear n solution heterogeneous Bernoulli stable ratio",
+        "Poisson binomial approximation o(n) scaled Binomial 3n 2/3 large deviations identical rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-record result or web result from these candidate-specific exact query phrases stated the o(n) resolution.",
+        "No tabulated parameter sequence with the formula involving tan(pi alpha(v-1/2)) and logistic artanh was located."
+      ],
+      "reasoning": "The explicit parameter quantiles and sublinear transport assertion are the exact searchable artifacts; absence of a search match is recorded as weak supporting evidence, not independent proof of novelty.",
+      "searches": [
+        "\"1908.10024\" \"open problem 4.6\" solved approximation",
+        "\"Poisson binomial\" \"scaled binomial\" \"o(n)\" infinity Wasserstein",
+        "\"Lamperti\" \"Poisson binomial\" \"Wasserstein\" fractional binomial"
+      ]
+    },
+    "rationale": "Tang and Tang explicitly ask in arXiv:1908.10024v1, Open Problem 4.6, for a Poisson-binomial approximation to (2/3)Bin(3n,1/2) with W_infinity=o(n). Their fixed-homogeneous and equispaced-heterogeneous proposals fail with linear errors and they offer small-n examples only. Mattner's 2022 MSC-60E15 theorem treats extreme expectations conditional on finitely many moments, not this asymptotic maximal-transport question. The classical Lamperti stable ratio law is used as background, not treated as new. Published-source and semantic published-record searches for fractional Bernoulli logistic mixture, the named problem, and matching Cramer rates found no covering resolution. Remaining priority risk: an equivalent construction may be buried in literature under stable-ratio/large-deviation terminology.",
+    "residual_risks": [
+      "Undiscovered general Lamperti-mixture approximation theorem may imply the same transport result under a different vocabulary.",
+      "The original source poses an even stronger bounded-error challenge; this finding does not settle it.",
+      "The 2023 published survey cites a separate supplementary PDF (DOI:10.1214/22-STS852SUPP) which was not independently accessed. Its matching earlier public arXiv v1 Section 4 was read directly, but unadvertised changes in the supplement remain a bibliographic uncertainty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXPLICIT_SUBLINEAR_PROBLEM_AND_NEGATIVE_HOMOGENEOUS_AND_EQUISPACED_EXAMPLES",
+        "evidence": "Section 4 asks for Y Poisson-binomial with W_infinity((2/3)Bin(3n,1/2),Y)=o(n); the neighboring analysis gives only fixed-parameter/equispaced obstructions and small-n constructions.",
+        "identifier_or_url": "arXiv:1908.10024v1; DOI:10.1214/22-STS852",
+        "material_read": "Full open-access 2019 arXiv HTML, Section 4 around equations (4.4)–(4.9), Proposition 4.5, Open Problem 4.6, and Appendix A; 2023 journal article first page and section discussion compared for provenance",
+        "method": "Open-access original full text and journal PDF",
+        "title": "The Poisson binomial distribution—Old & New",
+        "trigger": "Direct open approximation problem for rationally scaled binomial distributions and strongly Rayleigh laws"
+      },
+      {
+        "assessment": "FIXED_FINITE_MOMENT_EXTREMIZERS_NOT_THE_FRACTIONAL_BINOMIAL_TRANSPORT_CLAIM",
+        "evidence": "Theorem 1.1 fixes the first r cumulants and maximizes a functional over Bernoulli convolutions; it does not assert W-infinity approximation or full-tilt cumulant matching.",
+        "identifier_or_url": "arXiv:2204.06040v1",
+        "material_read": "Lawful open-access seven-page arXiv PDF, introduction and Theorems 1.1 and 1.2 with assumptions and constraints, proof mechanisms and dependence on first r cumulants",
+        "method": "Open-access full-text PDF inspection",
+        "title": "Extreme expectations of Bernoulli convolutions given their first few moments are attained at shifted convolutions of as few binomials",
+        "trigger": "Closest classically indexed primary-MSC-60E15 Bernoulli convolution extremal theorem"
+      },
+      {
+        "assessment": "BACKGROUND_RATIO_DISTRIBUTION_ONLY_ABSTRACT_READ",
+        "evidence": "The paper addresses positive stable ratios and associated density, with no Poisson-binomial optimal-transport statement in the abstract.",
+        "identifier_or_url": "arXiv:0708.0618",
+        "material_read": "ArXiv title and abstract identifying the Lamperti ratio and its classical density; not a full-text exclusion assessment",
+        "method": "Published preprint abstract inspection; needed transform independently derived in RESULT.md",
+        "title": "Lamperti-type laws",
+        "trigger": "Original stable-ratio density and possible stronger coverage of the construction"
+      },
+      {
+        "assessment": "REAL_ROOT_AND_HURWITZ_ROUNDING_RESULTS_DO_NOT_IMPLY_SUBLINEAR_POISSON_BINOMIAL_TRANSPORT",
+        "evidence": "Liggett proves strong-Rayleigh obstructions to rounding and Hurwitz factorization for rounded 2/k multiples, not a heterogeneous Bernoulli approximation with W-infinity=o(n).",
+        "identifier_or_url": "https://celebratio.org/Liggett_T/article/858/",
+        "material_read": "Open full-text article: introduction, Theorems 2–4, Section 3 on approximations and factorization, and concluding discussion of cubic factors",
+        "method": "Lawful full-text primary article inspection",
+        "title": "Approximating multiples of strong Rayleigh random variables",
+        "trigger": "Highly relevant primary title about rounded fractional multiples of strongly Rayleigh random variables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3438379f-44cb-4699-8353-3b09846d44d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result directly resolves the sublinear half of a published explicit Poisson-binomial optimal-transport problem. It gives constructive strongly Rayleigh approximants for every fixed real scaling in (0,1), with an exact parameter law, matches the entire strictly convex Cramer rate function rather than merely moments or CLTs, and proves uniform quantile control even at exponential tail levels. The source rules out several natural simpler constructions at the desired scale, so this is a substantively motivated positive theorem.",
+    "status": "PASS"
+  }
+}
