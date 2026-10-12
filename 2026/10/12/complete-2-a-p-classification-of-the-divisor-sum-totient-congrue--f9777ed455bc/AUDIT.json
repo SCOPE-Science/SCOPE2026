@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact identities for \\(\\sigma(2^a p)\\) and \\(\\varphi(2^a p)\\) reduce the target congruence to \\(t=(3\\cdot2^a-2)/(p-1)\\in\\mathbb Z_{>0}\\) with \\(t\\equiv1\\pmod{2^{a-1}}\\). For \\(a\\ge3\\), odd-divisor bounds leave only three candidates for \\(t\\). The candidates \\(2^{a-1}+1\\) and \\(2^a+1\\) would have to divide \\(4\\) or \\(5\\), respectively, which is impossible. Thus \\(t=1\\). For \\(a=1,2\\), explicit divisor checking yields exactly the exceptional pairs and the parametric pairs; direct substitution proves all converses. Finite tests corroborate only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iannucci (JIS 2017) explicitly refers to A066679 on PDF page 2 and analyzes the multiplier-one equation \\(\\sigma(n)-n=\u000barphi(n)\\), not the full congruence.",
+        "Cheng (IJA 2009) studies \\(\\sigma(n)\\equiv0\\pmod n\\) and \\(n\\sigma(n)\\equiv2\\pmod{\u000barphi(n)}\\), not the target.",
+        "Direct theorem-statement and proof-scope comparison finds no result implying the quotient-two rigidity at all a."
+      ],
+      "reasoning": "The multiplier-one problem does not imply a classification at multipliers two to four; other modular predicates are logically distinct.",
+      "searches": [
+        "On the Equation sigma(n) = n + phi(n) Iannucci 2017 full PDF",
+        "On sigma(n) congruent 0 mod n n sigma(n) congruent 2 mod phi(n) Cheng 2009",
+        "sigma phi congruence prime power times prime necessity classification"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A066679",
+      "JIS:20:17.6.2",
+      "IJA:3:613-617:2009",
+      "targeted searches for full congruence aliases, sufficient versus necessary implications, and quotient multiplier",
+      "semantic mathematical record searches for two-prime-support and exact congruence statements",
+      "current and prior archive research ledgers for exact identifier, formula, and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing owned low-multiplicity classification covers only \\(\\Omega(n)\\le3\\), including 6,10,12,44.",
+        "For \\(a\\ge3\\), \\(\\Omega(2^a p)=a+1\\ge4\\); none of those prior cases decides the present theorem.",
+        "Closest semantic results concern other two-prime-support arithmetic functions and related but different sigma/totient congruences."
+      ],
+      "reasoning": "The user-owned earlier bounded-multiplicity result does not imply necessity for any exponent a>=3. The known OEIS sufficient family also cannot exclude exceptional cofactor primes. The exact new proof supplies both missing implications.",
+      "searches": [
+        "OEIS A066679 necessary sufficient 2^a p sigma(n) congruent n mod phi(n) 3*2^a-1",
+        "equation sigma(2^k p) = 2^k p + c phi(2^k p) 2 3 4",
+        "sigma(2^a p) congruent 2^a p modulo Euler totient classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A066679 defines precisely \\(\u000barphi(n)\\mid\\sigma(n)-n\\).",
+        "The 2006 A066679 construction says that if \\(p=3\\cdot2^a-1\\) is prime then \\(2^a p\\) is a member, but it does not assert converse.",
+        "Related published mathematical-result searches returned no equivalent full classification."
+      ],
+      "reasoning": "The candidate requires the exact necessity implication for all a and prime cofactors, not a mere match of the parametric sufficient family.",
+      "searches": [
+        "OEIS A066679 necessary sufficient 2^a p sigma(n) congruent n mod phi(n) 3*2^a-1",
+        "sigma(2^a p) congruent 2^a p modulo Euler totient classification",
+        "sum of divisors congruent n modulo phi(n) two prime factors 2-power times prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS entry authored 11 January 2002 lists sample hits 6,10,12,44,184,752.",
+        "The 15 April 2006 comment proves a one-way sufficient parametric family with quotient exactly 2.",
+        "No inspected entry states a full prime-cofactor classification or the exception-exclusion for all a."
+      ],
+      "reasoning": "A list of first hits cannot exclude all larger prime cofactors, while the new divisor argument does. Existing small cases are acknowledged as pre-existing.",
+      "searches": [
+        "OEIS A066679",
+        "A066679 sigma(n)-n divided by phi(n) Fermat-like 3*2^a-1",
+        "OEIS A002235 3*2^n-1 prime"
+      ]
+    },
+    "rationale": "The exact original database provides a sufficient family but does not claim necessity. The directly inspected related primary full texts concern distinct equalities or congruences. The earlier low-multiplicity partial classification does not cover the unbounded exponent range, which has multiplicity at least four. Residual unindexed-source risk remains.",
+    "residual_risks": [
+      "A converse might be noted in an unindexed discussion of A066679.",
+      "The original OEIS provides sufficiency and all previously identified low-multiplicity cases; these components are not presented as novel.",
+      "Infinitude of primes \\(3\\cdot2^a-1\\) is neither proved nor required.",
+      "No claim is made for composite odd cofactors or p to higher exponents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_OBJECT_SUFFICIENT_FAMILY_ONLY",
+        "evidence": "Initial entry authored 11 January 2002; a 2006 comment states the sufficient \\(p=3\\cdot2^a-1\\) family, but does not state necessity or a complete \\(2^a p\\) classification.",
+        "identifier_or_url": "https://oeis.org/A066679",
+        "material_read": "Definition, displayed terms, comments, sufficient-family calculation, related source links, programs, and author/extension dates.",
+        "method": "Full sequence webpage inspection.",
+        "title": "OEIS A066679",
+        "trigger": "Exact indexed congruence and original source date."
+      },
+      {
+        "assessment": "RELATED_SPECIAL_MULTIPLIER_NOT_COVERING",
+        "evidence": "The paper explicitly observes that A066679 is the full congruence, but treats only \\(\\sigma(n)=n+\\varphi(n)\\); it gives no classification of quotients \\(2,3,4\\) for \\(2^a p\\).",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL20/Iannucci/ian5.pdf",
+        "material_read": "Full PDF introduction, explicit A066679 comparison, abstract, multiplier-one conjecture, theorem statements and sections on necessary conditions.",
+        "method": "Direct parsed full-text inspection of eleven-page lawful journal PDF.",
+        "title": "On the Equation sigma(n) = n + phi(n)",
+        "trigger": "The exact database links this closely related primary paper."
+      },
+      {
+        "assessment": "DIFFERENT_MODULAR_PREDICATES_NOT_COVERING",
+        "evidence": "The published theorems address sigma(n) mod n, n*sigma(n) mod phi(n) and Lehmer-type divisibility; none implies sigma(n)-n mod phi(n) on the claimed family.",
+        "identifier_or_url": "https://www.m-hikari.com/ija/ija-password-2009/ija-password13-16-2009/chengIJA13-16-2009.pdf",
+        "material_read": "Five-page full PDF: title, abstract, theorem statements, proof cases, and restrictions on squarefree integers.",
+        "method": "Direct parsed lawful journal PDF inspection.",
+        "title": "On sigma(n) congruent 0 mod n, n sigma(n) congruent 2 mod phi(n) and phi(N) divides N-1",
+        "trigger": "Nearby arithmetic-function congruence literature with overlap of sigma, phi and prime support."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9777ed4-55bc-4574-ae56-e6e8fd2c21e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly supplies a conditional prime family without ruling out all other cofactors. Proving the exhaustive iff is a natural complete classification of the 2-adic exponent ray, valid without any bound on a or p, and identifies the only two low-exponent exceptions and all possible quotient multipliers. The classification has meaningful structural content and is not a known-table recomputation.",
+    "status": "PASS"
+  }
+}
