@@ -1,0 +1,113 @@
+{
+  "claim": "For the rotationally symmetric hybrid star-vertex coupling of Exner--Turek--Tater with degree \\(n\\ge 3\\), fixed \\(\\alpha\\in\\mathbb R\\), interpolation parameter \\(t\\in[0,1]\\), and on-shell momentum \\(k>0\\), let \\(S_n(k,t)\\) be the scattering matrix in the normalization of arXiv:1804.01414. If \\(t\\to0^+\\), \\(k\\to\\infty\\), and \\(kt\\to\\xi\\in(0,\\infty)\\), then in the fixed discrete-Fourier eigenbasis\n\\[\nS_n(k,t)\\longrightarrow S_n^{\\mathrm{bl}}(\\xi)=\\frac1nF\\,\\operatorname{diag}\\!\\bigl(\\nu_0(\\xi),\\ldots,\\nu_{n-1}(\\xi)\\bigr)F^*,\n\\]\nwhere \\(\\nu_0(\\xi)=1\\), \\(\\beta_j=\\pi(2j/n-1)\\), and\n\\[\n\\nu_j(\\xi)=\\frac{\\beta_j\\xi-2i}{\\beta_j\\xi+2i}\\qquad(1\\le j\\le n-1).\n\\]\nThis boundary layer is independent of \\(\\alpha\\), continuously connects the high-energy \\(\\delta\\)-vertex scattering matrix \\(2J/n-I\\) at \\(\\xi\\downarrow0\\) to the fixed-\\(t\\) parity-dependent high-energy limit at \\(\\xi\\to\\infty\\), and therefore resolves the noncommuting limits \\(t\\downarrow0\\) and \\(k\\to\\infty\\). Its common diagonal reflection amplitude \\(r_n(\\xi)\\) is real and strictly increasing. Explicitly,\n\\[\nr_n(\\xi)=\\frac{1+2\\sum_{j=1}^{(n-1)/2}\\frac{\\beta_j^2\\xi^2-4}{\\beta_j^2\\xi^2+4}}{n}\n\\]\nfor odd \\(n\\), while\n\\[\nr_n(\\xi)=\\frac{2}{n}\\sum_{j=1}^{n/2-1}\\frac{\\beta_j^2\\xi^2-4}{\\beta_j^2\\xi^2+4}\n\\]\nfor even \\(n\\). Hence for every \\(n\\ge3\\) there is a unique \\(\\xi_n>0\\) with \\(r_n(\\xi_n)=0\\); along any scaling \\(kt\\to\\xi_n\\) the vertex becomes asymptotically reflectionless and its total transmission probability tends to one. In particular \\(\\xi_3=2\\sqrt3/\\pi\\) and \\(\\xi_4=4/\\pi\\).",
+  "correctness": {
+    "rationale": "The source gives both ingredients exactly: the interpolation eigenvalues \\(\\lambda_0(t)=e^{-i(1-t)\\gamma}\\), \\(\\lambda_j(t)=-e^{i\\pi t(2j/n-1)}\\), and the scattering eigenvalue map \\(\\mu=(k-1+(k+1)\\lambda)/(k+1+(k-1)\\lambda)\\). Half-angle reduction gives \\(\\mu_j=(k-i\\cot(\\beta_jt/2))/(k+i\\cot(\\beta_jt/2))\\), so \\(kt\\to\\xi\\) yields the stated \\(\\nu_j\\), including the exact \\(\\beta_j=0\\) mode. Fourier reconstruction, endpoint limits, paired-mode reality, and strict monotonicity of each rational summand prove the unique reflectionless scale. `verify.py` replays finite source formulas and limiting identities; its numerical checks are corroborative rather than a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2403.09457v1 reuses the same \\(U(t)\\) eigenvalues for chain-graph band spectra; full text has no star-vertex scattering/reflection statement.",
+        "arXiv:1710.02664 gives the preferred-orientation endpoint and fixed high-energy parity behavior, not interpolation double scaling.",
+        "doi:10.7494/OpMath.2014.34.3.483 gives general high-energy projection and reflectionless matrix theory but no \\(U(t)\\), \\(kt\\) scaling, or unique crossover."
+      ],
+      "reasoning": "The natural broader theories determine fixed-coupling high-energy limits or classify special reflectionless matrices. Neither implies where the energy-dependent Exner--Turek--Tater interpolation becomes reflectionless as t tends to zero with k tending to infinity.",
+      "searches": [
+        "query: preferred orientation quantum graph scattering universal crossover t energy",
+        "query: rotationally symmetric quantum graph vertex coupling double scaling S matrix",
+        "query: Vertex coupling interpolation in quantum chain graphs scattering reflection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1804.01414v1",
+      "doi:10.1088/1751-8121/aac651",
+      "arXiv:1710.02664v1",
+      "doi:10.7494/OpMath.2014.34.3.483",
+      "arXiv:2403.09457v1",
+      "doi:10.1063/5.0208361"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 source implication is only fixed t followed by k to infinity; the claimed regime lets t depend on k at the singular rate \\(t\\sim\\xi/k\\).",
+        "The 2014 source says high-energy scattering is I minus twice the -1 spectral projection for a fixed matching matrix; U(t) itself approaches a matrix with an (n-1)-dimensional -1 eigenspace, so that fixed-matrix theorem does not determine the simultaneous limit.",
+        "The 2024 chain paper studies Floquet band conditions on a different global graph and does not determine the local scattering diagonal in the simultaneous limit."
+      ],
+      "reasoning": "The new statement is not a special case of a stronger cited theorem: the singularity is precisely that the spectral gap of \\(U(t)\\) from \\(-1\\) closes at the same rate as the high-energy scattering map approaches its discontinuous fixed-coupling limit. Resolving that competition requires retaining \\(kt\\).",
+      "searches": [
+        "source comparison: arXiv:1804.01414v1 formulas (15), (21)--(23)",
+        "source comparison: doi:10.7494/OpMath.2014.34.3.483 Sections 2--3",
+        "source comparison: arXiv:2403.09457v1 Sections 1--2 and high-energy discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1804.01414v1, formulas (15), (21)--(23), full text inspected",
+        "doi:10.7494/OpMath.2014.34.3.483, full text inspected",
+        "No close published-finding index hit stated the same object, scaling, or implication."
+      ],
+      "reasoning": "Searches included the equivalent energy notation t sqrt(E), the star-vertex and preferred-orientation aliases, and reflectionless-scattering terminology. The closest materials concern fixed-parameter high-energy limits or general reflectionless matrices, not the singular interpolation boundary layer.",
+      "searches": [
+        "query: interpolating quantum graph vertex coupling double scaling kt reflectionless resonance",
+        "query: quantum graph preferred orientation asymptotically reflectionless crossover t sqrt(E)",
+        "query: 1804.01414 reflectionless scattering t high energy crossover"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed identifier 2026/9/10/SCOPE024 concerns a different metric-graph eigenvalue optimization problem.",
+        "Closest indexed identifier 2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038 concerns Banach-space projection constants, not quantum scattering.",
+        "No standard finite database/table tabulates this continuous two-parameter scattering boundary layer."
+      ],
+      "reasoning": "There is no applicable exact-value table for the continuous \\(U(t)\\) star-vertex \\(S\\)-matrix. Indexed exact-result searches returned different objects rather than the claimed crossover profile or its unique zero-reflection scale.",
+      "searches": [
+        "query: star graph hybrid vertex coupling perfect transmission high energy delta preferred orientation",
+        "query: quantum graph interpolating vertex coupling noncommuting high-energy and delta-coupling limits double scaling kt"
+      ]
+    },
+    "rationale": "The 2018 source treats fixed-\\(t\\) high-energy scattering and gives the raw formulas but does not state the singular \\(kt\\)-boundary layer, the noncommuting limits, or a reflectionless crossover. The 2014 reflectionless-matrix literature treats general energy-independent/equi-transmitting structures, and the 2024 interpolation follow-up studies periodic-chain band spectra rather than this star-vertex scattering limit. Statement-level searches over the source, aliases, scaling variable, and reflectionless terminology found no covering published result.",
+    "residual_risks": [
+      "An equivalent singular-limit calculation could exist under another parametrization of self-adjoint star-vertex matching conditions or under boundary-layer terminology not found by the searches.",
+      "The proof establishes asymptotically zero reflection, not an exact finite-energy reflectionless point for arbitrary alpha."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The source provides the exact formulas from which the boundary layer is derived but stops at fixed-t high-energy asymptotics; no double scaling, noncommuting-limit statement, or reflectionless crossover is stated.",
+        "identifier_or_url": "arXiv:1804.01414v1; doi:10.1088/1751-8121/aac651",
+        "material_read": "Full-text sections 3--5, especially formulas (15), (19)--(23), plus the fixed-t high-energy discussion.",
+        "method": "Lawful arXiv full text and PDF inspected at the defining formulas and surrounding argument.",
+        "title": "A family of quantum graph vertex couplings interpolating between different symmetries",
+        "trigger": "Primary source defining the exact interpolation and its on-shell scattering matrix."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "It studies energy-independent reflectionless/equi-transmitting structures and the fixed-matrix high-energy projection; it does not study the Exner--Turek--Tater interpolation or the \\(kt\\) boundary layer.",
+        "identifier_or_url": "doi:10.7494/OpMath.2014.34.3.483",
+        "material_read": "Abstract, introduction, star-graph scattering formula and high-energy limit, and reflectionless/equi-transmitting definitions.",
+        "method": "Open full-text PDF inspected.",
+        "title": "On reflectionless equi-transmitting matrices",
+        "trigger": "Most directly relevant prior literature on reflectionless star-vertex scattering matrices."
+      },
+      {
+        "assessment": "SAME_COUPLING_DIFFERENT_QUESTION",
+        "evidence": "The paper analyzes periodic chain Floquet band spectra and contains no star-vertex scattering, reflectionless, or simultaneous t-to-zero/high-energy theorem.",
+        "identifier_or_url": "arXiv:2403.09457v1; doi:10.1063/5.0208361",
+        "material_read": "Full-text introduction/model definition, interpolation eigenvalues, and high-energy scope searched for scattering/reflection terminology.",
+        "method": "Lawful arXiv HTML full text inspected and searched.",
+        "title": "Vertex coupling interpolation in quantum chain graphs",
+        "trigger": "Later paper reusing the same interpolation \\(U(t)\\) and explicitly studying high-energy behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "21cee0e9-ca96-4821-b5bf-290c5b200c63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source itself emphasizes that transport changes sharply between the \\(\\delta\\) endpoint and preferred-orientation coupling and that fixed-\\(t\\) high-energy behavior depends on vertex-degree parity. The new boundary layer identifies the missing transition scale \\(t\\asymp E^{-1/2}\\), proves that the two natural limits do not commute, and finds a unique universal scale with asymptotically perfect total transmission for every \\(n\\ge3\\). This is a structural scattering statement, not a renaming or a finite numerical refinement.",
+    "status": "PASS"
+  }
+}
