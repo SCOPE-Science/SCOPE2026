@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The diagonal projector identity is exact for real symmetric H; for tau≠0 the real even Fourier modes all couple to the mark and the rank-one secular determinant avoids all unchanged odd modes, while the folded Jacobi matrix has simple spectrum. Thus the full spectrum is simple and squared eigenvectors are reflection-invariant, giving rank≤floor(n/2)+1. For each s<m, the odd length 2s+1<n closed walks require the marked stay; on the shell r=s exactly one minimal such walk contributes tau, and shells r>s contribute zero. Therefore the odd-moment witness determinant is (-1)^m tau^m and supplies m+1 independent vectors from the squared eigenvectors. Known zero-potential cycle Fourier formulas yield rank n for odd n and n/2 for even n. Actual packaged verification covers 80 exact determinant profiles and 96 numerical spectral profiles; unbounded quantifiers rest solely on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutinho et al. arXiv:1709.03591 give general simple-spectrum rank methodology and bounds; no exact formula for a marked cycle.",
+        "Coutinho–Guo arXiv:2404.02236 Section 4 surveys generic inequalities and graph-family rank problems, without the single-site perturbed cycle family."
+      ],
+      "reasoning": "The closest general results supply a projector Gram representation and rank bounds but not a lower-bound independence certificate; the parity jump follows only after the new specific odd-walk witness. A general theorem specialized to rooted vertex-transitive graphs could conceivably dominate, but none was found in inspected material.",
+      "searches": [
+        "\"rank\" \"average mixing matrix\" \"vertex\" \"potential\"",
+        "\"average mixing\" \"diagonal perturbation\" quantum walk",
+        "quantum average mixing cycle rank"
+      ]
+    },
+    "checked_sources": [
+      "Godsil, Average Mixing of Continuous Quantum Walks, arXiv:1103.2578, §6 and Lemma 6.1 (cycle Fourier formulas at zero potential)",
+      "Coutinho–Godsil–Guo–Zhan, A New Perspective on the Average Mixing Matrix, arXiv:1709.03591 (spectral-commutant and rank framework)",
+      "Coutinho–Baptista–Godsil–Spier–Werner, Irrational Quantum Walks, arXiv:2208.08971 (exact quantum walks on integral Hamiltonians; no one-vertex diagonal potential)",
+      "Li–Wang, Single-point position and transition defects in continuous time quantum walks, arXiv:1502.04289 (infinite-line defect and scattering, not finite cycle mixing rank)",
+      "Coutinho–Guo, Selected Open Problems in Continuous-Time Quantum Walks, arXiv:2404.02236, §4 (general average-mixing ranks and open questions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Godsil 2013 Lemma 6.1 implies exactly the tau=0 cases in the final theorem; it does not imply any nonzero-tau rank without new information about the perturbed projectors.",
+        "Coutinho et al. 2018 projector-commutant theory implies the elementary Gram upper bound, but not the exact determinant of diagonal odd moments.",
+        "Li–Wang 2015 infinite lattice scattering analysis does not specialize to a finite n-cycle Cesàro rank."
+      ],
+      "reasoning": "Known unmarked formulas are a proper subset of the claimed piecewise result; the signed defect changes eigenvalue degeneracies, so substituting tau into the circulant Fourier formula is invalid. The necessary new implications are the simplicity/symmetry restriction and the independent lower witness; these are proved directly here.",
+      "searches": [
+        "a single vertex potential on a cycle graph long-time quantum walk mixing",
+        "finite graphs time-average continuous-time quantum walk spectral projectors Hadamard rank cyclotomic circulants",
+        "\"average mixing matrix\" \"marked cycle\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Godsil arXiv:1103.2578 Lemma 6.1 covers exactly tau=0 only.",
+        "Li–Wang arXiv:1502.04289 studies one-site defects in the infinite line; its transport and scattering quantities do not determine the rank of a finite cycle Cesàro mixing matrix."
+      ],
+      "reasoning": "Equivalent phrases for this claim include one-site impurity, marked cyclic tight-binding model, rank-one diagonal perturbation of a ring adjacency Hamiltonian, and spectral projector squared-eigenvector rank. The inspected primary sources contain neither the same finite-cycle parameter pair (n,tau) nor a theorem equivalent to its complete rank jump.",
+      "searches": [
+        "average mixing rank of a cycle graph with nonzero potential at one marked vertex diagonal rank one perturbation reflection",
+        "\"average mixing matrix\" \"cycle\" \"potential\" marked quantum graph",
+        "continuous time quantum walk Cesaro mixing matrix rank on cycles with onsite impurity marked vertex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published database result 2026/10/4/SCOPE-cycle-graphical-groups-have-an-explicit-character-degree-enumera--a874723da77e studies antisymmetric finite-field matrices, not quantum-walk mixing.",
+        "Published database result 2026/9/7/SCOPE002 concerns lazy classical random walks on balanced spiders.",
+        "Godsil arXiv:1103.2578 contains an exact table-equivalent formula for unmarked cycles only."
+      ],
+      "reasoning": "No matching published database or numerical table from the actual returned searches determines the continuously parametrized marked-cycle ranks. Returned superficially cycle-related records concern different objects; absence from a searchable database is not proof of absolute novelty.",
+      "searches": [
+        "marked cyclic quantum walk time averaged transition rank",
+        "rank of quantum average mixing of cycle with one defect and odd even parity",
+        "\"rank\" \"average mixing matrix\" \"cycle\" \"perturbation\""
+      ]
+    },
+    "rationale": "The exact nonzero-impurity rank and the signed parity jump are not supplied by the known unperturbed-cycle formulas (Godsil 2013 Lemma 6.1), general Gram/rank framework (Coutinho et al. 2018), integral-Hamiltonian exact-method article (Coutinho et al. 2022/23), or infinite-line impurity scattering article (Li and Wang 2015). The mathematical objects, parameters, and implications were compared, not just titles. The base tau=0 results are explicitly credited. The prior-results database searches did not reveal a dominating theorem. This remains qualified by an acknowledged possible unlocated stronger rank-one reflection-symmetry theorem.",
+    "residual_risks": [
+      "An unidentified stronger theorem about rank-one perturbations of symmetric Jacobi matrices, or squared-eigenvector ranks under involutions, might imply this special finite-cycle case.",
+      "Semantic database and web searches are incomplete evidence: no universal nonexistence or independent novelty certification is claimed.",
+      "Independent human audit has not yet occurred; complete numerical verification is not a substitute for the analytic theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_UNMARKED_ONLY",
+        "evidence": "§6 Lemma 6.1: for odd n, (n-1)/n² J + I/n, and for even n, (n-2)/n² J +(I+P^{n/2})/n. These give tau=0 ranks and are cited as prior, but no diagonal impurity is present.",
+        "identifier_or_url": "https://arxiv.org/pdf/1103.2578",
+        "material_read": "Full relevant cycle section §6, especially Lemma 6.1 and Fourier calculation; introductory spectral projector identity",
+        "method": "Open-access arXiv full PDF; read extracted text and inspected PDF page images",
+        "title": "Average Mixing of Continuous Quantum Walks",
+        "trigger": "Directly computes average-mixing matrices of unweighted cycles, potentially covering the zero-mark boundary"
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_MARKED_CYCLE",
+        "evidence": "Provides projector/commutant Gram representation and general restrictions. The nonzero onsite ring rank is not stated or computed; methods alone do not imply an exact lower bound.",
+        "identifier_or_url": "https://arxiv.org/pdf/1709.03591",
+        "material_read": "Full relevant rank/commutant sections and introduction; inspected rank results in PDF",
+        "method": "Open-access arXiv full PDF text and page rendering",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "Potentially dominating general rank and commutant theorem for simple-spectrum quantum average mixing"
+      },
+      {
+        "assessment": "METHODS_AND_UNMARKED_CYCLES_ONLY",
+        "evidence": "First public submission 2022-08-18, primary MSC 81P68. Exact methods for integral graph Hamiltonians and examples with unmarked cycles; a nonzero real rank-one onsite potential is not the parameter of the results.",
+        "identifier_or_url": "https://arxiv.org/pdf/2208.08971",
+        "material_read": "Abstract, definitions, exact average-mixing theory and cycle examples (particularly Section 4.3) and supporting MSC/date metadata",
+        "method": "arXiv full-text PDF and abstract metadata with version history",
+        "title": "Irrational Quantum Walks",
+        "trigger": "Qualifying mathematical-physics source and potential exact infinite-time quantum mixing coverage"
+      },
+      {
+        "assessment": "DIFFERENT_GEOMETRY_AND_OBSERVABLE",
+        "evidence": "Model concerns a single defect on the infinite integer line, investigating localization and scattering; no finite cyclic n-vertex Cesàro average-mixing rank law.",
+        "identifier_or_url": "https://arxiv.org/pdf/1502.04289",
+        "material_read": "Abstract and model/assumptions, finite vs infinite geometry in Sections I–II, localization/scattering conclusions and discussion",
+        "method": "Open-access arXiv PDF text and inspected pages",
+        "title": "Single-point position and transition defects in continuous time quantum walks",
+        "trigger": "Most directly named competing paper on a single spatial quantum-walk defect"
+      },
+      {
+        "assessment": "GENERAL_MOTIVATION_AND_BOUNDS",
+        "evidence": "Section 4 emphasizes rank as natural quantum-walk invariant; for simple spectrum and at least 3 vertices, generic bound rank≤n−1 is stated. Does not supply exact marked-cycle rank.",
+        "identifier_or_url": "https://arxiv.org/pdf/2404.02236",
+        "material_read": "Section 4 pp 11–13, including spectral identity, rank bounds, and open problems 4.1–4.6; reference list",
+        "method": "arXiv open-access full PDF extracted text and inspected page image",
+        "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+        "trigger": "Recent systematic review of general average-mixing rank results; possible dominating theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2e9ee9d-4aea-4aec-b35b-1081f778758d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single onsite defects on finite quantum rings are a natural minimal perturbation; the invariant changes discontinuously and in opposite directions depending on ring parity. The all-order, all-real-parameter exact classification reveals degeneracy-breaking versus reflection-orbit constraints, and the short closed-walk moment determinant is a useful structural certificate. The result is not merely a numerical table or an unmarked-cycle restatement; it supplies a novel nonzero-parameter lower bound and exact sharpness. No general downstream theorem is needed to make the exact transport invariant valuable.",
+    "status": "PASS"
+  }
+}
