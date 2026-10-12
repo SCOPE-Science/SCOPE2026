@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Starting from the precise two-stage diagonal projection, conditioning on first occurrence of the first-stage row yields the disjoint-event exact formula. Its coefficient is positive, the simultaneous Fréchet diagonal maximum is attained by explicit nonnegative transport, and the strict comparison with independent sampling follows from 0<p_i,q_i<1. The balanced identity and unique asymptotic center follow by finite convolution and a uniform logarithmic expansion. Exhaustive exact-rational path replay passed 4011 assertions/checks in the included standalone verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma–Needell–Ramdas, arXiv:1701.07453v4, Section 4 and Algorithm 1: factorwise row marginals and successive updates; exponential bounds, not coupling-optimal diagonal exact risk.",
+        "Du, arXiv:2204.10722v2, Introduction and Section 3 Algorithm 4: regularized factorized RK–RRK and RK–RK specialization; convergence bounds, not all-horizon optimal coupling."
+      ],
+      "reasoning": "The broader-matrix convergence theorems cover the independent RK–RK or other update variants, with upper bounds depending on matrix contraction factors. They do not optimize a joint law with fixed stage marginals or give equality for every diagonal factorization, and thus do not imply the sharp risk comparison. The present result does not improve their general-matrix theorems.",
+      "searches": [
+        "independent two-stage coordinate sampling diagonal factorized linear system finite-step error m+t times (1-1/m)^t",
+        "maximal coupling row indices two sequential randomized projection methods convergence",
+        "arxiv:1701.07453v4 Theorem 4.1 and proofs",
+        "arxiv:2204.10722v2 convergence bounds"
+      ]
+    },
+    "checked_sources": [
+      "Ma–Needell–Ramdas, arXiv:1701.07453v4, Section 4 and Algorithm 1: factorwise row marginals and successive updates; exponential bounds, not coupling-optimal diagonal exact risk.",
+      "Du, arXiv:2204.10722v2, Introduction and Section 3 Algorithm 4: regularized factorized RK–RRK and RK–RK specialization; convergence bounds, not all-horizon optimal coupling.",
+      "Related indexed summary 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac: random stale-coordinate delay model and its two-coordinate rate, not interlaced factorized row pairs.",
+      "Related indexed summary 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f: maximal-distance Kaczmarz coherence constraints, not two-factor jointly sampled iteration."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma–Needell–Ramdas, arXiv:1701.07453v4, Section 4 and Algorithm 1: factorwise row marginals and successive updates; exponential bounds, not coupling-optimal diagonal exact risk.",
+        "Du, arXiv:2204.10722v2, Introduction and Section 3 Algorithm 4: regularized factorized RK–RRK and RK–RK specialization; convergence bounds, not all-horizon optimal coupling.",
+        "Related indexed summary 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac: random stale-coordinate delay model and its two-coordinate rate, not interlaced factorized row pairs.",
+        "Related indexed summary 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f: maximal-distance Kaczmarz coherence constraints, not two-factor jointly sampled iteration."
+      ],
+      "reasoning": "The original paper already supplies the iteration and marginal probabilities; classical coupling bounds yield possible larger diagonal mass. Neither alone determines the probability a coordinate has been completed by two successive stages across time, nor the sharp m log log m independent-sampling penalty under an absolute squared-error criterion. The identified prior research on delayed randomized Gauss–Seidel has a different recurrence and cannot dominate the diagonal two-stage statement.",
+      "searches": [
+        "Exact mean square error formula for factorized randomized Kaczmarz on diagonal A B with coupled row selection probabilities, maximal diagonal coupling",
+        "row-pair coupling synchronization optimizes two-stage randomized Kaczmarz RK-RK finite-time squared error and log log penalty",
+        "independent two-stage coordinate sampling diagonal factorized linear system finite-step error m+t times (1-1/m)^t",
+        "maximal coupling row indices two sequential randomized projection methods convergence",
+        "factorized RK-RK Kaczmarz A=B=I exact expected finite termination double coupon collector",
+        "Ma–Needell–Ramdas arxiv:1701.07453v4 Sections 4.1–4.3",
+        "Du arxiv:2204.10722v2 Sections 3–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source RK–RK algorithm chooses each factor row by norm-squared probability and uses the updated intermediate iterate before the second projection.",
+        "The known extremal coupling diagonal bound determines joint mass, but does not by itself supply the two-stage finite-time risk formula."
+      ],
+      "reasoning": "A stochastic two-stage coordinate-completion law is equivalent to the proposed result only if it tracks the same iteration-order dependence and the same-round joint probabilities. The reviewed factorized solver analyses bound independent-sampler error and do not specify such an exact coupling-dependent law. The general Fréchet coupling theorem yields just joint probability feasibility, not the RK–RK risk expression or the mean-square crossover.",
+      "searches": [
+        "Exact mean square error formula for factorized randomized Kaczmarz on diagonal A B with coupled row selection probabilities, maximal diagonal coupling",
+        "row-pair coupling synchronization optimizes two-stage randomized Kaczmarz RK-RK finite-time squared error and log log penalty",
+        "maximal coupling row indices two sequential randomized projection methods convergence",
+        "arxiv:1701.07453v4 Algorithm 1",
+        "arxiv:2204.10722v2 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Comparative indexed result 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac concerns stale read delays, not factor row pairs.",
+        "Comparative indexed result 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f concerns maximal-distance row selection, not interlaced factorized RK–RK."
+      ],
+      "reasoning": "No inspected finite-error table or indexed theorem states the nonuniform diagonal-pair law or the entire family of mixture thresholds. Only limited indexed summaries were available for the identified related results; no database search alone is treated as a novelty proof.",
+      "searches": [
+        "Exact mean square error formula for factorized randomized Kaczmarz on diagonal A B with coupled row selection probabilities, maximal diagonal coupling",
+        "row-pair coupling synchronization optimizes two-stage randomized Kaczmarz RK-RK finite-time squared error and log log penalty",
+        "factorized RK-RK Kaczmarz A=B=I exact expected finite termination double coupon collector",
+        "Two-stage coupon collection simultaneous streams first completion followed by second coupon maximum Erlang Gumbel m log m plus m log log m"
+      ]
+    },
+    "rationale": "The primary full texts analyze independent factor-row sampling or regularized extensions, whereas the new statement fixes original marginals and optimizes the SAME-round row coupling, including an exact finite-horizon risk and a uniform identity-family synchronization transition. Known Fréchet coupling inequalities and coupon occupancy arguments are inputs, not claims of invention. Contemporaneous searches found no covering implication in reviewed source statements or indexed results; residual unindexed priority risk remains.",
+    "residual_risks": [
+      "An unindexed preprint or article could contain the equivalent coupled two-stage exact risk or crossover.",
+      "Related indexed results were only available as summaries; this does not amount to whole-document exclusion.",
+      "Classical multi-coupon occupancy literature may contain an abstract probability equivalent to the identity-family portion; the paper-specific coupling optimum for all nonzero diagonal factors is the differentiated contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_STATE_CLAIM",
+        "evidence": "Algorithm 1 takes one row of each factor, updates the intermediate iterate first, and uses it in the second projection. Subsequent theorems give independent-sampling convergence bounds; no joint same-round coupling optimization or exact weighted coordinate error formula located.",
+        "identifier_or_url": "https://arxiv.org/html/1701.07453v4",
+        "material_read": "Full HTML text, including introduction, Section 4, Algorithm 1, convergence statements and their assumptions",
+        "method": "Direct lawful arXiv HTML full-text reading and comparison of sampling assumptions, update order, and conclusions",
+        "title": "Iterative methods for solving factorized linear systems",
+        "trigger": "Defining RK–RK algorithm and potentially dominating convergence theory"
+      },
+      {
+        "assessment": "DOES_NOT_STATE_CLAIM",
+        "evidence": "For quadratic regularization, the proposed algorithm recovers RK–RK; its convergence bounds do not compare two-stage row couplings at fixed marginals.",
+        "identifier_or_url": "https://arxiv.org/html/2204.10722v2",
+        "material_read": "Full HTML text, including literature review, Section 3 Algorithm 4 and convergence analysis",
+        "method": "Direct lawful arXiv HTML full-text reading and comparison with exact coordinate completion law",
+        "title": "Regularized randomized iterative algorithms for factorized linear systems",
+        "trigger": "Related interlaced algorithm that reduces to RK–RK, potential broader coverage"
+      },
+      {
+        "assessment": "RELATED_NOT_DECISIVE_WITH_LIMITED_TEXT",
+        "evidence": "Summary treats stale read delay in two-coordinate Gauss–Seidel with exact asymptotic eigenvalue equation, not joint first/second factor-row selection.",
+        "identifier_or_url": "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "material_read": "Indexed title and summary only; no full text was inspected",
+        "method": "Semantic-index summary, statements compared by update mechanism",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss–Seidel",
+        "trigger": "Potentially related exact stochastic row-action rate"
+      },
+      {
+        "assessment": "RELATED_NOT_DECISIVE_WITH_LIMITED_TEXT",
+        "evidence": "Summary concerns coherence and a maximal-distance row oracle; it does not describe a two-factor interlaced solver.",
+        "identifier_or_url": "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "material_read": "Indexed title and summary only; no full text was inspected",
+        "method": "Semantic-index summary, comparing objects and quantifiers",
+        "title": "Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+        "trigger": "Potential result on precise row sampling choices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ede8bd83-3422-4689-bb94-e9455d0de9ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Choosing whether to correlate factorwise row samples is a motivated algorithmic design decision for interlaced randomized Kaczmarz. The theorem gives a universal all-RHS/all-positive-horizon optimal fixed coupling for all nonsingular diagonal factorizations and an explicit order-m log log m independent-row penalty at a natural absolute squared-error target. The family is natural as the decoupled baseline; no extrapolation to arbitrary matrices is asserted.",
+    "status": "PASS"
+  }
+}
