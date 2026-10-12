@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "The defining delayed rate vector lies in a positive coordinate box under the bounded-gradient assumption. Root-mean-square normalization has exact coordinate extrema at opposite box corners. On the isotropic quadratic with first-moment memory disabled for the analyzed step, the objective ratio is a convex combination of squared diagonal factors, so endpoint convexity gives the exact robust factor and stability threshold.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic diagonal-preconditioned gradient methods have stability controlled by the largest effective coordinate rate.",
+        "AvaGrad specifically normalizes the delayed adaptive-rate vector to remove common scale.",
+        "The source bounded-gradient assumption gives a finite coordinate-rate box whose shape still depends on adaptability."
+      ],
+      "reasoning": "Generic diagonal-preconditioner stability does not itself give the source-specific sharp rate-box extremum or the exact interpolation between weak and strong adaptivity.",
+      "searches": [
+        "normalized diagonal preconditioner quadratic stability RMS",
+        "adaptive learning rate coordinate concentration stability",
+        "AvaGrad learning rate adaptability decoupling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.01823v1",
+      "CVPR2021:Savarese-McAllester-Babu-Maire"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper computes delayed coordinate rates from the previous second-moment state and normalizes them by their root-mean-square.",
+        "It states that common-scale normalization makes global learning rate and adaptability more separable.",
+        "It bounds the coordinate adaptive rates under bounded gradients and experimentally varies both learning rate and adaptability."
+      ],
+      "reasoning": "Those prior statements supply the mechanism and admissible rate box but do not solve the worst-coordinate geometry after normalization or the resulting exact quadratic stability frontier.",
+      "searches": [
+        "arXiv:1912.01823 Algorithm 2 AvaGrad normalization",
+        "arXiv:1912.01823 learning rate adaptability epsilon",
+        "arXiv:1912.01823 bounded adaptive rates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Algorithm 2 normalizes the delayed coordinate-rate vector by its root-mean-square before multiplying the first moment.",
+        "The source discussion proves invariance to common scaling of the adaptive-rate vector.",
+        "No inspected source states the exact maximum normalized coordinate rate or the corresponding sharp isotropic-quadratic stability ceiling."
+      ],
+      "reasoning": "Equivalent coverage would have to classify the same normalized delayed-rate vector sharply and translate that classification into an if-and-only-if robust learning-rate boundary. None was located.",
+      "searches": [
+        "AvaGrad exact scalar quadratic stability RMS normalized adaptive learning rate",
+        "AvaGrad epsilon adaptability stability dimension sharp",
+        "AvaGrad normalized adaptive rates worst coordinate stability",
+        "Domain-independent Dominance AvaGrad quadratic stability epsilon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concern stochastic feedback stability, Polyak objective frontiers, reflected-gradient thresholds, and unrelated normalization obstructions.",
+        "No returned indexed finding names AvaGrad or states its normalized-rate concentration frontier."
+      ],
+      "reasoning": "The closest indexed results analyze different update maps and do not imply the AvaGrad root-mean-square normalized box extremum.",
+      "searches": [
+        "AvaGrad exact scalar quadratic stability RMS normalized adaptive learning rate",
+        "AvaGrad epsilon adaptability stability dimension sharp",
+        "AvaGrad normalized adaptive rates worst coordinate stability",
+        "Domain-independent Dominance AvaGrad quadratic stability epsilon"
+      ]
+    },
+    "rationale": "The defining paper proves stochastic convergence, introduces root-mean-square normalization, and explains common-scale cancellation, but its inspected full text does not state the exact coordinate-concentration frontier or its dimension-dependent quadratic stability consequence. Focused published-record searches found no implication-equivalent AvaGrad theorem.",
+    "residual_risks": [
+      "A generic diagonal-preconditioning paper may contain an algebraically equivalent normalized-box extremum without AvaGrad terminology.",
+      "The theorem is statewise and one-step rather than a full trajectory convergence result.",
+      "Momentum and curvature anisotropy can impose additional constraints."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_NORMALIZATION_AND_SCALE_INVARIANCE; SHARP_COORDINATE_CONCENTRATION_STABILITY_FRONTIER_NOT_STATED.",
+        "evidence": "Algorithm 2 divides the adaptive-rate vector by its root-mean-square and the text explains common-scale cancellation. No exact isotropic-quadratic stability frontier or square-root dimension limit was found.",
+        "identifier_or_url": "arXiv:1912.01823v1 / CVPR 2021",
+        "material_read": "Full open PDF covering the delayed-Adam motivation, Theorem 2, Algorithm 2 AvaGrad, the scale-normalization discussion, and the CIFAR experiments varying learning rate and adaptability. The algorithm page and experiment page were also visually inspected.",
+        "method": "Full-text PDF inspection plus page-image inspection.",
+        "title": "Domain-independent Dominance of Adaptive Methods",
+        "trigger": "Defining source for delayed rates, AvaGrad root-mean-square normalization, bounded-rate assumptions, and learning-rate/adaptability separation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "122efa36-8546-4a23-bf55-c75538a161ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Learning-rate/adaptability separation is AvaGrad's defining motivation. The theorem identifies exactly what the normalization removes and what remains: common scale disappears, while coordinate concentration leaves a sharp dimension-dependent stability cost. The resulting frontier quantifies the transition from an SGD-like ceiling to a square-root-dimension ceiling.",
+    "status": "PASS"
+  }
+}
