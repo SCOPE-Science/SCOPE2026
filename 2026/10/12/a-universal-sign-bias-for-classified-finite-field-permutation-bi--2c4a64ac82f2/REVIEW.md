@@ -1,0 +1,9 @@
+# Scientific review: finite-field permutation signatures
+
+**Correctness — PASS.** For every stated odd prime power, extension degree and admissible exponent, the factorization through a Frobenius-linearized binomial is exact. A determinant calculation over the embedding basis, an elementary power-map parity lemma and an exact norm-fiber quadratic-character sum prove the claimed sign and both coefficient totals. A direct small-field enumerator checked 14 parameter cases and 609 actual permutations. These computations corroborate, but cannot replace, the universal proof. The argument does not address even characteristic or variable-exponent function collisions.
+
+**Originality — PASS, subject to material access risk.** The directly relevant Fan and Ni–Pang–Yu–Yuan arXiv abstracts supply permutation criteria, not a signed count. The complete published coprime-index collision result was read: it determines equality among functions and unsigned counts, not parity. Actual synonym/norm/character/sign published-finding corpus and literature queries found no covering result; available previous literature provides no such sign formula. Nevertheless full text of both 2026 arXiv preprints was inaccessible through lawful attempts, and a hidden equivalent theorem there or elsewhere cannot be excluded. Novelty cannot be certified by search failure.
+
+**Value — PASS.** The parity of a finite-field permutation determines membership in its alternating group. The new theorem determines that invariant for all coefficients of a naturally classified infinite family and proves a strict, exactly quantified parity imbalance. This is additional arithmetic structure not captured by counting permutation functions and gives strong small-field boundary cases.
+
+Self-review: passed. Independent audit: not yet performed.
