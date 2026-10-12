@@ -1,0 +1,12 @@
+# Review of Strict log-concavity of general position polynomials of square-page book graphs
+
+## Correctness
+PASS. A general position set of size at least three cannot contain an edge: in a bipartite graph, the distances from a third vertex to adjacent endpoints differ by one, forcing one endpoint onto a geodesic. Conversely, in \(B_r\), an independent triple cannot place one selected vertex internally on a selected-pair geodesic because all selected-to-selected distances are at most three while independence forces each leg through a selected internal vertex to have length at least two. This makes all size-at-least-three general position sets exactly the independent sets. The three disjoint spine-selection cases give the independence polynomial, and restoring the \(3r+1\) adjacent pairs yields the stated general position polynomial. The strict log-concavity proof is an explicit positive algebraic certificate, with the only altered inequalities checked separately. Exhaustive checks for \(2\le r\le8\) agree with the complete classification, polynomial, maximum-set count, and strict inequalities.
+
+## Originality
+PASS. The 2018 structural paper gives the bipartite diameter-three maximum-number result but does not enumerate all general position sets or give a book polynomial. The 2024 paper introducing general position polynomials treats standard families, joins, disjoint unions, path Cartesian products, Kneser graphs, and a labeled multipartite family, but its full text has no book or theta occurrence. A 2026 continuation develops complete-multipartite and corona formulas and log-concavity phenomena, again with no book or theta occurrence. Targeted semantic and exact-phrase searches under book, square-page book, generalized theta, and \(K_{1,r}\square K_2\) formulations found no equivalent polynomial or strict log-concavity theorem.
+
+## Value
+PASS. The 2024 polynomial paper explicitly treats unimodality as a central structural question and exhibits both positive and negative families; the 2026 continuation further emphasizes log-concavity. Square-page books are a standard named generalized-theta family and also a natural Cartesian product \(K_{1,r}\square K_2\). The result supplies a closed all-set polynomial and the stronger strict log-concavity property for an infinite family not covered by the existing product formulas. The contribution is therefore not merely the known scalar general position number.
+
+Self-review: passed. Independent audit: not yet performed.
