@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact domain is the fourteen-element point–line incidence poset of the Fano plane. Every ideal is a pair consisting of a point subset and a subset of its contained lines; an explicit formula follows directly from the definition of minimal absent elements. The seven short representative cycles, acted upon by the full 168-element projective group, give seven disjoint sets of 3, 42, 42, 35, 35, 105 and 196 ideals; these exhaust the independently proved total of 458. Two standalone exact implementations reproduce the cycle multiplicities 29, 35 and 28. Both the 105 order and seven symmetry classes follow from this complete partition, not from partial experiments.
+
+**Originality — PASS, with residual priority risk.** Striker–Williams (arXiv:1108.1172) establish the rowmotion framework and compute orbits for other specified posets. Striker (arXiv:1601.03710) studies toggle-group structure, while Pechenik (arXiv:2107.02679) treats minuscule periodicity and orbit preservation under comparability-graph equivalence. The inspected open full texts and source-specific searches provide no theorem or table covering this Fano point–line poset; no general theorem inspected implies the seven-class cycle distribution. The 1995 Cameron–Fon-Der-Flaass article was available only in abstract and metadata form, without a publicly accessible complete text located during this comparison; its specific study concerns products of three chains. An earlier unindexed enumeration remains possible, so priority is not independently certified.
+
+**Value — PASS.** This is the complete dynamical classification of a canonical incidence-geometric poset, with a compact seven-cycle certificate, 105 as exact rowmotion order, and seven symmetry classes. Its coexistence of cycle lengths 3, 5 and 7 on a highly symmetric rank-two poset gives an explicit boundary example for special-poset periodicity and cardinality-homomesy expectations. This is not merely a recomputation of a previously listed scalar invariant.
+
+**Limits.** The claim is finite and does not extrapolate to arbitrary projective planes. The exact computational certificates and their dependencies are included, and external independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
