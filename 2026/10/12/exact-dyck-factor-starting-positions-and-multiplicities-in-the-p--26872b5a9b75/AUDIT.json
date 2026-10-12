@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The signed paperfolding prefix height is exactly the Gray-code Hamming weight \\(H(N)=s_2(N\\mathbin{\\mathrm{xor}}\\lfloor N/2\\rfloor)\\), since the symbol at \\(N\\) is the sign of its Gray-code weight change. The reflected-block identity \\(\\mathcal H_m=\\mathcal H_{m-1}\\Vert(1+\\operatorname{rev}\\mathcal H_{m-1})\\) forces every midpoint-crossing Dyck interval to run from \\(2^r-1\\) to \\(2^m-1\\); noncrossing intervals inherit the property inductively. For fixed \\(L=2^K-2^r\\), later reflection interchanges exactly the two possible offset residues \\(2^r-1\\) and \\(2^K\\) modulo \\(2^{K+1}\\), and creates no new midpoint-crossing interval of length \\(L\\). Both residue classes are genuine Dyck starts: their factor positions have \\(2\\)-adic valuation less than \\(K\\), so shifting by \\(2^{K+1}\\) preserves every symbol. A designated symbol distinguishes the two canonical words except at lengths \\(2\\) and \\(4\\), and exact residue counting yields natural density \\(2^{-K}\\) and the dyadic-prefix occurrence formula. Exhaustive independent computations check all intervals through depth \\(12\\) and prefix-height equality through \\(2^{18}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper treats Dyck factor characterization for Thue–Morse and period-doubling, and automaticity of Dyck lengths for Rudin–Shapiro; for paperfolding it presents a conjectural length pattern.",
+        "The reflected Gray-code construction is standard, but a general Gray-code path formula with the derived two starting residues and two-word bound was not located."
+      ],
+      "reasoning": "Neither Dyck-factor length support nor general Gray-code recursion supplies a published pointwise characterization for every starting position. The source is inspected at its exact conjecture and neighboring theorems, ruling out a hidden statement in the most plausible primary source.",
+      "searches": [
+        "\"Conjecture 6.5\" \"paperfolding\" Dyck words",
+        "paperfolding word Dyck factor lengths exact characterization 2024 2025 2026",
+        "paperfolding Gray code Hamming weight Dyck factors exact starting positions",
+        "binary reflected Gray code hamming weight Dyck substring primitive intervals powers of two",
+        "arXiv:2301.06145 Section 6 Conjecture 6.5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.06145v1 full text, especially Section 6 and Conjecture 6.5",
+      "DOI:10.46298/cm.12695 open full-text version",
+      "DOI:10.1007/978-3-031-49193-1_3 abstract and metadata",
+      "Targeted exact and semantic searches for paperfolding Dyck starting positions, all factors, two distinct words, and dyadic densities",
+      "Prior and current same-subject research records checked for overlapping exact claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 6, Conjecture 6.5 provides the motivating sparse length pattern as an unproved assertion, not a proof of all occurrence positions.",
+        "The paperfolding length support is an existential projection; exact starts and distinct factors require further analysis of the reflected Gray heights and odd-part invariance.",
+        "The Vajnovszki–Wong work concerns a Gray-code ordering of combinatorial objects, not factors of the paperfolding sequence."
+      ],
+      "reasoning": "The final claim is intentionally the stronger occurrence-locus and multiplicity classification, with length support contextual. A general known relation between paperfolding prefix balance and binary runs, even when used to classify possible lengths, does not itself settle how many distinct Dyck words or which start residues occur.",
+      "searches": [
+        "arXiv:2301.06145v1 Dyck paperfolding Conjecture 6.5",
+        "Dyck Words Pattern Avoidance and Automatic Sequences Proposition 6.2 Theorem 6.4",
+        "Greedy Gray Codes for Dyck Words and Ballot Sequences",
+        "regular paperfolding Dyck factor all starting offsets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full Mol–Rampersad–Shallit paper ends with a conjecture about the support of possible Dyck-factor lengths. It contains no theorem about congruence classes of all starting positions or one-versus-two distinct factor words.",
+        "Other retrieved Gray-code works enumerate Dyck words in adjacent code order, a different invariant. No covering all-position law was found."
+      ],
+      "reasoning": "A statement of which lengths occur (an existential projection over starts) neither gives nor implies the exact start-residue set for each length or the number of distinct factor words. The theorem fixes that finer information with a constructive proof.",
+      "searches": [
+        "Dyck factors regular paperfolding word exact occurrence start positions powers of two",
+        "paperfolding Dyck factors exactly two distinct factors per length",
+        "regular paperfolding Dyck factor occurrence density 2^-k",
+        "\"paperfolding\" \"Dyck factor\" \"position\" \"power\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact formula, table or sequence entry gives the two residue classes of every Dyck length.",
+        "The direct primary source conjectures length support and does not tabulate exact distinct factor counts."
+      ],
+      "reasoning": "A few finite factors or a table of admissible lengths would not imply the all-start residue classification or equality of the two canonical factor words only at lengths two and four.",
+      "searches": [
+        "paperfolding Dyck factors exactly two distinct factors per length",
+        "paperfolding Dyck factor semilength difference of powers classification",
+        "paperfolding Dyck factor occurrence density 2^-k",
+        "paperfolding Dyck factors positions modulo 2 powers"
+      ]
+    },
+    "rationale": "The primary 2023 paper makes the paperfolding length question conjectural but provides no exact start-position or multiplicity results. Earlier knowledge of possible Dyck lengths addresses only whether some factor exists, not the exact arithmetic progression of all positions or the number of distinct words. Targeted scientific and semantic searches found no covering statement. The stronger residue-and-multiplicity theorem is the surviving originality claim.",
+    "residual_risks": [
+      "A short unpublished or unindexed consequence of binary-run prefix heights may already give the start-position residues and distinct-word counts.",
+      "The original paper expresses its conjectural length pattern in a different normalization; the theorem fixes full length and semilength separately and does not depend on the conjecture being interpreted literally.",
+      "The theorem does not extend to arbitrary generalized paperfolding words."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_START_POSITIONS_OR_COUNTS",
+        "evidence": "The paper studies Thue–Morse Dyck factors, period-doubling limited Dyck factors, and Rudin–Shapiro length automaticity; for paperfolding it states a conjecture about lengths, without giving exact occurrence positions or multiplicities.",
+        "identifier_or_url": "arXiv:2301.06145v1 / DOI:10.46298/cm.12695",
+        "material_read": "Full 21-page open manuscript including definitions and balance, sections 3 through 6, Proposition 6.2, Theorem 6.4, Figure 3, and final Conjecture 6.5; page 20 visually inspected.",
+        "method": "Primary-source arXiv full-text inspection and PDF page review.",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Exact motivating paper; formulates the paperfolding Dyck-length conjecture."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT",
+        "evidence": "The paper constructs a Gray code ordering of Dyck words by transpositions; it does not study the weight profile of the binary reflected Gray code as the paperfolding parenthesis path.",
+        "identifier_or_url": "DOI:10.1007/978-3-031-49193-1_3",
+        "material_read": "Publisher-indexed title, abstract and bibliographic metadata; no full text claimed.",
+        "method": "Abstract-level inspection to distinguish the research object.",
+        "title": "Greedy Gray Codes for Dyck Words and Ballot Sequences",
+        "trigger": "Search collision on Gray codes and Dyck words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26872b5a-9b75-498e-a684-278df7b27be0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original work explicitly asks about Dyck factors in paperfolding. The theorem does more than give a sparse list of admissible lengths: it completely classifies occurrence positions as two residue classes modulo an explicit power of two, decides each candidate occurrence by a single modular test, gives exact natural occurrence density, and determines the number of distinct Dyck words at every length. This is a natural full positional classification of a classical automatic sequence and closes a separate multiplicity gap beyond the known length-support phenomenon.",
+    "status": "PASS"
+  }
+}
