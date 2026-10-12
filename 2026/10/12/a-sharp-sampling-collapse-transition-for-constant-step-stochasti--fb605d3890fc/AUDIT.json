@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Both component proximal maps are strict contractions. The exact invariant first and centered second moments give the stationary risk. SymPy verifies the derivative equals a positive rational factor times the increasing quadratic Pκ(p); Pκ(0)<0 and Pκ(1)=-2κ(κ+2)(κ²-2κ-7), giving the unique global interior/endpoint frontier κ=1+2√2. Unbiased-risk and objective limits follow from exact substitutions. Reproducible symbolic and 450 exact finite-time recurrence/path checks support, but do not replace, the infinite-horizon proof. No probabilistic finite enumeration is misrepresented as exhaustive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asi–Duchi, arXiv:1810.05633, defines the stochastic (approximate) proximal point iteration and derives broad convergence guarantees.",
+        "Patrăşcu–Necoara, arXiv:1706.06297, studies nonasymptotic stochastic proximal optimization with constrained convex functions and convergence rates.",
+        "Défossez–Bach, arXiv:1412.0156, studies optimal sampling distributions for averaged explicit least-mean-squares methods, including importance corrections."
+      ],
+      "reasoning": "The broad convergence and asymptotic distribution theories do not directly select the optimal uncorrected sampling probability for the **original equal-weight** objective in this fixed-unit-step scalar model. Importance-weighted explicit-gradient sampling optimizes a distinct law. Related claims share motivation, not implications strong enough to subsume the computed sign polynomial and deterministic endpoint.",
+      "searches": [
+        "constant stepsize stochastic proximal point two scalar quadratic components optimal nonuniform sampling probability stationary mean squared error deterministic versus randomized phase transition",
+        "stochastic proximal point importance sampling selection probabilities minimize asymptotic expected objective on heterogeneous curvature quadratic",
+        "stochastic implicit gradient stationary covariance optimal sampling component quadratic",
+        "arXiv:1810.05633",
+        "arXiv:1706.06297",
+        "arXiv:1412.0156"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.05633 (open full text, motivating method; first public 2018-10-12)",
+      "arXiv:1702.04144 (open full text, constant-step random resolvents)",
+      "arXiv:1706.06297 (open full text, stochastic proximal convergence)",
+      "arXiv:1412.0156 (open full text, averaged SGD optimal sampling)",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (published research-record summary)",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 (published research-record summary)",
+      "2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8 (published research-record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Asi–Duchi arXiv:1810.05633 treats proximal stability/convergence, which does not state the exact sign test \\(P_\\kappa(p)\\).",
+        "The related feedback-curvature-stability finding concerns proposals for an OSGM algorithm, not optimization of the invariant second moment in fixed-step component-wise proximal recursion.",
+        "Défossez–Bach arXiv:1412.0156 studies averaged explicit LMS with objective-preserving importance weighting, not uncorrected proximal terminal stationary loss."
+      ],
+      "reasoning": "Proving ergodicity, convergence rate, or importance-weighted variance optimality is insufficient to imply the specific unique minimizer of this uncorrected stationary squared loss. The new derivative sign calculation is needed. Conversely the current theorem says nothing about minimizing transient mean-square error, objective-preserving sampling, or arbitrary resolvents. The closest sources have relevant concepts but do not visibly cover the statement in the inspected material.",
+      "searches": [
+        "constant stepsize stochastic proximal point two scalar quadratic components optimal nonuniform sampling probability stationary mean squared error deterministic versus randomized phase transition",
+        "sample selection optimized against original objective without importance weighting stochastic proximal point two functions",
+        "stochastic implicit gradient stationary covariance optimal sampling component quadratic",
+        "stochastic optimization momentum gradient stochastic extragradient random reshuffling exact mean square spectral",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For the scalar two-atom affine random resolvent law, the moment formula depends on the sampling probability through both stationary mean bias and variance.",
+        "Published finding 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 optimizes a finite-dimensional randomized coordinate-descent **contraction rate**, not stationary squared bias-plus-variance.",
+        "Bianchi–Hachem–Salim, arXiv:1702.04144, develops general constant-step random monotone-operator asymptotic/invariant theory; inspected relevant sections do not present the displayed probability-collapse threshold."
+      ],
+      "reasoning": "The equivalent invariant-measure formulation, random affine contraction or Bernoulli perpetuity formulation, and quadratic stationary-risk optimization were explicitly compared to the identified sources. A general invariant-measure theorem establishes existence but does not imply the exact minimizer polynomial or its sharp endpoint transition without additional algebra. No equivalent published formula was identified in the checked material; this is not a proof of exhaustive priority.",
+      "searches": [
+        "constant stepsize stochastic proximal point two scalar quadratic components optimal nonuniform sampling probability stationary mean squared error deterministic versus randomized phase transition",
+        "stochastic proximal point importance sampling selection probabilities minimize asymptotic expected objective on heterogeneous curvature quadratic",
+        "stochastic proximal point iid two quadratic objective f1 k x squared f2 x minus one squared constant unit step stationary squared error sample selection phase transition",
+        "stochastic resolvent affine contractions Bernoulli stationary bias variance optimal sampling phase transition",
+        "arXiv:1702.04144",
+        "arXiv:1810.05633"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record searches returned related coordinate-sampling, stochastic-feedback and gradient-variance findings but did not retrieve this stationary-risk transition.",
+        "The root \\(1+2\\sqrt2\\) by itself is not used as a novelty identifier; the object, risk functional, probability domain, and implication were compared."
+      ],
+      "reasoning": "No exact table of the \\(p_\\star(\\kappa)\\) sampler or equivalent risk minimizers was identified in the searched mathematical records. This check is limited to those search results and must not be mistaken for a comprehensive database-exhaustion statement.",
+      "searches": [
+        "stochastic proximal point iid two quadratic objective f1 k x squared f2 x minus one squared constant unit step stationary squared error sample selection phase transition",
+        "stochastic resolvent affine contractions Bernoulli stationary bias variance optimal sampling phase transition",
+        "1+2 sqrt 2 proximal sampling stationary variance threshold"
+      ]
+    },
+    "rationale": "Targeted mathematical-record, relevant published-finding and primary-source checks compared object, implicit objective, stationary mean/variance, sample-probability parameter, and exact implication. Identified broader stationary-resolvent theory does not by itself yield the unique Bernoulli sampling transition, while importance-weighted averaged SGD concerns a different update. Residual risk of undiscovered equivalent specialized calculations remains.",
+    "residual_risks": [
+      "An unindexed specialist paper could contain an equivalent Bernoulli-affine invariant-risk calculation.",
+      "The generality of related invariant-measure sources was checked in materially relevant portions, not exhaustively line by line.",
+      "Searches and current ledger cannot establish global priority or absence of unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The method generalizes the recursion but the inspected statements do not yield the stationary fixed-unit-step sampling minimizer polynomial.",
+        "evidence": [
+          "Original first public submission 2018-10-12; preprint Eq. (3) gives the proximal update.",
+          "Reviewed introductory and relevant quadratic-convergence sections, not merely a search snippet."
+        ],
+        "identifier_or_url": "arXiv:1810.05633",
+        "material_read": "Abstract and introductory method statements/equation defining stochastic proximal steps, along with relevant convergence and quadratic discussion in the accessible preprint.",
+        "method": "Examined openly accessible full-text PDF with targeted sections and page screenshots.",
+        "title": "Stochastic (Approximate) Proximal Point Methods: Convergence, Optimality, and Adaptivity",
+        "trigger": "Defining motivating stochastic proximal scheme and possible dominance of a general exact result"
+      },
+      {
+        "assessment": "General invariant distribution/ergodic results support the existence claim, but no checked result computes or optimizes this explicit stationary error over a Bernoulli law.",
+        "evidence": [
+          "Inspected open-access preprint introduction and its constant-step asymptotic results."
+        ],
+        "identifier_or_url": "arXiv:1702.04144",
+        "material_read": "Preprint abstract/introduction and development of constant-step random monotone iterations and asymptotic laws.",
+        "method": "Accessible full-text PDF and targeted sections/screenshots.",
+        "title": "A Constant Step Forward-Backward Algorithm Involving Random Maximal Monotone Operators",
+        "trigger": "A general stationary stochastic resolvent result could dominate a two-component calculation"
+      },
+      {
+        "assessment": "No implication identified for the fixed-step uncorrected Bernoulli stationary-risk frontier.",
+        "evidence": [
+          "Studies nonasymptotic convergence guarantees rather than the exact fixed-step invariant risk optimum."
+        ],
+        "identifier_or_url": "arXiv:1706.06297",
+        "material_read": "Accessible preprint abstract, introduction and algorithmic convergence assumptions, including discussion of stepsizes.",
+        "method": "Full-text PDF with targeted passage review and page screenshots.",
+        "title": "Nonasymptotic Convergence of Stochastic Proximal Point Algorithms for Constrained Convex Optimization",
+        "trigger": "Proximal convergence analysis potentially containing an exact sampling rule"
+      },
+      {
+        "assessment": "Conceptually related but explicit averaged LMS importance-weighted target differs from uncorrected proximal dynamics and its stationary terminal risk.",
+        "evidence": [
+          "Compared sampling-law definition, importance adjustment, and terminal-versus-averaged performance criterion."
+        ],
+        "identifier_or_url": "arXiv:1412.0156",
+        "material_read": "Introduction and relevant optimal sampling/bias–variance sections of the accessible paper.",
+        "method": "Full-text PDF, targeted reading of sample-distribution framework.",
+        "title": "Constant Step Size Least-Mean-Square: Bias-Variance Trade-offs and Optimal Sampling Distributions",
+        "trigger": "Plausible stronger optimal-sampling coverage despite algorithm differences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb605d38-90fc-4986-a4bd-73e0beaceb7a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural steady-state stochastic-resolvent design problem has a complete exact probability classification, including a nontrivial interior-to-endpoint switch, proof of unique minimizers, and the mathematical distinction between mean-unbiased sampling and minimum terminal squared loss. The asymptotically unbounded risk ratio and nonzero unbiased-sampler objective gap show a substantive, not solely numerical, difference. Scope is explicitly limited to uncorrected two-component scalar quadratics, so the result is a motivated benchmark rather than a claim of optimal general learning.",
+    "status": "PASS"
+  }
+}
