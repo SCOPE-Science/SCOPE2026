@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The inverse-positive M-matrix property is exact from the finite Neumann series. The field-of-values boundary is the exact smallest Hermitian-part eigenvalue. The first and second GMRES iterates are reconstructed from the defining normal equations, with a positive Gram determinant. Analytic sign bounds prove that the fourth coordinate alone crosses at t=1 inside 0<t<sqrt(5)-1. Exact rational replay at t=6/5 returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Greenbaum and Trefethen formulate GMRES as minimization of ||p(A)b|| for polynomials normalized at zero and discuss normal versus nonnormal behavior.",
+        "Saad and Schultz are the classical source for GMRES residual minimization on nonsymmetric systems.",
+        "Field-of-values GMRES theory controls convergence or residual norms rather than signs of coordinates."
+      ],
+      "reasoning": "Residual-norm convergence, eigenvalue clustering, and right-half-plane numerical-range separation do not imply invariance of the positive orthant. The accepted result makes that logical gap explicit with a positive-inverse family and an exact sign threshold.",
+      "searches": [
+        "NYU-TR1992-607",
+        "DOI:10.1137/0915025",
+        "DOI:10.1137/0907058",
+        "semantic index query: GMRES first step field of values positive vector sign reversal"
+      ]
+    },
+    "checked_sources": [
+      "NYU-TR1992-607",
+      "DOI:10.1137/0915025",
+      "DOI:10.1137/0907058",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+      "2026/9/9/SCOPE008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1992 report states the GMRES polynomial minimization problem and motivates nonnormal analysis; the inspected opening material does not state coordinatewise positivity for M-matrices.",
+        "The journal metadata assigns primary MSC 65F10.",
+        "The closest indexed GMRES result is explicitly symmetric and concerns Euclidean solution-error amplification rather than positive-orthant invariance."
+      ],
+      "reasoning": "The prior GMRES framework is used to derive the normal equations, but it does not imply the new sign comparison. The accepted theorem additionally exploits the inverse-positive Jordan family, the exact second-step coordinate formula, and the independent numerical-range boundary.",
+      "searches": [
+        "NYU-TR1992-607 full text: cover, abstract, introduction",
+        "DOI:10.1137/0915025 metadata and abstract",
+        "DOI:10.1137/0907058 bibliographic record",
+        "semantic index source: 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The nearest indexed GMRES record concerns a sharp Euclidean solution-error barrier for symmetric GMRES(1), not coordinatewise positivity for a nonsymmetric M-matrix.",
+        "No checked indexed result stated an exact positive-orthant threshold for the upper-shift M-matrix family."
+      ],
+      "reasoning": "Equivalent phrasings include positivity preservation, nonnegative Krylov iterates, cone invariance, and sign loss of the GMRES solution polynomial. The checked aliases did not yield a statement that implies the t=1 versus t=sqrt(5)-1 separation.",
+      "searches": [
+        "semantic index query: GMRES first iterate M-matrix positivity upper bidiagonal Jordan block positive right hand side",
+        "semantic index query: GMRES positive orthant nonsymmetric M-matrix numerical range first step",
+        "semantic index query: GMRES Jordan M-matrix negative first iterate positive inverse",
+        "semantic index query: upper bidiagonal M-matrix GMRES nonnegative iterate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The diagonal symmetric search surfaced a published symmetric GMRES(1) error-barrier record and nearby Richardson/GMRES results, but no M-matrix coordinate-sign table or exact t=1 threshold.",
+        "The final family is nonsymmetric, so symmetric MINRES/GMRES reductions do not imply its second-iterate coordinate formula."
+      ],
+      "reasoning": "Exact-parameter searches were used to test whether the boundary was already tabulated or subsumed. The relevant published records concern different invariants: Euclidean error, residual safety, or symmetric spectra.",
+      "searches": [
+        "semantic index query: GMRES condition number 2 positivity frontier",
+        "semantic index query: GMRES residual polynomial positivity positive orthant diagonal",
+        "semantic index query: GMRES two-step solution polynomial sign diagonal SPD",
+        "semantic index query: GMRES monotonicity M-matrix nonnegative iterates"
+      ]
+    },
+    "rationale": "Classical GMRES residual minimization, Krylov-polynomial representations, nonnormality, and field-of-values convergence are treated as prior work. The accepted statement is the exact separation, on an inverse-positive four-state M-matrix family, between the second-iterate orthant boundary t=1 and the right-half-plane numerical-range boundary t=sqrt(5)-1. Searches across coordinate-positivity, M-matrix, Jordan-family, residual-polynomial, and numerical-range aliases did not locate an implication-equivalent result.",
+    "residual_risks": [
+      "Older positivity-preserving Krylov, monotone matrix-iteration, or M-matrix literature may contain a related sign-loss example under different terminology.",
+      "Only the opening material of the 1992 technical report and abstract-level material of the original GMRES paper were inspected; no claim of exhaustive historical coverage is made.",
+      "No minimal-dimension claim is made, and no claim is made about later iterates or general M-matrices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the polynomial/Krylov formulation and normal-versus-nonnormal viewpoint. The inspected material does not state the M-matrix coordinatewise sign boundary proved here.",
+        "evidence": "The report cover is dated 5/18/92 and states that GMRES minimizes ||p(A)b|| over normalized polynomials. The journal page lists primary MSC 65F10.",
+        "identifier_or_url": "NYU-TR1992-607; DOI:10.1137/0915025",
+        "material_read": "Technical-report cover, abstract, and opening introduction, together with journal abstract and bibliographic metadata.",
+        "method": "Public technical-report PDF inspection and journal metadata inspection.",
+        "title": "GMRES/CR and Arnoldi/Lanczos as Matrix Approximation Problems",
+        "trigger": "Direct classical source for GMRES polynomial approximation and nonnormal-matrix framing; it also supplies primary MSC ownership."
+      },
+      {
+        "assessment": "USED only to establish classical GMRES provenance; no whole-document originality conclusion is drawn from this limited inspection.",
+        "evidence": "The bibliographic record identifies the 1986 Saad-Schultz GMRES article for nonsymmetric linear systems.",
+        "identifier_or_url": "DOI:10.1137/0907058",
+        "material_read": "Bibliographic record and abstract-level description.",
+        "method": "Public bibliographic inspection.",
+        "title": "GMRES: A Generalized Minimal Residual Algorithm for Solving Nonsymmetric Linear Systems",
+        "trigger": "Original algorithm source and baseline for residual-minimization prior art."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea7c1542-8587-4fce-9664-1d6b8609400b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "M-matrices model many discretized positive systems, where nonnegative exact solutions carry physical meaning. The result shows that inverse positivity, a positive exact solution, a spectrum fixed entirely at 1, first-step positivity, and right-half-plane numerical-range separation still do not protect GMRES coordinates. The exact gap from t=1 to t=sqrt(5)-1 provides a sharp, reproducible boundary rather than a generic warning.",
+    "status": "PASS"
+  }
+}
