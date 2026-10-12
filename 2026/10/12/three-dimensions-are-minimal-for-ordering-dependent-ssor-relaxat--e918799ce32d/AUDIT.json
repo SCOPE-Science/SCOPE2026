@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Positive diagonal congruence reduces every non-diagonal 2x2 SPD problem to one coupling parameter. The generalized eigenvalue product is fixed while the sum equals its omega=1 value plus a positive multiple of (omega-1)^2, proving the complete two-dimensional optimum. For the 3x3 path, exact determinant factorization at omega=1 and implicit differentiation show the smallest generalized eigenvalue increases under slight overrelaxation in natural order while the top branch is stationary, so the condition number decreases. In the center-first ordering, one generalized eigenvalue is identically one and the other two have fixed positive product with a sum uniquely minimized at omega=1, proving a strict global optimum there.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuo and Chan analyze SSOR and SSOR-preconditioned methods under red/black versus natural orderings and derive an omega=1 optimum for their red/black model.",
+        "Ortega states that red/black and multicolor orderings can degrade preconditioned conjugate-gradient convergence relative to natural ordering.",
+        "Ashcraft and Grimes treat SSOR preconditioners under natural ordering and vectorization, confirming the classical method context."
+      ],
+      "reasoning": "These sources establish the importance of ordering and relaxation but do not, in the inspected material, classify the smallest possible dimension or prove universal 2x2 omega=1 optimality.",
+      "searches": [
+        "Two-Color Fourier Analysis of Iterative Algorithms for Elliptic Problems with Red/Black Ordering",
+        "Orderings for Conjugate Gradient Preconditionings",
+        "On Vectorizing Incomplete Factorization and SSOR Preconditioners"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0911045",
+      "doi:10.1137/0801034",
+      "doi:10.1137/0909009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kuo and Chan already show red/black SSOR behavior and an omega=1 optimum on their structured elliptic model, so that component is not claimed as new.",
+        "Ortega provides broad evidence that ordering changes convergence, but the accessible abstract does not imply that dimensions one and two are immune to a shifted optimal relaxation.",
+        "The new natural-order path calculation uses a simple generalized eigenvalue at omega=1 whose derivative is strictly favorable under overrelaxation, an implication not supplied by the broad ordering results."
+      ],
+      "reasoning": "Prior work establishes that ordering matters in larger structured systems. The new claim adds the exact lower-dimensional obstruction: all 2x2 SPD systems are forced to omega=1, and three nodes suffice to break that invariance.",
+      "searches": [
+        "red black SSOR optimal omega 1 condition number Kuo Chan",
+        "natural ordering SSOR optimal relaxation preconditioner",
+        "ordering effects SSOR preconditioner condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned broad ordering and preconditioning results but no statement that every 2x2 SPD matrix is condition-number optimized at omega=1 under every ordering.",
+        "No searched result gave the same three-node path with natural-order local improvement beyond omega=1 and center-first unique optimality at omega=1."
+      ],
+      "reasoning": "Equivalent coverage would need the SSOR-preconditioned generalized spectrum, a universal two-dimensional statement, and a minimal dimension at which permutation changes whether omega=1 is optimal. Generic ordering degradation or an omega=1 optimum on a particular PDE grid does not imply that boundary.",
+      "searches": [
+        "SSOR preconditioner optimal relaxation ordering three by three tridiagonal exact condition number",
+        "SSOR ordering relaxation parameter condition number 3x3",
+        "SSOR preconditioner permutation ordering condition number small matrix",
+        "SSOR three by three optimal omega ordering",
+        "symmetric SOR preconditioner two by two optimal relaxation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact small-dimensional table, formula, or matching path family was located.",
+        "The finding is derived from exact generalized characteristic polynomials rather than benchmark data."
+      ],
+      "reasoning": "The claimed boundary is an analytic dimension-minimal classification, not a recomputation of a tabulated convergence experiment.",
+      "searches": [
+        "SSOR 3x3 omega=1 optimal condition number",
+        "SSOR three node path relaxation condition number",
+        "SSOR 2x2 omega=1 condition number optimal"
+      ]
+    },
+    "rationale": "Ordering effects for SSOR and red/black optimality at omega=1 are classical and are explicitly treated as prior work. The accepted claim is only the complete all-2x2 optimality theorem, the minimal-dimension boundary, and the exact three-node same-matrix comparison. Full-text inspection of the closest red/black Fourier paper and targeted statement/alias searches did not locate that minimal-dimension classification. The inaccessible body of Ortega and extensive older preconditioning literature remain explicit risks.",
+    "residual_risks": [
+      "The complete body of Ortega was not accessible through the inspected route, so a small-dimensional observation there cannot be excluded.",
+      "Older SSOR, incomplete-factorization, and ordering literature is extensive; the 2x2 calculation may have appeared as an unstated special lemma under different notation.",
+      "The natural-order 3x3 result proves local improvement beyond omega=1, not the exact global optimal overrelaxation parameter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROAD_PARTIAL_COVERAGE: establishes ordering dependence and an omega=1 optimum for the red/black structured model, but no located minimal-dimension theorem or universal 2x2 statement.",
+        "evidence": "The paper explicitly analyzes SSOR-preconditioned methods under red/black ordering and shows the relevant preconditioned condition number is minimized when the relaxation quantity is maximized at omega=1.",
+        "identifier_or_url": "doi:10.1137/0911045",
+        "material_read": "The complete article was available. The abstract and introduction, the red/black SSOR preconditioner derivation, the condition-number optimization in the SSOR section, and the natural-versus-red/black comparison were inspected; pages containing the SSOR eigenvalue and condition-number formulas were also visually rendered.",
+        "method": "Lawful full-text PDF inspection with rendered-page verification.",
+        "title": "Two-Color Fourier Analysis of Iterative Algorithms for Elliptic Problems with Red/Black Ordering",
+        "trigger": "Closest full primary source on SSOR preconditioning, ordering, and relaxation optimization."
+      },
+      {
+        "assessment": "PLAUSIBLE_BROADER_SOURCE_WITH_BODY_UNAVAILABLE: establishes the classical ordering problem and primary MSC 65F10; whole-document noncoverage is not asserted.",
+        "evidence": "The abstract states that red/black or multicolor orderings can degrade convergence relative to natural ordering and explicitly names SSOR; the publisher lists MSC 65F10 first.",
+        "identifier_or_url": "doi:10.1137/0801034",
+        "material_read": "Publisher abstract, keywords, history, references, and MSC classification were inspected. The full body was not accessible through the inspected route.",
+        "method": "Publisher-record inspection after bounded full-text access attempt.",
+        "title": "Orderings for Conjugate Gradient Preconditionings",
+        "trigger": "Primary numerical-linear-algebra source with SSOR/orderings as the central topic and primary MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e918799c-e32d-4f54-b066-7ad3cd1a0b0f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "SSOR ordering and relaxation are classical practical choices in preconditioned conjugate gradients. The result isolates the first dimension in which those choices genuinely interact: two dimensions force omega=1 regardless of ordering, while a three-node path already lets permutation change whether symmetric Gauss-Seidel is optimal. This is a natural minimal-dimension classification with an exact mechanism, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
