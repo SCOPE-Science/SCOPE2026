@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For \\(0\\le t\\le1\\), the Hermitian matrix satisfies \\(K^2=3I_4\\), so \\(C_t\\) is a positive correlation matrix. Any random-unitary representation must use diagonal unitaries because the channel fixes all four rank-one basis projectors. A parametrization of every unimodular phase vector yields \\(z^\\dagger Kz\\le6\\) from the exact identity \\[(3-x-y)^2-4(1-xy)=(x+y-1)^2+4(1-x)(1-y)\\ge0.\\] The witness \\(\\operatorname{Tr}(KC_t)=4\\sqrt3(1-t)\\) forces \\(t\\ge1-\\sqrt3/2\\). Four phase vectors average exactly to \\(I_4+K/2\\), and Fourier twirling realizes complete basis dephasing, proving sufficiency for every larger parameter. Equality classification and first-row constraints uniquely fix the four equal boundary weights. The boundary Gram matrix has rank four and cannot use fewer than four phase rank-one terms. The standalone standard-library verifier checks relevant exact matrices and a finite phase grid; continuum phase optimization is independently proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kribs et al. (2023), Corollary 34: for rank r, mixing at weight 1/r of C and (r-1)/r of I is sufficient, so for \\(r=2\\) the source implies \\(t\\ge1/2\\).",
+        "Kribs et al. (2023), Remark 35: this bound is likely nonoptimal in small dimensions.",
+        "Helm and Strunz (2009), Section III: qubit-environment two-qubit dephasing and numerical distance from RU; no exact white-noise threshold."
+      ],
+      "reasoning": "The rank-two sufficient noise amount \\(t\\ge1/2\\) in the general literature is weaker than the exact specialized threshold \\(t\\ge1-\\sqrt3/2\\). The qualitative tetrahedral non-random-unitary example covers the unperturbed endpoint, not the entire threshold classification.",
+      "searches": [
+        "arXiv:2306.04077v1 Corollary 34 Remark 35 rank two correlation",
+        "arXiv:0910.5364v1 Sections II-IV",
+        "\"quantum Birkhoff\" tetrahedral dephasing threshold dephasing mixture",
+        "sharp white noise threshold for quantum non random unitary phase damping four-level tetrahedral qubit environment"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0910.5364v1 Sections I-V",
+      "arXiv:1807.06491v2 Sections 1-3 and Theorem 2.2",
+      "arXiv:2306.04077v1 Sections 4-5 Corollary 34 and Remark 35"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.2 of Harris et al. characterizes RU but does not itself compute this four-dimensional exact phase witness.",
+        "Corollary 34 of Kribs et al. provides the sufficient \\(t\\ge1/2\\), rather than a necessary or sharp condition.",
+        "Helm and Strunz provide qualitative non-RU examples and an environment-state tetrahedral geometry, not the exact t* or equal-weight four-phase construction."
+      ],
+      "reasoning": "The specialized threshold is a strict improvement over the general sufficient criterion and supplies a matching necessity witness. The prior convex-hull equivalence makes the question well posed but does not by itself evaluate the displayed sharp four-phase optimization.",
+      "searches": [
+        "arXiv:1807.06491v2 Theorem 2.2",
+        "arXiv:2306.04077v1 Theorem 27 Corollary 34 Remark 35",
+        "arXiv:0910.5364v1 Section II III IV",
+        "tetrahedral SIC Gram correlation channel mixing complete dephasing classical random unitary threshold 1-sqrt3/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Harris et al. (2018), Theorem 2.2, reduces mixed-unitary Schur multipliers to convex hulls of unit-modulus phase rank-one matrices.",
+        "The exact supporting functional and four equality vectors are established for the explicitly displayed Hermitian conference matrix.",
+        "Semantic records nearest to the conference-matrix query concern unrelated Hermitian quartics and orthostochastic tangent cones, not Schur random-unitary criteria."
+      ],
+      "reasoning": "The equivalence between Schur quantum channels and phase-rank-one correlation matrices is established prior art and was considered. The inspected primary works do not evaluate \\(\\operatorname{Tr}(KC)\\) over this specific complex phase hull or its exact radial intersection.",
+      "searches": [
+        "\"tetrahedral\" \"Schur\" \"random unitary\" dephasing channel threshold",
+        "\"tetrahedral\" \"phase damping\" \"random unitary\" admixture",
+        "four dimensional Schur product dephasing channel with matrix I+uK where K Hermitian conference 4x4 and random unitary iff u<=1/2",
+        "arXiv:1807.06491v2 Theorem 2.2",
+        "four by four Hermitian conference matrix K K squared equals 3 identity sharp unimodular quadratic z dagger K z maximum 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact numerical/table match or relevant published result was returned by the stated targeted searches.",
+        "The apparent nearby published-record result on a tetrahedral tangent cone concerns a real orthostochastic variety, not complex correlation or random-unitary channels."
+      ],
+      "reasoning": "The invariant is a sharp analytic convex-hull intersection, not a finite dataset entry or recomputation of a known table. Lack of a matching search result is treated as limited negative evidence only, not independent novelty certification.",
+      "searches": [
+        "\"tetrahedral\" \"Schur\" \"random unitary\" dephasing channel threshold",
+        "\"conference matrix\" \"mixed unitary\" dephasing Schur",
+        "tetrahedral rank two four dimensional correlation matrix dephasing channel exact 1 minus sqrt(3)/2 noise random unitary mixed unitary",
+        "1-sqrt(3)/2 phase damping Schur channel exactly random unitary diagonal phase decomposition"
+      ]
+    },
+    "rationale": "The displayed tetrahedral channel path has an exact sharp transition at \\(t_*=1-\\sqrt3/2\\), a matching all-phase supporting witness, and a unique four-term boundary ensemble. Primary literature proves the general Schur random-unitary convex-hull criterion, qualitative nonrandom-unitarity of qubit-environment dephasing, and a generic rank-two sufficient condition \\(t\\ge1/2\\), but the examined texts do not compute this channel-specific exact threshold or equality ensemble. Targeted searches found no equivalent claim, which does not constitute independent global priority certification.",
+    "residual_risks": [
+      "Independent global literature priority has not been established; an equivalent exact tetrahedral phase-correlation calculation could occur under another terminology or in a thesis.",
+      "Institutional thesis record qucosa:25936 (contents-level theme Classical vs. Quantum) may contain additional related geometry; its full-text attachment returned HTTP 404. No conclusion about coverage is drawn.",
+      "Published-record semantic retrieval is not exhaustive and cannot rule out uncatalogued earlier or unpublished mathematics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact radial threshold: constructs non-RU channels and a geometric diagnostic, but no exact complete-basis-dephasing admixture transition for the present K",
+        "evidence": "Section II: Kraus diagonal and environmental Gram formulation; Section III and Figure 3: numerical cb-distance versus tetrahedron volume; Section IV: reservoir damping instead of our convex Δ admixture.",
+        "identifier_or_url": "arXiv:0910.5364v1; https://arxiv.org/html/0910.5364v1",
+        "material_read": "Full open HTML, including Sections I-V, the extremality criterion, qualitative examples, numerical Birkhoff defect, and conclusions",
+        "method": "Primary arXiv HTML examined for the same channel objects, quantitative noise mixing, and an exact threshold",
+        "title": "Quantum Decoherence of Two Qubits",
+        "trigger": "Closest physical qubit-environment nonrandom-unitary phase damping construction and tetrahedral geometry"
+      },
+      {
+        "assessment": "GENERAL_CRITERION not a coverage of sharp specialized threshold: Theorem 2.2 identifies the convex hull but supplies no matrix-specific support function or four equality classes",
+        "evidence": "Section 2, Theorem 2.2: Schur RU iff C lies in the convex hull of rank-one unimodular correlation matrices.",
+        "identifier_or_url": "arXiv:1807.06491v2; https://arxiv.org/html/1807.06491v2",
+        "material_read": "Full arXiv HTML, introduction, Theorem 2.2 and proof context, tensor-ancilla extension, distance results",
+        "method": "Inspect statements and implications of the convex-hull criteria for the present \\(C_t\\)",
+        "title": "Schur multipliers and mixed unitary maps",
+        "trigger": "Exact general equivalence of Schur RU with phase-rank-one correlation convex hull"
+      },
+      {
+        "assessment": "NOT_COVERING: provides rank-two sufficient complete-dephasing admixture \\(t\\ge1/2\\), whereas sharp \\(t_*=1-\\sqrt3/2\\) is smaller and additionally necessary",
+        "evidence": "Section 5, Corollary 34 states rank-r mixture bound (1/r)C+((r-1)/r)I; Remark 35 notes nonoptimality likely in small dimensions.",
+        "identifier_or_url": "arXiv:2306.04077v1; https://arxiv.org/html/2306.04077v1",
+        "material_read": "Full open arXiv HTML, Sections 4 and 5, Theorems 25 and 27, Corollary 34, Remark 35",
+        "method": "Compare theorem quantifiers, rank-two sufficient weight, and feasibility of exact special intersection",
+        "title": "Operator Algebra Generalization of a Theorem of Watrous and Mixed Unitary Quantum Channels",
+        "trigger": "Strongest plausible dominating general basis-dephasing admixture theorem"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK; no scientific noncoverage assertion based on the contents listing.",
+        "evidence": "No mathematical formula or exact threshold could be inspected from this item; it is recorded solely as residual priority uncertainty.",
+        "identifier_or_url": "qucosa:25936; https://tud.qucosa.de/en/api/qucosa%3A25936/attachment/ATT-0/",
+        "material_read": "Search-result table-of-contents information only; opening its full-text attachment returned HTTP 404.",
+        "method": "Attempted the institution-hosted document URL after searching for tetrahedral phase damping. No full text became accessible.",
+        "title": "Classical vs. Quantum (institutional thesis record; full-text comparison unavailable)",
+        "trigger": "A thematic thesis search-result contents listing includes sections on SIC POVMs and quantum decoherence, potentially relevant to tetrahedral Gram representations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "371bf1f3-8dfe-4e5c-9458-5e31c568349e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least complete-basis-dephasing admixture that makes a canonical tetrahedral phase-damping channel random unitary is an operationally natural robustness invariant, quantifying a quantum-environment versus stochastic-unitary transition. The exact threshold \\(1-\\sqrt3/2\\) strictly sharpens the general rank-two sufficient amount \\(1/2\\) for this geometry, and determines the extremal separating witness, all equality configurations, and unique minimal boundary implementation. These are substantive structural boundaries rather than an arbitrary small computation or renaming of a general criterion.",
+    "status": "PASS"
+  }
+}
