@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For nonzero generator ideal, \\(K[x]\\) is a PID, so \\((f_1,\\ldots,f_\\ell)=(d)\\). Bézout plus rank subadditivity gives the uniform upper bound \\(C=\\ell\\). If \\(d\\nmid g\\), a root multiplicity gap \\(a>b\\) and the Jordan block \\(J_a(\\lambda)\\) annihilate every generator but not \\(g\\), contradicting domination. The all-zero-generator case is immediate. The sharpness example has each generator value of rank \\(1\\) while \\(g(X)\\) has rank \\(\\ell\\). No finite experiment is used to infer the theorem.",
+    "risks": [
+      "None affecting the stated field and quantifiers; the theorem is not asserted beyond the stated one-variable setting."
+    ],
+    "sources": [
+      "Self-contained proof in RESULT.md",
+      "verify.py and VERIFY_OUTPUT.txt as supplementary finite checks"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yan--Yang Theorem 2.2 covers homogeneous generators for arbitrary variable count, while Proposition 3.1 gives a nonhomogeneous two-variable failure.",
+        "Shamovich--Volčič Theorem 1.2 classifies rank equality, not one-sided domination by an arbitrary generator family."
+      ],
+      "reasoning": "Neither broader-looking theorem dominates this statement: homogeneity excludes the new nonhomogeneous one-variable cases, and rank equality for two polynomials is not the multi-generator domination-to-ideal implication.",
+      "searches": [
+        "Volcic rank domination conjecture one variable polynomial matrix evaluations f divides g",
+        "arXiv 2610.01804 one variable boundary rank Nullstellensatz",
+        "arXiv:2610.01804v1 full text homogeneous theorem non-homogeneous case",
+        "arXiv:2505.07469v2 rank-equivalent stable association"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01804v1",
+      "arXiv:2403.06270v1",
+      "arXiv:2505.07469v2",
+      "DOI:10.3390/math12030360",
+      "six recorded semantic literature queries",
+      "prior published finding b04cede4-78ca-4a34-bbb2-133e608cc311"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior published finding, opaque item b04cede4-78ca-4a34-bbb2-133e608cc311, treats the two-variable product-reversal family \\(p(xy),q(yx)\\).",
+        "No prior published finding located by the recorded archive query states the present arbitrary-generator one-variable theorem."
+      ],
+      "reasoning": "The earlier claim classifies a special principal two-variable family and includes nonmembership cases under rank domination. It does not imply the positive theorem for arbitrary \\(\\ell\\) in the commutative one-variable ring, nor the sharp coefficient \\(\\ell\\).",
+      "searches": [
+        "prior published finding: rank domination for product-reversal composition family",
+        "prior published archive: one-variable rank Nullstellensatz and divisibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic literature searches produced no match stating a one-variable arbitrary-generator rank-domination/ideal-membership equivalence.",
+        "arXiv:2610.01804v1, Conjecture 1.1 and Proposition 3.1.",
+        "arXiv:2403.06270v1, Conjecture 6.2."
+      ],
+      "reasoning": "In one variable, two-sided ideal membership becomes divisibility by the gcd. Searches explicitly included both the Nullstellensatz language and the equivalent gcd/divisibility formulation; no retrieved result stated the claimed equivalence with uniform rank domination.",
+      "searches": [
+        "Rank Nullstellensatz one variable noncommutative polynomial rank domination ideal divisibility Jordan blocks",
+        "Volcic rank domination conjecture one variable polynomial matrix evaluations f divides g",
+        "one variable rank Nullstellensatz multiple generators gcd rank domination ideal membership companion matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic database searches under the recorded one-variable, gcd/divisibility, and rank-Nullstellensatz queries returned no exact table or classification covering the theorem.",
+        "Pop--Negrescu 2024 gives a gcd/lcm rank identity for two polynomial values at a fixed complex matrix, not a database or classification of uniform domination implications."
+      ],
+      "reasoning": "No exact table or database of one-variable domination cases was found. The nearest one-variable matrix-polynomial identity is scientifically related but does not tabulate or imply the stated arbitrary-generator sharp bound without an additional argument.",
+      "searches": [
+        "Rank Nullstellensatz one variable noncommutative polynomial rank domination ideal divisibility Jordan blocks",
+        "one variable rank Nullstellensatz multiple generators gcd rank domination ideal membership companion matrix",
+        "commutative polynomial ring K[x] rank domination max rank f_i(X) gcd g divisibility",
+        "Volcic conjecture d=1 one variable arbitrary generators rank inequality"
+      ]
+    },
+    "rationale": "The exact statement was compared by implication, not by title: the recent source proves homogeneous generators in all variable counts and supplies a nonhomogeneous two-variable counterexample, but does not state the arbitrary nonhomogeneous one-variable theorem or the sharp coefficient \\(\\ell\\). The rank-equivalence paper treats equality for two polynomials, and the one-variable rank-gcd identity treats a different fixed-matrix equality. Semantic literature searches returned no statement covering the theorem. The closest prior finding concerns the separate two-variable family \\(p(xy),q(yx)\\) and does not imply this multi-generator one-variable result.",
+    "residual_risks": [
+      "The theorem is elementary enough that an equivalent observation may exist in older matrix-polynomial literature under different terminology.",
+      "Search cannot establish global novelty or reveal unpublished work.",
+      "The 2024 gcd/lcm rank identity is close in technique, though its published statement does not contain the claimed arbitrary-generator all-sizes equivalence or sharp coefficient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact claim; proves the homogeneous case and a two-variable nonhomogeneous counterexample, but no arbitrary nonhomogeneous one-variable theorem or sharp coefficient.",
+        "evidence": "Conjecture 1.1 is at lines 38--51; homogeneous theorem at lines 72--98; counterexample at lines 101--146 of the inspected HTML.",
+        "identifier_or_url": "arXiv:2610.01804v1",
+        "material_read": "Abstract, Conjecture 1.1, Theorem 2.2 with proof, Proposition 3.1 with proof, references.",
+        "method": "arXiv HTML full-text inspection",
+        "title": "On a Rank Nullstellensatz Conjecture for Noncommutative Polynomials",
+        "trigger": "Direct motivating source and source of the two-variable counterexample."
+      },
+      {
+        "assessment": "NOT_COVERING exact claim; formulates the conjecture generally and records only the easy membership-to-domination direction.",
+        "evidence": "Conjecture 6.2 and discussion occur at lines 225--238 of the inspected HTML.",
+        "identifier_or_url": "arXiv:2403.06270v1",
+        "material_read": "Introduction, true-zero section, and full Low-rank values section including Conjecture 6.2.",
+        "method": "arXiv HTML full-text inspection",
+        "title": "Dimension-free matricial Nullstellensätze for noncommutative polynomials",
+        "trigger": "Original survey formulation of the rank-domination conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING exact claim; classifies rank equality of two polynomials via stable association, not arbitrary-family one-sided domination or ideal membership.",
+        "evidence": "Rank-equivalence is defined around lines 102--118 and Theorem 1.2 appears at lines 158--175.",
+        "identifier_or_url": "arXiv:2505.07469v2",
+        "material_read": "Definitions of rank-equivalence, examples, and Theorem 1.2.",
+        "method": "arXiv HTML full-text inspection",
+        "title": "Global structure behind pointwise equivalences of noncommutative polynomials",
+        "trigger": "Plausibly stronger rank-comparison literature."
+      },
+      {
+        "assessment": "NOT_COVERING exact claim; concerns an equality for two polynomial values at a fixed matrix, not all-size rank domination, arbitrary generator families, or sharp coefficient \\(\\ell\\).",
+        "evidence": "Theorem 1 states the rank gcd/lcm identity for two polynomials and one matrix.",
+        "identifier_or_url": "DOI:10.3390/math12030360",
+        "material_read": "Publisher abstract, introduction, Theorem 1, and conclusion as returned by the publisher page.",
+        "method": "Publisher HTML inspection via web retrieval",
+        "title": "Three New Proofs of the Theorem rank f(M) + rank g(M) = rank (f,g)(M) + rank [f,g](M)",
+        "trigger": "Directly relevant one-variable matrix-polynomial rank identity involving gcd."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e15df142-7739-4cee-a282-6a8a03e7573e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a mathematically natural boundary created by the new two-variable counterexample: one variable retains the full nonhomogeneous conjecture for every number of generators, and the proof identifies the exact best generator-count coefficient \\(\\ell\\). This is a structural boundary rather than an arbitrary finite slice, and the sharpness construction explains the quantitative loss in passing from ideal membership to a max-rank bound.",
+    "risks": [
+      "The argument is elementary once the boundary is posed; its value is the exact boundary and sharp coefficient rather than technical difficulty."
+    ],
+    "sources": [
+      "arXiv:2610.01804v1",
+      "arXiv:2403.06270v1"
+    ],
+    "status": "PASS"
+  }
+}
