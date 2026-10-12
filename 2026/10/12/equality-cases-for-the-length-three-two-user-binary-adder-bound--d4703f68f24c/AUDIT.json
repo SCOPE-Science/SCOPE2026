@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Van Tilborg's two published distance-class inequalities give the exact upper bound \\(|A||B|\\le14\\) at length \\(3\\). Equality then forces sizes \\(2\\) and \\(7\\); the direct collision-pair argument proves the antipodal-minus-one characterization. Exhaustive enumeration of all \\(65025\\) ordered nonempty subset pairs independently reproduces the maximum, all \\(16\\) extremizers, and their structure.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van Tilborg (1983) proves general distance-class bounds and exhibits a length-five \\((6,15)\\) example.",
+        "Guo–Watanabe (1992) studies maximum independent sets for a class of graphs attached to linear first codes; accessible material states this scope but not a global equality classification.",
+        "Later unbalanced-bound work concerns general rate upper bounds rather than enumeration of length-three equality cases."
+      ],
+      "reasoning": "The broader results bound or construct code pairs but do not, from the inspected material, imply that every length-three product extremizer has the stated form. A result for a fixed linear first code would not classify arbitrary first codes or count both orientations.",
+      "searches": [
+        "doi:10.1109/TIT.1983.1056667",
+        "Graph-Theoretical Construction of Uniquely Decodable Code Pair for the Two-User Binary Adder Channel",
+        "Sharper upper bounds for unbalanced uniquely decodable code pairs"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.1983.1056667",
+      "doi:10.1109/TIT.1985.1057004",
+      "IEICE E75-A(4), 492-497 (1992)",
+      "doi:10.1109/ISIT.2016.7541316"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1983 inequalities imply only the scalar bound \\(|A||B|\\le14\\) when specialized to \\(n=3\\).",
+        "The new structural step derives all equality cases from the factorization \\(14=2\\cdot7\\) and the exact cross-row collision count \\(2^{3-r}\\).",
+        "The 1985 and 1992 accessible abstracts describe construction/max-independent-set methods, not the assertion that all global maximizers are antipodal-minus-one."
+      ],
+      "reasoning": "The final claim strictly refines the known scalar bound by giving necessity, sufficiency, exact enumeration, and symmetry rigidity. None of those follow from the upper-bound statement alone.",
+      "searches": [
+        "Upper bounds on C2 for a uniquely decodable code pair binary adder",
+        "A family of good uniquely decodable code pairs two-access binary adder",
+        "Graph-Theoretical Construction uniquely decodable code pair binary adder"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact-parameter publication was returned by the indexed searches.",
+        "The standard equivalent formulation is injectivity of the integer sum map \\(A\\times B\\to\\{0,1,2\\}^3\\); the proof and verifier use this formulation directly."
+      ],
+      "reasoning": "Searches covered the main aliases: binary adder channel, two-access adder channel, uniquely decodable code pair, the exact product \\(14\\), size profile \\((2,7)\\), and antipodal structure. No retrieved statement matched the equality classification.",
+      "searches": [
+        "binary adder channel uniquely decodable length three maximum product 14",
+        "two-access binary adder n=3 14 uniquely decodable",
+        "uniquely decodable code pair sizes 2 7 length 3",
+        "uniquely decodable code pair antipodal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full-text search of the 1983 paper returned no matches for `n = 3`, `14`, `2, 7`, or `antipodal`.",
+        "The 1983 paper's explicit finite worked construction is at length \\(5\\), not length \\(3\\)."
+      ],
+      "reasoning": "No exact small-parameter table or equality census was located in the directly relevant full text or indexed searches. Literal search absence is treated only as supporting evidence, not as novelty proof.",
+      "searches": [
+        "van Tilborg n = 3 uniquely decodable code pair",
+        "binary adder channel 2,7 code",
+        "14 uniquely decodable code pair binary"
+      ]
+    },
+    "rationale": "The inspected 1983 source provides the bound but not the equality classification; exact-parameter and alias searches found no statement implying the global classification and count. Close construction literature may determine maximum partners for selected linear first codes, but that is weaker than classifying every product-optimal pair.",
+    "residual_risks": [
+      "The 1992 IEICE full text could not be inspected because access required human verification. It might explicitly compute the maximum partner for the length-three repetition code. That would cover a fixed-code subcase but not automatically the global classification and count.",
+      "A poorly indexed older table or worked example could have recorded the same length-three equality cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the scalar upper-bound ingredient; NOT COVERING for the inspected equality-classification statement.",
+        "evidence": "The paper defines the channel and unique decodability, proves both distance-class bounds, and then develops a length-five example. Exact-text searches found no target \\(n=3\\), product-\\(14\\), size-\\((2,7)\\), or antipodal statement.",
+        "identifier_or_url": "doi:10.1109/TIT.1983.1056667",
+        "material_read": "Complete five-page publisher PDF as exposed by the institutional repository.",
+        "method": "Read the full text, focusing on the definition of unique decodability, Lemmas 6 and 7, the summation step, and the explicit finite example; also ran exact-text searches for the target small parameters.",
+        "title": "Upper bounds on |C2| for a uniquely decodable code pair (C1,C2) for a two-access binary adder channel",
+        "trigger": "Direct source of the distance-class upper bounds used in the proof."
+      },
+      {
+        "assessment": "No implication of the final global length-three classification is visible in the material read; no whole-document noncoverage claim is made.",
+        "evidence": "The abstract describes an explicit family and computer-found good rate pairs, not an exhaustive length-three equality census.",
+        "identifier_or_url": "doi:10.1109/TIT.1985.1057004",
+        "material_read": "Repository bibliographic page and abstract.",
+        "method": "Compared the abstract's construction claims with the final all-extremizers statement.",
+        "title": "A family of good uniquely decodable code pairs for the two-access binary adder channel",
+        "trigger": "Close construction literature and a source with verified subject classification."
+      },
+      {
+        "assessment": "Potentially relevant to the fixed-first-code subproblem, but the accessible material does not imply classification of all global maximizers or their count.",
+        "evidence": "The abstract states evaluation/construction via maximum independent sets for a class of binary linear codes; it does not state the length-three all-pairs rigidity result.",
+        "identifier_or_url": "IEICE E75-A(4), 492-497 (1992)",
+        "material_read": "Publisher abstract and metadata; open full text was unavailable, and the authorized full-text route required human access verification that was not bypassed.",
+        "method": "Compared the stated scope (linear first code plus maximum independent set) against the final global equality classification using the accessible publisher material.",
+        "title": "Graph-Theoretical Construction of Uniquely Decodable Code Pair for the Two-User Binary Adder Channel",
+        "trigger": "Closest source by object and graph formulation; a fixed linear first code could include the antipodal repetition code."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4703f68-f24c-43c5-9fc7-fb35914d5f6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural equality problem for a classical sharp zero-error bound, not an arbitrary parameter slice. The result identifies the complete extremal structure, exact count, and symmetry orbit at the first odd length following the standard sharp length-two example, furnishing a finite benchmark for binary-adder constructions and graph formulations.",
+    "status": "PASS"
+  }
+}
