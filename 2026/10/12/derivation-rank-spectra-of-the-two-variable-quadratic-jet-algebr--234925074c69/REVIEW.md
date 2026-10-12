@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every derivation is uniquely determined by two images in the maximal ideal, yielding ten free field parameters; the cubic relations exclude constant coefficients even in characteristic two. In the resulting block matrix, quotienting by the induced quadratic action reduces the rank fibers to standard rectangular matrix-rank counts. The complete linear-part stratification is proved separately in odd and even characteristic. The program `verify.py` exhaustively confirms every coefficient in fields of orders two and three, and checks the controlling block stratification for fields of orders two, three, four and five. Finite enumeration is supplementary to the full algebraic proof.
+
+**Originality — PASS, with priority risk.** Bois (arXiv:0806.4496v1, Section 1.2) and Premet (arXiv:1405.2426v3, Sections 1--3) study derivation Lie algebras of variablewise-truncated polynomial rings and their internal centralizers or regular elements. Their objects and invariants differ from the total-degree-truncated quadratic-jet algebra and its operator-rank frequency law. Targeted published-literature and indexed-finding searches located no equivalent formula or result logically implying the complete distribution. The possibility of an unindexed historical expression remains a residual bibliographic risk; search absence alone is not proof of novelty.
+
+**Value — PASS.** This determines a complete natural invariant of the derivation representation of the first two-variable Artinian jet algebra with nonzero quadratic layer, including every attainable rank and frequency over every finite field. The characteristic-two collapse is structural: all derivations annihilate two independent quadratic powers, while odd characteristic admits derivations with no constants beyond the scalars. This sharp distinction is not visible merely from the dimension of the derivation space.
+
+**Scientific limitations.** The statement does not classify derivations up to conjugacy, nor cover higher truncation orders. The general proof must carry the infinite range of prime powers; small-field computations alone would not suffice. Bibliographic priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
