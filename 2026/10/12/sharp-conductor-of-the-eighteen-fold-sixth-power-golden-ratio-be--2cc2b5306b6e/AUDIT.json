@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Pongsriiam 2022 Theorem 4.3 explicitly covers every integer >= 93042 in 18B(phi^6). For a contrary representation of 93041, the floor-of-sum inequality restricts the total of positive Beatty indices to 5185 or 5186. The exact Pell identity 2889^2-5(1292)^2=1 gives 0 < (9-4sqrt(5)-18/323)n < 1/323 for 1<=n<=5186. Its complete residue ceiling formula gives a sum of 17 for total 5185, impossible for 18 residues >=1; for total 5186 it gives 18*323-1 and forces seventeen indices divisible by 323 and another congruent to 18 mod 323, so their total >=5509. All estimates are strict where necessary. Integer-square-root checks and finite bitset enumeration independently corroborated arithmetic; they do not prove infinite coverage.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer, Shallit and Zorcic, arXiv:2402.08331, Section 7 Theorem 12: effective computation of smallest additive-basis order.",
+        "Shallit, arXiv:2006.04177, sections 4-11: exact sumset claims for lower/upper Wythoff sequences."
+      ],
+      "reasoning": "An algorithm that can decide the least basis order does not explicitly compute the largest exception of the 18-fold sumset, especially with all indices positive. Two- and three-summand Wythoff classifications involve phi or phi-squared, so do not dominate the theorem for the generator phi to the sixth power. No stronger evaluated result was identified.",
+      "searches": [
+        "site:arxiv.org \"Beatty Sequences for a Quadratic Irrational\" \"sumsets\"",
+        "\"golden ratio\" \"sumsets\" \"conjecture\" 2025 2026",
+        "Beatty sequence 9+4sqrt5 additive basis 18 terms final gap 93041 rational Pell approximation denominator 323"
+      ]
+    },
+    "checked_sources": [
+      "Pongsriiam 2022 DOI 10.3934/era.2022121, full PDF, Theorem 4.3, Corollary 1, Conjecture 1.",
+      "Schaeffer--Shallit--Zorcic arXiv:2402.08331, full PDF, Section 7 Theorem 12.",
+      "Shallit arXiv:2006.04177, full PDF, Wythoff sumset statements.",
+      "OEIS A004921, complete public generator entry.",
+      "Phunphayap--Pongsriiam--Shallit DOI 10.1016/j.disc.2022.112810, abstract only.",
+      "Scientific-record and exact-name literature searches listed in individual checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pongsriiam 2022 Theorem 4.3: 18B(phi^6) includes all >=93042; Corollary 1: f(6)<=93041; Conjecture 1 asserts equality.",
+        "Schaeffer--Shallit--Zorcic 2024/2026 Theorem 12: general decision procedure, with no numerical 18-fold conductor result or value.",
+        "Phunphayap--Pongsriiam--Shallit 2022 abstract: pairwise and triple complementary-Beatty sumsets for generators below 3."
+      ],
+      "reasoning": "The new lower bound f(6)>=93041 is independent of the published f(6)<=93041; their conjunction is the exact result. The general computability theorem supplies possible methodology, not an evaluated instance. The complementary Beatty literature has different objects and summand counts; abstract-only inspection is retained as a limitation rather than a full-text absence certificate.",
+      "searches": [
+        "\"Pongsriiam\" \"Conjecture 1\" \"Frobenius\" \"Beatty\" 2024 2025",
+        "sumset Beatty golden ratio power six sharp bound optimal m 6 Pongsriiam 2022 conjecture",
+        "doi:10.3934/era.2022121",
+        "arxiv:2402.08331"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pongsriiam 2022, Corollary 1 and Conjecture 1, DOI 10.3934/era.2022121; inspected published full text pp. 2402-2403.",
+        "Available earlier mathematical findings from the same area were compared by statement and contain no eighteenth-fold sixth-power Beatty conductor claim."
+      ],
+      "reasoning": "The equivalent formulations are nonmembership of 93041 in eighteen exactly positive sixth-power Beatty terms; exact largest gap 93041; and sharp conductor 93042. The published paper has the upper inclusion and conjecture, not nonmembership at exponent 6; targeted exact number and alias searches identified no existing assertion of this exact equivalence.",
+      "searches": [
+        "\"93041\" \"Beatty\" golden ratio sumsets",
+        "\"Pongsriiam\" \"93041\" 18 sums",
+        "Sharp Frobenius number 93041 conductor 93042 for 18-fold Beatty sequence of sixth golden-ratio power phi^6",
+        "Pongsriiam 2022 Conjecture 1 first case m=6 sharp even power golden ratio Beatty sumset 18 B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A004921 gives floor(n*(9+4sqrt(5))) and a table of summands for n up to 10000; it does not state the 18-term sumset conductor.",
+        "The 2022 paper reports exact conductors only through exponent 5 and labels all higher sharpness assertions conjectural."
+      ],
+      "reasoning": "A database containing the underlying generator list can supply finite membership calculations, but does not contain or mathematically imply the global sharp conductor. Searches of exact value and parameter aliases found no exact sumset table already asserting the claimed value.",
+      "searches": [
+        "\"93041\" \"sumset\" phi",
+        "site:oeis.org \"93041\" \"18\" \"Beatty\"",
+        "site:oeis.org \"93041\" Beatty golden ratio phi",
+        "https://oeis.org/A004921"
+      ]
+    },
+    "rationale": "The motivating 2022 source states the even-exponent Frobenius bound and conjectures its sharpness, but verifies sharpness only for exponents <=5. The new exact exclusion for exponent 6 is not implied by the existing upper bound. The closest inspected Wythoff and decidability works address different generators, summand counts, or algorithmic decidability rather than this exact value; OEIS A004921 lists the summand sequence only. Equivalent unindexed work remains a residual risk.",
+    "residual_risks": [
+      "Targeted literature and research-record searches do not exclude unindexed equivalent results.",
+      "The complete full text of the related complementary-Beatty sumsets article was not materially inspected; its accessible abstract suggests different parameters, but unseen appendices cannot be ruled out.",
+      "The sharp conductor claim depends on the published global coverage theorem; it is not independently reproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GLOBAL_UPPER_BOUND_ONLY: states equality as conjectural beyond m=5; no m=6 nonmembership proof.",
+        "evidence": [
+          "Published 26 April 2022 on page 2385.",
+          "Theorem 4.3 on pp. 2397-2401 and Corollary 1, Conjecture 1 on p. 2403."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/era/2022/7/PDF/era-30-07-121.pdf",
+        "material_read": "21-page primary full-text PDF; publication and definitions, Section 4 theorem statements, proof of Theorem 4.3, Corollary 1 and Conjecture 1 at printed pages 2397-2403.",
+        "method": "Inspected article text and rendered source pages for mathematical statements, quantifiers, proof endpoint and numerical bound.",
+        "title": "Combinatorial structure and sumsets associated with Beatty sequences generated by powers of the golden ratio",
+        "trigger": "Same Beatty generator family and identical conjectured Frobenius quantity."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_VALUE: proves generic effective smallest-order decision rather than the numerical conductor 93042.",
+        "evidence": [
+          "Theorem 12 and its proof on page 10 state effective smallest additive-basis order; no explicit phi-sixth-power 18-fold Frobenius number."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.08331",
+        "material_read": "Full arXiv PDF examined with emphasis on Section 7, Theorem 12 at printed page 10, and nearby applications.",
+        "method": "Inspected full-text section and its original argument.",
+        "title": "Beatty Sequences for a Quadratic Irrational: Decidability and Applications",
+        "trigger": "Potential general computational theorem that could subsume the exact sumset question."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_VALUE: uses lower and upper Wythoff generators phi and phi-squared, not the sixth power with eighteen summands.",
+        "evidence": [
+          "Sections 4-11 concern L=B(phi) and U=B(phi-squared), plus related two- and three-fold sums."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.04177",
+        "material_read": "Full arXiv paper inspected in introduction and its detailed two- and three-term Wythoff sumset statements and proofs.",
+        "method": "Read PDF statements for generators and summand counts, including sections 4-11.",
+        "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+        "trigger": "Potential earlier exact Frobenius and Wythoff sumset statements."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_VALUE: tabulates generator values, no 18-fold conductor or Frobenius number.",
+        "evidence": [
+          "Formula floor((9+4sqrt(5))*n); table covers generator indices, not sums."
+        ],
+        "identifier_or_url": "https://oeis.org/A004921",
+        "material_read": "Complete entry title, sequence data, formula, references, and cross-references.",
+        "method": "Direct inspection of database entry.",
+        "title": "OEIS A004921: Beatty sequence floor(n phi^6)",
+        "trigger": "Exact summand generator table; possible tabulation of this invariant."
+      },
+      {
+        "assessment": "ACCESS_LIMITATION: abstract focuses on 2- and 3-term sumsets with complementary generators 1<x<y and 1/x+1/y=1. Residual unseen content risk explicitly retained.",
+        "evidence": [
+          "Published abstract describes B(x)+B(x), B(x)+B(y)+B(y), B(y)+B(y)+B(y); not the 18-fold sixth-power case."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2022.112810",
+        "material_read": "Published abstract and bibliographic record; complete text not obtained.",
+        "method": "Scientific comparison limited to available abstract; no assertion about uninspected appendices.",
+        "title": "Sumsets associated with Beatty sequences",
+        "trigger": "Closely related title and shared authors, potential stronger sumset coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2cc2b530-6b6e-466d-902a-c826d88aa683",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise Frobenius number is a natural invariant for the eighteen-fold Beatty sumset whose optimal value was an explicit published conjecture. The parameter m=6 is the first case for which published sharpness was not established. An exact nonmembership proof using a Pell rational approximant resolves the motivated gap, yielding a sharp infinite-coverage threshold. This is a meaningful exact cutoff, not an arbitrary small computation; no broad conjecture or asymptotic all-exponent result is claimed.",
+    "status": "PASS"
+  }
+}
