@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For each k>=3, the column subsets in C7 are independent, and each two neighboring columns have a disjoint independent union, forcing neighboring sizes <=3. Equality in sum of 2k inequalities forces all adjacent sums equal three and hence an alternating 0/3 or 1/2 pattern. There are exactly seven independent triples, giving 2*7^k first-family choices. Direct enumeration of valid singleton/pair transitions yields the complete matrix 3I7+A7, and closed cyclic walks give 2*tr(M^k) second-family choices without overcounting. The circulant spectrum yields the cosine formula; spectral radius five gives the asymptotic. Two independent scripts using complete column transfer and explicit state-transition enumeration reproduced exact results at n=6,8,10,12,14. The infinite quantifier is proved symbolically, not inferred from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hales, Numerical Invariants and the Strong Product of Graphs, pp.146–155, especially Theorem 7.1, gives odd-by-odd independence results and bounds.",
+        "Korže–Vesel 2012 full-text theorem statements address three odd cycle factors and quote known two-factor independence numbers.",
+        "Mathew–Östergård arxiv:1504.01472v1 treats packings in homogeneous powers of odd cycles."
+      ],
+      "reasoning": "A sharp graph independence number alone does not identify or count all equality configurations. The compared theorems involve different factor parities, number of factors, or only extrema; none has an implication supplying the trace formula.",
+      "searches": [
+        "zero error channels strong product C_7 and even cycles maximum independent code enumeration equality",
+        "Shannon capacity C_7 boxtimes C_n maximum independent sets count labeled zero error even cycle",
+        "doi:10.1016/0095-8956(73)90014-2",
+        "arxiv:1504.01472v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1504.01472v1",
+      "doi:10.1016/0095-8956(73)90014-2",
+      "https://combinatorialpress.com/article/ars/Volume%20106/volume-106-paper-41.pdf",
+      "https://hrcak.srce.hr/657",
+      "https://oeis.org/A279409"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hales (1973) provides independent-set cardinalities and general inequalities; numbers alone do not encode equality configurations.",
+        "A five-cycle has maximum independent cardinality two, whereas the seven-cycle permits triples. Hence arguments specialized to width five cannot directly imply the seven-cycle singleton/pair transition M=3I7+A(C7).",
+        "Korže–Vesel (2012) studies three odd factors, not exact maximum-code multiplicities for the two-factor width-seven even family."
+      ],
+      "reasoning": "The compared maximum-cardinality inequalities and results with other factor parameters logically do not furnish the all-even width-seven equality characterization. The required exact transition-matrix calculation and rigorously forced column-size dichotomy are additional mathematical statements.",
+      "searches": [
+        "zero error code C7 C7 980 maximum independent sets",
+        "strong product of cycles C5 and Cn classification optimal codes",
+        "doi:10.1016/0095-8956(73)90014-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Strong product zero-error codes correspond exactly to independent placements of nonattacking kings on the labeled toroidal 7 by 2k board (coordinatewise cyclic distance at most one).",
+        "Hales 1973, DOI 10.1016/0095-8956(73)90014-2, studies independence-number maxima rather than equality-set enumerations."
+      ],
+      "reasoning": "The same theorem under equivalent labels would specify the two parity-class families and trace count for all k. Inspected accessible primary statements do not give that count; searches cannot exclude unindexed work.",
+      "searches": [
+        "toroidal chessboard nonattacking kings C7 C8 all optimal configurations count",
+        "number maximum independent sets cylindrical king graph width 7 even circumference",
+        "strong product of cycles C5 and Cn classification optimal codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A279409 gives maximum numbers of toroidal nonattacking kings, not the number of size-maximizing labeled arrangements.",
+        "Exact direct column-counting verifier agrees with 1316, 7532, 45836, 291144, and 1905876 for even board circumferences 6 to 14."
+      ],
+      "reasoning": "A table of maximum cardinalities supplies no formula or classification for number of all attaining independent sets. The exact count sequence could still exist under unsearched aliases; no negative bibliographic assertion is inferred solely from absent hits.",
+      "searches": [
+        "https://oeis.org/A279409",
+        "toroidal chessboard nonattacking kings C7 C8 all optimal configurations count"
+      ]
+    },
+    "rationale": "The exact maximum 3k follows from the familiar cycle-product independence framework, but it cannot imply the labeled equality-class structural theorem. The new result classifies every maximizing placement on the two-factor 7 by 2k torus and counts it as two explicit families. Readable theorem-level primary papers concern cardinality, three odd factors, or homogeneous powers; searches of related graph and king-packing records did not identify the all-k count. The 2005 closely named source is a genuine unresolved access risk, not treated as known negative coverage.",
+    "residual_risks": [
+      "The complete full text of A. Klobučar (2005), a plausibly relevant source by title, was inaccessible. A pre-existing equivalent equality enumeration cannot be excluded from accessible abstract evidence.",
+      "Historic enumerations of toroidal nonattacking-kings maximum placements may be unindexed or available only in unpublished computational work; failed searches alone are not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides bounds and exact independence numbers for odd-cycle products; no all-even width-seven labeled equality census identified.",
+        "evidence": [
+          "R. S. Hales, JCTB 15 (1973), pp.146–155, Theorems 4.2 and 7.1."
+        ],
+        "identifier_or_url": "doi:10.1016/0095-8956(73)90014-2",
+        "material_read": "All ten pages, with definitions, Rosenfeld invariant, Theorems 4.1–4.2 and 7.1, construction and references.",
+        "method": "Authorized academic full-text extraction and theorem-level reading.",
+        "title": "Numerical Invariants and the Strong Product of Graphs",
+        "trigger": "Foundational cycle strong-product independence results and potential dominating theorem."
+      },
+      {
+        "assessment": "Treats odd-factor products, including three odd cycles, and states independence numbers rather than counts of all width-seven by even optimal configurations.",
+        "evidence": [
+          "D. Korže and A. Vesel, Ars Combinatoria 106 (2012), 473–481."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20106/volume-106-paper-41.pdf",
+        "material_read": "All nine pages, with abstract, introductory known two-cycle results, theorems, and references.",
+        "method": "Open-access publisher PDF page images and text.",
+        "title": "A Note on the Independence Number of Strong Products of Odd Cycles",
+        "trigger": "Exact strong-product cycle problem and closely related odd-cycle configurations."
+      },
+      {
+        "assessment": "Different product parameters: repeated copies of one odd cycle rather than heterogeneous C7 by even cycle; no asserted all-even maximum-code enumerator.",
+        "evidence": [
+          "K. A. Mathew and P. R. J. Östergård, first arXiv upload 2015-04-07."
+        ],
+        "identifier_or_url": "arxiv:1504.01472v1",
+        "material_read": "Available full preprint, introduction, main bounds, computations and tables.",
+        "method": "Open-access arXiv primary text and relevant table/appendix comparison.",
+        "title": "New Lower Bounds for the Shannon Capacity of Odd Cycles",
+        "trigger": "Zero-error graph-product literature under homogeneous-power equivalence."
+      },
+      {
+        "assessment": "Unresolved plausible coverage risk. The full article was not read and is not claimed NOT_COVERING.",
+        "evidence": [
+          "A. Klobučar, Mathematical Communications 10 (2005), 23–30; public abstract at publisher landing page."
+        ],
+        "identifier_or_url": "https://hrcak.srce.hr/657",
+        "material_read": "Publisher landing page, title and abstract only; full PDF was inaccessible in available paths.",
+        "method": "Landing-page inspection, unsuccessful full-text access; no conclusion from unread material.",
+        "title": "Independent Sets and Independent Dominating Sets in the Strong Product of Paths and Cycles",
+        "trigger": "Title directly names the relevant graph-product family and may contain equality enumeration."
+      },
+      {
+        "assessment": "Tabulates optimum sizes; does not establish count T_{2k}.",
+        "evidence": [
+          "OEIS A279409, toroidal kings maximum number."
+        ],
+        "identifier_or_url": "https://oeis.org/A279409",
+        "material_read": "Public sequence entry describing maximum occupancy, not a labeled maximizer count.",
+        "method": "Sequence title, definition, and listed values.",
+        "title": "Maximum number of nonattacking kings on an n by m toroidal board",
+        "trigger": "Exact equivalent kings-packing invariant could subsume the enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e00dcad-d114-4ea3-a0b5-e28e686b9662",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the full all-parameter classification of optimal labeled zero-error designs for a natural two-factor toroidal channel, with two disjoint genuinely different column mechanisms, exact exponentially large counts, and an asymptotic dominance law. Known numerical optimum 3k does not answer how many maximum designs exist or what they look like; the selection law makes the distinction mathematically meaningful. It is neither an isolated parameter-table entry nor a mere restatement of a general bound.",
+    "status": "PASS"
+  }
+}
