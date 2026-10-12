@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The active weaker-task branch is the support point of a Euclidean ball. Its progress zero and its contact with the equal-progress hyperplane give two separate exact thresholds. Projection geometry solves the balanced branch, and algebra proves the ordering and safe-range criterion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 direction-oriented work studies related neighborhood-regularized multi-objective formulations and stochastic algorithms.",
+        "The 2026 alignment work uses a clipped weighted CAGrad variant.",
+        "Accessible material from those works does not state the vanilla unweighted phase thresholds."
+      ],
+      "reasoning": "Related stochastic formulations and clipped weighted variants do not directly imply the exact active-set thresholds of the original two-task primal.",
+      "searches": [
+        "Direction-oriented Multi-objective Learning CAGrad two objective closed form",
+        "Reward-free Alignment conflicting objectives CAGrad two objectives closed form",
+        "CAGrad exact two task solution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.14048v1",
+      "arXiv:2110.14048v2",
+      "arXiv:2305.18409",
+      "arXiv:2602.02495"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation 3 gives the ball-constrained worst-task objective.",
+        "Lemma A.2 gives the general simplex dual.",
+        "Figure 2 illustrates but does not solve the two-task case.",
+        "Theorem 3.2 identifies c below one as the average-loss convergence range."
+      ],
+      "reasoning": "The final claim requires solving the two-task active-set transition and comparing that transition with the source convergence range; those implications are not stated by the general dual or convergence theorem.",
+      "searches": [
+        "arXiv:2110.14048 Eq. 3 CAGrad primal",
+        "arXiv:2110.14048 Lemma A.2 CAGrad dual",
+        "arXiv:2110.14048 Figure 2 two-task",
+        "arXiv:2110.14048 Theorem 3.2 c less than 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper displays a two-task CAGrad geometry but gives no closed threshold formula.",
+        "No located published record states the separate repair and balancing radii.",
+        "No located source states the one-third norm-ratio safe-range barrier."
+      ],
+      "reasoning": "Equivalent statements would identify the smallest radius that repairs the harmed task, the later active-set switch to equal progress, or the equal-norm no-rotation law. These were not found.",
+      "searches": [
+        "CAGrad two task common descent threshold weaker task norm ratio cosine",
+        "CAGrad two task equal progress threshold hyperparameter c",
+        "CAGrad equal norm two task direction scaling average gradient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest semantic records concerned unrelated minimax, trust-region, and spectral-threshold problems.",
+        "No returned record named a CAGrad common-descent threshold, balancing threshold, or one-third barrier."
+      ],
+      "reasoning": "Search absence is supporting evidence only; it is combined with direct inspection of the defining full text.",
+      "searches": [
+        "CAGrad two task exact closed form conflict averse gradient descent angle norms",
+        "Conflict-Averse Gradient Descent two gradients exact solution trust region multi objective",
+        "CAGrad two tasks closed form weight cosine norm ratio",
+        "CAGrad Pareto two task geometry exact",
+        "CAGrad two task common descent threshold weaker task norm ratio cosine",
+        "CAGrad two task equal progress threshold hyperparameter c",
+        "Conflict-Averse Gradient Descent unequal gradient norms exact phase diagram",
+        "CAGrad equal norm two task direction scaling average gradient"
+      ]
+    },
+    "rationale": "The defining CAGrad paper supplies the general primal, dual, two-task illustration, and convergence range but not the exact two-task thresholds. Focused published-record searches and checks of related later formulations did not identify an implication-equivalent statement.",
+    "residual_risks": [
+      "The 2023 direction-oriented source had only partial full-text accessibility in this run.",
+      "The later clipped-CAGrad work may contain algebraically related two-objective expressions.",
+      "An equivalent elementary derivation may exist in unindexed implementation notes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_PROBLEM_NOT_COVERING_EXACT_TWO_TASK_PHASE_THRESHOLDS.",
+        "evidence": "The source states the general problem and dual but no analytic two-task threshold formula was found.",
+        "identifier_or_url": "arXiv:2110.14048v2",
+        "material_read": "Full open text covering the conflict setup, Section 3.1 primal and dual, Figure 2, Theorem 3.2, and Appendix A.3 including Lemma A.2.",
+        "method": "Full-text open-access HTML inspection with targeted two-task and closed-form searches.",
+        "title": "Conflict-Averse Gradient Descent for Multi-task Learning",
+        "trigger": "Defining source for CAGrad."
+      },
+      {
+        "assessment": "PLAUSIBLE_RELATED_SOURCE_WITH_PARTIAL_ACCESS.",
+        "evidence": "Accessible material emphasizes stochastic algorithms and complexity, not the claimed two-task thresholds.",
+        "identifier_or_url": "arXiv:2305.18409",
+        "material_read": "Abstract, publication record, and method summary; direct full-text HTML retrieval was unavailable.",
+        "method": "Open publication record plus focused phrase searches.",
+        "title": "Direction-oriented Multi-objective Learning: Simple and Provable Stochastic Algorithms",
+        "trigger": "Later work explicitly related to CAGrad's direction-oriented formulation."
+      },
+      {
+        "assessment": "RELATED_CLIPPED_WEIGHTED_VARIANT; NOT_USED_FOR_WHOLE_DOCUMENT_NONCOVERAGE.",
+        "evidence": "The accessible method modifies task weights by clipping and does not state the vanilla phase thresholds.",
+        "identifier_or_url": "arXiv:2602.02495",
+        "material_read": "Open main-method material and targeted searches for closed-form/two-objective overlap.",
+        "method": "Open-access HTML inspection.",
+        "title": "Reward-free Alignment for Conflicting Objectives",
+        "trigger": "Later two-objective clipped CAGrad variant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc2e1936-c0cb-4729-a8a4-aacde64957de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The CAGrad radius directly controls the method's stated trade-off between average-objective fidelity and protection of individual tasks. The theorem sharply separates repairing harm from equalizing progress and shows that exact balancing can be impossible throughout the source convergence-safe range under strong norm imbalance.",
+    "status": "PASS"
+  }
+}
