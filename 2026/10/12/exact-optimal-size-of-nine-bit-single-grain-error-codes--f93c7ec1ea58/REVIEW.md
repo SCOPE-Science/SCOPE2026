@@ -1,0 +1,11 @@
+# Scientific review: exact nine-bit single-grain capacity
+
+**Correctness — PASS.** The channel's output sets are reconstructed directly from the stated overwrite operation. The two invariant first-bit components are isomorphic under complement. The conflict graph has exactly 256 vertices and 2816 edges on either half; exhaustive binary mixed-integer optimization gives matching primal and dual values of 39 and zero MIP gap. A separate tuple-based output-set check confirms the 78-word constructive lower bound. Both directions address the identical claim and no infinite inference is made.
+
+**Originality — PASS, with residual bibliographic risk.** The closest inspected source, Gabrys–Yaakobi–Dolecek (arXiv:1307.7087, Table II), records the nine-bit single-grain interval 64–112 rather than an exact optimum. Sharov–Roth (2014) discusses grain code constructions and short-length exact values, and Kashyap–Zémor (2013) supplies bounds; no inspected theorem implies the exact nine-bit figure 78. Searches included equivalent error-ball, confusability graph, grain-smearing and one-grain coding terminology. An unindexed earlier exhaustive calculation is still possible, so the absence of a hit is not presented as proof of uniqueness.
+
+**Value — PASS.** Nine bits is the next natural length after the exact eight-bit optimum, and the literature reports an appreciable gap at precisely this parameter. Closing both sides of that interval and supplying a completely reproducible codeword set yields a concrete finite-block performance benchmark rather than an arbitrary small slice.
+
+**Limits and risks.** The upper bound is dependent on successful exact binary optimization by SciPy/HiGHS rather than a symbolic classification; machine-independent verification and a fully independent audit remain unperformed. The Sharov–Roth 2014 journal text was inspected, but not every graphical table cell was recoverable from text extraction. The separate 2015 Sharov–Roth paper has constructions up to length 18 but its complete author-hosted text could not be obtained; overlap with that source remains a specific risk. Bibliographic completeness is not guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.

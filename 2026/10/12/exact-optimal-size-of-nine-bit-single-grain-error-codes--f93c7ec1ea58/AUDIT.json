@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The first received bit is invariant and bit complementation is an exact channel automorphism. Every leading-zero nine-bit word is among the 256 enumerated vertices. Distinct candidate codewords are compatible exactly when their possible-output sets are disjoint, yielding 2816 edges. The complete 256-variable binary conflict-graph program solved to primal/dual optimum 39, no optimality gap, after replay directly from its standalone source. An independently implemented tuple-based checker confirmed all 78 explicit codewords and 396 mutually disjoint received outputs. The objective is exactly twice the half-channel independence number, giving M(9,1)=78. The finite result relies on correct global MILP solver execution, not an unbounded experimental extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharov–Roth, IEEE Transactions on Information Theory 60 (2014), Sections III–IV: asymptotic and finite packing bounds, general construction and exact results for specific short parameters.",
+        "Kashyap–Zémor, arXiv:1302.6154: bounds on grain correcting codes; its nine-bit finite upper estimate does not equal the present optimum.",
+        "Gabrys–Yaakobi–Dolecek, arXiv:1307.7087v2, Table II: 64 to 112 at length 9."
+      ],
+      "reasoning": "An earlier general inequality that upper-bounds a maximum by 112 cannot imply the equality 78; a construction of 64 codewords is not a 78-word optimum or uniqueness theorem. Infinite asymptotic rate bounds and codes correcting an arbitrary number of errors address different quantifiers.",
+      "searches": [
+        "binary single-grain-error code M(9,1) exact upper lower 2013 Gabrys Yaakobi Dolecek",
+        "single grain correcting codes length 9 exact 78 magnetic medium code",
+        "grain-correcting code length nine M(9,1) optimal exact one smearing error confusability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1012.1895v1",
+      "DOI:10.1109/TIT.2014.2301811",
+      "arXiv:1302.6154v1",
+      "arXiv:1307.7087v2",
+      "public research database semantic searches for alternative grain/error-ball and size aliases",
+      "Sharov–Roth 2015 abstract and publisher metadata (full text unavailable)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1307.7087v2 Table II: earlier lower 64, upper 112.",
+        "DOI:10.1109/TIT.2014.2301811 Section IV: the known equalities at high grain count and the short exact cases are indexed by different parameters than (n,t)=(9,1).",
+        "The specified integer program enumerates all 256 leading-zero words and their 2816 conflicts, derives an upper bound 39, and the witness independently attains 39 in both leading-bit classes."
+      ],
+      "reasoning": "The claimed M(9,1)=78 would sharpen both published bounds, hence is not a direct special case of 64<=M<=112. The earlier n<=8 cardinalities cannot imply the nine-bit answer by shortening or extension alone; such an implication requires an additional sharp argument not present in the inspected statements.",
+      "searches": [
+        "one grain correcting binary length nine 9 code maximum cardinality 78 M(9,1) 39 fixed first bit",
+        "error ball binary grain overwrite one bit length 9 exact independent set 78",
+        "constrained run length strings exact reconstruction from grain errors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1307.7087v2, Definition 1 and Table II: original-symbol overwrite is the t=1 error-ball model, and nine-bit prior bound is 64 to 112.",
+        "DOI:10.1109/TIT.2014.2301811, Section I: grain pattern overwrites symbol with its predecessor; for t=1, overlapping and nonoverlapping definitions coincide."
+      ],
+      "reasoning": "We compared identical one-overwrite output-set disjointness, not only the name grain code. The underlying compatibility graph is an equivalent finite formulation of the standard channel. Prior reports of binary single-grain code constructions and shortened words do not logically yield a 78-element optimum.",
+      "searches": [
+        "single grain error correcting codes exact optimal cardinality small blocklength binary grain media",
+        "grain-correcting code length nine M(9,1) optimal exact one smearing error confusability",
+        "one grain correcting binary length nine 9 code maximum cardinality 78 M(9,1) 39 fixed first bit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1307.7087v2, page 9, Table II: length 8 44=44, length 9 lower 64 and upper 112, no precise 78 entry.",
+        "Sharov–Roth 2014, Tables II–III captions and Section IV: selected small-n exact cardinalities and constructions; no inspected theorem asserts a size-78 nine-bit single-grain optimum."
+      ],
+      "reasoning": "A published exact table for this same parameter would dominate the finding, but the explicit numeric comparison available in the principal later paper still leaves a substantial gap. Database searches across alternate exact-value and compatibility-graph phrases returned no equivalent exact entry; this does not exclude unindexed enumerations.",
+      "searches": [
+        "\"M(9, 1)\" \"grain\" code",
+        "\"grain-correcting\" \"n=9\" \"optimal\"",
+        "overlapping grain error correcting codes length 9 exact 78 words alpha 39"
+      ]
+    },
+    "rationale": "An exact nine-bit code size was not entailed by the closest primary bounds or constructions inspected: the 2018 public manuscript arXiv:1307.7087v2 Table II explicitly retains 64<=M(9,1)<=112, while the present finite computation proves 78. The distinct published codes on related channels, including deletion, grain detection and arbitrary-error Hamming codes, have non-equivalent output sets. Specific 2014 primary text covers several short lengths and constructions without identifying this exact length-nine value in the material inspected. Residual risk is possible earlier unindexed enumeration; failed search is not proof of novelty. Sharov–Roth (2015) is a particularly relevant but incompletely accessible later source and remains explicitly unresolved; its abstract describes constructions, not a claim of an exact 78 optimum.",
+    "residual_risks": [
+      "Unindexed exact finite computer searches, unpublished code tables or alternative terminology could contain the same n=9 result.",
+      "Some numerical cells in historical journal tables were not recoverable from full-text extraction, though the newer Table II states a nonexact interval.",
+      "The upper bound depends on the global optimality report of a floating-point-backed mixed-integer solver; no machine-independent proof certificate is supplied.",
+      "Sharov–Roth 2015 provides constructions up to length 18, but the available author-PDF request timed out and the complete paper could not be compared; an earlier exact nine-bit result in this source remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "establishes the grain overwrite model and general bounds, not exact M(9,1)=78",
+        "evidence": [
+          "arXiv:1012.1895v1 initial public timestamp 2010-12-08 23:59:35 UTC",
+          "model treats bit replacement by immediately preceding original value"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1012.1895",
+        "material_read": "model, main coding statements and bounds, preprint text",
+        "method": "read accessible author preprint and date-bearing repository entry",
+        "title": "Coding for High-Density Recording on a 1-D Granular Magnetic Medium",
+        "trigger": "earliest verifiable public model and possible identical error-ball parameter"
+      },
+      {
+        "assessment": "studies the same channel; Section IV lists constructions and exact cases but no inspected argument proves exact nine-bit one-error maximum 78",
+        "evidence": [
+          "Section I defines previous-symbol overwrite",
+          "Section IV describes computer-assisted short n cases; 2014 article does not provide a legibly recovered exact nine-bit table entry"
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2014.2301811",
+        "material_read": "complete article, Sections I–V and appendices (18 pages); some embedded numerical table cells did not extract legibly",
+        "method": "authorized full-text page extraction and direct reading of sections, theorems, and surrounding discussion",
+        "title": "Bounds and Constructions for Granular Media Coding",
+        "trigger": "foundational short-code maxima and grain confusability might dominate claim"
+      },
+      {
+        "assessment": "bounds do not entail M(9,1)=78",
+        "evidence": [
+          "arXiv:1302.6154v1 initial public timestamp 2013-02-25",
+          "finite nine-bit upper bound earlier above 78"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.6154",
+        "material_read": "full primary preprint including upper-bound development and finite comparisons",
+        "method": "read author-hosted public full-text preprint",
+        "title": "Upper Bounds on the Size of Grain-Correcting Codes",
+        "trigger": "could give sharper general finite upper bound"
+      },
+      {
+        "assessment": "does not contain the exact result; Table II reports lower 64 and upper 112 for length nine",
+        "evidence": [
+          "Definition 1: received bit i may be changed only when it differs from predecessor, t=1",
+          "Table II: length 9 bounds 64 and 112; length 8 exact value 44"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.7087",
+        "material_read": "full 18-page primary preprint including Definition 1, Sections III–VII and Table II",
+        "method": "read full public PDF text and visually inspect page 9 table and page 2 formal model",
+        "title": "Correcting Grain-Errors in Magnetic Media",
+        "trigger": "closest reported finite n=9 single-error table and definition"
+      },
+      {
+        "assessment": "plausible source not completely compared; may contain a stronger nine-bit construction, but its advertised contribution is bounds and constructions, not an explicitly reported exact nine-bit maximum",
+        "evidence": [
+          "abstract: partition-based one-grain constructions for lengths up to 18",
+          "full primary text not recovered; no conclusion about the uninspected table asserted"
+        ],
+        "identifier_or_url": "Sharov–Roth, IEEE Transactions on Information Theory 61 (2015), 4227–4238; https://ronny.cswp.cs.technion.ac.il/wp-content/uploads/sites/54/2016/05/lp.pdf",
+        "material_read": "title, abstract and indexing summary only; public author-PDF fetch failed by timeout and full text was not recovered",
+        "method": "primary-author open-access source and bibliographic abstract, attempted lawful full-text retrieval",
+        "title": "New Bounds and Constructions for Granular Media Coding",
+        "trigger": "particularly relevant later constructions of one-grain codes up to length 18"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f93c7ec1-ea58-4b4a-ac41-bdb9de749d4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The historical table has exact eight-bit cardinality 44 but retains a large nine-bit gap of 64 to 112. An exact finite n=9 optimum and a concrete 78-word code materially resolve that natural first open next-length instance in the same channel and provide a reproducible performance benchmark for magnetic-storage grain errors. This is an exact substantive invariant, not an arbitrary code slice, a tiny numerical gain or just a checker implementation.",
+    "status": "PASS"
+  }
+}
