@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The homogeneous pinned Dirichlet recurrence on each cycle arc has the unique cosh solution, hence an arc is feasible iff its length is at most the established cutoff L. Removal of f original sources merges runs of at most f+1 original gaps; necessity also holds at k=f+1 with one survivor. Summing all k cyclic window inequalities gives (f+1)n<=kL. Balanced floor-difference gaps attain the bound with every (f+1)-window bounded by ceil((f+1)n/k), including all small and equality cases. Transfer-matrix trace counts the cyclic words; an n/k rooting double count gives labeled sets. Two standalone programs from this package replayed exact rational linear systems for 3,027 source sets, all admissible f<=3 and f=n-1 through n<=9, and 374 independent transfer comparisons, all PASS. Finite tests corroborate; the proof establishes the infinite domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.31535v1 Section 4 supplies a general non-fault-tolerant mixed-integer formulation; Section 6 proves an algorithm for ordinary spider placement; Section 7 treats stars and complete graphs.",
+        "Related distance-domination literature imposes a distance-only coverage criterion, not the discounted random-walk all-f failure floor."
+      ],
+      "reasoning": "General formulations for ordinary source sets do not state or imply the sharp all-f cycle threshold and source-set classification without an additional failure and cyclic-window argument. The original paper does not treat failure robustness; the closest named broad alternatives use different predicates.",
+      "searches": [
+        "published-finding corpus: exact multi failure robust discounted hitting domination on C_n cycles source deletion optimal ceil ((f+1)n)/L cyclic gaps",
+        "Web: \"fault tolerant\" \"distance domination\" \"cycle\" exact formula",
+        "Web: \"source failure\" \"discounted hitting domination\" Allagan"
+      ]
+    },
+    "checked_sources": [
+      "Allagan--Pereyra--Massey, arXiv:2609.31535v1, relevant full-text sections and proofs",
+      "Public research record 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4 (summary comparison)",
+      "Public research record 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 (summary comparison)",
+      "Targeted published literature on distance domination, fault-tolerant domination, penalized hitting probabilities and cycle source placement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 5.5 proves that a single gap between two surviving sources is acceptable iff its length is at most L; this part is covered and explicitly cited.",
+        "Section 9 calls out source failure as a direction not solved in the paper.",
+        "The new theorem proves a distinct statement quantified over every failure subset F of size f, characterizing the resulting cyclic consecutive-window inequalities and minimizing/counting their solutions."
+      ],
+      "reasoning": "The pinned-gap lemma is a necessary ingredient but does not assert robustness for all failures, the sharp simultaneous window bound, or the exact optimal cardinality and labeled optimum count. Ordinary or special-case no-failure formulas are not the claimed theorem. The new result is not inferred merely from lack of title/parameter matches.",
+      "searches": [
+        "published-finding corpus: discounted hitting domination cycle C_n discounted random walks hitting sources optimal equally spaced maximum arc gap",
+        "Web: \"discounted hitting domination\" \"cycle\" \"spiders\"",
+        "arXiv:2609.31535v1 Lemma 5.5; Sections 6-7 and 9 (full PDF)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.31535v1 Remark 2.4 identifies the same fixed-set potential with penalized/group hitting probabilities and discounted hitting times; it does not identify a fault-resilient minimization theorem.",
+        "The source paper Section 9 proposes fault tolerance after source loss as further work, rather than solving it."
+      ],
+      "reasoning": "The transformed-potential names are equivalent at fixed source sets, but their known evaluation formulas cannot by themselves provide the universal min-max over adversarial failed subsets. Searches using each naming family returned no equivalent all-f cycle result.",
+      "searches": [
+        "published-finding corpus: fault tolerant discounted hitting domination cycle exact one source deletion robustness gaps lambda tau",
+        "published-finding corpus: source failure discounted random walk hitting probability circle graph minimum redundant targets",
+        "Web: \"discounted hitting\" \"vertex failures\" \"cycle\" placement",
+        "Web: \"robust\" \"discounted hitting\" source loss graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published-finding corpus titles returned concern cover-free numbers for paths/cycles/wheels (2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2) and fragile PMU placement on multipartite graphs (2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4). Their abstracts address different graph parameters.",
+        "The motivating article reports numerical placements on two noncycle networks, not a table of failed-source minima on cycles."
+      ],
+      "reasoning": "No exact table or database entry about this (lambda,tau,f,n) invariant was identified. Similar word overlap in published-finding corpus did not yield an implication between mathematical statements, and absence from an index is not proof of global novelty.",
+      "searches": [
+        "published-finding corpus: one-failure robust source placement cycle graph pairwise consecutive gap length bound optimal count",
+        "published-finding corpus: exact multi failure robust discounted hitting domination on C_n cycles source deletion optimal ceil ((f+1)n)/L cyclic gaps",
+        "Web: \"discounted hitting domination number\" \"C_n\" formula"
+      ]
+    },
+    "rationale": "The closest full-text source (Allagan--Pereyra--Massey, arXiv:2609.31535v1) already derives the ordinary pinned-gap sequence in Lemma 5.5, so that formula is credited rather than asserted new. Sections 6 and 7 study non-fault-tolerant spiders and complete graphs. Section 9 explicitly proposes source-loss robustness as an open direction; the full all-f cycle feasibility, sharp minimization, construction, and optimal-set enumeration do not appear there. Targeted exact/alias searches of primary literature and published-result records returned no covering theorem. Residual risk is unindexed equivalent work.",
+    "residual_risks": [
+      "An unindexed or later equivalent robust cycle theorem could exist; targeted search is not a proof of uniqueness.",
+      "The ordinary two-boundary segment formula and cutoff L are explicitly known from the motivating paper, so novelty is confined to all-f failure robustness, sharp optimization, construction, and optimum-set census.",
+      "Literature about edge or vertex deletion concerns different fault models and cannot be equated without new proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The ordinary pinned-gap formula and cutoff are prior art. The paper contains no theorem about adversarial removal of any f selected sources on cycles; it proposes fault tolerance as a further direction.",
+        "evidence": [
+          "Definition 2.5 and Theorem 2.3 specify the ordinary invariant and hitting representation.",
+          "Lemma 5.5 states the strictly decreasing gap midpoint values psi_m and threshold L.",
+          "Section 9 explicitly discusses fault-tolerant discounted hitting domination as a possible extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.31535v1",
+        "material_read": "Mathematical definitions and equilibrium representation in Sections 1-3; two-boundary Lemmas 5.3-5.5 (pages 9-10); spider algorithm Section 6; complete-graph and star results Section 7; concluding remarks and future work in Section 9 (page 17). The PDF title/MSC and Section 7 page were also visually checked.",
+        "method": "Direct primary PDF full-text reading of relevant theorems, proofs, and conclusions, plus page-image inspection.",
+        "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+        "trigger": "Closest primary paper introducing the exact invariant and explicitly naming source-loss fault tolerance as a future direction."
+      },
+      {
+        "assessment": "Fragile PMU power-domination reliability on complete multipartite graphs is not the random-walk first-hitting uniform floor on cycles.",
+        "evidence": [
+          "Published summary concerns partwise binomial penalties for fragile PMUs, not adversarial deletion of f pinned random-walk sources."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4",
+        "material_read": "Published title and short abstract-style summary only.",
+        "method": "Public metadata comparison; the full paper was not needed because the defined sensing parameter and graph family differ.",
+        "title": "Exact full-observation reliability and optimal fragile-PMU placement on complete multipartite graphs",
+        "trigger": "Closest search hit involving source-like failures and optimal graph placement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "252203f1-2810-4147-acb0-0645897acf3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating paper expressly identifies fault tolerance under source loss as a new direction; the claim resolves this natural model completely for all cycles, all real attenuation/floor parameters, and every admissible failure budget. It gives a sharp feasibility phase boundary, an exact worst-case placement cardinality, balanced explicit solutions, and a finite generating-function census of all optimal placements. Unlike a single computed small case or a no-failure corollary, it addresses the combinatorial coupling of arbitrarily many source losses and sharpness for an infinite family, which supports future placement and resilience comparisons.",
+    "status": "PASS"
+  }
+}
