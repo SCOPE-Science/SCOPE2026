@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "At \\((0,0)\\) the joint event is exactly \\(q^{\\xi}\\ge0\\), hence has probability \\(1/2\\). For every \\(z>0\\), the event is exactly the interval \\(-z\\le q^{\\xi}\\le\\rho/z-z\\), giving probability \\(\\Phi(\\rho/z-z)-\\Phi(-z)\\). Strict monotonicity of \\(\\Phi\\) yields the stated minimum \\(g(z)\\). As \\(z\\downarrow0\\), the inverse-CDF argument tends to \\(1\\), so \\(g(z)/z\\to+\\infty\\). A convex feasible set containing the origin and \\((z_0,g(z_0))\\) would contain every scaled point \\((tz_0,tg(z_0))\\), contradicting the minimal-boundary inequality for sufficiently small \\(t>0\\). All divisions are restricted to \\(z>0\\), and the origin is treated separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shirai et al. formulate joint chance constraints for stochastic discrete-time complementarity systems but conservatively decompose them using Boole's inequality rather than proving convexity of the static Henrion--Schmidt feasible set.",
+        "Miller--Wagner study nonconcavity in classical joint chance-constrained programs with different random linear structures; their result does not specialize to the coupled complementarity event used here."
+      ],
+      "reasoning": "Broader nonconvexity results cannot by themselves settle the source-specific question because the feasible variables enter both a Gaussian lower truncation and the relaxed complementarity upper truncation. The present proof derives that coupled interval exactly.",
+      "searches": [
+        "joint chance linear complementarity Gaussian convexity",
+        "chance-constrained complementarity joint Gaussian feasible set",
+        "chance-constrained programming joint constraints nonconcavity"
+      ]
+    },
+    "checked_sources": [
+      "OptimizationOnline:33820",
+      "DOI:10.23919/ACC55779.2023.10156516",
+      "DOI:10.1287/opre.13.6.930"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source permits \\(p\\in(0,1]\\), \\(\\rho\\ge0\\), deterministic \\(M\\), and Gaussian uncertainty; it separately proves convexity of model (9), not model (8).",
+        "The source conclusion asks whether the joint model admits convex feasible sets and says a proof or numerical counterexample appears nontrivial.",
+        "The related robotics formulation concerns dynamic SDLCS constraints and replaces the joint chance constraint by conservative individual constraints, so it does not imply the present static one-dimensional statement."
+      ],
+      "reasoning": "The new claim directly supplies a counterexample within the source hypotheses. It is not a corollary of the separate-model theorem, because that theorem removes the joint coupling, and it is not implied by generic joint-chance nonconcavity results without an explicit reduction to this feasible set.",
+      "searches": [
+        "Primary full text: equations (5), (8), (10), Example 1, Theorem 13, Conclusions",
+        "Shirai et al. 2023 full text: joint chance constraint and Boole decomposition",
+        "Miller Wagner 1965 joint chance constraints"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source defines the joint event as simultaneous nonnegativity and relaxed complementarity, and its conclusion states that convexity of the joint feasible set remains unresolved.",
+        "No returned published record stated the scalar formula \\(g(z)=z[z+\\Phi^{-1}(1/2+\\Phi(-z))]\\) or the resulting nonconvexity of this LCP feasible set."
+      ],
+      "reasoning": "The searches included the source authors, model name, distribution, dimension, convexity, and counterexample language. The claim is statement-level distinct from generic nonconcavity of probability functions because it identifies the exact feasible boundary of the source model and proves a segment leaves that set.",
+      "searches": [
+        "chance-constrained linear complementarity joint Gaussian nonconvex feasible set scalar",
+        "Henrion Schmidt chance constrained LCP joint chance constraint convexity counterexample",
+        "Gaussian scalar joint chance complementarity feasible set nonconvex",
+        "joint chance constrained complementarity convex feasible set median Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Optimization Online record 33820 shows first publication on 2026-03-03 and the primary paper lists MSC 90C33, 90C15, 90C17.",
+        "No correction or later indexed answer to the source convexity question was found in the inspected public records."
+      ],
+      "reasoning": "This is an analytic statement rather than a table lookup. Identifier-directed searches were used to distinguish the current source and related chance-complementarity literature from generic joint-chance results.",
+      "searches": [
+        "OptimizationOnline:33820 convexity joint feasible set",
+        "Chance-Constrained Linear Complementarity Problems counterexample convexity",
+        "DOI:10.23919/ACC55779.2023.10156516 joint complementarity chance constraint"
+      ]
+    },
+    "rationale": "The primary 2026 full text explicitly leaves convexity of the joint feasible set open and does not contain the scalar boundary formula or the line-segment obstruction. Targeted published-record searches using the source, model, Gaussian, scalar, convexity, and counterexample aliases returned no equivalent result. The closest older complementarity paper uses a dynamic mixed-integer chance formulation and decomposes joint constraints; classical joint chance-constrained programming nonconcavity results concern different feasible-set structures and do not imply this exact LCP construction.",
+    "residual_risks": [
+      "An unindexed note or correction could independently contain the same scalar counterexample.",
+      "The finding settles only failure of universal convexity; it does not characterize the higher-probability regime \\(p>1/2\\).",
+      "The mechanism uses the exceptional feasible origin noted by the source, so convexity on restricted domains bounded away from the origin remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper permits the scalar Gaussian specialization used here, proves convexity only for an equivalent separate-chance formulation, and explicitly leaves joint-feasible-set convexity open. It does not contain the boundary formula or nonconvexity proof.",
+        "evidence": "The joint model is defined by simultaneous \\(q^{\\xi}+Mz\\ge0\\) and \\(z^\\top(q^{\\xi}+Mz)\\le\\rho\\); Theorem 13 concerns model (9); the conclusion states the joint convexity question remains open.",
+        "identifier_or_url": "OptimizationOnline:33820",
+        "material_read": "Full public paper portions covering equations (5), (8), and (10), Example 1, continuity at the origin, Theorem 13 and its proof for the separate model, the numerical joint example, and the Conclusions.",
+        "method": "Public full-text and page-image inspection.",
+        "title": "Chance-Constrained Linear Complementarity Problems",
+        "trigger": "Primary source introducing the exact joint model and posing its convexity question."
+      },
+      {
+        "assessment": "The paper studies dynamic stochastic complementarity systems and uses conservative decomposition. It does not analyze convexity of the static joint feasible set or imply the scalar counterexample.",
+        "evidence": "Its joint constraint spans states and complementarity over a time horizon and is decomposed using Boole's inequality.",
+        "identifier_or_url": "DOI:10.23919/ACC55779.2023.10156516",
+        "material_read": "Public full text covering the formulation of joint chance constraints, the discussion of stochastic complementarity, and the Boole-inequality decomposition into tractable individual constraints.",
+        "method": "Public full-text and page-image inspection.",
+        "title": "Chance-Constrained Optimization in Contact-rich Systems",
+        "trigger": "Highly related prior use of joint chance constraints with complementarity variables."
+      },
+      {
+        "assessment": "It establishes nonconcavity phenomena for different random linear programming structures. The available material does not provide the source-specific complementarity reduction or cover the exact scalar feasible set here.",
+        "evidence": "The described models use random right-hand sides or normally distributed coefficient matrices in chance-constrained programming, not the coupled LCP event of the 2026 source.",
+        "identifier_or_url": "DOI:10.1287/opre.13.6.930",
+        "material_read": "Public bibliographic abstract and statement of the model classes studied.",
+        "method": "Publisher/bibliographic abstract inspection.",
+        "title": "Chance Constrained Programming with Joint Constraints",
+        "trigger": "Classical literature on nonconcavity of joint chance-constrained programs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9dbdfd6-2dca-4c91-8235-d4fa36561a46",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper explicitly identifies convexity of the joint feasible set as a challenging open question. The counterexample resolves the universal-convexity question negatively in the smallest dimension, under the same regular Gaussian and positive-definite-matrix setting where the separate model has a convex reformulation. The exact boundary formula also identifies the structural source of failure: an infinite radial slope at the feasible median-probability origin. The restriction to \\(p=1/2\\) is scientifically material and is stated rather than hidden.",
+    "status": "PASS"
+  }
+}
