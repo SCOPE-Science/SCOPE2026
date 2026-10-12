@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Substitution of \\(L_i'=q_iL_i\\) and \\(s_i'=s_i+\\log q_i\\) leaves every exponential loss term unchanged and adds only \\(\\tfrac12\\log q_i\\) to the regularizer. The objective difference is constant, so the gradient identities are exact. The optimizer statement follows by induction, and the embedded verifier checks an Adam trajectory.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Later analytical work derives pointwise optimal uncertainty weighting and shows slow adaptation from poor initialization.",
+        "Recent scale-mismatch experiments report empirical degradation under ordinary unshifted practice.",
+        "Neither result states the exact translated dynamics of the bare source objective."
+      ],
+      "reasoning": "These broader results do not dominate the claim. The symmetry distinguishes intrinsic objective geometry from unmatched initialization and symmetry-breaking implementation details.",
+      "searches": [
+        "Analytical Uncertainty-Based Loss Weighting inertia initialization",
+        "uncertainty weighting scale mismatch Kendall rescaling",
+        "homoscedastic uncertainty weighting poor initialization task weights"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1705.07115v1",
+      "CVPR2018:Kendall-Gal-Cipolla",
+      "arXiv:2408.07985v1",
+      "DOI:10.1007/s11263-025-02625-x",
+      "arXiv:2608.21653v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper explicitly targets tasks with different units and scales and predicts log variance for numerical stability.",
+        "Its displayed objective contains inverse-variance task terms and logarithmic uncertainty penalties.",
+        "Later analytical work derives the uncertainty optimum and separately demonstrates initialization inertia."
+      ],
+      "reasoning": "The constant-offset identity and exact optimizer conjugacy require an additional coordinate transformation argument not stated in the prior sources.",
+      "searches": [
+        "arXiv:1705.07115 log variance s log sigma squared",
+        "arXiv:1705.07115 different units scales uncertainty weighting",
+        "Analytical Uncertainty-Based Loss Weighting optimal sigma inertia"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source optimizes log variance and uses inverse-variance task losses plus logarithmic regularizers.",
+        "Later full-text uncertainty-weighting analysis reports strong initialization inertia.",
+        "No inspected source states exact taskwise translation-conjugacy of the joint dynamics."
+      ],
+      "reasoning": "Equivalent coverage would identify the taskwise action on loss scale and log variance, the constant-offset identity, or exact identical model trajectories from shifted uncertainty initialization. None was located.",
+      "searches": [
+        "Kendall uncertainty weighting log variance translation symmetry task loss rescaling conjugate trajectory",
+        "homoscedastic uncertainty weighting exact gauge symmetry loss units shifted log variance",
+        "uncertainty weighting arbitrary positive loss scaling shifted initialization same gradient trajectory"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concern unrelated normalization and optimizer-equivariance problems.",
+        "No returned published finding names Kendall uncertainty weighting together with a log-variance gauge symmetry or shifted-initialization trajectory equivalence."
+      ],
+      "reasoning": "Search absence is supporting evidence only and is combined with direct primary-source inspection.",
+      "searches": [
+        "homoscedastic uncertainty weighting multitask loss rescaling exact invariance log variance",
+        "Kendall Gal uncertainty weighting task loss scale invariance sigma rescaling",
+        "uncertainty weighted multi-task learning loss units scaling exact symmetry",
+        "Kendall uncertainty weighting log variance translation symmetry task loss rescaling conjugate trajectory",
+        "homoscedastic uncertainty weighting exact gauge symmetry loss units shifted log variance",
+        "uncertainty weighting arbitrary positive loss scaling shifted initialization same gradient trajectory"
+      ]
+    },
+    "rationale": "The defining paper motivates different task units and learns log variance but does not state the exact coordinate symmetry or shifted-initialization trajectory theorem. Later analytical uncertainty-weighting work derives optimal weights and initialization inertia, not the full dynamic conjugacy. Focused published-record and own-ledger searches found no implication-equivalent result.",
+    "residual_risks": [
+      "The algebraic identity is compact and may exist in unindexed implementation notes.",
+      "Empirical implementations can break the symmetry through parameter regularization, clipping, or fixed initialization.",
+      "The theorem is about multiplicative task-loss scaling rather than arbitrary reparameterization of task likelihoods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_OBJECTIVE_NOT_COVERING_TASKWISE_LOG_VARIANCE_GAUGE_CONJUGACY.",
+        "evidence": "The source gives the exact ingredients and discusses units/scales, but no constant-offset task-rescaling identity or shifted-initialization trajectory theorem was found.",
+        "identifier_or_url": "arXiv:1705.07115v1/v3; CVPR 2018",
+        "material_read": "Full open PDF, especially Sections 3.1 and 3.2, Equations 7 through 10, the learned-weight discussion, and the paragraph stating that practice predicts \\(s=\\log\\sigma^2\\) for numerical stability.",
+        "method": "Full-text PDF inspection with page-image verification of the relevant derivation pages.",
+        "title": "Multi-Task Learning Using Uncertainty to Weigh Losses for Scene Geometry and Semantics",
+        "trigger": "Defining source for uncertainty weighting, different task units/scales, inverse-variance weighting, and log-variance parameterization."
+      },
+      {
+        "assessment": "INITIALIZATION_INERTIA_AND_OPTIMAL_WEIGHT_PRIOR; EXACT_GAUGE_TRAJECTORY_NOT_STATED.",
+        "evidence": "The paper reports slow adaptation from equal initial weights and derives pointwise optimal uncertainties, but does not state exact translated trajectory equivalence under loss-unit changes.",
+        "identifier_or_url": "DOI:10.1007/s11263-025-02625-x",
+        "material_read": "Open full text covering the inertia analysis, initialization comparison, analytical uncertainty optimum, and inverse-loss weighting derivation.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "Investigating Uncertainty Weighting for Multi-Task Learning: Insights and Analytical Alternative",
+        "trigger": "Most relevant later full-text analysis of uncertainty-weighting dynamics and initialization sensitivity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e751d25-6961-473b-8821-0ab0aa698476",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Different task units are a defining motivation of uncertainty weighting, while later work identifies slow uncertainty-parameter adaptation as a practical limitation. The theorem gives an exact unit-consistent initialization rule and explains why ordinary rescaling experiments with unchanged numerical uncertainty initialization need not follow the same path despite exact symmetry of the source objective.",
+    "status": "PASS"
+  }
+}
