@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For all odd primes p, e>=2 and primitive roots b modulo p^e, the inverse-parity equivalence is reconstructed by explicit nonnegative solutions for each parity and excludes the opposite equation. Summing the even unit residues gives S=(p-1)(p^(2e-1)+1)/4 and 4S congruent p-1 modulo p^e, so S is a unit. Any output period t stabilizes the even-unit set under multiplication by b^(-t); summing then implies b^t=1, forcing phi(p^e)|t. The modular state word supplies the reverse divisibility. The unique involution -1 flips parity at half period. A separate standard-library verifier checked 33 moduli, 272 primitive bases, 75882 positions, 355 direct equation predicates, and nonprimitive behavior. No finite check is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chu et al., arXiv:2609.08728v1, Theorem 4.1 only gives divisibility by multiplicative order; Theorem 1.2 gives inverse-parity predicate.",
+        "Kak (2006, with earlier 1981/1985 references) treats prime moduli and generator 2; no result on every odd prime power and arbitrary primitive generator was found in the inspected two-page note.",
+        "The 2008 Thippireddy-Chalasani title concerns periods of a recursive d-sequence generator; only an abstract was retrievable, not enough to eliminate all risk."
+      ],
+      "reasoning": "The source proves an upper bound but not sharpness. The literature explicitly covers strict subfamilies, including prime moduli and generator 2. Nothing actually inspected establishes a stronger, all-generator prime-power theorem; the inaccessible 2008 full paper remains a residual risk rather than a claimed noncovering full-text comparison.",
+      "searches": [
+        "published-finding corpus: Gamma(a,b^i) Diophantine solvability odd prime power p^e primitive root least period Euler phi half-period parity inverse",
+        "published-finding corpus: multiplicative congruential generator prime power modulus least significant bit output full period primitive root",
+        "Web: \"least period\" \"parity\" \"primitive root\" \"p^n\"",
+        "Web: \"d sequences\" \"prime power\" generator primitive root"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08728v1 (complete PDF, Theorems 1.2 and 4.1)",
+      "S. Kak, A New Random Number Generator (complete 2-page PDF)",
+      "OEIS A167791 (full entry)",
+      "S. Thippireddy and S. Chalasani 2008 period paper (public abstract only)",
+      "S. Kak 1981/1985 d-sequence bibliographic references",
+      "published-finding corpus indexed findings: queried exact terms and equivalences",
+      "Public literature and independent mathematical comparisons only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 4.1: output period divides ord_a(b), without lower bound; the example a=21,b=13 is constant despite order 2.",
+        "Kak establishes base-2 parity-output period p-1 for prime p, and complementary half.",
+        "OEIS A167791 covers binary reciprocal period for base 2 when primitive, including prime powers.",
+        "The new proof uses an invertible even-reduced-residue moment to show every periodic multiplier is identity, including for primitive odd bases where base 2 need not generate."
+      ],
+      "reasoning": "The source upper bound alone cannot imply equality (nonprimitive example modulus 121, base 3). Previous primitive-base-2 results cannot imply the case 49,3 by power decimation because 2 generates only a subgroup. Thus the all-generator theorem is not a formal consequence of any inspected coverage; a general hidden result may exist.",
+      "searches": [
+        "arXiv:2609.08728v1 Theorems 1.2 and 4.1, Section 4.1",
+        "Kak: A New Random Number Generator full paper (dated 2006)",
+        "OEIS:A167791; terms and comments",
+        "published-finding corpus: parity sequence consecutive powers primitive root modulo prime least period totient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kak, A New Random Number Generator, full two-page note, defines a(i)=(2^i mod p) mod 2 with prime p and asserts full period/half complement if 2 primitive.",
+        "OEIS A167791 classifies odd moduli where base 2 is primitive by period of the binary reciprocal; it covers a special case of the present output after reversal and complement, not arbitrary primitive generators.",
+        "The original Gamma solvability predicate equals parity of modular inverses by a verified reconstruction of the equation solutions."
+      ],
+      "reasoning": "The relevant output is a least-significant-bit multiplicative generator, up to time reversal and bit complement. Prime and base-2 families are covered in literature, but none of the inspected equivalences yields the every-primitive-root result for moduli with nonprimitive 2. In particular, 49 and primitive generator 3 are outside A167791.",
+      "searches": [
+        "published-finding corpus: binary d-sequences modulo odd prime powers primitive root parity power residues exact maximal period complement",
+        "Web: \"D-sequence\" \"prime power\" modulo parity maximal period",
+        "Web: OEIS parity primitive root powers modulo p^2 binary sequence period",
+        "Web: \"binary\" \"prime powers\" \"primitive roots\" \"period\" \"parity\" sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A167791 lists moduli with 2 primitive and notes that the binary expansion of 1/k has period phi(k); it includes 9,25,27,49 is absent.",
+        "The theorem at modulus 49 and base 3 gives output least period 42, while base 2 has order 21; this exact all-generator statement is not in A167791."
+      ],
+      "reasoning": "The checked OEIS table characterizes a primitive base-2 class, not every primitive generator; even its complete enumeration cannot certify the all-generator assertion. No exact table covering the uniform claimed family was found.",
+      "searches": [
+        "Web: OEIS parity primitive root powers modulo p^2 binary sequence period",
+        "Web: OEIS d-sequence prime power p^2 2^n mod p^2 parity period",
+        "published-finding corpus: binary d-sequences modulo odd prime powers primitive root parity power residues exact maximal period complement"
+      ]
+    },
+    "rationale": "The directly read arXiv:2609.08728v1 establishes only a period dividing the multiplicative order. Older d-sequences cover the prime-modulus phenomenon, and OEIS A167791 plus binary reciprocal digit interpretation cover some prime powers with primitive base 2; neither provides the asserted all-generator theorem on arbitrary odd prime powers, notably moduli such as 49 where 2 has order 21 but base 3 has order 42. The exact uniform full-period result is not implied by the source upper bound nor the listed special cases. Explicit checks of related wording, prime-power lift, OEIS tables and indexed published findings found no known covering theorem. Literature search cannot demonstrate absolute novelty, and one plausible period paper was only abstract-accessible.",
+    "residual_risks": [
+      "The full Thippireddy-Chalasani 2008 recursive-generator period paper was not obtained; it may include a relevant general lemma.",
+      "A result under an unindexed or different generator terminology may cover all primitive bases; searches cannot rule that out.",
+      "Related base-2 and prime-modulus results are explicitly known, so the novelty claim is only for the uniform all-primitive-generator odd prime-power class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UPPER_BOUND_NOT_COVERING",
+        "evidence": "Section 4.1, Theorem 4.1 asserts periodicity with a period dividing the multiplicative order, not sharpness for primitive-root prime powers; Theorem 1.2 gives inverse parity.",
+        "identifier_or_url": "arXiv:2609.08728v1; https://arxiv.org/abs/2609.08728",
+        "material_read": "Complete accessible 26-page public preprint; especially introduction Theorems 1.1/1.2, Section 4.1 Theorem 4.1 and its proof, and remaining Section 4 results",
+        "method": "Read arXiv-preprint public PDF text and rendered pages",
+        "title": "Generalizing a Pair of Diophantine Equations",
+        "trigger": "Exact same Gamma predicate and theorem bounding period"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "The first page proves/reports full period and opposite-half complement for base-2 parity powers modulo a prime; no all-generator prime-power claim was located.",
+        "identifier_or_url": "https://www.ece.lsu.edu/kak/RNG.pdf",
+        "material_read": "Entire two-page freely accessible paper, including its formula and references",
+        "method": "Read public PDF extracted text and rendered first page",
+        "title": "A New Random Number Generator",
+        "trigger": "D-sequence alias for parity of powers"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "Lists moduli where 2 primitive and notes period of 1/k in binary is phi(k); includes prime powers but not the arbitrary-base result; excludes 49.",
+        "identifier_or_url": "https://oeis.org/A167791",
+        "material_read": "Full accessible sequence entry: definition, comments, tables, cross-references",
+        "method": "Read public entry and compare the output parity representation",
+        "title": "OEIS A167791 Numbers with primitive root 2",
+        "trigger": "Potential exact table covering prime-power primitive roots and reciprocal digits"
+      },
+      {
+        "assessment": "UNRESOLVED_SOURCE_RISK",
+        "evidence": "Abstract discusses exact period of a recursive d-sequence generator, but gives insufficient mathematical detail to prove either coverage or noncoverage of nonrecursive all-generator prime-power parity.",
+        "identifier_or_url": "https://www.researchgate.net/publication/1901599_Period_of_the_d-Sequence_Based_Random_Number_Generator",
+        "material_read": "Title and public abstract only; full text not accessible in checked lawful source",
+        "method": "Read public abstract; attempted open-access bibliographic search for full text",
+        "title": "Period of the d-Sequence Based Random Number Generator",
+        "trigger": "Plausible earlier exact-period result in d-sequence literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1920eb67-340b-486f-bf4e-72f469718f37",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating work studies exactly this Diophantine solvability word and leaves its least period undetermined beyond an upper bound. Determining whether a natural two-valued observation loses the full primitive-root state period is a substantive exact invariant. The theorem closes this classification for every odd prime-power modulus and every primitive root, including composite moduli with nonprimitive base 2 (e.g. 49,3). The sum of even reduced residues provides a structural trivial-stabilizer lemma, with consequences of exact half-period complement and balance. An explicit nonprimitive counterexample displays why equality is not automatic. No downstream paper-sized theorem is presumed.",
+    "status": "PASS"
+  }
+}
