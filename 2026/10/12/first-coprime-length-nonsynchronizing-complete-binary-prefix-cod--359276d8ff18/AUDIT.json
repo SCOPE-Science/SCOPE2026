@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Every nonempty complete binary prefix code with k leaves is an ordered full binary tree, counted by the Catalan recurrence and separately by iterated leaf expansion. Two independent exact decision procedures (reachable subset BFS and backwards pair-coalescence) agree on every tree for sizes 2–9. The 4 exceptional nine-leaf sets have length gcd one and explicit closed nonmerge pair certificates checked transition-by-transition. Pairwise mergeability is necessary and sufficient for decoder synchronization, with any singleton image brought to root by zero-child paths. Finite exhaustive proof only; no extrapolation beyond nine.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Freiling et al. (2003) Theorem III.4 is an asymptotic almost-all theorem without exact first coprime exception.",
+        "Ryzhikov–Szykuła (2018), Sections 1–9 develops algorithms/complexity of shortest synchronizing words, not nine-leaf optimum counts.",
+        "Gusev–Pribavkina (2019) abstract proves a two-distinct-length sufficient/necessary criterion, inapplicable to the three-length exceptions."
+      ],
+      "reasoning": "Neither an asymptotic existence assertion nor a shortest-word algorithm specifies the exact finite exceptional population. A criterion limited to two distinct lengths does not dominate a counterexample with three lengths. The 2019 full paper is inaccessible and is retained as an explicit risk.",
+      "searches": [
+        "\"complete binary prefix codes\" \"synchronizing\" \"Catalan\" trees enumeration",
+        "Exact enumeration of complete prefix-code trees by synchronizability and decoder reset property, nine leaves",
+        "Ryzhikov Szykuła 2018 Finding Short Synchronizing Words for Prefix Codes",
+        "Gusev Pribavkina On Codeword Lengths Guaranteeing Synchronization 2019"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.2003.815803 (accessible complete author copy)",
+      "arxiv:1806.06299 (complete HTML)",
+      "doi:10.1007/978-3-030-28796-2_16 (abstract and references only)",
+      "https://www.sandgal19.cremona.polimi.it/wp-content/uploads/2019/06/Perrin.pdf (selected pages)",
+      "2026/9/18/SCOPE-binary-alphabet-prefix-free-graph-hardness--7b68f096365c",
+      "2026/9/9/SCOPE010",
+      "2026/9/7/SCOPE007",
+      "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Freiling et al. (2003), Section III, explicit nonsynchronizing examples based on even return lengths and Theorem III.4 about asymptotic proportions.",
+        "Gusev–Pribavkina (2019) abstract: two codeword lengths coprime implies synchronizing; the exceptional length multiset here has three values.",
+        "Ryzhikov–Szykuła (2018) studies decoder reset complexity, without the complete small-leaf enumeration."
+      ],
+      "reasoning": "The claim contains both sharp first cardinality and exact four labeled exceptions. The prior examples with all-even word lengths violate the gcd-one hypothesis, and asymptotic proportion results cannot imply a fixed first occurrence. Two-length synchronization cannot eliminate or enumerate three-length failures. One plausible 2019 paper remains only abstract-inspected, so bibliographic originality is qualified rather than certified.",
+      "searches": [
+        "Freiling Jungreis Théberge Zeger 2003 almost all complete binary prefix codes full proof",
+        "Gusev Pribavkina 2019 two lengths coprime maximal prefix code",
+        "Binary prefix code gcd 1 does not imply synchronizing, pair automaton obstruction at nine codewords"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Freiling et al. (2003), Section III defines coalescence and reset words of full prefix decoding trees; Figure 2 examples have an even-length obstruction.",
+        "Gusev–Pribavkina (2019), accessible abstract gives exact two-codeword-length condition."
+      ],
+      "reasoning": "The exact equivalent is a census of ordered full binary trees by pair mergeability subject to length gcd one; the cited 2003 source gives no such nine-leaf census and the two-length theorem applies only to a strictly smaller domain. Search nonmatches alone do not establish novelty.",
+      "searches": [
+        "\"complete binary prefix codes\" \"synchronizing\" \"coprime\" enumeration",
+        "\"complete prefix codes\" \"nine words\" nonsynchronizing",
+        "\"first nonsynchronizing\" \"gcd\" \"prefix code\"",
+        "Finite maximal complete binary prefix codes: smallest nonsynchronizing code with codeword lengths gcd one, nine codewords, four trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact computed census is (number of leaves, total, nonsynchronizing, coprime nonsynchronizing) = (2,1,0,0), (3,2,0,0), (4,5,1,0), (5,14,0,0), (6,42,0,0), (7,132,4,0), (8,429,1,0), (9,1430,4,4).",
+        "Compared mathematical-research index entries 2026/9/7/SCOPE007 and 2026/9/9/SCOPE010 concern non-prefix automata and different state-transition families."
+      ],
+      "reasoning": "No inspected source supplied this exact database/table or an implication forcing its nine-leaf entries. The given table is independently generated, not taken from a published table. Absence of search hits is not treated as a proof of priority.",
+      "searches": [
+        "binary prefix tree synchronization census Catalan numbers 1430 non synchronizing nine leaves",
+        "\"prefix\" \"nonsynchronizing\" \"nine\" trees table",
+        "Synchronization of full binary prefix trees primitive length gcd and non-synchronizing automata, delayed coding 2003 2018"
+      ]
+    },
+    "rationale": "The exact claim is the first coprime-length nonsynchronizing complete binary prefix-code size together with all four labeled exceptions. Freiling et al. (2003) provide asymptotic and even-length examples, Ryzhikov–Szykuła (2018) addresses word-search complexity, and the accessible Gusev–Pribavkina (2019) theorem covers only two distinct word lengths. None of the inspected accessible primary results or mathematical search records establishes the exact nine-leaf census; inaccessible full 2019 text and unindexed enumerations remain real bibliographic risks. No search failure is represented as proof of priority.",
+    "residual_risks": [
+      "The full 2019 Gusev–Pribavkina chapter is inaccessible and might contain examples or further results not visible in the abstract; no whole-document noncoverage conclusion is made.",
+      "Earlier unindexed tables, theses, or unpublished independent work could contain equivalent finite enumerations.",
+      "A relevant finite-code presentation was inspected only on selected pages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ASYMPTOTIC_AND_PARITY_EXAMPLES_NOT_EXACT_FINITE_GCD_CENSUS",
+        "evidence": "Section III defines pair coalescence and a self-synchronizing string as root reset; Example III.3 uses all-even return cycles; Theorem III.4 says almost all complete prefix trees synchronize.",
+        "identifier_or_url": "doi:10.1109/TIT.2003.815803",
+        "material_read": "Accessible author-uploaded full text, Sections I–V and relevant proof/definitions, pp. 2219–2225",
+        "method": "Read full accessible text and inspect definitions, Theorem III.4, Figure 2 explanation, Catalan-tree enumeration",
+        "title": "Almost All Complete Binary Prefix Codes Have a Self-Synchronizing String",
+        "trigger": "Same object: complete binary prefix code and exact root-reset decoder"
+      },
+      {
+        "assessment": "SHORTEST_SYNCHRONIZATION_ALGORITHMS_NOT_NINE_LEAF_CENSUS",
+        "evidence": "Abstract and Sections 5–7 study synchronizing word algorithms for literal/maximal prefix-code decoders; no exact first gcd-one nonsynchronizing tree population is asserted.",
+        "identifier_or_url": "arxiv:1806.06299",
+        "material_read": "Full arXiv HTML, Sections 1–9, definitions, main results, references",
+        "method": "Read introduction, algorithmic sections, concluding remarks and references in open article",
+        "title": "Finding Short Synchronizing Words for Prefix Codes",
+        "trigger": "Prefix-code decoder synchronization and possible stronger classification"
+      },
+      {
+        "assessment": "ABSTRACT_TWO_LENGTH_RESULT_DOES_NOT_IMPLY_THREE_LENGTH_CENSUS; FULL_TEXT_RISK",
+        "evidence": "Abstract states all maximal finite prefix codes with only two distinct word lengths synchronize iff the lengths are coprime; here four counterexamples have three distinct lengths.",
+        "identifier_or_url": "doi:10.1007/978-3-030-28796-2_16",
+        "material_read": "Publisher abstract, metadata and references only; full paper not accessible in lawful sources checked",
+        "method": "Attempted arXiv and open-access copies, then authorized institutional text retrieval was unavailable; read publisher-accessible abstract",
+        "title": "On Codeword Lengths Guaranteeing Synchronization",
+        "trigger": "Closest codeword-length theorem might dominate claim"
+      },
+      {
+        "assessment": "SMALL_SIZE_SYNCHRONIZATION_BACKDROP_ONLY",
+        "evidence": "Small cardinalities 2,3,5,6 discussed as synchronizing; no labeled nine-leaf full-tree census provided on inspected pages.",
+        "identifier_or_url": "https://www.sandgal19.cremona.polimi.it/wp-content/uploads/2019/06/Perrin.pdf",
+        "material_read": "Selected visible presentation pages concerning small code size and prefix synchronization, not the entire lecture deck",
+        "method": "Examined available slide text and relevant rendered pages",
+        "title": "Decomposition and synchronization of finite codes",
+        "trigger": "Background size-restricted synchronization statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "359276d8-ff18-4e82-aa04-7808d33eda9d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A necessary coprimality condition on all codeword lengths is not sufficient for error-recovery synchronization. The first cardinality where this fails and all exceptional labeled codebooks sharpen the meaningful boundary of a published two-length theorem and classify the smallest affected complete binary decoders. The finite classification has concrete value for decoder-code design despite not giving infinite parameters or performance gains.",
+    "status": "PASS"
+  }
+}
