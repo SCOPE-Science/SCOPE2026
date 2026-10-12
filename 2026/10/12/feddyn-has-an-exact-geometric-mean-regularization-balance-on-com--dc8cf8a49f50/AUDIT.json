@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The first exact local solve gives \\(x_k^1=R_\\alpha x^0+S_\\alpha b_k\\). From round two onward, the stored gradient equals the true local gradient, yielding \\(x_k^t=S_\\alpha x_k^{t-1}+R_\\alpha x^{t-1}\\). The full-participation server identity and \\(h^t=H(\\gamma^t-x_\\star)\\) then give the exact powers \\(R_\\alpha^t\\) and \\(S_\\alpha^t\\). Spectral monotonicity over \\([\\mu,L]\\) proves the two sharp factors, and equalizing them uniquely gives \\(\\alpha=\\sqrt{\\mu L}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves general strongly convex linear convergence under conservative sufficient parameter choices.",
+        "Broader search results concern empirical FedDyn comparisons or different spectral regularization methods rather than this exact recurrence.",
+        "Closest indexed optimization findings concern Richardson, heavy-ball, Polyak, and other non-federated recurrences."
+      ],
+      "reasoning": "General convergence theorems establish eventual contraction but do not imply an exact modal decomposition or the optimal balance of two distinct FedDyn state channels. Results for other spectral methods have different state equations and do not dominate this claim.",
+      "searches": [
+        "\"FedDyn\" convergence quadratic Hessian",
+        "\"FedDyn\" spectral analysis",
+        "\"FedDyn\" tuning alpha condition number",
+        "federated dynamic regularization common Hessian one-round optimum"
+      ]
+    },
+    "checked_sources": [
+      "OpenReview:B7v4QMR6Z9w",
+      "arXiv:2111.04263v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source states the exact local minimization with dynamic linear and quadratic regularizers and the server correction.",
+        "Its sensitivity analysis says the regularization parameter balances two problem-dependent constants and does not change the asymptotic order in the general theorem.",
+        "Its convex theorem uses sufficient regularization on the scale of the smoothness constant but does not solve the common-Hessian modes."
+      ],
+      "reasoning": "The accepted claim is not a corollary of the source's big-O rate statement: it identifies exact trajectories, two opposing spectral channels, a unique minimax parameter, and a finite-round cancellation. Those conclusions require specializing and solving the full client/server recurrence.",
+      "searches": [
+        "OpenReview:B7v4QMR6Z9w method algorithm exact minimization",
+        "arXiv:2111.04263 alpha sensitivity",
+        "arXiv:2111.04263 strongly convex alpha",
+        "\"FedDyn\" exact local minimization common Hessian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining full text gives the exact dynamic local objective, stored-gradient update, server correction, and full-participation identities.",
+        "The source sensitivity section discusses the role of the regularization parameter qualitatively through problem-dependent constants but gives no spectral closed form.",
+        "Targeted searches did not return a paper stating the same mean/disagreement power decomposition or its geometric-mean tuning."
+      ],
+      "reasoning": "An equivalent formulation would need to imply both exact commuting operators \\(R_\u0007lpha\\) and \\(S_\u0007lpha\\) on a common-Hessian federated family, or directly imply the two endpoint factors and their unique geometric-mean balance. The inspected source and search results do not provide that implication.",
+      "searches": [
+        "FedDyn common Hessian exact spectral decomposition geometric mean alpha",
+        "FedDyn shared Hessian quadratic local disagreement global average rate",
+        "\"FedDyn\" shared Hessian quadratic exact dynamics",
+        "\"FedDyn\" one round global minimizer quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed result specific to FedDyn appeared among the closest records.",
+        "Closest records included stagewise Richardson, heavy-ball, stochastic adaptive feedback, and generic spectral findings, all with different recurrences.",
+        "The complete current and immediately preceding own ledgers contain no FedDyn source identifier or FedDyn claim."
+      ],
+      "reasoning": "No database/table entry located an exact FedDyn common-Hessian classification. Search absence is supporting evidence only; originality rests on statement-level comparison with the defining source and the lack of a stronger implication-equivalent result.",
+      "searches": [
+        "FedDyn common Hessian exact spectral decomposition geometric mean alpha",
+        "FedDyn shared Hessian quadratic local disagreement global average rate",
+        "FedDyn alpha sqrt mu L minimax tuning",
+        "Federated dynamic regularization equal Hessian one-round server optimum"
+      ]
+    },
+    "rationale": "The defining FedDyn source states general rate theorems and says that the regularization parameter balances problem-dependent constants, but it does not give the common-Hessian spectral decomposition, the geometric-mean channel balance, or the isotropic one-round server cancellation. Focused published-record and indexed-result searches found no implication-equivalent FedDyn statement.",
+    "residual_risks": [
+      "A specialized federated-optimization note may derive the same common-Hessian recurrence under different state variables without naming the result as FedDyn spectral tuning.",
+      "Searches did not identify a direct later theoretical paper devoted specifically to exact FedDyn quadratic spectra.",
+      "The minimax criterion balances two exact channels; a server-only finite-horizon tuning objective can have a different optimizer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ALGORITHM_AND_GENERAL_RATE_THEORY_NOT_COVERING_THE_COMMON_HESSIAN_EXACT_MODAL_BALANCE.",
+        "evidence": "The source supplies all update identities used in the reconstruction and explicitly treats alpha as an important balancing hyperparameter, but the inspected text contains no common-Hessian spectral powers, geometric-mean tuning law, or isotropic one-round server cancellation.",
+        "identifier_or_url": "OpenReview:B7v4QMR6Z9w / arXiv:2111.04263v2",
+        "material_read": "Open full text covering the method section and Algorithm 1, the server-state identities used in the proofs, the strongly convex and convex rate statements, the alpha-sensitivity appendix, and the source discussion comparing full-participation methods.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Federated Learning Based on Dynamic Regularization",
+        "trigger": "Defining source for the exact FedDyn client objective, gradient-state recursion, server correction, convergence theory, and parameter-sensitivity discussion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc8cf8a4-9f50-4760-9da0-35a783b9007c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The regularization parameter is the defining tuning control of exact-minimization FedDyn, and the source explicitly says it balances problem-dependent quantities. The common-Hessian family isolates statistical heterogeneity while retaining nontrivial conditioning, and the exact decomposition shows the concrete tradeoff: increasing regularization slows global-average motion but accelerates client consensus. The geometric mean of endpoint curvatures is the unique balance, with a square-root-condition-number factor, and the isotropic case exhibits an exact one-round server solution. These are structurally interpretable tuning facts rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
