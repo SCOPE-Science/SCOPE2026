@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Every maximal \\(Q_d\\) geodesic has length \\(d\\), so elementary vertex-volume counts give upper bounds \\(3,5,9\\) and cover lower bound \\(10\\). For \\(Q_4\\), all \\(192\\) unoriented diameter paths are exhaustively generated in two independent representations; by bit-translation and coordinate symmetry, the canonical path has \\(31\\) disjoint partners, and every two such partners intersect, excluding three-path packings. A direct third check excludes all triples and counts \\(2976\\) disjoint pairs. Explicit sequences for \\(Q_5\\) and \\(Q_6\\) give five and nine disjoint maximal geodesics, respectively; the nine \\(Q_6\\) paths miss only vertex \\(47\\), and a tenth path through that vertex covers the entire cube. The supplied verify.py reconstructs all finite conditions and generated output VERIFY_OK. Exhaustive finite enumeration is valid for the finite Q4 statement; no infinite extrapolation is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Corollary 2.8 of arXiv:2210.15325 yields only gpack(Q_d) ≤ floor(2^d/(d+1)); for Q4 this is 3, strictly above the new exact 2.",
+        "2026 Theorem 11 provides ceil(2^n/(n+1)) ≤ gvc_n(Q_n) ≤ 2^(n−2), giving 10 ≤ gvc_6(Q6) ≤ 16, which does not determine the new exact value 10."
+      ],
+      "reasoning": "An all-dimension upper bound is not a stronger equality characterization. The published covering interval is strictly weaker than the new explicit cover certificate; the two optimization directions are distinguished.",
+      "searches": [
+        "vertex partition of Boolean hypercube into antipodal geodesic paths volume bound",
+        "exact geodesic packing numbers of hypercube graphs and counting maximum packings",
+        "hypercube Hamilton path decomposition into antipodal geodesics, Q6 nine near perfect",
+        "Manuel–Brešar–Klavžar Corollary 2.8",
+        "Sharma–Guragain–Srivastava Theorem 11"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.15325",
+      "doi:10.13140/RG.2.2.13477.36320",
+      "arxiv:1308.4949",
+      "2019 Disjoint and Shortest Paths Routing in Hypercubes (abstract)",
+      "arxiv:2009.09037",
+      "published-finding corpus: Exact size of binary (2,1)-separating systems of length eight (2026-09-21)",
+      "published-finding corpus: Exact low-distance mutual visibility in hypercubes (2026-09-30)",
+      "published-finding corpus: A parity reduction of penultimate hypercube Rips complexes (2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Volume upper bounds from the 2022 source evaluate to 3,5,9 at n=4,5,6; they do not exclude Q4=3 or construct optimal packings at Q5 and Q6.",
+        "The 2026 preprint bound gives 10..16 at Q6, whereas the new ten-path witness attains 10.",
+        "The Q4 packing polynomial is not a corollary of the cardinality bound."
+      ],
+      "reasoning": "The new Q4 nonexistence result is stronger than the 2022 bound, while Q5/Q6 equalities require explicit witnesses not entailed by the upper bound. The new covering equality requires a constructive upper bound strictly lower than the 2026 published upper bound.",
+      "searches": [
+        "arxiv:2210.15325 Lemma 2.3 Proposition 2.7 Corollary 2.8",
+        "doi:10.13140/RG.2.2.13477.36320 Definition 1 and Theorem 11",
+        "geodesic packing of hypercubes Q_4 Q_5 Q_6 vertex-disjoint maximal shortest paths antipodal",
+        "geodesic vertex covering number six dimensional hypercube Q6 equals ten diameter shortest path covering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manuel–Brešar–Klavžar §2 treats maximal vertex-disjoint geodesic packing and gives general bounds, not the dimension-specific cube optimum.",
+        "Anick–Ramras arXiv:1308.4949 defines edge-decompositions of the hypercube, which do not require the paths to be mutually vertex-disjoint.",
+        "published-finding corpus nearest small-cube records concern general-position sets (Exact size of binary (2,1)-separating systems of length eight, 2026-09-21) or a distinct distance-limited visibility invariant (Exact low-distance mutual visibility in hypercubes, 2026-09-30)."
+      ],
+      "reasoning": "The natural aliases are antipodal monotone path packing, vertex-disjoint diameter geodesics, packing polynomial and geodesic vertex cover. Neither the primary packing paper nor the full hypercube edge-decomposition source implies this finite profile; published-finding corpus records are adjacent graph-metric topics, not equivalent conclusions.",
+      "searches": [
+        "geodesic packing of hypercubes Q_4 Q_5 Q_6 vertex-disjoint maximal shortest paths antipodal",
+        "maximal geodesic packing Q4 2 Q5 5 Q6 9 hypercube disjoint antipodal paths",
+        "\"geodesic packing\" \"hypercube\" \"Q_4\" geodesics vertex disjoint",
+        "\"vertex-disjoint antipodal paths\" hypercube decomposition",
+        "arxiv:2210.15325 Sections 1-5",
+        "arxiv:1308.4949 full HTML",
+        "arxiv:2009.09037 Section 5 perfect paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full HTML of arXiv:2210.15325 has no hypercube exact-value table or packing polynomial.",
+        "2026 geodesic-vertex-covering preprint states a bound for general hypercubes but no exact ten-path certificate for Q6.",
+        "published-finding corpus searches for Q4/Q5/Q6 packing and Q6 ten-path covering returned unrelated hypercube distance, visibility, and resolving-invariant records."
+      ],
+      "reasoning": "No checked exact table supplied the 2,5,9 packing profile, the 2976 count, or a 10-path diameter covering in dimension six. Absence from search indexes alone does not prove novelty; this assessment rests on statement-by-statement comparison to the most relevant primary full texts.",
+      "searches": [
+        "geodesic vertex covering number six dimensional hypercube Q6 equals ten diameter shortest path covering",
+        "\"geodesic vertex cover\" \"Q_6\" \"hypercube\" 10 2026",
+        "\"geodesic packing\" \"hypercube\" 9 Q6",
+        "\"geodesic cover\" \"6-dimensional hypercube\" 10",
+        "maximal geodesic packing Q4 2 Q5 5 Q6 9 hypercube disjoint antipodal paths"
+      ]
+    },
+    "rationale": "The 2022 source introduces the vertex-disjoint maximal-geodesic parameter and establishes only Cartesian-product volume bounds. The 2026 full-text preprint treats the dual diameter-geodesic covering objective but leaves \\(Q_6\\) between \\(10\\) and \\(16\\). The new exact Q4 obstruction, full Q4 packing polynomial, explicit sharp Q5/Q6 packings and ten-path Q6 covering are not implied by these results. Actual published-finding corpus searches for aliases, parameters, and dual covering found no equivalent statement; this negative search is not presented as proof of novelty. Some older routing/path-packing literature is inaccessible in full and remains a residual risk.",
+    "residual_risks": [
+      "The full 2019 routing paper could not be inspected and may contain a similar vertex-disjoint antipodal path construction despite a different stated problem.",
+      "An unindexed hypercube path decomposition/covering table or differently named older result may overlap the small-dimensional values.",
+      "Same-model proof and exhaustive code review do not substitute for an independent scientific audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General volume upper bounds apply but do not determine Q4-Q6 or the Q4 enumerator.",
+        "evidence": [
+          "2022 arXiv v1 date 2022-10-27",
+          "§2 Lemma 2.3 and Corollary 2.8",
+          "No explicit hypercube packing values in main result sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.15325v3",
+        "material_read": "Full accessible arXiv HTML: abstract, Sections 1-5, Lemma 2.3, Proposition 2.7, Corollary 2.8, conclusions and references; PDF page images also inspected.",
+        "method": "Direct primary-full-text theorem-to-claim comparison",
+        "title": "Geodesic packing in graphs",
+        "trigger": "Foundational exact invariant and Cartesian-product volume bound"
+      },
+      {
+        "assessment": "Defines same covering optimization and derives general 10..16 interval at dimension six, not the exact 10 or a ten-path certificate.",
+        "evidence": [
+          "Public author upload recorded January 28 2026",
+          "Theorem 11 gives ceil(2^n/(n+1)) <= gvc_n(Q_n) <= 2^(n-2)"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/400141455_On_k-geodetic_vertex_traceable_graphs",
+        "material_read": "Public full text, especially Definitions 1 and Theorem 11 with the complete hypercube proof and surrounding construction, plus the conclusion and references.",
+        "method": "Direct comparison of exact dimension-six covering claim with published general bounds",
+        "title": "On k-geodetic vertex traceable graphs",
+        "trigger": "Highly relevant diameter-geodesic minimum vertex-covering invariant for cubes"
+      },
+      {
+        "assessment": "Partitions hypercube edges, not the vertices into disjoint maximal geodesics or a minimum vertex-covering family.",
+        "evidence": [
+          "Definitions of path edge decompositions",
+          "Main constructions embed paths and cover edges rather than requiring disjoint vertex sets"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1308.4949v1",
+        "material_read": "Open-access arXiv HTML, abstract, definitions and early main sections comparing edge-decomposition notions with vertex-disjoint paths.",
+        "method": "Object and feasibility-comparison of path decompositions",
+        "title": "Edge Decompositions of Hypercubes by Paths",
+        "trigger": "Plausible hypercube path-packing terminology via decomposition literature"
+      },
+      {
+        "assessment": "Studies the density of subcubes whose intersection with a selected vertex set is a prescribed perfect path, not packing or covering a single cube with a family of disjoint diameter paths.",
+        "evidence": [
+          "Defines density π(P_(d+1),d) over large ambient cubes",
+          "No dimension-six diameter-geodesic covering or small-cube packing polynomial stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2009.09037v1",
+        "material_read": "Open-access full arXiv HTML, especially the abstract, background definitions, results and perfect-path section.",
+        "method": "Compared subcube density functional with vertex-disjoint path packing/covering.",
+        "title": "Maximum density of vertex-induced perfect cycles and paths in the hypercube",
+        "trigger": "The term perfect path in the hypercube might denote maximal geodesics."
+      },
+      {
+        "assessment": "Describes disjoint routing with specified terminals, rather than maximum globally vertex-disjoint antipodal-geodesic families. Full text not examined, so no categorical non-coverage claim.",
+        "evidence": [
+          "2019 abstract targets routing problem rather than the geodesic packing number",
+          "Full primary text not accessed; residual risk explicitly retained"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/cn-articles/volume-233/disjoint-and-shortest-paths-routing-in-hypercubes/",
+        "material_read": "Abstract and article record only; the full article was not obtained (publisher PDF route inaccessible).",
+        "method": "Abstract-level applicability assessment, with unresolved full-text risk",
+        "title": "Disjoint and Shortest Paths Routing in Hypercubes",
+        "trigger": "Potential historical alias of vertex-disjoint shortest paths"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e357146-01fd-4286-a698-75aeb1c24343",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hypercubes are canonical Cartesian powers, and the exact attainment of the geodesic-volume bound is a natural gap in the 2022 foundational packing result. The \\(Q_4\\) failure of sharpness alongside \\(Q_5,Q_6\\) attainment gives a genuinely structural boundary, while the exact \\(Q_4\\) packing enumerator and reproducible obstruction exceed a routine application of the bound. The \\(Q_6\\) ten-path cover closes the 2026 explicit published interval 10..16 in the first dimension beyond the small cases whose exact coverings the source considered. All results are self-contained, natural finite cases, not unsupported general asymptotic claims.",
+    "status": "PASS"
+  }
+}
