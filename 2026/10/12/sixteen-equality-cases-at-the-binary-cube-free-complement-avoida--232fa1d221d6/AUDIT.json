@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The language is factorial. Incremental prefix enumeration is therefore exhaustive, and every newly created cube is a suffix. Complement avoidance for all lengths at least 6 is exactly equivalent to avoiding complementary pairs of length 6. A second whole-candidate engine independently rescans every cube factor and all length-6 factors; the two engines agree on every level through length 51, with 16 survivors at length 50 and none at 51. Each boundary word is additionally checked at every complementary-factor length 6 through 50, and exact symmetry closure gives four size-4 orbits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3(b) states the maximum finite length 50 and prints one example.",
+        "Theorem 4(b) gives a related maximum under a bounded total number of complemented words, again with one example.",
+        "The companion page lists the morphism generator and parameters, not a boundary census."
+      ],
+      "reasoning": "Neither the broader infinite threshold theorem nor the related complemented-word-count theorem determines all finite equality cases for the length-based obstruction.",
+      "searches": [
+        "full-text inspection: Complement Avoidance in Binary Words, Theorem 3(b)",
+        "full-text inspection: Complement Avoidance in Binary Words, Theorem 4(b)",
+        "companion code page for Complement Avoidance in Binary Words",
+        "later citations Complement Avoidance in Binary Words cube-free complementary factors"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.09598v1 / Electronic Journal of Combinatorics 32(4), #P4.24",
+      "DOI:10.37236/11555",
+      "companion code page for the paper",
+      "exact-string searches for four orbit representatives",
+      "semantic literature searches under complement-avoidance and extremizer aliases",
+      "current and previous-week private research records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published statement gives existence of at least one length-50 word and nonexistence at length 51.",
+        "The current cumulative record contains no claim tied to arXiv:2209.09598 or complementary-factor avoidance.",
+        "The previous-week record has no exact source/title/complementary-factor match; its unrelated occurrences of length 50 do not imply this classification."
+      ],
+      "reasoning": "A maximum-length theorem plus one witness is strictly weaker than the exact count and symmetry classification. No checked prior record implies the 16-word equality layer.",
+      "searches": [
+        "primary Theorem 3(b): maximum length 50 one example",
+        "current research record search: 2209.09598, Complement Avoidance, complementary factors, cube-free length 50",
+        "previous-week research record search: 2209.09598, Complement Avoidance, complementary factors, length 50"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper formulates the obstruction as cube-freeness together with absence of complementary factors of length at least 6.",
+        "No returned literature result states the count 16 or four reversal/complement orbits."
+      ],
+      "reasoning": "The searches cover the paper's terminology, the equivalent local length-6 formulation, and equality/extremizer language. The scalar maximum does not imply the multiplicity or orbit decomposition.",
+      "searches": [
+        "binary cube-free no complementary factors length 6 longest length 50 equality cases",
+        "binary cube-free avoid complementary length-six factors classification",
+        "Complement Avoidance in Binary Words length 50 extremizers cube-free",
+        "no pair of complementary binary factors of length at least 6 cube-free"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source witness is indexed through the primary paper.",
+        "Exact searches for the three other orbit representatives returned no published table or database result."
+      ],
+      "reasoning": "The complete equality layer was regenerated from the defining constraints and is not copied from a located table. Exact representative searches are a direct check against an indexed extremizer list.",
+      "searches": [
+        "exact string \"00101001001101001001101001101001001101001101001001\"",
+        "exact string \"00110010010110010010110010110010010110010110010010\"",
+        "exact string \"01001001101001101001001101001101001001101001001101\"",
+        "exact string \"01101001001101001001101001101001001101001101001001\""
+      ]
+    },
+    "rationale": "The primary article proves only the scalar maximum 50 and prints one witness. It does not enumerate all length-50 words or state the four-orbit equality classification. Candidate-specific semantic searches, exact searches for the printed witness and three new orbit representatives, and current/prior research-record checks found no covering result. The companion source-code page documents morphism search for positive constructions rather than an equality table for this backtracking obstruction.",
+    "residual_risks": [
+      "The source authors' unpublished backtracking output may already contain all 16 length-50 words.",
+      "An unindexed auxiliary file or private note may contain the same equality classification.",
+      "No claim is made about equality cases for the paper's other finite obstruction rows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering the equality classification. It gives maximum length 50 and one example but no exhaustive list.",
+        "evidence": "The proof of Theorem 3(b) says backtracking shows the longest cube-free binary word with no complementary factor pair of length at least 6 has length 50 and then prints one example.",
+        "identifier_or_url": "arXiv:2209.09598v1 / DOI:10.37236/11555",
+        "material_read": "Title page and MSC metadata; Theorem 3 with the proof of part (b); Theorem 4 for the related complemented-word-count formulation.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Complement Avoidance in Binary Words",
+        "trigger": "Direct source for the length-based complementary-factor threshold and the length-50 finite obstruction."
+      },
+      {
+        "assessment": "Not covering the equality layer; the page documents morphism search used for positive constructions.",
+        "evidence": "The page describes gen_c.c and its arguments for uniform morphism search and lists theorem parameters, without a length-50 extremizer table.",
+        "identifier_or_url": "https://www.lirmm.fr/~ochem/morphisms/complement.htm",
+        "material_read": "Program description and parameter examples for the paper's morphism generator.",
+        "method": "Auxiliary-source inspection.",
+        "title": "Complement avoidance companion code page",
+        "trigger": "Potential auxiliary source that might expose the finite equality data."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "232fa1d2-21d6-460d-b5a8-06c089df4f4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The length-50 layer is the sharp finite obstruction used to prove optimality of the paper's first nontrivial cube-free complement-avoidance threshold, so it is a mathematically distinguished boundary rather than an arbitrary slice. The equality census reveals four genuinely different symmetry types hidden by the existence-only statement and supplies a compact regression certificate for the backtracking obstruction.",
+    "status": "PASS"
+  }
+}
