@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The base-b carry identity d(n)=1-(b-1)nu_b(n+1) yields all possible two-letter increments. Shifting occurrences by t*b^K realizes every initial symbol residue, so F_2 and its reflection orbits are determined exactly by g=gcd(b-1,m). For b>=3, each length-four difference triple has two +1 entries while its reverse would force two -1; for b=2, an exhaustive even/odd start classification eliminates both reversal possibilities. This is an infinite local-pattern proof, not finite sampling. The length-three parity and carry analysis proves every reversible triple is a palindrome; a congruence j(b-1)=2 and alphabet translation give exactly 2m palindromes iff g divides 2. For m<=2, periodicity or palindromic iterates of the binary substitution establish reversal closure. The packaged verifier checks the exact orbit counts, explicit witnesses and finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Starosta (2012) Proposition 3.1 establishes closure under Ψ_x(k)=x−k followed by reversal, not ordinary reversal; Property II supplies all length-two factors.",
+        "Allouche–Shallit (2000), Section 5, proves that no palindrome of length at least four occurs for m>=3, but does not rule out a reversed pair of nonpalindromic length-four factors.",
+        "The 2024 reflection-complexity primary source explicitly leaves generalized Thue–Morse behavior open, rather than giving the arbitrary-base cutoff."
+      ],
+      "reasoning": "Neither generalized antimorphism closure nor vanishing ordinary palindrome complexity dominates the claimed absence of nonpalindromic reflected pairs. The local difference argument adds the missing distinction; the previously known factor set and palindromic bounds are not counted as original.",
+      "searches": [
+        "generalized Thue-Morse words and palindromic richness arXiv:1104.2476 Property II",
+        "Sums of Digits Overlaps and Palindromes Theorem 8 arbitrary base",
+        "Generalized Thue-Morse words reversal closed dihedral group Ψ_x",
+        "cyclic/reversal complexity generalized Thue Morse arbitrary base",
+        "reflection complexity generalized thue morse 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.09302v1, v4, sections covering reflection complexity and generalized Thue–Morse Question 64/62",
+      "arXiv:1104.2476v1 and Kybernetika 2012 open full text, Properties II and V, Proposition 3.1, Section 5",
+      "DOI:10.46298/dmtcs.282, Allouche–Shallit 2000, open full Section 5",
+      "OEIS A360104 and associated cyclic-complexity bibliography, different invariant",
+      "Targeted public searches for reflection complexity, ordinary reversal, digit-sum words, and gcd cutoffs",
+      "Semantic mathematical research-index searches including the exact claimed arithmetic phase diagram",
+      "Current and previous research ledgers compared for ordinary reflection, digit-sum, generalized Thue–Morse, and reversal aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 paper reports r=rho at n>=3 for a base-two ternary-valued example and asks for generalizations; this is a special case and does not provide any base>=3 or gcd cutoff.",
+        "The 2012 paper determines F_2 and dihedral anti-symmetries but not the ordinary-reflection cutoff; ordinary reversal alone is not in its D_m family for m>2.",
+        "The 2000 paper bounds lengths of palindromes but cannot alone rule out pairs u and reverse(u) with u nonpalindromic.",
+        "The explicit finite-difference case split proves no length-four reflected pairs for all b,m>=3; the gcd witness determines exactly when the length-three bound is sharp."
+      ],
+      "reasoning": "The b=2 phenomenon and rho_2 formula are covered by stronger old results, and are treated as baselines. The surviving contribution is the all-base sharp classification of ordinary reflected factors, including a gcd-controlled qualitative phase change that none of the compared premises states. There is no known implication to it without the additional local-pattern proof.",
+      "searches": [
+        "arXiv:2406.09302v1 Question 64 generalized Thue-Morse",
+        "arXiv:2406.09302v4 Question 62 generalized Thue-Morse",
+        "arXiv:1104.2476 Property II Proposition 3.1 generalized Thue-Morse",
+        "DOI:10.46298/dmtcs.282 Theorem 8 palindromes",
+        "generalized Thue Morse reflected factor ordinary reversal length four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.09302v1, Question 64 (v4 Question 62) asks for generalized Thue–Morse reflection complexity beyond the base-two example.",
+        "The relevant published generalized digit-sum theorem of Allouche–Shallit concerns palindromic factors, not distinct nonpalindromes and their reverses.",
+        "Semantic-index and textual searches under digit sum, reversal, reflected factor, and gcd parameterization returned no equivalent sharp ordinary-reflection cutoff theorem."
+      ],
+      "reasoning": "The final statement is an ordinary-reversal orbit count and a sharp factor/nonfactor threshold for every pair of base and modulus. The known binary-base result is covered and credited; it cannot imply the new gcd-dependent transition as the base changes.",
+      "searches": [
+        "base-b digit sum modulo m generalized Thue-Morse reflection complexity gcd(b-1,m), sharp reversal cutoff two or four",
+        "generalized Thue Morse arbitrary base modulo m reversal-closed if and only if modulus 1 or 2",
+        "generalized Thue Morse reversed factors only palindromes length 3",
+        "reflection complexity generalized thue morse t_b,m m 2025"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Starosta (2012) Property II gives the exact two-letter factor set, which is used as prior data and converted into the new ordinary-reflection orbit formula.",
+        "No checked OEIS/database entry or exact formula table covers the full sharp cutoff 2/4 dichotomy for the two-parameter family."
+      ],
+      "reasoning": "The reflection count at length two is a new orbit-level reading of known factor data, not itself a claim of unknown two-letter factor complexity. The infinite cutoff theorem is not a finite-table extrapolation.",
+      "searches": [
+        "digit sum automatic words two-letter factor reversal orbit count gcd(b-1,m)",
+        "generalized Thue Morse ordinary reflection complexity exact table",
+        "generalized Thue Morse word two letter factor formula order b-1 modulo m",
+        "OEIS generalized Thue Morse reflection complexity arbitrary base"
+      ]
+    },
+    "rationale": "The primary 2024 paper introduces reflection complexity and poses its generalization to digit-sum words; it handles at most the binary-base example. Starosta supplies F_2 and generalized dihedral antimorphisms, and Allouche–Shallit classify infinite palindromicity, but neither proves the absence of nonpalindromic reversed pairs of length four or the 2-versus-4 arithmetic cutoff. Searches over direct and equivalent formulations found no covering statement. The previously covered binary-base special case and F_2 formula are acknowledged; full-text comparisons and residual risks are recorded.",
+    "residual_risks": [
+      "A subsequently published or unindexed note might extract the same ordinary-reflection cutoff from the 2012 two-letter factor classification.",
+      "The cyclic/reversal-complexity bibliography was compared through indexed records rather than a full paper, although its invariant is not ordinary factor reversal.",
+      "The length-two factor set and binary-base special case are already covered and are not claimed as original; the genuinely new part is the all-base cutoff phase diagram."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_BINARY_BASE_NOT_GENERAL",
+        "evidence": "The v1 Question 64 and v4 Question 62 explicitly seek generalizations. Their ternary-valued example is defined with binary digit sums, not arbitrary base. No theorem specifies the gcd-controlled ordinary-reversal cutoff.",
+        "identifier_or_url": "arXiv:2406.09302v1; arXiv:2406.09302v4",
+        "material_read": "v1 introduction and definitions, Section 6.2 on classical Thue–Morse, and Section 7 Question 64; v4 Sections 8 and 9, including Question 62, relevant generalized and paperfolding examples.",
+        "method": "Open author-hosted v1 PDF and open arXiv v4 PDF, with page-level visual comparison of the question and relevant sections.",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Direct origin of the invariant and question about generalized Thue–Morse words."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE_FACTOR_SET_AND_GENERALIZED_ANTIMORPHISMS",
+        "evidence": "Property II is an exact length-two factor classification, and Proposition 3.1 establishes invariance under Ψ_x(k)=x−k composed with reversal. This is not ordinary reversal for m>=3; the paper does not specify reflected-pair cutoffs or ordinary-reflection orbits.",
+        "identifier_or_url": "arXiv:1104.2476v1; https://dml.cz/handle/10338.dmlcz/142943",
+        "material_read": "Abstract, Sections 2–3 (especially Properties I, II and V and Proposition 3.1), Section 4 dihedral-palindromic classification, and Section 5 factor-complexity table; page 365 visually inspected.",
+        "method": "Authorized open full-text PDF inspection and visual page cross-check.",
+        "title": "Generalized Thue-Morse words and palindromic richness",
+        "trigger": "Strongest prior for the identical two-parameter family: dihedral symmetry and explicit factors."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE_PALINDROMIC_CUTOFF_NOT_REFLECTED_PAIR_CUTOFF",
+        "evidence": "Theorem 8 establishes unbounded palindromes exactly for moduli <=2 and rules out long ordinary palindromes otherwise; no claim about pairs of unequal reversed factors is stated or proved.",
+        "identifier_or_url": "DOI:10.46298/dmtcs.282; https://dmtcs.episciences.org/282",
+        "material_read": "Open PDF introduction, morphism and carry lemmas, full Section 5/Theorem 8 and the page-nine case split, including the palindromic m<=2 construction.",
+        "method": "Open full-text PDF with visual inspection where text extraction is garbled.",
+        "title": "Sums of Digits, Overlaps, and Palindromes",
+        "trigger": "Potentially stronger early theorem on palindromic factors of the same digit-sum family."
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_WITH_LIMITED_INSPECTION",
+        "evidence": "The indexed result concerns cyclic rotation equivalence of Thue–Morse factors. It gives neither a two-parameter digit-sum reversal cutoff nor ordinary reversal orbit counts; source body remains an access/coverage limitation.",
+        "identifier_or_url": "C. Krawchuk and N. Rampersad, Integers 18A (2018), A12",
+        "material_read": "Indexed title, bibliographic record and the characterization of the cyclic (rotation-quotiented) measure through OEIS A360104.",
+        "method": "Indexed bibliographic/abstract comparison; full text not inspected.",
+        "title": "Cyclic complexity of some infinite words and generalizations",
+        "trigger": "Possible alias via the different cyclic/reversal complexity invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f12270a0-ea48-4da7-99b8-a2c47bd3c0b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2024 paper explicitly asks how reflection complexity behaves under generalized Thue–Morse constructions. The complete two-parameter answer shows a natural qualitative arithmetic phase transition controlled by gcd(b-1,m): reversal closure, a sharp length-four avoidance threshold, or an earlier sharp length-two threshold. It yields the entire ordinary-reflection function for every m>=3 from a known factor complexity plus one exact small-length correction, not an arbitrary finite census or an incremental numerical gain.",
+    "status": "PASS"
+  }
+}
