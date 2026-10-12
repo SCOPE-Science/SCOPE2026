@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "At a positive endemic equilibrium, the source equations imply \\(\\beta S^*=\\mu+\\delta_1+\\gamma_1+\\theta_1\\) and \\(q=\\beta I_1^*>0\\). The resulting four-by-four Jacobian yields the displayed monic quartic characteristic polynomial. Exact multivariate integer-polynomial arithmetic verifies that \\(A_1,A_2,A_3,A_4,\\Delta_2,\\Delta_3\\) all expand with strictly positive coefficients in the eight positive primitive variables; \\(\\Delta_3\\) has 331 such monomials. The quartic Routh--Hurwitz criterion therefore gives strict local asymptotic stability. The claim is explicitly limited to local stability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1137/110827028, abstract",
+        "DOI 10.1016/j.amc.2020.125259, pages 1--2 and Discussion",
+        "DOI 10.1080/17513758.2026.2728357, Introduction and Discussion"
+      ],
+      "reasoning": "The 2012 Guo--Li--Shuai theorem is broad for staged infection systems but the inspected statement does not establish applicability to the separate recovered-state return feedback of the 2026 SIRS equations. Röst--Tekeli 2020 proves low-stage stability for a different constant-population progression model; the 2026 authors explicitly distinguish their addition of recovery and disease-induced death at every stage. Neither source therefore dominates the present theorem as stated.",
+      "searches": [
+        "multistage SIRS n=2 endemic equilibrium stability immunity loss alpha sufficient conditions",
+        "Global Dynamics of a General Class of Multistage Models for Infectious Diseases recovered susceptible waning immunity SIRS",
+        "Röst Tekeli multistage SIRS immunity loss recovered compartment"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/17513758.2026.2728357",
+      "doi:10.1016/j.amc.2020.125259",
+      "doi:10.1137/110827028",
+      "doi:10.1016/S0378-4754(02)00002-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Somnic--Gasparyan--Rao 2026: conditional global Lyapunov bounds for the two-stage model",
+        "Röst--Tekeli 2020: unconditional low-stage stability for a different SIS progression topology",
+        "Guo--Li--Shuai 2012: global threshold result under a different general staged-progression framework"
+      ],
+      "reasoning": "Conditional global asymptotic stability implies local stability only inside the published sufficient region, not outside it. The new theorem covers every positive endemic parameter value of the 2026 two-stage system, including the complement of that Lyapunov region. The older unconditional low-stage theorem is not an implication because its equations omit the recovered-compartment feedback and stage-specific exits present here.",
+      "searches": [
+        "two-stage SIRS global stability generalized nonlinear incidence",
+        "multistage SIS always stable n <= 3 Röst Tekeli",
+        "stability analysis multistage compartmental model infection alpha threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.1080/17513758.2026.2728357, Sections 3, 4, and 6",
+        "DOI 10.1016/j.amc.2020.125259, abstract, model equations, and Discussion"
+      ],
+      "reasoning": "No inspected source states the same all-positive-parameter local-stability theorem for the Somnic--Gasparyan--Rao two-stage SIRS model. The closest no-oscillation theorem changes the compartment topology and excludes the stage-specific recovery/death structure singled out by the 2026 source.",
+      "searches": [
+        "two-stage multistage SIRS endemic equilibrium locally asymptotically stable all positive parameters no Hopf recovery death each stage",
+        "Somnic Gasparyan Rao multistage SIRS 2728357 two-stage endemic local stability",
+        "two-stage SIRS disease-induced death recovery each infection stage Routh Hurwitz endemic equilibrium"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publisher full-text article for DOI 10.1080/17513758.2026.2728357",
+        "Open full text for DOI 10.1016/j.amc.2020.125259",
+        "SIAM article record for DOI 10.1137/110827028"
+      ],
+      "reasoning": "The claim is an analytic stability theorem rather than a tabulated invariant. No exact database or parameter table located contains the 331-monomial Hurwitz certificate or an equivalent parameter-free local-stability statement for this model.",
+      "searches": [
+        "10.1080/17513758.2026.2728357",
+        "two-stage SIRS endemic equilibrium Hopf stage-specific recovery death",
+        "multistage SIRS endemic equilibrium Routh Hurwitz"
+      ]
+    },
+    "rationale": "The motivating 2026 article proves global stability only under additional Lyapunov inequalities and reports stable simulations outside them; it does not state or prove unconditional local stability for its two-stage model. The closest classical multistage result found is Röst--Tekeli 2020, whose always-stable result for at most three stages concerns a constant-population SIS progression system and does not contain the separate recovered compartment, waning-immunity feedback, stage-specific recovery, and disease-induced deaths of the 2026 model. Broader staged-progression global-stability literature inspected likewise does not directly instantiate this SIRS feedback system or present the present exact quartic certificate.",
+    "residual_risks": [
+      "A mathematically equivalent theorem could exist under different model nomenclature and remain unindexed by the searches performed.",
+      "The Guo--Li--Shuai general framework was available through its authoritative abstract and bibliographic record rather than a complete theorem-by-theorem full-text applicability check, so an unnoticed specialization remains a bounded residual risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper gives additional sufficient conditions for global asymptotic stability and does not provide unconditional local stability for its two-stage endemic equilibrium.",
+        "evidence": "The source model includes a recovered compartment with immunity loss and recovery/death exits from each infectious stage; its Discussion says simulations may remain stable even when its sufficient global conditions are not met.",
+        "identifier_or_url": "doi:10.1080/17513758.2026.2728357",
+        "material_read": "Publisher full text: abstract; Introduction; system (12); equilibrium relations; Theorem 1; two-stage Section 4; Discussion and conclusion.",
+        "method": "Full-text statement and equation comparison against the new Jacobian/Hurwitz claim.",
+        "title": "Stability analysis of a multistage compartmental model of infection",
+        "trigger": "Exact motivating model and closest possible source of the claimed theorem."
+      },
+      {
+        "assessment": "Not covering: it studies a constant-population SIS progression chain returning directly to susceptibility and lacks the 2026 model's separate recovered state, waning-immunity feedback, stage-specific recovery, and disease-induced mortality.",
+        "evidence": "The PDF states constant population and direct infectious-stage progression; its Discussion describes its SIRS special cases and the 2026 paper itself identifies recovery and disease-induced death at each stage as an excluded feature of that earlier result.",
+        "identifier_or_url": "doi:10.1016/j.amc.2020.125259",
+        "material_read": "Open full-text PDF: title/abstract and model equations on pages 1--2; Discussion on page 8.",
+        "method": "Compared state variables, transitions, demographic assumptions, transmission paths, and the conclusion for low stage counts.",
+        "title": "Stability and oscillations of multistage SIS models depend on the number of stages",
+        "trigger": "Closest prior theorem asserting unconditional stability for low-stage progression models."
+      },
+      {
+        "assessment": "No decisive implication found for this exact SIRS system from the inspected material; the 2026 authors treat their model as requiring a new analysis with additional pathways.",
+        "evidence": "The SIAM abstract describes general infected-stage deterioration/amelioration; the 2026 article separately motivates recovery and disease-induced death at each infectious stage and develops new SIRS Lyapunov conditions.",
+        "identifier_or_url": "doi:10.1137/110827028",
+        "material_read": "SIAM abstract, keywords, classification, and cited-scope description; comparison through the 2026 paper's Introduction.",
+        "method": "Checked whether the inspected statement directly covers the recovered-compartment waning-immunity feedback and parameter structure of the 2026 SIRS system.",
+        "title": "Global Dynamics of a General Class of Multistage Models for Infectious Diseases",
+        "trigger": "Broad staged-progression global-stability theorem that could potentially dominate a local result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a2a3d5a-ebd2-4262-be8e-c5741b4dde06",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source leaves a concrete interpretive gap: its global Lyapunov bounds are only sufficient and its simulations remain stable outside them. Proving that the endemic equilibrium is locally stable everywhere shows that any failure of global convergence outside those bounds cannot arise from an ordinary local equilibrium bifurcation in the two-stage model. This sharply separates local dynamics from the unresolved global question and prevents misreading the Lyapunov inequality as a local-stability threshold.",
+    "status": "PASS"
+  }
+}
