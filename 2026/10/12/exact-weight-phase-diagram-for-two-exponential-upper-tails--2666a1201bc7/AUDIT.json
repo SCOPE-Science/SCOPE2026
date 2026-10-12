@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact two-exponential convolution formula is valid for every fixed-sum weight pair. The derivative sign is reduced without approximation to \\(L_t\\), with \\(L_t^\\prime\\) equal to a positive denominator times \\(x^2P_t(x)\\). The sign pattern of the quadratic \\(P_t\\) proves strict monotonicity for \\(t\\ge3/2\\) and exactly one interior minimum for \\(1<t<3/2\\). Endpoint comparison through \\(e^t\\) versus \\(1+2t\\) then gives all global maxima. Boundary weights and \\(t=3/2\\) are included explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu, arXiv:1607.02689, Proposition 1 states the exact one-crossing criterion for two weighted gamma sums.",
+        "Bock et al. describe equal-weight extremality in suitable upper and lower tail comparisons.",
+        "Li and Tkocz give general nonasymptotic exponential tail bounds in terms of total weight divided by largest weight."
+      ],
+      "reasoning": "These broader results compare fixed weight vectors or bound tails uniformly. They do not identify, for each fixed threshold \\(t>1\\), the global optimizer over every two-weight vector, nor do they state the unique interior minimizer and two distinct transition constants.",
+      "searches": [
+        "Diaconis Perlman weighted gamma unique crossing n=2",
+        "Bock Diaconis Huffer Perlman gamma weighted averages Schur tail",
+        "Yu unique crossing gamma n=2 product largest weight"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.14387v1",
+      "arXiv:1607.02689",
+      "DOI:10.2307/3315257",
+      "Diaconis–Perlman (1990), IMS Lecture Notes–Monograph Series 16",
+      "“Quantile curvature and endpoint rates for two-gamma sums” (published database record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current and prior own ledgers were searched directly for the object, the endpoint equation, the \\(3/2\\) transition, and unique interior minima.",
+        "The closest own prior finding is the two-Laplace fixed-variance local phase diagram; it uses a symmetric two-sided law and a different normalization, proves only endpoint local classifications plus existence of an interior minimum in a coexistence window, and does not imply the one-sided exponential global classification."
+      ],
+      "reasoning": "The present theorem requires a different exact survival function and proves uniqueness and global monotonicity unavailable in the prior Laplace result. It is not a corollary or parameter substitution of that result.",
+      "searches": [
+        "weighted exponential two variables fixed total weight upper tail phase diagram equal weights one-sparse",
+        "hypoexponential tail two summands e^t 1+2t threshold 3/2",
+        "gamma sum weight imbalance unique interior minimum tail"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted database searches returned no result stating the same complete two-weight phase diagram.",
+        "The closest returned result, “Quantile curvature and endpoint rates for two-gamma sums,” concerns local equal-weight curvature of two-gamma quantiles and therefore covers the local \\(t=3/2\\) transition for exponential shape, but not the global minimizer or endpoint crossover."
+      ],
+      "reasoning": "Tail minimization, CDF maximization, and quantile curvature are equivalent only after controlling how the crossing location moves with the weight parameter. The located local-curvature result does not provide that global control; the present derivative analysis does.",
+      "searches": [
+        "two exponential variables weighted sum fixed mean tail probability optimize weights phase transition",
+        "hypoexponential two summands tail extremal equal weights one weight upper tail",
+        "weighted sum of two iid exponential random variables tail probability majorization Schur convex threshold",
+        "Janson exponential tail two weights exact extremizer e^t=1+2t",
+        "hypoexponential tail Schur convex Schur concave weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/table result located the pair of thresholds \\(\\tau\\) and \\(3/2\\) together with the unique interior minimizer.",
+        "The exact convolution formula itself is classical and is not counted as novel."
+      ],
+      "reasoning": "A table or closed-form survival function alone does not imply the extremal classification; the decisive step is the global sign analysis of the derivative across the entire weight interval.",
+      "searches": [
+        "exact formula two exponential weighted sum survival hypoexponential",
+        "e^t=1+2t exponential weighted tail",
+        "threshold 3/2 two exponential weights tail"
+      ]
+    },
+    "rationale": "The accepted novelty is not the classical hypoexponential formula, the classical pairwise unique-crossing phenomenon, or the already-indexed local equal-weight curvature threshold. It is the complete fixed-threshold global optimization over the two-weight simplex: a unique interior minimizer below \\(3/2\\), its disappearance at \\(3/2\\), and the separate global-maximizer crossover \\(\\tau\\) defined by \\(e^\\tau=1+2\\tau\\).",
+    "residual_risks": [
+      "An older gamma-convolution paper may contain an equivalent two-weight calculation under different notation.",
+      "The full Diaconis–Perlman 1990 article was not available in the lawful full-text sources inspected; the comparison therefore relies on its abstract and Yu’s theorem-level restatement.",
+      "The local equal-weight transition at \\(t=3/2\\) is already covered by a closely related published database result and is not claimed as novel by itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives nonasymptotic bounds and asymptotic largest-weight behavior, not the exact two-weight phase diagram.",
+        "evidence": "The source bounds \\(\\Pr\\{S>t\\mathbb ES\\}\\) through alpha=(sum weights)/(largest weight); it does not optimize the exact two-summand survival function over the fixed-sum weight simplex.",
+        "identifier_or_url": "arXiv:2109.14387v1",
+        "material_read": "Public full text, especially the introduction and Section 3 exponential example.",
+        "method": "Direct full-text inspection.",
+        "title": "Tail bounds for sums of independent two-sided exponential random variables",
+        "trigger": "Lead middle-cohort source; its introduction states Janson’s weighted one-sided exponential inequality and motivates exact tail behavior."
+      },
+      {
+        "assessment": "NOT_COVERING: proves a pairwise unique-crossing criterion for two weighted gamma sums, not global optimization over all weights at a fixed threshold.",
+        "evidence": "Proposition 1 characterizes when two two-gamma CDFs cross once using products and largest weights; it does not give the minimizing weight as a function of threshold or the endpoint crossover \\(\\tau\\).",
+        "identifier_or_url": "arXiv:1607.02689",
+        "material_read": "Public arXiv theorem-level text, including Proposition 1 for n=2 and its proof discussion.",
+        "method": "Direct full-text inspection.",
+        "title": "On the Unique Crossing Conjecture of Diaconis and Perlman on Convolutions of Gamma Random Variables",
+        "trigger": "Most plausible stronger gamma-convolution comparison theorem."
+      },
+      {
+        "assessment": "PARTIAL_CONTEXT: establishes equal-weight extremality in tail regions, so the high-threshold portion is classical context; no evidence located for the low-threshold unique interior minimizer or the exact two-transition phase diagram.",
+        "evidence": "The abstract states upper and lower tails are smallest at equal weights for the regimes treated, but does not state the complete fixed-threshold two-weight classification.",
+        "identifier_or_url": "DOI:10.2307/3315257",
+        "material_read": "Published abstract and bibliographic record.",
+        "method": "Publisher abstract inspection.",
+        "title": "Inequalities for linear combinations of gamma random variables",
+        "trigger": "Classical Schur-property source that could dominate a weight-extremal tail claim."
+      },
+      {
+        "assessment": "RESIDUAL_RISK, NOT_DECISIVE: the accessible material concerns unique crossing and crossing-location bounds, not a complete global optimizer map at fixed threshold.",
+        "evidence": "Yu explicitly summarizes the n=2 result as a one-crossing criterion. That criterion alone does not imply uniqueness of the fixed-threshold interior minimizer or the exact endpoint switch.",
+        "identifier_or_url": "Diaconis–Perlman, IMS Lecture Notes–Monograph Series 16 (1990), 147–166",
+        "material_read": "Open bibliographic abstract plus the theorem-level restatement and extension in Yu’s full text; a complete lawful full-text copy was not available in the inspected sources.",
+        "method": "Abstract and secondary theorem-level comparison.",
+        "title": "Bounds for tail probabilities of weighted sums of independent gamma random variables",
+        "trigger": "Original unique-crossing source repeatedly cited for the n=2 gamma case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2666a120-1bc7-4095-a06c-56863247226f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives the exact global fixed-threshold optimization for the canonical two-summand exponential model underlying weighted exponential concentration and gamma majorization. It separates the structural transition at \\(t=3/2\\) from the distinct global-maximizer switch \\(\\tau=1.256431\\ldots\\) and supplies a unique interior minimizer throughout the intervening regime. This is a natural complete classification rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
