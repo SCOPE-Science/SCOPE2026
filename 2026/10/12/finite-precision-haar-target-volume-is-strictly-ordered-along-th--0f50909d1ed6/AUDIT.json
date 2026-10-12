@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the exact source formula and domain. Exact differentiation reduces the claim to \\(B(a)-4C(a)\\cos(2c)>0\\). The half-angle substitution gives \\(C(a)>0\\) and factors \\(B(a)-4C(a)\\) through \\(F(t)\\); the derivative chain through \\(G(t)\\) proves \\(F(t)>0\\) for every \\(0<t<1\\). Boundary cases are explicitly separated, and no finite experiment is used as an infinite-domain proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Musz–Kuś–Życzkowski derive the ambient Haar distribution and perfect-entangler volume, not finite coordinate-cube monotonicity.",
+        "Zhang–Vala–Sastry–Whaley give the Weyl-chamber geometry but not the moving-target Haar integral.",
+        "Balakrishnan–Sankaranarayanan order or classify controlled gates with operator-Schmidt and entanglement invariants, which are distinct from Haar target volume."
+      ],
+      "reasoning": "Ambient Haar density, Weyl geometry, and entanglement invariants do not by themselves determine the sign of the derivative of a finite coordinate-cube integral as its center moves. Therefore these broader results do not imply the new statement.",
+      "searches": [
+        "two-qubit controlled gate Haar target volume strictly increasing entangling angle",
+        "controlled rotations Weyl chamber target volume CNOT quantum control Haar measure",
+        "doi:10.1103/PhysRevA.87.022111",
+        "doi:10.1103/PhysRevA.67.042313",
+        "arXiv:1006.3412"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/e15061963",
+      "doi:10.1103/PhysRevA.87.022111",
+      "doi:10.1103/PhysRevA.67.042313",
+      "arXiv:1006.3412",
+      "doi:10.1103/PhysRevLett.130.070601"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 source proves the formula and leading small-target behavior but does not derive \\(\\partial V_a/\\partial c>0\\) on the full admissible domain.",
+        "The 2023 target-size comparison uses the same type of metric for selected instruction-set gates but does not cover all controlled gates."
+      ],
+      "reasoning": "Neither a common leading power of the target size nor isolated comparisons at selected gate locations implies a uniform finite-precision order. The new derivative sign closes precisely that implication gap.",
+      "searches": [
+        "Watts O'Connor Vala controlled gates Haar target volume monotone CNOT",
+        "two-qubit controlled gate Haar target volume strictly increasing entangling angle",
+        "controlled rotations Weyl chamber target volume CNOT quantum control Haar measure",
+        "doi:10.3390/e15061963",
+        "doi:10.1103/PhysRevLett.130.070601"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected primary-source controlled-gate section contains Eq. (48) and the small-target scaling discussion but no monotonicity theorem.",
+        "Exact-title and Eq. (48) searches did not locate a published statement that the finite target volume is strictly ordered along the controlled edge."
+      ],
+      "reasoning": "Equivalent formulations would include strict monotonicity in the controlled angle, unique finite-precision maximality of CNOT/CPHASE on the controlled edge, or absence of target-size reversals. None was found in the exact source or the claim-specific search results.",
+      "searches": [
+        "Watts O'Connor Vala controlled gates Haar target volume monotone CNOT",
+        "Metric Structure two-qubit gates equation 48 monotonic controlled gates",
+        "finite precision target volume controlled gate CNOT exact monotonicity",
+        "doi:10.3390/e15061963"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact expression used is Eq. (48) of Watts–O’Connor–Vala, checked in the full text.",
+        "The later effective-target-size literature inspected compares selected gates and does not tabulate or state the continuous controlled-edge order."
+      ],
+      "reasoning": "The finding is not a recomputation of a known table entry: it is a global inequality for the source’s exact two-parameter formula. No database/table source located states the same continuum implication.",
+      "searches": [
+        "Metric Structure two-qubit gates equation 48 monotonic controlled gates",
+        "finite precision target volume controlled gate CNOT exact monotonicity",
+        "doi:10.3390/e15061963",
+        "doi:10.1103/PhysRevLett.130.070601"
+      ]
+    },
+    "rationale": "The primary paper gives the same object and exact finite-volume formula, but the inspected controlled-gate discussion states the common small-target scaling rather than the uniform monotonicity theorem. Searches for controlled-gate, CNOT, Haar-target, Weyl-chamber, finite-precision, and Eq. (48) aliases returned no statement implying strict increase of \\(V_a(c)\\) for every admissible \\(a\\). The closest later effective-target-size work compares selected gates rather than proving the controlled continuum order.",
+    "residual_risks": [
+      "An equivalent derivative observation could exist under terminology not indexed by the searches.",
+      "The theorem concerns the source’s coordinate-cube target convention; statements for other target shapes require a separate comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_FORMULA_NOT_CLAIM: supplies the exact finite-volume formula and domain but not the strict controlled-edge monotonicity theorem.",
+        "evidence": "Eq. (48) is the formula differentiated in the proof; the text discusses common leading small-target scaling and identifies the CNOT/CPHASE endpoint.",
+        "identifier_or_url": "doi:10.3390/e15061963",
+        "material_read": "Full controlled-gate discussion around Eq. (48), concluding comparison section, and publication/classification front matter.",
+        "method": "Lawful open full text and repository PDF; the equation page was visually inspected.",
+        "title": "Metric Structure of the Space of Two-Qubit Gates, Perfect Entanglers and Quantum Control",
+        "trigger": "Exact same target-volume object and controlled-gate family."
+      },
+      {
+        "assessment": "NOT_COVERING: applies target-size ideas to selected instruction-set gates but gives no all-controlled-gate monotonicity statement.",
+        "evidence": "The comparison is discrete across selected gates rather than a proof for the continuum \\(a\\le c\\le\\pi/2\\).",
+        "identifier_or_url": "doi:10.1103/PhysRevLett.130.070601",
+        "material_read": "Supplementary discussion defining effective target size and comparing selected gates including CNOT.",
+        "method": "Lawful open supplementary PDF; relevant page visually inspected.",
+        "title": "Quantum Instruction Set Design for Performance",
+        "trigger": "Later work explicitly using effective target size to compare two-qubit gates."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes ambient measure information and perfect-entangler volume, not finite moving-cube monotonicity.",
+        "evidence": "The available comparison concerns Haar distribution and perfect-entangler volume rather than the controlled target family.",
+        "identifier_or_url": "doi:10.1103/PhysRevA.87.022111",
+        "material_read": "Abstract/summary and the primary source’s note comparing the independent Haar-measure result.",
+        "method": "Bibliographic/abstract inspection plus the exact-source comparison.",
+        "title": "Unitary quantum gates, perfect entanglers, and unistochastic maps",
+        "trigger": "Independent derivation of the two-qubit Haar interaction distribution cited by the primary source."
+      },
+      {
+        "assessment": "NOT_COVERING: gives geometry/local-equivalence structure but not Haar coordinate-target volumes.",
+        "evidence": "Geometric placement alone does not imply the derivative sign of the Haar target integral.",
+        "identifier_or_url": "doi:10.1103/PhysRevA.67.042313",
+        "material_read": "Abstract and geometric classification statements relevant to controlled gates.",
+        "method": "Primary bibliographic/abstract inspection.",
+        "title": "Geometric theory of nonlocal two-qubit operations",
+        "trigger": "Foundational Weyl-chamber geometry underlying the controlled edge."
+      },
+      {
+        "assessment": "NOT_COVERING: its Schmidt/entanglement invariants differ from finite Haar target volume and do not imply the claimed monotonicity.",
+        "evidence": "A monotone entanglement invariant is not an implication for the moving coordinate-cube Haar measure.",
+        "identifier_or_url": "arXiv:1006.3412",
+        "material_read": "Abstract and statements identifying controlled unitaries and edge entanglement structure.",
+        "method": "Open preprint metadata/abstract inspection.",
+        "title": "Operator-Schmidt decomposition and the geometrical edges of two-qubit gates",
+        "trigger": "Closest controlled-unitary edge classification using an alternative gate invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f50909d-1ed6-45a7-ba08-12c642a4731c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Controlled unitaries form a canonical full Weyl-chamber edge, and effective target size is a published gate-design metric. The source’s common small-target scaling does not order the family. The new theorem gives a complete finite-precision ordering for every admissible cube size and rules out reversals, with CNOT/CPHASE as the unique endpoint maximizer. This is a natural structural classification rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
