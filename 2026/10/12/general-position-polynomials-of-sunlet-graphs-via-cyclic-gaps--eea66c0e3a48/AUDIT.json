@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Proof covers every integer n>=3, with full root-leaf exclusion for sets of at least three, an if-and-only-if gap criterion including shortest path ties, a weight-preserving per-site counting bijection, and exact marked-root/pair/triple derivation of every coefficient. The elementary gap bounds show nonadjacent eligible sites cannot coexist for k>=4, and all k=3 corrections are counted. A separate direct all-pairs shortest-path checker exhaustively tested every subset for n=3,...,9 (349504 subsets), and independent index-set enumeration matches the closed finite sums through n=16. Finite tests are not offered as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 origin paper (Problem 5.1) asks about corona unimodality and works out path coronas (combs) but does not give all cycle coronas.",
+        "The general inclusion-exclusion formula in arXiv:2401.05696 applies to all graphs but requires their maximal general-position sets; it does not provide the sunlet cyclic-geodesic classification or the explicitly evaluated O(n^4) coefficient algorithm.",
+        "Rather (2026), §§6–7, discusses coronas and finite counterexamples, including one sunlet of order twelve; no all-n sunlet statement was located."
+      ],
+      "reasoning": "A generic formal expression applicable to every graph does not automatically contain a tractable specialized closed counting formula or the essential geodesic/adjacent-gap classification. The potentially stronger general corona studies checked do not imply the accepted formula without its new structural work.",
+      "searches": [
+        "counterexamples unimodality of general position polynomial under leaf corona G corona K1 open problem Iršič Klavžar Rus Tuite",
+        "all general position subsets cycle leaf corona near geodesic gap criterion",
+        "\"general position polynomial\" corona unicyclic graphs",
+        "\"general position polynomial\" graph operations inclusion exclusion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.05696v1 (2024-01-11; primary definition and corona question)",
+      "arXiv:2603.06930v3 (Sections 6–7; published n=6 polynomial)",
+      "arXiv:2501.19385v4 (Section 2.3.4; survey of GP polynomial formulas)",
+      "Published “Unimodality of general position polynomials for generalized windmill graphs” (different graph family)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Iršič et al. (2024) §4 gives path-corona and cycle-related examples and §5 poses a general corona question; different base graph family and no cycle-corona enumeration.",
+        "Rather (2026) §7 gives the exact n=6 polynomial; specializing the present result to n=6 reproduces it, but the reverse implication is invalid.",
+        "Published result “Unimodality of general position polynomials for generalized windmill graphs” treats K_1 join a disjoint union of cliques, which is not C_n corona K_1.",
+        "The 2026 survey §2.3.4 supplies the general inclusion-exclusion framework, not a geodesic gap criterion."
+      ],
+      "reasoning": "The new claim strictly covers the known n=6 data while remaining distinct from the comb and windmill theorems. Neither the generic definition nor the generic inclusion-exclusion principle yields formulas (1)–(6) without the independent structural proof. The opposite direction (the new formula implies the known n=6 case) is expressly acknowledged.",
+      "searches": [
+        "general position sets geodesic cycle with one pendant leaf per cycle vertex explicit coefficients",
+        "full general position counting polynomial of cycle corona K1 sunlet",
+        "\"general position polynomials\" cycles combs sunlet",
+        "published general position polynomial generalized windmill graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Iršič et al. (arXiv:2401.05696v1), §§2–5: all graph general-position polynomial and comb/cycle formulas, not a sunlet polynomial.",
+        "Rather (arXiv:2603.06930v3), §7: C_6 corona K_1 finite polynomial, not the cyclic composition for all n.",
+        "Chandran–Klavžar–Tuite (arXiv:2501.19385v4), §2.3.4: known families and inclusion-exclusion; no all-n sunlet identity."
+      ],
+      "reasoning": "Sunlet, cycle with one leaf at every vertex, and cycle corona C_n corona K_1 designate the same family. Searches under these aliases and the full relevant text of the three sources exposed a published special case at n=6 but no equivalent assertion for arbitrary n.",
+      "searches": [
+        "general position polynomial of sunlet graphs cycle corona pendant leaf C_n circle rooted general-position polynomial unimodal",
+        "unimodality of general-position polynomial of sunlet graphs and cycles with leaves",
+        "all n general position polynomial sunlet graph C_n corona K1 polynomial by cyclic gaps",
+        "\"general position polynomial\" \"sunlet\"",
+        "\"general-position polynomial\" \"cycle corona\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rather (2026), §7 explicitly lists 1+12x+66x^2+88x^3+39x^4+6x^5+x^6 for the twelve-vertex C_6 corona K_1. This coefficient vector is repeated only as a known cross-check, not as novelty.",
+        "No checked primary source supplies a table of general n or a formula for the complete coefficient vector for every sunlet size."
+      ],
+      "reasoning": "The exact published n=6 vector is a special case and cannot imply the infinite coefficient sequence by itself. The claim is the all-parameter structural formula and polynomial-time coefficient evaluation, not a fresh calculation of n=6.",
+      "searches": [
+        "all n general position polynomial sunlet graph C_n corona K1 polynomial by cyclic gaps",
+        "full general position counting polynomial of cycle corona K1 sunlet",
+        "\"C_6\" \"K_1\" \"general position\" polynomial",
+        "\"sunlet\" \"general position\" coefficients"
+      ]
+    },
+    "rationale": "The 2024 foundation provides general-position polynomial definitions, generic maximal-set inclusion-exclusion and explicit formulas for cycles and combs; it does not state an all-n sunlet coefficient formula. Rather (2026, §7) supplies exactly the n=6 sunlet polynomial, which is credited and not claimed new, but no general n coefficient theorem. The geodesic cyclic-gap classification and polynomial-time marked-root/pair/triple coefficient formulas resolve all n and all cardinalities. The 2026 survey and closely ranked published windmill-graph polynomial record do not cover that claim; residual unindexed overlap remains possible.",
+    "residual_risks": [
+      "Search-based novelty cannot exclude an implicit formula in a less obviously titled earlier work on geodesic subsets of unicyclic graphs.",
+      "The n=6 vector and its failure of log-concavity were explicitly published in 2026 and are not asserted as novel.",
+      "No universal unimodality or log-concavity statement is proved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_IMPLY_ALL_N_SUNLET_FORMULA",
+        "evidence": "Section 5 asks about corona unimodality; preceding enumerations treat path coronas/combs and other families, not general n sunlets.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+        "material_read": "Accessible full HTML, especially graph-family calculations, the concluding Problems 5.1–5.2 and references.",
+        "method": "Read relevant full primary HTML and directly compared its objects and parameter domain.",
+        "title": "General position polynomials",
+        "trigger": "Foundational definition, cycle/comb formulas and the corona-unimodality question."
+      },
+      {
+        "assessment": "SPECIAL_CASE_ONLY_NOT_ALL_N",
+        "evidence": "Section 7 lists the known n=6 coefficient vector and non-log-concavity, without an all-n sunlet classification.",
+        "identifier_or_url": "https://arxiv.org/html/2603.06930v3",
+        "material_read": "Accessible full arXiv HTML with attention to introduction, Sections 5–7, C_6 corona example, and conclusion.",
+        "method": "Compared all graph family statements and the explicit example with the universal cyclic-gap coefficient formulas.",
+        "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+        "trigger": "Same invariant and the exactly matching n=6 cycle-corona example."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_ALL_N_SUNLETS",
+        "evidence": "Section 2.3.4 lists cycles, paths, grids, generic inclusion–exclusion and graph operations; no sunlet coefficient theorem.",
+        "identifier_or_url": "https://arxiv.org/html/2501.19385v4",
+        "material_read": "Accessible full arXiv HTML, especially Section 2.3.4 on general-position polynomials and discussion of graph operations.",
+        "method": "Compared the survey’s named graph families and maximal-set inclusion-exclusion proposition.",
+        "title": "The General Position Problem: A Survey",
+        "trigger": "Potential broader coverage of all general-position polynomial families and unicyclic applications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eea66c0e-3a48-4ae4-9761-b8eddb03124b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "All-cardinality general-position enumeration of the entire natural sunlet family C_n corona K_1 fills the cycle-corona gap left after the 2024 path-corona/comb results. The central structural gap test and O(n^4) integer arithmetic evaluation go beyond previously known scalar parameters or the published isolated n=6 case, providing complete distributions for an infinite unicyclic graph family. The result is meaningful without resolving the separate open corona-unimodality problem.",
+    "status": "PASS"
+  }
+}
