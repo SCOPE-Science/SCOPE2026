@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The verifier reconstructs the exact source generator over \\(\\mathbb F_3\\), enumerates all \\(81\\) codewords, reproduces the published weight enumerator and \\(15\\) minimal access sets, then exhausts all \\(8!=40320\\) coordinate permutations and all \\(7!=5040\\) participant permutations. Exactly \\(16\\) code automorphisms survive; \\(r\\) and \\(s\\) generate all of them and satisfy \\(r^8=s^2=1\\) and \\(srs=r^3\\). Exactly four policy automorphisms survive and form \\(C_2\\times C_2\\). The dealer stabilizer inside the code group has exactly two elements and induces precisely one order-\\(2\\) subgroup of that Klein four group. No sampling or heuristic group identification is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hernández--Vega explicitly relate the covering structure to Li--Ling--Qu's perfect-nonlinear-function construction.",
+        "The available Li--Ling--Qu abstract says it determines weight distributions, minimal codewords, covering structures, and minimal access sets; it does not advertise automorphism groups.",
+        "Prior published record cf17cf72-ef0d-4288-bdfa-a8e255cf3bc0 proves the general covering structure for the Hernández--Vega family, including the \\(q=3\\) minimal-weight characterization, but states no code automorphism group, access-hypergraph automorphism group, or lifting comparison."
+      ],
+      "reasoning": "Same covering structure does not determine the full coordinate-permutation stabilizer of a particular code presentation, nor does it imply which automorphisms of a support hypergraph lift through the code. The older source is therefore relevant but not known to dominate the new statement.",
+      "searches": [
+        "Few-weight linear codes and their application to secret sharing automorphism group",
+        "On the covering structures of two classes of linear codes from perfect nonlinear functions automorphism",
+        "perfect nonlinear [8,4,4] automorphism group"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s00200-026-00758-1 open full HTML",
+      "DOI:10.1109/TIT.2008.2008145 public abstract/bibliographic record",
+      "published-finding corpus exact/alias searches for ternary [8,4,4], C_(2,-1), semidihedral order 16, generator polynomial, and access-hypergraph symmetry",
+      "Public exact searches for the code parameters, generator polynomial, weight enumerator, semidihedral group, and selected access-set fingerprints",
+      "Current and prior owned research ledgers for the computation-information-recent slot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly lists all 15 minimal access sets and proves which weights are minimal.",
+        "Knowing the list does not state its automorphism group; exhaustive comparison of all \\(7!\\) participant permutations is needed for the exact group.",
+        "Cyclicity supplies an order-\\(8\\) subgroup of code automorphisms, but it does not imply that the full group has order \\(16\\) or the relation \\(srs=r^3\\)."
+      ],
+      "reasoning": "Prior statements supply the finite objects being analyzed, not the claimed maximal symmetry groups or the non-lifting result. The new claim is therefore not a corollary of cyclicity, the weight enumerator, or the covering-structure theorem alone.",
+      "searches": [
+        "C_(2,-1) access structure 15 minimal access sets",
+        "minimal access sets 1,4,7 3,4,5 ternary",
+        "Few-weight linear codes secret-sharing C(2,-1) access hypergraph Klein four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source prints the generator polynomial and generator matrix for \\(C_{(2,-1)}\\), making generator-polynomial and exact-parameter formulations equivalent ways to locate the same code.",
+        "Exact semidihedral/order-16 and generator-polynomial searches returned the source or unrelated group-theory/coding records, not this automorphism calculation."
+      ],
+      "reasoning": "Searches covered the code under its source name, exact ternary parameters, generator polynomial, and the presentation C8 semidirect C2 with action by 3.",
+      "searches": [
+        "ternary cyclic [8,4,4] semidihedral automorphism group order 16",
+        "[8,4,4]_3 automorphism group",
+        "x^4+x^3+x^2+2x+1 automorphism",
+        "C_(2,-1) semidihedral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source cites code tables only to establish optimality of \\([8,4,4]_3\\).",
+        "Exact numerical searches did not surface a public code-table entry reporting the order-16 semidihedral coordinate group or the order-4 access-hypergraph group."
+      ],
+      "reasoning": "A classification table with an equivalent code and full automorphism group could cover the first half of the claim, so exact parameter and weight-enumerator searches were included. None was located; the policy-symmetry lifting comparison is not an ordinary code-table invariant.",
+      "searches": [
+        "[8,4,4]_3 automorphism group",
+        "1 + 20z^4 + 32z^5 + 8z^6 + 16z^7 + 4z^8 automorphism",
+        "ternary code 8 4 4 semidihedral"
+      ]
+    },
+    "rationale": "The primary source gives the code, cyclic shift, weight enumerator, minimal-word criterion, and the 15-set access family but does not identify either full automorphism group or compare policy symmetries with dealer-fixing code symmetries. The older perfect-nonlinear source covers the same support/covering structure but no automorphism statement was located. Focused public and research-record searches by exact code parameters, generator polynomial, group presentation/order, and access-set fingerprints found no statement implying the combined claim.",
+    "residual_risks": [
+      "A non-indexed classification of ternary [8,4,4] codes could list the automorphism group of an equivalent representative without linking it to this generator polynomial.",
+      "The older perfect-nonlinear-function article was not available as full text in this run; an incidental automorphism computation not visible in its abstract remains possible, although focused searches did not locate one.",
+      "Only coordinate-permutation automorphisms are classified; allowing coordinate scalings may make additional access-policy symmetries lift."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: gives the exact objects and access family but not either full automorphism group or the lifting comparison.",
+        "evidence": "Example 3 prints \\(g(x)\\), \\(G\\), \\(G^\\perp\\), and the \\(15\\) access sets; the paper describes the code as cyclic and the scheme explicitly, but no automorphism-group calculation is stated.",
+        "identifier_or_url": "DOI:10.1007/s00200-026-00758-1",
+        "material_read": "Open-access full HTML: construction and Example 1(a); puncturing discussion; Section 7 covering structure, Theorem 8, Corollary 3, Example 3 including generator matrices and all 15 minimal access sets; publication and MSC metadata.",
+        "method": "lawful open-access publisher HTML",
+        "title": "Few-weight linear codes and their application to secret sharing",
+        "trigger": "Primary source for the exact cyclic code and secret-sharing access family."
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_NOT_DECISIVE: known to cover minimal codewords/access sets, but no automorphism-group or symmetry-lifting statement was located.",
+        "evidence": "The abstract advertises weight distributions, minimal codewords, covering structures and minimal access sets; exact automorphism searches produced no matching record.",
+        "identifier_or_url": "DOI:10.1109/TIT.2008.2008145",
+        "material_read": "Public abstract/bibliographic record plus the 2026 source's Remarks 7 and 8 describing the precise covering-structure relationship.",
+        "method": "public bibliographic/abstract record and explicit comparison in the open primary source",
+        "title": "On the Covering Structures of Two Classes of Linear Codes From Perfect Nonlinear Functions",
+        "trigger": "The 2026 source says its q=3 covering/access structure matches this predecessor, making it the strongest plausible older coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "295891ee-cc55-4713-a432-6dbcfdc7d3f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's final application is an explicit secret-sharing access policy, so its symmetry group is a natural structural invariant: it identifies interchangeable participant roles and policy symmetries. The exact code automorphism group sharpens the source's mere cyclicity, while the strict gap between the policy group and the dealer-fixing code group shows that access-level equivalence is genuinely coarser than code-coordinate symmetry. This is a motivated finite classification attached directly to the source application, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
