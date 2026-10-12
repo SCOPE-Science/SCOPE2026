@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed Eq.(30) exactly, checked the Rayleigh quotient and alpha ranges for any real symmetric model, applied the L-smooth descent lemma blockwise, minimized the resulting concave coefficient at exactly attainable endpoints B=0 and B=M, and solved both inequalities in all parameter regimes. The scalar quadratic equality constructions prove sharpness; a connected two-agent strongly convex quadratic family realizes the source-declared L and approaches the same obstruction below the threshold. Executed exact rational checker from package script with VERIFY_OK. No finite enumeration was treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A published SPD Cauchy result bounds predicted decrease compared with the exact subproblem optimizer via the Kantorovich inequality. Its RESULT.md was inspected.",
+        "The usual L-smooth descent lemma alone is conditional on a known alpha, whereas the theorem computes its sharp worst case over all admissible B."
+      ],
+      "reasoning": "Model-optimality ratios require B positive-definite and do not imply an exact bound on actual objective change when B can be indefinite. Generic smoothness alone does not imply the optimal model-cap threshold without identifying the source-specific ray minimizer.",
+      "searches": [
+        "published-finding corpus: gradient-aligned model minimizer steepest step adaptive b max(b Rayleigh quotient) sharp one-quarter decrease constant",
+        "published-finding corpus: 2026 distributed objective function free trust region adaptive stepsize denominator b Hessian Rayleigh quotient model B M Lipschitz L descent",
+        "published-finding corpus: exact optimal 1/4 descent condition Cauchy step b>=2L/3 gradient Hessian capped M 2026",
+        "Web: \"exact\" \"gradient aligned\" \"trust region\" \"descent\" \"model curvature\"",
+        "published-finding corpus: 2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.00878v1, §3 Eq.(30) and §4 Lemma4.2",
+      "OptimizationOnline:8787 (2022), Eq.(9) and Lemma6",
+      "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe RESULT.md",
+      "Published published-finding corpus semantic queries targeting exact ray-minimizer and sufficient-descent aliases",
+      "Web searches targeting DOFFO_TR, AdaTrust, b>=2(L+M), sharp Cauchy descent"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The old sufficient threshold is 2(L+M); the exact threshold b_* is smaller by up to factor nine and each smaller b has a scalar and limiting two-agent obstruction.",
+        "The SPD Cauchy result concerns model optimality and supplies neither a smooth-objective bound nor the L=M/2 switch."
+      ],
+      "reasoning": "The published sufficient implications do not establish a necessary-and-sufficient universal threshold for the explicit step, and the nearby sharp trust-region ratio lacks the hypotheses/conclusion needed to dominate this claim. The constructive converses rule out treating the result as mere restatement.",
+      "searches": [
+        "published-finding corpus: DOFFO_TR Bellavia Malaspina Morini 2026 objective-function-free trust-region first-order model Cauchy step sharp smooth decrease b >= 2(L+M) improvement",
+        "published-finding corpus: adaptive trust region without function evaluations Grapiglia Stella Cauchy step decrease exact threshold curvature bound",
+        "published-finding corpus: gradient-aligned model minimizer steepest step adaptive b max(b Rayleigh quotient) sharp one-quarter decrease constant",
+        "published-finding corpus: exact optimal 1/4 descent condition Cauchy step b>=2L/3 gradient Hessian capped M 2026",
+        "arXiv:2609.00878v1 Lemma 4.2",
+        "OptimizationOnline:8787 Lemma 6",
+        "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arXiv:2609.00878v1, Eq.(30) specifies the ray minimizer while Lemma 4.2 gives b>=2(L+M) under weaker Eq.(13).",
+        "In Grapiglia--Stella (2022), Lemma 6 similarly treats all model-adequate steps and retains 2(L+M)."
+      ],
+      "reasoning": "The new coefficient is an exact minimax over the extra direction parameter alpha=min(1,b/rho), not equivalent to the generic model-decrease estimate. Neither source solves the two-endpoint minimization or the piecewise optimal b threshold.",
+      "searches": [
+        "published-finding corpus: DOFFO_TR Bellavia Malaspina Morini 2026 objective-function-free trust-region first-order model Cauchy step sharp smooth decrease b >= 2(L+M) improvement",
+        "published-finding corpus: adaptive trust region without function evaluations Grapiglia Stella Cauchy step decrease exact threshold curvature bound",
+        "published-finding corpus: arXiv:2609.00878 DOFFO_TR Bellavia Malaspina Morini Cauchy direction sufficient decrease sharp optimal threshold 65K05",
+        "Web: \"b_k\" \"2(L+M)\" \"sharp\" trust region",
+        "Web: \"AdaTrust\" \"Cauchy\" \"sharp\" \"decrease\"",
+        "arXiv:2609.00878v1 §3 Eq.(30), §4 Lemma4.2",
+        "OptimizationOnline:8787 Lemma 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim concerns a continuous family of real curvature bounds and a uniform inequality rather than a finite parameter database. The inspected primary result has no table of an exact piecewise coefficient."
+      ],
+      "reasoning": "An exact database/table cannot cover a new all-real-parameter extremal statement without a stronger symbolic theorem; none among inspected near matches gives that theorem.",
+      "searches": [
+        "published-finding corpus: DOFFO_TR Bellavia Malaspina Morini 2026 objective-function-free trust-region first-order model Cauchy step sharp smooth decrease b >= 2(L+M) improvement",
+        "published-finding corpus: arXiv:2609.00878 DOFFO_TR Bellavia Malaspina Morini Cauchy direction sufficient decrease sharp optimal threshold 65K05",
+        "Web: \"2609.00878\" \"descent\" \"threshold\"",
+        "Web: \"DOFFO_TR\" \"1/4\" \"curvature\""
+      ]
+    },
+    "rationale": "The motivating paper and its 2022 predecessor establish only b>=2(L+M) from abstract model decrease, while this claim gives a sharp, strictly smaller, direction-specific coefficient and converse. The nearest published sharp Cauchy result bounds a different, SPD-model optimality ratio. Searches and full-text implication comparisons did not find dominating coverage; possible unindexed equivalent earlier results remain a residual risk.",
+    "residual_risks": [
+      "Classical trust-region or gradient-aligned step literature may contain an unindexed equivalent piecewise envelope.",
+      "The source first-public date and primary MSC come from v1 HTML; no independent bibliographic adjudication is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves a generic 2(L+M) sufficient threshold but no model-aware sharp piecewise threshold for Eq.(30).",
+        "evidence": [
+          "MSC list 65K05, 90C30, 90C35; first submitted 2026-09-01.",
+          "Eq.(30) specifies the gradient-aligned Cauchy ray step.",
+          "Lemma 4.2 states b_i>=2(L+M) for quarter-descent."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.00878v1",
+        "material_read": "Full relevant HTML §§2-4, Eq.(13), Eq.(30), Lemmas 3.4 and 4.2, associated proof and complexity usage",
+        "method": "Direct full-text equation and implication comparison",
+        "title": "DOFFO_TR: a Decentralized Objective Function-Free Optimization method with Trust-Region",
+        "trigger": "Exact motivating Cauchy rule and published 2(L+M) sufficient decrease"
+      },
+      {
+        "assessment": "The paper uses b>=2(L+M) under general approximate model steps; no exact Eq.(30)-type ray factor minimax.",
+        "evidence": [
+          "Lemma 6 p.6 gives the same conservative quarter-descent bound.",
+          "Algorithm 1 only assumes abstract sufficient model decrease."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/02/8787.pdf",
+        "material_read": "PDF pp.1-7, especially Algorithm 1, Eq.(9), and Lemma 6 with its proof",
+        "method": "Full PDF text and page image inspection, statement-vs-implication comparison",
+        "title": "An Adaptive Trust-Region Method Without Function Evaluations",
+        "trigger": "Direct 2022 predecessor with the same generic acceptance condition"
+      },
+      {
+        "assessment": "Distinct object/metric: SPD model predicted reduction versus optimum, not actual smooth objective decrease for arbitrary symmetric bounded B.",
+        "evidence": [
+          "It proves D_C/D_* >= 1/[(u^TBu)(u^TB^-1u)].",
+          "Its sharp condition-number factor 4kappa/(kappa+1)^2 does not imply a b,L,M objective-descent coefficient."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe",
+        "material_read": "Full main theorem and proof in public RESULT.md, through model-optimality and fraction-of-Cauchy sections",
+        "method": "Public repository read-only file inspection",
+        "title": "Sharp fraction-of-optimal decrease for the SPD Cauchy trust-region point",
+        "trigger": "Closest published research record involving a sharp Cauchy trust-region constant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f03304bf-19cf-4058-8c6f-db659a641c33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The denominator b_i controls trial-step size, and the published sufficient quarter-descent threshold 2(L+M) is up to nine times too large for the concrete implemented Cauchy rule. The exact two-regime frontier, extremal models, and connected-network limiting obstructions show a quantitative usable relaxation with a structural L/M switch. This is not a merely renamed descent lemma or tiny numerical adjustment; it isolates an implementable algorithm choice and an exact non-improvable safeguard, while explicitly not claiming a new outer complexity theorem.",
+    "status": "PASS"
+  }
+}
