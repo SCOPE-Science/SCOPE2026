@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Each source failure term f_j S_{3-j} and each withdrawn-survivor term S_1 S_2 contains alpha^4/(1+alpha)^2. Counting those factors gives the exact model likelihood. The printed Eq. (3.1) has ratio alpha^{-4R}(1+alpha)^{-2m} to that likelihood, whereas exponentiating Eq. (3.2) reproduces the model likelihood. Eq. (4.2) explicitly inherits Eq. (3.1), so its posterior needs the reciprocal alpha^{4R}(1+alpha)^{2m} factor. The packaged checker independently verifies all three kernels and the numeric score effect.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General progressive competing-risks likelihood theory supports the source's own Eq. (2.4), in which every withdrawn survivor contributes both latent survival functions.",
+        "The later bootstrap-calibrated Gompertz–Lindley paper focuses on MLE bias correction and BCa intervals, not the target Bayesian posterior kernel.",
+        "The closest published-result hits concern unrelated proportional-hazards identification and other probability corrections."
+      ],
+      "reasoning": "Broader competing-risks theory determines the correct survival-product structure, but the accepted claim requires source-specific comparison of Eqs. (3.1), (3.2), and (4.2).",
+      "searches": [
+        "Gompertz-Lindley Bayesian posterior competing risks alpha factor",
+        "classical Bayesian inference Gompertz-Lindley competing risks correction",
+        "Gompertz-Lindley progressive censoring likelihood missing alpha survival"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026495",
+      "https://orapublishing.com/oram/article/view/oramath.e2026006"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current and immediately preceding weekly ledgers contain no target DOI or Gompertz–Lindley posterior claim.",
+        "No targeted published-result hit states the alpha^{4R}(1+alpha)^{2m} posterior correction.",
+        "The later bootstrap-calibrated same-model article addresses classical MLE bias rather than the Bayesian posterior factor."
+      ],
+      "reasoning": "No checked prior statement implies the exact factor ratio or the resulting correction to the posterior and MH target.",
+      "searches": [
+        "10.3934/math.2026495 likelihood posterior alpha progressive censoring correction",
+        "Gompertz-Lindley Bayesian posterior competing risks alpha factor",
+        "classical Bayesian inference Gompertz-Lindley competing risks correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target PDF's Eq. (2.4) gives the general product of cause subdensities and survivor contributions.",
+        "Eq. (3.1) has a parameter-dependent factor mismatch, while Eq. (3.2) restores the full alpha normalizers.",
+        "Eq. (4.2) is explicitly described as combining Eq. (3.1) with the prior and repeats its factorization."
+      ],
+      "reasoning": "Missing survival normalizers, non-equivalent log likelihoods, posterior-kernel mismatch, and Metropolis–Hastings target distortion are equivalent consequences of the same algebraic factor error and were searched under those aliases.",
+      "searches": [
+        "10.3934/math.2026495 likelihood posterior alpha progressive censoring correction",
+        "Gompertz-Lindley competing risks Eq 3.1 posterior Eq 4.2 correction",
+        "Gompertz-Lindley progressive censoring likelihood missing alpha survival"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF prints Eq. (3.1) on page 12069 and the inconsistent expanded Eq. (3.2) immediately below it.",
+        "The Bayesian page 12072 states that Eq. (4.2) is obtained by combining Eq. (3.1) with the prior.",
+        "The MCMC section states that the Metropolis–Hastings stationary distribution is the printed posterior pi-star."
+      ],
+      "reasoning": "The discrepancy is internal to the exact equations used for likelihood and posterior construction; no table interpretation is needed for the proof.",
+      "searches": [
+        "10.3934/math.2026495 Eq 3.1 Eq 4.2 posterior",
+        "10.3934/math.2026495 progressive Type-II m n alpha posterior",
+        "10.3934/math.2026495 Metropolis Hastings posterior"
+      ]
+    },
+    "rationale": "Five targeted published-result searches and exact web searches using the DOI, equation numbers, posterior terminology, survival-normalizer language, and alpha-factor aliases found no covering correction. The primary full text was inspected through the exact formulas. A later same-model bootstrap paper concerns classical bias calibration and does not report a Bayesian posterior repair. No checked prior private claim uses the target DOI or Gompertz–Lindley posterior discrepancy.",
+    "residual_risks": [
+      "Unavailable source code may have used the corrected log-likelihood rather than the printed posterior.",
+      "A recent unindexed erratum or private correction could exist.",
+      "The accepted claim does not quantify how much any published posterior table would change after correction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT AS PRINTED. Eq. (3.1) is not proportional to the model likelihood or Eq. (3.2); Eq. (4.2) inherits Eq. (3.1).",
+        "evidence": "Pages 12068–12072 and the MCMC section on page 12073.",
+        "identifier_or_url": "doi:10.3934/math.2026495",
+        "material_read": "Open full publisher PDF at the GLD density/survival formulas, model definition and Eq. (2.4), specialized likelihood Eq. (3.1), log-likelihood Eq. (3.2), posterior Eq. (4.2), and Metropolis–Hastings section.",
+        "method": "Direct parsed-text and rendered-page inspection of the open publisher PDF.",
+        "title": "Classical and Bayesian inference for progressively censored competing risks data under the Gompertz-Lindley model",
+        "trigger": "Primary source containing the model, likelihood, posterior, and MCMC target."
+      },
+      {
+        "assessment": "NOT COVERING. It develops bootstrap calibration for maximum-likelihood estimation and BCa intervals and does not report the target Bayesian posterior correction.",
+        "evidence": "Abstract and methodological description published 8 May 2026.",
+        "identifier_or_url": "https://orapublishing.com/oram/article/view/oramath.e2026006",
+        "material_read": "Public article record, abstract, methodological scope, and references.",
+        "method": "Direct public full-record inspection.",
+        "title": "Bootstrap-calibrated estimation for progressively censored competing risks data under the Gompertz-Lindley model",
+        "trigger": "Later same-model literature that could potentially subsume or repair the target likelihood."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "306c012f-5984-4f51-8e30-15450f1976a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Bayesian inference is one of the paper's main contributions, and Eq. (4.2) is the stated target for posterior expectations, credible intervals, Tierney–Kadane approximation, and Metropolis–Hastings sampling. The missing factor depends strongly on alpha and on the censoring amount, so it cannot be dismissed as a typographical normalization. The exact correction restores compatibility between the Bayesian section and the model's own likelihood while cleanly separating theory from unavailable implementation.",
+    "status": "PASS"
+  }
+}
