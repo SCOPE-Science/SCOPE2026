@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Complete proof for exactly \\(2^{14}\\) binary words: each observation is bijective with its integer array \\(c_{\\ell,r}\\) of prefix-sum differences, and every word is visited exactly once. Python and independently written C++ enumerate all 16,384 words, grouping on exact tuple/vector equality, and agree on 128 singleton, 8104 two-word and 12 four-word fibers (total 8244). They agree member-for-member on the twelve explicit quadruples; the maximum is therefore exactly four. The lower bound is realized by listed words; no generalization from samples is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acharya et al. arXiv:1403.2439v1 §11 Theorems 27-28 give general upper bounds and prime-power special cases; at \\(15=3\\cdot5\\) the stated general upper bound is 8, while the matching lower construction supplies 4.",
+        "Gupta and Mahdavifar arXiv:2201.09955 abstract concerns an alternative efficient polynomial reconstruction algorithm and codebooks, not exact class multiplicities for the full observation."
+      ],
+      "reasoning": "A stronger all-length theorem asserting \\(E_n\\) equals the lower prime-factor bound would cover the claim, but none was identified in the inspected full primary preprint or later accessible abstract. The later paper remains a full-text access uncertainty; the abstract alone is not treated as conclusive whole-paper exclusion.",
+      "searches": [
+        "\"A New Algebraic Approach for String Reconstruction from Substring Compositions\" arxiv",
+        "\"String Reconstruction from Substring Compositions\" \"15\" \"4\" maximum equicomposable",
+        "published-finding corpus: \"enumeration of all confusable binary strings of length fourteen equicomposable fibers reconstruction\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1403.2439v1 (2014 full accessible article)",
+      "doi:10.1109/ISIT.2010.5513668 (2010 predecessor abstract and year-only record)",
+      "arXiv:2201.09955 (2022 paper abstract)",
+      "doi:10.1016/j.dam.2026.04.023 (2026 graph extension abstract)",
+      "MSC2020 official class 68R15 https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=68R15",
+      "published-finding corpus 2026/9/19/distinct-substring expectation record (different statistic)",
+      "published-finding corpus indexed: Near-root-n concentration for random distinct-substring complexity (different statistic)",
+      "published-finding corpus indexed: Exact size and enumeration of maximum length-five non-overlapping codes (different code object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acharya et al. arXiv:1403.2439v1 §2 eq. bounds: at \\(n+1=15\\) the lower \\(2^{1+1}=4\\) and upper \\(2^{4-1}=8\\); §11 Theorem 28 equality only when \\(n+1\\) is a prime power or twice one.",
+        "The exact 12 four-word fibers, 8104 pairs and 128 singletons require evaluating the length-fourteen observation map."
+      ],
+      "reasoning": "The existing 2014 lower bound proves existence of a fiber with at least four elements, not impossibility of eight-element fibers. The cited upper bound admits eight, and neither an exact theorem for \\(n+1=15\\) nor equality counts follow as corollaries. The new exact enumeration rules out eight and counts all fibers.",
+      "searches": [
+        "\"E_14\" \"equicomposable\" strings",
+        "\"15\" \"equicomposable\" \"four\" substring composition",
+        "published-finding corpus: \"combinatorial string reconstruction length 14 3 times 5 maximum equicomposable class cardinality 4\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acharya et al. arXiv:1403.2439v1 §2 defines the identical all-length multiset observation; §8, Corollary 14 states the number of equivalent strings is a power of two, via irreducible nonpalindromic polynomial factors.",
+        "The present count vector \\(c_{\\ell,r}\\) is exactly the histogram of that same observation, not a relaxed set of factors."
+      ],
+      "reasoning": "Polynomial autocorrelation equality, equicomposability, and Parikh composition-multiset equality are equivalent formulations of the object. The source characterizes each fiber through polynomial factorizations but does not evaluate \\(E_{14}\\) or enumerate the 12 fibers. The two exact finite enumerators supply the missing evaluation; failure of a title search alone is not relied on.",
+      "searches": [
+        "\"equicomposable binary strings length 14 exact maximal 4 class 12 substring compositions\"",
+        "\"E_14\" \"equicomposable\" strings",
+        "published-finding corpus: \"Exact n=14 binary equicomposability maximum class size four 12 fibers substring composition Parikh multiset all factors\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source arXiv:1403.2439v1 §2 and §11 supplies bounds and examples (e.g. length eight) but no indexed length-fourteen enumeration in the full text inspected.",
+        "published-finding corpus semantic search returned unrelated substring complexity and code classifications, e.g. 2026/9/19/distinct-substring expectation record, and no identical class census; local historical claims were checked for literal and conceptual overlap."
+      ],
+      "reasoning": "No examined public table or published indexed result gives the full 128/8104/12 length-fourteen histogram. Negative search findings lower search confidence only and are not a mathematical novelty certificate; unindexed tables remain possible.",
+      "searches": [
+        "\"length 14\" \"equicomposable\" strings",
+        "\"E_14\" \"equicomposable\" strings",
+        "\"substring composition reconstruction exactly length 14 ambiguous sets 12 four word groups\"",
+        "published-finding corpus: \"Acharya Das Milenkovic Orlitsky Pan n+1=15 3 times 5 exact E_14 four binary strings substring composition multiset\""
+      ]
+    },
+    "rationale": "2014 full primary text establishes identical composition-multiset model and the \\(n=14\\) general 4-to-8 bounds; its exact prime-power/twice-prime-power results do not cover \\(n+1=15=3\\cdot5\\). The 2010 predecessor and the 2022 subsequent same-object paper were compared using accessible abstracts, with full-text uncertainty stated. Searches of equicomposability synonyms, exact n14 tables, published-finding corpus, and own prior claims found no exact size-four maximum or 12-fiber census; no search is claimed to prove global novelty.",
+    "residual_risks": [
+      "The earlier five-page 2010 conference text was not inspected; available index supplies year not exact day.",
+      "The 2022 same-object paper and a 2026 graph paper were accessible only as abstracts; absence of a census in those abstracts does not establish absence from their full texts.",
+      "Previously unindexed exact finite tables or independently unpublished results cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the finite sharp size and census; DOES_COVER the observation model and broad 4..8 bounds.",
+        "evidence": [
+          "§2 equations establish \\(4\\le E_{14}\\le8\\) for \\(15=3\\cdot5\\) and restrict proved equalities to prime powers/twice prime powers.",
+          "§8 Corollary 14 class sizes are powers of two; §11 Theorem 27 general upper and Theorem 28 special exact families.",
+          "§15 states questions on confusable strings and further bounds remain."
+        ],
+        "identifier_or_url": "arXiv:1403.2439v1; https://arxiv.org/html/1403.2439v1",
+        "material_read": "Full HTML text and relevant Sections 2 (definition, \\(E_n\\) and bounds), 4 (interleaving), 8 (polynomial factorization class-size characterization), 10-11 (special cases and general upper bound), 15 (conclusions), plus references.",
+        "method": "Primary full-text section and theorem inspection; compared exact implications at \\(n=14\\).",
+        "title": "String Reconstruction from Substring Compositions",
+        "trigger": "Same observation, exactly the original model and upper/lower bounds for parameter fifteen."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; abstract does not state an exact length-fourteen count but cannot exclude an unindexed result in the full paper.",
+        "evidence": [
+          "The 2010 abstract lists general indistinguishable-string constructions and divisor-count bounds.",
+          "Publication year 2010 verified; precise first public calendar day not evidenced."
+        ],
+        "identifier_or_url": "doi:10.1109/ISIT.2010.5513668; https://experts.illinois.edu/en/publications/on-reconstructing-a-string-from-its-substring-compositions",
+        "material_read": "University repository bibliographic record and complete available abstract; 5-page primary text not accessible/inspected.",
+        "method": "Compared abstract statements about general bounds and constructions to the exact \\(n=14\\) class census.",
+        "title": "On Reconstructing a String from Its Substring Compositions",
+        "trigger": "Earlier same-author conference predecessor could dominate all later results."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; accessible abstract discusses algorithmic polynomial-complexity reconstruction and codebooks without any \\(n=14\\) exact census.",
+        "evidence": [
+          "Abstract describes algebraic algorithm, no-backtracking sufficient conditions, and improved reconstruction codebooks; it makes no explicit exact-fiber claim."
+        ],
+        "identifier_or_url": "arXiv:2201.09955; https://arxiv.org/abs/2201.09955",
+        "material_read": "Accessible arXiv abstract and bibliographic/journal overview only; full-text HTML unavailable in this check.",
+        "method": "Compared stated efficient reconstruction and coding contributions against the full-observation maximum fiber and equality census.",
+        "title": "A New Algebraic Approach for String Reconstruction from Substring Compositions",
+        "trigger": "Later paper concerns same substring-composition multiset and might strengthen the 2014 bound."
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT but abstract addresses graph reconstruction under subgraph-composition queries rather than exact full-path-word length-fourteen histogram.",
+        "evidence": [
+          "Abstract introduces general graph labeling and subgraph compositions, not a published \\(E_{14}\\) exact census."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2026.04.023",
+        "material_read": "Publisher abstract only, not full paper.",
+        "method": "Checked changed object and observation quantification.",
+        "title": "Reconstructing graphs with subgraph compositions",
+        "trigger": "Later generalization of the same observation name could subsume path-graph case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b1ad3b3-2456-48ff-bcc5-2e70803c1ce9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first case where \\(n+1\\) has two distinct odd prime factors lies outside source exact families. Determining \\(E_{14}\\)=4, rather than the previously permitted 4 or 8, closes a motivated natural ambiguity-bound gap. Exhaustive equality classification quantifies every nonreconstructable sequence (48/16384=3/1024) for the original composition-observation channel. Its utility is an exact worst-case finite reconstruction benchmark, independent of any asserted asymptotic extension.",
+    "status": "PASS"
+  }
+}
