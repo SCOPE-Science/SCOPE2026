@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For positive values, all five four-window lower-symbol multiplicities are checked symbolically, forcing exactly 2 or 3 small symbols and larger value twice smaller. For zero-containing alphabets, one-zero or all-zero windows are the only possibilities; sliding-window continuity excludes mixtures, and the zero indicator satisfies \\(e_{i+4}=e_i\\), giving exactly five infinite sequences. The transition list is exhaustive, and its finite matrix inverse gives the rational generating function; exact characteristic polynomial and primitive seven-state graph yield the Perron growth assertion for every length. The packaged verifier checks the exact finite identities and samples; no extrapolation from enumeration is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf, pp. 3–8: the stated propositions treat increasing/permutation-increasing sequences; no global fixed-alphabet counting claim."
+      ],
+      "reasoning": "Standard transfer-matrix theorems guarantee rationality for an arbitrary finite forbidden-word language after the forbidden windows are given; they do not fix the allowed pairs of arithmetic values or supply this explicit rational function and spectral polynomial. The semantically closest published sequence/word results address different conditions and do not cover the original max/min equation.",
+      "searches": [
+        "Constrained binary words in every four consecutive positions exactly two or three ones; word counts rational generating function Perron root",
+        "David Nacin Van der Laan sequences bounded two-valued alphabet 0 and 1 or 1 and 2; exact characterization of all valid words and growth constant 1.56361069559191 finite automaton",
+        "\"Van der Laan\" \"bounded\" \"binary\" sequence classification"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+      "https://oeis.org/A177704",
+      "https://oeis.org/A000931"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf, pp. 2–3: periodic (1,1,1,2) and (2,3,4,5) and unbounded counterexamples; pp. 3–8: linear combinations of Padovan and Fibonacci for increasing or permutation-increasing cases.",
+        "https://oeis.org/A177704: (1,1,1,2) was known by 2010, so this orbit cannot be counted as a new discovery."
+      ],
+      "reasoning": "The present theorem strictly includes the known positive periodic example, but fixes every two-valued alphabet and all its infinite admissible trajectories and counts their finite factors. A single known orbit or a theorem for eventually increasing recurrences does not imply the growth rate of this nonmonotone positive-entropy shift; nor does it determine the collapse when one value is zero. No known isolated periodic example is claimed as new.",
+      "searches": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+        "https://oeis.org/A177704",
+        "https://oeis.org/A000931",
+        "Van der Laan sequences with values 1 and 2, maximum of four consecutive terms equals sum of two minima, binary forbidden patterns and entropy",
+        "David Nacin Van der Laan sequences bounded two-valued alphabet 0 and 1 or 1 and 2; exact characterization of all valid words and growth constant 1.56361069559191 finite automaton"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf, pp. 2–8: definition, counterexamples and Propositions 2–7 read; emphasis on increasing and permutation-increasing classes.",
+        "https://oeis.org/A177704: records only a single periodic four-letter orbit and its shifts, not all admissible binary words."
+      ],
+      "reasoning": "Replacing two positive values by bits converts the present statement to the subshift that permits exactly two or three ones in each window of four. The published periodic counterexample is one orbit inside this subshift, not a classification; the inspected primary results impose different monotonic/permutation restrictions and imply neither all positive binary trajectories nor their word growth.",
+      "searches": [
+        "Van der Laan sequences with values 1 and 2, maximum of four consecutive terms equals sum of two minima, binary forbidden patterns and entropy",
+        "Two-valued integer sequences satisfying largest of four consecutive entries equals sum of two smallest, exact enumeration growth rate",
+        "\"Van der Laan\" \"two-valued\" sequences",
+        "\"Van der Laan\" \"bounded\" \"binary\" sequence classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A177704: A177704 is the individual periodic word (1,1,1,2) repeated.",
+        "https://oeis.org/A000931: A000931 counts a different Padovan sequence and mentions Van der Laan examples, not the present all-word counts.",
+        "The exact count sequence begins 1,2,4,8,10,16,25,39,61,95; the checked targeted web/database searches did not return an exact matching table."
+      ],
+      "reasoning": "An entry for an individual periodic sequence does not determine the numbers of all admissible words. The Padovan sequence has different numerical data and constraints. Search nonreturn is only limited evidence and is not used alone to assert novelty.",
+      "searches": [
+        "https://oeis.org/A177704",
+        "https://oeis.org/A000931",
+        "\"1, 2, 4, 8, 10, 16, 25, 39, 61, 95\" sequence OEIS",
+        "site:oeis.org \"10, 16, 25, 39, 61, 95\""
+      ]
+    },
+    "rationale": "The checked full primary article classifies increasing or prescribed permutation-increasing Van der Laan sequences and records an isolated period-four example, not arbitrary two-level infinite trajectories. OEIS A177704 gives that specific periodic word; A000931 gives the Padovan context. No checked text proves the complete zero-versus-positive two-level classification or states this particular rational word series and sixth-degree entropy polynomial. Finite-type automata are standard, so methodological novelty is not claimed. Residual risk: an unindexed equivalent binary-window enumeration.",
+    "residual_risks": [
+      "No claim of priority over unavailable or unindexed pre-2026 binary constraint/counting work. A general finite-type shift calculation may have appeared under an unrelated combinatorial vocabulary.",
+      "The exact rational generating function and spectral polynomial are explicitly derived for this arithmetic constraint; the method itself is standard and not presented as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this complete two-level language and entropy statement. Gives a known positive period-four orbit and results on other monotonicity-constrained classes.",
+        "evidence": [
+          "PDF p.2 lists (1,1,1,2) periodic counterexample and p.3 frames questions about increasing sequences; pp.3–8 Propositions 2–7 classify increasing and permutation-increasing variants; last page records primary 11B39 and publication December 30, 2022."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Nacin/nacin5.pdf",
+        "material_read": "Full nine-page article, pages 1–9: abstract, original conjecture and counterexamples, all propositions and proofs, conclusion, bibliography, primary MSC and dated publication note.",
+        "method": "Full PDF text read and pages 2 and 8 visually inspected.",
+        "title": "Van der Laan Sequences and a Conjecture on Padovan Numbers",
+        "trigger": "Exact same four-consecutive max/min definition; focal source and most plausible dominating result."
+      },
+      {
+        "assessment": "SPECIAL_CASE_COVERED only: known period-four example, no count of all locally valid words.",
+        "evidence": [
+          "Entry says period four repeated 1,1,1,2, links Nacin, and gives G.f. for that single sequence."
+        ],
+        "identifier_or_url": "https://oeis.org/A177704",
+        "material_read": "Full web entry including definition, terms, comments, references, generating function and date.",
+        "method": "Public HTML entry read.",
+        "title": "OEIS A177704: Period 4, repeat [1,1,1,2]",
+        "trigger": "Direct prior instance inside positive two-valued class."
+      },
+      {
+        "assessment": "NOT_COVERING the present binary max/min language: concerns Padovan recurrence and diverse associated enumerations.",
+        "evidence": [
+          "A000931 commentary observes many Van der Laan sequences including the period-four example, and explicitly notes the earlier Padovan-merging conjecture was wrong."
+        ],
+        "identifier_or_url": "https://oeis.org/A000931",
+        "material_read": "Entry header, initial terms, comment and examples, especially commentary describing the failed conjecture, and reference links.",
+        "method": "Public HTML text examined (relevant sections).",
+        "title": "OEIS A000931: Padovan sequence",
+        "trigger": "Underlying name and the originating conjecture in the primary article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bc6d826-f1c8-4c20-b58e-8f0d1099ca7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the natural minimal nontrivial two-symbol restriction of an explicitly studied max/min sequence condition. It proves a sharp all-zero versus positive alphabet rigidity, complete classification of all binary infinite trajectories, an exact finite-word series and nontrivial entropy polynomial. The distinction between only five zero-containing sequences and uncountably many aperiodic positive ones is structural and was not implied by the known periodic counterexample. No general recurrence theory or large-alphabet result is claimed.",
+    "status": "PASS"
+  }
+}
