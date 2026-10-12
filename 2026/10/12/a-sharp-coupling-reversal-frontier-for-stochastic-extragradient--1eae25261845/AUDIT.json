@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The transpose-times-itself identity for the random two-stage 2x2 update gives an exact scalar squared-norm multiplier; the joint Bernoulli table and outer independence yield the full mean-square law. Affinity in the unique coupling parameter proves global optimality. Strict positivity of the mixed fourth moment gives the if-and-only-if stability classification, and differentiation of its rational ceiling yields the exact frontier. All boundaries and example fractions were directly reconstructed; 2,467 standalone exact-rational checks supplement the universal analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorbunov et al. Sections 1 and 3-4 develop general upper convergence bounds for same/independent stage sampling, with arbitrary marginal minibatching under same-sample usage.",
+        "Mishchenko et al. Algorithm 1 uses one sample twice, and its Theorem 4/Corollary 1 analyze that specific scheme."
+      ],
+      "reasoning": "Those general analyses include the bilinear object but do not characterize the class of correlated within-iteration stage pairs or optimize exact mean-square multipliers among fixed marginals. General method scope without a dominating sharp joint-coupling theorem does not subsume this numerical boundary.",
+      "searches": [
+        "same sample independent sample stochastic extragradient interpolation scalar bilinear sample coupling mean square stability exact",
+        "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+        "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1904.08598",
+      "PMLR:108/mishchenko20a",
+      "arXiv:2107.00464",
+      "arXiv:2111.08611",
+      "arXiv:2608.06182",
+      "MSC2020:90C47"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chavdarova et al. Theorem 1 uses a sparse coordinate-generated bilinear instability, establishing possibility but not the exact common two-point marginal classification.",
+        "Li et al. Eq. (2) and Theorems 3.1-3.3 address same-sample dynamics, averaging and restarting; the anticorrelated two-call law falls outside its algorithmic assumptions.",
+        "Yoon and Loizou (2026) prove gap/high-probability/last-iterate statements for conventional S-SEG/I-SEG; the exact joint-probability optimum is not among those theorems."
+      ],
+      "reasoning": "The new claim is not that noise can destabilize EG (known), or that same-sample EG may converge (known). It asserts a strict reversal in the optimal dependency *at fixed marginal samples and equal step size*, together with a regime where anticorrelation converges and both named conventional choices diverge. The prior implications inspected do not entail this optimized dependence.",
+      "searches": [
+        "https://papers.nips.cc/paper_files/paper/2019/file/58a2fc6ed39fd083f55d4182bf88826d-Paper.pdf",
+        "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+        "https://arxiv.org/pdf/2608.06182",
+        "stochastic extragradient same sample independent bilinear multiplicative oracle noise variance stability skew symmetric coupling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al. Eq. (2) fixes the *same* sample in predictor and corrector, rather than optimizing a joint law.",
+        "Yoon and Loizou (2026), abstract and Sections 1-2, explicitly focus on same-sample and independent-sample variants; no two-point joint-discordance frontier is given."
+      ],
+      "reasoning": "The joint law is completely parametrized by an off-diagonal probability t. To cover the theorem an equivalent formulation would need the exact affine expected-squared-error dependence on t or a stronger result implying its sharp step-dependent minimizer. The inspected standard-variant results compare two distributions and do not imply that full statement.",
+      "searches": [
+        "stochastic extragradient bilinear game two-point random multiplicative coupling correlated anticorrelated gradient predictor corrector stability stepsize",
+        "antithetic gradient sample couplings extragradient sharp stepsize reversal crossover",
+        "https://arxiv.org/abs/2107.00464",
+        "https://arxiv.org/pdf/2608.06182"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result is an exact deterministic minimax polynomial for normal strongly monotone operators, not stochastic within-step two-point sampling.",
+        "The inspected sources did not state the exact three stability ceilings from the rational two-point example."
+      ],
+      "reasoning": "The exact rational witness is derived from the complete Bernoulli coupling theorem; it is not used alone as a novelty claim. A listed deterministic degree-two minimax record concerns worst-case eigenvalues and cannot provide the stochastic coupling crossover.",
+      "searches": [
+        "stochastic extragradient binary sampling joint dependent interpolation bilinear exact stability anti-correlation two point",
+        "two point oracle stochastic extra gradient negatively correlated samples bilinear exact convergence",
+        "antithetic gradient sample couplings extragradient sharp stepsize reversal crossover"
+      ]
+    },
+    "rationale": "Inspected published primary arguments establish stochastic bilinear noise counterexamples, benefits of same-sample reuse, and convergence guarantees for same-sample or independent-sample extragradient, but not a sharp optimization over all joint couplings with fixed two-point stage marginals. The explicit anti-coupling stability rescue is not a corollary of the bounds inspected. Search absence alone does not establish priority; unindexed equivalent derivations remain possible.",
+    "residual_risks": [
+      "Mathematically equivalent within-stage antithetic sampling formulas may exist in unindexed optimization literature; searches and inspected primary statements do not prove universal novelty.",
+      "The proof does not extend its if-and-only-if two-point optimality to nonbinary strengths, higher-dimensional games, distinct predictor/corrector steps, or nonstationary stage couplings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Instability counterexample for other random operators; not a joint-coupling optimum",
+        "evidence": "Theorem 1 states a diverging stochastic EG game, with row-coordinate sampling; no optimization over fixed-stage marginal pair couplings.",
+        "identifier_or_url": "arXiv:1904.08598 / https://papers.nips.cc/paper_files/paper/2019/file/58a2fc6ed39fd083f55d4182bf88826d-Paper.pdf",
+        "material_read": "PDF pages 1-4, especially Section 2.2 and Theorem 1",
+        "method": "read rendered PDF and parsed theorem plus model equations",
+        "title": "Reducing Noise in GAN Training with Variance Reduced Extragradient",
+        "trigger": "Original stochastic-bilinear instability counterexample"
+      },
+      {
+        "assessment": "Same stochastic realization reused for both updates; does not include antithetic matched-marginal variants",
+        "evidence": "Algorithm 1 draws a single sample and applies it twice; Section 4 compares same and independent numerically.",
+        "identifier_or_url": "https://proceedings.mlr.press/v108/mishchenko20a/mishchenko20a.pdf",
+        "material_read": "PDF pages 1-5, Algorithms 1-2, Theorem 4 and Corollary 1",
+        "method": "read primary PDF algorithm and convergence sections",
+        "title": "Revisiting Stochastic Extragradient",
+        "trigger": "Canonical same-sample method and potential dominating guarantee"
+      },
+      {
+        "assessment": "Explicitly assumes shared stage sample; focuses on averaging/restarting; does not optimize correlations",
+        "evidence": "Equation (2) reuses the same sampled bilinear matrix in both stages; the introduction distinguishes independent-sample counterexamples.",
+        "identifier_or_url": "arXiv:2107.00464 / https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+        "material_read": "PDF pages 1-4 and 12-15; equation (2), contributions, comparison sections",
+        "method": "read primary PDF text and visually inspected page 2",
+        "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+        "trigger": "Exact bilinear game object and potentially stronger stochastic analysis"
+      },
+      {
+        "assessment": "Studies arbitrary marginal sampling but no correlated within-iteration two-stage joint law with sharp global comparison",
+        "evidence": "Sections 1.1 and 3-4 define S-SEG and I-SEG as either identical or independent draws; convergence analysis gives general inequalities.",
+        "identifier_or_url": "arXiv:2111.08611 / https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+        "material_read": "PDF pages 1-9 and section headings/appendix outline, definitions and theorems for two conventional samplers",
+        "method": "read parsed PDF and visually inspected page 2",
+        "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+        "trigger": "Arbitrary sampling and same/independent SEG results may dominate claim"
+      },
+      {
+        "assessment": "Analyzes the two conventional variants and gap/last-iterate guarantees; no arbitrary Bernoulli two-stage coupling optimum located",
+        "evidence": "Explicit title, abstract, sections 1-4; sampling taxonomy same versus independent only.",
+        "identifier_or_url": "arXiv:2608.06182 / https://arxiv.org/pdf/2608.06182",
+        "material_read": "PDF page 1 (abstract, contents) and pages 2-3 (models), relevant term comparisons",
+        "method": "read primary PDF and visually inspected title/abstract/contents",
+        "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+        "trigger": "Plausible later stronger exact same/independent sample comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1eae2526-1845-4b7b-9d63-912dafbec5c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pairwise sampling dependence is a design choice at fixed oracle marginals and cost. The theorem proves a sharp endogenous reversal in which dependency is best, and a natural interpolation benchmark (strengths 1,2 with balanced marginals) where the unconventional antithetic rule converges in mean square but conventional same-sample and independent rules diverge. It also identifies the exact parameter condition when anticorrelation increases the maximum stable step; this is a complete natural structural stability classification, not a renaming or recomputation of a known table.",
+    "status": "PASS"
+  }
+}
