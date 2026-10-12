@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every \\(N\\ge3\\) tree and arbitrary positive edge costs, Cauchy–Schwarz gives the unique base-tree optimum \\(g_e=\\sqrt{b_e/c_e}/S\\) with \\(K=S^2\\). The rank-one Kirchhoff-index derivative is \\(-N\\|L^+\\beta\\|_2^2\\). Unit-current potentials are cut-indicator sums weighted by \\(S\\sqrt{c_e/b_e}\\), giving the exact derivative \\(-S^2\\Theta\\). Nested-cut covariance yields the closed threshold and off-path price locality. Strict convexity of the trace-inverse on the connected simple-graph conductance domain gives the global if-and-only-if and unique equality case. For the two-hop classification, the components have positive orders \\(a,b,k\\) with \\(a+b+k=N\\): the minimum is at \\(a=b=1\\); the maximum is at \\(k=1\\) with balanced \\(a,b\\). The exact script checks 154 rational trees and all integer two-hop size profiles for \\(3\\le N\\le49\\), supplementing rather than replacing the infinite proof. Tree edges can have zero weight in the new optimum when a chord is installed; the theorem does not exclude this.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf (Section 4.2 states general sufficient and necessary convex optimality; Section 5.1 gives tree allocation)",
+        "https://arxiv.org/abs/2609.29790 (abstract: fixed weighted base graph, mixed-integer optional-link selection)"
+      ],
+      "reasoning": "Ghosh-Boyd-Saberi have broader domain-level optimization criteria but do not supply a cost-local, closed cut-size critical price or prove extremizers across all N-vertex tree topologies; their theorem is explicitly acknowledged as the core starting point. The recent augmentation formulation reports optimization algorithms with a fixed weighted base, not the exact joint-reweighting cut formula. No stronger closed classification was identified, but historical derivations may exist.",
+      "searches": [
+        "tree network add one edge reallocate weights cost ratio Kirchhoff index global critical price cut covariance",
+        "total effective resistance optimal edge additions with cost edge weights all optimizable tree",
+        "Minimizing Effective Resistance of a Graph Ghosh Boyd Saberi",
+        "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://arxiv.org/html/2309.08271v1",
+      "https://doi.org/10.1016/j.orl.2023.10.002",
+      "https://arxiv.org/abs/2609.29790",
+      "https://epubs.siam.org/doi/10.1137/050645452"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf (Section 4.2, necessary-and-sufficient KKT; Section 5.1, solution on trees)",
+        "https://arxiv.org/html/2309.08271v1 (Sections 2,4,7, fixed-weight greedy insertion)",
+        "https://doi.org/10.1016/j.orl.2023.10.002 (2023, fixed-weight cardinality link addition)"
+      ],
+      "reasoning": "Prior generic KKT can be specialized to a new-edge derivative, so optimality convexity and sensitivity are not discoveries here. Neither that matrix-level criterion nor fixed-base link-selection results themselves state which arbitrary priced tree links are purchased from cut sizes or give the sharp finite two-hop extrema. An explicit substitution and an independent extremal analysis are needed. Prior path-only unit-price cases are covered specializations and are excluded from novelty credit. The closest potential threat is an unlocated historical algebraic specialization of the KKT/tree formulas.",
+      "searches": [
+        "tree graph Kirchhoff index optimal conductances unit budget new edge shortcut link arbitrary endpoints break even critical cost threshold n_e tree betweenness",
+        "conductance optimized tree chord cost criterion Laplacian pseudoinverse squared potential variance",
+        "tree network add one edge reallocate weights cost ratio Kirchhoff index global critical price cut covariance",
+        "cost optimal weight tree additional link threshold Kirchhoff index unit conductance",
+        "Kirchhoff index link addition optimal conductance price threshold tree marginal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf (Sections 2.3 and 4.2: tree resistance and derivative/KKT formulas)",
+        "https://arxiv.org/html/2309.08271v1 (Sections 1-4: edge insertion with fixed original weights)"
+      ],
+      "reasoning": "A price-triggered optional link is equivalent to comparing the new-link derivative per unit cost at the unique optimal old-tree allocation. The general matrix-gradient KKT formulation is known; the explicit nested-cut correlation expression, its cancellation of all off-path prices, and finite-order two-hop tree extremizers are not stated in the inspected texts. The nearest previous special case of an unpriced path chord covers a subset of the formula but neither arbitrary branching nor the fixed-N topology extremizers. This is not a claim that a failed search proves novelty.",
+      "searches": [
+        "tree graph Kirchhoff index optimal conductances unit budget new edge shortcut link arbitrary endpoints break even critical cost threshold n_e tree betweenness",
+        "conductance optimized tree chord cost criterion Laplacian pseudoinverse squared potential variance",
+        "exact cost threshold for adding a chord between two leaves or vertices in a tree with optimally reallocated edge conductances and total effective resistance Kirchhoff index; cut covariance matrix shortcut distance two topology extremizers",
+        "Kirchhoff index optimization tree add shortcut reallocate conductance price threshold",
+        "effective resistance minimization new link jointly allocate old edge weights optimality closed form"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2309.08271v1 (insertion algorithms, no exact critical-price table)",
+        "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf (tree/base-network formulas and graph-family examples, without proposed-link price table)"
+      ],
+      "reasoning": "The finite two-hop extreme windows vary with order and are proved analytically. The inspected algorithmic primary literature gives generic gain calculations rather than an exact all-order table for reoptimized priced trees. Semantic research-index results had no exact matching scientific claim; unrelated tree geometry results are not evidence of coverage.",
+      "searches": [
+        "sharp length squared ceiling for marginal link price in optimized tree effective resistance graph Kirchhoff index",
+        "exact cost threshold for adding a chord between two leaves or vertices in a tree with optimally reallocated edge conductances and total effective resistance Kirchhoff index; cut covariance matrix shortcut distance two topology extremizers",
+        "optimal allocation edge conductances minimizing Kirchhoff index graph star added extra chord leaf edge threshold price",
+        "reweighted tree graph added edge Kirchhoff index conductance budget necessary sufficient marginal"
+      ]
+    },
+    "rationale": "The assessed claim is an explicit all-tree arbitrary-price shortcut purchase theorem, strong off-path price-locality and a complete sharp finite-N two-hop extremal window. General convexity/KKT/tree weights, path-only unit-price special cases and fixed-base link insertion are identified as antecedents, not counted. Primary full-text comparison did not reveal equivalent closed formulas. A historical direct specialization or the inaccessible contemporary preprint may still affect novelty; no search result certifies uniqueness.",
+    "residual_risks": [
+      "A direct earlier specialization of the known 2008 tree formula and general KKT could be expressed in different algebraic language; searching is not a completeness proof.",
+      "The full text of arXiv:2609.29790 was inaccessible through inspected sources; abstract-level comparison alone cannot justify whole-paper noncoverage.",
+      "The shorter July 2006 version of the 2008 primary paper has only a verified month, not an individually verified first-public day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers convexity, necessary/sufficient optimality, and tree optimum. Does not state an optional priced tree-chord threshold, off-path price-locality, or finite-order two-hop extrema.",
+        "evidence": "Equations (5) and (36)–(37) give tree series-resistance and baseline weights; equations (28)–(29) give global KKT. These are used as established antecedents.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Author-hosted full PDF: pp.37–42 (definitions, tree formula), 50–52 (convexity and KKT), 57–58 (optimal tree allocation), and pp.64–65 (extensions); examined original results, not only a search snippet.",
+        "method": "Inspected text and first-page image of primary PDF, traced equations (5), (28)–(29), (36)–(37).",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational identical Kirchhoff-index objective and all-edge conductance allocation, with plausible dominating optimization conditions."
+      },
+      {
+        "assessment": "Underlying weights remain fixed in the specified edge-insertion model; designs select absent edges to add. Not the shared-budget optimal reallocation and exact local price threshold.",
+        "evidence": "Section 2 defines k-GRIP on an existing weighted or unweighted graph and Section 4 greedily inserts candidate edges; no joint old-edge conductance budget is optimized.",
+        "identifier_or_url": "https://arxiv.org/html/2309.08271v1",
+        "material_read": "Full accessible arXiv HTML, Introduction, Preliminaries, Heuristics for k-GRIP, and Conclusions; read definitions and algorithms.",
+        "method": "Inspected arXiv HTML sections 1,2,4,7 and their fixed-graph edge insertion setup.",
+        "title": "Greedy Optimization of Resistance-based Graph Robustness with Global and Local Edge Insertions",
+        "trigger": "Direct optional-link addition with Kirchhoff-index objective could subsume new-link choice."
+      },
+      {
+        "assessment": "Abstract describes a fixed weighted base graph plus optional edge deployment and weight optimization. An exact arbitrary-tree shared-reweighting theorem was not visible, but complete noncoverage is not established.",
+        "evidence": "arXiv:2609.29790 abstract (submitted 2026-09-24); explicitly recorded as unresolved access risk.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.29790",
+        "material_read": "Abstract-only available from indexed arXiv metadata; full-text access attempts did not succeed.",
+        "method": "Compared abstract level assumptions and described mixed-integer/SDP setup, without drawing a whole-document noncoverage conclusion.",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Contemporary abstract combines link addition, heterogeneous costs and continuous weights, making it a potentially overlapping source."
+      },
+      {
+        "assessment": "Fixed weights and optimizing a number of new links is different from a single priced shortcut with all original conductances freely reoptimized.",
+        "evidence": "Problem 1 is a subset-selection problem on a given graph, no common continuous conductance budget.",
+        "identifier_or_url": "https://doi.org/10.1016/j.orl.2023.10.002",
+        "material_read": "Open-access article web text, abstract and problem definition.",
+        "method": "Read fixed-graph edge-subset problem statement and hardness theorem.",
+        "title": "Minimizing the effective graph resistance by adding links is NP-hard",
+        "trigger": "Link-addition problem with exact same robustness functional."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "237a18a5-77c4-42f3-beb8-2d78c512c43b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural edge-purchase decision under a single physical conductance budget is reduced for every tree and arbitrary positive prices to a computable closed form on one path; varying prices elsewhere provably cannot alter the decision. A strict sharp universal length-dependent cost bound and complete attained finite-order two-hop topology extrema show nontrivial structural effects beyond an isolated example or a numerical re-solution of a general SDP. This precisely motivated classification can guide link procurement without solving an augmented convex program. It neither claims a downstream theorem nor pretends that a formula alone establishes originality.",
+    "status": "PASS"
+  }
+}
