@@ -1,0 +1,15 @@
+# Self-review: parity-selective prism power-propagation latency
+
+## Correctness — PASS
+The closed-neighborhood and synchronous forcing rule is explicitly normalized, including the domination round. For the six eligible seed geometries, the local proof computes the complete observed interval after zero, one, or two forcing rounds. At that point exactly two endpoint rungs per subsequent round are added, up to collision of the fronts; the interval-length formula therefore proves both upper and lower completion times without extrapolating from finite experiments. The exact 2024 two-seed eligibility criterion is independently checked against direct simulation for all pairs of orders 7–50. The standalone verifier checked 13,794 qualifying pairs, all nonqualifying pairs, 264 base intervals, and singleton failure. Possible limitations are only those expressly identified in RESULT.md.
+
+## Originality — PASS, with priority risk
+The closest source is Girish and Somasundaram (2024), Lemmas 1–2: this already settles precisely which two-vertex placements power dominate prisms, so that criterion and the total \(11n\) are not new. Their statements neither grade minimum placements by synchronous completion time nor identify the odd/even reversal in the number of fastest pairs; deriving the new polynomial requires the separate six-case timed local analysis. Barrera and Ferrero (2010/2011) establish basic prism power-domination numbers but not this latency distribution. The available Bozeman thesis chapter presenting propagation time and examples for paths, cycles and spiders does not report the prism result. Searches under propagation radius, bounded-time power domination, power propagation time, prism/circular ladder, and generalized Petersen aliases found no exact duplicate in accessible records. This is a priority assessment, not a claim of exhaustive literature coverage: an uncatalogued or inaccessible equivalent remains possible.
+
+## Value — PASS
+Counting and characterizing fastest minimum-sensor placements is a natural latency-sensitive refinement of cardinality-optimal power domination. The theorem distinguishes two consecutive attainable propagation times and discovers a strong parity transition: the fastest proportion is \(3/11\) at odd circumference and \(9/11\) at even circumference. The all-order exact distribution is useful for selecting minimum sensors subject to synchronous monitoring delay; it is not a renamed minimum-size calculation. General product families, larger seed budgets and asynchronous forcing remain outside the result.
+
+## Closest literature and limitations
+Barrera–Ferrero, *Networks* (2011), DOI 10.1002/net.20413; Girish–Somasundaram, *Symmetry* (2024), DOI 10.3390/sym16070781, especially Lemmas 1–2; Bozeman, arXiv:1608.01189v1 (2016) and related full thesis chapter, §3.2. The relevant statements and locally generated fronts were examined; earlier equivalent time-refined formulas under alternative terminology remain a residual priority risk. All computational checks are finite corroboration, not independent mathematical certification.
+
+Self-review: passed. Independent audit: not yet performed.
