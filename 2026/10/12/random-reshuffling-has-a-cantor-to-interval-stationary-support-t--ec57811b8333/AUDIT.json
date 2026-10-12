@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Direct composition of the two scalar component steps gives exactly \\(X_{k+1}=(1-h)^2X_k\\pm h^2b\\). For \\(0<h<2\\) this is a strict affine contraction, so the unique invariant law is the convergent Rademacher series. The variance follows from independence. The support is the invariant set of two similarities: overlap occurs exactly at \\(r\\ge1/2\\); at \\(r<1/2\\) the open-set condition gives the stated Hausdorff dimension and first-digit dominance gives the exact central gap. At \\(r=1/2\\), direct invariance of the uniform law proves the boundary distribution.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General Bernoulli-convolution literature describes the support transition at contraction one half.",
+        "The 2026 Bernoulli-convolution survey material explicitly notes Cantor support below one half and interval support at or above one half.",
+        "Recent constant-step reshuffling work uses epoch-level Markov-chain language, but the focused searches did not surface the two-sample affine identification or the explicit optimizer-avoidance gap."
+      ],
+      "reasoning": "Generic fractal theory supplies the support theorem once a contraction ratio is known; the accepted optimization result additionally derives that ratio and innovation amplitude from the random-reshuffling step, translates the half-contraction threshold into the exact learning-rate band, and identifies the gap around the true minimizer.",
+      "searches": [
+        "Bernoulli convolution support lambda one half Cantor interval",
+        "random reshuffling stationary variance quadratic power spectral density",
+        "constant step random reshuffling invariant distribution Markov chain"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.07964v1",
+      "DOI:10.1109/TSP.2018.2878551",
+      "arXiv:2206.00632v1",
+      "DOI:10.1112/jlms.70515"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper states that its steady-state MSD expression is exact for quadratic risks and gives an explicit orthonormal-quadratic formula.",
+        "For two symmetric samples that formula equals the variance of the accepted affine recursion, confirming that the new claim is not a competing moment calculation.",
+        "The later spectral paper states exact or approximate stationary variance results rather than invariant-law support results.",
+        "Bernoulli-convolution literature supplies the generic support geometry but does not derive the random-reshuffling parameter map."
+      ],
+      "reasoning": "The accepted claim is not the source's known MSD formula. It refines the same quadratic process at the distributional level, where two processes can share a second moment but have very different supports. The optimizer-specific minimizer-avoidance band therefore is not implied by the cited moment statements.",
+      "searches": [
+        "arXiv:1803.07964 quadratic risks exact MSD random reshuffling",
+        "arXiv:2206.00632 random reshuffling stationary variance quadratic",
+        "Bernoulli convolution support interval lambda >= 1/2 Cantor lambda < 1/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source's stated exact quadratic result is a steady-state mean-square expression, not a law or support theorem.",
+        "The 2022 spectral analysis explicitly studies stationary variances and covariance under shuffling.",
+        "Web searches for random reshuffling together with Bernoulli convolution or Cantor support returned no optimization paper with the accepted classification."
+      ],
+      "reasoning": "Moment formulas do not determine stationary support. Equivalent coverage would need to identify the epoch-level invariant measure, or imply its exact support transition and minimizer gap. The inspected random-reshuffling sources do not make that implication.",
+      "searches": [
+        "random reshuffling Bernoulli convolution stationary support Cantor",
+        "shuffle SGD fractal stationary distribution quadratic",
+        "random reshuffling stationary distribution two quadratics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac.",
+        "Closest indexed record: 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b.",
+        "Closest indexed record: 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881.",
+        "No indexed hit stated a random-reshuffling Bernoulli-convolution stationary support."
+      ],
+      "reasoning": "The closest indexed results concern randomized Gauss--Seidel or cyclic Kaczmarz recurrences with different state maps. They do not imply the invariant law or support of the random-reshuffling chain.",
+      "searches": [
+        "random reshuffling two component scalar quadratic exact stationary bias order constant stepsize",
+        "random reshuffling quadratic exact limit cycle constant step size permutation",
+        "without replacement SGD two quadratics exact stationary distribution random reshuffling",
+        "random reshuffling Bernoulli convolution stationary support Cantor",
+        "shuffle SGD fractal stationary distribution quadratic"
+      ]
+    },
+    "rationale": "The defining random-reshuffling paper already gives exact quadratic steady-state MSD and cubic small-step scaling, so those are explicitly excluded from the originality claim. A later power-spectral study also targets stationary variances. Classical Bernoulli-convolution work supplies the generic fractal support facts, but focused searches did not identify the optimizer-specific identification or the resulting step-size/minimizer-avoidance phase diagram for random reshuffling.",
+    "residual_risks": [
+      "A specialized random-reshuffling note may have observed the same affine Bernoulli-convolution identification under different terminology without appearing in the focused searches.",
+      "The fractal support theorem itself is classical; originality rests on the exact random-reshuffling reduction and learning-rate/minimizer interpretation.",
+      "The classification is confined to two equal-curvature scalar components."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_MOMENT_THEORY_NOT_COVERING_FULL_STATIONARY_LAW_OR_SUPPORT_PHASE_DIAGRAM.",
+        "evidence": "The source explicitly gives exact quadratic MSD and periodicity, which are treated as prior. The inspected quadratic section does not classify invariant support or connect the epoch process to Bernoulli convolutions.",
+        "identifier_or_url": "arXiv:1803.07964v1 / DOI:10.1109/TSP.2018.2878551",
+        "material_read": "Open full text covering the random-reshuffling update, stability theorem, quadratic-risk section, exact orthonormal-quadratic MSD formula, hyperbolic representation, cubic small-step MSD statement, and periodicity discussion.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+        "trigger": "Defining constant-step random-reshuffling algorithm and closest exact quadratic steady-state analysis."
+      },
+      {
+        "assessment": "SECOND_ORDER_STATIONARY_ANALYSIS_NOT_COVERING_FULL_INVARIANT_SUPPORT.",
+        "evidence": "The paper's stated outputs are stationary covariance and variance formulas from power spectral density, not the support of the invariant probability law.",
+        "identifier_or_url": "arXiv:2206.00632v1",
+        "material_read": "Open full text covering the introduction, zero-th-order noise model, stated contributions, wide-sense stationarity setup, and stationary-variance objectives for random reshuffling.",
+        "method": "Open-access full-text inspection.",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Closest later work explicitly centered on stationary behavior of shuffled SGD."
+      },
+      {
+        "assessment": "GENERIC_FRACTAL_THEORY_SUPPLYING_SUPPORT_FACTS_BUT_NOT_RANDOM_RESHUFFLING_IDENTIFICATION.",
+        "evidence": "The source describes random signed geometric series and notes Cantor-type support below one half and interval support from one half onward for the classical deterministic contraction.",
+        "identifier_or_url": "DOI:10.1112/jlms.70515",
+        "material_read": "Open full text introduction defining Bernoulli convolutions and reviewing the support distinction below and above contraction one half.",
+        "method": "Open-access full-text inspection.",
+        "title": "On the Fourier transform of random Bernoulli convolutions",
+        "trigger": "Modern open-access source summarizing classical Bernoulli-convolution support geometry used in the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec57811b-8333-466a-a876-b23a8e0be184",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining constant-step random-reshuffling literature evaluates steady-state behavior mainly through mean-square error. The accepted result shows that second moments can hide a qualitatively different phenomenon: on a natural strongly convex two-sample problem the stationary epoch-start process can live on a disconnected fractal set with a positive gap around the exact minimizer, despite having zero mean. The complete transition from interval support to a uniform boundary law to Cantor support gives a natural sharp classification in the learning-rate parameter and supplies a concrete benchmark for distribution-level analyses of shuffling algorithms.",
+    "status": "PASS"
+  }
+}
