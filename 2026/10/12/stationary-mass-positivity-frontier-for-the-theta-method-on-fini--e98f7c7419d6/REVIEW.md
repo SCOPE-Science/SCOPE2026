@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The regenerative cycle decomposition supplies an exact formula for each diagonal element of the positive resolvent. Its strict parameter monotonicity gives one and only one global crossing, including the nonnegative boundary case. Renewal rewards identify the limit as stationary mass. A second-moment expansion gives the critical-window constant with the correct factor of the implicitness parameter. All quantifiers cover finite irreducible generators; no reversible-chain spectral argument is used. The exact-rational checker establishes 63 finite-instance replications, including 2205 diagonal/moment checks and 2205 step-matrix checks, not a substitute for the general proof.
+
+## Originality — PASS
+Horváth's detailed 1998 and 2005 treatments concern class-wide Runge–Kutta positivity and invariant cones, and do not state the sharp stationary-mass all-steps boundary for each fixed irreducible Markov generator or the universal unique-crossing and return-moment asymptotic. Ferracina–Spijker analyze SSP representations, and Higueras–Roldán study specific heat matrices. A pre-existing all-generator Crank–Nicolson Cayley identity, reversible-chain exact crossing laws, and related birth–death and one-way-cycle results are explicitly excluded from the new contribution. Although those observations overlap the present theorem on restricted parameters or geometries, they do not establish strict resolvent monotonicity and a unique finite cutoff for every implicitness parameter on every irreducible nonreversible generator, nor the corresponding general return-time second-moment frontier. Searches for diagonal-resolvent aliases, hitting-time reductions, stronger positivity criteria, and an exact database entry identified no matching general theorem. Residual risk: a less discoverable Markov-resolvent or numerical-positivity source could contain an equivalent result.
+
+## Value — PASS
+The theorem is a complete positivity phase diagram for an entire natural class of numerical Markov integrators, not a fixed small case or isolated necessary condition. The all-step threshold is obtained from one invariant distribution even on nonnormal networks, while the finite cutoff remains exactly computable by a one-dimensional monotone equation. The explicit critical-window law quantifies divergence and separates universal stationary information from transition-dependent return-time information. Its precise validity and limitations are stated in the result.
+
+Self-review: passed. Independent audit: not yet performed.

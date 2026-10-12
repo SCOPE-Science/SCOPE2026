@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The resolvent is a positive exponential mixture. The identity T=(R(theta h)-(1-theta)I)/theta reduces entrywise sign to strictly decreasing diagonal resolvents. Strong Markov regeneration gives R_ii(s)=[1+q_i s(1-E exp(-H_i/s))]^-1, strictly decreasing from 1 to pi_i, with strict positivity at the critical theta equality. Finite-state return moments establish R_ii(s)=pi_i+c_i/s+O(s^-2), and the crossing equation yields theta_c(theta_c-theta)h_c->min_{pi_i=pi_min}c_i. All boundaries and theta=0 are proved. Exact finite checker reproduced 63 generators and 2205 cases of each substantive class, not substituting for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth 1998, Theorems 2–6, establishes positivity radii for broad problem classes, including the one-stage theta family; its class-uniform radius is not equivalent to the fixed-chain all-horizon criterion.",
+        "Horváth 2005, Proposition 3 and Theorem 8, gives sharpness for entire positive problem sets and a separate invariant-cone analysis; these do not classify every fixed row-conservative chain via stationary mass.",
+        "Published eight-state [2/2] Padé and BE-filtered Crank–Nicolson work use different amplification maps and narrower model families.",
+        "Earlier fixed-generator Crank–Nicolson work already gives the Cayley relation C_h=2R_{h/2}-I for any Q, the spectral cutoff for reversible chains, and a global finite-chain unconditional positivity classification; none provides all theta values and arbitrary irreversible nonreversible crossing theorem with return-time moments."
+      ],
+      "reasoning": "A universal guarantee h<=1/((1-theta)max_i q_i) is sufficient but is not a global exact threshold for a fixed Q; in fact h may be arbitrary when theta>=1-min pi. Classical monotonicity barriers concern all generators under a shared rate bound and therefore do not imply the present fixed-Q result. Explicit earlier directed-cycle and birth-death instances are proper subclasses, not stronger coverage. The previously established Crank–Nicolson Cayley-reduction covers the theta=1/2 diagonal criterion without needing regeneration; it is not claimed new and does not itself imply nonreversible strict diagonal-resolvent monotonicity for the whole theta family or the critical second-moment asymptotics.",
+      "searches": [
+        "all-steps positivity numerical theta discretization stochastic generator sharp one-minus-minimum stationary mass",
+        "theta method numerical integration arbitrary Markov generator unconditional stochasticity threshold 1 minus minimum stationary probability",
+        "doi:10.1016/S0168-9274(98)00050-6"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.apnum.2004.08.026",
+      "doi:10.1016/S0168-9274(98)00050-6",
+      "https://math.leidenuniv.nl/reports/files/2005-07.pdf",
+      "arxiv:2301.01066",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Horváth 2005, page 11: classical theta-method positivity radius 1/(1-theta) and a priori finite time-step restriction for a heat semidiscretization. This does not deliver a stationary-distribution threshold for an individual Markov chain.",
+        "Ferracina–Spijker 2005: general SSP coefficient representations rather than diagonal return-time geometry.",
+        "Higueras–Roldán 2023: Dirichlet heat matrices do not possess the strictly positive stationary probability vector required here.",
+        "A pre-existing direct Crank–Nicolson Cayley identity and reversible spectral threshold imply the theta=1/2 criterion for those subclasses, while the published directed-cycle theta classification already gives the stationary threshold on one-way rings."
+      ],
+      "reasoning": "Neither uniform SSP positivity constraints nor symmetric Dirichlet positivity imply the present finite irreducible Markov generator theorem. The new result has a weaker assumption on geometry (arbitrary directed nonreversible Q), sharp equality cases, strict finite cutoff, and return-time second-moment asymptotic. Its proof supplies all missing Markov-specific implications, and it does not claim that individual regenerative identities are new. The all-irreducible nonreversible theorem goes beyond the earlier Cayley identity and reversible spectral calculus because eigenvalue expansions with nonnegative coefficients are not generally available for nonreversible Q; regeneration supplies the missing strict monotonicity and its return-moment constant.",
+      "searches": [
+        "monotonic diagonal Markov chain resolvent Laplace return probability general nonreversible generator",
+        "all-steps positivity numerical theta discretization stochastic generator sharp one-minus-minimum stationary mass",
+        "doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horváth 2005, section 2 and Theorem 8: uniform positivity radius and positive-IVP class tests, not an individual finite irreducible Markov generator criterion.",
+        "Exact positive-resolvent identity derives state-specific diagonal entries from post-departure return-time Laplace transforms; equivalent-state first-return search returned no identified claim with this full classification."
+      ],
+      "reasoning": "The stationary-mass boundary could equivalently be written as an M-matrix inverse-diagonal condition, discounted return-probability criterion, resolvent order, or first-return transform. Their equivalence was reconstructed explicitly. Closest searched work concerned either universal RK-method class bounds or restricted generator geometries, not the all-generator threshold and unique crossing with its critical return-time moment law.",
+      "searches": [
+        "finite irreducible Markov generator inverse (I+t L) diagonal strictly decreasing from 1 to stationary mass, renewal formula",
+        "stationary return time second moment asymptotic divergent critical positivity timestep theta",
+        "doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Higueras–Roldán, arXiv:2301.01066, Theorem 1 and accompanying analysis treat discrete heat-equation matrices with boundary conditions, not arbitrary irreducible row-conservative generators.",
+        "Searches for exact theta positivity matrices and general Markov return-time threshold did not identify a table with this all-dimensional statement."
+      ],
+      "reasoning": "The result is a continuously parameterized theorem for every finite irreducible Q, not a fixed-order benchmark or rediscovered numerical table. The explicit three-state example distinguishes chains sharing pi and is proved directly rather than presented as a novel tabulation.",
+      "searches": [
+        "unique time-step positivity cutoff Crank Nicolson arbitrary nonreversible finite continuous Markov chain",
+        "theta method positivity arbitrary finite irreducible continuous-time Markov chain stationary distribution min pi resolvent diagonal critical timestep",
+        "arxiv:2301.01066"
+      ]
+    },
+    "rationale": "Comparison with the detailed original Runge–Kutta positivity theory (Horváth 1998 and 2005) separates uniform method-class absolute-monotonicity radii from sharp fixed-generator Markov positivity. A relevant full-text sharp Crank–Nicolson heat problem has nonconservative Dirichlet boundaries; neither it nor class-uniform SSP theory implies the arbitrary row-conservative irreducible Q stationary-mass classification, unique finite threshold and return-time second-moment divergence. Previously established direct Cayley-resolvent criteria for Crank–Nicolson on arbitrary finite generators, reversible-chain spectral cutoffs, and the directed-cycle and birth–death subclass results are acknowledged as prior; only the all-parameter and nonreversible general crossing/moment law is assessed as an addition. Residual risk of a less discoverable equivalent specialized result remains.",
+    "residual_risks": [
+      "Earlier fixed-generator theta-method results or a renewal-resolvent theorem in hard-to-search Markov process/numerical-analysis literature may imply this statement without matching terminology.",
+      "The last pages of two older primary papers were not inspected, although their principal relevant theorem sections were read; original full text of some related published summaries was not obtained.",
+      "The 1998 historical paper was published earlier but its exact original public day was not verified; selected research anchor has directly attested first-online date 2004-10-27.",
+      "The Crank–Nicolson Cayley test on arbitrary Q and directed-cycle theta theorem existed before this finding; the illustrative same-stationary-law three-state contrast is not claimed as a standalone new contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General RK problem-class absolute-monotonicity thresholds; does not establish state-return diagonal resolvent identity, stationary-mass boundary, or nonreversible chain cutoff.",
+        "evidence": [
+          "First page prints Available online 27 October 2004.",
+          "Section 2 uses positivity radius R(A,b); page 11 gives theta-method radius 1/(1-theta)."
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "Full extracted text for pages 1–14 of 16, including abstract, positive IVP definitions, Proposition 3, Theorem 8 and section 4 positivity cones.",
+        "method": "Direct reading of available publisher paper text, mathematical theorem and example comparison.",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Direct earlier general positivity threshold theorems and a one-stage theta scheme example."
+      },
+      {
+        "assessment": "Provides general SSP positivity/order barriers and one-stage theta absolute-monotonicity radius, not sharp all-step fixed-chain classification.",
+        "evidence": [
+          "Theorems 2–6 concern uniform problem classes; Example 1 gives R(A,b)=1/(1-theta).",
+          "Source is earlier historical literature; exact first-public calendar day was not established."
+        ],
+        "identifier_or_url": "doi:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Extracted pages 1–15 of 18, covering theorems on positivity radii and theta-method example.",
+        "method": "Direct reading of available publisher text and implications of theorems.",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Older full treatment of unconditional positivity and RK order barriers, potentially stronger general result."
+      },
+      {
+        "assessment": "Optimization of RK monotonicity coefficients across broad classes; no fixed arbitrary Markov generator stationary-mass criterion.",
+        "evidence": [
+          "Report title and date 7 April 2005; class-level RK monotonicity definitions."
+        ],
+        "identifier_or_url": "https://math.leidenuniv.nl/reports/files/2005-07.pdf",
+        "material_read": "Text of report across pages 1–17, including main SSP representation arguments and reference list.",
+        "method": "Direct parsed PDF text and selected page inspection.",
+        "title": "Computing optimal monotonicity-preserving Runge-Kutta methods",
+        "trigger": "Potential implication by classical SSP and absolute monotonicity for RK time stepping."
+      },
+      {
+        "assessment": "Specific symmetric heat discretization with boundary conditions; cannot imply a general nonreversible Markov stationary-mass boundary.",
+        "evidence": [
+          "Matrices analyzed are heat finite-difference systems, with their boundary conditions essential to the statement."
+        ],
+        "identifier_or_url": "arxiv:2301.01066",
+        "material_read": "Theorem 1 on page 7 and proof around pages 15–17, with paper abstract and setup.",
+        "method": "Parsed open preprint with inspected theorem page image and selected proof text.",
+        "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+        "trigger": "Direct relevant sharp theta=1/2 positivity cutoff in a discretized diffusion problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e98f7c74-19d6-468a-a7ab-2363f31c1056",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For every finite irreducible directed CTMC, all-positive-step probability preservation of the theta family is decided by min stationary mass alone; below it, one monotone scalar resolvent equation gives the exact crossing, while the return-time second moment controls its critical divergence. The theorem distinguishes universal geometric thresholds from network-dependent finite cutoffs and has real applications to stochastic integrators; it is a natural all-generator classification, not a small example or arbitrary invariant.",
+    "status": "PASS"
+  }
+}
