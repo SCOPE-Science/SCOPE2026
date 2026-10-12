@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For k<=4 odd squarefree factors, sigma(N)/N<=768/385<2. For k=5, exact comparisons force 3,5,7,q,r with q in {11,13,17,19} and bounded r<=384,64,30,25 respectively, leaving exactly 87 candidate prime pairs. Each candidate has 16 complementary divisor pairs. The attached checker certifies the absence of the target omitted-pair sum by two independent exhaustive exact algorithms for every one of these 87 cases. The six-factor witness N=937365 has exact sigma=1935360 and five omitted complementary divisor pairs summing 60630, giving 2N. Computation is exhaustive only after the demonstrated finite bound, not a sampled proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The nearest indexed result, titled \"Strongly pseudoperfect integers with Omega(n) <=3\", establishes only the small-multiplicity cases n=6,28; this does not imply the five-distinct-prime exclusion.",
+        "Wang--Zelinsky restrictions include congruence exclusions and bounds on omitted divisor pairs, not a complete classification of odd squarefree integers with five primes.",
+        "A previously recorded bound that sigma(n)<=3n forces the complementary pair (1,n) to be included in representations does not exclude representations for sigma(n) around 2n."
+      ],
+      "reasoning": "The broadest relevant existing results concern different support thresholds (at most three factors counted with multiplicity), residue restrictions, or general constructive families. None logically forces absence of the 87 admissible five-prime instances. The exact finite certificate is essential.",
+      "searches": [
+        "sharp minimum number distinct prime factors odd squarefree strongly pseudoperfect number no five prime factors 937365",
+        "classification odd squarefree strongly pseudoperfect prime support five 937365",
+        "Published text: Wang--Zelinsky Theorem 5, Theorem 6, Propositions 14--17",
+        "Published text: McCormack--Zelinsky Propositions 35--37 and subsequent questions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.36068v1 (Wang--Zelinsky, first public September 28, 2026)",
+      "arXiv:2312.11661 (McCormack--Zelinsky; later v4 read)",
+      "OEIS A334405 (metadata/sequence entry, no universal theorem)",
+      "Indexed note \"Strongly pseudoperfect integers with Omega(n) <=3\" (statement compared; only three-factor coverage)",
+      "Previously indexed scientific claims on strongly pseudoperfect representations, powers and even 2-adic prime completions (dedup only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 5 proves power closure under an additional representation condition; Theorem 6 classifies certain Mersenne-factor even members; neither implies the odd squarefree support threshold.",
+        "Source Questions 18--21 are about infinitely many primitive odd examples, powers and density, not the first achievable distinct-prime support size.",
+        "The new 87-candidate conclusion uses an inequality on sigma(n)/n together with complete subset-sum exhaustion; that chain is not supplied by either primary text."
+      ],
+      "reasoning": "The positive example is explicitly preexisting and is not claimed as a new discovery. The accepted difference is precisely the sharp lower bound and complete exclusion of all five-or-fewer-prime odd squarefree inputs. Sources giving only 3-factor exclusions, or one 6-factor witness, do not subsume the full claim.",
+      "searches": [
+        "arXiv:2609.36068 full primary text - sections 1--5",
+        "arXiv:2312.11661 full primary text - strong pseudoperfect section",
+        "squarefree strongly pseudoperfect numbers with exactly five prime divisors 3 5 7 p q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang--Zelinsky arXiv:2609.36068 section 4 specifically supplies a squarefree six-prime example and poses questions on primitive odd members; it does not give a universal five-prime exclusion.",
+        "The equivalent complement-pair subset-sum formulation for all five distinct primes was explicitly examined: none of the compared sources states the exhaustive 87-pair obstruction.",
+        "OEIS A334405 catalogs examples and references but does not establish the asserted universal odd squarefree prime-support minimum."
+      ],
+      "reasoning": "An existence witness with six prime factors does not imply nonexistence with five, nor does a list of initial sequence values imply a universal support bound. The new claim proves the missing necessity via a complete abundancy reduction and exact 87-case subset-sum certificate.",
+      "searches": [
+        "sharp minimum number distinct prime factors odd squarefree strongly pseudoperfect number no five prime factors 937365",
+        "squarefree strongly pseudoperfect numbers with exactly five prime divisors 3 5 7 p q",
+        "\"strongly pseudoperfect\" \"odd squarefree\" \"prime factors\"",
+        "\"strongly pseudoperfect\" \"at least six\" primes",
+        "OEIS A334405 strongly pseudoperfect sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang--Zelinsky Table 1 lists initial odd members and section 4 identifies 937365 as squarefree with six factors.",
+        "OEIS A334405 includes an initial sequence of strongly pseudoperfect values and the 2026 reference, not a theorem that no squarefree five-prime member exists."
+      ],
+      "reasoning": "Finite initial tables cannot exclude all odd squarefree five-prime numbers, which a priori have arbitrarily large last prime. The new proof first derives a uniform bound r<=384 and then tests every possible case; simply checking a table up to a fixed n would be insufficient.",
+      "searches": [
+        "OEIS A334405",
+        "Wang--Zelinsky arXiv:2609.36068 Table 1 odd strongly pseudoperfect",
+        "\"strongly pseudoperfect\" \"937365\" \"five\""
+      ]
+    },
+    "rationale": "Wang--Zelinsky 2026 identify an odd squarefree six-factor witness without establishing its optimality. McCormack--Zelinsky 2023 and the closest indexed Omega<=3 result do not rule out odd squarefree 5-factor inputs. The new universal exclusion and sharp support threshold are not implied by these statements; extensive comparison found no exact stronger coverage, with the usual risk of unindexed equivalence.",
+    "residual_risks": [
+      "An equivalent proof might exist in unindexed or unpublished literature.",
+      "The finite negative certificate should be independently replayed, and no independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Pages 4-12 construct families and impose arithmetic restrictions. Page 13 notes 937365=3*5*11*13*19*23 as squarefree but does not assert that no five-prime odd squarefree member exists.",
+        "identifier_or_url": "https://arxiv.org/pdf/2609.36068",
+        "material_read": "Abstract; introduction and definitions on pages 1-4; Theorems 5-6, Propositions 10-17 and proofs on pages 5-12; Section 4 questions and six-prime witness on page 13; opening tables of odd examples.",
+        "method": "Opened the primary lawful arXiv PDF, read searchable page text by section, checked page 4 image for divisor definitions.",
+        "title": "Strongly Pseudoperfect Numbers",
+        "trigger": "Same strongly pseudoperfect definition, known odd squarefree six-prime example and related prime-support restrictions."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Propositions 35-37 construct even families and give congruence and large-prime restrictions; the text does not determine the first distinct-prime support size of odd squarefree members.",
+        "identifier_or_url": "https://arxiv.org/pdf/2312.11661",
+        "material_read": "Opening abstract and the strongly pseudoperfect material around pages 15-19, including Propositions 35-37 and Questions 38-47.",
+        "method": "Read and searched the freely accessible arXiv PDF full text by section.",
+        "title": "Weighted Versions of the Arithmetic-Mean-Geometric Mean Inequality and Zaremba's Function",
+        "trigger": "Earlier source defining the strongly pseudoperfect class and establishing modular obstructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d345532f-76ac-462a-9c9b-ed1b42ff1fa7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of distinct prime factors is a canonical arithmetic complexity parameter for the recently studied odd squarefree strongly pseudoperfect class. The theorem upgrades the preexisting six-prime example to a sharp universal structural threshold, determining the first possible support cardinality. The 87-case exact obstruction is a motivated complete classification of the last open lower support layer, not an arbitrary numerical cutoff or a restatement of known abundancy inequalities. It does not resolve the infinite primitive-family question.",
+    "status": "PASS"
+  }
+}
