@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact inversion gives \\((1-w)^w=1+\\log(1-u/p)\\). With \\(t=\\log(1-w)\\), this becomes \\(t e^t-t=\\kappa(u)\\). On \\(t<0\\), \\(t(e^t-1)\\) decreases continuously from \\(+\\infty\\) to zero, proving existence and uniqueness of the admissible branch. Back-substitution yields both quantile formulas; the embedded checker confirms direct substitution.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mező and Baricz develop generalized Lambert functions but do not discuss the 2026 FEx-G model.",
+        "The original T-X framework is a broad generator, not this inversion.",
+        "The 2025 same-acronym FEx-G family uses a different two-baseline, two-shape-parameter CDF."
+      ],
+      "reasoning": "The special-function and distribution-generation literatures provide ingredients separately; the inspected sources do not state the composition, branch selection, or FExKw formula.",
+      "searches": [
+        "On the generalization of the Lambert W function Mezo Baricz r-Lambert",
+        "A new method for generating families of continuous distributions T-X quantile",
+        "A novel flexible exponential-G family 2025 quantile"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026571",
+      "doi:10.1090/tran/6911",
+      "doi:10.25259/JKSUS_820_2025",
+      "doi:10.1007/s40300-013-0007-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target gives the implicit equation but explicitly leaves it to numerical root finding.",
+        "Its FExKw display retains the unknown x and therefore is not a function of u alone.",
+        "The generalized Lambert definition solves y e^y+r y=a; setting r=-1 after the logarithmic substitution supplies the inverse."
+      ],
+      "reasoning": "The target does not state the named inverse or branch. The generalized Lambert literature does not determine which real branch is probability-admissible without the monotonicity argument supplied here.",
+      "searches": [
+        "target full text Section 4.2 quantile w log(1-w)",
+        "target full text Section 5.1 FExKw quantile k=1-x^a",
+        "r-Lambert xe^x+rx=a definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target full text reduces quantile inversion to w log(1-w)=log z and recommends Newton–Raphson.",
+        "Searches combining the family name, exact DOI, transformed equation, and generalized-Lambert terminology returned no equivalent FEx-G quantile result."
+      ],
+      "reasoning": "The searched aliases cover the exact implicit equation and the named inverse class; no source was found stating the same branch-resolved quantile.",
+      "searches": [
+        "FEx-G quantile r-Lambert W flexible exponential-G",
+        "10.3934/math.2026571 quantile Lambert W",
+        "w log(1-w) r-Lambert quantile distribution",
+        "Kumaraswamy flexible exponential quantile r-Lambert",
+        "t exp(t) minus t generalized Lambert inverse probability quantile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI searches located the article and mirrors but no correction identifying this inverse.",
+        "No same-statement result was found in the checked published-record corpus."
+      ],
+      "reasoning": "No exact correction record, table entry, or published same-statement finding was found.",
+      "searches": [
+        "10.3934/math.2026571 Lambert quantile",
+        "FExKw quantile Lambert",
+        "10.3934/math.2026571 corrigendum erratum correction"
+      ]
+    },
+    "rationale": "The target paper leaves its quantile equation to numerical root finding and does not identify a generalized Lambert inverse. The generalized Lambert literature supplies the function class but not this FEx-G application. Focused searches found no same-statement correction or application.",
+    "residual_risks": [
+      "An unindexed note may have recognized the same inversion.",
+      "The primary AMS PDF was not fetchable from its publisher endpoint in this run, although bibliographic records and an open r-Lambert definition were available.",
+      "Branch terminology for the r-Lambert function is not fully standardized, so the required negative branch is defined directly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source derives the implicit equation and recommends numerical root finding; its FExKw quantile display retains x through k=1-x^a.",
+        "evidence": "Equation (2.2), the three-step quantile procedure, and the FExKw display.",
+        "identifier_or_url": "doi:10.3934/math.2026571",
+        "material_read": "Open-access full PDF, especially equations (2.2)–(2.3), Section 4.2, and Section 5.1.",
+        "method": "Direct full-text and page-image inspection.",
+        "title": "A unified parsimonious exponential-G family for modeling real-world data: theory and statistical inference",
+        "trigger": "Primary source defining the transformation and quantile procedure."
+      },
+      {
+        "assessment": "Provides the generalized Lambert framework but no FEx-G application.",
+        "evidence": "The generalized framework contains equations of the form y e^y+r y=a.",
+        "identifier_or_url": "doi:10.1090/tran/6911",
+        "material_read": "Public bibliographic record and accessible definition/context; the publisher PDF endpoint was not publicly retrievable from the checked source.",
+        "method": "Bibliographic inspection supplemented by an open mathematical source stating the r-Lambert equation.",
+        "title": "On the generalization of the Lambert W function",
+        "trigger": "Primary special-function literature for generalized Lambert inversion."
+      },
+      {
+        "assessment": "Defines a different family with two baselines and extra shape parameters; it does not cover the 2026 transform.",
+        "evidence": "Its equation (2.1) is 1-exp[-G1(x)^nu/survival_G2(x)^omega].",
+        "identifier_or_url": "doi:10.25259/JKSUS_820_2025",
+        "material_read": "Open-access full HTML, especially family definition and quantile section.",
+        "method": "Direct full-text inspection.",
+        "title": "A novel flexible exponential-G family: Properties, estimation, and applications in environmental and engineering sciences",
+        "trigger": "Same acronym and closely related generator literature."
+      },
+      {
+        "assessment": "Broad generator framework; no model-specific r-Lambert quantile was found.",
+        "evidence": "The abstract describes the T-X construction and hazard connection.",
+        "identifier_or_url": "doi:10.1007/s40300-013-0007-y",
+        "material_read": "Abstract and bibliographic description.",
+        "method": "Public abstract inspection.",
+        "title": "A new method for generating families of continuous distributions",
+        "trigger": "General T-X framework cited by the target."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f0e8bfd9-3521-412f-a313-6b25b27df327",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantiles are used in the target paper for simulation, percentile inference, and quantile-based shape summaries. The result turns a model-specific nonlinear root equation into an established special-function evaluation, proves the admissible branch is unique, and gives a genuine function of u for the focal FExKw model. It is a structural inversion rather than a numerical recomputation.",
+    "status": "PASS"
+  }
+}
