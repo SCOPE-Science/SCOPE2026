@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The three graph edges of each original triple have the same edge closed neighborhood, making the pair liar's condition equivalent to three selected source-graph edges incident to every triple. The lower bound exhausts isolated and size-two components, then uses degree and e>=3c/4 component bounds. The forest construction attains ceil(3n/4); a defect budget 4m-3n<=3 rules out cycles on >=4 vertices and proves the precise tree/one-triangle extremizer classification for n>=8. Cayley component enumeration proves the displayed count. Direct original-neighborhood vs incidence checks pass for candidate subsets through n=6; incidence and counting checks pass to n=8 and n=24 respectively. Finite code is corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhattacharya and Paul, arXiv:2310.07465v1, introduction and conclusions: algorithms for trees, hardness on chordal/bipartite/p-claw-free graphs and approximations; no exact complete-line-graph parameter claim.",
+        "Bhattacharya and Paul, arXiv:2507.04721v1, intro and conclusion: linear-time block/proper-interval algorithms and path-graph hardness; no theorem covering nonchordal triangular graphs.",
+        "published-finding corpus 2026/10/4/SCOPE-all-liar-s-dominating-sets-of-complete-multipartite-graphs--0f35e58d261d concerns vertex liar domination on complete multipartite graphs, not liar's vertex-edge domination of L(K_n)."
+      ],
+      "reasoning": "Algorithmic hardness or algorithms in different classes do not imply the exact ceiling law and exhaustive extremizer census. For n>=4 T_n has an induced C4 so the chordal subclass theorem cannot apply. The published multipartite liar result uses two and three closed vertex neighborhoods, not edge neighborhoods of T_n.",
+      "searches": [
+        "liar's vertex edge domination number triangular graph Johnson graph J(n,2) line graph complete graph exact ceil three n over four",
+        "3 vertex edge domination sets of line graphs of complete graphs triangle neighborhood equivalence minimum sets",
+        "arXiv:2310.07465v1 full PDF search for 'triangular', 'line graph', 'complete graph'",
+        "arXiv:2507.04721v1 full PDF search for 'triangular', 'line graph'"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.07465v1",
+      "arXiv:2310.07452v1",
+      "arXiv:2507.04721v1",
+      "published-finding corpus published finding 2026/10/4/SCOPE-all-liar-s-dominating-sets-of-complete-multipartite-graphs--0f35e58d261d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foundational 2023 article defines liar's ve condition and derives algorithmic results on trees and intractability classes, not the values for L(K_n).",
+        "General k-ve work introduces the equivalent k=3 predicate but only addresses trees, chordal hardness and general approximations; none yields exact 3n/4, tree/triangle characterization or Cayley counts.",
+        "The later chordal papers' graph domain excludes T_n for n>=4.",
+        "published-finding corpus 2026/10/4/SCOPE-all-liar-s-dominating-sets-of-complete-multipartite-graphs--0f35e58d261d has different predicate and host graph."
+      ],
+      "reasoning": "Every literature item is compared by theorem implication: a general definition cannot imply a sharp optimum, and a general approximation/complexity statement cannot classify all equality cases. The count formula goes beyond the scalar optimum and is not a standard corollary of the cited results. No dominating primary theorem was found in the materially inspected sources.",
+      "searches": [
+        "liar's vertex edge domination number triangular graph Johnson graph J(n,2) line graph complete graph exact ceil three n over four",
+        "3 vertex edge domination sets of line graphs of complete graphs triangle neighborhood equivalence minimum sets",
+        "liar vertex edge domination triangular graph L(K_n) three incident edges every vertex triple optimal forest exact 3n/4",
+        "arXiv:2310.07465v1 sections 1 and 5",
+        "arXiv:2310.07452v1 section 1 and theorem roadmap",
+        "arXiv:2507.04721v1 sections 1 and 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For each three-element original vertex set, all three triangular-graph edges in its induced triangle have exactly the same edge neighborhood; hence liar's ve-domination is equivalent here to 3-ve-domination and triple incidence.",
+        "Bhattacharya and Paul, arXiv:2310.07452v1, define k-vertex-edge domination and give tree/hardness/approximation results, not this exact L(K_n) classification.",
+        "No matching published-finding corpus source found under the searched equivalent formulations; this alone does not establish novelty."
+      ],
+      "reasoning": "The equivalence is proved, rather than merely assumed, by neighborhood identities. The published general k-ve framework is definitional and does not contain a theorem for the full infinite triangular family. Ordinary liar's domination is a different neighborhood predicate. Unindexed or older incidence-cover terminology is the remaining genuine equivalence risk.",
+      "searches": [
+        "liar's vertex edge domination number triangular graph Johnson graph J(n,2) line graph complete graph exact ceil three n over four",
+        "three vertex edge incident covering graph every triple incident at least three edges minimum 3n/4 trees four vertices",
+        "3 vertex edge domination sets of line graphs of complete graphs triangle neighborhood equivalence minimum sets",
+        "liar vertex edge domination complete line graph triangle coverage exact optimum and enumeration",
+        "liar vertex edge domination triangular graph L(K_n) three incident edges every vertex triple optimal forest exact 3n/4",
+        "web: 'liar vertex edge domination triangular graph line graph complete graph arxiv'",
+        "web: 'graph minimum number edges incident at least three edges for every three vertices'"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top matches were general triple hypergraph systems or ordinary liar's dominating sets; none tabulates minimum liar's ve-dominating sets of triangular graphs.",
+        "The exact formula counts every minimum configuration at n>=8 using Cayley's tree count, including triangle-plus-forest exception."
+      ],
+      "reasoning": "An exact table, structural theorem, or stronger all-set counting polynomial of the identical graph predicate would imply this claim, even without matching parameter names. Checked indexed candidate matches contain different predicates or different graph domains. Exhaustiveness of all publication channels is not claimed.",
+      "searches": [
+        "three vertex edge incident covering graph every triple incident at least three edges minimum 3n/4 trees four vertices",
+        "liar vertex edge domination complete line graph triangle coverage exact optimum and enumeration",
+        "liar vertex edge domination triangular graph L(K_n) three incident edges every vertex triple optimal forest exact 3n/4",
+        "web: 'k vertex edge domination line graph complete graph 3 vertex edge dominating'",
+        "web: 'every three vertices incident with at least three edges' graph minimum"
+      ]
+    },
+    "rationale": "The first 2023 source establishes the fault-tolerant invariant and unrelated algorithms and complexity, but no exact triangular-graph evaluation. The parallel 2023 work studies general k-vertex-edge domination, yet gives no triangular minimum or minimum-set census. The later 2025 work concerns chordal graph subclasses, whereas T_n contains an induced C4. Targeted published-finding corpus and public-literature searches found no statement implying the exact ceiling, complete minimum-set component classes, and Cayley enumeration. A general 3-ve definition, or ordinary liar's domination on multipartite graphs, does not entail these quantified results. An equivalent older triple-incidence theorem remains possible; no novelty inference rests on search absence alone.",
+    "residual_risks": [
+      "An older theorem about minimum graphs with at least three incident edges at every original vertex triple may be equivalent but not indexed under the searched names.",
+      "The 2025 unit-disk-graph paper arXiv:2509.11775 was examined at abstract level only; its stated NP-completeness/PTAS results do not imply the exact triangular-graph enumeration, but uninspected details create a minor access/evidence risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact formula or extremizer census for triangular graphs in the identified theorems; foundational definition and general algorithms remain credited.",
+        "evidence": [
+          "Preprint dated 2023-10-11; conclusion describes linear-time trees, hardness, and approximation, not exact line graph families."
+        ],
+        "identifier_or_url": "arXiv:2310.07465v1",
+        "material_read": "Open-access PDF title, abstract, introduction, theorem/algorithm roadmap, selected proof statements, and full conclusions and references; PDF title page visually inspected; full-text searched for line graph, triangular, complete graph.",
+        "method": "Original public arXiv PDF parsed text, in-document term searches and page image.",
+        "title": "Algorithmic study on liar's vertex-edge domination problem",
+        "trigger": "Introduces the exact target invariant."
+      },
+      {
+        "assessment": "Defines k-ve domination, but no exact closed form or all-minimum-set census on L(K_n).",
+        "evidence": [
+          "Paper states general algorithmic complexity and tree algorithms; the k=3 reduction here is mathematical, not an assertion of novelty."
+        ],
+        "identifier_or_url": "arXiv:2310.07452v1",
+        "material_read": "Open-access PDF abstract, definitions, introduction, result summary, and substantive theorem sections on chordal hardness, trees and approximation.",
+        "method": "Original public arXiv PDF parsed full-text inspection, result roadmap and body text.",
+        "title": "On k-vertex-edge domination of graph",
+        "trigger": "General k-ve predicate may subsume liar version for repeated neighborhoods."
+      },
+      {
+        "assessment": "Restricted algorithms to block/proper interval graphs and hardness on undirected path graphs; T_n nonchordal for n>=4, so no direct inclusion.",
+        "evidence": [
+          "Original sections 1 and 5 list main classes and algorithms; no triangular or line graph match in text."
+        ],
+        "identifier_or_url": "arXiv:2507.04721v1",
+        "material_read": "Open-access PDF title, abstract, introductions, definitions, chapter algorithm theorem structure, conclusion, references; first page visually inspected; full text searched for triangular and line graph.",
+        "method": "Original public arXiv PDF parsed text and page image.",
+        "title": "Liar's vertex-edge domination in subclasses of chordal graphs",
+        "trigger": "Later same-invariant paper might cover triangular graphs implicitly."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbc94e11-3c3d-44f7-8291-e0df26ba901b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is motivated by fault-tolerant monitoring in Bhattacharya–Paul (2023). A sharp closed form and full minimum-set component classification on an infinite natural strongly regular family address a genuine structural enumeration problem beyond routine parameter substitution. The exceptional triangle extremizers and labeled-tree count provide independent mathematical content and a usable exact census of optimal placements.",
+    "status": "PASS"
+  }
+}
