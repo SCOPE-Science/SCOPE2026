@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) follows exactly by expanding fourth powers of the two repeated gradient steps. Two elementary spectral endpoint moment bounds and Jensen bound reduce the all-dimensional case to a cubic plus a strictly negative discriminant-controlled case. The exact cubic discriminant and reciprocal-quartic transformation establish if-and-only-if kappa <= kappa-star, equality at the boundary, and open-set violation above. Exact Fraction and SymPy script executed from packaged actual file path and returned VERIFY_OK and rational ratio >1. This is an analytic proof, not finite experimental inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Friedlander–Martínez–Molina–Raydan, DOI:10.1137/S003614299427315X, read accessible full research-text §§1–3: delayed gradient iteration and global convergence theorem.",
+        "Dai–Fletcher 2005, DOI:10.1007/s10107-004-0516-9: abstract states it studies simplified recurrence models and asymptotic transition between convergence regimes; complete text unavailable.",
+        "Gu arXiv:2609.25800v1, Theorem 2.1: almost-everywhere asymptotic rate under 2j>q, with no all-spectrum-condition-number bound on one-cycle objective ascent."
+      ],
+      "reasoning": "Global/asymptotic convergence for a possibly nonmonotone method cannot imply any fixed-cycle objective monotonicity, even for a narrower class. Existing general delayed-gradient results cover the algorithm family but not a dominating finite-cycle energy statement. An inaccessible historically relevant source remains a specified uncertainty, not a fabricated noncoverage verdict.",
+      "searches": [
+        "two-eigenvalue cyclic steepest descent with two-step repeated Cauchy steps; exact objective monotonicity condition number threshold approximately 4.893733238; quartic 2k^4-10k^3+3k^2-10k+2",
+        "cyclic steepest descent CSD two repeated Cauchy step lengths sharp objective decrease for full cycles universally monotone condition number kappa 4.893733",
+        "\"Gradient method with retards and generalizations\" pdf",
+        "\"On the asymptotic behaviour of some new gradient methods\" open access PDF"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25800v1",
+      "arXiv:2610.00939v1",
+      "arXiv:2501.16731v2",
+      "DOI:10.1137/S003614299427315X",
+      "DOI:10.1007/s10107-004-0516-9 (abstract only)",
+      "69464fd3db0c",
+      "169a05cdc789",
+      "7866f4762b53",
+      "31fff666d705",
+      "0eec6412acfe"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.00939v1, Theorems 3.1 and 3.3: exceptional R-linear orbits with condition number 3, and a projective three-mode period-two orbit. Neither yields a universal monotonicity criterion for all dimensions.",
+        "The cited CSD orbit theorems concern local projective or asymptotic behavior and contain no quantified finite-cycle energy frontier.",
+        "The published result Sharp two-mode transient amplification for CG_AOS after exact initialization (ID 69464fd3db0c) studies CG_AOS, not CSD; the comparable BB and Polyak findings have different step rules."
+      ],
+      "reasoning": "The current all-dimensional equivalence plus explicit two-dimensional objective-increase phase is not a corollary of convergence-rate, local projective-instability, or other-algorithm objective bounds. The same-projective-map identity alone provides neither moment reduction nor the sharp kappa boundary.",
+      "searches": [
+        "Ran Gu 2609.25800 finite-time objective amplification descent threshold cycle length j=2",
+        "Li Wang Exact counterexamples to R-superlinear convergence of cyclic steepest descent objective monotone cycle",
+        "\"Cyclic steepest descent is R-superlinearly convergent for almost every initialization on two-spectrum quadratics\" PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.25800v1, §2: one cycle is multiplication of the gradient by (I−αA)^j; no energy-frontier theorem in inspected Sections 1–3 and main theorem.",
+        "arXiv:2610.00939v1, §2 Eq. (3), §3: exact same iteration and a projective weight map; the asserted exceptional orbits address R-superlinear rate, not q(x^{++})≤q(x)."
+      ],
+      "reasoning": "Equivalent delayed-gradient and CSD names were compared at the level of the exact two-iteration map and objective functional. The spectral update occurs in prior work, but the universally quantified sharp finite-cycle energy inequality and kappa-star condition are not given there. Gradient-norm convergence does not imply monotonic objective at each cycle.",
+      "searches": [
+        "sharp objective increase condition number bound cyclic steepest descent CSD(2) repeated steepest descent steps SPD quadratics",
+        "nonmonotone two-cycle retarded gradient 2D spectral two mode exact line search repeated two iterations energy amplification",
+        "\"cyclic steepest descent\" \"nonmonotone\" quadratic monotonicity 2 steps condition number",
+        "\"cyclic steepest descent\" \"objective values\" \"2\" \"5\" monotonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned named CG_AOS, Polyak, BB, Richardson, and Cauchy trust-region results with materially different updates and constants; no exact CSD(2) energy-threshold result was returned.",
+        "Web searches for the algebraic constant, reciprocal quartic, and finite-cycle condition-number inequality did not locate a table or previously stated threshold."
+      ],
+      "reasoning": "The candidate is a universal continuum classification, not a finite parameter-table entry. Exact-number/alias searches were performed; absence in indexes is not proof of novelty.",
+      "searches": [
+        "two-eigenvalue cyclic steepest descent with two-step repeated Cauchy steps; exact objective monotonicity condition number threshold approximately 4.893733238; quartic 2k^4-10k^3+3k^2-10k+2",
+        "sharp objective increase condition number bound cyclic steepest descent CSD(2) repeated steepest descent steps SPD quadratics",
+        "cyclic gradient method repeating exact steepest-descent step twice extremal two-point spectrum moment inequality cyclic objective monotonic threshold",
+        "\"4.893733238\" optimization gradient",
+        "\"2k^4-10k^3+3k^2-10k+2\" gradient"
+      ]
+    },
+    "rationale": "No inspected same-algorithm primary full text or indexed closest record proves a universal cycle-end objective inequality with kappa-star. Direct implications from exceptional-orbit rate, asymptotic convergence, and other gradient algorithms were checked and do not entail the exact finite-cycle result. A particularly relevant Dai–Fletcher paper was identified but its full text remained unavailable; this is explicitly a residual, nondecisive risk.",
+    "residual_risks": [
+      "The complete text of Dai–Fletcher (2005) remained inaccessible despite arXiv/OA search and two failed authorized retrieval attempts; coverage of any unstated finite-cycle estimates cannot be ruled out.",
+      "Unindexed or terminology-divergent earlier work may contain an equivalent quartic condition; negative searches do not establish absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives almost-everywhere doubly-exponential rate under 2j>q, not uniform objective-cycle nonincrease or sharp kappa.",
+        "evidence": [
+          "arXiv:2609.25800v1, p. 1 date/MSC, p. 3–5 Theorem 2.1 and recurrence, pp. 16–17 proof."
+        ],
+        "identifier_or_url": "arXiv:2609.25800v1; https://arxiv.org/pdf/2609.25800",
+        "material_read": "Full PDF obtained and its abstract, Sections 1–3 (especially algorithm, Theorem 2.1, spectral map), and concluding proof portions inspected.",
+        "method": "primary full-text PDF and indexed HTML view, checked update formula and main theorem statements",
+        "title": "Doubly exponential convergence of the cyclic steepest descent method for strictly convex quadratics in arbitrary dimensions",
+        "trigger": "Identical source algorithm, MSC eligibility, central recent mathematical context"
+      },
+      {
+        "assessment": "Exceptional geometric-rate and projective-period constructions; objective monotonicity frontier neither stated nor implied.",
+        "evidence": [
+          "arXiv:2610.00939v1, pp. 1–5 Theorems 3.1 and 3.3, spectral weight map."
+        ],
+        "identifier_or_url": "arXiv:2610.00939v1; https://arxiv.org/pdf/2610.00939",
+        "material_read": "Full six-page PDF: §§1–3, Theorems 3.1 and 3.3, weight map (19), proof and references.",
+        "method": "open-access primary PDF, parsed text and page-image inspection",
+        "title": "Exact counterexamples to R-superlinear convergence of cyclic steepest descent",
+        "trigger": "Same exact CSD(2) algorithm and closest known orbit constructions"
+      },
+      {
+        "assessment": "Two-dimensional CSD rate and distinct TSD acceleration; not a universal finite-cycle objective bound.",
+        "evidence": [
+          "arXiv:2501.16731v2, pp. 1–9."
+        ],
+        "identifier_or_url": "arXiv:2501.16731v2; https://arxiv.org/pdf/2501.16731",
+        "material_read": "Abstract and Sections 1–2 on CSD, with method comparison in Sections 3–4; first-page image inspected.",
+        "method": "open-access full-text PDF read",
+        "title": "Triangle Steepest Descent: A Geometry-Based Gradient Algorithm with Guaranteed R-Linear Convergence",
+        "trigger": "CSD rate proof and a second recent related method"
+      },
+      {
+        "assessment": "Defines general delays and proves convergence. Convergence and spectral component progress allow nonmonotone intermediate behavior and do not imply a finite-cycle objective threshold.",
+        "evidence": [
+          "Friedlander et al. (1999), Eq. (1.3), §2 Theorem 2.1."
+        ],
+        "identifier_or_url": "DOI:10.1137/S003614299427315X; https://www.researchgate.net/publication/247686337_Gradient_Method_with_Retards_and_Generalizations",
+        "material_read": "Accessible article text §§1–3 including delayed step rule and global convergence theorem; later application material browsed.",
+        "method": "lawfully open accessible full-text author-upload version and theorem-text inspection",
+        "title": "Gradient method with retards and generalizations",
+        "trigger": "Original delayed steepest-descent parent algorithm, possible stronger theorem"
+      },
+      {
+        "assessment": "Its known abstract addresses asymptotic behavior of simplified gradient recurrence models; exact finite-cycle energy comparison cannot be excluded without full text; retained as residual risk.",
+        "evidence": [
+          "Dai–Fletcher (2005), DOI:10.1007/s10107-004-0516-9, University of Dundee institutional abstract."
+        ],
+        "identifier_or_url": "DOI:10.1007/s10107-004-0516-9; https://discovery.dundee.ac.uk/en/publications/on-the-asymptotic-behaviour-of-some-new-gradient-methods/",
+        "material_read": "Bibliographic metadata and abstract only; complete text not accessible.",
+        "method": "arXiv and lawful open-access paper search, then authorized institutional retrieval, which returned an operation error on a bounded retry",
+        "title": "On the asymptotic behaviour of some new gradient methods",
+        "trigger": "Direct predecessor analyzing CSD behavior; plausible source for a stronger existing result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a4bfe56-1ff3-4c89-8494-5ae4c727443c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A mathematically motivated, sharp and computable universal safety boundary answers a natural unanswered finite-cycle question for a recently studied nonmonotone algorithm. The moment reduction classifies all dimensions, the exact threshold is not an arbitrary slice, and two-dimensional open-set counterexamples beyond it establish an unavoidable loss of objective safety. It is independent of and complements convergence rates without claiming a larger downstream theorem.",
+    "status": "PASS"
+  }
+}
