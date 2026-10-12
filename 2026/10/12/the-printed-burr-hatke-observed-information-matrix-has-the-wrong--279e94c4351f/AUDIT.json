@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation of the published log-likelihood gives strictly negative diagonal Hessian entries and zero cross derivative. The article defines observed information as minus this Hessian, so the information entries must be the corresponding positive sums. The printed negative entries instead equal the Hessian. Their inverse is negative definite, forcing a negative delta-method quadratic form for every nonzero gradient. The packaged checker verifies analytic versus numerical second derivatives and a concrete stress-strength variance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard likelihood theory uses negative log-likelihood curvature for observed information.",
+        "Oehlert supplies general delta-method context but does not contain the Burr-Hatke likelihood algebra.",
+        "The closest reliability-identification result concerns heterogeneous proportional hazards and does not cover this matrix."
+      ],
+      "reasoning": "General theory fixes the sign convention, but the source-specific conclusion requires differentiating this paper's exact censored likelihood.",
+      "searches": [
+        "Burr-Hatke progressive censoring asymptotic variance observed information",
+        "Burr-Hatke reliability delta method confidence interval information matrix",
+        "observed information negative Hessian likelihood delta method"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026331",
+      "doi:10.1080/00031305.1992.10475842"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No checked previous result uses the target DOI or Burr-Hatke model.",
+        "The closest sign-related result concerns a dynamical-system equation, not likelihood curvature.",
+        "The closest Fisher-information result concerns an unrelated dynamical identifiability problem."
+      ],
+      "reasoning": "No checked previous statement implies the exact two diagonal sign reversals or their negative-variance consequence.",
+      "searches": [
+        "Burr-Hatke observed information previous reliability findings",
+        "progressive censoring information sign previous findings",
+        "stress-strength delta variance sign correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The article defines observed information as the negative Hessian and then prints diagonal entries equal to the Hessian itself.",
+        "Searches for sign error, information matrix, covariance, and delta-method correction did not locate a Burr-Hatke-specific correction.",
+        "The same defect can equivalently be stated as negative observed information, negative asymptotic covariance, or negative delta variance."
+      ],
+      "reasoning": "The searches cover the exact source and the main equivalent statistical consequences of the sign error.",
+      "searches": [
+        "10.3934/math.2026331 observed Fisher information sign Burr-Hatke correction",
+        "\"Burr-Hatke\" observed information delta method sign",
+        "\"Multicomponent stress-strength reliability\" Burr-Hatke Fisher information"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 2.1 first writes the information matrix as minus the Hessian.",
+        "The immediately following displayed formulas give both diagonal entries as negative sums of squares.",
+        "The next formulas use the inverse of that matrix as a covariance and under a square root in Wald intervals."
+      ],
+      "reasoning": "The contradiction occurs in consecutive source formulas, so no alternative parameterization is involved.",
+      "searches": [
+        "doi:10.3934/math.2026331 observed Fisher information",
+        "doi:10.3934/math.2026331 delta method variance",
+        "doi:10.3934/math.2026331 asymptotic confidence interval"
+      ]
+    },
+    "rationale": "The primary article prints the sign inconsistency and no source-specific correction was located. Focused searches using the DOI, model name, censoring design, observed-information terminology, delta-method variance, and correction aliases found only unrelated information or sign results. Neither general likelihood theory nor the closest reliability findings states this Burr-Hatke correction.",
+    "residual_risks": [
+      "The authors' unavailable numerical implementation may already use the corrected positive information matrix.",
+      "A recent unindexed correction may exist.",
+      "The finding does not assess bootstrap or Bayesian interval calculations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT AS PRINTED. The definition of information as negative Hessian is correct, but both displayed diagonal entries retain the Hessian minus sign, making the ensuing covariance negative definite.",
+        "evidence": "Equations (2.3)–(2.5) and the consecutive observed-information and delta-method formulas in Section 2.1.",
+        "identifier_or_url": "doi:10.3934/math.2026331",
+        "material_read": "Open full PDF at the Burr-Hatke CDF/PDF, censored log-likelihood and scores, Section 2.1 observed-information definition, printed information entries, delta-method variance, and ordinary and logit Wald intervals.",
+        "method": "Direct parsed-text and rendered-page inspection of the open publisher PDF.",
+        "title": "Multicomponent stress-strength reliability inference under progressive Type-II censoring: A one-parameter model with applications to power systems and earthquake data",
+        "trigger": "Primary source defining the likelihood and asymptotic confidence interval."
+      },
+      {
+        "assessment": "GENERAL BACKGROUND ONLY. It does not cover the Burr-Hatke sign error.",
+        "evidence": "The paper reviews delta-method approximations for functions of random variables.",
+        "identifier_or_url": "doi:10.1080/00031305.1992.10475842",
+        "material_read": "Bibliographic record and abstract describing delta-method moment approximation.",
+        "method": "Direct publisher-record inspection.",
+        "title": "A Note on the Delta Method",
+        "trigger": "General delta-method source cited by the target article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "279e94c4-351f-495d-b8e4-6d415ffd86eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Asymptotic confidence intervals for the reliability parameter are a central inferential output of the paper. The printed matrix is not merely labeled with an unconventional sign: its inverse makes the stated delta-method variance negative and the displayed standard-error square roots undefined. The correction is exact, minimal, and restores the likelihood-based interval formulas while separating printed theory from unavailable implementation.",
+    "status": "PASS"
+  }
+}
