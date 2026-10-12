@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The residual identity \\(r^+=A^{1/2}(I-C)A^{-1/2}r\\) is exact. Submultiplicativity gives the universal factor \\(\\delta\\sqrt{\\kappa_2(A)}\\). The \\(2\\times2\\) construction with a coordinate-swapping symmetric contraction attains equality, so the constant and the nonexpansion frontier are sharp. In the \\(A^{-1}\\)-residual norm the same step contracts by at most \\(\\delta\\), proving that the Euclidean spike is a metric/similarity effect rather than a failure of spectral convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kressner–Steinlechner–Vandereycken formulate the SPD linear problem as energy minimization and discuss preconditioned Richardson as a classical/preconditioned first-order method.",
+        "Bialecki's preconditioned Richardson work uses spectral-equivalence constants in an SPD discretization setting."
+      ],
+      "reasoning": "These sources establish the convergence framework but do not dominate the new metric-specific claim because the Euclidean residual is transformed by a nonorthogonal similarity, whereas the standard SPD analysis works in an energy-compatible metric.",
+      "searches": [
+        "preconditioned Richardson SPD residual norm convergence 65F10",
+        "Preconditioned low-rank Riemannian optimization Richardson SPD",
+        "preconditioned Richardson spectral equivalence constants"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1508.02988v1",
+      "doi:10.1137/15M1032909",
+      "doi:10.1137/0915043",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected 2015 preprint explicitly identifies the SPD energy norm as the natural optimization metric and preconditioning as a conditioning remedy.",
+        "The residual propagator \\(I-AB\\) is generally nonsymmetric even though \\(A\\) and \\(B\\) are SPD; its Euclidean norm is therefore not determined by the eigenvalue interval of the symmetrized preconditioned operator."
+      ],
+      "reasoning": "A spectral-radius or energy-norm contraction by \\(\\delta\\) does not imply Euclidean residual contraction. The extra \\(\\sqrt{\\kappa_2(A)}\\) similarity factor is both necessary and sufficient in the worst case, as shown by the equality construction.",
+      "searches": [
+        "preconditioned Richardson energy norm spectral equivalence SPD",
+        "preconditioned Richardson residual norm can increase SPD",
+        "nonnormal similarity residual preconditioner Richardson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned unpreconditioned Richardson safety, generic spectral-filter distortion, weighted-Jacobi, and other transient results, but no preconditioned-Richardson theorem with the displayed factor.",
+        "Exact web searches combining preconditioned Richardson, Euclidean residual, spectral equivalence, and square-root condition-number terminology did not locate an implication-equivalent result."
+      ],
+      "reasoning": "Equivalent coverage would need to control the ordinary Euclidean residual of the nonsymmetric residual propagator \\(I-AB\\) under the symmetric spectral-equivalence hypothesis on \\(A^{1/2}BA^{1/2}\\), with a sharp worst case over fixed \\(\\kappa_2(A)\\). Energy-norm convergence alone does not imply this.",
+      "searches": [
+        "preconditioned Richardson Euclidean residual amplification delta sqrt kappa sharp",
+        "spectral equivalence preconditioner residual norm monotonicity Richardson",
+        "SPD preconditioner Richardson residual 2-norm nonmonotone",
+        "stationary preconditioned Richardson residual norm condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched source matched the exact factor or the equivalent frontier in terms of the original and preconditioned condition numbers.",
+        "The equality case is a symbolic \\(2\\times2\\) construction, not a numerical-table observation."
+      ],
+      "reasoning": "The finding is an analytic norm extremum with a closed-form equality family, so database/table coverage would require the same invariant or a stronger theorem implying it.",
+      "searches": [
+        "\"preconditioned Richardson\" \"Euclidean residual\"",
+        "\"delta sqrt kappa\" Richardson residual",
+        "\"spectral equivalence\" Richardson \"residual norm\""
+      ]
+    },
+    "rationale": "Preconditioned Richardson, SPD spectral equivalence, and energy-norm convergence are classical and are treated as prior work. The inspected full preprint uses the SPD energy formulation and preconditioned Richardson but does not state a sharp Euclidean residual-transient law. Targeted semantic and exact-form searches did not locate the factor \\(\\delta\\sqrt{\\kappa_2(A)}\\) or the equivalent two-condition-number safety frontier. The claim is restricted to that sharp Euclidean residual statement.",
+    "residual_risks": [
+      "Classical preconditioning monographs may contain the same similarity-bound observation without searchable Euclidean-residual terminology.",
+      "The Bialecki article body was not available through the inspected route.",
+      "The theorem is a worst-case metric relation; it does not predict typical residual histories for a particular preconditioner."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: supplies the SPD energy/preconditioning framework but no located theorem on sharp Euclidean residual amplification under spectral equivalence.",
+        "evidence": "The paper states that the SPD problem is equivalent to minimizing the A-induced error norm, discusses preconditioning as a remedy for poor conditioning, and identifies standard Richardson iteration among the baseline methods. Its arXiv record lists MSC 65F10 first and v1 on 2015-08-12.",
+        "identifier_or_url": "arxiv:1508.02988v1 / doi:10.1137/15M1032909",
+        "material_read": "The full public HTML was inspected through the introduction and SPD optimization formulation, including the discussion of energy-norm minimization, conditioning, preconditioning, and standard Richardson iteration. The arXiv submission record and MSC list were checked.",
+        "method": "Lawful open full-text arXiv HTML inspection.",
+        "title": "Preconditioned low-rank Riemannian optimization for linear systems with tensor product structure",
+        "trigger": "Primary archive-era source explicitly using preconditioned Richardson for SPD linear systems and providing primary MSC ownership."
+      },
+      {
+        "assessment": "RELEVANT_ACCESS_LIMITED: confirms classical spectral-equivalence-based preconditioned Richardson analysis but is not used to assert whole-document noncoverage.",
+        "evidence": "The abstract states that the preconditioned Richardson parameter is computed from spectral-equivalence constants for an SPD elliptic discretization.",
+        "identifier_or_url": "doi:10.1137/0915043",
+        "material_read": "The publisher abstract, method description, MSC list, and bibliographic history were inspected; the article body was not available through the inspected route.",
+        "method": "Publisher-record inspection.",
+        "title": "Preconditioned Richardson and Minimal Residual Iterative Methods for Piecewise Hermite Bicubic Orthogonal Spline Collocation Equations",
+        "trigger": "Older preconditioned-Richardson source explicitly using spectral-equivalence constants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5b5fc32-ba2a-4aa7-a344-39209f116321",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Spectral equivalence and preconditioned condition numbers are standard design diagnostics, while the ordinary residual norm is a standard stopping diagnostic. The theorem shows exactly when those two diagnostics are compatible for one Richardson correction and when they are not: a preconditioner can be spectrally excellent and energy-contracting yet still increase the measured Euclidean residual. The sharp two-condition-number frontier and minimal \\(2\\times2\\) equality case give a concrete criterion rather than a generic nonnormality warning.",
+    "status": "PASS"
+  }
+}
