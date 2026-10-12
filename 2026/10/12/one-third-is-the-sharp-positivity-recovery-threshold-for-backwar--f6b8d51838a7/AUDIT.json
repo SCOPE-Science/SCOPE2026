@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact factorization in X=T+T^{-1} proves positivity for r>=1/3 as a convolution of positive geometric Green kernels. For r<1/3 the decaying characteristic roots are nonreal conjugates, so the real kernel is a nonzero damped cosine sequence and must take negative values. Preservation of constants gives kernel mass one in the positive regime. The bundled checker verifies the algebra and a robust subthreshold witness without substituting finite computation for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shen--Zhang explicitly state that ordinary high-order schemes generally fail to form M-matrices and prove a discrete maximum principle for a different Q2-derived fourth-order finite-difference operator under mesh and time-step constraints.",
+        "Their full text specifically notes a lower-bound condition on Delta t/Delta x^2, showing the broader phenomenon is known but not the present operator-specific sharp constant."
+      ],
+      "reasoning": "A lower step-size condition for another fourth-order operator does not imply the threshold for the classical five-point centered stencil; the matrices and their factorizations differ.",
+      "searches": [
+        "high order finite difference maximum principle inverse positivity",
+        "fourth order finite difference lower bound time step maximum principle",
+        "high order discrete Laplacian monotonicity"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1090/S0025-5718-1988-0935077-0",
+      "DOI:10.1016/j.cam.2014.08.010",
+      "arXiv:2104.11813",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fornberg supplies coefficient-generation prior art, not a backward Euler positivity theorem.",
+        "The Wang--Li--Zhao abstract supplies general pentadiagonal inversion prior art; full text was unavailable.",
+        "The Shen--Zhang full text treats a Q2 spectral-element finite-difference representation and not the standard five-point long stencil."
+      ],
+      "reasoning": "None of the inspected or abstract-level sources implies the exact accepted claim without a new specialization and sign analysis. The unavailable pentadiagonal full text is a genuine residual risk rather than being treated as evidence of noncoverage.",
+      "searches": [
+        "DOI:10.1090/S0025-5718-1988-0935077-0",
+        "DOI:10.1016/j.cam.2014.08.010",
+        "arXiv:2104.11813",
+        "backward Euler filtered Crank Nicolson lattice positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered positivity preservation, inverse positivity, discrete maximum principle, five-point fourth-order stencils, and backward Euler aliases.",
+        "The closest semantic-index result was an unconditional positivity theorem for backward-Euler-filtered Crank--Nicolson on the standard heat lattice, a different time composition and spatial operator."
+      ],
+      "reasoning": "The accepted statement is equivalent to entrywise nonnegativity of the infinite Toeplitz resolvent, positivity of its Green kernel, or a one-step discrete maximum principle. None of the checked statements supplied this equivalence with the r=1/3 boundary for the classical long stencil.",
+      "searches": [
+        "fourth-order centered finite difference backward Euler positivity five point periodic heat equation threshold",
+        "high-order finite difference diffusion discrete maximum principle backward Euler negative stencil",
+        "five point fourth order Laplacian resolvent positivity periodic",
+        "fourth order compact or centered Laplacian M-matrix backward Euler positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fornberg's 1988 article is prior for systematic finite-difference weights and equispaced high-order formulas.",
+        "Wang--Li--Zhao 2015 gives an explicit inverse framework for pentadiagonal Toeplitz matrices via tridiagonal factorization and Sherman--Morrison--Woodbury corrections."
+      ],
+      "reasoning": "Known coefficient tables determine the stencil, and general inverse formulas could in principle be specialized. The checked metadata and abstract do not state the sign classification or the sharp r=1/3 threshold.",
+      "searches": [
+        "Fornberg finite difference formulas equispaced fourth order second derivative",
+        "pentadiagonal Toeplitz inverse fourth order finite difference",
+        "1/3 fourth order finite difference backward Euler positivity heat"
+      ]
+    },
+    "rationale": "The five-point stencil and general pentadiagonal inverse technology are prior. The checked literature did not state the sharp infinite-lattice backward Euler positivity threshold r=1/3. A highly relevant full text treats a different Q2-derived fourth-order discretization and obtains a lower time-step constraint, so the accepted claim is narrowed to the classical translation-invariant five-point stencil. The inaccessible full text of a 2015 pentadiagonal inverse paper is retained as the principal residual risk.",
+    "residual_risks": [
+      "The full text of Wang--Li--Zhao 2015 was not accessible; a specialization of its general inverse formula may encode the same threshold without highlighting the heat-equation interpretation.",
+      "Older maximum-principle or Toeplitz Green-function literature may use different terminology.",
+      "No finite-boundary or all-periodic-size statement is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS finite-difference weight generation; not sufficient evidence for any resolvent-positivity threshold.",
+        "evidence": "The abstract states that weights for arbitrary derivative/order are generated and tables are included for equispaced grids.",
+        "identifier_or_url": "DOI:10.1090/S0025-5718-1988-0935077-0",
+        "material_read": "Bibliographic record and abstract describing recursions and tables for equispaced special cases; publisher full text was not accessible in this run.",
+        "method": "Public metadata and abstract inspection.",
+        "title": "Generation of finite difference formulas on arbitrarily spaced grids",
+        "trigger": "Classical source for high-order equispaced finite-difference weights."
+      },
+      {
+        "assessment": "COVERS a general tridiagonal-factorization route to explicit pentadiagonal inverses. Full-text nonavailability prevents a decisive whole-paper comparison; retained as residual risk.",
+        "evidence": "The abstract says the modified pentadiagonal Toeplitz matrix is factorized into two tridiagonal Toeplitz matrices and inverted explicitly with Sherman--Morrison--Woodbury.",
+        "identifier_or_url": "DOI:10.1016/j.cam.2014.08.010",
+        "material_read": "Accessible abstract and bibliographic metadata only.",
+        "method": "Public abstract inspection.",
+        "title": "An explicit formula for the inverse of a pentadiagonal Toeplitz matrix",
+        "trigger": "Plausible algebraic coverage because the backward Euler matrix is pentadiagonal Toeplitz."
+      },
+      {
+        "assessment": "COVERS a lower-step-bound maximum-principle phenomenon for a different fourth-order operator; does not state the classical five-point infinite-lattice threshold.",
+        "evidence": "The paper distinguishes standard second-order M-matrix discretizations from high-order schemes and derives its fourth-order formula from Q2 spectral elements rather than the classical five-point long stencil.",
+        "identifier_or_url": "arXiv:2104.11813",
+        "material_read": "Full public text, including abstract, introduction, AMS classification, discussion of M-matrices, the Q2-derived fourth-order spatial operator, and the statement that its time-step restriction is a lower bound on Delta t/Delta x^2.",
+        "method": "Public full-text inspection.",
+        "title": "Discrete Maximum Principle of a High Order Finite Difference Scheme for a Generalized Allen--Cahn Equation",
+        "trigger": "Highly relevant fourth-order finite-difference maximum-principle paper with implicit time stepping."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6b8d518-38a7-4272-b99c-25d0516492b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a sharp and structurally explained positivity boundary for a textbook fourth-order spatial stencil. It clarifies the counterintuitive fact that backward Euler can require a lower, rather than upper, step-size threshold to recover a discrete maximum principle, and it separates this classical long stencil from specially designed high-order monotone operators.",
+    "status": "PASS"
+  }
+}
