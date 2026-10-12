@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The seven-identical-request obstruction is exact: at most one group can touch the target, while six further groups each need three of the other fifteen indices. For every one of the C(21,6)=54264 size-six multisets, a separate deterministic recursion produces six disjoint singleton/triple supports. The verifier recomputes the actual binary generator-column XOR in each returned group, target multiplicities and disjointness, returning VERIFY_OK. The reproducibility program was executed from the included `verify.py` source, rather than relying on a summary log. No inference to other lengths is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.04041, Proposition 29, gives only the counting upper bound; §5 leaves Reed–Muller all-symbol properties open.",
+        "arxiv:1710.07386, Theorem 4.14, treats arbitrary first-order RM codes for four requests."
+      ],
+      "reasoning": "A six-all-symbol-PIR result is a bound for identical demands and need not solve arbitrary mixed requests; an old four-batch construction does not imply the requested six-batch conclusion. No examined stronger general theorem covers this exact primitive-server claim.",
+      "searches": [
+        "First order Reed Muller length16 6-batch code all symbol minimum access 1 or 3 helper sets exhaustive multiset packing",
+        "\"Reed-Muller\" \"all-symbol batch\" 2026",
+        "arxiv:2601.04041 Definition 2 Proposition 29 Section 5",
+        "arxiv:1710.07386 batch properties RM(1,4) Theorem 4.13"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.04041 (full relevant text)",
+      "arxiv:1710.07386 (public full relevant transcription)",
+      "arxiv:2508.08736 (full relevant text)",
+      "DOI:10.1109/TIT.1975.1055428 (abstract only)",
+      "published coding-theory research records, including an exact dimension-three four-request all-symbol classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baumbaugh et al. 2018 obtain four requests with ten buckets, not the six disjoint primitive coordinate recoveries here.",
+        "Boruchovsky et al. 2026 establish upper bound six for six identical symbol requests but do not produce simultaneous mixed-demand realizations.",
+        "The present certificate verifies all C(21,6) requests, including mixed multiplicities of all partition types."
+      ],
+      "reasoning": "The claimed all-six-multisets sufficiency is strictly stronger than a repeated-symbol six-request guarantee, and neither the older four-request construction nor general dual-distance bound gives it. The exact upper bound itself is classical counting; novelty resides in full mixed-demand attainment at six.",
+      "searches": [
+        "Binary RM(1,4) Reed Muller [16,5,8] all-symbol batch property six requests disjoint recovery sets exact maximum 6, 54264 multisets and weight four affine parity checks",
+        "arxiv:1710.07386 Theorem 4.13",
+        "arxiv:2601.04041 Proposition 29",
+        "arxiv:2508.08736 Section IV"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1710.07386, §4.2: Theorem 4.13 states four-query batch property for RM(1,4) with ten buckets.",
+        "arxiv:2508.08736, §§III–V: one-step majority decoding derives votes for message coefficients and separately considers erasures.",
+        "Rahman–Blake 1975, DOI:10.1109/TIT.1975.1055428: publisher abstract only, full text not accessible."
+      ],
+      "reasoning": "Affine Hadamard, RM(1,4), one-step majority logic, disjoint repair groups and primitive all-symbol batch requests were compared as plausible equivalent language. The inspected earlier theorems do not state or entail every six-multiset instance, while the 1975 abstract cannot rule out overlap.",
+      "searches": [
+        "Binary RM(1,4) Reed Muller [16,5,8] all-symbol batch property six requests disjoint recovery sets exact maximum 6, 54264 multisets and weight four affine parity checks",
+        "Affine Hadamard code length16 six requests batch six-disjoint recovery capacity",
+        "\"Majority logic decoding using combinatorial designs\" 1975 pdf",
+        "2018 arxiv:1710.07386 Theorems 4.11–4.14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published September 2026 dimension-three four-request all-symbol classification concerns another code dimension and request count, not RM(1,4) with six demands.",
+        "Previously identified odd-dimension RM(1,m) single-target all-symbol PIR capacity is not this six-request batch criterion."
+      ],
+      "reasoning": "No inspected exact database or precomputed table gives a six-request mixed-demand census for RM(1,4). Source identifiers are recorded for comparisons, not as proof of universal novelty.",
+      "searches": [
+        "Binary RM(1,4) Reed Muller [16,5,8] all-symbol batch property six requests disjoint recovery sets exact maximum 6, 54264 multisets and weight four affine parity checks",
+        "First order Reed Muller length16 6-batch code all symbol minimum access 1 or 3 helper sets exhaustive multiset packing",
+        "Affine Hadamard code length16 six requests batch six-disjoint recovery capacity",
+        "\"RM(1,4)\" \"batch\" \"6\" all symbol"
+      ]
+    },
+    "rationale": "The closest 2018 first-order Reed–Muller paper establishes four-request batch recovery, not six; the January 2026 all-symbol framework proves a dual-distance bound, treats simplex/MDS families, and explicitly leaves Reed–Muller examples open. Six repeated requests are insufficient to imply six arbitrary mixed requests. The 2025 majority-logic decoder addresses message coefficients rather than six stored-coordinate requests. Search and prior record comparisons found no covering result. An unindexed equivalent 1970s orthogonal-check formulation remains a residual risk.",
+    "residual_risks": [
+      "The 1975 Rahman–Blake article was relevant but its full text was inaccessible; an overlooked stronger historical six-demand theorem could affect originality.",
+      "No searchable index proves absence of unindexed equivalent results.",
+      "This result is specific to sixteen coordinates; an even-dimension extrapolation is unproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_SIX_RM",
+        "evidence": "Definition 2(vi) defines arbitrary multiset demand; Proposition 29 gives counting bounds; Section 5 explicitly identifies Reed–Muller codes as future cases.",
+        "identifier_or_url": "https://arxiv.org/html/2601.04041v2",
+        "material_read": "Definition 1–2, Proposition 29, Sections 4.1–4.3 and Discussion Section 5, including open Reed–Muller direction.",
+        "method": "Lawful arXiv full-text HTML substantive examination.",
+        "title": "Serving Every Symbol: All-Symbol PIR and Batch Codes",
+        "trigger": "Direct starting point defining primitive all-symbol batch and giving dual-distance upper bounds."
+      },
+      {
+        "assessment": "FOUR_REQUEST_RESULT_NOT_SIX",
+        "evidence": "Theorem 4.13 establishes RM(1,4) four-request batch with ten buckets; Theorem 4.14 extends the four-request construction across m≥4, not the six-all-symbol primitive-server statement.",
+        "identifier_or_url": "https://www.researchgate.net/publication/320564573_Batch_codes_from_Hamming_and_Reed-Muller_codes",
+        "material_read": "Full-paper text inspected in relevant Sections 2 and 4.1–4.3, including statements and proof of Theorems 4.10–4.16 and explicit four-query partition.",
+        "method": "Lawful public full-text document transcription, checked against journal listing and arXiv bibliographic identifier 1710.07386.",
+        "title": "Batch Codes from Hamming and Reed–Muller Codes",
+        "trigger": "Same length-sixteen code and batch recoverability, strongest plausible original overlap."
+      },
+      {
+        "assessment": "DIFFERENT_TARGETS_AND_OBJECTIVE",
+        "evidence": "Section IV characterizes message-coefficient recovery, Section V error/erasure correction rather than arbitrary six stored-coordinate demands.",
+        "identifier_or_url": "https://arxiv.org/html/2508.08736v3",
+        "material_read": "Introduction, Section III-D, Section IV on message-symbol recovery and Section V on decoder correctness.",
+        "method": "Lawful arXiv full-text HTML relevant theorem and model inspection.",
+        "title": "Optimum 1-Step Majority-Logic Decoding of Binary Reed–Muller Codes",
+        "trigger": "One-step vote sets can resemble disjoint recovery on the same classical family."
+      },
+      {
+        "assessment": "UNCERTAIN_RELATED_SOURCE",
+        "evidence": "Abstract says one-step majority logic for first-, second- and third-order Reed–Muller codes; no access to detailed theorems.",
+        "identifier_or_url": "https://doi.org/10.1109/TIT.1975.1055428",
+        "material_read": "Publisher abstract and bibliographic description only; full text unavailable through attempted public and institutional channels.",
+        "method": "Publisher search, attempted lawful full-text retrieval; not treated as inspected whole document.",
+        "title": "Majority logic decoding using combinatorial designs",
+        "trigger": "Historical source plausibly describing orthogonal parity-check sets for first-order RM codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "013d9030-ed5c-45a7-80bd-54c9b55c14fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves a natural maximal simultaneous mixed-demand access question on the smallest binary first-order RM code with six disjoint single-target recovery options, and improves the previously documented four-query primitive recovery guarantee. The six-request saturation is not implied by ordinary single-target availability. The exact finite classification is fully checkable and useful for sixteen-server batch access; no general-length claim or optimal read-cost histogram is asserted.",
+    "status": "PASS"
+  }
+}
