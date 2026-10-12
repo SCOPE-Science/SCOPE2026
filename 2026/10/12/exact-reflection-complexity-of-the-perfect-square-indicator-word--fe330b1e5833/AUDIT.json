@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof sections 1-6",
+      "verify.py, two independent finite counting implementations, VERIFY_OK through n=100 direct and 2000 by gaps"
+    ],
+    "rationale": "The increasing odd inter-square gaps make the earliest two marked positions of any multi-one factor uniquely identifiable by index k and left offset a. The exact preceding-square bound gives N_k. Reversed factors with at least three marks are impossible because strictly increasing gaps would reverse into a decreasing sequence. Reversal collisions for two-mark factors are precisely the unequal pairs of bounded external zero runs, giving an exact C_k formula. Case analysis for even and odd lengths proves the stated floor expression for every integer n >= 2, with n=0,1 handled explicitly. The even ordinary-complexity sum yields the asymptotic 2/3 ratio. Independently generated finite prefixes were exhaustively enumerated for lengths 0 through 100; separate finite gap-count comparisons hold to 2000; these are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche et al. establish a general regularity statement for automatic words, but the paper does not identify or evaluate this square-indicator word, and no general increasing-gap explicit formula appears in the inspected text.",
+        "Dvořáková and Pelantová prove periodicity criteria and extremal-low-complexity results, not an exact quadratic asymptotic/count."
+      ],
+      "reasoning": "General definitions, comparison inequalities and results about k-automatic words do not imply the closed floor formula. An independently proved universal theorem for words with arbitrary increasing gaps would cover it, but none was found in the inspected primary sources or targeted searches.",
+      "searches": [
+        "arXiv:2406.09302 full text sections 2-8 automatic, Sturmian, rich and quasi-Sturmian complexity",
+        "arXiv:2511.12358 full text sections 3-6 periodicity and smallest reflection complexity",
+        "Published-record semantic query: combinatorics on words sparse support strictly increasing gaps factor reversal square positions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.09302 (first public version 2024-06-13; full accessible later HTML revision consulted for relevant theorem coverage)",
+      "arXiv:2511.12358 (2025 subsequent full text)",
+      "arXiv:1911.11704 (related reversed-factor avoidance abstract, not a same-object result)",
+      "OEIS indexed search for proposed sequence and equivalent reversal counts",
+      "Semantic search of published research records for square-support exact formulas, aliases and broader sparse-gap theorems"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Neither inspected primary paper evaluates the square-support characteristic word or produces the exact floor function.",
+        "Full result yields p(n)~n^2/8 and r(n)~n^2/12, unlike linear-growth examples; generic bounds do not fix the constant 1/12."
+      ],
+      "reasoning": "An equality for one arithmetically specified word is not a corollary of an automatic-sequence regularity theorem or a minimum-growth characterization. The proof is an independent gap and reversal classification. Mere title dissimilarity was not used to reject possible coverage.",
+      "searches": [
+        "arXiv:2406.09302v4 sections 3 and 8 theorems on general complexity and automatic sequences",
+        "arXiv:2511.12358v1 sections 4-5 periodicity and minimal-growth criteria",
+        "Published-record semantic query: factor complexity of square-indicator word powers of quadratic polynomials, reversal-equivalent factors, 1/12 limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem in RESULT.md concerns exact reversal classes of the binary indicator at k^2.",
+        "Allouche et al. arXiv:2406.09302 section 8 contains automatic examples, and no integer-square indicator; searches returned no equivalent.",
+        "The full Dvořáková-Pelantová arXiv:2511.12358 focuses on smallest reflection complexity, not this quadratic-support invariant."
+      ],
+      "reasoning": "Reversal equivalence, up-to-mirror factor counting, and unoriented factor complexity are identified as the same mathematical quantity. Existing examined formulas on other words do not imply the integer-square-support formula: neither the unique increasing-gap census nor its squared-position parameters are supplied. An undiscovered exact result remains possible.",
+      "searches": [
+        "Published-record semantic query: reflection complexity of binary characteristic sequence of perfect squares, square positions, n^2+O(n), reflection classes asymptotic 1/12",
+        "Published-record semantic query: square indicator word reflection complexity perfect square positions 0 1 4 9 16 first gap strictly increasing",
+        "Web: perfect squares reflection complexity factors reverse",
+        "arXiv:2406.09302 full HTML terms square, quadratic, automatic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searches returned no identified published table whose objects are reversal-equivalence classes of factors at nonnegative square positions.",
+        "A web result about reversal enumeration of a different lexicographically ordered word family (OEIS A344962) does not give the present factor table."
+      ],
+      "reasoning": "Matching first terms alone cannot establish coverage, but the actual searched tables did not identify the same objects and parameters. The full formula is stronger than a small tabulation; indexed and unindexed prior tables remain a residual risk.",
+      "searches": [
+        "Web: site:oeis.org reflection complexity characteristic sequence of squares",
+        "Web: site:oeis.org 1 2 3 4 5 6 7 8 10 11 14 15 18 squares word reversal factors",
+        "Published-record semantic query: reversal classes of factors of indicator sequence of squares n^2, r(n)=floor((n+1)^2/12)+2"
+      ]
+    },
+    "rationale": "The earliest public source arXiv:2406.09302 (2024-06-13) introduces the reflection measure but its complete readable text studies other word families and gives no square-support exact formula. The subsequent full primary paper arXiv:2511.12358 studies minimal-complexity/periodicity characterizations, not this quadratic arithmetic support. Searches for aliases and exact numeric sequences did not reveal a covering publication or table; negative searching is not proof of absolute novelty. Existing generic growth inequalities cannot give the displayed floor formula. Residual priority risk remains if a more general sparse-gap formula is hidden in an unindexed source.",
+    "residual_risks": [
+      "Prior computations for square-indicator factors could occur in unindexed papers, books, databases, or unpublished work.",
+      "A general finite-gap or arithmetic characteristic-word theorem may imply the formula without mentioning perfect squares explicitly.",
+      "The available source inspection is not an independent priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the characteristic word of the perfect squares nor the stated quadratic floor formula.",
+        "evidence": [
+          "arXiv abstract and subject/date https://arxiv.org/abs/2406.09302",
+          "arXiv HTML sections 1-8 https://arxiv.org/html/2406.09302v4; section 8 Thm 55 concerns automatic words, and examples are other named words"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.09302v4",
+        "material_read": "Entire accessible full-text structure, definitions, general properties, examples, sections 1 through 8 including automatic-sequence theorem, and references.",
+        "method": "Read the lawful open arXiv HTML full text and searched its text for square/quadratic contexts.",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "The first paper defining the precise invariant and a potential stronger-coverage source."
+      },
+      {
+        "assessment": "NOT_COVERING quadratic reflection complexity of the integer-square indicator.",
+        "evidence": [
+          "https://arxiv.org/html/2511.12358v1: abstract, sections 3-6 characterize eventual periodicity and minimal growth; no square-indicator evaluation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.12358v1",
+        "material_read": "Accessible full-text sections 1 through 6 and appendix, including statements on period-two complexity increments and minimal growth.",
+        "method": "Read the lawful open arXiv HTML full text and searched for the square-word object.",
+        "title": "Reflection on the reflection complexity",
+        "trigger": "Later highly relevant primary article with the same invariant; potentially broader statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fe330b1e-5833-4cae-bf26-561574be01e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonnegative perfect-square indicator is a canonical arithmetic sparse binary word, and the newly introduced reflection-complexity measure motivates a complete exact evaluation. The result has nontrivial quadratic growth rather than the linear/automatic sequence regimes emphasized in the originating article; its leading ratio 2/3 to ordinary factor complexity has a structural reason from strictly increasing gaps and bounded reversal collisions. It resolves all lengths, not an arbitrary finite sample or computational exercise. The precise squared-position object and invariant are motivated independently of the enumeration, and neither the exact values nor the 1/12 leading coefficient follow directly from the general literature examined. The mathematical contribution is limited to this explicit natural family.",
+    "status": "PASS"
+  }
+}
