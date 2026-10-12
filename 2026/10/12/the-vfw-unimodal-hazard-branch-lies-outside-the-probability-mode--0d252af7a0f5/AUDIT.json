@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The displayed CDF is 1-exp(-A(x)) with A(x)=exp(theta*x^vartheta-1/x). For positive theta, A rises from zero to infinity and the derivative factor is positive, yielding a proper CDF. At theta=0 the CDF has total finite-line mass 1-exp(-1). For negative theta, A tends to zero at both endpoints and its derivative changes sign at the explicit threshold (-1/(vartheta*theta))^(1/(vartheta+1)), so the printed density is eventually negative. For positive theta the hazard tends to zero at the left endpoint and infinity at the right endpoint. The packaged checker independently reproduces the sign change, limit values, and representative positive-domain hazard behavior.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 original VFW full text declares both model parameters positive.",
+        "The 2024 VFW inference literature treats the model as a positive-parameter lifetime distribution.",
+        "No checked broader source states that the formal zero-scale extension is defective or that the negative-scale extension has an eventually negative density."
+      ],
+      "reasoning": "Earlier VFW literature supports the positive parameter domain but does not supply the source-specific correction to the 2025 sign-based hazard theorem.",
+      "searches": [
+        "\"Very Flexible Weibull\" \"negative\" theta",
+        "\"Very Flexible Weibull\" defective distribution",
+        "\"Very Flexible Weibull\" positive parameters hazard"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math13243896",
+      "Very Flexible Weibull Distribution, Mayfeb Journal of Mathematics 2 (2017), 61-73",
+      "doi:10.1080/03610918.2023.2180646"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current checked result corpus contains no finding with DOI 10.3390/math13243896 or the VFW model aliases.",
+        "The immediately preceding weekly corpus contains no exact DOI, model-name, or VFW alias match.",
+        "The closest retrieved findings concern proportional-hazard identification and unrelated endpoint or quantile phenomena, not this parameter-domain contradiction."
+      ],
+      "reasoning": "No checked previous claim implies the exact VFW properness trichotomy or the exclusion of the negative-scale hazard class.",
+      "searches": [
+        "VFW negative scale properness hazard previous findings",
+        "very flexible Weibull parameter domain previous results",
+        "defective lifetime distribution negative density hazard correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article defines theta>0 but later assigns a unimodal increase-decrease hazard to theta<0 and another branch to theta=0.",
+        "No returned published-result record states the properness trichotomy or excludes the negative-scale hazard branch.",
+        "Exact correction and erratum searches located the primary article but no correction notice."
+      ],
+      "reasoning": "The searches cover the exact article, full model name, negative-scale alias, hazard classification, probability properness, and correction terminology.",
+      "searches": [
+        "10.3390/math13243896 very flexible Weibull theta negative proper distribution hazard",
+        "\"Very Flexible Weibull\" hazard theta negative unimodal",
+        "\"Very Flexible Weibull Reliability Modeling\" hazard correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 2 states that vartheta>0 and theta>0 are the shape and scale parameters.",
+        "The same section subsequently lists theta<0 and theta=0 as separate hazard-shape cases and advertises the negative-theta unimodal branch as part of the model's flexibility.",
+        "The inference sections use positive parameter constraints, log-scale confidence intervals, and gamma priors, so the numerical inferential model remains in the proper domain."
+      ],
+      "reasoning": "The contradiction is internal to the source's exact parameter definition and hazard-shape theorem, while the inference setup confirms that the intended statistical model is the positive-parameter one.",
+      "searches": [
+        "10.3390/math13243896 theta > 0 scale parameter",
+        "10.3390/math13243896 theta < 0 hazard",
+        "10.3390/math13243896 gamma prior positive parameters"
+      ]
+    },
+    "rationale": "The primary article explicitly declares theta positive and later presents theta<0 and theta=0 as hazard-shape cases without identifying the resulting failure of probability normalization. Five target-specific published-result searches, exact source/correction searches, the original VFW full text, and previous-result comparisons found no covering source-specific correction.",
+    "residual_risks": [
+      "A recent unindexed correction may exist.",
+      "The source may have intended its negative-scale expressions as purely formal functions rather than probability-model cases, although the text explicitly presents them as VFW hazard shapes.",
+      "The complete positive-scale critical-point phase diagram is not derived here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT in its hazard classification outside theta>0. The negative and zero scale cases do not define the proper finite-lifetime probability model stated immediately beforehand.",
+        "evidence": "Equations (2)-(5), the parameter-domain sentence in Section 2, and the subsequent three-case hazard classification.",
+        "identifier_or_url": "doi:10.3390/math13243896",
+        "material_read": "Open publisher full text at the abstract, Section 2 PDF/CDF and positive parameter domain, reliability and hazard formulas, the theta<0/theta=0/theta>0 hazard classification, likelihood and Bayesian positivity constraints, and conclusion.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "Very Flexible Weibull Reliability Modeling for Shock Environments Using Unified Censoring Plans",
+        "trigger": "Primary source defining the VFW lifetime law and presenting the sign-based hazard classification."
+      },
+      {
+        "assessment": "SUPPORTING DOMAIN EVIDENCE. The original VFW model declares both parameters positive.",
+        "evidence": "The distribution-definition section states that the scale and shape parameters are positive.",
+        "identifier_or_url": "Mayfeb Journal of Mathematics 2 (2017), 61-73",
+        "material_read": "Author-posted full text at the construction, CDF, parameter declaration, survival, hazard, and qualitative failure-rate discussion.",
+        "method": "Direct lawful author-posted full-text inspection.",
+        "title": "Very Flexible Weibull Distribution",
+        "trigger": "Original source for the VFW family cited by the 2025 article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d252af7-a0f5-4faf-b367-01a4a31859c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nonmonotone hazard flexibility is a central advertised advantage of the model and a motivating feature of the reliability study. The result removes the entire increase-then-decrease branch that the paper attributes to negative scale, and gives a complete properness classification of the scale sign. It also separates the theoretical hazard-shape error from the positive-parameter inferential calculations, making the correction directly useful without overclaiming downstream numerical failure.",
+    "status": "PASS"
+  }
+}
