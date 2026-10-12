@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "On a valid interior commuting-qubit slice the restricted Hessian is \\(\\begin{pmatrix}-4&4\\\\4&0\\end{pmatrix}\\), with determinant \\(-16\\). The constraints are built into the parametrization and the exact-rational replay agrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2004 maximum-likelihood chapter describes state estimation for a given set of measurements.",
+        "The 2019 self-calibrating tomography abstract treats joint state/device estimation but does not state the Ježek-specific Hessian."
+      ],
+      "reasoning": "Fixed-measurement concavity does not imply joint concavity because the source probability is bilinear in the unknown state and unknown POVM.",
+      "searches": [
+        "web: simultaneous quantum state measurement maximum likelihood nonconvex tomography",
+        "web: self-calibrating quantum tomography likelihood nonconvex",
+        "DOI:10.1007/978-3-540-44481-7_3",
+        "DOI:10.1103/PhysRevA.100.022333"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0202085",
+      "DOI:10.1016/S0375-9601(02)00775-2",
+      "MaRDI Q1605499",
+      "DOI:10.1007/978-3-540-44481-7_3 (abstract/preview)",
+      "DOI:10.1103/PhysRevA.100.022333 (abstract)",
+      "current private ledger through g000013",
+      "prior-week private ledger through g000050"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source optimizes a likelihood containing \\(P_{ij}=\\operatorname{tr}(\\rho_i\\Pi_j)\\) over states and discrimination POVM simultaneously and then invokes convexity.",
+        "The feasible qubit slice has Hessian determinant \\(-16\\)."
+      ],
+      "reasoning": "The source supplies the premises but its stated curvature premise is false on a feasible slice; fixed-measurement results do not repair the joint step.",
+      "searches": [
+        "arXiv:quant-ph/0202085 Sections III–V",
+        "web: Maximum-Likelihood Methods in Quantum Mechanics convexity given set of measurements",
+        "web: Proper error bars for self-calibrating quantum tomography"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source contains the joint likelihood and the statement that convexity guarantees one global maximum or a plateau.",
+        "Targeted published-finding corpus results were unrelated and no source-specific correction was returned."
+      ],
+      "reasoning": "Equivalent coverage would need to establish the same joint-curvature obstruction or otherwise invalidate the source convexity implication; none was located.",
+      "searches": [
+        "published-finding corpus: Jezek 2002 discrimination non perfectly known states log likelihood convexity joint state POVM",
+        "published-finding corpus: quant-ph/0202085 joint concavity likelihood state measurement POVM",
+        "web: \"Discrimination between non perfectly known states\" convexity \"global maximum\"",
+        "web: \"quant-ph/0202085\" convexity concavity",
+        "web: \"quant-ph/0202085\" erratum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MaRDI Q1605499 verifies primary MSC 81P15.",
+        "Current and prior own ledgers contain no occurrence of quant-ph/0202085, the source title, or a joint-concavity correction."
+      ],
+      "reasoning": "No database or own-ledger record located the source-specific correction.",
+      "searches": [
+        "MaRDI:Q1605499",
+        "arXiv:quant-ph/0202085",
+        "published-finding corpus: Miroslav Jezek iteration global maximum convexity likelihood correction"
+      ]
+    },
+    "rationale": "The source states the convexity-based uniqueness argument but does not identify this obstruction; targeted published-finding corpus and literature searches found no implication-equivalent correction.",
+    "residual_risks": [
+      "A later optimization or tomography paper may state the same source-specific correction under different terminology.",
+      "Only abstract/preview material was inspected for the 2004 chapter.",
+      "The finding removes one global certificate but does not classify the full optimization landscape."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the premises and convexity sentence but not the feasible Hessian obstruction.",
+        "evidence": "The objective contains discrimination probabilities \\(P_{ij}=\\operatorname{tr}(\\rho_i\\Pi_j)\\) with states and POVM varied simultaneously.",
+        "identifier_or_url": "arXiv:quant-ph/0202085; DOI:10.1016/S0375-9601(02)00775-2",
+        "material_read": "Public full-text rendering of Sections II–V plus an equation-level publication preview exposing Eq. (9).",
+        "method": "Full-text and equation-level statement comparison.",
+        "title": "Discrimination between non perfectly known states",
+        "trigger": "Direct source of the joint likelihood and convexity-based uniqueness sentence."
+      },
+      {
+        "assessment": "The inspected statement concerns state estimation for a given set of measurements, not joint state-and-POVM optimization.",
+        "evidence": "The abstract explicitly fixes the measurement setting.",
+        "identifier_or_url": "DOI:10.1007/978-3-540-44481-7_3",
+        "material_read": "Public abstract/preview.",
+        "method": "Statement-level comparison.",
+        "title": "Maximum-Likelihood Methods in Quantum Mechanics",
+        "trigger": "Potential broader convexity theorem."
+      },
+      {
+        "assessment": "Broader related setting; inspected material does not state the source-specific correction.",
+        "evidence": "It treats joint estimation and joint error regions.",
+        "identifier_or_url": "DOI:10.1103/PhysRevA.100.022333",
+        "material_read": "Public abstract.",
+        "method": "Abstract-level implication comparison.",
+        "title": "Proper error bars for self-calibrating quantum tomography",
+        "trigger": "Later joint state/device estimation literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1cbace0b-f73b-4d44-b3c1-ab2c54c09e53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses convexity as its stated global uniqueness/plateau justification for a simultaneous calibration-and-discrimination algorithm. The exact obstruction removes that certificate already in a commuting qubit subproblem and requires a separate convergence or optimality argument.",
+    "status": "PASS"
+  }
+}
