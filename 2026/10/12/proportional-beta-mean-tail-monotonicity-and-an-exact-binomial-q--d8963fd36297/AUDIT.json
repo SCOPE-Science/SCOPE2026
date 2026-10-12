@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For 1/2<p<1, the analytic proof computes derivatives of the two branches of H(x)=KL(Bernoulli(p)||Bernoulli(x)), proves (1-p)/p<v/u<1 and strict decay of v/u with energy via an explicit positive quadratic J_r. The logit-to-energy Jacobian is exactly 1/u and 1/v, so the beta mean tail is a strict monotone expectation under exponential tilting. Symmetry handles p<=1/2, and concentration endpoints follow from integrability on finite energy intervals and divergence of the full logit measure. The binomial–beta identity has the exact parameters (nt-1,1/n,t-1) and shapes ((n-1)t,t). The standalone checker in this package returned 600 rational tail checks, 576 exact consecutive inequalities and 3469 exact derivative tests. All real-parameter quantifiers rest on the analytic argument, not the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hornik, Entropy 26 (2024) 938, Theorems 1–2: one beta shape varies while the other is fixed.",
+        "Karp, arXiv:1509.05120v1, Theorem 1 and §2: separately parameterized log concavity of incomplete-beta CDF.",
+        "Leobacher–Steinicke, arXiv:2605.21424v1, §2 and Lemma 18: increasing the second shape with the first fixed.",
+        "Both partial beta-shape derivatives need not have the same sign; their separate signs do not determine the derivative along the ray (pτ,(1-p)τ)."
+      ],
+      "reasoning": "Directly evaluated whether known fixed-shape monotonicity, incomplete-beta parameter concavity, or two-player game monotonicity could dominate the new result. Each varies a different parameter axis, keeps one shape fixed, or concerns log-concavity rather than a first-derivative sign along a two-parameter ray. None implies the result by specialization without a new argument.",
+      "searches": [
+        "Beta(t a,t b) probability below its mean a/(a+b) monotonic concentration, scaled beta parameters, regularized incomplete beta",
+        "equal Bernoulli relative entropy deviations on opposite sides mean ratio monotonic and beta tail median",
+        "beta shape concentration proportional path below-mean probability monotonic likelihood ratio KL asymmetry",
+        "Two Monotonicity Results for Beta Distribution Functions Hornik 2024 scaled both beta shape parameters",
+        "arXiv:1509.05120v1",
+        "doi:10.3390/e26110938"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.01874v1",
+      "arXiv:1509.05120v1",
+      "doi:10.3390/e26110938",
+      "arXiv:2605.21424v1",
+      "https://cs.mcgill.ca/~vnaray4/QuantileShares.pdf",
+      "2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a",
+      "2026/9/18/SCOPE-beta-report-grid-phase-constants--a7b833f50f30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Babichenko et al. arXiv:2312.01874v1, Remark 2: q_n = inf_{t>=1} P[Bin(tn-1,1/n)<t] is conjectured to equal (1-1/n)^(n-1).",
+        "Hornik, Entropy 26 (2024) 938, Theorems 1–2: one beta shape varies while the other is fixed.",
+        "Karp, arXiv:1509.05120v1, Theorem 1 and §2: separately parameterized log concavity of incomplete-beta CDF.",
+        "Leobacher–Steinicke, arXiv:2605.21424v1, §2 and Lemma 18: increasing the second shape with the first fixed.",
+        "The new all-real concentration monotonicity implies the source's t=1 binomial infimum through the exact beta–binomial identity; the source does not establish that infimum."
+      ],
+      "reasoning": "The new claim strictly dominates the unproved discrete inequality and proves the exact source conjecture. It is not a corollary of the source's asymptotic Poisson comparisons. Known beta results vary only one shape; composing independent monotone directions cannot determine the opposite-signed simultaneous derivative. The new paired-energy comparison supplies the missing direction.",
+      "searches": [
+        "Babichenko Feldman Holzman Narayan Remark 2 q_n binomial tail exact (1-1/n)^(n-1) proof finite n matroid rank",
+        "Two Monotonicity Results for Beta Distribution Functions Hornik 2024 scaled both beta shape parameters",
+        "arXiv:2312.01874v1 Remark 2 and Proposition 6",
+        "arXiv:2605.21424v1 §§2,4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Babichenko et al. arXiv:2312.01874v1, Remark 2: q_n = inf_{t>=1} P[Bin(tn-1,1/n)<t] is conjectured to equal (1-1/n)^(n-1).",
+        "Exact identity: P[Bin(nt-1,1/n)<t] = I_{(n-1)/n}((n-1)t,t), i.e., a proportional beta-mean tail with concentration nt.",
+        "Leobacher–Steinicke, arXiv:2605.21424v1, §2 and Lemma 18: increasing the second shape with the first fixed."
+      ],
+      "reasoning": "Compared regularized incomplete beta, negative-binomial winning probabilities, and binomial tails through exact transformations. The original remark poses precisely the integer consequence, unproved. The 2026 source proves improvement with one shape fixed, not both shapes scaled in fixed proportion. No equivalently quantified continuous-ray monotonicity was located.",
+      "searches": [
+        "Binomial(t n - 1,1/n) probability fewer than t monotone increasing t, quantile share q_n conjecture Babichenko Feldman Holzman Narayan",
+        "Beta(t a,t b) probability below its mean a/(a+b) monotonic concentration, scaled beta parameters, regularized incomplete beta",
+        "Monotonicity of I_p(tp,t(1-p)) as beta concentration t increases, binomial n t - 1 tail at t - 1 exact fair division quantile shares",
+        "arXiv:2312.01874v1 Remark 2",
+        "arXiv:2605.21424v1 Lemma 18"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus: 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96: extremal tails under infinite exchangeability, not a fixed independent binomial row.",
+        "published-finding corpus: 2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a: gamma-sum quantile curvature, not beta probability below a fixed mean.",
+        "Babichenko et al. arXiv:2312.01874v1, Remark 2: q_n = inf_{t>=1} P[Bin(tn-1,1/n)<t] is conjectured to equal (1-1/n)^(n-1)."
+      ],
+      "reasoning": "Targeted searches for the exact sequence, proportional-beta tail and source conjecture did not return an exact table or an identical scientific claim. The closest database records concern distinct distributions or variables and do not have the stated quantifiers. A missing database match alone is not proof of uniqueness.",
+      "searches": [
+        "Binomial(t n - 1,1/n) probability fewer than t monotone increasing t, quantile share q_n conjecture Babichenko Feldman Holzman Narayan",
+        "Monotonicity of I_p(tp,t(1-p)) as beta concentration t increases, binomial n t - 1 tail at t - 1 exact fair division quantile shares",
+        "Babichenko Feldman Holzman Narayan Remark 2 q_n binomial tail exact (1-1/n)^(n-1) proof finite n matroid rank",
+        "published-finding corpus scientific records: 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+        "published-finding corpus scientific records: 2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a"
+      ]
+    },
+    "rationale": "The paper of Babichenko et al. gives the exact binomial-infimum claim as an unproved conjecture (arXiv:2312.01874v1, Remark 2). The new proportional-beta sign result proves all its integer instances. Hornik's (2024) fixed-other-shape monotonicity, Karp's individual-parameter log-concavity, and Leobacher–Steinicke's (2026) one-shape monotonicity do not control joint proportional growth. Targeted source/equivalence searches, original-paper text comparisons, and accessible scientific database summaries revealed no covering theorem. Earlier uncatalogued equivalent statements remain a residual historical priority risk.",
+    "residual_risks": [
+      "Historical priority risk: an older or differently indexed proportional-beta concentration theorem could subsume the claim despite the direct primary-source comparisons.",
+      "Database search coverage and a model's literature inspection do not constitute an independent proof of originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Poses the exact value of the infimum as unproved; establishes asymptotic estimates and its fair-division interpretation",
+        "evidence": [
+          "arXiv:2312.01874v1 PDF p.13, Remark 2: exact q_n conjectured; proof earlier gives a Poisson-approximation lower estimate",
+          "https://cs.mcgill.ca/~vnaray4/QuantileShares.pdf: corresponding remark again states inability to prove exactly"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.01874",
+        "material_read": "Original v1 first page, §4.3 proof including Remark 2 and Proposition 6 context on PDF pages 12–13; author-hosted expanded version's corresponding remark",
+        "method": "Full-document navigable PDF text and visual reading of Remark 2 on the rendered page; matched both probability and quantile consequence",
+        "title": "Fair Division via Quantile Shares",
+        "trigger": "Explicit conjecture for the same binomial objects and parameters"
+      },
+      {
+        "assessment": "Both theorems hold one shape parameter fixed; no joint proportional-concentration theorem or q_n threshold",
+        "evidence": [
+          "https://mdpi-res.com/bookfiles/book/11218/The_Random_Walk_Path_of_Pl_Rvsz_in_Probability.pdf pages 97–104",
+          "Theorem 1 fixes beta when varying alpha; Theorem 2 fixes beta but increments alpha"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/e26110938",
+        "material_read": "Full eight-page article in authorized open-access special-issue PDF reprint, pages 97–104 of compilation, especially Theorems 1–2 and discussion following Corollary 1",
+        "method": "Read full article text and theorem equations in reprint PDF, with representative visual page verification",
+        "title": "Two Monotonicity Results for Beta Distribution Functions",
+        "trigger": "Same probability P[Beta(a,b) below its mean] and monotonicity of parameters"
+      },
+      {
+        "assessment": "Proves log-concavity or convexity in one shape at fixed other shape; no implication for the two-shape directional sign",
+        "evidence": [
+          "arXiv:1509.05120v1 pp. 1–3, §§1–2",
+          "Theorem 1 and associated formulas for fixed-a varying-b and fixed-b varying-a log-curvature"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.05120",
+        "material_read": "Full 17-page original arXiv PDF; introduction, Theorem 1 and the full statement structure and concluding references",
+        "method": "Searched and read the full PDF's mathematical theorem statements, with visual confirmation of the introductory comparisons",
+        "title": "Normalized Incomplete Beta Function: Log-Concavity in Parameters and Other Properties",
+        "trigger": "Broader possibility of coverage through parameterwise convexity or Turán inequalities"
+      },
+      {
+        "assessment": "Proves that increasing one target while holding the other fixed changes the winning probability; does not compare common-scale pairs and is not a stronger theorem",
+        "evidence": [
+          "arXiv:2605.21424v1, §2 Eq. (2), Lemma 18 statement and proof",
+          "Lemma 18: n_m varies but n_1+K, n_1+N remain fixed"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.21424v1",
+        "material_read": "Full navigable HTML article, Section 2, Theorems 16–17 and complete Lemma 18 including its proof; corresponding original PDF page 14 inspected visually",
+        "method": "Compared exact arguments and parameter paths in the primary HTML and rendered PDF",
+        "title": "A Dice Game, a Multinomial Walk, and the Inverted Dirichlet Distribution",
+        "trigger": "Same incomplete beta function and winning-probability version with potential dominating monotonicity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8963fd3-6297-401a-8274-9ddd589ce24c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite-n expression is an explicitly motivated unproved conjecture in Babichenko et al., Remark 2, with a stated exact threshold consequence for matroid-rank quantile feasibility. Proving strict monotonicity for all n>=3 settles the natural entire sequence and yields a universal continuous-concentration beta distribution theorem, with correct boundary n=2. The result is not a mere restatement of existing fixed-shape beta inequalities, and the exact quantitative threshold has a specific mathematical use beyond a tiny numerical improvement.",
+    "status": "PASS"
+  }
+}
