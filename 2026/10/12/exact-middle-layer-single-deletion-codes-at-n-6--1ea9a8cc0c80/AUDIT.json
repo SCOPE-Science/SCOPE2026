@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The five explicit received words form a transversal certificate: every one of the twenty length-six weight-three words has exactly one of them in its deletion shadow, so disjoint-shadow codes have size at most five. A displayed five-word code attains the bound. The equality census is exhaustive over all \\(15504\\) five-subsets; a separate longest-common-subsequence implementation agrees with direct shadow intersection on all \\(190\\) pairs. The packaged verifier also recomputes all eight maxima, the four symmetry orbits, reverse-complement invariance, and the \\(18/20\\) coverage split.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1109/ISIT.2012.6284242 Theorem 2",
+        "arXiv:1211.4056"
+      ],
+      "reasoning": "The known theorem gives \\(\\chi(L_{1,n,k})=\\omega(L_{1,n,k})=\\max(k,n-k)+1\\). At \\((6,3)\\) that supplies a four-coloring and hence a five-word color class, but does not imply the upper bound \\(\\alpha\\le5\\) or classify all maximum independent sets.",
+      "searches": [
+        "constant Hamming weight deletion graph optimal coloring maximum independent set",
+        "weight partitioning deletion correcting codes optimal colorings",
+        "single-deletion codes small length constant weight"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/ISIT.2012.6284242",
+      "arXiv:1211.4056",
+      "arXiv:math/0207197"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1109/ISIT.2012.6284242 distinguishes coloring questions from maximum independent sets.",
+        "The primary full text treats constant-weight subgraphs constructively and asymptotically, without a length-six weight-three extremizer census."
+      ],
+      "reasoning": "An optimal four-coloring cannot by itself force that every independent set has size at most five, nor can it determine the number, symmetry classes, or received-layer coverage of size-five independent sets. The new five-bin certificate and complete census supply those additional implications.",
+      "searches": [
+        "reverse-complement invariant constant-weight deletion codes 000111 010101",
+        "deletion shadows length 6 weight 3 exact maximum classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1109/ISIT.2012.6284242",
+        "arXiv:1211.4056",
+        "arXiv:math/0207197"
+      ],
+      "reasoning": "Single-deletion correction is equivalent to pairwise-disjoint deletion shadows and, for equal length, to pairwise longest-common-subsequence length at most \\(4\\). Searches across all these formulations did not locate the eight-code equality census.",
+      "searches": [
+        "constant-weight binary deletion-correcting codes length 6 weight 3 maximum",
+        "single deletion correcting constant weight codes n=6 w=3",
+        "constant weight deletion codes exact small parameters 6 3",
+        "binary single-deletion constant-weight length six weight three maximum size five"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-parameter source stated a count of eight maxima or four symmetry orbits.",
+        "The longer 2012 treatment discusses unrestricted small-length computations rather than this constant-weight equality table."
+      ],
+      "reasoning": "Exact-number and parameter searches were compared at statement level; nearby finite deletion-code tables concern different alphabets, unrestricted layers, or different block lengths.",
+      "searches": [
+        "L_{1,6,3} maximum independent set 5 deletion graph",
+        "eight maximum codes length 6 weight 3 single deletion"
+      ]
+    },
+    "rationale": "The closest primary literature establishes the constant-weight deletion-graph framework and its optimal coloring, but explicitly does not identify color classes with maximum independent sets in general and does not state the eight-extremizer census or symmetry/coverage classification for the balanced length-six layer. Exact-parameter and alias searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite enumeration of this exact constant-weight layer could have escaped the checked literature.",
+      "The stated four-orbit result is only for reversal and global complement; no full graph-automorphism classification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the graph model and optimal chromatic number; NOT_COVERING for the exact independence number equality census at length six, weight three.",
+        "evidence": "The paper proves the exact coloring formula and separately notes that an optimal coloring need not contain a maximum independent set.",
+        "identifier_or_url": "DOI:10.1109/ISIT.2012.6284242",
+        "material_read": "Full five-page conference paper, including the constant-weight subgraph construction and Theorem 2.",
+        "method": "Full-text inspection of an openly accessible author PDF.",
+        "title": "A Coloring Approach to Constructing Deletion Correcting Codes from Constant Weight Subgraphs",
+        "trigger": "Exact same constant-weight deletion graph framework and single-deletion setting."
+      },
+      {
+        "assessment": "NOT_COVERING the eight-code equality census.",
+        "evidence": "The work develops the framework and broader constructions; no exact length-six weight-three extremizer classification was found.",
+        "identifier_or_url": "arXiv:1211.4056",
+        "material_read": "Relevant full-text sections on deletion graphs, constant-weight layers, optimal colorings, and small-length computation.",
+        "method": "Full-text inspection.",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Longer treatment of the same framework, plausible source for finite parameter details."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "The survey treats unrestricted deletion codes rather than the present balanced constant-weight equality classification.",
+        "identifier_or_url": "arXiv:math/0207197",
+        "material_read": "Relevant sections on deletion correction and Varshamov--Tenengolts codes.",
+        "method": "Full-text inspection.",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Classical survey and historical source for the unrestricted binary single-deletion problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ea9a8cc-0c80-4c0e-96ec-3060085b8a3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The balanced layer \\((n,k)=(6,3)\\) is the smallest even middle layer where the 2012 constant-weight deletion-graph method produces a nontrivial twenty-vertex benchmark. The known optimal four-coloring guarantees a five-word color class but leaves the independence-number upper bound and equality structure open. The five-bin certificate closes that gap exactly, while the eight-extremizer census, reverse-complement rigidity, and four perfect received-layer partitions give structural information useful as a finite benchmark rather than a routine recomputation.",
+    "status": "PASS"
+  }
+}
