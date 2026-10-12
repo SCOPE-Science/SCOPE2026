@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For \\(f(x)=Lx^2/2\\), the source Bregman-type curvature quantity is exactly \\(L(x_k-x_{k-1})^2/2\\), so the branch condition is precisely \\(\\lambda_{k-1}>2\\eta_0/L\\) and the reset value is exactly \\(2\\eta_1/L\\). Consecutive resets require disjoint expansion-factor blocks whose products exceed \\(\\eta_0/\\eta_1\\), giving the reset-count bound. After the last reset the positive expansion factors produce a monotone bounded stepsize sequence with limit in \\((2\\eta_1/L,2\\eta_0/L]\\). An exponential dyadic tail realizes every such limit. The iterate recurrence \\(x_{k+1}=(1-L\\lambda_k)x_k\\) then gives the exact asymptotic ratio.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Algorithm 2's abstract convergence proof establishes a positive limit and eventual increase without quantifying reset count or the set of possible terminal limits.",
+        "The later inexact proximal-gradient manuscript concerns a composite inexact-proximal setting and does not state the MPG-NGD scalar controller law.",
+        "The earlier PG-NGD rule uses gradient differences instead of the modified function-value curvature term and therefore has a different scalar normalization."
+      ],
+      "reasoning": "The closest same-author adaptive methods are compatible with the finding but do not dominate it: the exact reset budget and realizable terminal-rate window depend on the modified MPG-NGD branch formula.",
+      "searches": [
+        "OptimizationOnline:33877 full text: Algorithm 2, Lemmas 4.1--4.2, Theorem 4.5, scalar-quadratic implications",
+        "OptimizationOnline:36519 public description: adaptive proximal-gradient stepsizes and eventual rates",
+        "Primary manuscript reproduction of the earlier PG-NGD gradient-difference rule"
+      ]
+    },
+    "checked_sources": [
+      "OptimizationOnline:33877",
+      "OptimizationOnline:36519",
+      "Published-record searches for MPG-NGD scalar quadratic reset and terminal-rate aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves eventual nondecrease and convergence of stepsizes but gives no formula for the terminal value.",
+        "The source linear-convergence theorem gives a qualitative rate conclusion, while the scalar specialization yields the exact asymptotic factor and shows it can range from nearly one on the no-reset branch to below 0.02 after a reset for the paper's displayed parameter pair.",
+        "The experimental parameter choice is therefore given an exact scalar explanation not present in the source analysis."
+      ],
+      "reasoning": "The final claim strengthens, rather than contradicts, the source: it identifies the precise finite-state mechanism underlying the general eventual-monotonicity proof and quantifies its sharp scalar consequences.",
+      "searches": [
+        "Primary full text: Algorithm 2 and Lemmas 4.1--4.2",
+        "Primary full text: Theorem 4.5 strongly-convex linear convergence",
+        "Primary numerical sections using eta0=0.5 and eta1=0.49"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published-record results concern unrelated adaptive-gradient and spectral stability frontiers rather than MPG-NGD.",
+        "The primary manuscript states eventual stepsize monotonicity and convergence but not the exact quadratic threshold-reset recursion or its finite reset budget."
+      ],
+      "reasoning": "The search covered the source name and an invariant description of the same mechanism: scalar quadratic curvature, multiplicative expansion, threshold reset, terminal stepsize, and asymptotic rate.",
+      "searches": [
+        "MPG-NGD modified projected gradient quasiconvex scalar quadratic exact stepsize reset terminal rate",
+        "A Modified Projected Gradient Algorithm quasiconvex stepsize eta0 eta1 scalar quadratic",
+        "projected gradient adaptive Bregman secant stepsize reset threshold quadratic",
+        "OptimizationOnline:33877 scalar quadratic terminal stepsize"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed published finding matched the source-specific scalar classification.",
+        "The claim is analytic and does not reproduce a numerical benchmark table."
+      ],
+      "reasoning": "The source's tables report empirical terminal stepsizes; they do not contain or imply the exact continuum of possible quadratic limits or the multiplicative reset-count bound.",
+      "searches": [
+        "MPG-NGD scalar quadratic reset budget",
+        "modified projected gradient terminal stepsize eta0 eta1",
+        "quasiconvex projected gradient threshold reset"
+      ]
+    },
+    "rationale": "The primary full text was inspected at Algorithm 2, Lemmas 4.1--4.2, Theorem 4.5, and the numerical parameter choices. Published-record searches under method-specific and equivalent threshold-reset formulations did not locate the scalar recursion, reset budget, realizable terminal interval, or rate window. A related later adaptive proximal-gradient paper uses a different composite/inexact framework and does not state this MPG-NGD classification.",
+    "residual_risks": [
+      "The exact same scalar controller law may appear in an unindexed note or unpublished analysis of this manuscript; none was located.",
+      "The later adaptive proximal-gradient paper was inspected only at the public repository-description level and is not relied upon for decisive whole-document noncoverage.",
+      "The finding does not classify multidimensional MPG-NGD, where the curvature quotient depends on the direction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the exact ingredients of the scalar recurrence and proves eventual stepsize convergence abstractly, but does not state the threshold-reset classification, finite reset budget, or realizable terminal-rate window.",
+        "evidence": "Algorithm 2 resets through a function-value curvature quotient and otherwise multiplies by \\(1+\u000barepsilon_k\\); Lemma 4.2 only proves that the reset branch eventually stops.",
+        "identifier_or_url": "OptimizationOnline:33877",
+        "material_read": "Full PDF portions containing Assumptions 1--2, Algorithm 2, Lemmas 4.1--4.2 with proofs, Theorem 4.5, the numerical sections, and the reproduced earlier PG-NGD algorithm; the rendered algorithm page was also inspected.",
+        "method": "Public Optimization Online full-text PDF and rendered-page inspection.",
+        "title": "A Modified Projected Gradient Algorithm for Solving Quasiconvex Programming with Applications",
+        "trigger": "Primary recent source defining MPG-NGD and its adaptive function-value curvature rule."
+      },
+      {
+        "assessment": "The public description concerns composite inexact proximal-gradient algorithms and eventual convergence rates. It was not used to exclude uninspected full-text details.",
+        "evidence": "No scalar MPG-NGD threshold-reset or terminal-rate statement appears in the inspected public description.",
+        "identifier_or_url": "OptimizationOnline:36519",
+        "material_read": "Public repository abstract and method summary.",
+        "method": "Public Optimization Online repository-page inspection.",
+        "title": "New inexact adaptive proximal gradient algorithms for nonconvex composite optimization problems",
+        "trigger": "Related same-author adaptive-stepsize work that could plausibly contain a stronger general statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec5d5e93-fa48-44e0-8029-29eec6a2cfcf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The adaptive stepsize is the main algorithmic novelty of the source. On the canonical strongly convex mode, the finding completely characterizes that mechanism: when resets occur, how many can occur, where the terminal stepsize can land, and the exact resulting asymptotic rate. It also explains why the paper's near-equal parameter pair \\(0.5,0.49\\) is exceptionally aggressive after a reset while showing that the no-reset branch can still be arbitrarily slow. This is a natural exact invariant of the proposed controller rather than an arbitrary special-case calculation.",
+    "status": "PASS"
+  }
+}
