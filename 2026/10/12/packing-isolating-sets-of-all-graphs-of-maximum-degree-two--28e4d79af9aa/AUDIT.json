@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For paths, disjoint closed neighborhoods require successive selected indices at least three apart; isolation means every internal undominated run has at most one vertex, so successive gaps are at most four, with initial and final slack at most two. For cycles the same argument is cyclic, and the k=1 boundary is exactly orders three and four. The path slack/gap words and marked cyclic compositions bijectively count every admissible set, yielding both rational generating functions. Componentwise independence proves multiplicativity and the unique C5 obstruction. A direct bitmask verifier checked connected paths and cycles through order seventeen plus every disconnected component profile through order nine, 221 graphs and 577328 subsets; all coefficients agree. These computations are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The June 2026 primary paper proves existence for every tree and NP-hardness for arbitrary graphs, and explicitly notes C5 as a counterexample; no degree-two complete classification or counting appears in the inspected full text.",
+        "Bujtás et al. Theorem 3.1 characterizes d-distance p-packing dominated cycles by arc lengths p+1 through 2d+1; for d=p=2 that range is 3..5, unlike the 3..4 range required by isolation.",
+        "The full literature search did not identify a theorem counting all packing-isolating subsets of paths/cycles."
+      ],
+      "reasoning": "Even the stronger-looking general (d,p)-distance result is not logically covering: its permitted arc of length five leaves two adjacent vertices outside N[S] and violates isolation. The new condition is strictly stronger than d=2,p=2 and is not obtained from its scalar minimum formula.",
+      "searches": [
+        "Full primary text: arXiv:2606.18172v1, Introduction, Definition section, Section 3, Theorem 2, Theorem 3, Sections 4--7 and bibliography via public author-uploaded HTML full text",
+        "Full open-access article DOI:10.1007/s00010-026-01266-w, Section 3 and Theorem 3.1",
+        "Web: \"packing isolating\" cycle counts C5",
+        "published-finding corpus: packing isolating sets max degree two graphs disjoint unions of paths cycles generating polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.18172v1",
+      "doi:10.1007/s00010-026-01266-w",
+      "arXiv:2507.18272v1",
+      "published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+      "published-finding corpus:2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+      "published-finding corpus:2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6",
+      "published-finding corpus:2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4",
+      "owned-ledger:2026-10_week1__private research ledger__p0001_g000095.jsonl",
+      "owned-ledger:2026-09_week4__private research ledger__p0001_g000061.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyer et al. prove a tree-wide existence statement without enumerating or classifying the simple cycle case; C5 obstruction itself is prior.",
+        "Bujtás et al. allow all 3,4,5 cyclic gaps for distance-two domination plus distance-two packing; C5 singleton is feasible for that invariant but forbidden here.",
+        "The gap 3/4 criterion yields the explicit ordinary generating functions and all-component product independently of generic existence theorems."
+      ],
+      "reasoning": "Tree-wide existence neither decides whether an arbitrary cycle admits the simultaneous property nor yields multiplicities. The distance-two packing-domination theorem has a strictly weaker constraint; C5 directly witnesses failure of implication. The final claim is the exact all-set classification, not merely the already known C5 counterexample.",
+      "searches": [
+        "Primary comparison: arXiv:2606.18172v1, Theorem 2 and Section 3 counterexample C5",
+        "Primary comparison: DOI:10.1007/s00010-026-01266-w, Theorem 3.1 and cyclic gap proof",
+        "Own ledger scan for isolating, packing, cycle and path terms (current and 2026-09_week4)",
+        "published-finding corpus: On the Relationships between Domination Isolation and Packing Boyer Goddard Henning 2026 packing isolating sets cycles C5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyer--Goddard--Henning arXiv:2606.18172v1 Section 3 calls the simultaneous property packing-isolating and uses C5 as a nonexistence example, without listing a cycle enumeration.",
+        "None of the searched published-finding corpus records stated a simultaneous packing-isolating polynomial for maximum-degree-two graphs.",
+        "Independent vertex-edge domination allows vertices at distance two, whereas a closed-neighborhood packing forbids them."
+      ],
+      "reasoning": "Searches included the current exact name, 2-packing/vertex-edge aliases, standard graph-family words, the unusual 3/4-gap encoding, and generating-polynomial terminology. Related independent domination is weaker than closed-neighborhood packing and cannot simply be substituted.",
+      "searches": [
+        "published-finding corpus: simultaneously packing and isolating set on cycles C_n and paths P_n: enumerate all sizes with gaps 3 or 4 and unique obstruction five cycle",
+        "published-finding corpus: 2-packing vertex-edge dominating sets path cycle exact counting polynomial recurrence 3 4 gaps",
+        "Web: \"packing isolating set\" \"cycle\"",
+        "Web: \"packing isolating\" \"paths\" \"cycles\" enumerator",
+        "Web: \"packing vertex-edge dominating set\" path cycle",
+        "Web: \"independent vertex-edge domination\" \"cycles\" \"paths\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records: 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd (different invariant) and 2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6 (open packing only).",
+        "Own current and prior ledgers contained packing/counting findings on other graph classes and different invariants; none states packing-isolating enumeration of maximum-degree-two graphs."
+      ],
+      "reasoning": "The database comparisons are by definitions and the implications of the specific coefficients, not by graph-family names alone. Neither a forced-coloring polynomial nor an open-packing extremal bound determines the asserted simultaneous packing-isolation distribution.",
+      "searches": [
+        "published-finding corpus: simultaneously packing and isolating set on cycles C_n and paths P_n: enumerate all sizes with gaps 3 or 4 and unique obstruction five cycle",
+        "published-finding corpus: 2-packing vertex-edge dominating sets path cycle exact counting polynomial recurrence 3 4 gaps",
+        "published-finding corpus: packing isolating sets max degree two graphs disjoint unions of paths cycles generating polynomial",
+        "Own ledgers 2026-10_week1 p0001_g000095 and 2026-09_week4 p0001_g000061: recoverable finding titles and claims on packing, isolating, paths and cycles"
+      ]
+    },
+    "rationale": "The complete June 2026 initiating paper was inspected: it proves existence for trees and names C5 as an obstruction, but does not classify/count all packing-isolating sets of paths, cycles or maximum-degree-two graphs. The closest other full-text theorem on cycle packing-dominating sets permits cyclic gaps 3,4,5 at d=p=2, not our isolation-mandated gaps 3,4; even existence differs on C5. published-finding corpus plus both current and prior owned ledgers were searched under invariant and graph-family aliases. No covering structural/enumerative result was located; residual alternate-terminology risk remains.",
+    "residual_risks": [
+      "A path/cycle enumeration of simultaneous packing and edge isolation under older terminology might be poorly indexed.",
+      "The result is a complete natural low-degree classification, not a claim about subcubic graphs or higher-degree obstructions.",
+      "Published-record searches cannot prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the same definitions and tree existence plus C5 nonexistence example, but not the degree-two characterization or either polynomial.",
+        "evidence": "v1 dated 2026-06-16. Section 3 identifies C5 and proves tree existence (Theorem 2); Theorem 3 proves unrestricted NP-hardness. Section 7 lists other open ratio questions, no polynomial count.",
+        "identifier_or_url": "arXiv:2606.18172v1",
+        "material_read": "ArXiv abstract and HTML Sections 1--4; authorized public author-uploaded full text with definitions, all theorem statements, Section 3 existence/NP-hardness, Sections 4--7, and references.",
+        "method": "Original arXiv primary metadata plus side-by-side public full-text examination through the author-uploaded HTML reproduction; searched full text for cycle, path, polynomial and enumeration terminology.",
+        "title": "On the Relationships between Domination, Isolation, and Packing",
+        "trigger": "Identical simultaneous packing and isolating invariant, first verified public source June 16, 2026, MSC 05C69."
+      },
+      {
+        "assessment": "The general parameter counts d-distance-packing domination rather than isolation. For d=p=2 it permits a length-five cyclic gap, so does not establish the stronger claim.",
+        "evidence": "Section 3 explicitly gives p+1 <= arc length <= 2d+1. At d=p=2 this is 3..5, whereas isolating packing requires 3..4. The scalar minimum theorem is therefore not a covering result.",
+        "identifier_or_url": "arXiv:2507.18272v1; DOI:10.1007/s00010-026-01266-w",
+        "material_read": "Open-access publisher introduction, exact definitions, Section 3 Theorem 3.1 with proof of cyclic gap criterion and adjacent context, path scalar result scope.",
+        "method": "Full-text primary-statement implication comparison, focusing on p=d=2 and cyclic gap upper bound.",
+        "title": "The d-distance p-packing domination number: complexity, cycles, and trees",
+        "trigger": "Most plausible broader cycle/path theorem, potentially subsuming cyclic gap constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28e4d79a-f9aa-4d8b-afe0-820cfd3cff8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 primary paper raises the natural question of simultaneous packing and isolation, proving universal existence on trees but explicitly excluding C5 in general. The theorem closes the complete first nonforest degree class: C5 is the unique connected obstruction when maximum degree is at most two, and the two rational bivariate generating functions count every solution by size, including disconnected graphs. The exact gap characterization and contiguous size spectra distinguish this stricter invariant from distance-two packing domination, so this is a motivated complete classification rather than a scalar classroom calculation.",
+    "status": "PASS"
+  }
+}
