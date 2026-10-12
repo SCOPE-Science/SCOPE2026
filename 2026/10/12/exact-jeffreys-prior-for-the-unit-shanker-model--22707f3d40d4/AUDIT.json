@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The unit transform is one-to-one and parameter-independent, so it preserves the score and Fisher information. Twice differentiating the exact parent Shanker log density leaves one non-elementary expectation, which evaluates to \\(\\alpha^2 e^{\\alpha^2}E_1(\\alpha^2)/(\\alpha^2+1)\\). The endpoint asymptotics of \\(E_1\\) prove that \\(\\alpha\\sqrt{I(\\alpha)}\\) has different limits at zero and infinity, decisively excluding proportionality to \\(1/\\alpha\\). The separate posterior-propriety statement follows from exact endpoint powers and exponential decay.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abushal (2019) uses a gamma prior for the parent Shanker law and the zero-hyperparameter limit as a non-informative prior; the inspected text does not call it the model's Jeffreys-rule prior.",
+        "Standard objective-Bayes literature defines Jeffreys' scalar rule as the square root of expected Fisher information.",
+        "Because the unit transformation is independent of the parameter, any parent-Shanker Jeffreys derivation would cover the UShD automatically; no such covering derivation was found in the inspected literature."
+      ],
+      "reasoning": "The closest prior Bayesian literature explains where the \\(1/\\alpha\\) kernel comes from but does not imply that it equals Jeffreys' rule. The general Jeffreys theorem supplies the criterion, while the model-specific expectation and exponential-integral evaluation are still required.",
+      "searches": [
+        "Shanker distribution Bayesian non-informative gamma prior",
+        "Jeffreys rule square root Fisher information parameterization invariant",
+        "unit distribution Shanker Fisher information Bayesian prior"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261150",
+      "doi:10.1186/s42787-019-0033-x",
+      "doi:10.1177/0962280218817792"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target derives observed information for frequentist intervals, but its Bayesian section does not take the expectation required by Jeffreys' rule.",
+        "The target justifies \\(1/\\alpha\\) as a zero-shape, zero-rate gamma-kernel limit, which is a different construction from the Fisher-information rule.",
+        "The parent-Shanker Bayesian paper provides the same likelihood and gamma-prior setup, enabling direct implication comparison but not supplying the exact expected-information prior."
+      ],
+      "reasoning": "Observed Fisher information evaluated at a sample or estimator is not the same object as the model's expected per-observation Fisher information used in Jeffreys' rule. Neither the target's gamma-limit argument nor the 2019 predecessor implies the accepted formula.",
+      "searches": [
+        "target Section 5 observed Fisher information UShD",
+        "target Section 6 Jeffreys prior alpha inverse",
+        "Abushal Shanker observed Fisher information gamma prior"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target full text explicitly identifies the limiting gamma kernel \\(\\alpha^{-1}\\) as Jeffreys' prior and uses that label in its Bayesian analysis.",
+        "Semantic searches for unit-Shanker, Shanker, Jeffreys, log-uniform, and inverse-parameter formulations returned no same-statement published record; the closest returned Fisher-information record concerned an unrelated dynamical model."
+      ],
+      "reasoning": "The searched formulations covered both the source's terminology and the mathematically equivalent log-uniform description. No result was found that derives the expected-information prior or distinguishes it from the gamma-limit kernel for this model.",
+      "searches": [
+        "unit Shanker Jeffreys prior Fisher information alpha inverse prior",
+        "UShD Jeffreys prior 1/alpha Fisher information 2026",
+        "Shanker distribution Jeffreys prior Fisher information",
+        "10.3934/math.20261150 Jeffreys prior correction",
+        "log-uniform prior mislabeled Jeffreys unit Shanker"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact DOI searches located the 2026 article and institutional record but no corrigendum or erratum addressing the prior.",
+        "Searches for an exponential-integral Fisher-information formula for Shanker returned no matching model-specific record."
+      ],
+      "reasoning": "No exact correction record, tabulated Jeffreys prior, or formula matching the accepted claim was located.",
+      "searches": [
+        "10.3934/math.20261150 Jeffreys prior",
+        "10.3934/math.20261150 corrigendum erratum correction",
+        "Shanker Jeffreys prior exponential integral"
+      ]
+    },
+    "rationale": "The 2026 source labels the gamma-limit kernel \\(1/\\alpha\\) as Jeffreys' prior but does not derive expected Fisher information. The 2019 parent-Shanker Bayesian paper uses the same zero-hyperparameter gamma limit only as a non-informative prior. Focused semantic and exact-source searches found no published derivation of the model-specific Jeffreys-rule prior or correction of the 2026 identification.",
+    "residual_risks": [
+      "An unindexed note or thesis may have derived the same expected-information formula under different notation.",
+      "Terminology around 'Jeffreys prior' is occasionally used loosely for other improper objective priors; the accepted claim specifically concerns Jeffreys' Fisher-information rule, which is stated explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper correctly gives the UShD likelihood and observed information, but Section 6 identifies the gamma-limit kernel \\(\\alpha^{-1}\\) as Jeffreys' prior without deriving expected Fisher information.",
+        "evidence": "Equations (4.1), (5.2), (5.14)–(5.15), and Section 6 around equations (6.1)–(6.4).",
+        "identifier_or_url": "doi:10.3934/math.20261150",
+        "material_read": "Published full text, including the UShD definition, likelihood and information sections, Bayesian prior section, posterior formulas, and simulation description.",
+        "method": "Direct full-text inspection.",
+        "title": "Two-parameter family of Unit distributions: theory, statistical inference, and reliability applications",
+        "trigger": "Primary source defining the UShD and labeling the inverse-parameter prior as Jeffreys' prior."
+      },
+      {
+        "assessment": "Uses the same Shanker likelihood and a gamma prior; setting both hyperparameters to zero is described as non-informative, but no model-specific Jeffreys-rule derivation is supplied.",
+        "evidence": "Density equation (1), likelihood equations (6)–(8), Bayesian gamma-prior equation (10), and the non-informative choice \\(a=b=0\\).",
+        "identifier_or_url": "doi:10.1186/s42787-019-0033-x",
+        "material_read": "Open full text covering the density, likelihood, observed Fisher information, gamma prior, posterior, and simulation prior choices.",
+        "method": "Direct full-text inspection.",
+        "title": "Bayesian estimation of the reliability characteristic of Shanker distribution",
+        "trigger": "Closest earlier Bayesian treatment of the parent Shanker likelihood."
+      },
+      {
+        "assessment": "States that Jeffreys' rule defines the prior proportional to the square root of Fisher information.",
+        "evidence": "Section 2.2 on parameterization invariance.",
+        "identifier_or_url": "doi:10.1177/0962280218817792",
+        "material_read": "Section on parameterization invariance and Jeffreys' rule.",
+        "method": "Direct article inspection.",
+        "title": "A default prior for regression coefficients",
+        "trigger": "Published methodological source stating the scalar Jeffreys rule and its invariance principle."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "22707f3d-40d4-4af7-b377-0b9b5ab4a3a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The target paper reports Bayesian posterior plots, point estimates, credible intervals, and simulation comparisons under what it labels a Jeffreys prior. The exact prior derived here shows that those reported columns correspond instead to a log-uniform prior. Because changing the prior changes the posterior and its summaries, correct Jeffreys-prior results require recomputation. At the same time, proving propriety of the published log-uniform posterior prevents overstatement: the existing numerical analysis is meaningful under a different prior rather than mathematically undefined.",
+    "status": "PASS"
+  }
+}
