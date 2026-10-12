@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each n≥3, reduction to closed edge-covering walk is bijective by n-overlap. The graph is strongly connected by an explicit alternating connector. Every surplus source s requires at least d(s) extra edges before any deficit sink can be reached, using first-two-bit shift tracking and integral path decomposition. Complement-append paths of exactly d(s) land injectively and exhaustively in sinks because the last equal pair of an endpoint recovers its unique source. Hence Eulerian balancing matches the lower bound. Independent Fibonacci recurrence counts ∑d(s)=2F_(n−1)−2 and U_n=2F_(n+1). The n=2 case follows from four distinct required pairs and witness 0011. Both separate included source programs succeeded on their advertised finite ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee–Etzion–Nguyen–Ta–Tran–Vu, arXiv:2403.01454, pp. 2–4 defines (n,s)-sequences with distinct windows; pp. 4–10 optimize the maximum nonrepeating trail length with upper run limit on zeros.",
+        "Tan–Shallit Proposition 14 provides a bound for the maximum shortest circular witness over arbitrary representable factor dictionaries."
+      ],
+      "reasoning": "The present objective requires *all* permitted n-blocks and *allows* repetitions, under symmetric 000/111 avoidance. A maximum-length cycle with distinct blocks for a one-sided zero-run constraint and a general worst-case upper bound neither imply the exact minimum repeated-edge count nor this optimum. General minimum-cost circulation algorithms can compute isolated n but provide no displayed all-n formula or explicit structural pairing in the inspected material.",
+      "searches": [
+        "number of universal cycles of run length limited binary words exact count",
+        "universal cycles binary avoiding runs of three explicit count formula",
+        "run-length limited subshift shortest cyclic factor cover minimum repeats Fibonacci",
+        "https://arxiv.org/pdf/2403.01454, §1, §2, §3",
+        "https://arxiv.org/pdf/1304.3666, Proposition 14"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/0711.1695 (Moreno–Matamala 2007; sections and proofs)",
+      "https://arxiv.org/pdf/1304.3666 (Tan–Shallit 2013; sections 1, 4–5)",
+      "https://arxiv.org/pdf/2403.01454 (Chee et al.; abstract/definitions/optimization statements)",
+      "https://dblp.org/rec/conf/wg/MorenoM04 (2004 conference record only)",
+      "Related public result identifiers: 2026/9/8/SCOPE080; 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b; 2026/9/18/SCOPE-binary-alphabet-prefix-free-graph-hardness--7b68f096365c."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The standard Chinese-postman balance principle is acknowledged as prior methodology; the new content is the explicit sharp source-to-sink pairing by the first equal pair and its Fibonacci cost.",
+        "A previous public finding on cyclic three-gram count profiles concerns fixed-length profile enumeration, not minimum length needed to include every admissible n-factor; these claims are logically independent.",
+        "Earlier published results on exact-once restricted de Bruijn cycles cannot guarantee a repeated-edge cover length when the overlap graph is not Eulerian, as already at n=4."
+      ],
+      "reasoning": "Prior general algorithms could be specialized to calculate each finite instance, but a finite computation procedure alone does not state this infinite closed form. The current proof needs the nonstandard endpoint-bijection lemma and weighted Fibonacci enumeration; neither is a corollary of cited general bounds. No inspected stronger statement dominates the exact formula.",
+      "searches": [
+        "directed Chinese postman constrained binary de Bruijn shortest common superstring 000 111 Fibonacci",
+        "minimum cyclic superstring all length n words with no three equal consecutive symbols",
+        "https://arxiv.org/pdf/0711.1695, Theorem 3 and 10",
+        "https://arxiv.org/pdf/1304.3666, shortest-witness Section 4",
+        "2026/9/8/SCOPE080 and related indexed records"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tan–Shallit, arXiv:1304.3666v1, p. 2, introduces scw(S) for prescribed factor set; pp. 7–8 give only general witness bounds and global small-n tables.",
+        "Moreno–Matamala, arXiv:0711.1695v1, pp. 1–2 define exact-once cycles, and pp. 5–9 minimize their lexicographic labels."
+      ],
+      "reasoning": "The same problem can be phrased as shortest closed edge-covering walk of the restricted order-(n−1) overlap digraph, i.e. a unit-cost directed postman tour, or shortest circular witness scw(U_n). Neither inspected text states a closed Lucas-number value for this particular forbidden-triple family; exact-once minimum-label and unrestricted-set worst-case bounds do not supply it.",
+      "searches": [
+        "shortest circular witness of all binary strings avoiding runs length three exact Lucas number 2(L_n-1)",
+        "directed Chinese postman constrained binary de Bruijn shortest common superstring 000 111 Fibonacci",
+        "minimum cyclic superstring all length n words with no three equal consecutive symbols",
+        "https://arxiv.org/pdf/1304.3666, §§1,4,5",
+        "https://arxiv.org/pdf/0711.1695, §§1-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tan–Shallit numerical table lists global extremal shortest-witness lengths up to n=4, not minimum cyclic witnesses for the specific complete run-two dictionary.",
+        "The relevant 2024 examples use distinct-block RLL trails; their entries are not cyclic factor-complete run-two covers.",
+        "Semantic records most similar by search include published IDs 2026/9/8/SCOPE080 (cyclic symbol-pair codes), 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b (random substring statistics), and 2026/9/18/SCOPE-binary-alphabet-prefix-free-graph-hardness--7b68f096365c (graph construction hardness), all mathematically different."
+      ],
+      "reasoning": "No equal-value table, Lucas-number formula, or all-length run-two exact cyclic cover census was identified among inspected sources and actual indexed semantic queries. This is limited negative evidence, not a proof of novelty; computational repositories outside inspected material may overlap.",
+      "searches": [
+        "binary constrained de Bruijn sequences avoiding 000 111 Euler circuit exact enumeration number of sequences",
+        "binary 2-abelian restricted words no 000 no 111 universal cycle",
+        "shortest circular witness of all binary strings avoiding runs length three exact Lucas number 2(L_n-1)",
+        "https://arxiv.org/pdf/1304.3666, numerical-results table p. 8",
+        "https://arxiv.org/pdf/2403.01454, Examples 3–6"
+      ]
+    },
+    "rationale": "The all-n Lucas exact minimum for full restricted factor-cover cycles (with unavoidable duplicates), and the explicit optimal imbalance matching, are not stated or implied by the inspected lexicographically minimal exact-once restricted cycles, generic shortest-witness bounds, or maximum distinct-factor RLL sequence results. Prior cyclic three-gram profile enumeration considers a different invariant; searchable related database items also concern distinct code-design/complexity questions. Residual unindexed special computations and inaccessible older edition remain acknowledged.",
+    "residual_risks": [
+      "An older 2004 conference-edition full text of Moreno–Matamala was inaccessible at its indexed author PDF URL. The accessible later full-length arXiv text makes a repeated-edge Lucas statement unlikely, but possible edition-level additions cannot be excluded.",
+      "Searches cannot exclude unindexed prior computational tables or unpublished equivalent closed-form work.",
+      "General directed Chinese-postman techniques might have been specialized elsewhere to this precise restricted binary automaton; none found in inspected primary material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Deals with lexicographically least Eulerian cycles visiting each allowed factor exactly once, not shortest length of a repeated-edge circular cover for non-Eulerian constrained graph.",
+        "evidence": [
+          "p. 1 abstract and p. 2 definitions require exact-once factors",
+          "p. 5 Section 3 defines minimum as lexicographic labeling",
+          "p. 9 remarks restrict objectives to Eulerian-cycle lexicographic minimization"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "All nine pages, including definitions, Theorems 3 and 10, conclusion, references; visually inspected pp. 1 and 3.",
+        "method": "Primary freely available full-text PDF: text extraction and page-image inspection.",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Direct exact-once restricted-language de Bruijn construction with an ambiguous “minimum” in the title."
+      },
+      {
+        "assessment": "Introduces exact same general shortest-witness objective, but gives general bounds and global tables, not the forbidden 000/111 whole-dictionary all-n length or sharp path pairing.",
+        "evidence": [
+          "p. 2 introduction defines scw(S)",
+          "pp. 7–8 Proposition 14 and numerical table are unrestricted generic bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1304.3666",
+        "material_read": "All twelve pages scanned for scw and SFT constraints; analyzed pp. 1–2, 7–8 and numerical results, visually inspected first page.",
+        "method": "Primary freely available full-text PDF and page-image inspection.",
+        "title": "Sets Represented as the Length-n Factors of a Word",
+        "trigger": "Direct exact shortest circular witness invariant of a factor set."
+      },
+      {
+        "assessment": "Objective is maximum length with distinct windows and one-sided zero run cap, not shortest full-dictionary cyclic cover with allowed repetition and forbidden constant triples.",
+        "evidence": [
+          "pp. 2–4 distinct (n,s)-word definition and max length",
+          "pp. 5–10 bound and construction for maximum distinct-window cycles"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.01454",
+        "material_read": "25-page full text retrieved and searched; inspected abstract, definitions, §2 maximum-cycle statements, examples, §3 construction.",
+        "method": "Open-access preprint full-text by section/page.",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "High-relevance run-limited de Bruijn cycles and constructive graph methods."
+      },
+      {
+        "assessment": "Not represented as fully inspected; possible edition differences remain a residual bibliographic risk.",
+        "evidence": [
+          "WG 2004 record lists Moreno–Matamala, pp. 168–176",
+          "Indexed abstract describes minimum-labeled Eulerian cycles"
+        ],
+        "identifier_or_url": "https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-LNCS04-Minimal_de_Bruijn_sequence_in_a_language_with_forbidden_substrings.pdf",
+        "material_read": "Only indexed title/abstract and bibliographic record; attempted full PDF returned HTTP 403. The same authors’ 2007 openly available preprint was inspected instead.",
+        "method": "Publisher-hosted preprint URL retrieval attempt, then 2007 same-paper arXiv full-text route.",
+        "title": "Minimal de Bruijn Sequence in a Language with Forbidden Substrings (conference version)",
+        "trigger": "Original 2004 conference precursor plausible on the same class of languages."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f40c1b21-02e9-4b8e-97c2-e7d3c1ac9750",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural regular language defined by the smallest nontrivial symmetric run-length restriction, the factor dictionary lacks an exact-once universal cycle from n≥4 because the overlap graph is unbalanced. Determining the minimum redundancy to restore a cyclic, constraint-respecting factor-complete cover is therefore mathematically motivated. The exact Lucas count, sharp Fibonacci extra-occurrence cost, and explicit all-n Eulerian construction solve that natural minimum length for every n≥2, not an arbitrary slice or a routine special case of a known numerical table. The value lies in the sharp structural matching rather than solely in code verification; relevance is to constrained cyclic testing/sequencing and word combinatorics.",
+    "status": "PASS"
+  }
+}
