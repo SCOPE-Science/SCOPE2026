@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+
+For a Hermitian positive-definite input, the spectral-order inequality \((C-aI)(bI-C)\succeq0\) yields the exact minimum cosine \(2\sqrt{ab}/(a+b)\). The embedding's self-adjoint Gram defect has norm at most \(\varepsilon\) on the two required ranges. The resulting inequality \(\operatorname{Re}(y^*Gy)\geq(c_\kappa-\varepsilon)\|ABy\|\|By\|\) is strict for every nonzero coefficient vector below the threshold, proving nonsingularity and positive real parts of generalized harmonic eigenvalues; no diagonalizability is presumed. For the exact two-mode witness, the numerator is positive while the denominator equals \(\sqrt\kappa(c_\kappa-\varepsilon)\), so equality is singular and every larger permitted distortion gives a negative Ritz value. The packaged rational checker verifies the two-mode witness identities and two-column Gram matrices in dimension three; the dimension-reducing sketch construction follows algebraically from the same witness. The argument is exact-arithmetic mathematics, not a claim of numerical floating-point stability.
+
+## Originality — PASS, subject to stated risks
+
+The motivating full preprint (Güttel–Liu–Nyman, arXiv:2607.10354v1, Section 5.3) derives exactly the present pencil and a general sufficient bound. Specialization of its bound to Hermitian positive-definite inputs gives only \(\varepsilon<1/\kappa\); the full preprint does not derive the sharper \(2\sqrt\kappa/(\kappa+1)\) condition or its singular and negative sharpness construction. Jang–Grigori's full open-access article analyzes randomized orthogonalization and a harmonic Ritz formulation but not this exact sketch-positivity frontier. Nakatsukasa–Tropp's accessible full preprint analyzes ordinary sketched Rayleigh--Ritz rather than this harmonic pencil. Similarity searches across published mathematical findings for the harmonic pencil, embedding error, spectral angles, the constant, and equivalent generalized-pencil formulations found related but non-covering analyses. The cosine bound itself is classical, and no novelty is claimed for it. A possible unlocated earlier equivalent in oblique projection or Kantorovich-angle literature is the main residual risk; searches alone are not a proof of unique priority.
+
+## Value — PASS
+
+The motivating convergence analysis explicitly needs the sketched harmonic Ritz values in the open right half-plane, and its known criterion becomes restrictive at large condition number. Resolving the exact universal Hermitian-class embedding frontier changes the allowable distortion scaling from order \(1/\kappa\) to order \(1/\sqrt\kappa\), with no gap between a proof and an achievable failure construction. This is a natural stability classification for a recently introduced harmonic projection and can guide decisions about sketch accuracy. It does not address randomized success probabilities, non-Hermitian operators, or the other conditions required for convergence of restarted matrix-function algorithms.
+
+Self-review: passed. Independent audit: not yet performed.

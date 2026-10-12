@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers checked for real or complex Hermitian SPD matrices, all full-rank trial dimensions, and subspace-embedding linear maps. The spectral quadratic inequality gives c_kappa; embedding compressions yield Re(y*Gy)>(0) and F>0, hence all harmonic eigenvalues have Re(theta)>0. The explicit 2x2 test has full eigenvalue condition kappa, embedding distortion exactly epsilon, G=q(c_kappa-epsilon), F=1-epsilon c_kappa; it gives G=0 at equality and theta<0 above. A 2x3 sketch realizes strict dimension reduction. Python Fraction verifier executes exact witness and finite-dimensional Gram cases; it does not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel–Liu–Nyman (2026), arXiv:2607.10354v1, Section 5.3, equations (23) and embedding (9)–(10): same harmonic pencil; sufficient threshold epsilon<1/kappa for Hermitian SPD, without the sharp SPD constant.",
+        "Nakatsukasa–Tropp (2021 preprint; 2024 journal), arXiv:2111.00113, Sections 1.3 and 6–7: ordinary sketched Rayleigh–Ritz least-squares reduced operator (SB)^dagger(SAB), rather than harmonic G^{-1}F.",
+        "A published 2026 result on Rayleigh-residual distortion under normal spectral filtering concerns a filter gain dynamic range, rather than sketched harmonic Gram positivity."
+      ],
+      "reasoning": "The motivating paper covers general positive-real matrices under a *stronger assumption* on epsilon, not the entire Hermitian positive-definite parameter interval reached here. Ordinary sketched Ritz claims do not dominate the generalized harmonic pencil because the sketched test space and denominator differ. No inspected broader theorem states the same sharp threshold under this weaker embedding hypothesis.",
+      "searches": [
+        "sketched harmonic Arnoldi Rayleigh quotient positivity SPD subspace embedding distortion threshold harmonic Ritz denominator",
+        "right half plane sketched harmonic Ritz values SPD embedding spectral condition universal optimum",
+        "sketched harmonic Ritz spectral pollution randomized Krylov positive definite matrix sketch",
+        "2026 randomized numerical linear algebra matrix function new sharp eigenvalue singular value stability deterministic ridge approximation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.10354v1 (Sections 2,5; manuscript first public 2026-07-11)",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.70029 (Section 5)",
+      "https://ar5iv.labs.arxiv.org/html/2111.00113 (Sections 1,6,7)",
+      "Sharp Rayleigh-residual distortion under normal spectral filtering (related topic, different reduction)",
+      "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier (different iteration)",
+      "Zero-residual false positives in projected certification of constrained extremal eigenpairs (different certificate problem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Güttel–Liu–Nyman (2026), arXiv:2607.10354v1, Section 5.3, equations (23) and embedding (9)–(10): same harmonic pencil; sufficient threshold epsilon<1/kappa for Hermitian SPD, without the sharp SPD constant.",
+        "Jang–Grigori (2025), DOI:10.1002/nla.70029, Section 5: sketched/ordinary harmonic Ritz generalized eigenproblem and orthogonalization; no matching condition-number-sharp spectral inclusion criterion.",
+        "Nakatsukasa–Tropp (2021 preprint; 2024 journal), arXiv:2111.00113, Sections 1.3 and 6–7: ordinary sketched Rayleigh–Ritz least-squares reduced operator (SB)^dagger(SAB), rather than harmonic G^{-1}F.",
+        "The implication epsilon<1/kappa => epsilon<2sqrt(kappa)/(kappa+1) holds for kappa>=1, while the converse fails for every kappa>1; for kappa=9, epsilon=1/2 is certified here but not by the source."
+      ],
+      "reasoning": "The motivating theorem implies our positivity conclusion on its narrower epsilon range but does not imply the improved bound on the added range or the exact sharp failure threshold. The classical Kantorovich-angle inequality is a proof ingredient. Neither the ordinary sketched Ritz operator nor a generic oblique-projection norm guarantee subsumes this all-dimension harmonic-pencil positivity classification.",
+      "searches": [
+        "sketched harmonic Arnoldi Rayleigh quotient positivity SPD subspace embedding distortion threshold harmonic Ritz denominator",
+        "Sketch-and-Restart Randomized Sketching in Quadrature-Based Restarting for Matrix Functions 2026 positivity harmonic Ritz sketch embedding condition epsilon",
+        "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems randomized sketch Rayleigh Ritz 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Güttel–Liu–Nyman (2026), arXiv:2607.10354v1, Section 5.3, equations (23) and embedding (9)–(10): same harmonic pencil; sufficient threshold epsilon<1/kappa for Hermitian SPD, without the sharp SPD constant.",
+        "Jang–Grigori (2025), DOI:10.1002/nla.70029, Section 5: sketched/ordinary harmonic Ritz generalized eigenproblem and orthogonalization; no matching condition-number-sharp spectral inclusion criterion.",
+        "Kantorovich angle/cosine inequality is classical; the present claim adds a full-dimension sketched harmonic pencil frontier and sharp endpoint constructions."
+      ],
+      "reasoning": "Rewriting the pencil via x=ABy and C=A^-1 reduces half-plane inclusion to positivity of the sketched cross Gram form. Existing harmonic Ritz formulas match the object, but the inspected sources do not state the universal critical embedding distortion or a construction with G=0 and G<0 at its boundary. The classical angle inequality alone does not contain the specific harmonic pencil conclusion unless composed with embedding distortion and the sharp witness.",
+      "searches": [
+        "2025 harmonic Arnoldi sketched generalized eigenvalues positivity Kantorovich cosine angle angle-error embedding",
+        "oblique generalized Ritz eigenvalue spectral inclusion subspace embedding Kantorovich angle positivity",
+        "2026 sketched harmonic Ritz positivity safe embedding distortion 2 sqrt condition number sharp threshold",
+        "Kantorovich inequality oblique sketch inner product positivity angle bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical finding searches produced related stabilization and projection results but no matching equality c_kappa=2sqrt(kappa)/(kappa+1) for this harmonic pencil.",
+        "Exact threshold and witness follow from a two-eigenvalue calculation, not a tabulated computational invariant."
+      ],
+      "reasoning": "The result is a continuous, all-matrix threshold theorem rather than a finite catalogue entry. The searched records do not tabulate or imply the stated condition-number-only boundary; absence in the database is evidence of nonoverlap only within its coverage, not exhaustive priority.",
+      "searches": [
+        "2026 sketched harmonic Ritz positivity safe embedding distortion 2 sqrt condition number sharp threshold",
+        "2025 harmonic Arnoldi sketched generalized eigenvalues positivity Kantorovich cosine angle angle-error embedding",
+        "right half plane sketched harmonic Ritz values SPD embedding spectral condition universal optimum",
+        "sketched harmonic Ritz positivity subspace embedding Hermitian positive definite Kantorovich 2 sqrt kappa"
+      ]
+    },
+    "rationale": "Original full text yields only epsilon<1/kappa for Hermitian SPD, whereas this theorem proves and attains the larger universal threshold 2 sqrt(kappa)/(kappa+1) for exactly the same sketched harmonic pencil. Relevant harmonic/ordinary Ritz sources and semantic database findings were compared by hypotheses and implication, not solely by titles. Classical acute-angle bounds are credited; unresolved older equivalent-angle formulations remain a documented risk.",
+    "residual_risks": [
+      "An earlier paper on accretive oblique projections, angle distortion of SPD operators, or generalized harmonic Ritz pencils could encode the same sharp threshold without the same terminology; no exhaustive historical uniqueness is claimed.",
+      "The extremal deterministic sketch does not assert that a specific common random-sketch distribution realizes the bad event with positive probability at a stated finite sample size.",
+      "The theorem does not extend to general nonnormal positive-real matrices, floating-point computed pencils, or all convergence hypotheses of the restarted method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes harmonic pencil and sufficient epsilon||A^-1||<rho; specializes to epsilon<1/kappa, strictly weaker than the proved sharp Hermitian positive-definite result. Does not report the new exact frontier or its endpoint failure.",
+        "evidence": "Güttel–Liu–Nyman (2026), arXiv:2607.10354v1, Section 5.3, equations (23) and embedding (9)–(10): same harmonic pencil; sufficient threshold epsilon<1/kappa for Hermitian SPD, without the sharp SPD constant.",
+        "identifier_or_url": "https://arxiv.org/html/2607.10354v1",
+        "material_read": "Full accessible preprint HTML including Sections 2.2, 2.3, 5.1–5.3, convergence Theorem 8, and references/contents; especially the complete proof of Section 5.3 positivity sufficient condition.",
+        "method": "Read the lawful arXiv full-text HTML and compared the displayed Gram pencil and its hypothesis against the proposed theorem and sharp witness.",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Exact same sketched harmonic Ritz pencil and positive-half-plane assumption in convergence analysis"
+      },
+      {
+        "assessment": "Uses harmonic Ritz extraction with randomized orthogonalization and does not state the proposed exact SPD embedding-positivity threshold.",
+        "evidence": "Jang–Grigori (2025), DOI:10.1002/nla.70029, Section 5: sketched/ordinary harmonic Ritz generalized eigenproblem and orthogonalization; no matching condition-number-sharp spectral inclusion criterion.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.70029",
+        "material_read": "Full publicly available article sections on randomized orthogonalization, embedding, Section 5 harmonic Ritz generalized eigenproblem, and conclusions.",
+        "method": "Read publisher open-access full HTML, located harmonic and Ritz occurrences, compared exact operator and asserted stability conditions.",
+        "title": "Randomized Orthogonalization Process With Reorthogonalization",
+        "trigger": "Harmonic Ritz eigenproblem occurs within randomized Krylov methods in an older article."
+      },
+      {
+        "assessment": "Distinct ordinary sketched Ritz construction; no harmonic pencil or the new exact half-plane embedding frontier.",
+        "evidence": "Nakatsukasa–Tropp (2021 preprint; 2024 journal), arXiv:2111.00113, Sections 1.3 and 6–7: ordinary sketched Rayleigh–Ritz least-squares reduced operator (SB)^dagger(SAB), rather than harmonic G^{-1}F.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2111.00113",
+        "material_read": "Open preprint HTML, especially introduction, ordinary sketched Rayleigh–Ritz formulation, eigenvalue sections, and textual searches for harmonic/Kantorovich.",
+        "method": "Read open full-text HTML and compared reduced operators: ordinary (SB)^dagger(SAB) against harmonic ((SAB)^*(SB))^-1((SAB)^*(SAB)).",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Canonical broader randomized subspace projection theory; potentially a stronger sketched eigenvalue inclusion result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6a519d7-7ab4-4f43-9825-954ee5ed26f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Section 5.3 of a 2026 matrix-function Krylov paper singles out right-half-plane harmonic Ritz values as a nontransparent convergence assumption. This theorem resolves the complete deterministic Hermitian-SPD distortion frontier, changes sufficient embedding accuracy from 1/kappa to asymptotically 2/sqrt(kappa), and proves tightness at both singular and negative endpoints. The precise quantity directly governs whether the reduced harmonic pencil is well-defined and has the required spectral location, independent of trial dimension. The claim is mathematical but does not advertise a full restart convergence theorem or distributional sketch probability.",
+    "status": "PASS"
+  }
+}
