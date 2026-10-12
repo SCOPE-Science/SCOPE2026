@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "PASS: Direct reconstruction uses f_n=e^{-k lambda} a_n with a_0=1, the exact generating-function derivative n a_n=lambda sum_{j=1}^{min(k,n)} j a_{n-j}, and strict increase of each a_n for n>=1. At upper rational brackets B_k=q_k/10^6, an actually executed Fraction verifier establishes a_target(B_k)>1 and a_n(B_k)<1 for every other n=1,...,40k, with a_target(B_k-10^{-6})<1; k B_k<4 in every case. At n>40k, the compound Poisson jump-count representation bounds a_n(B_k) by sum_{m>=41}4^m/m! <= 2*4^41/41!<1, using an exact factorial comparison. Strict monotonicity and a global tail bound then prove first transitions and their unique tied competitors for all real lambda, not just at sampled points. At k=15 the competitor is n=25, not n=15. Replay python3 verify.py completed with VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Georghiou--Philippou--Saghafi (2012 preprint arXiv:1204.3186), Theorem 2.1 gives general global mode bounds of width k(k+1)/2; these encompass both indices 15 and 25 near the transition of order 15.",
+        "Their Theorem 2.2 determines modes for integer intensity and orders at most five, not the real-intensity first transitions from six through fifteen.",
+        "Philippou (arXiv:1312.7139), Proposition 2.1 gives only a sufficient small-intensity zero-mode interval and Proposition 2.2 treats order two."
+      ],
+      "reasoning": "The prior broad index bounds and integer-intensity classifications are too weak to force the first global crossing and do not subsume the finite cutoff. Published-record hits with similarly worded modal thresholds concern distinct mathematical families.",
+      "searches": [
+        "Poisson distribution order k mode 2024 2025 first modal switch k 15",
+        "Georghiou Philippou Saghafi On Modes Poisson Distribution Order k pdf 2013",
+        "Poisson distributions of order k zero to k first mode counterexample minimum order"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/e25040699, full PDF Sections 1--4 and Table 2",
+      "arXiv:1204.3186, Theorems 2.1--2.2 and main proof in public manuscript",
+      "arXiv:1312.7139, Propositions 2.1--2.2 and proofs in public manuscript",
+      "Published mathematical record comparisons by phrase: first modal transition, order 15, index 25, and stuttering compound Poisson."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kwon--Philippou (2023), Lemma 2 defines a unique root from equality of the zero and index-k masses; Section 4 explicitly asks whether this index is the first positive global mode for all k.",
+        "Kwon--Philippou (2023), Propositions 1--2 and Table 2 give exact and computed solutions for orders 3 and 4; they do not imply the order-15 behavior.",
+        "At k=15, the exact certificate has a_{15,25}(B)>1 and a_{15,n}(B)<1 for every n>=1 except 25, including n=15, proving an earlier first crossing than index 15."
+      ],
+      "reasoning": "The article poses an unresolved generalization, not a theorem that it holds. The new least-counterexample theorem negates that generalization beginning at order 15 while certifying all smaller cases. The earlier result for the index-k equality parameter does not force that parameter to be the first global-mode threshold.",
+      "searches": [
+        "\"The Modes of the Poisson Distribution of Order 3 and 4\" preprint first posted 2023",
+        "Poisson distribution of order k first mode zero then k conjecture counterexample 2024 2025 2026",
+        "Poisson distributions of order k zero to k first mode counterexample minimum order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kwon--Philippou (2023), Section 1: this family is the equal-intensity multiparameter (stuttering) compound-Poisson law.",
+        "The equality of probabilities at index n and zero is exactly a_{k,n}(lambda)=1; the conjectural initial mode k corresponds to n=k, whereas the first actual crossing can have n different from k.",
+        "Targeted exact-parameter searches returned no published identical first-transition classification."
+      ],
+      "reasoning": "Normalization by the strictly positive mass at zero preserves modal comparisons. The alternative compound-Poisson and stuttering-Poisson labels were searched; the specific first-crossing assertion has no equivalent covering statement in the inspected results.",
+      "searches": [
+        "stuttering compound Poisson uniform jumps first mode index 25 at order 15 exact threshold",
+        "Poisson distribution of order k first modal transition index fifteen 25, first failure of k as initial nonzero mode",
+        "\"Poisson distribution of order\" \"15\" \"25\" mode"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kwon--Philippou (2023), Table 2 tabulates first modal regimes for orders 2, 3, 4, not for order 15.",
+        "Exact rational certificates in verify.py calculate the complete competing prefixes for k=2,...,15 and prove the remaining infinite tails negligible.",
+        "No checked table states that the minimal exceptional order is 15 and its first competing index is 25."
+      ],
+      "reasoning": "A numerical table or isolated coefficient can be covered by an earlier exact result even without matching labels; the inspected tables have smaller orders and lack the certified least-counterexample assertion.",
+      "searches": [
+        "Poisson distribution of order k mode k=16 first critical intensity zero mode",
+        "\"Poisson distribution of order\" \"15\" \"25\" mode",
+        "first change of mode from zero in Poisson distribution of order k classification k 2 to 15"
+      ]
+    },
+    "rationale": "PASS with residual bibliographic uncertainty: Kwon and Philippou, Entropy 25 (2023), article 699, full text pp. 3--8 and the concluding open question, give 0 then k for k=2,3,4 and ask whether this persists. Their root of a_{k,k}=1 is not proved to be the first global transition for general k. Georghiou--Philippou--Saghafi 2012/2013 full manuscript Theorems 2.1--2.2 supply general mode-location bounds and integer-intensity results through order five, and Philippou 2013/2014 gives a general tiny-intensity zero-mode bound plus an exact order-two calculation, without the finite cutoff. Targeted equivalent-formulation, exact-parameter, stronger-bound, and published-record searches found no coverage of the complete k=2,...,15 first-transition classification or the first failure at k=15 and index 25. Absence in those searches does not establish universal novelty; unindexed earlier computations remain possible.",
+    "residual_risks": [
+      "An unpublished, unindexed or differently parameterized earlier finite enumeration could establish the same least exceptional order or first index.",
+      "Independent publication-priority and proof review has not occurred.",
+      "No conclusions are claimed for orders k>=16 or for subsequent modal transitions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes first transitions through order four, asks for the all-order extension, and does not give the first exceptional order fifteen or competing index twenty-five.",
+        "evidence": "The paper explicitly restricts Table 2 to k=2,3,4 and asks in Section 4 whether 0 then k always holds; Lemma 2 treats the root of a_{k,k}=1 but not the competing global maxima beyond k.",
+        "identifier_or_url": "doi:10.3390/e25040699; https://pdfs.semanticscholar.org/9990/682c005b4b17d3a625e2d31ed941ff440142.pdf",
+        "material_read": "Complete openly accessible nine-page PDF, particularly definition, normalized recurrence, Lemmas 1--3, Propositions 1--2, Table 2 and Section 4; the question in Section 4 was also read on the page image.",
+        "method": "Read full-text PDF and verify the concluding page visually; checked mathematical hypotheses and the range of the stated classifications.",
+        "title": "The Modes of the Poisson Distribution of Order 3 and 4",
+        "trigger": "Exact same law and the original first-two-modes question; strongest necessary primary comparison."
+      },
+      {
+        "assessment": "General mode-location bounds do not determine the first transition; exact mode formula covers integer intensities for k<=5 only.",
+        "evidence": "Theorem 2.1 bounds every mode between a mean-related lower and upper endpoint; Theorem 2.2 is explicitly for integer lambda and k=2,3,4,5. Neither forces the exact first mode at order 15.",
+        "identifier_or_url": "arXiv:1204.3186; https://www.researchgate.net/publication/224039716_On_the_modes_of_the_Poisson_distribution_of_order_k",
+        "material_read": "Author-posted public manuscript main results, proofs and conclusion, including Theorems 2.1 and 2.2, the generating-function recurrence, and integer-parameter classifications.",
+        "method": "Read accessible full-text manuscript transcription and compare implications of each main theorem.",
+        "title": "On the modes of the Poisson distribution of order k",
+        "trigger": "Earlier general theorems on the same mode objects potentially subsuming the proposed finite classification."
+      },
+      {
+        "assessment": "Proves zero unique for lambda<2/(k(k+1)) and an exact order-two threshold; cannot imply the sixteen-minus-one classification.",
+        "evidence": "Proposition 2.1 is only a sufficient small-lambda condition and Proposition 2.2 only order two.",
+        "identifier_or_url": "arXiv:1312.7139; https://www.researchgate.net/publication/265843334_A_Note_on_the_Modes_of_the_Poisson_Distribution_of_Order_k",
+        "material_read": "Complete three-page public article text, introduction, Propositions 2.1--2.2 and proofs.",
+        "method": "Read the public full-text manuscript transcription (main results and proof section).",
+        "title": "A note on the modes of the Poisson distribution of order k",
+        "trigger": "Same-object earlier note claiming zero-mode intervals; its exact proof must be checked for stronger general coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eec5a94f-5c98-479f-b081-d8c32cad49e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: The least order of breakdown is a natural, motivating invariant for the explicit 2023 open question about whether the initial mode jumps from zero to k for all orders. Establishing k=15 as first failure requires controlling every lower order and all infinitely many modal competitors at real intensities; the index 25 and narrow rational transition bracket identify the actual alternative mechanism. This is a motivated sharp finite cutoff, not a routine renaming, an arbitrary isolated case, or a known-table transcription. Later modal phases and higher orders remain unproved.",
+    "status": "PASS"
+  }
+}

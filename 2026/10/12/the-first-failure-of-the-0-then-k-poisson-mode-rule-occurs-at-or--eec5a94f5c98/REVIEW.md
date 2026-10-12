@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The normalized generating function gives the exact recurrence. Strict positive-coefficient monotonicity makes the first crossing a unique positive root. Fourteen rational root brackets and all competitor inequalities through index \(40k\) are checked by the standalone program using exact fractions. For all remaining indices, the Poisson jump-count representation gives the universal bound \(2\cdot4^{41}/41!<1\). Together these prove the full continuum-in-intensity and infinite-support claim, with no unproved numerical extrapolation.
+
+**Originality — PASS, with priority risk.** Kwon and Philippou (2023, DOI:10.3390/e25040699), in their concluding research questions, ask whether the first transition always moves from mode zero to index \(k\). Their actual mode classifications stop at orders three and four. Georghiou, Philippou, and Saghafi (arXiv:1204.3186) obtain general bounds and integer-parameter mode formulas through order five; Philippou (arXiv:1312.7139) treats a small-intensity regime and order two. The least counterexample order fifteen and its first competing index twenty-five are not consequences of those statements or of large-order asymptotics alone. Unindexed earlier enumerations under stuttering-Poisson terminology remain a possible priority risk.
+
+**Value — PASS.** This identifies the *smallest finite order* where a specifically posed modal conjecture fails, rather than choosing an arbitrary high order. The complete classification of all lower orders and a tight rational interval for the exceptional transition isolate a qualitative finite threshold with direct relevance to understanding order-dependent mode changes. The result does not settle later modal transitions or higher orders.
+
+Self-review: passed. Independent audit: not yet performed.
