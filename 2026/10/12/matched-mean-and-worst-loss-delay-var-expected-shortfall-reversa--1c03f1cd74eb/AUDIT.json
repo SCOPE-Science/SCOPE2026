@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The empirical quantile function is piecewise constant on masses of size 1/n. For tail mass below 2/n, fixed maximum loss forces Expected Shortfall to be either identical to VaR or a strictly increasing affine function of VaR. At the threshold, the exact equal-mean equal-maximum witness reverses because its second-worst loss compensates for its lower VaR order statistic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acerbi and Tasche's full preprint defines VaR from a quantile and Expected Shortfall from the generalized-inverse integral.",
+        "The same source explicitly explains that VaR ignores loss severity beyond its threshold and develops empirical order-statistic estimators for worst-tail averages.",
+        "Later nonparametric work studies estimation of Expected Shortfall from sample losses rather than the fixed-mean fixed-maximum ranking boundary."
+      ],
+      "reasoning": "The general formulas are necessary background but do not supply the universal no-reversal interval under simultaneous mean and maximum constraints, nor the sharp support size at which the remaining tail coordinate can overturn VaR.",
+      "searches": [
+        "Expected Shortfall natural coherent alternative Value at Risk Acerbi Tasche empirical sample quantile",
+        "Expected Shortfall Value at Risk empirical distribution discrete scenarios",
+        "nonparametric estimation Expected Shortfall sample VaR"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0105191v1",
+      "doi:10.1111/1468-0300.00091"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical statement that VaR ignores severity beyond the threshold establishes a qualitative difference but does not determine when fixed maximum loss removes that freedom.",
+        "The generalized-inverse formula permits the present derivation but does not itself state a finite support lower bound under matched mean and maximum constraints.",
+        "The accepted theorem additionally supplies a universal sharp threshold for every confidence level and an equal-mean sharp witness."
+      ],
+      "reasoning": "Prior formulas cover computation of each risk measure. The new implication comparison is a constrained two-portfolio ordering theorem: fixing the maximum collapses the first two empirical-tail regimes, and reversal becomes possible only when a third top order statistic enters.",
+      "searches": [
+        "Acerbi Tasche VaR indifferent losses beyond threshold expected shortfall generalized inverse integral",
+        "Expected Shortfall empirical order statistics worst cases sample",
+        "VaR ES same maximum loss ranking"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-result record stated the matched-mean matched-maximum threshold.",
+        "Exact 40-scenario and 80-scenario searches did not locate the benchmark theorem.",
+        "Searches covered historical simulation, empirical scenarios, fixed worst loss, equal mean, and ranking reversal aliases."
+      ],
+      "reasoning": "The theorem is equivalent to asking when the empirical upper tail contains enough distinct order-statistic masses for Expected Shortfall to depend on a free coordinate beyond VaR and the fixed maximum. The search set covered both finance terminology and this finite-scenario formulation.",
+      "searches": [
+        "VaR Expected Shortfall same maximum loss same mean ranking reversal empirical scenarios",
+        "Value at Risk Expected Shortfall fixed worst loss ranking portfolios finite scenarios",
+        "VaR ES equal mean equal maximum loss order reversal historical simulation",
+        "\"same maximum loss\" \"expected shortfall\" VaR",
+        "\"same mean\" \"same maximum\" VaR expected shortfall",
+        "\"40 observations\" \"95%\" \"expected shortfall\" VaR",
+        "\"80 observations\" \"97.5%\" \"expected shortfall\" VaR"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the 40-scenario or 80-scenario matched-risk threshold.",
+        "No checked source contained the exact equal-mean witness pattern.",
+        "The standalone verifier derives the values directly from the quantile integral rather than importing a risk table."
+      ],
+      "reasoning": "Exact benchmark counts and witness vectors directly test whether the finite boundary already appears as a worked historical-simulation example or software fixture.",
+      "searches": [
+        "\"95%\" VaR Expected Shortfall \"40\" scenarios",
+        "\"97.5%\" VaR Expected Shortfall \"80\" scenarios",
+        "\"0,1,3,4\" VaR expected shortfall",
+        "\"0,2,2,4\" VaR expected shortfall"
+      ]
+    },
+    "rationale": "The classical source provides the quantile and Expected-Shortfall representations and the general qualitative contrast with VaR. The checked literature and published-result searches did not state the matched-mean matched-maximum minimum-scenario theorem, its general closed threshold, or the exact witness.",
+    "residual_risks": [
+      "The result is a concise order-statistic consequence of classical risk-measure formulas, so an unindexed note or implementation test could contain an equivalent threshold.",
+      "Different empirical quantile interpolation or conditional-tail-average conventions can move the integer boundary.",
+      "The theorem concerns equal-weight empirical loss scenarios and not statistical accuracy of short historical windows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the definitions and qualitative tail mechanism. It does not state the matched-mean matched-maximum finite support threshold or the exact witness.",
+        "evidence": "The preprint defines the generalized inverse, writes Expected Shortfall as an integral of it, and explicitly develops sample order-statistic worst-tail averages.",
+        "identifier_or_url": "arXiv:cond-mat/0105191v1",
+        "material_read": "Full public preprint sections constructing VaR and Expected Shortfall, including the quantile definition, the explanation that VaR ignores severity beyond its threshold, empirical worst-case sample order statistics, the atom correction, and the generalized-inverse integral representation.",
+        "method": "Public arXiv full-text inspection.",
+        "title": "Expected Shortfall: a natural coherent alternative to Value at Risk",
+        "trigger": "Primary full text defining both VaR and Expected Shortfall and discussing empirical order statistics."
+      },
+      {
+        "assessment": "Confirms the published article and risk-measure scope; the accessible full scientific comparison was performed on the public preprint.",
+        "evidence": "Economic Notes 31(2), 379–388; journal article corresponding to the inspected preprint.",
+        "identifier_or_url": "doi:10.1111/1468-0300.00091",
+        "material_read": "Publisher abstract and bibliographic record, cross-checked against the public preprint.",
+        "method": "Publisher and bibliographic record inspection.",
+        "title": "Expected Shortfall: A Natural Coherent Alternative to Value at Risk",
+        "trigger": "Published version and bibliographic confirmation of the same primary theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c03f1cd-74eb-4917-a739-de48cd3b736a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Matching mean loss and maximum loss controls both average severity and the single worst outcome, leaving only the internal tail shape to distinguish VaR from Expected Shortfall. The sharp threshold therefore has a direct interpretation in empirical risk resolution. The 95% and 97.5% benchmarks convert the general theorem into concrete scenario-count diagnostics while the witness shows the phenomenon is attainable without changing either mean or worst loss.",
+    "status": "PASS"
+  }
+}
