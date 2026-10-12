@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every nonempty block \\(B\\), the recent theorem gives \\(U(B)=2^{|B|-1}(A_B+2)\\) with \\(A_B=\\sum_{i\\in B}(d_i-2)\\), and the singleton case is the known exact rank \\(d_i\\). Direct expansion gives \\(U(I)U(J)-U(I\\cup J)=2^{|I|+|J|-2}A_IA_J\\) for disjoint nonempty blocks. Since every \\(d_i\\ge3\\), both \\(A_I\\) and \\(A_J\\) are positive. Iterating the strictly improving two-block merge proves the arbitrary-partition inequality. No finite experiment is used for the universal step.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1803.01623v2 gives \\(R(W_3^{\\otimes k})\\le(k+2)2^{k-1}\\) and the general bound \\(2^{k-1}(d_1+\\cdots+d_k)\\).",
+        "arXiv:1909.03811v2 studies geometric criteria for strict rank and border-rank submultiplicativity and records the \\(W_3\\) tensor-square example.",
+        "Gałązka 2023 supplies the two-factor bound that the initiating source says coincides with its \\(k=2\\) case."
+      ],
+      "reasoning": "These sources cover prior bounds or qualitative strictness, but not the exact statement that the new all-degree bound strictly improves under merging every pair of blocks, hence dominates every partitionwise composition of itself.",
+      "searches": [
+        "arXiv:1803.01623v2 Theorems 3.3 and 3.6",
+        "arXiv:1909.03811v2 strict submultiplicativity tensor product W-state",
+        "Maciej Gałązka Multigraded apolarity Theorem 1.8 W-states"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.05828v1",
+      "DOI:10.1090/proc/17856",
+      "arXiv:1803.01623v2",
+      "DOI:10.4171/RLM/837",
+      "arXiv:1909.03811v2",
+      "DOI:10.1002/mana.202000484"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The initiating bound implies each \\(U(B)\\) separately; the accepted exact merge formula requires comparing two such bounds and is not stated there.",
+        "The older general bound \\(2^{|B|-1}\\sum_{i\\in B}d_i\\) does not yield the accepted exact gap \\(2^{r+s-2}A_IA_J\\).",
+        "The older cubic special bound agrees with the new bound only when every \\(d_i=3\\), so it does not imply the all-degree partition theorem."
+      ],
+      "reasoning": "The accepted statement is a new implication comparison among constructive bounds, not a restatement of rank submultiplicativity or of any one cited numerical upper bound.",
+      "searches": [
+        "Canino Casarotti Santarsiero bound submultiplicative under partitions",
+        "generalized W states rank upper bound grouping partition",
+        "Canino et al. Theorem 1.1 versus Ballico et al. Theorems 3.3/3.6",
+        "blockwise tensor-product decomposition upper bound W-states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.05828v1, Theorem 1.1 and Corollary 1.2 state the all-factor length but no partition comparison was found in the inspected full text.",
+        "Published-finding searches returned no W-state statement matching the exact merge-gap formula."
+      ],
+      "reasoning": "The searched aliases cover block partitions, tensoring block decompositions, strict merge advantage, and the exact \\(d_i-2\\) product identity. None of the checked statements is equivalent to the accepted claim.",
+      "searches": [
+        "W-state rank bound partition factors product block bounds strict merge advantage",
+        "tensor product W-states direct decomposition shorter than tensoring block decompositions",
+        "2^{k-2} sum(d_i-2) sum(d_j-2) W-state rank",
+        "arXiv:2512.05828v1: searched full text for partition, submultiplicativity, ratio and multiplicative formulations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned published-finding records did not contain a generalized W-state block-partition theorem or the exact merge-gap formula.",
+        "No numerical database or table is used to establish the accepted statement."
+      ],
+      "reasoning": "The claim is an exact symbolic consequence of the recent rank bound. Database searching served only to test whether the same scientific comparison had already been recorded; it did not supply proof data.",
+      "searches": [
+        "W-state rank bound partition factors product block bounds strict merge advantage",
+        "tensor product W-states direct decomposition shorter than tensoring block decompositions",
+        "2^{k-2} sum(d_i-2) sum(d_j-2) W-state rank"
+      ]
+    },
+    "rationale": "The initiating 2025/2026 paper states the improved all-factor bound and its constructive decomposition but not the exact block-merge saving or the arbitrary-partition dominance statement. The 2019 W-state paper gives a weaker all-degree bound and a special cubic bound; the 2021 strict-submultiplicativity paper is qualitative/geometric; the two-factor Gałązka estimate covers only \\(k=2\\). Targeted published-finding searches returned no implication-equivalent statement.",
+    "residual_risks": [
+      "The exact algebraic merge identity is elementary enough that it may have appeared informally or in an unindexed note.",
+      "Very recent discussions of the 2026 published paper may not yet be fully indexed.",
+      "The claim is intentionally limited to this family of certified decomposition bounds and does not exclude sharper specialized block decompositions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact \\(U(B)\\) upper bound and constructive decomposition; no partitionwise dominance or exact merge-saving statement was found.",
+        "evidence": "Theorem 1.1 and Corollary 1.2 give \\(2^{k-1}(\\sum_i d_i-2k+2)\\); the introduction separately compares prior bounds.",
+        "identifier_or_url": "arXiv:2512.05828v1",
+        "material_read": "Full 18-page paper was inspected, including the introduction, definition and rank of W_d, Theorem 1.1, Corollary 1.2, comparison with BBCG19 and Gałązka, and final remarks on the construction.",
+        "method": "Lawful arXiv full-text/PDF inspection.",
+        "title": "A new bound on the rank of tensor product of W-states",
+        "trigger": "Initiating source and sole non-elementary premise."
+      },
+      {
+        "assessment": "Gives the special cubic bound and the weaker general all-degree bound, but not the accepted merge property for the recent formula.",
+        "evidence": "Theorem 3.3 gives \\((k+2)2^{k-1}\\) for cubic factors; Theorem 3.6 gives the older all-degree bound summarized in the abstract as \\(2^{k-1}\\sum_i d_i\\).",
+        "identifier_or_url": "arXiv:1803.01623v2",
+        "material_read": "Abstract and full-text passages around Theorems 3.3 and 3.6 and Corollary 3.7.",
+        "method": "Lawful arXiv HTML/full-text inspection.",
+        "title": "On the partially symmetric rank of tensor products of W-states and other symmetric tensors",
+        "trigger": "Closest earlier all-factor W-state rank bound."
+      },
+      {
+        "assessment": "Studies when rank or border rank is strictly submultiplicative and records \\(W_3\\) examples, but does not compare the recent blockwise constructive upper bounds.",
+        "evidence": "Its W-state passage treats \\(W_3\\otimes W_3\\) and general geometric criteria rather than the all-degree \\(U(B)\\) merge identity.",
+        "identifier_or_url": "arXiv:1909.03811v2",
+        "material_read": "Abstract, introduction, contribution list, W-state discussion and rank-submultiplicativity section.",
+        "method": "Lawful arXiv HTML/full-text inspection.",
+        "title": "Geometric conditions for strict submultiplicativity of rank and border rank",
+        "trigger": "Potential broader coverage of submultiplicativity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d32790c2-dc36-4211-bfb5-4494bff51380",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source presents a constructive many-factor decomposition, while a natural competing strategy is to decompose smaller blocks and tensor the resulting decompositions. The exact positive merge gap proves that the new construction has genuine many-factor efficiency at every split, and that no recursive blockwise use of the same bound can match the direct certified length. This is a structural statement about how the new bound composes, not a parameter renaming or a numerical spot check.",
+    "status": "PASS"
+  }
+}
