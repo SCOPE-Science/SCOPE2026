@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the exact likelihood printed by the source. For m>1, substituting p=m-1+epsilon isolates the maximum-observation factor as epsilon^(m-2+epsilon) up to positive finite terms, giving divergence for 1<m<2 and convergence to zero for m>2. For m<1, each density contributes one factor asymptotic to p/(1-x_i), so the likelihood tends to zero. Independently, each density converges to exp(-x_i) as p tends to infinity. The packaged checker reproduces these regimes and verifies the real-data likelihood comparisons from the article's printed observations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hirano and Porter treat nonregular parameter-dependent support in general and show that conventional regular asymptotics can fail.",
+        "Standard uniform-endpoint examples show that a sample maximum can be an MLE when the likelihood decreases from a positive boundary value.",
+        "Neither broader result implies that the p-exponential sample maximum maximizes this model's likelihood; here the endpoint factor changes from infinite to zero across parameter regimes."
+      ],
+      "reasoning": "Generic nonregular-support theory supplies context but does not dominate the source-specific boundary calculation. The p-exponential endpoint exponent is essential to the trichotomy.",
+      "searches": [
+        "parameter-dependent support maximum likelihood endpoint density zero infinity",
+        "nonregular endpoint MLE sample maximum density endpoint",
+        "asymptotic efficiency parameter-dependent support Hirano Porter"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14061076",
+      "doi:10.1111/1468-0262.00451"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source density formulas determine the moving-endpoint exponent but do not establish that the sample maximum maximizes the likelihood.",
+        "Section 4.1 is the exact source of the claimed boundary MLE and provides the likelihood contradicted by the boundary calculation.",
+        "Hirano and Porter provide general nonregular-support context but no p-exponential-specific maximum-likelihood formula."
+      ],
+      "reasoning": "The source-specific likelihood must be analyzed rather than inferred from a generic endpoint analogy. Neither the density formulas alone nor general parameter-dependent-support theory implies the claimed sample-maximum MLE.",
+      "searches": [
+        "10.3390/math14061076 Section 2.3 density shape endpoint",
+        "10.3390/math14061076 Section 4.1 likelihood boundary MLE",
+        "10.1111/1468-0262.00451 parameter-dependent support maximum likelihood"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published-result record stated that the proposed boundary estimator fails to maximize the p-exponential likelihood.",
+        "Exact-source searches located the original article but no corrigendum or erratum for the MLE claim.",
+        "The primary article explicitly gives both the likelihood and the claimed formula, making the contradiction statement-level rather than title-level."
+      ],
+      "reasoning": "The searches cover the exact DOI, family name, claimed estimator, support boundary, and maximum-likelihood terminology. No equivalent source-specific correction was located.",
+      "searches": [
+        "10.3390/math14061076 p-exponential boundary MLE likelihood support correction",
+        "\"bounded p-exponential\" maximum likelihood boundary estimator x(n)-1",
+        "\"p-exponential\" \"boundary MLE\" sample maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 4.1 gives the admissible set, exact likelihood, and the formula max{0,M_n-1} as a boundary-type MLE.",
+        "Table A1 labels averages of that estimator as MLE and includes the p=5.3245, n=20 regime.",
+        "The first real dataset has maximum 3.658 and reports MLE 2.6580 with log-likelihood -49.20.",
+        "The second real dataset has maximum 7.89 and reports MLE 6.8900 with p-exponential log-likelihood -126.50."
+      ],
+      "reasoning": "The reported estimates equal the claimed sample-maximum formula exactly, while direct evaluation of the same published likelihood at p=20 exceeds both reported likelihood values.",
+      "searches": [
+        "10.3390/math14061076 Section 4.1 boundary-type MLE",
+        "10.3390/math14061076 Table A1 p=5.3245 MLE",
+        "10.3390/math14061076 real dataset MLE 2.6580 6.8900 log likelihood"
+      ]
+    },
+    "rationale": "The primary article states the opposite inferential conclusion: it labels max{0,M_n-1} the closed-form boundary MLE and uses it in simulation and applications. Five source-specific published-result searches, exact correction searches, and broader parameter-dependent-support literature were compared. No covering correction was located.",
+    "residual_risks": [
+      "A very recent unindexed correction may exist.",
+      "The complete phase diagram for finite interior versus infinite-parameter likelihood maxima is not derived here.",
+      "The endpoint estimator remains consistent under the source model, so the correction concerns its MLE interpretation and likelihood-based numerical conclusions rather than consistency itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY CONTRADICTED as an MLE claim. The written likelihood has different boundary limits depending on the sample maximum, and both applied estimates are beaten by a finite admissible parameter value.",
+        "evidence": "Density Eq. (4), Section 4.1 likelihood and boundary-MLE formula, Table A1, and real-data Tables 2–5.",
+        "identifier_or_url": "doi:10.3390/math14061076",
+        "material_read": "Open full text at the CDF/PDF and support, Section 4.1 likelihood and log-likelihood, boundary-MLE statement, Proposition 3 consistency proof, Appendix A simulation summaries, and both real-data sections including raw observations, fitted log-likelihoods, and reported MLEs.",
+        "method": "Direct publisher full-text and lawful open full-text inspection.",
+        "title": "The One-Parameter Bounded p-Exponential Distribution: Properties, Inference, and Applications",
+        "trigger": "Primary source defining the family and asserting a closed-form boundary MLE."
+      },
+      {
+        "assessment": "GENERAL CONTEXT ONLY. It does not state or imply the p-exponential boundary estimator formula.",
+        "evidence": "The abstract explicitly treats models whose support depends on parameters and distinguishes their nonstandard inference.",
+        "identifier_or_url": "doi:10.1111/1468-0262.00451",
+        "material_read": "Publisher abstract and bibliographic record describing parameter-dependent support and nonregular maximum-likelihood behavior.",
+        "method": "Direct publisher-page inspection.",
+        "title": "Asymptotic Efficiency in Parametric Structural Models with Parameter-Dependent Support",
+        "trigger": "Broader nonregular-inference literature relevant to the source's appeal to endpoint-type likelihood conventions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "182c5a64-5f67-4306-b8d7-017c77883068",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claimed closed-form MLE is a central inference result used throughout the simulation study and both real-data applications. The correction is not a cosmetic boundary convention: the two reported real-data 'MLE' likelihoods are strictly improved by the same model at p=20, and in the p=5.3245, n=20 simulation regime the claimed boundary has zero limiting likelihood on about 94.1 percent of samples. This materially changes the interpretation of the paper's MLE bias/MSE comparisons and the p-exponential likelihood rows in its applied model comparisons.",
+    "status": "PASS"
+  }
+}
