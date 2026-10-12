@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The scalar construction satisfies every hypothesis used by the source's strongly convex recursion: \\(\\mathcal C=[-1,1]\\) is closed convex, \\(f(x)=\\tfrac12x^2\\) is \\(1\\)-strongly convex, \\(Q(x)=x\\) is a source quasi-gradient with parameter \\(2\\), \\(b(x)=-2x\\) is bounded, the noise is zero, and the printed alignment inequality holds with \\(\\eta=0\\). The exact iteration with the source schedule \\(\\alpha_k=1/(k+1)\\) maps \\(1/2\\) to \\(1\\) and remains there, so the asserted \\(O(1/k)\\) convergence is impossible. The source proof's disputed implication is a direct sign error. The proposed lower alignment inequality yields the intended combined-direction lower bound by one line of algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The related works control gradient errors through relative magnitude or structured noise models.",
+        "Those models can restrict direction reversal but do not imply that the primary paper's one-sided upper inner-product condition is sufficient."
+      ],
+      "reasoning": "A norm-relative error bound and a one-sided inner-product upper bound are not equivalent: the latter permits arbitrarily large negative alignment. Thus broader robustness results do not subsume the source-specific counterexample.",
+      "searches": [
+        "arXiv:2503.06628 relative error in gradients",
+        "arXiv:2603.12376 composite noise in gradient",
+        "arXiv:1912.13494 inexact gradient methods frequency-domain analysis"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3390/math14071202",
+      "arXiv:2503.06628",
+      "arXiv:2603.12376",
+      "arXiv:1912.13494"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source states \\(\\langle b,d\rangle\\le\\eta\\langle Q,d\rangle\\) but then concludes \\(\\langle Q+b,d\rangle\\ge(1-\\eta)\\mu\\|d\\|^2\\), an implication not supported by the stated premise.",
+        "The source's Theorem 1 claims \\(O(1/k)\\) mean-square decay under its diminishing step rule.",
+        "The scalar example satisfies the premise but has constant squared error one after the first step."
+      ],
+      "reasoning": "The new claim contradicts, rather than follows from, the primary theorem. No inspected stronger prior theorem validates the source's wrong-sided premise; conventional relative-error results impose materially stronger control.",
+      "searches": [
+        "DOI:10.3390/math14071202 Sections 3.3 and 4.1-4.4, Lemma 1, Theorem 1, and discussion",
+        "Web: exact article title correction erratum",
+        "Published-research database: source title plus sign alignment condition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-result hit states the sign counterexample or corrected inequality for DOI:10.3390/math14071202.",
+        "The primary full-text condition is an upper bound on the bias inner product, whereas the proof requires a lower bound.",
+        "No correction or erratum was located for the article in exact-title and DOI searches."
+      ],
+      "reasoning": "The claim was searched under the paper's terminology and under equivalent geometric language: directional bias, relative error, adversarial bias, anti-alignment, descent preservation, and contraction. The exact logical defect is statement-level rather than title-level.",
+      "searches": [
+        "Published-research database: learning augmented quasi gradient operator alignment condition bias inner product eta contraction",
+        "Published-research database: operator alignment bias correction inner product lower bound preserve descent contraction",
+        "Web: exact article title plus correction/erratum",
+        "Web: operator alignment b_k x-x* optimization bias lower bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No database result contains the scalar family \\(b(x)=-c x\\) as a counterexample to this paper's alignment hypothesis.",
+        "Closest results concern unrelated stepsize, operator, or bias obstructions."
+      ],
+      "reasoning": "The finding is an exact analytic counterexample and logical repair, not a recomputation of a database entry or numerical table.",
+      "searches": [
+        "Published-research database: projected gradient adversarial bias b(x)=-c x alignment condition counterexample",
+        "Published-research database: 10.3390/math14071202 learning augmented quasi gradient operator alignment"
+      ]
+    },
+    "rationale": "The primary paper states and uses the wrong-sided alignment inequality; targeted searches found no erratum, correction, or source-specific counterexample. Related inexact-gradient papers study norm-relative or composite noise conditions, which control different objects and do not already state this one-dimensional failure of the 2026 framework. Published-result searches returned other stability and bias obstructions but no implication-equivalent result.",
+    "residual_risks": [
+      "A later publisher correction could appear after the checked date; none was found in the current exact-title and DOI searches.",
+      "The lower alignment inequality repairs only the sign step and is not asserted to be a complete replacement for every hypothesis in later source theorems.",
+      "Direct continuous publisher-page retrieval was throttled during inspection, so the relevant full-text sections were read through indexed open-access retrieval rather than a single page load."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper prints an upper alignment bound but uses it as a lower bound in Lemma 1. Theorem 1 depends on that recursion and is contradicted by the scalar example.",
+        "evidence": "Equation (14) is \\(\\langle b_k(x),x-x^\\star\rangle\\le\\eta\\langle Q(x),x-x^\\star\rangle\\); the proof immediately derives a lower bound for \\(\\langle Q+b_k,x-x^\\star\rangle\\), and Theorem 1 asserts \\(O(1/k)\\) decay.",
+        "identifier_or_url": "DOI:10.3390/math14071202",
+        "material_read": "Open-access full-text material covering the quasi-gradient definition, projected iteration, operator-alignment condition, Assumptions 3-6, Lemma 1 and its proof, Theorem 1 and its diminishing-step recursion, the norm-constrained quadratic example, discussion, and conclusions.",
+        "method": "Open-access publisher text retrieved through indexed full-text search after the publisher page itself throttled direct fetches.",
+        "title": "Learning-Augmented Quasi-Gradient Operators for Constrained Optimization: A Contraction–Bias–Variance Decomposition",
+        "trigger": "Primary recent source whose operator-alignment hypothesis drives the strongly convex contraction theory."
+      },
+      {
+        "assessment": "Uses a materially stronger relative-error model and does not state the source-specific alignment-sign counterexample.",
+        "evidence": "The work studies additive gradient errors proportional to the true gradient magnitude and their admissible robustness levels.",
+        "identifier_or_url": "arXiv:2503.06628",
+        "material_read": "Abstract and result summary describing convergence under norm-relative gradient errors.",
+        "method": "Open arXiv metadata/abstract inspection.",
+        "title": "On Solving Minimization and Min-Max Problems by First-Order Methods with Relative Error in Gradients",
+        "trigger": "Related robustness literature for deterministic relative gradient error."
+      },
+      {
+        "assessment": "Controls relative and absolute noise magnitudes; it does not make the one-sided inner-product assumption used by the primary source.",
+        "evidence": "The paper analyzes convex smooth minimization with composite relative-plus-absolute gradient noise and gives matching lower/upper rate information.",
+        "identifier_or_url": "arXiv:2603.12376",
+        "material_read": "Open arXiv abstract and result summary.",
+        "method": "Open arXiv metadata/abstract inspection.",
+        "title": "Lower and upper bounds of the convergence rate of gradient methods with composite noise in gradient",
+        "trigger": "Recent comparison source for combined relative and absolute gradient errors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8d00ffc-ac52-4310-a35e-bfbc7331bb7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The alignment inequality is the structural condition advertised as protecting learned directions from destroying contraction, and it feeds the paper's central strongly convex rate theorem and later interpretations. The counterexample shows that the printed condition permits complete direction reversal even with a smooth one-dimensional strongly convex quadratic, zero noise, compact feasibility, and the paper's own diminishing-step schedule. The failure is therefore not a numerical edge case or arbitrary slice. The corrected inequality identifies the exact missing directional safeguard and provides an immediately checkable condition for future learning-augmented updates.",
+    "status": "PASS"
+  }
+}
