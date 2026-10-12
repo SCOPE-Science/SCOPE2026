@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For \\(D=\\ker G\\), the supported-subcode identity \\(\\dim D(X)=|X|-\\operatorname{rank}_2(G_X)\\) is exact. The bundled verifier uses the published 14-by-23 matrix, exact binary Gaussian elimination, and exhausts every one of the \\(2^{23}\\) coordinate subsets. It returns the minima \\(8,12,15,17,18,20,21,22,23\\) and `VERIFY_OK`. The proof makes no inference from partial enumeration, timeout, or floating-point numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kurz–Landjev–Rousseva determine binary optimal-code parameters only through dimension seven and explicitly leave the dimension-eight layer outside their determination.",
+        "General generalized-weight algorithms establish how to compute hierarchies but do not supply the Wagner hierarchy as a theorem or table."
+      ],
+      "reasoning": "No inspected broader theorem specializes to all nine numerical values for this code. The recent source motivates precisely the adjacent higher-dimensional gap but does not dominate the code-specific hierarchy claim.",
+      "searches": [
+        "Optimal codes and arcs for the generalized Hamming weights dimension eight binary",
+        "weight hierarchy Wagner code",
+        "generalized Hamming weights [23,9,8] binary code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.00250",
+      "https://codetables.de/BKLC/BKLC.php?k=14&n=23&q=2",
+      "arXiv:2503.03905",
+      "DOI:10.1016/S0012-365X(99)00187-9",
+      "published-finding corpus IDs searched included 2026/9/17/SCOPE014 and 2026/9/8/SCOPE080; neither covers the claim."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simonis proves equivalence-class uniqueness of the \\([23,14,5]_2\\) Wagner code; this makes the computed hierarchy canonical for that parameter class but does not state its values.",
+        "The known Sidon maximum implies only the projective-plane threshold corresponding to \\(d_6=20\\); that covered consequence is explicitly excluded from the originality claim."
+      ],
+      "reasoning": "After removing the already implied Sidon extremal value from the originality claim, the surviving statement is the complete hierarchy. No inspected prior statement or implication supplied the remaining hierarchy entries as a set.",
+      "searches": [
+        "The [23,14,5] Wagner code is unique Simonis",
+        "largest Sidon set F_2^9 size 24 unique Wagner",
+        "Wagner code generalized weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The generalized-weight definition gives \\(d_r(D)=\\min\\{|X|:|X|-\\operatorname{rank}(G_X)\\ge r\\}\\), so the hierarchy is equivalent to nine exact rank-nullity thresholds for the Wagner generator matrix.",
+        "Nagy's Sidon discussion covers the plane-cap consequence at \\(r=6\\) through the 24-point Sidon maximum, but it does not give the other eight generalized weights."
+      ],
+      "reasoning": "The Sidon/projective reformulation decisively shows that \\(m_2^{(2)}(8,3)=23\\) is not an original component of the claim. Searches for the full dual-code hierarchy and its exact sequence did not return a source stating all nine values.",
+      "searches": [
+        "Wagner code generalized Hamming weight hierarchy dual [23,9,8]",
+        "dual Wagner code [23,9,8] weight hierarchy 8 12 15 17 18 20 21 22 23",
+        "m_2^(2)(8,3) 23 Wagner Sidon",
+        "23 point cap PG(8,2) planes at most three Wagner",
+        "arXiv:2601.00250; arXiv:2503.03905; DOI:10.1016/S0012-365X(99)00187-9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "CodeTables gives the 14-by-23 Wagner generator and exact ordinary minimum-distance bounds \\(d=5\\) for the primal code, but the inspected entry has no generalized-weight hierarchy for the dual.",
+        "Exact-sequence web and published-finding corpus searches did not locate a table containing the nine-entry hierarchy."
+      ],
+      "reasoning": "The public matrix makes the invariant computable but does not itself tabulate the invariant; the bundled exhaustive rank calculation supplies the missing exact hierarchy.",
+      "searches": [
+        "CodeTables binary [23,14,5] Wagner stored generator matrix",
+        "[23,9,8] Wagner code table generalized weights",
+        "8 12 15 17 18 20 21 22 23 code"
+      ]
+    },
+    "rationale": "The recent generalized-weight source does not determine the binary dimension-eight layer; CodeTables provides only the primal matrix and ordinary distance; Simonis establishes uniqueness; Nagy/Sidon literature already implies the plane-cap consequence and that component is explicitly excluded from the originality claim. Targeted searches found no source stating the full nine-entry hierarchy. Residual risk of an older unindexed computation is recorded rather than treated as proof of novelty.",
+    "residual_risks": [
+      "The 2000 Simonis full text was not openly accessible in the inspected sources, so an unindexed internal higher-weight computation cannot be excluded absolutely.",
+      "Negative database and web searches are not novelty proofs; the PASS rests on statement-level comparison of the inspected highly relevant sources plus the absence of a dominating prior theorem found in those sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the dual Wagner weight hierarchy; it explicitly leaves the relevant higher-dimensional binary layer outside its determination.",
+        "evidence": "Primary MSC 94B65; first public arXiv date 2026-01-01; paper determines binary optimal parameters through dimension seven.",
+        "identifier_or_url": "arXiv:2601.00250 / DOI:10.15495/EPub_UBT_00008792",
+        "material_read": "Full open PDF with emphasis on the definitions, binary exact-value section, the dimension-eight limitation, and references.",
+        "method": "Lawful open-access PDF inspection.",
+        "title": "Optimal codes and arcs for the generalized Hamming weights",
+        "trigger": "Recent primary source defining the projective extremal framework and its exact-value boundary."
+      },
+      {
+        "assessment": "Supplies the matrix and ordinary parameter \\([23,14,5]_2\\), but no generalized-weight hierarchy of the dual.",
+        "evidence": "The 14 displayed rows are embedded verbatim in `verify.cpp`.",
+        "identifier_or_url": "https://codetables.de/BKLC/BKLC.php?k=14&n=23&q=2",
+        "material_read": "Displayed stored generator matrix, construction label, and exact lower/upper ordinary-distance bounds.",
+        "method": "Public database page inspection.",
+        "title": "Bounds on linear codes [23,14] over GF(2)",
+        "trigger": "Exact matrix needed for independent reconstruction of the code."
+      },
+      {
+        "assessment": "Covers the extremal Sidon fact that implies the \\(d_6\\) plane-cap consequence, but not the full Wagner-dual hierarchy.",
+        "evidence": "The paper cites Wagner and Simonis in the size-nine Sidon discussion.",
+        "identifier_or_url": "arXiv:2503.03905 / DOI:10.1007/s12095-025-00808-4",
+        "material_read": "Open article material covering Sidon sets in \\(\\mathbb F_2^9\\), including the reported size-24 maximum and uniqueness attribution.",
+        "method": "Open arXiv/repository article inspection.",
+        "title": "On the minimum Hamming distance between vectorial Boolean and affine functions",
+        "trigger": "Sidon-set equivalence could subsume the projective-plane component."
+      },
+      {
+        "assessment": "Accessible material proves the scope is equivalence-class uniqueness, not a stated generalized-weight table; unresolved full-text access is retained as a residual originality risk.",
+        "evidence": "Abstract: every binary linear \\([23,14,5]_2\\) code is equivalent to Wagner's code.",
+        "identifier_or_url": "DOI:10.1016/S0012-365X(99)00187-9",
+        "material_read": "Accessible institutional metadata and abstract; full journal text was not openly available in the inspected sources.",
+        "method": "Institutional research-portal and abstract inspection.",
+        "title": "The [23,14,5] Wagner code is unique",
+        "trigger": "Potential prior source for a stronger structural classification of the exact code."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1df12c22-2dbe-4467-ac14-18e32b5d37bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete generalized Hamming-weight hierarchy is a canonical structural invariant, strictly richer than ordinary minimum distance and directly relevant to the recent projective-extremal program. The code is not an arbitrary small example: it is the unique optimal \\([23,14,5]_2\\) Wagner class, while its dual is a natural 9-dimensional object adjacent to the first dimension not covered by the recent exact tables. Computing all nine thresholds therefore gives a reusable exact benchmark rather than a routine parameter perturbation.",
+    "status": "PASS"
+  }
+}
