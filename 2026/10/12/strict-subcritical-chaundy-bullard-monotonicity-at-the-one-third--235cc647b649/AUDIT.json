@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Writing \\(X\\sim\\operatorname{Bin}(3k,p)\\) and adding an independent \\(T\\sim\\operatorname{Bin}(3,p)\\) reduces the difference of adjacent tails to the three boundary states \\(X=k,k-1,k-2\\). Exact binomial mass ratios factor the difference as \\(\\Pr\\{X=k\\}(1-p)R_k(p)\\). The derivative of \\(R_k\\) is negative throughout \\(0<p\\le1/3\\), while \\(R_k(1/3)=2(3k+2)/(9(k+1)(2k+1))>0\\); hence every adjacent difference is strictly positive. The reduction from all average sizes to multiples of three is exact because each three-size block has a common integer threshold and adding a Bernoulli trial strictly increases its tail. The packaged exact-arithmetic checker confirms the algebra on a deterministic grid but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fokkink–Papavassiliou–Pelekis study comparisons at integer means and explicitly present the Chaundy–Bullard example at \\(p=1/n\\), where threshold and mean coincide.",
+        "The motivating paper itself distinguishes the endpoint theorem from the expected subcritical extension and calls the latter unknown."
+      ],
+      "reasoning": "For \\(p<1/3\\), the threshold \\(k\\) is strictly larger than the mean \\(3kp\\), so the centered integer-mean comparison does not dominate the claim. General point-mass Newton–Pepys comparisons likewise do not by themselves imply cumulative-tail monotonicity.",
+      "searches": [
+        "On the monotonicity of tail probabilities Chaundy Bullard binomial",
+        "Monotone Convergence of Binomial Probabilities Jogdeo Samuels Chaundy Bullard",
+        "generalized Newton Pepys p arbitrary tail monotonicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.06804v1",
+      "DOI:10.30757/ALEA.v20-07",
+      "DOI:10.37190/0208-4147.00050",
+      "DOI:10.2307/3614890",
+      "DOI:10.1214/aoms/1177698243"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 7 of the motivating paper gives strict decrease only at \\(p=1/a\\) and says the \\(p\\le1/a\\le t\\) generalization appears unknown.",
+        "The later tail-monotonicity paper compares centered thresholds under integer-mean hypotheses; at \\(p<1/3\\) those hypotheses do not match the claimed threshold.",
+        "A previously checked mean-three left-loadedness result concerns the family \\(\\operatorname{Bin}(n,3/n)\\) at fixed mean \\(3\\), not the family \\(\\operatorname{Bin}(3k,p)\\) with fixed subcritical \\(p\\) and moving mean."
+      ],
+      "reasoning": "Neither the isolated reciprocal-stake results nor the fixed-mean left-loadedness statement implies the adjacent-tail recurrence for fixed \\(p<1/3\\). The new factorization supplies the missing implication.",
+      "searches": [
+        "arXiv:2002.06804 Section 7 generalized Chaundy Bullard",
+        "DOI:10.37190/0208-4147.00050 Chaundy Bullard",
+        "mean three binomial left-loaded probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating source reduces the reciprocal-threshold equal-stake optimization to binomial tails and explicitly labels the subcritical generalization unknown.",
+        "Exact-family searches for \\(\\Pr\\{\\operatorname{Bin}(3k,p)\\ge k\\}\\) and Newton–Pepys/Chaundy–Bullard aliases did not return a statement valid for every \\(0<p<1/3\\)."
+      ],
+      "reasoning": "Equivalent wording would have to imply adjacent-tail monotonicity, or at least maximum at \\(k=1\\), for the fixed success probability and growing trial counts \\(3k\\). The retrieved classical endpoint and centered-mean statements do not cover the subcritical interval.",
+      "searches": [
+        "binomial tail Bin(3k,p) k monotone p <= 1/3 Chaundy Bullard",
+        "P(Bin(3k,p) >= k) decreasing k",
+        "generalized Chaundy Bullard inequality p less than 1/a",
+        "Optimizing stakes simultaneous bets binomial tails p <= 1/3 t=1/3",
+        "P(Bin(3n,p)) probability monotone 1/3",
+        "p <= 1/3 Chaundy Bullard"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed result supplied the polynomial factor \\(R_k(p)\\), its derivative sign, or a table asserting strict decrease for all subcritical \\(p\\).",
+        "The numerical checks in this package are generated directly from binomial coefficients and exact rational arithmetic."
+      ],
+      "reasoning": "The claim is a symbolic all-parameter inequality rather than a finite table lookup. No exact database or table inspected contained the asserted continuum result.",
+      "searches": [
+        "Bin(3k,p) >= k exact sequence",
+        "Chaundy Bullard p 1/3 subcritical table",
+        "Newton Pepys generalized probability p <= 1/3"
+      ]
+    },
+    "rationale": "The direct motivating paper states the broader generalized Chaundy–Bullard inequality as unknown and supplies only the endpoint \\(p=1/a\\) through the classical theorem; on the one-third slice it separately proves arbitrary-stake optimality only at isolated reciprocal probabilities. The later centered-tail paper covers the mean-threshold setting, including the endpoint \\(p=1/3\\), but its hypotheses do not imply the strictly super-mean thresholds arising when \\(p<1/3\\). Candidate-specific semantic and exact-expression searches found no covering statement. Residual risk remains for older Newton–Pepys literature under different notation.",
+    "residual_risks": [
+      "An older equivalent inequality may exist under generalized Newton–Pepys terminology without the exact \\(\\operatorname{Bin}(3k,p)\\) notation.",
+      "The 2022 supporting paper could not be re-fetched as a complete PDF during this check; the inspected abstract and indexed full-text passage were sufficient to exclude its stated centered-mean theorem, but unindexed material remains a limited bibliographic risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING.",
+        "evidence": "The source proves strict decrease at the classical endpoint \\(p=1/a\\), proves arbitrary-stake optimality at \\(t=1/3,p=1/b\\), and explicitly states that the general \\(p\\le1/a\\le t\\) binomial-tail extension appears unknown.",
+        "identifier_or_url": "arXiv:2002.06804v1; DOI:10.30757/ALEA.v20-07",
+        "material_read": "Full open-access article with focused inspection of the introduction, Proposition 6.2, and Section 7, including the displayed generalized inequality and its unknown-status statement.",
+        "method": "Open-access full-text inspection with rendered-page checks of the one-third proposition and the final binomial-tail section.",
+        "title": "Optimizing stakes in simultaneous bets",
+        "trigger": "Direct motivating source; Section 7 states the generalized Chaundy–Bullard candidate problem and Section 6 contains the closest one-third special cases."
+      },
+      {
+        "assessment": "NOT_COVERING_IN_INSPECTED_MATERIAL.",
+        "evidence": "The stated framework compares tails at expectations when means are integers. Its Chaundy–Bullard example uses \\(p=1/n\\). For \\(p<1/3\\), the present threshold exceeds the mean, so the displayed framework does not imply the claim.",
+        "identifier_or_url": "DOI:10.37190/0208-4147.00050",
+        "material_read": "Abstract, classification, and indexed full-text passage describing the Chaundy–Bullard comparison and the paper's integer-mean centered-tail framework.",
+        "method": "Open bibliographic record plus repository-indexed full-text extract; a direct PDF fetch timed out.",
+        "title": "On the monotonicity of tail probabilities",
+        "trigger": "Potential broader coverage because it proves tail monotonicity for sums and discusses the Chaundy–Bullard theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "235cc647-b649-42a7-9ad8-6978bbcae61b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly isolates the generalized Chaundy–Bullard inequality as the remaining equal-stake optimization problem after Csóka's conjectural reduction. The one-third threshold is the first nontrivial reciprocal slice not already covered by the paper's complete high-threshold result at \\(t=1/2\\). Proving strict decrease for every subcritical \\(p\\), rather than only maximum at one point, settles that entire candidate slice and cleanly separates the still-open arbitrary-stake layer. This is a natural structural extension of a named open problem, not a numerical specialization.",
+    "status": "PASS"
+  }
+}
