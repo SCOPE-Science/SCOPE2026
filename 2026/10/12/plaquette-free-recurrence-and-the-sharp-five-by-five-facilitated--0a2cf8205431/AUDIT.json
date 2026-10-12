@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For each vacancy count h=1,...,8, exact 25-bit enumeration visits all binomial(25,h) states and 100 possible oriented triples per state. Explicit forward and reverse predicate, two-pass SCC labeling, and every-edge terminal checks show one recurrent component and exact membership iff each plaquette contains a particle; two independent methods confirm sizes. The closure lemma is analytic and the K<=16 multiple-class assertion is credited to [1, Thm. 2.1(2)]. Finite computation is exhaustive for N=5 only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1], Theorem 2.1(1) uniquely covers K>=22 on N=5; Theorem 2.1(2) covers nonuniqueness for K<=16.",
+        "[1], Sections 3.1–3.2 prove bounds through fully occupied boxes and closed invariant supports but do not settle the intermediate odd-side interval."
+      ],
+      "reasoning": "The exact K=17,...,21 uniqueness and explicit recurrent set fill the logical gap between the sufficient hypotheses of the broad structural theorem. The general result implies only the flanking sectors, not the intermediate cases.",
+      "searches": [
+        "Directional facilitated exclusion 2D torus with odd period five exact recurrent communicating class threshold K=17 and sink SCC classification of the 25-site conserved particle number state graph",
+        "Two-dimensional facilitated exclusion process finite torus odd N=5 exact irreducibility threshold for 17 to 21 particles, enumeration communicating classes and absorbing traps",
+        "Kim Lee Seo facilitated exclusion higher dimensions 2026 structural threshold odd N finite-size gap exact first odd lattice"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.18885v1 (full HTML, main theorem/model/proof sections)",
+      "arXiv:2407.02652v2 (full HTML, introduction and main theorem)",
+      "MSC2020 82C22: interacting particle systems in time-dependent statistical mechanics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1], equation (2.2) matches the kinetic constraint.",
+        "[1], Theorem 2.1 specializes to uniqueness above 21 and multiple classes at or below 16, leaving 17 through 21 logically undetermined.",
+        "[2], Theorem 1 studies spatial variance in 1D and does not cover finite 2D recurrent graph decomposition."
+      ],
+      "reasoning": "The new finite certificate proves the K=17,...,21 cases, complete class membership, and sizes, none of which follows from the two prior implications even if the published flanking cases are assumed. We credit their K<=16 bound in the sharp-threshold part of the claim.",
+      "searches": [
+        "Directional facilitated exclusion 2D torus with odd period five exact recurrent communicating class threshold K=17 and sink SCC classification of the 25-site conserved particle number state graph",
+        "For facilitated exclusion process on 5x5 torus odd side N=5 with directional jumps 110 to 101, unique recurrent communicating class for particle numbers K >=17, exact recurrent state counts 941450 448450 171900 52605 12625, sharp finite-volume density threshold",
+        "https://arxiv.org/html/2609.18885v1 (full text accessed and Section 3 inspected)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim–Lee–Seo [1], equation (2.2) and Theorem 2.1 specify the same directional triple-site jump rule and recurrent-class concept; their odd-side conditions leave K=17,...,21 unresolved at N=5.",
+        "Goldstein–Lebowitz–Speer [2], Sections 1–2 address 1D fluctuation measures; higher-dimensional nearest-neighbor facilitation described there is not the same directed rule."
+      ],
+      "reasoning": "We compared class uniqueness, exact terminal SCC membership, and graph parameters, including alternate language closed irreducible sets, ergodic classes, absorbing configurations, plaquette occupancy, and vacancy pattern. The cited theorems do not state or imply the new exact five-by-five classification.",
+      "searches": [
+        "Directional facilitated exclusion 2D torus with odd period five exact recurrent communicating class threshold K=17 and sink SCC classification of the 25-site conserved particle number state graph",
+        "Two-dimensional facilitated exclusion process finite torus odd N=5 exact irreducibility threshold for 17 to 21 particles, enumeration communicating classes and absorbing traps",
+        "For facilitated exclusion process on 5x5 torus odd side N=5 with directional jumps 110 to 101, unique recurrent communicating class for particle numbers K >=17, exact recurrent state counts 941450 448450 171900 52605 12625, sharp finite-volume density threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full material inspected in [1] presents general structural bounds, not finite enumeration tables of the 25-site transition graph.",
+        "The full material inspected in [2] concerns 1D density-variance asymptotics and not a 2D SCC database."
+      ],
+      "reasoning": "No published table or exact database encoding the 1,081,575-state sector or the listed recurrent-cardinality sequence was identified. Failed searches are not a proof of global absence, so unindexed finite censuses remain a residual risk.",
+      "searches": [
+        "Directional facilitated exclusion 2D torus with odd period five exact recurrent communicating class threshold K=17 and sink SCC classification of the 25-site conserved particle number state graph",
+        "Two-dimensional facilitated exclusion process finite torus odd N=5 exact irreducibility threshold for 17 to 21 particles, enumeration communicating classes and absorbing traps",
+        "For facilitated exclusion process on 5x5 torus odd side N=5 with directional jumps 110 to 101, unique recurrent communicating class for particle numbers K >=17, exact recurrent state counts 941450 448450 171900 52605 12625, sharp finite-volume density threshold",
+        "\"facilitated exclusion\" \"five-by-five\" recurrence"
+      ]
+    },
+    "rationale": "Direct full-text comparison shows [1] gives only K<=16 multiplicity or K>=22 uniqueness at odd side five; exact K=17,...,21 uniqueness plus plaquette-free class characterization require separate exhaustive proof. A one-dimensional limiting-measure result [2] does not imply the finite 2D classification. Semantic and targeted search revealed no dominating exact census, subject to residual unindexed-coverage risk.",
+    "residual_risks": [
+      "An unindexed finite-state census, unpublished calculation, or equivalently phrased plaquette-free SCC theorem could overlap; negative searches do not certify global novelty.",
+      "The theorem is explicitly restricted to N=5,d=2 and relies on correct reproduction of an exhaustive finite-state algorithm; no general-N conclusion follows."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_LOW_AND_HIGH_SECTORS_ONLY; NOT THE FIVE INTERMEDIATE SECTORS OR FINITE RECURRENT CLASS MEMBERSHIP",
+        "evidence": [
+          "Eq. (2.2): legal jump iff a collinear rear facilitator and an empty target.",
+          "Thm. 2.1 at d=2,N=5: uniqueness if K>21, multiplicity if K<=16.",
+          "Section 3 odd-side proof uses a sufficient full-box condition, not an exact SCC decomposition at K=17,...,21."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.18885v1",
+        "material_read": "Complete accessible model and principal structural results, introduction, equations (2.1)–(2.2), Theorem 2.1, Sections 3.1–3.2 including proofs of odd-side bounds (HTML sections containing lines 57–462).",
+        "method": "Read arXiv HTML text and compared logical K ranges, boundary conditions, fully occupied box arguments, and exact definitions.",
+        "title": "Facilitated Exclusion Process in Higher Dimensions: Recurrent Structure and Transient Dynamics",
+        "trigger": "Same exact directional facilitated-exclusion generator and recurrent communicating classes; direct possible stronger theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: one-dimensional density variance and a distinct higher-dimensional neighbor rule",
+        "evidence": [
+          "Introduction describes nearest occupied neighbor facilitation, while [1] requires a particular collinear rear neighbor.",
+          "Theorem 1 provides 1D hyperuniformity and density fluctuation asymptotics, not finite 2D recurrent SCCs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.02652v2",
+        "material_read": "Abstract and full text of Sections 1–2, including explicit kinetic convention and the main theorem.",
+        "method": "Read arXiv HTML text and compared dimension, facilitation predicate, objects and conclusions.",
+        "title": "Approach to Hyperuniformity in the One-Dimensional Facilitated Exclusion Process",
+        "trigger": "Closely related conservative lattice gas and higher-dimensional simulation literature, possible prior dynamical classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a2cf820-5431-40aa-b1d9-2ae7236e27f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete sharp finite-size phase diagram at the five-by-five odd two-dimensional torus for the source directional constraint. The exact open K=17,...,21 sectors are settled, every recurrent state is characterized by a natural plaquette-free criterion, and finite class sizes are determined independently. This provides a benchmark and geometric mechanism for open odd-torus structural questions, without claiming a thermodynamic-limit result.",
+    "status": "PASS"
+  }
+}
