@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For \\(k=3\\), substituting the source's exact lower-bound expression \\(c_m\\) into Theorem 3.5 makes feasibility equivalent to \\((m-3)(m-6)>0\\), hence \\(m\\ge7\\). The resulting branch simplifies exactly to \\(\\alpha_m=2(m-6)/[3(m^2-4)]\\). Its discrete difference has numerator \\(-m^2+11m+2\\), whose positive root lies strictly between \\(11\\) and \\(12\\), proving the unique integer maximum at \\(m=12\\) and \\(\\alpha_{12}=1/35\\). Theorem 3.6 then gives \\(\\beta=\\sqrt{3/\\alpha_{12}}=\\sqrt{105}\\). The register-size parameter is analytical; the source's Algorithm 4 remains a three-copy base test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.39113v1 is the strongest direct framework and exposes the general register-size bound but only instantiates \\(m=7\\).",
+        "arXiv:2510.07305v1 covers earlier Gaussianity tests without this later all-register-size gap certificate.",
+        "arXiv:2607.11847v1 concerns tomography rather than the rejection-probability certificate."
+      ],
+      "reasoning": "The claim is not a corollary already stated by a broader theorem in the inspected literature: the source theorem requires a user-supplied gap and the new step is the exact global optimization of its general explicit gap lower bound.",
+      "searches": [
+        "arXiv 2609.39113 twelve registers sqrt 105 bosonic Gaussian property testing",
+        "Is it Gaussian? testing bosonic quantum states",
+        "Optimal tomography of bosonic and fermionic Gaussian states"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.39113v1",
+      "arXiv:2510.07305v1",
+      "arXiv:2607.11847v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source implication at \\(m=7\\) is \\(\\alpha=2/135\\); substituting its general \\(c_m\\) into Theorem 3.5 produces a different register-size-dependent family that must be optimized.",
+        "Earlier bosonic Gaussian testing establishes tests but does not imply a numerical optimum for a later proof parameter."
+      ],
+      "reasoning": "Neither the \\(m=7\\) source theorem nor earlier Gaussianity-testing or tomography results logically imply the unique \\(m=12\\) optimum without the new algebraic optimization. Conversely, the claim does not exceed the source framework: it only strengthens its certified constant.",
+      "searches": [
+        "bosonic Gaussian tester twelve registers 1/35 sqrt 105",
+        "optimize analysis register m tolerant Gaussian property tester"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved published-result hit stated the all-register-size coefficient \\(\\alpha_m\\), the value \\(m=12\\), the coefficient \\(1/35\\), or the multiplier \\(\\sqrt{105}\\) for bosonic Gaussian property testing.",
+        "The exact source full text was inspected rather than relying on title or snippets."
+      ],
+      "reasoning": "Queries covered the source terminology, tolerant multiplier, symmetrization-register language, and exact constants. Retrieved near-neighbors were about unrelated Gaussianization/extremal problems, so none implies the claim.",
+      "searches": [
+        "bosonic Gaussian property testing symmetrized registers m spectral gap tolerant beta",
+        "optimal testing bosonic Gaussian states seven registers beta 405/2",
+        "bosonic Gaussian tester twelve registers 1/35 sqrt 105",
+        "spectral gap c_m 2m over 3(m-1)(m-2) bosonic Gaussian testing",
+        "optimize analysis register m tolerant Gaussian property tester"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 6.1 of arXiv:2609.39113v1 displays \\(\\beta=\\sqrt{405/2}\\) and describes seven-register symmetrization.",
+        "Lemma 6.12 gives a formula for arbitrary analysis-register size but does not tabulate or identify \\(m=12\\) as optimal."
+      ],
+      "reasoning": "The exact constants \\(1/35\\) and \\(\\sqrt{105}\\) do not appear in the inspected source theorem/table context, and exact-form searches returned no matching published record.",
+      "searches": [
+        "general bosonic Gaussian property tester m 12 alpha 1/35",
+        "2609.39113 spectral gap 2m 3(m-1)(m-2)"
+      ]
+    },
+    "rationale": "The closest primary source states all ingredients but fixes \\(m=7\\) in the general bosonic theorem. Exact optimization of its own register-size-dependent Lemma 6.12 inside Theorem 3.5 yields a new, strictly stronger certified constant at \\(m=12\\). Focused published-result and own-record searches found no implication-equivalent statement. The claim is deliberately limited to the published sufficient certificate, avoiding any unsupported assertion about the exact gap.",
+    "residual_risks": [
+      "A contemporaneous or unindexed note could contain the same constant optimization under different terminology.",
+      "Lemma 6.12 is a lower bound; exact gaps for other analysis-register sizes could produce a different optimum. The claim therefore concerns only this published sufficient certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general ingredients and the \\(m=7\\) instantiation, but the inspected text does not state the register-size-dependent soundness coefficient, the unique \\(m=12\\) maximizer, or \\(\\beta=\\sqrt{105}\\).",
+        "evidence": [
+          "Theorem 3.5 gives the spectral-gap-to-soundness coefficient for arbitrary \\(m>k\\).",
+          "Lemma 6.12 gives \\(c_m=2m/[3(m-1)(m-2)]\\) for every integer \\(m\\ge3\\).",
+          "Theorem 6.1 and its proof instantiate \\(m=7\\), \\(\\alpha=2/135\\), and \\(\\beta=\\sqrt{405/2}\\), while Algorithm 4 remains three-copy."
+        ],
+        "identifier_or_url": "arXiv:2609.39113v1",
+        "material_read": "Full-text targeted inspection of Theorem 3.5, Theorem 3.6, Theorem 6.1, Section 6.2 including Lemma 6.12, and Section 6.3 proof of Theorem 6.1.",
+        "method": "Lawful arXiv full text with page-image inspection of the critical theorem and lemma pages.",
+        "title": "Optimal testing of fermionic and bosonic Gaussian states",
+        "trigger": "Exact anchor and direct source of the general spectral-gap and tolerant-testing formulas."
+      },
+      {
+        "assessment": "NOT_COVERING the optimized symmetrized-gap certificate. It develops three-copy Gaussianity tests and tolerant testing, but predates the 2026 register-size-dependent spectral-gap framework used in the claim.",
+        "evidence": [
+          "The paper states three-copy rotation-invariance tests for general pure Gaussian states and polynomial-copy tolerant procedures; it does not supply the later Lemma 6.12 coefficient being optimized."
+        ],
+        "identifier_or_url": "arXiv:2510.07305v1",
+        "material_read": "Abstract, problem formulation, and full-text symmetry-test section around the three-copy rotation-invariance tests.",
+        "method": "Lawful arXiv full text with page-image inspection.",
+        "title": "Is it Gaussian? Testing bosonic quantum states",
+        "trigger": "Earlier primary work on the same bosonic Gaussian property-testing object and three-copy rotation tests."
+      },
+      {
+        "assessment": "NOT_COVERING by task type: it addresses tomography/sample complexity for learning classical descriptions, not the three-copy Gaussianity rejection-probability certificate or its symmetrization parameter.",
+        "evidence": [
+          "The abstract states optimal tomography scaling and representation-theoretic learning, not this property-test constant."
+        ],
+        "identifier_or_url": "arXiv:2607.11847v1",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Lawful arXiv abstract inspection.",
+        "title": "Optimal tomography of bosonic and fermionic Gaussian states",
+        "trigger": "Plausibly broader result on the same Gaussian state classes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2bb2228d-9b53-4093-a9f6-8d677042deed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly notes that tolerant optimality is only up to the admissible constant \\(\\beta\\). The new optimization nearly doubles the guaranteed rejection coefficient by the factor \\(27/14\\) and lowers \\(\\beta\\) by the factor \\(\\sqrt{14/27}\\), without increasing the operational copy count per base test. It also identifies the minimal feasible analysis size \\(m=7\\) and the unique best size \\(m=12\\) within the source's own general certificate, making it a natural structural sharpening rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
