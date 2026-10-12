@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The score has an explicit closed form derived from the source circuit. Its dependence on four combinations proves d_Q <= 4. At a stated parameter point and four stated inputs, the exact Jacobian determinant is a sum of positive algebraic terms, hence nonzero, proving rank four and d_Q >= 4. The embedded symbolic checker replays the certificate exactly; no floating-point rank threshold is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haug, Bharti and Kim, PRX Quantum 2, 040309 (2021), develops general circuit-capacity and quantum-geometry notions.",
+        "No inspected broader source computes the four effective QPA score parameters of arXiv:2605.25365v1."
+      ],
+      "reasoning": "General rank/capacity theory supplies concepts but does not by itself imply that this particular four-parameter scalar score map attains full rank four. The explicit witness is needed.",
+      "searches": [
+        "quantum parametric attention Jacobian rank four omega_d omega_s alpha beta",
+        "parameterized quantum circuits effective quantum dimension Jacobian rank capacity Haug Bharti Kim"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.25365v1",
+      "DOI:10.1103/PRXQuantum.2.040309",
+      "public secondary review of arXiv:2605.25365"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source reparameterization proves only d_Q <= 4 and separately proves d_Q >= 2.",
+        "A four-parameter factorization does not imply that all four directions are functionally independent; a nonzero four-by-four Jacobian minor is an additional statement."
+      ],
+      "reasoning": "The new lower bound is not a corollary of the source upper bound. The determinant certificate rules out any additional local functional dependence among the four effective combinations.",
+      "searches": [
+        "Quantum Parameterized Self-Attention Network effective dimension four independent parameters",
+        "QPA omega_d omega_s alpha beta rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.25365v1, Theorem 2 states only the interval 2 <= d_Q <= 4.",
+        "A public secondary review of arXiv:2605.25365 repeats the same interval rather than an exact equality."
+      ],
+      "reasoning": "An equivalent result would have to establish attainment of the upper endpoint for the same scalar QPA function family. The inspected source and secondary summary stop at the interval and do not provide a rank-four witness.",
+      "searches": [
+        "Quantum Parameterized Self-Attention Network effective degrees of freedom exactly 4 QPA",
+        "arXiv 2605.25365 Theorem 2 d_Q 4 effective dimension QPA"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor paper gives a bound rather than a table or exact classified value for d_Q.",
+        "No inspected database-style or summary source records d_Q = 4 for this QPA score."
+      ],
+      "reasoning": "The claim is an exact structural invariant of one model, not a recomputation of a known numerical table. The inspected records did not contain the exact value.",
+      "searches": [
+        "QPSAN four effective degrees of freedom scoring function",
+        "2605.25365 d_Q exact 4"
+      ]
+    },
+    "rationale": "The anchor proves only 2 <= d_Q <= 4. Source-specific, alias, Jacobian-rank, parameter-combination and broader circuit-geometry searches found no inspected source proving d_Q = 4 for this scalar QPA family. The closest general literature supplies notions of circuit dimension but not the required full-rank witness.",
+    "residual_risks": [
+      "An unindexed or unpublished independent derivation of the same rank-four witness may exist.",
+      "The certificate is tied to the gate ordering in Eq. (7) of arXiv:2605.25365v1; a different circuit convention would require a fresh calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes only 2 <= d_Q <= 4; it does not supply a rank-four witness.",
+        "evidence": "The reparameterization uses omega_d = theta_s + 2 gamma_d and omega_s = theta_s + 2 gamma_s, leaving four effective combinations including alpha and beta.",
+        "identifier_or_url": "arXiv:2605.25365v1",
+        "material_read": "Circuit encoding and entangling equations, score definition, Theorem 2 and its effective-parameter upper-bound argument.",
+        "method": "Public preprint full-text inspection and equation-level comparison.",
+        "title": "Quantum Parameterized Self-Attention Network for Image Classification",
+        "trigger": "Primary source defining the QPA circuit and the effective-dimension interval."
+      },
+      {
+        "assessment": "General framework only; it does not compute the QPA scalar-score rank in arXiv:2605.25365v1.",
+        "evidence": "No source-specific four-input Jacobian or exact d_Q = 4 statement is given for the QPA model.",
+        "identifier_or_url": "DOI:10.1103/PRXQuantum.2.040309",
+        "material_read": "Public abstract/summary and definition-level material relevant to effective circuit dimension.",
+        "method": "Published-source comparison.",
+        "title": "Capacity and Quantum Geometry of Parametrized Quantum Circuits",
+        "trigger": "Broader literature on effective quantum dimension and parameterized-circuit rank."
+      },
+      {
+        "assessment": "Repeats 2 <= d_Q <= 4; does not cover the exact-rank result.",
+        "evidence": "The inspected summary preserves the source interval rather than replacing it with d_Q = 4.",
+        "identifier_or_url": "secondary public review of arXiv:2605.25365",
+        "material_read": "Effective-dimension discussion.",
+        "method": "Public secondary-source comparison.",
+        "title": "Public technical summary of Quantum Parameterized Self-Attention Network for Image Classification",
+        "trigger": "Check whether an exact endpoint had already been extracted in secondary coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f45f3647-78ba-478f-8bc4-8c0095963ad5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact value closes the source's natural 2-to-4 uncertainty interval for the mechanism's stated effective dimension. It proves that there is exactly one local functional redundancy among five trainable parameters and that no additional generic reduction of the four effective combinations is possible. This is a complete structural classification of a source-defined model invariant, not a routine numerical check.",
+    "status": "PASS"
+  }
+}
