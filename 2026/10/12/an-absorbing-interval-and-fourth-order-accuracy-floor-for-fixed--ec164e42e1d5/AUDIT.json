@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "C: Analytic reconstruction checks the CARS sign convention, symmetric probes and denominator. Strong convexity gives d_r′>=mu and h_r>=mu; third-order Taylor expansion moves the centered-difference zero by -f′′′/(6 f′′) r², and a uniform second-order Taylor expansion makes both probes strictly uphill on the interval. The wrong-signed derivative makes the curvature proposal uphill. The explicit sine quadratic satisfies 1/2<=f′′<=3/2 and an exact probe comparison through r=1. Root/gap coefficients match symbolic power-series substitution. The finite checker actually executed and is supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1902.03591v3, §3 Algorithm 1: STP minimizes over only incumbent and symmetric probes; §5 Theorem 7 treats fixed stepsize, no CARS curvature-aware fourth candidate.",
+        "Prior CARS sufficient convergence is to a prescribed accuracy at target-dependent radius. Prior STP uses three candidates and has no d_r/h_r step."
+      ],
+      "reasoning": "Neither the sufficient error guarantee at a separately controlled radius nor the fixed-stepsize STP estimates dominate a fixed-radius CARS counterexample. Other indexed Newton/trust-region results concern gradient-based steps or quadrature, not the source-specific four-choice rule.",
+      "searches": [
+        "CARS four-point safeguard Newton central derivative bias open interval trapping sampling radius fourth power lower bound",
+        "Kim Cai McKenzie Yin CARS derivative-free radius epsilon 1/4 necessity strongly convex stationary",
+        "Curvature aware random search CARS fixed radius spurious stationary points derivative free accuracy floor convergence lower bound",
+        "arXiv:1902.03591v3 §3 Algorithm 1 and fixed-stepsize Theorem 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2109.13391v2 §1–2, §4.1, experiments radius scan",
+      "arXiv:1902.03591v3 §1, §3, §5",
+      "https://escholarship.org/uc/item/8z24w59c (abstract only)",
+      "Published research-record semantic search for CARS/fixed-radius/three-point/finite-difference aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2109.13391v2, §2 Algorithm 1: four candidates, centered derivative/curvature and permitted radius r<=C; §2.1 Eq. (8) specifies target-dependent radius O(epsilon^(1/4)); §4.1 proves sufficient descent.",
+        "arXiv:1902.03591v3, §3 Algorithm 1: STP minimizes over only incumbent and symmetric probes; §5 Theorem 7 treats fixed stepsize, no CARS curvature-aware fourth candidate.",
+        "The new root displacement and absorbing selection are proved from d_r(x*)=(f'''(x*)/6)r²+o(r²) and f''>=mu; the open general result is not an algebraic implication of an upper accuracy bound alone."
+      ],
+      "reasoning": "The CARS source establishes O(epsilon^(1/4)) as a sufficient radius scaling for a requested accuracy. The new structural lemma demonstrates a fixed-radius attained floor proportional to r^4, explaining necessity of that exponent in a worst-initialization model without contradicting the source. STP guarantee is a different three-candidate update; the added Newton-style move requires the sign-reversal argument here.",
+      "searches": [
+        "derivative free finite difference Newton central stencil stationary point bias sharp L_H r squared objective gap",
+        "stochastic three point safeguard cannot escape spurious finite difference stationary point smooth convex",
+        "Kim Cai McKenzie Yin CARS convergence radius sharpness epsilon quarter",
+        "arXiv:2109.13391v2 §2.1 Eq. (8) and Theorem 2",
+        "arXiv:1902.03591v3 Theorems 7 and 9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2109.13391v2, §2 Algorithm 1: four candidates, centered derivative/curvature and permitted radius r<=C; §2.1 Eq. (8) specifies target-dependent radius O(epsilon^(1/4)); §4.1 proves sufficient descent.",
+        "Targeted searches for central-difference sign reversals and fixed-radius absorbing intervals produced no directly equivalent theorem; similarity hits about ordinary Newton relaxation and unrelated quadrature do not concern the guarded CARS update."
+      ],
+      "reasoning": "A root of a biased central derivative alone is an approximate stationarity statement, whereas the accepted result asserts an entire continuum pointwise absorbing under all four actual CARS candidates and obtains an attained objective lower bound; a general O(r²) derivative-error estimate does not imply these implications.",
+      "searches": [
+        "Curvature Aware Random Search CARS zero symmetric finite difference nonstationary exact stall strongly convex smooth quartic",
+        "Curvature-Aware Random Search CARS fixed radius analytic strongly convex nonoptimal absorbing stationary finite difference sign",
+        "finite difference Newton method stagnation near optimum strongly convex third derivative sampling radius squared bias",
+        "arXiv:2109.13391v2 §2.1, §4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit trigonometric witness is derived from closed-form finite differences and strong convexity, not from an enumerated data table.",
+        "The consulted CARS manuscript specifies its radius guarantee analytically; it does not supply a table or matching enumeration of absorbing initial conditions."
+      ],
+      "reasoning": "No exact tabulation is involved. The proof is symbolic and holds over a continuum of radii and starting points; finite numerical checks only supplement the proof.",
+      "searches": [
+        "CARS finite difference sampling radius epsilon one fourth exponent necessity lower bound stagnation",
+        "zeroth-order Newton finite difference exact sharp objective error floor analytic sinusoidal convex",
+        "arXiv:2109.13391v2 §5 and appendices search: radius"
+      ]
+    },
+    "rationale": "Primary full-text CARS and STP results do not state or dominate the generic fixed-radius absorbing-interval lemma with an attained fourth-order objective floor; Published research indexes and relevant primary literature were searched for names, aliases, biased derivative roots and parameter scaling. Existing sufficient estimates and STP fixed-step estimates have different logical conclusions. Priority risk from a thesis not fully retrievable and from unindexed special-purpose analyses is explicitly retained.",
+    "residual_risks": [
+      "A 2023 thesis with CARS content was located but its complete text could not be retrieved from the accessed landing page; a potentially related discussion cannot be excluded.",
+      "Unindexed derivative-free finite-difference convergence papers may state similar obstructions or generic lower bounds; absence from the searched sources does not prove global priority.",
+      "The result gives an exponent lower bound for fixed-radius worst initializations, not the optimal constant or a universal lower bound for all algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines all four choices and sufficient radius bounds; no absorbing-interval or attained exponent-necessity statement found in the inspected material.",
+        "evidence": [
+          "arXiv:2109.13391v2, §2 Algorithm 1: four candidates, centered derivative/curvature and permitted radius r<=C; §2.1 Eq. (8) specifies target-dependent radius O(epsilon^(1/4)); §4.1 proves sufficient descent.",
+          "§5 appendix experiments use a decaying radius r_k=0.5/(k+2), outside the fixed-radius obstruction."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.13391v2",
+        "material_read": "MSC and abstract, introduction, §1.1, §2 Algorithm 1 and §2.1–2.2, proof §4.1, targeted scans for radius and the experiments/appendix radius schedule.",
+        "method": "Full manuscript HTML inspected at specific algorithm, theorem, proof and experiment passages.",
+        "title": "Curvature-Aware Derivative-Free Optimization",
+        "trigger": "Defining algorithm, its sampling-radius selection, its own convergence theorem and proof, including potential implicit coverage of the claimed floor."
+      },
+      {
+        "assessment": "The three choices are the incumbent and two probes, not CARS fourth curvature-aware choice; its fixed-step tolerance estimates do not imply the new four-choice invariant interval.",
+        "evidence": [
+          "arXiv:1902.03591v3, §3 Algorithm 1: STP minimizes over only incumbent and symmetric probes; §5 Theorem 7 treats fixed stepsize, no CARS curvature-aware fourth candidate."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1902.03591v3",
+        "material_read": "Abstract, §1, §3 Algorithm 1, §5 fixed-stepsize Theorem 7 and later constant-step Theorem 9.",
+        "method": "Full HTML source read at the relevant algorithm and both fixed-step theorem passages.",
+        "title": "Stochastic Three Points Method for Unconstrained Smooth Minimization",
+        "trigger": "Direct predecessor furnishing the safeguard, with potentially dominating fixed-radius error-floor results."
+      },
+      {
+        "assessment": "Cannot assess whether a thesis chapter includes an equivalent obstruction; retained as explicit priority risk, not marked noncovering.",
+        "evidence": [
+          "Landing-page abstract discusses CARS convergence and Inspect as You Run, but gives no radius-specific absorbing theorem; no claim is made about unseen thesis chapters."
+        ],
+        "identifier_or_url": "https://escholarship.org/uc/item/8z24w59c",
+        "material_read": "Public abstract and descriptive metadata only; complete dissertation not retrieved.",
+        "method": "Attempted open landing-page access; an anti-bot JavaScript interstitial prevented retrieval of full text.",
+        "title": "Enhancing Local Derivative-Free Optimization with Curvature Information and Inspection Strategies",
+        "trigger": "Potentially relevant 2023 thesis combining CARS and inspection strategies."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec164e42-e1d5-46fd-98b3-b5ce5a819f67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "V: A systematic third-derivative mechanism yields an interval, not one arbitrary stationary point, where the actual published four-choice safeguarded derivative-free algorithm cannot advance on strongly convex smooth objectives. The attained r^4 objective obstruction explains the order-necessity of the paper′s epsilon^(1/4) radius rule, with explicit coefficients and an all-r analytic test family; this gives a nontrivial boundary for radius scheduling and algorithmic safeguarding rather than routine finite-difference error rephrasing.",
+    "status": "PASS"
+  }
+}
