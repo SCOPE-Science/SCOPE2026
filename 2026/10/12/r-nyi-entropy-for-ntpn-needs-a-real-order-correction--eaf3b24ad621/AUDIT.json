@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Substitution of the published density into the Rényi definition gives an exact Gaussian-weighted integral. Rewriting that integral as an expectation under a centered normal law with variance \\(1/\\gamma\\) is algebraic. Polynomial growth of \\(q(x)^\\gamma\\) and at-most-exponential growth of \\(\\cosh(\\lambda x)^\\gamma\\) are dominated by the Gaussian factor for every real \\(\\gamma>0\\), proving existence. The source's finite multinomial and binomial expansions require integer exponent; noninteger powers require an infinite generalized expansion or direct integration. A standalone checker independently matches direct quadrature, the expectation representation, and the normal benchmark.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A 2024 bimodal skew-symmetric model retains an integral representation for arbitrary positive Rényi order rather than forcing a finite polynomial expansion.",
+        "A generated-distribution entropy paper uses an infinite generalized-binomial series for real noninteger order, illustrating the relevant distinction between ordinary finite binomial and generalized binomial expansions.",
+        "No broader inspected result specializes to the NTPN density and states the correction to the 2026 theorem."
+      ],
+      "reasoning": "General Rényi definitions and generalized-binomial theory explain why the finite expansion fails, but they do not provide the model-specific exact expectation representation or identify the source's domain mismatch.",
+      "searches": [
+        "alpha skew normal Renyi entropy noninteger order multinomial",
+        "Renyi entropy polynomial tilted normal noninteger order Gaussian expectation",
+        "bimodal skew normal Renyi entropy polynomial"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026022",
+      "doi:10.3390/sym16080985",
+      "doi:10.3390/e22030346"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof expands \\([(1-\\alpha x)^2+1]^\\gamma\\) with a finite multinomial sum and \\(\\cosh(\\lambda x)^\\gamma\\) with a finite binomial sum.",
+        "For noninteger exponent the generalized binomial expansion is infinite, so the source's finite derivation does not imply its claimed real-order theorem.",
+        "The corrected Gaussian-expectation representation follows directly from the exact density and remains finite over the full real-order domain."
+      ],
+      "reasoning": "The prior formula can imply the accepted representation at integer orders after algebraic simplification, but it cannot cover noninteger orders as written. The final claim is therefore restricted to the real-order domain correction and its valid replacement.",
+      "searches": [
+        "target Theorem 3.3 NTPN Renyi entropy equation 3.4",
+        "multinomial theorem noninteger exponent generalized binomial infinite series",
+        "bimodal skew symmetric Renyi arbitrary positive order integral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target theorem is stated for every positive real order other than one, while its displayed sums terminate at the Rényi order.",
+        "published-finding corpus's closest entropy hit concerns Gaussian-magnitude total correlation and explicitly distinguishes integer-order finite formulas from general real-order integrability; it is a different object and does not cover NTPN.",
+        "Exact DOI and model-name searches located the original article but no corrigendum or real-order NTPN entropy correction."
+      ],
+      "reasoning": "The accepted claim was searched both as a domain correction to Eq. (3.4) and as a corrected real-order Gaussian expectation. No equivalent NTPN statement was located.",
+      "searches": [
+        "NTPN Renyi entropy noninteger gamma multinomial finite sum",
+        "bimodal two-piece skew-normal Renyi entropy correction",
+        "10.3934/math.2026022 Renyi entropy gamma"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF contains Theorem 3.3 and Eq. (3.4), and the theorem page was visually inspected.",
+        "The source's Figure 3 uses \\(\\gamma=2\\), which lies inside the integer-order regime and is therefore not used as evidence of a noninteger numerical failure.",
+        "No correction notice was found in the exact-source searches."
+      ],
+      "reasoning": "The finding is about the mathematical domain of the printed theorem, not a discrepancy with a numerical table. The integer contour is explicitly preserved.",
+      "searches": [
+        "10.3934/math.2026022 Renyi entropy gamma",
+        "10.3934/math.2026022 correction Renyi",
+        "NTPN Renyi entropy correction"
+      ]
+    },
+    "rationale": "The target full text and rendered theorem page were inspected. The source explicitly states the theorem for all positive real orders other than one and then uses finite sums indexed through the order. Five focused published-finding corpus searches and targeted public searches for the DOI, NTPN, Rényi, noninteger order, multinomial, and correction aliases found no model-specific correction. Related bimodal-skew and generated-distribution entropy papers handle real order by an integral or infinite generalized-binomial series rather than supplying the NTPN correction.",
+    "residual_risks": [
+      "An unindexed author note or later correspondence may already have identified the same domain mismatch.",
+      "A general entropy reference may state the same algebraic caution abstractly, although no NTPN-specific correction was located.",
+      "The positive-integer coefficients of Eq. (3.4) were not independently rederived term by term because the accepted claim does not depend on their correctness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED INPUT BUT NOT CORRECTION. The theorem claims all positive real orders except one, while the proof uses finite polynomial expansions that require integer order. No qualification to integer orders is stated.",
+        "evidence": "Theorem 3.3, Eqs. (3.4)-(3.5), and the subsequent finite multinomial/binomial expansion in Section 3.4.",
+        "identifier_or_url": "doi:10.3934/math.2026022",
+        "material_read": "Open-access full PDF, with Section 2 density definition, Section 3.4 Theorem 3.3 and proof, the multinomial and cosh-power expansions, and the rendered page containing Eq. (3.4).",
+        "method": "Direct full-text and page-image inspection.",
+        "title": "The bimodal two-piece skew-normal distribution: Mathematical theory, reliability aging measures, and simulation-oriented decision analysis",
+        "trigger": "Primary source containing the NTPN Rényi theorem."
+      },
+      {
+        "assessment": "NOT_COVERING. It concerns another skew-bimodal density and leaves arbitrary-order Rényi entropy as an integral. It does not state the NTPN correction.",
+        "evidence": "Section 3.2.3, equation defining Rényi entropy and the following integral representation.",
+        "identifier_or_url": "doi:10.3390/sym16080985",
+        "material_read": "Open full HTML entropy subsection, including the real-order definition and retained one-dimensional integral.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Advanced Bimodal Skew-Symmetric Distributions: Methodology and Application to Cancer Cell Protein Data",
+        "trigger": "Recent related bimodal-skew distribution with Rényi entropy defined for real positive order."
+      },
+      {
+        "assessment": "NOT_COVERING. It studies a different distribution family, but its infinite generalized-binomial series demonstrates the correct algebraic distinction for noninteger exponents.",
+        "evidence": "Rényi-entropy subsection expands a real power with an infinite generalized-binomial series.",
+        "identifier_or_url": "doi:10.3390/e22030346",
+        "material_read": "Open full HTML Rényi entropy subsection.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "The Truncated Cauchy Power Family of Distributions with Inference and Applications",
+        "trigger": "Comparison source showing treatment of noninteger Rényi powers via generalized binomial expansion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eaf3b24a-d621-4424-ad90-a4c4d48d0b12",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rényi entropy is a named theorem and one of the paper's advertised analytical properties. Its order is intrinsically a real parameter, so restricting a purported all-order formula to integers is not cosmetic. The correction preserves entropy existence, supplies an exact and numerically stable representation for all admissible real orders, gives a decisive standard-normal benchmark, and carefully leaves the source's integer-order contour intact.",
+    "status": "PASS"
+  }
+}
