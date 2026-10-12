@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "A direct injection argument proves the upper bound 9. The embedded verifier exhaustively builds all 81 words and the exact pair-distance compatibility graph, enumerates every maximal clique, and reproduces the 8784 maxima, affine count 252, 11 orbit sizes, and explicit non-affine witness. The finite enumeration terminates exhaustively and is not inferred from a timeout or sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. prove the general Singleton bound and d=4 existence.",
+        "Ding et al. explicitly restrict their constructions to linear MDS symbol-pair codes and list the general d=4 existence family."
+      ],
+      "reasoning": "General existence and linear-construction results determine that size nine is attainable, but neither statement determines how many unrestricted size-nine codes exist or how they decompose under the stated symmetry action.",
+      "searches": [
+        "arXiv:1211.1728 Singleton/existence statements",
+        "arXiv:1605.08859 linear MDS constructions and Table 1",
+        "MDS symbol-pair length four ternary maximum code classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.1728",
+      "arXiv:1605.08859",
+      "published-finding corpus:2026/9/8/SCOPE080"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Singleton theorem gives the upper bound 9 and prior constructions give attainment.",
+        "The later linear paper addresses a proper subclass of all codes."
+      ],
+      "reasoning": "Prior work implies the known optimum 9, which is explicitly not claimed as new. It does not imply the exact number of all labeled maximizers, which ones are affine, or their orbit sizes under the specified natural subgroup.",
+      "searches": [
+        "arXiv:1211.1728 Theorem 2.1 and d=4 existence",
+        "arXiv:1605.08859 abstract/Table 1/preliminaries",
+        "ternary symbol-pair code length 4 distance 4 orbit classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1211.1728 defines the same cyclic pair metric and MDS terminology.",
+        "No published-finding corpus hit among the exact-parameter, number, affine, and orbit queries states an equivalent census."
+      ],
+      "reasoning": "The aliases MDS (4,4)_3, ternary length-four pair-distance-four code, and maximum size-nine pair code refer to the same object. The inspected primary theorem gives existence/size, not the set of all maximizers.",
+      "searches": [
+        "ternary length four symbol-pair code pair distance four MDS maximum nine classification",
+        "MDS (4,4)_3 symbol-pair code nonlinear affine classification",
+        "symbol-pair code 8784 252 affine",
+        "ternary symbol-pair code length 4 distance 4 orbit classification",
+        "ternary (4,4)_3 symbol-pair codes 8784 labeled maxima 252 affine 11 orbits",
+        "MDS symbol-pair length four ternary maximum code classification",
+        "arXiv:1211.1728 full text: MDS (4,4)_3 / classification / enumeration / nonlinear"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ding et al. Table 1 records a d=4 existence family for q>=2 and n>=2, not labeled extremizer counts.",
+        "The closest published-finding corpus record was 2026/9/8/SCOPE080 on different binary cyclic symbol-pair families."
+      ],
+      "reasoning": "Known parameter tables cover existence/optimal size but do not contain the candidate counts 8784, 252, or the 11-orbit decomposition.",
+      "searches": [
+        "symbol-pair code 8784 252 affine",
+        "ternary (4,4)_3 symbol-pair codes 8784 labeled maxima 252 affine 11 orbits",
+        "arXiv:1605.08859 Table 1"
+      ]
+    },
+    "rationale": "The closest primary literature establishes the metric, Singleton optimum, existence, and linear construction families, but the inspected statements do not imply the exact all-code census, the affine/non-affine split, or the natural-group orbit decomposition. Multiple exact-parameter and numerical published-finding corpus searches returned no covering record. The remaining risk is an obscure or unindexed finite enumeration.",
+    "residual_risks": [
+      "An obscure thesis, unpublished enumeration, or poorly indexed finite computation could contain an equivalent census despite the inspected primary literature and targeted searches.",
+      "The stated symmetry classification is for the natural subgroup G only; a classification under a larger full isometry group would be a different claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the Singleton bound and existence of distance-four MDS symbol-pair codes, which covers the maximum size but not the labeled extremizer count, affine split, or orbit decomposition.",
+        "evidence": "Theorem 2.1 gives |C| <= q^(n-d+2); the distance-four existence family is stated in the paper. No all-code extremizer census is stated in the inspected material.",
+        "identifier_or_url": "arXiv:1211.1728",
+        "material_read": "Full-text PDF definitions and Singleton theorem; construction/existence statements for distance four; targeted full-text searches for classification, enumeration, and nonlinear terminology.",
+        "method": "Read the primary full text and compared theorem statements and their implications with the proposed census claim.",
+        "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+        "trigger": "Foundational source defining the same cyclic symbol-pair metric and the MDS Singleton framework; exact parameter existence is directly relevant."
+      },
+      {
+        "assessment": "The paper treats linear MDS constructions and records distance-four existence, not a classification of all ternary length-four maximizers; therefore it does not imply the new unrestricted census.",
+        "evidence": "The abstract says the paper focuses on linear MDS symbol-pair codes; Table 1 lists the known d=4 existence family; the full text lists Mathematics subject classifications 94B25, 94B60.",
+        "identifier_or_url": "arXiv:1605.08859",
+        "material_read": "Abstract, introduction, Table 1 of known families, definitions, and Singleton statement in the arXiv full-text HTML.",
+        "method": "Compared the paper’s linear-construction scope and known-family table with the unrestricted finite census claim.",
+        "title": "New Constructions of MDS Symbol-Pair Codes",
+        "trigger": "Archive-era source devoted to MDS symbol-pair codes and explicitly focused on linear constructions; it also gives the primary MSC classification 94B25."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18c836b0-1234-40ea-9a1e-1c12ace8059c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete structural classification in the smallest ternary full-pair-distance MDS instance where the unrestricted population is substantially richer than the linear constructions emphasized in the literature: only 252 of 8784 maxima are affine, while 8532 are non-affine, and the 11 natural-symmetry orbits quantify that diversity. The fact is a natural benchmark for equivalence testing and for understanding nonlinear MDS symbol-pair phenomena, rather than a recomputation of the already known optimum.",
+    "status": "PASS"
+  }
+}
