@@ -1,0 +1,15 @@
+# Review
+
+## Correctness
+PASS. For a zero at matched index \(i\), the only forbidden opposite defender is the matched vertex, so zero protection is completely determined by whether the opposite part has zero, one, or at least two labels \(2\). The no-isolated-positive condition has the parallel threshold that two positive vertices in the opposite part make isolation impossible. These two local facts reduce every labeling to the seven disjoint cases in the proof, and the generating factor in each case follows by independent choices of remaining labels. Their sum is therefore necessary and sufficient, not merely a construction. The minimum layer is read directly from the lowest degrees of the same exhaustive decomposition. Exact enumeration for \(3\le n\le6\) agrees coefficientwise with the formula.
+
+## Originality
+PASS with stated indexing risk. The primary 2012 source introduces total \((a,b)\)-Roman domination and is algorithmic in scope. The complete 2016 total-Roman article develops general parameter bounds and relationships; searchable full text contains neither “crown” nor “complete bipartite.” Targeted searches for crown graphs, \(K_{n,n}\) minus a perfect matching, total Roman weight enumeration, and the minimum formula did not locate an equivalent statement. The closest broader enumerator concerns complete multipartite graphs, but a crown graph is obtained by deleting a perfect matching from a complete bipartite graph and is not covered by that class for \(n\ge3\). The residual possibility of differently indexed terminology is retained explicitly.
+
+## Value
+PASS. This is a complete structural classification and all-weight enumerator on a canonical infinite family, not a single optimum or a finite slice. The deleted perfect matching creates a natural one-index obstruction for unique defenders, and the formula exposes exactly how that defect propagates through every weight. As a sharp consequence, the minimum total Roman weight rises from \(4\) in the complete bipartite comparison to \(6\) in the crown family, with an exact multiplicity formula for optimum labelings.
+
+## Closest literature and limitations
+The closest primary literature is Liu–Chang for the original total-Roman concept and Ahangar–Henning–Samodivkin–Yero for the focused total-Roman parameter. Thakkar–Badiyani later characterize minimal total Roman dominating functions and vertex-removal effects; their complete article contains no searchable crown or complete-bipartite occurrence. The closest broader coefficientwise comparison is an all-function enumerator on complete multipartite graphs; it does not contain crowns because the deleted matching destroys complete bipartiteness. The 2012 article was not available in complete full text during this review, so its abstract is used only for definition, scope, and publication date, not for a whole-document negative claim. Poor indexing or alternate graph terminology remains a residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
