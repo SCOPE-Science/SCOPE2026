@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "For \\(q=p^2\\) the exact Hasse--Weil interval is \\([(p-1)^{2g},(p+1)^{2g}]\\). If the relevant \\(p+1\\)- or \\(p-1\\)-torsion subgroup has order greater than the interval width, its corresponding endpoint and \\(|A(\\mathbb F_{p^2})|\\) are two multiples in an interval too short to contain two distinct multiples, forcing extremality. The contrapositive bounds the accepting subgroup by the exact width, and the Hasse lower endpoint bounds the denominator. The binomial expansion proves \\(W_g(p)>4gp^{2g-1}\\) for every \\(g\\ge2\\). The proof is complete and the verifier only checks arithmetic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1107.1140, Proposition 2, gives an explicit width-based Monte Carlo bound for elliptic curves (dimension one).",
+        "arXiv:2610.01924v1, Lemma 1 and Theorem 4.1, are the closest arbitrary-dimensional coverage, but the theorem proof uses the smaller \\(4gp^{2g-1}\\) threshold instead of the exact width."
+      ],
+      "reasoning": "The dimension-one result does not imply the arbitrary-dimensional correction. The 2026 source gives the general algorithm and width lemma but does not supply a valid derivation of its displayed explicit numerator for \\(g\\ge2\\); retaining the exact width is the repaired statement assessed here.",
+      "searches": [
+        "abelian variety maximality randomized p+1 torsion exact Hasse Weil interval width probability",
+        "width-bound argument abelian variety minimal maximal random point exact error probability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01924v1",
+      "arXiv:1107.1140",
+      "MSC2020 11G10: Abelian varieties of dimension > 1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For \\(g\\ge2\\), \\((p+1)^{2g}-(p-1)^{2g}=4gp^{2g-1}\\) plus strictly positive lower-order terms, so the source's cited width lemma does not imply its smaller threshold.",
+        "Sutherland's Proposition 2 uses the exact one-dimensional width and therefore does not cover the higher-dimensional discrepancy."
+      ],
+      "reasoning": "The source implies that the exact width is sufficient, but it also explicitly makes the smaller substitution. The new claim is the diagnosis and repair of that inconsistency, not a special case of a stronger prior theorem. No inspected prior statement implies that the smaller displayed step is valid or already supplies the repaired arbitrary-dimensional probability formula.",
+      "searches": [
+        "arXiv 2610.01924 Theorem 4.1 Hasse Weil width 4g p^(2g-1) exact width false positive",
+        "width-bound argument abelian variety minimal maximal random point exact error probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned scientific-database record stated the arXiv:2610.01924v1 Theorem 4.1 width discrepancy or the exact-width repaired error bound.",
+        "Web searches for the exact threshold and theorem identifier found the source itself but no correction."
+      ],
+      "reasoning": "Equivalent forms include phrasing the issue as a Hasse--Weil interval-width mismatch, a torsion-subgroup threshold correction, or an explicit false-positive bound. No searched record matched any of these statements.",
+      "searches": [
+        "arXiv 2610.01924 Theorem 4.1 Hasse Weil width 4g p^(2g-1) exact width false positive",
+        "Supersingularity Superspeciality Verification Abelian Surfaces Algorithm 2 exact false-positive bound extremal abelian variety"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source full text displays the exact Hasse--Weil width in Lemma 1 and separately uses \\(4gp^{2g-1}\\) in Theorem 4.1.",
+        "No searched correction note, erratum, database entry, or table supplied the exact repaired bound."
+      ],
+      "reasoning": "This is not a recomputation of a known table. The relevant exact expressions are compared symbolically and expose a proof-level mismatch not recorded in the searched literature.",
+      "searches": [
+        "arXiv 2610.01924 Theorem 4.1 Hasse Weil width 4g p^(2g-1) exact width false positive",
+        "\"4 g p\" \"Supersingularity and Superspeciality\""
+      ]
+    },
+    "rationale": "The retained claim is not merely the source's asymptotic theorem: it identifies a specific unsupported width substitution in the public preprint proof and supplies the corrected exact-width probability statement. Four targeted semantic searches found no correction or equivalent arbitrary-dimensional statement. Sutherland's primary paper proves the dimension-one analogue only. The source itself contains the ingredients, but does not state the inconsistency or the repaired explicit bound; the correction is therefore not a corollary asserted by the prior work.",
+    "residual_risks": [
+      "A separate structural argument, absent from the inspected proof, might still establish the smaller \\(4gp^{2g-1}\\) torsion threshold; the finding therefore claims a gap in the cited width argument, not falsity of that threshold.",
+      "An unindexed correction or private communication could exist despite the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper states \\(W_g(q)=(\\sqrt q+1)^{2g}-(\\sqrt q-1)^{2g}\\), but Theorem 4.1 uses \\(4gp^{2g-1}\\) as though it were an upper bound after \\(q=p^2\\). For \\(g\\ge2\\) it is strictly smaller than the exact width, leaving that proof step unsupported. Retaining the exact width immediately repairs the \\(O(p^{-1})\\) conclusion.",
+        "evidence": "arXiv:2610.01924v1, Eq. (6), Lemma 1, Algorithm 2, Theorem 4.1 and its proof.",
+        "identifier_or_url": "arXiv:2610.01924v1",
+        "material_read": "Full-text HTML, especially Section 2.3 (Hasse--Weil interval and Lemma 1), Section 4.1 (Algorithm 2 and Theorem 4.1), and the cited-reference entry for Sutherland.",
+        "method": "Direct full-text inspection and symbolic comparison of the displayed width formulas.",
+        "title": "Supersingularity and Superspeciality Verification of Abelian Surfaces",
+        "trigger": "Primary recent source defining the arbitrary-dimensional extremality test and its false-positive argument."
+      },
+      {
+        "assessment": "Sutherland proves the dimension-one false-positive bound using the exact elliptic Hasse interval width \\(4\\sqrt q\\). It supplies precedent for the method but no arbitrary-dimensional formula or correction to the 2026 proof.",
+        "evidence": "arXiv:1107.1140, Section 2.3, Proposition 2.",
+        "identifier_or_url": "arXiv:1107.1140",
+        "material_read": "Full arXiv text through Section 2.3, including Algorithm 1 and Proposition 2.",
+        "method": "Direct primary full-text inspection.",
+        "title": "Identifying supersingular elliptic curves",
+        "trigger": "The recent source explicitly cites Sutherland as the origin of the width-bound Monte Carlo argument."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f40f14d2-9b67-429b-a249-3df9bd04a162",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The affected theorem is the probability guarantee for a newly proposed arbitrary-dimensional Monte Carlo verification method in an isogeny-cryptography setting. The numerical correction is lower order in \\(p\\), but a rigorous false-positive bound is part of the security-facing specification: the result identifies exactly where the displayed proof overreaches, preserves the intended \\(O(p^{-1})\\) theorem, and supplies a branchwise bound that can be safely amplified by repetition. This is a motivated correction rather than an arbitrary algebraic simplification.",
+    "status": "PASS"
+  }
+}
