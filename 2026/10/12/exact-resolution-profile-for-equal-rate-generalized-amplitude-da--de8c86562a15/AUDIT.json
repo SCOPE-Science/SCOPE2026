@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The equal-rate generator is exactly diagonal on the Pauli basis. Its time-\\(s\\) channel is a Pauli channel with identity weight \\(((1+e^{-\\mu s})/2)^2\\). Complete-positive domination by that identity component and operator monotonicity of the logarithm give an amortized relative-entropy upper bound, saturated by a maximally entangled input. The source fixed-resolution variational theorem then leaves a scalar ratio of a strictly concave function, whose maximum is at the minimum allowed duration. This proves the closed profile and the unrestricted limit; the series follows from an analytic Taylor expansion. The packaged checker only corroborates these exact steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1808.01498v2, Theorem 37 reduces discrimination for environment-seizable/jointly covariant fixed channels to discrimination of resource states.",
+        "arXiv:2610.03629v1, Theorem A1 introduces the separate continuous-time optimization over evolution duration and minimum resolution."
+      ],
+      "reasoning": "The older theorem covers a broad class of fixed channels and supplies compatible machinery for each fixed semigroup time, but it does not contain the later Lindbladian exposure-time objective. The new statement requires identifying the equal-rate semigroup exactly, evaluating the amortized divergence, and solving the duration optimization.",
+      "searches": [
+        "Pauli semigroup identity discrimination amortized relative entropy p_I fixed resolution",
+        "amortized channel divergence Pauli channel relative entropy identity p_I",
+        "Wilde Berta Hirche Kaur 110 2277 2020 amortized channel divergence"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03629v1",
+      "arXiv:1808.01498v2",
+      "AMS MSC2020 entry 81P47 for quantum channels and fidelity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The anchor proves \\(\\Gamma_{s_{\\min}}=\\sup_{s\\ge s_{\\min}}D_A(e^{s\\mathcal L_1}\\|e^{s\\mathcal L_2})/s\\) and labels the equal-rate generalized-amplitude-damping case finite without evaluating that supremum.",
+        "The older paper proves broad fixed-channel discrimination reductions, but does not state a continuous-time equal-rate generalized-amplitude-damping formula."
+      ],
+      "reasoning": "Neither inspected source states the final claim. Their general results provide ingredients, but the exact Pauli-semigroup evaluation and monotonic duration optimization are additional deductions. This is recorded as the main originality risk rather than obscured.",
+      "searches": [
+        "Full-text inspection: arXiv:2610.03629v1, Theorem 1, Theorem A1, Appendix A8.3.1",
+        "Full-text inspection: arXiv:1808.01498v2, environment-seizable and jointly covariant channel results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.03629v1, Appendix A8.3.1 states only finiteness for equal transition rates.",
+        "No focused search located the displayed fixed-resolution formula or its unrestricted value as a named result."
+      ],
+      "reasoning": "Aliases covering generalized/generalised amplitude damping, equal transition rates, Stein exponent, fixed resolution, and the closed formula were checked. The anchor is the closest exact-object source but stops before quantitative evaluation.",
+      "searches": [
+        "arXiv 2610.03629 equal transition rates fixed resolution exponent generalized amplitude damping",
+        "equal-rate generalized amplitude damping fixed positive resolution Stein exponent formula -2 log (1+exp(-mu s))/2",
+        "generalized amplitude damping Stein exponent quantum channel discrimination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-result record or exact-value table was returned by the focused searches.",
+        "The anchor paper contains a qualitative regime table but its equal-rate subsection gives only \\(\\gamma<\\infty\\), not the value or resolution curve."
+      ],
+      "reasoning": "The natural database/table risk is an existing exact evaluation of the same equal-rate row. Searches targeting both the source notation and the proposed value did not locate one.",
+      "searches": [
+        "gamma_smin generalized amplitude damping equal rates mu log_2 e",
+        "equal-rate generalized amplitude damping Lindbladian Stein exponent identity exact mu"
+      ]
+    },
+    "rationale": "The anchor gives the exact same model and general variational framework but only establishes finiteness in the equal-rate subsection. The closest older channel-discrimination paper gives broad fixed-channel reductions but neither the Lindbladian exposure-time optimization nor this semigroup profile. Focused literature and exact-formula searches found no implication-equivalent published result.",
+    "residual_risks": [
+      "The final formula is a relatively concise corollary once the anchor variational theorem and the Pauli structure are combined; a differently phrased or unindexed contemporaneous note may have made the same specialization.",
+      "The broader fixed-channel literature can recover the fixed-s Bell-state discrimination value for jointly covariant Pauli channels; the claimed contribution is specifically the exact Lindbladian resolution profile and its analytic duration optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the closed equal-rate exponent or fixed-resolution profile; it proves only finiteness for equal rates and infinity/threshold behavior for unequal rates.",
+        "evidence": "Appendix A8.3.1 states that \\(G=-\\mu I/2\\) lies in the relevant span and concludes \\(\\gamma(0\\|\\mathcal L_{\\mu,\\mu})<\\infty\\), without a value.",
+        "identifier_or_url": "arXiv:2610.03629v1",
+        "material_read": "Abstract; problem definition; Theorem 1; Theorem A1; depolarizing calculation; Appendix A8.3 and A8.3.1 including equal transition rates.",
+        "method": "Full arXiv text plus rendered-page inspection of the theorem and equal-rate appendix pages.",
+        "title": "Discriminating Lindbladian Dynamics",
+        "trigger": "Exact same generalized-amplitude-damping family and discrimination model; decisive possible coverage."
+      },
+      {
+        "assessment": "PARTIAL_INGREDIENT, not the final claim. It reduces suitable fixed-channel discrimination to state discrimination but does not contain the continuous-time minimum-resolution optimization or equal-rate GAD semigroup result.",
+        "evidence": "Theorem 37 gives state-reduction formulas for environment-seizable fixed channels; the paper predates the Lindbladian exposure-time objective.",
+        "identifier_or_url": "arXiv:1808.01498v2",
+        "material_read": "Introduction; environment-seizable channel section; Theorem 37; jointly covariant/jointly teleportation-simulable discussion.",
+        "method": "Full arXiv text plus rendered-page inspection of the relevant theorem page.",
+        "title": "Amortized Channel Divergence for Asymptotic Quantum Channel Discrimination",
+        "trigger": "Strongest older fixed-channel framework plausibly covering Pauli-channel discrimination."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de8c8656-2a15-41ad-932a-e35a66e8017b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The anchor explicitly organizes generalized amplitude damping into three discrimination regimes but leaves the equal-rate finite regime quantitatively unevaluated. The new formula completely resolves that natural row, gives the exact intervention-resolution penalty, and identifies the unrestricted constant. This is a motivated exact invariant of the source model rather than a routine numerical instance.",
+    "status": "PASS"
+  }
+}
