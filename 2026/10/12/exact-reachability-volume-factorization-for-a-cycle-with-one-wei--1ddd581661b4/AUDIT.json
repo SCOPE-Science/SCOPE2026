@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The all-n proof fixes input placement, Laplacian, column order, and signs. The reflection splitting gives two Jacobi systems with constant nonzero within-sector Krylov determinants. The cross-sector Vandermonde/resultant identity is a polynomial in edge weight and holds beyond spectral collisions. At uniform weight each nonzero symmetric Fourier eigenvalue crosses a simple antisymmetric one with nonzero rank-one derivative, giving exactly floor((n-1)/2) factors. A signed affine null vector yields the sole remaining factor and the path determinant fixes the sign. An exact-rational standalone checker verified 112 cases n=3..18, which supplement rather than substitute for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xiang et al. 2013 treats a directed cycle under weighted/directed-network controllability, without the exact symmetric one-defect determinant.",
+        "Grudsky et al. 2022 gives explicit spectrum and eigenvectors for precisely the same family; hence its data are potentially sufficient to reconstruct the present quantity, but the closed factorization is not stated."
+      ],
+      "reasoning": "Generic PBH tests and complete eigenvalue/eigenvector data can determine controllability, but an explicit all-n determinant and its exact multiplicity at the symmetry-restoring point require additional resultant and sign computations. The spectral paper is the strongest coverage risk and is explicitly disclosed.",
+      "searches": [
+        "single leader controllability cycle graph with one weighted edge not equal to 1 endpoint Laplacian strong controllability",
+        "defect-edge weighted ring graph controllability PBH vertex actuator one link perturbation eigenvector zeros",
+        "single weighted edge cycle graph controllability single leader weighted Laplacian any edge weight except 1",
+        "controllability cycles weighted graph Laplacian one leader one edge perturbation eigenvectors",
+        "single leader controllability weighted cycle network exceptional edge weights spectrum",
+        "arxiv:2205.12457v1",
+        "doi:10.1155/2013/405034"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1155/2013/405034 complete journal HTML, original theorem and directed-cycle section",
+      "arXiv:1408.2187v1 all eight pages and Theorem III.3",
+      "arXiv:2205.12457v1 complete preprint including eigenvalue/eigenvector formulas and norms",
+      "Published mathematical records for cyclic spectra, controllability and weighted Laplacians"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zelazo–Bürger, arXiv:1408.2187v1, Theorem III.3, supplies only the signed singular-resistance root.",
+        "Grudsky–Maximenko–Soto-González, arXiv:2205.12457v1, gives full eigensystem of identical graph family but no explicit Kalman determinant.",
+        "Xiang et al., DOI 10.1155/2013/405034, treats network controllability and directed-cycle conditions."
+      ],
+      "reasoning": "The signed root is an implication of older effective-resistance theory and is not independently novel. The positive-weight controllability criterion can be deduced from full eigenvectors plus PBH, and is reported only as a corollary. The primary candidate is the exact signed factorization and high-multiplicity sensitivity law, which the checked sources do not explicitly imply via a short stated formula; their full spectral data may allow nontrivial derivation, a recorded residual novelty risk.",
+      "searches": [
+        "arxiv:2205.12457v1",
+        "arxiv:1408.2187v1",
+        "doi:10.1155/2013/405034",
+        "Kalman controllability determinant of a cycle with exactly one nonuniform edge factorization (w-1) exponent floor n/2 and (n-1)w+1",
+        "weighted undirected cyclic network single leader controllable iff closing edge weight not one spectral multiplicities and controllability volume",
+        "graph walk matrix determinant one weighted edge path plus closing edge resultant symmetric antisymmetric blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published research-index searches on graph walk-matrix determinant and edge perturbation returned unrelated cyclic spectra or control-system items; no equivalent Kalman determinant.",
+        "Explicit web searches for walk-matrix, controllability matrix, and weighted-cycle determinant variants found no exact factorized identity."
+      ],
+      "reasoning": "Equivalent forms include the determinant of the cyclic Kalman walk matrix with endpoint input, the cross-spectral resultant, and the determinant of the Krylov Gram matrix. Queried each; the squared volume identity is algebraically equivalent to the determinant, not a second finding.",
+      "searches": [
+        "determinant walk matrix one-defect weighted cycle graph Laplacian single leader controllability w-1 power (n-1)w+1",
+        "Kalman controllability determinant cycle single edge perturbation walk matrix rank one symmetry restoring",
+        "one weighted edge cycle controllability volume exact polynomial rank defect order exponential",
+        "cyclic graph weighted edge Laplacian walk matrix determinant reachable Gramian",
+        "\"controllability matrix\" determinant \"cycle\" weighted edge",
+        "\"walk matrix\" \"weighted cycle\" determinant controllability",
+        "\"cycle\" \"one edge\" \"controllability matrix\" determinant Laplacian",
+        "\"weighted cycle\" \"Kalman matrix\" determinant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused indexed searches found fixed-circulant spectral tables, not the one-edge-weight family or a full-dimension determinant table.",
+        "Grudsky et al. present spectral formulas and plots, not an exact walk determinant table."
+      ],
+      "reasoning": "The claim is a closed expression for every dimension and every real weight, not a repackaged finite census or a known numerical tabulation.",
+      "searches": [
+        "determinant walk matrix one-defect weighted cycle graph Laplacian single leader controllability w-1 power (n-1)w+1",
+        "Kalman controllability determinant cycle single edge perturbation walk matrix rank one symmetry restoring",
+        "one weighted edge cycle controllability volume exact polynomial rank defect order exponential",
+        "cyclic graph weighted edge Laplacian walk matrix determinant reachable Gramian",
+        "Kalman controllability determinant of a cycle with exactly one nonuniform edge factorization (w-1) exponent floor n/2 and (n-1)w+1",
+        "weighted undirected cyclic network single leader controllable iff closing edge weight not one spectral multiplicities and controllability volume",
+        "graph walk matrix determinant one weighted edge path plus closing edge resultant symmetric antisymmetric blocks",
+        "cycle Laplacian one weighted edge Kalman determinant alpha-1 n-1 alpha",
+        "defect weighted cycle single leader Kalman walk controllability determinant formula"
+      ]
+    },
+    "rationale": "The exact polynomial of the ordered single-endpoint Kalman matrix and its high-order unit-weight collapse were not stated in the directly relevant 2022 full spectral paper or the 2013 controllability analysis. The factor at the signed resistance resonance is known and is not claimed as new. Focused external and published research-index searches did not find the equivalent factorization. Reconstructing this invariant from the complete known eigensystem would require a nontrivial Vandermonde/eigenvector-product elimination; the present reflection-sector resultant proof supplies the collapsed answer. Historical priority remains uncertain.",
+    "residual_risks": [
+      "An older unindexed article or thesis might contain the same explicit walk-matrix determinant.",
+      "The published 2022 complete eigensystem is mathematically strong enough in principle to imply the determinant after elimination; whether that derivation should be regarded as immediate prior coverage remains a human mathematical-priority question.",
+      "Semantic index retrieval cannot establish uniqueness relative to unpublished or unindexed work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General PBH/structural controllability results and a directed cycle; not the symmetric one-defect edge-weight Kalman determinant.",
+        "evidence": [
+          "DOI 10.1155/2013/405034; first published 2013-05-26; original theorem and directed-cycle example."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/405034",
+        "material_read": "Complete openly accessible 2013 journal HTML, including abstract, definitions, rank conditions, Theorem 8, and Section 4.2/Corollary 18 for directed cycles.",
+        "method": "Direct primary full-text comparison of orientation, edge weights, input placement, and stated claims.",
+        "title": "Controllability of Weighted and Directed Networks with Nonidentical Node Dynamics",
+        "trigger": "Historical controllability source with a cycle example and verified 2013 date"
+      },
+      {
+        "assessment": "Covers the signed root at \\(-1/(n-1)\\) but not the symmetric-cycle controllability determinant or the unit-weight high-multiplicity factor.",
+        "evidence": [
+          "arXiv:1408.2187v1, Theorem III.3, effective resistance between endpoints of a path of length n-1 is n-1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1408.2187",
+        "material_read": "All eight pages of freely accessible arXiv v1, especially Theorem III.3 concerning a negative edge weight and effective resistance.",
+        "method": "Compare singular-Laplacian criterion to zeros of one-input Kalman walk determinant.",
+        "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+        "trigger": "The signed singular weight of the perturbed cycle equals negative inverse path resistance."
+      },
+      {
+        "assessment": "Provides explicit eigenvalues/eigenvectors of the same graph family, which could be combined with Krylov Vandermonde identities to derive a determinant after nontrivial product elimination. The exact factored ordered Kalman determinant and dimension-dependent symmetry-restoration multiplicity are not stated in inspected material. Historical priority risk remains.",
+        "evidence": [
+          "arXiv:2205.12457v1 Sections 2-3 (eigenvalues, vectors and characteristic polynomials), Section 10 (norms); no explicit Kalman or walk-matrix determinant statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.12457",
+        "material_read": "Full 29-page open preprint: eigenvalue and eigenvector theorems, characteristic equation, eigenvector constructions and norms, and numerical sections.",
+        "method": "Inspect complete relevant primary material; compare exact outcomes and logical implications of eigensystem identities for a single endpoint input.",
+        "title": "Eigenvalues of the Laplacian Matrices of the Cycles with One Weighted Edge",
+        "trigger": "Precisely the same graph family, hence direct risk of existing stronger spectral coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ddd5816-61b4-4eee-9cfd-d5675a21b1f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural algebraic controllability volume of an endpoint-actuated nearly uniform cycle has a clean exact formula for all sizes and weights. The result quantifies the increasingly high-order loss of controllability robustness as n grows at the symmetry-restoring weight, and separates signed-Laplacian degeneracy from rotational-symmetry degeneracy. Unlike a finite table or normalization check it establishes a structural sensitivity law for an infinite graph family.",
+    "status": "PASS"
+  }
+}
