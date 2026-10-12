@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Every unordered pair has canonical circular coordinates P(r,x). The integer D=(r-1)n+n-x decreases by exactly one under a when x<n-1 and under b when x=n-1, while a complete case check shows neither generator can decrease D by more than one. Therefore any synchronizing word has length at least D. The explicit word a^(n-1-x)b(a^(n-1)b)^(r-1) has exactly length D and synchronizes the pair, proving equality. Converting the two possible orientations of {i,j} gives the stated minimum formula. Reverse-BFS verification independently matches the formula for every pair for 2<=n<=80.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behague–Johnson state RDV(2,n)=binom(n,2) and cite Cardoso for general k-set lower bounds.",
+        "Gonze–Jungers focus on triple rendezvous time and synchronizing probability, not an exact pair-coordinate metric.",
+        "The accessible summary of Cardoso's result in Behague–Johnson is an extremal k-set bound rather than a complete pair classification."
+      ],
+      "reasoning": "Global extremal bounds do not identify which nonextremal labeled pair has which distance. The rank formula resolves the entire two-state metric layer.",
+      "searches": [
+        "Synchronizing Times for k-sets Černý pair weight",
+        "On the Synchronizing Probability Function triple rendezvous pair",
+        "Cardoso Černý automaton k-set weight thesis",
+        "Černý automaton power automaton pair layer shortest paths"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2008.12166v1 and the 2022 Electronic Journal of Combinatorics full text",
+      "DOI:10.1137/15M1024603 indexed publisher record",
+      "DOI:10.34626/607f-t921 repository metadata and its result as summarized by Behague–Johnson",
+      "targeted web searches for exact pair formulas, pair-automaton distances, average pair synchronization, and state-coordinate aliases",
+      "semantic research-index searches for Černý pair synchronization, k-set synchronization, and exact pair-layer distance",
+      "current and prior research records checked for Černý, rendezvous, pair-weight, RDV, and synchronization-time overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A shortest pair path of length binom(n,2) cannot repeat a pair, so the primary paper's maximum already implies that every abstract distance 1,...,binom(n,2) occurs once; this consequence is treated as prior coverage.",
+        "That argument does not determine the label-to-distance map. The new proof gives the exact map t({i,j})=min((j-i)n-i,(n-j+i)n-j) and proves it by a rank potential."
+      ],
+      "reasoning": "The final originality claim is deliberately narrowed to the labeled formula and rank certificate. Covered consequences are separated from the surviving statement instead of being used as novelty evidence.",
+      "searches": [
+        "arXiv:2008.12166 RDV(2,n) Cerny pair",
+        "Synchronizing Times k-sets pair weight binomial n 2",
+        "Cardoso Cerny conjecture other synchronization problems pair weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020/2022 primary paper defines pair weight and gives only the global maximum plus one extremal pair, not a coordinate formula for arbitrary pairs.",
+        "Targeted exact-formula searches returned the primary rendezvous-time paper and general synchronization sources but no pair-by-pair formula."
+      ],
+      "reasoning": "The unlabeled spectrum is covered as an implication of the published maximum. The formula retained here is stronger: it maps each labeled pair to its exact distance and supplies an explicit inverse ranking of the pair layer.",
+      "searches": [
+        "Černý automaton exact synchronization time every pair formula pair layer distance",
+        "Cerny automaton pair {i,j} shortest word singleton formula",
+        "Černý automaton pair distance shortest singleton formula",
+        "Cerny automaton pair automaton distance formula",
+        "Cerny automaton average pair synchronization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database or indexed search returned a table or formula assigning all pair weights.",
+        "The direct paper's figure for n=4 displays the pair layer visually, but its text records the maximum pair weight rather than a general coordinate table."
+      ],
+      "reasoning": "Finite diagrams and the known extremal value are credited. The all-n closed formula is not recovered from a published table.",
+      "searches": [
+        "Cerny automaton pair weights synchronization",
+        "Cerny automaton every pair weight",
+        "Cerny automaton pair automaton distances",
+        "Cerny automaton pair synchronization spectrum"
+      ]
+    },
+    "rationale": "The direct source already proves the extremal value RDV(2,n)=binom(n,2), which immediately implies the unlabeled multiset of pair weights along a longest geodesic; that implication is explicitly credited and is not treated as new. The surviving claim is the state-resolved closed formula assigning the exact shortest synchronization time to every labeled pair. Searches under pair-weight, pair-automaton distance, exact-coordinate, average, and Černý aliases found no source stating or implying that assignment formula. The principal residual risk is Cardoso's 2014 thesis, whose repository metadata was accessible but whose full body was not obtained through the bounded public route.",
+    "residual_risks": [
+      "Cardoso's 2014 thesis is a highly relevant plausible source whose full body was not recovered through the bounded public-access route; it may contain a more detailed pair calculation than the later paper's summary.",
+      "The formula is elementary once the correct rank coordinates are chosen, so an older lecture note or automata text may record it without searchable indexing.",
+      "The abstract spectrum 1,...,binom(n,2) is already implied by the published extremal pair result and is not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_FORMULA",
+        "evidence": "The source covers the maximum pair weight and an extremal pair. It does not state the general labeled-pair formula used in the final claim.",
+        "identifier_or_url": "arXiv:2008.12166v1 / DOI:10.37236/9819",
+        "material_read": "Full open PDF introduction, power-automaton definitions, Questions 2–3, the definition of weight t(S), the statement RDV(2,n)=binom(n,2), the extremal pair, and the immediately following Černý k-set discussion.",
+        "method": "Primary open full-text inspection, including visual inspection of the page containing the pair result.",
+        "title": "Synchronizing Times for k-sets in Automata",
+        "trigger": "Direct primary source defining set weight and identifying the Černý automaton as extremal for pair rendezvous time."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper's stated contribution is triple rendezvous time and synchronizing probability, not the exact labeled pair metric of the Černý family.",
+        "identifier_or_url": "DOI:10.1137/15M1024603",
+        "material_read": "Abstract, scope, keywords, MSC metadata, and indexed references relevant to pair/triple synchronization.",
+        "method": "Publisher-indexed source inspection.",
+        "title": "On the Synchronizing Probability Function and the Triple Rendezvous Time for Synchronizing Automata",
+        "trigger": "Foundational rendezvous-time source cited by the direct paper."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_RISK",
+        "evidence": "The accessible material establishes that the thesis contains stronger extremal k-set analysis, but does not expose a complete pair-by-pair distance formula. Because the body was not inspected, it remains a residual risk rather than being declared noncovering.",
+        "identifier_or_url": "DOI:10.34626/607f-t921",
+        "material_read": "Repository metadata and the result as quoted/summarized in Behague–Johnson; the thesis body itself was not recovered through the bounded public-access path.",
+        "method": "Repository metadata search plus comparison through the later primary paper's explicit citation and summary.",
+        "title": "The Černý Conjecture and Other Synchronization Problems",
+        "trigger": "Behague–Johnson cite this thesis for Černý k-set weight lower bounds, making it a plausible stronger prior source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ee16dcf-873a-4395-9e00-166b7cd72546",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pair synchronization is the base layer of the rendezvous-time framework and the Černý family is the canonical extremal family. A state-resolved exact formula is a natural complete classification: it turns the known worst-case witness into a metric on every pair, gives explicit shortest-word lengths without search, and supplies a monotone rank coordinate useful for analyzing pair-layer dynamics. The claim is intentionally not inflated by treating the already implied unlabeled spectrum as new.",
+    "status": "PASS"
+  }
+}
