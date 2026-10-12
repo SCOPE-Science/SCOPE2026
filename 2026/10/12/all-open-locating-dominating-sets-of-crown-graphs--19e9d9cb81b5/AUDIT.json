@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For distinct \\(a_i,a_j\\), their signatures are \\(S_B\\setminus\\{b_i\\}\\) and \\(S_B\\setminus\\{b_j\\}\\); omitting both \\(b_i\\) and \\(b_j\\) makes them equal, so at most one \\(B\\)-vertex can be omitted, and symmetrically at most one \\(A\\)-vertex can be omitted. Conversely, those sidewise inequalities give at least two selected vertices per side for \\(n\\ge3\\), hence nonempty signatures; a selected \\(b_i\\) or \\(b_j\\) separates every same-side \\(a\\)-pair, the symmetric argument handles \\(B\\), and cross-side signatures are nonempty subsets of disjoint sides. Enumeration then factors as \\(\\bigl(z^n+n z^{n-1}\\bigr)^2\\). The packaged checker exhaustively confirms the definition and coefficients for \\(3\\le n\\le8\\); the finite check is not used for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chellali–Jafari Rad–Seo–Slater, EJGTA 2(2) (2014), gives \\(\\operatorname{OLD}(G)=2,3,|V(G)|\\) characterizations and a \\(C_4\\)-free order-minus-one theorem, plus general bounds.",
+        "Pandey, ICIT 2015, treats OLD complexity on bipartite graphs and polynomial-time solution on chain graphs.",
+        "For \\(n\\ge3\\), crown neighborhoods \\(B\\setminus\\{b_i\\}\\) are pairwise incomparable, so crowns are not chain graphs."
+      ],
+      "reasoning": "The known broad results do not specialize to the claimed formula. For \\(n\\ge4\\), crowns contain \\(4\\)-cycles, blocking the \\(C_4\\)-free structural theorem; \\(\\operatorname{Cr}_3\\cong C_6\\) is not one of its equality graphs. The chain-graph algorithmic theorem is structurally inapplicable.",
+      "searches": [
+        "open locating dominating crown graph",
+        "open neighborhood locating dominating complete bipartite minus perfect matching",
+        "open neighborhood locating-dominating bipartite chain graph crown"
+      ]
+    },
+    "checked_sources": [
+      "Seo-Slater, Australas. J. Combin. 46 (2010), 109-119",
+      "Kincaid-Oldham-Yu, arXiv:1403.7061",
+      "Chellali-Jafari Rad-Seo-Slater, doi:10.5614/EJGTA.2014.2.2.1",
+      "Henning-Yeo, doi:10.1007/s00373-013-1311-2",
+      "Pandey, doi:10.1109/ICIT.2015.14"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Seo–Slater's universal information bound does not determine \\(\\operatorname{OLD}(\\operatorname{Cr}_n)\\).",
+        "Chellali et al.'s degree/share and \\(C_4\\)-free bounds do not force \\(\\operatorname{OLD}(\\operatorname{Cr}_n)=2n-2\\).",
+        "Closed-neighborhood identifying codes use different signatures, so their crown behavior does not imply open-neighborhood identification.",
+        "A same-object restrained-domination result concerns a different domination condition and does not imply OLD separation."
+      ],
+      "reasoning": "No inspected prior theorem has hypotheses and conclusion strong enough to imply the sidewise omission rule. In particular, the claim is not a corollary of closed-neighborhood identification or restrained domination because those parameters compare different neighborhood data.",
+      "searches": [
+        "open neighborhood locating dominating complete bipartite minus perfect matching",
+        "open-separating total-dominating complete bipartite minus perfect matching",
+        "crown graph identifying code OLD comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Modern terminology identifies OLD-sets with identifying open codes / open-separating total-dominating codes.",
+        "Semantic alias searches returned no crown-family theorem; closest same-parameter records concerned unrelated graph families.",
+        "Henning–Yeo (Graphs Combin. 30 (2014), DOI 10.1007/s00373-013-1311-2) treats identifying open codes in cubic graphs."
+      ],
+      "reasoning": "The aliases use the same open-neighborhood separation plus total-domination condition, so they were searched explicitly. The cubic theorem can touch only \\(\\operatorname{Cr}_4\\) inside the crown family and supplies a bound, not the sidewise characterization or enumerator.",
+      "searches": [
+        "OTD-code crown graph open-separating total-dominating",
+        "open-separating total-dominating complete bipartite minus perfect matching",
+        "identifying open code crown graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches returned no record with the crown OLD criterion or polynomial.",
+        "Full-text searches of Seo–Slater (2010) and Chellali et al. (2014) found no occurrence of “crown” or “complete bipartite”.",
+        "The inspected 2014 paper's theorem list and bounds concern extremal OLD values, \\(C_4\\)-free graphs, trees, and cubic bounds rather than crowns."
+      ],
+      "reasoning": "A failed search alone is not treated as novelty proof. It is used only alongside source-level scope inspection and implication comparison. No exact table or database entry located during these checks records the three coefficients \\(n^2\\), \\(2n\\), and \\(1\\) for crown OLD-sets.",
+      "searches": [
+        "open locating dominating crown graph",
+        "OLD sets crown graph K_n,n minus matching",
+        "open locating domination crown all minimum sets",
+        "crown graph open neighborhood locating-dominating",
+        "K_{n,n}-M OLD-set"
+      ]
+    },
+    "rationale": "Statement-level comparison found no source that gives the crown-family if-and-only-if criterion, complete cardinality enumerator, or all minimum-set classification. The foundational and 2014 general OLD papers were inspected in full text for the relevant families and the latter's main structural regimes were compared directly. Alias searches for identifying open codes and open-separating total-dominating codes also found no crown result. General bipartite/chain and cubic results do not imply the family theorem.",
+    "residual_risks": [
+      "No finite literature search proves global absence; an obscure source using another identification-code synonym could exist.",
+      "The scalar \\(n=3\\) case \\(\\operatorname{Cr}_3\\cong C_6\\) may be recoverable from cycle-specific OLD literature; the retained novelty assessment is for the uniform crown if-and-only-if classification, enumerator, and all-minimum-set count.",
+      "The 2015 conference paper's full text was not openly inspected beyond its public abstract and outline, so its inaccessible details remain a small residual risk; its stated chain-graph theorem is inapplicable to crowns."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Defines OLD-sets and studies paths, trees, and infinite grids; no crown or complete-bipartite occurrence was found.",
+        "identifier_or_url": "Australasian Journal of Combinatorics 46 (2010), 109-119",
+        "material_read": "Full article text, including definition, general observations, complexity reduction, path/tree results, and grid sections; targeted whole-document searches for crown and complete bipartite.",
+        "method": "Read parsed full text and page images; searched family names in the complete document.",
+        "title": "Open neighborhood locating-dominating sets",
+        "trigger": "Foundational definition and the most plausible early general source."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Main results concern OLD=2,3,order, C4-free OLD=order-1, and general/cubic bounds. No crown or complete-bipartite occurrence was found.",
+        "identifier_or_url": "doi:10.5614/EJGTA.2014.2.2.1",
+        "material_read": "Full 12-page article text across definition, existence/interpolation, extremal-value characterization, C4-free theorem, and bounds; targeted whole-document searches for crown and complete bipartite.",
+        "method": "Read parsed full text across all sections and inspected representative PDF pages.",
+        "title": "On open neighborhood locating-dominating in graphs",
+        "trigger": "General follow-up with extremal characterizations and bounds could potentially dominate a family computation."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The object is the infinite triangular grid and the result is its optimal OLD density, not finite crown graphs.",
+        "identifier_or_url": "arXiv:1403.7061",
+        "material_read": "Title, abstract, first-public version metadata, and classification metadata.",
+        "method": "Read public abstract/metadata records.",
+        "title": "Optimal open-locating-dominating sets in infinite triangular grids",
+        "trigger": "Exact archive-era public source for OLD-sets and the archive date anchor."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Provides a cubic upper bound; only Cr_4 is cubic and no crown all-set classification follows.",
+        "identifier_or_url": "doi:10.1007/s00373-013-1311-2",
+        "material_read": "Abstract and theorem scope as reported in bibliographic records and the 2014 general OLD paper.",
+        "method": "Compared hypotheses and conclusion with the crown family.",
+        "title": "Distinguishing-Transversal in Hypergraphs and Identifying Open Codes in Cubic Graphs",
+        "trigger": "Identifying open code is an equivalent formulation, and \\(\\operatorname{Cr}_4\\) is cubic."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The exact tractable subclass is chain graphs; crowns have pairwise incomparable same-side neighborhoods and are not chain graphs for \\(n\\ge3\\).",
+        "identifier_or_url": "doi:10.1109/ICIT.2015.14",
+        "material_read": "Public abstract, section outline, conference metadata, and chain-graph scope.",
+        "method": "Compared graph-class hypotheses with crown neighborhoods.",
+        "title": "Open Neighborhood Locating-Dominating Set in Graphs: Complexity and Algorithms",
+        "trigger": "Broad bipartite scope and a chain-graph algorithm could plausibly contain a crown specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19e9d9cb-81b5-4d5b-bffd-383d490a353e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The crown graph is a standard symmetric matching-deleted biclique, and OLD is an NP-hard identification parameter. The result does more than give one scalar: it classifies every feasible detector set, yields the exact cardinality enumerator and total count, and isolates a sharp sidewise rigidity rule. This provides a natural benchmark family and a reusable exact distribution for probabilistic or robustness questions about detector subsets; it is not an arbitrary finite slice or a numerical recomputation.",
+    "status": "PASS"
+  }
+}
