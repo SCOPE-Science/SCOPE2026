@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Eliminating the three source stages gives the exact commuting-operator step matrix \\(I+3P_xP_yP_z-P_xP_y-P_xP_z-P_yP_z\\). Tensor structure separates entries by how many coordinate indices differ. The one-dimensional inverse diagonal formula identifies the endpoint diagonal as the minimum, reducing all sign constraints to three pair inequalities. Necessity uses strict positivity of off-diagonal entries of irreducible tridiagonal M-matrix inverses. The cube threshold, uniqueness, monotonicity in grid size, limiting continued fraction, and exact rational counterexample are then derived explicitly. The packaged checker independently replays the finite algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1956 source proves unconditional stability of its three-dimensional scheme, which is weaker than entrywise positivity and does not determine when nonnegative data remain nonnegative.",
+        "The 2016 source distinguishes absolute stability from oscillatory behavior in two dimensions; it does not provide a three-dimensional positivity theorem.",
+        "The searchable introduction of the 1962 Douglas paper states that its purpose is a new second-order three-dimensional method and identifies the earlier 1956 method as the first-order predecessor."
+      ],
+      "reasoning": "Spectral stability and damping results do not dominate entrywise cone invariance. The later three-dimensional methods are scientifically adjacent but are different algorithms; their theorems do not imply the stated criterion for the original 1956 step.",
+      "searches": [
+        "alternating direction discrete maximum principle heat equation",
+        "ADI positivity heat equation nonnegative finite difference",
+        "Alternating Direction Methods for Three Space Variables Douglas 1962",
+        "On the stability of ADI methods Douglas Rachford oscillations"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1090/S0002-9947-1956-0084194-4",
+      "doi:10.7146/dpb.v42i598.25146",
+      "doi:10.1007/BF01386295",
+      "doi:10.1007/978-3-540-70529-1_435"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unconditional von Neumann or \\(L^2\\) stability controls spectral amplification but does not imply entrywise nonnegativity.",
+        "The two-dimensional traditional Douglas–Rachford growth factor in the 2016 paper is a scalar Fourier statement and does not imply the tensor-entry sign inequalities in three dimensions.",
+        "The closest prior Peaceman–Rachford positivity result has a product of one-dimensional signed factors and a different threshold mechanism; it does not imply the three-dimensional Douglas–Rachford map \\(I+3P_xP_yP_z-P_xP_y-P_xP_z-P_yP_z\\)."
+      ],
+      "reasoning": "The final claim is a sharp if-and-only-if cone-invariance classification for a specific three-dimensional historical scheme. Neither stability nor the distinct Peaceman–Rachford positivity theorem logically entails it.",
+      "searches": [
+        "Douglas Rachford 1956 three-dimensional equation 2.5 stability",
+        "traditional Douglas-Rachford ADI growth factor oscillations",
+        "Peaceman Rachford positivity finite grid threshold heat"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned general ADI references and unrelated positivity results, but no statement of the pairwise resolvent-diagonal criterion or the cube constant \\((3-\\sqrt6)/2\\).",
+        "The original 1956 full text contains the three-dimensional equations and stability theorem; searches within the full text found no use of nonnegative-matrix terminology, and its maximum-principle occurrence concerns the continuous parabolic PDE in a convergence proof.",
+        "The 2016 full-text ADI stability study gives two-dimensional growth factors for traditional Douglas–Rachford and discusses oscillatory damping rather than completed-step entrywise positivity."
+      ],
+      "reasoning": "The aliases cover the scheme name, dimensional setting, maximum-principle language, nonnegative matrices, and resolvent terminology. None of the retrieved statements is implication-equivalent to the exact three-pair criterion.",
+      "searches": [
+        "Douglas Rachford three-dimensional heat positivity determinant resolvent threshold",
+        "Douglas ADI three space variables entrywise nonnegative maximum principle",
+        "Douglas Rachford heat scheme positivity 3-sqrt(6)",
+        "traditional Douglas-Rachford ADI oscillation nonnegative three dimensions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry for the sequence \\(\tau_n\\), the limit \\((3-\\sqrt6)/2\\), or the rational \\(2^3\\)-grid witness was located.",
+        "The threshold is derived from the continuant identity \\(D_n=(3/2)D_{n-1}\\), not read from a numerical table."
+      ],
+      "reasoning": "The result is an analytic classification, and the searched exact constants did not match a preexisting tabulation.",
+      "searches": [
+        "\"3-sqrt(6)\" Douglas ADI",
+        "Douglas Rachford positivity timestep threshold heat",
+        "Douglas ADI boundary diagonal resolvent positivity"
+      ]
+    },
+    "rationale": "The foundational 1956 paper gives the exact three-dimensional scheme and proves unconditional stability, but its inspected full text does not formulate a completed-step entrywise-positivity condition. A full 2016 ADI stability paper studies two-dimensional traditional Douglas–Rachford growth factors and oscillations but not the three-dimensional tensor-entry classification. Targeted searches under positivity, maximum-principle, nonnegative-matrix, resolvent, and three-space-variable terminology did not locate an implication-equivalent theorem. The closest internal result is a two-dimensional Peaceman–Rachford positivity threshold with a different rational map and different scalar boundary law.",
+    "residual_risks": [
+      "The complete body of Douglas's 1962 three-space-variable paper was not fully retrievable through the inspected route, so an older differently phrased entrywise-monotonicity statement remains a residual risk.",
+      "Older finite-difference maximum-principle literature may formulate the same criterion without the modern entrywise-positive or resolvent terminology used in the searches.",
+      "The theorem concerns the original first-order three-stage scheme only; confusing it with later Douglas or Douglas–Gunn variants would invalidate the comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: defines the method and proves unconditional stability, but does not state the entrywise positivity region derived here.",
+        "evidence": "The paper prints the three-stage three-dimensional scheme and its eliminated equation, states that the method is stable for any positive time step on a cube, and records a Society presentation date of 1955-12-27.",
+        "identifier_or_url": "doi:10.1090/S0002-9947-1956-0084194-4",
+        "material_read": "Full 19-page text was available; focused inspection covered the front matter, equations (2.5)–(2.6), the three-dimensional stability section and Theorem 6, and full-text searches for positivity, nonnegativity, maximum principles, and stability.",
+        "method": "Full-text PDF inspection with rendered-page verification of the front matter and the three-dimensional scheme.",
+        "title": "On the numerical solution of heat conduction problems in two and three space variables",
+        "trigger": "Foundational source defining the exact three-stage method under study."
+      },
+      {
+        "assessment": "CLOSEST_PARTIAL_COVERAGE: distinguishes stability from oscillatory behavior in two dimensions but gives no three-dimensional entrywise positivity threshold.",
+        "evidence": "The paper gives the two-dimensional traditional Douglas–Rachford growth factor and discusses high-frequency oscillations; it lists MSC 65M06 and 65M12.",
+        "identifier_or_url": "doi:10.7146/dpb.v42i598.25146",
+        "material_read": "Full 8-page PDF, including the traditional Douglas–Rachford equations, growth factor, and stability-and-damping discussion.",
+        "method": "Full-text PDF inspection with rendered-page verification of the method and growth-factor pages.",
+        "title": "On the Stability of ADI Methods",
+        "trigger": "Closest recovered full-text source explicitly discussing Douglas–Rachford oscillations and physical sign behavior."
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON_RISK_RETAINED: the introduction says the paper develops a new second-order method and identifies the 1956 scheme as the earlier first-order method; the complete article was not used to assert noncoverage.",
+        "evidence": "The introduction explicitly distinguishes the earlier three-dimensional first-order scheme from the new method developed in 1962.",
+        "identifier_or_url": "doi:10.1007/BF01386295",
+        "material_read": "Searchable introduction and bibliographic material were available; a complete full-text fetch through the inspected route failed because the available volume PDF exceeded the retrieval limit.",
+        "method": "Search-result text inspection plus bounded full-text retrieval attempt.",
+        "title": "Alternating Direction Methods for Three Space Variables",
+        "trigger": "Plausible later primary source devoted specifically to three-space-variable ADI methods."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: verifies ADI as a finite-difference PDE topic under primary MSC 65M06 and identifies the Douglas–Rachford source.",
+        "evidence": "The entry lists MSC 65M06 and 65N06 and cites the 1956 Douglas–Rachford paper.",
+        "identifier_or_url": "doi:10.1007/978-3-540-70529-1_435",
+        "material_read": "Reference-entry metadata, description, MSC classification, and historical references.",
+        "method": "Publisher reference-entry inspection.",
+        "title": "ADI Methods",
+        "trigger": "Classification and historical cross-check for ADI finite-difference methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15a20d35-8040-4a56-89f6-a434919da780",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The method is a foundational, still-cited ADI discretization for multidimensional heat flow. Its source theorem gives unconditional stability, while nonnegative temperature propagation is a separate physically meaningful property. The new result gives a complete sharp rectangular-grid positivity test, collapses a large matrix sign problem to three scalar pair inequalities, and identifies an explicit cube CFL-like constant despite unconditional stability. The distinction is operationally meaningful near steep fronts and discontinuities, precisely where later literature discusses ADI oscillations.",
+    "status": "PASS"
+  }
+}
