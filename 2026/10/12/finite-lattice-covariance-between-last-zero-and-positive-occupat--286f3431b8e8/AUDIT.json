@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The claim is reconstructed from the discrete last-zero factorization, an exact bridge occupation calculation, and two coefficient identities from \\((1-z)^{-1/2}\\). Conditioning on \\(L_{2n}=2k\\) leaves the pre-\\(2k\\) segment as a bridge because the no-later-zero event depends only on future increments. The terminal zero-free segment has symmetric sign. Exact exhaustive enumeration for \\(1\\le n\\le9\\) independently checks the distribution, conditional means, marginal means, coefficient identities, and covariance. No finite experiment is used to justify the all-\\(n\\) quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete Chao–Slivka article was inspected on all eight pages; its theorems concern exact marginal distributions of N+, N*, L+, and L* for nonzero linear-boundary crossings.",
+        "Csáki 1994 abstract states that it derives selected exact/asymptotic joint distributions for variables defined on Bernoulli excursions."
+      ],
+      "reasoning": "Chao–Slivka is broader in drift/boundary parameters but does not cover the fixed-horizon pair in the claim. Csáki is structurally relevant but its accessible statement concerns excursion-local variables, so it is retained as a residual risk rather than treated as coverage.",
+      "searches": [
+        "Some exact distributions of the number of one-sided deviations and the time of the last such deviation in the simple random walk",
+        "Some joint distributions in Bernoulli excursions"
+      ]
+    },
+    "checked_sources": [
+      "Pitman and Yor (1992), DOI 10.1112/plms/s3-65.2.326.",
+      "Chao and Slivka (1987), DOI 10.1016/0304-4149(87)90018-4.",
+      "Csáki (1994), DOI 10.2307/3214959.",
+      "Published-finding semantic searches for last-zero/occupation covariance and one-sided-deviation aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published finding ID 2026/9/21/SCOPE-four-way-interaction-sparre-andersen-persistence--a412ed2dcdb6 concerns persistence under higher-order dependence, not this joint functional.",
+        "Closest published finding ID 2026/10/4/SCOPE-exact-low-dimensional-modified-n-th-von-neumann-jordan-constants--798ce7784488 concerns expected displacement moments, not last-zero/occupation dependence.",
+        "A prior checked occupation result gives covariance with the terminal position; that statement does not determine covariance with the last-zero time."
+      ],
+      "reasoning": "Neither the closest published findings nor the earlier occupation/endpoint identity implies the conditional regression on last zero, and the last-zero functional is not a deterministic function of the endpoint.",
+      "searches": [
+        "last zero positive occupation count simple symmetric random walk exact covariance discrete arcsine",
+        "number of one-sided deviations last deviation simple random walk Chao Slivka"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitman–Yor 1992, DOI 10.1112/plms/s3-65.2.326, treats arcsine occupation and excursion functionals in continuous time.",
+        "Chao–Slivka 1987, DOI 10.1016/0304-4149(87)90018-4, defines number of one-sided boundary deviations and last boundary-exit time, not the last zero at a fixed horizon."
+      ],
+      "reasoning": "Aliases for last zero/last return and positive occupation/positive partial sums were compared. The closest exact discrete paper uses a different last-time functional: last crossing of a nonzero linear boundary over an infinite horizon.",
+      "searches": [
+        "last zero positive occupation count simple symmetric random walk exact covariance discrete arcsine",
+        "last zero time number of positive partial sums random walk",
+        "last return to zero occupation time symmetric random walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact last-zero marginal law is classical, but no checked source or published-finding record supplied the displayed conditional expectation or covariance.",
+        "The full Chao–Slivka formulas were checked rather than relying on title or abstract similarity."
+      ],
+      "reasoning": "Known marginal arcsine tables do not determine the joint covariance. The new step is the conditional bridge/terminal-excursion calculation and its exact averaging.",
+      "searches": [
+        "Cov last zero occupation simple random walk",
+        "finite lattice correction Brownian arcsine last zero occupation time covariance"
+      ]
+    },
+    "rationale": "The checked classical sources cover Brownian arcsine functionals, nonzero-boundary exit counts/last-exit times, and selected excursion-local joint laws, but the inspected statements do not give or imply the fixed-horizon conditional mean or covariance for last zero versus strict-positive occupation. A previously checked finite-walk occupation covariance concerns the terminal position rather than last zero and does not imply this result.",
+    "residual_risks": [
+      "The full text of Csáki (1994) was not available through the public source inspected; an unindexed formula in that or another historical source could reduce originality.",
+      "Classical random-walk literature is extensive, so absence from the checked sources is not a proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Continuous-time arcsine/excursion identities motivate the comparison but do not state the finite simple-walk covariance.",
+        "identifier_or_url": "doi:10.1112/plms/s3-65.2.326",
+        "material_read": "Publisher metadata and substantive article material describing the Brownian arcsine and excursion framework.",
+        "method": "Full-text/publication-page inspection.",
+        "title": "Arcsine Laws and Interval Partitions Derived from a Stable Subordinator",
+        "trigger": "Canonical source connecting positive occupation with zero-set/excursion arcsine structure."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It studies infinite-horizon counts and last exits over a nonzero linear boundary; its L variables are last boundary deviations, not the fixed-horizon last zero.",
+        "identifier_or_url": "doi:10.1016/0304-4149(87)90018-4",
+        "material_read": "Complete eight-page article, including definitions, Theorems 1–4, proofs, and references.",
+        "method": "Authorized full-text inspection after open-access retrieval failed.",
+        "title": "Some exact distributions of the number of one-sided deviations and the time of the last such deviation in the simple random walk",
+        "trigger": "Title and variables are the closest discrete exact-distribution comparison located."
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_UNRESOLVED",
+        "evidence": "The abstract says the variables are defined on excursions; it does not identify the whole-path pair in this claim.",
+        "identifier_or_url": "doi:10.2307/3214959",
+        "material_read": "Abstract, metadata, MSC information, and bibliography; full article text was not publicly available in the inspected source.",
+        "method": "Publisher abstract/reference inspection and open-access search.",
+        "title": "Some joint distributions in Bernoulli excursions",
+        "trigger": "Potentially broad exact joint-distribution source for simple-walk excursions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "286f3431-b8e8-44e2-8c3f-7343b01365f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Last zero and positive occupation are canonical path functionals tied to the arcsine phenomenon. The exact finite-horizon result shows a strictly negative dependence that disappears under Brownian scaling and quantifies that lattice correction at the natural \\(n^{-1/2}\\) rate. The conditional formula also identifies the mechanism: bridges with many zero visits depress strict-positive occupation. This is a motivated structural finite-sample fact rather than an arbitrary slice or table recomputation.",
+    "status": "PASS"
+  }
+}
