@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The finite domain consists of all 128 binary length-seven words. The packaged verifier independently forms each two-deletion set by deleted-coordinate and retained-coordinate descriptions and checks equality. It builds the 2,955-edge compatibility graph, exhaustively enumerates all 476 size-five cliques, separately exhausts all possible size-six branches and finds none, compares the regenerated complete census byte-for-byte with census.json, and recomputes every orbit, constant-membership, intersection, and coverage statistic. The proof uses exhaustive finite enumeration, not timeout or sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kulkarni--Kiyavash give a general multiple-deletion hypergraph framework and non-asymptotic bounds, while explicitly emphasizing that little was known about quality of bounds for multiple deletions.",
+        "The inspected challenge page supplies exact optimum sizes at several lengths but gives an all-maxima count only at length nine, not at length seven."
+      ],
+      "reasoning": "General bounds and larger-length scalar optima do not dominate an equality-case census at the exact length-seven parameter, nor do they imply the coverage histogram.",
+      "searches": [
+        "binary two-deletion-correcting code exact classification",
+        "multiple deletion correcting codes nonasymptotic hypergraph matching",
+        "A057591 n=7 maximum codes classification"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A057591",
+      "https://oeis.org/A265032/a265032.html",
+      "arXiv:1211.3128v1",
+      "DOI:10.1109/TIT.2013.2257917"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact source states only maximum size 5 and one example at 2dc.128.",
+        "The same benchmark page explicitly reports 120 maximum independent sets for 2dc.512, demonstrating that equality-set enumeration is a distinct datum when known.",
+        "Targeted published-record searches returned deletion-code results at different alphabets, error models, or asymptotic regimes, not a statement implying this census."
+      ],
+      "reasoning": "Neither a maximum-size statement nor a construction of one optimizer implies the number of labeled optimizers, their orbit partition, failure of a universal codeword, or their channel-output coverage distribution.",
+      "searches": [
+        "binary length-seven two-deletion descendant coverage 30",
+        "two-deletion length 7 476 maxima reversal complement",
+        "2dc.128 all maximum independent sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A057591 identifies the parameter as the maximum size of a binary length-n code correcting two deletions.",
+        "Sloane’s challenge page identifies the same length-seven problem as the 128-vertex graph 2dc.128 with optimum 5.",
+        "Kulkarni--Kiyavash define an s-deletion-correcting code by pairwise-disjoint s-deletion sets, which is exactly the compatibility-graph formulation used here."
+      ],
+      "reasoning": "The deletion-set, code, and independent-set/compatibility-graph formulations were compared at the statement level. Prior sources determine the scalar optimum but do not imply the number or structure of equality cases.",
+      "searches": [
+        "2dc.128 476 maximum independent sets",
+        "binary length-seven two-deletion 476 maximum codes",
+        "two deletion code length 7 maximum five all optimizers reversal complement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A057591 gives the sequence 1,1,2,2,2,4,5,7,11,16,24, so the length-seven optimum 5 is prior.",
+        "The challenge page gives one explicit length-seven five-code witness; it does not state 476 maxima, 123 natural orbits, or the output-coverage distribution."
+      ],
+      "reasoning": "A table of maximum cardinalities and one witness do not determine the equality layer. The new claim deliberately excludes the prior scalar optimum from its originality contribution.",
+      "searches": [
+        "OEIS A057591 two deletions length 7",
+        "2dc.128 maximum 5 Sloane",
+        "2dc.128 476"
+      ]
+    },
+    "rationale": "The scalar optimum 5 is explicitly prior and is not claimed as new. The inspected exact-parameter sources give the value and a witness but not the complete 476-code equality census, 123-orbit decomposition, endpoint-membership counts, or coverage refinement. Exact-parameter, alias, database, and implication searches found no statement implying those classifications.",
+    "residual_risks": [
+      "An obscure or unindexed historical computer census of 2dc.128 could exist despite exact-parameter searches.",
+      "The result classifies orbits only under reversal and global complement; the full compatibility-graph automorphism group was not determined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_SCALAR_ONLY",
+        "evidence": "The entry gives the length-seven optimum 5 and its historical benchmark context, but no all-maxima count or equality classification.",
+        "identifier_or_url": "OEIS:A057591",
+        "material_read": "Full public sequence entry, including sequence values, author date, comments, links, and extensions.",
+        "method": "Direct web inspection.",
+        "title": "OEIS A057591: Maximal size of binary code of length n that corrects 2 deletions",
+        "trigger": "Exact parameter table for binary two-deletion correction."
+      },
+      {
+        "assessment": "COVERING_SCALAR_AND_WITNESS_ONLY",
+        "evidence": "For 2dc.128 it states maximum 5 and gives one example; for 2dc.512 it separately reports 120 maximum independent sets. No 476-count or length-seven equality classification is stated.",
+        "identifier_or_url": "https://oeis.org/A265032/a265032.html",
+        "material_read": "The full two-deletion benchmark section, including 2dc.128 through 2dc.2048.",
+        "method": "Direct HTML inspection.",
+        "title": "Challenge Problems: Independent Sets in Graphs",
+        "trigger": "Exact 2dc.128 benchmark linked from A057591."
+      },
+      {
+        "assessment": "NOT_COVERING_CLASSIFICATION",
+        "evidence": "The paper defines s-deletion codes by pairwise-disjoint deletion sets and develops general bounds/hypergraph methods; the inspected text does not state the length-seven 476-maxima census or its coverage/orbit data.",
+        "identifier_or_url": "arXiv:1211.3128v1",
+        "material_read": "Open full-text introduction, definitions, hypergraph characterization overview, multiple-deletion discussion, and numerical-results context.",
+        "method": "Open arXiv full-text HTML inspection.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Primary multiple-deletion framework and potential stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e47b7830-0cfc-4240-931f-b18dfa9e929d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete equality classification for a long-standing exact deletion-code benchmark, not an arbitrary slice or a recomputation of the known scalar optimum. The benchmark literature itself records an all-maxima count at a nearby larger instance but only a single witness at 2dc.128, making the missing equality layer mathematically motivated. The census also exposes genuine structure not implied by the optimum: no universal codeword, 94 optima avoiding both constant words, and an exact secondary coverage frontier with only six coverage-maximizing equality cases. These data are useful for comparing structurally different optimal decoders at fixed rate.",
+    "status": "PASS"
+  }
+}
