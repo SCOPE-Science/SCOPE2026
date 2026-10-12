@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The rank-one PSD subtraction criterion follows by congruence with \\(X^{1/2}\\). Orthogonal diagonalization and a full-circle reciprocal-quadratic integral give the exact weighted dyadic mean, including equal-eigenvalue and ambient-kernel cases. Generalized eigenvalues with X yield the universal PSD comparison and a rank-one projector realizes equality. 990 exact-rational and six independent angular quadrature cases checked on the packaged Python 3 script; finite evidence is supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Garber, DOI:10.1007/s10107-026-02343-3, Algorithm 1 and Lemmas 2, 4, 5: the source uses the maximal feasible coefficient but estimates directional expectations with separate scalar inequalities.",
+        "Garber, arXiv:2608.09569 (2026) abstract: removes randomization using a deterministic algorithm, without the studied stochastic coefficient as a stated theorem.",
+        "Freund–Grigas–Mazumder, DOI:10.1137/15M104726X, inspected abstract: in-face directions for matrix optimization, without a displayed mean removal operator."
+      ],
+      "reasoning": "Prior more general Frank–Wolfe convergence statements do not directly calculate the exact operator expectation or all-test-matrix optimal constant. The deterministic follow-up is not a dominating theorem for the random deletion law, though full-text access remained incomplete.",
+      "searches": [
+        "A Randomized Linearly Convergent Frank-Wolfe-type Method for Smooth Convex Minimization over the Spectrahedron Garber 2025 2026",
+        "Linear Convergence of a Frank-Wolfe-type Method over the Spectrahedron without Strict Complementarity Garber 2026",
+        "An Extended Frank-Wolfe Method with In-Face Directions Freund Grigas Mazumder",
+        "rank-two spectrahedron randomized pairwise Frank Wolfe deletion coefficient expected 1/(u^T X pseudoinverse u) geometric mean eigenvalues exact matrix expectation square root"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2503.01441v1",
+      "DOI:10.1007/s10107-026-02343-3",
+      "arXiv:2608.09569",
+      "DOI:10.1137/15M104726X",
+      "https://dlmf.nist.gov/19.31",
+      "arXiv:2609.08522v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Lemma 5 bounds an unweighted projector moment, while source convergence analysis uses the pointwise floor of gamma; neither yields the sharp \\(c=1/(1+\\sqrt{b/a})\\) when combined.",
+        "Separate estimates give only \\(c=a/(2b)\\); the derived exact mean \\(B\\) has generalized eigenvalues \\(\\sqrt b/(\\sqrt a+\\sqrt b)\\) and \\(\\sqrt a/(\\sqrt a+\\sqrt b)\\).",
+        "A prior spectrahedron rank-adaptive Frank–Wolfe analysis (arXiv:2609.08522) concerns deterministic rank identification and objective trajectories, not uniform maximum-removal sampling."
+      ],
+      "reasoning": "The exact mean operator is stronger than the source paper’s independent moment bounds, with an unbounded improvement factor as conditioning grows. Existing rank identification and rate claims concern distinct algorithms, so do not imply this distribution-specific sharp expectation. Standard planar angular identities may imply the algebra after identifying the random variable; this is a stated originality risk.",
+      "searches": [
+        "2026 2025 randomized Frank-Wolfe spectrahedron uniform sphere pseudoinverse pairwise step size spectral bound",
+        "rank 2 spectrahedron pairwise random update unit vector pseudoinverse expected variance distribution",
+        "source Algorithm 1 Lemma 4 Lemma 5 and related rank-one results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DLMF §19.31 expresses Gaussian quadratic-form moments as generalized elliptic integrals; it does not explicitly state the rank-two weighted matrix removal and PSD-optimal comparison.",
+        "Nakić (2013), Integration of positive linear functionals on a sphere in \\(\\mathbb R^{2n}\\) with respect to Gaussian surface measures, concerns Gaussian-induced sphere measures and linear functionals, not the same uniform reciprocal Rayleigh ratio on the inspected abstract."
+      ],
+      "reasoning": "The natural aliases are inverse Rayleigh quotient, uniform angular harmonic moment, and mean maximal feasible rank-one subtraction. These were searched. A general weighted quadratic-form table might imply the angular integral after transformations, so exact-equivalence risk is specifically retained rather than dismissed.",
+      "searches": [
+        "spherical integrals matrix integral uu transpose divided by u transpose A u 2 dimensions matrix square root",
+        "uniform unit circle expectation reciprocal quadratic weighted outer product sqrt det",
+        "angular integral uuT over uTAu trace matrix inverse square root",
+        "integral circle x x transpose divided x transpose A x equals A inverse square root trace sqrt A",
+        "expectation uniform unit circle uu transpose divided quadratic form inverse square root trace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific records returned spectral and stochastic matrix findings, but the closest reported themes were stochastic subspace moments and independent rank-one matrix approximation; no record established the same reciprocal Rayleigh removal law.",
+        "NIST DLMF §19.31 catalogs related generalized quadratic-form integral representations, but not an explicit PSD-operator rank-two random feasible deletion certificate."
+      ],
+      "reasoning": "The exact two-dimensional scalar trigonometric integral is classical and is used as a proof ingredient, not claimed new. The application-specific full operator identity and its best all-PSD spectral constant were not observed in the checked records or table; an unindexed corresponding angular-moment identity remains a risk.",
+      "searches": [
+        "Garber 2025 randomized Frank-Wolfe spectrahedron exact expected rank-one downdate gamma matrix rank two",
+        "uniform unit circle expectation reciprocal quadratic weighted outer product sqrt det",
+        "elliptic average direction dyadic rational quadratic matrix identity square root"
+      ]
+    },
+    "rationale": "In the full motivating article, the maximal rank-one coefficient and uniform-direction law are given, but its Lemmas 4–5 estimate stochastic loss by separating pointwise smallest-eigenvalue bounds from unweighted spherical moments. The new theorem calculates their joint matrix expectation and the optimal PSD ratio for every test direction, including a spectral sharpness witness, which is not implied by those separate inequalities. Searches for reciprocal Rayleigh integrals, operator means, matrix square-root identities, rank-one downdates, and published mathematical records did not surface an explicit covering result. Related general quadratic-form integration is a possible source of an equivalent older identity, retained as a residual risk. A 2026 follow-up has deterministic updates. Failure of search is not regarded as proof of originality.",
+    "residual_risks": [
+      "The rank-two angular expectation may be known as a classical matrix-valued inverse Rayleigh quotient integral or be implied by a general tabulated integral; this cannot be excluded by indexed searches.",
+      "The deterministic 2026 companion and older 2017 in-face paper were not available in complete scholarly text; their abstract comparisons are nondecisive.",
+      "Published record search cannot establish uniqueness against unindexed, differently formulated work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the random selection and maximal feasible coefficient, but not the present joint matrix expectation or rank-two best spectral constant.",
+        "evidence": [
+          "Algorithm 1, pairwise direction and gamma definition.",
+          "Lemma 2, feasible rank-one subtraction.",
+          "Lemmas 4–5 and convergence proof, independent gamma and unweighted second-moment bounds."
+        ],
+        "identifier_or_url": "DOI:10.1007/s10107-026-02343-3",
+        "material_read": "Open-access full scientific HTML, introductory assumptions; Algorithm 1 pairwise update; rank-one feasibility Lemma 2; proofs of Lemma 4 and Lemma 5; relevant convergence estimates and appendix.",
+        "method": "Direct statement-to-statement and proof inequality comparison.",
+        "title": "A Randomized Linearly Convergent Frank-Wolfe-type Method for Smooth Convex Minimization over the Spectrahedron",
+        "trigger": "Original exact uniform rank-one pairwise deletion rule and closest potential coverage."
+      },
+      {
+        "assessment": "Dates ownership; journal full text provides substantive same-paper coverage. Risk from any preprint-only differences is retained.",
+        "evidence": [
+          "arXiv original public posting: 2025-03-03.",
+          "Published journal article: 2026-04-13."
+        ],
+        "identifier_or_url": "arXiv:2503.01441v1",
+        "material_read": "Verified original March 3 2025 abstract/public date and journal full scientific text; preprint full manuscript was not accessible separately.",
+        "method": "Preprint bibliographic record plus matching public journal version.",
+        "title": "A Randomized Linearly Convergent Frank-Wolfe-type Method for Smooth Convex Minimization over the Spectrahedron (preprint)",
+        "trigger": "Determine first public source and compare original preprint versus published open-access article."
+      },
+      {
+        "assessment": "Abstract concerns a deterministic, parameter-free variant, not the inspected random removal moment; its unread full body is a residual source risk.",
+        "evidence": [
+          "Abstract expressly removes randomization while preserving a convergence rate under rank assumptions."
+        ],
+        "identifier_or_url": "arXiv:2608.09569",
+        "material_read": "Bibliographic abstract and source metadata; full body inaccessible through available lawful HTML routes.",
+        "method": "Compared stated deterministic method and claim scope with the stochastic rank-two operator theorem.",
+        "title": "Linear Convergence of a Frank-Wolfe-type Method over the Spectrahedron without Strict Complementarity",
+        "trigger": "Later paper with closely matching object and possible strengthened conclusions."
+      },
+      {
+        "assessment": "Provides related scalar integral theory but not the explicit uniform rank-two operator/PSD-optimal comparison. General identities may be transformed into it; this is a residual risk.",
+        "evidence": [
+          "Equation 19.31.2 allows mu > -n/2 and gives scalar Gaussian moments; this does not directly instantiate the rank-two inverse exponent mu=-1."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/19.31",
+        "material_read": "Complete short section: general Gaussian quadratic-form integral 19.31.2, scope and references.",
+        "method": "Compared integration measure, permitted moment exponent and matrix-valued output.",
+        "title": "DLMF §19.31 Probability Distributions",
+        "trigger": "Possible stronger general table of reciprocal quadratic-form averages."
+      },
+      {
+        "assessment": "No explicit joint random rank-two mean is present in material read; full-text absence is recorded as a risk, not proof of noncoverage.",
+        "evidence": [
+          "Abstract describes in-face directions and computational guarantees for low-rank matrix completion."
+        ],
+        "identifier_or_url": "DOI:10.1137/15M104726X",
+        "material_read": "Publication metadata and abstract only; full research article not accessible.",
+        "method": "Compared described in-face deterministic update scope.",
+        "title": "An Extended Frank-Wolfe Method with In-Face Directions, and Its Application to Low-Rank Matrix Completion",
+        "trigger": "Classical rank-one/in-face spectral optimization predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9c427ee-83d4-440c-a34f-f8a5949015f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The expected positive-semidefinite deleted matrix is directly the stochastic object produced in a recent rank-one pairwise spectrahedral method. The theorem supplies the best universal directional mass-transfer coefficient for every positive-semidefinite test matrix at rank two. As \\(b/a\\) grows, the sharp guarantee is of order \\(\\sqrt{a/b}\\), while the direct separation of source-style scalar bounds gives order \\(a/b\\); the ratio of certificates is unbounded. This precise spectral quantity is useful for assessing anisotropic stochastic progress even absent a proved global algorithmic convergence-rate improvement.",
+    "status": "PASS"
+  }
+}
