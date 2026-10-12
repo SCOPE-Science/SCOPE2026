@@ -1,0 +1,175 @@
+{
+  "correctness": {
+    "rationale": "Exact 4x256 dynamic program enumerates all words by last-two-bit state and full three-mer support mask, preserving totals \\(2^n\\); gives unique full-mask maximum at each \\(14\\le n\\le50\\), \\(n=13\\) counterexample 989 vs 934, \\(n=14\\) gap 2632 vs 2218. Independent exhaustive word enumeration through 18 and inclusion-exclusion calculations corroborate. For \\(n\\ge51\\), a missing triple prevents occurrence in \\(\\lfloor n/3\\rfloor\\) disjoint independent blocks; every proper fiber is bounded by \\(2^n(7/8)^t\\) and full fiber is at least \\(2^n(1-8(7/8)^t)\\), with strict difference because \\(9(7/8)^{17}<1\\). The exact all-length count follows from 4x4 forbidden-edge transfer matrices and inclusion-exclusion; no infinite conclusion is based on experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardini et al. (2026), Theorems 1-4 and Section 7: algorithms for z shortest Eulerian walks and a counting-at-most-length application, but no theorem maximizing exact-length fiber across all supports.",
+        "Marcovich and Yaakobi, arXiv:1912.11108, Section II defines a multiset and analyzes reconstruction codes, not unordered support-class maxima.",
+        "Skiena and Sundaram (1995) accessible abstract: adaptive query-complexity bounds; this is not an implication of any displayed exact fixed-length modal support theorem."
+      ],
+      "reasoning": "The closest same-object general algorithms could enumerate candidate representatives, but do not supply the optimal SUPPORT or a sharp threshold in n. Counting fixed-size support fibers is distinct from shortest-witness enumeration and from preserving multiplicities. The historical uninspected papers are named as a risk, not asserted not to cover.",
+      "searches": [
+        "\"On Strings Having the Same Length-k Substrings\" maximum number equivalent fixed length",
+        "\"Reconstructing Strings from Substrings\" Skiena Sundaram full pdf",
+        "\"Reconstruction of Strings from their Substrings Spectrum\" multispectrum",
+        "\"On words with prescribed overlapping subsequences\" Hutchinson 1975"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s00224-025-10240-z",
+      "https://arxiv.org/pdf/1605.03319",
+      "https://arxiv.org/pdf/1403.2439",
+      "https://arxiv.org/pdf/1912.11108",
+      "https://doi.org/10.1089/cmb.1995.2.333",
+      "https://doi.org/10.1073/pnas.232278299",
+      "https://doi.org/10.1016/0097-3165(75)90068-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1605.03319, Definition 2.1: every short factor appears equally many times; same support is much coarser.",
+        "arXiv:1403.2439, Definition 2 and Sections 10-11: all-length substring-composition multiset, a different observation.",
+        "DOI 10.1007/s00224-025-10240-z, Theorem 4: efficient listing of z shortest representatives for an input support; no exact modal ranking across supports of a fixed length."
+      ],
+      "reasoning": "The distinct measured invariants prevent direct implication from k-abelian or equicomposable class-size bounds. The same-support shorter-string algorithms can in principle help compute fibers but neither their existence nor their asymptotic complexity establishes unique full-support optimality for every \\(n\\ge14\\) or the 989-vs-934 crossover at \\(n=13\\).",
+      "searches": [
+        "\"On cardinalities of k-abelian equivalence classes\" arxiv",
+        "\"String Reconstruction from Substring Compositions\" arxiv",
+        "\"On Strings Having the Same Length-k Substrings\" shortest equivalent strings",
+        "\"Spectrum alignment\" sequencing by hybridization multiplicities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bernardini et al. (2026), DOI 10.1007/s00224-025-10240-z, Introduction defines exactly Substr_k(X) as a SET; Section 2 describes Eulerian walks with all edges of the support.",
+        "Karhumäki et al., arXiv:1605.03319, Definition 2.1 requires equality of factor COUNTS, not just supports."
+      ],
+      "reasoning": "Binary three-gram presence equivalence is exactly the same-support equivalence of Bernardini et al. at \\(k=3\\), so its results are compared by implication, not just title. Unlike the fixed-n maximum, its objective is minimizing reconstruction length for each specified support. k-abelian equivalence is a strict refinement and cardinality statements for its finer fibers cannot identify which coarser support fiber is largest.",
+      "searches": [
+        "\"factor set equivalence\" words same set factors length k maximal equivalence class",
+        "\"k-testable equivalence\" maximum class size words",
+        "\"same set of factors\" \"length three\" count binary words",
+        "binary 3-gram support spectrum full eight triple set is largest equivalence class for words of length 14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant 2026 same-set paper reports algorithmic complexity and general length bounds but no table or modal threshold 14/13 in the inspected sections.",
+        "Exact finite values in the current result arise from enumerating all 256 supports for \\(14\\le n\\le50\\) and direct word enumeration through \\(n=18\\)."
+      ],
+      "reasoning": "No matching exact-result table was located in the queries or closest full sources. Lack of a match is explicitly NOT taken as uniqueness or novelty proof; accessible statements and implications were separately assessed.",
+      "searches": [
+        "\"most probable kmer spectrum\"",
+        "\"2632\" \"3-gram\"",
+        "\"binary all eight triplets 14\"",
+        "3-gram presence absence profile fibers maximal binary length fourteen 2632 989",
+        "\"k-spectrum\" \"largest\" \"equivalence\" class binary strings"
+      ]
+    },
+    "rationale": "Closest full primary work on identical set-valued length-k substring spectra (Bernardini et al., DOI 10.1007/s00224-025-10240-z, Sections 1,2,5,7) solves a different optimization: list z shortest equivalent representatives for a GIVEN support, not identify the most populous support at a FIXED word length. Its general counting difficulty does not imply a modal cutoff. Full texts on k-abelian equivalence (arXiv:1605.03319), multiset substring spectra (arXiv:1912.11108), and substring-composition multisets (arXiv:1403.2439) preserve different data and do not imply this statement. Explicit title/alias/equivalence and numerical searches did not reveal the threshold. This is a qualified finding, not a proof of global priority; a few plausible historical full texts were not inspected.",
+    "residual_risks": [
+      "The complete Skiena–Sundaram (1995) text was not accessible; a specialized combinatorial example outside its abstract could conceivably cover the \\(n=14\\) claim.",
+      "The 1975 Hutchinson/Wilf adjacency enumeration and Hutchinson overlap-sequence works were not inspected fully; an unindexed exact presence-only tabulation may exist.",
+      "The 2002 Pe’er–Arbili–Shamir full text could not be materially read, although its abstract describes a different reconstruction goal.",
+      "Web/indexed searches cannot establish global priority or coverage of unpublished research."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "same object, different optimization; no strict fixed-n modal support theorem located in materially read article",
+        "evidence": [
+          "Introduction defines the presence-only Substr_k(X).",
+          "Section 2 contrasts multiset Euler trail counting and set-valued shortest walk enumeration; Theorem 4 optimizes listing z shortest witnesses.",
+          "Section 7 mentions counting walks of bounded length for a given support, not maximizing fixed-length fiber across supports."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00224-025-10240-z",
+        "material_read": "open-access full-text abstract, Introduction, theorem statements 1-4, Sections 2 and 7, relevant listing algorithm and references",
+        "method": "primary publisher full text",
+        "title": "On Strings Having the Same Length-k Substrings",
+        "trigger": "identical set-valued k-mer spectrum"
+      },
+      {
+        "assessment": "counts multiplicity-sensitive equivalence fibers, not factor-presence fibers",
+        "evidence": [
+          "Definition 2.1 uses counts of every factor of lengths up to k.",
+          "Section 4 counts words in a k-abelian class under preserved multiplicities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1605.03319",
+        "material_read": "accessible full-text Introduction, Definition 2.1, section summaries and main enumeration claim",
+        "method": "arXiv PDF full-text text and page-image inspection",
+        "title": "On cardinalities of k-abelian equivalence classes",
+        "trigger": "fiber cardinalities with de Bruijn representations"
+      },
+      {
+        "assessment": "composition multiset of all substring lengths, not fixed-length identity support",
+        "evidence": [
+          "Definition in Section 2 retains composition multiplicities over all substring lengths.",
+          "Largest equicomposable sets use polynomial factorization; cannot imply exact three-factor presence ranks."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.2439",
+        "material_read": "accessible full-text Sections 1-3 and the paper’s large-class result statements and formula discussion",
+        "method": "arXiv PDF text and page-image inspection",
+        "title": "String Reconstruction from Substring Compositions",
+        "trigger": "largest reconstruction equivalence classes"
+      },
+      {
+        "assessment": "assumes length-L multiset of reads and codes for noisy/incomplete reads, not a binary presence-only modal class census",
+        "evidence": [
+          "Section II defines the L-multispectrum as a multiset.",
+          "Theorem 16 concerns distance constraints and reconstruction guarantees."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.11108",
+        "material_read": "accessible full-text introduction, Section II definitions, reconstruction theorem summaries and conclusion",
+        "method": "arXiv PDF text and page-image inspection",
+        "title": "Reconstruction of Strings from their Substrings Spectrum",
+        "trigger": "fixed-length substring reconstruction"
+      },
+      {
+        "assessment": "accessible abstract studies adaptive existential query complexity; exact fixed-three-gram modal status remains an acknowledged access risk",
+        "evidence": [
+          "1995 journal abstract explicitly says queries return only substring existence and not occurrence count.",
+          "Full text not inspected; no claim of whole-document noncoverage is made."
+        ],
+        "identifier_or_url": "https://doi.org/10.1089/cmb.1995.2.333",
+        "material_read": "abstract and bibliographic description only; full text unavailable",
+        "method": "publisher and institutional abstract, lawful OA link attempt",
+        "title": "Reconstructing Strings from Substrings",
+        "trigger": "classic presence-only substring queries"
+      },
+      {
+        "assessment": "reconstruction from a k-mer set AND a homologous reference; the abstract gives no fixed-n fiber classification, but full-text coverage risk is retained",
+        "evidence": [
+          "PNAS article date 2002-11-12 and abstract explicitly says array detects all fixed-length substrings and uses an additional homologous reference."
+        ],
+        "identifier_or_url": "https://doi.org/10.1073/pnas.232278299",
+        "material_read": "primary abstract, date metadata, and technical overview; full text unavailable in accessed location",
+        "method": "open archival publication abstract and article metadata",
+        "title": "A computational method for resequencing long DNA targets by universal oligonucleotide arrays",
+        "trigger": "hybridization presence spectra and reconstruction ambiguity"
+      },
+      {
+        "assessment": "potential historical overlap is unresolved, not represented as fully inspected",
+        "evidence": [
+          "Cited by Bernardini et al. as an Eulerian-trail and adjacency-count antecedent; no accessible fixed-n modal support theorem statement."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0097-3165(75)90068-0",
+        "material_read": "bibliographic title/citation and known multiplicity-focused context only; full text unavailable",
+        "method": "bibliographic and subsequent-paper reference comparison",
+        "title": "On Eulerian circuits and words with prescribed adjacency patterns",
+        "trigger": "classical enumeration of prescribed overlapping patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e450d182-bc9b-41b8-852d-818ff95dac23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact worst-case ambiguity in a complete binary three-mer presence-only measurement is a natural reconstruction benchmark in sequencing-by-hybridization and existential string indexing. Before the sharp transition, all-probe-positive is NOT most ambiguous (\\(n=13\\): 934 vs 989); for every \\(n\\ge14\\), full support uniquely is. The 256-matrix exact formula and universal threshold give reusable structural information beyond a numerical table. The closest same-set paper presents the general counting problem as distinct from multiset Euler-trail enumeration, supporting motivation for this tightly scoped tractable case. No general k-mer theorem is claimed.",
+    "status": "PASS"
+  }
+}
