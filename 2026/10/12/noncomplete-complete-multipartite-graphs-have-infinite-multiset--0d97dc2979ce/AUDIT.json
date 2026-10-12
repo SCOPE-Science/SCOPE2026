@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "For any partition block, the distance from a vertex in partite class A_i is exactly 0 to its own block, 2 to other blocks wholly inside A_i, and 1 to every block meeting another graph part. Hence within A_i only two representation types can occur. A resolving partition would force every graph part to have size at most two; a 2-part must have one pure singleton vertex and one mixed-block vertex, while a singleton part also has a vertex with zero 2-entries. Thus every graph part contributes the same {0,1,...,1} representation, and two graph parts force a collision. The standalone exhaustive checker independently verifies the formula and nonexistence for every complete multipartite profile through order 7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4.1 of arXiv:2607.07407v1 proves only the complete-graph case among complete multipartite graphs; later infinite-family theorems concern wheels, friendship graphs, fans, and t-fold wheels.",
+        "Theorem 2.1 gives only the general lower bound mpd(G) >= 4 when finite and does not imply nonexistence for complete multipartite graphs."
+      ],
+      "reasoning": "The source has a known special case (all singleton parts), but no broader theorem implies the noncomplete family. The new pure/mixed-block argument is required.",
+      "searches": [
+        "Multiset Partition Dimension of Graphs arXiv:2607.07407 complete graph infinite",
+        "multiset partition dimension graph infinite complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.07407v1",
+      "arXiv:2607.08128v1",
+      "semantic research index",
+      "owned current-week and prior-week ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Lemma 2.1 says a pair of vertices equidistant from every other vertex must lie in distinct partition blocks; this is compatible with, but does not itself establish, the cross-class collision proved here.",
+        "The source complete-graph theorem is a special case outside the new claim. Its other infinite-family theorems use different graph structures."
+      ],
+      "reasoning": "The new statement is not a corollary of the cited exact-value theorems. It uses the complete-multipartite distance trichotomy to show every attempted partition has an unavoidable representation collision.",
+      "searches": [
+        "arXiv:2607.07407 complete bipartite complete multipartite",
+        "arXiv:2607.07407 Lemma 2.1 multiset partition twins"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic-index searches under multiset partition dimension, resolving multiset partition, complete multipartite, and complete bipartite terminology returned no statement covering the claim.",
+        "The initiating full text arXiv:2607.07407v1 defines resolving multiset partitions and was checked for the object aliases “complete bipartite” and “complete multipartite”; neither occurs."
+      ],
+      "reasoning": "The searches cover the standard invariant name, abbreviation, and the two principal graph-family aliases. No equivalent noncomplete complete-multipartite classification was found.",
+      "searches": [
+        "multiset partition dimension complete multipartite graph",
+        "multiset resolving partition complete bipartite graph",
+        "mpd complete multipartite multiset partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index records concern outer multiset dimension, doubly resolving sets, and other parameters on complete multipartite graphs, all distinct invariants.",
+        "No semantic-index item with multiset partition dimension and complete multipartite or complete bipartite coverage was returned."
+      ],
+      "reasoning": "Database proximity comes from either the same graph family with a different invariant or the same emerging invariant without this family; neither covers the claim.",
+      "searches": [
+        "multiset partition dimension complete graph infinity",
+        "new multiset partition dimension no resolving partition complete multipartite"
+      ]
+    },
+    "rationale": "The initiating 2026 paper was inspected in full. It proves infinite multiset partition dimension for complete graphs and several other families but contains no complete-bipartite or complete-multipartite theorem. The new claim explicitly excludes complete graphs and classifies the entire noncomplete complete-multipartite family. Targeted semantic searches and the owned current/prior ledgers found no covering statement.",
+    "residual_risks": [
+      "A poorly indexed or differently named equivalent result could exist outside the searched literature.",
+      "The initiating subject is very recent, so concurrent unpublished or newly posted work may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the noncomplete complete-multipartite claim; complete graphs are covered as a known special case and excluded from the new claim.",
+        "evidence": "The paper states mpd(K_n)=infinity, then treats wheels, friendship graphs, fans, and t-fold wheels; “complete bipartite” and “complete multipartite” do not occur in the inspected full text.",
+        "identifier_or_url": "arXiv:2607.07407v1",
+        "material_read": "Definition, Theorem 2.1, Lemma 2.1, Section 3 basic graph classes, Section 4 infinite-family theorems, and document-wide searches for complete bipartite/multipartite.",
+        "method": "Public full-text extraction and targeted in-document searches.",
+        "title": "Multiset Partition Dimension of Graphs",
+        "trigger": "This paper introduces the exact invariant and is the closest primary source."
+      },
+      {
+        "assessment": "NOT_COVERING; it motivates the parameter but does not give a complete-multipartite classification.",
+        "evidence": "The survey introduces multiset partition dimension as a new direction and calls for structural bounds and extremal classes.",
+        "identifier_or_url": "arXiv:2607.08128v1",
+        "material_read": "New-directions section defining multiset partition dimension and the surrounding discussion of multiset-based variants.",
+        "method": "Public full-text extraction.",
+        "title": "A Survey on Multiset Dimension and Its Variations",
+        "trigger": "Independent recent overview of the multiset-metric landscape."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d97dc29-79ce-4be2-8465-c6ce8060e13e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter was introduced in July 2026 and its initiating paper explicitly develops finite and infinite graph classes. Complete multipartite graphs are a canonical test family for any metric-partition invariant. Showing that every noncomplete member has infinite value is a natural complete classification, extends the paper’s complete-graph obstruction to all bicliques and higher multipartite graphs, and exposes a strong failure of multiset partition resolvability on one of the most basic dense graph families.",
+    "status": "PASS"
+  }
+}
