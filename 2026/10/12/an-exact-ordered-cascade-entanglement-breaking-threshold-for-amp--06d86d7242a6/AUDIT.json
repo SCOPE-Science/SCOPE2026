@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For 0<a,b<1 and every unitary U, diagonal covariance reduces U to one real rotation with t=|<1|U|0>|^2. The four composed Kraus operators give the normalized Choi partial-transpose determinant a^2[((1-a)^2(1-b)^2t^4)-b^2]/16, independently symbolically reconstructed and numerically spot-checked. A two-qubit partial transpose has at most one negative eigenvalue because every complex two-dimensional subspace contains a product vector, so the determinant sign decides PPT off the boundary; continuity proves equality. Choi separability and 2x2 PPT equivalence finish EB proof. The parameter orientation and edge cases were checked independently; finite tests are not proof of the universal implication.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cuevas et al., 2017, arXiv:1707.00161v1, five-page complete text: repeated rotated phase/amplitude-damping experiments, unitary amendment at eta=0.66; no displayed unequal-stage all-unitary criterion.",
+        "Filippov, Rybár and Ziman (2012) concern local two-qubit entanglement annihilation under independent noises, not EB of a serial single-qubit cascade."
+      ],
+      "reasoning": "A general qubit-channel EB test (PPT of Choi) is broader as a decision procedure, but it does not state the analytic all-unitary and ordered unequal-stage boundary. The 2017 experiment specializes related compositions and is credited for the physical mechanism, not treated as an unrelated title.",
+      "searches": [
+        "two unequal qubit amplitude damping channels unitary between entanglement breaking exact order asymmetry survival probabilities Choi PPT",
+        "quantum channel cascade nonunital amplitude damping order dependent entanglement breaking unitary rotation mixing angle",
+        "arXiv:1707.00161v1 full text Secs. II-IV, Figs. 3-4",
+        "DOI:10.1103/PhysRevA.85.012303 abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1411.2517",
+      "https://ricerca.sns.it/retrieve/db0ea4be-1cd0-448c-bb2b-ab671f299d1b/1707.00161v1.pdf",
+      "https://doi.org/10.1103/PhysRevA.85.012303",
+      "https://arxiv.org/abs/1411.2517",
+      "https://arxiv.org/abs/1707.00161",
+      "https://arxiv.org/abs/1707.00161"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lami 2014/2015 gives EB of generalized amplitude damping; this implies the present population-swap endpoint after a basis change, but not the variable-angle phase diagram without additional Choi analysis.",
+        "Cuevas et al. show numerically/experimentally that a fixed rotated damping composition may be EB and an additional unitary may restore entanglement; they do not assert the unequal-stage all-angle phase boundary nor an exact swapped-order impossibility."
+      ],
+      "reasoning": "Prior works imply portions of the claim (existence of unitary-induced EB and the endpoint t=1) but not the full necessary-and-sufficient criterion for every U and both ordered damping strengths, especially the exact reversal witness. These known special cases are explicitly separated from the new classification.",
+      "searches": [
+        "arXiv:1411.2517v4 Example 1, Eq. (22)-(28)",
+        "arXiv:1707.00161v1 complete five-page version",
+        "two unequal qubit amplitude damping channels unitary between entanglement breaking exact order asymmetry survival probabilities Choi PPT",
+        "quantum channel cascade nonunital amplitude damping order dependent entanglement breaking unitary rotation mixing angle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lami and Giovannetti, arXiv:1411.2517v4, Eq. (22)-(28): generalized-amplitude-damping PPT criterion; unfiltered zero-temperature damping has infinite finite-step EB index.",
+        "For transition probability t=1, output basis-swap converts the concatenation to a generalized amplitude-damping channel; this special case is covered by the older criterion.",
+        "The new statement classifies all input/output damping strengths and every unitary transition probability t including order reversal."
+      ],
+      "reasoning": "Generalized amplitude damping is a relevant equivalent description at the bit-flip endpoint, which is explicitly credited rather than called new. For arbitrary intermediate rotations the composite need not be phase-covariant and cannot be replaced by that endpoint formula merely by relabeling. The all-unitary determinant boundary and direction-dependent existence criterion were not found in inspected sources.",
+      "searches": [
+        "alternating amplitude damping bit flip qubit channel finite entanglement breaking index Choi partial transpose composition survival probability",
+        "qubit channel amplitude damping Pauli X conjugation twice entanglement-breaking sharp critical threshold repeated iterations",
+        "generalized amplitude damping finite temperature spontaneous emission heating alternating channel entanglement breaking index",
+        "\"amplitude damping\" \"unitary\" \"entanglement breaking\" \"golden\"",
+        "\"amplitude damping\" \"bit flip\" \"entanglement-breaking\" \"composition\"",
+        "arXiv:1411.2517v4 Sec. III Example 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved quantum-information published-claim items concerned quantum tomography and Clifford constructions, which do not imply a serial channel EB threshold.",
+        "Full text of the two closest amplitude-damping theory/experiment papers was inspected against the exact parameter inequalities; neither supplies an arbitrary-unitary unequal-stage classification."
+      ],
+      "reasoning": "No exact numerical table or published formula was found to dominate the analytic two-variable threshold. Indexed retrieval is not exhaustive and lack of a hit does not establish priority.",
+      "searches": [
+        "amplitude damping channel concatenation inserted unitary angle entanglement breaking threshold ordered decay parameters",
+        "two qubit amplitude damping Kraus quantum channels entanglement breaking partial transpose filter",
+        "qubit entanglement breaking index unitary filters Lami Giovannetti amplitude damping",
+        "arXiv:1411.2517v4 Eq. (22)-(28)",
+        "arXiv:1707.00161v1 Figs. (3)-(4)"
+      ]
+    },
+    "rationale": "The full exact entanglement-breaking threshold and existence/order boundary are absent from the inspected primary theoretical and experimental treatments. Known GAD and bit-flip-only special cases are credited. Full relevant text has been compared by object, parameter and implication, and broad semantic and keyword searches revealed no dominating formula. Priority remains nonindependently assessed and susceptible to hidden equivalent channel parametrizations.",
+    "residual_risks": [
+      "General qubit-channel canonical-form literature might encode the same threshold in different variables, without index terms matched by the searches.",
+      "Only the abstract of the Filippov–Rybár–Ziman 2012 paper was read; its full arguments were not compared and a hidden closely related parametrization remains possible.",
+      "Search and publicly accessible literature comparison cannot prove global novelty or reveal unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generalized-amplitude-damping EB and the t=1 endpoint after swapping basis, but not unequal-stage arbitrary-U criterion.",
+        "evidence": [
+          "arXiv:1411.2517v4 PDF Sec. III Eq. (22)-(28), first submitted 2014-11-10 UTC."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1411.2517",
+        "material_read": "PDF pages 1-6 including full Sec. II and Sec. III Example 1 Eqs. 22-28; also searched PDF for amplitude damping and unitary-filter results.",
+        "method": "Accessible arXiv full PDF with text extraction and relevant section review.",
+        "title": "Entanglement-Breaking Indices",
+        "trigger": "Defines filtered EB indices, explicitly analyzes generalized amplitude damping and pure AD nonbreaking index."
+      },
+      {
+        "assessment": "Overlapping experimental mechanism and selected equal damping values; no universal analytic angle or unequal ordered thresholds.",
+        "evidence": [
+          "arXiv:1707.00161v1 PDF pages 1-5, Sec. II Eqs. (4)-(9), Sec. IV and Fig. 4."
+        ],
+        "identifier_or_url": "https://ricerca.sns.it/retrieve/db0ea4be-1cd0-448c-bb2b-ab671f299d1b/1707.00161v1.pdf",
+        "material_read": "All five pages including equations defining the rotated amplitude-damping channel and experimental plots; sections I-V and conclusions.",
+        "method": "Complete lawful university-repository open-access accepted PDF, text and figure/page inspection.",
+        "title": "Amending entanglement-breaking channels via intermediate unitary operations",
+        "trigger": "Same physical rotated amplitude-damping mechanism and unitary filters; high-risk overlap."
+      },
+      {
+        "assessment": "The stated main result is about local entanglement annihilation, not the serial single-qubit channel EB criterion. No whole-document noncoverage conclusion is drawn.",
+        "evidence": [
+          "Physical Review A 85, 012303 (2012), abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.85.012303",
+        "material_read": "Publisher abstract only; full text was not inspected.",
+        "method": "Publisher abstract and bibliographic page; claim comparison restricted to stated subject matter.",
+        "title": "Local two-qubit entanglement-annihilating channels",
+        "trigger": "Related damping and entanglement-loss conditions, but distinct two-local-map quantifier."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "06d86d72-42a6-4e7a-9387-eed4ff00c4fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Entanglement transmission through a cascade of two independently tuned nonunital damping stages is a physical scenario for which the exact set of admissible intermediate unitaries matters. The proof gives a sharp all-U decision criterion, an order-sensitive impossibility/possibility distinction at a natural rational pair, and the exact golden-ratio cutoff for matched stages. This is a continuous complete classification rather than an arbitrary finite example or a numerical reprint; it offers an interpretable design constraint beyond the known single-GAD criterion.",
+    "status": "PASS"
+  }
+}
