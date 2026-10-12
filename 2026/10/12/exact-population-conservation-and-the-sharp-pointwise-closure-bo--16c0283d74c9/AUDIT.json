@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Summing the printed PDE cancels reactions exactly; Neumann boundary conditions eliminate integrated Laplacian and chemotactic flux terms. The susceptible-mass derivative follows directly. Sufficiency of equal diffusion is the scalar Neumann heat equation for the sum. Necessity is witnessed by smooth positive cosine perturbations with exactly constant compartment sum; a midpoint calculation isolates the nonzero chemotactic term. The symbolic checker reproduces these identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1002/mma.70610",
+        "arXiv:2608.15164v1"
+      ],
+      "reasoning": "The diffusive-SIR reference accounts for total population by integrating the compartment sum, but does not dominate the pointwise-invariance classification. The primary paper introduces the chemotactic model but does not derive this criterion.",
+      "searches": [
+        "chemotactic SIR pointwise population closure equal diffusion chi zero",
+        "susceptible mass strictly decreases total integrated mass conserved Neumann SIR chemotaxis"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.15164v1",
+      "doi:10.1002/mma.70610",
+      "doi:10.1155/2024/4598831"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1155/2024/4598831 uses equal diffusion",
+        "DOI:10.1002/mma.70610 uses integrated total-population accounting"
+      ],
+      "reasoning": "Equal-diffusion formulations imply only the easy sufficient case, not necessity and not the nonzero-chemotaxis obstruction. Integrated mass conservation does not imply pointwise constant-sum invariance.",
+      "searches": [
+        "arXiv 2608.15164 pointwise constant population manifold equal diffusion chemotaxis",
+        "diffusive SIR constant-sum manifold invariant iff equal diffusion coefficients",
+        "chemotactic SIR pointwise population closure equal diffusion chi zero",
+        "susceptible mass strictly decreases total integrated mass conserved Neumann SIR chemotaxis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.15164v1, sections 3.2-3.3",
+        "DOI:10.1155/2024/4598831"
+      ],
+      "reasoning": "The inspected equal-diffusion literature is consistent with sufficiency but did not furnish the necessity direction or the chemotactic obstruction. No returned exact-search record stated the same iff criterion.",
+      "searches": [
+        "arXiv 2608.15164 pointwise constant population manifold equal diffusion chemotaxis",
+        "diffusive SIR constant-sum manifold invariant iff equal diffusion coefficients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned records concerned unrelated reaction-diffusion conservation, spatial-memory patterns, and epidemic thresholds; none matched the stated source, invariant, and iff coefficient criterion."
+      ],
+      "reasoning": "The claim is analytic rather than a tabulated finite datum. Database searches were used to test for an exact or implication-equivalent result; no such record was located.",
+      "searches": [
+        "arXiv 2608.15164 pointwise constant population manifold equal diffusion chemotaxis",
+        "diffusive SIR constant-sum manifold invariant iff equal diffusion coefficients",
+        "chemotactic SIR pointwise population closure equal diffusion chi zero",
+        "susceptible mass strictly decreases total integrated mass conserved Neumann SIR chemotaxis"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the model equations, boundary conditions, conservation statement, and chemotactic flux. The closest literature inspected treats integrated population accounting or equal-diffusion SIR systems, but does not state the combined source-specific correction and sharp universal pointwise-invariance criterion. Exact semantic searches returned only thematically adjacent records rather than an implication-equivalent claim. Residual risk remains because the equal-diffusion observation is classical and an uninspected source could contain an equivalent formulation.",
+    "residual_risks": [
+      "The equal-diffusion sufficiency observation is classical and could appear elsewhere in equivalent language.",
+      "The originality conclusion is bounded by the sources and semantic searches inspected; it is not a proof of global literature uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source prints the compartment sum relation and Neumann PDEs, then calls the susceptible integral Total. The summed PDE gives integrated conservation but not generic pointwise invariance.",
+        "evidence": "Equations (1.4)-(1.7), (2.17), and (2.23) in arXiv:2608.15164v1.",
+        "identifier_or_url": "arXiv:2608.15164v1",
+        "material_read": "Full-text HTML sections 3.2 and 3.3, including equations, boundary conditions, conservation paragraph, and conservative chemotaxis term.",
+        "method": "Direct full-text inspection and algebraic reconstruction of the printed PDE.",
+        "title": "From the SIR/SEIR/SVEIR Model to a Chemotactic System: Analysis of Spatiotemporal Mechanisms of Infection Spread within the Einstein Paradigm",
+        "trigger": "Primary source defining the exact PDE and conservation diagnostic."
+      },
+      {
+        "assessment": "Uses the spatial integral of the compartment sum for population accounting; no inspected statement gives the present sharp coefficient criterion.",
+        "evidence": "DOI:10.1002/mma.70610.",
+        "identifier_or_url": "doi:10.1002/mma.70610",
+        "material_read": "Full-text material around its population integral and Neumann integration argument.",
+        "method": "Direct full-text inspection.",
+        "title": "Numerical Investigation of a Diffusive SIR Model: Focus on Positivity Preservation",
+        "trigger": "Closest recent diffusive-SIR population-accounting comparison."
+      },
+      {
+        "assessment": "Equal diffusion is compatible with pointwise constant-sum preservation, but the inspected source does not state the necessity direction or chemotaxis extension.",
+        "evidence": "DOI:10.1155/2024/4598831.",
+        "identifier_or_url": "doi:10.1155/2024/4598831",
+        "material_read": "Article model description and equal-diffusion reduction.",
+        "method": "Direct article inspection.",
+        "title": "The Exact Solutions of a Diffusive SIR Model via Symmetry Groups",
+        "trigger": "Equal-diffusion SIR comparison relevant to the sufficiency direction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16c0283d-74c9-4c04-8b5d-9240803a1451",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinction is structurally important because the motivating paper explicitly uses a constant-population closure in the spatial model and population conservation as a correctness diagnostic. The theorem identifies exactly when the ODE-style pointwise closure survives spatialization and shows that the displayed susceptible integral cannot certify population conservation. This is a motivated boundary result, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
