@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces three-perfect-matching covers in a cubic graph to proper labelled 3-edge-colourings, establishes exact local extension tables for replacement triangles, diamonds and 2-cycles, composes those tables independently along channels and rings, and uses the published order formula plus the classical Petersen order-10 census for the cutoff. The accompanying verifier exhaustively checks every local external-colour pattern and selected global examples. Computation is explicitly not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.01137v1 proves five-cover existence and a four-cover density bound, and records the structural core decomposition.",
+        "Standard snark reductions cover preservation of 3-edge-colourability under triangle contraction and 2-cycle simplification."
+      ],
+      "reasoning": "Those broader results establish decomposition or existence-level reductions, but they do not dominate the claimed exact enumerator for all three structural cases or the channel-unit multiplicity.",
+      "searches": [
+        "claw-free cubic 3-edge-colorable iff core 3-edge-colorable triangle expansion diamond strings",
+        "triangle expansion of cubic graph preserves 3-edge-colorability claw-free cubic core",
+        "Oum claw-free cubic graph core edge colorable triangles diamonds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01137v1",
+      "doi:10.1017/CBO9780511662058.010",
+      "https://en.wikipedia.org/wiki/Snark_(graph_theory)",
+      "published-finding corpus searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The initiating paper states that \\(K_4\\), \\(K_2^3\\), and rings are 3-edge-colourable and gives the type-(iii) core/channel construction, but its theorems concern five covers and coverage by four matchings.",
+        "Lemma 2.2 maps individual perfect matchings to parity subgraphs; it does not enumerate proper 3-edge-colourings or unordered three-cover families."
+      ],
+      "reasoning": "The new proof adds a colour-by-colour local transfer lemma: triangles have a unique lift and every diamond or 2-cycle has exactly two lifts while transmitting one colour. This yields the multiplicative count and the complete case formula, not merely an existence corollary.",
+      "searches": [
+        "Perfect matching covers of claw-free cubic graphs arXiv 2610.01137 full text Section 2 Lemma 2.1 Lemma 2.2",
+        "three perfect matchings cover claw-free cubic graph exact number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest IDs: 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd, 2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47, 2026/10/4/SCOPE-the-petersen-total-3-cut-complex-is-a-wedge-of-nine-4-spheres--f242ea5e9ffb, 2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1",
+        "arXiv:2610.01137v1, Section 2 decomposition and Lemma 2.2",
+        "Web comparison with standard snark terminology noting triangle contraction and 2-cycle reduction preserve 3-edge-colourability."
+      ],
+      "reasoning": "Three perfect matchings cover a cubic graph exactly when they partition its edges, which is equivalent to a proper 3-edge-colouring up to colour permutation. Searches therefore included both matching-cover and Tait/edge-colouring formulations. No retrieved statement supplied the exact cover count or the factor \\(2^q\\).",
+      "searches": [
+        "proper 3-edge-colourings claw-free cubic core channels diamonds 2-cycles exact count 2^q",
+        "perfect matching covers three claw-free cubic core 3-edge-coloring Petersen truncation 30",
+        "three perfect matchings cover claw-free cubic graph core simple Petersen smallest obstruction",
+        "number of 3-edge-colorings triangle expansion diamond string cubic graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holton--Sheehan, The Petersen Graph, Chapter 9: among the 19 connected cubic graphs on 10 vertices, Petersen is the only bridgeless one with chromatic index 4.",
+        "published-finding corpus returned Petersen-complex records but no matching-cover cutoff or truncation-transfer record."
+      ],
+      "reasoning": "The classical ten-vertex census supplies the sharp core boundary. Combined with the exact order formula from the initiating paper, it yields the 30-vertex cutoff within the explicitly stated simple-core subclass.",
+      "searches": [
+        "smallest non-3-edge-colourable claw-free cubic graph 30 vertices Petersen truncation",
+        "claw-free cubic graph fewer than 30 vertices 3-edge-colorable",
+        "unique smallest snark Petersen graph"
+      ]
+    },
+    "rationale": "The exact all-case enumerator and multiplicative channel transfer were not stated in the initiating paper, were not implied by the closest published-finding corpus records, and were not found under targeted Tait-colouring, perfect-matching-cover, truncation, or channel aliases. Standard triangle and 2-cycle reductions cover existence phenomena, but the exact factor across mixed diamond/2-cycle strings and its assembly into a complete three-cover count require the additional local multiplicity argument. Residual risk from older differently phrased edge-colouring literature is retained.",
+    "residual_risks": [
+      "Older edge-colouring or Tait-colouring literature may contain the same \\(2^q\\) multiplicity transfer under expansion/reduction terminology not surfaced by the searches.",
+      "The Petersen cutoff is restricted to simple cores; nonsimple-core minimality is deliberately not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the decomposition and order formula but does not state the exact three-cover enumerator or channel multiplicity formula.",
+        "evidence": "Submitted 2026-10-01; primary MSC 05C70; decomposition at Lemma 2.1 and perfect-matching/parity extension at Lemma 2.2.",
+        "identifier_or_url": "arXiv:2610.01137v1",
+        "material_read": "Abstract; Introduction; Section 2 structural definitions, Lemma 2.1, Lemma 2.2 and proof; statement of main five-cover and four-density results.",
+        "method": "Lawful arXiv HTML full text.",
+        "title": "Perfect matching covers of claw-free cubic graphs",
+        "trigger": "Direct literature lead for perfect matching covers in bridgeless claw-free cubic graphs."
+      },
+      {
+        "assessment": "States there are 19 connected cubic graphs on ten vertices and Petersen is the only bridgeless member with chromatic index 4.",
+        "evidence": "Supports the equality case in the order-30 corollary.",
+        "identifier_or_url": "doi:10.1017/CBO9780511662058.010",
+        "material_read": "Publisher-indexed chapter summary containing the order-10 connected cubic census statement.",
+        "method": "Cambridge Core indexed text.",
+        "title": "The Petersen Graph, Chapter 9: The Petersen Graph in Diversity",
+        "trigger": "Needed to verify the sharp ten-vertex simple-core boundary and uniqueness."
+      },
+      {
+        "assessment": "Confirms that triangle contraction and 2-cycle simplification preserving 3-edge-colourability are standard existence reductions; no exact multiplicity formula is given in the inspected material.",
+        "evidence": "Used only as terminology/reduction background, not as support for the new counting theorem.",
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Snark_(graph_theory)",
+        "material_read": "Definition/reduction discussion on bridges, 2-cycles and triangles.",
+        "method": "Web text inspection.",
+        "title": "Snark (graph theory)",
+        "trigger": "Alias and reduction check for Tait-colouring terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d970a5f-2f31-4743-ad73-d1a60f0cf071",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives the exact size of the minimal perfect-matching-cover layer for the entire structural class of bridgeless claw-free cubic graphs, not merely another existence example. It directly complements a 2026 paper whose main questions concern four- and five-perfect-matching covers, and the formula separates core complexity from a simple multiplicative contribution of every channel gadget. The sharp 30-vertex simple-core boundary identifies the first obstruction in a natural subclass.",
+    "status": "PASS"
+  }
+}
