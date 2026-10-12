@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The translated sample minimum is the sum of two nested indicators, giving its mean \\(\\ell+e\\) and variance \\(\\ell+3e-(\\ell+e)^2\\). Direct joint-indicator calculation gives covariance \\((\\ell+e)^2-b\\), establishing the exact formula. The rare-mass scaling \\(t=c/n\\) produces the locally uniform limit \\(n\\rho_n\\to c^2/(e^c-1)\\). Critically, the nested-indicator variance bound and Bernoulli\\'s inequality yield the uniform estimate \\(n\\rho_n\\le 4u^2/(e^u-1)+3nt^n/(1-e^{-u})\\), \\(u=nt\\). Both terms vanish when \\(u\\to0\\) or \\(u\\to\\infty\\); this closes the global maximization gap left by pointwise asymptotics. The limiting profile has a unique maximizer \\(c_*\\in(1,2)\\) from its derivative, proving the value and localization for every maximizing sequence. All boundaries \\(n\\ge2\\), \\(0<t\\le1/2\\) are handled, including finite variances and existence of maximizers. The packaged verifier checks exact moments and small cases, not the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Székely–Móri give a universal Pearson-correlation envelope \\(1/n\\) for sample minimum and maximum as described in the accessible primary source; this does not imply the strict sharp constant approximately \\(0.647610/n\\) for the symmetric three-state class.",
+        "The López-Blázquez–Salamanca-Miño article describes algorithmic evaluation of functional maximal correlation for fixed discrete parents rather than asymptotic selection of endpoint masses."
+      ],
+      "reasoning": "Neither the broad \\(1/n\\) envelope nor a method to optimize nonlinear functions of a fixed pair implies the sharp restricted parent-distribution optimum, which requires matching lower/upper limits and ruling out rare-mass escape. Full text of the 2021 article was not fully accessible in the inspected materials and remains a stated residual risk.",
+      "searches": [
+        "arXiv:2205.14360v1 Section 3 arbitrary probability vector order statistics extremal correlation",
+        "DOI:10.1016/0167-7152(85)90035-5 ordered statistics rectangular maximal correlation",
+        "DOI:10.1007/s00180-021-01103-5 discrete parents maximal correlation automatic differentiation",
+        "sample minimum maximum correlation symmetric three point distribution optimized asymptotic endpoint mass n"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.14360v1, full 13-page primary PDF including final open directions",
+      "DOI:10.1007/s00180-021-01103-5, publisher abstract and accessible preview",
+      "DOI:10.1016/0167-7152(85)90035-5, indexed abstract and statement quoted in the primary source",
+      "Candidate-specific published-record and exact-formulation searches over sample extrema, symmetric three-state parents, Pearson correlation, rare endpoint asymptotics, and the transcendental constant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Papadatos (2022), Theorem 1.2, treats two iid draws from a uniform discrete population and the final discussion raises nonuniform parent probabilities; an arbitrary-sample bound \\(1/n\\) appears in the introduction but no optimal rare-mass asymptotics.",
+        "The related 2021 paper has functional maximal correlation for a pair as objective, whereas the present claim fixes identity transforms and optimizes the law of the parent observations.",
+        "The present analytic proof identifies every asymptotically maximizing probability scale rather than giving a counterexample to equal probabilities."
+      ],
+      "reasoning": "The new theorem is neither a consequence of the two-draw sharp value nor an implication of the universal \\(1/n\\) bound: the latter does not give the sharp restricted constant or the unique optimizer scale. A result that merely shows uniform probabilities cease to be locally optimal also cannot imply the global asymptotic value or localization.",
+      "searches": [
+        "arXiv:2205.14360v1 Theorem 1.2 Section 3 final questions probability-vector order statistics",
+        "DOI:10.1007/s00180-021-01103-5 abstract maximal correlation for discrete order statistics",
+        "order statistics extreme sample three point symmetric distribution max correlation asymptotic n point mass",
+        "arXiv:2205.14360v1 primary MSC 60E15 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact problem is ordinary Pearson correlation of two extreme order statistics of an iid parent; direct formula-oriented and rare-event query variants did not yield a matching published asymptotic constant.",
+        "The 2022 primary text introduces the general order-statistic correlation bound and nonuniform probability-vector program but specifies no \\(n\to\\infty\\) three-state optimizer or constant."
+      ],
+      "reasoning": "A result written as a rare-endpoint Poisson scaling, a covariance/variance ratio, or the equation \\((2-c)e^c=2\\) would cover the claim if it also gave the global maximum and optimizer localization. The candidate searches found none; the mathematical proof additionally excludes noncompact parameter escape.",
+      "searches": [
+        "sample minimum maximum correlation symmetric three point distribution optimized asymptotic endpoint mass n",
+        "n times Corr(minimum maximum) symmetric three-valued distribution optimized endpoint probability c over n converges 0.6476",
+        "extreme order statistics 3 point distribution correlation n tending infinity endpoint probability 1/n asymptotic optimal",
+        "(2-c)e^c=2 endpoint correlation sample extrema"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located public tabulation or exact-formula result matched the transcendental constant, limiting profile, and optimizing-probability scale together.",
+        "The exact formula for the present sample-extreme family is independently reconstructed from its full finite occupancy events and replayed against exact enumeration."
+      ],
+      "reasoning": "The theorem is not a table recomputation. Numeric searches were used only as a way to detect potentially equivalent known analytic constants, not as proof that none exists.",
+      "searches": [
+        "sharp asymptotic max n Corr(sample minimum, sample maximum) three point symmetric distribution e^c-1 c squared c*=1.593624",
+        "(2-c)e^c=2 endpoint correlation sample extrema",
+        "n times Corr(minimum maximum) symmetric three-valued distribution optimized endpoint probability c over n converges 0.6476"
+      ]
+    },
+    "rationale": "The motivating complete preprint treats the two-draw case as its main theorem, quotes the general order-statistic correlation upper envelope \\(1/n\\), and specifically proposes optimization over nonuniform probability vectors; it does not obtain the sharp many-draw symmetric three-state correlation coefficient or rare endpoint-mass localization. Related work on maximal correlation optimizes transformations rather than the ordinary Pearson correlation over the present parent-law family. Targeted public-record and mathematical-record searches did not locate the exact limiting constant \\(c_*(2-c_*)\\), rare-event profile \\(c^2/(e^c-1)\\), or optimizer localization. This is not a claim of exhaustive global novelty; an older general extreme-order optimization theorem might imply the result.",
+    "residual_risks": [
+      "Possible implicit covering asymptotic theorem in older extreme-order Pearson-correlation literature using Poisson rare-mass or occupancy terminology.",
+      "Full text of the related 2021 maximal-correlation article could not be inspected completely; the article objective differs in its visible abstract but the bibliographic risk is not zero.",
+      "No assertion about unrestricted nonsymmetric parent distributions or nonlinear transformed order statistics is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_POSES_VARIABLE_PROBABILITY_PROBLEM; TWO_DRAW_RESULT_AND_GENERAL_UPPER_BOUND_NOT_COVERING_SHARP_RARE_MASS_LIMIT.",
+        "evidence": "The article explicitly gives 2022-05-28 as first public arXiv date, primary MSC 60E15, main theorem for \\(n=2\\), and a separate proposal to study probability-vector optimization for general order statistics.",
+        "identifier_or_url": "arXiv:2205.14360v1; https://arxiv.org/pdf/2205.14360",
+        "material_read": "Complete 13-page openly available PDF, particularly title/MSC/date, introduction including the general Székely–Móri \\(1/n\\) envelope, Theorem 1.2 for exactly two draws, and Section 3 remarks on variable probabilities and extreme-order correlation.",
+        "method": "Open-access primary PDF full-text and page-image inspection.",
+        "title": "A discrete analogue of Terrell’s characterization of rectangular distributions",
+        "trigger": "Direct 2022 source concerning Pearson correlation of discrete order statistics and nonuniform probability-vector optimization."
+      },
+      {
+        "assessment": "THE_PUBLISHED_ABSTRACT_DESCRIBES_FUNCTIONAL_MAXIMAL_CORRELATION_CALCULATION; NO_SHARP_PARENT_MASS_ASYMPTOTIC_VISIBLE; COVERAGE_RISK_REMAINS.",
+        "evidence": "It defines maximal correlation as a supremum over transformations of the two order statistics for fixed discrete parents, and describes an automatic differentiation algorithm. Its abstract contains no rare endpoint mass optimization or sharp asymptotic coefficient.",
+        "identifier_or_url": "DOI:10.1007/s00180-021-01103-5; https://link.springer.com/article/10.1007/s00180-021-01103-5",
+        "material_read": "Publisher abstract, bibliographic scope and references, and beginning of a lawful author-hosted full-text preview; complete full text could not be processed from the inspected large PDF.",
+        "method": "Publisher abstract/open-preview inspection plus author-hosted public PDF metadata; full-text attempt limited by PDF retrieval size.",
+        "title": "Automatic differentiation and maximal correlation of order statistics from discrete parents",
+        "trigger": "Highly related finite-discrete order-statistic dependence optimization; plausible overlapping methodology."
+      },
+      {
+        "assessment": "CLASSICAL_UNIFORM_DISTRIBUTION_ENVELOPE_NOT_SUFFICIENT_TO_FIX_RESTRICTED_SHARP_CONSTANT.",
+        "evidence": "The bound \\(\\operatorname{Corr}(L_n,U_n)\\le1/n\\) is universal. The present theorem proves a strict asymptotic coefficient below one and exact optimizing mass scale within a special discrete family.",
+        "identifier_or_url": "DOI:10.1016/0167-7152(85)90035-5",
+        "material_read": "Indexed abstract and the precise stated general bound as quoted in the openly available 2022 primary article; original 1985 full text was not obtained.",
+        "method": "Indexed abstract and primary-source theorem comparison.",
+        "title": "An extremal property of rectangular distributions",
+        "trigger": "Classical broad correlation inequality potentially dominating a restricted sharp result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "14820211-61b5-473b-95bb-47de42cf99df",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper explicitly motivates optimizing discrete order-statistic correlation over probability vectors. The symmetric three-point law is the smallest nontrivial setting with a shape parameter, and the new theorem determines the exact sharp large-sample maximum, unique asymptotic rare-endpoint mass scale, and a nontrivial strict coefficient below the general \\(1/n\\) inequality. All optimizers localize at \\(c_*/n\\); a fixed uniform law is exponentially suboptimal. This is a structural boundary and complete asymptotic classification for a natural family, not a routine finite computation or incremental example.",
+    "status": "PASS"
+  }
+}
