@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For each integer \(a,b\ge1\), \(\ell\ge0\), the graph has incidence-kernel rank one and a primitive alternating odd-cycle/path relation; hence its edge ideal is the claimed prime binomial hypersurface. The two disjoint monomial supports have the independently derived parity inventory. At every complex coordinate-zero pattern, vanishing of all partial derivatives is equivalent to the explicit singleton-square-or-pair-unit condition on **each** support. The incomparable minimal supports enumerate every component, with codimension and analytic type obtained by direct local unit absorption. Serre's \(R_1+S_2\) criterion proves normality. The standalone checker evaluated \(27{,}328\) binary supports for fifteen instances and matched every minimal set; these checks are finite regression evidence only.
+
+## Originality — PASS, with risk
+Bermejo–García-Marco–Reyes (arXiv:1210.1950, Introduction/Section 6) establishes the graph-toric setting and cites the known odd-cycle normality test, but does not give the complete projective singular-component census. Tatakis–Thoma (arXiv:1110.1059) concerns generators/complete intersections; its full text was not obtained, so it remains an explicit residual risk. Epure–Schulze (DOI:10.1112/blms.12614, full-text introduction, Sections 2 and 5) treats all hypersurfaces with monomial Jacobian ideals at a higher level of generality; the general decomposition language does not specify this graph's three distinct codimension classes, precise counts, or their generic local models. The exact parity-dependent stratification is not treated as a trivial restatement of the preexisting normality classification. Searches for formulations using barbell/dumbbell graphs, odd cycles with joining paths, monomial Jacobian components, and their analytic types did not reveal a decisive prior equivalent; failed discovery alone is not novelty proof.
+
+## Value — PASS
+The family transitions sharply from normal to nonnormal when the connecting path gains a second edge. The exact number \(\lfloor\ell^2/4\rfloor\) of nonnormal divisorial components is independent of the two cycle lengths. The theorem also completely enumerates the remaining codimension-two and -three singular components, including the distinction between generic \(A_1\) surface and ordinary threefold node behavior. These are natural geometric invariants for an infinite family of graph edge varieties and provide explicit strata for studying normalization, resolutions, and singular intersection phenomena.
+
+## Closest work and limitations
+The normality criterion and complete-intersection binomial are prior art; the new object is the full reduced singular-locus stratification and local generic types. The proof is over \(\mathbb C\); the Jacobian scheme and intersection germs are not classified. A 2011 source remains incompletely inspected and equivalent specializations may be unindexed. No external validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
