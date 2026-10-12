@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "The congruence is reduced using \\(Q^{-1}\\) to one forbidden residue per coordinate. For even \\(m\\), pairing works because two forbidden conditions exclude at most two of \\(-1,0,1\\). For odd \\(m\\), one three-coordinate block has radius \\(2\\): when \\(\\ell\\ge5\\), the \\(19\\) zero-sum triples in \\([-2,2]^3\\) cannot be covered by three coordinate slices of at most five triples each; when \\(\\ell=3\\), allowed two-element residue sets admit a zero-sum residue triple and the only nonzero canonical integer sums \\(\\pm3\\) are repaired by replacing \\(1\\) with \\(-2\\) or \\(-1\\) with \\(2\\). Pairing handles the remaining coordinates. Sharpness follows from the all-zero forbidden profile: radius \\(0\\) is impossible always, and radius \\(1\\) is impossible for odd \\(m\\) because the admissible shifts are then all odd. The finite-set bounds follow directly from the same selection and the triangle inequality. The verifier corroborates all sublemmas on exhaustive finite profiles but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical additive-combinatorial sumset principles can guarantee residue-level sums in a prime field, but the checked material did not provide a bounded integer lift with exact radius 1/2.",
+        "Shi-Qiang Chen, arXiv:2609.38865v1, uses the weaker radius bound in the precise perturbative setting considered here."
+      ],
+      "reasoning": "A theorem that only produces residues modulo \\(\\ell\\) does not dominate this result, because the quantitative content is the uniformly bounded integer representative with exact radius and zero integer sum.",
+      "searches": [
+        "zero-sum integer shifts avoid one forbidden residue each exact radius parity odd prime",
+        "bounded zero-sum forbidden congruence prime residue selection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.38865v1",
+      "doi:10.1016/j.jnt.2020.07.014",
+      "Published-findings semantic searches for the exact bounded-shift claim and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen Lemma 2.2 explicitly gives \\(|t_i|\\le m+1\\), \\(|F_i^\\dagger|\\le(2m+3)|F_i|\\), and displacement \\(m(m+1)Q\\).",
+        "Chen Lemma 2.8(ii) reuses those constants in the later perturbation construction.",
+        "The 2021 minimal-asymptotic-bases paper supplies constructional background but its indexed statement does not cover this bounded congruence-avoidance invariant."
+      ],
+      "reasoning": "The prior theorem does not imply the exact result: an existence bound growing with \\(m\\) cannot yield the sharp uniform radius \\(1\\) or \\(2\\), and the odd lower bound shows that the parity distinction is substantive.",
+      "searches": [
+        "arXiv:2609.38865v1 full-text inspection: Lemma 2.2 proof and Lemma 2.8(ii)",
+        "On a problem of Nathanson on minimal asymptotic bases, Journal of Number Theory 218 (2021)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.38865v1, Lemma 2.2 and equations (2.6)-(2.9)",
+        "Targeted searches for bounded zero-sum integer shifts avoiding one forbidden residue per coordinate returned no equivalent mathematical statement."
+      ],
+      "reasoning": "The claim was compared both in the original congruence form and after reduction to forbidden residues \\(c_i\\). No checked source states the exact parity-dependent uniform radius.",
+      "searches": [
+        "Chen 2609.38865 Lemma 2.2 bounded zero-sum shifts forbidden residue strongly minimal asymptotic bases",
+        "zero-sum integer shifts avoid one forbidden residue each exact radius parity odd prime",
+        "sum preserving perturbation forbidden congruence additive bases finite sets shift radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed findings returned by the first two semantic searches concerned unrelated Fourier, shift-operator, and sum-free problems rather than this perturbation lemma."
+      ],
+      "reasoning": "The indexed claims were compared by statement and parameters, not by title similarity; none supplies the exact uniform-radius theorem or its finite-set consequences.",
+      "searches": [
+        "published-findings query: Chen 2609.38865 Lemma 2.2 bounded zero-sum shifts forbidden residue",
+        "published-findings query: zero-sum integer shifts avoid one forbidden residue each exact radius parity odd prime"
+      ]
+    },
+    "rationale": "The motivating primary source states radius \\(m+1\\), factor \\(2m+3\\), and displacement \\(m(m+1)Q\\); its printed construction can produce a shift of magnitude \\(m\\). The final theorem instead determines the exact uniform radius, \\(1\\) for even \\(m\\) and \\(2\\) for odd \\(m\\), and derives the corresponding constant-radius finite-set refinement. Targeted semantic and web searches for the same bounded-lift statement, parity dichotomy, and stronger covering result found no statement implying this exact claim. Classical residue-sum results do not supply the sharp bounded integer lifts.",
+    "residual_risks": [
+      "The exact lemma is elementary and could exist under substantially different terminology outside the checked literature. No such stronger or equivalent statement was located.",
+      "The result sharpens a local quantitative invariant; it does not claim novelty for classical residue-sum principles used as background intuition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves the same avoidance task only with a radius growing with the number of summands and does not state the exact parity-dependent radius.",
+        "evidence": "Lemma 2.2 equations (2.6)-(2.9) and Lemma 2.8(ii) equations (2.29) and the displacement bound.",
+        "identifier_or_url": "arXiv:2609.38865v1",
+        "material_read": "Abstract and MSC; Lemma 2.2 statement and full proof; Lemma 2.8(ii) statement and proof where the constants are propagated; main theorem statement.",
+        "method": "Full-text HTML inspection of the primary preprint.",
+        "title": "On a problem of Nathanson related to strongly minimal asymptotic bases of order h",
+        "trigger": "This is the motivating recent paper and contains the exact perturbation lemma being sharpened."
+      },
+      {
+        "assessment": "NOT_COVERING at the inspected level: the paper concerns constructions of minimal asymptotic bases and does not state the bounded congruence-avoidance radius problem.",
+        "evidence": "Journal of Number Theory 218 (2021), 152-160, abstract and theorem description.",
+        "identifier_or_url": "doi:10.1016/j.jnt.2020.07.014",
+        "material_read": "Bibliographic record, abstract, theorem-level constructional description, and classification metadata.",
+        "method": "Publisher-indexed text inspection.",
+        "title": "On a problem of Nathanson on minimal asymptotic bases",
+        "trigger": "Constructional predecessor in the strongly/minimal asymptotic-basis literature surfaced by targeted literature search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f3818ef1-ada8-41ea-8cc5-a43e4b3204bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a natural quantitative invariant of a perturbation step used in a recent solution of a problem on strongly minimal asymptotic bases: the smallest uniform shift radius compatible with exact preservation of the total sum while avoiding one forbidden congruence per coordinate. The theorem completely classifies that invariant by parity and changes the source bound from order \\(m\\) to an exact constant. Its direct finite-set overhead changes from order \\(m\\) cardinality inflation and order \\(m^2Q\\) displacement to constant inflation \\(3\\) or \\(5\\) and order \\(mQ\\) displacement. The parity obstruction explains why the odd case cannot match the even case. This is a structural, reusable sharpening rather than a recomputation of a table or an arbitrary finite slice, although it does not by itself alter the main exponent range of the motivating paper.",
+    "status": "PASS"
+  }
+}
