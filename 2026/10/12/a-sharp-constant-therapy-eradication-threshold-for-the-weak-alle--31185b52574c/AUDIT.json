@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The treated scalar equation is reconstructed directly from the source. Maximizing its untreated per-capita growth gives a unique critical density x*=sqrt(c(K+c))-c and maximum (sqrt(K+c)-sqrt(c))^2/K. Sign analysis then gives global convergence to zero exactly for g>g_c, a positive double equilibrium at equality, and exactly two positive equilibria with the stated stability types below threshold. The symbolic checker independently verifies the derivatives, factorization, and exact examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Böttger and coauthors establish Allee-type tumor persistence and extinction in a different density-dependent migration-proliferation model.",
+        "Broader weak-Allee literature treats critical persistence and extinction thresholds in other ecological and tumor models.",
+        "Those sources do not use the Delitala-Ferraro scalar treatment equation or imply its exact square-root threshold."
+      ],
+      "reasoning": "The biological mechanism and the general idea of threshold behavior are prior art. The accepted result is restricted to the exact treated scalar equation and its natural sharp constant-treatment threshold.",
+      "searches": [
+        "\"An Emerging Allee Effect Is Critical for Tumor Initiation and Persistence\"",
+        "weak Allee tumor persistence extinction treatment mathematical model",
+        "weak Allee constant mortality harvesting global extinction threshold"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2020489",
+      "doi:10.1371/journal.pcbi.1004366"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific sharp-threshold statement was located.",
+        "The source supplies only the sufficient inequality g>r and the local result for g>0.",
+        "The inspected tumor-Allee predecessor studies a distinct spatial stochastic mechanism and does not imply the exact scalar threshold."
+      ],
+      "reasoning": "Neither the source's sufficient bound nor generic Allee-effect theory gives the explicit threshold without maximizing this model's exact per-capita growth law. The final claim therefore sharpens, rather than contradicts, the published statement.",
+      "searches": [
+        "\"10.3934/math.2020489\" correction erratum",
+        "\"Is the Allee effect relevant in cancer evolution and therapy\" correction",
+        "Delitala Ferraro weak Allee treatment exact threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source states that adding -gx to the weak-Allee equation makes zero globally stable when g>r and locally stable for every g>0.",
+        "Direct maximization gives the source-specific threshold g_c=r(sqrt(K+c)-sqrt(c))^2/K.",
+        "No checked indexed correction or exact source search supplied this closed-form threshold."
+      ],
+      "reasoning": "The claim can equivalently be phrased as the sharp constant-mortality threshold, the maximum-per-capita-growth treatment threshold, the saddle-node boundary of the treated weak-Allee scalar equation, or the exact basin transition for the cancer-free equilibrium. The searches covered these formulations.",
+      "searches": [
+        "\"10.3934/math.2020489\" weak Allee therapy threshold g r",
+        "\"Is the Allee effect relevant in cancer evolution and therapy\" constant treatment global stability",
+        "Delitala Ferraro weak Allee maximum per capita growth therapy threshold",
+        "\"sqrt(K+c)\" \"sqrt(c)\" Allee cancer therapy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher full text was inspected at equation (2.2), where the weak-Allee equation is printed.",
+        "The treatment page was visually inspected and states that therapy adds -gx and that g>r is sufficient for global stability while any g>0 gives local stability in the weak case.",
+        "The publisher metadata verifies first publication on 25 September 2020 and lists MSC 92B05 first."
+      ],
+      "reasoning": "The theorem is derived from the exact printed scalar model and treatment term rather than from a secondary summary.",
+      "searches": [
+        "doi:10.3934/math.2020489 equation 2.2 weak Allee",
+        "doi:10.3934/math.2020489 therapy destruction term g x",
+        "doi:10.3934/math.2020489 published MSC 92B05"
+      ]
+    },
+    "rationale": "The general maximum-per-capita-growth principle is not claimed as new. The original source-specific content is the sharp closed-form treatment threshold, the exact three-regime phase classification, and the quantitative conclusion that the motivating paper's sufficient g>r condition can be strongly conservative. Exact source, threshold-alias, square-root-formula, correction, and prior-ledger searches found no equivalent published source-specific statement.",
+    "residual_risks": [
+      "The general principle that constant mortality must exceed maximum per-capita growth is elementary and is not claimed as novel.",
+      "An unindexed note could contain the same closed-form specialization.",
+      "The result applies only while constant treatment remains active and does not address finite-duration therapy optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_SUFFICIENT_BOUND_SHARPENED_TO_EXACT_THRESHOLD",
+        "evidence": "The exact maximum of (1-x/K)x/(x+c) is (sqrt(K+c)-sqrt(c))^2/K at x=sqrt(c(K+c))-c.",
+        "identifier_or_url": "doi:10.3934/math.2020489",
+        "material_read": "Publisher full text at the single-clone model, equation (2.2), discussion of the cooperation parameter c, therapy destruction term -gx, the g>r global-stability statement, the any-g>0 local-stability statement, and later therapy interpretation. The equation page and treatment page were visually inspected.",
+        "method": "Maximized the printed weak-Allee per-capita growth function exactly, then performed complete one-dimensional sign and equilibrium analysis after subtracting constant g.",
+        "title": "Is the Allee effect relevant in cancer evolution and therapy?",
+        "trigger": "Primary source defining the weak-Allee cancer equation and the constant destruction treatment term."
+      },
+      {
+        "assessment": "BROADER_TUMOR_ALLEE_CONTEXT_DIFFERENT_MODEL",
+        "evidence": "The paper derives Allee-type tumor extinction and persistence from a spatial stochastic cell-behavior model, not the treated scalar equation used in the motivating source.",
+        "identifier_or_url": "doi:10.1371/journal.pcbi.1004366",
+        "material_read": "Open full text at the abstract, author summary, emergent population-growth results, and discussion of tumor persistence/extinction under density-dependent migration-proliferation plasticity.",
+        "method": "Used as broader biological and mathematical context, not as a whole-document novelty certificate.",
+        "title": "An Emerging Allee Effect Is Critical for Tumor Initiation and Persistence",
+        "trigger": "Primary predecessor establishing the relevance of Allee mechanisms to tumor persistence and extinction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31185b52-574c-4ff8-8a6a-85ec312d1dd2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The threshold is a natural model quantity: the least sustained constant destruction rate that makes the cancer-free state globally attracting. It turns the source's conservative g>r condition into an exact treatment/cooperation phase boundary and quantifies a large effect at a parameter value plotted by the source: for c=K/2 the threshold is only (2-sqrt(3))r, about 26.8 percent of r. The result also exposes the full bistable regime below threshold, which determines which initial burdens converge to zero under continued treatment.",
+    "status": "PASS"
+  }
+}
