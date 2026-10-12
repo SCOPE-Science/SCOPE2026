@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The first-step formula follows from a one-variable residual least-squares problem. In dimensions at most two, MINRES is exact by the second Krylov step and Stieltjes inverse nonnegativity gives a nonnegative exact solution. For the three-mode family, solving the exact two-by-two residual normal equations yields determinant \\(4(1+100\\varepsilon^2)\\), the displayed coefficients, and the third-coordinate factor \\(\\varepsilon(50\\varepsilon^2-1)\\). Exact symbolic replay and rational witnesses agree. The proof states exact-arithmetic and scope limits explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Own-ledger comparison found a distinct CG/Stieltjes theorem with dimension-three, step-two sign loss; CG minimizes the energy error, whereas the present MINRES coefficients solve residual normal equations with moments through order four.",
+        "Paige--Saunders treats symmetric definite and indefinite systems broadly but the inspected full text develops norm/residual properties, not preservation of the nonnegative cone."
+      ],
+      "reasoning": "The prior CG result cannot dominate the present claim because the algorithms select different Krylov polynomials. General MINRES convergence theory controls residual norms and does not imply componentwise signs.",
+      "searches": [
+        "inverse-positive SPD conjugate gradient positivity preservation",
+        "MINRES positivity diagonal SPD negative iterate nonnegative right hand side"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0712047",
+      "doi:10.1137/0725052",
+      "https://web.stanford.edu/group/SOL/software/minres/",
+      "published-finding corpus:2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "https://github.com/Jebel-Quant/mean_variance_solvers/tree/main/non_negative_cg"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Paige--Saunders derivation shows that the second MINRES point minimizes residual over \\(\\mathcal K_2(A,b)\\), which is the premise used here; it does not supply the derived sign formula.",
+        "The Saunders--Simon--Yip record places this Krylov family in MSC \\(65\\mathrm{F}10\\) but concerns unsymmetric analogues and contains no implication covering componentwise positivity."
+      ],
+      "reasoning": "The new statement is not a corollary of residual monotonicity: decreasing \\(\\lVert r_k\\rVert_2\\) leaves coordinate signs unconstrained. The explicit diagonal calculation adds a property not implied by the cited prior theorems.",
+      "searches": [
+        "minimum residual Krylov diagonal matrix positivity preservation nonnegative cone",
+        "MINRES Stieltjes matrix dimension three second iterate positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Paige--Saunders DOI 10.1137/0712047 defines MINRES through residual minimization in Lanczos Krylov spaces; inspected sections 2 and 6--8 do not state a componentwise nonnegativity classification.",
+        "published-finding corpus search returned SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc as the closest residual-minimization result, but its claim is about Euclidean error amplification of repeated GMRES(1), not the unrestarted second MINRES iterate."
+      ],
+      "reasoning": "For symmetric matrices, unrestarted GMRES and MINRES have the same exact residual-minimizing Krylov iterate, so GMRES terminology was included as an alias. The closest retrieved statement optimizes a one-dimensional step repeatedly and does not imply the two-dimensional Krylov polynomial or its coordinate sign threshold.",
+      "searches": [
+        "MINRES positivity diagonal SPD negative iterate nonnegative right hand side",
+        "minimal residual method componentwise positivity diagonal matrix",
+        "MINRES nonnegative cone sign loss"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit stated the polynomial threshold \\(50\\varepsilon^2=1\\), the spectrum \\(\\{1,2,4\\}\\), or a componentwise MINRES positivity boundary.",
+        "The closest published-finding corpus ID was 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc, which gives a norm-amplification constant rather than an entrywise sign law."
+      ],
+      "reasoning": "The retrieved database results address norm transients, stationary minimal-residual steps, or other solvers; none tabulates or implies this exact componentwise threshold.",
+      "searches": [
+        "MINRES diagonal SPD second iterate negative component nonnegative right hand side exact threshold",
+        "MINRES Stieltjes matrix dimension three second iterate positivity"
+      ]
+    },
+    "rationale": "Statement-level searches included MINRES, minimum residual, symmetric GMRES aliases, componentwise positivity, diagonal SPD systems, Stieltjes matrices, and the second-iterate threshold. The Paige--Saunders full text and the closest published-finding corpus records do not state or imply this componentwise theorem. A distinct prior CG/Stieltjes result was excluded as non-dominating because CG and MINRES use different optimality conditions. Residual risk from older conjugate-residual terminology remains.",
+    "residual_risks": [
+      "Older conjugate-residual, minimized-iterations, or monotone-iterative-method literature may express an equivalent coordinatewise observation under terminology not recovered by the searches.",
+      "The literature comparison establishes no exhaustive novelty guarantee; it supports non-coverage among the inspected primary and database sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines minimum-residual Krylov iterates and studies residual/error behavior, but no componentwise nonnegativity theorem, diagonal three-mode threshold, or Stieltjes minimality result was located in the inspected material.",
+        "evidence": "Section 2 case (b) defines residual-norm minimization; section 6 names MINRES; section 7 proves residual-norm decrease; section 8 reports numerical behavior.",
+        "identifier_or_url": "doi:10.1137/0712047",
+        "material_read": "Full-text pages 1--12, especially sections 2, 6, 7, and 8.",
+        "method": "Read the extracted lawful full text and compared the residual-minimizing statement and listed properties against the proposed coordinate-sign claim.",
+        "title": "Solution of Sparse Indefinite Systems of Linear Equations",
+        "trigger": "Seminal MINRES source and the direct algorithmic antecedent."
+      },
+      {
+        "assessment": "The paper derives unsymmetric analogues in the same fashion as MINRES and lists MSC 65F10; it does not cover the present componentwise threshold.",
+        "evidence": "Publisher record lists MSC 65F10 and online publication date 2006-07-14.",
+        "identifier_or_url": "doi:10.1137/0725052",
+        "material_read": "Publisher abstract, bibliographic history, MSC metadata, and reference context.",
+        "method": "Compared scope and classification metadata.",
+        "title": "Two Conjugate-Gradient-Type Methods for Unsymmetric Linear Equations",
+        "trigger": "Classification and terminology check for the MINRES/SYMMLQ lineage."
+      },
+      {
+        "assessment": "Confirms MINRES is a Lanczos-based method for symmetric systems that may be definite or indefinite; no nonnegative-cone guarantee is stated.",
+        "evidence": "The page describes solving symmetric shifted systems with optional SPD preconditioning.",
+        "identifier_or_url": "https://web.stanford.edu/group/SOL/software/minres/",
+        "material_read": "Method description and problem class.",
+        "method": "Compared stated solver scope with the theorem assumptions.",
+        "title": "MINRES: Sparse Symmetric Equations",
+        "trigger": "Current method description and symmetry/definiteness scope."
+      },
+      {
+        "assessment": "It motivates an active-set layer because unconstrained CG does not enforce inequalities, but it does not state the MINRES diagonal threshold or its minimality.",
+        "evidence": "The introduction explicitly separates unconstrained CG from the nonnegative quadratic-program constraint and uses active-set corrections.",
+        "identifier_or_url": "https://github.com/Jebel-Quant/mean_variance_solvers/tree/main/non_negative_cg",
+        "material_read": "Introduction and relevant nonnegativity/inner-solve sections.",
+        "method": "Compared its constrained-CG motivation and active-set mechanism with the unconstrained MINRES claim.",
+        "title": "Non-negative conjugate gradients manuscript",
+        "trigger": "Highly relevant modern discussion of Krylov solves and nonnegativity constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a195856-de17-41ac-b074-4ca0283ca94a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a structural failure mode of residual minimization: even a completely decoupled positive diagonal system can acquire a negative coordinate solely because one Krylov polynomial is shared across spectral modes. The exact threshold, joint minimality in dimension and iteration, and irreducible Stieltjes witness make the statement useful for positivity-sensitive linear solves and for deciding when projection or constrained Krylov machinery is mathematically necessary rather than cosmetic.",
+    "status": "PASS"
+  }
+}
