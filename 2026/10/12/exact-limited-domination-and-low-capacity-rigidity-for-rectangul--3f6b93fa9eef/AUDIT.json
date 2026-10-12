@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every selected (i,j), the exact outside-neighbor count is n-rho_i+m-kappa_j. A dominating set cannot have both an empty row and empty column. If all rows are covered, rho_i>=max(1,n-k) for each row because every selected cell satisfies rho_i+kappa_j>=m+n-k with kappa_j<=m; similarly when all columns are covered. Taking the smaller bound and matching it by complete column/row slabs proves the all-parameter identity. Equality in the bound forces every used column or row to be full when 1<=k<min(m,n), yielding the exhaustive optimizer classification and counts. The separately coded brute-force checker tested all 1,763,138 nonempty candidate subsets across 14 boards, all 93 capacity cases, and equality counts, with zero disagreements. No finite test is used as an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tepeh arXiv:2606.22428v1, Theorem 7 (product bound), Proposition 8 and proof (only K_{k+2} square K_{k+2}).",
+        "Božović et al. arXiv:2606.22422, Proposition 2 (complete graphs and complete bipartite graphs, not rook products)."
+      ],
+      "reasoning": "Theorem 7 gives gamma<=the candidate expression, so the new assertion is the reverse inequality for every pair of factor orders. Proposition 8 establishes the reverse inequality only along m=n=k+2 and does not imply it at arbitrary m,n,k. Complete bipartite graphs differ from the line graph K_m square K_n.",
+      "searches": [
+        "\"k-limited domination\" \"Cartesian product\" \"complete\"",
+        "\"On k-limited domination: complexity and Cartesian products\" \"rook graphs\" \"m\" \"n\"",
+        "Tepeh on k-limited domination Cartesian products general upper bound is sharp for any product of complete graphs, not just K_{k+2} square K_{k+2}"
+      ]
+    },
+    "checked_sources": [
+      "Božović et al., arXiv:2606.22422, accessible HTML introduction, definitions, Proposition 2 and (1,t) conversion.",
+      "Tepeh, arXiv:2606.22428v1, complete accessible first-version text with Section 4.1 original rook proof.",
+      "Tepeh, arXiv:2606.22428v2, October 2026 listing and abstract; revised body inaccessible.",
+      "Direct searches for k-limited domination, rook graph, (1,t)-domination and line graph of complete bipartite graphs.",
+      "Published mathematics records searched for exact formula, product-bound equality, aliases and capacity-constrained row-column matrices."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tepeh arXiv:2606.22428v1, Theorem 7: universal factor-repetition upper bound.",
+        "Tepeh arXiv:2606.22428v1, Proposition 8: equality for K_{k+2} square K_{k+2}.",
+        "Present row-column covering lemma gives the missing general lower bound, with occupancy equality giving optimizer rigidity."
+      ],
+      "reasoning": "The present all-parameter equality strictly strengthens the specific square equality: substituting m=n=k+2 recovers it, while variable m,n and 0<=k<=m+n-2 include arbitrarily unequal dimensions and every capacity. Neither upper bound nor special equality logically forces lower bounds elsewhere; e.g. the known product bound allows strictness for general factors. The low-capacity classification additionally quantifies all optimizers and is not a consequence of any numerical upper bound.",
+      "searches": [
+        "Exact k-limited domination gamma^L_k(K_m □ K_n) = min(m max(1,n-k), n max(1,m-k)) for all rook graphs",
+        "Tepeh on k-limited domination Cartesian products general upper bound is sharp for any product of complete graphs, not just K_{k+2} square K_{k+2}",
+        "1,t domination Cartesian product complete graphs rook graph exact values all dimensions",
+        "\"k-limited domination\" \"rook graphs\" formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.22422 HTML, introduction and Section 4: in degree d, k-limited domination equals (1,d-k)-domination.",
+        "arXiv:2606.22428v1, Sections 2 and 4: same conversion and only a special rook exactness result."
+      ],
+      "reasoning": "For the (m+n-2)-regular rook graph, the equivalent parameter is (1,m+n-2-k)-domination. The conversion is established prior work and is used as an alias in searches; it does not itself calculate the number or determine the optimizers. No equivalent formula was found in accessed sources; unindexed equivalents remain possible.",
+      "searches": [
+        "1,t domination Cartesian product complete graphs rook graph exact values all dimensions",
+        "minimum (1,t)-domination rook graphs Cartesian product of cliques gamma limited domination",
+        "(1,t)-domination rook graphs",
+        "\"(1,t)-domination\" \"rook graphs\"",
+        "\"line graph of complete bipartite\" \"(1,t)-domination\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed scientific record: 2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4 (a different invariant and graph class).",
+        "Indexed scientific record: 2026/10/4/SCOPE-upper-k-tuple-domination-of-complete-multipartite-graphs--ba8c8eb62dc8 (different domination condition).",
+        "Direct web searches returned the Tepeh special-square result, not a complete rectangular table."
+      ],
+      "reasoning": "Exact formula, alias, and target-family searches surfaced no database entry or table assigning this same k-limited domination invariant to all two-dimensional rook graphs. K-limited packing and k-tuple domination records are neither equivalent invariants nor dominating numerical bounds.",
+      "searches": [
+        "Exact k-limited domination gamma^L_k(K_m □ K_n) = min(m max(1,n-k), n max(1,m-k)) for all rook graphs",
+        "k-limited domination number rook graphs Cartesian product complete graphs K_m square K_n",
+        "capacity constrained dominating sets rectangular rook graph maximal complement matrix rows columns",
+        "\"K_m square K_n\" \"limited domination\" exact",
+        "\"rook graph\" \"1,t domination\""
+      ]
+    },
+    "rationale": "In the materially read first version of Tepeh, arXiv:2606.22428, Theorem 7 is a general upper bound for products and Proposition 8 gives equality only for the diagonal pair K_{k+2} square K_{k+2}. The present theorem requires a new matching lower bound for all m,n and separately classifies every minimum set for 1<=k<min(m,n). The origin paper arXiv:2606.22422 covers the definition and complete graph values, not this product theorem. Searches for the equivalent regular-graph (1,t)-domination formulation and published-finding corpus records showed no statement implying this exact result. Full access to the October 2026 revised text was unavailable and is a declared nonzero literature risk.",
+    "residual_risks": [
+      "Full revised arXiv:2606.22428v2 was inaccessible; a newly added general rectangular rook theorem cannot be ruled out from its abstract alone.",
+      "An older, unindexed equivalent (1,t)-domination result for line graphs of complete bipartite graphs could cover the theorem.",
+      "Index searches cover only publicly discoverable records; a negative semantic search does not establish uniqueness or rule out undisclosed work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and bounds the parameter but does not state the two-factor rook exact theorem in materially read sections.",
+        "evidence": [
+          "arXiv 2606.22422 HTML Section 1, Definition 1, Proposition 2; first public June 21, 2026."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.22422",
+        "material_read": "HTML abstract, introduction, Definition 1, Proposition 2 with complete-graph and complete-bipartite exact values, and description of Section 4 equivalence.",
+        "method": "Read lawful arXiv HTML text in context.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Introduces the exact domination notion and possible equivalence with (1,t)-domination."
+      },
+      {
+        "assessment": "Theorem 7 gives a general product upper bound; Proposition 8 proves a single square k+2 family. Neither gives the all-parameter matching lower bound or the optimizer classification. The revised full text was not read, creating a genuine residual risk.",
+        "evidence": [
+          "arXiv:2606.22428v1, Section 4, Theorem 7 and Proposition 8, pages 8-10; first public June 21, 2026."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/407508234_On_k-limited_domination_complexity_and_Cartesian_products",
+        "material_read": "First-version definitions, Theorem 7 and proof, Section 4.1 and Proposition 8 with its proof, and adjacent product examples from the accessible full-text rendition.",
+        "method": "Read legally accessible full first-version text via public full-text rendition; arXiv v2 PDF and HTML retrieval was separately attempted without success.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Same invariant and same graph family; a decisive original result comparison."
+      },
+      {
+        "assessment": "No confirmation of stronger rook theorem in the accessible abstract, but full v2 coverage is unresolved and explicitly listed as a risk.",
+        "evidence": [
+          "arXiv++ listing shows v2 dated October 1-2, 2026; abstract refers generally to exact values for some product families."
+        ],
+        "identifier_or_url": "https://www.arxiv.symmetricfunctions.com/paper/2606.22428v2",
+        "material_read": "Public abstract and version/date listing only; complete revised PDF/HTML could not be retrieved.",
+        "method": "Visited arXiv-linked version listing and attempted arXiv PDF and HTML fetch; no claim of reading the revised body.",
+        "title": "On k-limited domination: complexity and Cartesian products (revised listing)",
+        "trigger": "Version 2 dated October 1-2, 2026 may broaden the original results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f6b93fa-9eef-4b64-8077-af35b6ea7b95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter was introduced in June 2026 and the immediate motivating Cartesian-product study specifically isolates rook graphs as sharpness witnesses while proving only the K_{k+2} square case. This theorem settles exact equality of the product upper bound on the entire canonical three-parameter family, including arbitrarily rectangular factors, and classifies every optimum in the nontrivial low-capacity regime. The coverage dichotomy and rigidity are structural information, not an arbitrary finite computation or a mere restatement of the existing upper bound. It does not claim a solution for all product graphs or a classification of high-capacity minimizers.",
+    "status": "PASS"
+  }
+}
