@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The conditional one-projection squared-error identity identifies the exact least-information eigenvalue. Positive-price normalization is a bijection, the SDP covering formulation is equivalent, and explicit primal/dual pairs attain d(d+t)/(d+1) below the threshold and d-squared above it. For t<d-squared the dual is strictly positive and the dyadic Frobenius Gram is positive definite, forcing unique equal weights. At/above the threshold a rank-one dual forces all other weights equal and an exact orthogonal eigenvalue condition yields the complete interval and strict-high-price uniqueness. Fraction-based checker verifies 56 exact rational primal/dual cases and all principal minors; it is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gower–Richtárik treat general sampling matrices, but optimize probability-normalized eigenvalue without a variable cost denominator.",
+        "Dai et al. give a general unweighted min-trace covering reduction, which becomes cost-aware only after changing that objective.",
+        "Martinez–Wegman (2000) give an E-optimal experimental-design method, not the checked simplex unequal-price classification."
+      ],
+      "reasoning": "A more general solution would subsume the result if it included arbitrary costs and explicitly determined every optimizer for this simplex family. The inspected broader frameworks establish an SDP method, not that explicit family. Their applicability as starting methods is acknowledged rather than mischaracterized as unrelated.",
+      "searches": [
+        "optimal E-optimal design with one expensive observation on regular simplex tight frame deletion threshold price",
+        "regular simplex unit norm tight frame weighted E-optimal design one different cost deletion threshold price spectral gap",
+        "arxiv:1506.03296v5, Section 5.1",
+        "doi:10.1016/S0167-7152(99)00173-X"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0702226v1 (foundational RK)",
+      "arxiv:1402.2863v1 (direct unpriced SDP antecedent)",
+      "arxiv:1506.03296v5 (general sketch-and-project SDP antecedent)",
+      "doi:10.1016/S0167-7152(99)00173-X (E-optimal design method; partial text)",
+      "doi:10.1109/GlobalSIP.2014.7032145 (abstract only; high relevance)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Strohmer–Vershynin analyze normalized-row or row-norm-weighted convergence without heterogeneous action costs.",
+        "Dai et al. prove that a generic unpriced sampling distribution can be found by SDP, not the dimension-squared exceptional-cost frontier.",
+        "Existing analyses of fresh-permutation simplex Kaczmarz epochs involve a different sampling law and multiple projections per epoch; planar annealed-rate classifications optimize a different long-horizon criterion."
+      ],
+      "reasoning": "The unpriced tight-frame consequence is subsumed by prior work, but pricing one row changes the objective. Neither an unpriced global maximizer nor a general solver formula determines a priori whether or when the expensive projection is dropped. The new proof supplies an explicit strict/critical/above-threshold classification, and separate equality-case rigidity excludes asymmetric optimizers.",
+      "searches": [
+        "randomized Kaczmarz per unit iteration cost optimization simplex rows cost spectrum worst-case contraction",
+        "arxiv:math/0702226v1, sections 2–3",
+        "arxiv:1402.2863v1, Section II, equations (15)–(18)",
+        "arxiv:1506.03296v5, Sections 5.1–5.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dai–Soltanalian–Pelckmans (2014) exactly reduce unrestricted equal-action-cost Kaczmarz one-step optimization to maximize the minimum eigenvalue and to an unweighted semidefinite covering problem.",
+        "Gower–Richtárik (2015/2016) likewise derive an unpriced optimal-sampling SDP in a general sketch-and-project framework.",
+        "The price-aware ratio in the current statement homogenizes to a covering problem with nonuniform linear costs rather than the unweighted objective in the cited source."
+      ],
+      "reasoning": "The row-information matrix and its SDP are established prior art, and the price-one special case is covered. The full arbitrary-price closed form, dimension-squared threshold, and complete parameterized equality classification are not supplied by those general unpriced equations; an algorithmic covering framework is not itself an explicit solution.",
+      "searches": [
+        "Randomized Kaczmarz regular simplex frame n+1 rows unequal row costs optimal sampling design threshold one expensive row n squared minimum eigenvalue Fisher information",
+        "arxiv:1402.2863v1, Section II, equations (15)–(17)",
+        "arxiv:1506.03296v5, Section 5.1, equations (45)–(46)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source experiments use random row matrices with 200 rows in dimension 20 and compare generic numerical SDPs, rather than a dimension-parameterized regular-simplex price table.",
+        "No exact cost threshold table was identified in the checked materials or semantic search results; this negative search alone does not establish novelty."
+      ],
+      "reasoning": "This is a theorem about all integer dimensions and all positive real prices; a finite table would not by itself cover its boundary and uniqueness quantifiers. No inspected database/table supplied the formula, with historical equivalence retained as a risk.",
+      "searches": [
+        "Regular simplex Kaczmarz arbitrary row costs optimal probability sampling E-optimal design threshold n squared expensive row",
+        "optimal sampling probabilities Kaczmarz cost-aware expected progress one row much more expensive simplex",
+        "arxiv:1402.2863v1, Section IV experiments and Section V conclusion"
+      ]
+    },
+    "rationale": "The 2014 unpriced Kaczmarz SDP and the 2015/2016 broader sketch-and-project SDP establish the general information-matrix method, but the inspected original research does not give the cost-normalized regular-simplex classification. New content is the d-squared row-price frontier, its apparently counterintuitive uniform law below threshold, the explicit optimal value for all positive real prices, and uniqueness/complete critical equality cases. Existing simplex reshuffling and planar long-horizon results have different operators/objectives. Inaccessible older specialized material is expressly a residual risk, not silently cleared.",
+    "residual_risks": [
+      "A specialized earlier exact cost-sensitive simplex E-optimal-design solution may be indexed under terminology not retrieved; search coverage is not an independence certificate.",
+      "The full original 2014 GlobalSIP exact-MSE/sampling paper was not obtained, so its possible historical treatment cannot be ruled out.",
+      "The reported exact optimum is defined for one-step worst-initialization squared-error progress divided by expected projection cost; its optimality does not automatically transfer to long-horizon mean-square decay or realized wall-clock efficiency."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational convergence estimates and norm-proportional sampling; does not establish heterogeneous sampling-cost simplex frontier.",
+        "evidence": [
+          "arxiv:math/0702226v1, original dated 2007-02-08, Section 2 and Section 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0702226v1",
+        "material_read": "Version 1 HTML: abstract, problem, convergence estimates, Sections 2 and 3 on rate and optimality.",
+        "method": "Read original full-text HTML and compare quantified objective, row selection and price assumptions.",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Foundational row-normalized randomized projection contraction and earliest day-verified archive source."
+      },
+      {
+        "assessment": "General no-cost exact framework is prior art; the checked paper does not report the sharp one-row-cost regular-simplex threshold or all price-parametric optimum laws.",
+        "evidence": [
+          "arxiv:1402.2863v1, Section II equations (15)–(18) and Section IV random-matrix experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.2863v1",
+        "material_read": "Full original HTML covering Sections I–V, especially Theorem 2, equations (15)–(18), optimization discussion, experiment setup, and references.",
+        "method": "Compared matrix objective, feasible set, homogeneous covering reformulation, examples, and optimization of row norms.",
+        "title": "On the Randomized Kaczmarz Algorithm",
+        "trigger": "Exactly matching normalized row-information matrix and unpriced probability-selection SDP."
+      },
+      {
+        "assessment": "Supplies broader numerical optimization methodology but not the explicit unequal-price simplex solution or complete transition optimizer set.",
+        "evidence": [
+          "arxiv:1506.03296, Section 5.1, equations (45)–(46), note acknowledging earlier optimized-sampling literature."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+        "material_read": "Original HTML introduction and Section 5.1 equations (44)–(46), adjacent probability formulas, and references to earlier optimal sampling.",
+        "method": "Compared general unpriced optimal-sampling SDP against the present cost-normalized objective.",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Broader sketch-and-project framework might imply arbitrary sampling policies."
+      },
+      {
+        "assessment": "No full-text NOT_COVERING conclusion. Historical overlap remains possible; abstract indicates a distinct exact multistep MSE emphasis, not cost-priced simplex allocation.",
+        "evidence": [
+          "DOI 10.1109/GlobalSIP.2014.7032145; full text uninspected, residual risk explicitly retained."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+        "material_read": "Original conference abstract and publication metadata; full paper not accessible.",
+        "method": "Compared title and accessible abstract; searched for an open preprint and authorized institutional full-text access, without obtaining the body.",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Potential exact-sampling treatment, including multistep MSE that could dominate a one-step-only claim."
+      },
+      {
+        "assessment": "Broad design method acknowledged; no explicit priced simplex threshold identified in accessible text, without claiming full-document exclusion.",
+        "evidence": [
+          "Martinez–Wegman, Statistics & Probability Letters 47 (2000), 325–328."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0167-7152(99)00173-X",
+        "material_read": "Publisher abstract, introduction, and accessible methodological excerpt.",
+        "method": "Compared general E-optimal design methodology to the priced regular-simplex one-step problem.",
+        "title": "An alternative criterion useful for finding exact E-optimal designs",
+        "trigger": "Equivalent statistical design formulation for minimizing worst-direction variance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08c3cf76-fd5b-4f0f-9f5d-e5680d331676",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Heterogeneous row-projection costs motivate progress-per-expected-cost rather than generic iteration-count speed. The minimally redundant simplex is canonical and analytically tractable. A quadratic price threshold with uniform sampling persisting unchanged below it, and an exact critical optimizer continuum, gives a nontrivial globally sharp structural answer in every dimension. A direct decision rule obviates numerical SDP solution for this family. It is not claimed to solve arbitrary sampling costs or realized runtime.",
+    "status": "PASS"
+  }
+}
