@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The normalized product integral is Jozsa–Mitchison equation (14). Its mass-splitting difference is exactly a(w-a)t times nonnegative remaining factors over positive denominators; log-convexity of the product gives concavity of the split curve. The derivative at zero is bounded by w integral (t+w)^(-2)=1. Concavity gives 0<=delta Q<=a for every split, including endpoints by continuity. Splitting each observation probability into conditionals yields the exact total removed mass 1-pguess; a binary small-error family has derivative one and establishes sharpness. The proof includes zero probabilities and repeat spectra by continuous extension. The 48 high-precision table checks in verify_subentropy.py are corroborative, not substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jozsa–Mitchison arXiv:1404.7694 equation (14) is the half-axis integral for subentropy; its Appendix Lemma 3 and Property 9 prove monotonicity under marginalization, including the nonnegative half of the finding.",
+        "Datta et al. arXiv:1310.1312 Proposition 5 proves nonnegativity of conditional subentropy even for noncommuting signal states."
+      ],
+      "reasoning": "The positive lower inequality is covered and not claimed as new. Neither the general integral formula nor marginal monotonicity alone states a Bayes-error upper bound. The sharp bound requires an additional derivative comparison at the boundary of every spectral mass split, followed by telescoping over conditional observation outcomes. Generic subentropy-versus-min-entropy bounds for one state do not control a difference of two subentropies.",
+      "searches": [
+        "\"subentropy\" \"Bayes error\" \"classification\" inequality",
+        "\"subentropy\" \"1-Pguess\" classical conditional",
+        "Jozsa Mitchison subentropy joint marginal difference guessing pguess posterior max proof bound linear",
+        "arXiv:1404.7694 Lemma 3 and Property 9"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1310.1312 (original full-text relevant sections)",
+      "arXiv:1404.7694 (original full-text equation (14), Appendix Property 9)",
+      "DOI:10.1063/1.4882935 (journal identity of first source)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Datta et al. prove the nonnegative half (Proposition 5) and two-pure-state case (Proposition 6), but state the wider conditional min-entropy claim as Conjecture 2.",
+        "Jozsa–Mitchison establish the product integral in equation (14) and marginal monotonicity in Property 9, without the posterior-maximum Bayes-error upper comparison."
+      ],
+      "reasoning": "The earlier results imply the integral premise and the lower bound, not the asserted universal commuting upper bound, which is stronger than the conjectured logarithmic expression. The two-pure-state theorem in the original paper has narrower assumptions; the present result does not subsume or settle the noncommuting conjecture.",
+      "searches": [
+        "arXiv:1310.1312 Proposition 5, Conjecture 2, Proposition 6",
+        "arXiv:1404.7694 equation (14), Appendix Property 9",
+        "\"conditional subentropy\" \"commuting\" \"guessing\"",
+        "conditional subentropy for classical classical states bounded by Bayes classification error 1 - optimal guessing probability spectral splitting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Datta et al. Conjecture 2 is an inequality with right side negative log guessing probability for all classical–quantum ensembles; the present bound is linear and confined to the full commuting subclass.",
+        "The equivalent classical formulation uses a finite joint law and Bayes error, not a new entropy definition."
+      ],
+      "reasoning": "Simultaneous diagonalization exactly identifies commuting conditional density matrices with joint probability tables, preserving both relevant spectra and optimum guessing probability. The original two-pure-state result does not imply a bound for arbitrary mixed commuting conditional states and does not imply the sharp coefficient-one refinement inequality. Targeted equivalent-language queries located no encompassing statement.",
+      "searches": [
+        "\"conditional subentropy\" \"classical-classical\" \"guessing\"",
+        "Datta Dorlas Jozsa Benatti conjecture 2 all commuting ensembles 81P17 q(X|B) <=1-pguess",
+        "arXiv:1310.1312 Section 2.5, Conjecture 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The theorem is an inequality for every real-valued finite probability table, not a finite database entry; exact signatures searched include linear Bayes error and one-Lipschitz mass splitting.",
+        "Jozsa–Mitchison Appendix Property 9 provides a related joint/marginal inequality but no numeric lookup table or sharp Bayes-error formula."
+      ],
+      "reasoning": "There is no fixed list of finite objects whose tabulation can dominate an all-dimensional statement. Search of explicit linear error and spectral-refinement aliases did not find a table or theorem implying it. Lack of indexing is retained as a risk, not treated as a mathematical uniqueness proof.",
+      "searches": [
+        "\"subentropy\" \"probability of error\" \"one\" bound",
+        "\"subentropy\" \"refinement inequality\" spectral splitting",
+        "subentropy one-Lipschitz under splitting eigenvalue spectral refinement any discrete probability vector sharp coefficient 1"
+      ]
+    },
+    "rationale": "The source expressly conjectures its weaker logarithmic bound and proves only specific cases. Its general nonnegative half is already known and not claimed as new. Jozsa–Mitchison supply the integral and marginal monotonicity but not the sharp linear Bayes-error upper bound. Source, parameter, equivalent/stronger, decision-error and exact-mass-split searches showed no covering theorem; residual terminology and indexing risks are explicit.",
+    "residual_risks": [
+      "An equivalent linear Bayes-error bound or boundary mass-splitting lemma may appear under later terminology from classical decision theory or stochastic refinement and may be unindexed.",
+      "The proof applies only when the conditional signal density operators commute; no noncommuting generalization is certified.",
+      "Scientific self-review is not an independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains source inequality as an unproved conjecture in full generality and proves nonnegativity and the two-pure-state case, but no universal arbitrary-alphabet commuting-signal linear bound.",
+        "evidence": [
+          "arXiv:1310.1312, pages 8–10, §2.5, Conjecture 2 and Proposition 6",
+          "arXiv:1310.1312, Proposition 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.1312",
+        "material_read": "Original public preprint, especially the definitions in §2, §2.5, Proposition 5, Conjecture 2, Proposition 6, §2.6, and the appendix derivation.",
+        "method": "Read the arXiv full-text PDF and inspected the relevant mathematical page images and extract.",
+        "title": "Properties of subentropy",
+        "trigger": "Direct conjecture and anchor: conditional subentropy, guess probability and possible classical reductions."
+      },
+      {
+        "assessment": "Exactly supplies the integral representation and known joint/marginal nonnegativity, but not the conditional Bayes-error upper bound or the sharp one-unit mass-splitting inequality.",
+        "evidence": [
+          "arXiv:1404.7694, §2 equation (14), page 5",
+          "arXiv:1404.7694, Appendix Property 9, pages 16–17"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.7694",
+        "material_read": "Full public PDF consulted for §2 (especially equation (14)) and Appendix Lemma 3 and Property 9, including surrounding proof, plus abstract/introduction and stated scope.",
+        "method": "Read the original full-text arXiv PDF and the relevant page image with the integrand.",
+        "title": "Symmetric polynomials in information theory: entropy and subentropy",
+        "trigger": "Potential stronger integral representation and joint/marginal theorem that might already imply the claimed inequality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12477c63-c1cb-46d5-a8cb-e25c3ac2b92a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite commuting quantum signal ensembles form the full naturally classical sector of a named unresolved conditional-subentropy conjecture. The result settles that entire sector for arbitrary mixed signals and nonuniform priors, improves the claimed logarithmic upper bound to a dimension-independent sharp linear Bayes-error bound, and yields an explicit strictly stronger guessing-probability certificate pguess <= 1-Q. The underlying mass-splitting lemma captures the structural reason, not a finite numerical curiosity.",
+    "status": "PASS"
+  }
+}
