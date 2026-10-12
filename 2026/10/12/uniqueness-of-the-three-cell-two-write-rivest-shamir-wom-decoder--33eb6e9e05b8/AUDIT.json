@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "From the formal WOM definition, every first-generation representative \\(x\\) must have an upward cone containing all four messages, so \\(2^{3-\\operatorname{wt}(x)}\\ge4\\) and \\(\\operatorname{wt}(x)\\le1\\). The four messages therefore force the four states of weight at most one. Pairwise comparison of their upward cones then forces \\(111\\) to share the label of \\(000\\) and each weight-two state to share the label of its complementary weight-one state. This proves exactly \\(4!=24\\) decoders. The converse is direct. A separate exhaustive verifier checks all \\(65{,}536\\) interpretation functions, the exact survivor set, the forced first states, and the \\(16\\) reachable second-write transition tables per decoder.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1016/S0019-9958(82)90344-8",
+        "DOI:10.1109/TIT.2012.2200291"
+      ],
+      "reasoning": "General WOM results determine rates, capacities, or constructions but do not by themselves determine equality structure of interpretation functions at this smallest parameter. No inspected general theorem implies the 24-function classification.",
+      "searches": [
+        "3-cell 2-write WOM code classification four messages",
+        "write-once memory code unique decoder up to message relabeling",
+        "finite length WOM codes optimal decoder classification",
+        "write-once memory capacity code structural uniqueness small block length"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1145/800070.802182",
+      "DOI:10.1016/S0019-9958(82)90344-8",
+      "DOI:10.1109/CIG.2010.5592680",
+      "DOI:10.1109/TIT.2012.2200291",
+      "Published metadata and exact-query searches for three-cell/two-write WOM decoder uniqueness and the count 24"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1145/800070.802182",
+        "DOI:10.1016/S0019-9958(82)90344-8",
+        "DOI:10.1109/CIG.2010.5592680"
+      ],
+      "reasoning": "Existence of one optimal decoder and the equality \\(w((4)^2)=3\\) do not determine whether other inequivalent interpretation functions exist. The new statement supplies a necessity proof and complete count, so it is not a corollary of the published construction alone.",
+      "searches": [
+        "Rivest Shamir write once memory 3 cells four messages two writes decoder uniqueness",
+        "optimal 4 4 two-write WOM code length 3 classification decoder",
+        "Rivest Shamir WOM interpretation function b xor c a xor c unique",
+        "Rivest Shamir optimal WOM code uniqueness 4 messages 2 writes 3 cells"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1145/800070.802182",
+        "DOI:10.1016/S0019-9958(82)90344-8",
+        "DOI:10.1109/CIG.2010.5592680"
+      ],
+      "reasoning": "The aliases “interpretation function,” “decoder,” “three-cell two-write WOM,” and “Boolean-cube labeling” reduce to the same object. The checked sources exhibit the classical complementary-pair decoder but do not classify all admissible labelings.",
+      "searches": [
+        "Rivest Shamir write once memory 3 cells four messages two writes decoder uniqueness",
+        "binary WOM interpretation function Boolean 3-cube complementary pairs four values",
+        "Rivest Shamir WOM interpretation function b xor c a xor c unique",
+        "three-bit Boolean cube monotone rewrite decoder four colors unique"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rivest–Shamir Table 1 and Table 2, DOI:10.1016/S0019-9958(82)90344-8",
+        "Jiang–Bruck–Li Example 5, DOI:10.1109/CIG.2010.5592680"
+      ],
+      "reasoning": "The historical tables record \\(w((4)^2)=3\\) and one explicit decoder. The later table reproduces that decoder. Neither table gives the number of admissible interpretation functions, the complementary-pair necessity theorem, or the reachable-transition count.",
+      "searches": [
+        "WOM Boolean 3-cube four labels complementary pairs classification",
+        "24 admissible decoders three-cell WOM code",
+        "Rivest Shamir Table 1 000 100 010 001 110 101 011 111 decoder",
+        "3-cell WOM 24 decoders"
+      ]
+    },
+    "rationale": "The original source presents one decoder and the general WOM definition, while a later primary source reuses the same decoder as a building block. Neither inspected source states that every optimal three-cell interpretation is a message relabeling of that decoder or gives the count 24. Targeted searches over the exact parameter, decoder aliases, complementary-pair formulation, and final numerical count found no implication-equivalent published classification.",
+    "residual_risks": [
+      "An obscure or unindexed historical note could contain the same finite uniqueness classification.",
+      "The theorem classifies interpretation functions, not arbitrary values of a total update function on unreachable states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_MODEL_OPTIMUM_AND_ONE_DECODER_NOT_CLASSIFICATION",
+        "evidence": "Lemma 1 and Table 1 give the classical \\((4)^2/3\\) scheme and decoder; the formal definition uses one interpretation function for all generations; Table 2 records the exact small parameter. The inspected material does not state uniqueness or enumerate all admissible interpretation functions.",
+        "identifier_or_url": "DOI:10.1016/S0019-9958(82)90344-8",
+        "material_read": "The motivating example and Table 1; the formal interpretation/update-function definition; the exact small-value Table 2; the two-write discussion; and the concluding discussion of the generation-independent decoder model.",
+        "method": "Primary full-text PDF inspection.",
+        "title": "How to Reuse a Write-Once Memory",
+        "trigger": "Foundational source defining the exact model and presenting the three-cell, two-write, four-message example."
+      },
+      {
+        "assessment": "REUSES_CLASSICAL_DECODER_NOT_EQUALITY_CLASSIFICATION",
+        "evidence": "Example 5 lists the eight states and decoder values 0,1,2,3,3,2,1,0 and attributes the code to Rivest and Shamir. The paper uses that decoder as a building block and does not classify alternatives.",
+        "identifier_or_url": "DOI:10.1109/CIG.2010.5592680",
+        "material_read": "The five-page paper was opened; the WOM subsection around Example 5, its decoder table, update description, and references were inspected.",
+        "method": "Primary full-text PDF inspection.",
+        "title": "Constrained Codes for Phase-Change Memories",
+        "trigger": "Later primary work that explicitly reuses the same three-cell WOM decoder as a component."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33eb6e9e-05b8-4519-b359-c7c8c9c40cf2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The \\((4)^2/3\\) construction is the motivating small WOM code in the foundational paper and is repeatedly reused as a canonical building block. The classification shows that its decoder is forced by monotone rewriting: there is one message-relabeling class, not a collection of unrelated optimal decoders. This is a natural complete equality classification of the smallest nontrivial four-message rewrite code, with a short structural proof and exhaustive independent check.",
+    "status": "PASS"
+  }
+}
