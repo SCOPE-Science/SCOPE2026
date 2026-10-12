@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Every path automorphism is a translation or a reflection in integer coordinates. For an injective two-block code, a translation between color-identical components fixes vertices; a reversal would force a two-periodic input and is therefore impossible on the free part. Every noninjective code identifies one of six unordered pair pairs, each supplying a fully explicit aperiodic reflection witness; these exhaust the cases. The finite checker independently exercises witness construction and labeled counts but is not relied upon for the infinite statement.
+
+**Originality — PASS, with a specific access risk.** Targeted searches of published findings and relevant mathematical literature located no exact classification of all homogeneous two-block distinguishing codes. Chen--Zou compute the unrestricted Borel palette \(3\), which neither proves nor rules out a two-block three-color coding. Bilge--Kaya study unrestricted Borel distinguishing, while Gao--Jackson--Krohne--Seward and Gao--Jiang--Wang chiefly analyze chromatic, continuous-equivariant and shift-graph properties; the full public Gao--Jiang--Wang text was inspected at its definitions and main theorems and searched for the term distinguishing (no occurrences). The closest 2026 primary preprint was confirmed by its arXiv abstract/submission metadata but full text could not be inspected, so an implicit statement there remains an acknowledged risk; a negative whole-paper coverage assertion is not made.
+
+**Value — PASS.** The first nontrivial uniform finite-neighborhood family can be completely classified, yielding an exact local palette threshold of four against the unrestricted Borel optimum of three. This isolates a concrete locality constraint that any construction attaining the Borel optimum must avoid. The explicit sharpness and all-rule classification are pertinent to the symbolic-factor approach to distinguishing colorings, rather than an arbitrary numerical slice.
+
+**Scientific limits.** No claim concerns three-block rules, arbitrary continuous or general Borel colorings beyond the comparison with the published unrestricted number, or independently audited novelty. The result does not infer unseen theorems from source abstracts.
+
+Self-review: passed. Independent audit: not yet performed.
