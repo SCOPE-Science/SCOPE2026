@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed Euclid's bijection, including leg ordering, positive parameters, parity and gcd. Derived r=n(m-n) and its square-factor equivalence with both coprime factors individually square. Checked that the hypotenuse is (u²+v²)²+u⁴. Proved the parity-restricted lattice estimate by monotone column summation, then used odd-divisor Möbius inversion. Euler product of odd squarefree Möbius weights equals 8/pi²; polar area gives κ=2/pi² times the stated integral. Error is O(X^(1/4)log(2X)) without assuming a conjectural prime estimate. Verified exact finite equality between two enumeration implementations up to X=2,000,000; the computation is corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Robbins 2006 Theorem 2 gives T(r)=2^{ω_odd(r)} without c restriction.",
+        "A published record published mathematical statement on a different object concerns square perimeter and exact prime support."
+      ],
+      "reasoning": "A theorem counting triangles with each fixed r, even exactly, does not by itself bound the varying c or supply the coupled square-radius/hypotenuse asymptotic; a square PERIMETER theorem has no containment of the square INRADIUS class. Generic coprime lattice-density methods do not state this natural object-specific exact coefficient.",
+      "searches": [
+        "primitive Pythagorean triangles square inradius classification asymptotic hypotenuse X u v squares coprime odd",
+        "asymptotic count primitive Pythagorean triples with perfect-square inradius and hypotenuse at most X, constant integral 2/pi^2 int (1+cos^4)^{-1/2} X^(1/2)",
+        "counting integer coprime pairs with v odd quartic inequality (u^2+v^2)^2+u^4 <= X, analytic density",
+        "OEIS A087459 a+b-c hypotenuse sorted square inradius asymptotic count"
+      ]
+    },
+    "checked_sources": [
+      "Robbins 2006 original OA PDF (both pages)",
+      "OEIS A087459 full entry (initial date Oct 23 2003)",
+      "OEIS A020887 full entry",
+      "Omland 2016/2017 bibliographic/abstract only",
+      "O'Loughlin 2010 bibliographic/references only",
+      "Semantic mathematics-index search results for square-inradius, quartic parameterization, OEIS A087459, and fixed-inradius aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Robbins 2006 full text Theorem 2 is T(r)=2^{ω_odd(r)}.",
+        "Omland 2017 article abstract: very short proof of how many triples with a given inradius; no full text accessible.",
+        "OEIS A087459 is ordered excess, not a derived density law."
+      ],
+      "reasoning": "Our S(X) requires correlating c and r under the square-radius restriction. Summing T(k²) over k without a bound on c does not furnish S(X); proof introduces an X-scaled quartic domain and computes its coprime lattice density. Inaccessibility of the two short related notes is disclosed; their available descriptions concern inradius identity and fixed-radius counts, not an apparent stronger all-X asymptotic.",
+      "searches": [
+        "Tron Omland Robbins fixed inradius number Pythagorean triangles square radius count hypotenuse restriction",
+        "Robbins 2006 prescribed inradius pythagorean triangles sharpen with hypotenuse cutoff and square radius power law",
+        "primitive Pythagorean triangle perfect square inradius counting hypotenuse X asymptotic C sqrt X error O(X^1/4 log X)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Robbins 2006, pp. 368–369: r=n(m−n).",
+        "OEIS A087459: a+b−c=2r in increasing hypotenuse order."
+      ],
+      "reasoning": "Square inradius is equivalent to coprime u,v with v odd and (u²+v²)²+u⁴≤X. Search included this quartic formulation, triangle inradius wording, and ordered excess wording; none of the inspected mathematical statements gives the all-X count.",
+      "searches": [
+        "count primitive Pythagorean triples square inradius asymptotic X half exponent geometry of numbers",
+        "asymptotic count primitive Pythagorean triples with perfect-square inradius and hypotenuse at most X, constant integral 2/pi^2 int (1+cos^4)^{-1/2} X^(1/2)",
+        "Euclid parametrization m=u^2+v^2 n=u^2, v odd coprime, hypotenuse quartic form lattice point asymptotic",
+        "Euler parameter n(m-n) square m=u^2+v^2 n=u^2 count coprime u v v odd"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A087459 page lists the excess ordered by hypotenuse and links a finite n<=10000 table.",
+        "OEIS A020887 lists excess values sorted by excess, not the cutoff count."
+      ],
+      "reasoning": "These data determine many finite instances of the predicate r square; they contain neither an unbounded hypotenuse census proof nor an asymptotic coefficient/error. The relevant sequence was read as a database, not mistaken for a novelty proof.",
+      "searches": [
+        "OEIS A087459 a+b-c hypotenuse sorted square inradius asymptotic count",
+        "https://oeis.org/A087459",
+        "https://oeis.org/A020887"
+      ]
+    },
+    "rationale": "The primary full text of Robbins 2006 was read (both pages) and supplies fixed-inradius counting but no growing-hypotenuse sum or asymptotic. OEIS A087459 indexes the exact excess by hypotenuse, and its finite data does not imply the area law. Targeted literature searches found no same or stronger statement; the closest Pythagorean finding concerns square PERIMETERS with fixed prime support, logically different. Omland and O'Loughlin full texts were not accessible, so an earlier unindexed version remains a declared risk, not certified absence.",
+    "residual_risks": [
+      "Omland's brief 2016/2017 note was not readable in full; its possible unpublished-on-index supplementary implications were not inspected.",
+      "O'Loughlin's 2010 three-page geometric note was not readable in full.",
+      "Searches and deduplication cannot rule out unindexed derivations elsewhere."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: exact count for each fixed inradius, not a hypotenuse-bounded asymptotic for perfect-square inradii.",
+        "evidence": [
+          "Theorem 2: T(r)=2^{ω_odd(r)}.",
+          "Proof explicitly uses r=b(a−b) but contains no hypotenuse variable X or asymptotic bound."
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Papers1/44-4/quartRobbins04_2006.pdf",
+        "material_read": "Complete two-page original paper, pp. 368–369, including Theorem 2 and proof",
+        "method": "Read full text and rendered pages",
+        "title": "On the Number of Primitive Pythagorean Triangles with a Given Inradius",
+        "trigger": "Same primitive right triangles and exact r=n(m−n) factorization"
+      },
+      {
+        "assessment": "FINITE_DATA: related exact values but no growth asymptotic or error term.",
+        "evidence": [
+          "Sequence a(n)=X+Y−Z ordered by Z, initial author dated 2003-10-23.",
+          "Link to Ray Chandler finite n=1..10000 table."
+        ],
+        "identifier_or_url": "https://oeis.org/A087459",
+        "material_read": "Complete displayed entry, comments, formulas, references, 2003-10-23 author date, and finite-table link",
+        "method": "Read complete OEIS entry",
+        "title": "OEIS A087459: excess ordered by hypotenuse",
+        "trigger": "The sequence encodes exactly twice the inradius and is indexed by hypotenuse ordering"
+      },
+      {
+        "assessment": "NOT_COVERING: the values are sorted by excess, not an X-hypotenuse counting law.",
+        "evidence": [
+          "Dated comment 2003-12-01 relates excess to incircle diameter.",
+          "Crossreference to A087459 for values ordered by hypotenuse."
+        ],
+        "identifier_or_url": "https://oeis.org/A020887",
+        "material_read": "Complete displayed OEIS entry and dated explanatory note",
+        "method": "Read complete OEIS entry",
+        "title": "OEIS A020887: ordered excess",
+        "trigger": "Equivalent inradius/excess parameter"
+      },
+      {
+        "assessment": "ACCESS_RISK: no whole-document NOT_COVERING inference; the abstract describes a short fixed-inradius proof, not necessarily X cutoff.",
+        "evidence": [
+          "ResearchGate abstract: “We present a very short proof to answer the question of the title.”",
+          "No accessible full text was obtained or silently assumed."
+        ],
+        "identifier_or_url": "10.1016/j.jnt.2016.06.009",
+        "material_read": "Title, publication metadata, author and abstract only; no full article obtained",
+        "method": "arXiv and OA searches unsuccessful; authorized full-text route asked for user input not available noninteractively",
+        "title": "How many Pythagorean triples with a given inradius?",
+        "trigger": "Very close fixed-inradius thesis by Omland, published online in 2016"
+      },
+      {
+        "assessment": "ACCESS_RISK: possible prior identities unknown; no claim that unseen pages rule out the present count.",
+        "evidence": [
+          "Mathematical Gazette 94 (2010), pp. 144–146; published online January 23, 2015."
+        ],
+        "identifier_or_url": "10.1017/S0025557200007300",
+        "material_read": "Publisher bibliographic page and references; no entire three-page note",
+        "method": "Read Cambridge online record and access notice",
+        "title": "94.10 Half angles and the inradius of a Pythagorean triangle",
+        "trigger": "Original inradius geometry potentially relevant to classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ecfee18-344b-4b19-ab4c-0e99ddc1c781",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The statistic is motivated by a classical square condition on the natural integer inradius of primitive Pythagorean triangles. Unlike fixed-radius multiplicities and finite excess tables, the result determines a quantitative rarity exponent and a new explicit geometric constant with a power-saving (relative) error: kappa X^(1/2)+O(X^(1/4)log X). The gcd parity and quartic hypotenuse geometry are structurally essential, not arbitrary parameter restrictions. It is a complete unconditional infinite-family asymptotic, not a re-enumeration of examples or a routine numerical improvement.",
+    "status": "PASS"
+  }
+}
