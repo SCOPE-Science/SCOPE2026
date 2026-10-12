@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Joint Gaussian conditioning gives a conditional mean affine in the conditioning total and a conditional covariance independent of that total. A single residual Gaussian therefore couples all conditional laws. Nonnegative regression coefficients give an almost-sure coordinatewise coupling, hence multivariate stochastic order. Conversely, vector stochastic order implies stochastic order of every coordinate and therefore nondecreasing conditional means, forcing all regression coefficients to be nonnegative. For each coordinate, equal conditional variance makes likelihood-ratio ordering equivalent to the same mean-slope sign.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pellerey and Navarro's Proposition 3.3 gives a multivariate vector result for a Schur-constant survival model rather than arbitrary Gaussian covariance matrices.",
+        "Related Gaussian Efron literature inspected through indexed records concerns independent sums or asymptotic monotonicity, not the exact dependent-vector conditional family."
+      ],
+      "reasoning": "General equal-covariance Gaussian ordering makes the proof short, but no inspected source applied it to the dependent conditional-sum problem or stated the necessary-and-sufficient row-sum criterion. This remains the main bibliographic risk rather than being ignored.",
+      "searches": [
+        "Efron monotonicity dependent Gaussian vector given sum multivariate",
+        "conditional normal vector monotone in sum multivariate stochastic order",
+        "equal covariance multivariate normal stochastic order mean vectors"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s11749-021-00789-5",
+      "DOI:10.1016/j.jmva.2021.104803",
+      "candidate-specific published-record searches over Gaussian conditional sums, covariance row sums, regression coefficients, and multivariate stochastic order"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct Gaussian corollary assumes nonnegative covariance of one variable with the sum of the remaining variables, a strictly stronger condition than nonnegative Cov(X_i,S).",
+        "The direct source's multivariate vector proposition concerns a special Schur-constant model, while its conclusion still names multivariate extension of the bivariate vector result as future research.",
+        "For unit-variance equicorrelation, the direct sufficient condition requires rho>=0, while the exact row-sum criterion holds throughout the full positive-definite range rho>-1/(d-1)."
+      ],
+      "reasoning": "The new theorem is neither a restatement of the source's sufficient condition nor a special case of its Schur-constant proposition. Necessity and the negative-equicorrelation regime are additional implications not supplied by those statements.",
+      "searches": [
+        "Pellerey Navarro stochastic monotonicity dependent variables given sum Gaussian Corollary 3.1",
+        "Pellerey Navarro multivariate extension Proposition 2.2 Gaussian",
+        "Efron monotonicity Gaussian row sums covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected direct source states a multivariate Gaussian sufficient coordinate condition but not an iff condition for the full vector.",
+        "Candidate-specific published-record searches returned no statement phrased as a row-sum or Gaussian regression-vector characterization of conditional vector stochastic monotonicity."
+      ],
+      "reasoning": "The searches cover equivalent formulations through covariance row sums, Cov(X_i,S), Gaussian regression coefficients, conditioning on a linear total, and the usual multivariate stochastic order.",
+      "searches": [
+        "multivariate Gaussian conditional on sum stochastic order row sums covariance",
+        "Gaussian vector given total sum usual stochastic order covariance row sums",
+        "Sigma 1 nonnegative Gaussian conditional on linear statistic stochastic monotonicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula or indexed statement search located the equicorrelation consequence or the row-sum iff criterion.",
+        "The d=3 rho=-2/5 example is recomputed directly from its covariance matrix rather than taken from a table."
+      ],
+      "reasoning": "The claim is a structural ordering criterion, not a standard numerical table entry; exact-expression searches were used to check whether the criterion or its canonical negative-equicorrelation example had already been indexed.",
+      "searches": [
+        "Gaussian conditional sum row sum covariance iff stochastic monotonicity",
+        "negative equicorrelation conditional total Gaussian stochastic order",
+        "Cov(X_i,S) likelihood ratio conditional normal sum"
+      ]
+    },
+    "rationale": "The direct source explicitly identifies extension of its bivariate vector monotonicity result to the multivariate case as future research. Its multivariate Gaussian result is coordinatewise and only sufficient, using nonnegative covariance with the sum of the other variables. The new statement gives an if-and-only-if criterion for the full conditional Gaussian vector and simultaneously sharpens the coordinate likelihood-ratio condition. Candidate-specific semantic searches over Gaussian conditioning, row sums, Efron monotonicity, and multivariate stochastic order found no covering published record. The principal residual risk is implicit coverage by general equal-covariance Gaussian stochastic-order theory.",
+    "residual_risks": [
+      "The theorem is an elementary consequence of Gaussian regression plus equal-covariance normal ordering, so older multivariate stochastic-order literature may contain an equivalent abstract statement without the Efron or conditional-sum terminology.",
+      "The finding resolves only the Gaussian subcase of the motivating multivariate extension direction, not arbitrary dependent distributions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_LEAVES_GENERAL_MULTIVARIATE_VECTOR_EXTENSION_OPEN.",
+        "evidence": "The source gives only a sufficient Gaussian coordinate condition and a special Schur-constant vector theorem, while its conclusion explicitly identifies multivariate extension of the bivariate vector result as future research.",
+        "identifier_or_url": "DOI:10.1007/s11749-021-00789-5",
+        "material_read": "Open-access full text: Proposition 2.2, the multivariate Gaussian subsection including Corollary 3.1, Proposition 3.3, and the conclusion.",
+        "method": "Lawful open-access full-text HTML inspection.",
+        "title": "Stochastic monotonicity of dependent variables given their sum",
+        "trigger": "Direct motivating source with the bivariate vector theorem, multivariate Gaussian corollary, and stated multivariate future direction."
+      },
+      {
+        "assessment": "RELATED_ASYMPTOTIC_INDEPENDENT_SUM_SETTING_NOT_COVERING_EXACT_DEPENDENT_VECTOR_CRITERION.",
+        "evidence": "The inspected description concerns asymptotic Efron monotonicity in a Gaussian domain of attraction rather than an exact conditional law for one dependent Gaussian vector.",
+        "identifier_or_url": "DOI:10.1016/j.jmva.2021.104803",
+        "material_read": "Indexed abstract and bibliographic description.",
+        "method": "Publisher/indexed abstract inspection.",
+        "title": "Efron’s asymptotic monotonicity property in the Gaussian stable domain of attraction",
+        "trigger": "Closest Gaussian Efron-monotonicity literature located in the targeted search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebd0d910-98e6-4fb4-9682-394c6aa6c81f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source explicitly marks multivariate extension as a main future direction. Within the important Gaussian class, the finding gives a complete if-and-only-if answer rather than another sufficient condition, and it identifies the exact boundary through covariance row sums. The negative-equicorrelation corollary shows the distinction is substantive: an entire natural dependence regime missed by the published sufficient condition actually satisfies the full vector monotonicity property.",
+    "status": "PASS"
+  }
+}
