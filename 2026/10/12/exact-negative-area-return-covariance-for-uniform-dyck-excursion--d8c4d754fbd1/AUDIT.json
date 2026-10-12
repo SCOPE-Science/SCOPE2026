@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Primitive component area adds 2k-1 exactly. Formal differentiations of G(z,q,u) yield the displayed q, u and mixed series; extracting coefficients gives the covariance with all factors and denominators valid for n>=1. Monotone K_n starts at one and strictly increases for every n>=1, proving global negativity n>=2. The two variance identities follow from second derivatives, and Catalan Stirling asymptotics yield linear covariance and order n^-1/2 correlation. Exact raw moments independently match all 82,499 Dyck paths of semilength at most eleven and coefficient formulas through 150; finite checks supplement the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Petersen (2019), Chapter 10, displays both the area-refined relation C(q,z)=1/[1-P(q,z)] and the prime relation P(q,z)=zC(q,qz).",
+        "Kobayashi et al. (2015), Section 3, computes the full number-of-returns marginal distribution.",
+        "Janson (2007) surveys the area limiting law but not finite completed-return count."
+      ],
+      "reasoning": "The prior Catalan functional equations dominate the generating-function setup: adding the prime-count marker is an elementary consequence, and the present claim does not assert it is new. Nonetheless extracting mixed coefficients, establishing a strict sign at every finite n by a nontrivial monotone Catalan ratio, and determining the anomalously small correlation are not explicitly covered by these inspected materials. Implicit recovery from broad prior formulas remains a genuine priority risk.",
+      "searches": [
+        "web: Dyck paths number of returns area correlation",
+        "web: Dyck path number of returns area generating function joint area contact statistic Catalan",
+        "Petersen 2019 Chapter 10 prime decomposition and area q-Catalan generating functions",
+        "Kobayashi et al. 2015 Section 3 zero returns"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0704.2289v1 (2007-04-18; PDF first page subject classification)",
+      "arxiv:1206.0803 (Blanco and Petersen 2012)",
+      "Kobayashi-Sato-Hoshi-Morita-2015 (Section 3 returns)",
+      "Petersen 2019 Chapter 10, DOI 10.1007/978-3-030-18308-0",
+      "Deutsch 1998, DOI 10.1016/S0012-365X(97)00097-6",
+      "FindStat:St000011 (Dyck returns)",
+      "OEIS:A143951 (Dyck area)",
+      "OEIS:A057571 (nonterminal walks, inapplicable)",
+      "Published permutation-statistic and other nearby research results did not contain an equivalent area/return assertion in the inspected records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson (2007) supplies Brownian excursion-area moments, giving marginal asymptotic background.",
+        "Kobayashi et al. (2015) imply the R marginal and limiting law but do not supply mixed moments with area in the inspected Section 3.",
+        "Blanco-Petersen (2012) refines area with noncrossing-partition rank, rather than returns.",
+        "Petersen (2019) provides a stronger q-Catalan functional equation and therefore implicitly allows construction of the bivariate area/returns series."
+      ],
+      "reasoning": "A theorem about either marginal alone does not imply the sign of their joint covariance. The joint series is easily recovered by combining the known prime decomposition with q-Catalan; thus the new theorem is limited to the exact mixed coefficient formula, strict negative all-size classification, and quantified correlation decay. The inspected sources do not assert these conclusions, but their general identities could be considered implicit computational coverage under a broad notion of prior implication.",
+      "searches": [
+        "Brownian excursion discrete area and excursions count asymptotic decorrelation n^-1/2 Catalan",
+        "Catalan Dyck lattice area primitive factors zero touches covariance negative all semilengths linear decay correlation",
+        "arxiv:0704.2289",
+        "arxiv:1206.0803",
+        "Kobayashi et al 2015 Section 3",
+        "Petersen 2019 Chapter 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kobayashi et al. (2015) use completed zero returns, precisely the same R variable.",
+        "Blanco and Petersen (2012) use area and noncrossing-partition rank: this rank has a Narayana law and is not the completed-return statistic.",
+        "FindStat St000011 counts touch points excluding the origin, agreeing with R."
+      ],
+      "reasoning": "Equivalent wording includes prime/irreducible factor count, ground contacts after time zero, and zero returns. A separate area/rank joint theorem is not an equivalent result because the rank statistic differs from the primitive factor count. No reviewed source stated the same mixed covariance or global negativity; absence is not conclusive novelty proof.",
+      "searches": [
+        "uniform Dyck excursion semilength n covariance signed area (sum step heights) and number of returns to zero components primitive factors, exact Catalan formula negative",
+        "Dyck path area contact count number zero returns covariance exact formula 6*4^n 2*(2n+1)*(n+3)",
+        "web: Dyck covariance returns area random Catalan path",
+        "arxiv:1206.0803",
+        "FindStat:St000011"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "FindStat St000011 tabulates the return-count statistic on Dyck paths, with marginal small-n polynomials.",
+        "OEIS A143951 provides a Dyck-area univariate generating function; OEIS A057571 involves area of nonterminal meanders and is not the exact object.",
+        "No inspected database entry gives a full area-by-return covariance sign classification."
+      ],
+      "reasoning": "An existing marginal or differently normalized area table does not itself constitute an exact tabulation of the joint moment and its all-n sign. A database search is incomplete, and closed formulas may be present under other identities.",
+      "searches": [
+        "web: OEIS Dyck path area number of returns covariance joint area prime components table",
+        "web: OEIS Dyck excursions area zero returns joint distribution table",
+        "FindStat:St000011",
+        "OEIS:A143951",
+        "OEIS:A057571"
+      ]
+    },
+    "rationale": "The precise object is area versus number of completed primitive factors, distinct from the classical Dyck area/rank or peak joint distributions. The existing area-refined prime-component functional relation (Petersen 2019) and existing marginal return law (Kobayashi et al. 2015) make joint marking immediate, which is not represented as novel. The inspected literature does not state the exact all-size mixed covariance with strictly negative sign and sharp vanishing-correlation coefficient. Originality is narrowly restricted to that result; implicit prior derivability and uninspected texts are real risks.",
+    "residual_risks": [
+      "A broader published q-Catalan functional relation already implies the construction of the joint series. Another author may have published the exact covariance or its strict sign as an implicit corollary.",
+      "The entire 66-page Janson survey, full 24-page Blanco-Petersen article, and every historical Dyck statistic source were not exhaustively read.",
+      "Originality cannot be established from nonmatches; an expert literature audit and independent review have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Brownian excursion-area marginal context, not a finite Dyck area/primitive-return joint covariance in the inspected material",
+        "evidence": [
+          "ArXiv version 1 publicly dated 2007-04-18; published PDF first page explicitly classifies Primary 60J65.",
+          "Survey abstract and contents organize seven Brownian-area marginal laws."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0704.2289",
+        "material_read": "Full first page and introduction plus area moment discussion and moment table; paper is a 66-page survey, not exhaustively read",
+        "method": "Lawful arXiv PDF opened, text searched and page images inspected",
+        "title": "Brownian excursion area, Wright's constants in graph enumeration, and other Brownian areas",
+        "trigger": "Earliest source and relation of Dyck-area moments to the Brownian-excursion limit"
+      },
+      {
+        "assessment": "Gives R marginal generating function and coefficients; Section 3 contains no area/returns covariance",
+        "evidence": [
+          "Equation (3.2) marks returns with u in 1/(1-u z^2 D(z)).",
+          "Equation (3.4) gives the number of primitive components and its limiting law."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/282737543_A_WALK_ON_RANDOM_WALKS_THROUGH_THE_SYMBOLIC_METHOD",
+        "material_read": "Full Section 3 of the author-uploaded text, including equations (3.2)-(3.4), limiting law and adjoining sections overview",
+        "method": "Public author-supplied article text directly inspected and searched",
+        "title": "A Walk on Random Walks Through the Symbolic Method",
+        "trigger": "Same statistic: number of zero returns of Dyck paths"
+      },
+      {
+        "assessment": "The second statistic is the rank induced by the noncrossing partition lattice, not completed zero returns; inspected main statements do not cover the claim",
+        "evidence": [
+          "Introduction identifies rank as n minus the number of noncrossing blocks, a Narayana parameter.",
+          "Theorem 1.1 gives a q,t Catalan recurrence for area and this different rank."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1206.0803",
+        "material_read": "Abstract, introduction, equations (1)-(3), Theorems 1.1-1.3 and the associated discussion on first pages",
+        "method": "Primary arXiv PDF read by text and page inspection",
+        "title": "Counting Dyck paths by area and rank",
+        "trigger": "Very plausible bivariate Dyck-area title; needed test rank versus returns equivalence"
+      },
+      {
+        "assessment": "Strong conceptual overlap: area-refined prime decomposition gives the starting GF. The global covariance sign and correlation rate are not stated in the inspected text; implicit derivability is explicitly acknowledged.",
+        "evidence": [
+          "Equation (10.5) is C(z)=1/(1-P(z)); next section is C(q,z)=1/[1-P(q,z)].",
+          "The same chapter derives P(q,z)=z C(q,qz) and tracks other additive statistics such as peak count."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-030-18308-0",
+        "material_read": "Chapter 10 sections on prime components and refined Dyck area, equations (10.5), area-marked functional equation and example with peak marking",
+        "method": "Published textbook content consulted in web-rendered chapter excerpt; publisher metadata confirmed",
+        "title": "Inquiry-Based Enumerative Combinatorics",
+        "trigger": "Potential broader functional equations for simultaneous area and prime-factor counts"
+      },
+      {
+        "assessment": "Shows returns equidistributed with the first peak height, a marginal equivalence; does not make area/return dependence interchangeable without an area-preserving bijection.",
+        "evidence": [
+          "Abstract states returns and first-peak height are equidistributed, not jointly equidistributed with area."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220191946_A_bijection_on_Dyck_paths_and_its_consequences",
+        "material_read": "Abstract and beginning of author-accessible 1998 article",
+        "method": "Publicly accessible article text searched",
+        "title": "A bijection on Dyck paths and its consequences",
+        "trigger": "Potential equivalence of returns to more classical height statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8c4d754-fbd1-4d25-87e8-f89a71e533c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The area of a nonnegative excursion is a natural global workload statistic while its ground returns count primitive fragmentation. The exact global strict negative dependence has nontrivial quantitative content across all sizes, including an O(n) covariance despite O(n^{3/2}) area fluctuations and bounded return fluctuations. The exact coefficient of asymptotic decorrelation is not obtained from the pre-existing separate marginals or from a routine fixed-n example; all-size sign proof is structural and fully motivated.",
+    "status": "PASS"
+  }
+}
