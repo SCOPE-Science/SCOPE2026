@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For fixed \\(N\\), Shannon ordering is the reverse ordering of \\(Q=\\prod_i n_i^{n_i}\\) and Brillouin ordering is the reverse ordering of \\(F=\\prod_i n_i!\\). The complete partition census through \\(N=8\\) is independently count-checked and yields no weak disagreement through \\(6\\), one tie split at \\(7\\), and exactly two strict reversals at \\(8\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peet writes the Brillouin formula and Shannon formula side by side and notes that Brillouin approaches Shannon as sample size increases.",
+        "Palaghianu states that Brillouin is generally close to Shannon and reports near-perfect empirical correlation in the tested data.",
+        "Zand explicitly discusses Shannon's approximation to Brillouin's formula in biological water-quality diversity analysis."
+      ],
+      "reasoning": "These sources establish mathematical and empirical closeness but do not imply preservation of weak or strict ordering at every finite census size.",
+      "searches": [
+        "Relative Diversity Indices Peet Brillouin Shannon 1975",
+        "A tool for computing diversity consideration differences diversity indices Brillouin Shannon",
+        "Indexes associated with information theory in water quality Brillouin Shannon approximation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2307/1934984",
+      "arxiv:1602.04005",
+      "USGS:70010962",
+      "isbn:9780121344506"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Asymptotic convergence of index values does not imply identical finite-sample rankings.",
+        "High empirical correlation does not exclude exact rank reversal.",
+        "Related published diversity-comparison results involving other indices do not imply Shannon–Brillouin ordinal equivalence."
+      ],
+      "reasoning": "The accepted theorem requires universal non-disagreement below the boundary and complete classification at the first two layers; neither asymptotic approximation nor correlations provide those implications.",
+      "searches": [
+        "Brillouin index approaches Shannon index sample size",
+        "Brillouin Shannon correlation diversity indices",
+        "Shannon approximation to Brillouin formula ecology"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At fixed total, Shannon comparison is equivalently comparison of the weighted power product ∏ n_i^{n_i}.",
+        "Brillouin comparison is equivalently comparison of the factorial product ∏ n_i!, or of the associated multinomial coefficient.",
+        "No checked result stated a smallest abundance total where these two orderings first differ or reverse."
+      ],
+      "reasoning": "The searches covered named-index language, multinomial language, exact finite counts, and ordinal/ranking terminology because the theorem has all of these equivalent formulations.",
+      "searches": [
+        "Brillouin index Shannon entropy ecological diversity ranking reversal abundance profiles",
+        "Brillouin diversity index Shannon index comparison species abundance exact sample",
+        "Shannon Brillouin diversity indices same ordering finite counts",
+        "Brillouin index multinomial coefficient species abundance Shannon",
+        "\"Brillouin\" \"Shannon\" \"rank reversal\" diversity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-vector search located either eight-individual strict reversal pair.",
+        "No checked source tabulated the seven-individual tie split as a Shannon–Brillouin ordering boundary.",
+        "The packaged verifier derives the full first layers from integer partitions rather than importing a table."
+      ],
+      "reasoning": "Exact-vector searches directly test whether the small witness profiles already appear in published examples, benchmark tables, or software documentation.",
+      "searches": [
+        "\"1,1,1,5\" \"Brillouin\" Shannon",
+        "\"2,2,4\" \"Brillouin\" Shannon",
+        "\"1,1,6\" \"4,4\" Shannon Brillouin diversity",
+        "\"1,1,1,4\" \"2,2,3\" Brillouin"
+      ]
+    },
+    "rationale": "Classical and modern ecological literature establishes both formulas, their distinct finite-sample interpretation, and their numerical closeness. The checked literature and exact-profile searches did not state the sharp first weak or strict ordering boundaries.",
+    "residual_risks": [
+      "An unindexed classroom example, spreadsheet, or software regression test could contain one of the exact small profile pairs.",
+      "The Brillouin book source was not inspected as a complete lawful full text in this run; the formula was independently checked in Peet and Palaghianu.",
+      "The theorem concerns raw diversity indices only and does not cover normalized evenness transformations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct prior art for the formulas and asymptotic relation. It does not state the exact finite ranking boundary or the displayed reversal pairs.",
+        "evidence": "Peet gives the Brillouin and Shannon formulas side by side and states that Brillouin approaches Shannon for infinite sample size.",
+        "identifier_or_url": "doi:10.2307/1934984",
+        "material_read": "Complete four-page article, including the explicit formulas, the discussion that Brillouin approaches Shannon with increasing sample size, and the fixed-species-number discussion.",
+        "method": "Full-text PDF inspected page by page, including rendered page images.",
+        "title": "Relative Diversity Indices",
+        "trigger": "Highly relevant ecological source presenting both Brillouin and Shannon formulas and their sample-size relationship."
+      },
+      {
+        "assessment": "Shows practical near-equivalence and reports extremely high correlation, but no exact ordinal boundary.",
+        "evidence": "The paper describes Brillouin as generally close to but lower than Shannon and reports a correlation rounded to 1.000 for the tested data.",
+        "identifier_or_url": "arxiv:1602.04005",
+        "material_read": "Full five-page public PDF, including the formulas for Shannon and Brillouin, the discussion of their closeness, and the reported correlation matrix.",
+        "method": "Full-text PDF inspected, including rendered formula and results pages.",
+        "title": "A tool for computing diversity and consideration on differences between diversity indices",
+        "trigger": "Relevant comparative study computing Shannon and Brillouin on the same ecological data."
+      },
+      {
+        "assessment": "Supports the methodological motivation but was not used to assert whole-document novelty.",
+        "evidence": "The abstract states that biological water-quality studies commonly used Shannon's approximation to Brillouin's formula and discusses difficulties arising from that practice.",
+        "identifier_or_url": "USGS:70010962",
+        "material_read": "Public abstract and bibliographic record.",
+        "method": "Repository record inspection.",
+        "title": "Indexes associated with information theory in water quality",
+        "trigger": "Historical ecological discussion explicitly describing Shannon as an approximation to Brillouin."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d522318-4b0f-441d-b1a2-28b039e5ec76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The relation between Shannon and Brillouin is a classical finite-versus-asymptotic issue in ecological information measures. The sharp 6/7/8 transition distinguishes numeric approximation from ordinal reliability and supplies complete minimal counterexamples useful for method selection and software validation.",
+    "status": "PASS"
+  }
+}
