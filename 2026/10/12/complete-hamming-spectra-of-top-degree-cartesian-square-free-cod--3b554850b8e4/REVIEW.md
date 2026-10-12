@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The argument proves injectivity by isolating each homogeneous monomial on a one-zero affine point; the additive-character identity gives the exact number of nonzero torus tuples summing to zero. Partitioning the full grid into torus, exactly-one-zero, and at-least-two-zero strata yields the stated formula, and an adjacent-weight difference calculation settles all ties. The separate `verify.py` independently enumerates every coefficient vector and every evaluation point for 19 finite-field cases, including nonprime fields, and finishes with `VERIFY_OK`. The finite tests are checks, not a substitute for the universal proof.
+
+**Originality — PASS, with residual risk.** The full 2025 preprint *Cartesian square-free codes* studies the same evaluation family, including generalized Hamming weights, but does not state the complete Hamming enumerator or its coefficient-support distribution. A prior square-free toric-code paper uses a different evaluation domain and generalized weights. Searches for alternate character sums, projective and toric equivalences, generalized coverage, and existing code tables did not locate a directly equivalent statement. Residual uncertainty concerns an unindexed broad hyperplane-arrangement or simplex specialization that may already imply the exact formula; a negative search is not proof of novelty.
+
+**Value — PASS.** The formula solves a complete natural weight-distribution problem for every dimension and finite field in the top-degree homogeneous family. It provides all multiplicities rather than just extrema, identifies all collisions and the exact minimum-weight multiplicity, and distinguishes torus behavior from nonzero affine-boundary contributions. These quantities are useful for weight-enumerator transforms and code error probabilities. The contribution is narrower than a full classification of every Cartesian square-free degree.
+
+The scientific scope is restricted to the full affine grid and homogeneous degree one below the number of variables. The self-review do not establish independent verification or a comprehensive priority search.
+
+Self-review: passed. Independent audit: not yet performed.
