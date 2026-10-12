@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For any fixed strictly ordered locations and uniform matching, parity ensures only even-prefix gaps can be uncovered. The cut identities give \\(K_n=1+\\sum_j Z_j\\) and \\(V_n=\\text{range}-\\sum_jg_{2j}Z_j\\). Counting internal matchings yields \\(q_{n,j}\\); for nested prefix cuts \\(i<j\\), their joint probability is \\(q_{n,j}q_{j,i}\\). The exact quotient \\(q_{a+1,b}/q_{a,b}=(2a+1-2b)/(2a+1)<1\\) proves strictly positive correlations between all different cut indicators and positive individual variances. Every positive gap-weighted contribution to \\(\\operatorname{Cov}(K_n,V_n\\mid \\boldsymbol Y)\\) is therefore strictly negative for \\(n\\ge2\\). Independence of the geometry makes \\(\\mathbb E(K_n\\mid\\boldsymbol Y)\\) constant and eliminates the between-location term. Finite expected range ensures integrability. For independent uniform endpoints, each mean internal gap equals \\((b-a)/(2n+1)\\), giving \\(-\\operatorname{Var}(K_n)(b-a)/(2n+1)\\). Independent geometric interval merging exhausts every matching for \\(2\\le n\\le7\\) with two distinct positive gap profiles, supporting but not replacing the general proof. At \\(n=1\\) the covariance is zero; ties and geometry-dependent matching are outside the claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy, RR-3914, Theorem 1: their chord-intersection component count converges to a translated Poisson law; the current interval-union count converges in probability to one by the even-prefix cut estimate.",
+        "Acan, arXiv:1501.01489v1, Definition 1.1: graph adjacency is chord crossing, not overlap of line intervals.",
+        "Young, arXiv:2004.06921v3, Definition 2 and Theorem 21: a component is an adjacent short-chord group, not a full interval-union component."
+      ],
+      "reasoning": "A broader theorem covering all mixed moments of the full interval union and its component count could dominate the claim; no such theorem was found in the inspected primary statements. Known results on different component definitions or crossing counts do not logically imply the strict mixed sign or the uniform-spacing identity.",
+      "searches": [
+        "arXiv:1501.01489v1 sections 1,3,4 and 6",
+        "INRIA RR-3914 Section 1 and Theorem 1",
+        "arXiv:2004.06921v3 Definition 2 and Theorem 21",
+        "random perfect matching points on line union of intervals number connected components random chord matching"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1501.01489v1 (primary full HTML, definitions/sections)",
+      "INRIA RR-3914 (PDF, component definition and Theorem 1)",
+      "arXiv:2004.06921v3 (PDF, Definitions 1–3, Theorems 21 and 23)",
+      "Public semantic search on equivalent cuts, matchings, interval union coverage and covariance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Noy count crossing-graph components, which approach \\(1+\\operatorname{Pois}(1)\\). In the present model a split has probability at most \\(\\sum_{j=1}^{n-1}q_{n,j}=O(1/n)\\), so the interval-union component count converges to one.",
+        "Young counts adjacent short-chord groups; a matching with pairs (1,3),(2,4) has no short chords but one full interval-union component.",
+        "Acan studies the distribution of crossing-graph structure, not covered real length."
+      ],
+      "reasoning": "No stated result in these papers takes the covariance of the specific full union-component count and Lebesgue length, let alone for arbitrary fixed deterministic gaps. The present statement is not a corollary of knowing their marginal component laws. The underlying matching probabilities may be derivable from classical factorization formulas; indirect historical implication remains the residual risk.",
+      "searches": [
+        "Poisson random matching interval coverage components covariance",
+        "Random matchings on a line: pairwise positive correlation of decomposable cuts, connected coverage",
+        "INRIA RR-3914 introductory components and theorem",
+        "arXiv:1501.01489v1 Definition 1.1 and Section 3",
+        "arXiv:2004.06921v3 Section 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Young, arXiv:2004.06921v3, p. 2, Definition 2: his connected component means an adjacent run of short chords; here it means a connected component of the full line-interval union.",
+        "The same matching has different values for these objects: pairs (1,3),(2,4) have no short chords but their intervals form one nonempty union component."
+      ],
+      "reasoning": "The no-straddling-even-cut indicators are also decomposable-prefix indicators; this equivalence was explicitly checked and included in the proof. A connected intersection graph, a group of short chords, and a union component are distinct functionals. No retrieved equivalent formula specifies this geometric mixed covariance.",
+      "searches": [
+        "Uniformly random perfect matching endpoints: interval union connected components, coverage length, covariance, random chord diagram",
+        "Random linear chord diagrams: indecomposable prefix cuts count and uncovered interval length distribution",
+        "random linear chord diagram indecomposable cuts covariance of components and length",
+        "arXiv:2004.06921v3 Definition 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Young Table 2 explicitly enumerates components defined via short chords and cites OEIS A334059, which does not tabulate the continuum-space mixed covariance.",
+        "The proof gives the exact \\(n=2\\) uniform covariance \\(-2(b-a)/45\\) as a direct boundary check; it makes no priority claim for a numeric table."
+      ],
+      "reasoning": "Tables of short-chord components, crossing-graph components and matchings do not contain the joint statistic (union length, full union components). The proof is parameter-uniform and is not a recomputation of tabulated entries.",
+      "searches": [
+        "Uniform random perfect matching of 2n ordered endpoints as intervals on a line, uncovered gaps connected components coverage length negative covariance",
+        "number of connected components and total covered Lebesgue length in random union of randomly paired endpoints",
+        "arXiv:2004.06921v3 Table 2 and OEIS A334059",
+        "random perfect matching pairs iid points line total length union intervals covariance components"
+      ]
+    },
+    "rationale": "Primary full-text comparisons distinguish three potentially dominating but different component variables: crossing-graph components of chords (Flajolet–Noy 2000, Acan 2015), and adjacent short-chord component groups (Young 2020). None of the inspected source theorems states the covariance of all line-interval union components and real covered length, uniformly over deterministic gap vectors. Searches for decomposable cuts, interval union coverage, and matching component covariance in public sources and semantic research records retrieved no exact equivalent or broader dominating implication. Standard perfect-matching counts are acknowledged as prior mathematics. Historic indirect derivability from matching-factorization results remains possible; no independent priority certification claimed.",
+    "residual_risks": [
+      "Classical indecomposable linear-matching factorization identities or unlocated works on matched-interval coverage may imply part or all of the formula indirectly.",
+      "The full priority literature is not exhausted; public semantic search is only supporting negative evidence, never mathematical proof of novelty.",
+      "Results on graph components or short-chord group counts cannot be transported without equating demonstrably distinct functionals."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated random component results concern the circle-chord intersection graph, not the line union of intervals; no full-union length covariance identified in inspected material.",
+        "evidence": [
+          "ArXiv HTML heading 2010 AMS Primary:60C05, 7 Jan 2015; Definition 1.1 declares crossing graph; Sections 3–6 address graph components, cores and growth."
+        ],
+        "identifier_or_url": "arXiv:1501.01489v1; https://arxiv.org/html/1501.01489v1",
+        "material_read": "Accessible full HTML paper: introductory and component definitions, section headings and stated results across Sections 1–6, including Section 3 and the later component theorems; searched for coverage and Euclidean union statistics.",
+        "method": "Read full-text HTML and compared definitions, formulas and implications; inspected Section 3 and references.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Same uniform perfect-matching model and primary classification 60C05; plausible component theorem."
+      },
+      {
+        "assessment": "Components mean mutually crossing-connected subdiagrams; Theorem 1 gives a nondegenerate translated-Poisson limit incompatible with the full interval-union component count, which tends to one.",
+        "evidence": [
+          "INRIA RR-3914, pp. 2–3 of the article, defines root/intersection connectivity and proves Theorem 1 with limit 1+Poisson(1)."
+        ],
+        "identifier_or_url": "INRIA-RR-3914; https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Research-report PDF pages presenting introduction, component definition and enumeration, Theorem 1 and its proof (article pages 1–3); additional pages scanned by text/section.",
+        "method": "Inspected actual PDF pages and extracted mathematical text/figures.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational limiting component counts, possible domination of the matching-component part."
+      },
+      {
+        "assessment": "Definition 2 restricts components to adjacent short chords. This is different even for four endpoints from connected components of the union of all matched intervals; no metric location or covered-length variable is present in inspected statements.",
+        "evidence": [
+          "Page 2, Definition 2: components are sets of adjacent short chords; Theorem 21 and Table 2 count these, not interval-union components."
+        ],
+        "identifier_or_url": "arXiv:2004.06921v3; https://arxiv.org/pdf/2004.06921",
+        "material_read": "Article PDF page 2 (Definitions 1–3), Section 3.2 theorem/definitions and table on article page 12, and Sections 3.3/4 on short-chord and noncrossing statistics.",
+        "method": "Read mathematical PDF pages and checked exact definition and generating-function theorem.",
+        "title": "Linear k-Chord Diagrams",
+        "trigger": "Directly studies linear matchings and a statistic called connected components."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fab77aca-43a0-4fb1-a190-172982d030e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For interval coverage produced by random pairings, a natural topological statistic (number of covered components) and a natural geometric statistic (Lebesgue coverage length) are linked by an exact sign and gap-sensitive covariance formula. The structural cut-positive-correlation lemma holds uniformly over all fixed geometries; this yields arbitrary atomless distribution robustness and a particularly clean exact finite-sample identity for uniform endpoints. Independent random grains need not exhibit the same sign, so the finding isolates an interpretable constraint imposed by perfect matching. The theorem is not merely a local check or a numerical computation, and it gives a directly reusable geometric benchmark and a complete \\(n\\ge2\\) sign classification.",
+    "status": "PASS"
+  }
+}
