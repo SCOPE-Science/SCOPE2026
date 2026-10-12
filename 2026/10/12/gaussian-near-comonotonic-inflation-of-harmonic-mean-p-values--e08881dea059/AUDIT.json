@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Fix n,w,p and use h=sqrt(1-r). Conditional on independent Gaussian innovations, a monotone threshold equation has a unique solution. Weighted first-order noise cancels after recentering, yielding the second-order threshold with the derivative ratio equal to q+2phi(q)/p. Gaussian-maxima truncation at h^(-1/2) bounds Taylor remainder expectations by O(h^3) and the complement by exp(-c/h). The exact moments Em=0, Em²=sum w_i² and Ev=1-sum w_i² produce the coefficient. Mills strict inequality q+phi(q)/p>0 proves strict sign. Numerical quadrature of 12 bivariate cases corroborates but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. prove negative-upper-orthant, mixture, and some Clayton cases but explicitly identify positive Gaussian correlation as unresolved in their Section 7.",
+        "Liu proves Gaussian multivariate regular variation at fixed correlations below one, calls its tail corrections nonuniform at perfect correlation, and conditions part of the expansion on additional assumptions."
+      ],
+      "reasoning": "None of the dependence classes in the first theorem contain the entire equicorrelated positive Gaussian class. Fixing p and sending correlation to one differs essentially from fixing correlation and sending p to zero; the latter can have a nonuniform boundary.",
+      "searches": [
+        "Gaussian dependence weighted harmonic mean of uniform p-values positive correlation sub-uniformity expansion 2024",
+        "Gaussian copula harmonic mean p-values positive correlation local strict subuniformity 2024 Chen Wang Wang Zhu",
+        "arXiv:2405.01368v2, Proposition 4, Theorems 1–2 and Section 7",
+        "arXiv:2609.29658v1, Theorem 7.1 and Section 7.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.01368v2, Sections 2–4,7–8",
+      "doi:10.1002/cjs.70017, Sections 4 and 7–8",
+      "arXiv:2509.12066v3, Sections 1–3",
+      "arXiv:2609.29658v1, Section 7 and Appendix B.7",
+      "Published mathematical record: Complete ordering polytope for three pairwise-independent continuous observations (different rank law)",
+      "Published mathematical record: Sharp Simes size under pairwise independence for three uniform p-values (different test and dependence class)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first source explicitly reports only Gaussian numerical support for positive correlations.",
+        "The second defines asymptotic calibration at vanishing significance level p→0.",
+        "The third states a fixed-correlation Gaussian tail expansion with a nonuniform perfect-correlation boundary."
+      ],
+      "reasoning": "The present statement quantifies (Pr(H_r≤p)-p)/(1-r) at each fixed p and proves its positive limit for nondegenerate weights. The earlier hypotheses and conclusions neither state nor imply the r→1 finite-level coefficient without new analysis.",
+      "searches": [
+        "Gaussian copula harmonic mean p values strong correlation near comonotonicity asymptotic first order 1-rho weighted pvalues normal",
+        "Weighted two-test harmonic mean independent uniforms exact cdf versus Gaussian dependence approach comonotonicity",
+        "arXiv:2405.01368v2, Section 7 and conclusion",
+        "arXiv:2509.12066v3, Definition 1 and main calibration theorem",
+        "arXiv:2609.29658v1, Sections 7 and B.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The event is equivalent to a reciprocal-score tail event for the weighted sum of Pareto(1) marginals, a formulation studied in arXiv:2509.12066v3.",
+        "The explicit conditional Gaussian threshold expansion at fixed p and pairwise correlation tending to one is absent from the inspected primary results."
+      ],
+      "reasoning": "Writing the harmonic mean event as a reciprocal-score exceedance changes terminology, not the limit. The heavy-tail calibration theorem is for p tending to zero with dependence fixed; it does not determine a derivative at correlation one for a fixed p.",
+      "searches": [
+        "Gaussian copula harmonic mean p values strong correlation near comonotonicity asymptotic first order 1-rho weighted pvalues normal",
+        "Sub-uniformity harmonic mean p-values Chen Wang Wang Zhu Gaussian copula conjecture local derivative ρ→1",
+        "near-perfect correlation Gaussian copula probability harmonic mean test level expansion inverse Mills ratio",
+        "arXiv:2405.01368v2, Sections 2–4, 7–8",
+        "arXiv:2509.12066v3, Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Gaussian figure shows selected numerical dimensions n=5,10,15,20 only at p=0.1, not an analytic coefficient for arbitrary n, p or weights.",
+        "The Gaussian-copula appendix tabulates tail-index and fixed-correlation diagnostics rather than the fixed-level correlation derivative."
+      ],
+      "reasoning": "Numerical figures and tail tables do not imply the all-parameter closed first-order coefficient or its strict positivity. An exact two-independent-uniform harmonic-mean distribution at correlation zero likewise does not imply the opposite endpoint derivative.",
+      "searches": [
+        "Weighted two-test harmonic mean independent uniforms exact cdf versus Gaussian dependence approach comonotonicity",
+        "arXiv:2405.01368v2",
+        "arXiv:2405.01368v2, Figure 1",
+        "arXiv:2609.29658v1, Appendix B.7"
+      ]
+    },
+    "rationale": "The motivating source expressly leaves positive Gaussian copulas analytically unresolved. Its numerical observations, together with general Gaussian tail-calibration papers, do not state or imply this explicit fixed-significance first-order expansion at perfect correlation. Searches in published mathematical records and primary literature uncovered no covering theorem. Residual priority uncertainty is recorded.",
+    "residual_risks": [
+      "An earlier local Gaussian dependence perturbation under a different title or reciprocal-score notation may contain an equivalent fixed-p derivative.",
+      "The statement is not a global Gaussian-copula subuniformity proof and no independent bibliographic priority or mathematical audit was conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING fixed-p r-to-one derivative; states conjectural Gaussian regime and gives numerical evidence only.",
+        "evidence": [
+          "Section 7, lines 445–451, defines a Gaussian factor loading rho whose square is pairwise correlation and says the general positive-correlation claim remains unknown.",
+          "Sections 3–4 list negative dependence, extremal mixtures, Clayton models; concluding lines 471–480 retain conjectural Gaussian status."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.01368v2",
+        "material_read": "Definitions and status in Sections 2–3; propositions and Theorems 1–2 in Section 4; all Gaussian-copula Figure 1 discussion and conclusion in Sections 7–8.",
+        "method": "Full lawful open preprint HTML, including formal statements and discussion.",
+        "title": "Sub-uniformity of harmonic mean p-values",
+        "trigger": "Exact weighted-harmonic-mean objects; conjectural positive Gaussian correlations"
+      },
+      {
+        "assessment": "NOT_COVERING; the journal still describes positive Gaussian-copula result as a conjecture supported by figures.",
+        "evidence": [
+          "Published Section 7 explicitly says a general positive Gaussian correlation subuniformity statement is unknown.",
+          "Conclusion records numerical conjecture."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/cjs.70017",
+        "material_read": "Open full journal HTML, model definitions, Section 4 results, Section 7 Gaussian examples, conclusion.",
+        "method": "Publisher open-access complete article HTML.",
+        "title": "Subuniformity of harmonic mean p-values (published version)",
+        "trigger": "Check later published full-text for proof added after original preprint"
+      },
+      {
+        "assessment": "NOT_COVERING; fixed-copula vanishing-level calibration differs from correlation approaching one at fixed level.",
+        "evidence": [
+          "Definition 1 sets alpha→0; abstract and main text prove first-order tail calibration for homogeneous heavy-tail combination tests."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.12066v3",
+        "material_read": "Abstract, Sections 1–3 (definitions, regular-variation theorem, calibration hypothesis) and statement of their significance-level asymptotic.",
+        "method": "Full lawful open preprint HTML.",
+        "title": "On the Universal Calibration of Heavy-tailed Combination Tests",
+        "trigger": "Pareto reciprocal-score equivalence and potentially stronger universal calibration"
+      },
+      {
+        "assessment": "NOT_COVERING the present asymptotic; paper treats p→0 at fixed r<1, and explicitly calls this limit nonuniform at r=1.",
+        "evidence": [
+          "Section 7: Gaussian score vector has multivariate regular variation for strictly subunit correlations; weighted-tail second term conditional.",
+          "Section 7 p.25: nonuniform at perfect correlation; Appendix B.7 p.59: equal-tail Gaussian exponent for fixed 0<rho<1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.29658",
+        "material_read": "Title/abstract/contents; full relevant Section 7 pp.24–25 and Appendix B.7 p.59; Gaussian regular-variation and fixed-correlation tail-rate results, including stated limitations.",
+        "method": "Open-access full-text PDF passages with page-image inspection.",
+        "title": "Copula Geometry and Second-Order Calibration of Heavily Right Aggregation",
+        "trigger": "Potentially dominating Gaussian-copula second-order expansion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e08881de-a059-41cb-a530-402a20e3b30b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2024 research explicitly asks whether harmonic-mean merging is subuniform for positive Gaussian dependence and only provides selected simulations. This analytic result establishes local positive inflation for every fixed significance level and all finite dimensions/weights and gives its exact dependence on level and weight concentration. The information identifies the leading calibration failure relative to comonotonicity, a natural dependence boundary, without claiming the entire conjecture.",
+    "status": "PASS"
+  }
+}
