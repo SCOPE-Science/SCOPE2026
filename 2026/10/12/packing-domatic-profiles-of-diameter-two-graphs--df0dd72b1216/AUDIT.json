@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "In diameter two, every color at least two is unique because its separation requirement is at least two, while color one is independent. A block containing a higher-colored vertex dominates the whole graph. Two disjoint color-one-only blocks cannot both dominate because color-one vertices are pairwise nonadjacent, so at most one such block is possible, and it is dominating exactly when the entire color-one class is maximal independent. This yields the lower bound on the largest color, the equality criterion at larger k, and the k+1 construction. Exhaustive direct checking on every labeled diameter-two graph through order five agrees with the formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 2.6 states \\(\\operatorname{dom}_{\\chi_S}(G)=n-\\alpha(G)+1\\) for diameter-two graphs with \\(s_1=1\\) and \\(s_2\\ge2\\).",
+        "The inspected paper uses maximal independent sets in a different general minimum-degree argument but does not state the all-\\(k\\) diameter-two formula.",
+        "The full text contains no occurrence of complete multipartite."
+      ],
+      "reasoning": "Proposition 2.6 determines exactly the first plateau of the new profile: \\(\\chi_{S,k}=\\chi_S\\) up to \\(k=n-\\alpha+1\\). It does not determine the values for larger \\(k\\), which can alternate between \\(k\\) and \\(k+1\\) according to smaller maximal independent set sizes.",
+      "searches": [
+        "Full-text inspection of arXiv:2610.03477v1, Proposition 2.6 and surrounding diameter-two discussion",
+        "Full-text search of arXiv:2610.03477v1 for complete multipartite",
+        "Full-text search of arXiv:2610.03477v1 for maximal independent and independent dominating"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03477v1",
+      "published-finding corpus:2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4",
+      "published-finding corpus:2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6",
+      "published-finding corpus:2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Observation 2.3 says \\(\\chi_{S,k}=\\chi_S\\) exactly while the packing domatic number is at least \\(k\\).",
+        "Proposition 2.6 computes that packing domatic number as \\(n-\\alpha+1\\) in diameter two.",
+        "The paper's conclusion continues to ask for exact behavior of \\(\\chi_{\\rho,k}\\) outside solved path and cycle regimes."
+      ],
+      "reasoning": "The prior implications prove the first case of the formula but leave every \\(k\\) above the threshold unresolved. The new proof identifies exactly when equality with \\(k\\) is possible there and supplies a universal \\(k+1\\) construction, so it strictly determines information not implied by the prior threshold.",
+      "searches": [
+        "arXiv:2610.03477v1, Proposition 2.6",
+        "arXiv:2610.03477v1, Observation 2.3",
+        "arXiv:2610.03477v1, concluding problems on chi_{rho,k}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated a packing k-domatic tail criterion in terms of maximal independent set sizes.",
+        "General web searches returned the initiating 2026 paper but no distinct source stating the displayed formula."
+      ],
+      "reasoning": "The searched aliases cover packing k-domatic, S-packing k-domatic, independent dominating sets, maximal independent sets, and the k-versus-k+1 tail. No equivalent formulation was located.",
+      "searches": [
+        "published-finding corpus: packing k-domatic chromatic number diameter 2 graphs maximal independent set exact formula k",
+        "published-finding corpus: S-packing k-domatic coloring diameter 2 maximal independent set order n-k+1",
+        "published-finding corpus: packing domatic chromatic number k+1 diameter two independent dominating set spectrum",
+        "Web: \"packing k-domatic\" \"maximal independent set\" graph",
+        "Web: \"packing domatic\" \"maximal independent set\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records concern \\(k\\)-limited packings, open-packing spreads, and unrelated complete-multipartite domination variants.",
+        "No indexed published-finding corpus record returned the \\(\\chi_{S,k}\\) diameter-two profile or the complete-multipartite part-size criterion."
+      ],
+      "reasoning": "The nearest database matches share packing or domination terminology but use different invariants and do not imply the statement.",
+      "searches": [
+        "published-finding corpus: packing k-domatic coloring diameter 2 spectrum maximal independent set size",
+        "published-finding corpus: independent domination spectrum packing domatic coloring diameter two",
+        "published-finding corpus: packing k-domatic coloring complete multipartite exact chi rho k"
+      ]
+    },
+    "rationale": "The initiating paper proves only the optimal-color threshold for diameter-two graphs, namely the largest number of broadcast-dominating blocks supported by an optimal packing coloring. The new statement determines the entire \\(\\chi_{S,k}\\) profile for all \\(k\\) and identifies its tail exactly with the cardinality spectrum of maximal independent sets. Targeted published-finding corpus and web searches found no equivalent tail formula or complete-multipartite specialization.",
+    "residual_risks": [
+      "The invariant is only days old, so concurrent follow-up work may not yet be indexed.",
+      "The formula is a short structural consequence of the diameter-two geometry, which increases the chance that another reader could independently derive the same extension even though no covering source was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes the optimal-color plateau and general framework but not the tail values for \\(k>n-\\alpha+1\\), not the maximal-independent-set cardinality equivalence, and not the complete-multipartite explicit profile.",
+        "evidence": "arXiv:2610.03477v1, Proposition 2.6 states \\(\\operatorname{dom}_{\\chi_S}(G)=n-\\alpha(G)+1\\) for diameter two; Observation 2.3 converts that only into \\(\\chi_{S,k}=\\chi_S\\) up to the threshold.",
+        "identifier_or_url": "arXiv:2610.03477v1",
+        "material_read": "Full-text introduction, Definitions 1.1 and 1.2, Observations 2.1 through 2.5, Proposition 2.6 with proof, the maximal-independent-set discussion in Section 4, and concluding Problems 1 through 3.",
+        "method": "Direct HTML full-text inspection and theorem-to-claim implication comparison.",
+        "title": "Partitioning an S-packing coloring into broadcast dominating sets",
+        "trigger": "Fresh source introducing the invariant and containing the closest diameter-two theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df0dd72b-1216-44a2-b147-570d8ce7bb37",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is a natural complete classification for the newly introduced invariant on all diameter-two graphs, not a parameter tweak on a single small family. It determines every \\(k\\), shows that the entire tail takes only the sharp values \\(k\\) or \\(k+1\\), and proves that the profile encodes the cardinality spectrum of maximal independent sets. The complete-multipartite corollary turns this into an explicit part-size formula and exhibits genuine information beyond the prior single threshold.",
+    "status": "PASS"
+  }
+}
