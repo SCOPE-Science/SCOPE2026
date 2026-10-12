@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on exactly k occupied cells produces a uniform surjection onto the occupied labels. Pearson's statistic is an affine function of the number U of colliding unordered observation pairs. A single collision constraint merges two observations and gives probability S(N-1,k)/S(N,k); any two distinct collision constraints create exactly two identifications, whether the pairs overlap or not, and give joint probability S(N-2,k)/S(N,k). These facts yield the displayed first two moments. Exact rational enumeration over every count vector for 2<=m<=6 and 2<=N<=7 reproduces the formulas in every feasible conditioning stratum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete Finkler preprint was inspected, including its sparse-table section where the zero-cell count C is introduced and used in corrections of Pearson Q.",
+        "The complete seven-page Filina-Zubkov article was inspected; it develops exact unconditional Pearson distributions by a Markov-chain recursion and contains no empty-cell or zero-cell conditioning.",
+        "Good-Gover-Mitchell (1970) is a plausible stronger exact-distribution source, but direct full-text retrieval did not succeed."
+      ],
+      "reasoning": "The inspected exact-distribution machinery is broader for the unconditional law of Pearson's statistic, but it does not state the claimed conditional moments. The inaccessible 1970 article is retained as a residual risk rather than treated as not covering.",
+      "searches": [
+        "Goodness of fit statistics for sparse contingency tables Audrey Finkler",
+        "Exact Computation of Pearson Statistics Distribution Filina Zubkov",
+        "Exact Distributions for X2 equiprobable multinomial Good Gover Mitchell"
+      ]
+    },
+    "checked_sources": [
+      "Finkler (2010), arXiv:1006.2287.",
+      "Filina and Zubkov, DOI 10.17713/ajs.v37i1.294.",
+      "Good, Gover, and Mitchell, DOI 10.1080/01621459.1970.10481078, metadata-level only.",
+      "Previously checked scientific record 93dddb2b-e813-462d-92a4-c37eb46618e6.",
+      "Published-record searches using the conditional Pearson, empty-cell, occupied-box, and Stirling-number formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finkler (arXiv:1006.2287) uses the observed number of zero cells to modify Pearson's statistic but does not state the conditional moment formulas.",
+        "Filina and Zubkov (DOI 10.17713/ajs.v37i1.294) give an exact unconditional Pearson distribution algorithm, not a distribution conditioned on occupied-cell count.",
+        "Previously checked scientific record 93dddb2b-e813-462d-92a4-c37eb46618e6 is unconditional and therefore does not determine the claimed conditional first two moments."
+      ],
+      "reasoning": "None of the closest records implies the conditional mean and conditional variance of Pearson's statistic. In particular, unconditional covariances with occupancy classes do not determine the distribution inside a fixed-K stratum.",
+      "searches": [
+        "conditional expectation Pearson chi-square given number of empty cells multinomial",
+        "Pearson statistic conditioned on occupied boxes Stirling numbers",
+        "empty-cell count conditional Pearson statistic equiprobable multinomial",
+        "number occupied categories Pearson chi-square conditional mean"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches using the exact conditional-Pearson, occupied-box, empty-cell, and Stirling-number formulations returned no matching published statement.",
+        "Finkler (arXiv:1006.2287) defines the zero-cell count and Pearson statistic, but its corrections are constructed estimators rather than formulas for the conditional mean or variance."
+      ],
+      "reasoning": "Searches covered the aliases empty cells/zero cells, occupied boxes/categories, Pearson chi-square, conditional mean, and Stirling-number/surjection formulations. No equivalent conditional-moment theorem was located.",
+      "searches": [
+        "conditional expectation Pearson chi-square given number of empty cells multinomial",
+        "Pearson statistic conditioned on occupied boxes Stirling numbers",
+        "empty-cell count conditional Pearson statistic equiprobable multinomial",
+        "number occupied categories Pearson chi-square conditional mean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record searches returned multinomial-mode asymptotics and occupancy results, but no Pearson moments conditional on occupancy count.",
+        "Previously checked scientific record 93dddb2b-e813-462d-92a4-c37eb46618e6 gives unconditional covariance between occupied-cell count and occupancy classes."
+      ],
+      "reasoning": "An unconditional covariance family does not identify the conditional distribution or its first two moments. The present statement conditions on K and uses the uniform-surjection law inside each occupancy stratum.",
+      "searches": [
+        "empty cells Pearson chi-square multinomial covariance exact",
+        "number of empty cells Pearson chi-square multinomial goodness of fit",
+        "Pearson statistic conditioned on occupied boxes Stirling numbers"
+      ]
+    },
+    "rationale": "The closest inspected sparse-table source explicitly uses the number of zero cells to modify Pearson's statistic, but does not give the conditional first or second moments. The closest fully inspected exact-Pearson source computes the unconditional distribution and contains no empty-cell conditioning. A prior occupancy covariance result is only unconditional and does not determine these conditional moments.",
+    "residual_risks": [
+      "The full 1970 Good-Gover-Mitchell article was not available for direct inspection and could contain an equivalent conditional identity.",
+      "Classical occupancy and categorical-data literature is extensive, so an unindexed historical formulation may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PARTIAL_NOT_COVERING",
+        "evidence": "The paper conditions its correction construction on the observed count of zeros but does not state exact conditional first or second moments of Pearson Q.",
+        "identifier_or_url": "arXiv:1006.2287",
+        "material_read": "Complete preprint, with focused inspection of the definitions of Pearson Q, sparse tables, zero-cell count C, and the proposed corrections.",
+        "method": "Public full-text HTML/PDF inspection.",
+        "title": "Goodness of fit statistics for sparse contingency tables",
+        "trigger": "It directly treats Pearson's statistic in sparse multinomial tables and explicitly introduces the number of zero cells."
+      },
+      {
+        "assessment": "NOT_COVERING_CONDITIONAL_CLAIM",
+        "evidence": "The article computes unconditional Pearson distributions and contains no empty-cell or zero-cell conditioning.",
+        "identifier_or_url": "doi:10.17713/ajs.v37i1.294",
+        "material_read": "Complete seven-page open-access article, including the equiprobable formula, Markov-chain recursion, experiments, and references.",
+        "method": "Public full-text PDF inspection.",
+        "title": "Exact Computation of Pearson Statistics Distribution and Some Experimental Results",
+        "trigger": "It is a directly relevant exact finite-distribution treatment for Pearson statistics in multinomial schemes."
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_UNRESOLVED",
+        "evidence": "No material inspected from the article itself was sufficient to decide whether it contains conditional empty-cell moments.",
+        "identifier_or_url": "doi:10.1080/01621459.1970.10481078",
+        "material_read": "Bibliographic metadata, title, and citations in later exact-distribution papers; full article text was not available in the attempted retrieval paths.",
+        "method": "Metadata inspection plus public and authorized retrieval attempts.",
+        "title": "Exact Distributions for X2 and for the Likelihood-Ratio Statistic for the Equiprobable Multinomial Distribution",
+        "trigger": "Its title makes it the strongest historical exact-distribution coverage risk for the equiprobable null."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2268ec3a-4e81-41c1-9c0b-797f53907c33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of empty cells is a standard diagnostic of sparse multinomial data, and prior work explicitly modifies Pearson's statistic according to this count. The result gives the exact finite-sample baseline mean and variance of Pearson's statistic within every observed sparsity stratum, rather than only an unconditional law or an asymptotic warning. The formulas are compact, interpretable through pair collisions, and can serve as a finite calibration benchmark for sparse equiprobable goodness-of-fit problems.",
+    "status": "PASS"
+  }
+}
