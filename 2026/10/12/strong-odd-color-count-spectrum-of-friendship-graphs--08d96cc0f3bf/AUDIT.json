@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "Properness makes the center color fresh and makes each outer vertex automatically satisfy the parity rule. The center condition is exactly that every outer color class has odd size. Necessity of the allowed color counts follows from parity and the per-edge size cap; sufficiency follows by choosing odd class sizes at most k and pairing the 2k colored tokens across distinct color classes using a perfect matching in a complete multipartite graph. Exhaustive canonical partitions for k=2..5 independently reproduce the spectrum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.01441v1 gives a linear-time algorithm for an optimal strong odd coloring of every block graph.",
+        "Its full HTML Section 4 states an optimal-coloring algorithm but does not define or classify the set of all feasible color counts; full-text searches found no friendship or windmill occurrence."
+      ],
+      "reasoning": "The block-graph result is stronger for computing the minimum on this family, so a claim only about the minimum would be substantially covered. It does not imply the asserted full feasible color-count spectrum without the new structural analysis.",
+      "searches": [
+        "block graph strong odd friendship graph",
+        "strong odd coloring friendship graph feasible color counts spectrum windmill"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.03259v1",
+      "arXiv:2610.01441v1",
+      "published-finding corpus semantic searches recorded in prior_checks",
+      "own current ledger g000072",
+      "own prior-week Library ledger g000061"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current ledger contains strong-odd results for complete multipartite graphs but no friendship/windmill claim.",
+        "The prior own ledger search returned friendship results for other invariants and strong-odd crown results, but no friendship strong-odd spectrum."
+      ],
+      "reasoning": "For k at least 2, friendship graphs are not complete multipartite, so the existing complete-multipartite strong-odd theorem does not apply. Other friendship results in prior ledgers concern non-equivalent invariants.",
+      "searches": [
+        "own current ledger: friendship / windmill / strong odd",
+        "own prior ledger Library search: strong odd friendship / windmill"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches under friendship/windmill and strong-odd terminology returned no same-invariant friendship spectrum result.",
+        "arXiv:2602.03259v1 defines the same invariant and one-point-union notation; full-text searches for “friendship” and “windmill” returned no occurrence."
+      ],
+      "reasoning": "Friendship graph, windmill graph, one-point union of triangles, and center-neighborhood odd-multiplicity formulations were compared. No equivalent spectrum statement was located.",
+      "searches": [
+        "strong odd chromatic friendship graph windmill exact parity",
+        "chi_so friendship graph F_k strong odd coloring",
+        "strong odd coloring windmill graph triangles common center"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit gave a table or formula for strong odd color counts of friendship graphs.",
+        "The closest windmill-family hit was a general-position-polynomial result, which is a different invariant."
+      ],
+      "reasoning": "No exact database or table found the claimed spectrum or the parity split.",
+      "searches": [
+        "strong odd coloring friendship graph feasible color counts spectrum windmill",
+        "friendship graph strong odd color spectrum all color counts",
+        "windmill graph strong odd coloring odd multiplicities center neighborhood"
+      ]
+    },
+    "rationale": "The exact feasible color-count spectrum is not supplied by the located literature. The recent block-graph algorithm dominates the minimum-value computation in an algorithmic sense, so the originality claim is deliberately placed on the full spectrum and its exact center-parity characterization. The 2026 one-point-union paper treats special cycle-join constructions and contains no friendship/windmill statement.",
+    "residual_risks": [
+      "Because strong odd coloring is a fast-moving recent topic, an unindexed concurrent note could contain the friendship spectrum.",
+      "The block-graph algorithm may yield the minimum formula after specialization, so only the full feasible color-count spectrum and its structural characterization are treated as the new claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper studies joins of cycles with empty graphs and special one-point unions; no friendship/windmill theorem was located. The arXiv metadata lists MSC 05C15 first.",
+        "identifier_or_url": "arXiv:2602.03259v1",
+        "material_read": "Full arXiv HTML, especially the invariant definition, exact-class discussion, join results, one-point-union definitions and Theorem 3, conclusion; full-text searches for friendship, windmill, and K_3.",
+        "method": "Direct lawful arXiv full-text inspection and statement/implication comparison.",
+        "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+        "trigger": "Same invariant, recent primary-MSC anchor, and explicit use of one-point unions."
+      },
+      {
+        "assessment": "PARTIAL_BROADER_MINIMUM_ONLY",
+        "evidence": "The paper computes an optimal strong odd coloring for all block graphs, which covers minimum-value computability, but does not classify all feasible numbers of colors and has no friendship/windmill occurrence.",
+        "identifier_or_url": "arXiv:2610.01441v1",
+        "material_read": "Full arXiv HTML introduction and Section 4 opening, including the stated linear-time optimal-coloring result; full-text searches for friendship and windmill.",
+        "method": "Direct lawful arXiv full-text inspection and implication comparison.",
+        "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+        "trigger": "Potentially dominating recent result because friendship graphs are block graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08d96cc0-f3bf-41a0-91b0-d38d10740e11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Friendship graphs are a canonical infinite block-graph family, and the result gives the complete feasible color-count spectrum rather than another isolated optimum. It exposes an exact parity phase transition at the center and cleanly separates what a general block-graph optimization algorithm already covers (the minimum) from the additional structural information (every attainable color count).",
+    "status": "PASS"
+  }
+}
