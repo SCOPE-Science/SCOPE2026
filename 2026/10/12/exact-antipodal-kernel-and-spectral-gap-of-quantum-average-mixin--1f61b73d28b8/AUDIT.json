@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For every even integer dimension at least six, Fourier characters of the even-weight binary subgroup diagonalize its weight-two adjacency. The spectrum is determined exactly by \\(((d-2|a|)^2-d)/2\\). A normalized projector-square Fourier convolution counts precisely two events (intersection half the support or half the complement) with an explicit inclusion-exclusion overlap, yielding a nonnegative exact eigenvalue for every character. Odd-weight cosets vanish and even-weight cosets are strictly positive, proving rank \\(2^{d-2}\\) and the exact antipodally antisymmetric kernel. A strictly decreasing increment argument for \\(1-\\binom{2j}{j}/4^j\\) proves the optimal positive spectral gap and its asymptotic. The standard-library exact verifier independently checks direct adjacency eigenfunctions, projectors, Fourier spectrum, parity kernel and finite binomial counts; these finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Godsil arXiv:1103.2578 Lemma 1.1 proves general projector formula; treated specific graphs include paths/cycles and pseudocyclic schemes.",
+        "Graph Spectra and Continuous Quantum Walks §14.3 describes halved-cube perfect state transfer; §15.5 characterizes strong cospectrality through the mixing kernel, but the inspected relevant portions do not state this positive-sector spectrum.",
+        "Coutinho–Guo arXiv:2404.02236 §4 concerns rank in primitive distance-regular graphs; even halved cubes have antipodal structure, so this claim does not settle the stated problem."
+      ],
+      "reasoning": "Generic formulas and a known inclusion of antipodal differences in the nullspace do not supply reverse inclusion, the exact binary multiplicities or the spectral gap. No inspected broader theorem directly implies the full statement; an unlocated scheme calculation remains a risk.",
+      "searches": [
+        "arXiv:1103.2578 full PDF; average mixing of continuous quantum walks",
+        "Coutinho and Godsil, Graph Spectra and Continuous Quantum Walks, chapters on halved cubes and average mixing",
+        "arXiv:2404.02236 §4 average mixing and primitive distance-regular problem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1305.5811 §5",
+      "arXiv:1103.2578 §§1-2",
+      "arXiv:1709.03591 introductory projector and rank material",
+      "arXiv:2208.08971 §§1-2",
+      "arXiv:2404.02236 §4",
+      "Graph Spectra and Continuous Quantum Walks §§14.3,15.5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chan: instant mixing for odd halved cubes; known PST in even halved cubes, but not Cesaro rank equality.",
+        "Strong-cospectral criterion yields some null vectors from PST; positivity on the full symmetric complement is a separate theorem here.",
+        "Hamming-cube and folded-cube spectra operate on different energy partitions in even dimension and do not determine these mixing projectors."
+      ],
+      "reasoning": "The d=4 multipartite instance and odd-dimensional halved-cube spectral consequences are excluded from the claimed novel range. The result for all even dimensions at least six is not a corollary of the prior folded-cube claim merely by graph isomorphism, since the graph degrees and character-energy partitions differ.",
+      "searches": [
+        "arXiv:1305.5811 Theorems 5.1-5.2",
+        "arXiv:1709.03591 strongly cospectral mixing rank",
+        "Godsil Graph Spectra and Continuous Quantum Walks Theorem 15.5.1",
+        "arXiv:2208.08971 Section 2 exact averages",
+        "\"folded cube\" \"average mixing\" spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chan arXiv:1305.5811 §5 states eigenvalues and instantaneous-mixing/PST results, not the long-time average-mixing spectral formula.",
+        "Coutinho et al. arXiv:1709.03591 §1-3 supplies the Schur-square framework and kernel/strong-cospectral link; no halved-cube formula was located."
+      ],
+      "reasoning": "Equivalent dual-character and antipodal-kernel formulations were considered. Perfect transfer implies equal antipodal mixing rows but does not establish absence of other null modes; the new counting gives an explicit positive eigenvalue for every symmetric character.",
+      "searches": [
+        "\"halved cube\" \"average mixing\" quantum",
+        "\"halved n-cube\" \"average mixing\"",
+        "\"halved hypercube\" Cesaro quantum mixing",
+        "arXiv:1305.5811 Section 5 halved n-cube",
+        "arXiv:1709.03591 average mixing spectral projectors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected full-text halved-cube section gives adjacency eigenvalues and instantaneous mixing conditions; no long-time average-mixing spectrum table was found.",
+        "The 2013 general average-mixing preprint and 2022 exact-computation paper give methodology rather than a tabulation of even halved-cube positive-sector eigenvalues."
+      ],
+      "reasoning": "Specific invariant/graph parameters and parity aliases were searched; no exact table known to dominate the formula. Failed search alone is not treated as conclusive originality proof.",
+      "searches": [
+        "\"halved cube\" \"mixing matrix\" spectral",
+        "\"halved cube\" quantum mixing rank eigenvalues",
+        "\"halved cube\" Cesaro average mixing spectral gap",
+        "arXiv:1305.5811 Section 5 tables and theorem statements"
+      ]
+    },
+    "rationale": "Inspected halved-cube primary work treats instantaneous uniform mixing and PST, and general average-mixing theory supplies projector identities and strong-cospectral kernel inclusion but not the claimed complete even-dimensional Cesaro spectrum or positive-sector gap. Prior Hamming, folded-cube, odd halved-cube, and dimension-four multipartite results were compared by implication and excluded where covered. The targeted literature searches and implication comparisons revealed no equivalent even-halved-cube theorem. An unlocated association-scheme formula may nevertheless imply the claim; this risk is explicit.",
+    "residual_risks": [
+      "An unindexed Bose-Mesner-algebra computation could state the same eigenvalue formula in a different normalization.",
+      "A general theorem on antipodal distance-regular graphs could imply more than the known kernel inclusion; only inspected portions and targeted searches were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": [
+          "Explicit halved-cube adjacency energies and instantaneous uniform mixing/PST; no complete infinite-time average-mixing matrix eigenvalues, kernel equality or gap."
+        ],
+        "identifier_or_url": "arXiv:1305.5811",
+        "material_read": "Section 5, pages 16-18, including the halved-cube definition, the spectrum recurrence, Theorems 5.1 and 5.2 and adjacent perfect-transfer discussion.",
+        "method": "Full-text arXiv PDF read, section text extraction and page-image inspection.",
+        "title": "Complex Hadamard Matrices, Instantaneous Uniform Mixing and Cubes",
+        "trigger": "Same halved-cube graph and spectral eigenvalues; potential direct coverage."
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": [
+          "Lemma 1.1 supplies general formula; explicit graph-family examples focus on paths, cycles, pseudocyclic schemes rather than halved cubes."
+        ],
+        "identifier_or_url": "arXiv:1103.2578",
+        "material_read": "Abstract, Sections 1-2 covering the Schur-square formula and positivity; searched complete PDF for halved-cube terms.",
+        "method": "arXiv PDF page-image and parsed-text inspection plus full-document string search.",
+        "title": "Average Mixing of Continuous Quantum Walks",
+        "trigger": "Foundational general average-mixing theorem might dominate a family calculation."
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": [
+          "Reformulates average mixing via commutant projection; no checked halved-cube exact rank/spectrum statement."
+        ],
+        "identifier_or_url": "arXiv:1709.03591",
+        "material_read": "Opening sections with spectral-projector derivation and overview of rank questions, and whole-document search for halved-cube terminology.",
+        "method": "arXiv PDF page-image/text inspection and searches.",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "General full-rank and kernel criteria."
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": [
+          "Section 2 describes exact averaging via spectral projectors and algebraic extensions; no halved-cube specialization."
+        ],
+        "identifier_or_url": "arXiv:2208.08971",
+        "material_read": "Abstract, Introduction and Section 2 passages deriving exact average-mixing computation; full-document search for halved cubes.",
+        "method": "Original arXiv PDF inspected by page image, text and phrase searches.",
+        "title": "Irrational quantum walks",
+        "trigger": "Qualifying primary source giving exact computation of mixing and mathematical-physics ownership."
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": [
+          "Open problem concerns primitive distance-regular graphs; even halved cubes are antipodal, and no formula for them is stated."
+        ],
+        "identifier_or_url": "arXiv:2404.02236",
+        "material_read": "Introduction and Section 4 rank/open-problem passage, with whole-document search for halved cube.",
+        "method": "arXiv PDF page-image/text inspection.",
+        "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+        "trigger": "Contemporary motivation and stronger potential coverage."
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM_IN_READ_MATERIAL",
+        "evidence": [
+          "Theorem 15.5.1 identifies strongly cospectral vertex differences in kernel; halved-cube PST supplies these vectors, not a proof of positive definiteness on the other half."
+        ],
+        "identifier_or_url": "https://www.math.uwaterloo.ca/~cgodsil/quagmire/Fields24/pdfs/GrfSpc3.pdf",
+        "material_read": "Halved-cube perfect-transfer discussion around PDF page 275, average mixing and kernel material around PDF pages 284-289, whole-PDF search for specific halved-average combination.",
+        "method": "Lawful public full-text PDF inspected through relevant sections and searches.",
+        "title": "Graph Spectra and Continuous Quantum Walks",
+        "trigger": "Same authors and graph family across perfect-transfer and average-mixing chapters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1f61b73d-28b8-43f2-95d0-8e037c4e2549",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Even halved cubes are a natural infinite distance-regular family known to admit perfect state transfer. Determining the exact antipodal nullspace, proving no extra rank defect, computing the full positive Fourier spectrum, and finding the sharp nonzero eigenvalue quantifies mode survival under time averaging, a motivated transport invariant. The theorem is neither a restatement of PST nor an arbitrary low-dimensional computation; it is a complete infinite-family classification with a quantitative gap.",
+    "status": "PASS"
+  }
+}
