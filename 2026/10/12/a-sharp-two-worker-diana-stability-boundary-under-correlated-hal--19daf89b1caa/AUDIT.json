@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The exact prescribed four three-state update matrices give the exchangeable covariance recurrence T(q). Symbolically verified determinant and scalar resolvent produce a cubic Schur polynomial and the rational first-coordinate generating function. All cubic Schur factors are positive for 0≤q<1/10, proving geometric mean-square contraction of all state coordinates. At q=1/10, the unique unit pole has coefficient 6/19 and remaining poles have absolute value sqrt(20)>1. For q>1/10 a noncancelled pole lies strictly between zero and one, implying limsup E[x_k²]^(1/k)>1. The embedded exact symbolic checker proves algebraic identities and performs 35 independent rational finite histories; finite enumeration is not the source of infinite-horizon assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "EF-BV proves sufficient small-step DIANA guarantees for broad compressors, but the present gamma=1 is outside the applicable positive-variance sufficient regime.",
+        "Correlated-compressor MARINA results apply to a different state recursion.",
+        "Prior worker-count stability calculation assumes independent worker compression."
+      ],
+      "reasoning": "General algorithm families alone do not dominate this exact parameter case: the broad DIANA bounds impose restrictive step assumptions, and the correlated-compressor MARINA statements operate on different memory dynamics. The known independent-worker theorem cannot be specialized to correlated q≠1/4.",
+      "searches": [
+        "Markov correlated compression error feedback gradient difference fixed marginal worker sampling mean square divergence",
+        "variance reduced compressed gradient difference memory two clients fully correlated pairwise Bernoulli state covariance generating function critical limit",
+        "arxiv:2205.04180 Section 3.2 and Appendix B",
+        "arxiv:2110.03300 Section 2 (AB inequality) and Section 4 (MARINA)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1901.09269v1 (source first public 2019-01-26); publicly readable current version HTML",
+      "arxiv:2205.04180v1 (first public 2022-05-09); HTML v4",
+      "arxiv:2110.03300v1 (first public 2021-10-07); HTML v1",
+      "Prior exact DIANA worker-count finding 8aa23802-9435-4fa7-afaf-a4696d3d02e6",
+      "Current related CHOCO-Gossip finding bbecbff0-b004-42cd-b422-7f2d08f65b45",
+      "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Independent-only DIANA worker-count law characterizes variable worker count with independent compressors, which fixes pair-coupling q=1/4 for n=2.",
+        "Two-node CHOCO-Gossip source analyzes cached consensus with q boundary 1/3, a different set of update matrices and objective.",
+        "The present DIANA state map has a distinct four-moment transfer T(q), threshold 1/10, and critical limit 6/19.",
+        "The general theory sufficient step-size statements do not imply instability or sharp positive boundary values at gamma=1."
+      ],
+      "reasoning": "Source-to-claim implication checked by the precise transition definitions: the existing DIANA independent theorem proves the new unstable case q=1/4 but cannot imply the stable q<1/10 or critical q=1/10 values. The CHOCO-Gossip result varies a similar Bernoulli coupling in consensus, but its cached-state rule differs, and it has a different threshold, so it does not imply the DIANA result. The EF-BV/MARINA results are either inapplicable at this step or to a different algorithm.",
+      "searches": [
+        "DIANA distributed learning gradient memory unbiased quantization correlated compression two workers stability second moment threshold",
+        "Markov correlated compression error feedback gradient difference fixed marginal worker sampling mean square divergence",
+        "related scientific record 8aa23802-9435-4fa7-afaf-a4696d3d02e6",
+        "related scientific record bbecbff0-b004-42cd-b422-7f2d08f65b45",
+        "arxiv:1901.09269; arxiv:2205.04180; arxiv:2110.03300"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1901.09269 Algorithm 1 identifies the algorithmic memory recursion.",
+        "arxiv:2205.04180 Section 3.2 identifies generalized DIANA with unbiased compressors.",
+        "Prior exact independent-only DIANA item 8aa23802-9435-4fa7-afaf-a4696d3d02e6 sets joint q=1/4 only."
+      ],
+      "reasoning": "Searches tested DIANA, gradient-difference memory, unbiased dropouts, worker-pair coupling, mean-square transfer, and spectral-phase-diagram aliases. The source algorithms match the state interpretation but lack a proof for arbitrary q; a single independent-only value does not determine a threshold or a nonzero critical limit. No equivalent statement was identified, without claiming search completeness.",
+      "searches": [
+        "DIANA gradient difference compression worker cross-correlation Bernoulli dropouts scalar quadratic sharp exact mean-square stability critical joint packet probability",
+        "DIANA distributed learning gradient memory unbiased quantization correlated compression two workers stability second moment threshold",
+        "DIANA memory gradient compression scalar quadratic exact spectral radius stability threshold number of workers Bernoulli",
+        "Jointly coupled compressor worker sampling antithetic versus synchronized DIANA unbiased half dropout sharp threshold q one tenth",
+        "published-finding corpus query: DIANA",
+        "web queries: DIANA correlated compressors Bernoulli stability; DIANA correlated dropout exact rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results included an exact stochastic-delay randomized Gauss-Seidel law, a stratified-gradient variance reversal, and a stochastic optimized-step curvature stability result.",
+        "Those entries contain neither the two-worker DIANA covariance matrix nor the sharp q=1/10 threshold.",
+        "The available earlier mathematical claim records were compared for DIANA and correlated transmissions."
+      ],
+      "reasoning": "No precise source table or indexed record with this DIANA joint-parameter result was located. The named nearest hits optimize other recurrences or sampling variance, so no direct numerical-table coverage follows; absence from an index is not proof of global novelty.",
+      "searches": [
+        "DIANA gradient difference compression worker cross-correlation Bernoulli dropouts scalar quadratic sharp exact mean-square stability critical joint packet probability",
+        "DIANA memory gradient compression scalar quadratic exact spectral radius stability threshold number of workers Bernoulli",
+        "Jointly coupled compressor worker sampling antithetic versus synchronized DIANA unbiased half dropout sharp threshold q one tenth",
+        "published-finding corpus indexed nearest: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "published-finding corpus indexed nearest: 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8",
+        "published-finding corpus indexed nearest: 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+      ]
+    },
+    "rationale": "The exact joint-worker half-dropout DIANA moment recurrence and its sharp q=1/10 stability/critical-floor transition are not implied by the inspected DIANA definition, EF-BV sufficient step bounds, MARINA correlated compressor guarantees, or the independent-only DIANA worker-count calculation. The latter fixes the very dependence parameter varied here. Relevant indexed mathematical hits concern other recurrences; none found states this phase diagram. Unindexed equivalent work cannot be ruled out.",
+    "residual_risks": [
+      "Equivalent unindexed or inaccessible specialized DIANA coupled-compressor analyses might predate this report.",
+      "The general sufficient-rate theory does not assess these fixed unit-step parameters; lack of coverage is not a claim that those source theorems are false.",
+      "Any extension outside iid rounds, two identical scalar quadratics, specified memory rate and initialization requires new proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the gradient-memory mechanism, but its displayed scalar p-quantizer differs from whole-message Bernoulli compression; the read convergence bounds do not classify the joint Bernoulli coupling probability or identify the unit-step threshold.",
+        "evidence": [
+          "Algorithm 1 uses compressed gradient differences and updates worker shifts.",
+          "The present scalar unbiased half-dropout is expressly a general-compressor specialization, not the source scalar p-quantizer.",
+          "No published phase diagram in joint success probability was identified in the inspected mathematical material."
+        ],
+        "identifier_or_url": "arxiv:1901.09269; https://arxiv.org/html/1901.09269v3",
+        "material_read": "Algorithm 1 and its update formulas in Section 3; scalar p-quantization construction and convergence theorem context.",
+        "method": "Read publicly available arXiv HTML sections and compared each state transition and compressor class to the stated special case.",
+        "title": "Distributed Learning with Compressed Gradient Differences",
+        "trigger": "Defining DIANA gradient-difference memory update; a necessary comparison for algorithm identity."
+      },
+      {
+        "assessment": "The stated convergence conditions bound the step using compressor variance; they do not certify unit step for this positive-variance compressor and cannot imply its sharp cross-worker stability threshold or critical floor.",
+        "evidence": [
+          "DIANA is recovered as a specialization of the general compressed-gradient-memory method.",
+          "Sufficient small-step bounds are not necessary-and-sufficient spectral conditions and leave the tested unit-step region outside their hypotheses."
+        ],
+        "identifier_or_url": "arxiv:2205.04180; https://arxiv.org/html/2205.04180v4",
+        "material_read": "Section 2.4 variance assumptions; Section 3.2 DIANA specialization, main linear convergence analysis, and Appendix B sufficient step-size results.",
+        "method": "Read arXiv full-text HTML mathematical statements and compare explicit step hypotheses with the unit-step model.",
+        "title": "EF-BV: A Unified Theory of Error Feedback and Variance Reduction Mechanisms for Biased and Unbiased Compression in Distributed Optimization",
+        "trigger": "General unbiased-compressor DIANA framework and possibility that a stronger sufficient convergence theorem already entails this instance."
+      },
+      {
+        "assessment": "Studies covariance cancellation for MARINA with a different gradient-estimation recurrence, not the exact DIANA stored-gradient memory map or its boundary at correlation one tenth.",
+        "evidence": [
+          "Correlated compressor variance is central to this paper.",
+          "The MARINA updates have a different state transition, so its sufficient optimization guarantees do not determine the characteristic polynomial derived for DIANA."
+        ],
+        "identifier_or_url": "arxiv:2110.03300; https://arxiv.org/html/2110.03300v1",
+        "material_read": "Definitions of correlated compressors and AB bounds in Section 2 and the algorithmic comparison in Section 4 (MARINA).",
+        "method": "Read arXiv HTML definitions/results and compare algorithmic states and implications.",
+        "title": "Permutation Compressors for Provably Faster Distributed Nonconvex Optimization",
+        "trigger": "Correlated unbiased compression has been studied explicitly; test whether its results dominate a two-worker correlated-compressor analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19daf89b-1caa-45e9-8484-5b843e99c5d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-worker half-dropout DIANA model is a minimal natural test of compressed gradient-memory optimization. Fixing worker objectives, marginal success probabilities, expected communication, and algorithm parameters while changing only the coupling q yields three qualitatively distinct mean-square regimes and an explicit critical positive floor. This materially complements independent-compressor DIANA and general small-step theory, supplying a sharp correlation design boundary, not a routine parameter rescaling or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
