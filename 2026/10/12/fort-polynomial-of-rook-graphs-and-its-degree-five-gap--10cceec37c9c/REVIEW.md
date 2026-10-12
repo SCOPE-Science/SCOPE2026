@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness: PASS
+For an unselected rook cell the selected-neighbor count is exactly its row sum plus its column sum. The support-based degree bounds are both necessary and sufficient, and selecting occupied row/column labels gives a disjoint counting decomposition. The three-status recurrence exhaustively and uniquely advances every labeled column; the proof establishes the invariant inductively. When both side lengths are at least six, low-degree supports have an empty row and column, forcing minimum degree two on both sides; this proves the exact fourth coefficient, the fifth-coefficient gap, and sixth-coefficient positivity. For side lengths at least seven, the classification of six-edge bipartite supports gives the displayed exact sixth coefficient. A standalone direct graph-neighbor enumeration independently agreed with the recurrence over 1,423,541 tested candidate subsets. Tests alone would not establish an infinite-family result; the proof does.
+
+## Originality: PASS, with residual risk
+The known failed zero forcing number for Cartesian products of complete graphs implies the minimum fort size four; the minimum size is not a new discovery. The material inspected in the earlier complete-product theorem (arXiv:2202.04997v1, Section 3.1), the more general fort-hypergraph study (arXiv:2310.17904, Sections 2–4) and the minimal-fort enumeration (arXiv:2404.05963v1, Introduction and enumeration sections) did not exhibit the all-fort support-polynomial decomposition or the size-five gap. The two latter studies address fort-hypergraph parameters and minimal forts, respectively, rather than coefficients of every nonminimal fort. The closest related published mathematical statement supplies only the earliest nonzero exponent; that fact does not determine the later zero/nonzero coefficient pattern. An unindexed equivalent graph polynomial or a degree-constrained binary-matrix enumeration could cover this result and is a residual risk.
+
+## Value: PASS
+The complete coefficient distribution is a natural refinement of a studied zero-forcing obstruction: it counts **all** stalled configurations by their complementary white sizes, not only the largest stalled size. The proved degree-five hole is an explicit, uniform counterexample to unimodality across all sufficiently wide rook graphs, and the polynomial-time integer recursion enables exact computation beyond brute-force subset enumeration. Both the family and the specific coefficient boundary arise from structural row/column support constraints, not arbitrary isolated parameter slices.
+
+## Limitations and antecedents
+The finite checks are corroborative, independent expert review is unavailable, and no assertion is made about the fort polynomial of arbitrary graph products or all possible alternate matrix terminology. The minimum-fort-size theorem belongs to earlier research; the novelty assessment concerns full coefficients and the new gap. The recurrence is polynomial in arithmetic operations, not necessarily bit operations.
+
+Self-review: passed. Independent audit: not yet performed.

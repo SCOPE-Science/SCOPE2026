@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A direct row/column neighbor count proves the support classification without exceptions, and an induction on processed columns establishes the three-status recurrence. For m,n >=6 the degree-four rectangle count and degree-five impossibility follow from occupied row/column degree >=2; full 2x3 rectangles witness degree six. For m,n>=7 all degree-six supports are either 2x3,3x2,or 3x3 complements of matchings, proving the exact coefficient. The supplied direct enumerator independently tested 1,423,541 vertex subsets across 21 boards and matched the DP, with boundary checks. Finite tests supplement an all-positive-integer proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cameron et al. (arXiv:2310.17904), Introduction, §2 (fort hypergraph), §3 (fort and fractional forcing parameters), §4 (Cartesian product bounds): does not supply rook graph all-fort polynomial in inspected sections.",
+        "Becker et al. (arXiv:2404.05963v1), Introduction and enumerative graph-family sections: the counted objects are minimal forts, not all forts of rook graphs."
+      ],
+      "reasoning": "General fort-hypergraph results apply to Cartesian graph products, but their fort matching/transversal parameters do not logically specify the all-fort cardinality distribution. Minimal-fort enumeration by itself cannot count nonminimal unions without overlap data and no unrestricted rook all-fort formula was found in the read material.",
+      "searches": [
+        "\"fort\" \"Cartesian product\" \"complete graphs\" number",
+        "\"number of forts\" \"rook\" \"cartesian product\"",
+        "\"fort polynomial\" graph zero forcing"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2202.04997v1 (Theorem 3.7)",
+      "https://arxiv.org/html/2310.17904v3 (sections on fort numbers and products)",
+      "https://arxiv.org/html/2404.05963v1 (minimal forts and enumeration)",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html (different polynomial)",
+      "Relevant published mathematical record searches including aliases and degree-specific queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "P. A. B. Pelayo and M. N. M. Abara (arXiv:2202.04997v1), §3.1 Theorem 3.7, gives the scalar maximum failed zero forcing number nm-4 for Cartesian products of cliques; implication minimum fort size 4, not complete enumeration.",
+        "Cameron et al. (arXiv:2310.17904), Introduction, §2 (fort hypergraph), §3 (fort and fractional forcing parameters), §4 (Cartesian product bounds): does not supply rook graph all-fort polynomial in inspected sections.",
+        "Becker et al. (arXiv:2404.05963v1), Introduction and enumerative graph-family sections: the counted objects are minimal forts, not all forts of rook graphs."
+      ],
+      "reasoning": "Theorem 3.7 (and the earlier theorem it cites) determines only nm minus the smallest fort size. The new polynomial yields all counts and a permanent gap at degree 5 when both sides exceed 5, neither a logical corollary of the scalar statement nor of generic bounds. The minimal-fort article does not enumerate the nonminimal objects counted here.",
+      "searches": [
+        "Maximal failed zero forcing sets for products of two graphs Theorem 3.7 nm-4",
+        "Forts fractional zero forcing Cartesian products of graphs rook graphs",
+        "On the number of minimal forts of a graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. A. B. Pelayo and M. N. M. Abara (arXiv:2202.04997v1), §3.1 Theorem 3.7, gives the scalar maximum failed zero forcing number nm-4 for Cartesian products of cliques; implication minimum fort size 4, not complete enumeration.",
+        "Cameron et al. (arXiv:2310.17904), Introduction, §2 (fort hypergraph), §3 (fort and fractional forcing parameters), §4 (Cartesian product bounds): does not supply rook graph all-fort polynomial in inspected sections."
+      ],
+      "reasoning": "A fort is the complement of a stalled zero-forcing set, not of every failed set. The published maximum failed-set theorem implies the minimum exponent four but cannot determine counts at exponents five and six. Matrix incidence encodings and rook/line-graph terminology were checked as possible equivalent statements; an unindexed exact enumerator is still possible.",
+      "searches": [
+        "forts rook graph K_m square K_n rows columns incidence nonzero selected grid fort polynomial",
+        "minimum forts Cartesian product complete graphs 2x2 rectangle matching permutation matrix",
+        "fort polynomial generating function of forts in trees graph zero forcing sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "P. A. B. Pelayo and M. N. M. Abara (arXiv:2202.04997v1), §3.1 Theorem 3.7, gives the scalar maximum failed zero forcing number nm-4 for Cartesian products of cliques; implication minimum fort size 4, not complete enumeration.",
+        "S. Mertens, Domination Polynomial of the Rook Graph, Journal of Integer Sequences 27 (2024), available at https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html: studies dominating vertex sets, not forts.",
+        "The nearby 2024 rook-graph article of Mertens counts dominating sets, not forts; the graph agrees but the family of sets does not."
+      ],
+      "reasoning": "A degree-specific or table lookup might reproduce a small example without providing the infinite-family formula. Published numerical tables in the read scalar and minimal-fort papers do not list the full fort polynomial for rook graphs. No exact database/table hit was found in the examined records.",
+      "searches": [
+        "\"fort polynomial\" \"rook graph\"",
+        "Exact fort cardinality generating polynomial for rook graphs K_m Cartesian K_n with degree-5 gap after rectangle 4-forts",
+        "Rook graphs minimum forts of size four, absence of five-element forts, six-element fort counts via bipartite degree restrictions"
+      ]
+    },
+    "rationale": "Inspected complete primary articles: the direct antecedent determines maximum failed zero forcing size, equivalent only to minimum fort size 4, and neither general fort hypergraph bounds nor minimal-fort counts imply an all-cardinality polynomial. Actual published-record alias searches found no equivalent enumeration or general domination theorem encompassing the fort polynomial. The unindexed-binary-matrix-enumerator risk remains.",
+    "residual_risks": [
+      "An unindexed equivalent all-fort recurrence under binary-matrix, stalled-set or line-graph terminology may exist.",
+      "The literature comparison is a self-review, not independent expert certification; searches do not establish absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_SCALAR_ONLY",
+        "evidence": "P. A. B. Pelayo and M. N. M. Abara (arXiv:2202.04997v1), §3.1 Theorem 3.7, gives the scalar maximum failed zero forcing number nm-4 for Cartesian products of cliques; implication minimum fort size 4, not complete enumeration.",
+        "identifier_or_url": "https://arxiv.org/html/2202.04997v1",
+        "material_read": "Introduction, definition of stalled/failed sets, Section 3.1 through Theorem 3.7 and surrounding Cartesian products",
+        "method": "Read full accessible arXiv HTML sections and traced the stated known theorem",
+        "title": "Maximal failed zero forcing sets for products of two graphs",
+        "trigger": "Exactly the same graph family under failed zero forcing; possible dominating earlier theorem"
+      },
+      {
+        "assessment": "NOT_COVERING_ALL_CARDINALITIES_IN_INSPECTED_MATERIAL",
+        "evidence": "Cameron et al. (arXiv:2310.17904), Introduction, §2 (fort hypergraph), §3 (fort and fractional forcing parameters), §4 (Cartesian product bounds): does not supply rook graph all-fort polynomial in inspected sections.",
+        "identifier_or_url": "https://arxiv.org/html/2310.17904v3",
+        "material_read": "Introduction, fort-hypergraph framework, complete-graph examples, product bounds and their scope",
+        "method": "Read accessible arXiv HTML primary text including stated theorems and related examples",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Forts and Cartesian products directly match object and product operation"
+      },
+      {
+        "assessment": "COUNTS_DIFFERENT_SUBFAMILY",
+        "evidence": "Becker et al. (arXiv:2404.05963v1), Introduction and enumerative graph-family sections: the counted objects are minimal forts, not all forts of rook graphs.",
+        "identifier_or_url": "https://arxiv.org/html/2404.05963v1",
+        "material_read": "Introduction, minimal-fort definition and comparison to Cartesian product bounds, main enumeration families",
+        "method": "Read accessible arXiv HTML primary material rather than search snippets",
+        "title": "On the number of minimal forts of a graph",
+        "trigger": "Counts forts and could subsume coefficients at minimum size"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT; NOT_USED_FOR_EXCLUSIVITY",
+        "evidence": "S. Mertens, Domination Polynomial of the Rook Graph, Journal of Integer Sequences 27 (2024), available at https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html: studies dominating vertex sets, not forts.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.html",
+        "material_read": "Public article title, abstract and advertised graph-polynomial scope",
+        "method": "Public webpage checked for the defining counted object; not a fort full-text equivalence check",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same rook-graph family and graph polynomial; potential conceptual reduction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10cceec3-7c9c-401c-b8fb-4992c95dbf76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Forts are the natural obstructions to zero forcing, and counting them by cardinality refines a published extremal product theorem into an exact polynomial. The universal degree-five gap for m,n>=6 is a substantive structural reason this family is non-unimodal, with a sharp natural boundary witnessed by 120 five-forts when m=n=5. The polynomial-time arithmetic procedure is meaningful for arbitrary board dimensions and all coefficients. No general arbitrary-graph polynomial count is claimed.",
+    "status": "PASS"
+  }
+}
