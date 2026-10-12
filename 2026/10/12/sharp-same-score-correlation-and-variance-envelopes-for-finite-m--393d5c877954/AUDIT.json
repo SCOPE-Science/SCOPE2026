@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Nonnegative copula density and orthonormal mean-zero functions give valid stationary Markov transition. Exact calculation of its powers yields lag products; each lag quadratic form is a signed weighted forest adjacency with sign-symmetric spectrum and attained Rayleigh endpoints. Finite sample covariance counts give \\(H_N\\) including \\(N=1\\), the complement carries eigenvalue one and unit diagonal brackets this, and operator-norm convergence gives H. The Fourier example has positive density and exact correlation \\(\\sqrt2/8\\) > \\(1/8\\); exact eigenvalues \\((33\\pm\\sqrt{129})/32\\) and \\(15/16\\) follow by invariant symmetry sectors. An actual executable standalone checker passed 718 finite assertions incl independent quadrature, corroborating but not replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Longla 2026 Theorem 5.1 supplies fixed-score lag products and stationary mean asymptotics; it does not optimize over score functions.",
+        "Longla 2025 §4 examples concern idempotent and one-dependent copulas.",
+        "Fikioris 2018 studies eigenvalues of homogeneous Toeplitz Kac-Murdock-Szego matrices without finite-memory copula scores."
+      ],
+      "reasoning": "The classic Toeplitz matrix contains a homogeneous special case of H and its pure matrix spectral results are prior art. They do not themselves identify this matrix with attainable copula-score long-run variances, nor derive the sharp lag-k weighted path envelope and failure of the published bound. General Rayleigh-Ritz is acknowledged as the proof technique, not claimed original.",
+      "searches": [
+        "Longla m-dependent Markov copula sharp finite-sample and asymptotic score variance spectral eigenvalue Kac Murdock Szego matrix",
+        "\"m-dependent\" \"copulas\" \"Jacobi matrix\" correlation",
+        "finite range nilpotent Markov chain copula spectral autocorrelation path matrix exact bound",
+        "https://doi.org/10.3390/math13122034",
+        "https://arxiv.org/abs/1804.08140"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s11749-026-01003-0 (primary, full relevant sections)",
+      "https://doi.org/10.3390/math13122034 (2025 predecessor, substantive open text)",
+      "https://arxiv.org/abs/1804.08140 (KMS classical matrix, inspected relevant sections)",
+      "Published mathematical-result queries for Type II Longla, Jacobi path, weighted spectral lag, covariance envelopes (no covering result identified)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.1 explicitly states \\(\\gamma_k\\) as the sum of coefficient products times score projection products, and Theorem 4.4 gives the fixed-score sample variance.",
+        "Theorem 4.4(2) and its proof incorrectly designate an adjacent two-coordinate score as universally extremal.",
+        "Standard finite symmetric matrix Rayleigh-Ritz and path-adjacency eigenvalues are independent classic tools."
+      ],
+      "reasoning": "The source scalar identities are valid inputs, hence the new result is derivable after adding a global spectral optimization. But its stronger claim of attained uniform extrema is not itself supplied; moreover the source explicitly asserts an incompatible bound. The new theorem solves the natural extremal problem in all lag/horizon parameters rather than merely substituting numbers into a prior sharp result. The underlying general matrix lemmas are not represented as new.",
+      "searches": [
+        "https://doi.org/10.1007/s11749-026-01003-0 Theorem 4.4 Theorem 5.1",
+        "Type II Longla m-dependent Markov copula exact same-score lag-k maximal autocorrelation spectral radius signed weighted paths",
+        "Longla m-dependent Markov copula sharp finite-sample and asymptotic score variance spectral eigenvalue Kac Murdock Szego matrix",
+        "https://arxiv.org/abs/1804.08140"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Longla 2026 eq. (11), Theorem 4.4(2) states an upper bound \\(\\max_i|\\lambda_i|/2\\) and claims two-function-coordinate attainment.",
+        "Longla 2026 §4.4 provides a valid two-dependent trigonometric construction in which a three-coordinate score has correlation \\(\\sqrt2/8\\), exceeding \\(1/8\\)."
+      ],
+      "reasoning": "The closest same-object result is not equivalent: it has a provably false ceiling for \\(m\\ge2\\), while the present eigenvalue formula gives attained sharp bounds for all lags. The different-score maximal correlation in Proposition 4.2 is \\(\\max_i|\\lambda_i|\\), another invariant and generally larger.",
+      "searches": [
+        "Martial Longla 2026 m-dependent copula Theorem 4.4 incorrect covariance upper bound 1/2 spectral radius Jacobi path adjacency",
+        "Type II Longla m-dependent Markov copula exact same-score lag-k maximal autocorrelation spectral radius signed weighted paths",
+        "Longla Type II copulas same-observable autocorrelation path eigenvalue",
+        "https://doi.org/10.1007/s11749-026-01003-0 §4.3-4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Longla 2026 equations (11), (Theorem 5.1) provide no score-optimized numerical tables.",
+        "Fikioris 2018 documents the already-known homogeneous Toeplitz matrix eigenproblem, not a table of finite-memory copula-score extrema."
+      ],
+      "reasoning": "No checked source tabulates the claimed model-specific spectral extrema across lags and sample sizes. A numerical tabulation of the abstract homogeneous Toeplitz eigenvalues would not cover the entire statistical claim. Absence of indexed matches alone is not evidence of uniqueness.",
+      "searches": [
+        "\"Type II Longla\" \"spectral\" \"maximal\"",
+        "Martial Longla 2026 m-dependent copula Theorem 4.4 incorrect covariance upper bound 1/2 spectral radius Jacobi path adjacency",
+        "Longla m-dependent Markov copula sharp finite-sample and asymptotic score variance spectral eigenvalue Kac Murdock Szego matrix",
+        "Kac Murdock Szego matrix eigenvalue covariance AR1"
+      ]
+    },
+    "rationale": "Full public source Longla (2026), Theorem 4.4(2) and its proof assert a half-maximum adjacent common-score correlation bound, while equations (11), Theorem 5.1 and the source trigonometric two-dependent example allow adjacent coefficient interference. Exact Rayleigh optimization yields the sharp signed path spectra at every lag and the attained finite-horizon/long-run variance envelopes, which the source neither states nor proves. The explicit admissible witness contradicts the published bound. Longla (2025) is confined to idempotent and one-dependent families. Classical Kac-Murdock-Szego results cover the abstract constant-coefficient Toeplitz matrix, not this statistical identification or the false sharp same-score assertion. Relevant indexed searches did not locate a specialized correction. Residual risk: unindexed equivalent work and general operator-theoretic corollaries.",
+    "residual_risks": [
+      "Unindexed correction, contemporaneous paper or preprint may already state the precise spectra or counterexample.",
+      "A broad general nilpotent-operator result may imply the complete spectral envelope without mentioning this copula family; an implication search is not an exhaustive priority proof.",
+      "The classical Toeplitz eigenproblem itself is previously solved and excluded from originality; novelty is model-specific sharp optimization and corrected inference statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the fixed-score lag formula but asserts an incorrect uniform half-maximum same-score bound; no correct all-lag/sampling-horizon sharp spectral envelope.",
+        "evidence": [
+          "Sections 4.1 and 4.3 describe the same copula and false bound",
+          "Section 4.4 gives admissible sine/cosine basis for explicit witness",
+          "Theorem 5.1 gives general lag-product formula"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11749-026-01003-0",
+        "material_read": "Open-access HTML full text, sections 2–6 and 8, especially equations (11), Theorem 4.4 proof, section 4.4, Theorem 5.1 and subsequent variance inference discussion.",
+        "method": "Primary source full-text HTML, mathematical comparison of definitions and displayed inequalities",
+        "title": "Copulas, m-dependence, and Markov chains",
+        "trigger": "Exact same family and proposed sharp correlation theorem"
+      },
+      {
+        "assessment": "Covers idempotent and single-link one-dependent structures, not adjacent-coefficient interference or m>=2 sharp same-score spectra.",
+        "evidence": [
+          "Examples of 1-Dependent Copulas consider distinct orthogonal modes",
+          "Scope and abstract emphasize idempotence and mixing rather than score-optimization across multiple lags"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math13122034",
+        "material_read": "Open published HTML portions: abstract, introduction, symmetric square-integrable densities, examples of one-dependent copulas, and conclusions.",
+        "method": "Publisher open text and indexed full-text sections",
+        "title": "Continuous Exchangeable Markov Chains, Idempotent and 1-Dependent Copulas",
+        "trigger": "Earlier same-author one-dependence and copula eigenfunction work"
+      },
+      {
+        "assessment": "Covers eigenproperties of homogeneous Toeplitz correlation matrices as standalone linear algebra, and is credited for that; does not consider finite-memory copula score optimization or the source bound.",
+        "evidence": [
+          "Introduction equation (1.1) defines matrix [rho^|j-k|]",
+          "Section 2 theorem 2.1 supplies its standard inverse and characteristic-polynomial recurrence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.08140",
+        "material_read": "Open-access PDF, pages 1, 2, and 5 (introduction and section 2 including Theorem 2.1); remaining global spectral results treated as classical prior, not as claimed novelty.",
+        "method": "PDF page screenshots and parsed section text",
+        "title": "Spectral properties of Kac-Murdock-Szegö matrices with a complex parameter",
+        "trigger": "Exact homogeneous long-run matrix is a classic Kac-Murdock-Szego matrix"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "393d5c87-7954-432c-b09a-4c8b15699de7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A currently published universal covariance bound for this natural finite-memory statistical model is false, and the correction is an attained all-lag, all-sample-horizon classification rather than a single cheap falsifying number. For the valid two-dependent example the peak lag correlation \\(\\sqrt2/8\\) exceeds the asserted \\(1/8\\) by a factor \\(\\sqrt2\\), and across homogeneous longer paths the factor approaches two. Exact eigenvalue intervals identify the score functions of largest and smallest long-run effective variance, directly relevant to sample-mean inference and dependence-robust uncertainty quantification. Both over- and under-dispersion extrema are established for every admissible parameter sequence.",
+    "status": "PASS"
+  }
+}
