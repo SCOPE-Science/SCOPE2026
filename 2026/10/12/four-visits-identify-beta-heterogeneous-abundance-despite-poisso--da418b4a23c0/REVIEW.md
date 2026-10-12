@@ -1,0 +1,19 @@
+# Scientific assessment: four-visit identifiability with anonymous false detections
+
+## Correctness — PASS
+
+The Poisson compound generating function is exact under all stated conditional independences. Expanding its logarithm gives a coefficient \(c_1\) that combines the true and Poisson-background counts and higher distinct-visit coefficients \(c_j=\mu\mathbb E[Q^j]\). The two beta moment ratios solve uniquely for both positive shape parameters, the second cumulant solves for abundance, and the mean then solves for background. Strict positivity gives an explicit if-and-only-if feasible parameter region. With three or fewer visits, a continuous perturbation of the beta total shape leaves every available coefficient unchanged, and the generating-function identity proves full-distribution equivalence. The two rational witnesses are independently checked through Poisson-mark intensities. With independently known zero background, the same method gives the sharp three-visit threshold. Limits: this establishes population-law identifiability only under the exact specified model, not stable finite-sample inference.
+
+## Originality — PASS, residual risks documented
+
+Royle (2004) uses the conventional Poisson-binomial mixture with a common detection probability. Dennis, Morgan and Ridout (2015, Section 3) give the general multivariate-Poisson decomposition but do not establish a sharp four-visit threshold with beta-persistent detectability and unknown Poisson contamination. Clement, Royle and Mixan (2022, Section 2.2) model misclassification and exogenous contamination via Poisson *conditional encounter intensities*, rather than binary detections per individual, and do not give this cumulant identification theorem. Dorazio and Royle (2003) motivate beta individual-heterogeneity through capture–recapture data with observed identities, but the full article was unavailable; this is an explicit residual comparison risk, not evidence of absence. Veech, Ott and Troy (2016) discuss intrinsic heterogeneity and estimation performance, not the identified sharp boundary in the accessible text. A broader compound-Poisson identification theorem may imply the closed-form criterion. No equivalence or stronger result was located in the performed title, exact-claim, parameter, alias and reduction searches. Failed searches alone are not taken as proof of novelty.
+
+## Value — PASS
+
+This is a design-relevant identification limit for unmarked abundance monitoring in which spurious detections and persistent biological detectability heterogeneity coexist. A theorem ruling out identification even from the *entire joint law* of three visits is stronger than observing that a particular estimator performs poorly. The rational indistinguishable-pair certificate quantifies the obstruction, while the exact admissibility inequalities supply a diagnostic for model incompatibility. The result identifies why an additional visit, rather than merely more independent sites at three visits, is structurally needed. The claims remain idealized and are not empirical sampling recommendations without additional precision analysis.
+
+## Closest literature and limitations
+
+Royle (2004), DOI 10.1111/j.0006-341X.2004.00142.x; Dennis et al. (2015), DOI 10.1111/biom.12246; Clement et al. (2022), DOI 10.1111/2041-210X.13895; Dorazio and Royle (2003), DOI 10.1111/1541-0420.00042; Veech et al. (2016), DOI 10.1111/2041-210X.12566. The critical model restrictions are persistent individual beta propensity, site-level Poisson abundance, independent Poisson background and independent conditional detections. One plausible older source could not be materially read, and generic compound-Poisson inversion remains a prior-coverage risk. No claim is made about arbitrary mixing laws, visit-dependent background noise, or finite-sample reliability.
+
+Self-review: passed. Independent audit: not yet performed.
