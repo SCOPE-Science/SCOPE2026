@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Summing exact source Kraus adjoint products produces Q=I+delta P0; physicality iff p<=1/2 for 0<=r<1. The exact source family has marginals I/3 and (00,00) entry alpha/21, giving the trace polynomial. Direct 9x9 partial-transpose eigenvalues are 2/21 (x3) and (5 +- sqrt((2alpha-5)^2+16))/42 (each x3), nonnegative throughout alpha in [2,4]. Product CP transformations preserve PPT even when not trace preserving; hence norm of the partial transpose equals trace. Rational example alpha=5/2,r=3/20,p=3/4 gives 731/1120. Python verifier checks critical instances without substituting finite tests for a continuum proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General local completely-positive operations preserve the PPT cone by conjugation of the partial transpose.",
+        "Mazhar Ali (2014), DOI:10.1088/1674-1056/23/9/090306, criticizes an earlier 2012 master equation, not this 2015 Kraus parameterization."
+      ],
+      "reasoning": "The no-PPT-to-NPT consequence is known from a broader theorem and is not claimed as independent novelty. That theorem does not entail the explicit time cutoff, completeness defect, or trace-norm artifact from the particular 2015 matrices without the present computation.",
+      "searches": [
+        "Guo Fang Wang Zeng 2015 local amplitude damping separable Horodecki bound entangled PPT cannot sudden birth Kraus normalization",
+        "local quantum channels PPT preserving Horodecki negativity generated from separable state invalid Kraus",
+        "\"Comments on\" \"Distillability sudden death in qutrit\" \"equation of motion\" Kraus thermal",
+        "\"distillability sudden birth\" \"local operations\" impossible bound entangled"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1506.02743 full 5-page preprint",
+      "DOI:10.1088/1674-1056/23/9/090306 available abstract and first-page preview",
+      "DOI:10.1088/0256-307X/31/11/110301 publisher abstract",
+      "DOI:10.3390/e22080827 publisher full HTML",
+      "DOI:10.1007/s11128-016-1296-x journal metadata and MSC classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al., arXiv:1506.02743, full 5 pages, describe birth under independent local channels after t about 0.6 or greater.",
+        "Ali and Huang (2014), DOI:10.1088/0256-307X/31/11/110301, studies entanglement between reservoirs, not two locally damped principal qutrits.",
+        "Xue and Qiu (2020), DOI:10.3390/e22080827, study correlated dephasing, not these six finite-temperature Kraus operators."
+      ],
+      "reasoning": "A general PPT-preservation statement refutes a qualitative part of the source assertion but neither computes the violated Kraus-normalization boundary nor the quantitative false score. The two other physics studies use different subsystems or noise mechanisms and do not dominate the exact source-specific theorem.",
+      "searches": [
+        "\"Comments on\" \"Distillability sudden death\" 2014 090306 pdf download Ali",
+        "\"Distillability Sudden Birth of Entanglement for Qutrit-Qutrit Systems\" reservoir",
+        "\"Postponing Distillability Sudden Death in a Correlated Dephasing Channel\"",
+        "\"Guo\" \"Fang\" \"Zeng\" \"distillability\" \"invalid\" Kraus p"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1506.02743 Eqs. (1)--(7): E4 contains sqrt(1-p1-p2) and both p_i=1-exp(-2t).",
+        "Direct summation gives I+2(1-r)(2p-1)_+ |0><0|, including the exact sharp boundary."
+      ],
+      "reasoning": "Searched equivalents in Kraus completeness, qutrit V configuration, equal-rate damping and probability conservation. Existing general completeness criteria do not state this source-specific sharp time cutoff and the associated Horodecki trace polynomial.",
+      "searches": [
+        "arXiv 1506.02743 finite temperature two qutrit Kraus trace preservation p1+p2 physical domain spurious distillability sudden birth",
+        "amplitude damping V qutrit equal decay p1 p2 p trace preservation threshold t log 2 over 2",
+        "\"1506.02743\" \"trace preserving\"",
+        "\"p_1+p_2\" \"finite temperature\" \"Kraus\" \"trace\" qutrit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct source Fig. 5 concerns alpha=2.5 and 3.5 at times up to 5.",
+        "The published paper states no table or exact rational 731/1120 or 1649/2400 and does not give the completeness cutoff."
+      ],
+      "reasoning": "The rational witnesses and full trace-defect polynomial are not published tabular values in the inspected source or searched corrections. A failed database search is not a uniqueness proof.",
+      "searches": [
+        "\"1506.02743\" \"error\" \"Kraus\"",
+        "\"1506.02743\" \"partial transpose\" \"impossible\"",
+        "arXiv 1506.02743 finite temperature two qutrit Kraus trace preservation p1+p2 physical domain spurious distillability sudden birth"
+      ]
+    },
+    "rationale": "The full 2015 source contains the six Kraus matrices and late-time PPT-to-NPT claim but not the exact trace-preserving boundary nor the explicit polynomial describing false negativity. Broader PPT-preservation is acknowledged as background and does not compute the model-specific quantities. Earlier and later publications inspected concern a different 2012 equation, reservoir-reservoir birth, or correlated dephasing. Risk of an unindexed equivalent calculation and partial access to the 2014 comment is recorded.",
+    "residual_risks": [
+      "The complete 2014 comment PDF was not accessed; only the abstract and first-page preview were available, though its named target is different.",
+      "A later unindexed discussion might specialize PPT preservation and Kraus normalization to exactly these matrices.",
+      "The 2015 paper numerical implementation was unavailable, so plotted magnitudes were not asserted to match the analytic-continuation false score."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: states physical birth and formulae but no trace-preserving cutoff or exact false-norm polynomial",
+        "evidence": [
+          "p. 2 E4=sqrt(1-r) diag(sqrt(1-p1-p2),1,1); p_i=1-exp(-2t).",
+          "p. 4 Fig. 5 and text assert separable alpha=2.5 and bound alpha=3.5 become NPT at late times."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1506.02743",
+        "material_read": "All five preprint pages; Eqs. (1)--(10), figures and figure discussion, and references",
+        "method": "Full PDF text extraction cross-checked visually against printed equation and figure pages",
+        "title": "Distillability sudden death and sudden birth in a two-qutrit system under decoherence of finite temperature",
+        "trigger": "Exact same six Kraus matrices and asserted PPT-to-NPT birth"
+      },
+      {
+        "assessment": "Different target: corrects a 2012 thermal-reservoir master equation; whether the complete discussion anticipates any reusable model-specific identity remains unresolved",
+        "evidence": [
+          "Abstract explicitly identifies the earlier 2012 Chinese Physics B paper as the criticized work.",
+          "Preview gives master-equation dissipator, not the 2015 six-Kraus matrix defect."
+        ],
+        "identifier_or_url": "https://cpb.iphy.ac.cn/en/article/doi/10.1088/1674-1056/23/9/090306",
+        "material_read": "Available abstract, bibliographic references and public preview of first page; not the complete full text",
+        "method": "Publisher page and lawful public preview",
+        "title": "Comments on “Distillability sudden death in qutrit--qutrit systems under thermal reservoirs”",
+        "trigger": "Earlier correction of a closely related finite-temperature qutrit evolution"
+      },
+      {
+        "assessment": "Distinct subsystem: reservoir-reservoir distillability birth; does not imply local PPT-to-NPT generation",
+        "evidence": [
+          "Abstract names two statistically independent reservoirs as the subsystem in which entanglement arises."
+        ],
+        "identifier_or_url": "https://cpl.iphy.ac.cn/article/doi/10.1088/0256-307X/31/11/110301",
+        "material_read": "Abstract and context on publisher page",
+        "method": "Publisher text and independent descriptive record",
+        "title": "Distillability Sudden Birth of Entanglement for Qutrit--Qutrit Systems",
+        "trigger": "Earlier sudden-birth report with same two-qutrit terminology"
+      },
+      {
+        "assessment": "Different correlated dephasing channel, not the present local thermal Kraus trace condition",
+        "evidence": [
+          "Sections 2--4 describe correlated dephasing and delays in NPT-to-PPT death, not the exact local-thermal cutoff."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1099-4300/22/8/827",
+        "material_read": "Open full HTML, especially model and entanglement-dynamics discussion and conclusion",
+        "method": "Publisher full HTML",
+        "title": "Postponing Distillability Sudden Death in a Correlated Dephasing Channel",
+        "trigger": "Later qutrit distillability study with overlapping state family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ee0567e5-106d-4280-9f9c-2b7b49096973",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This sharp, exact model-specific physicality boundary addresses the reported central creation of distillability from separable or PPT inputs in a natural six-Kraus finite-temperature model; its quantitative trace defect explains how an entanglement diagnostic may become spuriously positive outside its normalization premises. The source reports a dramatic physical transition past this boundary. The value is in the exact identification of a substantive published interpretation boundary, not in claiming general PPT preservation as a new theorem.",
+    "status": "PASS"
+  }
+}
