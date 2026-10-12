@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The proof follows the source's maximizing-chain argument with all quantifiers explicit. Positivity gives a closed upper bound on every intermediate chain point; the source's two-round lower bound supplies a uniform positive lower bound; the Fagnani--Ravazzi inequality then yields a uniform negative decrement. Counting only the \\(m-3\\) transitions for which both bounds are available gives \\(r_A^{(m)}(\\gamma)\\le 1-(m-3)\\eta\\) and the stated integer threshold. The near-GV exponent follows from the first derivative of binary entropy and \\(-\\log(1-x)\\) asymptotics. The final code-level statement uses the source's separate finite-round distance theorem with half the target gap reserved as its margin.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1109/TIT.2009.2030459",
+        "doi:10.4230/LIPIcs.ITCS.2026.28"
+      ],
+      "reasoning": "Ravazzi--Fagnani give uniform qualitative convergence for classical RMA spectral shapes. Brehm--Resch obtain fast classical codes and fast duals and explicitly note that the encoding-time dependence on the target GV gap is not precisely bounded. These results do not dominate the quantum parity-outer spectral threshold or the closed sufficient round count.",
+      "searches": [
+        "repeat multiple accumulate GV convergence accumulation rounds",
+        "Linear Time Encodable Binary Code Achieving GV Bound epsilon encoding time"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01277v1",
+      "doi:10.1109/ITA.2008.4601028",
+      "doi:10.1109/TIT.2009.2030459",
+      "doi:10.4230/LIPIcs.ITCS.2026.28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.01277v1 states that no explicit convergence-rate characterization is given",
+        "doi:10.1109/ITA.2008.4601028 supplies the f_A inequality used in the derivation"
+      ],
+      "reasoning": "The new claim is not a corollary merely of knowing convergence: it quantifies the compactness margin in the source proof and combines it with an explicit transition inequality. The prior inequality is an ingredient, not a statement of the resulting quantum round bound \\(M_s(\\gamma)\\).",
+      "searches": [
+        "2610.01277 explicit rate of convergence accumulation rounds CSS GV bound Zhang",
+        "Fagnani Ravazzi spectra minimum distances repeat multiple accumulate rate convergence GV"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01277v1, introduction and Section 4",
+        "doi:10.1109/TIT.2009.2030459"
+      ],
+      "reasoning": "Searches covered the source title, CSS-GV convergence, accumulation-round language, and classical repeat-multiple-accumulate terminology. No statement located was implication-equivalent to the explicit M_s(gamma) certificate.",
+      "searches": [
+        "2610.01277 CSS GV explicit convergence accumulation rounds",
+        "Linear-Time Encodable Quantum Codes near the CSS GV Bound convergence",
+        "repeat multiple accumulate GV convergence accumulation rounds",
+        "quantum CSS GV distance accumulation derivative rounds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.01277v1, Eq. (7), Proposition 4.5, Theorem 5.1"
+      ],
+      "reasoning": "Exact-formula searches for the \\(\\Delta^{-2/s}\\) law, the source's two-round radical, and the \\(2^{s\\varepsilon}-1\\) quantity returned no matching published-result record. The source's own numerical table reports distances for \\(m=3,4,5,6\\) but does not provide an analytic rate law.",
+      "searches": [
+        "O(Delta^{-2/s}) CSS GV accumulation",
+        "Delta^{-2/s} quantum CSS code",
+        "1 - sqrt(1 - 1/(2s-1)^2) accumulation",
+        "2^{s epsilon}-1 repeat accumulate GV"
+      ]
+    },
+    "rationale": "The primary source explicitly states that it proves convergence to the CSS GV bound without an explicit characterization of the convergence rate. The inspected classical RMA and fast-good-dual sources establish qualitative convergence or target-dependent linear encoding, but no inspected statement gives this closed round certificate or the \\(\\Delta^{-2/s}\\) sufficient law for the quantum parity-outer construction.",
+    "residual_risks": [
+      "A differently phrased quantitative extraction of the classical RMA proof could exist outside the searched terminology; none was located, and such a result would still need an implication comparison with the parity-outer quantum threshold used here.",
+      "The primary preprint is very recent, so contemporaneous unindexed work remains a residual novelty risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves qualitative convergence and supplies all ingredients but does not state a closed round certificate or the near-GV power law.",
+        "evidence": "The introduction says the work does not give an explicit characterization of the rate of convergence; Proposition 4.5 ends with a compactness-derived unspecified negative constant.",
+        "identifier_or_url": "arXiv:2610.01277v1",
+        "material_read": "Abstract/introduction, encoder resource accounting, Propositions 3.6--3.7, Section 4 including Propositions 4.3--4.5, and Theorem 5.1.",
+        "method": "Full-text inspection including displayed formulas and page images for the key convergence proof.",
+        "title": "Linear-Time Encodable Quantum Codes near the CSS GV Bound",
+        "trigger": "Primary source defining the spectral threshold and explicitly identifying the lack of a convergence-rate characterization."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes classical uniform convergence to the GV threshold but no inspected statement gives the quantum parity-outer \\(M_s(\\gamma)\\) bound.",
+        "evidence": "The abstract states convergence of the threshold sequence to the GV distance without the closed sufficient round formula used here.",
+        "identifier_or_url": "doi:10.1109/TIT.2009.2030459",
+        "material_read": "Abstract and accessible full-text/searchable material describing uniform convergence of spectral shapes and threshold distances.",
+        "method": "Primary-publication metadata and accessible full-text search.",
+        "title": "Spectra and Minimum Distances of Repeat Multiple-Accumulate Codes",
+        "trigger": "Closest classical RMA convergence literature."
+      },
+      {
+        "assessment": "NOT_COVERING: classical rate-one-half construction; it states that a more precise target-gap dependence of encoding time is not known there.",
+        "evidence": "The published text says the authors do not know how to bound the encoding time more precisely in terms of epsilon.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.ITCS.2026.28",
+        "material_read": "Abstract, introduction, and statement discussing dependence of encoding time on the GV-gap parameter.",
+        "method": "Open-access full-text inspection.",
+        "title": "Linear Time Encodable Binary Code Achieving GV Bound with Linear Time Encodable Dual Achieving GV Bound",
+        "trigger": "Closest recent fast-code/fast-dual construction underlying the quantum paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0428212c-147e-418b-bbda-b6afcf3c8b38",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source itself singles out the missing convergence rate. Turning its compactness proof into a closed target-gap certificate converts an existential choice of the number of accumulation rounds into an explicit encoder-resource law. The result is structurally useful despite conservative constants because it answers how the source's circuit overhead is guaranteed to scale as the desired distance approaches the CSS GV threshold.",
+    "status": "PASS"
+  }
+}
