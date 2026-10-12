@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The published derivative factor is reduced with \\(u=\\gamma x^\\theta\\) to \\(\\Phi(u)=(\\theta-1)(e^u+c)+\\theta c u\\). For \\(\\theta>1,c<0\\), \\(\\Phi\\) is strictly convex with positive endpoint limits; evaluating its unique minimum gives the exact threshold \\(-c=((\\theta-1)/\\theta)e^{1/\\theta}\\). For \\(0<\\theta<1,c>0\\), strict concavity and the unique maximum give the dual threshold. The equality cases have one isolated zero and retain strict monotonicity. The checker confirms the source's simulation example and independent counterexamples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier Marshall–Olkin logistic-exponential work reports increasing, decreasing, bathtub, and upside-down-bathtub hazards for a different baseline.",
+        "General Marshall–Olkin literature therefore makes non-monotonicity plausible, but does not give the MOPHL derivative factor or the thresholds \\(A_+(\\theta)\\) and \\(A_-(\\theta)\\)."
+      ],
+      "reasoning": "Broader Marshall–Olkin models do not dominate the claim because hazard-shape boundaries depend on the baseline. The accepted result is the complete phase classification for this specific power half-logistic baseline.",
+      "searches": [
+        "Marshall Olkin transformed hazard derivative phase boundary alpha theta",
+        "Marshall-Olkin transform hazard rate increasing decreasing preservation alpha hazard monotonicity",
+        "Marshall-Olkin logistic-exponential bathtub upside-down bathtub hazard"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14060973",
+      "doi:10.1080/03610926.2017.1414254"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Appendix A prints \\(\\Phi=(\\theta-1)(e^{\\gamma x^\\theta}+c)+\\theta\\gamma c x^\\theta\\).",
+        "The source infers the global sign solely from endpoint signs and exponential dominance, without controlling an interior minimum or maximum.",
+        "The source's physical interpretation says \\(\\theta\\) determines the global hazard trend."
+      ],
+      "reasoning": "The source contains the exact algebraic object needed for the correction but explicitly draws the wrong global implication. The convexity/concavity optimization supplies a new exact statement rather than a restatement of prior work.",
+      "searches": [
+        "10.3390/math14060973 Appendix A Phi hazard derivative",
+        "10.3390/math14060973 theta determines global trend hazard",
+        "Marshall-Olkin Power Half-Logistic simulation non-monotonic hazard"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-result search hit names the target DOI or gives the corrected MOPHL threshold.",
+        "Exact-source web searches returned the original article rather than a corrigendum.",
+        "The primary article's Theorem 1 states the contradicted theta-only monotonicity classification."
+      ],
+      "reasoning": "Searches covered the exact DOI, model acronym and full name, theorem wording, monotonicity aliases, and non-monotonic hazard terminology. No equivalent source-specific correction was located.",
+      "searches": [
+        "10.3390/math14060973 Marshall Olkin power half logistic hazard monotonicity correction",
+        "MOPHL hazard increasing decreasing theorem theta alpha counterexample",
+        "Marshall-Olkin power half-logistic hazard nonmonotone bathtub upside-down bathtub"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 1 states strict increase for every \\(\\theta>1\\) and strict decrease for every \\(0<\\theta<1\\).",
+        "The simulation section uses \\((\\alpha,\\theta,\\gamma)=(0.03,2.52,0.03)\\) and explicitly calls its hazard non-monotonic.",
+        "No corrigendum or erratum was located."
+      ],
+      "reasoning": "The source's own simulation regime is a decisive internal check: the corrected threshold places that triple in the non-monotonic phase, while the theorem places it in the increasing phase.",
+      "searches": [
+        "10.3390/math14060973 Theorem 1 hazard",
+        "10.3390/math14060973 alpha 0.03 theta 2.52 gamma 0.03",
+        "10.3390/math14060973 corrigendum erratum"
+      ]
+    },
+    "rationale": "The primary source prints the derivative factor but makes an invalid endpoint-sign inference and states the opposite global theorem. Its simulation section even labels a parameter choice with \\(\\theta>1\\) as non-monotonic. Five focused published-result searches, exact-source correction searches, and owned-ledger overlap checks found no MOPHL correction or exact joint phase boundary.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "The exact roots locating the two turning points are transcendental and are not simplified beyond the scalar equation.",
+      "Broader Marshall–Olkin hazard literature may contain general sufficient conditions, but no result located states this exact MOPHL phase boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY CONTRADICTED. The derivative formula is correct, but the proof's endpoint-sign argument does not control interior extrema of the derivative factor.",
+        "evidence": "Equations (4)-(6), Theorem 1, Appendix A, and the simulation setting \\((0.03,2.52,0.03)\\).",
+        "identifier_or_url": "doi:10.3390/math14060973",
+        "material_read": "Full public article including Section 2.1 survival, density, and hazard formulas; parameter interpretation; Theorem 1; Appendix A derivative and proof; simulation true-parameter discussion; and publication/MSC metadata.",
+        "method": "Direct full-text inspection of the publisher article.",
+        "title": "The Marshall–Olkin Power Half-Logistic Distribution for Reliability Modeling of Degradation Data Under Generalized Hybrid Censoring",
+        "trigger": "Primary 2026 source containing the MOPHL hazard and monotonicity theorem."
+      },
+      {
+        "assessment": "BROADER CONTEXT ONLY; not covering the MOPHL thresholds.",
+        "evidence": "The abstract reports all four major hazard shapes for that distinct Marshall–Olkin logistic-exponential model.",
+        "identifier_or_url": "doi:10.1080/03610926.2017.1414254",
+        "material_read": "Published abstract describing the hazard-shape range of the different logistic-exponential baseline.",
+        "method": "Abstract-level comparison only.",
+        "title": "The Marshall-Olkin logistic-exponential distribution",
+        "trigger": "Broader comparison for non-monotonic hazards created by a Marshall–Olkin extension."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e6ca0a2-ca4a-442c-9e64-594a85db4bff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hazard shape is central to the paper's reliability interpretation: it maps parameters to infant mortality, wear-out, and degradation regimes and is used to describe simulation scenarios. The corrected theorem shows that the Marshall–Olkin parameter can overturn the theta-only trend on open parameter regions, producing two turning points. It also resolves an explicit contradiction between Theorem 1 and the paper's own principal simulation regime.",
+    "status": "PASS"
+  }
+}
