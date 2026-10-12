@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact Peaceman–Rachford tensor factorization, the tridiagonal determinant recurrence, an explicit inverse-entry formula, endpoint minimality of the resolvent diagonal, strict monotonicity in the timestep parameter, and the limiting fixed point. Necessity and sufficiency in two dimensions follow from the sign structure of the Kronecker factors. The \\(2\\times2\\) counterexample is exact rational arithmetic, and the included checker reproduces it. No finite experiment is used as proof of the infinite sequence limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wade et al., DOI 10.1002/num.20039, study positivity-preserving Padé smoothing for parabolic problems, but the published abstract concerns a different family of Padé smoothers rather than the Peaceman–Rachford tensor end-step.",
+        "Hansen–Kramer–Ostermann, DOI 10.1016/j.apnum.2012.06.003, prove positivity for exponential/Strang splitting in certain semilinear settings, a different propagator class."
+      ],
+      "reasoning": "General positivity-preserving time integrators do not dominate this claim because their step maps differ. Conversely, the present theorem is narrower in spatial operator but sharper: it gives an exact if-and-only-if finite-grid threshold and its size limit.",
+      "searches": [
+        "positivity preserving Padé parabolic problems Crank Nicolson",
+        "positivity preserving splitting semilinear parabolic Strang",
+        "ADI positivity M-matrix parabolic finite difference"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.1137/0103003",
+      "CWI report R 8724 / Mathematics of Computation 53 (1989), 81–101",
+      "DOI 10.1002/num.1037",
+      "DOI 10.1002/num.20039",
+      "DOI 10.1016/j.apnum.2012.06.003"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peaceman–Rachford 1955 proves unconditional stability of the alternating pair for the heat equation; a stable matrix may still have negative entries, so that theorem does not imply positivity.",
+        "Dai, DOI 10.1002/num.1037, describes a compact Peaceman–Rachford ADI method and unconditional stability; the accessible abstract does not state an exact positivity timestep frontier.",
+        "The present exact witness at dimensionless step \\(6/5\\) is stable in the classical ADI sense but has a negative end-step entry, explicitly separating the two properties."
+      ],
+      "reasoning": "The classical stability result is strictly weaker for cone invariance. The witness demonstrates non-implication, while the endpoint-resolvent proof supplies the exact missing boundary for the standard grid.",
+      "searches": [
+        "Peaceman Rachford unconditional stability heat equation amplification factor",
+        "Peaceman Rachford maximum principle positivity finite difference",
+        "compact ADI Peaceman Rachford unconditional stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original Peaceman–Rachford paper gives the alternating heat equations and an unconditional stability amplification factor for the alternating pair, not an entrywise positivity characterization.",
+        "The 1989 Hundsdorfer–Verwer full text studies stability and convergence of Peaceman–Rachford ADI for initial-boundary problems; targeted full-text checks did not locate a componentwise positivity or discrete-maximum-principle theorem equivalent to the determinant criterion."
+      ],
+      "reasoning": "The new statement is about entrywise nonnegativity of a finite-grid end-step matrix. Spectral stability, convergence, and the usual ADI amplification factor neither imply nor are implied by this cone-invariance property. The proof reduces positivity to endpoint diagonal resolvent entries, a statement not present in the inspected classical analyses.",
+      "searches": [
+        "Peaceman Rachford ADI exact positivity threshold rectangular Dirichlet heat grid",
+        "Peaceman Rachford nonnegative one step matrix discrete maximum principle finite grid",
+        "ADI Crank Nicolson positivity threshold tensor product path Laplacian",
+        "Peaceman Rachford monotonicity positivity CFL exact finite difference heat equation",
+        "Peaceman Rachford heat positivity D_k 2 D_{k-1} determinant threshold",
+        "Peaceman Rachford square grid positivity 4 minus 2 sqrt 2",
+        "Peaceman Rachford finite grid endpoint resolvent positivity threshold",
+        "Peaceman–Rachford positivity discrete maximum principle heat equation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published record was 'Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson', which concerns a one-dimensional composite backward-Euler/Crank–Nicolson map rather than Peaceman–Rachford ADI on rectangular finite grids.",
+        "Other close records concerned Padé Markov positivity and stagewise Richardson safety, with different maps and objects."
+      ],
+      "reasoning": "No retrieved database record supplied the same determinant recurrence threshold, the simultaneous rectangular conditions, or the square-grid limit. Search failure is not treated as a novelty proof; it is combined with primary-source statement comparison.",
+      "searches": [
+        "Peaceman Rachford ADI exact positivity threshold rectangular Dirichlet heat grid",
+        "Peaceman Rachford nonnegative one step matrix discrete maximum principle finite grid",
+        "ADI Crank Nicolson positivity threshold tensor product path Laplacian",
+        "Peaceman Rachford monotonicity positivity CFL exact finite difference heat equation",
+        "Peaceman Rachford heat positivity D_k 2 D_{k-1} determinant threshold",
+        "Peaceman Rachford square grid positivity 4 minus 2 sqrt 2",
+        "Peaceman Rachford finite grid endpoint resolvent positivity threshold"
+      ]
+    },
+    "rationale": "Primary and nearby literature establish Peaceman–Rachford stability/convergence and positivity-preserving alternatives, but the inspected statements do not imply the exact finite-grid positivity frontier. Semantic database searches recovered adjacent Crank–Nicolson, Padé, and Richardson positivity results rather than the determinant criterion here. Residual risk from older discrete maximum-principle terminology remains explicitly recorded.",
+    "residual_risks": [
+      "Older discrete maximum-principle or monotonicity literature may encode an equivalent finite-grid condition under different notation not recovered by the searches.",
+      "Only publisher abstract material was available for the Dai and Wade papers; no whole-document NOT_COVERING claim is made for those sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper defines the alternating-direction method and proves stability for arbitrary step size, but does not state the finite-grid entrywise positivity threshold proved here.",
+        "evidence": "The heat section derives the alternating equations and gives the two-step amplification factor with modulus below one for all parameters; the rest of the article treats work estimates and steady-state iteration.",
+        "identifier_or_url": "DOI 10.1137/0103003",
+        "material_read": "Complete fourteen-page article; the heat-flow construction, alternating equations, stability factor, numerical example, and steady-state section were inspected.",
+        "method": "Full-text reading through authorized institutional access after public full text was not available.",
+        "title": "The Numerical Solution of Parabolic and Elliptic Differential Equations",
+        "trigger": "Original Peaceman–Rachford heat method and unconditional-stability theorem."
+      },
+      {
+        "assessment": "No implication-equivalent componentwise positivity theorem was found in the inspected full text; the source classifies the work under MSC \\(65\\mathrm{M}20\\) among its numerical PDE codes.",
+        "evidence": "The paper formulates Peaceman–Rachford and studies stability and convergence. Targeted terminology checks did not locate the finite-grid cone-invariance statement.",
+        "identifier_or_url": "CWI report R 8724 / Mathematics of Computation 53 (1989), 81–101",
+        "material_read": "Relevant full-text setup, Peaceman–Rachford formula, stability/convergence analysis, and targeted searches for positivity, nonnegativity, monotonicity, and maximum-principle terminology.",
+        "method": "Open full-text inspection.",
+        "title": "Stability and Convergence of the Peaceman-Rachford ADI Method for Initial-Boundary Value Problems",
+        "trigger": "Closest classical analysis of Peaceman–Rachford ADI for initial-boundary problems and classification source."
+      },
+      {
+        "assessment": "The abstract emphasizes unconditional stability of a compact Peaceman–Rachford ADI method, not an exact entrywise positivity threshold. Whole-document equivalence cannot be excluded from the abstract alone, so the source is retained as a residual-access risk rather than used for a whole-document negative claim.",
+        "evidence": "First published 11 February 2002; the abstract states unconditional stability and numerical examples.",
+        "identifier_or_url": "DOI 10.1002/num.1037",
+        "material_read": "Publisher metadata and abstract.",
+        "method": "Publisher abstract inspection.",
+        "title": "Compact ADI Method for Solving Parabolic Differential Equations",
+        "trigger": "Direct Peaceman–Rachford ADI application to parabolic finite differences with an exact public date."
+      },
+      {
+        "assessment": "The source develops positivity-preserving Padé smoothing, a different rational method family. It motivates the positivity question but does not, from the material read, imply the Peaceman–Rachford rectangular-grid criterion.",
+        "evidence": "First published 29 September 2004; the abstract describes diagonal Padé schemes combined with positivity-preserving Padé schemes.",
+        "identifier_or_url": "DOI 10.1002/num.20039",
+        "material_read": "Publisher metadata, abstract, and reference list.",
+        "method": "Publisher abstract inspection.",
+        "title": "Smoothing with Positivity-Preserving Padé Schemes for Parabolic Problems with Nonsmooth Data",
+        "trigger": "Nearby positivity-preserving rational time-stepping literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1fbe756e-fa1e-4147-81fd-affc6d0740ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a sharp, mesh-size-dependent boundary for a classical unconditionally stable ADI method to preserve the natural nonnegative cone. It distinguishes stability from a discrete maximum-principle property, reduces an apparently \\(mn\\)-dimensional sign test to two scalar determinant thresholds, gives a computable exact rule for every rectangular grid, and identifies the asymptotic square-grid constant \\(4-2\\sqrt2\\). The exact negative witness immediately above the small-grid frontier makes the boundary operational rather than merely qualitative.",
+    "status": "PASS"
+  }
+}
