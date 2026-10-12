@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "The source's CDF is of the form G minus a positive term, so its complement is one minus G plus that term. The independent quotient calculation gives the same formula. The corrected formula is positive and reproduces Table 1, while the printed formula crosses zero and has negative tail asymptotics. The packaged checker verifies the CDF-density derivative relation, table values, zero crossing, and tail limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General slash constructions use quotient representations but do not state the displayed SCHI reliability correction.",
+        "The target quotient representation itself gives an independent source-specific derivation.",
+        "No broader located result dominates the exact correction, Table 1 reconciliation, and hazard sign consequence."
+      ],
+      "reasoning": "Generic quotient theory explains how to recompute the survival function, but the accepted claim is the concrete incompatibility among the target paper's own CDF, Corollary 2.1, table, and hazard plot.",
+      "searches": [
+        "\"slash chi-square\" survival function hazard",
+        "\"slash chi-square\" hazard function",
+        "slash distribution quotient Beta reliability survival"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20251060"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published-result hit concerns heterogeneous proportional-hazard identification, not a slash distribution formula.",
+        "A generic sign-inconsistency finding in a dynamical system has no probabilistic implication for the SCHI model.",
+        "No located prior statement entails the plus-sign correction or its numerical consequences."
+      ],
+      "reasoning": "The accepted result is tied to the exact SCHI CDF and Beta-quotient representation; unrelated sign or survival corrections do not cover it.",
+      "searches": [
+        "reliability sign error survival hazard distribution",
+        "heavy-tail hazard correction slash distribution",
+        "joint survival formula correction probability distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary PDF prints a minus sign in the reliability formula and in the hazard denominator.",
+        "Proposition 2.4 in the same PDF gives a CDF whose complement requires the opposite sign.",
+        "No located published result states this SCHI-specific correction."
+      ],
+      "reasoning": "The searches cover the exact source, full model name and acronym, both reliability aliases, the corollary number, and the sign-failure consequence.",
+      "searches": [
+        "10.3934/math.20251060 reliability survival hazard Corollary 2.1 sign correction",
+        "\"heavy-tailed chi-square\" reliability function survival sign hazard",
+        "\"SCHI\" reliability hazard negative survival correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 reports P(Z>8)=0.362 for SCHI(1,3,1), matching the corrected survival 0.3624233453...",
+        "The printed Corollary gives -0.2703999340... for the same quantity.",
+        "Figure 2 keeps the SCHI(1,3,1) hazard positive to t=20, while the printed formula changes sign after the printed survival crosses zero at 3.4877799243..."
+      ],
+      "reasoning": "The source's own numerical table and plotted hazard are internally consistent with the corrected sign and incompatible with the displayed formulas.",
+      "searches": [
+        "10.3934/math.20251060 Corollary 2.1",
+        "10.3934/math.20251060 Table 1 tails comparison",
+        "10.3934/math.20251060 Figure 2 hazard"
+      ]
+    },
+    "rationale": "The target article itself prints the wrong sign in Corollary 2.1. Searches using the exact DOI, model name, corollary, reliability/hazard terms, and correction aliases located the source but no model-specific correction. The closest published findings concern unrelated hazard-identification or sign-correction problems and do not imply this formula.",
+    "residual_risks": [
+      "A very recent or unindexed correction may exist.",
+      "The authors' computational implementation is unavailable, so the exact formula used to generate Figure 2 cannot be inspected directly.",
+      "The result intentionally does not reassess estimation or application sections beyond the reliability formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT in Corollary 2.1. The printed sign contradicts the preceding CDF and produces negative reliability and hazard values; the table and plot are consistent with the corrected sign.",
+        "evidence": "Proposition 2.4, Corollary 2.1, Table 1, Figure 2, and the quotient representation.",
+        "identifier_or_url": "doi:10.3934/math.20251060",
+        "material_read": "Publisher full PDF at the quotient representation, density, Table 1, Proposition 2.4 CDF, Corollary 2.1 reliability and hazard, Proposition 2.5 heavy-tail argument, Figure 2, and the model summary.",
+        "method": "Direct parsed-text inspection and rendered-page inspection of the publisher PDF.",
+        "title": "The heavy-tailed chi-square model: properties, estimation and application to wind speed data",
+        "trigger": "Primary source defining the SCHI model and its reliability formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8516fbc-dbae-4eff-ab3f-4f29eb050b82",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reliability and hazard functions are explicit headline properties of the proposed heavy-tailed lifetime model. The printed formulas become negative on an ordinary parameter setting and make the subsequent log-survival heavy-tail proof undefined as written. The one-sign correction restores valid probabilities, reconciles the paper's own tail table and hazard plot, and yields the exact positive tail laws S(t)~C t^{-q} and h(t)~q/t.",
+    "status": "PASS"
+  }
+}
