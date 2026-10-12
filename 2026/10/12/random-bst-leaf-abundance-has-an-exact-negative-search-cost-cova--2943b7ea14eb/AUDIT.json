@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The uniform root split makes the left and right recursive subtrees conditionally independent. Total covariance yields a closed recurrence. For size at least four, the conditional mean leaf count differs from its global mean only at the four split sizes 0, 1, n-2, and n-1, by minus or plus one third. This converts the between-split term into two thirds over 3n times the difference of consecutive classical path-length means, producing a harmonic term that cancels exactly with the induction sum. The same split law proves the leaf variance, and exact enumeration independently checks the formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet--Gourdon--Martínez develop detailed fringe-pattern counts in random BSTs, including leaves as the size-one fringe pattern.",
+        "Kapur develops general moment and limit methods for additive random-search-tree functionals and treats internal path length as a principal example.",
+        "Drmota--Hwang derive covariance asymptotics for random-BST level profiles and connect profile limits to total path length."
+      ],
+      "reasoning": "These are broader frameworks in their own directions, but none of the inspected statements supplies a theorem that implies the exact finite covariance of total leaf count with total internal path length. Marginal or level-profile results do not determine this mixed second moment.",
+      "searches": [
+        "DOI:10.1002/(SICI)1098-2418(199710)11:3<223::AID-RSA2>3.0.CO;2-2",
+        "arXiv:math/0304411",
+        "DOI:10.1239/aap/1118858628"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1002/(SICI)1098-2418(199710)11:3<223::AID-RSA2>3.0.CO;2-2",
+      "arXiv:math/0304411",
+      "DOI:10.1239/aap/1118858628",
+      "DOI:10.1017/S0963548314000443"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item 6d69fbad-a9a9-45cf-b240-05fd7ce265c7 concerns squared root-split imbalance versus total path length; it neither contains nor implies the leaf-count covariance.",
+        "Own item b67cdf22-fe00-48fd-aba6-8663019cd5de concerns leaf count versus path length in the different random recursive tree model.",
+        "Drmota--Hwang study level-size covariances and total path length; the inspected full text contains no leaf statistic."
+      ],
+      "reasoning": "Covariance is not determined by sharing one marginal or one response statistic. The accepted formula requires the BST leaf recursion and its four boundary split effects, which are absent from the nearby own and published statements.",
+      "searches": [
+        "own ledger binary search tree leaves internal path length covariance",
+        "own ledger random BST root imbalance path length",
+        "random binary search tree profile covariance total path length leaves"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned unrelated tree and path results rather than a random-BST leaf/path covariance statement.",
+        "Targeted literature searches under leaves, terminal nodes, internal path length, total path length, and search cost found the marginal theories and profile-covariance papers but no matching mixed formula."
+      ],
+      "reasoning": "The aliases cover both the fringe statistic and the algorithmic interpretation of internal path length. Search absence is not used alone; it is combined with inspection of the closest primary texts.",
+      "searches": [
+        "random binary search tree leaf count internal path length exact covariance",
+        "\"number of leaves\" \"internal path length\" random binary search tree covariance",
+        "random BST leaves search cost covariance",
+        "\"terminal nodes\" \"path length\" random binary search tree covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published-record or web result matching the rational covariance formula was located."
+      ],
+      "reasoning": "The accepted statement is an all-size symbolic identity with an analytic recurrence proof, not a finite numerical table or a recomputation of a listed sequence.",
+      "searches": [
+        "\"(n-2)(n+3)\" binary search tree leaves path length",
+        "\"-(n-2)(n+3)/(9n)\" binary search tree",
+        "\"leaf count\" \"search cost\" random binary search tree"
+      ]
+    },
+    "rationale": "The closest inspected sources cover random-BST fringe patterns, general additive functionals, and covariance of level profiles, but no inspected theorem or formula gives the covariance of leaf count with total internal path length. The closest own result for the same BST model concerns squared root-split imbalance versus path length, a different statistic that does not determine the leaf/path mixed moment. The exact rational formula and its regression consequence were not found in targeted published-record or literature searches.",
+    "residual_risks": [
+      "Older analysis-of-algorithms books or bivariate generating-function papers may contain the same mixed moment under terminal-node and search-cost terminology.",
+      "General multivariate additive-functional machinery could make the covariance an accessible specialization even if the exact formula is not displayed.",
+      "The marginal leaf and path-length formulas are classical; originality is limited to the exact mixed covariance, its cancellation proof, and the resulting regression coefficient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRINGE_PATTERN_THEORY_WITHOUT_ACCEPTED_MIXED_COVARIANCE",
+        "evidence": "The inspected results derive occurrence frequencies and limit behavior for fixed fringe patterns. No displayed theorem or formula gives covariance between the total leaf count and internal path length.",
+        "identifier_or_url": "DOI:10.1002/(SICI)1098-2418(199710)11:3<223::AID-RSA2>3.0.CO;2-2",
+        "material_read": "Public article material including the introduction, model description, and fringe-pattern framework; the paper explicitly discusses leaves and total path length as classical shape parameters.",
+        "method": "Compared its pattern-frequency results with a joint leaf-count/internal-path-length second moment.",
+        "title": "Patterns in Random Binary Search Trees",
+        "trigger": "Closest classical source centered on random-BST fringe patterns; leaves are the basic terminal fringe statistic."
+      },
+      {
+        "assessment": "GENERAL_ADDITIVE_FUNCTIONAL_FRAMEWORK_WITHOUT_EXPLICIT_LEAF_PATH_MIXED_LAW",
+        "evidence": "The source treats internal path length and general additive moments but the inspected material does not state the accepted covariance or regression slope.",
+        "identifier_or_url": "arXiv:math/0304411",
+        "material_read": "Full dissertation material covering the random-permutation model, additive-functional recurrences, and internal path length, together with targeted searches for leaf and covariance formulations.",
+        "method": "Checked whether the general additive-functional treatment specializes to or explicitly states the leaf-count/path-length mixed moment.",
+        "title": "Additive functionals on random search trees",
+        "trigger": "Broad archive-era primary source for moment recurrences of random-permutation search-tree functionals and internal path length."
+      },
+      {
+        "assessment": "LEVEL_PROFILE_COVARIANCE_NOT_LEAF_PATH_COVARIANCE",
+        "evidence": "The paper derives covariance and correlation for level counts and discusses total path length. The inspected full text contains no leaf statistic and therefore no theorem covering the accepted leaf/path covariance.",
+        "identifier_or_url": "DOI:10.1239/aap/1118858628",
+        "material_read": "Full 21-page public PDF, including the classification, random-BST model, covariance results for level profiles, and total-path-length connections.",
+        "method": "Searched the full text for leaf terminology and compared profile-covariance implications with the accepted mixed global statistic.",
+        "title": "Profiles of random trees: correlation and width of random recursive trees and binary search trees",
+        "trigger": "Closest full primary paper devoted to covariance in the same random-BST model and explicitly classified Primary 60C05."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2943b7ea-14eb-4706-9378-1b1921780d34",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf count and internal path length are canonical global shape and search-cost statistics of random BSTs. The exact covariance therefore addresses a natural structural interaction rather than an arbitrary parameter slice. The rational all-size law and the limiting linear slope of minus five halves provide an interpretable quantitative bridge between terminal branching and aggregate depth.",
+    "status": "PASS"
+  }
+}
