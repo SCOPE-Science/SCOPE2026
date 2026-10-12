@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The fixed-pair language is factorial. Exact prefix enumeration gives a single length-58 survivor and no length-59 survivor. A second implementation rescans every candidate for all reducedness, forbidden-pair, and square constraints and produces identical level sets. Direct factor inspection shows the unique extremizer misses only 10. The eight inversion-preserving alphabet permutations are explicitly generated and verified to act transitively on the eight possible length-two Dean factors, yielding exactly eight distinct global extremizers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source states only that the longest Dean word avoiding 10 has length 58, prints one witness, and then proves the length-59 all-pairs consequence by symmetry.",
+        "The same paper's later sections concern length-three avoided factors, critical exponent, directedness, frequencies, and growth rather than equality at the length-two boundary.",
+        "No later source located in the targeted searches supplies a stronger classification."
+      ],
+      "reasoning": "The published scalar maximum and the consequence at length 59 do not logically determine how many length-58 extremizers exist. The new uniqueness count and global orbit are strictly finer.",
+      "searches": [
+        "arXiv:2104.06837 full text around Lemma 3",
+        "DOI:10.1016/j.tcs.2022.04.025 sets of avoided words",
+        "later citations of Avoiding Square-Free Words on Free Groups Dean pair 58"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2104.06837v1 / Theoretical Computer Science 922 (2022)",
+      "exact-string web searches for the length-58 witness",
+      "OEIS A343421",
+      "semantic searches for fixed-pair uniqueness and global equality cases",
+      "current-week and previous-week private research ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 3 says every Dean word of length at least 59 contains all possible length-two Dean factors.",
+        "The preceding paragraph gives one length-58 word avoiding 10 but does not state uniqueness.",
+        "The current ledger contains a distinct Dean-word result about the 7/4-free, length-three-minimal-absent boundary; the previous-week ledger contains no Dean-word or source-ID match."
+      ],
+      "reasoning": "Neither the published threshold nor the existing ledger result implies that exactly one fixed-pair extremizer exists or that all global equality cases form one eight-element orbit.",
+      "searches": [
+        "primary source Lemma 3 and preceding computer-search paragraph",
+        "current research ledger: Dean word, length 58, reduced pair, source arXiv:2104.06837",
+        "previous-week research ledger: Dean word, length 58, avoids 10, reduced pair, source arXiv:2104.06837"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source is the only directly relevant result located by the exact object-and-bound searches.",
+        "Searches under 'missing pair', 'reduced pair', 'unique longest', and 'equality cases' did not locate a published uniqueness or orbit classification."
+      ],
+      "reasoning": "These formulations cover the source's Dean-word terminology, the free-group/reduced-word alias, the fixed forbidden pair, and the equivalent global equality-boundary formulation.",
+      "searches": [
+        "Dean word length 58 avoids factor 10 unique longest",
+        "longest Dean word avoiding reduced pair 10 equality cases",
+        "square-free reduced word free group missing pair length 58 classification",
+        "Dean words every reduced pair length 59 extremizers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact witness search locates the primary paper, where the word is printed as a longest example but not identified as unique.",
+        "OEIS A343421 tabulates total Dean-word counts, not the pair-avoiding boundary class."
+      ],
+      "reasoning": "The equality count is regenerated from the defining constraints rather than copied from a published table or database.",
+      "searches": [
+        "exact witness search: \"3230123032301232123032301230321230123212303230123212301232\" unique",
+        "exact witness search: \"3230123032301232123032301230321230123212303230123212301232\" Dean word",
+        "OEIS A343421 Dean words restricted pair 10"
+      ]
+    },
+    "rationale": "The direct paper gives the scalar maximum 58, prints one witness, and derives the threshold 59 by symmetry, but it does not state uniqueness of the fixed-pair witness or enumerate the equality cases. Dedicated semantic and exact-string searches found the source but no statement that the equality set consists of exactly eight words in one orbit. The closest own-ledger result from the same paper concerns 7/4-free Dean words with at least three absent length-three factors and does not imply this length-two boundary classification.",
+    "residual_risks": [
+      "The original authors' unpublished search output may already contain the unique fixed-pair survivor or all eight symmetry images.",
+      "An unindexed computation or private note could contain the same equality classification.",
+      "The claim does not classify length-58 Dean words that already contain all eight possible length-two factors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source covers the maximum length and one witness but not uniqueness or the complete equality orbit.",
+        "evidence": "The paper states: the longest Dean word avoiding the word 10 of length 2 has length 58, prints the witness, and then says that considering permutations preserving reduced words yields Lemma 3 for length at least 59.",
+        "identifier_or_url": "arXiv:2104.06837v1 / DOI:10.1016/j.tcs.2022.04.025",
+        "material_read": "The definitions of Dean words and avoided factors, the paragraph reporting the length-58 word avoiding 10, Lemma 3, and the surrounding discussion of alphabet symmetries.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Avoiding Square-Free Words on Free Groups",
+        "trigger": "Direct source for the length-58 pair-avoidance computation and Lemma 3."
+      },
+      {
+        "assessment": "Not covering the restricted pair-avoidance equality class.",
+        "evidence": "The entry counts all Dean words by length and notes symmetry, but has no count conditioned on avoiding 10 or on missing a length-two factor.",
+        "identifier_or_url": "OEIS:A343421",
+        "material_read": "Sequence definition, total-count table, comments, and references.",
+        "method": "Database entry inspection.",
+        "title": "OEIS A343421: Number of Dean words of length n",
+        "trigger": "Potential exact database covering finite Dean-word enumerations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "230a936a-e9a9-47aa-92d0-e543f315f12c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The length-58 class is the sharp equality boundary immediately below the published theorem that every length-59 Dean word contains all possible length-two factors. Classifying that boundary exactly identifies the unique obstruction for each missing pair and shows that the eight alphabet-symmetry images exhaust all failures at the sharp threshold. This is a natural complete equality classification, not an arbitrary finite census.",
+    "status": "PASS"
+  }
+}
