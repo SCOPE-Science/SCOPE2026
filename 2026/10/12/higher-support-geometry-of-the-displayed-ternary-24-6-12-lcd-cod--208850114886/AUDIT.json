@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact published 6-by-24 ternary matrix has rank 6 and nonzero Gram determinant. Exhaustive RREF enumeration covers all 56631 nonzero-dimensional message subspaces, with image-support and annihilator counts agreeing for every case. The hierarchy and all support spectra follow by exact minima. Distinct projective columns rule out dual weights 1 and 2; exhaustive normalized three-column relations give exactly three projective supports and therefore six weight-3 dual words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "San-Jose's 2025 work provides a general algorithm for computing generalized Hamming weights, not values for this matrix.",
+        "Kurz--Landjev--Rousseva state optimal ternary generalized-weight results only for dimensions at most five, so their coverage does not include this dimension-six code."
+      ],
+      "reasoning": "General theory and algorithms explain the invariant and methods but do not dominate the exact finite result. The closest recent optimal-parameter work explicitly stops below the present dimension.",
+      "searches": [
+        "generalized Hamming weights ternary LCD codes 24 6 12",
+        "generalized Hamming weights LCD codes ternary",
+        "Optimal codes and arcs for the generalized Hamming weights ternary dimension six"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.20600v1 full text",
+      "DOI:10.3934/amc.2026048 article page and Table 1",
+      "public companion dataset INDEX 227",
+      "arXiv:2206.04936 abstract and its role as predecessor",
+      "DOI:10.1145/3773284 abstract",
+      "DOI:10.15495/EPub_UBT_00008792 abstract",
+      "exact published-findings searches for C3,3, [24,6,12], hierarchy values, projective aliases, and support spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.1 establishes the displayed code and ordinary minimum distance 12; minimum distance determines only the first generalized weight.",
+        "The cited earlier small-field LCD paper predates this displayed matrix and is used by the primary source only for the previous [24,6] minimum-distance range.",
+        "Neither statement determines the remaining generalized weights, the exact support histograms, or the three dependent triples."
+      ],
+      "reasoning": "The new claim needs incidence information among the 24 published columns. Ordinary minimum-distance bounds and the existence of a shortest LCD embedding do not imply that incidence data.",
+      "searches": [
+        "arXiv:2601.20600 Proposition 4.1 C3,3 [24,6,12]",
+        "Several constructions of optimal LCD codes over small finite fields [24,6] 11 13",
+        "Shortest LCD embeddings higher generalized Hamming weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact primary full text names C3,3 and its [24,6,12] parameters but contains no occurrence of 'generalized Hamming'.",
+        "Exact published-findings searches returned no same-object record; the closest [24,6] hit concerns an unrelated trifferent-code matrix."
+      ],
+      "reasoning": "The queries cover the named code, exact parameters, the numerical hierarchy, the projective-system formulation, and complete support-spectrum language. None supplies or implies the claimed dimension-by-dimension support census.",
+      "searches": [
+        "Shortest LCD embeddings C3,3 ternary [24,6,12] generalized Hamming weights 12 16 19 21 23 24",
+        "ternary LCD [24,6,12] higher support hierarchy d2 16 d3 19",
+        "projective ternary [24,6,12] code support spectrum subcodes 56631",
+        "C3,3 24 points PG(5,3) generalized weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The companion dataset record INDEX 227 contains FIELD F_3, LCD TRUE, PARAMETERS [24,6,12], source BKLC parameters, and the generator matrix.",
+        "The inspected record has no generalized weights, subcode-support histogram, projective secant census, or dual-weight-three classification."
+      ],
+      "reasoning": "The exact associated data source is the strongest database risk. It fixes the matrix used here but does not tabulate the higher-support invariants being claimed.",
+      "searches": [
+        "arXiv:2601.20600 C3,3 [24,6,12]",
+        "Data_for_LCD_codes_F2_F3_F4.txt INDEX 227 [24,6,12]",
+        "[24,6,12] ternary LCD generalized Hamming weights"
+      ]
+    },
+    "rationale": "The primary source and its exact companion record publish the matrix and ordinary parameters but not generalized Hamming weights or higher-support spectra. Exact searches of the named code, parameter set, numerical hierarchy, projective aliases, and database record found no same-object prior computation. General algorithms and recent optimal-generalized-weight work do not imply this dimension-six matrix's profile.",
+    "residual_risks": [
+      "An unindexed computation of a monomially equivalent representative could contain the same invariants.",
+      "The result does not classify all ternary LCD [24,6,12] codes or prove higher-weight optimality among them.",
+      "The complete support census is an exact invariant of one matrix, not a family theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "The source prints the C3,3 generator matrix and [24,6,12] parameters and compares ordinary minimum distance to previous work, but does not state generalized Hamming weights or subcode-support spectra.",
+        "identifier_or_url": "arXiv:2601.20600v1; DOI:10.3934/amc.2026048",
+        "material_read": "Abstract and bibliographic metadata; preliminaries defining code equivalence; shortest-embedding results; Proposition 4.1 including C3,3; Table 1; conclusion; full-text search for generalized-Hamming terminology.",
+        "method": "lawful public full-text HTML/PDF inspection",
+        "title": "Shortest LCD embeddings of binary, ternary and quaternary linear codes",
+        "trigger": "Primary source of the exact displayed code and strongest same-object coverage risk."
+      },
+      {
+        "assessment": "BASIC_PARAMETERS_ONLY",
+        "evidence": "INDEX 227 gives LCD status, [24,6,12], BKLC source [20,6,10], and the matrix; it does not contain generalized weights, support histograms, secant counts, or the dual minimum asserted here.",
+        "identifier_or_url": "Data_for_LCD_codes_F2_F3_F4.txt, blob beb70f33ada8044c5bbd9763d237bd810fe75dfa",
+        "material_read": "README and the complete INDEX 227 record for FIELD F_3, PARAMETERS [24,6,12], including source parameters and all six generator rows.",
+        "method": "public repository file inspection",
+        "title": "Shortest LCD embeddings of binary, ternary and quaternary linear codes with dataset",
+        "trigger": "Exact companion data could contain stronger finite invariants than the paper."
+      },
+      {
+        "assessment": "METHOD_ONLY",
+        "evidence": "It gives a general algorithm and software for generalized weights, not a published computation for C3,3 or [24,6,12].",
+        "identifier_or_url": "DOI:10.1145/3773284",
+        "material_read": "Abstract and scope statement.",
+        "method": "public bibliographic/full-text abstract inspection",
+        "title": "An Algorithm for Computing Generalized Hamming Weights and the Sage Package GHWs",
+        "trigger": "Recent broad exact-computation literature could subsume a matrix-specific calculation."
+      },
+      {
+        "assessment": "NOT_COVERING_DIMENSION",
+        "evidence": "The stated exact ternary coverage is for dimensions at most five, while C3,3 has dimension six.",
+        "identifier_or_url": "DOI:10.15495/EPub_UBT_00008792",
+        "material_read": "Repository abstract and stated coverage range.",
+        "method": "public repository inspection",
+        "title": "Optimal codes and arcs for the generalized Hamming weights",
+        "trigger": "Recent optimal-generalized-weight tables could dominate a finite hierarchy claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20885011-4886-416f-8cec-d7e7ec3f78b5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "C3,3 is presented by the primary source as a new [24,6,12] ternary LCD code improving the prior ordinary minimum-distance record at these length and dimension values. The full generalized-weight hierarchy and complete support census are natural higher-support invariants of that new object. The unique dimension-two minimizer and exact three three-secants add concise structural information usable for comparison and projective interpretation, rather than merely recomputing the published minimum distance.",
+    "status": "PASS"
+  }
+}
