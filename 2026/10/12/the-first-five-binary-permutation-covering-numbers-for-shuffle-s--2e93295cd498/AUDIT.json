@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The action and every quantifier are reconstructed from the source: all binary even words of length 2n, all possible permutations, and all complementary order-preserving splits. The checker independently covers upper bounds by direct partition searches and tests lower bounds using exhaustively computed neighborhoods. The crucial order-six step tests 720 permutations and all 924 splits for each of nine even words, then proves no three signatures can cover all nine by exact 512-subset upward-closure DP. Smaller lower bounds exhaust all 8,32,128,512 even words. The Python standard-library checker was executed successfully from its package path; all computations use exact integers, no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 Theorem 2 covers all even binary words with a cyclic family, yielding the upper bound floor(n/2)+1 after inverse symmetry.",
+        "The 2025 paper studies ordinary shuffle squares (identical ordered subsequences), graph constraints, and deletion/cutting distances."
+      ],
+      "reasoning": "The source uniform upper bound alone cannot imply its own optimality against arbitrary noncyclic permutations. Ordinary shuffle-square existence corresponds only to identity, and does not decide minimum permutation-family coverage.",
+      "searches": [
+        "\"shuffle squares\" permutation covering number k 2025 2026",
+        "arXiv:2308.13882 Theorem 2 and Proposition 2",
+        "arXiv:2503.22043v2 Section 1.3 and Section 6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.13882 (2023 original preprint)",
+      "arXiv:2503.22043v2 (2025 subsequent related preprint)",
+      "DOI:10.3390/sym15111982 (2023 related journal article, partial textual inspection)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier binary result states  m_2(n) <= floor(n/2)+1 and supplies m_2(2)=2.",
+        "New exhaustive lower bounds: max single coverage 6/8 at n=2, 28/32 at n=3; max pair coverage 126/128 at n=4, 496/512 at n=5; a nine-word order-six family has no three-permutation cover.",
+        "Direct enumerations of all even words verify cyclic-family coverage at n=2..6."
+      ],
+      "reasoning": "The new claim combines the already known (or readily checked) cyclic upper constructions with finite lower certificates. Neither broader prior upper bounds nor different 2025 existence criteria imply the sharp lower bounds. The original binary base case is acknowledged as previously known.",
+      "searches": [
+        "arXiv:2308.13882 Section 2.4 definition of m_k(n) and Theorem 2",
+        "arXiv:2503.22043v2 sections 1, 3, 4, 5, 6",
+        "binary generalized shuffle square minimum covering number m_2(n) n=3 4 5 6 cyclic permutation sharp"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.13882 Section 2.4 defines the bipartite incidence graph between even words and coordinate permutations and calls the minimum right-side neighborhood cover m_k(n).",
+        "The definition here covers every even binary word and allows every permutation in S_n; inverse permutations are interchangeable because the two subsequences may swap roles."
+      ],
+      "reasoning": "The theorem has been matched to the source covering-number object, including inverse symmetry and unconstrained permutation choices, not merely to the term shuffle square. No matching exact sequence for binary n=3..6 was identified.",
+      "searches": [
+        "minimum covering permutations for all even binary words of length 12 shuffle gamma squares m2(6) = 4",
+        "permutation covering graph even binary words m2 n Grytczuk Pawlik Pleszczynski",
+        "arXiv:2308.13882 Section 2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 Proposition 2 lists m_2(2)=2 and m_3(3)=5, m_4(4)=14; its tables relate to canonical higher-alphabet words and cyclic-shift counts, not binary m_2(3..6).",
+        "Exact n=6 obstruction uses nine explicitly stated even binary words and rules out all triples of 720 permutations."
+      ],
+      "reasoning": "The source numerical tables have different parameters and do not encode the five binary covering values. Searches with exact parameter and alternate covering terminology located no decisive existing table. This negative search result is not a uniqueness proof.",
+      "searches": [
+        "\"shuffle squares\" \"m_2\" \"6\" covering permutations",
+        "\"m_2(6)\" \"shuffle\" permutations",
+        "arXiv:2308.13882 Proposition 2 and Table 4"
+      ]
+    },
+    "rationale": "The 2023 source defines the same invariant and gives its general cyclic covering upper bound but reports only the binary exact base value m2(2)=2. Exact lower-bound certificates at n=3..6 are not implications of its upper theorem. The 2025 same-author follow-up studies identical twins and shuffle-square recognition through nest-free graphs; it does not compute minimum covering families of arbitrary coordinate permutations. Targeted searches and comparison with neighboring published results found no equivalent claim. Residual risk: unavailable or unindexed independently obtained finite computations.",
+    "residual_risks": [
+      "A relevant computation could appear in an unindexed table, thesis, private work or more recent publication; absence in targeted searches does not establish uniqueness.",
+      "The inspected published web text for the 2023 related article was not independently checked against an accessible complete PDF; its uninspected portions are a priority risk.",
+      "No external independent audit of the new exhaustive proof has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and proves its upper bound, gives only the binary initial m_2(2)=2; no binary exact m_2(3..6) lower bounds identified.",
+        "evidence": [
+          "arXiv:2308.13882 PDF pp. 4-10, especially p.8 Section 2.4 and Proposition 2, p.9 tables."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.13882",
+        "material_read": "Full accessible preprint; inspected definitions and theorems in Sections 2.1-2.4, Proposition 2, associated tables, Sections 2.5 and 3, appendix and references.",
+        "method": "Read arXiv PDF extracted text and rendered page 8 (zero-based page 7), including definitions and numerical results.",
+        "title": "Variations on shuffle squares",
+        "trigger": "Same invariant m_k(n), source theorem on binary cyclic permutation coverings, closest plausible prior exact results."
+      },
+      {
+        "assessment": "Treats identical shuffled copies and run-graph structure, not the minimum size of a family of arbitrary generalized-shuffle coordinate permutations.",
+        "evidence": [
+          "arXiv:2503.22043v2 pp. 1-4, 8-9, 14-16, 20-22, 25, 28-31; no matching covering-family result in text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2503.22043v2",
+        "material_read": "PDF abstract and introductory results, run-graph propositions in Sections 2-4, deletion results in Section 5, open problems and references in Section 6; entire PDF searched for covering/permutation terminology.",
+        "method": "Read arXiv PDF text at title, introductory summary, representative results and final section; inspected rendered first page and full-text searches.",
+        "title": "Shuffle squares and ordered nest-free graphs",
+        "trigger": "Subsequent work by overlapping authors on related binary shuffle words might subsume a small-order covering classification."
+      },
+      {
+        "assessment": "The inspected text addresses avoidability and cutting/reshuffling operations. No exact binary generalized permutation-cover numbers were observed in material read; remaining text is a residual risk.",
+        "evidence": [
+          "DOI:10.3390/sym15111982, abstract/introduction and theorem statements."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15111982",
+        "material_read": "Publicly accessible journal text and introductory theorem/problem statements on shuffle-G-square avoidance and cutting distance.",
+        "method": "Read published web text; this inspection was not a full article PDF review.",
+        "title": "More Variations on Shuffle Squares",
+        "trigger": "Same authors discuss generalized constraint graphs and could imply a minimum-cover result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e93295c-d498-4253-b13d-42ab288948dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining 2023 paper explicitly asks for sharp minimum covering-family sizes, a natural extremal invariant. Here the first four binary cases after the known base value are determined and its general cyclic upper bound is shown sharp at n=3..6. A nine-word finite obstruction proves that three arbitrary coordinate permutations do not suffice at n=6; this is a concrete structural hurdle to any improved small-order or asymptotic bound. The exact finite classification is useful in its own right and does not rely on unsupported significance for n>=7.",
+    "status": "PASS"
+  }
+}
