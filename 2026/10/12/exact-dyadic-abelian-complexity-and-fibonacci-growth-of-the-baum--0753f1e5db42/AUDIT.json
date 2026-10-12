@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(k\\ge0\\), the four morphic blocks of length \\(2^k\\) partition the infinite word at aligned positions. The inductive identities \\(A_k=B_k+C_k\\) coordinatewise and \\(D_k=0^{2^k}\\) show that every aligned block is coordinatewise dominated by \\(A_k\\). Any shifted length-\\(2^k\\) factor lies in two adjacent aligned blocks and is bounded in total weight by a rotation of \\(A_k\\), so the initial block attains the global maximum. The block-weight recurrence has initial values 1,2 and gives \\(F_{k+2}\\). Every integer weight between zero and the maximum occurs by the step-at-most-one sliding-window property, since expanding the state \\(D\\) supplies arbitrarily long zero factors. Monotonicity of maximal weight brackets all lengths between dyadic scales, proving the global Fibonacci exponent. The Baum–Sweet identification is verified using all four transition states and binary-digit recurrences. The included verify.py checks a finite sample from its actual packaged source file; it is not substituted for any infinite proof. No exceptional length or endpoint is omitted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merta, arXiv:1803.00292v1, section 2 contains Baum–Sweet digit recurrences and results about runs/one positions, but no extremal count over shifted dyadic windows.",
+        "Cicalese–Lipták–Rossi, arXiv:1811.06273v1, Theorem 3 gives a general relation between Parikh vectors and extrema; its uniform-morphism results are for a different binary-word construction and do not supply these block-specific numbers."
+      ],
+      "reasoning": "The strongest reviewed potentially dominating results determine structural recurrences or general relations, not the numerical shifted-factor extremum required to imply the Fibonacci complexity formula. A known count of ones in an initial prefix is a strict weaker statement and cannot by itself bound all shifted factors.",
+      "searches": [
+        "arXiv:1803.00292v1 Baum Sweet Fibonacci first difference and zero runs",
+        "arXiv:1811.06273v1 infinite prefix normal uniform morphism",
+        "\"Baum Sweet\" maximum number ones factors length power two"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.00292v1, primary relevant PDF sections 1–2",
+      "arXiv:1811.06273v1, primary PDF introduction, key statements, section 5 and references",
+      "OEIS A086747, underlying Baum–Sweet sequence (not a table of abelian complexity)",
+      "Public semantic research results: 2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20; 2026/9/8/SCOPE079"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Merta: known recurrence b(2n+1)=b(4n)=b(n), b(4n+2)=0 and arbitrarily long zero runs imply zero can occur as a factor one-count but do not give a sharp upper bound on arbitrary shifted window weights.",
+        "Cicalese–Lipták–Rossi: for a binary word, the number of Parikh vectors at length \\(n\\) is \\(M(n)-m(n)+1\\); this does not calculate \\(M(n)\\) for the Baum–Sweet word.",
+        "Knowing the prior dyadic prefix count \\(F_{k+2}\\) yields only \\(M(2^k)\\ge F_{k+2}\\); the reverse inequality across every shifted factor is logically additional."
+      ],
+      "reasoning": "Every known ingredient used here is credited. The nontrivial implication required for the new claim is the aligned-block domination plus rotation argument, which supplies the missing global upper bound. Neither generic abelian-complexity identities nor known Baum–Sweet Fibonacci prefix totals imply that upper bound alone.",
+      "searches": [
+        "arXiv:1803.00292v1 Theorem 2.1 and Theorem 2.5",
+        "arXiv:1811.06273v1 Theorem 3",
+        "published-finding corpus: Baum-Sweet prefix normal Fibonacci abelian complexity maximal Parikh vectors factors subword",
+        "published-finding corpus: Baum Sweet dyadic windows maximum one density substitution A AB B CB C BD D DD"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicalese–Lipták–Rossi, arXiv:1811.06273v1, relates binary abelian complexity to maximum and minimum ones counts but does not calculate Baum–Sweet-specific values.",
+        "The inequality \\(M(2^k)=\\sum_{i<2^k}b(i)\\) is equivalent to the shifted-factor maximum at dyadic lengths and is distinguished from generic prefix-normal definitions in the inspected work."
+      ],
+      "reasoning": "Searched the aliases dyadic prefix-normality, maximum one count in shifted factors, binary Parikh spectrum, and abelian complexity. The available literature supplies the general equivalence of spectra and extrema, not the Baum–Sweet dyadic extremum. The new bound is proved by four-block coordinatewise domination, not by renaming an existing theorem.",
+      "searches": [
+        "\"Baum-Sweet\" \"abelian complexity\" \"Fibonacci\"",
+        "\"Baum-Sweet\" \"prefix normal\" factors dyadic",
+        "Baum-Sweet word abelian complexity dyadic length maximum ones factors Fibonacci",
+        "arXiv:1811.06273v1 sections 2–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A086747 gives underlying Baum–Sweet values, not an explicit table for dyadic abelian complexity.",
+        "The nearest published-finding corpus record 2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20 concerns abelian pattern Sturmian words rather than shifted Baum–Sweet factors.",
+        "published-finding corpus 2026/9/8/SCOPE079 concerns string attractors of Rudin–Shapiro and paperfolding words, not Baum–Sweet Parikh spectra."
+      ],
+      "reasoning": "Checked both sequence-table language and semantic related-results search. A Fibonacci list may be known independently; the distinct new fact is that shifted windows never exceed the Baum–Sweet initial dyadic Fibonacci weight. No exact indexed table of these Parikh spectra was identified; database nonappearance alone is not a proof of priority.",
+      "searches": [
+        "\"Baum-Sweet\" \"abelian complexity\" site:oeis.org",
+        "\"Baum-Sweet\" \"Fibonacci\" \"abelian\"",
+        "published-finding corpus: Baum Sweet word exact abelian complexity dyadic length 2^k Fibonacci maximal number ones in factors"
+      ]
+    },
+    "rationale": "The closest original research treats either Baum–Sweet ones/zero runs and digit recurrences (Merta 2018) or general extremal one-count/abelian-complexity and infinite prefix-normal methods (Cicalese–Lipták–Rossi 2018). The new exact maximum over ALL shifted dyadic windows and consequent Parikh spectra do not follow as a stated result from either inspected work. Previously established Fibonacci counts for initial Baum–Sweet dyadic prefixes do not imply the shifted-window upper bound. Public database and semantic result comparisons found no equivalent/stronger statement, subject to the explicit unindexed-priority risk.",
+    "residual_risks": [
+      "Some older or unindexed literature might derive equivalent dyadic Baum–Sweet factor maxima under prefix-normality or Parikh-spectrum terminology.",
+      "A database entry containing the Fibonacci values alone need not explicitly establish their interpretation as maximal shifted-factor weights; a future bibliographic audit should compare such entries by implication.",
+      "The exact all-length function remains undetermined here; only the sharp growth exponent is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The statements concern digit recurrences, arbitrarily long zero blocks, and indexing of ones or formal inverses; no theorem bounding ones in every shifted dyadic factor was found.",
+        "evidence": [
+          "arXiv:1803.00292v1; Section 2 recurrences and zero-run theorem; one-position theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1803.00292",
+        "material_read": "Abstract and relevant complete section 2, including arithmetic recurrences, zero-run result, and Fibonacci-related position theorem (PDF pages 1–7); keyword checks for abelian and complexity.",
+        "method": "Read the available full-text PDF and compared the exact statement objects and their implications for all shifted dyadic windows.",
+        "title": "Composition inverses of the variations of the Baum–Sweet sequence",
+        "trigger": "Contains exact Baum–Sweet arithmetic and run/one-position structure potentially strong enough to cover dyadic factor counts."
+      },
+      {
+        "assessment": "Supplies general abelian-complexity versus one-count extrema identity and prefix-normal theory, not the specific Baum–Sweet dyadic maximum or global exponent.",
+        "evidence": [
+          "arXiv:1811.06273v1; Theorem 3 and prefix-normal examples; no Baum–Sweet-specific claimed result located"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.06273",
+        "material_read": "Abstract, introduction and definitions (PDF pages 1–3); relevant prefix-normal/abelian-complexity statements and Section 5 (pages 9–14); references (pages 20–21); keyword checks for Baum.",
+        "method": "Read available primary preprint text and compare generic theorems to the specific Baum–Sweet maximum over all shifted factors.",
+        "title": "On Infinite Prefix Normal Words",
+        "trigger": "Prefix normality and abelian complexity might dominate the claim or contain the same construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0753f1e5-db42-4b6d-a69d-f83e0fc4387d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Abelian complexity counts the possible letter-frequency vectors of factors and is a standard structural invariant in combinatorics on words. The lengths \\(2^k\\) are canonical substitution scales rather than arbitrary samples. A coordinatewise extremal property over all shifts yields the exact infinite-scale classification \\(\\psi_b(2^k)=F_{k+2}+1\\), and the global asymptotic exponent \\(\\log_2\\varphi\\) follows without additional unproved regularity. Arbitrarily long zero blocks distinguish this nonuniformly recurrent automatic word from common linear-growth examples. The finite-sample checker corroborates the proof but is not itself the reason for the value assessment.",
+    "status": "PASS"
+  }
+}
