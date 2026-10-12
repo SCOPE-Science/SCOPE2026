@@ -1,0 +1,13 @@
+# Scientific review: marked-site path quantum mixing
+
+**Correctness — PASS.** Every eigenvalue of the real tridiagonal Hamiltonian is simple for all nonzero real potential strengths, because the off-diagonal couplings are one. The spectral-projector Gram formula and invertible Vandermonde reduction turn mixing rank into the dimension of the vertex-deleted characteristic-polynomial span. Parity reduction explicitly isolates the antisymmetric sector, and the Chebyshev resolvent identity gives its exact generating family. Polynomial divisibility and the root-gcd theorem determine exactly the relations, including the centered odd-order exception. Exact integer and rational checks cover 680 instances and test 1,014 symbolic polynomial differences, corroborating but not replacing the analytical proof.
+
+**Originality — PASS, with residual risk.** Godsil [1] gives the spectral-projector/vertex-deleted-minor tools and unmarked-path formula. Coutinho et al. [2] give general mixing-rank geometry. Coutinho et al. [3] provide exact quantum average-mixing methods. Kempton–Lippner–Yau [4] study potentials for state transfer rather than a marked site's average-mixing rank. These ingredients do not themselves provide the specific gcd rank law, the odd central exception, or the potential-independent full-rank criterion. Direct keyword, implication, and semantic comparisons did not identify equivalent stronger coverage; this is not proof of global novelty. A stronger, presently unlocated squared-eigenvector theorem for Jacobi matrices may imply the result.
+
+**Value — PASS.** The arithmetic rank law identifies an exact, non-generic resonance controlled by the marked position rather than the strength of the local perturbation. It determines all singularity cases and a sharp design criterion for full-rank long-time quantum mixing in a standard one-dimensional system. It also distinguishes rank behavior under a centered mark from a noncentral one. This is a complete parameter classification, not an arbitrary finite table or numerical extrapolation.
+
+**Limits.** Only single-site perturbations of paths with unit edge weights are covered; general weighted or multi-potential Hamiltonians and time-to-mix estimates are outside scope. The originality comparison is not an independent publication priority assessment.
+
+**Closest literature.** [1] C. Godsil, arXiv:1103.2578, Sections 3–4; [2] G. Coutinho et al., arXiv:1709.03591, Sections 2–5; [3] G. Coutinho et al., arXiv:2208.08971, Section 3; [4] M. Kempton et al., arXiv:1702.07000, Introduction and main theorems.
+
+Self-review: passed. Independent audit: not yet performed.
