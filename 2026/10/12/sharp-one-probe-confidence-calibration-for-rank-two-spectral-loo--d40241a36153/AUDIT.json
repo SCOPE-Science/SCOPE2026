@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact SVD and Gaussian rotational invariance reduce the projected norm to a ratio of two Gaussian quadratic forms; its strict lower-tail event is an absolute Cauchy ratio event; completing the square gives the global supremum attained by r=t/√2. Continuity and monotonicity justify unique inverse calibration. Conditional statement requires fresh independent Gaussian sample. Exact-rational checks, inverse numerical checks and seeded sampling corroborate but do not prove the infinite quantifiers. All boundaries 0<t<1, 0<δ<1, 0<r≤1 and rank two are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Smith–Do–Chen Theorem 4.3: overall pruned error <=sqrt(eta^2+1)*epsilon, with eta from a general probabilistic singular-value lower bound; no equality-attaining exact conditional CDF.",
+        "Saibaba Theorem 9 gives a random-subspace lower bound for projected singular values, using oversampling, with no exact max over the rank-two singular value ratio.",
+        "Meier–Nakatsukasa analyze singular values of YAX and AX for independently sketched two-sided rank estimation, not the normalized one-probe row projection."
+      ],
+      "reasoning": "A general high-probability estimate or structural bound need not imply an exact best possible confidence multiplier; the inspected constants and hypotheses do not determine Φ(t) with equality. No stronger exact result was identified.",
+      "searches": [
+        "Smith Do Chen Adaptive Matrix-Free Low-Rank Approximation Theorem 4.3",
+        "Saibaba 2019 Theorem 9 singular-value lower bound subspace iteration",
+        "Meier Nakatsukasa 2024 numerical rank randomized two sided Gaussian sketch",
+        "\"one probe\" \"spectral norm\" arctan Gaussian estimate randomized rank two matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.06758v1 §4 Algorithm 4.1 Theorem 4.3 and authors publicly posted MATLAB implementation",
+      "arXiv:1804.02614 Theorem 9 and Gaussian subspace-iteration bounds",
+      "DOI:10.1016/j.laa.2024.01.001 open-access source",
+      "Published mathematical results on spectral-filter Rayleigh-residual distortion and multistage adaptive randomized pivoting, whose scientific statements were compared against this projected-norm statistic.",
+      "Own existing October and preceding September claim ledgers checked for same result."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The underlying statistic and source algorithm are prior work and are not counted as new.",
+        "For one Gaussian column, the new result determines the full family of exact lower-tail probabilities for rank two, its unique least-favorable singular ratio, and an exact inverse one-sided confidence factor; the general cited bound does not state these.",
+        "The motivating source uses a distinct forward-only sketch norm in Algorithm 4.3, so claims are intentionally restricted to Algorithm 4.1 projected-block norm."
+      ],
+      "reasoning": "The claimed statement is a quantitative minimax sharpening and not a corollary explicitly covered by the cited general error statement. It is distinct from source Algorithm 4.3 and from rank-estimation sketches. Classical Cauchy identities are acknowledged. An older specialized Gaussian quadratic-ratio analysis could still cover the statement; see residual risk.",
+      "searches": [
+        "arXiv:2607.06758 Algorithm 4.1 Theorem 2.3 Theorem 4.3",
+        "arXiv:2607.06758 Algorithm 4.3 forward-only error indicator",
+        "arXiv:1804.02614 Theorem 9 σj(A)≥σj(B) lower bounds",
+        "DOI:10.1016/j.laa.2024.01.001 Gaussian two-sided rank estimation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact same projected-row statistic is in Smith–Do–Chen Algorithm 4.1; their theorem gives a generic high-probability constant, not the sharp rank-two Cauchy envelope.",
+        "The normal-ratio distribution is classical and explicitly used; it does not by itself optimize the probability over singular spectra.",
+        "Saibaba Theorem 9 gives upper/lower singular value bounds using a matrix-dependent random subspace factor, not an equality-case failure CDF."
+      ],
+      "reasoning": "Derived the precise SVD-reduced quadratic ratio and compared its event, not only the title or the presence of Gaussian randomness. General randomized Rayleigh quotient and Cauchy-ratio language was searched. No inspected source stated this exact operator statistic together with its sharp spectrum supremum and inverse confidence law.",
+      "searches": [
+        "one Gaussian residual rank two exact sharp confidence factor arctan singular values norm lookahead",
+        "Gaussian randomized QB sketch projection spectral norm single vector sharp minimax failure probability Cauchy arctan",
+        "\"one probe\" \"spectral norm\" arctan Gaussian estimate randomized rank two matrix",
+        "Gaussian one vector spectral norm estimator sharp probability underestimate matrix rank two",
+        "\"one sample\" \"two singular values\" \"arctan\" \"spectral norm\" Gaussian",
+        "arXiv:2607.06758 §4.1 Algorithm 4.1, projected-block definition",
+        "arXiv:1804.02614 Theorem 9 randomized projected singular values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full motivating preprint (25 pages) has no occurrence of arctan or Cauchy and states approximation bounds for its indicator instead.",
+        "Relevant earlier subspace-iteration preprint has no arctan formula in its searchable extracted text.",
+        "Semantic mathematical research searches did not retrieve a database or tabulation of the rank-two projected spectral-norm failure envelope."
+      ],
+      "reasoning": "No matching table, database, or exact closed-form risk curve was located. Lack of search matches is only residual evidence, never proof of novelty.",
+      "searches": [
+        "singular values one and t over square root 2 maximize underestimation risk randomized range finder",
+        "sharp rank two projection singular norm probability normal ratio spectrum arctan",
+        "rank two residual one Gaussian sketch look-ahead spectral norm indicator exact underestimation probability Cauchy maximal spectrum",
+        "Gaussian randomized QB look-ahead block power norm false stopping two singular values sharp failure probability",
+        "rank-two diagonal matrix one-step randomized power method estimate norm false-negative probability arctan threshold",
+        "site:arxiv.org Gaussian norm residual single probe exact rank two Cauchy arctan",
+        "arXiv:2607.06758 PDF arctan Cauchy exact probability",
+        "arXiv:1804.02614 PDF arctan"
+      ]
+    },
+    "rationale": "The motivating 2026 article defines projected-block look-ahead and a general high-probability bound but has no exact two-singular-value failure envelope, maximizing spectrum or inverse sharp confidence factor. Saibaba 2019 offers general subspace/singular-value bounds and Meier–Nakatsukasa 2024 uses a distinct two-sided statistic. Earlier Cauchy distribution is credited; potential older specialized equivalent remains an explicit risk.",
+    "residual_risks": [
+      "Exact spectral underestimation formulas might be available in older literature on ratios of Gaussian quadratic forms, angular central Gaussian distributions or randomized Rayleigh quotients under a different label.",
+      "The elementary Cauchy-ratio calculation is not new; originality rests on solving the full spectrum minimax calibration problem for the precise new look-ahead observable.",
+      "No claim of independent/exhaustive novelty verification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES indicator and general probability guarantee; does not state the rank-two exact CDF, sharp maximization or inverse confidence formula.",
+        "evidence": [
+          "Algorithm 4.1 lines 838–878: the new basis is obtained from a residual Gaussian sketch and the projected-block norm is compared with tolerance.",
+          "Theorem 4.3 lines 893–959: a high-probability factor eta imported from Theorem 2.3.",
+          "§4.3 lines 969–1005: forward-only estimator is ||EΩ|| and differs from the present normalized-row estimator."
+        ],
+        "identifier_or_url": "arXiv:2607.06758v1; https://arxiv.org/pdf/2607.06758",
+        "material_read": "Full-text PDF structure including introduction, §2.4 Theorem 2.3, §4.1 and Algorithm 4.1, §4.2 Theorem 4.3, §4.3 Algorithm 4.3, summary and bibliography; actual source implementation randQB_MF_Spec.m.",
+        "method": "Read publisher-independent arXiv PDF text and rendered algorithm page; compare variable definitions, probability conclusion and stopping observable.",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Same indicator and matching primary MSC 65F55; decisive originality comparator."
+      },
+      {
+        "assessment": "General structural/probabilistic subspace bounds, no exact rank-two Cauchy lower-tail envelope.",
+        "evidence": [
+          "Theorem 9 derives singular-value inequalities via Loewner order and interlacing.",
+          "Its Gaussian starting-probe discussion controls subspace angles and is not an optimized conditional norm-CDF."
+        ],
+        "identifier_or_url": "arXiv:1804.02614; https://arxiv.org/pdf/1804.02614",
+        "material_read": "Full-text preprint relevant §§2–5, statement and proof of Theorem 9, Gaussian subspace-iteration discussion and bibliography.",
+        "method": "Read lawful arXiv full PDF relevant theorems and rendered proof page; compare implications for the same projected norm.",
+        "title": "Randomized Subspace Iteration: Analysis of Canonical Angles and Unitarily Invariant Norms",
+        "trigger": "Theorem 9 directly cited by the motivating paper as prior for singular-value accuracy."
+      },
+      {
+        "assessment": "Distinct two-sided rank-estimation statistic; no apparent implication of the exact projected-row one-probe conditional probability.",
+        "evidence": [
+          "Uses YAX / AX Gaussian embedding singular value approximations rather than the normalized Gaussian image and its projected-row norm.",
+          "Results emphasize gap detection and high-probability order-of-magnitude singular-value preservation."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.laa.2024.01.001; https://doi.org/10.1016/j.laa.2024.01.001",
+        "material_read": "Open-access full-text Introduction, methodology on the two-sided sketch YAX, and stated concentration/singular-value bounds and numerical-rank detection goals.",
+        "method": "Read lawful open-access article scientific text and compared test-matrix/estimator definitions.",
+        "title": "Fast randomized numerical rank estimation for numerically low-rank matrices",
+        "trigger": "Primary open-access paper estimating singular values from Gaussian sketches, plausible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d40241a3-6153-4127-9d0c-2ca9bfefdbbb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact sharp one-sided confidence factor for the actual one-probe projected spectral-norm stopping statistic quantifies how dangerous rank-two residuals can be, including the least-favorable spectrum and the full threshold dependence. It supplies a practical calibration rather than a generic observation that sketches sometimes underestimate. Rank two is the first nontrivial spectral class and one probe the minimal useful indicator; no claim beyond that natural regime is needed.",
+    "status": "PASS"
+  }
+}
