@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The exact final-state equation reduces to x_inf-a_eps+C_eps*x_inf^sigma=0, with a_eps=alpha/(beta*S0)-1/(epsilon*S0), sigma=alpha*epsilon/beta, and C_eps=O(epsilon)>0. For any q strictly between alpha/(beta*S0) and one, x_inf<q for sufficiently large epsilon, which gives the exponential error bound directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 Gao–Wang–Cao–Liu paper derives final-size formulas for generalized contact rates and power-law nonlinear incidence.",
+        "Its nonlinear family is beta*s^p*i^q rather than beta*S*I/(1+epsilon*I).",
+        "It therefore does not imply the strong-epsilon saturation limit proved here."
+      ],
+      "reasoning": "The closest later final-size work has broader goals but a different incidence family, so it does not dominate the accepted statement.",
+      "searches": [
+        "\"Final epidemic size and critical times for susceptible–infectious–recovered models with a generalized contact rate\"",
+        "generalized contact rate nonlinear incidence SIR final epidemic size power law",
+        "behavioral change saturating incidence epidemic final size"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/mbe.2018065",
+      "doi:10.1063/5.0185707"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed correction or source-specific strong-inhibition final-size theorem was located.",
+        "The source's finite-epsilon bounds do not state the exact limiting susceptible level or exponential remainder.",
+        "The later 2024 final-size paper treats different incidence families.",
+        "Own historical records contain no source DOI, exact title, or equivalent strong-inhibition final-size statement."
+      ],
+      "reasoning": "Generic claims that behavior reduces transmission or final size do not imply a nonzero limiting depletion; the accepted result needs the exact epsilon-dependent final-state equation.",
+      "searches": [
+        "\"10.3934/mbe.2018065\" correction erratum final size",
+        "\"Impact of behavioral change on the epidemic characteristics\" epsilon infinity",
+        "\"10.1063/5.0185707\" nonlinear incidence final size power law",
+        "saturating incidence strong behavioral inhibition final epidemic size alpha beta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating source gives an exact implicit final-state root but not its epsilon-to-infinity asymptotic.",
+        "The transformed root equation yields convergence to alpha/(beta*S0) with an exponentially small remainder.",
+        "Targeted searches for strong inhibition, final susceptible level, final-size floor, and herd-threshold formulations returned no equivalent published finding."
+      ],
+      "reasoning": "The claim was compared under strong-behavior limit, final-size floor, final susceptible threshold, and cumulative depletion formulations.",
+      "searches": [
+        "10.3934/mbe.2018065 strong behavioral inhibition final susceptible alpha over beta asymptotic",
+        "\"Impact of behavioral change on the epidemic characteristics\" strong inhibition final size",
+        "Capasso Serio saturated incidence epsilon to infinity final size herd threshold",
+        "beta S I over 1 plus epsilon I final susceptible limit alpha over beta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text was inspected at the reduced susceptible–infectious system and exact phase relation.",
+        "The final-state section was inspected where the final susceptible fraction is defined and its positive root is shown to be unique.",
+        "The behavioral turning-point and final-state bounds were inspected.",
+        "The publisher record gives online publication on 20 September 2018 and primary MSC 92D30."
+      ],
+      "reasoning": "The asymptotic is derived from the source's exact final-state equation rather than from a reconstructed approximate epidemic law.",
+      "searches": [
+        "doi:10.3934/mbe.2018065 reduced SI model epsilon",
+        "doi:10.3934/mbe.2018065 final state equation x sigma",
+        "doi:10.3934/mbe.2018065 Proposition 1 final susceptible",
+        "doi:10.3934/mbe.2018065 publication date MSC"
+      ]
+    },
+    "rationale": "Behavior-dependent incidence and final-size analysis are prior topics. The accepted content is the source-specific strong-inhibition singular limit, including the shifted threshold and exponentially small remainder. The motivating paper does not state this limit, and the closest later full-text final-size paper analyzes different incidence families.",
+    "residual_risks": [
+      "An older specialized analysis of the same saturation model could contain the singular limit without being indexed by the checked formulations.",
+      "The theorem assumes fixed permanent behavior over an infinite horizon.",
+      "The subcritical initial-susceptible regime is outside the accepted claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_INHIBITION_FINAL_SIZE_LIMIT_NOT_STATED_IN_SOURCE",
+        "evidence": "The source supplies the exact implicit final-state root and finite-epsilon bounds; the derived asymptotic places that root exponentially close to alpha/(beta*S0)-1/(epsilon*S0).",
+        "identifier_or_url": "doi:10.3934/mbe.2018065",
+        "material_read": "Publisher full text at the reduced S–I system, phase relation, final susceptible equation, uniqueness result, final-state bound, turning-point conditions, numerical parameter discussion, and conclusion.",
+        "method": "Reparameterized the exact final-state equation with x=S/S0 and sigma=alpha*epsilon/beta, isolated its linear root scale, and bounded the x^sigma remainder.",
+        "title": "Impact of behavioral change on the epidemic characteristics of an epidemic model without vital dynamics",
+        "trigger": "Primary source defining the prevalence-saturating incidence and exact final-state equation."
+      },
+      {
+        "assessment": "BROADER_FINAL_SIZE_STUDY_DIFFERENT_INCIDENCE_FAMILY",
+        "evidence": "The paper analyzes population-size-dependent contact rates and beta*s^p*i^q incidence, not beta*S*I/(1+epsilon*I).",
+        "identifier_or_url": "doi:10.1063/5.0185707",
+        "material_read": "Full text at the introduction, generalized-contact final-size derivation, nonlinear-incidence section, and power-law final-size formulas.",
+        "method": "Compared incidence families and implication coverage at statement level.",
+        "title": "Final epidemic size and critical times for susceptible–infectious–recovered models with a generalized contact rate",
+        "trigger": "Highly relevant later primary literature devoted to final epidemic size under generalized contact or incidence laws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38b92db9-490d-4685-95ac-50fcea787e8f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The final susceptible level is a natural invariant of the model. Its limit is counter to the naive expectation that arbitrarily strong behavioral inhibition makes cumulative infection vanish: the model retains exactly the classical herd-threshold depletion. The result complements transient peak analyses with a sharp long-time law.",
+    "status": "PASS"
+  }
+}
