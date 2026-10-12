@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For each voter and omitted candidate, SAV loses exactly \\(1/|A_i|\\) from baseline \\(1\\) precisely when the omitted candidate is approved, while PAV loses the same amount from baseline \\(H_{|A_i|}\\). Summing yields score vectors that differ by a committee-independent constant. The packaged exact-rational verifier checks the termwise identities and 57160 exhaustive small profiles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aziz et al. define SAV by \\(\\sum_i |W\\cap A_i|/|A_i|\\) and PAV by harmonic satisfaction \\(\\sum_i H_{|W\\cap A_i|}\\).",
+        "The same paper proves general PAV winner determination NP-hard and notes polynomial winner determination for SAV.",
+        "Brams and Kilgour introduce SAV as a distinct multiwinner approval rule based on fractional satisfaction."
+      ],
+      "reasoning": "This broader literature establishes that the rules are generally distinct and computationally different. General definitions and hardness do not imply that their complete objective orderings coincide on the codimension-one committee slice.",
+      "searches": [
+        "Computational Aspects of Multi-Winner Approval Voting SAV PAV formal definitions winner determination",
+        "Satisfaction approval voting Brams Kilgour multiwinner approval",
+        "approval-based committee voting SAV PAV rules"
+      ]
+    },
+    "checked_sources": [
+      "MPRA:22709",
+      "arXiv:1407.3247",
+      "doi:10.1007/978-3-319-06251-8_19"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General NP-hardness of PAV does not exclude polynomial special cases and does not identify the \\(k=m-1\\) case.",
+        "The standard observation that PAV reduces to ordinary approval voting for one seat concerns \\(k=1\\), not \\(k=m-1\\).",
+        "SAV's additive candidate scores alone do not imply equality with the nonlinear PAV objective without the one-vacancy harmonic identity."
+      ],
+      "reasoning": "The new implication uses the exact decrement \\(H_r-H_{r-1}=1/r\\), which matches the decrement in the SAV fraction when one approved candidate is omitted. That mechanism is not a corollary of the general complexity statements.",
+      "searches": [
+        "Aziz Gaspers PAV NP-hard SAV polynomial winner determination",
+        "PAV committee size one approval voting special case",
+        "SAV PAV computational complexity winner determination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked source stated that SAV and PAV have identical winner correspondences for every profile when exactly one candidate is excluded.",
+        "No checked source stated the equivalent normalized-support rule that both methods omit a candidate minimizing \\(\\sum_{i:c\\in A_i}1/|A_i|\\).",
+        "The full 2014 primary text contains the standard SAV and PAV definitions and general winner-determination results but no all-but-one or \\(m-1\\) statement was found."
+      ],
+      "reasoning": "The theorem can be phrased as exact score-difference equality, winner-set equivalence, tie-set equivalence, or a minimum-normalized-support rule. The searches covered all four formulations and the natural one-vacancy vocabulary.",
+      "searches": [
+        "Satisfaction Approval Voting Proportional Approval Voting committee size all but one candidate",
+        "SAV PAV same winning committees near-full committee approval voting",
+        "Satisfaction Approval Voting Proportional Approval Voting m-1 committee",
+        "SAV PAV same winners all but one candidate approval committee",
+        "PAV SAV committee size number of candidates minus one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked handbook-style or computational source surfaced a table or proposition for the one-vacancy regime.",
+        "The available approval-rule reference material lists SAV and PAV separately and discusses other special cases, including single-winner PAV, without exposing the present identity."
+      ],
+      "reasoning": "The accepted result is symbolic rather than a finite census, so the relevant database check is whether standard rule references already tabulate or state this special parameter regime.",
+      "searches": [
+        "SAV PAV one vacancy committee equivalence",
+        "all but one candidate PAV SAV",
+        "near-full committee PAV SAV exact winners"
+      ]
+    },
+    "rationale": "The literature owns SAV, PAV, their formal score functions, and general PAV hardness. The inspected full text and targeted searches did not state the profile-independent one-vacancy equivalence or its minimum-normalized-support characterization.",
+    "residual_risks": [
+      "A specialized handbook remark, exercise, software optimization, or unindexed note could contain the same one-vacancy simplification.",
+      "The result is specific to exact PAV and SAV and does not cover sequential PAV or arbitrary committee sizes.",
+      "The earliest historical source for PAV itself predates the checked 2010 SAV source; no unverified historical date is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly matches the two voting rules and their objectives. It establishes general computational separation but does not state the one-vacancy score identity or winner equivalence.",
+        "evidence": "The paper defines SAV as total fractional approval satisfaction, PAV as total harmonic satisfaction, and proves PAV winner determination NP-complete even when each voter approves two candidates.",
+        "identifier_or_url": "arXiv:1407.3247",
+        "material_read": "Open full text: introduction, related work, formal background, SAV definition, PAV definition, tie-breaking discussion, and winner-determination section including Theorem 1.",
+        "method": "Open full-text inspection of the public arXiv HTML rendering.",
+        "title": "Computational Aspects of Multi-Winner Approval Voting",
+        "trigger": "Primary full text defining SAV and PAV together and proving general PAV winner-determination hardness."
+      },
+      {
+        "assessment": "Establishes SAV's original motivation and the verified public posting date. It does not cover the SAV/PAV one-vacancy identity.",
+        "evidence": "MPRA Paper 22709 was deposited on 17 May 2010 at 13:40 UTC.",
+        "identifier_or_url": "MPRA:22709",
+        "material_read": "Repository record and abstract describing SAV as maximizing total fractional satisfaction and comparing it with ordinary multiwinner approval voting.",
+        "method": "Public repository record inspection.",
+        "title": "Satisfaction approval voting",
+        "trigger": "Foundational public source for SAV and earliest exact public date used for the archive classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dea1b970-b035-4637-9d85-ecee8a40b9a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem links two prominent approval-based committee rules that are generally different in both normative interpretation and computation. Electing all but one candidate is a natural nontrivial boundary case, and the exact collapse turns generally hard PAV winner determination into a simple normalized-support comparison while preserving the entire tie structure.",
+    "status": "PASS"
+  }
+}
