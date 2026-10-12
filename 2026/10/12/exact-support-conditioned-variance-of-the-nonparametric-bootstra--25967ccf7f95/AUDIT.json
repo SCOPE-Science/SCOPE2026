@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on K=k makes the occupied labels a uniform k-subset and the labeled resample a uniform surjection onto that subset. Merging a fixed pair of draw positions gives the collision probability S(b-1,k)/S(b,k), which determines the diagonal and off-diagonal second moments of the bootstrap weights. The centered-data identity then yields the conditional variance. The global covariance is independently reconstructed from exact multinomial count moments with absent-cell indicators. Boundary cases k=1 and k=b agree with, respectively, repeated copies of one observation and simple random sampling without replacement. Exact enumeration over all small draw sequences reproduces every displayed formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete 25-page Rao–Pathak–Koltchinskii article was inspected. It treats support-size variability, sequential fixed-support resampling, empirical processes, sample means, and quantiles, but does not give the claimed finite conditional moment law.",
+        "Babu–Pathak–Rao study second-order correctness of a Poisson approximation to fixed-support resampling rather than the ordinary bootstrap conditional on its realized support.",
+        "Pauly states that classical-bootstrap support size is random and introduces a fixed-support subsample procedure; its theorem is empirical-process consistency."
+      ],
+      "reasoning": "These papers cover the conceptual motivation and asymptotic behavior of fixed-support bootstrap variants. Their results do not imply the exact finite ordinary-bootstrap regression because they change the resampling scheme rather than condition the classical scheme on K.",
+      "searches": [
+        "Bootstrap by sequential resampling Rao Pathak Koltchinskii",
+        "Second-order correctness of the Poisson bootstrap Babu Pathak Rao",
+        "Consistency of the Subsample Bootstrap empirical process Pauly"
+      ]
+    },
+    "checked_sources": [
+      "Pauly (2012), DOI 10.1080/02331888.2010.543469.",
+      "Rao, Pathak, and Koltchinskii (1997), DOI 10.1016/S0378-3758(97)00041-4.",
+      "Babu, Pathak, and Rao (1999), DOI 10.1214/aos/1017939146.",
+      "Published-record searches for bootstrap support size, unique observations, occupancy, conditional variance, and Stirling-ratio formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The nearest published scientific record on occupancy under limited independence concerns extremal all-distinct probabilities, not bootstrap means.",
+        "The prior scientific ledgers contain no claim about bootstrap support size, bootstrap resampling, or a mean statistic conditioned on the number of represented observations.",
+        "The sequential-bootstrap literature fixes support size by altering the sampling rule; asymptotic equivalence of that procedure does not determine the exact conditional law of the ordinary bootstrap."
+      ],
+      "reasoning": "Neither occupancy marginals nor asymptotic equivalence imply a conditional second moment. The exact surjection law within K=k is the additional finite structure needed for the theorem.",
+      "searches": [
+        "bootstrap number of distinct observations conditional variance bootstrap mean Stirling numbers",
+        "bootstrap sample mean conditional on number of distinct observations",
+        "bootstrap unique observations effective sample size variance exact",
+        "bootstrap occupancy count distinct resampled observations sample mean covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches using distinct observations, unique observations, support size, occupancy, and Stirling-ratio terminology returned no statement of the finite conditional variance.",
+        "The 1997 sequential-resampling article defines the ordinary bootstrap distinct-count variable and gives its marginal mean and variance, but not the conditional mean-squared behavior of the bootstrap mean."
+      ],
+      "reasoning": "The aliases cover both bootstrap terminology and the equivalent occupancy/surjection formulation. Marginal formulas for the number of occupied labels do not determine the mean statistic inside a fixed-support stratum.",
+      "searches": [
+        "bootstrap number of distinct observations conditional variance bootstrap mean Stirling numbers",
+        "bootstrap sample mean conditional on number of distinct observations",
+        "bootstrap unique observations effective sample size variance exact",
+        "bootstrap occupancy count distinct resampled observations sample mean covariance",
+        "Stirling bootstrap mean conditional distinct observations variance",
+        "bootstrap mean number unique observations exact covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published record supplied a table or symbolic formula matching the support-conditioned variance coefficient.",
+        "The package checker generates its values directly by complete enumeration of draw sequences and does not import a pre-existing numerical table."
+      ],
+      "reasoning": "The accepted result is an all-N, all-b symbolic identity. Small exact enumeration is used only to replay the proof in finite cases.",
+      "searches": [
+        "bootstrap mean distinct observations exact finite sample variance",
+        "bootstrap support size squared error covariance",
+        "bootstrap occupancy conditional mean Stirling numbers"
+      ]
+    },
+    "rationale": "The closest bootstrap literature explicitly identifies random support size as an information-content issue and develops fixed-support alternatives, but the completely inspected 1997 article is asymptotic and does not state the exact finite conditional variance or the support-size/squared-error covariance. Searches using support-size, unique-observation, occupancy, conditional-variance, and Stirling-number formulations found no published statement implying the claim.",
+    "residual_risks": [
+      "Classical bootstrap and occupancy literature is extensive; an unindexed equivalent finite identity may exist.",
+      "The surjection calculation is elementary once the conditioning event is chosen, so historical derivability is stronger than the available indexing evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING_EXACT_FINITE_CLAIM",
+        "evidence": "The article gives marginal support-count moments and asymptotic comparisons for a modified fixed-support scheme; it does not state the finite conditional variance of the ordinary bootstrap mean or the exact covariance with K.",
+        "identifier_or_url": "doi:10.1016/S0378-3758(97)00041-4",
+        "material_read": "Complete 25-page article, including the ordinary-bootstrap support-count formulas, sequential construction, empirical-process theorems, sample-mean discussion, quantile results, concluding remarks, and references.",
+        "method": "Complete article-text inspection after open retrieval did not supply the full paper.",
+        "title": "Bootstrap by sequential resampling",
+        "trigger": "The paper directly motivates resampling by the random number of distinct observations and treats the sample mean."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_FINITE_MOMENTS",
+        "evidence": "The result is consistency of a fixed-support subsample-bootstrap empirical process, not an exact finite conditional moment identity for the ordinary bootstrap.",
+        "identifier_or_url": "doi:10.1080/02331888.2010.543469",
+        "material_read": "Publisher abstract, bibliographic metadata, subject classifications, and stated main result.",
+        "method": "Publisher-page inspection.",
+        "title": "Consistency of the Subsample Bootstrap empirical process",
+        "trigger": "Its abstract explicitly frames the random number of distinct classical-bootstrap observations as the motivating issue and provides the primary subject classification."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_FINITE_CONDITIONAL_LAW",
+        "evidence": "The paper studies asymptotic second-order correctness of a different resampling mechanism rather than exact finite conditioning of the ordinary multinomial bootstrap.",
+        "identifier_or_url": "doi:10.1214/aos/1017939146",
+        "material_read": "Abstract, introduction, and the section describing the fixed-support sequential construction and Poisson approximation.",
+        "method": "Open article inspection.",
+        "title": "Second-order correctness of the Poisson bootstrap",
+        "trigger": "It is the main follow-up on the same fixed-support sequential-bootstrap idea and treats higher-order asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25967ccf-7f95-418d-a8a5-a30e88bf21f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of represented original observations is a classical measure of bootstrap information content and directly motivated fixed-support resampling methods. The theorem quantifies that motivation exactly for the most basic bootstrap statistic: it gives the full finite conditional variance at every support level and an explicit negative covariance between support diversity and squared mean error. The endpoint strata connect ordinary bootstrap resampling to one-point repetition and simple random sampling without replacement, making the identity a structural calibration rather than an arbitrary moment calculation.",
+    "status": "PASS"
+  }
+}
