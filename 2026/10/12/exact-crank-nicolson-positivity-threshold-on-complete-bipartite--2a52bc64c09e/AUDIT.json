@@ -1,0 +1,88 @@
+{
+  "correctness": {
+    "rationale": "For connected undirected graph Laplacians, \\(C_h=2R_h-I\\) with \\(R_h=(I+hL/2)^{-1}\\); \\(R_h\\) is a positive inverse \\(M\\)-matrix with row sums one, so only its diagonal can obstruct entrywise positivity. The \\(K_{p,q}\\) spectral projectors give the two stated diagonal resolvents. Their exact factorizations reduce positivity to \\(1+ps-q(p+q-2)s^2\\ge0\\), whose unique positive root yields the claimed threshold. The all-parameter argument is analytic; exact-rational replay only checks algebra and a witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonaventura–Della Rocca 2015 records the method-independent SSP/absolute-monotonicity radius \\(R=2\\) for Crank–Nicolson.",
+        "The inspected full text contains no matches for Markov, graph, Laplacian, or bipartite."
+      ],
+      "reasoning": "The general radius-\\(2\\) theory yields only the sufficient bound \\(h\\le2/q\\) after the forward-Euler scale is inserted. The claimed exact threshold is strictly larger on every nontrivial \\(K_{p,q}\\), so the general theorem does not imply it.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson Markov chain positivity threshold finite state exact entrywise nonnegative",
+        "Web: M-matrix Crank-Nicolson positivity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1510.04303 / MOX Report 56/2015",
+      "published-finding corpus 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "Own current ledger through p0001_g000016"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The filtered-CN record studies \\(C^kR^m\\) on one-dimensional lattices; its operation is not raw \\(C_h\\) on arbitrary graph Laplacians.",
+        "The Padé record concerns the \\([2/2]\\) map rather than Crank–Nicolson's \\([1/1]\\) map.",
+        "The own-ledger RK4 finding is an explicit polynomial method on pure-birth chains, with different objects and threshold mechanism."
+      ],
+      "reasoning": "None of these statements implies the resolvent-diagonal iff criterion or the complete-bipartite root formula. The objects, rational functions, and parameter families differ materially.",
+      "searches": [
+        "published-finding corpus ID 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "published-finding corpus ID 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Own ledger title search: Exact state-count positivity thresholds for classical RK4 on pure-birth chains"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No implication-equivalent published-finding corpus hit was returned; the closest was 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac.",
+        "The exact web searches did not return a scientific source stating the complete-bipartite threshold or the diagonal-resolvent iff criterion."
+      ],
+      "reasoning": "The closest terms overlap at Crank–Nicolson and positivity, but the retrieved statements either alter the method by backward-Euler filtering or concern unrelated Padé maps. None gives the raw one-step K_{p,q} threshold.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson complete bipartite graph Laplacian positivity resolvent diagonal criterion",
+        "published-finding corpus: symmetric Markov generator Crank Nicolson positivity iff diagonal resolvent",
+        "Web: complete bipartite Crank-Nicolson positivity",
+        "Web: diagonal resolvent Crank-Nicolson positivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record with the formula \\(h_*=(p+\\sqrt{p^2+4q(p+q-2)})/[q(p+q-2)]\\) or an equivalent biclique table was found."
+      ],
+      "reasoning": "The result is not a recomputation of a retrieved table; it is an analytic closed-form classification over all \\(p,q\\).",
+      "searches": [
+        "published-finding corpus: complete bipartite K_pq Crank Nicolson stochastic positivity timestep",
+        "published-finding corpus: graph Laplacian trapezoidal rule nonnegative transition matrix diagonal resolvent"
+      ]
+    },
+    "rationale": "The inspected 2015 positivity/absolute-monotonicity source gives the generic Crank–Nicolson radius \\(2\\) but no graph-specific resolvent criterion or \\(K_{p,q}\\) threshold. Targeted published-finding corpus and public-web searches found nearby filtered-CN and different-Padé results, not a statement that implies the exact complete-bipartite formula.",
+    "residual_risks": [
+      "Older CTMC, numerical-semigroup, or graph-diffusion literature may contain the same elementary biclique calculation under terminology not recovered by the searches.",
+      "The search did not attempt to prove global bibliographic uniqueness; it compared the exact claim against the closest retrieved primary and indexed sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING only for the generic radius-\\(2\\) monotonicity bound; NOT_COVERING for the graph-resolvent criterion and \\(K_{p,q}\\) sharp threshold.",
+        "evidence": "The report states Crank–Nicolson \\(R(A,b)=2\\) and lists AMS 65L05, 65L06, 65L20, 65M20; its full text has no matches for Markov, graph, Laplacian, or bipartite.",
+        "identifier_or_url": "arXiv:1510.04303 / MOX Report 56/2015",
+        "material_read": "Full-text sections defining absolute monotonicity, the Crank–Nicolson comparison section, title/date/classification page, and full-text searches for Markov, graph, Laplacian, and bipartite.",
+        "method": "Lawful open full-text PDF inspection, including rendered pages and parsed text.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Primary literature on positivity and absolute monotonicity of Crank–Nicolson and related stiff integrators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a52bc64-c09e-4b9c-afd7-5af75c76051b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete-bipartite family is canonical and includes stars and balanced bicliques. The result converts a generic conditional-monotonicity radius into an exact topology-dependent step limit, proves the exact finite-size gain over the SSP guarantee, and isolates a reusable diagonal-resolvent criterion valid for every connected undirected graph.",
+    "status": "PASS"
+  }
+}
