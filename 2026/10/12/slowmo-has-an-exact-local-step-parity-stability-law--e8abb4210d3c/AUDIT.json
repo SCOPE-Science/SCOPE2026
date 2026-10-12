@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The inner SGD block has exact multiplier `(1-gamma*lambda)^tau`. Substituting it into the source slow-momentum and outer-update equations and eliminating the buffer gives a scalar second-order recurrence. The three second-order Jury inequalities reduce exactly to positivity of `alpha*(1-q)`, its upper bound `2*(1+beta)`, and `beta<1`. The parity thresholds and boundary roots follow directly and were independently replayed in the embedded checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source itself notes that the single-node beta-zero specialization becomes Lookahead.",
+        "Lookahead has no persistent slow-momentum state, so its beta-zero behavior does not determine the positive-beta recurrence.",
+        "Later local-SGD literature studies communication and near-quadratic behavior but the inspected material does not state the accepted SlowMo parity law."
+      ],
+      "reasoning": "General heavy-ball or Lookahead stability does not by itself supply the source-specific effective displacement `1-(1-s)^tau` together with persistent slow momentum. The accepted result is the exact interaction of those two mechanisms.",
+      "searches": [
+        "SlowMo quadratic stability momentum local SGD",
+        "Lookahead optimizer quadratic stability parity",
+        "local SGD near quadratic SlowMo stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.00643v1",
+      "ICLR2020:SlowMo",
+      "arXiv:1907.08610v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "SlowMo Algorithm 1 specifies the exact normalized-displacement buffer and outer update used in the proof.",
+        "The defining paper says the single-node beta-zero case reduces to Lookahead.",
+        "The prior interpolation-only case contains no persistent slow-momentum term and therefore does not imply the positive-beta stability extension."
+      ],
+      "reasoning": "The new implication requires composing tau fast quadratic steps, retaining the persistent slow buffer, deriving the second-order outer recurrence, and solving its Jury inequalities. The beta-zero special case is covered by interpolation-only analysis, but the positive-beta rescue interval is not.",
+      "searches": [
+        "arXiv:1910.00643 SlowMo Algorithm 1 alpha beta tau",
+        "arXiv:1910.00643 single node beta zero Lookahead",
+        "arXiv:1907.08610 Lookahead k steps interpolation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining SlowMo algorithm updates a persistent slow buffer from the normalized displacement accumulated over tau base-optimizer steps.",
+        "The paper studies alpha, beta, and tau empirically but does not provide a scalar characteristic polynomial or parity split.",
+        "No inspected published source states the exact condition `0<alpha*(1-q)<2*(1+beta)` for `q=(1-s)^tau`."
+      ],
+      "reasoning": "Equivalent coverage would state the exact scalar SlowMo characteristic polynomial, the necessary-and-sufficient Schur region, or the odd-versus-even local-step threshold. None was located.",
+      "searches": [
+        "SlowMo exact scalar quadratic stability local steps slow momentum",
+        "SlowMo local SGD quadratic spectral stability momentum exact",
+        "slow momentum communication efficient SGD parity local steps quadratic",
+        "BMUF SlowMo stability scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed optimization records concern fixed-parameter heavy-ball barriers, stagewise Richardson stability, and other two-step methods.",
+        "No returned indexed record names SlowMo or gives a local-step parity stability threshold."
+      ],
+      "reasoning": "The closest records study different recurrences and do not imply the exact nested SlowMo reduction. Search absence is supporting evidence only.",
+      "searches": [
+        "SlowMo exact scalar quadratic stability local steps slow momentum",
+        "SlowMo local SGD quadratic spectral stability momentum exact",
+        "slow momentum communication efficient SGD parity local steps quadratic",
+        "BMUF SlowMo stability scalar quadratic"
+      ]
+    },
+    "rationale": "The defining SlowMo paper gives the nested update, smooth nonconvex convergence guarantees, and empirical hyperparameter studies but no fixed-quadratic Schur region or local-step parity law. The zero-slow-momentum slice is related to Lookahead, whose interpolation-only parity behavior is known; the accepted claim isolates the new persistent-slow-momentum extension and its exact above-classical odd-period rescue interval. Focused published-record searches did not locate an implication-equivalent SlowMo stability statement.",
+    "residual_risks": [
+      "An equivalent scalar stability calculation may exist in unindexed distributed-optimization notes.",
+      "The beta-zero parity slice is already covered by Lookahead-style interpolation analysis and is not claimed as the novel part.",
+      "The theorem concerns outer-state stability and does not control peak magnitudes inside an unstable fast block."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_NESTED_UPDATE_NOT_COVERING_EXACT_QUADRATIC_PARITY_STABILITY.",
+        "evidence": "The paper gives the exact SlowMo equations and general convergence bounds, but no scalar Schur characteristic polynomial, parity threshold, or stabilization of individually unstable inner SGD steps was found.",
+        "identifier_or_url": "arXiv:1910.00643v1 / ICLR 2020",
+        "material_read": "Open full text covering Algorithm 1, Equations 2 and 3, the explanation of gamma normalization, the empirical alpha/beta/tau study, the main convergence theorem, and the single-node Lookahead specialization.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "SlowMo: Improving Communication-Efficient Distributed SGD with Slow Momentum",
+        "trigger": "Defining source for the inner-loop displacement, slow-momentum buffer, outer learning rate, and the relation to Lookahead."
+      },
+      {
+        "assessment": "BETA_ZERO_SPECIAL_CASE_CONTEXT; POSITIVE_SLOW_MOMENTUM_PARITY_EXTENSION_NOT_COVERED.",
+        "evidence": "Lookahead supplies the beta-zero comparison, while the accepted positive-beta recurrence includes an additional state and a strictly larger odd-period stability interval.",
+        "identifier_or_url": "arXiv:1907.08610v1",
+        "material_read": "Open primary abstract and source comparison sufficient to identify Lookahead as a fast-step interpolation method without a persistent slow-momentum buffer.",
+        "method": "Open-access primary-source inspection.",
+        "title": "Lookahead Optimizer: k steps forward, 1 step back",
+        "trigger": "Closest interpolation-only special case because SlowMo explicitly reduces to Lookahead for one node and beta equal to zero."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8abb421-0d3c-4e87-85b6-ac5589b22525",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "SlowMo is designed specifically to combine infrequent synchronization with persistent slow momentum, and the number of local steps is a central communication hyperparameter. The theorem exposes a sharp and unexpected parity effect: slow momentum can rescue fast steps beyond the ordinary scalar SGD stability limit only for odd synchronization periods, while even periods receive no stability extension at all when alpha is one. This distinguishes the stabilization supplied by persistent slow momentum from the interpolation-only Lookahead slice and provides a concrete boundary for communication-period tuning.",
+    "status": "PASS"
+  }
+}
