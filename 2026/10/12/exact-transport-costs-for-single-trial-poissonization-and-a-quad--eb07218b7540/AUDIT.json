@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For any coupling, pointwise l1 and squared-l2 costs are bounded below by selecting an occupied coordinate or the maximal count respectively. Exchangeability with symmetric random tie-breaking makes the maximizer's label uniform, so both lower bounds are attained. Poisson second moments give 2+1/d-2 E[max Y_i]; the factorial-moment identity turns the excess over 2/e into a pointwise nonnegative collision functional, positive for any Y_i>=3. The first two maximum tail probabilities have Taylor coefficients x/2-11x²/24 and x²/6 at x=1/d; the remaining tail is at most x³/24, proving 7/(12d²)+O(d^-3). Actual package-path diagnostics include three finite truncated transport LPs and symbolic rational expansion. No experiment is treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pianoforte–Turin Theorem 1.1 and Corollary 3.1 provide upper bounds on a first-order Wasserstein metric for general Bernoulli sums, not a lower or exact bound for W2 squared Euclidean.",
+        "Rüschendorf DOI:10.1007/BF00532240 publisher abstract announces exact Wasserstein distances in certain multivariate cases, without a model-specific occupied-cell result.",
+        "published-finding corpus 2026/9/12/SCOPE101 concerns entropic transport of Gaussian laws; its Gaussian assumptions do not include discrete Poisson count vectors.",
+        "Deheuvels–Pfeifer (1988), Sections 1–2 and Theorem 2.2, give total-variation rather than squared Euclidean Wasserstein approximations."
+      ],
+      "reasoning": "A broader theorem would cover every dimension and both costs with matching marginal laws, including the sharp 7/12 asymptotic. General coupling existence, an l1 upper bound, and Gaussian/spherical optimal transport do not imply this explicit occupancy correction without a further model-specific calculation. Generic semidiscrete transport methods remain a specific residual risk.",
+      "searches": [
+        "Web: multinomial independent Poisson joint vector W2 squared Wasserstein transport categorical one hot",
+        "Web: exact transport Poisson vector single categorical mark optimal coupling select largest count",
+        "published-finding corpus: optimal transport of one-hot categorical to independent Poisson vectors squared Euclidean cost maximum occupancy Bessel",
+        "Web: optimal transport between multinomial and Poisson point process quadratic Wasserstein exact",
+        "Web: Deheuvels Pfeifer 1988 Poisson approximations multinomial distributions point processes Wasserstein total variation doi full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.01599 v1 (2021-05-04)",
+      "DOI:10.1017/jpr.2022.33 OA article pp.223-224 and 232-234",
+      "DOI:10.1007/s10687-019-00350-6 abstract",
+      "DOI:10.1007/BF00532240 abstract",
+      "published-finding corpus 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+      "published-finding corpus 2026/10/4/SCOPE-exact-spherical-isotropization-of-subspace-isotropic-measures--30f384f04ba3",
+      "published-finding corpus 2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73",
+      "Deheuvels–Pfeifer 1988 DOI:10.1016/0047-259X(88)90153-4 author-hosted full PDF pp.65–69"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2105.01599 v1 2021-05-04, primary MSC 60F05; journal OA DOI:10.1017/jpr.2022.33, pp.223–224 defines the metric by l1 Lipschitz functions.",
+        "Same paper pp.232–234, Theorem 3.1 and Corollary 3.1 bound the first-order Wasserstein distance for Bernoulli-vector sums. In the single-trial unit-total-probability case Corollary 3.1 supplies the loose bound 1, whereas the exact l1 value is 2/e; the present quadratic cost and correction are not consequences of that numerical upper bound.",
+        "Novak DOI:10.1007/s10687-019-00350-6 public abstract focuses on total-variation errors and Poisson approximation to binomials, not explicit W2 for vector counts; full text not inspected.",
+        "Deheuvels–Pfeifer (1988) paper pp.65–69 defines total-variation distance and provides semigroup expansion bounds, not exact optimal quadratic couplings."
+      ],
+      "reasoning": "Even when specialized to one uniform categorical trial, the published l1 inequality bounds a different cost, and cannot identify the optimal squared l2 coupling or its asymptotic coefficient. Basic optimal-transport duality supplies methods rather than these explicit Poisson maximum-tail values. The result is a natural but narrow exact benchmark, not an improvement claim for the general prior theorem.",
+      "searches": [
+        "Web: Pianoforte Turin multivariate Poisson approximation Wasserstein distance Bernoulli vectors 2021",
+        "Web: Poisson approximation survey 2019 Novak multinomial Poisson Wasserstein 2 exact distance distribution",
+        "published-finding corpus: multivariate Poisson approximation multinomial categorical counts exact L1 Wasserstein distance equality one-dimensional binomial Poisson by conditioning on total counts and category labels",
+        "Web: Deheuvels Pfeifer 1988 Poisson approximations multinomial distributions point processes Wasserstein total variation doi full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/10/4/SCOPE-exact-spherical-isotropization-of-subspace-isotropic-measures--30f384f04ba3 describes isotropic measures on spheres, not categorical count laws.",
+        "published-finding corpus hit 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4 concerns pairwise-independent occupancy extremal probabilities, not optimal coupling to independent Poisson vectors.",
+        "Pianoforte–Turin DOI:10.1017/jpr.2022.33, Section 3.1 concerns an l1 Lipschitz Wasserstein metric."
+      ],
+      "reasoning": "The defining equivalence is a semidiscrete optimal transport assignment from a uniform one-hot law to exchangeable independent Poisson counts, characterized by a maximum-coordinate tie break. Searched that alias as well as Wasserstein, Poissonization and occupancy terminology. No retrieved statement gives this model-specific squared Euclidean cost and 7/12 correction. Absence of a hit is not a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus: exact squared Wasserstein 2 distance uniform one-hot categorical count vector to independent Poisson(1/d) with max Poisson count, W1=2/e, dimension correction 7/12 d^-2",
+        "published-finding corpus: independent Poisson counts maximum coordinate optimal coupling one categorical draw Wasserstein poissonization",
+        "Web: exact Wasserstein distances multinomial versus independent Poisson 2-Wasserstein quadratic optimal coupling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No fetched published-finding corpus title, summary, or source-paper Section 3.1 gives an indexed table for exact squared Euclidean transport costs of the one-trial categorical/independent-Poisson pair.",
+        "The 7/12 coefficient follows analytically from the Poisson maximum tail, not from an unverified numerical table."
+      ],
+      "reasoning": "The exact invariant is an infinite series for the maximum of independent Poisson cells. The arithmetic series, strict collision gap and limiting constant were compared to database/table terminology. The finite numeric values in the verifier are checks of the new analytic formula, not claims of novelty by enumeration.",
+      "searches": [
+        "published-finding corpus: Poissonization one trial multinomial categorical W2 quadratic transportation Poisson partition cells occupancy collision expansion 7/12",
+        "published-finding corpus: exact squared Wasserstein 2 distance uniform one-hot categorical count vector to independent Poisson(1/d) with max Poisson count, W1=2/e, dimension correction 7/12 d^-2",
+        "Web: exact Wasserstein distances multinomial versus independent Poisson 2-Wasserstein quadratic optimal coupling"
+      ]
+    },
+    "rationale": "Closest primary source arXiv:2105.01599 / DOI:10.1017/jpr.2022.33 has the identical Bernoulli-vector/Poisson setting but only an l1 Wasserstein upper-bound theorem. Its statement, even when specialized to one trial, does not imply the exact squared l2 transport cost, optimal maximal-cell coupling and positive 7/12 correction. Targeted published-finding corpus and external aliases reveal no dominating claim. Unseen generic semidiscrete transport derivations and unavailable classical full texts create explicit bibliographic uncertainty.",
+    "residual_risks": [
+      "Earlier semidiscrete optimal-transport literature may express the maximum-coordinate coupling in a generic theorem that reduces the originality of the optimality argument.",
+      "Novak 2019 and Rüschendorf 1985 complete articles were unavailable for direct comparison; neither abstract resolves possible hidden equivalent formulas.",
+      "published-finding corpus semantic searches and the available subset of published research do not certify global priority or absence of unpublished equivalents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct same-object source; first-order l1 Wasserstein upper bounds do not settle exact quadratic l2 transport or 7/12 correction.",
+        "evidence": [
+          "arXiv:2105.01599v1, released 2021-05-04",
+          "DOI:10.1017/jpr.2022.33, published PDF pp. 223-224, 232-234, Theorem 3.1 and Corollary 3.1"
+        ],
+        "identifier_or_url": "arXiv:2105.01599; DOI:10.1017/jpr.2022.33",
+        "material_read": "Public arXiv version/date record; journal OA PDF pp. 223-224 and 232-234, including definitions, Theorem 1.1, Section 3.1, Theorem 3.1, Corollary 3.1, and start of its proof; full PDF text searches for W2, quadratic, and optimal",
+        "method": "Open-access article PDF text inspection and rendered page images, with arXiv metadata cross-check",
+        "title": "Multivariate Poisson and Poisson process approximations with applications to Bernoulli sums and U-statistics",
+        "trigger": "Same Bernoulli one-hot vector and independent-Poisson target; most plausible covering paper"
+      },
+      {
+        "assessment": "Treats total variation Δ between multinomial and multivariate independent Poisson laws; Theorem 2.2 controls total variation, not the quadratic l2 Wasserstein distance. No squared transport maximizer or dimension-specific 7/12 correction identified in material read.",
+        "evidence": [
+          "DOI:10.1016/0047-259X(88)90153-4, Journal of Multivariate Analysis 25 (1988), 65-89, Section 2 (total-variation Delta), Theorem 2.2"
+        ],
+        "identifier_or_url": "DOI:10.1016/0047-259X(88)90153-4; https://uol.de/f/5/inst/mathe/personen/dietmar.pfeifer/Publ/P44.pdf",
+        "material_read": "Author institutional open-access scan pp.65-69 (introduction, model, Theorems 2.1 and 2.2); entire 25-page scan text searched for Wasserstein and quadratic",
+        "method": "Institutional-author OA full article, searchable text and rendered page images pp.65 and 69",
+        "title": "Poisson Approximations of Multinomial Distributions and Point Processes",
+        "trigger": "Direct 1988 predecessor treating exactly multinomial vectors and independent-Poisson targets"
+      },
+      {
+        "assessment": "Displayed focus is total variation and scalar Poisson approximation; abstract alone cannot exclude an unadvertised equivalent transport result.",
+        "evidence": [
+          "Springer Extremes 22 (2019), 729-748, online 2019-06-18"
+        ],
+        "identifier_or_url": "DOI:10.1007/s10687-019-00350-6",
+        "material_read": "Publisher open abstract, bibliographic information, and references; complete article not accessed",
+        "method": "Publisher abstract and references inspection",
+        "title": "On the accuracy of Poisson approximation",
+        "trigger": "Possible stronger classical Poisson approximation coverage"
+      },
+      {
+        "assessment": "Announces exact formulas for certain multivariate distributions but does not identify the present one-hot/Poisson law or its collision expansion; unresolved background priority risk.",
+        "evidence": [
+          "Probability Theory and Related Fields 70 (1985), 117-129; publisher summary"
+        ],
+        "identifier_or_url": "DOI:10.1007/BF00532240",
+        "material_read": "Publisher abstract and bibliographic entry; complete article not accessed",
+        "method": "Publisher summary inspection",
+        "title": "The Wasserstein distance and approximation theorems",
+        "trigger": "General exact optimal transport might subsume a simple symmetric discrete case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb07218b-7540-4b81-8bdb-87346a40a3fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the minimal mean-preserving high-dimensional Poissonization of exclusive categorical occupancy, motivated directly by published Bernoulli-vector Poisson approximation. Its exact W2 squared invariant gives a constructive optimizer, a strict collision discrepancy, and a sharp 7/12 high-dimensional correction after the unexpectedly canceled first-order term. The invariant allows concrete comparison of strength and geometry between l1 and quadratic transport; neither mere nonnegativity nor numerical reproducibility alone accounts for its value. It is deliberately restricted to this natural base model, and no broader approximation theorem is asserted.",
+    "status": "PASS"
+  }
+}
