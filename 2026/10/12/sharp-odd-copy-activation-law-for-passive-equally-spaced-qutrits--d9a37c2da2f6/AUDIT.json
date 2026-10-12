@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For each energy shell E the allowed count of top excitations is the full integer interval max(0,E-n) <= j <= floor(E/2). The negative logarithm of product population relative to ground-only weight is exactly a E+(b-a)j. Necessity/sufficiency of adjacent-shell population ordering under arbitrary unitaries follows by basis-state swaps and doubly stochastic rearrangement. Optimizing the linear cost at shell endpoints and evaluating the two integer maxima gives exactly floor((n-1)/2)|a-b|<=min(a,b). Failure first arises at the stated odd size, for which explicit two-string swaps with energy gap epsilon and higher energy having strictly larger population give positive work. Zero slopes, exact equality, n=1, n=2 and Gibbs states are covered. The standalone exact-integer verifier independently enumerated 2,574 product cases through n=9 and the shell endpoint maxima for 120 sizes; finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Vetrano–Giovannetti–Cavina, arXiv:2605.27369v1, Secs. III–V, Eq. (10), analyze regularized ergotropic work and a three-level channel rather than the first positive-work copy count for arbitrary passive product inputs.",
+        "Koukoulekidis–Alexander–Hebdige–Jennings, arXiv:1912.07968v3, Sec. 3.3, Lemma 7 provides an exact finite-k ordering algorithm; neither Lemma 7 nor its qutrit Fig. 3 evaluates a universal closed copy threshold or odd-copy-only onset.",
+        "Salvia–Giovannetti, arXiv:1912.02099v4, Proposition 1 establishes three-level N-passivity necessary bounds, while Sec. 5 studies stronger N-structural stability. For odd copies their necessary constraints are closely related to the two inequalities proved sufficient here.",
+        "Skrzypczyk–Silva–Brunner (2015) identifies Gibbs states as completely passive by virtual temperatures, addressing infinite-copy stability rather than the least finite activation copy."
+      ],
+      "reasoning": "General complete-passivity and N-passivity criteria cover wider state spaces conceptually but do not furnish the explicit sharp finite-copy threshold for this three-level spectrum. Their general constructions are not claimed as new; the residual risk is that specialization has already appeared in other work.",
+      "searches": [
+        "Geometric k-passivity qutrit states energy spectrum 0 epsilon 2epsilon closed-form activation thresholds",
+        "arxiv:1912.02099v4 Proposition 1 and Section 5",
+        "arxiv:2605.27369v1 Section III and Section V",
+        "passivity complete passivity virtual temperatures Skrzypczyk Silva Brunner 2015"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2605.27369 (18 pages, primary recent source)",
+      "https://ar5iv.labs.arxiv.org/html/1912.07968 (Sec. 3.3)",
+      "https://ar5iv.labs.arxiv.org/html/1912.02099 (Proposition 1, Sec. 5)",
+      "https://doi.org/10.1103/PhysRevE.91.052133 (publisher abstract)",
+      "Public semantic record searches for exact finite qutrit copy thresholds and virtual-temperature aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Vetrano–Giovannetti–Cavina, arXiv:2605.27369v1, Secs. III–V, Eq. (10), analyze regularized ergotropic work and a three-level channel rather than the first positive-work copy count for arbitrary passive product inputs.",
+        "Koukoulekidis–Alexander–Hebdige–Jennings, arXiv:1912.07968v3, Sec. 3.3, Lemma 7 provides an exact finite-k ordering algorithm; neither Lemma 7 nor its qutrit Fig. 3 evaluates a universal closed copy threshold or odd-copy-only onset.",
+        "Salvia–Giovannetti, arXiv:1912.02099v4, Proposition 1 establishes three-level N-passivity necessary bounds, while Sec. 5 studies stronger N-structural stability. For odd copies their necessary constraints are closely related to the two inequalities proved sufficient here.",
+        "For odd n, the Salvia–Giovannetti three-level necessary bounds coincide with the two extremal string inequalities, but necessity does not by itself prove that no other cross-shell inversion appears. The new proof evaluates the maximum across every adjacent pair, establishes sufficiency and the exact first failing n."
+      ],
+      "reasoning": "The claim is neither a generic proof of complete passivity nor a quantum-channel capacity result. It evaluates and proves the exact conditions for all finite n and the first activation size. Existing generalized passivity statements have formal implications for this special case but require substantive discrete extremization to recover the closed expression and parity theorem; implicit prior derivations cannot be ruled out.",
+      "searches": [
+        "arxiv:1912.02099v4 Proposition 1 inequalities 48-51",
+        "arxiv:1912.07968v3 Lemma 7 k passivity",
+        "arxiv:2605.27369v1 Eq (10) regularized total ergotropy",
+        "Finite n-passivity qutrit equally spaced energy 0 1 2 sharp number of copies necessary and sufficient for global unitary work extraction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Koukoulekidis–Alexander–Hebdige–Jennings, arXiv:1912.07968v3, Sec. 3.3, Lemma 7 provides an exact finite-k ordering algorithm; neither Lemma 7 nor its qutrit Fig. 3 evaluates a universal closed copy threshold or odd-copy-only onset.",
+        "The new theorem removes the search over the finite additive ensemble: a single floor expression decides all n and gives the first strict population inversion. Explicit swaps witness the earliest possible failure."
+      ],
+      "reasoning": "The geometric k-passivity criterion is logically a general decision procedure for this case and is the closest substantial prior result. It does not explicitly solve the finite integer-shell extremization giving the closed population-ratio phase diagram, parity plateau and sharp minimum n. The distinction is an evaluated universal closed-form classification versus a general ordering algorithm; further unindexed implicit equivalence is a residual risk.",
+      "searches": [
+        "Finite n-passivity qutrit equally spaced energy 0 1 2 sharp number of copies necessary and sufficient for global unitary work extraction",
+        "Finite-copy qutrit passivity, virtual temperature differences and exact first n when an equally spaced three-level passive state becomes active under unitary work extraction",
+        "qutrit finite-copy passivity exact threshold logarithm population ratio third level n 2k+1",
+        "arxiv:1912.07968v3 Section 3.3 Lemma 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published qutrit illustration in arXiv:1912.07968v3 Fig. 3 shows selected copy counts for one population triple, not an exact parameter-space table.",
+        "Targeted published-text and public semantic-record searches returned no exact population-ratio threshold table or symbolic all-size formula."
+      ],
+      "reasoning": "An unindexed full-parameter qutrit n-passivity table or derived closed formula could subsume the result, but none was identified in the materially read references. Absence from search alone does not prove originality.",
+      "searches": [
+        "N-passive diagonal qutrit all odd copy threshold work extraction Boltzmann slopes",
+        "N-passive qutrit equally spaced finite first active copy threshold closed formula",
+        "minimum number of copies passive qutrit log populations work extraction",
+        "arxiv:1912.07968 Fig 3 qutrit k passivity"
+      ]
+    },
+    "rationale": "The contribution is the fully evaluated necessary-and-sufficient closed-form resource count and parity-staircase boundary for all positive diagonal equally spaced qutrit inputs. The most relevant earlier geometric treatment (arXiv:1912.07968v3, Lemma 7) provides a generic exact ordering algorithm, not the evaluated symbolic formula. The earlier N-passivity bounds (arXiv:1912.02099v4, Proposition 1) are necessary inequalities and Sec. 5 is about N-structural stability; these are explicitly credited. The 2026 motivating channel paper analyzes three-level ergotropic noise and asymptotic work, not the present exact finite first activation number. No search established novelty as a theorem; possible implicit earlier specializations remain a stated risk.",
+    "residual_risks": [
+      "A previously published explicit specialization of the general additive-ensemble k-passivity algorithm may have obtained the same floor formula and odd-only onset but not appeared in the searched indexes.",
+      "The necessary three-level inequalities in Salvia–Giovannetti are close to the final criterion; an implicit sufficiency argument elsewhere could reduce originality despite lack of an explicit closed classification.",
+      "No independent external audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Discusses GMAD noisy channel work, qutrit examples and asymptotic regularization, not an all-diagonal-state first-copy passivity criterion in inspected relevant passages.",
+        "evidence": "Sec. III Eq. (10) defines the limiting total ergotropy, Sec. IV studies three-level GMAD, and Sec. V concerns iterations and the Mpemba effect.",
+        "identifier_or_url": "https://arxiv.org/pdf/2605.27369",
+        "material_read": "18-page full PDF with particular inspection of introduction, Sec. III Eq. (10), qutrit Sec. IV, Sec. V and relevant appendix-level content",
+        "method": "ArXiv PDF text extraction and visual inspection of its first page",
+        "title": "Generalized multilevel amplitude damping channels and their thermodynamic performances",
+        "trigger": "Contemporary motivating qutrit work-resource and many-copy ergotropy paper"
+      },
+      {
+        "assessment": "A general algorithm determines first nonpassive copy by searching finite additive ensembles, but no evaluated symbolic formula for all equally spaced qutrit populations or odd-only onset was found in this material.",
+        "evidence": "Section 3.3 Lemma 7 states k-passivity iff the additive energy–surprisal ensemble is totally ordered; subsequent paragraph explicitly calls it a natural algorithm.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1912.07968",
+        "material_read": "Full HTML in relevant Sec. 3.3, Lemmas 6–8, Fig. 3 caption and discussion of qutrit examples",
+        "method": "Read original preprint full-text HTML in relevant theorem, proof, caption and context",
+        "title": "The geometry of passivity for quantum systems and a novel elementary derivation of the Gibbs state",
+        "trigger": "The exact general k-passivity ordering procedure potentially subsumes the specialized claim"
+      },
+      {
+        "assessment": "Proposition 1 supplies necessary finite-copy spectral bounds; Sec. 5 treats the stricter N-structural-stability condition, not a sharp if-and-only-if first-copy formula for ordinary passivity.",
+        "evidence": "Proposition 1 inequalities (48)–(51); Sec. 5 Corollary 5 assumes N-structural stability.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1912.02099",
+        "material_read": "Full HTML in Sec. 3.1 Proposition 1 with proof and Sec. 5 Proposition 12 and Corollaries 5–6, plus scope table",
+        "method": "Read preprint original HTML relevant statements and hypotheses",
+        "title": "Energy upper bound for structurally stable N-passive states",
+        "trigger": "Earlier finite-N three-level population inequalities and equally spaced spectrum results"
+      },
+      {
+        "assessment": "Establishes complete passivity and virtual-temperature characterization; no explicit finite qutrit first active copy is asserted by the inspected abstract.",
+        "evidence": "Publisher abstract describes Gibbs states as the only completely passive states.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.052133",
+        "material_read": "Published publisher abstract and bibliographic statement",
+        "method": "Read abstract, no unclaimed full-text inspection",
+        "title": "Passivity, complete passivity, and virtual temperatures",
+        "trigger": "Foundational possible broader theorem on finite-copy activation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9a37c2d-a2f6-4d9a-8b4e-bca121d8c57c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first positive-work copy number is a natural operational resource requirement of non-Gibbs passive states and is not merely a free parameter slice. The all-population exact phase diagram resolves all finite sizes at once, yields a non-obvious odd/even resource plateau, quantifies divergence near thermal populations, and gives explicit constructive population-swapping work witnesses. It turns a general exponentially growing finite-spectrum search into a one-line symbolic decision. It makes no claim to determine the maximal ergotropy or the gate cost of implementation.",
+    "status": "PASS"
+  }
+}
