@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For R=M=V=F_2, D=End_R(M)=F_2 and the defining evaluation Hom_R(M,V) tensor_D M -> V is an isomorphism; the same direct calculation applies to the one-dimensional code C={(0,0),(1,0)}. The map f(a,0)=(a,a) is linear and injective but sends its nonzero word from Hamming weight 1 to 2. Monomial transformations preserve Hamming weight, and over F_2 the two length-two monomial maps are exactly the coordinate permutations. Therefore both conclusions of Corollary 3.1.5 fail. The standalone verifier exhausts all three embeddings and both monomial restrictions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The standard field theorem covers Hamming isometries, not arbitrary injective linear embeddings.",
+        "The target paper's Theorem 3.3.2 explicitly invokes Corollary 3.1.5 in its argument."
+      ],
+      "reasoning": "No checked broader extension theorem makes every injective linear map weight preserving. The counterexample lies outside the premise of the classical theorem but inside the premise of the target corollary, so broader theory does not dominate it.",
+      "searches": [
+        "Morita invariant monomial transformation static adstatic codes correction",
+        "MacWilliams extension theorem linear isometry extends monomial transformation field"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.17654/0972555525011",
+      "DOI:10.1016/j.jcta.2014.03.005",
+      "Publisher issue page for JP Journal of Algebra, Number Theory and Applications 64(2) (2025)",
+      "Exact-title, corollary-number, correction/corrigendum, citation, and semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target article separately defines linear isometries before stating Corollary 3.1.5, where isometry appears as a conclusion rather than a hypothesis.",
+        "Classical extension literature requires weight preservation before extension."
+      ],
+      "reasoning": "The source's own statement is the object being refuted and does not imply the truth of its negation. Prior extension theorems impose an isometry hypothesis, so they do not subsume the exhibited non-isometric embedding.",
+      "searches": [
+        "Fakieh Nauman 2025 Static Codes and Monomial Transformations citation",
+        "extension theorem linear isometry code monomial transformation Hamming weight finite field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.17654/0972555525011 states Corollary 3.1.5 with an arbitrary embedding as premise and isometry/monomial restriction as conclusions.",
+        "DOI:10.1016/j.jcta.2014.03.005 formulates the classical extension property for an injective map that already preserves the weight."
+      ],
+      "reasoning": "The natural alias is the MacWilliams extension property. Under that formulation, the classical theorem assumes exactly the property missing from the target corollary, so it neither covers nor implies the counterexample claim. Searches by the corollary number and the field-level example located no equivalent published correction.",
+      "searches": [
+        "Static Codes and Monomial Transformations counterexample Corollary 3.1.5 Fakieh Nauman monomial extension",
+        "static code F2 repetition code embedding not isometry monomial transformation",
+        "\"Corollary 3.1.5\" \"static codes\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact bibliographic searches returned the original article and bibliographic copies but no erratum, corrigendum, or replacement statement.",
+        "Semantic research-record searches returned no same-paper correction; the closest returned records concern unrelated counterexamples."
+      ],
+      "reasoning": "This is a theorem-level logical counterexample rather than a parameter-table claim, so there is no dominating numerical database. The relevant exact check is whether a correction or replacement theorem already records the defect; none was found in the inspected sources.",
+      "searches": [
+        "Fakieh Nauman 2025 Static Codes and Monomial Transformations erratum",
+        "\"Static Codes and Monomial Transformations\" erratum OR correction OR corrigendum",
+        "\"Static Codes and Monomial Transformations\" counterexample"
+      ]
+    },
+    "rationale": "Direct inspection finds the universal embedding claim in the target paper, while standard extension theory only covers maps already assumed to be isometries. Exact-title, corollary-number, correction, and semantic searches found no published correction or same counterexample. The claim is therefore not implied by the checked literature, subject to the stated residual indexing risk.",
+    "residual_risks": [
+      "An unindexed erratum, author note, or independent correction may exist.",
+      "An unindexed public version before 2025-03-07 may exist; exact-title searches did not locate one.",
+      "If the source intended a nonstandard definition of embedding that already includes Hamming-weight preservation, the counterexample would not meet that hidden convention; the inspected text instead treats isometry as a distinct conclusion and provides no such definition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_TARGET_AND_DOWNSTREAM_USE",
+        "evidence": "Corollary 3.1.5 states that an embedding f:C->V^n is automatically an isomorphic isometry and a restriction of a monomial transformation under staticity hypotheses; Theorem 3.3.2 cites this corollary.",
+        "identifier_or_url": "DOI:10.17654/0972555525011",
+        "material_read": "Publisher first page and full-text sections containing Definition 3.1.1, Proposition 3.1.2, Corollary 3.1.5, and Theorem 3.3.2; pages 188, 191, and 195 were also inspected as page images.",
+        "method": "Open-access full-text extraction plus page-image inspection.",
+        "title": "Static Codes and Monomial Transformations",
+        "trigger": "Primary source defining static codes and stating the targeted extension corollary."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "The extension property starts with an injective weight-isometry and concludes monomial extendability; it does not assert that an arbitrary embedding is an isometry.",
+        "identifier_or_url": "DOI:10.1016/j.jcta.2014.03.005",
+        "material_read": "Publisher abstract, introduction, and extension-property formulation.",
+        "method": "Publisher full-text web inspection.",
+        "title": "MacWilliams' Extension Theorem for bi-invariant weights over finite principal ideal rings",
+        "trigger": "Closest broader extension theorem and premise comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2723b20-7d77-4229-ae5a-19ea2bb9edb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a missing hypothesis in a universal extension statement using a canonical binary length-two example, and the paper explicitly invokes the failed corollary in the proof of a later main theorem. The finding therefore changes how the published argument can be used; it is not a routine parameter recomputation or a merely cosmetic correction.",
+    "status": "PASS"
+  }
+}
