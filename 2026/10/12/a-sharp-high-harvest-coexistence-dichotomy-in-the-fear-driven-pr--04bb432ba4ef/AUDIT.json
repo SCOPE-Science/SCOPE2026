@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The positive-equilibrium equations are obtained directly from the printed harvested system. For r>m, the predator equilibrium equation defines a unique v=V_q(u), uniformly sends V_q to zero on u in [K/2,K], and gives a sign change of the prey residual between K/2 and K for all sufficiently large q. This proves existence, forces u_q to K, and yields q v_q^(r-m) to e K^p. The exact Jacobian signs then give negative trace and positive determinant for sufficiently large q. For r=m, necessity follows from u<K and sufficiency from a continuous residual sign change. The bundled checker replays the source example but no finite computation is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caraballo, Colucci, and Guerrini study nonlinear Holling-type harvesting with delay and prove persistence and positive-equilibrium bifurcation results in a different system.",
+        "The broader harvesting literature therefore makes nonlinear-harvest equilibrium analysis prior art.",
+        "The inspected comparator does not contain the target power balance q v^r against u^p v^m and does not imply the r-m threshold or high-q scaling."
+      ],
+      "reasoning": "Broader coverage was checked to avoid claiming novelty for nonlinear harvesting itself. The accepted theorem depends on the exact pair of exponents in the motivating model, which is absent from the comparator.",
+      "searches": [
+        "\"On a predator prey model with nonlinear harvesting and distributed delay\" persistence equilibrium",
+        "nonlinear predator harvesting q v^r mutual interference predator prey",
+        "fear predator prey harvesting high effort coexistence",
+        "predator harvesting nonlinear power equilibrium threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.00546",
+      "doi:10.3934/math.2023173",
+      "doi:10.3934/cpaa.2018128"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's Remark and conclusion qualitatively describe high harvesting but do not prove existence for every sufficiently large finite q or the q-power decay law.",
+        "The source's Theorem 6.1 is a local-type guideline conditional on coexistence configurations; it does not supply the high-q existence argument or the r=m exact cutoff.",
+        "No indexed correction or later source-specific theorem covering the accepted high-harvest statement was located."
+      ],
+      "reasoning": "The accepted claim is not implied by the source's finite-q numerics or its conditional local-stability guideline. It supplies a separate high-q existence proof, an explicit asymptotic law, and a sharp exponent-boundary cutoff.",
+      "searches": [
+        "\"10.3934/math.2023173\" correction erratum harvesting",
+        "\"10.3934/math.2023173\" very high harvesting predator",
+        "\"2108.00546\" r=m q threshold",
+        "\"2108.00546\" large q coexistence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source writes the harvesting term as q v^r and the mutual-interference interaction as u^p v^m, and assumes r>=m for its local-stability guideline.",
+        "The source's conclusion states that very high harvesting makes predator density close to extinction but does not give an asymptotic law or a finite-q existence cutoff.",
+        "The exact equilibrium reduction shows that the mathematical aliases 'high-q coexistence', 'predator approaches extinction', 'r=m cutoff', and 'r>m power-law branch' are the same exponent-balance question.",
+        "Published-finding searches returned no equivalent statement for the target equations."
+      ],
+      "reasoning": "Searches were performed both by source identity and by statement-level aliases. The claim is not title-level novelty: it is the implication comparison between q v^(r-m) and the bounded prey equilibrium scale.",
+      "searches": [
+        "10.3934/math.2023173 r = m harvesting coexistence",
+        "10.3934/math.2023173 asymptotic q coexistence",
+        "2108.00546 harvesting exponent r m q coexistence",
+        "q v^r u^p v^m predator harvesting equilibrium",
+        "Antwi-Fordjour Parshad Thompson Westaway harvesting predator r m large q coexistence asymptotic",
+        "10.3934/math.2023173 large harvesting q r m coexistence predator extinction",
+        "predator prey harvest term q v^r mutual interference v^m large harvesting coexistence r greater than m",
+        "Fear-driven extinction destabilization harvesting-induced recovery Conjecture 4 large q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher full text was inspected at equation (6.1), which prints the q v^r harvest term and 0<r<=1.",
+        "Theorem 6.1 was inspected at the r>=m assumption and the stated local types of coexistence equilibria.",
+        "Example 1 gives m=0.6, r=1, a=3, b=0.2, p=0.5, e=1.1 and q=1.",
+        "Figures 7 and 8 and their surrounding text were inspected; the plotted predator equilibrium decreases toward zero as q grows while prey approaches carrying capacity.",
+        "The conclusion explicitly leaves a full dynamical analysis of the harvested model as future work.",
+        "The publisher record gives MSC 92B05, and the arXiv record verifies first public posting on 1 August 2021."
+      ],
+      "reasoning": "The accepted statement is anchored to the exact printed exponents, source parameter example, and stated open high-harvest interpretation rather than reconstructed from an abstract.",
+      "searches": [
+        "doi:10.3934/math.2023173 equation 6.1 harvesting",
+        "doi:10.3934/math.2023173 Theorem 6.1 r m",
+        "doi:10.3934/math.2023173 Example 1 q r m",
+        "doi:10.3934/math.2023173 Conjecture 4 Figure 7 Figure 8 high harvesting"
+      ]
+    },
+    "rationale": "General predator harvesting, nonlinear harvesting, and local coexistence analysis are prior art and are not claimed as new. The accepted contribution is the source-specific high-harvest theorem: persistence of a stable positive branch with an explicit q-power law when r>m, together with the exact finite coexistence cutoff when r=m. The motivating article gives numerical high-q behavior and leaves a full analysis for future work; targeted source, alias, exponent, and broader-harvesting searches did not locate this dichotomy.",
+    "residual_risks": [
+      "An unindexed note or thesis could contain the same source-specific high-q asymptotic.",
+      "The theorem is local at the coexistence branch; it does not eliminate extinction basins or prove global predator persistence.",
+      "The source vector field is nonsmooth at population axes for fractional powers, but the accepted Jacobian argument is applied only at strictly positive equilibria.",
+      "The r<m regime is not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "HIGH_HARVEST_EXPONENT_BOUNDARY_NOT_RESOLVED_IN_SOURCE",
+        "evidence": "The source presents high-q coexistence behavior numerically, says predator density becomes close to extinction at very high harvesting, and explicitly leaves a full analysis of the harvested model for future work.",
+        "identifier_or_url": "arXiv:2108.00546; doi:10.3934/math.2023173",
+        "material_read": "Lawful preprint and publisher full text at the harvested system, equilibrium Jacobian, Theorem 6.1, Example 1, Conjecture 4, numerical Figures 7–8, and the conclusion. Publisher pages containing equation (6.1) and Figures 7–8 were visually inspected.",
+        "method": "Reduced the positive-equilibrium equations, separated the r>m and r=m cases, proved the high-q branch by a uniform implicit predator nullcline plus an intermediate-value argument, and checked local stability from exact Jacobian signs.",
+        "title": "Fear-driven extinction and (de)stabilization in a predator-prey model incorporating prey herd behavior and mutual interference",
+        "trigger": "Primary source containing the harvested model, r>=m guideline, recovery conjecture, and high-harvest interpretation."
+      },
+      {
+        "assessment": "NONLINEAR_HARVESTING_PRIOR_ART_DIFFERENT_MODEL_NO_EXPONENT_BOUNDARY_COVERAGE",
+        "evidence": "The comparator studies a different delayed Holling-type harvesting structure and does not supply the target r-m high-effort threshold or asymptotic branch.",
+        "identifier_or_url": "doi:10.3934/cpaa.2018128",
+        "material_read": "Publisher full-text record, abstract, introduction metadata, and reported persistence/positive-equilibrium scope for its nonlinear Holling-type harvesting and delay model.",
+        "method": "Compared the harvesting law and statement-level equilibrium consequences with the target q v^r versus v^m balance.",
+        "title": "On a predator prey model with nonlinear harvesting and distributed delay",
+        "trigger": "Primary nonlinear-harvesting literature with persistence and positive-equilibrium bifurcation results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "04bb432b-a4ef-4e46-91a3-8811f9a3ac63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating article makes harvesting-induced recovery a central conjectural mechanism and explicitly discusses whether predators survive under very high harvesting. The theorem turns that finite-window picture into a structural classification: the sign of r-m decides whether positive coexistence persists to arbitrarily large finite effort or terminates at a finite threshold, and it gives an explicit power law for the residual predator density. This directly informs interpretation of the paper's Example 1 and is more than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
