@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For white support in at least two parts, the white induced graph is connected and the exact white-neighbor count of a blue vertex in part i is the sum of white occupancies outside i. This gives a necessary and sufficient first-force condition; after that force, only one white part remains. The enumerator follows by disjoint support-size cases with a single explicit double-count correction. A direct exhaustive implementation agrees with the criterion on 182540 initial sets across 269 profiles and agrees coefficient-by-coefficient with the formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peters (2012) computes PSD zero forcing numbers for multiple graph families",
+        "Barioli et al., arXiv:1003.2028 introduces the PSD parameter"
+      ],
+      "reasoning": "General PSD forcing papers and graph-family computations provide parameter bounds or exact minima, but the inspected same-family theorem does not classify every successful initial set or imply the displayed enumerator.",
+      "searches": [
+        "\"positive semidefinite zero forcing\" graph families complete multipartite",
+        "\"positive semidefinite zero forcing\" complete bipartite all sets",
+        "\"PSD zero forcing\" reconfiguration complete multipartite"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1003.2028",
+      "Peters, Electronic Journal of Linear Algebra 23 (2012), 815-830",
+      "arXiv:1801.08910"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyer et al., arXiv:1801.08910 defines the ordinary zero forcing polynomial",
+        "Peters (2012), Proposition 3.4 gives the PSD scalar minimum"
+      ],
+      "reasoning": "A scalar minimum does not determine the family of successful supersets or its size distribution. Ordinary zero forcing uses a global unique-white-neighbor rule rather than the PSD white-component rule, so ordinary polynomial formulas cannot be substituted for the present classification.",
+      "searches": [
+        "ordinary zero forcing polynomial complete multipartite",
+        "positive semidefinite zero forcing polynomial graph",
+        "complete multipartite PSD zero forcing number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peters, Electronic Journal of Linear Algebra 23 (2012), Proposition 3.4",
+        "Barioli et al., arXiv:1003.2028"
+      ],
+      "reasoning": "The natural aliases PSD zero forcing, positive semidefinite zero forcing, forcing sets, minimum sets, and componentwise forcing were checked. The closest same-family statement is only the scalar parameter value.",
+      "searches": [
+        "\"positive semidefinite zero forcing\" \"complete multipartite\" sets",
+        "\"PSD zero forcing\" \"complete multipartite\" \"minimum sets\"",
+        "\"positive semidefinite zero forcing polynomial\" graph",
+        "\"minimum PSD zero forcing sets\" \"complete multipartite\"",
+        "\"positive semidefinite zero forcing\" \"complete multipartite\" reconfiguration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Peters Proposition 3.4 states only \\(M_+=Z_+=n_2+\\cdots+n_r\\) and \\(mr_+=n_1\\)."
+      ],
+      "reasoning": "The exact tabulated/same-object result recovers the minimum cardinality but does not tabulate forcing sets by size, so it neither states nor entails the all-set enumerator.",
+      "searches": [
+        "Peters complete multipartite Proposition 3.4",
+        "positive semidefinite zero forcing complete multipartite table",
+        "positive semidefinite zero forcing polynomial complete multipartite"
+      ]
+    },
+    "rationale": "Peters gives the complete multipartite scalar PSD zero forcing number but not the set-level characterization or cardinality enumerator. The ordinary zero forcing polynomial literature uses a different forcing rule. Targeted searches for PSD/positive semidefinite forcing sets, polynomials, minimum sets, and reconfiguration on complete multipartite graphs did not reveal a statement implying the all-set theorem.",
+    "residual_risks": [
+      "An unindexed thesis, preprint, or source under alternate terminology may contain an equivalent all-set classification.",
+      "The literature search is not a proof of global novelty; originality is assessed relative to the inspected primary sources and targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_SCALAR_ONLY",
+        "evidence": "Proposition 3.4 gives \\(Z_+(K_{n_1,\\ldots,n_r})=n_2+\\cdots+n_r\\) for ordered part sizes, but does not classify all PSD zero forcing sets or give their cardinality enumerator.",
+        "identifier_or_url": "Electronic Journal of Linear Algebra 23 (2012), 815-830; https://journals.uwyo.edu/index.php/ela/article/download/1119/1119/1119",
+        "material_read": "Full-text passage surrounding Proposition 3.4 and the paper description of the PSD color-change rule.",
+        "method": "Direct full-text inspection.",
+        "title": "Positive semidefinite maximum nullity and zero forcing number",
+        "trigger": "Same graph family and same PSD parameter."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The source introduces positive semidefinite zero forcing and its relation to ordered sets/minimum rank; it is not a complete multipartite all-set enumeration.",
+        "identifier_or_url": "arXiv:1003.2028",
+        "material_read": "Bibliographic record and abstract describing the introduction and role of \\(Z_+\\).",
+        "method": "Primary-source record inspection.",
+        "title": "Zero forcing parameters and minimum rank problems",
+        "trigger": "Foundational source introducing the PSD zero forcing parameter."
+      },
+      {
+        "assessment": "DIFFERENT_RULE",
+        "evidence": "The polynomial counts sets under ordinary zero forcing. Positive semidefinite forcing is only tangentially referenced and no PSD complete-multipartite all-set formula was found.",
+        "identifier_or_url": "arXiv:1801.08910",
+        "material_read": "Abstract plus full-text keyword inspection for positive semidefinite terminology and complete multipartite discussion.",
+        "method": "Primary full-text and record inspection.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Closest counting framework for forcing sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32862c3c-1da7-4922-b629-b5be02b52052",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a natural complete classification and exact cardinality enumerator for a canonical graph family whose PSD zero forcing minimum is already a standard benchmark. It strictly refines the known scalar invariant and explains the component-splitting structure that controls success, making the fact reusable for counting, random-initialization questions, and minimum-set descriptions.",
+    "status": "PASS"
+  }
+}
