@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "With \\(\\beta_1=\\beta_2=0\\), the source recurrence gives \\(m=\\lambda x\\) and \\(v=\\lambda^2x^2\\), so the displayed scalar map is exact. Monotonicity of \\(\\log(1+e^u)\\) proves global convergence through \\(a=2\\log 2\\); Taylor expansion gives the quadratic and critical laws; the supercritical cycle solves one monotone scalar equation and its derivative is strictly inside the unit disk.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General adaptive-gradient stability records use different accumulators or denominator rules.",
+        "Scaled Polyak and normalized-gradient results can also exhibit sharp scalar thresholds, but their maps are rational or homogeneous rather than softplus-calibrated.",
+        "The source's own convergence theorems are sufficient asymptotic bounds under bounded-gradient assumptions and do not classify this exact deterministic map."
+      ],
+      "reasoning": "The broader literature establishes that adaptive normalization can create nontrivial dynamics, but that does not imply the source-specific logarithmic threshold or cycle amplitude. The proof depends on the exact identity \\(L(0)=\\log 2\\) and the invertibility of the softplus denominator.",
+      "searches": [
+        "adaptive gradient method scalar quadratic limit cycle normalized gradient Adam epsilon",
+        "Adam scalar quadratic two cycle epsilon exact",
+        "normalized gradient descent scalar quadratic two-cycle denominator softplus",
+        "softplus preconditioner scalar fixed point flip bifurcation optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1908.00700v1",
+      "DOI:10.1016/j.neucom.2022.01.014"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 gives \\(m_t\\), \\(v_t\\), and the softplus-calibrated update used verbatim here.",
+        "The source states that small beta approaches momentum-like behavior and large beta approaches the original adaptive method.",
+        "The source proves nonconvex, convex, and Polyak--Lojasiewicz convergence-rate bounds but does not solve the deterministic scalar map.",
+        "Full-text searches found no cycle or stability section and no scalar-quadratic dynamical classification."
+      ],
+      "reasoning": "The source supplies the algorithm and motivation, but its general rate statements do not imply an if-and-only-if local stability boundary, critical asymptotic constant, or explicit supercritical cycle in this exact parameter slice.",
+      "searches": [
+        "arXiv:1908.00700v1 Algorithm 1 Sadam softplus",
+        "arXiv:1908.00700v1 beta controller Adam momentum",
+        "arXiv:1908.00700v1 nonconvex convergence Sadam",
+        "arXiv:1908.00700v1 quadratic cycle stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper gives the exact softplus denominator and permits zero first- and second-moment memory.",
+        "The source has no cycle analysis and no scalar quadratic stability theorem.",
+        "Focused indexed searches returned adaptive-gradient, Polyak-step, and normalized-step results for different recurrences rather than the Sadam softplus map."
+      ],
+      "reasoning": "Equivalent coverage would need the same memoryless Sadam scalar map or a theorem that directly implies its threshold at two times the logarithm of two, the critical inverse-linear law, and the explicit softplus two-cycle. No inspected result supplies that implication.",
+      "searches": [
+        "Sadam scalar quadratic softplus two cycle bifurcation ln 2",
+        "softplus Adam scalar quadratic exact stability two-cycle",
+        "Sadam beta log 2 stability quadratic",
+        "softplus calibrated Adam period two scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed Sadam-specific record with a quadratic flip threshold was returned.",
+        "Closest optimization records concern scaled Polyak steps, AdOGD, BB steps, and other adaptive methods."
+      ],
+      "reasoning": "The closest records do not use the Sadam recurrence and therefore do not cover the exact softplus bifurcation. Search absence is supporting evidence rather than a uniqueness proof.",
+      "searches": [
+        "Sadam critical learning rate 2 log 2",
+        "Sadam optimizer softplus calibration phase transition gradient scale",
+        "softplus calibrated Adam optimizer exact asymptotic gain"
+      ]
+    },
+    "rationale": "The defining Sadam source bounds the adaptive learning rate and gives general convergence rates but does not state this scalar bifurcation law. Focused searches across Sadam, normalized-gradient, and softplus-preconditioned dynamics did not identify an implication-equivalent threshold, critical law, or cycle formula.",
+    "residual_risks": [
+      "An equivalent one-dimensional map analysis may exist in unindexed dynamical-systems notes under generic normalized-gradient terminology.",
+      "The memoryless slice is not the source's recommended momentum setting, so the threshold should not be transferred to the full practical algorithm.",
+      "The source article is interdisciplinary machine-learning optimization; the mathematical classification here is the nonconvex-programming optimization aspect."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_SOFTPLUS_CALIBRATION_NOT_COVERING_SCALAR_FLIP_BIFURCATION.",
+        "evidence": "The paper defines the exact recurrence and bounds the adaptive learning rate, but no scalar quadratic threshold, critical inverse-linear law, quadratic resonance, or explicit nonzero two-cycle was found.",
+        "identifier_or_url": "arXiv:1908.00700v1 / DOI:10.1016/j.neucom.2022.01.014",
+        "material_read": "Open full text covering the adaptive-learning-rate motivation, Sections 4.1 and 4.2, Algorithm 1, the beta interpolation discussion, recommended beta value, the nonconvex/convex/Polyak--Lojasiewicz convergence statements, and full-text searches for quadratic, cycle, and stability language.",
+        "method": "Open-access full-text inspection.",
+        "title": "Calibrating the Adaptive Learning Rate to Improve Convergence of ADAM",
+        "trigger": "Defining source for Sadam's softplus calibration, admissible moment parameters, beta interpretation, and convergence theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc30417d-83be-4582-9e6b-71198d293f76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The softplus parameter \\(\\beta\\) is the defining control introduced by Sadam, and the source explicitly interprets it as the knob between smoother momentum-like and Adam-like behavior. The exact scalar law shows that this knob has a genuine dynamical cost: at fixed base step and curvature, the product \\(\\eta\\beta\\lambda\\) crosses a sharp flip boundary, with a separate quadratic-convergence resonance and an explicit attracting two-cycle beyond the boundary. This directly clarifies the mechanism the source proposes to tune and is not a routine restatement of bounded adaptive learning rates.",
+    "status": "PASS"
+  }
+}
