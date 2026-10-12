@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof verifies the polygon-resultant upper bound for all prices and all feasible nonnegative rates; shows attaining feasible rates and the exact spectral eigenvector; and establishes L(w*) - Lambda P positive semidefinite by an identity into weighted Cauchy--Schwarz deficit plus a square. Equality cases force all optimal weights uniquely, and the PSD nullity verifies spectral-gap multiplicity. The equality threshold and m=2 boundary are explicitly handled. The standalone exact checker passed 1360 rational parameter cases and 77488 rational factorization tests; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frank Göring, Christoph Helmberg, Markus Wappler, Embedded in the Shadow of the Separator, preprint September 2 2005, Example 6 pp.7-8 and separator geometry p.15, https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+        "Jun Sun, Stephen Boyd, Lin Xiao, Persi Diaconis, SIAM Review 48 (2006), pp. 681-699, DOI 10.1137/S0036144504443821, pp. 681-691 and section 5 on path/cycle; primary author PDF https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "Majid Farhadi, Anand Louis, Mohit Singh, Prasad Tetali, arXiv:2003.05582v3, introduction, §2 star lambda-infinity, §3 tree embedding"
+      ],
+      "reasoning": "The general SDP covers all graphs with arbitrary cost coefficients algorithmically but does not state the exact polygon-imbalance star formula, complete rate vector, or multiplicity classification. Göring et al. explicitly solve only the uniform-cost star. The tree-embedding paper gives algorithms and distinct star functionals; its general theory does not present this closed-form optimizer. None supplies a named stronger closed-form result dominating all the present parameters, though historical unlocated work remains a risk.",
+      "searches": [
+        "maximum variance unfolding star edge lengths polygon inequality dominant leaf norm optimal conductance weights eigenvalue gap",
+        "absolute algebraic connectivity star graph arbitrary edge lengths polygon configuration weighted Fiedler",
+        "https://arxiv.org/pdf/2003.05582 Sections 2 and 3",
+        "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf Example 6"
+      ]
+    },
+    "checked_sources": [
+      "Jun Sun, Stephen Boyd, Lin Xiao, Persi Diaconis, SIAM Review 48 (2006), pp. 681-699, DOI 10.1137/S0036144504443821, pp. 681-691 and section 5 on path/cycle; primary author PDF https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "Frank Göring, Christoph Helmberg, Markus Wappler, Embedded in the Shadow of the Separator, preprint September 2 2005, Example 6 pp.7-8 and separator geometry p.15, https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+      "Majid Farhadi, Anand Louis, Mohit Singh, Prasad Tetali, arXiv:2003.05582v3, introduction, §2 star lambda-infinity, §3 tree embedding",
+      "Miroslav Fiedler, Absolute algebraic connectivity of trees (1990), DOI 10.1080/03081089008817967, abstract only (full text not inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jun Sun, Stephen Boyd, Lin Xiao, Persi Diaconis, SIAM Review 48 (2006), pp. 681-699, DOI 10.1137/S0036144504443821, pp. 681-691 and section 5 on path/cycle; primary author PDF https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "Frank Göring, Christoph Helmberg, Markus Wappler, Embedded in the Shadow of the Separator, preprint September 2 2005, Example 6 pp.7-8 and separator geometry p.15, https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+        "Majid Farhadi, Anand Louis, Mohit Singh, Prasad Tetali, arXiv:2003.05582v3, introduction, §2 star lambda-infinity, §3 tree embedding"
+      ],
+      "reasoning": "The previously established SDP can optimize any given priced star numerically, and its dual supplies the geometric language. It does not by itself assert the explicit all-parameter formula, polygon inequality iff condition, unique conductance vector, or simple-versus-multiple Fiedler mode. The equal-cost star follows as a special case of the present theorem, not vice versa. The general results are properly credited; an uninspected specialized source could still imply the new formula.",
+      "searches": [
+        "star fastest mixing Markov process nonuniform linear edge cost weighted rates closed form polygon geometry variance embedding",
+        "maximum variance unfolding star edge lengths polygon inequality dominant leaf norm optimal conductance weights eigenvalue gap",
+        "graph spectral gap star weights one expensive edge price optimal multiplicity transition exact threshold",
+        "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf Results 1-5 and Example 6 in https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jun Sun, Stephen Boyd, Lin Xiao, Persi Diaconis, SIAM Review 48 (2006), pp. 681-699, DOI 10.1137/S0036144504443821, pp. 681-691 and section 5 on path/cycle; primary author PDF https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "Frank Göring, Christoph Helmberg, Markus Wappler, Embedded in the Shadow of the Separator, preprint September 2 2005, Example 6 pp.7-8 and separator geometry p.15, https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf"
+      ],
+      "reasoning": "The eigenvalue budget problem is equivalent to the continuous-time fastest-mixing Markov process on a symmetric graph, a Laplacian semidefinite program, and a maximum-variance Euclidean embedding with edge-length constraints sqrt(price). The general equivalences are established in Sun et al.; the theorem supplies their exact evaluation on a heterogeneous-price star, not a new equivalence.",
+      "searches": [
+        "sharp weighted star graph algebraic connectivity max spectral gap arbitrary positive edge prices polygon inequality square roots threshold largest cost all edges optimal",
+        "star fastest mixing Markov process nonuniform linear edge cost weighted rates closed form polygon geometry variance embedding",
+        "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf Sections 3-4, FMMP primal/dual",
+        "https://optimization-online.org/2005/09/1202/ Example 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Majid Farhadi, Anand Louis, Mohit Singh, Prasad Tetali, arXiv:2003.05582v3, introduction, §2 star lambda-infinity, §3 tree embedding",
+        "Jun Sun, Stephen Boyd, Lin Xiao, Persi Diaconis, SIAM Review 48 (2006), pp. 681-699, DOI 10.1137/S0036144504443821, pp. 681-691 and section 5 on path/cycle; primary author PDF https://stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+      ],
+      "reasoning": "The statement is for every number of leaves and an uncountable positive price vector, not a finite table. The exact-formula searches and inspected literature reveal no database or table giving these unique rates. Search absence alone does not prove novelty.",
+      "searches": [
+        "sharp weighted star graph algebraic connectivity max spectral gap arbitrary positive edge prices polygon inequality square roots threshold largest cost all edges optimal",
+        "graph spectral gap star weights one expensive edge price optimal multiplicity transition exact threshold",
+        "absolute algebraic connectivity star graph arbitrary edge lengths polygon configuration weighted Fiedler",
+        "https://arxiv.org/pdf/2003.05582 full paper and appendices"
+      ]
+    },
+    "rationale": "The explicit optimal value and unique rate vector for arbitrary positive prices, with a square-root polygon inequality boundary and sharp gap-multiplicity transition, are more specific than the established general semidefinite and variance-unfolding methods. Sun et al. 2006 provide the full general framework, Göring et al. 2005 treat equal-price stars, and Farhadi et al. 2022 treat tree embeddings and a distinct lambda-infinity star functional. Exact searches and full-text inspection found no explicit arbitrary-price star classification. Historical overlap risk persists, especially the Fiedler 1990 full text, which was unavailable; a negative search is not an originality certificate.",
+    "residual_risks": [
+      "Fiedler 1990 complete text unavailable; a hidden arbitrary-cost tree/star formula cannot be excluded by its abstract.",
+      "Specialized historical weighted-star spectral-gap literature may use a different term for the price parameter; database and web searches cannot prove uniqueness.",
+      "The result is an explicit classification derived from general previously known SDP duality, not a new universal optimization principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SDP/embedding duality, path example; no explicit arbitrary-cost star classification in inspected sections",
+        "evidence": "Publication November 2 2006 p.681; arbitrary d_ij squared costs pp.682-683; dual KKT pp.687-689; path example section 5.2.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Primary full text: problem §1, SDP dual/KKT §3, geometric dual §4, and explicit examples §5 including path",
+        "method": "Read full-text PDF sections and compared statements and parameter implications",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "identical primal graph spectral-gap problem with arbitrary edge prices"
+      },
+      {
+        "assessment": "Explicit uniformly priced star but no arbitrary per-edge prices in Example 6; geometric lemmas overlap proof ideas",
+        "evidence": "Example 6 places all leaf vectors at unit distance and uses unit weights; Observation around p.15 notes sum of vectors and balancing.",
+        "identifier_or_url": "https://www-user.tu-chemnitz.de/~helmberg/GoeHelWap_R07_SIOPT.pdf",
+        "material_read": "Full-text Example 6 pp.7-8 and separator balancing argument pp.14-16; introduction and general theorem",
+        "method": "Read lawful authors preprint PDF, checked hypotheses of Example 6",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "explicit star optimal embedding example, possible covering special case"
+      },
+      {
+        "assessment": "Star analysis concerns lambda-infinity / weighted vertex distribution; tree MVE is more general computational theory but not the arbitrary-price closed formula stated here",
+        "evidence": "Abstract and introduction pp.1-5; §2 p.6 onward; Lemma 14 and §3 pp.15-16.",
+        "identifier_or_url": "https://arxiv.org/pdf/2003.05582",
+        "material_read": "Full-text abstract, introduction, §2 star lambda-infinity and §3 variance of trees, table of contents and appendix identifiers",
+        "method": "Read primary arXiv PDF and checked definitions and star functional against lambda-two optimization",
+        "title": "Maximum Variance Embedding: Measuring and Optimizing Connectivity of a Graph Metric",
+        "trigger": "later tree embedding theory including star examples and appendices"
+      },
+      {
+        "assessment": "The accessible abstract states equal average edge weights and a tree variance characterization; the complete text was unavailable, so no claim about its internal theorems beyond the abstract is justified",
+        "evidence": "Linear and Multilinear Algebra 26 (1990), pp.85-106, publisher abstract, DOI 10.1080/03081089008817967.",
+        "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+        "material_read": "Title, bibliographic entry and publisher abstract only; no primary full text",
+        "method": "Searched free open access and attempted authorized institutional retrieval without successful access",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "historically closest full-tree eigenvalue optimization; possible specialist overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea18a814-08e5-4308-9623-5d11014243d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The arbitrary independent positive rate prices form a natural full-dimensional network design input. The new closed-form result distinguishes a uniform optimum under a sharp square-root polygon condition from a unique nonuniform optimum beyond it, with exact gap and multiplicity. It is not a finite catalog or routine reparameterization of the one-cost example; the polygon-imbalance geometry affects every rate and provides a complete decision rule. No downstream theorem is required for this natural exact invariant.",
+    "status": "PASS"
+  }
+}
