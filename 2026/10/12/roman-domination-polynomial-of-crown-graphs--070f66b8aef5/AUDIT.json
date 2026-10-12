@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For each side of the crown graph, zero labels are feasible exactly according to whether the opposite side has zero, one, or at least two vertices labeled 2. This gives an exhaustive seven-case partition by the pair of sidewise 2-counts. Direct coefficient-by-coefficient enumeration for n=3,4,5,6 agrees with the formula; the infinite claim rests on the analytic partition, not on the finite test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 primary full text defines the polynomial and its Theorem 3.4 treats complete bipartite graphs.",
+        "Complete multipartite and chain-graph polynomial findings are different graph classes and do not contain crown graphs as covered special cases."
+      ],
+      "reasoning": "Crown graphs are obtained by deleting a perfect matching from K_{n,n}; they are neither complete multipartite in the needed sense nor chain graphs for n at least 3. The missing matching is exactly what creates the matched-index constraints in the proof, so the broader-looking formulas do not imply this one.",
+      "searches": [
+        "DOI:10.7251/BIMVI2102355G",
+        "Roman domination polynomial crown graph complete bipartite minus perfect matching exact weight enumerator",
+        "2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973",
+        "2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/j.disc.2003.06.004",
+      "DOI:10.7251/BIMVI2102355G",
+      "2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973",
+      "2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b",
+      "2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2004 paper defines/studies Roman domination but not this crown all-weight enumerator.",
+        "The 2021 polynomial paper gives K_{n,m}; deleting a perfect matching changes the RDF feasibility conditions and its theorem cannot be specialized to a crown graph.",
+        "The crown restrained-domination profile counts vertex sets under a different constraint, not {0,1,2}-labelings satisfying the Roman condition."
+      ],
+      "reasoning": "None of the closest statements implies the retained polynomial. The proof requires the unique deleted neighbor at each vertex, data that are absent from the complete-bipartite theorem, while the restrained-domination result is a different invariant.",
+      "searches": [
+        "DOI:10.1016/j.disc.2003.06.004",
+        "DOI:10.7251/BIMVI2102355G",
+        "2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches included the aliases crown graph, K_{n,n}-M_n, complete bipartite minus a perfect matching, and one-factor deletion.",
+        "No returned published finding stated an ordinary Roman domination polynomial for crown graphs."
+      ],
+      "reasoning": "The graph aliases were searched explicitly so a formula stated under the construction rather than the name would be compared. Returned crown results concerned restrained domination, not Roman functions.",
+      "searches": [
+        "Roman domination polynomial crown graph K_n,n minus perfect matching",
+        "Roman domination of crown graphs K_{n,n}-M",
+        "Roman dominating functions K_n,n minus one factor crown graph",
+        "Roman domination polynomial deleted perfect matching complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published finding: 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa (different invariant).",
+        "Closest same-invariant findings: 2026/10/4/SCOPE-roman-domination-polynomial-of-complete-multipartite-graphs--fa4c41b40973 and 2026/10/4/SCOPE-roman-domination-polynomial-of-chain-graphs--e846e0fa619b."
+      ],
+      "reasoning": "The searches returned nearby graph-polynomial results but no exact table, sequence, or formula for ordinary Roman dominating functions on crown graphs. A failed search is not treated as proof of novelty; it is combined with the full-text implication checks.",
+      "searches": [
+        "Roman domination polynomial crown graph K_n,n minus perfect matching",
+        "Roman domination crown graph exact polynomial all Roman dominating functions",
+        "Roman domination of crown graphs K_{n,n}-M",
+        "Roman domination polynomial crown graph complete bipartite minus perfect matching exact weight enumerator",
+        "Roman dominating functions K_n,n minus one factor crown graph",
+        "Roman domination bipartite K_n,n - M_n minimum functions",
+        "Roman domination polynomial deleted perfect matching complete bipartite"
+      ]
+    },
+    "rationale": "The retained claim is the all-weight Roman domination polynomial of connected crown graphs and the resulting exact minimum-function multiplicity. Same-invariant, same-family-alias, broader-family, and database searches found no statement implying this formula. The complete-bipartite polynomial is not covering because deletion of the perfect matching creates index-specific exceptions when exactly one opposite-side vertex has label 2.",
+    "residual_risks": [
+      "A poorly indexed source may use an unexpected synonym such as a one-factor-deleted biclique without the phrase crown graph.",
+      "No literature search can establish absolute uniqueness; the originality judgment is limited to the inspected sources and implication comparisons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The source defines Roman dominating functions and the minimum parameter; the retained claim is a later all-weight crown-graph enumeration.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2003.06.004",
+        "material_read": "Bibliographic record and accessible article text including the RDF definition and publication metadata.",
+        "method": "Direct source inspection.",
+        "title": "Roman domination in graphs",
+        "trigger": "Foundational definition and archive anchor for the invariant."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper introduces the Roman domination polynomial and gives a complete-bipartite formula. Full-text search found no crown occurrence; its K_{n,m} theorem does not account for deleted matched nonedges.",
+        "identifier_or_url": "DOI:10.7251/BIMVI2102355G",
+        "material_read": "Full searchable text, including Definition 2.1 and Section 3; page containing Theorem 3.4 for K_{n,m} was inspected visually.",
+        "method": "Full-text search and page inspection.",
+        "title": "On the Roman domination polynomial of graphs",
+        "trigger": "Closest primary source for the exact invariant and a plausible broader graph family."
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT",
+        "evidence": "It enumerates restrained dominating vertex sets, not Roman dominating labelings, and therefore does not imply the retained formula.",
+        "identifier_or_url": "2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+        "material_read": "Published finding title and summary describing the exact restrained-domination profile.",
+        "method": "Published-finding semantic comparison.",
+        "title": "Restrained-dominating-set profile of crown graphs",
+        "trigger": "Same graph family returned by semantic search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "070f66b8-aef5-494d-b232-bd96a9f217ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crown graphs are a standard bipartite family, and an exact all-weight Roman-function enumerator is a natural refinement of scalar Roman domination. The seven-regime formula exposes the structural effect of deleting a perfect matching from K_{n,n}, and it yields the exact n-fold minimum-function multiplicity as a nontrivial consequence.",
+    "status": "PASS"
+  }
+}
