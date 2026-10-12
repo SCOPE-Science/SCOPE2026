@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For any selected set with \\(a\\ge1\\), domination is immediate from a selected clique vertex and the induced graph is exactly \\(K_a\\vee\\overline{K_b}\\). A perfect matching requires \\(b\\le a\\) and even \\(a+b\\); these conditions are sufficient by matching every stable vertex to a distinct clique vertex and pairing the remaining even clique vertices. If \\(a=0\\), the only dominating candidate is the whole stable part, which is edgeless and has no perfect matching. Every larger paired-dominating set contains a matched edge, and every graph edge is itself paired-dominating, proving the minimal-set statement. The packaged checker exhaustively verifies all subsets for \\(1\\le r,n\\le7\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Lu–Zeng, doi:10.1007/s10878-008-9177-6, proves paired domination NP-complete even for split graphs; that hardness statement does not provide an all-set formula for complete split graphs.",
+        "Indexed semantic-record hit 2026/10/4/SCOPE-all-k-tuple-total-dominating-sets-of-connected-threshold-graphs--c55ba8c2a25c treats a different open-neighborhood multiplicity invariant on threshold graphs.",
+        "The complete-multipartite paired polynomial does not specialize to general complete split graphs: when \\(r,n\\ge2\\), \\(K_r\\vee\\overline{K_n}\\) has an edge inside the clique part and a nonedge inside the stable part, incompatible with a complete multipartite partition representing both blocks."
+      ],
+      "reasoning": "General split-graph hardness motivates the subclass but does not imply the classification. The threshold-graph total-domination result uses a different predicate, and the complete-multipartite/chain formulas apply to different graph classes.",
+      "searches": [
+        "paired domination polynomial threshold graph all paired dominating sets",
+        "paired dominating sets threshold graphs exact polynomial",
+        "paired domination threshold graph minimum and enumeration",
+        "paired domination chordal graph split graph algorithm",
+        "paired dominating set split graph"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+      "doi:10.1007/s10878-008-9177-6",
+      "url:https://publications.waset.org/abstracts/52964/introduction-to-paired-domination-polynomial-of-a-graph",
+      "doi:10.7494/OpMath.2013.33.4.763",
+      "doi:10.17268/sel.mat.2021.01.11"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Haynes–Slater, doi:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F, defines paired domination and gives general bounds, not this family enumerator.",
+        "Chen–Lu–Zeng gives split-graph complexity and algorithms for other graph classes, not the complete-split polynomial.",
+        "Puttaswamy–Alwardi–Nayaka introduces the polynomial but the accessible abstract does not state the target family or formula."
+      ],
+      "reasoning": "The accepted claim counts every paired-dominating set by both block occupancies and proves that every minimal paired-dominating set is an edge. Neither a general definition, an NP-completeness theorem, nor formulas on different graph classes logically determines these counts.",
+      "searches": [
+        "paired-domination in graphs complete split graph",
+        "paired domination split graphs NP-complete complete split",
+        "Introduction to Paired Domination Polynomial of a Graph complete split",
+        "paired domination polynomial complete multipartite versus complete split"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Indexed semantic-record hit 2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba concerns complete multipartite graphs, not complete split graphs.",
+        "Indexed semantic-record hit 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528 concerns chain graphs and a ballot-style bipartite criterion, not \\(K_r\\vee\\overline{K_n}\\).",
+        "Targeted web searches under “complete split”, join, split, and paired-domination aliases returned no statement of the criterion \\(b\\le a\\) with parity or the displayed bivariate enumerator."
+      ],
+      "reasoning": "The target object is equivalently a complete split graph, the join of a clique and a null graph, and a two-block threshold graph. The searches used these aliases. Neither the closest indexed semantic statements nor the inspected published abstracts have the same object-plus-invariant statement.",
+      "searches": [
+        "paired domination polynomial complete split graph K_r join independent set",
+        "paired dominating sets complete split graphs",
+        "paired domination split graph K_m join edgeless graph",
+        "paired domination polynomial split graph",
+        "complete split graph K_r join independent set paired domination polynomial exact all sets",
+        "paired domination complete split graph condition selected clique vertices independent vertices parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed semantic record contains a complete-split paired-domination coefficient table or formula.",
+        "Web searches located the 2016 paired-domination-polynomial introduction, but its public abstract only says that some standard families are computed and does not identify complete split graphs.",
+        "The 2021 complete-split source doi:10.17268/sel.mat.2021.01.11 confirms the join-based graph terminology but studies unique list colorability, not paired domination."
+      ],
+      "reasoning": "A failed database search is not taken as a novelty proof. It is combined with object-level and implication-level comparisons; the unnamed-family issue in the 2016 proceedings record is preserved as a residual risk.",
+      "searches": [
+        "complete split graph paired domination polynomial exact all sets",
+        "complete split paired dominating set polynomial",
+        "K_r join independent set paired domination",
+        "upper paired domination complete split graphs minimal paired dominating sets"
+      ]
+    },
+    "rationale": "No checked source states or implies the complete-split all-set criterion or its bivariate paired-domination enumerator. The closest semantic results treat complete multipartite graphs or chain graphs, which are different graph classes, while the broad split-graph literature establishes computational hardness rather than this exact tractable subclass. The 2016 polynomial-introduction record leaves a specific residual access risk because it does not name all standard families in the public abstract.",
+    "residual_risks": [
+      "The 2016 polynomial-introduction proceedings item is publicly retrievable only as an abstract/one-page record in the inspected sources; a fuller version could contain an unindexed complete-split specialization.",
+      "An unindexed thesis, local journal article, or table could contain an equivalent formula despite the targeted searches.",
+      "The originality conclusion is limited to the inspected statements and implication comparisons and is not a claim of exhaustive global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the definition of paired domination and general bounds; DOES NOT COVER an all-set polynomial for complete split graphs.",
+        "evidence": "The record defines a paired-dominating set as a dominating set whose induced subgraph contains a perfect matching and gives first-publication date 1998-12-07.",
+        "identifier_or_url": "doi:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+        "material_read": "Publisher bibliographic record and abstract.",
+        "method": "Public publisher-page inspection.",
+        "title": "Paired-domination in graphs",
+        "trigger": "Foundational definition and archive-era source anchor."
+      },
+      {
+        "assessment": "COVERS NP-completeness of paired domination for split graphs and algorithms for block/interval graphs; DOES NOT STATE the complete-split all-set classification or polynomial in the inspected material.",
+        "evidence": "The abstract explicitly says the paired-domination problem is NP-complete for split graphs.",
+        "identifier_or_url": "doi:10.1007/s10878-008-9177-6",
+        "material_read": "Publisher abstract, bibliographic record, and the publicly surfaced first-page text from the author-uploaded copy.",
+        "method": "Public full-record/first-page inspection and statement comparison.",
+        "title": "Labelling algorithms for paired-domination problems in block and interval graphs",
+        "trigger": "Highly relevant broad-class source because complete split graphs are split graphs."
+      },
+      {
+        "assessment": "COVERS the definition of the paired-domination polynomial and says some standard families are computed; the publicly retrievable material does not name complete split graphs or state the target formula.",
+        "evidence": "The record defines \\(d_{pr}(G,i)\\) as the number of paired-dominating sets of cardinality \\(i\\) and lists conference dates 2016-09-26 to 2016-09-27.",
+        "identifier_or_url": "url:https://publications.waset.org/abstracts/52964/introduction-to-paired-domination-polynomial-of-a-graph",
+        "material_read": "Public proceedings abstract/one-page PDF text and the ResearchGate public record for the author-uploaded item.",
+        "method": "Public abstract and one-page proceedings inspection.",
+        "title": "Introduction to Paired Domination Polynomial of a Graph",
+        "trigger": "Direct source for the counting polynomial used in the claim."
+      },
+      {
+        "assessment": "Confirms paired domination under MSC 05C69 and studies a different extremal classification, not the target polynomial.",
+        "evidence": "The journal record lists Mathematics Subject Classification 05C69.",
+        "identifier_or_url": "doi:10.7494/OpMath.2013.33.4.763",
+        "material_read": "Journal abstract and metadata including Mathematics Subject Classification.",
+        "method": "Public journal-page inspection.",
+        "title": "All graphs with paired-domination number two less than their order",
+        "trigger": "Primary-MSC confirmation within paired-domination literature."
+      },
+      {
+        "assessment": "COVERS the terminology that the join of a null graph and a complete graph is a complete split graph; studies list colorability, not paired domination.",
+        "evidence": "The abstract explicitly defines a complete split graph as the join of a null graph and a complete graph.",
+        "identifier_or_url": "doi:10.17268/sel.mat.2021.01.11",
+        "material_read": "Journal abstract and graph definition.",
+        "method": "Public journal-page inspection.",
+        "title": "Uniquely List Colorability of Complete Split Graphs",
+        "trigger": "Exact graph-family terminology and join representation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3cd1e031-46b6-4f15-aa0c-375f2cba3205",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete split graphs are a canonical maximally joined subclass of split graphs, while paired domination is NP-complete on the full split-graph class. The result resolves the entire all-set structure on this natural boundary family, including a bivariate occupancy enumerator, all ordinary coefficients, exact minimum-set count, and the equality \\(\\Gamma_{pr}=\\gamma_{pr}=2\\). This is a structural classification on an infinite two-parameter graph family, not an arbitrary finite slice or a recomputation of a single scalar.",
+    "status": "PASS"
+  }
+}
