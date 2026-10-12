@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The rate-\(\lambda\) Palm spacings are independent. The mutual-nearest-neighbor event \(B<A,\ B<C\) has probability \(1/3\); changing variables to the shared gap and two outer-gap excesses factors the conditional density into rates \(3\lambda,\lambda,\lambda\). Scaling the two excesses by one-half gives two independent rate-\(2\lambda\) cell extensions. The resulting Laplace law, moments, diagonal tail and Bayes conditional-probability formula follow by explicitly displayed integrations. No sampling simulation is treated as a universal certificate. The independent seeded numerical checker agreed with all tested identities.
+
+**Originality — PASS with specified literature risk.** The closest primary paper, Rohrmann–Zurbriggen (arXiv:1109.6664), studies nearest-neighbor *ball* volumes and mutual-neighbor gap frequencies; this is not the full joint law of the two true Voronoi cells, which requires both outer gaps. Járai-Szabó–Néda (arXiv:cond-mat/0406116) treat unconditioned marginal cell size; Calka–Chenavier (arXiv:1304.0170) examine extreme individual cell radii. Search comparisons found neither the stated conditional full-cell bivariate Laplace law nor its \(4/13\) versus \(1/2\) covariance contrast and cell-size-dependent reciprocity posterior. Baumstark–Last (2007) is particularly relevant general Palm literature but could not be read in full; it may imply this special case. No absolute priority claim is made.
+
+**Value — PASS.** Mutual nearest-neighbor pair selection is a geometrically canonical way to identify local pairs. The full conditional law explains quantitatively how selected adjacency changes geometric cell-size cofluctuation and supplies an exact calibration of mutual-pair membership against an observed cell length. These joint and inverse-conditional quantities are not available from the classical marginal cell length alone. The result is deliberately restricted to a homogeneous Poisson line; the formulas are not extrapolated to other dimensions.
+
+**Limitations.** An inaccessible historical paper could contain a general implication; external independent review has not occurred. The theorem is analytic for the Poisson line only, and the numerical checks are supplementary.
+
+Self-review: passed. Independent audit: not yet performed.
