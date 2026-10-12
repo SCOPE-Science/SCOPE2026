@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For any real 2x2 SPD matrix with unequal eigenvalues, one-node Lanczos is exactly the Rayleigh logarithm. Diagonalization gives the exact trigonometric Rayleigh factorization recorded in RESULT.md. The absolutely uniformly convergent log Fourier expansion proves the bias and dilogarithm variances by Parseval. A simple identity for perpendicular Rayleigh products gives the transformed the symmetric arcsine beta law law. Countermonotone rearrangement, proved via strict exchange inequalities and quantile approximation, makes perpendicular pairing the variance/MSE minimum for every arbitrary coupling of the fixed Haar marginals, with the claimed equality condition. The hyperbolic-tangent parameterization and Taylor series give the small-contrast coefficients. The standalone package verifier passed 252 exact-rational product tests, 870 finite-grid rearrangement tests, 35 CDF checks, 21 quadrature comparisons and six asymptotic constant checks; these are supplemental, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "BOLT uses block tridiagonals and exact matrix-function quadratic-form trace moments and becomes exact for full dimension-2 blocks.",
+        "The present fixed estimator instead processes two one-node scalar Rayleigh logarithms, which remain biased."
+      ],
+      "reasoning": "Inspected the closest orthonormal probe approach for stronger general results: it computes a different statistic, so its exact block recovery does not prove this scalar estimator risk formula. The theorem explicitly does not claim global optimality among all two-matvec estimators.",
+      "searches": [
+        "single step stochastic Lanczos log determinant estimate 2 by 2 exact bias Haar orthonormal sketch versus iid probe variance logarithmic",
+        "two by two stochastic Lanczos one-node log-determinant estimator with Haar perpendicular probes exact variance dilogarithm antithetic optimum",
+        "\"stochastic Lanczos quadrature\" \"orthogonal\" \"variance\" \"log determinant\" probes",
+        "https://arxiv.org/html/2505.12289v2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.01941v3 (full HTML primary)",
+      "arXiv:2105.06595v2 (full HTML primary)",
+      "arXiv:2505.12289v2 (full HTML primary)",
+      "arXiv:2307.02152 (primary PDF inspected relevant pages)",
+      "2026-09 preceding indexed ledger, claim-level overlap search",
+      "2026-10 current own ledger, 101 prior claim-level overlap scan",
+      "Indexed mathematical research claims, multiple semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Trogdon–Ubaru give iid probe-based spectral-measure and quadrature bounds, not covariance for arbitrary two-probe couplings.",
+        "BOLT concerns block Lanczos and trace of f(A), not sum of log(v^T A v) terms.",
+        "Han et al. give logdet approximation and concentration estimates, not an exact 2D angular coupling optimum."
+      ],
+      "reasoning": "General convergence bounds do not determine exact finite-sample nonlinear risk; block exactness of a different estimator does not entail the stated positive scalar quadrature bias. The new claim is specifically a best coupling and exact distribution within a narrower estimator class, not a corollary asserted merely from different parameter counts.",
+      "searches": [
+        "two by two stochastic Lanczos one-node log-determinant estimator with Haar perpendicular probes exact variance dilogarithm antithetic optimum",
+        "https://arxiv.org/html/2204.01941v3",
+        "https://arxiv.org/html/2105.06595v2",
+        "https://arxiv.org/html/2505.12289v2",
+        "https://arxiv.org/pdf/2307.02152"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The derived error is log of 1+tau times a the symmetric arcsine beta law variate and the exact variance involves Li_2(k^4).",
+        "The inspected SLQ primary work defines iid spherical directions; the proof here reformulates the two-node estimator as an angular Rayleigh-log sum."
+      ],
+      "reasoning": "Searched alternate terms for antithetic/countermonotone coupling, complementary eigenbasis weights, angular arcsine laws, and log-Rayleigh/dilogarithm moments; no inspected equivalent statement or stronger statement implies the full exact distribution plus optimal coupling. A failed index search by itself is not novelty evidence.",
+      "searches": [
+        "orthogonal probe stochastic Lanczos Gaussian quadrature two-dimensional logdet exact distribution Hadamard inequality random rotation",
+        "antithetic coupling orthogonal probes logarithm Rayleigh quotient arcsine beta error log determinant variance",
+        "\"orthogonal\" \"Haar\" \"log Rayleigh quotient\" \"dilogarithm\"",
+        "https://arxiv.org/html/2204.01941v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed mathematical records returned Haar second-moment subspace descent and random matrix concentration, not a table or identity for two-scalar-one-node logdet risk."
+      ],
+      "reasoning": "The object is an all-real-condition-number closed-form risk law, not a finite combinatorial datum or a known numerical table. No exact database entry located; lack of retrieval is not a guarantee of absence.",
+      "searches": [
+        "one step Rayleigh quotient log determinant random orthonormal basis exact arcsine law variance minimization",
+        "logarithm Rayleigh quotients complementary eigenbasis weights optimal countermonotone coupling stochastic quadrature",
+        "\"Lanczos\" \"log determinant\" \"dilogarithm\" variance Gaussian two-dimensional",
+        "\"orthogonal probes\" \"logdet\" \"antithetic\" variance"
+      ]
+    },
+    "rationale": "The inspected primary 2022 randomized matrix-free quadrature work uses iid sampled weighted spectral measures; the closely related 2021 work establishes spectral approximation bounds. The later BOLT paper exploits orthonormal block probes but changes the statistic and can be exact when its block spans all of the full two-dimensional space, unlike the specified scalar one-node estimator. Searches for aliases, arcsine laws, dilogarithm, antithetic/countermonotone optimal coupling and stronger results found no inspected implication of the combined exact law; residual unindexed-specialist priority risk remains.",
+    "residual_risks": [
+      "An equivalent specialized derivation of the logarithmic Rayleigh pair law could exist in unindexed or inaccessible literature; searches cannot establish independent priority.",
+      "Some primary documents were read in relevant sections and appendices rather than checked word for word in all passages.",
+      "Block-Lanczos algorithms outside the fixed scalar one-node estimator class can recover the 2x2 log determinant exactly; no globally optimal estimator claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The formal algorithm samples independent unit probes and gives general spectral and quadrature guarantees; inspected sections do not establish a sharp arbitrary-Haar-coupling minimizer or a two-dimensional nonlinear log-Rayleigh distribution.",
+        "evidence": [
+          "Section 1 states iid copies and averaging weighted spectral measures (lines 86–118).",
+          "Section 3.2 constructs scalar Gaussian quadrature from the Lanczos tridiagonal (lines 864–883)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.01941v3",
+        "material_read": "Full HTML introduction §§1, 1.1; algorithms 1.1 and 3.2 in §3.2; spectral-sum approximation framing and reference list.",
+        "method": "Primary open-access arXiv full-text HTML, not title-only search.",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "Defining general stochastic Lanczos quadrature and iid spectral-measure probes; same numerical primitive."
+      },
+      {
+        "assessment": "Analyzes empirical spectral distribution approximations and sampling, not the two separate one-node logdet risk and optimal dependence between probe directions.",
+        "evidence": [
+          "§1.1 defines weighted spectral measure and spherical uniform directions; reported algorithm uses independently sampled unit directions (lines 47–77)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2105.06595v2",
+        "material_read": "Full HTML introductory theory and §1.1 one-probe weighted spectral-measure definition; method and convergence guarantees.",
+        "method": "Primary arXiv full-text HTML.",
+        "title": "Analysis of stochastic Lanczos quadrature for spectrum approximation",
+        "trigger": "Earlier closely related spherical probe stochastic Lanczos analysis; plausible broad coverage."
+      },
+      {
+        "assessment": "Uses jointly processed block Lanczos or exact quadratic forms of a matrix function. In dimension 2 with block size 2 it can produce the exact log determinant. This does not imply the positive bias, exact beta law, dilogarithm variance, or coupling-optimality for two separately processed one-node scalar log Rayleigh quotients; explicitly limits claim to fixed scalar estimator class.",
+        "evidence": [
+          "Algorithm 1 orthonormalizes a block, computes a block Lanczos matrix and applies the target function to that matrix (lines 124–142).",
+          "Theorem 1 uses an estimator based on exact matrix-function quadratic forms and b=n exactly recovers trace (lines 146–165, 182–191)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.12289v2",
+        "material_read": "Full HTML abstract, §§1–2, algorithm 1, theorem 1 and associated remarks, introduction to subblock scheme.",
+        "method": "Primary arXiv open full-text HTML.",
+        "title": "BOLT: Block-Orthonormal Lanczos for Trace Estimation of Matrix Functions",
+        "trigger": "Strongest apparent comparator: orthonormal probes and trace-function variance reduction; possible dominant coverage."
+      },
+      {
+        "assessment": "Analyzes projection-cost-preserving sketches and stochastic Lanczos approximation with concentration bounds; no inspected result gives the exact nonlinear two-dimensional orthogonal-Haar coupling law.",
+        "evidence": [
+          "The main theorem specifies approximation quality from subspace and stochastic trace approximations, rather than an exact 2D two-probe joint distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.02152",
+        "material_read": "PDF abstract/introduction on pages 1–3 and main error-bound theorem on page 6.",
+        "method": "Primary accessible arXiv PDF with rendered page inspection.",
+        "title": "Suboptimal subspace construction for log-determinant approximation",
+        "trigger": "A log-determinant-specific Lanczos and sketching analysis that might dominate the proposed error calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ee77cf1-2ed8-4e03-b684-f58a86747c71",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nontrivial natural invariant is exact finite-sample MSE of a widely used scalar one-node quadrature primitive with exactly two directions. Optimizing direction dependence has direct mathematical motivation: randomized trace estimators often couple or orthogonalize probes. The theorem proves that iid sampling suffers leading order quadratic error in the logarithmic spectral gap while optimal antithetic probes achieve quartic error near equal eigenvalues, with a nonzero Jensen/quadrature bias that coupling cannot remove. The distributional beta law quantifies tails, not merely a small empirical gain. Its scope is restricted to this scalar architecture; a full 2x2 block method can be exact and is not claimed inferior.",
+    "status": "PASS"
+  }
+}
