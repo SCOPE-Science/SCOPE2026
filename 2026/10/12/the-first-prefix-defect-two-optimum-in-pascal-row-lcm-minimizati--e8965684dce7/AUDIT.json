@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces each fixed row exactly to Huber's prime-power exclusion optimization and uses Huber's finite-row reduction. Integer-only enumeration checks every admissible row for n=42..57, reproduces the published n=41 row-90 certificate, and independently cross-checks row 120 by an LCM-state dynamic program. The defect-at-most-1 comparison is separately optimized over all allowed prefixes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huber's asymptotic theorem gives only δ(n)=o(n), which neither determines δ(57) nor identifies the first occurrence of defect 2.",
+        "MathWorld reports Huber's transitions at n=15 and n=41 but no later finite classification."
+      ],
+      "reasoning": "Neither the asymptotic localization/defect bounds nor the published finite transitions dominate the exact first-occurrence statement. The new claim requires an exact comparison over every admissible row for n=42..57 and a defect-restricted comparison at n=57.",
+      "searches": [
+        "Extremal Least Common Multiples in Rows of Pascal's Triangle supplementary defect through 41",
+        "Pascal triangle LCM optimal support prefix defect asymptotic Huber 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.23024v2",
+      "Wolfram MathWorld: Pascal's Triangle",
+      "published-finding corpus semantic index via four claim-specific searches",
+      "Current ledger 2026-10_week1__private research ledger__p0001_g000063.jsonl",
+      "Prior ledger 2026-09_week4__private research ledger__p0001_g000047.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huber's Theorem 1.1 supplies the prime-power exclusion method and Theorem 3.2 supplies a finite row cutoff, but applying them at n=57 still requires a new exact optimization.",
+        "The source's Proposition 6.3 proves δ(41)=3 and all earlier values, but does not logically imply when defect 2 first appears."
+      ],
+      "reasoning": "The method is prior, while the exact invariant is not. A general certification method does not imply the output of the finite optimization at n=57 or the absence of defect 2 for every n from 42 to 56.",
+      "searches": [
+        "a(n) Pascal triangle least common multiple support defect two n=57",
+        "prime-power exclusion row 120 binomial coefficients 41 61 lcm",
+        "\"row 120\" \"41\" \"61\" Pascal LCM",
+        "\"Extremal Least Common Multiples in Rows of Pascal's Triangle\" \"57\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huber arXiv:2609.23024v2, Proposition 6.3 and Section 8: published exact defect data are stated through n=41, and the frequency/size of later defects is posed as an open finer question.",
+        "published-finding corpus searches returned no equivalent statement for n=57, row 120, or the 41·61 exclusion pattern."
+      ],
+      "reasoning": "The claim is equivalent to an exact global statement about the minimum-defect fiber of the same a(n) optimization. The primary source does not state a value at n=57, and exact aliases for the defect, row, omitted indices, and saving did not reveal an equivalent result.",
+      "searches": [
+        "Extremal Least Common Multiples in Rows of Pascal's Triangle prefix defect n=57 row 120 41 61",
+        "Pascal row extremal LCM defect 57 row 120 omit indices 39 40",
+        "\"prefix defect\" \"57\" Pascal triangle LCM",
+        "\"δ(57)\" Pascal LCM"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The manuscript says row_minima.csv and supplementary tables certify the Section 6 claims, and explicitly says those data prove the claims about δ(n) through 41.",
+        "Searches for the exact n=57 value and supplementary-table filename did not surface a table containing the n=57 result."
+      ],
+      "reasoning": "The accessible description of the source tables limits their scientific role to the finite claims through n=41. No indexed exact table was found containing the n=57 value. The ancillary archive was not independently obtained, so this remains a stated residual access risk rather than evidence of coverage.",
+      "searches": [
+        "\"row_minima.csv\" \"2609.23024\"",
+        "\"row_minima.csv\" \"Extremal Least Common Multiples in Rows of Pascal's Triangle\"",
+        "\"34745667272226689670077824806669345127280961600\""
+      ]
+    },
+    "rationale": "The primary source certifies finite defects only through n=41 and poses later defect behavior as a finer open direction. published-finding corpus, web exact-phrase/value searches, indexed secondary coverage, and the current/prior own ledgers contained no equivalent or stronger n=57 statement.",
+    "residual_risks": [
+      "The arXiv ancillary reproducibility archive was not independently retrieved. The manuscript itself states that its supplementary tables prove the finite defect claims through n=41, so no positive evidence of n=57 coverage was found.",
+      "As with any literature search, unindexed work could exist; no equivalent statement was found in the checked primary, secondary, published-finding corpus, exact-value, exact-parameter, or own-ledger searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the n=57 claim: exact defect results are stated through n=41; later defect behavior is posed as an open finer question.",
+        "evidence": "Proposition 6.3 states the exact defect data through n=41; Section 8 asks how large δ(n) can become and how often it is positive.",
+        "identifier_or_url": "arXiv:2609.23024v2",
+        "material_read": "Definitions, Theorems 1.1 and 3.2, Section 6 finite certification, Section 8 outlook, references/data-availability passage.",
+        "method": "Full-text PDF inspection, including rendered-page inspection of the finite-certification pages.",
+        "title": "Extremal Least Common Multiples in Rows of Pascal's Triangle",
+        "trigger": "Direct source for the identical optimization problem and the exact-certification framework."
+      },
+      {
+        "assessment": "NOT_COVERING: it reports n=15 and n=41 transitions only.",
+        "evidence": "The entry summarizes the first non-prefix case at n=15 and first defect-greater-than-one case at n=41, with no n=57 result.",
+        "identifier_or_url": "Wolfram MathWorld, Pascal's Triangle",
+        "material_read": "Entry section describing Huber's a(n), asymptotic, and finite transitions.",
+        "method": "Web-page inspection.",
+        "title": "Pascal's Triangle",
+        "trigger": "Indexed secondary reference summarizing the recent Huber result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8965684-dce7-4a50-8cba-0a668c154cf2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies the size and frequency of prefix defects as a natural unresolved finer question. Defect 2 is the only small defect value absent from the published first transitions after the jump to 3 at n=41, so locating its first occurrence is a natural exact invariant rather than an arbitrary slice. The n=57 optimizer also has a clean structural explanation through the overlapping prime exclusions for 41 and 61.",
+    "status": "PASS"
+  }
+}
