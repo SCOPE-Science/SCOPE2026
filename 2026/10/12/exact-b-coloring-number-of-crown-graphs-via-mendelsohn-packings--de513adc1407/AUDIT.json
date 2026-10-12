@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The proof gives an exact local characterization of same-color classes in a crown graph. A legal class has at most three edges; size three is exactly a directed \\(3\\)-cycle. This yields the lower bound. Classical Mendelsohn packing results attain it for every \\(n\\ge4\\) except \\(n=6\\), while \\(n=6\\) cannot attain ten colors because that would be a nonexistent \\(\\mathrm{MTS}(6)\\); an explicit eleven-color partition is supplied. The standalone verifier checks 38,918 candidate local classes, explicit constructions for \\(n=4\\) through \\(8\\), and exact nonexistence of a directed-triangle decomposition for \\(n=6\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu–Ying–Song give general exclusion bounds and the complete-biclique benchmark but not matching-deleted bicliques.",
+        "The foundational and planar \\(B\\)-coloring literature treats other graph classes and general bounds.",
+        "Gardner's packing theorem determines the directed-triangle packing side but has no graph \\(B\\)-coloring statement."
+      ],
+      "reasoning": "General \\(B\\)-coloring bounds do not determine the exact crown value. Conversely, the broader design theorem does not by itself identify legal crown color classes. Neither source family dominates the combined statement.",
+      "searches": [
+        "B-coloring planar graphs crown graph",
+        "B-coloring bipartite exclusions complete bipartite",
+        "maximum packing complete directed graph Mendelsohn triples"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.39716v1",
+      "DOI:10.1556/012.2023.01539",
+      "Gardner, Congressus Numerantium 127 (1997), 161–170",
+      "Gardner design-theory supplement, revised 2022"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical theorem states that \\(\\mathrm{MTS}(v)\\) exists for \\(v\\equiv0\\) or \\(1\\pmod3\\) except \\(v=6\\), and that a maximum Mendelsohn packing for \\(v\\equiv2\\pmod3\\) has a directed \\(2\\)-cycle leave.",
+        "Lu–Ying–Song record \\(q_B(K_{\\Delta,\\Delta})=\\Delta^2\\).",
+        "The new proof shows how those directed blocks correspond exactly to crown \\(B\\)-color classes."
+      ],
+      "reasoning": "The design theorem is a necessary prior ingredient, but it does not imply the crown coloring result without the new structural translation. That translation also shows why the directed \\(2\\)-cycle leave costs exactly one color and why the exceptional \\(\\mathrm{MTS}(6)\\) obstruction becomes an exceptional \\(B\\)-coloring value.",
+      "searches": [
+        "Mendelsohn triple system existence order 6",
+        "maximum Mendelsohn packing leave D2",
+        "B-coloring complete bipartite q_B"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.39716v1 defines \\(B\\)-coloring and contains no occurrence of crown or Mendelsohn.",
+        "DOI:10.1556/012.2023.01539 is the foundational \\(B\\)-coloring source.",
+        "Gardner's Mendelsohn packing theorem concerns arc packings of complete digraphs, not edge-colorings of crown graphs."
+      ],
+      "reasoning": "The natural graph-coloring aliases and the exact directed-design reformulation were searched. The design theorem becomes applicable only after proving that a crown \\(B\\)-color class is a directed triangle, a compatible pair, or a singleton. No source checked states that correspondence.",
+      "searches": [
+        "B-coloring crown graph rainbow C4 edge coloring",
+        "q_B crown K_nn minus perfect matching",
+        "rainbow C4 edge coloring crown graph Mendelsohn",
+        "K_{n,n}-M rainbow C4 edge coloring",
+        "arXiv 2609.39716 B-coloring bipartite exclusions",
+        "crown B-coloring q_B ceil n(n-1)/3 n=6 11",
+        "crown B-coloring Mendelsohn triple system order 6 exception"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-value source or indexed table returned the formula for crown graphs.",
+        "The closest crown hits concern classical vertex \\(b\\)-coloring or other coloring invariants, not \\(B\\)-coloring."
+      ],
+      "reasoning": "The searches targeted both the modern invariant name and descriptive rainbow-C4 terminology; no exact crown table was located.",
+      "searches": [
+        "crown graph B-coloring C4",
+        "crown graph rainbow C4 edge coloring",
+        "K_{n,n} perfect matching B-coloring",
+        "crown q_B graph"
+      ]
+    },
+    "rationale": "No checked \\(B\\)-coloring source states the crown-graph formula or its design-theoretic reduction. Classical Mendelsohn packing results supply a construction only after the new color-class correspondence is proved. The prior cactus result covers \\(\\operatorname{Cr}_3\\) only, and the claim starts at \\(n=4\\).",
+    "residual_risks": [
+      "The original 1997 Gardner article was not retrieved in full; the exact theorem used was checked in an accessible supplement that explicitly attributes it to that article.",
+      "A poorly indexed older edge-coloring paper could conceivably encode the same crown/design correspondence under descriptive rainbow-C4 terminology, although targeted searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper defines \\(q_B\\) and states \\(q_B(K_{\\Delta,\\Delta})=\\Delta^2\\), but document-wide searches found no crown or Mendelsohn occurrence and no matching-deleted biclique formula.",
+        "identifier_or_url": "arXiv:2609.39716v1",
+        "material_read": "Full 24-page arXiv PDF, including the \\(B\\)-coloring definition, the complete-bipartite benchmark, main \\(B\\)-coloring theorems, further-work section, references, and document-wide searches for crown and Mendelsohn.",
+        "method": "Full-text statement comparison and targeted term search.",
+        "title": "(2,F)-Avoiding Coloring and B-Coloring under Bipartite Exclusions",
+        "trigger": "Recent primary-MSC lead studying the exact \\(B\\)-coloring invariant and bipartite graphs."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_INPUT_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "The supplement states the exact directed-design theorem used in the proof but contains no B-coloring or crown-graph statement.",
+        "identifier_or_url": "Gardner-design-theory-supplement-revised-2022",
+        "material_read": "All six pages relevant to the definitions, existence conditions, maximum-packing theorem, exceptional order 6, and directed-2-cycle leave. The supplement explicitly identifies Gardner's 1997 Congressus Numerantium paper as the original source.",
+        "method": "Exact theorem and implication comparison, including inspection of the leave diagram.",
+        "title": "Packings and Coverings for Mendelsohn and Directed Triple Systems",
+        "trigger": "The crown color-class reduction leads exactly to Mendelsohn triples."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source introduces the parameter family but does not supply the crown exact formula in the present claim.",
+        "identifier_or_url": "DOI:10.1556/012.2023.01539",
+        "material_read": "Open bibliographic record and accessible full-text abstract/introduction material describing the less-strong coloring parameters.",
+        "method": "Invariant-definition and scope comparison.",
+        "title": "“Less” Strong Chromatic Indices and the (7,4)-Conjecture",
+        "trigger": "Foundational source for \\(B\\)-coloring terminology and motivation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de513adc-1407-4551-a74e-9079892264d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete exact formula on the canonical one-factor deletion of \\(K_{n,n}\\), exposes a factor-three asymptotic collapse from the known complete-biclique value, and explains a unique exceptional order through Mendelsohn design theory. The structural correspondence is reusable for studying \\(B\\)-colorings of other near-complete bipartite graphs and is not a routine finite computation or parameter increment.",
+    "status": "PASS"
+  }
+}
