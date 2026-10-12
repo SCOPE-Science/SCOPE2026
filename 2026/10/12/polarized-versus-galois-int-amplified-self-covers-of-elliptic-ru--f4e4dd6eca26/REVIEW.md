@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Over \(\mathbb C\), every degree-zero line bundle on an elliptic curve admits unitary lattice multipliers. The two displayed monomial self-maps descend by character identities and are algebraic by GAGA. Their finite degrees equal base-isogeny degree times fiber degree. Explicit translation-and-scaling deck transformations match those degrees; checking exponents and independent lattice-generator lifts determines the full Galois groups. The numerical cone and projective-bundle intersection computation prove int-amplification and genuine line-bundle polarization, respectively. For nontorsion \(L\), a putative polarization forces both base and fiber degree \(q\); the two relative binary forms are forced to complementary pure monomials, yielding \(g^*L=L^{\pm q}\), hence a base isogeny of degree \(q^2\), contradiction. The finite-kernel argument covers elliptic curves with complex multiplication. There is no claim that a finite sample proves the theorem.
+
+## Originality — PASS, subject to stated residual risk
+Jiang--Luo's full initiating paper supplies toric-fibration necessity but not this exact torsion dichotomy. Nakayama's 2002 Proposition 5 constructs nontrivial ruled-surface endomorphisms: this earlier map existence is expressly acknowledged and is not the novelty claim. His later elliptic-ruled discussion and Nakayama--Zhang's general polarized-structure theorem do not supply the calculated deck groups or rule out polarized maps for all nontorsion \(L\) as a theorem in the inspected sections. A published study of Seshadri constants on an elliptic ruled surface studies a different numerical invariant and has no such implication. The principal residual risk is an older equivalent torsion/polarizability criterion embedded in a broader classification under different terminology; absence from searches is not a proof of absolute novelty.
+
+## Value — PASS
+The distinction between Galois int-amplification and genuine polarization is an explicit structural question motivated by the recent toric-fibration necessity theorem. The result gives a uniform infinite family that satisfies the Galois hypothesis but is nonpolarizable exactly for nontorsion twisting, plus sharp converse and full deck groups when twisting is torsion. This is not merely the routine observation that an isogeny and a power map may be composed: the nontorsion obstruction applies to **every** polarized endomorphism and the Galois computation is scheme-independent and uniform in \(m\).
+
+## Limitations and closest sources
+The result does not cover indecomposable bundles, other genera, or positive characteristic. Closest material: Jiang--Luo, arXiv:2610.05248v1, Theorem 1.1; Nakayama, *Ruled surfaces with non-trivial surjective endomorphisms*, Proposition 5, Case (1); Nakayama, *On the structure of normal projective surfaces admitting non-isomorphic surjective endomorphisms*, Fact 2.23 and group-equivariant endomorphism discussion; Nakayama--Zhang, arXiv:0908.1688, general structural results. Older equivalent formulations remain a literature risk.
+
+Self-review: passed. Independent audit: not yet performed.
