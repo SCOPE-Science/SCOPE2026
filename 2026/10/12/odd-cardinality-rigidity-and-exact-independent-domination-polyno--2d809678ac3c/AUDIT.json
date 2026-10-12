@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The rung-state local conditions are necessary and sufficient, zero rungs cannot be adjacent, and each advance between selected rungs swaps the selected rail. Möbius twist makes the number of occupied rungs odd; every admissible zero pattern gives two selections. Double counting by a marked occupied rung gives the exact binomial formula. Formal odd-series differentiation yields the rational series. Exhaustive direct subset enumeration confirms all coefficients for n=3..10, and finite checks are not used as proof of the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dod 2016 defines the general independent-domination polynomial and treats paths/cycles, but no Möbius-ladder formula occurs in the inspected eleven pages.",
+        "Bautista-Ramos and Guillén-Galván 2012, pages corresponding to Section 5 generalized Möbius ladders, derive a transfer generating function for the count of ALL independent sets, not maximal ones."
+      ],
+      "reasoning": "The general formula defining the polynomial does not evaluate it in this graph family. An exact count of all independent sets is a different enumeration and does not imply the independent-and-dominating subclass coefficient distribution without an additional structural analysis.",
+      "searches": [
+        "Möbius ladder inclusion maximal independent sets cardinality polynomial domination polynomial exact recurrence",
+        "OEIS A290608 graded maximal independent set enumeration Mobius ladder by size and Lucas numbers",
+        "https://arxiv.org/pdf/1602.08250",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL15/Bautista/bautista4.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1602.08250",
+      "https://oeis.org/A290608",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL15/Bautista/bautista4.pdf",
+      "https://opensiuc.lib.siu.edu/math_articles/93/",
+      "https://mathworld.wolfram.com/IndependenceNumber.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 Dod: general polynomial, no same-family evaluation.",
+        "2012 Bautista-Ramos–Guillén-Galván: all-independent rather than maximal independent sets.",
+        "2017 OEIS A290608: total only.",
+        "1998 McSorley title and abstract discuss counting many Möbius-ladder structures; full article not accessible for decisive comparison."
+      ],
+      "reasoning": "Neither the general theory nor the all-independent count nor the aggregate maximal count logically entails the odd-cardinality coefficient formula. A direct derivation would be required. McSorley has a potentially stronger scope, so priority uncertainty is retained rather than claiming its full text does not cover the theorem.",
+      "searches": [
+        "Möbius ladder inclusion maximal independent sets cardinality polynomial domination polynomial exact recurrence",
+        "For the Möbius ladder graph M_{2n}, count maximal independent vertex sets by cardinality and show every such set has odd size; binomial formula for independent domination polynomial.",
+        "https://opensiuc.lib.siu.edu/math_articles/93/",
+        "\"Counting structures in the Möbius ladder\" \"independent\" \"maximal\" McSorley"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Independent dominating sets are exactly inclusion-maximal independent sets, and their complements are inclusion-minimal vertex covers.",
+        "OEIS A290608 (https://oeis.org/A290608) is the exact ungraded set count."
+      ],
+      "reasoning": "Three equivalent names and complementation were checked. No inspected full-text source states coefficients indexed by maximal independent set size; the known total is weaker because distinct graded coefficient vectors can have identical sums.",
+      "searches": [
+        "Möbius ladder maximal independent set number independent domination spectrum",
+        "Möbius ladder independence domination polynomial",
+        "Exact independent domination polynomial of Möbius ladder M_{2n}: coefficient number maximal independent sets size k equals (2n/k) binomial(k,n-k) for odd k, all even degrees vanish; circular tiling parity",
+        "Moebius ladder twisted cyclic ladder maximal independent sets have odd cardinality and binomial coefficients",
+        "For the Möbius ladder graph M_{2n}, count maximal independent vertex sets by cardinality and show every such set has odd size; binomial formula for independent domination polynomial.",
+        "\"Moebius ladder\" \"minimal vertex covers\" sizes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A290608 displays totals 2,8,12,16,... and the Lucas identity but no cardinality index.",
+        "MathWorld gives the known Möbius-ladder maximum independence number, not the multiplicities at all smaller maximal sizes."
+      ],
+      "reasoning": "The known scalar table is recovered by specializing the new polynomial at one; it cannot supply the separate coefficients by implication.",
+      "searches": [
+        "https://oeis.org/A290608",
+        "site:oeis.org \"Moebius ladder\" \"maximal independent\" \"size\"",
+        "https://mathworld.wolfram.com/IndependenceNumber.html"
+      ]
+    },
+    "rationale": "The complete cardinality distribution, its rational bivariate series and odd-size restriction are not implied by the ungraded OEIS total, ordinary independence polynomial or general independent-domination identities. The relevant historical counting paper remains a real but non-decisive, explicitly documented priority risk because its abstract alone cannot determine coverage.",
+    "residual_risks": [
+      "The 1998 full article by McSorley was not inspectable; an equivalent under different terminology may predate this formula.",
+      "Specialized unpublished or unindexed graph-enumeration results cannot be excluded by the conducted searches.",
+      "No independent mathematical audit of the proof or literature priority has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and gives general relations and path/cycle cases, but no Möbius-ladder cardinality formula.",
+        "evidence": [
+          "https://arxiv.org/pdf/1602.08250, Sections 2–4 and pages 1–11"
+        ],
+        "identifier_or_url": "arXiv:1602.08250v1",
+        "material_read": "All eleven pages, including definitions, recurrences, graph examples, conclusion and references; page images also inspected.",
+        "method": "Open-access full PDF parsed and relevant original pages visually inspected.",
+        "title": "The Independent Domination Polynomial",
+        "trigger": "General defining theory and graph-family examples for the same polynomial."
+      },
+      {
+        "assessment": "Counts independent sets without the domination/maximality condition. Does not present the new polynomial.",
+        "evidence": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL15/Bautista/bautista4.pdf, Section 5 Generalized Möbius Ladders"
+        ],
+        "identifier_or_url": "Journal of Integer Sequences 15 (2012), Article 12.7.8",
+        "material_read": "Introduction, independent-set transfer theorem, and Section 5 generalized Möbius ladders example (original PDF pages 17–18) within the complete 22-page paper.",
+        "method": "Read public full 22-page publisher-hosted PDF, including original pages 17–18 and images with the Möbius-ladder transfer matrices and series.",
+        "title": "Fibonacci Numbers of Generalized Zykov Sums",
+        "trigger": "Explicit exact counts for Möbius ladders under independent-set terminology."
+      },
+      {
+        "assessment": "Provides total \\(L_n-2\\cos(2\\pi n/3)\\), not a cardinality-refined table. This total is explicitly treated as known.",
+        "evidence": [
+          "https://oeis.org/A290608, FORMULA and AUTHOR sections"
+        ],
+        "identifier_or_url": "OEIS:A290608",
+        "material_read": "Entire sequence page, definitions, formula, initial values, links and attribution.",
+        "method": "Read full public sequence entry.",
+        "title": "A290608: Number of maximal independent vertex sets in the n-Moebius ladder",
+        "trigger": "Exact same object and predicate, possibly dominating existing count."
+      },
+      {
+        "assessment": "Cannot label NOT_COVERING: it may include earlier equivalent counts, so residual historical priority risk remains.",
+        "evidence": [
+          "https://opensiuc.lib.siu.edu/math_articles/93/",
+          "DOI:10.1016/S0012-365X(97)00086-1"
+        ],
+        "identifier_or_url": "DOI:10.1016/S0012-365X(97)00086-1",
+        "material_read": "Repository abstract, bibliographic details and DOI only; article full text was not obtainable.",
+        "method": "Searched arXiv and lawful open-access repositories; repository full-PDF link was access-denied. Authorized institutional route required separate human input and could not complete.",
+        "title": "Counting Structures in the Möbius Ladder",
+        "trigger": "Highly relevant 1998 Möbius-ladder enumeration article, plausibly containing stronger coverage."
+      },
+      {
+        "assessment": "Already covers only the maximum cardinality, which is credited as known, not the full graded multiplicities.",
+        "evidence": [
+          "https://mathworld.wolfram.com/IndependenceNumber.html"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/IndependenceNumber.html",
+        "material_read": "Möbius-ladder entry in independence-number table and parameter definitions.",
+        "method": "Read public reference page.",
+        "title": "Independence Number",
+        "trigger": "Known independence number could dominate the extreme degree claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d809678-ac3c-4f8b-b1fc-28ef1f0048e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant is the established independent-domination polynomial on a natural classical cubic-graph family, not an arbitrary parameter. The all-order cardinality profile, unavoidable odd-size law, exact number of each extremal maximal independent set and rational series are mathematically informative refinements of the published ungraded total and independence-number extremum. Structural bijection explains the phenomenon and also resolves the minimal-cover size distribution.",
+    "status": "PASS"
+  }
+}
