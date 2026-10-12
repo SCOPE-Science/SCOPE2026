@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "For each active diagonal coordinate, the normalized residual is multiplied by \\(1-\u0007lpha_k\\lambda_i\\). Exact line search makes \\(\u0007lpha_k^{-1}\\) a Rayleigh quotient in \\([\\mu,L]\\), so \\(\\kappa\\le2\\) keeps every multiplier in \\([-1,1]\\) and therefore every coordinate nonnegative. In two dimensions, two exact searches scale the residual by the explicitly derived \\(\\gamma\\in[0,1)\\), which makes all even and odd iterates nonnegative. For every \\(\\kappa>2\\), the three-mode family has a second-iterate high-mode numerator converging to \\(1-\\kappa/2<0\\). The packaged exact-rational verifier replays the displayed witness and two-dimensional identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.2 gives the exact worst-case objective contraction for smooth strongly convex exact-line-search gradient descent.",
+        "Section 2.1 states the exact-line-search orthogonality condition for successive gradients.",
+        "Example 1.3 gives a special two-mode quadratic trajectory attaining the objective-rate bound."
+      ],
+      "reasoning": "These are broader rate statements but do not dominate a coordinatewise cone-invariance theorem. Objective contraction and gradient orthogonality permit individual coordinates to change sign.",
+      "searches": [
+        "arXiv:1606.09365 full text exact line search strongly convex gradient method",
+        "arXiv:1606.09365 Example 1.3 quadratic trajectory",
+        "arXiv:1606.09365 successive gradients orthogonal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1606.09365",
+      "doi:10.1007/s11590-016-1087-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source proves objective contraction by \\(((L-\\mu)/(L+\\mu))^2\\), which does not imply any coordinate sign constraint.",
+        "Its Example 1.3 is one extremal quadratic trajectory and does not classify all positive diagonal right-hand sides in dimension two.",
+        "Nearby published findings with the numerical threshold \\(2\\) concern Barzilai--Borwein interval steps or objective monotonicity under different step rules; neither implies the exact-line-search whole-trajectory theorem."
+      ],
+      "reasoning": "The final claim classifies componentwise feasibility for every iterate and proves minimal dimension for failure. None of the inspected rate or alternative-step statements yields those implications.",
+      "searches": [
+        "de Klerk Glineur Taylor 2016 Theorem 1.2 exact line search objective rate",
+        "de Klerk Glineur Taylor 2016 Example 1.3 two-mode quadratic",
+        "published numerical-optimization records exact-line-search steepest descent positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest semantic results concern objective monotonicity, Euclidean transient amplification, Barzilai--Borwein interval steps, or different Krylov/stationary methods rather than exact-line-search steepest-descent coordinate signs.",
+        "Web searches for positive-orthant invariance, componentwise nonnegative iterates, and two-dimensional exact-line-search positivity did not return a theorem with the same hypotheses and conclusion.",
+        "The exact-line-search primary source uses objective values and gradient orthogonality as observables, not coordinatewise cone membership."
+      ],
+      "reasoning": "The searched aliases cover both optimization terminology and linear-system terminology. The closest statements control norms, objectives, roots, or different step rules, none of which implies componentwise nonnegativity.",
+      "searches": [
+        "exact line search steepest descent positive diagonal quadratic componentwise nonnegative iterates condition number two",
+        "steepest descent positivity diagonal SPD second iterate sign condition number",
+        "Cauchy method positive orthant diagonal quadratic exact line search overshoot",
+        "gradient method exact line search nonnegative iterates Stieltjes positivity",
+        "two-dimensional steepest descent positivity all iterates diagonal quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched scientific database result tabulated or stated a condition-number-two positivity frontier for exact-line-search steepest descent.",
+        "The result is a symbolic all-iteration classification with a minimal-dimension obstruction, not a recomputation of a numerical table."
+      ],
+      "reasoning": "No exact database or table coverage was located.",
+      "searches": [
+        "steepest descent positivity diagonal quadratic condition number 2",
+        "exact line search nonnegative iterates quadratic",
+        "Cauchy method orthant invariance"
+      ]
+    },
+    "rationale": "The inspected primary full text treats exactly the same exact-line-search gradient method, establishes sharp objective-rate results, records successive-gradient orthogonality, and gives a special two-mode quadratic trajectory. It does not state componentwise positive-orthant invariance, the dimension-free threshold \\(\\kappa=2\\), unconditional two-dimensional positivity, or the three-dimensional minimal sign-loss construction. Targeted semantic and web searches using positivity, orthant, sign-change, Cauchy-method, and exact-line-search aliases found no implication-equivalent statement.",
+    "residual_risks": [
+      "Older steepest-descent or stationary-iteration literature may encode the same cone statement under monotone-iteration or positivity-preserving terminology not recovered by the searches.",
+      "The exact two-dimensional residual cycle is elementary and may be known as a classical structural fact; the originality claim is the combined positivity classification, sharp conditioning frontier, and minimal three-dimensional obstruction rather than orthogonality itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: supplies the exact-line-search algorithm, sharp objective-rate theory, and a special two-mode trajectory, but not the positive-orthant classification or minimal-dimension sign-loss theorem.",
+        "evidence": "The PDF states the exact-line-search iteration, the sharp objective contraction in Theorem 1.2, the two-mode extremal construction in Example 1.3, and successive-gradient orthogonality in equation (4).",
+        "identifier_or_url": "arXiv:1606.09365",
+        "material_read": "Full 11-page arXiv PDF, with focused inspection of the method definition, Theorem 1.2, Example 1.3, Figure 1 discussion, Section 2.1 exact-line-search conditions, and the successive-gradient orthogonality formula.",
+        "method": "Full-text PDF inspection with rendered-page verification of the algorithm, example, and orthogonality sections.",
+        "title": "On the worst-case complexity of the gradient method with exact line search for smooth strongly convex functions",
+        "trigger": "Closest primary source using exactly the same algorithm and strongly convex quadratic setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3c834dca-af67-4090-8c5c-83a7b9faef69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact-line-search steepest descent is a canonical solver, while nonnegative coordinates are natural when unknowns represent rates, concentrations, masses, or other intrinsically nonnegative quantities. The theorem separates objective monotonicity from coordinate feasibility and gives a complete structural boundary: universal sign safety through \\(\\kappa=2\\), unconditional safety in two dimensions, and immediate second-iterate failure in three dimensions above the boundary.",
+    "status": "PASS"
+  }
+}
