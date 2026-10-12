@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For every \\(0<r<1\\), \\(0\\le T\\le1\\) and \\(q>0\\), the rank-one inverse preconditioner F_q is SPD with \\(\\det(F_q)=q\\). The symmetric split operator has trace \\(q+r+(1-q)(1-r)t\\) and determinant \\(rq\\). Two-point Kantorovich sharpness converts this to the exact supremum over all nonzero initial errors. Optimizing \\(q/(a q+b)^2\\) on \\(q\\le1\\), and \\(q/(q+r)^2\\) on \\(q\\ge1\\), yields the unique global minimizer; direct algebra establishes the loss, nominal bound, and \\(r\\)-to-zero limit. Actual embedded verify.py run achieved 15444 exact identities, 2400 independently reconstructed first PCG worst-error steps, 850 randomized minimax samples and analytic frontier checks. The finite checks corroborate, not prove, the universal formula. Degenerate boundaries T=0 and T=1/2 are included. No assumptions on unknown direction distributions are smuggled into the quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2603.28969v1#S3",
+        "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+        "Published comparison ID 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "Published comparison ID 2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c"
+      ],
+      "reasoning": "The 2026 result is stronger in algorithmic scope for exact eigenspaces but cannot dominate the inexact-direction minimax claim because its eigendirections are exact. The 2016 angle-perturbation condition bound is broader in dimension for *singular projection deflation* but does not establish the exact rank-one SPD scalar tuning or necessary-sufficient \\(45^\\circ\\) boundary; taking dimension two does not turn that bound into an equality. Weighted Jacobi and CG_AOS results optimize different update maps and metrics.",
+      "searches": [
+        "Rank-one approximate eigenvector spectral preconditioner two dimensional symmetric positive definite matrix sharp angle misalignment condition number optimal scaling",
+        "condition number of SPD matrix after inexact eigenvector deflation rank-one spectral scaling rotation sin squared angle threshold",
+        "\"eigenvector\" \"angle\" \"optimal\" \"preconditioner\" \"rank-one\" condition number",
+        "\"deflation\" \"principal angles\" \"condition number\" Kahl Rittich 2016"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.28969v1",
+      "https://arxiv.org/html/2410.02204v1",
+      "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+      "https://www.mdpi.com/1999-4893/13/4/100",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2603.28969v1#S3",
+        "https://arxiv.org/html/2410.02204v1#S4",
+        "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+        "Published comparison ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ],
+      "reasoning": "Known two-mode steepest-descent energy loss, the SPD rank-one determinant lemma, and the inverse preconditioner definition are explicitly prior ingredients. They are not presented as new. Neither Diouane et al. article makes any assertion for an approximate eigendirection; its exact-eigenvector guarantees cannot be specialized by simply replacing the eigenvector. Kahl--Rittich concerns projective deflation and a nonsharp effective-condition upper estimate; its conclusions do not imply the displayed unique minimax q, sharp \\(45^\\circ\\) no-improvement threshold, stricter nominal \\(q=r\\) threshold, or \\(r\\)-scale uncertainty phase. Distinct published-finding corpus claims address Richardson iterations, weighted Jacobi, and other operators, not this PCG optimization.",
+      "searches": [
+        "Inexact rank-one spectral inverse preconditioner robust optimal scaling on \\(2\\times2\\) SPD with unknown eigenvector angle: \\(45^\\circ\\) threshold, exact first PCG energy contraction, nominal scaling can harm convergence",
+        "Rank-one approximate eigenvector spectral preconditioner two dimensional symmetric positive definite matrix sharp angle misalignment condition number optimal scaling",
+        "\"preconditioner\" \"\\(45^\\circ\\)s\" approximate eigenvector rank one condition number deflation",
+        "\"spectral preconditioner\" \"angle\" \"minimax\" approximate eigenvector",
+        "\"deflation\" \"principal angles\" \"condition number\" Kahl Rittich 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2410.02204v1",
+        "https://arxiv.org/html/2603.28969v1",
+        "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+        "Published nearby published-finding corpus ID 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+      ],
+      "reasoning": "Searched alternative names: spectral limited-memory preconditioner, inverse rank-one update, angle-uncertain deflation, two-mode PCG, worst-case steepest-descent, spectral conditioning. The exact reduction of one-step PCG to two eigenvalues is classical, but neither the found source statements nor nearest ranked published records optimize a positive multiplier uniformly over a prescribed cap on an inexact eigenvector. The equivalent-claim risk under different terminology is acknowledged.",
+      "searches": [
+        "Inexact rank-one spectral inverse preconditioner robust optimal scaling on \\(2\\times2\\) SPD with unknown eigenvector angle: \\(45^\\circ\\) threshold, exact first PCG energy contraction, nominal scaling can harm convergence",
+        "Two dimensional SPD diagonal matrix eigenvector principal angle approximate deflation condition number sharp minimax one step preconditioned steepest descent",
+        "spectral limited-memory preconditioner approximate Ritz eigenvector alignment minimax angle energy contraction robust tuning",
+        "\"preconditioner\" \"\\(45^\\circ\\)s\" approximate eigenvector rank one condition number deflation",
+        "\"spectral preconditioner\" \"angle\" \"minimax\" approximate eigenvector"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published ranked published-finding corpus IDs 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 and 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "https://arxiv.org/html/2410.02204v1"
+      ],
+      "reasoning": "Searches for tabulated two-mode preconditioner angle thresholds and optimization values found no exact database/table covering the four-part closed-form classification. The statements are continuum exact minimax identities, not an integer sequence or finite published table. An empty matching result alone is not a novelty proof.",
+      "searches": [
+        "Inexact rank-one spectral inverse preconditioner robust optimal scaling on \\(2\\times2\\) SPD with unknown eigenvector angle: \\(45^\\circ\\) threshold, exact first PCG energy contraction, nominal scaling can harm convergence",
+        "rank-one preconditioner one step conjugate gradient optimal parameter approximate eigenvector eigenvector errors spectral",
+        "\"two by two\" \"rank one preconditioner\" \"worst case\" angle",
+        "\"rank one\" \"preconditioner\" \"angle\" \"optimal\" \"condition number\" eigenspace"
+      ]
+    },
+    "rationale": "The motivating 2026 spectral-PCG theorem and its 2024 precursor treat exact eigenspaces; the 2016 perturbation work treats singular projection deflation and an effective-condition upper bound. Existing sharp steepest-descent and rank-one trace identities are credited. Claim-to-implication comparisons found no statement that implies the complete cap-uniform robust tuning law, the \\(45^\\circ\\) no-improvement frontier and nominal-amplification boundary. A broader survey was only partially accessible and may contain indirect related statements; unrestricted priority is not certified.",
+    "residual_risks": [
+      "The older literature may already contain an equivalent two-mode robust spectral-scaling minimax under rank-one update, Kaczmarz, or Kantorovich optimization terminology.",
+      "The 2020 survey full article could not be inspected owing to source access restrictions; indexed passages do discuss approximate spectral directions but do not settle the exact comparison.",
+      "published-finding corpus search gives ranked published excerpts, not exhaustive prior or unpublished research."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: authors optimize spectral weights along exact eigendirections, with no adversarial direction in an angular cap. Their eigenvalue placement guarantees do not imply the new robust-angle threshold.",
+        "evidence": [
+          "https://arxiv.org/html/2603.28969v1#S3",
+          "Theorem 3 assumes \\(F=I+SDS^{\\mathsf T}\\) where S is an exact eigenvector basis; Corollary 5 compares with unpreconditioned PCG only under that hypothesis."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.28969v1",
+        "material_read": "Full available arXiv HTML including Sections 2 and 3, Theorem 3, Corollaries 4-5, spectral construction, placement criteria and surrounding rationale.",
+        "method": "Read primary open-access HTML, compared its feasible preconditioner, eigenvector hypotheses, objective, and quantifiers against the proposed one-step angular uncertainty minimax.",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Direct methodological match: spectral multiplier choice for short-budget PCG."
+      },
+      {
+        "assessment": "NOT_COVERING: exact eigenvector directions throughout Section 4; the known form F_theta and early CG motivation are prior work, but no minimax against an uncertain approximate eigenvector was found.",
+        "evidence": [
+          "https://arxiv.org/html/2410.02204v1#S4",
+          "Equation (10) constructs F_theta using eigenvectors s_i and Theorem 1 concerns that eigensystem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.02204v1",
+        "material_read": "Full available HTML; Introduction, Sections 3-4 including equation (10), Theorem 1, multiplier choices and comments on approximate spectra.",
+        "method": "Read primary open-access HTML and checked whether apparent precursor already addresses inexact directional errors.",
+        "title": "An Efficient Scaled Spectral Preconditioner for Sequences of Symmetric Positive Definite Linear Systems",
+        "trigger": "Same group, earlier public precursor, essential possible dominating coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: approximate invariant-subspace angle bounds for singular projective deflation; no optimal positive rank-one spectral multiplier with exact uncertainty-set one-step PCG energy contraction. Neither the effective-condition upper bound nor its premise contains the sharp minimax classification here.",
+        "evidence": [
+          "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+          "Proposition 4.3 derives an angle-dependent upper bound for the deflated CG effective condition number, not an exact angular-cap minimax for \\(F_q=I+(q-1)vv^{\\mathsf T}\\)."
+        ],
+        "identifier_or_url": "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2016/imacm_16_27.pdf",
+        "material_read": "Primary university-hosted preprint including introductory development and Section 4 perturbation theory, Proposition 4.3 and its proof context (document pages 8-10).",
+        "method": "Read lawful full PDF text with visual verification of relevant pages, checked the effective-condition statement and the mathematical form of the projective deflation operator.",
+        "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+        "trigger": "Highly relevant original analysis of angle-dependent approximate eigenspaces and deflation."
+      },
+      {
+        "assessment": "MATERIAL_INCOMPLETE: survey could potentially reference an equivalent special case. This remains an explicitly disclosed but nondecisive residual risk, not used to justify novelty.",
+        "evidence": [
+          "https://www.mdpi.com/1999-4893/13/4/100",
+          "Accessible extracts discuss low-rank spectral updates and approximate eigendirections but do not establish the specific minimax statement."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/13/4/100",
+        "material_read": "Indexed extracts of sections on approximate spectral directions and principal angles, bibliographic record and summary; full article fetch blocked (HTTP 429).",
+        "method": "Examined accessible indexed passages only; did not infer whole-document absence from snippets.",
+        "title": "A Survey of Low-Rank Updates of Preconditioners for Sequences of Symmetric Linear Systems",
+        "trigger": "Potential older broader coverage of spectral preconditioners using approximate eigenvectors and angles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5c120dd-f620-4fbe-87dd-402374826181",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The uncertainty cap is motivated by how approximate extreme-eigenvector directions are estimated for low-rank spectral inverse preconditioners. This complete natural two-mode minimax shows exactly when any positive rank-one correction improves worst one-step PCG energy loss and when it must be switched off, with a surprisingly condition-number-independent \\(45^\\circ\\) availability boundary. A distinct condition-number-sensitive threshold exposes when the common nominal exact-eigenvector coefficient is worse than no correction; a sharp small-curvature law quantifies the angular accuracy needed to retain fixed contraction. These are decision-relevant structural boundaries, not mere substitution or reported numerics. Scope restricted to one exact step in dimension two.",
+    "status": "PASS"
+  }
+}
