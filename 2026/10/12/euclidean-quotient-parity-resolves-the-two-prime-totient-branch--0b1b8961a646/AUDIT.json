@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "With \\(q/p=[c_0;\\ldots,c_m]\\), the standard matrix product gives \\(pu-qv=(-1)^m\\) and hence \\(a\\equiv u+m\\pmod2\\). Modulo \\(2\\), even quotient matrices are transpositions and odd quotient matrices are three-cycles on the three nonzero vectors of \\(\\mathbb F_2^2\\); because the final first column is \\((1,1)^T\\), this forces \\(u\\equiv m+o_0\\pmod2\\), where \\(o_0\\) counts odd quotients. Thus \\(a\\equiv\\sum_i c_i\\pmod2\\). Renshaw's inclusion-exclusion counts then give the stated \\(T(p^e q^f)\\) branch. The packaged exact checker corroborates 15169 Bézout-parity cases and 304 direct totient cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu and Xu, arXiv:2310.09103v2, connects modular inverses and continued-fraction state matrices but the inspected relevant material does not state the quotient-sum parity law.",
+        "The closest semantic index hits concerned unrelated parity or totient problems and did not imply the claim."
+      ],
+      "reasoning": "General Euclidean/continued-fraction machinery is broader in method, but no inspected theorem supplied the specific parity selector, so it does not dominate the new statement.",
+      "searches": [
+        "Bezout coefficient parity sum Euclidean quotients continued fraction",
+        "Euclidean algorithm quotient sum parity modular inverse",
+        "Qin algorithm continued fractions modular inverse parity"
+      ]
+    },
+    "checked_sources": [
+      "Renshaw, arXiv:2603.13939v1",
+      "Wu and Xu, arXiv:2310.09103v2",
+      "Published finding-index records returned by the recorded statement-level searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Renshaw arXiv:2603.13939v1 proves only the disjunction \\(T(n)=(S(n)-3)/2\\) or \\(T(n)=(S(n)+1)/2\\) and asks the coefficient-parity problem.",
+        "Current-week and prior-week own-ledger searches returned no claim or source match for Renshaw's totient, the Bézout parity problem, or the quotient-sum selector."
+      ],
+      "reasoning": "The source premises do not imply which branch occurs without an additional parity argument. The new matrix-permutation lemma supplies exactly that missing implication, while own-history overlap checks found no prior internal claim covering it.",
+      "searches": [
+        "odd totient function T(n) odd units m such that (m-1)/2 is a unit two prime powers p^a q^b exact formula parity",
+        "coprime odd p q ap-bq=1 parity Euclidean quotient sum",
+        "least positive Bezout coefficients which is even quotient parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Renshaw arXiv:2603.13939v1, Lemma 4 and final problem",
+        "No checked search result stated the parity equivalence \\(a\\equiv\\sum_i c_i\\pmod2\\)."
+      ],
+      "reasoning": "The searches covered the direct Bézout wording, modular-inverse wording, continued-fraction wording, and the source-specific totient wording. The primary source states the parity question as open rather than giving an equivalent criterion.",
+      "searches": [
+        "Renshaw totient T(p^e q^f) Corollary 6 modular inverse parity predicts (S-3)/2 versus (S+1)/2",
+        "parity of modular inverse p inverse mod q two primes totient branch",
+        "ap-bq=1 parity continued fraction quotient sum",
+        "sum of partial quotients modular inverse parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Renshaw Corollary 6 gives exactly two candidate values and says it is not obvious how to predict which emerges.",
+        "The packaged checker directly enumerates \\(T(n)\\) only as corroboration and is not a literature database."
+      ],
+      "reasoning": "The source itself is the exact table/formula comparison point: it records the two-value set but not a selector. No checked database or table supplied the all-parameter branch rule.",
+      "searches": [
+        "number of odd m modulo p^e q^f with gcd(m,n)=gcd((m-1)/2,n)=1 modular inverse",
+        "two-prime Schemmel totient odd representatives correction modular inverse",
+        "T(n) S(n)-3 S(n)+1 Renshaw"
+      ]
+    },
+    "rationale": "The primary source explicitly asks which least positive Bézout coefficient is even and explicitly leaves the two-prime-power \\(T(n)\\) branch unselected. Targeted searches and inspection of the closest continued-fraction/modular-inverse source found no statement implying the quotient-sum parity selector or the resulting totient formula. Residual risk remains that the elementary parity identity may be unindexed folklore.",
+    "residual_risks": [
+      "The parity identity is elementary enough that an older or unindexed source may state an equivalent fact under continued-fraction or modular-inverse terminology.",
+      "Search non-detection is not a proof of worldwide novelty; independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS PREMISES; EXPLICITLY LEAVES CLAIM OPEN",
+        "evidence": "Lemma 4 says the relevant intersection sign depends on the parity of the least Diophantine solution; Corollary 6 lists the two possible \\(T(n)\\) values without a selector; the final paragraph asks which least positive Bézout coefficient is even.",
+        "identifier_or_url": "arXiv:2603.13939v1",
+        "material_read": "Definition of \\(T\\), Schemmel function setup, Lemma 4 proof, Corollary 6, and the final stated problem; corresponding PDF pages were visually inspected.",
+        "method": "Full-text arXiv HTML inspection plus rendered PDF page inspection.",
+        "title": "A Totient Function Associated with Variants of Groups",
+        "trigger": "Primary source defining \\(T(n)\\), proving the two-prime disjunction, and stating the parity problem."
+      },
+      {
+        "assessment": "BROADER METHOD CONTEXT; NOT COVERING THE CHECKED CLAIM",
+        "evidence": "The paper develops matrix states and continued-fraction information for modular inverses, but the inspected material does not state a parity criterion by the sum of Euclidean quotients or a consequence for Renshaw's \\(T(n)\\).",
+        "identifier_or_url": "arXiv:2310.09103v2",
+        "material_read": "Abstract, introduction, and the relevant modular-inverse/continued-fraction matrix discussion; parity terminology was also checked.",
+        "method": "Full-text arXiv inspection of relevant sections.",
+        "title": "Qin's Algorithm, Continued Fractions and 2-dimensional Lattices",
+        "trigger": "Closest broader source located for modular inverses expressed by Euclidean/continued-fraction state matrices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0b1b8961-a646-41e2-a4a1-7904a4595143",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim answers an explicit problem in the recent primary source for every coprime odd pair and resolves the source's exact two-prime-power branch ambiguity. It is a structural all-parameter selector rather than a finite computation or arbitrary special case.",
+    "status": "PASS"
+  }
+}
