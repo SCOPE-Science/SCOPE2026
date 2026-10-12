@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The residual vector of an iid normal sample is isotropic Gaussian on the dimension d=n-1 residual subspace. Writing it as sigma R U with independent R~chi_d and uniform U, a nonnegative homogeneous statistic of degree q is sigma^q R^q h(U). Under its size-biased law the radial density is proportional to r^(d+q-1) exp(-r^2/2), exactly chi_{d+q}; the angular tilt factors independently. The Laplace transform, mixed moments, and Cov(T,S^2)=q sigma^2 E[T]/d follow from this exact law.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hwang--Hu develop normal-population characterization using centered statistics including sample range and Gini mean difference.",
+        "Hu--Lin explicitly organize a broad class of positive homogeneous centered-sample statistics and state normal-sample independence from the sample mean.",
+        "Hwang--Hu derive exact distributions for studentized order statistics and residual directional structure under normal sampling.",
+        "Zimmerman surveys general size-biased sampling."
+      ],
+      "reasoning": "These sources are broader on characterization, scale-free order-statistic laws, or the sampling mechanism, but the inspected statements do not give the accepted radial law. Independence from the sample mean and distribution of the studentized direction do not by themselves determine how weighting by an unstudentized degree-q statistic changes sample variance.",
+      "searches": [
+        "DOI:10.11650/TWJM/1500407259",
+        "arXiv:2112.06152",
+        "DOI:10.1007/BF00773601",
+        "DOI:10.1002/9781118445112.stat07583"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.11650/TWJM/1500407259",
+      "arXiv:2112.06152",
+      "DOI:10.1007/BF00773601",
+      "DOI:10.1002/9781118445112.stat07583"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2000 Hwang--Hu source concerns independence of the sample mean from centered statistics such as sample range and Gini mean difference.",
+        "The full Hu--Lin manuscript gives a broader homogeneous-statistic characterization framework but contains no size-biased or covariance formulation in the targeted text searches.",
+        "The 1994 Hwang--Hu paper gives residual-direction distributions after studentization rather than a radial weighting law."
+      ],
+      "reasoning": "The prior results identify translation/scale-invariant or homogeneous residual structure, but they do not state the distribution of sample variance after weighting by an unstudentized homogeneous statistic. The accepted claim adds the radial tilt calculation and determines a complete chi-square law rather than only independence from location.",
+      "searches": [
+        "Hwang Hu sample range normal characterization independence residual statistic",
+        "Hu Lin positive homogeneous centered statistic normal sample",
+        "studentized order statistics normal residual unit sphere",
+        "size-biased sampling homogeneous Gaussian residual"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Database searches returned no record matching a homogeneous-statistic size-bias shift of residual chi-square degrees of freedom.",
+        "Web searches for normal-sample range/variance covariance and Gaussian homogeneous size-biasing returned studentized-range, characterization, and generic size-biased-sampling references rather than the accepted identity."
+      ],
+      "reasoning": "The searches cover the central aliases: homogeneous residual statistic, sample variance, chi-square, size bias, radial Gaussian, sample range, covariance, and degrees of freedom. The originality conclusion does not rest on query failure alone; full-text statement comparisons were made for the closest normal-sample sources.",
+      "searches": [
+        "Gaussian homogeneous statistic size bias chi square degrees freedom",
+        "normal sample homogeneous dispersion size biased sample variance chi square",
+        "sample range size biased sample variance chi square",
+        "homogeneous residual statistic chi-square size bias normal sample",
+        "Gaussian radial size bias homogeneous function dimension shift",
+        "Gaussian sample variance homogeneous statistic covariance residuals",
+        "normal sample covariance sample variance range exact identity",
+        "Gaussian range sample variance covariance",
+        "normal sample range sample variance covariance",
+        "homogeneous statistic residual vector sample variance covariance Gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact literature hit was located for a chi-square degree shift from n-1 to n-1+q under homogeneous residual size-biasing.",
+        "No exact source was located for Cov(R_n,S^2)=sigma^2 E[R_n]/(n-1) in a normal sample."
+      ],
+      "reasoning": "The claim is an all-n, all-h structural law rather than a finite table. The sample-range covariance is a corollary, not the sole originality claim.",
+      "searches": [
+        "\"size-biased\" chi-square homogeneous Gaussian statistic",
+        "\"sample range\" \"sample variance\" normal joint moment",
+        "\"range\" \"variance\" normal sample covariance exact",
+        "\"chi-square\" \"sample range\" size bias"
+      ]
+    },
+    "rationale": "The closest inspected literature treats the same homogeneous residual statistics, Gaussian studentized order statistics, and general size-biased sampling, but no inspected statement combines them into the exact q-degree chi-square dimension shift or its all-statistic covariance identity. The full Hu--Lin manuscript was searched specifically for size-biased, covariance, chi-square, and polar formulations with no matching statement.",
+    "residual_risks": [
+      "The homogeneous radial tilt may appear implicitly in older spherical-distribution or Gaussian polar-coordinate literature without the present size-biased formulation.",
+      "The full 2000 Hwang--Hu article was not decisively inspected, although its accessible abstract and the later full manuscript focus on independence and characterization rather than mixed radial laws.",
+      "The theorem is elementary after polar decomposition; originality is limited to the exact all-statistic size-bias dimension-shift statement and its mixed-moment consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "HOMOGENEOUS_RESIDUAL_CHARACTERIZATION_WITHOUT_SIZE_BIASED_RADIAL_SHIFT",
+        "evidence": "The manuscript states that under normal sampling the sample mean is independent of the residual vector and treats sample range and Gini mean difference as positively homogeneous residual statistics. The targeted searches returned no matching size-biased, covariance, chi-square, or polar statement.",
+        "identifier_or_url": "arXiv:2112.06152",
+        "material_read": "Full public manuscript, including introduction, definition of feasible homogeneous statistics, main normal-characterization theorem, range and Gini corollaries, and discussion. Targeted full-text searches were run for size-biased, covariance, chi-square, and polar.",
+        "method": "Compared independence and characterization statements with the weighted radial law and searched for formulations directly implying a chi-square degree shift.",
+        "title": "Characterizations of the Normal Distribution via the Independence of the Sample Mean and the Feasible Definite Statistics with Ordered Arguments",
+        "trigger": "Closest full source because it explicitly treats positive homogeneous centered-sample statistics, sample range, Gini mean difference, and the normal residual vector."
+      },
+      {
+        "assessment": "STUDENTIZED_DIRECTIONAL_LAW_WITHOUT_HOMOGENEOUS_RADIAL_SIZE_BIAS",
+        "evidence": "The paper derives exact laws for linear functions of internally studentized order statistics and identifies uniform residual directional structure for normal samples. Its inspected statements do not weight by an unstudentized homogeneous statistic or derive a shifted chi-square radius.",
+        "identifier_or_url": "DOI:10.1007/BF00773601",
+        "material_read": "Full 13-page public PDF, including the abstract, transformation construction, and Section 3 theorem identifying the normal studentized order-statistic distribution on a subset of the residual unit sphere.",
+        "method": "Compared scale-free directional distribution statements with any radial size-biasing or mixed sample-variance law.",
+        "title": "On the joint distribution of studentized order statistics",
+        "trigger": "Closest older full primary source on residual direction and exact order-statistic sampling laws under normal sampling."
+      },
+      {
+        "assessment": "DIRECT_DISPERSION_CONTEXT_FULL_BODY_UNAVAILABLE",
+        "evidence": "The accessible abstract states a normal-population characterization via independence of the sample mean and centered statistics, with a linear-order-statistic subclass including sample range and Gini mean difference. A public zbMATH-derived record classifies the article under MSC 62E10.",
+        "identifier_or_url": "DOI:10.11650/TWJM/1500407259",
+        "material_read": "Abstract and bibliographic/classification records; decisive full article text was not publicly retrievable in the bounded inspection.",
+        "method": "Compared the accessible theorem scope and retained the unavailable body as a residual originality risk.",
+        "title": "On some characterizations of population distributions",
+        "trigger": "Archive-era primary source explicitly covering sample range and Gini mean difference in normal-distribution characterization."
+      },
+      {
+        "assessment": "GENERAL_SIZE_BIAS_REFERENCE_NOT_GAUSSIAN_RESIDUAL_DIMENSION_SHIFT",
+        "evidence": "The source defines size-biased sampling as selection probability proportional to size and surveys applications. The accessible material does not state a chi-square degrees-of-freedom shift for homogeneous Gaussian residual statistics.",
+        "identifier_or_url": "DOI:10.1002/9781118445112.stat07583",
+        "material_read": "Publisher abstract and bibliographic material.",
+        "method": "Checked whether the reference contains the Gaussian homogeneous residual specialization.",
+        "title": "Size-Biased Sampling",
+        "trigger": "General reference on the weighting operation used in the theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d48370d9-d99f-4786-b594-204fd9d4cc69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Many standard dispersion statistics are nonnegative homogeneous functions of centered observations, while their same-sample dependence with sample variance is otherwise statistic-specific. The result gives the entire T-weighted distribution of S^2 from the homogeneity degree alone, yielding every mixed power moment and an immediate positive covariance law. This is a structural radial identity with concrete range and Gini consequences, not a marginal recomputation or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
