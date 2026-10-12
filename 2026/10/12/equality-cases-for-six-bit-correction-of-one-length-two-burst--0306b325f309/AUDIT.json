@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The upper bound |C|<=4 follows directly because any difference supported on coordinates 3-6 is the sum of two allowed length-at-most-two bursts, so projection onto coordinates 1-2 is injective. The bundled verifier independently matches error-ball and difference-set compatibility, exhaustively enumerates all four-cliques, proves each has no common neighbor, and verifies all 192 maxima are affine with exactly 12 directions and the stated orbits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bridwell-Wolf develops burst distance and multiple-burst correction.",
+        "García Villalba-Sandoval Orozco-Blaum develops general bounds for binary linear burst-correcting codes and explicitly frames the Reiger bound as a single-burst bound."
+      ],
+      "reasoning": "General burst-distance theory supplies bounds and constructions but does not imply a classification of all nonlinear equality cases for this finite noncyclic length-six instance.",
+      "searches": [
+        "adjacent double error correcting code six bits maximum nonlinear",
+        "single burst correcting code adjacent error correction binary SEC DAEC",
+        "doi:10.1002/j.1538-7305.1970.tb01806.x",
+        "doi:10.1049/el.2014.0736"
+      ]
+    },
+    "checked_sources": [
+      "Stanford-SEL-TR-51",
+      "doi:10.1109/TIT.1959.1057524",
+      "doi:10.1002/j.1538-7305.1970.tb01806.x",
+      "doi:10.1049/el.2014.0736",
+      "Sharma-Dass-1977-adjacent-perfect"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abramson establishes the adjacent-error correction setting and systematic constructions, not uniqueness or a census.",
+        "The direct upper bound here is a two-coordinate projection argument specialized to length six, while the equality classification uses complete enumeration."
+      ],
+      "reasoning": "Existing construction/bound results do not logically force every optimal arbitrary code to be affine, do not enumerate all 192 labeled maxima, and do not yield the stated orbit decomposition.",
+      "searches": [
+        "binary length six code correct all single errors and double adjacent errors maximum size 4 192",
+        "single burst length two correction binary length 6 nonlinear code classification",
+        "single burst correcting code adjacent error correction binary SEC DAEC",
+        "Stanford-SEL-TR-51",
+        "doi:10.1109/TIT.1959.1057524"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abramson 1958/1959 uses the same single-error plus double-adjacent-error correction model in systematic constructions.",
+        "The finite claim was also searched under SEC-DAEC and noncyclic single-burst terminology."
+      ],
+      "reasoning": "The model is equivalent to pairwise disjoint translates of the 12-element error set E. No retrieved published-finding corpus item or inspected source gave the equality-case count or affine classification.",
+      "searches": [
+        "binary length six code correct all single errors and double adjacent errors maximum size 4 192",
+        "SEC-DAEC length 6 maximum code 4 classification 192 affine",
+        "single burst length two correction binary length 6 nonlinear code classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 1977 adjacent-error perfect-code line concerns perfect-like families; here 4 disjoint balls cover 48 of 64 words, so the length-six equality case is not perfect.",
+        "Modern SEC-DAEC sources emphasize parity-check constructions and hardware-oriented linear codes rather than an arbitrary-code table of all equality cases."
+      ],
+      "reasoning": "No inspected table or database entry supplied the numbers 192, 12 admissible directions, or the seven declared-action orbits.",
+      "searches": [
+        "binary length six code correct all single errors and double adjacent errors maximum size 4 192",
+        "SEC-DAEC length 6 maximum code 4 classification 192 affine",
+        "\"Adjacent-error correcting binary perfect codes\"",
+        "\"SEC-DAEC\" length 6"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus searches found no statement-equivalent published SCOPE result. The inspected classical and later literature treats adjacent/burst-error constructions, bounds, perfect codes, or linear codes; it does not state the complete arbitrary-code length-six equality census, all-affine classification, twelve directions, or the declared-action orbit decomposition.",
+    "residual_risks": [
+      "An obscure unindexed finite enumeration could contain the same length-six census.",
+      "The order-128 translation-plus-reversal group may be a proper subgroup of the full compatibility-graph automorphism group; the claim is deliberately limited to the declared action."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_MODEL_NOT_CLAIM",
+        "evidence": "The abstract states correction of all single errors and all double errors occurring in adjacent digits; no equality census was exposed.",
+        "identifier_or_url": "Stanford-SEL-TR-51 / doi:10.1109/TIT.1959.1057524",
+        "material_read": "Bibliographic metadata and abstract/search text; the direct IEEE PDF endpoint was inaccessible in this run. A contemporaneous IBM reference identifies Technical Report 51 as dated 30 December 1958.",
+        "method": "Web search and publisher/index metadata.",
+        "title": "A Class of Systematic Codes for Non-Independent Errors",
+        "trigger": "Foundational same error model."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING_FINITE_CENSUS",
+        "evidence": "Introduces burst distance and develops single/multiple-burst correction properties, not this arbitrary-code length-six extremizer classification.",
+        "identifier_or_url": "doi:10.1002/j.1538-7305.1970.tb01806.x",
+        "material_read": "Publisher abstract and Bell Labs publication text.",
+        "method": "Web inspection.",
+        "title": "Burst Distance and Multiple-Burst Correction",
+        "trigger": "Possible broader burst-distance coverage."
+      },
+      {
+        "assessment": "NOT_COVERING_EQUALITY_CLASSIFICATION",
+        "evidence": "The paper restricts its bounds discussion to binary linear codes and does not enumerate or classify arbitrary length-six equality cases.",
+        "identifier_or_url": "doi:10.1049/el.2014.0736",
+        "material_read": "Substantial full text exposed by the publisher page, including definitions, the extended Reiger bound, generalized Reiger bound, and conclusions.",
+        "method": "Web full-text inspection.",
+        "title": "Some new bounds for binary multiple burst-correcting codes",
+        "trigger": "Later general bound potentially dominating the finite optimum."
+      },
+      {
+        "assessment": "INAPPLICABLE_TO_NONPERFECT_LENGTH_SIX_CENSUS",
+        "evidence": "The abstract concerns adjacent-error correcting perfect codes; the present four-code equality cases are not perfect because their 12-word balls cover only 48 of 64 words.",
+        "identifier_or_url": "Journal of Cybernetics 7 (1977), 9-13",
+        "material_read": "Abstract as surfaced by a scholarly index and later bibliographic references.",
+        "method": "Web inspection.",
+        "title": "Adjacent-error correcting binary perfect codes",
+        "trigger": "Title directly overlaps adjacent-error correction and could imply a classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0306b325-f309-4c5b-ba14-8e1f2989607a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is a canonical finite equality case in the classical single-error/double-adjacent-error channel. The result moves beyond a construction or cardinality bound to a complete arbitrary-code extremizer classification, showing unexpected affine rigidity and giving a small symmetry-reduced benchmark for adjacent-error code searches.",
+    "status": "PASS"
+  }
+}
