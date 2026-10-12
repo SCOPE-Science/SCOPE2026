@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts every factorization type allowed by \\(\\Omega(n),\\Omega(n+2)\\le2\\). The even branch leaves only \\(n=4\\); the odd mixed prime, square, and semiprime types are eliminated by exact totient identities and one elementary AM-GM bound. In the remaining squarefree-semiprime branch, equal totients and the gap \\(2\\) force \\(r+s=p+q+2\\); the difference-of-squares identity then gives unique odd parameters \\(A,B\\), from which all four primes are recovered exactly. The converse identities \\(rs=pq+2\\) and \\(r+s=p+q+2\\) return equal totients. The finite checker independently reproduces every low-\\(\\Omega\\) solution through \\(10^6\\) but is explicitly non-probative for the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Graham-Holt-Pomerance prove that their principal prime-generated family is asymptotically dominant for fixed even \\(k\\) under a prime-tuples conjecture and exhibit a separate four-prime family, but neither result classifies all solutions with bounded Ω.",
+        "For \\(k=2\\), the displayed four-prime construction corresponds to the slice \\(A=3\\), whereas the classification permits arbitrary odd \\(3\\le A<B\\) subject to four primality conditions."
+      ],
+      "reasoning": "Asymptotic dominance and sufficient prime constructions are logically weaker than a necessary-and-sufficient classification of a complete multiplicity stratum. No inspected broader theorem implies the final claim.",
+      "searches": [
+        "Graham Holt Pomerance On the solutions to phi(n)=phi(n+k) four prime family",
+        "Ford arXiv 2002.12155 Graham Holt Pomerance Lemma 1",
+        "Kim equations phi(n)=phi(n+k) Graham Holt Pomerance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.12155v1",
+      "International Mathematics Research Notices 2022(5), 3561-3570",
+      "Graham-Holt-Pomerance 1999, Number Theory in Progress II, 867-882",
+      "Kim 2020, On the equations phi(n)=phi(n+k) and phi(p-1)=phi(q-1)",
+      "OEIS:A001494",
+      "published-finding semantic searches using equation, semiprime, almost-prime, and exact-formula aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1999 full text states a sufficient four-prime construction \\(p,p+b,(c+1)p-c,(c+1)(p+b)-c\\); at \\(k=2\\) this is only \\(A=3\\), not the two-parameter necessity theorem.",
+        "The Ford paper cites GHP's prime-generated lemma and OEIS for fixed small gaps; neither supplies the final low-Ω implication.",
+        "Exact-formula web searches returned no source containing the claimed bilinear parameterization."
+      ],
+      "reasoning": "The final theorem has two implication directions and an exhaustive type analysis. The closest prior constructions establish only selected sufficient families, so they do not subsume it as a special case or corollary.",
+      "searches": [
+        "GHP 1999 p p+b (c+1)p-c phi(n)=phi(n+k)",
+        "Ford 2020 k=2 OEIS A001494",
+        "exact formulas AB+A-B+1 AB-A-B+3 totient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching published-finding record was returned for a complete Ω≤2 classification or the bilinear inverse parameterization.",
+        "Ford's introduction frames the fixed-gap equation broadly and cites the classical families and computational sequences, without a low-multiplicity classification.",
+        "Kim's full text likewise reviews the Graham-Holt-Pomerance construction and studies global existence/counting rather than the Ω≤2 stratum."
+      ],
+      "reasoning": "Searches used the equation, semiprime/almost-prime aliases, the first nontrivial squarefree example, and the four-prime product relations. The inspected sources do not state an equivalent necessary-and-sufficient low-support theorem.",
+      "searches": [
+        "phi(n)=phi(n+2) semiprime squarefree parametrization",
+        "Euler totient simultaneous gap 2 two prime factors",
+        "6497 6499 equal totient semiprime",
+        "four primes p q r s pq+2=rs equal totients",
+        "\"phi(n)=phi(n+2)\" \"almost prime\"",
+        "\"phi(n)=phi(n+2)\" \"two prime factors\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001494 defines the exact gap-two sequence, gives large tables, and lists \\(6497\\) and \\(12317\\), but its comments and formulas do not state the Ω≤2 classification or the two-parameter formulas.",
+        "The Lal-Gillard source is identified as a computation of solutions for small gaps and bounded ranges; no low-Ω theorem was located in the checked records."
+      ],
+      "reasoning": "A value table confirms examples but does not imply structural exhaustiveness, the mixed-type exclusions, or uniqueness of the parameterization.",
+      "searches": [
+        "OEIS A001494 phi(n)=phi(n+2)",
+        "OEIS A001494 table 6497 12317",
+        "Lal Gillard phi(n)=phi(n+k) table"
+      ]
+    },
+    "rationale": "The closest full-text literature treats general fixed-gap equal-totient constructions and asymptotics, not a complete total-prime-factor boundary. The 1999 four-prime construction specializes at gap two to only one parameter slice of the present formulas, while the present theorem proves necessity, uniqueness, all mixed-type exclusions, and the converse. The checked exact sequence database lists values but no low-multiplicity theorem or parameter inverse.",
+    "residual_risks": [
+      "An obscure or unindexed note may have made the same elementary low-support reduction.",
+      "Older computational papers may contain an unstated observation about some semiprime examples even though the checked primary structural papers and database do not give the theorem.",
+      "No novelty claim is made for the standard identity φ(pq)=(p-1)(q-1) itself; originality is in the complete boundary classification and unique parameterization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides broad existence and counting context, but no Ω≤2 classification for gap two.",
+        "evidence": "The introduction points to OEIS for \\(k=2\\) and to GHP's prime-generated families; the article's theorems concern infinitude for classes of gaps and simultaneous equalities.",
+        "identifier_or_url": "arXiv:2002.12155v1",
+        "material_read": "arXiv submission metadata and MSC; published article introduction, discussion of small gaps, Graham-Holt-Pomerance Lemma 1, and main theorem statements.",
+        "method": "Full-text HTML inspection.",
+        "title": "Solutions of φ(n)=φ(n+k) and σ(n)=σ(n+k)",
+        "trigger": "Eligible modern primary source on the exact fixed-gap totient equation."
+      },
+      {
+        "assessment": "Does not state the final classification. Its displayed four-prime construction becomes only the \\(A=3\\) slice when \\(k=2\\).",
+        "evidence": "The paper explicitly presents that family as an example of another family and separately treats the dominant Theorem-1 construction.",
+        "identifier_or_url": "GHP1999:phi(n)=phi(n+k)",
+        "material_read": "Full-text PDF sections containing Theorem 1, the exceptional-solution discussion, and the separate four-prime construction; relevant pages were visually inspected.",
+        "method": "Full-text and page-level PDF inspection.",
+        "title": "On the Solutions to φ(n)=φ(n+k)",
+        "trigger": "Closest classical source for structural solution families."
+      },
+      {
+        "assessment": "No low-multiplicity classification or equivalent semiprime parameterization was found.",
+        "evidence": "The paper focuses on existence/counting for shifted totients and on φ(p-1)=φ(q-1), while its introduction repeats the general GHP construction.",
+        "identifier_or_url": "Kim2020:totient-shifts",
+        "material_read": "Abstract and introduction through the review of Schinzel and Graham-Holt-Pomerance constructions; keyword searches for semiprime and gap-two specialization.",
+        "method": "Full-text and first-page PDF inspection.",
+        "title": "On the equations φ(n)=φ(n+k) and φ(p-1)=φ(q-1)",
+        "trigger": "Later full-text paper on the same shifted-totient equation."
+      },
+      {
+        "assessment": "Lists numerical solutions but not the claimed complete Ω≤2 structure.",
+        "evidence": "The table contains \\(6497\\) and \\(12317\\); the entry comments record other sufficient families but no total-prime-factor cutoff.",
+        "identifier_or_url": "OEIS:A001494",
+        "material_read": "Definition, comments, references, formulas, and the linked table through values beyond the first nontrivial squarefree-semiprime cases.",
+        "method": "Database and table inspection.",
+        "title": "OEIS A001494",
+        "trigger": "Exact database for the \\(k=2\\) solution sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3dd87bc2-88c8-412a-b947-e33e258ac653",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-gap equation \\(\\varphi(n)=\\varphi(n+2)\\) is a long-studied open arithmetic problem. Bounding both endpoints by \\(\\Omega\\le2\\) is the canonical first nontrivial multiplicative-complexity layer, not an arbitrary numerical slice. The theorem closes that whole layer, separates the two prime-power exceptions from the genuinely composite-composite branch, and converts every remaining solution into a unique four-prime bilinear parameter set. This gives a reusable structural description rather than a table recomputation.",
+    "status": "PASS"
+  }
+}
