@@ -1,0 +1,100 @@
+{
+  "claim": "For the binary LCD code \\(C\\) of parameters \\([57,8,25]_2\\) displayed by Lim, An, and Kim (arXiv:2609.02096v1), expand each hexadecimal digit into four binary digits in most-significant-bit-first order and delete the three appended zero columns. Among all \\(\\binom{57}{2}=1596\\) double punctures of this displayed representative, exactly four coordinate pairs—\\(\\{9,18\\}\\), \\(\\{10,30\\}\\), \\(\\{34,48\\}\\), and \\(\\{41,42\\}\\), with coordinates numbered from \\(1\\)—produce an LCD code of minimum distance \\(24\\). Hence a binary LCD \\([55,8,24]_2\\) code exists. Since the general binary linear-code bound gives \\(d(55,8)=24\\), it follows that \\(d_{\\mathrm{LCD}}(55,8)=24\\). This improves the value \\(23\\) reached at length \\(55\\), dimension \\(8\\), in the source's reported shortest-embedding experiments to the sharp bound \\(24\\).",
+  "correctness": {
+    "rationale": "The source matrix was reconstructed from its hexadecimal display and independently reproduced rank 8, Gram rank 8, and minimum distance 25. All 1596 double punctures were enumerated. For each surviving dimension-eight puncture, Gram rank and all 255 nonzero codeword weights were computed exactly over GF(2). Exactly four punctures are LCD with distance 24. The explicit witness has Gram rank 8 and exact weight enumerator 1+49z^24+98z^26+53z^28+9z^30+10z^32+28z^34+7z^36+z^38. Grassl's exact unrestricted [55,8] bound 24 then forces d_LCD(55,8)=24.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The recent source surveys binary LCD constructions and does not list d_LCD(55,8)=24 among its exact new values.",
+        "Its k=8 numerical table records 23, not 24, at length 55."
+      ],
+      "reasoning": "A stronger prior result would have to imply an LCD [55,8,24] witness or a theorem forcing d_LCD(55,8)=24. No such coverage was found in the targeted searches or the source's literature comparison.",
+      "searches": [
+        "\"55,8,24\" \"linear complementary dual\" code",
+        "\"d_LCD(55,8)\" binary",
+        "\"55,8,24\" \"LCD code\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.02096v1",
+      "Grassl BKLC binary [55,8] table",
+      "published-finding corpus exact-parameter and semantic searches",
+      "Current-week own ledger through generation g000038",
+      "Prior-week own ledger generation g000058"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lim–An–Kim explicitly print the [57,8,25] generator matrix used here.",
+        "Their Table 4 gives Bound 24 and Our result 23 at n=55,k=8; their Theorem 4.1 does not include [55,8,24].",
+        "Their preliminaries state the exact Gram-matrix LCD criterion used in the verification."
+      ],
+      "reasoning": "The source supplies the parent object and upper bound but does not imply that any double puncture remains LCD at distance 24. The exhaustive puncture calculation provides precisely that missing implication.",
+      "searches": [
+        "arXiv:2609.02096 [57,8,25] n=55 k=8 Table 4",
+        "\"New binary optimal LCD codes using heuristic embedding\" 55 8 23 24"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated the exact LCD parameter or this puncturing construction.",
+        "No arXiv-targeted exact-parameter search returned a matching LCD construction.",
+        "Lim–An–Kim Table 4 reports only distance 23 at n=55, k=8 while Table 1 gives bound 24."
+      ],
+      "reasoning": "The claim is equivalent to existence of an LCD [55,8,24] code together with the established upper bound 24. Searches were phrased both as the exact parameter and as the source-code puncturing construction.",
+      "searches": [
+        "\"[55,8,24]\" generalized Hamming weights LCD code",
+        "\"57,8,25\" weight hierarchy binary LCD",
+        "binary LCD [55,8,24] code d_LCD(55,8) puncture [57,8,25]",
+        "\"[55,8,24]\" \"LCD\" site:arxiv.org"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Grassl's table gives the unrestricted binary [55,8] lower and upper bounds both equal to 24 and supplies an ordinary linear [55,8,24] construction."
+      ],
+      "reasoning": "The database fixes the ambient linear-code optimum and hence a decisive upper bound for LCD codes, but its ordinary construction does not establish the LCD property. The new witness has nonsingular Gram matrix.",
+      "searches": [
+        "Grassl BKLC binary [55,8,24]",
+        "codetables.de BKLC n=55 k=8 q=2"
+      ]
+    },
+    "rationale": "The motivating 2026 source reports only distance 23 for n=55,k=8 against its bound 24 and does not state this puncturing construction. Targeted published-finding corpus, arXiv/web, parameter, alias, and database searches found ordinary [55,8,24] codes but no LCD [55,8,24] result or equivalent exact-value statement. Current- and prior-week own ledgers contain no matching claim. Residual risk is limited to obscure or poorly indexed prior literature.",
+    "residual_risks": [
+      "A poorly indexed prior paper could contain an LCD [55,8,24] construction without appearing in the targeted searches.",
+      "The four puncture-pair labels use the stated binary expansion convention; the existence and exact d_LCD conclusion are invariant under equivalent coordinate conventions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new claim: the paper provides the [57,8,25] parent and upper bound 24 at (55,8), but reports only achieved distance 23 there.",
+        "evidence": "The displayed [57,8,25] matrix is in the source; Table 4 has n=55, Bound=24, Our result=23; Theorem 4.1 omits [55,8,24].",
+        "identifier_or_url": "arXiv:2609.02096v1",
+        "material_read": "Abstract/MSC/submission history; preliminaries; bound construction; printed generator matrices; Theorem 4.1; complete k=8 result table.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "New binary optimal LCD codes using heuristic embedding",
+        "trigger": "Primary recent source; same parameters and explicit parent generator matrix."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE only: ordinary binary [55,8,24] existence and optimality are known; LCD is an additional constraint not supplied by the table.",
+        "evidence": "The table gives lower bound 24 and upper bound 24 for binary [55,8] codes.",
+        "identifier_or_url": "https://www.codetables.de/BKLC/BKLC.php?k=8&n=55&q=2",
+        "material_read": "The [55,8] binary bounds and displayed ordinary construction.",
+        "method": "Direct table inspection.",
+        "title": "Bounds on the minimum distance of linear codes",
+        "trigger": "Exact ambient linear-code parameter that could dominate the claimed LCD optimum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d0d30db-dda9-4ac6-8f44-04a70a2febe6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding closes a natural exact parameter gap explicitly left between a sharp upper bound 24 and the recent source's achieved value 23. It does so by a simple but non-obvious structural operation on the source's new optimal [57,8,25] code and classifies every double puncture of that representative. The one-unit improvement is mathematically decisive because it changes the status of d_LCD(55,8) from bounded to exact, rather than merely improving a heuristic score.",
+    "status": "PASS"
+  }
+}
