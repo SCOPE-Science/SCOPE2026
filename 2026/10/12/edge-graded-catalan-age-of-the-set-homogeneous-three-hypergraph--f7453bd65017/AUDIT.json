@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The primary structure supplies a homogeneous strongly dense ordered 2-regular C-set and proves that its M_3 reduct is set-homogeneous with the same automorphism group. The reduced finite ordered binary-tree shape is a complete orbit invariant and all shapes occur. At a root split (a,b), the only cross-root edges have one left and two right leaves, giving exactly a*binom(b,2) new edges. The weighted Catalan recurrence follows by independent recursive subtrees; mirroring complements all triples. A bundled checker independently computes edge sets for all plane shapes through 9 leaves, recurrences through 11, and all permutation-isomorphism classes through 6. The n=6 coefficient vector is everywhere positive; singleton-root grafting embeds [0,binom(n-1,3)] and its translate by binom(n-1,2), which overlap at every n>=7, so the size-five missing middle is the sole gap in any order.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Original paper Proposition 3.1.2 proves set-homogeneity and gives a root-cone decomposition, but no all-arity edge-rank census.",
+        "Original paper Theorem 3.1.1 is a structural homogeneous-model result, not a coefficient enumeration."
+      ],
+      "reasoning": "The prior theorems are important inputs and imply the shape parametrization, but do not explicitly evaluate the edge count on all tree shapes or state its weighted Catalan recursion. A possible unstated corollary is recorded as a residual originality risk.",
+      "searches": [
+        "set-homogeneous hypergraphs Assari 2022 full paper section 3 root cones",
+        "homogeneous ordered C sets orbit growth polynomial distribution",
+        "rooted plane trees triple right cherry polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.09613v1",
+      "DOI:10.1112/jlms.12796",
+      "OEIS:A052886",
+      "OEIS:A000108"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary proof already analyzes P and Q as left/right root cones and notes 0-4 edges on four points.",
+        "The weighted recurrence requires specifying how a triple crossing a root split contributes and then summing the exact size-dependent weights, rather than merely counting shapes."
+      ],
+      "reasoning": "The age-type Catalan count is a short derived corollary; the originality assertion is narrowed to the full edge-graded theorem. The source and OEIS together explain ungraded totals but do not visibly supply the weighted coefficients or the five-point exclusion.",
+      "searches": [
+        "Assari Hosseinzadeh Macpherson Proposition 3.1.2 ordered C-set root cone",
+        "Catalan hypergraphs q-edge recurrence",
+        "OEIS A052886 binary rooted tree Stirling convolution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Assari et al., Section 3.1 states the E/C/order equivalence and five four-vertex examples but no Catalan or q-polynomial; full article searchable text has no Catalan term.",
+        "Standard Catalan combinatorics counts full plane binary tree shapes, not their M_3 edge statistic."
+      ],
+      "reasoning": "The known object encoding explains the ungraded marginal, but no checked source states the edge-refined generating polynomial as an invariant of the hypergraph; the proof combines the model-theoretic orbit equivalence with a new edge-weighted root-split identity.",
+      "searches": [
+        "M_3 Catalan set-homogeneous hypergraphs",
+        "Assari Hosseinzadeh Macpherson Catalan",
+        "two-regular ordered C-set plane rooted binary trees enumeration",
+        "set homogeneous 3-uniform hypergraph age edge count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A052886 gives the exact ungraded tuple-orbit integer formula in another guise and is acknowledged as known.",
+        "OEIS A000108 gives Catalan totals, also known.",
+        "Searches of edge-specific q-polynomial did not show a corresponding prior coefficient table."
+      ],
+      "reasoning": "The numeric tuple sequence is not asserted novel. The refined distributions for the named model and the zero coefficient at five of ten potential hyperedges are the material new claims.",
+      "searches": [
+        "OEIS 1,3,19,207,3211,64383",
+        "OEIS A052886 Stirling2 Catalan convolution",
+        "hypergraphs five vertices edges 5 absent set homogeneous"
+      ]
+    },
+    "rationale": "Novelty asserted only for the q-graded age of M_3, particularly its root-split weighted recurrence and five-vertex missing middle class. The structural M_3 construction, ungraded Catalan tree count, and numerical Stirling–Catalan tuple sequence are explicitly attributed to prior sources or declared known. In particular no checked source was found describing the sharp all-order absence of edge-count gaps except at five vertices.",
+    "residual_risks": [
+      "Unindexed prior note on the edge-weighted root-split statistic or its application to M_3.",
+      "The weighted enumeration may be regarded as an elementary but unstated corollary of the very explicit root-cone description in the original paper.",
+      "The coefficient sequence may have an unrelated combinatorial interpretation under an unrecognized alias."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING structural premises; no explicit graded Catalan recurrence in inspected material",
+        "evidence": "arXiv:2202.09613v1 dated 19 February 2022; Theorem 3.1.1 and Proposition 3.1.2.",
+        "identifier_or_url": "https://arxiv.org/pdf/2202.09613",
+        "material_read": "Title, abstract, Sections 1 and 2, Section 3.1 construction and proof cross-checked with journal full text",
+        "method": "Full text PDF extraction with first-page visual check; journal HTML full scientific reading",
+        "title": "Set-homogeneous hypergraphs (arXiv v1)",
+        "trigger": "Direct primary theorem and earliest public date"
+      },
+      {
+        "assessment": "Establishes group equality, set-homogeneity and all four-vertex edge counts, not the present all-n q-enumeration",
+        "evidence": "Theorem 3.1.1, Proposition 3.1.2, Figure 3; MSC2020 primary 03C15.",
+        "identifier_or_url": "https://doi.org/10.1112/jlms.12796",
+        "material_read": "Sections 2.1 and 3.1 including the whole root-partition proof of Proposition 3.1.2, and paper-level searches for Catalan/orbit",
+        "method": "Full-text open-access journal HTML",
+        "title": "Set-homogeneous hypergraphs (journal full text)",
+        "trigger": "Most directly relevant possible stronger coverage"
+      },
+      {
+        "assessment": "COVERS ungraded Stirling–Catalan numeric formula, explicitly excluded from claimed novelty",
+        "evidence": "OEIS A052886 formula a(n)=sum k! Stirling2(n,k) C(k-1).",
+        "identifier_or_url": "https://oeis.org/A052886",
+        "material_read": "Description, first terms and formulae",
+        "method": "Public indexed sequence text",
+        "title": "OEIS A052886",
+        "trigger": "Exact matching tuple-orbit sequence in web search"
+      },
+      {
+        "assessment": "COVERS Catalan count as pure combinatorics; not specific edge-weighted M_3 spectrum",
+        "evidence": "Catalan numbers count plane rooted binary trees.",
+        "identifier_or_url": "https://oeis.org/A000108",
+        "material_read": "Description and Catalan identity",
+        "method": "Public sequence reference",
+        "title": "OEIS A000108",
+        "trigger": "Catalan marginal lookup"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7453bd6-5017-432c-9876-ce6418adb312",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The coefficient polynomial completely classifies hyperedge frequencies among finite induced isomorphism types of a canonical set-homogeneous but nonhomogeneous 3-hypergraph. It yields a natural all-arity structural invariant with a nontrivial five-point exclusion, not just an unmotivated finite computation. The paper specifically uses root cones to analyze ages, making the refinement mathematically directed. The sharp all-order edge-count support theorem gives a substantive structural completeness statement rather than a bare small-order anomaly.",
+    "status": "PASS"
+  }
+}
