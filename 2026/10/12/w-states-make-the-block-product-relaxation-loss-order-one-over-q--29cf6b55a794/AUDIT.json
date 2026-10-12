@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For a partition with weights \\\\(p_j=|B_j|/n\\\\), the grouped W state is a weighted q-party W state. The explicit product vector with local excitation amplitude \\\\(\\alpha\\sqrt{p_j}\\\\) has squared overlap \\\\(\\alpha^2/\\prod_j(1+\\alpha^2p_j)\\\\). Strict concavity of \\\\(\\log(1+\\alpha^2p)\\\\) and \\\\(\\alpha^2=q/(q-1)\\\\) give \\\\(F_\\Pi^2\\ge A_q\\\\), strictly for nonuniform block weights. Equal blocks reduce to the symmetric q-party W state, whose exact product fidelity is \\\\(A_q\\\\); singleton blocks give \\\\(A_n\\\\). Expanding \\\\(\\log A_q\\\\) yields the stated \\\\(1/(2e\\,q)\\\\) coefficient. No finite experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1002.3049v1 treats arbitrary generalized W-state nearest products, but not the q-block relaxation induced by grouping an n-qubit W state.",
+        "arXiv:2411.04283v1 studies learning a closest fully product state and does not provide the partition-relaxation tightness law."
+      ],
+      "reasoning": "General W-state geometric-entanglement formulas cover a component of the proof but not the implication that every q-block partition has fidelity at least A_q, with equality exactly for balanced blocks, nor the resulting lower bound on the recent random-coloring reduction.",
+      "searches": [
+        "geometric entanglement W state partition grouped product fidelity",
+        "closest product state learning W state grouped blocks random partition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01979v1",
+      "arXiv:0806.1314v1",
+      "arXiv:1002.3049v1",
+      "arXiv:2411.04283v1",
+      "published-result searches listed in the four comparison checks",
+      "current and immediately prior private ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The accessible anchor material gives an O(1/q) upper scale but does not state a matching lower construction.",
+        "The older W-state papers establish A_m for symmetric W states; they do not compare A_q and A_n as the optimum over all q-block partitions of W_n."
+      ],
+      "reasoning": "The new claim is not a special case of the anchor upper bound: it supplies the converse order using a concrete family and a minimization over all partitions. Conversely, the older W-state overlap formula lacks the random-coloring/block-relaxation question and therefore does not imply the sharpness conclusion without the new grouping and concavity argument.",
+      "searches": [
+        "product state testing random coloring W state tight 1/q partition fidelity",
+        "2610.01979 W state random coloring tightness",
+        "Bao Helsen Nguyen random coloring product overlap tight lower bound W state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-result search returned no claim identifying the W-state best q-block product-overlap loss with A_q-A_n.",
+        "The recent anchor abstract states only an additive O(1/q) existence guarantee for a q-block partition.",
+        "arXiv:0806.1314v1 gives the symmetric W-state maximal product overlap A_m but does not formulate a block-partition relaxation."
+      ],
+      "reasoning": "The new statement compares two optimization domains on the same W state: full n-fold products and the best q-block products. Neither the anchor upper guarantee nor the older symmetric-W fidelity formula alone implies the exact minimization over partitions without the weighted-W/Jensen argument.",
+      "searches": [
+        "product state testing random coloring W state tight 1/q partition fidelity",
+        "closest product state partition relaxation W_n q blocks ((q-1)/q)^(q-1)",
+        "arXiv:2610.01979v1; exact W-state q-block relaxation formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-result hit was 2026/9/19/SCOPE-schur-concavity-product-profile-block-scale--c907c96c56a6, which concerns an unrelated product-profile small-ball scale rather than quantum product fidelity.",
+        "No current- or prior-ledger claim used arXiv:2610.01979v1 or the W-state q-block relaxation law."
+      ],
+      "reasoning": "Exact-form and source-identifier searches did not locate a tabulated or previously published instance of the claimed finite formula or its 1/(2e q) asymptotic lower constant.",
+      "searches": [
+        "closest product state partition relaxation W_n q blocks ((q-1)/q)^(q-1)",
+        "2610.01979 W state random coloring tightness",
+        "A_q-A_n W state product overlap partition q blocks"
+      ]
+    },
+    "rationale": "The recent product-testing paper states the \\\\(O(1/q)\\\\) random-coloring upper scale, while older W-state work supplies exact symmetric-W product fidelities. Focused source, formula, alias, and implication searches found no statement that the best q-block relaxation of \\\\(W_n\\\\) is exactly \\\\(A_q\\\\), nor the resulting unavoidable \\\\(1/(2e\\,q)\\\\) loss. The inaccessible portions of the anchor are retained as an explicit residual risk rather than treated as negative evidence.",
+    "residual_risks": [
+      "The full text of arXiv:2610.01979v1 was not retrievable in the lawful access paths available during this review, so an unindexed tightness remark in that paper cannot be completely excluded.",
+      "Older W-state literature may contain differently phrased grouping observations not surfaced by the focused searches; no implication-equivalent statement was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Accessible material states an additive O(1/q) upper guarantee but does not state the W-state exact lower law. Full-text inaccessibility is a residual originality risk.",
+        "evidence": [
+          "arXiv:2610.01979v1 abstract: existence of a q-part partition with squared product-overlap increase O(1/q)."
+        ],
+        "identifier_or_url": "arXiv:2610.01979v1",
+        "material_read": "Public arXiv abstract and independently indexed abstract metadata; full text was not available through the lawful sources reached in this review.",
+        "method": "Read the accessible primary abstract and ran exact source/title, W-state, tightness, and formula searches.",
+        "title": "Fully tolerant product state testing and closest product state learning",
+        "trigger": "Primary recent source introducing the q-block random-coloring approximation whose order is tested for sharpness."
+      },
+      {
+        "assessment": "Supports the component identity \\\\(F_{\\mathrm{prod}}^2(W_m)=A_m\\\\) but does not address grouping into q blocks or random-coloring sharpness.",
+        "evidence": [
+          "The paper gives \\\\(P_{\\max}=((m-1)/m)^{m-1}\\\\) for the symmetric W state."
+        ],
+        "identifier_or_url": "arXiv:0806.1314v1",
+        "material_read": "Accessible primary-paper excerpt containing the symmetric W-state formula.",
+        "method": "Inspected the published formula for the maximal overlap of the symmetric W state.",
+        "title": "Toward an understanding of entanglement for generalized n-qubit W-states",
+        "trigger": "Primary older source for the exact symmetric W-state maximal product overlap."
+      },
+      {
+        "assessment": "Broader in W-state weights but does not formulate or imply the best partition-relaxation loss without the grouping/Jensen comparison developed here.",
+        "evidence": [
+          "The paper characterizes nearest product states for arbitrary generalized W states."
+        ],
+        "identifier_or_url": "arXiv:1002.3049v1",
+        "material_read": "Full accessible text including its classification and maximal-overlap theorems for generalized W states.",
+        "method": "Inspected the generalized-W nearest-product theorems and formulas.",
+        "title": "Duality and the geometric measure of entanglement of general multiqubit W states",
+        "trigger": "Broader primary literature on closest products of weighted W states."
+      },
+      {
+        "assessment": "Studies learning the fully product optimum and does not cover the q-block partition gap or W-state sharpness witness.",
+        "evidence": [
+          "arXiv:2411.04283v1 abstract describes algorithms for fidelity-close fully product states."
+        ],
+        "identifier_or_url": "arXiv:2411.04283v1",
+        "material_read": "Public abstract.",
+        "method": "Compared its optimization target and guarantees with the block-product relaxation claim.",
+        "title": "Learning the closest product state",
+        "trigger": "Closest prior algorithmic literature on optimizing product fidelity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29cf6b55-a794-42d9-b86a-e3d2628a30e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The random-coloring reduction is a central structural step in the new tolerant product-state tester. The W-state theorem proves that its \\\\(1/q\\\\) additive scale is not an artifact of the proof: even the optimally chosen partition has a loss asymptotic to \\\\(1/(2e\\,q)\\\\). This rules out any universal \\\\(o(1/q)\\\\) refinement of that reduction and identifies balanced partitions as the exact worst case for this natural witness family.",
+    "status": "PASS"
+  }
+}
