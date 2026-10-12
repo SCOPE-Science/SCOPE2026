@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For a hypothetical two-colouring, exact half-balance on every edge yields r_i+c_j-2x_ij=n-2. Summing by rows and columns forces r_i=c_i; unless n=4, all row sums are equal and then every off-diagonal x_ij is equal, contradicting n>=3. The n=4 witness is explicit. Three-colour witnesses are explicit for n=3,5, and for n>=6 the one-factorization construction has per-colour endpoint degree at most ceil((n-1)/3), giving every adjacent colour count at most n-2. The verifier independently checks the small cases and construction range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.04122v1 gives Maj-prime(G)<=3 for minimum degree at least 5, covering only the upper bound for n>=6.",
+        "arXiv:2607.00212v1 gives broader four/five-colour upper bounds but no two-colour characterization."
+      ],
+      "reasoning": "The stronger broad theorems were implication-checked. They do not imply the lower bound excluding two colours, nor the n=3,4,5 exact values.",
+      "searches": [
+        "strong majority edge coloring regular bipartite crown",
+        "strong majority edge coloring complete bipartite matching deleted",
+        "arXiv:2608.04122v1 minimum degree at least 5 three colours",
+        "arXiv:2607.00212v1 Theorem 4 degree restrictions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.23828v1",
+      "arXiv:2607.00212v1",
+      "arXiv:2608.04122v1",
+      "2026/9/17/SCOPE005",
+      "2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+      "own:f0815fe7-bf25-463c-b666-93c9ebbe511a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The owned current ledger contains a complete-bipartite strong-majority-index result but no crown result.",
+        "The n>=6 upper bound is explicitly credited to arXiv:2608.04122v1 rather than claimed as new.",
+        "Own prior finding f0815fe7-bf25-463c-b666-93c9ebbe511a has the same numerical 2-at-4/3-otherwise formula for complete graphs, but its statement does not imply the crown result; the graph family and two-colour equations are different."
+      ],
+      "reasoning": "Exactness requires both an upper bound and a two-colour impossibility theorem. Published upper bounds do not supply the latter, and the small-degree crowns fall outside the strongest minimum-degree theorem.",
+      "searches": [
+        "current and prior owned ledgers: strong majority index, crown, K_{n,n}-M_n",
+        "arXiv:2605.23828v1",
+        "arXiv:2607.00212v1",
+        "arXiv:2608.04122v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned record states Maj-prime(Cr_n) or an equivalent two-colour classification for K_{n,n}-M_n.",
+        "Aliases crown graph and perfect-matching-deleted balanced biclique were queried explicitly."
+      ],
+      "reasoning": "The claim is invariant under the standard crown/K_{n,n}-M_n/bipartite-one-factor-complement aliases; those formulations were searched directly.",
+      "searches": [
+        "strong majority edge coloring crown graph Cr_n exact strong majority index",
+        "strong majority index K_n,n minus perfect matching crown graph",
+        "strong majority edge-colouring bipartite K_{n,n}-M_n",
+        "Maj' crown graph perfect matching deletion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record 2026/9/17/SCOPE005 concerns a generalized bipartite threshold, not the exact crown parameter.",
+        "Other close records concern proper conflict-free colouring or unrelated crown invariants."
+      ],
+      "reasoning": "No exact-value table or indexed claim returned the displayed 2/3 crown formula.",
+      "searches": [
+        "strong majority edge coloring crown graph Cr_n exact strong majority index",
+        "strong majority index K_n,n minus perfect matching crown graph",
+        "strong majority edge-colouring bipartite K_{n,n}-M_n",
+        "Maj' crown graph perfect matching deletion",
+        "strong majority edge coloring regular bipartite crown",
+        "strong majority edge coloring complete bipartite matching deleted"
+      ]
+    },
+    "rationale": "The closest same-invariant literature provides broad upper bounds, including the published three-colour upper bound for minimum degree at least 5, but the inspected statements do not determine two-colourability of crowns or isolate Cr_4. Targeted database queries under crown, K_{n,n}-M_n, perfect-matching deletion, and strong-majority aliases returned no exact crown theorem. The new statement is not presented as a new upper bound for n>=6; its novelty is the exact lower obstruction and complete crown classification.",
+    "residual_risks": [
+      "An older or poorly indexed equivalent two-colour theorem for bipartite one-factor complements could have escaped semantic search.",
+      "The original introducing preprint and later papers may acquire revisions after the inspected versions; the claim comparison is to the versions identified here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same invariant and general bounds; no crown-graph exact theorem was located.",
+        "evidence": "The paper introduces Maj-prime and gives general bounds; targeted crown and K_{n,n}-M_n searches did not identify an exact crown result.",
+        "identifier_or_url": "arXiv:2605.23828v1",
+        "material_read": "Definition, abstract-level results, and family-level statements relevant to the edge parameter.",
+        "method": "Public preprint metadata and searchable full-text mirrors were inspected for the definition and named-family coverage.",
+        "title": "Strong majority colorings of graphs",
+        "trigger": "Defining paper for the invariant and source of the primary graph-colouring classification."
+      },
+      {
+        "assessment": "Proves Maj-prime at most five for admissible graphs and at most four when degrees avoid 2 and 4; it contains no crown or complete-bipartite exact theorem.",
+        "evidence": "Full-text search returned no crown or complete-bipartite occurrence; Theorem 4 is a broad upper bound, not the two-colour classification.",
+        "identifier_or_url": "arXiv:2607.00212v1",
+        "material_read": "Searchable full text, including Theorems 3 and 4 and the constructions requiring four colours.",
+        "method": "The accessible full text was searched for crown, complete bipartite, and regular bipartite terminology and read around the main structural theorems.",
+        "title": "Strong Majority Edge-Coloring",
+        "trigger": "Closest subsequent same-invariant paper improving the universal bound."
+      },
+      {
+        "assessment": "Its minimum-degree-at-least-5 theorem implies a three-colour upper bound for Cr_n when n>=6, so that portion is treated as prior coverage. It does not determine whether two colours suffice.",
+        "evidence": "The stated main theorem gives three colours for minimum degree at least 5 and explicitly leaves degree 4 near the threshold.",
+        "identifier_or_url": "arXiv:2608.04122v1",
+        "material_read": "Abstract and main theorem statement.",
+        "method": "Public arXiv record and searchable publication mirrors were inspected.",
+        "title": "On Strong Majority Edge Colourings with Few Colours",
+        "trigger": "Stronger same-invariant theorem potentially dominating the n>=6 upper bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08a9830d-ffbb-48e4-b0a8-f2597be3b661",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crown graphs are a canonical regular bipartite family and a one-factor deletion of K_{n,n}. The theorem completely determines a newly introduced colouring invariant on the family, exposes a unique exceptional order, and supplies a structural two-colour rigidity argument not provided by the broad minimum-degree upper bounds. The degree-4 crown Cr_5 also sits exactly below the published three-colour minimum-degree threshold, so its explicit three-colour resolution is mathematically informative rather than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
