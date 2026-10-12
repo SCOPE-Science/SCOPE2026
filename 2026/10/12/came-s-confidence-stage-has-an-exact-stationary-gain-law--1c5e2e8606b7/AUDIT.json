@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Both factored reconstructions reduce to scalar all-ones matrices because biregularity makes every row sum and every column sum equal. The first raw-update RMS is exactly \\((1-\\beta_2^t)^{-1/2}\\), so source clipping at threshold one removes the entire first-stage transient. The momentum and confidence states then have closed scalar recurrences. Direct replay of the embedded verifier matches every formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper analyzes training behavior empirically and motivates confidence through residual size.",
+        "Adafactor supplies the underlying row-column reconstruction and update clipping but has no second confidence factorization.",
+        "Later memory-efficient optimizer papers compare or replace CAME but the inspected search results did not provide this constant-input implication."
+      ],
+      "reasoning": "General convergence or empirical performance claims do not imply this exact optimizer-state trajectory. The result depends on the interaction of two separate factorization stages and the residual EMA.",
+      "searches": [
+        "CAME optimizer factorization residual confidence analysis sparse",
+        "Adafactor sparse gradients factored second moment analysis",
+        "memory efficient optimizer CAME theoretical analysis"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.02047v1",
+      "ACL:2023.acl-long.243",
+      "arXiv:1804.04235v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "CAME Algorithm 2 gives the two factored states, update clipping, momentum, squared residual, and final confidence division.",
+        "The CAME text explicitly interprets smaller residual as higher confidence and a larger optimization step.",
+        "Adafactor gives the row-column rank-one reconstruction and RMS update clipping used in CAME's first stage."
+      ],
+      "reasoning": "The prior work defines each component but does not solve their joint recurrence on a stationary biregular input. The final claim requires exact cancellation of the first clipping transient and a second marginal calculation showing density cancellation.",
+      "searches": [
+        "arXiv:2307.02047v2 Algorithm 2 CAME optimizer",
+        "arXiv:2307.02047v2 erroneous update confidence residual",
+        "arXiv:1804.04235v1 update clipping factored second moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining CAME source states that the residual between clipped current update and momentum is used as the confidence denominator.",
+        "No inspected source states the exact scalar confidence recurrence or its stationary epsilon-floor gain.",
+        "Published-record searches returned no CAME theorem for constant-gradient or stationary-update behavior."
+      ],
+      "reasoning": "Equivalent formulations include a closed stationary confidence gain, an exact epsilon-floor asymptote, or a proof that a constant update causes the residual statistic to decay. None was located.",
+      "searches": [
+        "CAME optimizer constant gradient confidence residual exponential growth epsilon floor",
+        "CAME optimizer stationary update confidence denominator vanishes",
+        "CAME constant gradient exact recurrence beta1 beta3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned records concerned unrelated adaptive-step, trust-region, spectral, and sparse optimization phenomena.",
+        "No returned published record named a CAME stationary-confidence or biregular-density law."
+      ],
+      "reasoning": "The nearest database hits use different update recurrences and do not imply the final formula. Search absence is supporting evidence only.",
+      "searches": [
+        "CAME optimizer constant gradient confidence residual exponential growth epsilon floor",
+        "CAME optimizer stationary update confidence denominator vanishes",
+        "CAME constant gradient exact recurrence beta1 beta3",
+        "confidence-guided adaptive memory efficient optimization constant update instability",
+        "CAME optimizer sparse gradient biregular support confidence factorization",
+        "CAME optimizer exact sparse gradient density amplification"
+      ]
+    },
+    "rationale": "The CAME paper defines the residual-confidence mechanism and argues qualitatively that small residual means high confidence and a larger update. The inspected source does not state the exact constant-input gain, epsilon-floor limit, or density cancellation. Focused published-record searches found no implication-equivalent CAME result.",
+    "residual_risks": [
+      "An equivalent recurrence calculation may exist in unindexed implementation notes.",
+      "The exact law uses zero first regularizer and a highly structured stationary input.",
+      "The large epsilon-floor gain is an optimizer-response limit, not evidence that a real training run reaches it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_STATIONARY_GAIN_OR_DENSITY_LAW.",
+        "evidence": "The source defines confidence as inverse square root of a factored EMA of squared residuals and explains that smaller residual should permit larger updates, but no exact constant-input trajectory was found.",
+        "identifier_or_url": "arXiv:2307.02047v2; ACL:2023.acl-long.243",
+        "material_read": "Open full text covering the Adafactor overview, erroneous-update motivation, confidence equation, Algorithm 2, implementation details, and experimental hyperparameters.",
+        "method": "Full-text HTML inspection.",
+        "title": "CAME: Confidence-guided Adaptive Memory Efficient Optimization",
+        "trigger": "Defining source for CAME's two factored states, clipping, momentum, residual confidence statistic, and experimental regularizers."
+      },
+      {
+        "assessment": "SUPPORTING_ARCHITECTURE_NOT_COVERING_CAME_CONFIDENCE_STAGE.",
+        "evidence": "Adafactor establishes the row-column reconstruction and clipping rule but predates the residual-confidence mechanism.",
+        "identifier_or_url": "arXiv:1804.04235v1",
+        "material_read": "Open full text covering rank-one generalized-KL reconstruction, factored Adam, update clipping, and the final matrix Adafactor algorithm.",
+        "method": "Full-text HTML inspection.",
+        "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+        "trigger": "Source of the first rank-one second-moment reconstruction and RMS update clipping inherited by CAME."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c5e2e86-06b7-4a42-81cc-5448e83709be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Confidence normalization is CAME's defining addition to Adafactor. The theorem identifies an exact boundary behavior of that mechanism: perfectly consistent updates make confidence increase until it is limited only by the explicit epsilon floor, while biregular sparsity remains invisible to global RMS and receives an exact inverse-square-root active-coordinate gain. This directly clarifies what the confidence statistic controls and what it cannot distinguish.",
+    "status": "PASS"
+  }
+}
