@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The proof independently constructs the weighted empirical distribution \\(F_N\\), whose mean is \\(1-e^{-x}\\) and whose squared standard-deviation coefficient is \\(a_N^2=H_N^{(2s)}/(H_N^{(s)})^2\\). In time windows of width \\(O(a_N)\\), the centered-increment variance is \\(O(a_N^3)\\); a monotone grid argument yields the quantile linearization with derivative \\(1-\\theta\\). Bounded-vector Lindeberg gives the joint Gaussian law precisely when the squared coefficient sums diverge, while \\(\\ell^2\\) coefficient convergence gives the joint Bernoulli series when they converge. Power-sum asymptotics establish each constant. A nonzero third cumulant except at the half-threshold, where the fourth cumulant is nonzero, proves non-Gaussianity. The packaged checker successfully reproduced 159 checks (140 exact nested-level moment assertions, 12 exact cumulants, 7 deterministic normalization trends); finite checks are supportive only. The domain is fixed \\(0\\le s<1\\), \\(\\lambda>0\\) and finitely many fixed interior thresholds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1002.4338v1 Section 1 weights and stated expansion assumptions.",
+        "arXiv:2606.28222v2 abstract and proof scope.",
+        "Classical Lindeberg-Feller central limit theorem (standard theorem)."
+      ],
+      "reasoning": "Lindeberg-Feller supplies only the diffuse Gaussian component when the largest normalized coefficient tends to zero; the claimed Gaussian constants and critical logarithmic scale require Zipf sums and inversion. General weighted empirical cumulant expansions require bounded rescaled weights and do not imply the non-Gaussian persistent-component regime as stated. Residual risk: an unindexed general functional delta theorem plus nonnormal triangular-array convergence could subsume the proof.",
+      "searches": [
+        "weighted empirical distribution quantile asymptotic Gaussian Bernoulli convolution atom weights non Gaussian",
+        "weighted empirical distribution function quantile asymptotic distribution deterministic weights maximum weight square root sum weights squared central limit theorem",
+        "Power-law Zipf weighted coupon threshold hitting time second-order fluctuations Gaussian regime s<1/2 logarithmic critical s=1/2 Bernoulli zeta random series s>1/2"
+      ]
+    },
+    "checked_sources": [
+      "Müller–Šebek arXiv:2607.08551v1: Theorem 4.1, Remarks 3.2 and 4.2, Section 5 arrival-rate alignment.",
+      "Withers–Nadarajah arXiv:1002.4338v1: Section 1 assumptions on weighted empirical distributions.",
+      "Necir arXiv:2606.28222v2: abstract and ordinary uniform-weight process scope.",
+      "Akinshin arXiv:2304.07265v1: weighted quantile estimator construction.",
+      "Published mathematical-record searches for weighted quorum, Zipf thresholds, Bernoulli series and half-power critical fluctuations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.08551v1 Theorem 4.1 and Remark 4.2 prove convergence in probability of normalized quorum time only.",
+        "arXiv:2607.08551v1 Section 5 explicitly sets arrival probabilities equal to Zipf weights.",
+        "arXiv:1002.4338v1 Section 1 assumes all rescaled weights bounded."
+      ],
+      "reasoning": "Convergence in probability at order N does not determine fluctuation scales, covariance or Gaussian-versus-nonGaussian behavior. The source aligned Zipf theorem is not a stronger statement in the same parameterization because its rates differ; the weighted expansion theorem cannot cover the s>0 weights under its boundedness assumption. The precise three-regime law is not a corollary of these stated results.",
+      "searches": [
+        "Quorum coverage exponential clocks weighted empirical quantile asymptotics fixed-power Zipf weights threshold limit law",
+        "Power-law Zipf weighted coupon threshold hitting time second-order fluctuations Gaussian regime s<1/2 logarithmic critical s=1/2 Bernoulli zeta random series s>1/2",
+        "quorum time central limit Zipf homogeneous weights",
+        "weighted threshold Gaussian fluctuations coupon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1002.4338v1 Section 1 defines weighted empirical measures and imposes bounded rescaled weights.",
+        "arXiv:2606.28222v2 introduction uses ordinary uniform empirical quantiles with weighted approximation-error norms."
+      ],
+      "reasoning": "Quorum time is exactly a weighted empirical quantile of iid exponentials. At \\(s=0\\), it reduces to classical order-statistic asymptotics, which are credited. For \\(s>0\\), rescaled weights grow like \\(N^s\\), outside the cited bounded-weight expansion assumptions; for \\(s>1/2\\), the limiting Bernoulli series is non-Gaussian. No equivalent full phase classification was identified.",
+      "searches": [
+        "Quorum coverage exponential clocks weighted empirical quantile asymptotics fixed-power Zipf weights threshold limit law",
+        "weighted empirical distribution quantile asymptotic Gaussian Bernoulli convolution atom weights non Gaussian",
+        "weighted empirical distribution function quantile asymptotic distribution deterministic weights maximum weight square root sum weights squared central limit theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record search returned a nonuniform reset-coupon rate result, which concerns resetting dynamics and saddle-point rates rather than homogeneous-clock quorum fluctuations.",
+        "Published mathematical-record search returned a Poisson-binomial cumulant hierarchy, which concerns fixed-time heterogeneous sums, not threshold hitting times."
+      ],
+      "reasoning": "Searched for the exact critical exponent, logarithmic scale, Bernoulli-zeta profile, and quorum-time aliases. No matching exact table or theorem was identified; a negative search alone is not treated as novelty proof.",
+      "searches": [
+        "Power-law Zipf weighted coupon threshold hitting time second-order fluctuations Gaussian regime s<1/2 logarithmic critical s=1/2 Bernoulli zeta random series s>1/2",
+        "Quorum coverage exponential clocks weighted empirical quantile asymptotics fixed-power Zipf weights threshold limit law",
+        "Bernoulli series non-Gaussian weak limit power law weights finite-dimensional threshold crossing Gaussian phase transition",
+        "Zipf quorum weights homogeneous clocks central limit Gaussian nonGaussian Bernoulli zeta series threshold s=1/2"
+      ]
+    },
+    "rationale": "The main 2026 paper proves only a homogeneous-rate law of large numbers in Theorem 4.1; its Zipf theorems use aligned heterogeneous arrival probabilities, unlike homogeneous rates here. General weighted empirical expansion work assumes bounded rescaled observation weights, whereas the positive-s Zipf weights have diverging rescaled maximum and exhibit a non-Gaussian limiting series. Ordinary empirical-process Gaussian approximation results and weighted quantile estimators do not state this complete three-phase quorum-time theorem. Targeted record and literature searches found no direct covering result. Generic unindexed triangular-array quantile theory remains a genuine priority risk.",
+    "residual_risks": [
+      "Earlier general triangular-array weighted quantile theory not indexed by the searched aliases might imply part or all of the formulas.",
+      "The finite-dimensional theorem is not uniform over continuum thresholds, and no claim to threshold-process functional tightness is made.",
+      "Literature comparison is broad but not guaranteed exhaustive; independent priority review is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only first-order homogeneous-clock law; later Zipf models align rates and weights, unlike the claimed homogeneous-clock second-order phase classification.",
+        "evidence": [
+          "Theorem 4.1 has convergence in probability only.",
+          "Section 5 explicitly sets \\(p_i=w_i=i^{-s}/H_N^{(s)}\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2607.08551",
+        "material_read": "Abstract, model equation (1.2), Introduction, Sections 3–5 including Theorem 4.1 and Remark 4.2, Section 5 alignment assumption; conclusions and section structure of later Zipf results",
+        "method": "Inspected full-text arXiv PDF pages and section statements with mathematical parameter comparison",
+        "title": "Weighted-threshold Coupon Collection",
+        "trigger": "Direct model, homogeneous arrival rates and Zipf-weighted quorum times"
+      },
+      {
+        "assessment": "Cumulant/Edgeworth expansions assume bounded rescaled weights; the maximum rescaled Zipf mass \\(Nw_{1,N}\\) diverges for every \\(s>0\\). The source does not state the non-Gaussian quorum-time profile.",
+        "evidence": [
+          "Section 1 explicitly says all w_in are assumed bounded and W_r bounded.",
+          "Source focuses smooth-functional cumulant expansions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1002.4338v1",
+        "material_read": "Full-text HTML Abstract and Introduction/Section 1, especially weights w_in, their cumulant assumptions and boundedness requirement; Section 2 scope",
+        "method": "Read public full-text HTML and inspected functional expansion hypotheses",
+        "title": "The distribution and quantiles of functionals of weighted empirical distributions when observations have different distributions",
+        "trigger": "Possible broader smooth weighted empirical functional and quantile expansions"
+      },
+      {
+        "assessment": "Treats ordinary uniform empirical/quantile processes; weighting is approximation-error norm, not heterogeneous coupon observation masses.",
+        "evidence": [
+          "Abstract states ordinary uniform quantile and empirical processes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.28222",
+        "material_read": "Title page, abstract, Section 1 and initial methodological description for quantile increment approximations",
+        "method": "Inspected readable arXiv PDF full text and first-page rendering",
+        "title": "Weighted Gaussian Approximations for Increments of the Uniform Empirical and Quantile Processes",
+        "trigger": "Plausible generic empirical-quantile Brownian-bridge coverage"
+      },
+      {
+        "assessment": "Provides estimator definitions and smoothing but not limiting homogeneous-rate quorum-time laws or Bernoulli series transitions.",
+        "evidence": [
+          "Abstract and Sections 1–2 emphasize Harrell–Davis/trimming and weighted estimator construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.07265",
+        "material_read": "Title, Abstract, Introduction, Section 2 scope and proposed weighted quantile methods",
+        "method": "Inspected readable arXiv full text and first-page rendering",
+        "title": "Weighted quantile estimators",
+        "trigger": "Generic weighted-sample quantile construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "05cca101-1618-4bc9-936d-e194b9eb3943",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating homogeneous-clock theorem establishes a universal deterministic limit for all diffuse weight vectors without resolving which weight heterogeneities alter fluctuations. Zipf weights remain individually vanishing throughout \\(s<1\\), yet the second-order laws undergo a sharp boundary at \\(s=1/2\\): Gaussian fluctuations below, a logarithmic Gaussian scale at equality, and a non-Gaussian Bernoulli series above. The result gives a complete finite-dimensional law for any fixed finite collection of quorum thresholds and sharp Gaussian covariance constants. This is a structural, naturally motivated limit-law classification, not an arbitrary parameter slice or a variance-only observation.",
+    "status": "PASS"
+  }
+}
