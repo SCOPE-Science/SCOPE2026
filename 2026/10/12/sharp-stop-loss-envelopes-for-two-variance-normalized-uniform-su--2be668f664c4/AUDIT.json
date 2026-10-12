@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The convolution yields L=((b+c-d)_+^3-(b-c-d)_+^3)/(24bc). On d<=b-c the second derivative in b is (1+3d^2)/(6b^3)>0, with stationary b^2=(1+3d^2)/2; on b-c<=d<b+c the derivative in s=b+c has the sign of s^2+2ds-3, yielding a unique possible interior minimum. The chamber interface and admissible intervals give all three exact switches, while the maxima are at the balanced or single-coordinate boundaries. Endpoint zero-risk regimes and exact equality conditions were checked analytically; the finite standalone verifier passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "F. Barthe and A. Koldobsky, doi:10.1016/S0001-8708(02)00055-5: small-width pointwise cube-slab extremality, not a reported integrated-tail envelope.",
+        "H. König and A. Koldobsky, doi:10.1016/j.aam.2011.05.001: piecewise slab volume formulas and critical directions in dimensions two and three, not an explicit four-phase stop-loss optimization.",
+        "M.-C. Brandenburg et al., arXiv:2603.25643, §§1.1, 2.3, 3.1 and appendix: general rational volume/moment computation, different moment integral and no sharp integrated-tail weight classification."
+      ],
+      "reasoning": "Known all-dimensional Gaussian probability-tail domination integrates to a loose stop-loss upper bound; it does not fix the extrema and equality weights. Slab-volume methods can evaluate the objective but do not directly give its four global optimization phases. No stronger covering theorem identified; the full older primary texts remain a bibliographic risk.",
+      "searches": [
+        "Barthe Koldobsky extremal slabs cube Laplace transform stop loss integrated tail expected positive part weighted sums two uniform",
+        "two uniform variables weighted sum increasing convex order positive-part call option payoff threshold switch balanced vs unbalanced"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.06235 (full accessible HTML)",
+      "doi:10.1016/S0001-8708(02)00055-5 (abstract and theorem reproduced in 2023 full paper)",
+      "doi:10.1016/j.aam.2011.05.001 (abstract and cited derivations)",
+      "arXiv:2603.25643 (full accessible HTML)",
+      "Targeted mathematical-record searches (exact stop-loss, all three threshold values, convex-order aliases)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "X. He, T. Tkocz, K. Wyczesany, arXiv:2305.06235, Theorem 1, Section 2.2: bounds uniform-sum tails by a Gaussian comparator, not sharp coefficient-optimized positive-part expectations.",
+        "F. Barthe and A. Koldobsky, doi:10.1016/S0001-8708(02)00055-5: small-width pointwise cube-slab extremality, not a reported integrated-tail envelope.",
+        "H. König and A. Koldobsky, doi:10.1016/j.aam.2011.05.001: piecewise slab volume formulas and critical directions in dimensions two and three, not an explicit four-phase stop-loss optimization.",
+        "M.-C. Brandenburg et al., arXiv:2603.25643, §§1.1, 2.3, 3.1 and appendix: general rational volume/moment computation, different moment integral and no sharp integrated-tail weight classification."
+      ],
+      "reasoning": "He et al. compares P(|S|>t) against a Gaussian for arbitrary n; integrating that estimate gives only a nonsharp universal bound on E[(S-d)_+]. Barthe/Koldobsky pointwise slab inequalities and König/Koldobsky volume formulas permit density evaluation, but provide no implication proving which normalized two-weights optimize the integral at each strike. The 2026 general algorithm yields pieces but no global optimizer classification; a direct use would still require the analytic minimax argument here.",
+      "searches": [
+        "A Sharp Gaussian Tail Bound for Sums of Uniforms He Tkocz Wyczesany arxiv 2023 2305.06235",
+        "König Koldobsky Volumes of low-dimensional slabs and sections in the cube 2011",
+        "Critical moments of slices and slabs of the cube 2603.25643"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "X. He, T. Tkocz, K. Wyczesany, arXiv:2305.06235, Theorem 1, Section 2.2: bounds uniform-sum tails by a Gaussian comparator, not sharp coefficient-optimized positive-part expectations.",
+        "H. König and A. Koldobsky, doi:10.1016/j.aam.2011.05.001: piecewise slab volume formulas and critical directions in dimensions two and three, not an explicit four-phase stop-loss optimization."
+      ],
+      "reasoning": "Equivalent tests included centered trapezoidal convolutions, expected positive part/stop-loss premiums, integrated upper tails, square-slab first moments, and fixed-variance convex-order optimization. The matches provide evaluation formulae or different objectives, not this sharp all-strike envelope. In particular the newer 2026 cube-moment paper computes moments of coordinates inside slices/slabs, rather than the integrated excess over a moving cut with global coefficient optimization.",
+      "searches": [
+        "For independent uniform(-1,1) U,V and a²+b²=1, exact sharp minimum and maximum E[(a U+b V-t)_+] stop-loss phase transition t=1/sqrt5 and 1/sqrt3",
+        "two-uniform stop-loss envelope minimizing positive part at fixed variance intermediate unequal weights and four regimes",
+        "cube two-dimensional integrated tail extrema stop loss 1/(2sqrt2) 1/sqrt5",
+        "sum two independent uniform random variables weighted variance one inequality P(|aU+bV+cW|<=t)>=t for t<=2(sqrt2-1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record hits include Quantile curvature and endpoint rates for two-gamma sums (a fixed-sum two-gamma quantile problem) and All-order sharp three-point smoothest averages (a kernel smoothness problem); neither studies this stop-loss functional."
+      ],
+      "reasoning": "Semantic mathematical-record queries using the exact functional, coefficient constraint, transition constants and unequal-weight phases returned no matching sharp table. The closest entries have different distributions or objective functions; a search is not a uniqueness proof.",
+      "searches": [
+        "For independent uniform(-1,1) U,V and a²+b²=1, exact sharp minimum and maximum E[(a U+b V-t)_+] stop-loss phase transition t=1/sqrt5 and 1/sqrt3",
+        "two-uniform stop-loss envelope minimizing positive part at fixed variance intermediate unequal weights and four regimes",
+        "cube two-dimensional integrated tail extrema stop loss 1/(2sqrt2) 1/sqrt5"
+      ]
+    },
+    "rationale": "The originating Gaussian-tail comparison, classical cube-slab pointwise volume inequalities, a low-dimensional slab-volume formula paper, and a recent general cube-moment algorithm do not explicitly state the sharp two-uniform stop-loss extrema, their four-phase minimum or maximum crossover. The statement compares integrated tails and optimizes over fixed-variance coefficients; this is not implied by a pointwise Gaussian comparator or by knowing a chamber-wise density formula alone. Priority risk remains for uninspected originals and unindexed equivalent formulations.",
+    "residual_risks": [
+      "The 2003 Barthe–Koldobsky and 2011 König–Koldobsky full primary articles were not read end-to-end; an implicit equivalent corollary could exist.",
+      "Mathematical-record search is not exhaustive and does not establish priority against unpublished work.",
+      "The 2026 general cube-moment algorithm could be specialized to derive, but does not state, this sharp envelope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different inequality: nonsharp positive-part bounds follow from Gaussian tail domination, but the exact stop-loss coefficient extrema and interior minimizers are not stated",
+        "evidence": "2023 manuscript Theorem 1 compares P(|sum a_i U_i|>t) against Gaussian; §2.2 cites small-t cube-slab extremality.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.06235",
+        "material_read": "Full publicly available arXiv-rendered HTML: abstract; introduction; Theorem 1; proof Sections 2.1–2.2; cited slab arguments and final remarks",
+        "method": "Read arXiv accessible HTML and compare exact quantities and normalizations",
+        "title": "A Sharp Gaussian Tail Bound for Sums of Uniforms",
+        "trigger": "Same independent uniform summands, quadratic weight normalization and sharp tails"
+      },
+      {
+        "assessment": "Pointwise slab volume minimization for short widths does not itself establish integrated-tail optimizer classification; full-text coverage remains uncertain",
+        "evidence": "Published abstract describes extremal symmetric slab volumes and large-width asymptotics; He et al. §2.2 identifies the width 3/4 range and n=2 extension.",
+        "identifier_or_url": "https://doi.org/10.1016/S0001-8708(02)00055-5",
+        "material_read": "Primary article abstract and its precise small-width theorem as reproduced in He et al. Section 2.2; complete publisher text unavailable",
+        "method": "Lawful OA and bibliographic search plus quoted theorem in a full-text citing primary source",
+        "title": "Extremal slabs in the cube and the Laplace transform",
+        "trigger": "Potential stronger geometric theorem on two-variable cube slabs"
+      },
+      {
+        "assessment": "Density/volume calculations can reconstruct the stop-loss functional, but global fixed-variance four-phase minimization is not stated in material read; full original not inspected",
+        "evidence": "Primary abstract: slab volumes as functions of width/direction, multiple local extrema/saddle points; Brandenburg et al. §3.1 attributes two-dimensional volume formula to this paper.",
+        "identifier_or_url": "https://doi.org/10.1016/j.aam.2011.05.001",
+        "material_read": "Primary abstract and a detailed full-text account of the formulas by Brandenburg et al. (2026), §§1–3",
+        "method": "Open literature/Bibliographic abstract search followed by related full-text derivations",
+        "title": "Volumes of low-dimensional slabs and sections in the cube",
+        "trigger": "Two- and three-cube exact formulas might subsume integrated excess via an auxiliary-coordinate reduction"
+      },
+      {
+        "assessment": "General algorithms compute piecewise rational volumes and coordinate-moments; they do not report the all-strike optimized positive-part envelope or its weight phases",
+        "evidence": "Paper defines integrals over slices/slabs of sum of coordinate powers, Theorem 1 is an algorithm; §3.1 derives formulas and emphasizes critical points for slices.",
+        "identifier_or_url": "https://arxiv.org/html/2603.25643v2",
+        "material_read": "Full-text HTML Introduction, Theorem 1, §2.3, §3.1, and appendix structure concerning the two-cube",
+        "method": "Inspected arXiv full HTML and compared integrand, normalization, optimization domain and conclusions",
+        "title": "Critical moments of slices and slabs of the cube (and other polyhedral norms)",
+        "trigger": "Exact cube-slab moment calculations and critical-point classifications may dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2be668f6-64c4-4ae5-bc4a-e6691d1bc403",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The integrated upper tail is a natural stop-loss and convex-order invariant for bounded independent risks. With only the variance held fixed, the complete two-summand extremal envelope is not described by merely balancing or concentrating weights: the minimizing orientation is genuinely unequal in two distinct intervals. The three algebraically exact change points and unique maximum crossover provide a useful rigorous benchmark for weighted-uniform concentration and aggregation. This is a meaningful classification over all strikes, not an arbitrary numerical slice or normalization identity.",
+    "status": "PASS"
+  }
+}
