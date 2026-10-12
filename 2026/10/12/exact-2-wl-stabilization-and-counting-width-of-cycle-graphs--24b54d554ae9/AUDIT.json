@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes an exact round-by-round distance partition and a sharp stabilization condition. The counting-width lower and upper bounds use standard 1-WL/C^2 counting equivalence and a fixed-order three-variable connectedness formula. Direct tuple-level 2-WL computation through n=60 agrees exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "independent_validation": false,
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kluge proves O(d(n) log n) rounds for every circulant graph, which includes cycles, but the inspected theorem does not compute the exact cycle value.",
+        "Kiefer--Neuen studies stable 2-WL color structures on planar graphs and mentions cycles as possible detected subgraphs, not isolated-cycle iteration counts.",
+        "Döring--Neuen gives a general O(n) bound for classical WL, far broader but not exact on cycles."
+      ],
+      "reasoning": "The closest stronger-domain papers were checked to determine whether their theorems already specialize to the claimed closed form. They provide upper bounds or structural descriptions, not the exact specialization found here.",
+      "searches": [
+        "arXiv:2204.01054 full-text/abstract inspection",
+        "arXiv:2206.10557 full-text searches for cycle, distance, stabilization",
+        "arXiv:2609.17364 abstract inspection"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1003.4865",
+      "DOI:10.1090/conm/558/11050",
+      "arXiv:2204.01054",
+      "DOI:10.1007/s00037-024-00255-2",
+      "arXiv:2206.10557",
+      "arXiv:2609.17364",
+      "published-finding corpus semantic-search corpus"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The survey's general correspondence does not determine the distance-refinement recurrence.",
+        "Kluge's O(d(n) log n) class bound is compatible with but does not imply the exact integer without an additional cycle-specific argument.",
+        "The stable-color structural results do not determine how many refinement rounds are required from the atomic initialization."
+      ],
+      "reasoning": "The new content is the exact distance-doubling recurrence and the stopping threshold; it is not a direct restatement of the general correspondence or class-level asymptotic bounds.",
+      "searches": [
+        "Pikhurko--Verbitsky arXiv:1003.4865 sections defining stabilization and WL/counting logic",
+        "Kluge arXiv:2204.01054 Theorem 1 and introduction",
+        "Kiefer--Neuen arXiv:2206.10557 abstract/introduction and targeted full-text searches"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No inspected published-finding corpus hit stated the exact cycle stabilization or width formulas.",
+        "Literal and semantic web searches returned general WL iteration work and Kluge's circulant upper bound, not an exact cycle round count."
+      ],
+      "reasoning": "Searches covered the 2-WL, classical WL, stabilization-number, cycle-distance, and counting-logic vocabularies to reduce terminology mismatch.",
+      "searches": [
+        "published-finding corpus: exact stabilization number 2-dimensional Weisfeiler Leman cycle C_n logical width counting cycles",
+        "published-finding corpus: 2-WL colors cycle distance classes stabilization exact rounds",
+        "Web: exact stabilization 2-WL cycles graph",
+        "Web: Weisfeiler-Leman cycle graph stabilization rounds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus's closest cycle hits concern unrelated invariants such as coloring polynomials and cyclic harmonic analysis.",
+        "No indexed exact-value table or formula for the claimed stabilization sequence was located."
+      ],
+      "reasoning": "Both semantic and formula-oriented searches were used because a short exact cycle calculation could appear as a table, benchmark, or proposition rather than under the same title.",
+      "searches": [
+        "published-finding corpus semantic-search corpus: cycle 2-WL stabilization",
+        "published-finding corpus semantic-search corpus: cycle counting logic width",
+        "Web exact-formula searches around ceil log2 floor(n/2)-1"
+      ]
+    },
+    "rationale": "The nearest literature gives general WL/counting correspondences, broad circulant round bounds, and stable planar color structure; targeted searches and source inspections did not locate the exact cycle formulas. Residual folklore/thesis priority risk remains.",
+    "residual_risks": [
+      "The exact distance-doubling argument may appear in unindexed lecture notes, a thesis, or association-scheme folklore.",
+      "The indexed Kluge text inspected here was sufficient for its main theorem and targeted cycle searches, but not every line of every version was manually read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the general framework and correspondences but no exact cycle stabilization formula was located.",
+        "evidence": "The survey defines the stabilization parameter and WL/counting-game bridges; its inspected examples do not compute the isolated cycle sequence.",
+        "identifier_or_url": "arXiv:1003.4865; DOI:10.1090/conm/558/11050",
+        "material_read": "Sections on WL/counting logic, stabilization numbers, and logical width/depth examples.",
+        "method": "Indexed PDF text and previously inspected page images.",
+        "title": "Logical complexity of graphs: a survey",
+        "trigger": "Archive-era source defining the stabilization and counting-logic parameters used in the claim."
+      },
+      {
+        "assessment": "Proves O(d(n) log n) rounds for all circulants; no exact cycle specialization was located.",
+        "evidence": "Theorem 1 gives only the class-level asymptotic bound, and targeted cycle/C_n searches in the indexed text returned no cycle-specific theorem.",
+        "identifier_or_url": "arXiv:2204.01054; DOI:10.1007/s00037-024-00255-2",
+        "material_read": "Abstract, introduction, definition of 2-WL, Theorem 1, related-work discussion, and targeted searches for cycle/C_n.",
+        "method": "ArXiv HTML/full-text inspection and targeted text search.",
+        "title": "Combinatorial refinement on circulant graphs",
+        "trigger": "Cycles are degree-two circulant graphs, making this the closest round-complexity paper by object class."
+      },
+      {
+        "assessment": "Relevant to stable expressive structure but no iteration-count formula for an isolated cycle was located.",
+        "evidence": "Cycle occurrences concern planar structural arguments; the inspected text did not expose a stabilization-round theorem.",
+        "identifier_or_url": "arXiv:2206.10557",
+        "material_read": "Abstract/introduction and targeted full-text searches for cycle, distance, and stabilization; first page inspected as image.",
+        "method": "Indexed PDF text search plus page-image inspection.",
+        "title": "A Study of Weisfeiler--Leman Colorings on Planar Graphs",
+        "trigger": "Cycles are planar, and the paper explicitly analyzes stable 2-WL color structures involving cycles."
+      },
+      {
+        "assessment": "Gives a global linear upper bound, not an exact cycle-family formula.",
+        "evidence": "The stated result is 5(n-1) iterations in general, with no cycle specialization in the abstract.",
+        "identifier_or_url": "arXiv:2609.17364",
+        "material_read": "Abstract and bibliographic metadata.",
+        "method": "ArXiv indexed abstract inspection.",
+        "title": "The Classical Weisfeiler-Leman Algorithm Stabilizes in O(n) Rounds",
+        "trigger": "Current general upper bound for the classical 2-WL iteration number."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24b54d55-4ae9-498e-a27b-f75ed3249470",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives an exact all-n iteration benchmark for the simplest connected regular graphs where 1-WL is powerless, sharpening a broad circulant O(d(n) log n) bound to a closed form and explaining it by a structural distance-doubling invariant. The simultaneous counting-width transition at n=6 is a natural finite-model-theory boundary.",
+    "status": "PASS"
+  }
+}
