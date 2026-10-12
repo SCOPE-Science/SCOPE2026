@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source identity is \\(\\mathcal R_0=C\\,\\mathbb E[\\Theta(\\Theta-1)]\\). The lower envelope follows from the integer inequality \\((n-k)(n-k-1)\\ge0\\), with equality exactly on adjacent support points. The upper envelope follows from \\(n(K-n)\\ge0\\), with equality exactly at the endpoints. The stated two-point laws satisfy the mean constraint and attain the bounds; convex mixtures attain the full interval. The unbounded no-cap statement is witnessed by exact two-point laws whose factorial moment is \\(m(L-1)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyer et al. model a gathering-size distribution \\(f(k)\\), explicitly formulate restrictions through a maximum permitted size, and show that intervention effects depend strongly on the gathering-size distribution.",
+        "Their small-prevalence calculation makes expected incident cases approximately quadratic in gathering size.",
+        "Their model does not identify the Cortez reproduction number with a factorial second moment or solve the fixed-mean extremal problem."
+      ],
+      "reasoning": "The broader literature establishes that tail shape and size caps are epidemiologically meaningful. It does not dominate the accepted claim because the objects and target quantity differ: expected incident cases under a restriction versus the exact invasion number of the random-gathering SIR system.",
+      "searches": [
+        "\"Infectious disease dynamics and restrictions on social gathering size\" distribution threshold",
+        "\"social gathering size\" epidemic heavy-tailed distribution restriction threshold",
+        "\"gathering size\" quadratic expected infections distribution epidemic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2203.08260",
+      "doi:10.1017/jpr.2023.65",
+      "doi:10.1016/j.epidem.2022.100620"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No published correction or extension located in the targeted searches gives the exact interval.",
+        "The closest research-record result on reproduction numbers concerns a different coupled-SEIR movement model.",
+        "Other nearby research-record results on sharp variance or extremal distributions concern unrelated graph or probability problems and do not imply the epidemic statement."
+      ],
+      "reasoning": "Knowing that variance matters does not imply the sharp lower and upper envelopes, equality cases, full attainability interval, or the no-cap unboundedness result. Those conclusions require solving the source-specific integer moment problem.",
+      "searches": [
+        "\"SIR model with social gatherings\" sharp bound mean cap",
+        "\"random gathering size\" epidemic variance reproduction number",
+        "\"fixed mean\" gathering size epidemic cap reproduction number",
+        "\"factorial moment\" gathering size epidemic threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source gives \\(\\mathcal R_0=(\\mu p/\\gamma)\\mathbb E[\\Theta(\\Theta-1)]\\) and examples with fixed, binomial, Poisson, and logarithmic gathering sizes.",
+        "The same source explicitly permits support on \\(\\{0,\\ldots,K\\}\\) to model a maximum gathering-size restriction.",
+        "No located source stated the adjacent-support minimizer, endpoint maximizer, or exact attainable interval under fixed mean and cap."
+      ],
+      "reasoning": "The claim can be phrased as a variance law, a factorial-moment extremum, a fixed-mean cap envelope, or a robust epidemic-threshold classification. The searches covered these equivalent formulations rather than relying on the title alone.",
+      "searches": [
+        "\"SIR model with social gatherings\" variance gathering size reproduction number",
+        "\"SIR model with social gatherings\" factorial moment variance",
+        "\"mean gathering size\" variance \"reproduction number\" epidemic",
+        "\"gathering size\" \"second factorial moment\" epidemic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv record verifies first public posting on 15 March 2022 and Primary MSC 92D30.",
+        "The primary open full text was read at the random-size model, finite-cap policy example, and reproduction-number section.",
+        "The Boyer et al. open-access full text was read at its theory section defining the gathering-size distribution, cap, conditional expected infections, and quadratic approximation."
+      ],
+      "reasoning": "The comparison is against the exact motivating equations and a full-text policy-adjacent model, not against bibliographic metadata alone.",
+      "searches": [
+        "arXiv:2203.08260 reproduction number random gathering size",
+        "doi:10.1017/jpr.2023.65 social gatherings reproduction number",
+        "doi:10.1016/j.epidem.2022.100620 gathering size distribution"
+      ]
+    },
+    "rationale": "The primary source supplies the factorial-second-moment formula and several parametric examples but not the sharp fixed-mean, fixed-cap extremal classification. The closest gathering-restriction paper emphasizes the importance of the full gathering-size distribution and uses a different expected-incidence model; it does not state this exact reproduction-number envelope. Searches over source identifiers, variance aliases, factorial moments, cap constraints, and sharp-bound terminology located no equivalent statement.",
+    "residual_risks": [
+      "An equivalent elementary moment-extremal statement may exist under substantially different terminology and may not be indexed with epidemic keywords.",
+      "The endpoint maximizer depends on the source's allowance of size-zero gatherings; applications excluding zero require a modified upper bound.",
+      "The result concerns invasion threshold rather than the complete nonlinear trajectory or an economically optimal cap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_FORMULA_EXTENDS_TO_A_SHARP_FIXED_MEAN_FIXED_CAP_CLASSIFICATION",
+        "evidence": "The source explicitly gives the random-gathering model and cap \\(K\\), while its reproduction-number discussion treats named distribution families rather than the full fixed-mean extremal class.",
+        "identifier_or_url": "arxiv:2203.08260",
+        "material_read": "Open full text at the random-size model, definition of \\(B(i)\\), finite-cap restriction example, binomial/Poisson/logarithmic examples, reproduction-number derivation and discussion, and assumptions on \\(\\Theta\\).",
+        "method": "Started from the exact factorial-second-moment expression, imposed the source's finite-support policy constraint, and solved the resulting discrete moment extremal problem pointwise.",
+        "title": "SIR model with social gatherings",
+        "trigger": "Primary source defining the random gathering-size SIR model and its reproduction number."
+      },
+      {
+        "assessment": "STRONGLY_RELATED_POLICY_MOTIVATION_BUT_DIFFERENT_MODEL_AND_NO_EXACT_CORTEZ_ENVELOPE",
+        "evidence": "The paper emphasizes that gathering-size distributions are a key determinant of restriction effects and derives an approximately quadratic per-gathering infection law, but it does not state the exact reproduction-number interval proved here.",
+        "identifier_or_url": "doi:10.1016/j.epidem.2022.100620",
+        "material_read": "Open-access full text at the abstract and theory section: random gathering size \\(K\\) with distribution \\(f(k)\\), cap \\(k_{\\max}\\), conditional expected infections, and the small-prevalence quadratic approximation.",
+        "method": "Compared the target quantity and assumptions with the accepted factorial-moment envelope.",
+        "title": "Infectious disease dynamics and restrictions on social gathering size",
+        "trigger": "Highly relevant full-text paper centered on gathering-size restrictions and gathering-size distributions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2dd868e-d075-4656-882d-c1715a8d71f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source motivates its reproduction number as a tool for defining gathering-size restrictions, while independent epidemiological work emphasizes that the gathering-size distribution is often heavy-tailed and policy-relevant. The theorem gives the exact best- and worst-case invasion numbers compatible with only a reported mean and a legal cap, identifies all sharp extremizers, and shows by an explicit same-mean same-cap example that distribution shape alone can flip the epidemic threshold. The no-cap result further proves that mean gathering size by itself supplies no finite worst-case invasion bound.",
+    "status": "PASS"
+  }
+}
