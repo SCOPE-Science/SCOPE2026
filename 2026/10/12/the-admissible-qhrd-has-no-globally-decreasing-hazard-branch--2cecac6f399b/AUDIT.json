@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The hazard derivative is beta+2 lambda y. Under the source's own admissibility inequality, lambda=0 forces beta>=0, while lambda>0 with beta<0 can only produce a negative-to-positive derivative crossing and therefore a bathtub minimum. The Figure 3 parameter triple violates the constraint; direct substitution shows its hazard becomes negative after y=60 and its formal CDF becomes negative after y=120. The packaged checker independently verifies the case split and boundary values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closely related 2025 QHRD paper uses the same nonnegativity constraint and also advertises decreasing and inverted-bathtub shapes.",
+        "Bain's linear-failure-rate work supplies the classical linear special case but does not state the 2026 source-specific contradiction or full quadratic classification.",
+        "The derivative structure with lambda>=0 permits at most a negative-to-positive turning point."
+      ],
+      "reasoning": "General polynomial-hazard theory supplies ingredients, but the accepted claim identifies the exact admissible shape set and the invalid source figure.",
+      "searches": [
+        "quadratic hazard rate distribution nonnegative hazard parameter constraint decreasing linear hazard",
+        "quadratic hazard rate distribution hazard shapes admissible parameter space",
+        "linear failure rate distribution hazard alpha beta Bain 1974"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026253",
+      "doi:10.1063/5.0257356",
+      "doi:10.1080/00401706.1974.10489237"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published-result database hit concerns heterogeneous proportional hazards and does not involve QHRD parameter admissibility.",
+        "No checked previous private finding uses DOI 10.3934/math.2026253, QHRD, or quadratic hazard-rate claims.",
+        "The 2025 QHRD paper asserts, rather than corrects, broad decreasing/inverted-bathtub flexibility."
+      ],
+      "reasoning": "No checked prior statement implies the source-specific exclusion of globally decreasing QHRD hazards or the invalidity thresholds y=60 and y=120 for Figure 3.",
+      "searches": [
+        "quadratic hazard rate decreasing hazard correction",
+        "QHRD invalid decreasing hazard",
+        "quadratic hazard rate Figure 3 negative beta lambda zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source states beta<0 and lambda=0 gives a decreasing linear hazard while also requiring beta>=-2 sqrt(alpha lambda).",
+        "Figure 3 labels alpha=3, beta=-0.05, lambda=0 as the decreasing example.",
+        "No located published correction states that lambda=0 collapses the admissibility condition to beta>=0."
+      ],
+      "reasoning": "The searches cover the exact DOI, model acronym, decreasing-hazard wording, the sign pattern, and the admissibility inequality.",
+      "searches": [
+        "10.3934/math.2026253 quadratic hazard rate decreasing hazard beta negative lambda zero",
+        "quadratic hazard rate negative beta lambda zero invalid distribution",
+        "QHRD globally decreasing hazard admissibility beta -2 sqrt alpha lambda"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rendered Figure 3 shows the green decreasing curve labeled alpha=3.0, beta=-0.05, lambda=0.0.",
+        "The preceding displayed model text states alpha>=0, lambda>=0, beta>=-2 sqrt(alpha lambda).",
+        "The same paragraph states beta<0, lambda=0 is positive decreasing under the admissibility conditions."
+      ],
+      "reasoning": "The contradiction is internal to adjacent text and the figure: the plotted decreasing branch violates the source's own stated model domain.",
+      "searches": [
+        "10.3934/math.2026253 Figure 3 decreasing linear alpha 3 beta -0.05 lambda 0",
+        "10.3934/math.2026253 beta >= -2 sqrt alpha lambda",
+        "10.3934/math.2026253 decreasing linear lambda zero"
+      ]
+    },
+    "rationale": "The 2026 source explicitly asserts the impossible decreasing branch and plots a concrete inadmissible parameter triple. A 2025 QHRD inference paper uses the same admissibility condition but advertises the same broad hazard flexibility rather than correcting it. Eight target-specific published-result searches plus exact web searches found no source-specific correction or equivalent admissible-shape classification.",
+    "residual_risks": [
+      "A recent unindexed correction could exist.",
+      "The source may have intended the decreasing line only as a finite-window illustration rather than a valid unbounded-support lifetime model, but it explicitly presents it as a QHRD hazard under the admissibility conditions.",
+      "The finding does not reassess the source's likelihood implementation or fitted datasets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT AS PRINTED. The decreasing branch beta<0, lambda=0 contradicts the source's own admissibility inequality, and Figure 3 uses exactly such an inadmissible triple.",
+        "evidence": "Equations (2.1)–(2.2), the following admissibility and hazard-shape paragraph, and Figure 3.",
+        "identifier_or_url": "doi:10.3934/math.2026253",
+        "material_read": "Open full PDF at Section 2, including the QHRD density/CDF, reliability and hazard formulas, admissibility condition, hazard-shape paragraph, and rendered Figure 3.",
+        "method": "Direct parsed-text inspection plus rendered-page inspection of the publisher PDF.",
+        "title": "Reliability inference of the quadratic hazard rate model under step-stress partially accelerated life testing with progressive Type-II censoring",
+        "trigger": "Primary source making the hazard-shape claim and displaying the decreasing example."
+      },
+      {
+        "assessment": "NOT COVERING THE CORRECTION. It uses the same admissibility condition but repeats the broad hazard-flexibility claim instead of deriving the admissible classification.",
+        "evidence": "Model-definition passage containing h(y)=alpha+beta y+lambda y^2 and beta>=-2 sqrt(alpha lambda), plus the preceding shape claim.",
+        "identifier_or_url": "doi:10.1063/5.0257356",
+        "material_read": "Public full-text rendering at the QHRD density/CDF, hazard, parameter restriction, and the paragraph advertising increasing, decreasing, bathtub, and inverted-bathtub hazards.",
+        "method": "Direct lawful public full-text inspection.",
+        "title": "On estimation of the quadratic hazard rate model parameters: Simulation and application",
+        "trigger": "Closely related 2025 QHRD inference paper cited by the target source for hazard-shape flexibility."
+      },
+      {
+        "assessment": "GENERAL BACKGROUND. It does not identify the 2026 paper's parameter contradiction or Figure 3 error.",
+        "evidence": "The classical linear-hazard model is treated as a life-testing distribution on nonnegative time.",
+        "identifier_or_url": "doi:10.1080/00401706.1974.10489237",
+        "material_read": "Publisher abstract and bibliographic record describing the linear hazard h(t)=alpha+bt lifetime model.",
+        "method": "Direct publisher-page inspection.",
+        "title": "Analysis for the Linear Failure-Rate Life-Testing Distribution",
+        "trigger": "Classical linear special case obtained when lambda=0."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2cecac6f-399b-4f2d-b37f-4d5d7227f4be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hazard-shape flexibility is a central stated reason for choosing the QHRD in the reliability model. The correction removes an advertised global shape class, supplies the exact admissible classification, and explains why the displayed decreasing curve appears plausible only on a truncated plotting window. This is materially relevant to reliability interpretation: extending that curve over its stated support produces negative hazard, negative density, and eventually a negative CDF.",
+    "status": "PASS"
+  }
+}
