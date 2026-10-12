@@ -1,0 +1,15 @@
+# Scientific review: finite-support strong monotonicity
+
+## Correctness — PASS
+For an arbitrary finite integer support, shifting by its least point gives a polynomial with positive constant and leading coefficients. The tilt identity is exact; an upper-half-plane zero yields an interior zero of a supposed nonincreasing nonnegative characteristic modulus, which would force infinitely many polynomial zeros. All remaining roots must be negative, and normalization factors the polynomial into Bernoulli probability-generating functions. Conversely every tilt of their independent sum has the Fourier modulus of another independent Bernoulli sum, hence is nonincreasing. The deterministic case and gaps are handled explicitly. The strict ordinary-versus-strong example has exact discriminant and endpoint calculations, with supplemental checker replay.
+
+## Originality — PASS, subject to bibliographic risk
+The full eight-page 2021 preprint arXiv:2104.03721 and an accessible eight-page 2022 author journal manuscript were inspected, including the exact definition, finite Bernoulli examples, closure remarks, and the tail theorem. They establish the forward inclusion but do not state the converse classification through real negative polynomial zeros. Classical real-rooted factorization and total-positive-sequence literature are acknowledged, rather than presented as new. Dedicated semantic searches of published mathematical findings and public literature for the theorem, Poisson-binomial aliases, root criteria, and tilting equivalences did not reveal stronger covering statements; absence of a match is not proof of worldwide priority. A differently worded older Fourier/zero characterization remains possible. Independent priority assessment is outstanding.
+
+## Value — PASS
+The result completely classifies a naturally defined structural assumption used for tilted local-limit estimates, replacing universal checking over a continuum of tilts and angles with a finite root condition. It proves that among all finitely supported integer laws the condition admits no class beyond translated Poisson-binomial distributions and supplies a checkable zero-based obstruction. The three-point example shows that the classification addresses the genuinely stronger assumption rather than a routine restatement of the un-tilted property. It does not claim a classification for infinite-support laws or a general new tail theorem.
+
+## Closest literature and risks
+Aamand et al., arXiv:2104.03721 and DOI:10.1214/22-ECP500, define strong monotonicity and prove Bernoulli examples; their eight-page manuscripts do not present the reverse implication. Aissen et al., DOI:10.1073/pnas.37.5.303, provide historical context for real-rooted total positivity, not the stated tilted Fourier equivalence. Direct root factorization needs no external classification theorem. Primary residual risk: an equivalent spectral characterization may exist under different classical terminology. Computational tests corroborate only finite cases; the universal argument is analytic.
+
+Self-review: passed. Independent audit: not yet performed.
