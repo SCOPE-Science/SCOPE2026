@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The incomplete-beta terms are exactly binomial tail probabilities, so the copula equals \\(n^{-1}E[\\min(J_u,J_v)]\\). Off the diagonal, stochastic monotonicity pushes the defect to the diagonal. On the diagonal, the defect is \\(E|J-K|/(2n)\\). A lazy-walk representation shows this is maximized at \\(p=1/2\\), and the resulting centered \\(\\operatorname{Bin}(2n,1/2)\\) absolute deviation telescopes exactly to \\(n\\binom{2n}{n}/4^n\\). All quantifiers and the parameter shift \\(n=m+1\\) are explicit. The verifier checks only identities already proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General Bernstein-copula sources establish density/approximation or uniform convergence, but the checked records did not give this family's exact finite-degree supremum error.",
+        "Baker states qualitative convergence to the Fréchet upper bound as the order grows, without the exact uniform rate in the inspected full text."
+      ],
+      "reasoning": "A general theorem would cover the claim only if it yielded the exact constant and identified the center as a global maximizer. The located broader approximation statements do not do so.",
+      "searches": [
+        "Bernstein approximation comonotonic copula exact maximum error central binomial",
+        "Bernstein copula comonotonicity uniform convergence rate",
+        "\"order statistics copula\" \"uniform convergence\" Frechet upper bound rate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.11302v1",
+      "DOI:10.1017/apr.2023.19",
+      "arXiv:1412.0948",
+      "Sancetta and Satchell (2004), The Bernstein copula and its applications to modeling and approximations of multivariate distributions",
+      "targeted published-record searches for EPD/Baker/comonotonic/Bernstein-approximation aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blier-Wong, Cossette, and Marceau provide the EPD Bernstein formula and motivate further exchangeable-Bernstein analysis, but no uniform defect theorem.",
+        "Baker proves the order-\\(n\\) representation and reports dependence growth to the Fréchet bound; qualitative convergence and Spearman correlation do not determine a supremum-norm error.",
+        "The central-binomial defect requires an additional maximization argument and exact absolute-deviation evaluation."
+      ],
+      "reasoning": "Neither the direct formula nor known rank-correlation/convergence facts imply the exact norm. The proof needs two extra steps absent from those statements: global reduction to the diagonal and exact maximization/evaluation there.",
+      "searches": [
+        "Exchangeable FGM copulas EPD Bernstein conclusion",
+        "Copulas from Order Statistics Baker Frechet bound n infinity",
+        "Sancetta Satchell Bernstein copula approximation uniform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published EPD incomplete-beta formula converts exactly to Baker's order-\\(n\\) copula with \\(n=m+1\\).",
+        "Baker's formula is \\(n^{-1}\\sum_r Q_{r,n}(u)Q_{r,n}(v)\\), but the inspected full text contains no exact supremum-distance formula.",
+        "Exact-expression searches did not locate the finite central-binomial defect in copula literature."
+      ],
+      "reasoning": "The principal aliases—EPD Bernstein, Baker/order-statistics copula, Bernstein approximation of the comonotonic copula, and approximation of \\(\\min(u,v)\\)—were compared at the statement level. None of the located sources states a result implying the exact global defect.",
+      "searches": [
+        "EPD Bernstein copula exact uniform error Frechet bound",
+        "Baker copula order n exact sup norm distance Frechet upper bound central binomial coefficient",
+        "\"Bernstein copula\" \"central binomial coefficient\" comonotonic",
+        "\"min(x,y)\" Bernstein polynomial \"central binomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed record tabulates the stated defect sequence for the EPD/Baker copula.",
+        "The values in the verification script are generated from the proved formula rather than imported from a table."
+      ],
+      "reasoning": "The target is an exact natural invariant of the finite-order copula. No exact database or table entry matching the invariant was located.",
+      "searches": [
+        "\"central binomial coefficient\" \"Bernstein operator\" min",
+        "\"0.5\" Baker copula central binomial",
+        "\"binom(2n,n)\" copula order statistics"
+      ]
+    },
+    "rationale": "The direct 2022/2023 source identifies the EPD Bernstein formula but does not quantify its uniform defect from comonotonicity. Baker's full order-statistics treatment gives the identical bivariate family, rank correlations, dependence ordering, and qualitative convergence to the Fréchet bound, but no exact supremum-norm error was found. Candidate-specific semantic and exact-expression searches found no covering statement. The main residual risk is older approximation-theory literature on Bernstein approximation of \\(\\min(u,v)\\).",
+    "residual_risks": [
+      "An equivalent identity may appear in older approximation-theory literature as an exact Bernstein approximation error for \\(\\min(u,v)\\), without copula terminology.",
+      "The direct published source displays two equivalent-looking Bernstein representations with indexing conventions that are easy to confuse; the theorem deliberately fixes the unambiguous incomplete-beta representation before proving the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_NOT_COVERING_EXACT_DEFECT.",
+        "evidence": "The source identifies the EPD Bernstein construction and its formula but does not state a supremum-norm distance to \\(M\\), a global maximizer of that distance, or the central-binomial rate.",
+        "identifier_or_url": "arXiv:2205.11302v1; DOI:10.1017/apr.2023.19",
+        "material_read": "Open-access arXiv full text for the setup and Bernstein motivation, together with the open-access published conclusion containing the EPD Bernstein formula and future-work discussion.",
+        "method": "Full-text inspection of lawful open-access versions, including the formula-bearing conclusion.",
+        "title": "Exchangeable FGM copulas",
+        "trigger": "Direct source naming the EPD Bernstein extremal point and giving its incomplete-beta formula."
+      },
+      {
+        "assessment": "CLOSEST_EQUIVALENT_FAMILY_NOT_COVERING_EXACT_DEFECT.",
+        "evidence": "The paper gives the same family and qualitative convergence, but no exact uniform error or \\(1/(2\\sqrt{\\pi n})\\) convergence constant was found.",
+        "identifier_or_url": "arXiv:1412.0948",
+        "material_read": "Full arXiv text covering the order-statistic construction, equations for \\(Q_{k,n}\\) and the copula, dependence measures, the median discussion, and the statement that the Fréchet bound is attained as \\(n\\to\\infty\\).",
+        "method": "Full-text arXiv inspection with formula and keyword checks for distance, rate, supremum, and central-binomial terminology.",
+        "title": "Copulas from Order Statistics",
+        "trigger": "The bivariate EPD formula is algebraically the order-\\(n\\) copula after \\(n=m+1\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ead38a9-b718-4690-ae14-49eb3ec5213e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source singles out the EPD Bernstein construction as an extremal positive-dependence point and explicitly presents exchangeable Bernstein analysis as a natural next direction. Baker's earlier work shows that the same family approaches the Fréchet bound but gives only qualitative convergence. The exact worst-case uniform defect, its center location, and its sharp \\(n^{-1/2}\\) constant quantify a natural global approximation property of this canonical family rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
