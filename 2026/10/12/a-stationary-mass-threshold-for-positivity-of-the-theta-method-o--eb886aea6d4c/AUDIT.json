@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For n≥3 arbitrary positive cyclic rates, exact inverse factorization gives all R_a entries positive and diagonal F_i=(1-q_i)/(1-P). The log derivative is strictly negative by a product-vs-sum inequality; F_i decreases from 1 to pi_i. The step T=(R_a-(1-theta)I)/theta has positive off-diagonals, conserved columns, and controlled diagonals; this proves all iff cases and equality. The reciprocal-a expansion gives positive coefficient K and the sharp critical divergence. The exact-rational checker independently computes 5346 finite transition matrices and 297 strict comparisons, supplementing the analytic proof. No unproved general-generator extension is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horváth (online 2004-10-27), 10.1016/j.apnum.2004.08.026, pp. 2–10 establishes general RK positivity-radius restrictions on broad problem classes, with a specific upper-triangular two-state example on page 6.",
+        "Horváth–Song–Terlaky, arXiv:1607.01106, discusses general invariance-preserving numerical schemes rather than exact transition matrices for heterogeneous directed cycles.",
+        "Higueras–Roldán, arXiv:2301.01066, Theorem 1 derives a dimension-dependent positivity bound for symmetric Dirichlet heat matrices, not the directed-cycle stationary-mass boundary."
+      ],
+      "reasoning": "Broader abstract positivity theory covers the matrix structure or supplies conservative sufficient bounds, but no inspected theorem covers the exact scalar return-probability law for every rate vector on a directed cycle. The claimed result is not an assertion of a new general RK positivity framework or a theorem on arbitrary generators.",
+      "searches": [
+        "cyclic nonreversible continuous time Markov chain theta numerical integrator stochastic positivity stationary probability sharp threshold",
+        "Crank–Nicolson state count barrier directed n-cycle nonnegative transition matrix",
+        "stationary probability threshold for unconditional positivity theta method of irreducible Markov generators",
+        "10.1016/j.apnum.2004.08.026",
+        "arXiv:1607.01106",
+        "arXiv:2301.01066"
+      ]
+    },
+    "checked_sources": [
+      "10.1016/j.apnum.2004.08.026",
+      "arXiv:1607.01106",
+      "arXiv:2301.01066",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The [2/2] Padé result concerns fourth-order two-stage Gauss on an eight-state absorbing pure-birth generator; no implication controls the one-stage theta method for arbitrary strictly cyclic rates.",
+        "The filtered-Crank–Nicolson result proves positivity of a composite operator C_s R_s on a symmetric periodic heat lattice, not unfiltered C_s on a directed rate cycle.",
+        "The 2023 heat-grid CN proof relies on symmetric Dirichlet nearest-neighbor matrices and Chebyshev-like polynomial thresholds, not the exact one-way product resolvent."
+      ],
+      "reasoning": "The statement/parameter inclusion was assessed directly. General resolvent diagonal sufficiency and two-state Tustin special cases are narrower building blocks. Neither they nor full-text classical RK radius results imply the new sharp all-rate stationary-mass boundary and nearcritical cutoff coefficient without an additional graph-specific monotonicity argument.",
+      "searches": [
+        "cyclic nonreversible continuous time Markov chain theta numerical integrator stochastic positivity stationary probability sharp threshold",
+        "resolvent diagonal monotonicity stochastic generator directed cycle heterogeneous rates no negativity theta-method",
+        "implicit midpoint directed 3-cycle heterogeneous jump rates Markov positivity threshold",
+        "10.1016/j.apnum.2004.08.026",
+        "arXiv:2301.01066",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theta step is precisely R_a/theta - (1-theta)I/theta; a search using Crank–Nicolson, implicit midpoint, Cayley/resolvent and Markov terminology did not return an exact directed rate-cycle classification.",
+        "Higueras and Roldán, arXiv:2301.01066, Eq. (7), also use the standard theta rational form but study a symmetric Dirichlet discretization of the heat equation.",
+        "Published two-stage Padé Markov barrier 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab studies r(z)=(12+6z+z^2)/(12-6z+z^2), not the theta rational function."
+      ],
+      "reasoning": "Equivalent descriptions (theta scheme, Crank–Nicolson, implicit midpoint, Cayley transform, cyclic Markov resolvent) were compared as mathematical transition maps, not title matches. Existing matrix positivity criteria reduce to a resolvent diagonal check; they do not directly imply strict monotonicity of each heterogeneous-cycle return resolvent nor the stationary-mass and critical-divergence formulas.",
+      "searches": [
+        "Crank Nicolson theta method on directed n-cycle Markov generator stochastic positivity threshold theta>=1-1/n exact",
+        "theta method on cyclic permutation CTMC stochasticity positivity unconditional over time step size",
+        "resolvent diagonal monotonicity stochastic generator directed cycle heterogeneous rates no negativity theta-method",
+        "cyclic birth death clockwise Markov transition trapezoidal resolvent exact positivity",
+        "implicit midpoint directed 3-cycle heterogeneous jump rates Markov positivity threshold",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant published-finding corpus records returned Padé and filtered-Crank–Nicolson results on distinct maps; neither provides a rate-dependent directed cycle table.",
+        "Higueras–Roldán tabulate mesh-dependent heat-grid thresholds, not arbitrary positive cyclic rate vectors or theta_c=1-min(pi)."
+      ],
+      "reasoning": "The finding is a symbolic classification over arbitrary dimension and continuously varying rates. Searches for an exact cyclic theta positivity table, including equivalent fastest-rate/stationary terminology, did not reveal a database that would already entail the classification. Absence from these tables is not by itself a novelty proof.",
+      "searches": [
+        "Crank Nicolson theta method on directed n-cycle Markov generator stochastic positivity threshold theta>=1-1/n exact",
+        "Markov chain generator cyclic birth process trapezoidal time discretization positivity step size",
+        "directed cycle arbitrary rates theta scheme stochastic all step sizes 1 minus minimum stationary probability",
+        "sharp step bound and divergence for theta time integrator on directed cycle rate matrices",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "arXiv:2301.01066"
+      ]
+    },
+    "rationale": "Source/claim comparisons of full classical and recent primary results identify only general RK positivity restrictions, symmetric Dirichlet heat-grid theta bounds, distinct [2/2] Padé and filtered-CN Markov kernels. Existing two-state and resolvent-diagonal identities form background but do not establish the n≥3 heterogeneous one-way-cycle monotonicity, exact stationary-mass unconditional boundary and critical divergence. The searchable corpus cannot establish worldwide novelty; historical specialization remains a residual risk.",
+    "residual_risks": [
+      "A specialized version could appear in older CTMC numerical integration or positivity literature not captured by the bounded search; no universal novelty certificate is claimed.",
+      "The 1998 general Runge–Kutta positivity paper and some earlier invariance works were identified via abstracts and bibliography, but not compared using complete primary full text. Their known general scopes do not on present evidence force an unresolved exact-threshold implication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General positive-IVP bounds and special triangular examples; does not state cyclic rate-generator threshold as a stationary mass.",
+        "evidence": [
+          "Page 1: Available online 27 October 2004.",
+          "Pages 6–10: positivity radius results and strictness for RK; page 6 gives an upper-triangular two-state example.",
+          "Sections 3–4: positivity threshold and invariant-cone theory."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+        "material_read": "Complete 16-page article: publication header, main positivity threshold results and proofs (especially pp. 2–10), invariant-cone section and examples (pp. 11–15), references.",
+        "method": "Primary full-text PDF, pages 1–16.",
+        "title": "On the positivity step size threshold of Runge–Kutta methods",
+        "trigger": "Closest classical full mathematical treatment of exact positivity thresholds for Runge–Kutta schemes"
+      },
+      {
+        "assessment": "Numerical heat equation with symmetric Dirichlet tridiagonal generator, not a nonreversible positive-rate cycle.",
+        "evidence": [
+          "Eq. (7): same abstract theta step formula.",
+          "Theorem 1: positivity threshold via a hyperbolic-polynomial equation for homogeneous Dirichlet heat grids.",
+          "Theorem 2: distinct contractivity bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.01066v1",
+        "material_read": "Full-text HTML: abstract, introduction, theta scheme Eq. (7), positivity theorem 1, CN matrix formulas, proof sections and conclusion.",
+        "method": "Full arXiv HTML, section and theorem inspection plus keyword searches.",
+        "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+        "trigger": "Exact theta/CN positivity thresholds might dominate a special generator example."
+      },
+      {
+        "assessment": "No exact arbitrary-rate cyclic CTMC theta boundary identified in inspected theorem material.",
+        "evidence": [
+          "Study formulates general invariant-set numerical discretization conditions, not cyclic-product resolvent formulas."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.01106",
+        "material_read": "Abstract, introduction, theorem context and sections describing Euler-based and general convex-set invariance; full-text searched for specialized theta/cycle terminology.",
+        "method": "ArXiv public PDF with visual page inspection and text search.",
+        "title": "Invariance Preserving Discretization Methods of Dynamical Systems",
+        "trigger": "General invariant-set preservation could imply theta positivity without graph specificity."
+      },
+      {
+        "assessment": "Uses rational [2/2] Padé map and pure-birth absorbing chain; mathematically distinct from one-stage theta rate cycle.",
+        "evidence": [
+          "Theorem 1: minimal eight-state small-step Padé positivity barrier.",
+          "Theorem 2: exact stochasticity window for a pure-birth witness."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Entire public RESULT.md including two theorems, Padé map and proofs, comparison and limitations.",
+        "method": "Published primary result text.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Published Markov positivity result potentially implying a bound for rational numerical integrators."
+      },
+      {
+        "assessment": "Addresses a composite backward-Euler/CN rational map for symmetric nearest-neighbor heat matrices, not the one-way heterogeneous-rate theta step.",
+        "evidence": [
+          "The positive composite map is (I+sL)^{-1}(I-sL)(I+sL)^{-1}.",
+          "Dirichlet counterexample shows boundary sensitivity."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Entire public RESULT.md including explicit kernels, proof and counterexample.",
+        "method": "Published primary result text.",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "Claims positivity for all steps on a periodic cycle and could subsume a cycle positivity claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb886aea-6d4c-4e92-a709-ba12b5264115",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Markov master-equation solvers must preserve nonnegative probabilities. The claim gives a complete exact all-dimensional, all-positive-rate classification for a natural nonreversible generator family and all theta in [0,1], including the unique finite failure step, a nonobvious unconditional-positivity boundary below theta=1 determined by stationary mass, and a sharp inverse-distance critical blowup. These are structural, practically interpretable parameter laws, not isolated routine numerical samples.",
+    "status": "PASS"
+  }
+}
