@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Jordan–Wigner fermionization identifies the exact sine-kernel lattice covariance and the two-spin X-state probabilities. Wick's theorem gives an exact finite determinant expansion. A uniform Gram determinant bound justifies exchange of the scaling limit and the entire sum. The nontrivial strict positive gap at the empirically proposed scaling parameter follows from a rigorous divided-difference tail estimate and an exact rational bound, not a finite truncation alone. The included numerical script separately reconstructs fifteen low-order Wick cases; its tests are secondary corroboration.
+
+**Originality — PASS (residual risk disclosed).** The motivating 2015 source analyzes fixed separations two through four and proposes a simple all-distance onset equality; it does not prove the double-scaling sine-kernel concurrence law or strict failure of its extrapolation. The Fredholm technique and general quasifree/string identities are classical and are not presented as new. Related spin-chain entropy Fredholm theorems concern block entropy rather than two-site concurrence. The 2005 Yano–Nishimori paper specifically concerns arbitrary-distance entanglement; its complete text was unavailable, so an equivalent asymptotic remains a genuine scientific risk. The positive assessment is not an independent priority certification.
+
+**Value — PASS.** The proposed long-distance onset law is a directly motivated and testable statement about magnetic entanglement in an exactly solvable spin chain. A complete universal scaling function plus a rigorous, infinite family of counterexamples identifies the failure mode and gives a reusable asymptotic method. The object is a natural thermodynamic/dilute limit, not an arbitrary finite slice or a restatement of the free-fermion covariance.
+
+**Closest literature and limits.** Fumani et al. (2015, arXiv:1507.07384), Yano–Nishimori (2005, doi:10.1143/PTPS.157.164), Its–Jin–Korepin (arXiv:quant-ph/0409027), and Latorre–Rico–Vidal (arXiv:quant-ph/0304098) were compared by mathematical object and implication. The theorem neither classifies all finite-distance onset points nor claims an independently certified absence of equivalent published results.
+
+Self-review: passed. Independent audit: not yet performed.
