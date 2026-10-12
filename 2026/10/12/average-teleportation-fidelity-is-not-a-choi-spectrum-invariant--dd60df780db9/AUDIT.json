@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every \\(d\\ge2\\), Nielsen's exact identity reduces average fidelity to target-relative entanglement fidelity. A unitary channel has a pure normalized Choi state with spectrum \\(\\{1,0,\\ldots,0\\}\\), while its overlap with the identity-target Choi vector is \\(|\\operatorname{Tr}U|^2/d^2\\). Hence \\(F_{\\mathrm{avg}}=(|\\operatorname{Tr}U|^2+d)/(d(d+1))\\); the identity and a traceless diagonal root-of-unity unitary have identical Choi spectra but fidelities \\(1\\) and \\(1/(d+1)\\). Substituting the same unitary spectra into the anchor's formula yields \\(1/d\\) under normalized Choi convention and \\(1\\) under unnormalized convention, proving the stated contradiction. No finite experiment is used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nielsen 2002 states the exact all-dimensional relation between average fidelity and entanglement fidelity and defines the target-relative quantity.",
+        "Standard modern documentation computes average gate fidelity from target-relative process fidelity, consistent with Nielsen.",
+        "These broader sources establish the correct background identity but do not discuss or correct Appendix B.4 of the 2026 anchor."
+      ],
+      "reasoning": "Broader literature dominates the background formula but not the new source-specific diagnosis. The finding explicitly does not claim the classical identity as original.",
+      "searches": [
+        "Michael Nielsen A simple formula average gate fidelity quantum dynamical operation entanglement fidelity",
+        "Horodecki general teleportation channel singlet fraction average fidelity",
+        "average gate fidelity process fidelity Choi unitary target"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2139/ssrn.6308559 / ResearchGate:400905247",
+      "arXiv:quant-ph/0205035",
+      "doi:10.1103/PhysRevA.60.1888",
+      "IBM Quantum average_gate_fidelity documentation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nielsen's theorem implies the correct target-relative formula and therefore supplies the decisive background theorem, but it predates the 2026 manuscript and does not state the source-specific correction.",
+        "The Horodecki teleportation relation is likewise background for average fidelity versus singlet or entanglement fraction, not a correction of the anchor's appendix.",
+        "The anchor itself contains both the incorrect Appendix B.4 spectral formula and the correct target-overlap formula elsewhere, making the contradiction source-specific."
+      ],
+      "reasoning": "The strongest prior theory already determines the correct functional, so the only originality asserted is the explicit incompatibility of the 2026 Appendix B.4 statement with that theory under both common Choi normalizations.",
+      "searches": [
+        "Nielsen average gate fidelity entanglement fidelity Choi unitary channel",
+        "Horodecki general teleportation channel singlet fraction average fidelity",
+        "Engineering Traversable Wormholes on a Quantum Computer fidelity correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted searches returned no located quantum-information source stating the same source-specific correction.",
+        "The anchor's Appendix B.4 explicitly makes average fidelity depend on squared Choi eigenvalues, while its main text defines entanglement fidelity as a target-state overlap.",
+        "A unitary-channel family has constant Choi spectrum but variable average fidelity, so any equivalent eigenvalue-only formulation is excluded."
+      ],
+      "reasoning": "The searches covered the source title, Choi-spectrum and Choi-purity aliases, average/teleportation/gate fidelity terminology, and the unitary same-spectrum obstruction. The final statement is not merely a wording mismatch: it proves non-existence of any eigenvalue-only representation of the stated fidelity.",
+      "searches": [
+        "Engineering Traversable Wormholes on a Quantum Computer Choi eigenvalues average teleportation fidelity correction",
+        "average channel fidelity Choi spectrum eigenvalues unitary channels same spectrum",
+        "Choi purity sum eigenvalues squared average gate fidelity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected author-uploaded full text contains the Appendix B.4 formula and separately contains the correct entanglement-fidelity formula in the main text and pseudocode.",
+        "No located public erratum or exact correction tied to DOI 10.2139/ssrn.6308559 was found in the inspected records.",
+        "The source record lists primary MSC2020 codes 83C45 and 81P68."
+      ],
+      "reasoning": "The exact source, exact appendix statement, and exact DOI/title were searched, rather than relying on generic Choi-fidelity matches. The absence of a correction is treated as residual search evidence, not as a proof of global novelty.",
+      "searches": [
+        "DOI 10.2139/ssrn.6308559 Appendix B.4 teleportation fidelity correction",
+        "Engineering Traversable Wormholes on a Quantum Computer Choi eigenvalues",
+        "d plus sum lambda_i squared average fidelity Choi matrix"
+      ]
+    },
+    "rationale": "The average-fidelity identity itself is established prior art and is not claimed as new. The accepted contribution is the exact diagnosis of Appendix B.4 of DOI 10.2139/ssrn.6308559: its stated Choi-eigenvalue formula cannot represent average input-output fidelity under either standard Choi normalization, with an all-dimensional coherent-unitary obstruction. Exact-source, alias, and broader-literature searches found no prior correction that states or implies this source-specific conclusion.",
+    "residual_risks": [
+      "Literature and semantic-index search cannot establish absolute global novelty of an unpublished correction.",
+      "The anchor is a preprint/review and may later be revised; this finding concerns the inspected public version.",
+      "The manuscript already contains the correct formula elsewhere, so downstream numerical consequences cannot be inferred without auditing how individual tables were computed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_CONTRADICTION",
+        "evidence": "Appendix B.4 states \\(F=(d+\\sum_i\\lambda_i^2)/(d(d+1))\\) with \\(\\lambda_i\\) identified as Choi eigenvalues; Section 10.1 and the pseudocode instead state \\(F_{\\mathrm{avg}}=(dF_e+1)/(d+1)\\) with \\(F_e=\\langle\\Phi|\\rho_{\\mathcal E}|\\Phi\\rangle\\).",
+        "identifier_or_url": "doi:10.2139/ssrn.6308559; ResearchGate:400905247",
+        "material_read": "Author-uploaded full text around MSC2020 metadata, Section 10.1, Appendix B.4, and process-tomography pseudocode.",
+        "method": "Full-text line inspection of the public author-uploaded manuscript.",
+        "title": "Engineering Traversable Wormholes on a Quantum Computer",
+        "trigger": "Exact anchor; Appendix B.4 is titled 'Teleportation Fidelity Calculation' and states the disputed eigenvalue formula."
+      },
+      {
+        "assessment": "BACKGROUND_DOMINATES_FORMULA_NOT_CORRECTION",
+        "evidence": "Nielsen defines Haar-average channel fidelity and proves \\(F_{\\mathrm{avg}}=(dF_e+1)/(d+1)\\); this supplies the background theorem but predates and does not inspect the 2026 anchor.",
+        "identifier_or_url": "arXiv:quant-ph/0205035; doi:10.1016/S0375-9601(02)01272-0",
+        "material_read": "Full arXiv text including definitions, Eq. (3), and the target-unitary formulation.",
+        "method": "Primary full-text inspection.",
+        "title": "A simple formula for the average gate fidelity of a quantum dynamical operation",
+        "trigger": "Classical primary source for the exact average-fidelity/entanglement-fidelity relation."
+      },
+      {
+        "assessment": "CORROBORATING_BACKGROUND",
+        "evidence": "The documentation gives \\(F_{\\mathrm{ave}}(\\mathcal E,U)=(dF_{\\mathrm{pro}}(\\mathcal E,U)+1)/(d+1)\\), with explicit target \\(U\\).",
+        "identifier_or_url": "https://docs.quantum.ibm.com/api/qiskit/2.0/quantum_info",
+        "material_read": "Average-gate-fidelity definition and formula.",
+        "method": "Documentation inspection.",
+        "title": "Qiskit quantum_info average_gate_fidelity documentation",
+        "trigger": "Independent modern implementation-level comparison for target-relative process fidelity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd60df78-0db9-4600-9d83-974758722396",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The error is not a harmless normalization typo: under the unnormalized convention it labels every coherent unitary error as perfect, while the true average fidelity can be as low as \\(1/(d+1)\\); under the normalized convention it even mislabels the identity. The correction therefore protects the paper's stated process-tomography/teleportation-fidelity workflow from replacing target-relative performance by Choi purity. It is a natural structural counterexample valid in every dimension, while remaining narrowly scoped to the erroneous appendix formula.",
+    "status": "PASS"
+  }
+}
