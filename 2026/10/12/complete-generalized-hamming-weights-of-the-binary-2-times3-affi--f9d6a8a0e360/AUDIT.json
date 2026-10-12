@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The ten minor evaluations were computed explicitly and found injective on all 1024 coefficient vectors. Every coefficient subspace has one RREF representative; exhaustive pivot/free-bit enumeration checked 53,743,987 four-spaces and 109,221,651 five-spaces, with sharp support minima 48 and 54 attained by explicit coefficient bases. All ten subspace totals matched Gaussian binomial counts, and a clean C++17 rerun of the complete certificate gave VERIFY_OK. Finite enumeration is exhaustive, not sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Datta and Ghorpade (2015), page 3, state first range r<=mu-prime and last range k-mu<=r; for ell=2,ell-prime=3, mu-prime=3, mu=4, k=10.",
+        "In this case r<=3 and r>=6 exhaust their stated primal formulas, leaving exactly r=4,5."
+      ],
+      "reasoning": "Published full-text formulas give 8 of 10 ranks, not the two middle subcode-support minima or the numbers of minimizers. No broader coverage was found.",
+      "searches": [
+        "binary affine Grassmann code C^A(2,5), 2 by 3 matrix, generalized Hamming weight hierarchy 24 36 42 48 54 56 60 62 63 64, d4 d5",
+        "middle generalized Hamming weights fourth fifth of binary affine Grassmann [64,10,24] code",
+        "Datta Ghorpade higher weights affine Grassmann codes duals theorem 2.5 theorem 3.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1503.02196v1 (primary full text)",
+      "arXiv:2609.10274v1 (abstract; full text inaccessible)",
+      "doi:10.1109/TIT.2010.2048470 (bibliographic record and abstract)",
+      "Published mathematical research semantic record searches for exact subspace support and equivalent Reed–Muller formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1503.02196v1, Theorem 2.5 gives d1=24, d2=36, d3=42; Theorem 3.3 gives d6=56, d7=60, d8=62, d9=63, d10=64.",
+        "arXiv:2609.10274v1 abstract claims weight distribution of individual codewords for all m>=4 and prime powers, not values of d4 or d5."
+      ],
+      "reasoning": "The 2015 theorem does not imply the interior extrema, since its permitted index ranges exclude r=4,5. The 2026 abstract has an object-level connection but no statement giving a higher-weight formula. There is no demonstrated implication from its one-word distribution alone to the new subspace values.",
+      "searches": [
+        "binary affine Grassmann code C^A(2,5), 2 by 3 matrix, generalized Hamming weight hierarchy 24 36 42 48 54 56 60 62 63 64, d4 d5",
+        "Generalized Hamming weight hierarchy of affine Grassmann code C A(2,5) binary, equivalence under Reed-Muller shortening, support 48 and 54",
+        "Rohit Yadav 2026 Revisiting Weight Spectrum Affine Grassmann 2 m generalized weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Datta and Ghorpade, arXiv:1503.02196v1, Introduction and Sections 2-3: higher weights of precisely this family are defined via subcode support, with first/last ranges only.",
+        "The code is a 10-dimensional subcode of binary RM(2,6), but the Reed-Muller code has additional quadratic generators and its hierarchy does not directly supply the subcode extrema."
+      ],
+      "reasoning": "A general second-order Reed-Muller weight formula or one-word spectrum does not supply the minima over r-dimensional subspaces. The relevant exact object is the affine Grassmann minor-evaluation subcode; potential code equivalences were searched without an identified dominating theorem.",
+      "searches": [
+        "Exact fourth and fifth generalized Hamming weights of the binary affine Grassmann code C^A(2,5), q=2, length 64 dimension 10: d_4=48 d_5=54",
+        "Generalized Hamming weight hierarchy of affine Grassmann code C A(2,5) binary, equivalence under Reed-Muller shortening, support 48 and 54",
+        "generalized support weights binary 2 by 3 affine Grassmann dual Wei relation Reed-Muller evaluation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned no table for this specific binary [64,10] affine Grassmann code; closest hits were nonbinary weight-gap examples, short binary cyclic codes, or unrelated affine orbit counts.",
+        "The attached checker separately enumerated all RREF subspaces and produced exact four- and five-dimensional support optima."
+      ],
+      "reasoning": "No exact published table for r=4,5 was located. Absence of indexed hits is not a proof of historical novelty; this is a residual risk.",
+      "searches": [
+        "Exact fourth and fifth generalized Hamming weights of the binary affine Grassmann code C^A(2,5), q=2, length 64 dimension 10: d_4=48 d_5=54",
+        "affine Grassmann code C(2,5) rank-two minors projective 10 dimensional evaluation binary generalized support weight",
+        "affine Grassmann code binary dimension 10 higher weight 48 54",
+        "affine Grassmann code 2 5 fourth fifth generalized Hamming 48 54"
+      ]
+    },
+    "rationale": "Direct primary full-text comparison with Datta and Ghorpade (2015) establishes that its theorems determine only r<=3 or r>=6 in this ten-dimensional parameter case. The missing r=4,5 are newly computed, with 28 and 1120 minimizing subcodes. The 2026 same-family manuscript describes one-word weights, not higher-dimensional common support in its available abstract, and published research searches did not show equivalent computations. The unavailable full text and unindexed literature remain named risks.",
+    "residual_risks": [
+      "The 2026 same-family weight-spectrum preprint could not be examined beyond its abstract; an unindexed appendix might compute higher weights.",
+      "An earlier tabulation of this specific [64,10] code or a hidden equivalent duality computation may exist despite targeted searches.",
+      "The finite exact proof relies on complete enumeration; independent software and scientific audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior results determine r<=3 and r>=6, but do not give the two middle ranks.",
+        "evidence": [
+          "Introduction page 3 mu-prime=1+max{ell,ell-prime-ell}=3 and mu=ell-prime+1=4; k=10",
+          "Theorems 2.5 and 3.3, arXiv:1503.02196v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.02196",
+        "material_read": "Full open preprint, introduction and definitions plus Sections 2-3, Theorems 2.5 and 3.3; checked all theorem index assumptions for ell=2,ell-prime=3 and binary q=2.",
+        "method": "Read text and visually inspected original page 3 for index ranges; compared complete theorem statements and parameter boundaries.",
+        "title": "Higher Weights of Affine Grassmann Codes and Their Duals",
+        "trigger": "Most directly relevant same object, same generalized-weight invariant and explicit formulas."
+      },
+      {
+        "assessment": "Abstract studies weights of single codewords, not generalized higher subcode weights; appendix overlap remains an unresolved low-probability risk.",
+        "evidence": [
+          "2026-09-09 first public posting, arXiv:2609.10274v1",
+          "Abstract specifies each codeword matrix form and Hamming weight formula for all m>=4 and prime powers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10274",
+        "material_read": "Complete arXiv abstract only; full PDF via arXiv and alternate lawful open-access sources not retrievable.",
+        "method": "Compared available abstract statement and parameter scope; institutional full-text access was attempted but unavailable.",
+        "title": "Revisiting the Weight Spectrum of the Affine Grassmann Code C A(2,m)",
+        "trigger": "September 2026 original motivation, exact same code family, potential recent overlap."
+      },
+      {
+        "assessment": "Source establishes family and first distance, not the new higher weights.",
+        "evidence": [
+          "Published 2010 abstract lists length, dimension, minimum distance, automorphism group, and number of minimum-weight codewords"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2010.2048470",
+        "material_read": "Original bibliographic record and abstract stating code construction, dimension, distance and minimum-weight count; no full original text claim of higher-weight hierarchy inspected.",
+        "method": "Compared original stated parameters and code construction with 2015 full definition.",
+        "title": "Affine Grassmann codes",
+        "trigger": "Original code construction and parameter assumptions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9d6a8a0-e360-4c67-9986-261640474893",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2015 main results leave exactly two interior generalized Hamming weights for the smallest rectangular 2-by-3 binary affine Grassmann code. Filling these two positions yields the entire 10-step hierarchy of a natural classical code, and counting all minimizing subcodes quantifies the scarcity of optimum joint-support configurations. This is a motivated finite classification, not a routine variant or unproved generalization.",
+    "status": "PASS"
+  }
+}
