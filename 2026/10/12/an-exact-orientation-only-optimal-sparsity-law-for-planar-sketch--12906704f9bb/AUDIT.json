@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every invertible real planar matrix with distinct singular values, SVD reduces the expected rank-one projector to two equiprobable orthogonal sketch direction pairs. The trace-one Bloch discriminant equals \\(r^2[(uv)^2+(1-r^2)(t-u^2)^2]/[(1-r^2v^2)(1-r^2u^2)]\\) exactly for all real parameters. Positive denominators and \\(0<r<1\\) give the unique global optimum \\(t=u^2\\) on \\([0,1]\\). The update for \\(A^\\top x=b\\) is precisely \\((I-P_s)e\\), and the least eigenvalue gives the largest uniform geometric contraction coefficient, with equality for the least-eigenvector at one step. Conditioning independent sign entries on a nonzero outcome yields \\(t=p/(2-p)\\). Boundary alignments and equal-singular-value exception are explicit. All 1152 direct rational projector/discriminant/checker identities passed by standalone `verify.py`; this is supplemental to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.09585: sub-Gaussian and LESS sketch results provide nonasymptotic spectral bounds and sparse embedding constructions, but no planar optimizer in Bernoulli entry density.",
+        "arXiv:2006.10653: expected residual projector is approximated by a spectral surrogate when stable rank is large compared with sketch size; not an exact planar finite-rank distribution optimum.",
+        "The published Haar sparse-subspace-descent result analyzes Haar moments rather than a two-support-sign sketch mixture."
+      ],
+      "reasoning": "Greater generality of matrix dimensions or distributions does not dominate the present exact parameter selection unless it implies the closed-form, orientation-specific argmax. The cited results are estimates, moment identities, or different sampling ensembles; no located statement supplies the claimed optimum.",
+      "searches": [
+        "Two-dimensional sparse sketch-and-project expected projector smallest eigenvalue mixture of coordinate and diagonal projections, optimal sparsity sin squared twice the eigenvector angle",
+        "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "arXiv:2208.09585 Theorems 3.8 and 3.12",
+        "arXiv:2006.10653 Theorems 1 and 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.09585v1: 2022-08-20 date and MSC 65F10 verified; v2 substantive sparse-sketch full text inspected.",
+      "arXiv:2006.10653v3, Sections 1-2 and Appendix B; full-text expected-projector comparison.",
+      "arXiv:1506.03296v5, original sketch-and-project formalism and convergence results.",
+      "Published indexed record: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics (identifier 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995).",
+      "Published indexed record: Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent (identifier 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248).",
+      "Published indexed records on randomized Gauss–Seidel delays and ordering (identifiers 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac and 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new theorem states \\(\\rho(t)\\) with the exact squared deviation \\((t-\\sin^2(2\\theta))^2\\) and a unique optimizing t for every nonisotropic planar matrix.",
+        "Gower–Richtárik Section 5.1 provides an SDP optimizing arbitrary discrete-sketch probabilities and Dereziński–Rebrova Equation (4) identifies the objective; neither evaluates the Bernoulli sign-mixing curve or deduces its orientation-only exact optimizer.",
+        "The coordinate-only optimum in the published quadratic sampling result optimizes relative e1/e2 probabilities and cannot choose between sparse and dense sign pairs."
+      ],
+      "reasoning": "The published SDP implicitly defines the answer to any finite discrete sampling optimization, so no novelty is claimed for posing or solving a generic spectral optimization problem. The exact completed-square identity and the closed-form optimization of the natural Bernoulli density are the additional substantive result. No inspected source reduces that full real family to the claimed formula; a hidden simple corollary in other literature remains a residual risk.",
+      "searches": [
+        "Sharp planar sketch-and-project optimal mixture 1-sparse 2-sparse Bernoulli Rademacher sign sketches singular-vector angle density rate",
+        "Exact minimum eigenvalue expected rank-one projector for random coordinate and diagonal Rademacher vectors mixed with probability t optimal t sin squared twice orientation",
+        "Sketch-and-project two by two coordinate versus dense Rademacher sketch tradeoff optimum mean-square contraction",
+        "arXiv:2208.09585 Equation (4), Section 3.3",
+        "arXiv:2006.10653 Section 2; Appendix B",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1506.03296 Section 5.1 explicitly formulates arbitrary discrete-sketch probability optimization as a semidefinite program (Equation (46)); hence the general optimization objective is prior art. It does not supply the closed-form optimum along the conditioned Bernoulli sign density for arbitrary planar singular-vector angle.",
+        "arXiv:2208.09585 Equation (4) identifies the smallest eigenvalue but its sparse-sketch theorem and experiments give matrix-size-dependent bounds and sampling comparisons."
+      ],
+      "reasoning": "The original exact expected-projector variational characterization and generic SDP already cover the method and finite constrained optimization at the level of an implicit convex program. The newly proved statement is the explicit closed-form solution \\(t_*=\\sin^2(2\\theta)\\), the exact real-parameter discriminant, and its independence of the singular-value ratio for the Bernoulli mixture. These concrete results require an additional nontrivial two-dimensional calculation and are not explicitly stated or algebraically evaluated by the general SDP.",
+      "searches": [
+        "Sharp planar sketch-and-project optimal mixture 1-sparse 2-sparse Bernoulli Rademacher sign sketches singular-vector angle density rate",
+        "Exact minimum eigenvalue expected rank-one projector for random coordinate and diagonal Rademacher vectors mixed with probability t optimal t sin squared twice orientation",
+        "arXiv:2208.09585 Section 1.1 expected projector rate; Section 3.3 sparse sketches",
+        "arXiv:1506.03296 sketch-and-project expected projectors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published coordinate-sampling record: closed-form optimal coordinate probabilities for inverse-positive SPD quadratics; no two-nonzero Rademacher support.",
+        "Published randomized Gauss-Seidel delay record: exact delay-distribution dependence, not Bernoulli sketch density.",
+        "Published two-coordinate Gauss-Seidel ordering record: Euclidean transient thresholds for sequential coordinate updates, not the four-direction sketch mean projector."
+      ],
+      "reasoning": "The mathematical object is a continuum of four-direction mixture projectors rather than a table of finite examples or a known coordinate-only selection formula. Related indexed mathematical records have different update operators or parameter sets. A record search is evidence of comparison, not proof of worldwide novelty.",
+      "searches": [
+        "Exact optimal Bernoulli-Rademacher sketch sparsity parameter and two-dimensional singular-vector orientation for sketch-and-project mean projector spectral eigenvalue; 2 by 2 matrix rotation-independent optimal density",
+        "Sharp optimal sparsity sampling for randomized iterative linear solver, Bernoulli sketch, rotated anisotropic matrix, spectral convergence rate",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "rationale": "Published work establishes both the general sketch-and-project projector contraction and a convex semidefinite optimization of arbitrary finite-sketch probabilities (Gower–Richtárik Section 5.1) and estimates expected projections for Gaussian, Rademacher and LESS sketches. The precise claim here optimizes the entire conditioned Bernoulli sign-density continuum for arbitrary planar singular directions and finds a unique orientation-only optimum, with a strict interior improvement. The inspected full-text source statements and comparison results do not imply that finite-dimensional optimization law. Exact equivalences and stronger possible coverage were checked; residual risk remains from unindexed specialized derivations and the simplicity of the planar algebra.",
+    "residual_risks": [
+      "An unindexed thesis, short note, or special-case exercise may already derive the same four-direction mixed projector identity.",
+      "The optimum requires right singular-vector orientation; its computational acquisition cost and high-dimensional behavior are not analyzed.",
+      "Search and available full-text review cannot establish global priority or independence of the result.",
+      "The closed-form planar optimum is a specialization of a known general discrete probability SDP, so priority and value depend on the nontriviality and utility of the exact new evaluation, not on the optimization framework itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the projector objective and strong nonasymptotic analysis of sparse sketches; the inspected results do not optimize the planar Bernoulli sign density.",
+        "evidence": [
+          "arXiv:2208.09585 Section 1.1 Eq. (4) states the rate as least eigenvalue of the expected projection.",
+          "Section 3.3 Definition 3.11 and Theorem 3.12 use LESS embeddings with random row supports and leverage-score conditions, not four specified planar sign directions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.09585v2",
+        "material_read": "Introduction and Equations (1)–(4), Section 2 background, Theorems 3.1/3.8/3.12 and Section 3.3 LESS definition and extensions, Section 5.3 sparse-sketch experiments, conclusions and appendices relevant to sketches.",
+        "method": "Open-access arXiv HTML and PDF sections read and compared against exact mixture-density claim.",
+        "title": "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition",
+        "trigger": "Defining motivation with sparse and Rademacher sketches and exact expected-projector rate formulation."
+      },
+      {
+        "assessment": "Derives approximate expected-projector surrogates under concentration/stable-rank assumptions, not the exact planar sparsity optimum.",
+        "evidence": [
+          "Theorem 1 controls surrogate projector error by stable rank for iid sub-Gaussian entries.",
+          "Appendix B concerns randomized iterative-method convergence based on the generic projection object, not optimizing a planar Bernoulli parameter."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.10653v3",
+        "material_read": "Introduction, Theorems 1 and 2 with the stable-rank assumption, Section 2 expected residual projectors, Section 4 comparisons of sketch types, and Appendix B generalized Kaczmarz convergence.",
+        "method": "Open-access arXiv HTML and PDF section review of projector bounds and Rademacher distribution assumptions.",
+        "title": "Precise Expressions for Random Projections: Low-rank Approximation and Randomized Newton",
+        "trigger": "Plausible stronger coverage of expected projections of Rademacher sketches."
+      },
+      {
+        "assessment": "Prior work already contains general discrete-sketch probability optimization as an SDP; the novelty here is only its explicit solution under a conditioned Bernoulli sign mixture, including the exact orientation-only formula.",
+        "evidence": [
+          "Sketch-and-project minimizes change subject to a random sketched equation.",
+          "Rates are governed by the expected projection, without the claimed explicit four-direction density optimization.",
+          "Section 5.1 Equations (45)–(46) formulate max-min eigenvalue as an SDP, without the present analytic Bernoulli density formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+        "material_read": "Abstract; Section 2.1 sketch-and-project formulation; Sections 4.2 and 4.4 expected projector/contraction proofs; Section 5.1 optimization of arbitrary discrete sketch probabilities as an SDP (Equations (45)–(46)); and Section 5.2 convenient probabilities.",
+        "method": "Open-access full-text arXiv HTML/PDF sections, compared by mathematical objective and distribution.",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Original source of sketch-and-project update, weighted projection, and worst-case expected error contraction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12906704-f9bb-4870-84ae-8d575f454900",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Bernoulli density is a natural actionable parameter controlling number of nonzeros in a standard sign sketch, and the smallest-eigenvalue objective is the exact uniform error guarantee of an established linear solver. The result is a complete real-parameter classification for every invertible planar anisotropic matrix, not an isolated numerical witness or a rescaled previous bound. The optimizer is strictly interior at generic angles and unexpectedly independent of spectral condition despite the achieved rate depending on it; at \\(\\kappa=2\\) and \\(\\theta=\\pi/8\\) it improves the sharp coefficient from \\((1-3/\\sqrt{41})/2\\) at both endpoints to \\(13/41\\). A complete two-dimensional benchmark is meaningful even without a downstream high-dimensional theorem or wall-time guarantee.",
+    "status": "PASS"
+  }
+}
