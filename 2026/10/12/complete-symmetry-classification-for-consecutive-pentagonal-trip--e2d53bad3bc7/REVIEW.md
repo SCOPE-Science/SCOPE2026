@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof establishes exact adjacent gcds \(1\) or \(2\) and the outer gcd dividing \(35\). Herzog's established three-generator symmetry criterion reduces the question to three cofactor membership cases. Two cases are eliminated by explicit quadratic inequalities and small arithmetic; the outer case is reduced unconditionally to \(n=5,10,12,40\), of which only \(5,40\) work. The redundant two-generator cases are handled separately. An independent Apéry-set algorithm reproduces the claimed classification for every \(2\le n\le141\), including all boundary checks, and verifies the claimed Frobenius numbers and genera. The proof, not finite testing, establishes the unbounded conclusion.
+
+**Originality — PASS, with residual risk.** OEIS A069757 is an exact-object Frobenius table but not a symmetry/genus classification. Fel's arXiv:0803.1606 treats Fibonacci and Lucas triples, and García-Sánchez--Viola's 2015 paper supplies the general criterion rather than these pentagonal congruence and cutoff results. Searches for symmetry, complete intersection, Gorenstein, and genus formulations, plus published-record semantic searches, found no dominating statement. The absence of a search hit cannot exclude older unindexed work.
+
+**Value — PASS.** This is a complete structural classification for a natural infinite family already recorded in the Frobenius-number literature, rather than another finite enumeration. The exceptional index \(40\), caused by a \(35\)-fold gluing of the outer generators, is not predictable from the neighboring small exceptions or from the published Frobenius table alone. The proof gives a finite theoretical stopping bound and isolates each possible divisibility mechanism. Similar symmetry criteria are classical; the family-specific resolution is the contribution.
+
+**Closest literature and limitations.** Sapko/OEIS A069757 (2002, complete exact family but only Frobenius values); Fel (2008, other recurrence families and general criterion); García-Sánchez--Viola (2015, general structure). The claim does not give Frobenius values at nonsymmetric indices or apply to all polygonal numbers. Unindexed duplication remains a literature risk.
+
+Self-review: passed. Independent audit: not yet performed.
