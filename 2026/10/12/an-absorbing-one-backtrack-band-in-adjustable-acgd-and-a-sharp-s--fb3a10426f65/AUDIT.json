@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The scalar gradient-difference estimate is exactly \\(\\lambda+\\delta\\); exact quadratic expansion makes the source backtracking test equivalent to \\(M\\ge\\lambda\\). This yields \\(j(\\gamma)=\\min\\{j:\\beta^j\\gamma\\ge\\tau\\}\\) and the exact iterate factor. The checkpoint rule then proves absorption when \\(j=1\\). The default trajectory and \\(N=8\\) are replayed with exact rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "PMLR 108 (Pedregosa--Négiar--Askari--Jaggi) Algorithm 2 multiplies a local curvature estimate until a quadratic upper model is valid.",
+        "The 2020 backtracking method has no aggregate checkpoint rule that decreases, retains, or increases a separate scaling factor from the number of backtracking trials."
+      ],
+      "reasoning": "Generic line-search theory implies multiplicative localization of accepted curvature but not the fixed-band dynamics of the 2025 adjustable feedback. The source-specific checkpoint map is essential to the claim.",
+      "searches": [
+        "Linearly Convergent Frank-Wolfe with Backtracking Line-Search Algorithm 2 local Lipschitz estimate",
+        "adaptive conditional gradient descent backtracking local smoothness checkpoint scaling",
+        "adaptive gradient scalar quadratic backtracking contraction factor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.11440v1",
+      "OptimizationOnline:32199",
+      "PMLR:108-pedregosa20a",
+      "arXiv:1806.05123"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source gives convergence guarantees and the feedback mechanism but no exact scalar fixed-band theorem.",
+        "The 2020 Frank-Wolfe backtracking paper gives a generic local curvature search but no checkpointed scaling dynamics."
+      ],
+      "reasoning": "Neither broader convergence nor factor-of-\\(\\beta\\) curvature localization implies that exactly \\(r\\) backtracks per \\(r\\)-iteration checkpoint freeze \\(\\gamma\\), nor that this fixed set carries the full interval of exact Q-factors proved here.",
+      "searches": [
+        "arXiv:2510.11440 AdaStep adjustable scaling convergence theorem backtracking count",
+        "arXiv:1806.05123 Frank-Wolfe backtracking curvature estimate factor beta",
+        "scalar quadratic adaptive backtracking absorbing interval contraction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.11440v1 defines the local estimate, AdaStep backtracking, adjustable scaling feedback, and experimental defaults.",
+        "No focused published-result match stated a checkpoint-fixed one-backtrack interval or the exact scalar rate family."
+      ],
+      "reasoning": "The new statement is not merely that backtracking accepts a curvature within a factor of \\(\\beta\\). It combines the exact scalar acceptance threshold with the source checkpoint feedback to prove that a continuum of scales are fixed states.",
+      "searches": [
+        "Adaptive Conditional Gradient Descent adjustable scaling one backtrack absorbing interval scalar quadratic",
+        "AdaStep gamma beta backtracking constant curvature quadratic exact contraction",
+        "arXiv 2510.11440 scalar quadratic adjustable scaling gamma backtracking"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical values are derived from the published parameter defaults and exact scalar recurrence, not copied from an experimental table.",
+        "Focused published-result searches returned other adaptive-step quadratic phenomena but no source-specific backtracking-count law."
+      ],
+      "reasoning": "The checkpoint index \\(N=8\\) follows from the exact inequality \\((1/4)(1.1)^N\\ge\\tau/2\\), and the factors follow algebraically. No table lookup is used.",
+      "searches": [
+        "adaptive conditional gradient descent default gamma 1/4 beta 2 two backtracks quadratic",
+        "backtracking count adaptive gamma worsens contraction constant curvature",
+        "2510.11440 AdaStep one backtrack scalar quadratic"
+      ]
+    },
+    "rationale": "The primary 2025 method and the closest generic backtracking primary literature were compared at statement and implication level. Neither states the checkpoint-induced absorbing interval, its exact contraction continuum, or the eight-checkpoint default trajectory.",
+    "residual_risks": [
+      "An implementation note or later source revision could discuss the same scalar checkpoint phenomenon without being indexed by the searched terminology.",
+      "The multidimensional method can have changing local spectral mixtures, so the scalar absorbing band need not persist there.",
+      "The theorem compares iteration contraction with backtracking counts, not total runtime."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_SOURCE_NOT_COVERING_ABSORBING_BAND.",
+        "evidence": "The source supplies every recurrence ingredient but does not state the scalar backtracking-count formula, the absorbing one-backtrack interval, or the default eight-checkpoint rate tradeoff.",
+        "identifier_or_url": "arXiv:2510.11440v1; OptimizationOnline:32199",
+        "material_read": "Abstract; generic conditional-gradient update; normalized-steepest-descent specialization; short-step formula; local gradient-difference smoothness estimate; sufficient-decrease backtracking; constant and adjustable scaling rules; default parameter paragraph; convergence discussion.",
+        "method": "Lawful public full-text extraction and equation-level inspection of the source manuscript.",
+        "title": "Adaptive Conditional Gradient Descent",
+        "trigger": "Defining source for AdaStep, adjustable scaling, local curvature estimation, and default parameters."
+      },
+      {
+        "assessment": "BROADER_BACKTRACKING_NOT_COVERING_CHECKPOINT_FEEDBACK.",
+        "evidence": "The algorithm multiplies a local curvature estimate until sufficient decrease holds but has no source-specific aggregate-backtrack rule for updating a separate \\(\\gamma\\).",
+        "identifier_or_url": "PMLR:108-pedregosa20a; arXiv:1806.05123",
+        "material_read": "Algorithm 1 and Algorithm 2, including local curvature initialization, multiplicative backtracking, quadratic upper model, and accepted step formula.",
+        "method": "Direct full-PDF text inspection and rendered-page inspection of the algorithms.",
+        "title": "Linearly Convergent Frank-Wolfe with Backtracking Line-Search",
+        "trigger": "Closest broad primary literature for multiplicative local-curvature backtracking in conditional-gradient methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb3a1042-6f65-4995-9760-f6f8dcfce77e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result exposes a full fixed-state interval of the new adjustable feedback and quantifies its exact rate ambiguity. The source-default calculation shows that the feedback can deliberately trade a nearly exact scalar step for fewer backtracking trials. This identifies a tuning-relevant structural property of the adaptive mechanism, not a generic textbook fact about gradient descent.",
+    "status": "PASS"
+  }
+}
