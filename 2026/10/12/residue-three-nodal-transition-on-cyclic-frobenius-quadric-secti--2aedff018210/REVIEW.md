@@ -1,0 +1,15 @@
+# Scientific assessment: cyclic Frobenius-quadric sections
+
+## Correctness — PASS
+The proof treats the entire projective complete intersection over the algebraic closure for each prime \(p\ge5\). The nondegenerate split quadric provides the genus, tangent quadratic forms, and rational-point census. Affine Jacobian rank deficiency is reduced to explicit Frobenius-linear equations. In residue class \(1\pmod3\), diagonalizing the cyclic operator using the two cube roots of unity yields \(4p-2\) affine singular points; in residue class \(2\pmod3\), the discriminant \(-3\) obstruction eliminates them. At infinity, the exact derivative-gcd argument yields two additional double points precisely in the former class. The vanishing second derivatives of the degree-\(p+1\) equation and the nondegenerate second fundamental form of the quadric prove these are ordinary nodes. Their four rational members are split, giving the normalization point count. The accompanying finite checker corroborates the symbolic argument for six primes but is not an infinite proof.
+
+## Originality — PASS, with identified risk
+Arakelian--Speziali, arXiv:2512.08874, Example 3.10, supplies the degree-six \(p=5\) surface and quadric and proves Frobenius nonclassicality of a model curve. Their exposition does not present a uniform family for prime-variable exponents, a \(p\pmod3\) smoothness/nodality dichotomy, an exact \(4p\) singular-point count, or the two normalization point formulas. Berardini--Nardi (2022) instead develops point-count upper bounds for curves on Frobenius classical surfaces. Published-finding searches for the exact equation, equivalent cyclic/Frobenius formulations, quadric bidegrees, node counts, and mod-three characteristics returned no covering finding, and comparison with previously published findings found no overlap. Because equivalent presentations in older Frobenius-form or finite-field geometry literature could exist, independent bibliographic verification remains useful.
+
+## Mathematical value — PASS
+The initiating construction emphasizes Frobenius nonclassical curves over finite fields but leaves its exact projective singularity and normalization geometry unstated. The theorem produces a sharp arithmetic transition across an infinite natural family: smooth curves for one prime residue class and precisely quantified ordinary nodes for the other. The exact rational-point jump under normalization is tied to the split rational nodes, not a generic invocation of adjunction or a merely arbitrary single-prime statistic. These invariants determine which members support smooth algebraic-geometric curve constructions and how their rational counts change on normalization.
+
+## Limitations
+Only prime exponents \(p\ge5\) and the displayed cyclic form are covered. No irreducibility or component-genus claim is made for the singular residue class. Finiteness of the checker does not certify all primes or arbitrary extension-field points. A broader, differently expressed historical classification remains a bibliographic risk.
+
+Self-review: passed. Independent audit: not yet performed.
