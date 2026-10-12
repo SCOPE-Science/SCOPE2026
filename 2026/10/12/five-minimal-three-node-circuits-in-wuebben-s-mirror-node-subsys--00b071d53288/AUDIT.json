@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The bundled exact verifier starts from the 22 vertices printed in Theorem 6.1, reconstructs the 26 polar vertices and 26 unit-square node rows, reproduces the published row rank \\(18\\) and two coloops, and then exhausts every support of sizes \\(1\\), \\(2\\), and \\(3\\). No pair is dependent and exactly five triples have rank \\(2\\), so the matroid girth is \\(3\\) and the displayed list is complete. Direct integer addition verifies a primitive \\(\\{\\pm1\\}\\)-coefficient relation on each triple.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The public conifold-relations manuscript defines an integral relation lattice and proves that it matches exceptional-curve and mirror vanishing-sphere relations under its hypotheses.",
+        "Its inspected examples explicitly list generating relations for several named polytopes, demonstrating that small-support relations are geometrically meaningful.",
+        "Those inspected statements and examples do not compute the minimum circuits of the 26 square-node subsystem from arXiv:2610.03753v1."
+      ],
+      "reasoning": "The general relation-lattice theorem motivates the invariant but does not determine the circuit structure of a particular finite row configuration. The five-circuit classification requires the exact row geometry of the initiating example and a complete support enumeration.",
+      "searches": [
+        "Mirror Symmetry for Conifold Relations in Calabi-Yau Threefolds Wuebben",
+        "conifold relation minimal support three nodes toric Calabi-Yau F1 mirror",
+        "Calabi-Yau exceptional curve relation circuit support"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03753v1 full HTML",
+      "arXiv:2610.03753v1 ancillary src/paper3_node_relations.py",
+      "public manuscript Mirror Symmetry for Conifold Relations in Calabi--Yau Threefolds, dated 2026-09-29",
+      "targeted published-finding and web searches for exact source, matroid girth, minimum-support node relations, and three-node circuits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rank \\(18\\) and two coloops constrain the relation space but do not determine whether its smallest circuit has size \\(3\\), \\(4\\), or larger.",
+        "The initiating ancillary script computes deletion ranks only for single rows; it does not test pairs or triples for dependence.",
+        "The broader conifold-relation manuscript proves structural identifications of relation lattices but does not specialize them to the five listed triples."
+      ],
+      "reasoning": "The new claim is not a corollary of the published rank and coloop values: circuit girth and the complete list of girth circuits are additional matroid invariants. They were obtained by exhaustive exact support testing, not by renaming or restating the full-support obstruction.",
+      "searches": [
+        "arXiv:2610.03753v1 Theorem 6.1 Remark 6.3",
+        "src/paper3_node_relations.py rank coloop",
+        "Mirror Symmetry for Conifold Relations relation lattice examples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Remark 6.3 states rank \\(18\\), exactly two coloops, and absence of a full-support relation, but not the minimum circuit size or circuit list.",
+        "The ancillary row-reduction script checks rank and coloops and prints no circuit enumeration.",
+        "Exact and alias searches did not locate a statement that this row matroid has girth \\(3\\) or exactly five minimum circuits."
+      ],
+      "reasoning": "Equivalent formulations include saying that three is the least number of node rows in a nontrivial dependence, that there are exactly five primitive three-node dependencies, or that the node-row matroid has girth three with five girth circuits. None is implied by the published rank-and-coloop statement alone; many rank-18, 26-element matroids with two coloops have different circuit girth and counts.",
+      "searches": [
+        "arXiv:2610.03753v1 Remark 6.3 node subsystem",
+        "26 node diagonal relation minimum support circuit",
+        "three-node relation Wuebben F1 mirror",
+        "row matroid girth 26 Calabi-Yau node relations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches keyed to the exact source, 26-node matrix, two-coloop description, minimum-support relation, and three-node circuit terminology returned no record with this five-circuit classification.",
+        "The closest indexed algebraic-geometric result found for the same \\(\\mathbb F_1\\)-cone context concerns the topology of a cone link, not the node-row matroid.",
+        "Other close hits concerned abstract matroid or finite-relation problems on different objects."
+      ],
+      "reasoning": "This is not a recomputation of a listed table entry: the initiating table and ancillary program do not report circuit girth or minimum circuit supports. The accepted invariant is produced by a new exhaustive rank test on the source's exact finite row configuration.",
+      "searches": [
+        "Doubly isolated Batyrev mirror pairs smooth singular mirror pair 24-cell",
+        "both-sides unit reflexive 4-polytopes smooth anticanonical hypersurface mirror singular",
+        "exactly seven smooth singular Batyrev mirror pairs among both-sides unit polytopes",
+        "smooth generic anticanonical hypersurface isolated-singular mirror Batyrev reflexive four polytope",
+        "Wuebben 26 node diagonal relation minimal circuit three nodes F1 mirror",
+        "Calabi-Yau node relation matroid three-node circuits 26 nodes two coloops",
+        "Doubly isolated Batyrev mirror 26 nodes relation lattice circuit support",
+        "conifold relation minimal support three nodes toric Calabi-Yau F1 mirror"
+      ]
+    },
+    "rationale": "The initiating paper and its ancillary script stop at rank and coloop data and do not enumerate minimum-support dependencies. The later conifold-relation manuscript gives a general integral relation-lattice framework and explicit relations for other named examples, but the inspected statements and examples do not give the five minimum circuits of this 26-row subsystem. Targeted exact, alias, support-size, circuit, and conifold-relation searches found no implication-equivalent published classification.",
+    "residual_risks": [
+      "A minimum-circuit computation may exist in an unindexed notebook or later revision not surfaced by the searches.",
+      "The public conifold-relations manuscript is broader and evolving; a future revision could add this example explicitly.",
+      "The finding is about the node subsystem only and should not be interpreted as a mixed-singularity smoothing theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PREMISES_NOT_COVERING_MINIMUM_CIRCUIT_CLASSIFICATION",
+        "evidence": "The source gives the explicit polytope, 26 nodes, row rank \\(18\\), and exactly two coloops, then concludes only that no relation has all coefficients nonzero.",
+        "identifier_or_url": "arXiv:2610.03753v1",
+        "material_read": "Abstract and metadata; Theorem 1.6; Theorem 6.1; Remarks 6.2 and 6.3; references to the mixed smoothing obstruction.",
+        "method": "Full arXiv HTML inspection.",
+        "title": "Doubly isolated Batyrev mirror pairs and non-smoothable Calabi--Yau threefolds",
+        "trigger": "Initiating source for the explicit mirror pair and its 26-node row subsystem."
+      },
+      {
+        "assessment": "EXACT_RANK_AND_COLOOP_CHECK_NOT_COVERING_CIRCUITS",
+        "evidence": "The script asserts 26 square rows, rank \\(18\\), two specified coloops, and rank \\(16\\) after deleting both; it contains no enumeration of dependent pairs or triples.",
+        "identifier_or_url": "arXiv:2610.03753v1 ancillary src/paper3_node_relations.py",
+        "material_read": "Complete ancillary Python source, including polar reconstruction, square-face relations, rank calculation, deletion ranks, and printed outputs.",
+        "method": "Public ancillary-source inspection.",
+        "title": "paper3_node_relations.py",
+        "trigger": "Exact computational source for the published rank and coloop claim."
+      },
+      {
+        "assessment": "BROADER_RELATION_LATTICE_THEORY_NOT_COVERING_THIS_FINITE_CIRCUIT_CENSUS",
+        "evidence": "The manuscript identifies relation lattices with exceptional-curve and mirror vanishing-sphere relations under its hypotheses and lists relations for other named examples, but the inspected material does not state the five minimum circuits of this 26-row subsystem.",
+        "identifier_or_url": "public manuscript dated 2026-09-29 in bwuebben/calabi-yau-smoothability",
+        "material_read": "Abstract, main metadata, relation-lattice definitions and statements, and the examples section with explicit generating relations.",
+        "method": "Public manuscript source inspection.",
+        "title": "Mirror Symmetry for Conifold Relations in Calabi--Yau Threefolds",
+        "trigger": "Broader primary source on integral conifold relation lattices and their geometric meaning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00b071d5-3288-4907-9624-612d4e707760",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum-support circuits are a natural invariant of the exact node relation configuration: they identify the smallest groups of conifold nodes capable of participating in a global relation. The initiating paper uses the same relation matrix to study smoothability, while the broader conifold-relation theory identifies such lattices with exceptional-curve and mirror vanishing-sphere relations. The complete result that the minimum support is three and occurs in exactly five primitive ways is therefore structurally motivated, finite, and reusable rather than an arbitrary slice. It sharpens the node subsystem from global rank/coloop data to its smallest interaction patterns without overstating consequences for the four additional cone points.",
+    "status": "PASS"
+  }
+}
