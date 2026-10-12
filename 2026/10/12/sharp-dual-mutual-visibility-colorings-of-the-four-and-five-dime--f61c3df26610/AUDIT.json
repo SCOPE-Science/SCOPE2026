@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Geodesic-permutation enumeration covers every 16-bit coloring and every shortest path, with an independent BFS check of all 24 accepted colorings, antipodal/orbit tests, and an explicit BFS-checked four-class partition of the five-cube. Face-extension proven by all pair cases. The lower bound derives from Korže–Vesel Theorem 3.14 (\\(\\mu_{\\mathrm d}(Q_5)=10\\)) giving \\(3\\cdot10<32\\); the historical SAT/ILP computation is an acknowledged published dependency.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korže–Vesel determine \\(\\mu_{\\mathrm d}(Q_5)=10\\), hence \\(\\chi_{\\mu_{\\mathrm d}}(Q_5)\\ge4\\), but construct no dual partition or four-cube two-coloring enumeration.",
+        "Axenovich–Liu show asymptotics for the weaker ordinary coloring, not this dual invariant."
+      ],
+      "reasoning": "The stronger cardinality bound is prior coverage of the lower-bound part only; the explicit matching upper bound and equality-case classification are not its stated corollaries. Ordinary coloring lower bounds cannot imply exact dual values.",
+      "searches": [
+        "\"dual mutual-visibility coloring\" \"Hamming\" higher dimensional",
+        "Hypercube Q5 four-color dual visibility partition, Korže Vesel maximum dual visibility set cardinality ten",
+        "arXiv:2405.05650v1 Theorem 3.14",
+        "arXiv:2411.12124v3 Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.31427v1",
+      "arXiv:2405.05650v1",
+      "arXiv:2412.03066v1",
+      "arXiv:2411.12124v3",
+      "Published semantic search records on low-distance mutual visibility in cubes and other different invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 open-question list explicitly singles out higher-dimensional hypercubes.",
+        "The older \\(\\mu_{\\mathrm d}(Q_5)=10\\) yields the chi>=4 implication, which is credited, while a four-color construction and complete Q4 equality cases are separate proofs."
+      ],
+      "reasoning": "Published size bound implies precisely the lower inequality; it does not imply the upper inequality or the count and orbit for all two-colorings. Conversely the 2026 two-factor formula covers Q2 but not Q3–Q5.",
+      "searches": [
+        "arXiv:2609.31427v1 Sec. 7 open questions",
+        "arXiv:2405.05650v1 Theorem 3.14",
+        "Exact dual mutual-visibility chromatic number of fifth binary hypercube Q5 equals 4, Q4 has exactly 24 two-colorings",
+        "Every dual mutually visible two-color partition of four dimensional hypercube Q4 is antipodally invariant and is unique up to cube automorphism"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original definitions specify dual sets for both inside and outside pairs; the 2026 paper only solves two-factor Hamming graph colorings.",
+        "An exhaustive sixteen-vertex partition check finds 24 two-colorings, independently BFS-confirmed."
+      ],
+      "reasoning": "The exact subject is a two-class partition into dual sets, equivalent to simultaneous duality of a subset and complement; published single-set maximization and ordinary mutual visibility are not equivalent to this partition requirement.",
+      "searches": [
+        "\"dual mutual-visibility chromatic number\" hypercube dimension \"Q_4\" \"Q_5\"",
+        "\"dual mutual-visibility\" \"hypercube\" \"two\" coloring",
+        "Exact dual mutual-visibility chromatic number of fifth binary hypercube Q5 equals 4, Q4 has exactly 24 two-colorings",
+        "Every dual mutually visible two-color partition of four dimensional hypercube Q4 is antipodally invariant and is unique up to cube automorphism",
+        "arXiv:2609.31427v1 Secs. 1,5,7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 table records dual set maxima 8 and 10 in dimensions four and five; its figure shows one maximum set, not the complete list of dual two-color partitions.",
+        "No inspected exact coloring table or database supplies the count 24 and automorphism orbit."
+      ],
+      "reasoning": "A maximum-set table cannot enumerate the complementary partition property without a separate exhaustive check.",
+      "searches": [
+        "\"24\" \"dual\" \"Q4\" coloring hypercube visibility",
+        "Exact dual mutual-visibility chromatic number of fifth binary hypercube Q5 equals 4, Q4 has exactly 24 two-colorings",
+        "arXiv:2405.05650v1 Table 2 and Fig. 2"
+      ]
+    },
+    "rationale": "Full source comparisons distinguish dual-set cardinality and ordinary visibility colorings from partitions into dual sets. The 2024 maximal-size theorem already implies the five-cube lower bound but not a four-class construction, and no inspected primary result classifies the 24 four-cube colorings. The 2026 source explicitly opens the higher-dimensional hypercube problem.",
+    "residual_risks": [
+      "Literature beyond inspected sources may contain an unindexed equivalent dual coloring theorem.",
+      "The Korže–Vesel size bound \\(\\mu_{\\mathrm d}(Q_5)=10\\) is cited from their published theorem but its original computer-assisted derivation is not independently replayed.",
+      "The four-cube classification is a finite exhaustive computation with a complete standalone checker, not an analytic-only proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: the authors solve two-dimensional Hamming graphs and request higher dimensions.",
+        "evidence": [
+          "arXiv:2609.31427v1 Sections 1,5,7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.31427v1",
+        "material_read": "Definition, Section 5 Hamming graphs, Section 7 open questions, bibliography",
+        "method": "Full OA HTML inspected directly",
+        "title": "A variety of the mutual-visibility coloring problem for graphs",
+        "trigger": "Same newly introduced chromatic invariant and explicit higher-dimensional Hamming question"
+      },
+      {
+        "assessment": "Partial coverage: published \\(\\mu_{\\mathrm d}(Q_5)=10\\) gives lower bound; no dual chromatic exact value or count and orbit of Q4 two-colorings.",
+        "evidence": [
+          "arXiv:2405.05650v1 Proposition 3.13; Theorem 3.14; Figure 2; Table 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.05650",
+        "material_read": "Introduction and definitions, Proposition 3.13, Theorem 3.14 and proof, Figure 2, summary Table 2",
+        "method": "Open OA arXiv full PDF pages 1–3 and 12–15 (text and relevant page images)",
+        "title": "Variety of mutual-visibility problems in hypercubes",
+        "trigger": "Same hypercube objects, dual sets, and exact size bound"
+      },
+      {
+        "assessment": "Convex restriction is known; extension of color classes into a larger cube and exact chromatic outcomes not supplied.",
+        "evidence": [
+          "Bujtás–Klavžar–Tian Lemma 2.4"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-025-01197-y",
+        "material_read": "Full OA introduction and Section 2, especially Lemma 2.4, its proof, surrounding examples",
+        "method": "Open OA full HTML inspected directly",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Dual-set convex restriction that might dominate the face argument"
+      },
+      {
+        "assessment": "Not covering: ordinary mutual visibility, not dual coloring.",
+        "evidence": [
+          "arXiv:2411.12124v3 abstract and Theorem 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.12124",
+        "material_read": "Title, abstract, definitions, Theorem 2, beginning of proof",
+        "method": "Full OA arXiv PDF inspected for its invariant and main result",
+        "title": "A note on the mutual-visibility coloring of hypercubes",
+        "trigger": "Plausible hypercube coloring theorem with broad dimension scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f61c3df2-6610-4dba-a6d0-07e7884b6aaa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first exact higher-dimensional hypercube dual chromatic jump answers a named 2026 family question in dimension five and supplies an exact count of 24 two-colorings and one-orbit classification in the four-cube. This is a motivated natural finite cutoff and a structural equality-case classification, not a parameter-renaming exercise.",
+    "status": "PASS"
+  }
+}
