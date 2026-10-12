@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The Itô correction is reconstructed directly from the source's P=rho1 E+rho2 I and diagonal E/I diffusions. Normalized weights a=rho1 E/P and b=rho2 I/P satisfy a+b=1. Positivity of the quadratic diffusion coefficients gives a convex quadratic lower bound whose exact minimum is sigma21^2 sigma31^2/[2(sigma21^2+sigma31^2)]. A small-infection ray with the minimizing composition makes the nonlinear terms vanish and attains this value in the limit, proving it is the exact global infimum. Example 5.2 then has exact infimum 0.01 rather than the 0.25 used in the source. The conclusion is restricted to failure of that certificate, not actual persistence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han et al. (2020), DOI 10.1016/j.chaos.2020.110238, studies a different staged-progression AIDS system and emphasizes distinct dynamical effects of linear and second-order perturbations.",
+        "Lu et al. (2021), DOI 10.1016/j.chaos.2021.111312, studies a different SEIQV architecture with second-order perturbations."
+      ],
+      "reasoning": "These works show that second-order noise in epidemic systems is established prior art. Their different compartment structures and Lyapunov combinations do not subsume the exact two-weight minimization for the 2025 SEI model, so no broad theorem located implies the present source-specific correction.",
+      "searches": [
+        "second-order perturbation stochastic epidemic extinction linear quadratic noise threshold",
+        "Stationary distribution extinction stochastic staged progression AIDS second-order perturbation",
+        "Dynamics simulations second order stochastically perturbed SEIQV saturated incidence"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20251254",
+      "doi:10.1016/j.chaos.2020.110238",
+      "doi:10.1016/j.chaos.2021.111312"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 AIDS paper's abstract explicitly treats second-order and linear perturbations as distinct dynamical contributions but concerns a staged-treatment AIDS model.",
+        "The 2025 source's own proof writes the exact E/I Itô correction before replacing it by the disputed quadratic-coefficient constant.",
+        "The small-infection minimizing ray is specific to the source's rho1 E+rho2 I Lyapunov combination and proves a numerical factor-25 discrepancy for Example 5.2."
+      ],
+      "reasoning": "Prior work motivates examining linear versus quadratic noise but does not imply that the source's exact global infimum is 0.01 or that its reported -0.0651 certificate shifts to +0.1749. Those are new consequences of the source-specific calculation.",
+      "searches": [
+        "Stationary distribution extinction second-order perturbation AIDS 110238 nonlinear noise extinction",
+        "second order stochastically perturbed SEIQV 111312 extinction nonlinear noise",
+        "general stochastic perturbations SIR extinction quadratic noise"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.20251254 prints the E/I diffusions with linear coefficients sigma21,sigma31 and quadratic coefficients sigma22,sigma32, yet defines the extinction exponent with -(sigma22^2 wedge sigma32^2)/4.",
+        "Exact normalized-weight minimization shows the global Itô-damping infimum depends on sigma21 and sigma31 and is approached at vanishing infection."
+      ],
+      "reasoning": "An equivalent correction would have to identify the small-infection scaling or the exact global infimum and apply it to the source's extinction condition. No searched result did so.",
+      "searches": [
+        "stochastic SEI nonlinear perturbation extinction criterion sigma22 sigma32 sigma21 sigma31",
+        "quadratic multiplicative noise cannot give state-independent extinction drift SEI epidemic",
+        "Xu Wang stochastic SEI 2025 extinction criterion nonlinear perturbation correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned no finding on DOI 10.3934/math.20251254 or on the sigma22/sigma32 coefficient-index issue.",
+        "Web searches returned the motivating paper and related nonlinear-noise literature but no published correction of Theorem 4.2."
+      ],
+      "reasoning": "Database absence is not treated as proof of novelty; it is combined with direct inspection of the source theorem and the closest related literature.",
+      "searches": [
+        "Stationary distribution and extinction of a stochastic SEI epidemic model with logistic growth and nonlinear perturbation correction extinction sigma22 sigma32",
+        "10.3934/math.20251254 correction quadratic noise extinction",
+        "stochastic SEI saturation incidence exact extinction envelope logistic comparison process"
+      ]
+    },
+    "rationale": "The motivating paper discusses nonlinear stochastic perturbations and cites earlier second-order-noise epidemic work, but its theorem, proof, examples, and conclusion use the quadratic coefficients as a uniform extinction damping. Direct statement comparison and semantic searches did not locate this exact source-specific correction. Earlier papers establish broader nonlinear-noise effects but do not imply this exact infimum or the quantitative loss of the 2025 Example 5.2 certificate.",
+    "residual_risks": [
+      "A mathematically equivalent correction could exist in unindexed or inaccessible literature on nonlinear stochastic epidemic perturbations.",
+      "The closest 2020 and 2021 second-order-noise papers were not both available as full text in the bounded search; their accessible abstracts/metadata do not show coverage of this source-specific calculation.",
+      "The true asymptotic behavior of Example 5.2 remains unresolved by this finding.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_GAP. The exact Itô correction is printed, but the final uniform extinction term uses sigma22 and sigma32 rather than a valid small-infection lower bound.",
+        "evidence": "The E diffusion is E(sigma21+sigma22 E)dB2 and the I diffusion is I(sigma31+sigma32 I)dB3; Theorem 4.2 uses -(sigma22^2 wedge sigma32^2)/4; Example 5.2 sets sigma21=sigma31=0.2 and sigma22=sigma32=1 and reports R0^E=-0.0651.",
+        "identifier_or_url": "doi:10.3934/math.20251254",
+        "material_read": "Article metadata and MSC; model equations (1.1)-(1.2); stochastic threshold definitions; Theorem 4.2 and its proof; Example 5.2; Example 5.3; conclusions; PDF pages containing the diffusion and extinction formulas.",
+        "method": "Open-access publisher PDF text plus page-image inspection.",
+        "title": "Stationary distribution and extinction of a stochastic SEI epidemic model with logistic growth and nonlinear perturbation",
+        "trigger": "Exact motivating model and extinction theorem."
+      },
+      {
+        "assessment": "RELATED_RISK_NOT_DECISIVE. It establishes nonlinear-noise epidemic analysis but does not provide evidence covering the 2025 source-specific coefficient correction.",
+        "evidence": "The abstract states that linear and second-order perturbations have distinct dynamical effects in a staged AIDS model; no source-specific SEI rho-weight calculation is present in the material available.",
+        "identifier_or_url": "doi:10.1016/j.chaos.2020.110238",
+        "material_read": "Primary abstract, highlights, bibliographic metadata, and indexed description of extinction and second-order perturbation results; full text endpoint was access-blocked in the available browser path.",
+        "method": "PubMed/OpenAlex primary-index records; full-text access attempt recorded as blocked.",
+        "title": "Stationary distribution and extinction of a stochastic staged progression AIDS model with staged treatment and second-order perturbation",
+        "trigger": "Closest cited structural prior on second-order stochastic epidemic perturbations."
+      },
+      {
+        "assessment": "RELATED_ACCESS_LIMITED. Different SEIQV object; no evidence found of the exact 2025 SEI damping infimum.",
+        "evidence": "The indexed title identifies a different compartment model with second-order stochastic perturbation; no matching theorem or coefficient formula was surfaced.",
+        "identifier_or_url": "doi:10.1016/j.chaos.2021.111312",
+        "material_read": "Bibliographic record, title, authorship, publication date, and topic metadata; no accessible full text was located in the bounded search.",
+        "method": "OpenAlex bibliographic record and targeted web search.",
+        "title": "Dynamics and simulations of a second order stochastically perturbed SEIQV epidemic model with saturated incidence rate",
+        "trigger": "Plausible prior with saturated incidence and second-order epidemic noise."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1396cd82-2a50-482c-a289-dbfd24eeae99",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The disputed term is not a cosmetic coefficient: it is the negative contribution that makes the paper's headline stochastic-extinction Example 5.2 satisfy its theorem despite deterministic R0>1, and the conclusion explicitly attributes extinction to stronger second-order noise. The exact small-infection calculation changes that damping by a factor of 25 and flips the displayed sufficient bound from negative to positive. This materially changes what the theorem proves about the model while preserving a precise distinction between certificate failure and actual dynamics.",
+    "status": "PASS"
+  }
+}
