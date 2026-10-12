@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "For every edge set F, an undominated edge has both endpoints of selected degree zero. Since a windmill consists of a hub and disjoint rim cliques, this yields precisely the two hub cases used in a disjoint inclusion–exclusion count. In the hub-covered case, each blade can have at most one zero-degree rim vertex, so T_m^(1) minus all-spoke-free T_m^(0) counts exactly the selected-spoke configurations. In the hub-uncovered case every rim vertex needs an internal selected edge, counted by A_m. The minimum proof uses the sharp efficiency of internal edges versus spokes, with mutually exclusive local P/E/Q and t/u equality classifications; no finite scan is treated as an infinite proof. Independent incidence-bitmask brute enumeration on 58 tuples and 572252 edge subsets matches every polynomial coefficient, plus exact closed minimum counts and broader algebraic coefficient tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alaeiyan–Mohammadian (2011), Sections 1–7, computes arbitrary graph-polynomial coefficients via generic binary-programming constraint solutions, including edge domination in Section 7.",
+        "van Rooij–Bodlaender (2011), Sections 1–3 and 7, give exponential algorithms for minimum edge domination and minimum maximal matchings, not a closed all-cardinalities windmill expression.",
+        "A published title and abstract on general-position polynomials of homogeneous windmills treat the geodesic general-position polynomial of homogeneous windmills, not selected-edge adjacency domination."
+      ],
+      "reasoning": "Although the generic computational algorithms apply to all graphs as inputs, they neither explicitly enumerate the family nor derive an identity of three independent blade products, and do not contain the local equality cases that give the closed optimum counts. A different graph polynomial on homogeneous windmills does not imply edge-domination coefficients. The claimed result is an exact symbolic formula, not merely computability.",
+      "searches": [
+        "Exact edge dominating set polynomial of coalesced cliques common universal center vertex",
+        "Global exact edge domination polynomial of clique bouquets K_1 join disjoint union of complete graphs windmills with varying blade sizes inclusion-exclusion count",
+        "doi:10.5402/2011/193560",
+        "doi:10.1007/s00453-011-9546-x"
+      ]
+    },
+    "checked_sources": [
+      "van Rooij–Bodlaender (2011), DOI 10.1007/s00453-011-9546-x, open 29-page PDF targeted sections and searches",
+      "Alaeiyan–Mohammadian (2011), DOI 10.5402/2011/193560, full HTML",
+      "Chaluvaraju–Chaitra (2016), DOI 10.1080/09720529.2015.1107974, abstract/MSC only",
+      "Gupta (2026), arXiv:2606.15761, full accessible text",
+      "Radhika–Suhi–Jangiti (2023), DOI 10.17762/jaz.v44i3.1677, abstract only",
+      "Horton–Kilakos, DOI 10.1137/0406030, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Radhika–Suhi–Jangiti (2023) use connected vertex-edge dominating sets of friendship graphs—a hybrid vertex-edge parameter with different selected objects and domination relation.",
+        "Indexed results on average maximal matchings and matching-induced-matching gaps do not present the full edge-domination cardinality distribution of arbitrary heterogeneous windmills.",
+        "The newly derived P/E/Q and t/u local patterns yield exact first-coefficient expressions; none of the closest inspected assertions imply these formulas."
+      ],
+      "reasoning": "The present theorem implies the known friendship saturation number by setting every blade size to two; the converse is false because that scalar gives neither coefficients at other degrees nor heterogeneous parity dependence or the nonmatching minimum count. The hybrid connected vertex-edge polynomial and average matching bounds are on other objects/invariants and cannot entail this selected-edge polynomial by direct substitution.",
+      "searches": [
+        "Windmill graphs friendship graphs edge domination number all minimum edge dominating sets maximal matchings line graph",
+        "Edge domination polynomial and minimum edge dominating sets of heterogeneous windmill friendship book graphs",
+        "doi:10.17762/jaz.v44i3.1677"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2011 open Algorithmica paper, Section 2, identifies an edge dominating set of a graph with a dominating set of its line graph, and distinguishes the related minimum maximal-matching variant.",
+        "The Horton–Kilakos abstract studies minimum edge dominating sets on subdivision and total graphs, rather than the line graphs of heterogeneous clique bouquets.",
+        "Explicit local optimum types E (a two-edge path) and mixed P/E/Q are generally nonmatchings; counting only maximal matchings would omit such minimum edge dominating sets."
+      ],
+      "reasoning": "The line-graph transformation is a true equivalent definition of the target polynomial, not a prior closed form for domination coefficients on the specific line-graph family. Minimum maximal matching matches the optimum SIZE but not all optimum edge sets; the exact enumerator and minimum multiplicities cannot be inferred from a minimum maximal-matching count. General exact algorithms accept a particular graph as input but do not state the product identity, parity criterion, or first-coefficient formulas.",
+      "searches": [
+        "Windmill graphs friendship graphs edge domination number all minimum edge dominating sets maximal matchings line graph",
+        "Minimum maximal matchings in generalized friendship graphs of unequal clique sizes",
+        "doi:10.1007/s00453-011-9546-x",
+        "doi:10.1137/0406030"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Chaluvaraju–Chaitra 2016 abstract states coefficient tables for paths and cycles and general properties; full text was not accessed.",
+        "The 2026 Gupta article records the scalar minimum maximal matching (saturation) number for homogeneous friendship graphs, not a complete edge-dominating-set polynomial or heterogeneous optimum coefficient.",
+        "Several semantic searches returned entries on paired/vertex domination, clique partitions, or matching bounds; no ranked entry stated the edge-domination enumerator of a one-hub clique bouquet."
+      ],
+      "reasoning": "Known numerical scalar information for a special homogeneous case is strictly weaker than equations (1), (3), and (4). Generic paths-and-cycles coefficient tables do not tabulate the all-size arbitrary-blade family. A missing search result is not proof of global uniqueness, and the uninspected 2016 body is retained as explicit coverage risk.",
+      "searches": [
+        "Edge domination polynomial clique bouquet all sizes minimum coefficient",
+        "Polynomial counting minimum edge dominating sets of windmill graph from selected-degree isolated vertices",
+        "Edge domination enumerator coefficient parity all odd clique blade sizes product zero isolated vertices",
+        "doi:10.1080/09720529.2015.1107974",
+        "arxiv:2606.15761"
+      ]
+    },
+    "rationale": "The specific claim is the complete all-cardinalities edge-domination polynomial and all-minimum multiplicities for any positive heterogeneous clique blade sizes, not the known generic line-graph equivalence, general exact optimization algorithms, or homogeneous friendship minimum scalar. Inspected open primary texts and multiple semantic searches revealed no same statement or stronger direct explicit family theorem. An inaccessible 2016 coefficient-paper body and incomplete older indexing leave acknowledged, nondecisive literature coverage risks.",
+    "residual_risks": [
+      "The full body of Chaluvaraju–Chaitra (2016) was not accessible, despite its abstract limiting explicit coefficient tables to paths and cycles.",
+      "An older minimum edge domination treatment or a poorly indexed article could contain a special case, matching reduction or polynomial for clique bouquets; abstract-only access is not proof of absence.",
+      "Semantic publication-index searching is not exhaustive proof of originality or global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant definitions, vertex-cover reduction and general algorithms; no stated closed heterogeneous windmill enumerator found in inspected material",
+        "evidence": [
+          "PDF p. 1 abstract and p. 2–4 preliminaries and Proposition 1 (edge endpoints form a vertex cover)",
+          "Text searches for windmill and friendship returned no occurrence",
+          "DOI 10.1007/s00453-011-9546-x; public online 2011-07-06"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-011-9546-x",
+        "material_read": "29-page open PDF: first three sections, weighted extensions near Section 7 and conclusion; full-document targeted text searches for windmill, friendship, polynomial",
+        "method": "Read searchable publisher PDF text; inspected first-page rendering",
+        "title": "Exact Algorithms for Edge Domination",
+        "trigger": "Exact same edge domination parameter; potential stronger algorithmic coverage and line-graph equivalence"
+      },
+      {
+        "assessment": "General binary-optimization description and coefficient extraction, not explicit clique-bouquet polynomial or local minimum multiplicities",
+        "evidence": [
+          "Section 7, Theorems 7.1 and 7.3, binary-programming method",
+          "First published 2011-08-25"
+        ],
+        "identifier_or_url": "https://doi.org/10.5402/2011/193560",
+        "material_read": "Complete full-text HTML, introduction and Sections 1 through 7, especially Section 7 edge dominating polynomial",
+        "method": "Read lawful publisher HTML text and theorem statements",
+        "title": "Graph Polynomials",
+        "trigger": "General edge domination polynomial coefficient algorithms could subsume explicit family identity"
+      },
+      {
+        "assessment": "Abstract explicitly mentions coefficient tables for paths and cycles; absence of a windmill theorem in uninspected body cannot be asserted",
+        "evidence": [
+          "Journal of Discrete Mathematical Sciences and Cryptography 19 (2016), 413–423",
+          "Abstract: coefficient tables of path and cycle; MSC 05C69 and 05C70",
+          "Published online 2016-06-14"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09720529.2015.1107974",
+        "material_read": "Publisher abstract, keywords, bibliographic metadata and primary MSC classification only; full text not accessible",
+        "method": "Read indexed publisher abstract and seek lawful full text",
+        "title": "On coefficients of edge domination polynomial of a graph",
+        "trigger": "Parameter-specific 2016 coefficient paper potentially includes the same polynomial for examples"
+      },
+      {
+        "assessment": "Prior special-case scalar value acknowledged. Its differently defined generalized-windmill construction and scalar theorem do not cover all edge-set coefficients of arbitrary heterogeneous clique blades",
+        "evidence": [
+          "Gupta, arXiv:2606.15761 (2026)",
+          "States the homogeneous friendship saturation number"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15761",
+        "material_read": "Complete accessible 4-page scholarly text including its friendship-graph and generalized-windmill statements",
+        "method": "Read open full-text HTML reproduction",
+        "title": "The saturation number is not bounded by the harmonic index",
+        "trigger": "Same scalar edge-domination/minimal maximal matching invariant on friendship graphs"
+      },
+      {
+        "assessment": "Different hybrid connected vertex-edge notion; no same-parameter result demonstrated, though the full-text risk remains",
+        "evidence": [
+          "Published 2023-11-14",
+          "Abstract identifies connected vertex-edge dominating sets and polynomial"
+        ],
+        "identifier_or_url": "https://doi.org/10.17762/jaz.v44i3.1677",
+        "material_read": "Complete abstract and bibliographic metadata; full PDF access blocked by verification page",
+        "method": "Read public journal abstract and attempted linked PDF",
+        "title": "Connected Vertex-Edge Dominating Sets and Connected Vertex-Edge Domination Polynomials of Friendship F_n",
+        "trigger": "Friendship graph plus domination polynomial match plausible but selected objects differ"
+      },
+      {
+        "assessment": "Abstract proves relations on subdivision and total graphs and tree-search bounds, not the clique-bouquet edge polynomial; uninspected full text remains a residual risk",
+        "evidence": [
+          "Horton and Kilakos, SIAM Journal on Discrete Mathematics, DOI 10.1137/0406030"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0406030",
+        "material_read": "Publisher abstract and bibliographic metadata only",
+        "method": "Read searchable SIAM abstract",
+        "title": "Minimum Edge Dominating Sets",
+        "trigger": "Older foundational edge domination source might provide stronger exact family result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d41f1d7-eccf-4a8d-8f6d-f8e250db9f9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Edge domination and its all-cardinality counting problem are natural NP-hard graph tasks; a nonhomogeneous one-hub clique union provides a motivated infinite family. The three-product hub-correction identity computes every coefficient by per-blade finite sums rather than full edge-subset enumeration. The sharp parity change from L to L+1, exact minimum-family multiplicities, and distinction between matching and nonmatching optimal sets are additional structural information, providing usable benchmark formulas beyond the already known scalar friendship case. This is not an arbitrary numerical slice or a mere lower-bound increment.",
+    "status": "PASS"
+  }
+}
