@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "An induction on source-word length proves the DP by partitioning increasing position subsets according to whether the final position is selected. Exact exhaustive enumeration checks all 32764 nonempty binary inputs of lengths 2..14 and identifies precisely the four length-14 exceptions. The two representatives have unique global maximizers (144 and 147) at length eight, versus 136 and 144 at lengths ≤7. Separate direct 2^14-mask enumeration agrees with every DP-computed subsequence count for each representative; complementation/reversal preservation of counts is a bijection.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fang v3 analyzes entropy minima over input words and conjectures the general length rule; no theorem there implies a universal length rule or an exact minimum violating binary input.",
+        "Menon–Singh arXiv:2306.07870 abstract optimizes over input words for fixed short-run patterns; reversal of quantifiers prevents implication."
+      ],
+      "reasoning": "The closest established bounds describe maximal numeric frequency for a class or specified pattern, not the length of a maximizer for each input. Those results neither imply nor contradict the four explicit strict profile comparisons.",
+      "searches": [
+        "Wenjie Fang Maximal number of subword occurrences full versions",
+        "Krishna Menon Anurag Singh Subsequence frequency in binary words 2306.07870",
+        "published-finding corpus: maxocc subword entropy longest most frequent subsequence binary length"
+      ]
+    },
+    "checked_sources": [
+      "Fang, arXiv:2406.02971v1 full HTML (2024-06-05)",
+      "Fang, arXiv:2406.02971v3 full HTML (2025-05-14)",
+      "Fang, Journal of Experimental Mathematics 1(2) (2025), publisher abstract and bibliographic metadata",
+      "Menon and Singh, arXiv:2306.07870, abstract",
+      "published-finding corpus semantic-search closest results IDs: 2026/9/19/SCOPE-nonuniform-distinct-substrings-shannon-correction--b50e5b4eb7f4, 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b, 2026/10/4/SCOPE-sharp-logarithmic-support-envelope-for-abelian-pattern-sturmian--71c60228ce20, 2026/9/8/SCOPE079"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fang v3 states the opposite universal inequality to the exhibited 144>136, explicitly as a conjecture.",
+        "Two exact finite word profiles plus exhaustive smaller-word census give a counterexample and binary minimality.",
+        "Closest published-finding corpus results concern distinct contiguous substrings and string attractors, not the universal mode-length conjecture."
+      ],
+      "reasoning": "The claim is incompatible with, rather than subsumed by, Conjecture 5.7. The source gives no prior proof of the conjecture, and the unrelated nearest indexed results cannot imply the two strict finite inequalities. Residual risk remains from unindexed reports or uninspected appendices.",
+      "searches": [
+        "arXiv:2406.02971v3 Section 5, Conjecture 5.7",
+        "arXiv:2306.07870 abstract",
+        "published-finding corpus: Counterexample Fang Conjecture 5.7 most frequent scattered subword of binary word may need length greater than half 2024 subword entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fang v3 defines maxocc and asserts existence of a maximizer no longer than ceiling of half; binary example has all such multiplicities ≤136 while a length-eight pattern occurs 144 times.",
+        "Fang v1 posited a stronger statement with different quantifiers; this work specifically contradicts the revised v3 statement."
+      ],
+      "reasoning": "A formula about existence of any short maximizer is equivalent to equality of unrestricted and restricted maxocc. The verified strict inequality makes these statements false. The v1 stronger statement is not substituted for the revised claim.",
+      "searches": [
+        "published-finding corpus: most frequent subsequence length at most ceil(n/2) false maximum scattered subword multiplicity",
+        "Web: \"there is at least one most frequent subword\" counterexample",
+        "Fang arXiv:2406.02971v1/v3 Section 5, Conjecture 5.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fang Table 1 focuses on entropy-minimizing input words; it is not a list of all inputs or argmax-length violations.",
+        "No indexed matching certificate, exact input word, or table was returned in the named searches."
+      ],
+      "reasoning": "A table of minimum-entropy inputs may omit nonminimal words with a maximizing subsequence longer than half. The new exact all-binary length-14 enumeration is not obtainable from that table; absence of a database hit alone is not proof of novelty.",
+      "searches": [
+        "Fang arXiv:2406.02971v3 Table 1 and Table 2; Section 5",
+        "Web: \"01010001110101\" subsequence",
+        "published-finding corpus: length fourteen binary word 01010001110101 subword 01001101 appears 144 times maximum subsequence occurrence"
+      ]
+    },
+    "rationale": "Fang arXiv:2406.02971v3 Section 5 calls precisely the revised existence-of-short-maximizer claim Conjecture 5.7. The v1 stronger version was read separately and is not the novelty target. Complete source v3, publisher metadata, relevant related abstract, web statement and exact-example queries, and published-finding corpus semantic search yielded no equivalent or dominating theorem; the available minimum-entropy tables address different inputs. An independent unindexed equivalent counterexample is still possible.",
+    "residual_risks": [
+      "No comprehensive searchable database of scattered-subsequence maximizing patterns exists; unindexed prior counterexamples remain possible.",
+      "The complete Menon–Singh full text and the separately typeset journal version were not inspected; their abstracts/available full preprint do not indicate coverage.",
+      "The arXiv v1 Conjecture 5.7 uses stronger quantifiers, while the claimed refutation concerns the corrected, nontrivial v3 formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines occurrence by selected increasing position sets. Original Conjecture 5.7 excludes all maximizers of length at least half; this is stronger and differently formulated than the later repaired statement. The proposed result attacks the later claim, not this trivialized original formulation.",
+        "evidence": [
+          "arXiv:2406.02971v1, Section 2, occurrence definition",
+          "arXiv:2406.02971v1, Section 5, Conjecture 5.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.02971v1",
+        "material_read": "full HTML article, Sections 1–5, especially Section 5 Conjecture 5.7",
+        "method": "Direct full-text inspection of publicly available arXiv version 1",
+        "title": "Maximal number of subword occurrences in a word, original version",
+        "trigger": "First public source; determine exact earliest formulation and its scope"
+      },
+      {
+        "assessment": "Revised Conjecture 5.7 (Section 5) requires at least one maximizing subword of length at most ceiling of half input length. Its empirical tables concern entropy-minimizing ambient words, not full binary classification; no exact length-14 counterexample appears.",
+        "evidence": [
+          "arXiv:2406.02971v3, Section 2, subword occurrence and entropy definitions",
+          "arXiv:2406.02971v3, Section 5, Conjecture 5.7, text immediately before References"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.02971v3",
+        "material_read": "full HTML article, all Sections 1–5 and references, focusing on Conjecture 5.7 and Table 1 context",
+        "method": "Direct open-access full-text inspection, including statement and preceding discussion",
+        "title": "Maximal number of subword occurrences in a word, revised full version",
+        "trigger": "Exact published half-length conjecture, definitions and tables"
+      },
+      {
+        "assessment": "The described maximum ranges over ambient words for fixed patterns; different quantifier order from the maximum over patterns for fixed ambient word. Some uninspected full-text overlap remains a residual risk.",
+        "evidence": [
+          "arXiv:2306.07870 abstract; related *Discrete Mathematics* 347 (2024), 113928"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "Abstract and study description; complete text not inspected",
+        "method": "Open-access abstract and journal bibliographic summary",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Plausible related study of maximum subsequence multiplicities"
+      },
+      {
+        "assessment": "Published 2025-08-30 with same mathematical topic and DOI; complete preprint v3 supplies the inspected open full text. Journal-only changes cannot be excluded.",
+        "evidence": [
+          "Journal of Experimental Mathematics 1(2) (2025), pp.218–238; DOI:10.56994/JXM.001.002.002"
+        ],
+        "identifier_or_url": "https://jexpmath.org/index.php/jem/article/view/Vol-1Issue-2Paper-2",
+        "material_read": "Publisher abstract and metadata; full journal PDF not inspected separately",
+        "method": "Publisher landing-page reading and comparison with available complete preprint v3",
+        "title": "Maximal number of subword occurrences in a word, journal publication",
+        "trigger": "Check corresponding later formal journal source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f0f863a4-b43d-423a-bce6-8f6a7cdfe1bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The revised universal half-length conjecture is explicitly motivated as enabling a factor-two pattern-length search reduction. A smallest-alphabet binary counterexample, combined with the exact smallest length and complete four-word boundary class, answers the published mathematical question negatively and delineates the first failure. The count 144 versus 136 demonstrates a genuine algorithmic pruning obstruction, not a trivial change of notation or random slice.",
+    "status": "PASS"
+  }
+}
