@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "In a complete multipartite graph, every length-two geodesic has same-part endpoints and is maximal. A cross-part edge is maximal exactly when both endpoint parts are singletons. Thus a complement fails exactly by containing either two vertices from a non-singleton part plus any outside vertex, or two singleton vertices. This is equivalent to the claimed two-family classification. The enumerator is a disjoint count of sparse complements and one-part complements of size at least two. Direct exhaustive checks through order ten agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper introduces the geodesic-transversal number and treats complexity, trees, and spread cactus graphs.",
+        "The equivalent maximal-shortest-path-cover paper establishes the same hitting-set notion independently.",
+        "The join paper proves a general scalar formula for joins and explicitly gives gt(K_{p,q})=min{p,q}; its classification line includes MSC 2020 05C12.",
+        "The geodesic-packing paper studies the packing dual and the gt/gpack relationship, not all transversals of complete multipartite graphs."
+      ],
+      "reasoning": "The join theorem is broad enough to subsume the scalar minimum after specialization, so novelty is assessed on the stronger all-set classification and enumerator. Neither broad scalar theory nor the packing dual determines these data.",
+      "searches": [
+        "arXiv:2101.08042v1 abstract and defining statement",
+        "DOI 10.3390/math9141592 definition and complexity section",
+        "DOI 10.1007/s40314-022-01834-1 general join theorem and complete-bipartite corollary",
+        "arXiv:2210.15325v1 geodesic-packing dual context"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2101.08042v1",
+      "DOI:10.1016/j.amc.2021.126621",
+      "DOI:10.3390/math9141592",
+      "DOI:10.1007/s40314-022-01834-1",
+      "arXiv:2210.15325v1",
+      "DOI:10.1016/j.amc.2023.128277",
+      "targeted exact web searches under both invariant names and complete-multipartite aliases",
+      "targeted semantic published-result searches under the same aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.5 gives gt(G join H) as a minimum of three scalar expressions.",
+        "Corollary 3.7 explicitly recovers gt(K_{p,q})=min{p,q}.",
+        "The proof of the join theorem analyzes complements only for minimum transversals, not every transversal of an iterated join.",
+        "The new theorem determines all feasible complements, including nonminimum transversals, and their exact size distribution."
+      ],
+      "reasoning": "The scalar component is covered in principle by the general join theorem and is presented as a consequence rather than the originality core. The all-set classification is strictly stronger and is not implied by the scalar minimum formula.",
+      "searches": [
+        "Theorem 3.5 and Corollary 3.7 of DOI 10.1007/s40314-022-01834-1",
+        "definition and family coverage in arXiv:2101.08042v1",
+        "definition and complexity coverage in DOI 10.3390/math9141592"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches used both standard names: geodesic transversal and maximal shortest paths cover.",
+        "No retrieved published-result record stated the arbitrary complete-multipartite all-set classification or complement enumerator.",
+        "The closest exact family statement located was the complete-bipartite scalar formula."
+      ],
+      "reasoning": "The equivalent terminology was introduced independently, so both names and standard graph aliases were searched. The claim is stronger than a scalar formula because it classifies every transversal.",
+      "searches": [
+        "geodesic transversal complete multipartite graph",
+        "maximal shortest paths cover complete multipartite graph",
+        "geodesic transversal complete bipartite graph",
+        "geodesic packing complete multipartite graph",
+        "\"geodesic transversal\" \"complete multipartite\"",
+        "\"maximal shortest paths cover\" \"complete multipartite\"",
+        "\"geodesic transversal\" Turan graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No arbitrary-part-size table or polynomial was located.",
+        "The exact published complete-bipartite value is a scalar specialization only."
+      ],
+      "reasoning": "The formulas are derived from an exact maximal-geodesic classification rather than extrapolated from finite data.",
+      "searches": [
+        "geodesic transversal complete multipartite exact formula",
+        "maximal shortest paths cover complete r-partite",
+        "geodesic transversal Turan graph",
+        "geodesic transversal polynomial complete multipartite"
+      ]
+    },
+    "rationale": "The general join theorem covers the scalar minimum broadly and its complete-bipartite corollary is prior work, but no inspected source states the arbitrary complete-multipartite all-transversal classification, cardinality enumerator, or complete basis description.",
+    "residual_risks": [
+      "Because complete multipartite graphs are iterated joins, a reader can derive the scalar minimum from the published join theorem even though the closed part-profile formula is not stated there.",
+      "A differently phrased all-set enumeration may exist outside the searched terminology.",
+      "The two independent names for the invariant increase alias risk, which was mitigated by searching both."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the invariant used here but does not state an arbitrary complete-multipartite all-set theorem in the inspected coverage.",
+        "evidence": [
+          "Version 1 is dated 20 January 2021.",
+          "The abstract defines geodesic transversals and gt(G).",
+          "The stated exact-family coverage is trees and spread cactus graphs."
+        ],
+        "identifier_or_url": "arXiv:2101.08042v1; DOI:10.1016/j.amc.2021.126621",
+        "material_read": "Abstract and defining coverage, including the maximal-geodesic hitting-set definition, complexity statement, and stated tree and cactus results.",
+        "method": "Primary-source definition and family-coverage comparison.",
+        "title": "The geodesic-transversal problem",
+        "trigger": "Defining primary source for the parameter and its original terminology."
+      },
+      {
+        "assessment": "Uses the equivalent maximal shortest paths cover terminology and studies general structural relations and trees, not the claimed arbitrary complete-multipartite all-set classification.",
+        "evidence": [
+          "Published 6 July 2021.",
+          "Defines a maximal shortest paths cover as a vertex set hitting every maximal shortest path."
+        ],
+        "identifier_or_url": "DOI:10.3390/math9141592",
+        "material_read": "Definition and complexity section in the open full text.",
+        "method": "Alias and equivalent-definition comparison.",
+        "title": "On the Maximal Shortest Paths Cover Number",
+        "trigger": "Independent equivalent formulation that could conceal the same theorem under different terminology."
+      },
+      {
+        "assessment": "Broadly covers the scalar minimum for joins and explicitly covers complete bipartite graphs. It does not state the arbitrary complete-multipartite all-transversal classification or enumerator.",
+        "evidence": [
+          "The paper lists AMS subject classification 05C69, 05C12, 05C76.",
+          "Theorem 3.5 gives a scalar formula for gt(G join H).",
+          "Corollary 3.7 states gt(K_{p,q})=min{p,q}.",
+          "The proof analyzes complements of minimum transversals, not the full feasible-set family."
+        ],
+        "identifier_or_url": "DOI:10.1007/s40314-022-01834-1",
+        "material_read": "Full PDF title/abstract and subject classification, Theorem 3.5 on joins, its proof, Corollary 3.7 for complete bipartite graphs, and surrounding discussion of complete multipartite graphs.",
+        "method": "Primary full-text stronger-coverage and implication comparison.",
+        "title": "Geodesic transversal problem for join and lexicographic product of graphs",
+        "trigger": "Most plausible stronger source because complete multipartite graphs are iterated joins of independent sets."
+      },
+      {
+        "assessment": "Studies geodesic packing, complexity, the gt/gpack quotient, trees, and strong products of paths, not the claimed complete-multipartite all-set theorem.",
+        "evidence": [
+          "Version 1 is dated 27 October 2022.",
+          "The abstract states gt(G)>=gpack(G) and focuses on quotient behavior and trees."
+        ],
+        "identifier_or_url": "arXiv:2210.15325v1; DOI:10.1016/j.amc.2023.128277",
+        "material_read": "Abstract and introductory coverage of the packing/transversal duality.",
+        "method": "Dual-parameter broader-coverage comparison.",
+        "title": "Geodesic packing in graphs",
+        "trigger": "Natural packing dual of geodesic transversal that could contain complete-multipartite consequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e5c4e05a-4d10-47e2-be7c-03fe6067468a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a complete feasible-set description for a recent NP-hard hitting-set invariant on a canonical graph family. It exposes a genuine competition between a large single part and a sparse cross-part complement, and from that one structure obtains the minimum, all bases, and every coefficient of the size distribution. This is materially stronger than the previously published complete-bipartite scalar value and provides reusable benchmark data for transversal and packing comparisons.",
+    "status": "PASS"
+  }
+}
