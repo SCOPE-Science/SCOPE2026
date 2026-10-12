@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "Substituting the quadratic gradient into the defining Mime control variate gives the exact local direction \\(H_i(y-x)+c\\). Direct expansion gives exact centralized agreement through two steps and the third-step difference \\(-\\eta^3(\\frac1m\\sum_iH_i^2-\\bar H^2)c\\). The matrix identity with \\(V_H\\) is exact even for noncommuting symmetric Hessians, and symmetry gives the stated sum-of-squared-norms sign formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Mime source emphasizes Hessian similarity and proves a generic reduction for linear parameter updates.",
+        "The broader federated literature cited by the source analyzes local SGD, SCAFFOLD, FedNova, and adaptive server methods, but those algorithms use different local corrections.",
+        "Closest indexed findings concern other stochastic-gradient, spectral, and splitting recurrences."
+      ],
+      "reasoning": "A general perturbation theorem does not determine the first nonzero exact coefficient. The present result isolates the cancellation order and coefficient of Mime's specific control variate on quadratics.",
+      "searches": [
+        "Mimicking centralized stochastic algorithms quadratic Hessian variance exact local steps",
+        "federated control variate exact two-step quadratic cancellation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2008.03606v1",
+      "NeurIPS:2021:f0e6be4ce76ccfa73c5a540d992d0756"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 gives the local gradient correction used in the derivation and server averaging.",
+        "The source states that Mime's effective centralized perturbation is small and that Hessian similarity is useful for multiple local steps.",
+        "Full-text searches found no exact two-step equality, no three-step quadratic defect formula, and no squared-Hessian-variance identity."
+      ],
+      "reasoning": "The source's rate theorem is compatible with the exact formula but does not imply its coefficient or cancellation order. The accepted statement is a finite-step algebraic refinement of the mechanism.",
+      "searches": [
+        "arXiv:2008.03606v1 Algorithm 1 Mime control variate",
+        "arXiv:2008.03606v1 generic reduction perturbation Hessian similarity",
+        "Mime quadratic two local steps exact centralized"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source's Algorithm 1 uses the same SVRG-style local correction specialized in the proof.",
+        "Its generic theorem states a small perturbation from a centralized base optimizer, rather than exact finite-step quadratic identities.",
+        "No indexed hit stated exact two-step equality or a cubic Hessian-variance correction for Mime."
+      ],
+      "reasoning": "Equivalent coverage would need to imply exact equality of the averaged two-local-step model with two centralized gradient steps for arbitrary symmetric client Hessians, or directly give the exact third-step coefficient. The inspected statements provide bounds and qualitative mimicking, not these equalities.",
+      "searches": [
+        "Mime federated quadratic exact two local steps centralized SGD Hessian variance",
+        "Mime SGD third local step Hessian variance correction",
+        "federated control variate exact two-step quadratic cancellation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed record specifically covering Mime's exact two-step cancellation or the third-step Hessian-variance identity was returned.",
+        "Closest indexed optimization findings use mathematically different update maps and do not imply the accepted identities."
+      ],
+      "reasoning": "The nearest indexed scalar and quadratic optimization results are excluded by recurrence and object. Search absence is supporting evidence only and is not treated as a uniqueness proof.",
+      "searches": [
+        "Mime federated quadratic exact two local steps centralized SGD Hessian variance",
+        "Mimicking centralized stochastic algorithms quadratic Hessian variance exact local steps",
+        "Mime SGD third local step Hessian variance correction",
+        "federated control variate exact two-step quadratic cancellation"
+      ]
+    },
+    "rationale": "The defining Mime paper proves a generic perturbed-centralized reduction and motivates Hessian similarity, but the inspected algorithm and theory do not state the exact two-step quadratic cancellation or the explicit third-step Hessian-variance defect. Focused literature and indexed-database searches did not identify an implication-equivalent published statement.",
+    "residual_risks": [
+      "A later federated-learning paper may contain the same finite-step quadratic expansion under different notation without being surfaced by the focused searches.",
+      "The exact cancellation is for Mime with SGD as the base optimizer; other base optimizers need separate state-dependent analysis.",
+      "The sign identity is an inner-product statement at the broadcast gradient and should not be interpreted as a global objective-ordering theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_MIMICRY_THEORY_NOT_COVERING_EXACT_TWO_STEP_QUADRATIC_CANCELLATION_OR_THIRD_STEP_VARIANCE_COEFFICIENT.",
+        "evidence": "The source gives the exact correction used in the derivation and a generic perturbation bound. No exact quadratic finite-step identity matching the accepted claim was found in the inspected text.",
+        "identifier_or_url": "arXiv:2008.03606v1 / NeurIPS 2021",
+        "material_read": "Open full text covering the introduction, Algorithm 1, the base-algorithm decomposition, the local client update, the global optimizer-state discussion, and Theorem I with its perturbed-centralized interpretation.",
+        "method": "Open-access full-text inspection and targeted full-text searches.",
+        "title": "Mime: Mimicking Centralized Stochastic Algorithms in Federated Learning",
+        "trigger": "Defining source for the Mime control variate, SGD base specialization, server averaging, and Hessian-similarity theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "38a4345b-c15c-47d9-a040-4aed91a8e7f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result pinpoints the mechanism and exact onset of client-curvature drift in an algorithm explicitly designed to mimic centralized optimization. It shows that two local SGD steps are exactly centralized on quadratics for arbitrary symmetric client Hessians, including noncommuting ones. The third step then exposes a natural Hessian-variance operator already central to the source's theory, with an exact coefficient and equality condition. This is a structural finite-step fact that can inform local-step selection and sharper perturbation analyses.",
+    "status": "PASS"
+  }
+}
