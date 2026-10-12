@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For both pivots, exact Euclidean squared residual factors are reciprocal squared selected Fourier basis entries; Parseval gives exact two-frequency weighted average. Supremum over target residual energies is max of the two coefficients, attained. Closed-form positive misalignment defect and anti-aligned limit are algebraic identities. A standalone independent physical two-point inverse-DFT implementation reproduces the formula for exact rational basis and targets; the universal result rests on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.26688, Theorem 4.9: \\(1+\\eta\\) upper factor at rank one; Figure 7/Section 5: sharp aligned and not-sharp mildly misaligned full enumerations.",
+        "The same paper, Section 4, Lemma 4.7 gives elementary one-step oblique-projection error identity."
+      ],
+      "reasoning": "The broad upper bound does imply that the computed \\(K\\) is at most \\(1+\\eta\\), but does not establish the lower bound showing near-attainment as alignment deteriorates, nor its complete exact real two-frequency coefficient. Their fully enumerated equality concerns alignment \\(\\eta=1\\), not the distinct anti-aligned regime.",
+      "searches": [
+        "\"Adaptive Randomized Pivoting for Tensor Singular Value Decomposition Model\" \"frequency\" \"alignment\" \"bound\"",
+        "\"tensor DEIM\" \"T-ARP\" leverage sharp bound misaligned frequencies",
+        "\"Adaptive Randomized Pivoting for Tensor Singular Value Decomposition Model\" arxiv 2606.26688 MSC 65F55"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.26688, Algorithm 8, Theorem 4.9, Corollary 4.14 and Figure 7",
+      "arXiv:2410.14519, t-Q-DEIM Sections 3.3–3.4",
+      "arXiv:2510.02513, Theorems 3.2–3.3",
+      "arXiv:2412.13992, matrix ARP and DEIM"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cortinovis–Kressner arXiv:2412.13992 and Epperly arXiv:2510.02513 yield the matrix/frequency-wise expected factor \\(2\\).",
+        "Akdodshoev et al. arXiv:2606.26688 derives a shared-index upper bound involving frequency alignment but no exact lower extremizer in the anti-aligned regime."
+      ],
+      "reasoning": "Independent per-frequency pivoting entails independent distributions and cannot imply that a single shared sampled coordinate obeys the same factor two. The published common-index inequality allows arbitrarily large amplification for large \\(\\eta\\), but a permissive inequality does not imply the existence of a sharp example; that is supplied by the explicit real Fourier bases.",
+      "searches": [
+        "Cortinovis Kressner Adaptive Randomized Pivoting Matrix Column Subset Selection theorem r+1 2024",
+        "\"tensor t-product ARP common index selection frequency mismatch expected error lower bound tCUR\"",
+        "\"Adaptive randomized pivoting and volume sampling\" exact expected squared residual 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chellappa–Feng–Benner, arXiv:2410.14519, Sections 3.3–3.4, bounds t-Q-DEIM deterministic error using norm of inverse sampled basis.",
+        "Akdodshoev–Leplat–Ahmadi-Asl, arXiv:2606.26688, Corollary 4.14 provides expectation upper bound."
+      ],
+      "reasoning": "Equivalent language would involve cross-frequency shared sensor locations, inverse interpolation leverage, or spectral-block oblique projection. Inspected sources do not give the sharp minimax formula and misalignment threshold; negative searches alone are not conclusive.",
+      "searches": [
+        "\"tensor empirical interpolation\" \"randomized\" \"fourier\" indices exact",
+        "\"tensor\" \"DEIM\" \"rank one\" common indices frequency mismatch sharp expected interpolation",
+        "\"t-DEIM\" probabilistic bound Fourier leverage"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact two-frequency expression was located among inspected scientific primary sources or the published mathematical comparison records consulted.",
+        "The invariant varies continuously with the two real leverage parameters and is not a finite tabulated enumeration."
+      ],
+      "reasoning": "The full parametric sharpness formula is not a known table lookup identified in the available published material. This observation is bounded by index coverage and is not a proof of uniqueness.",
+      "searches": [
+        "Exact anti-aligned two-frequency tensor T-ARP t-DEIM error amplification one common pivot 1/(2 t(1-t))",
+        "Rank one t-product DEIM Fourier slice leverage mismatch common index error divergent quadratically",
+        "t-DEIM one index two frequencies Jensen gap average reciprocal leverage"
+      ]
+    },
+    "rationale": "The 2026 T-ARP theorem bounds the expected squared interpolation error by 1+eta and experimentally shows sharpness only in the aligned case, but does not state the full sharp two-frequency common-index minimax coefficient, exact quadratic alignment defect, or strongly misaligned asymptotic saturation. The deterministic t-Q-DEIM condition-number estimate and the matrix ARP/volume-sampling factor two do not by themselves quantify shared-index cross-frequency amplification. Exact rank-one source projector steps are acknowledged as established; residual risk of a mathematically equivalent unindexed leverage-mixture identity remains.",
+    "residual_risks": [
+      "Unindexed equivalent formulas in mixture-leverage or random oblique interpolation literature could subsume the minimax expression.",
+      "The result is a complete natural low-dimensional classification and asymptotic sharpness example, not a universal new higher-rank theory.",
+      "Only self-review is recorded; no independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Upper guarantee and aligned sharpness already known, but the explicit exact all-target two-frequency misalignment classification and anti-aligned sharpness were not stated.",
+        "evidence": [
+          "Algorithm 8 samples common indices from summed squared tube norms.",
+          "Assumption 4.8 specifies q relative to per-frequency leverage; Thm 4.9 bounds factor, Cor. 4.14 covers t-DEIM.",
+          "Section 5 enumerates aligned and mildly misaligned cases, the latter showing loose theoretical bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.26688",
+        "material_read": "Author-posted full-text HTML transcription: Algorithm 8; Assumption 4.8; Lemmas 4.2 and 4.7; Theorem 4.9 and proof; Corollary 4.14; Figure 7 exact enumeration; conclusion",
+        "method": "Read accessible author-posted public text and compare the mathematical optimization question, not only title and abstract",
+        "title": "Adaptive Randomized Pivoting for Tensor Singular Value Decomposition Model",
+        "trigger": "Direct motivating source and possible full coverage of sharp alignment behavior"
+      },
+      {
+        "assessment": "Deterministic inverse-sampled-basis norm guarantee, not common-random-index expected squared error or a minimax alignment law.",
+        "evidence": [
+          "Section 3 gives t-Q-DEIM interpolator and error factor \\(\\|(P^\\mathsf TU)^{-1}\\|\\), expressed as maximum over Fourier-block inverse norms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.14519",
+        "material_read": "Accessible author-posted full-text HTML, Sections 1, 3.3–3.4 on t-DEIM sampling, spectral-norm error and inverse-basis factor",
+        "method": "Inspect theorem and hypotheses through author-posted public full text",
+        "title": "Discrete empirical interpolation in the tensor t-product framework",
+        "trigger": "Earlier deterministic t-product DEIM conditioning result potentially dominating the claim"
+      },
+      {
+        "assessment": "Exact factor \\(2\\) for single-frequency rank-one sampling, but no product of two distinct spectral-block bases sharing the same random index.",
+        "evidence": [
+          "Theorem 3.2 states exact \\(k+1\\) matrix active-regression expectation; Theorem 3.3 identifies ARP pivot-set law with volume sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.02513",
+        "material_read": "Accessible paper transcription, Theorem 3.2 exact matrix active-regression squared-error identity and Theorem 3.3 volume-sampling equivalence",
+        "method": "Read theorem statements and applicability to separate vs shared index",
+        "title": "Adaptive randomized pivoting and volume sampling",
+        "trigger": "Potential stronger exact expected interpolation result through DPP/volume sampling"
+      },
+      {
+        "assessment": "Matrix ARP lacks distinct Fourier bases sharing one index; no exact common-index tensor factor identified.",
+        "evidence": [
+          "Cortinovis–Kressner introduce matrix ARP expected \\(r+1\\) factor and randomized DEIM."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.13992",
+        "material_read": "Preprint abstract, theorem characterization reproduced and credited in full motivating paper, and published journal abstract/MSC metadata",
+        "method": "Compare scope to cross-frequency tied-pivot case",
+        "title": "Adaptive randomized pivoting for column subset selection, DEIM, and low-rank approximation",
+        "trigger": "Originating matrix ARP algorithm and error bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b7509b7-1170-4f30-843d-a5721b5e8eaf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest nontrivial real Fourier-coupled sensor model yields an exact all-parameter risk function and establishes when a shared random pivot has strictly more than the matrix-factor-two mean-square error. More importantly, anti-aligned yet everywhere invertible examples make the source alignment bound asymptotically sharp, determining a necessary robustness cost of coupling indices across frequencies. The result informs randomized interpolation and sparse sensor reuse by distinguishing rank/invertibility from mean-square stability; no unproved multistep application is asserted.",
+    "status": "PASS"
+  }
+}

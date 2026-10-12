@@ -1,0 +1,9 @@
+# Review: Exact frequency-misalignment amplification
+
+**Correctness — PASS.** The two-point DFT reconstruction is real and each Fourier basis has unit norm. Both selected sample tubes are invertible for strictly interior leverage parameters. Exact interpolation residuals have squared factors \(1/t_\ell\) and \(1/(1-t_\ell)\); Parseval gives the weighted mean and sharp minimax over arbitrary residual coefficients. Algebra yields the squared frequency-misalignment defect and the anti-aligned sharpness limit. The included standalone standard-library program independently tests the physical real tensor transform and rational algebra. The proof, not finite enumeration, covers the full parameter domain.
+
+**Originality — PASS, with residual risk.** The closest result is Akdodshoev–Leplat–Ahmadi-Asl, arXiv:2606.26688, Theorem 4.9 and Corollary 4.14: the source \(1+\eta\) expected error upper bound, the random common-index rule, and perfectly aligned sharpness are not new. Their mildly misaligned enumeration is below its bound. The current exact minimax coefficient and strongly anti-aligned asymptotic saturation are not stated there. Chellappa–Feng–Benner's t-Q-DEIM theorem gives a deterministic conditioning upper bound; Cortinovis–Kressner and Epperly give matrix/frequency-wise ARP coverage. An equivalent unindexed two-frequency leverage-mixture formula remains plausible, so literature search is not a novelty certificate.
+
+**Value — PASS.** A complete sharp risk classification at the smallest nontrivial common-index/two-frequency problem shows why every sampled basis can be nonsingular while the mean-squared error penalty diverges. The anti-aligned extremizers quantify a substantive sharpness gap in a newly motivated randomized sensor-selection theorem. It does not claim a general higher-rank extension.
+
+Self-review: passed. Independent audit: not yet performed.
