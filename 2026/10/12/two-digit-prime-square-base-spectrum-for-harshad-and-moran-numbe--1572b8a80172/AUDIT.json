@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For p<B<=p^2, p^2=aB+b has 1<=a<p. Moran membership forces a+b=p, so p(p-1)=a(B-1). Coprimality of a and p gives a|p-1 and hence B=pd+1. The converse digit formula is exact. Harshad membership requires a+b in {1,p,p^2}; these give respectively B=p^2, the Moran family, and an impossible case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Witno's complete paper studies the decimal class and explicitly notes that Niven numbers are often considered in other bases.",
+        "The arbitrary-radix Math-NumSeq implementation exposes a radix parameter for the Moran predicate.",
+        "OEIS A001101 records the decimal Moran sequence and references."
+      ],
+      "reasoning": "These broader sources establish the surrounding object and base dependence but do not imply the exact divisor-lattice parameterization. The new theorem is a complete classification on a natural two-digit stratum rather than a restatement of the definitions.",
+      "searches": [
+        "\"Numbers Which Factor as Their Digital Sum Times a Prime\"",
+        "\"Moran numbers\" base b digit sum",
+        "\"Moran number\" digit sum prime quotient paper"
+      ]
+    },
+    "checked_sources": [
+      "IJOPCM:Witno-2010-Moran",
+      "CPAN:Math-NumSeq-55:MoranNumbers",
+      "CPANTS:Math-NumSeq-55",
+      "OEIS:A001101"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Witno's constructions concern decimal multipliers and primes of specified decimal digit sum, not bases chosen as divisors of p-1.",
+        "The arbitrary-radix implementation evaluates a given base and number but provides no symbolic base classification.",
+        "The closest local prior Moran finding concerns decimal semiprimes and does not classify prime squares across bases."
+      ],
+      "reasoning": "The prior results do not imply the theorem as a covered special case: the parameter being classified here is the base itself, and the exact count tau(p-1) comes from solving the two-digit equation.",
+      "searches": [
+        "\"prime square\" Moran number",
+        "\"p^2\" \"Moran number\"",
+        "\"p^2\" Harshad base",
+        "\"B=pd+1\" digit sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Result-database searches returned no finding equivalent to the formula B=pd+1 for two-digit prime squares.",
+        "Public-web searches for arbitrary-base Moran prime squares and two-digit Harshad prime squares returned definitions and general references rather than this classification.",
+        "The documented arbitrary-radix Moran implementation supplies the predicate but no theorem about prime squares."
+      ],
+      "reasoning": "The searches cover the named Moran and Harshad terminology, arbitrary-base aliases, the prime-square object, and formula-level digit-sum framing. No source located an equivalent base spectrum.",
+      "searches": [
+        "Moran number arbitrary base prime square two digit",
+        "base b Moran numbers prime squares",
+        "Harshad prime squares arbitrary base digit sum",
+        "numbers which factor as their digital sum times a prime base"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001101 is a decimal membership sequence and lists the standard Moran definition.",
+        "No inspected exact-sequence entry states that a fixed prime square has exactly tau(p-1) Moran two-digit bases or tau(p-1)+1 Harshad two-digit bases."
+      ],
+      "reasoning": "A decimal value table cannot imply an across-base classification. The claimed counts depend on divisors of p-1 and are not tabulated in A001101.",
+      "searches": [
+        "OEIS A001101 Moran numbers",
+        "Moran numbers prime square OEIS",
+        "Harshad prime squares base OEIS"
+      ]
+    },
+    "rationale": "The inspected sources establish the decimal Moran class, arbitrary-radix usage, and the decimal sequence, but none states the two-digit prime-square base spectrum or the divisor-count formulas.",
+    "residual_risks": [
+      "An equivalent short observation may exist in unindexed recreational mathematics literature.",
+      "The 2010 primary paper has only month-level date evidence in the inspected copy, so the metadata uses the earliest exact public date verified here instead of inventing a day.",
+      "No claim is made for bases B<=p, where p^2 has at least three digits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. The paper studies decimal digit sums and constructions. It notes other bases for Niven numbers but gives no prime-square base classification.",
+        "evidence": "The paper defines n=S(n)*p with p prime, lists MSC 11A63, 11A41, and states that Niven numbers are commonly considered in bases other than 10.",
+        "identifier_or_url": "IJOPCM:Witno-2010-Moran",
+        "material_read": "Complete five-page PDF: title/abstract, introduction, base-b remark, definition of the prime-quotient subfamily, both construction theorems, open problems, table, and references.",
+        "method": "Direct full-PDF text inspection supplemented by page-image inspection.",
+        "title": "Numbers Which Factor as Their Digital Sum Times a Prime",
+        "trigger": "Primary mathematical source for the prime-quotient Niven class and its subject classification."
+      },
+      {
+        "assessment": "CONTEXT_ONLY. It implements the base-dependent Moran predicate and documents the radix parameter, but contains no theorem about prime-square base spectra.",
+        "evidence": "The release record gives 2012-10-23; the documentation states that the optional radix parameter sets the digit base.",
+        "identifier_or_url": "CPAN:Math-NumSeq-55:MoranNumbers",
+        "material_read": "Complete module documentation and release metadata for version 55.",
+        "method": "Direct documentation and release-record inspection.",
+        "title": "Math::NumSeq::MoranNumbers, Math-NumSeq version 55",
+        "trigger": "Exact dated public source documenting the Moran predicate with an arbitrary radix parameter."
+      },
+      {
+        "assessment": "NOT_COVERING. The entry is decimal and does not classify bases for prime squares.",
+        "evidence": "The entry defines Moran numbers as k divided by decimal digit sum being prime and cites Witno's paper.",
+        "identifier_or_url": "OEIS:A001101",
+        "material_read": "Definition, comments, references, links, and formulas visible in the entry.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A001101: Moran numbers",
+        "trigger": "Exact database for the standard decimal sequence and its literature references."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1572b8a8-0172-4857-92f7-b49fb1d7df9c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a complete infinite base spectrum for a natural arithmetic object. It shows that the two-digit Moran bases of p^2 are controlled exactly by the divisor lattice of p-1 and that the Harshad spectrum differs by one canonical base, a structural statement not obtainable from a bounded table alone.",
+    "status": "PASS"
+  }
+}
