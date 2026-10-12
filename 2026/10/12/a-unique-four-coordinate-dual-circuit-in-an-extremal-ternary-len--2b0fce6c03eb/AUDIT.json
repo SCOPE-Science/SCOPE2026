@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The exact source matrix has rank 12 and zero Gram matrix over GF(3). Exhaustive enumeration of all 3^12 primal words gives the stated W_C. Exhaustive normalized support search through size 4 finds no dual word of weight 1--3 and exactly one projective weight-4 word, with support {1,19,20,21}. The ternary MacWilliams transform gives the stated full dual enumerator, whose coefficients sum to 3^13. The bundled verifier replays all of these checks from the embedded matrix and returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mallows--Sloane gives general weight-enumerator constraints for ternary self-orthogonal codes, not the coefficients of this database representative.",
+        "Indexed searches produced no theorem or table dominating the record-specific enumerator and unique-circuit statement."
+      ],
+      "reasoning": "General enumerator identities constrain possible spectra but do not identify which coefficients occur for this equivalence class. The new claim is an exact invariant of a named database object, not a general consequence quoted in the inspected literature.",
+      "searches": [
+        "Mallows--Sloane, Weight Enumerators of Self-Orthogonal Codes over GF(3), DOI 10.1137/0602048",
+        "web: [25,12,9] ternary dual distance 4",
+        "web: [25,12,9] ternary dual distance 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.13007",
+      "https://www.math.is.tohoku.ac.jp/~mharada/T25/25-12-9.txt",
+      "DOI:10.1137/0602048",
+      "published-finding corpus current corpus via the four listed exact queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper discusses only the dual-distance-1 stratum explicitly and contains no weight-enumerator table for the 26 extremal codes.",
+        "The database matrix alone does not state the result; exact linear-algebra and MacWilliams computations are required."
+      ],
+      "reasoning": "The prior classification guarantees that the object is a representative of an extremal equivalence class, but it does not imply the numerical dual-distance-four multiplicity or complete enumerators without performing the new computation.",
+      "searches": [
+        "published-finding corpus: maximal self-orthogonal ternary length 25 dual distance classification",
+        "full-text search of arXiv:2605.13007 for dual distance and weight enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The weight-4 dual statement is equivalent to saying the printed generator columns have exactly one projective linear dependence on at most four columns, namely the four-set {1,19,20,21}.",
+        "No published-finding corpus hit stated the same code-specific low-weight dual spectrum or column-circuit claim."
+      ],
+      "reasoning": "Dual codewords are column dependencies of a generator matrix; therefore searches covered both coding-theoretic and dependent-column formulations. The closest returned records concern different ternary or q-ary code families and do not imply this invariant.",
+      "searches": [
+        "published-finding corpus: ternary maximal self-orthogonal [25,12,9] dual distance weight enumerator weight 4",
+        "published-finding corpus: Araya Harada length 25 extremal ternary dual distance 4",
+        "published-finding corpus: ternary [25,12,9] dual low-weight spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 1 states that exactly 26 inequivalent maximal self-orthogonal [25,12,9]_3 codes exist.",
+        "Proposition 2 states that exactly two extremal classes have dual distance 1.",
+        "The electronic file prints the second generator matrix used by verify.py."
+      ],
+      "reasoning": "The classification and matrix are prior data. The inspected paper does not tabulate the second record's dual spectrum or unique weight-4 circuit; those are computed here from the published matrix.",
+      "searches": [
+        "Araya--Harada arXiv:2605.13007, Sections 3.1 and 3.3",
+        "Araya--Harada electronic file 25-12-9.txt"
+      ]
+    },
+    "rationale": "The primary paper classifies the 26 extremal classes and reports exactly two with dual distance 1, while its accompanying database supplies the matrices; neither inspected source states the second representative's dual distance 4, its unique projective weight-4 word, the invariant four-set, or the two complete enumerators. Exact published-finding corpus and indexed-literature searches returned no equivalent or stronger coverage.",
+    "residual_risks": [
+      "An unindexed or unpublished independent computation of the same database representative may exist.",
+      "This result does not determine the dual-distance distribution of the other 25 extremal equivalence classes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the classification and the two dual-distance-one extremal classes; NOT_COVERING for the second representative's complete primal/dual enumerators, dual distance 4, or unique four-coordinate circuit.",
+        "evidence": [
+          "Theorem 1: 26 extremal [25,12,9]_3 classes.",
+          "Proposition 2: two of those have dual distance 1.",
+          "Section 3.3 points to the electronic matrices."
+        ],
+        "identifier_or_url": "arXiv:2605.13007",
+        "material_read": "Abstract, definitions, Theorem 1, Sections 3.1 and 3.3, automorphism-order table context, and electronic-data statement.",
+        "method": "Lawful open full-text HTML rendering.",
+        "title": "Classification of ternary maximal self-orthogonal codes of length 25",
+        "trigger": "Primary source for the newly completed length-25 classification and its treatment of dual distance."
+      },
+      {
+        "assessment": "SOURCE_DATA_ONLY: supplies the matrix but no dual-distance or enumerator computation.",
+        "evidence": [
+          "The second LinearCode entry is reproduced exactly in verify.py."
+        ],
+        "identifier_or_url": "https://www.math.is.tohoku.ac.jp/~mharada/T25/25-12-9.txt",
+        "material_read": "The printed generator matrices, including the complete second 12-by-25 matrix.",
+        "method": "Direct plain-text source inspection.",
+        "title": "25-12-9.txt",
+        "trigger": "Exact database object underlying the claim."
+      },
+      {
+        "assessment": "BROADER_CONSTRAINTS_ONLY: does not identify the record-specific coefficients or unique four-column dependence.",
+        "evidence": [
+          "General invariant-theoretic/enumerator constraints do not select this database representative."
+        ],
+        "identifier_or_url": "DOI:10.1137/0602048",
+        "material_read": "The general length-dependent weight-enumerator results relevant to odd lengths around 25.",
+        "method": "Lawful open author-copy inspection.",
+        "title": "Weight Enumerators of Self-Orthogonal Codes over GF(3)",
+        "trigger": "Classical broader-coverage check for ternary self-orthogonal weight-enumerator constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b0fce6c-03eb-4ae8-888d-5e6c45edeb6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Dual distance is explicitly used by the source as a structural subdivision of the length-25 classification. For a non-distance-one extremal representative, the exact minimum dual multiplicity is therefore a natural classification invariant rather than an arbitrary slice. The finding is stronger than a bare distance recomputation: it gives the full primal and dual spectra, proves there is exactly one projective minimum dual word, identifies its support, and forces a canonical four-coordinate block stabilized by every monomial automorphism. This provides a compact reproducible fingerprint for comparing or extending the new classification.",
+    "status": "PASS"
+  }
+}
