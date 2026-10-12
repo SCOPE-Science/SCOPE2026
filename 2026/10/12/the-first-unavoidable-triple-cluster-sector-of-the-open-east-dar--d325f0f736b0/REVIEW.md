@@ -1,0 +1,11 @@
+# Scientific review: unavoidable triple-cluster EAST dark sector
+
+**Correctness — PASS.** For the open jump operator, the first occupied site never decays. Direct determinant certificates of sizes three and five and a rank-four minor, followed by a last-site block-surjectivity induction, establish the complete four-excitation rank for every chain length. Separating no-triple words by the number of disjoint adjacent pairs gives two image sectors of disjoint support, enabling an exact restricted-rank calculation. A separate standard-library verifier reconstructs these matrices and confirms the resulting dimensions for lengths seven through twelve. The finite tests are not substituted for the universal argument.
+
+**Originality — PASS, with risk.** Winter et al., arXiv:2605.16131v1, already construct the underlying open operator, first triple cancellation packet and recursive spanning hierarchy; those are prior work. Their Supplemental Section III does not give the four-excitation kernel and no-triple-filter codimensions. The fixed-excitation rank induction and the exact binomial quotient are the distinguishing statements. Older quantum East Hamiltonian and unconditioned Tavis–Cummings dark-space results use different operators. Residual risk remains from an unindexed specialization or from deriving additional rank implications from the source’s broad spanning assertion.
+
+**Value — PASS.** The first unavoidable three-site cluster is a natural transition in the source’s dark-packet hierarchy, not an arbitrary selected finite word pattern. The exact count quantifies how many independent dark modes require that motif at every size, with first appearance at seven sites and quadratic growth, while requiring neither numerical full-space diagonalization nor unmotivated finite casework.
+
+**Scope and limitations.** The theorem applies to four excitations, an open chain and the ideal collective jump. It is not a claim about periodic boundaries, steady-state preparation, entanglement magnitude, or all excitation numbers. Secondary literature was inspected at model/result level, not exhaustively; independently establishing priority is outside this self-review.
+
+Self-review: passed. Independent audit: not yet performed.
