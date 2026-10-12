@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and was reconstructed from first principles. Two independently constructed 32-vertex conflict graphs agree exactly; an include/exclude maximum-independent-set recurrence and an independent Bron–Kerbosch search on the complement both return maximum 20 and exactly one maximizer. A direct final check confirms read coverage 1 and the stated symmetries and weight profile.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2004.06032 proves asymptotic redundancy lower bounds for two-read single-deletion reconstruction codes and frames the problem as maximizing the codebook; its accessible full text does not give an n=5 finite optimizer.",
+        "arXiv:2111.04255 gives asymptotically exact overlap results for a different setting in which the transmitted word lies in a deletion-correcting code; this does not determine the unrestricted fixed-N codebook optimum at length five."
+      ],
+      "reasoning": "The broader results are asymptotic or impose a different code-distance premise. Neither logically implies a size-20 bound together with uniqueness for arbitrary subsets of the five-cube.",
+      "searches": [
+        "Optimal Reconstruction Codes for Deletion Channels two reads exact",
+        "Sequence Reconstruction Problem for Deletion Channels complete asymptotic solution exact finite reconstruction codes",
+        "single-deletion reconstruction code length five exact optimum"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/18.904499",
+      "arxiv:2001.01376",
+      "arxiv:2004.06032",
+      "arxiv:2111.04255",
+      "doi:10.1214/08-PS141"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Levenshtein 2001 studies reconstruction from repeated distorted versions and determines the uncoded trace threshold; it does not optimize a restricted length-five fixed-two-read codebook.",
+        "Cai–Kiah–Nguyen–Yaakobi 2020 defines the exact fixed-read code problem and derives structural/asymptotic results; it leaves the finite n=5 equality layer unstated in the inspected text.",
+        "Chrisnata–Kiah–Yaakobi 2020 establishes asymptotic optimality of the logarithmic-logarithmic redundancy scale, which does not imply an exact finite cardinality or uniqueness."
+      ],
+      "reasoning": "The new statement is a finite extremal classification inside a framework supplied by prior work. The prior theorems constrain or characterize pairwise conflicts but do not provide the graph independence number 20 or its unique maximum set.",
+      "searches": [
+        "Levenshtein efficient reconstruction sequences deletions two reads codebook",
+        "Coding for Sequence Reconstruction for Single Edits single deletion N=2",
+        "Optimal Reconstruction Codes for Deletion Channels maximum codebook"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2001.01376, Sections II–III: fixed-N reconstruction codes are defined by pairwise error-ball intersection, and Proposition 9 identifies two-output single-deletion intersections with Type-A confusability.",
+        "No exact-match research-record result stated the length-five cardinality 20 or the unique optimizer; the closest records concerned deletion-correcting codes or unrelated length-five code models."
+      ],
+      "reasoning": "The graph predicate used here is exactly the standard two-read single-deletion reconstruction condition, not a renamed minimum-distance problem. The directly relevant full text supplies the equivalence to avoiding Type-A-confusable pairs, but not the finite independence number or equality case.",
+      "searches": [
+        "binary length five two-read single-deletion reconstruction code maximum 20 unique",
+        "rho(5,2;D1) binary reconstruction code 20",
+        "Type-A-confusable length five maximum independent set 20 reconstruction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted research-record searches returned no table or finite census matching the parameters.",
+        "Full-text searches of arXiv:2001.01376 and arXiv:2004.06032 for n=5/length 5 produced no finite equality statement."
+      ],
+      "reasoning": "No exact table located in the searched sources states the claimed value or unique equality case. This negative search is only supporting evidence and is not treated as a novelty proof by itself.",
+      "searches": [
+        "\"two reads\" single deletion reconstruction length 5 binary maximum 20",
+        "\"reconstruction code\" \"length 5\" deletion binary 20",
+        "\"single-deletion\" reconstruction code 20 length five",
+        "\"rho(5,2\" deletion reconstruction"
+      ]
+    },
+    "rationale": "Targeted searches and full-text inspection of the directly relevant reconstruction-code literature found the model, pairwise obstruction, constructions, and asymptotic bounds but no finite n=5 value or equality classification. The closest broader results do not imply the exact size-20 unique optimizer.",
+    "residual_risks": [
+      "An obscure finite table, thesis, or unindexed computation could contain the same n=5 census.",
+      "The 2001 IEEE source was not inspected in full text during this review; its role was checked from the publisher abstract and later full-text citations. This does not affect correctness, but leaves a bounded originality risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the uncoded repeated-transmission reconstruction problem and deletion setting, but the inspected material does not state a finite optimized codebook at length five.",
+        "evidence": "IEEE metadata gives publication on 2001-01-31 and describes complete reconstruction solutions for deletions among the studied combinatorial channels.",
+        "identifier_or_url": "doi:10.1109/18.904499",
+        "material_read": "Publisher abstract and bibliographic metadata; later full-text papers were used to cross-check its role and formulations.",
+        "method": "Publisher HTML metadata/abstract and citation comparison.",
+        "title": "Efficient reconstruction of sequences",
+        "trigger": "Foundational source repeatedly cited as introducing the sequence-reconstruction problem for deletions."
+      },
+      {
+        "assessment": "Defines the same code predicate and characterizes forbidden pairs, but does not state the finite n=5 optimum or equality case in the inspected text.",
+        "evidence": "The paper defines ν(C;B), (n,N;B)-reconstruction codes, identifies N=2 single deletion as a fundamental design problem, and gives asymptotic bounds.",
+        "identifier_or_url": "arxiv:2001.01376",
+        "material_read": "Full-text HTML: Introduction; Problem Statement; Type-A confusability/Proposition 9; single-deletion construction; asymptotic redundancy theorem.",
+        "method": "Lawful arXiv full-text HTML inspection plus in-document searches for n=5/length 5.",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Directly studies fixed-N reconstruction codes and the two-read single-deletion case."
+      },
+      {
+        "assessment": "Proves the asymptotic redundancy scale and structural conditions but contains no located finite n=5 optimizer or classification.",
+        "evidence": "The paper asks how large the codebook can be and proves log-log redundancy bounds; searches for n=5 and length 5 returned no matching finite result.",
+        "identifier_or_url": "arxiv:2004.06032",
+        "material_read": "Full-text arXiv HTML: Introduction and Preliminaries, especially the N=2 single-deletion subsection and converse framing; exact n=5/length-5 text searches.",
+        "method": "Lawful arXiv full-text HTML inspection and targeted in-document search.",
+        "title": "Optimal Reconstruction Codes for Deletion Channels",
+        "trigger": "Title and abstract directly claim optimality for deletion-channel reconstruction codes."
+      },
+      {
+        "assessment": "Studies common outputs when the transmitted word belongs to an (ℓ−1)-deletion-correcting code and gives asymptotically exact formulas; it does not dominate the unrestricted fixed-two-read codebook extremal problem.",
+        "evidence": "Its stated parameter N(n,ℓ,t) conditions on a deletion-correcting code and is different from maximizing |C| under ν(C;D1)<2.",
+        "identifier_or_url": "arxiv:2111.04255",
+        "material_read": "Abstract and parameter statement.",
+        "method": "arXiv/search metadata inspection.",
+        "title": "Sequence Reconstruction Problem for Deletion Channels: A Complete Asymptotic Solution",
+        "trigger": "Potential broader result with “complete” in the title and deletion-channel reconstruction in scope."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "37ee2c69-bb83-4371-8171-4cc5555495a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers the finite form of the literature’s fundamental codebook-size question at a natural smallest nontrivial parameter: binary length five with two distinct single-deletion reads. It supplies both the exact optimum and the full equality classification, providing a sharp benchmark for finite constructions and bounds. The uniqueness is structural information not supplied by the asymptotic redundancy results.",
+    "status": "PASS"
+  }
+}
