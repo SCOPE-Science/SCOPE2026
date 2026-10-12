@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The only two possible third edges between a disjoint pair of biclique edges are its cross-edges. Both are absent exactly for the transposed pair across two distinct deleted matching edges. A third packing edge could neither be disjoint from nor meet both such selected edges. All remaining packings with at least two edges are pairwise incident; in a bipartite graph this means a single star with unique center. Counting star k-subsets using precise degree multiplicities, adding binomial(t,2) crossed pairs for k=2, and treating singletons and empty set separately proves every coefficient for all m,n>=2 and 0<=t<=min(m,n). Executed verifier checks 144444 subsets in 32 small cases, 1048576 subsets for H_5,5,5, and 5062 pairwise predicate comparisons, without using finite enumeration as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar–Samadi (2024), Theorem 4.2: single-edge deletion bounds on the maximum EOP number, not polynomial coefficients.",
+        "Brešar–Dravec–Hedžet–Samadi (2024), Theorems 4.1–4.2: product-graph bounds, including a related perfect-matching-deletion construction for an induced matching, but no complete EOP enumerator.",
+        "Das–Santra (2026), publicly accessible abstract: algorithms for maximum EOP on broad graph families; the full text was unavailable."
+      ],
+      "reasoning": "Generic extremal bounds, graph-product lower bounds and graph-class algorithms do not imply exact counting of every EOP subset; a general algorithm for finding a maximum is not an enumeration formula. The 2026 abstract was compared but the paper could not be inspected in full, leaving a limited and explicit access risk.",
+      "searches": [
+        "edge-open packing polynomial matching deleted complete bipartite graph enumeration",
+        "arxiv:2403.00750v1 Theorem 4.2",
+        "arxiv:2406.04020v2 Section 4",
+        "arxiv:2610.02275v1 abstract"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1051/ro/2022171",
+      "arxiv:2403.00750v1",
+      "arxiv:2406.04020v2",
+      "doi:10.2298/FIL1919411C",
+      "arxiv:2610.02275v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 Proposition 2.3 yields only rho(K_{m,n})=max(m,n), a scalar and an undeleted boundary.",
+        "Cardoso et al. (2019) Proposition 2.1 states injective edge chromatic index chi_i(K_{m,n})=min(m,n), a different scalar invariant.",
+        "Our explicit binomial(t,2) non-star two-edge contribution is zero for t=0 but nonzero for t>=2; none of the prior scalar claims fixes it or higher-size coefficients."
+      ],
+      "reasoning": "The undeleted t=0 boundary is not claimed as an independently novel scalar statement. Our theorem strictly refines this boundary to the all-subset generating function and handles every number of matching deletions. No cited stronger theorem implies the coefficients merely from its scalar maximum or general induced-star-forest characterization.",
+      "searches": [
+        "\"Edge open packing sets in graphs\" Proposition 2.3 complete multipartite",
+        "\"Induced matching vs edge open packing\" product graphs direct product",
+        "\"edge open packing\" \"K_{n,n}\" matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cardoso et al. (2019), Proposition 2.2: each injective edge-color class induces disjoint stars; it does not give an all-cardinality census for bicliques minus a matching.",
+        "Chelladurai et al. (2022), Definition 1.1: edge-open packing is the compatible individual color-class notion."
+      ],
+      "reasoning": "The injective-edge-color-class phrasing is equivalent to counting permissible individual EOP sets, not complete color assignments. The general induced-star-forest statement allows the class shape in any graph but does not determine the number and degrees of feasible stars or detect the exactly binomial(t,2) disconnected crossed pairs for the specified family.",
+      "searches": [
+        "Injective edge coloring of crown graph K_{n,n}-M: size distribution of permissible monochromatic edge classes",
+        "injective edge coloring crown graph packing color classes count deleted perfect matching",
+        "doi:10.2298/FIL1919411C Proposition 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published results involved edge-metric bases, restrained domination or other crown-graph invariants, not edge-open packing counts.",
+        "The directly relevant inspected primary papers tabulate or bound scalar EOP numbers and do not list the exact coefficient law for the matched-deletion family."
+      ],
+      "reasoning": "Queries explored exact formula aliases and existing tabulations. No equivalent polynomial/table appeared in retrieved results; this is a limited negative search, not a proof that no prior table exists. Counting in a different graph invariant is not an implication of this theorem.",
+      "searches": [
+        "All edge-open packing sets of K_{n,n} minus a perfect matching (crown graph), polynomial count, star subsets and crossed two-edge packings",
+        "Open edge packing generating polynomial K_{m,n} deleting t matching edges; two disjoint edges when their cross edges absent",
+        "site:oeis.org \"edge open packing\" crown graph sequences",
+        "\"edge open packing polynomial\" \"complete bipartite\""
+      ]
+    },
+    "rationale": "The 2022 defining paper proves only maximum edge-open packing cardinalities for complete multipartite graphs (Proposition 2.3), not the size profile after matching deletion. A 2024 edge-deletion theorem bounds maximum cardinality, and a separate 2024 graph-product paper bounds maximum packing numbers without this enumerator. The 2019 injective-edge-coloring induced-star-forest equivalence does not count or identify the binomial(t,2) exceptional non-star pairs. The new contribution is the complete exact coefficient law for all admissible m,n,t; originality remains provisional against unindexed literature.",
+    "residual_risks": [
+      "No finite bibliographic search proves absolute priority; independently derived or unindexed exact coefficients could exist.",
+      "The original 2022 publisher PDF was blocked at the direct URL, although the publicly accessible full article transcription was read.",
+      "The full 2026 general edge-open-packing algorithm preprint could not be retrieved; its accessible abstract does not present a coefficient classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the bipartite undeleted scalar optimum and general properties; no matching-deletion polynomial or all-set classification in inspected content",
+        "evidence": [
+          "Definition 1.1",
+          "Proposition 2.3",
+          "Sections 2–4; publisher online date 1 November 2022"
+        ],
+        "identifier_or_url": "doi:10.1051/ro/2022171",
+        "material_read": "Public readable full-text transcription including Definition 1.1, Proposition 2.3 and subsequent results, rather than a title or abstract alone",
+        "method": "Read extracted original 12-page article text from licensed public full-text presentation; directly checked proposition and scope",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Defining primary paper and possible complete multipartite coverage"
+      },
+      {
+        "assessment": "Theorem 4.2 provides bounds after deleting a single edge; no full matching-deletion packing polynomial",
+        "evidence": [
+          "Introduction and injective edge-color class correspondence",
+          "Theorem 4.2 (single-edge deletion)",
+          "primary MSC2020 05C70 on first page"
+        ],
+        "identifier_or_url": "arxiv:2403.00750v1",
+        "material_read": "Full 12-page arXiv PDF, Sections 1, 3 and 4, especially Theorem 4.2",
+        "method": "Read PDF text and inspected page renderings for definition and edge-removal section",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Same invariant with edge deletion and primary classification"
+      },
+      {
+        "assessment": "Only extremal and product inequalities for EOP; the matching-deletion construction in a direct-product example relates to induced matching. No all-set enumerator or crown polynomial is given.",
+        "evidence": [
+          "Introduction",
+          "Section 4, Theorems 4.1 and 4.2",
+          "illustrative direct-product construction"
+        ],
+        "identifier_or_url": "arxiv:2406.04020v2",
+        "material_read": "Full 27-page arXiv PDF, introduction, product graph statements, Section 4 and discussion of deleted matchings",
+        "method": "Full-text search and examination of PDF text and source-page rendering",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Plausible product representation of crown graphs and matching deletions"
+      },
+      {
+        "assessment": "Gives general induced-star-forest equivalence and chromatic indices, not exact matching-deleted-biclique class counts",
+        "evidence": [
+          "Proposition 2.1 (complete bipartite scalar)",
+          "Proposition 2.2 (induced star forests)"
+        ],
+        "identifier_or_url": "doi:10.2298/FIL1919411C",
+        "material_read": "Full 13-page open PDF, introduction, Propositions 2.1–2.2 and related classification discussion",
+        "method": "Read PDF text and inspected its page rendering at Proposition 2.2",
+        "title": "Injective Edge Coloring of Graphs",
+        "trigger": "Equivalent formulation through monochromatic injective-edge-color classes"
+      },
+      {
+        "assessment": "Abstract describes optimization algorithms and not enumeration; inaccessible details remain a residual risk but give no affirmative coverage of the new claim",
+        "evidence": [
+          "Public arXiv abstract dated 1 October 2026"
+        ],
+        "identifier_or_url": "arxiv:2610.02275v1",
+        "material_read": "Abstract and dated public record only; full preprint unavailable via two public arXiv routes",
+        "method": "Read accessible abstract; separately attempted full PDF, HTML and preprint page",
+        "title": "Maximum Edge Open Packing on AT-Free, Chordal, and Convex Bipartite Graphs",
+        "trigger": "Recent broad algorithmic treatment of same invariant on convex bipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b7b652e-6f0e-43c2-9f3f-4906120362ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family K_{m,n} minus a matching is a canonical dense-to-crown interpolation; EOP sets are exact admissible single color classes in injective edge coloring. Earlier studies concentrated on maximum cardinality or coloring index, whereas the new structural theorem classifies every EOP set and counts each cardinality for arbitrary unequal sides. The exceptional binomial(t,2) crossed pairs identify the complete new non-star phenomenon caused by the missing matching, providing a natural full combinatorial invariant with reproducible exact coefficient profile. This is a classification/count, not merely a renamed known scalar or an arbitrary small case.",
+    "status": "PASS"
+  }
+}
