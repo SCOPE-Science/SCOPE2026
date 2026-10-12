@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "At the resistant-only equilibrium the exact linearized (I,P) subsystem has infection entry kappa*k*M2 and phage-loss entry D+k*M2. The resulting next-generation spectral quantity necessarily contains k in the numerator. Independently, expanding the source's own identity G(lambda2)=-D+k*A2*M2=(D+k*M2)(R0M^2-1) reproduces the same factor. For the fully positive rational witness, the printed square is 250/11>1, the corrected square is 5/22<1, the direct invasion block has trace -31/10 and determinant 17/10, and the source's equilibrium equations simultaneously force M3=200/3 and M3<10. All arithmetic is replayed exactly by the bundled checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van den Driessche and Watmough provide the general next-generation framework used to derive threshold quantities but do not analyze this CRISPR chemostat.",
+        "Han and Smith analyze a predecessor bacteriophage-sensitive/resistant chemostat but do not contain the source's CRISPR success factor kappa or its displayed resistant reproduction-number formula.",
+        "The closest broader chemostat literature therefore supplies method and context rather than the source-specific correction."
+      ],
+      "reasoning": "General threshold theory implies how to construct the matrix but does not state this paper's missing factor or the exact counterexample. The predecessor chemostat is biologically related but has a different infection architecture.",
+      "searches": [
+        "\"Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission\" next generation matrix",
+        "\"Bacteriophage-resistant and bacteriophage-sensitive bacteria in a chemostat\" reproduction number",
+        "CRISPR chemostat phage resistant reproduction number adsorption threshold"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/mbe.2017070",
+      "doi:10.1016/S0025-5564(02)00108-6",
+      "doi:10.3934/mbe.2012.9.737"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact-source and correction searches located the original article and citing material but no indexed erratum or correction for the missing adsorption factor.",
+        "The exact witness shows a statement-level consequence not supplied by generic threshold theory: the printed quantity exceeds one while the direct resistant-phage invasion block is stable and the source's claimed positive resistant-phage equilibrium equations are inconsistent.",
+        "The source's later formulas appear to use the corrected algebra implicitly, so the accepted claim is limited to the displayed definition and conclusions read literally from it."
+      ],
+      "reasoning": "A prior result would cover the finding only if it corrected this exact formula or implied the same source-specific threshold reversal. Neither the inspected primary/supporting literature nor the targeted correction searches did so.",
+      "searches": [
+        "\"10.3934/mbe.2017070\" erratum correction",
+        "\"A bacteriophage model based on CRISPR/Cas immune system in a chemostat\" correction",
+        "\"mbe.2017070\" \"R0M\"",
+        "\"Shu\" \"Fu\" \"Wang\" CRISPR chemostat \"reproduction number\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary model uses k'=kappa*k for successful infection of resistant bacteria and D+k*M for phage loss at the resistant-only equilibrium.",
+        "The displayed resistant reproduction number lacks k in its numerator, whereas the source's displayed sensitive-strain analogue contains the corresponding adsorption factor.",
+        "The source's downstream identity G(lambda2)=(D+k*M2)(R0M^2-1) is algebraically valid only with k restored in the resistant numerator."
+      ],
+      "reasoning": "The same issue can appear as a missing-factor typo, an incorrect next-generation number, a failure of the printed threshold equivalence, or an inconsistency with G(lambda2). Searches covered these equivalent statement forms rather than relying only on title or DOI.",
+      "searches": [
+        "10.3934/mbe.2017070 resistant bacteria reproduction number kappa adsorption missing k",
+        "\"A bacteriophage model based on CRISPR/Cas immune system in a chemostat\" reproduction number resistant bacteria",
+        "\"b delta kappa\" \"R0-lambda2\" bacteriophage CRISPR",
+        "\"R_0^M\" bacteriophage CRISPR chemostat"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text was inspected at the five-equation model, the definitions k'=kappa*k and the resistant-only equilibrium, the printed sensitive and resistant reproduction numbers, the resistant-phage equilibrium equations, the G(lambda2) identity, and Theorem 2.3.",
+        "Visual inspection of the reproduction-number page confirms the resistant formula is printed without k in the numerator.",
+        "Visual inspection of the later equilibrium page confirms the G(lambda2) identity whose algebra requires the corrected formula.",
+        "The publisher metadata lists Primary MSC 92D30 and publication online in May 2017; a day-resolved bibliographic record gives 2017-05-01."
+      ],
+      "reasoning": "The accepted claim is reconstructed from the exact model and theorem formulas in the primary full text, not from search snippets or secondary summaries.",
+      "searches": [
+        "doi:10.3934/mbe.2017070 reproduction numbers theorem 2.3",
+        "doi:10.3934/mbe.2017070 G(lambda2) A2",
+        "doi:10.3934/mbe.2017070 Mathematics Subject Classification",
+        "doi:10.3934/mbe.2012.9.737 bacteriophage resistant sensitive chemostat"
+      ]
+    },
+    "rationale": "The general next-generation method is established literature and is not claimed as new. The original content is the source-specific identification of the missing adsorption factor, the observation that the paper's own later G(lambda2) identity already requires the corrected expression, and the exact positive-parameter counterexample showing that the displayed threshold can reverse the literal invasion/existence classification. Targeted source, formula, alias, and correction searches did not locate a published repair.",
+    "residual_risks": [
+      "An unindexed author correction or informal clarification could exist outside the searched literature.",
+      "The omission may be typographical because several downstream identities are already consistent with the corrected formula.",
+      "The finding does not recompute every numerical figure or assert that all downstream conclusions used the displayed erroneous expression."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DISPLAYED_RESISTANT_REPRODUCTION_NUMBER_OMITS_ADSORPTION_FACTOR_K",
+        "evidence": "The successful resistant infection coefficient is kappa*k*M2, so the next-generation product contains k. The printed formula omits it, while the later G(lambda2) identity includes the algebraic k contribution. The witness gives printed square 250/11, corrected square 5/22, and no positive resistant-phage equilibrium.",
+        "identifier_or_url": "doi:10.3934/mbe.2017070",
+        "material_read": "Full text at the model equations and parameter definitions; phage-free equilibria; sensitive and resistant reproduction-number formulas; resistant-phage equilibrium derivation; G(lambda2) identity; Theorem 2.3; subsequent equilibrium and ratio formulas; parameter discussion. The pages containing the reproduction-number definition and later G(lambda2) identity were visually inspected.",
+        "method": "Linearized the exact (I,P) subsystem at E2, constructed its next-generation matrix, expanded the source's own G(lambda2) identity, and built a rational parameter witness checked directly against the equilibrium equations.",
+        "title": "A bacteriophage model based on CRISPR/Cas immune system in a chemostat",
+        "trigger": "Primary source defining the resistant reproduction number and using it in the resistant-phage equilibrium threshold theorem."
+      },
+      {
+        "assessment": "GENERAL_METHOD_ONLY_NOT_SOURCE_SPECIFIC_COVERAGE",
+        "evidence": "The foundational framework supports constructing F and V from new-infection and transition terms but does not analyze the CRISPR chemostat or its resistant formula.",
+        "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6",
+        "material_read": "Bibliographic and abstract material establishing the next-generation threshold framework and the role of the basic reproduction number in local disease-free stability.",
+        "method": "Used only as methodological context; the source-specific matrix calculation is reproduced explicitly and does not depend on a hidden lemma from this paper.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "Foundational next-generation reference for interpreting the two-stage infection cycle."
+      },
+      {
+        "assessment": "RELATED_PREDECESSOR_NOT_COVERING_THE_CRISPR_MISSING_FACTOR",
+        "evidence": "The predecessor study treats sensitive/resistant bacteria and phage but does not contain the CRISPR success factor kappa or the exact resistant reproduction-number expression corrected here.",
+        "identifier_or_url": "doi:10.3934/mbe.2012.9.737",
+        "material_read": "Publisher abstract and model-level context concerning coexistence and persistence of bacteriophage-sensitive and bacteriophage-resistant bacteria in a chemostat.",
+        "method": "Compared model scope and threshold objects with the CRISPR model.",
+        "title": "Bacteriophage-resistant and bacteriophage-sensitive bacteria in a chemostat",
+        "trigger": "Closest predecessor chemostat literature cited in the same ecological setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f0d4cabd-430f-4e63-a5a7-4f70acebea3b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The displayed resistant reproduction number is the threshold object used to state existence and nonexistence of a positive resistant-phage equilibrium. The omission is therefore structurally meaningful: an exact positive-parameter witness has the printed quantity above one while the actual invasion block is stable and the source's positive-equilibrium equations have no solution. Restoring k reconciles the next-generation calculation with the source's own G(lambda2) identity and gives the correct threshold for interpreting resistant-phage invasion.",
+    "status": "PASS"
+  }
+}
