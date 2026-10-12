@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For beta_i=w_(m+i)/w_(m-i) the exact adjacent quotient comparison has numerator difference (2t+1)(i(i+1)-rt(t+1)), so beta_i starts below one and has at most one upward crossing; the alpha_i sequence is U-shaped. Its total sum equals E[(X-2m)_+]>0. The necessary endpoint tail P(X>=2rt)>P(X=0) is proved for all r>=3,t>=1: Vandermonde supermultiplicativity of A_(r,t)=C((2t+1)r,r)(t/(t+1))^(2tr) with exact seed values covers t=1..5 including four exceptional tail sums, and an independent geometric-sum event with a monotone positive log ratio covers t>=6. Exact-rational standalone checks replayed 105 sign vectors, 2142 quotients and 343 supermultiplicativity cases; the unbounded claim relies on these analytic steps, not finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.37190/0208-4147.00050 Lemma 3.3: negative-binomial right-skewness uses comparisons around a mode, not all centered cumulative comparisons",
+        "DOI:10.37190/0208-4147.00050 Lemmas 3.5-3.7: full L1 shape argument is proved for Poisson, not negative-binomial",
+        "arXiv:2011.11795v2 Lemma 3.5: U-shaped difference method applies to Poisson only"
+      ],
+      "reasoning": "Poisson and binomial conclusions do not imply the negative-binomial statement because supports, moments and mass ratios differ. Right-skewness about the mode does not control the centered cumulative alpha_i. The known generic transfer theorem has left-loadedness as a hypothesis, not as a consequence.",
+      "searches": [
+        "Fokkink Papavassiliou Pelekis \"negative binomial\" \"left-loaded\" proof 2022",
+        "DOI:10.37190/0208-4147.00050 Sections 2-4",
+        "arXiv:2011.11795v2 Section 3/4",
+        "negative binomial Pascal distributions sharp endpoint upper tail twice mean exceeds zero mass and shifted tail sign change"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2011.11795v2, full 8-page preprint",
+      "DOI:10.37190/0208-4147.00050, full 9-page published article",
+      "DOI:10.1016/j.spl.2006.09.006, abstract only",
+      "Related mathematical literature searches for Pascal tails, Simmons inequalities and centered-tail sign crossings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fokkink et al. 2022 Theorem 1.1: assumes L1/L2 for an increment; it cannot establish L1 for a candidate increment",
+        "Fokkink et al. 2022 Lemma 3.3: negative-binomial right skewness around mode (r-1)t; new theorem is centered at mean rt",
+        "Perrin–Redside 2007 abstract and its characterization by Fokkink et al. 2022 p.139: centered Simmons-type alpha_1 inequality, not all alpha_i"
+      ],
+      "reasoning": "Published transfer theorem assumes the property to be shown. Right-skewness around the mode is not an implication to centered left-loading around the mean. Full L1 is stronger than Simmons alpha_1 and covers r>=3. A finite-support binomial L1 theorem does not imply the infinite-support negative-binomial analogue.",
+      "searches": [
+        "arXiv:2011.11795v2 complete PDF (p. 2 definition, pp. 5-7 proof/conjectures)",
+        "DOI:10.37190/0208-4147.00050 final full PDF (pp. 133-141)",
+        "\"Generalization of Simmons' theorem\" Perrin Redside pdf negative binomial",
+        "\"left-loaded\" \"negative binomial\" 2023 2024 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.11795v2, pp. 2 and 7: definition L1 specifies all centered-tail differences and concluding remarks address primarily binomial/Poisson",
+        "DOI:10.37190/0208-4147.00050, p. 140: negative-binomial reciprocal-failure analogue is expressed as an apparent expectation rather than a lemma",
+        "DOI:10.1016/j.spl.2006.09.006 abstract: extension of Simmons centered-tail probability inequality to negative binomial"
+      ],
+      "reasoning": "Synonyms checked include Pascal sums, geometric-sum law, centered-tail imbalance and Simmons inequalities. A one-index center-tail comparison is strictly weaker than the ordered signs for every 1<=i<=rt. Direct source statements leave that gap; the 2007 full text remains inaccessible, so equivalent older coverage is retained as a risk.",
+      "searches": [
+        "\"negative binomial\" \"left-loaded\" \"tail\" \"mean\"",
+        "\"left-loaded\" \"negative binomial\" 2023 2024 2025",
+        "\"negative binomial\" \"Simmons\" \"tails\" left-loaded r p",
+        "arXiv:2011.11795v2 Definition 2 and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result concerns an infinite collection of distributions and ordered tail comparisons, not a finite tabulation",
+        "DOI:10.37190/0208-4147.00050 p. 140 reports numerical expectation rather than an exact all-parameter table"
+      ],
+      "reasoning": "No exact published lookup table or finite-data statement could settle the quantified theorem without a separate extension argument; the new Vandermonde induction and analytic large-t bound supply such an argument. No database search is treated as proof of novelty.",
+      "searches": [
+        "negative binomial with integer mean m alpha_i left right tail imbalance unimodal 2020",
+        "Negative binomial distribution with integer mean r t, success probability t/(t+1): left-loaded tail difference sequence P(X <= mean-i) minus P(X >= mean+i) single sign change for all shape r >= 3",
+        "negative binomial \"left-loaded\" \"tail\" \"mean\""
+      ]
+    },
+    "rationale": "The 2020 preprint and 2022 published full texts define left-loadedness; the latter explicitly presents the reciprocal-failure-probability negative-binomial case as an expectation, while proving only right-skewness for negative binomials. The 2007 Simmons extension supports a first centered-tail comparison but does not establish an entire sign pattern as far as its available abstract and the precise 2022 citation show. The earlier established Poisson L1 case concerns different distributions; prior full-vector binomial results concern finite-support laws; no inspected stronger theorem logically covers every integer-shape negative binomial L1 vector. Record searches cannot exclude equivalently phrased inaccessible literature.",
+    "residual_risks": [
+      "An earlier or later equivalently phrased negative-binomial sign-variation theorem might exist outside the indexed literature.",
+      "The complete 2007 Perrin–Redside note was not accessible; its abstract and the later direct citation suggest a weaker one-index result but cannot certify whole-text noncoverage.",
+      "The published-record search and mathematical database query results are neither exhaustive nor independent novelty certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the general criterion and Poisson proof, but does not assert left-loadedness for all negative-binomial shapes",
+        "evidence": [
+          "arXiv:2011.11795v2 pp. 2-7; page 7 discusses Poisson/binomial conjectures"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.11795",
+        "material_read": "Full 8-page v2 PDF, including Definition 2 (p2), proof of Theorem 1.1 and Poisson lemmas (pp3-6), Section 4 (p7), and references (p8)",
+        "method": "Read full text and visually inspected relevant PDF pages",
+        "title": "Some inequalities on Binomial and Poisson probabilities (revised preprint)",
+        "trigger": "Earliest public predecessor; check definitions, stronger results, and conjectural statements"
+      },
+      {
+        "assessment": "Published theorem transfers known L1, proves negative-binomial right-skewness and Poisson L1; explicitly leaves expected negative-binomial L1 unproved",
+        "evidence": [
+          "DOI:10.37190/0208-4147.00050, pp. 134 and 138-140"
+        ],
+        "identifier_or_url": "https://repository.tudelft.nl/file/File_f0610ab3-f66c-4b1e-83de-b4827e0e5ba9",
+        "material_read": "Journal full text pp. 133-141 (repository PDF cover plus pp1-10): Definition 1.2, Lemmas 2.1 and 3.3-3.7, paragraph preceding Conjecture 4.1 and references",
+        "method": "Read full PDF text and visually verified the displayed L1 definition on p.134",
+        "title": "On the monotonicity of tail probabilities",
+        "trigger": "Same-paper published version with explicit negative-binomial remark and definitions"
+      },
+      {
+        "assessment": "The accessible evidence supports a Simmons-style centered-tail comparison; no conclusion about uninspected full text is asserted",
+        "evidence": [
+          "DOI:10.1016/j.spl.2006.09.006 abstract",
+          "DOI:10.37190/0208-4147.00050 p.139"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2006.09.006",
+        "material_read": "Abstract, bibliographic record, and the specific comparison attributed to Proposition 3.3 in Fokkink et al. (2022), p.139; original full text unavailable",
+        "method": "Searched arXiv and lawful open-access sources; inspected available abstract and later primary citation; full text could not be obtained",
+        "title": "Generalization of Simmons’ theorem",
+        "trigger": "Older primary paper directly concerning centered negative-binomial tails"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d47b985d-be4c-4c9a-9057-b843870cfeb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The centered left-minus-right tail vector is the full hypothesis in a published convolution inequality, and its negative-binomial validity was explicitly identified as plausible but not proved for reciprocal failure probabilities. Proving the entire sign pattern for every integer shape r>=3 is structurally stronger than a center-tail Simmons inequality, fills a natural family-level gap, and permits negative-binomial increments in the published transfer result. The finite endpoint exceptions and the Vandermonde propagation show that this is not just a parameter substitution or trivial exercise; arbitrary parameter extensions remain open.",
+    "status": "PASS"
+  }
+}
