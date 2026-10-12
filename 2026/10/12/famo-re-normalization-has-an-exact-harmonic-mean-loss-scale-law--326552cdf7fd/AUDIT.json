@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Positive task rescaling cancels exactly in every gradient-over-loss term. The only remaining transformation is the practical scalar normalizer, whose ratio before and after rescaling is exactly a weighted harmonic mean of the task-unit factors. The common-scale trajectory equivalence follows by induction because the reciprocal learning-rate adjustment matches the model step and the additive log-scale constant cancels from every log-loss difference. The embedded checker reconstructs both identities from the displayed algorithm.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The FAMO paper includes a scale-invariant log-loss baseline and reports balanced behavior on an improperly scaled toy problem.",
+        "Broader loss-balancing work motivates logarithmic objectives to reduce scale disparity.",
+        "These broader observations concern the log-loss geometry and do not state the practical re-normalization multiplier."
+      ],
+      "reasoning": "Scale invariance of the unnormalized log-gradient direction does not imply scale invariance after FAMO's extra scalar convex-combination normalization. The final claim isolates exactly the residual one-dimensional dependence.",
+      "searches": [
+        "FAMO scale invariant multitask log loss",
+        "multi-task learning log loss scale invariance FAMO",
+        "loss-scale balancing logarithm task gradients multi-task"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.03792v1",
+      "NeurIPS2023:b2fe1ee8d936ac08dd26f2ff58986c8f",
+      "github:Cranial-XIX/FAMO:26ecb954dceb25d68dbfdf93a209e5c9ad13967a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation 11 defines the practical re-normalization and raw-gradient convex-combination weights.",
+        "Equations 5 through 10 derive balancing from log gradients and log-loss differences.",
+        "The official implementation computes the same coefficient-over-positive-objective normalizer."
+      ],
+      "reasoning": "The source formulas contain the ingredients, but their combination under independent task rescaling is not stated. The final theorem requires comparing two scaled systems, expressing the scalar ratio in the original practical weights, proving harmonic-mean bounds, and then proving the common-scale trajectory equivalence.",
+      "searches": [
+        "arXiv:2306.03792 Equation 11 re-normalization FAMO",
+        "arXiv:2306.03792 log gradient scale task losses",
+        "FAMO official implementation coefficient over loss normalization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source uses gradients of log losses, which are individually invariant to positive multiplicative loss scaling.",
+        "The practical source update multiplies the log-gradient direction by the inverse sum of coefficient-over-loss terms.",
+        "No inspected source states the resulting weighted harmonic-mean scale multiplier."
+      ],
+      "reasoning": "Equivalent formulations would characterize practical FAMO's exact response to changing task-loss units, state that independent scaling preserves orientation but changes magnitude by one harmonic-mean factor, or identify common loss scaling as exactly confounded with the model learning rate. None was located.",
+      "searches": [
+        "FAMO scale invariance renormalization loss scaling harmonic mean step size",
+        "Fast Adaptive Multitask Optimization loss rescaling invariant c_t normalization",
+        "FAMO task loss scale sensitivity renormalization learning rate",
+        "FAMO common loss scaling update magnitude"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concern normalization and scale sensitivity in different optimization methods.",
+        "No returned published finding names FAMO or gives an equivalent harmonic-mean loss-unit law."
+      ],
+      "reasoning": "The nearest indexed normalization results use different algorithms and state different transformation laws. Database absence is supporting evidence only and is combined with direct source and implementation inspection.",
+      "searches": [
+        "FAMO scale invariance renormalization loss scaling harmonic mean step size",
+        "Fast Adaptive Multitask Optimization loss rescaling invariant c_t normalization",
+        "FAMO task loss scale sensitivity renormalization learning rate",
+        "FAMO common loss scaling update magnitude"
+      ]
+    },
+    "rationale": "The defining paper states both the log-gradient construction and the practical convex-combination re-normalization, and discusses balanced behavior under improperly scaled losses, but the inspected full text does not derive the exact transformation of the practical step under task-unit changes. The official implementation realizes the same scalar normalizer. Focused published-record searches did not locate the harmonic-mean law or the exact common-scale learning-rate equivalence.",
+    "residual_risks": [
+      "An equivalent algebraic observation may exist in unindexed implementation discussions or benchmark notes.",
+      "Implementations that use fixed additive floors have an additional scale effect outside the paper-form multiplicative law.",
+      "The theorem does not determine whether the residual scalar dependence materially affects benchmark performance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FORMULAS_NOT_COVERING_EXACT_HARMONIC_MEAN_SCALE_LAW.",
+        "evidence": "The paper defines the invariant log-gradient ingredients and the practical scalar normalization separately, but no exact task-rescaling transformation or common-scale learning-rate equivalence was found.",
+        "identifier_or_url": "arXiv:2306.03792v1 / NeurIPS 2023",
+        "material_read": "Open full text covering Algorithm 1, Sections 3.1 through 3.4, especially the log-gradient dual, log-loss-difference update, Equation 11 re-normalization, continuous limit, and the toy/scale-invariant baseline discussion.",
+        "method": "Full-text open-access HTML inspection with targeted loss-scale and normalization searches.",
+        "title": "FAMO: Fast Adaptive Multitask Optimization",
+        "trigger": "Defining source for the log-gradient dual, loss-difference amortization, practical re-normalization, and scaled-loss toy discussion."
+      },
+      {
+        "assessment": "IMPLEMENTATION_MATCHES_THE_PAPER_NORMALIZATION_MECHANISM.",
+        "evidence": "The inspected revision computes the sum of softmax coefficient divided by adjusted objective and divides the weighted log-objective aggregate by that detached scalar.",
+        "identifier_or_url": "github:Cranial-XIX/FAMO:26ecb954dceb25d68dbfdf93a209e5c9ad13967a",
+        "material_read": "The FAMO class in `methods/weight_methods.py`, including positive adjusted objectives, softmax coefficients, normalization-factor construction, weighted log objective, and log-loss-difference update.",
+        "method": "Direct public source-code inspection.",
+        "title": "Official FAMO implementation",
+        "trigger": "Verify that the released implementation uses the paper's coefficient-over-objective normalizer."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "326552cd-f7fd-40c2-999a-1da0076610cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "FAMO's central design uses log losses to balance relative progress and then deliberately adds re-normalization for practical stability. The theorem exactly separates what those two design choices preserve: task-balancing orientation remains invariant under arbitrary positive loss-unit changes, while the effective model step acquires one harmonic-mean scale factor. This explains how FAMO can remain directionally robust to improperly scaled tasks while still requiring learning-rate awareness of loss units, and supplies an exact compensation law for common scaling.",
+    "status": "PASS"
+  }
+}
