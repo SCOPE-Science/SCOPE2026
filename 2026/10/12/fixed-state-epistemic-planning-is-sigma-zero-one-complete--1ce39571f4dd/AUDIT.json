@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The primary reduction fixes the proposition vocabulary, one-agent initial state, and goal independently of the PCP instance. All PCP dependence lies in the finite add_i event models, plus three fixed verifier actions. Theorem 3.19 gives the exact match-plan equivalence. The restricted planning problem is r.e. because finite plans can be enumerated and finite product updates checked effectively. Binary PCP is r.e.-complete, using a computable prefix-code reduction from arbitrary finite alphabets if needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Achilleos fixes exactly ten propositions and defines s_I before introducing any PCP-dependent action.",
+        "The final goal Phi_G is independent of the PCP instance and the only varying actions are add_i; nxt_stg, rmv_0, and rmv_1 are fixed.",
+        "Theorem 3.19 gives B has a match iff EP has a plan.",
+        "The 2018 paper explicitly says that its action repertoire and goal are fixed while only the initial state is input."
+      ],
+      "reasoning": "The closest broader theorem is complementary: it localizes input dependence in the initial state, whereas the accepted result localizes it in the action library under the newer depth-one/no-postcondition restriction.",
+      "searches": [
+        "arXiv:2604.22736 full PDF: Section 3.1 fixed proposition vocabulary and initial state",
+        "arXiv:2604.22736 full PDF: Section 3.2 add_i actions and depth-one preconditions",
+        "arXiv:2604.22736 full PDF: Section 3.3 Act, fixed Phi_G, Theorem 3.19, Corollary 3.20",
+        "DOI:10.24963/ijcai.2018/664 full PDF: abstract and introduction on fixed action repertoire and fixed goal",
+        "standard PCP computability classification: recursively enumerable completeness"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.22736",
+      "DOI:10.24963/ijcai.2018/664",
+      "Post, Bulletin of the AMS 52 (1946), 264–268"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Corollary 3.20 states single-agent undecidability but does not isolate which planning-task components vary.",
+        "Theorem 3.19 combined with the explicit fixed definitions shows only Act_B carries the PCP input.",
+        "The 2018 theorem has the opposite parameter placement: only the initial state varies.",
+        "No prior current-ledger finding concerns arXiv:2604.22736 or epistemic plan existence."
+      ],
+      "reasoning": "The accepted statement is a genuine parameterized sharpening of the new undecidability theorem and adds an exact r.e.-completeness upper/lower classification.",
+      "searches": [
+        "primary-source implication check: Section 3 fixed s_I and Phi_G versus stated Corollary 3.20",
+        "primary-source implication check: Theorem 3.19 plus plan enumeration versus Sigma0_1-completeness",
+        "2018 small-problem implication check: fixed action and goal versus fixed initial state",
+        "current cumulative ledger comparison through generation g000059"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published finding states undecidability or r.e.-completeness with both the initial epistemic state and goal fixed in the new depth-one/no-postcondition single-agent regime.",
+        "Web searches recover the 2018 fixed-action/fixed-goal result and the 2026 depth-one result, but not their action-only-input combination."
+      ],
+      "reasoning": "The searches cover the fixed-state, fixed-goal, fixed-vocabulary, single-agent, modal-depth-one, no-postcondition, and action-only-input formulations.",
+      "searches": [
+        "published-finding database: epistemic planning undecidable fixed initial epistemic state fixed goal single agent modal depth one no postconditions",
+        "published-finding database: plan existence undecidable fixed initial state fixed goal epistemic actions one agent K",
+        "published-finding database: epistemic planning fixed vocabulary undecidable PCP modal depth 1 no postconditions",
+        "published-finding database: Achilleos 2604.22736 fixed initial state goal propositions",
+        "published-finding database: plan existence undecidable only action set varies epistemic planning",
+        "web literature: \"fixed initial epistemic state\" \"plan existence\" undecidable",
+        "web literature: \"fixed initial state\" \"epistemic planning\" undecidable action",
+        "web literature: \"fixed goal\" \"epistemic planning\" undecidable"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database entry gives the exact Sigma-zero-one classification for the fixed-state/fixed-goal restriction.",
+        "The 2026 source states undecidability rather than an arithmetical-hierarchy completeness level."
+      ],
+      "reasoning": "The exact invariant is the many-one degree of the restricted decision problem. Membership in Sigma-zero-one follows directly from plan enumeration, so the PCP reduction sharpens undecidability to completeness.",
+      "searches": [
+        "published-finding database: epistemic planning fixed initial state goal Sigma0_1 complete",
+        "published-finding database: action-only input epistemic planning r.e.-complete",
+        "web literature: epistemic planning recursively enumerable complete fixed state goal"
+      ]
+    },
+    "rationale": "The 2026 source states undecidability but not fixed-state/fixed-goal input localization or r.e.-completeness. The 2018 small-epistemic-planning result fixes actions and goal while varying the initial state, so it does not imply the accepted action-only-input theorem.",
+    "residual_risks": [
+      "The fixed-state observation is immediate after a close read of the source construction and may be viewed as an unstated corollary rather than a distant theorem.",
+      "Earlier epistemic-planning papers may contain a fixed-initial-state reduction under different action semantics, but none located combines the exact one-agent K, depth-one-precondition, no-postcondition restrictions.",
+      "The action library remains unbounded, so the theorem does not subsume fixed-action undecidability results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG_SUPPORTING_PRIOR_WITH_UNSTATED_FIXED-STATE_EXACT_CLASSIFICATION.",
+        "evidence": "The source explicitly defines s_I and the ten propositions before any PCP-dependent object, and later defines a fixed Phi_G; only the add_i actions encode the PCP pairs.",
+        "identifier_or_url": "arXiv:2604.22736",
+        "material_read": "Full-text portions covering the problem definition, Section 3's single-agent K reduction, the fixed proposition set and initial state, the add_i event models, nxt_stg and rmv actions, the fixed goal, Theorem 3.19, Corollary 3.20, and conclusions. The PDF pages displaying the fixed initial state and the final Act/Phi_G definition were visually inspected.",
+        "method": "Parameter-dependence audit of every component of the reduction plus computability-level sharpening.",
+        "title": "An Undecidability Proof for the Plan Existence Problem",
+        "trigger": "Primary recent source solving the modal-depth-one/no-postcondition case by a PCP reduction."
+      },
+      {
+        "assessment": "COMPLEMENTARY_NOT_COVERING.",
+        "evidence": "The 2018 theorem freezes the action repertoire and goal but varies the initial state, over two-agent S5; it does not imply fixed-initial-state hardness in the one-agent K depth-one/no-postcondition regime.",
+        "identifier_or_url": "DOI:10.24963/ijcai.2018/664",
+        "material_read": "Full PDF abstract and introduction, including the statement that the one-action repertoire and goal are fixed and only the initial knowledge state is input.",
+        "method": "Implication and parameter-placement comparison.",
+        "title": "Small Undecidable Problems in Epistemic Planning",
+        "trigger": "Closest prior literature on bounding which components of epistemic-planning instances carry undecidability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ce39571-f4dd-476d-9b52-221c9f86d81d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The epistemic-planning literature explicitly studies how few parameters must vary for undecidability. The accepted theorem localizes all instance information to the action library in the newly resolved modal-depth-one/no-postcondition setting, complementing the known fixed-action/varying-state construction. The Sigma-zero-one classification also gives the exact computability level.",
+    "status": "PASS"
+  }
+}
