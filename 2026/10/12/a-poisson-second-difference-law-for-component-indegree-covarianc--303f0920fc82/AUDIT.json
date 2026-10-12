@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Every weak component contains one directed cycle. Summing indicator covariances over the labeled directed cycles and conditioning on their forced outgoing images gives the exact formula. Degree-class probability generating functions use binomial marginals, without assuming independence among the vertices’ degrees. A Gaussian upper bound for cyclic-length weights supplies the Riemann-sum normalization; the postquadratic binomial remainder sums to a compact-uniform term of order inverse square-root sample size. Cauchy coefficient extraction yields the signed Poisson second-difference profile for each fixed degree. Exhaustive enumeration of 873611 labeled maps at sizes two through seven establishes 33 exact-rational comparisons and twelve conservation checks; tests corroborate rather than replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hansen–Jaworski general degree-sequence calculus covers component marginals in broader random-mapping models and may permit specialization and differentiation.",
+        "Flajolet–Odlyzko 1990 advertises a broad generating-function method covering about twenty random-mapping statistics; whole chapter could not be read.",
+        "Drmota–Soria 1997 studies distributions of points with specified total predecessors, which differs from immediate in-degree-count/component covariance."
+      ],
+      "reasoning": "Broad machinery and marginal laws are not themselves a stated mixed second-moment generating identity or signed Poisson profile. Their capability may imply the result following a new marked-cycle calculation; this possible implicit coverage is retained as a risk rather than denied.",
+      "searches": [
+        "random mappings cycle count in-degree profile bivariate covariance marked degree counts generating function",
+        "random mappings component count indegrees generating function asymptotic joint moments",
+        "Random Mapping Statistics Flajolet Odlyzko 1990 pdf",
+        "doi:10.1002/rsa.20187 sections 2–5",
+        "doi:10.37236/3572 full article sections 3–5",
+        "doi:10.1137/S0895480194268421 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0603529v1 (full HTML)",
+      "doi:10.1002/rsa.20187 (main journal full text)",
+      "doi:10.1239/aap/1208358892 (lawful OA full text)",
+      "doi:10.37236/3572 (full PDF)",
+      "doi:10.1007/3-540-46885-4_34 (abstract only)",
+      "doi:10.2307/3214607 (abstract only)",
+      "doi:10.1137/S0895480194268421 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conditional-on-cyclic-vertex permutation-law (Hansen–Jaworski) yields component marginals but must be combined with mixed degree conditioning to obtain the covariance polynomial.",
+        "Structural Transition in Random Mappings 2014 establishes component CLTs for a constrained-degree law, not the present unconstrained covariance profile.",
+        "Previous cyclic-core negative dependence yields at most the already-excluded zero-in-degree sign without the positive degrees one and two and the full Poisson second-difference law."
+      ],
+      "reasoning": "The exact joint profile is not a corollary merely of knowing component means/variance or independent Poisson-approximation marginals. Its cycle-indicator Palm calculation and Gaussian weighted asymptotics are supplied here. A broader unidentified theorem that already states the same generating-profile convergence would dominate this claim, but none was located among the inspected literature.",
+      "searches": [
+        "random functional digraph cyclic components isolates source vertices indegree zero jointly correlated",
+        "random mapping component count in-degree restrictions Hansen Jaworski",
+        "Images and Preimages in Random Mappings Drmota Soria",
+        "arxiv:math/0603529v1 corollary 3 conditional component count given cyclic points",
+        "doi:10.37236/3572 theorem 1 and corollary 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The finite formula is the sum over all directed cycle indicators weighted by the conditional in-degree-count polynomial.",
+        "The cyclic-core deletion relation for in-degree-zero vertices may already imply that one special-case component covariance is negative, but does not state the full positive-at-one-and-two, negative-at-three-and-higher profile.",
+        "Kupka 1990 treats component-count moments alone."
+      ],
+      "reasoning": "Cycle counts and cyclic vertex counts are not the same random variable; a covariance with the latter does not determine mixed covariances for every immediate in-degree class. A known one-coordinate negative sign is expressly not claimed as independent novelty. No equivalent *complete* profile located in inspected sources.",
+      "searches": [
+        "random mapping graph number of components covariance with number of indegree zero vertices or leaves asymptotic -1/(2e) exact finite n",
+        "random mapping zero in-degree vertices component count correlation negative",
+        "random mapping number of components indegree degrees covariance",
+        "arxiv:math/0603529v1 section 3, cyclic component counts",
+        "doi:10.2307/3214607 marginal component moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No explicit table of limiting Cov(component count, exact in-degree r vertex count) was found in inspected full works.",
+        "Finite exact enumeration in verification.py matches the newly derived covariance identity for 33 coordinates across six map sizes; this is reproducibility evidence, not novelty evidence."
+      ],
+      "reasoning": "No evidence of an existing database entry containing the infinite profile or entire covariance generating polynomial. Searches do not establish absence of unindexed tables, and the inaccessible classic chapter remains a residual risk.",
+      "searches": [
+        "uniform random functional graph mapping covariance of cycle component count with indegree r profile limiting coefficient exp(-1)(-r^2+3r-1)/(2 r!)",
+        "number of cyclic components joint indegree count distribution r=1 r=2 r>=3 positive negative dependence",
+        "random mapping component number degree profile covariance",
+        "doi:10.1007/3-540-46885-4_34 reference and accessible abstract",
+        "doi:10.1239/aap/1208358892 full text"
+      ]
+    },
+    "rationale": "Compared the exact entire covariance generating polynomial and all fixed in-degree limits, rather than the marginal component law or in-degree marginal. Hansen–Jaworski 2006/2008 gives the distribution of components conditional on cyclic vertices and an exchangeable-in-degree framework, not the displayed mixed covariance profile. The 2014 structural-transition paper treats constrained mapping ensembles, not covariance with random in-degree class counts in the unconditioned uniform law. Generic generating-function approaches could imply the formula indirectly; the broad Flajolet–Odlyzko chapter was not fully accessible, so historical priority is provisional.",
+    "residual_risks": [
+      "The Flajolet–Odlyzko 1990 broad mapping-statistics chapter could not be fully read; generating-function methods there may implicitly produce equivalent mixed moments.",
+      "Some older component-degree joint moment sources or unindexed tables may have implicit coverage.",
+      "This same-source and publication comparison does not establish absolute historical priority or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING",
+        "evidence": "Corollary 3 conditions the component count on cyclic-point count; Sections 3–4 present component/cyclic-point distributions. No mixed covariance generating profile is stated.",
+        "identifier_or_url": "https://arxiv.org/html/math/0603529v1",
+        "material_read": "Original HTML introduction, component-count statements and proofs, conclusion, and references; full-text term searches across the document",
+        "method": "Full-text and formula comparison with component–in-degree mixed covariance claim",
+        "title": "A new random mapping model",
+        "trigger": "same random functional digraph and in-degree vector; earliest dated source"
+      },
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING",
+        "evidence": "Theorems 1–3 concern cyclic points and component-size probabilities, with component count derived from cyclic permutation; no degree-count covariance polynomial appears in main statements.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20187",
+        "material_read": "Full text pages 1–20 of 22, plus original arXiv text and journal bibliographic material",
+        "method": "Examined all main results, section 3 formulas, sections 4 and 5 and model definitions",
+        "title": "Random mappings with exchangeable in-degrees",
+        "trigger": "journal revision of source paper on same model"
+      },
+      {
+        "assessment": "NO_DIRECT_COVERAGE_IN_INSPECTED_MATERIAL",
+        "evidence": "The studied local predecessor/successor distributions do not state Cov(component count, number of vertices of each immediate in-degree).",
+        "identifier_or_url": "https://doi.org/10.1239/aap/1208358892",
+        "material_read": "Lawful OA PDF introduction, selected primary result sections, and selected conclusions, not a full page-by-page reading",
+        "method": "Examined introduction and results, searched for covariance and joint component-count statement",
+        "title": "Local properties of random mappings with exchangeable in-degrees",
+        "trigger": "same authors companion work on local in-degree and predecessor structure"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Main Theorem 1 and Corollary 8 give cyclic-vertex distributions and component CLT under deterministic restrictions; no covariance of degree-class counts with components.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i1p18/pdf/",
+        "material_read": "27-page PDF introduction and theorem/result and conclusion sections, supplemented by full-text searches for covariance and variance",
+        "method": "Compared structural-transition restricted ensemble and its component-count laws to uniform-unconditioned mixed moments",
+        "title": "Structural transition in random mappings",
+        "trigger": "close title and restricted in-degree component-count results"
+      },
+      {
+        "assessment": "UNRESOLVED_POSSIBLE_IMPLICIT_COVERAGE",
+        "evidence": "The abstract advertises asymptotic analysis of about twenty random-mapping parameters; whether joint component-degree moments appear cannot be determined from the abstract.",
+        "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+        "material_read": "Publisher abstract, bibliographic record and source citations only; full text unavailable",
+        "method": "Searched publicly accessible full-text copies; only bibliographic abstract was accessible",
+        "title": "Random mapping statistics",
+        "trigger": "landmark very broad analytic framework, plausible implicit dominance"
+      },
+      {
+        "assessment": "NO_DIRECT_STATEMENT_VISIBLE_WITH_ACCESS_RISK",
+        "evidence": "The abstract explicitly describes the marginal probability distribution and moments of component count, not a joint immediate-in-degree statistic.",
+        "identifier_or_url": "https://doi.org/10.2307/3214607",
+        "material_read": "Abstract and publication metadata only; full text not obtained",
+        "method": "Compared publicly described results on factorial moments of component count",
+        "title": "The distribution and moments of the number of components of a random function",
+        "trigger": "direct exact marginal component-count moments"
+      },
+      {
+        "assessment": "NO_DIRECT_STATEMENT_VISIBLE_WITH_ACCESS_RISK",
+        "evidence": "Abstract studies limiting distributions of numbers of vertices with specified total predecessors, not a joint component-count covariance.",
+        "identifier_or_url": "https://doi.org/10.1137/S0895480194268421",
+        "material_read": "Abstract, references and publication metadata only; full text not obtained",
+        "method": "Compared the notion of total predecessors with immediate in-degree-class counts",
+        "title": "Images and preimages in random mappings",
+        "trigger": "random mapping degree and predecessor distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "303f0920-fc82-4bc7-b0b2-7440ca427b6d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An immediate in-degree histogram is the canonical local profile of a random functional graph, whereas component count records the global cyclic decomposition. Marginals do not determine their covariances. The entire limiting signed Poisson second-difference profile has a natural interpretation constrained by the two deterministic degree conservation identities, with surprising positive correlations at exactly one and two incoming edges and negative correlations in all other fixed degree classes. This is a motivated complete degree-class classification, not a singled-out arbitrary parameter; older cyclic-core negative-zero-degree results are not presented as a separate contribution.",
+    "status": "PASS"
+  }
+}
