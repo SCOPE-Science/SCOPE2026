@@ -1,0 +1,125 @@
+{
+  "claim": "For every integer \\(d\\ge2\\), let \\(F_d\\) be the normalized discrete Fourier transform and let \\(p=(p_0,\\ldots,p_{d-1})\\) be a probability vector. Define\n\\[\n\\rho_p=F_d\\,\\operatorname{diag}(p)\\,F_d^\\dagger .\n\\]\nThen the trace-distance coherence\n\\[\nC_{\\rm tr}(\\rho_p):=\\min_{\\delta\\in\\mathcal I}\\|\\rho_p-\\delta\\|_1\n\\]\nover computational-basis incoherent density matrices satisfies\n\\[\nC_{\\rm tr}(\\rho_p)=\\left\\|\\rho_p-\\frac{I_d}{d}\\right\\|_1\n=\\sum_{k=0}^{d-1}\\left|p_k-\\frac1d\\right|.\n\\]\nThus \\(I_d/d\\) is a closest incoherent state, and on the complete circulant state simplex trace-distance coherence is exactly twice the classical total-variation distance from the Fourier spectrum \\(p\\) to the uniform distribution. In dimension three, for\n\\[\n\\rho_{r,\\theta}=\\frac{I_3}{3}\n+r\\begin{pmatrix}\n0&e^{i\\theta}&e^{-i\\theta}\\\\\ne^{-i\\theta}&0&e^{i\\theta}\\\\\ne^{i\\theta}&e^{-i\\theta}&0\n\\end{pmatrix},\n\\]\nwhenever \\(1/3+2r\\cos(\\theta+2\\pi k/3)\\ge0\\) for \\(k=0,1,2\\),\n\\[\nC_{\\rm tr}(\\rho_{r,\\theta})=4r\\max_{k=0,1,2}\\left|\\cos(\\theta+2\\pi k/3)\\right|.\n\\]\nNo uniqueness of the closest incoherent state is claimed.",
+  "correctness": {
+    "rationale": "Cyclic twirling maps every incoherent density matrix to the maximally mixed incoherent state while fixing every circulant state. Convexity and unitary invariance of the trace norm prove global optimality, and Fourier diagonalization gives the exact norm. The qutrit specialization follows from the explicit zero-sum Fourier eigenvalue deviations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1610.07330 assumes a qudit class whose off-diagonal entries are all the same real number.",
+        "arXiv:2109.05552 studies trace-norm Birkhoff-James orthogonality and modified trace-distance resource quantities."
+      ],
+      "reasoning": "The equal-off-diagonal class is not the general complex circulant family. Orthogonality to every unrestricted diagonal matrix differs from minimization over positive trace-one diagonal density matrices, so the later criterion does not imply the present formula.",
+      "searches": [
+        "arXiv:1610.07330",
+        "arXiv:2109.05552",
+        "trace norm coherence cyclic shift invariant qudit closest incoherent identity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1410.8327",
+      "DOI:10.1103/PhysRevA.91.042120",
+      "arXiv:1511.01854",
+      "arXiv:1610.07330",
+      "arXiv:2109.05552"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 source gives special qutrit trace-norm-coherence cases, not arbitrary circulant states.",
+        "The 2015 source gives qubit/X-state/pure-state results and general optimization machinery, but no circulant closed form.",
+        "The 2016 source's common-real-off-diagonal hypothesis excludes generic complex circulant states.",
+        "The 2021 orthogonality paper addresses a broader trace-norm framework but a different diagonal optimization condition."
+      ],
+      "reasoning": "None of the inspected statements contains hypotheses broad enough and a conclusion strong enough to imply the all-dimensional circulant formula or its total-variation interpretation.",
+      "searches": [
+        "arXiv:1410.8327",
+        "arXiv:1511.01854",
+        "arXiv:1610.07330",
+        "arXiv:2109.05552"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1410.8327 defines trace-norm coherence and derives special qutrit formulas for restricted matrix patterns.",
+        "arXiv:1511.01854 treats qubits, X-states, pure states, and an SDP formulation for general mixed states."
+      ],
+      "reasoning": "No inspected source states the all-dimensional equivalence between circulant-state trace-distance coherence and classical total variation of the Fourier spectrum.",
+      "searches": [
+        "\"trace distance coherence\" Fourier diagonal states uniform diagonal",
+        "\"trace norm coherence\" Fourier diagonal circulant states",
+        "\"coherence\" circulant density matrix trace norm",
+        "\"closest incoherent\" circulant density matrix trace norm",
+        "arXiv:1410.8327",
+        "arXiv:1511.01854"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed hits concerned classical finite Fourier projection norms, Fourier concentration, or phase-minimax problems and did not concern quantum incoherent-state distance.",
+        "Current and prior owned finding ledgers contained no trace-distance-coherence or circulant-state claim matching this theorem."
+      ],
+      "reasoning": "No exact formula, table, or indexed finding retrieved under the source, object, Fourier-spectrum, cyclic-shift, qutrit-phase, or closest-incoherent aliases covers the claim.",
+      "searches": [
+        "trace distance coherence circulant density matrices Fourier diagonal states",
+        "trace norm coherence cyclic shift invariant qudit closest incoherent identity",
+        "trace distance coherence uniform diagonal Fourier spectrum classical l1 distance",
+        "qutrit circulant trace distance coherence triangle phase"
+      ]
+    },
+    "rationale": "Primary and later literature were compared by hypotheses and implication. The closest exact families are special qutrit, qubit, X-state, pure-state, or equal-real-off-diagonal families, not the full circulant simplex. Broader trace-norm orthogonality work optimizes against a different diagonal set and does not state this affine-simplex formula. Focused alias and implication searches found no covering result.",
+    "residual_risks": [
+      "An equivalent cyclic-group twirling statement may occur as an unstated special case of later general resource-theory symmetry results under terminology not retrieved by the searches.",
+      "No uniqueness statement for the closest incoherent state is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The analytic qutrit examples have restricted single-coherence-edge structure and do not state a circulant/Fourier-spectrum formula.",
+        "identifier_or_url": "arXiv:1410.8327; DOI:10.1103/PhysRevA.91.042120",
+        "material_read": "Definition of trace-norm coherence; discussion of general qutrit difficulty; displayed special qutrit matrix classes and formulas.",
+        "method": "Primary full text inspected in the sections defining and evaluating trace-norm coherence.",
+        "title": "Fidelity and trace-norm distances for quantifying coherence",
+        "trigger": "Foundational trace-norm-coherence source and archive anchor."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The stated exact families and general SDP do not imply the closed circulant-state formula.",
+        "identifier_or_url": "arXiv:1511.01854",
+        "material_read": "Abstract and result descriptions for qubits, X states, pure states, and general semidefinite optimization.",
+        "method": "Primary preprint and bibliographic record inspected.",
+        "title": "Trace-distance measure of coherence",
+        "trigger": "Closest early paper devoted to trace-distance coherence."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its class requires one common real off-diagonal entry, whereas a generic circulant state has several lag amplitudes and complex phases.",
+        "identifier_or_url": "arXiv:1610.07330",
+        "material_read": "Definition of the qudit class and theorem giving its trace-distance coherence.",
+        "method": "Primary preprint inspected at the class definition and exact theorem.",
+        "title": "Trace distance measure of coherence for a class of qudit states",
+        "trigger": "Plausible later all-dimensional exact-family result."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The unrestricted-diagonal Birkhoff-James condition differs from minimization over the affine positive trace-one incoherent simplex and does not yield the claimed Fourier-spectrum formula.",
+        "identifier_or_url": "arXiv:2109.05552",
+        "material_read": "Trace-norm diagonal orthogonality characterizations and resource-theory applications.",
+        "method": "Primary preprint inspected around the diagonal-orthogonality results.",
+        "title": "Birkhoff-James Orthogonality in the Trace Norm, with Applications to Quantum Resource Theories",
+        "trigger": "Potential broader trace-norm theorem that might dominate the optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e678bd8f-27d5-4a5a-9a89-b295cfe7e857",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete circulant density-matrix family is a natural symmetry class in every finite dimension. The theorem converts its trace-distance-coherence optimization exactly into classical total variation and gives a nontrivial phase-sensitive qutrit corollary, extending beyond the special matrix patterns emphasized in early work.",
+    "status": "PASS"
+  }
+}
