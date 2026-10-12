@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact 4-by-4 Bell-basis matrix is reconstructed from Pauli products. With rho=[[A,w],[w†,b]], delta=2||w|| follows from the two singular values of rho-SrhoS. Positivity gives b(1-b)>=delta²/4 and a>=|c|²/b, while a<=1-b and |c|<=delta/2. The positive and negative signed bounds both yield 2(delta+sqrt(1-delta²)), including separately delta=0 and endpoint delta=1; the explicit Bell-pair superpositions attain both signs for every delta. Direct algebra inverts the bound for beta in (2,2sqrt2]. Standalone verify.py returned VERIFY_OK on 1,720 exact rational witnesses and 12,000 positive random mixed/pure states. Numerical tests are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cusumano et al Section 4 Theorem 3 studies local-unitary optimized CHSH as a function of the pure-state Schmidt spectrum; this quantity is invariant under local choice of axes, not exchange trace distance.",
+        "Lyyra et al Section Decay of non-locality optimizes measurement directions for specified noisy X states rather than fixing B0.",
+        "Horodecki criterion optimizes measurements over local settings and does not constrain a state norm distance to its SWAP image."
+      ],
+      "reasoning": "The optimization axes, objective and constrained invariant differ. Existing all-settings results do not algebraically fix an extremum at prescribed exchange trace distance. They are not dominating statements for the specified fixed-Pauli family.",
+      "searches": [
+        "arXiv:2504.03351v3 Theorem 3 Schmidt coefficient optimization",
+        "Lyyra et al Scientific Reports 2017 decay of non-locality and trace-distance discord",
+        "Horodecki 1995 maximized CHSH mixed spin-1/2 states",
+        "quantitative asymmetry Bell inequality robustness swapping parties trace norm state CHSH 2025",
+        "two qubit CHSH swap asymmetry trace distance tight bound singlet triplet",
+        "\"swap symmetry\" \"CHSH\" \"asymmetry\" upper bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.03351v3 full HTML, sections 2-6, appendices A-B",
+      "arXiv:2504.03351 submission history: v1 UTC 2025-04-04, v3 2026-09-07",
+      "doi:10.1038/s41598-017-08457-1 full article HTML",
+      "Horodecki 1995 criterion in secondary reviewed full-text sources",
+      "Published mathematical finding indexes searched with the displayed scientific query strings",
+      "Cusumano et al Section 4 and Appendices A--B checked at the level of theorem statements and implications",
+      "Lyyra et al sections on Bell nonlocality and trace-distance discord checked at the level of their objective functions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At d=0 the new formula gives 2, exactly recovering Cusumano et al Theorem 2 conclusion, whose statement assumes swap-invariant output.",
+        "For d>0 Cusumano et al do not quantify exchange defect; their Eq (17) gives an unrelated Schmidt-optimized pure-state CHSH value 2 sqrt(1+sin^2(2 theta)).",
+        "Lyyra et al Bell function F varies over settings and their trace-distance discord D(X) is optimized over classical-quantum comparison states rather than S rho S."
+      ],
+      "reasoning": "The source covers the qualitative zero-defect endpoint; it does not logically entail a sharp nonzero-defect frontier without the new positivity/constrained optimization. The new pure-state witnesses and negative-bound block argument add exact sharpness. Nonindexed implicit consequences remain possible.",
+      "searches": [
+        "arXiv:2504.03351v3 Eq (1) and Theorem 2",
+        "arXiv:2504.03351v3 Theorem 3 and Eq (17)",
+        "2017 Scientific Reports DOI 10.1038/s41598-017-08457-1 Bell function Eq (15) and discord Eq (20)",
+        "CHSH Bell operator swap asymmetry trace distance between rho and swapped rho sharp sqrt(1-delta squared)+delta",
+        "two-qubit CHSH symmetric state no violation quantitative robustness swap breaking optimal frontier",
+        "Tsirelson inequality CHSH operator swap trace distance exact deviation upper bound symmetric states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2 of arXiv:2504.03351v3 imposes swap covariance and yields only the point d=0, |CHSH|<=2; inspection of its full HTML found no trace-distance-to-SWAP formula.",
+        "Nature Scientific Reports 7 (2017) 8367 uses swap symmetry and Bell dynamics but its trace distance is to classical-quantum states in a discord measure."
+      ],
+      "reasoning": "Neither source states an exact norm-constrained maximization for all two-qubit density operators; the candidate is stronger than the known d=0 endpoint and distinguishes all d including d=1. A search absence alone cannot exclude alternative formulations.",
+      "searches": [
+        "CHSH Bell operator swap asymmetry trace distance between rho and swapped rho sharp sqrt(1-delta squared)+delta",
+        "two-qubit CHSH symmetric state no violation quantitative robustness swap breaking optimal frontier",
+        "Tsirelson inequality CHSH operator swap trace distance exact deviation upper bound symmetric states",
+        "sharp CHSH violation at fixed swap trace distance asymmetry exchange symmetric states",
+        "\"CHSH\" \"swap asymmetry\" quantitative trace norm bound Bell symmetry",
+        "\"CHSH\" \"swap-symmetric\" \"robustness\" Bell violation",
+        "\"CHSH\" \"trace distance\" \"swap\" inequality",
+        "arXiv:2504.03351v3 Section 4 Theorem 2 and Appendix A--B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-result and published-literature searches did not return an exact tabulation of CHSH values constrained by trace distance to the exchanged state.",
+        "The inspected closest primary articles and their appendices provide no table of the optimized quantity at prescribed exchange distance."
+      ],
+      "reasoning": "No exact tabulation or statement-equivalent formula was found among inspected scientific sources; absence from indexes cannot establish novelty.",
+      "searches": [
+        "sharp CHSH violation at fixed swap trace distance asymmetry exchange symmetric states",
+        "non-stabilizerness and violations of CHSH inequalities Cusumano symmetry robust quantitative trace distance",
+        "CHSH Bell observable swap symmetric state asymmetry deficit sharp frontier",
+        "Werner nonlocality CHSH maximization over Pauli measurements I3322 thresholds and swap invariant Bell diagonal",
+        "two qubit CHSH swap asymmetry trace distance tight bound singlet triplet"
+      ]
+    },
+    "rationale": "The exact norm-constrained sharp frontier for the fixed resource-free CHSH observable is distinct from the source's swap-covariant zero-asymmetry obstruction, from its Schmidt-coefficient local-setting optimization, and from noise-location exchange symmetry of Bell decay. The material primary literature and mathematical-result searches inspected yielded no overlapping claim. A hidden semidefinite-dual formulation or unindexed identity remains a realistic risk.",
+    "residual_risks": [
+      "The exact frontier could be implicit in an unindexed semidefinite programming treatment of robust CHSH observables.",
+      "The 1995 Horodecki original article was not directly inspected; the compared optimized-state theorem was read in material primary full-text citations.",
+      "A differently chosen normalization of state asymmetry or Bell-operator sign could obscure equivalent literature despite distinct displayed formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2 proves the d=0 endpoint; no exact fixed-d tradeoff/trace-norm exchange distance found.",
+        "evidence": "Eq (1) defines B0=XX+XZ-ZX+ZZ; Theorem 2 gives |Tr[B0 E(omega0)]|<=2 under swap covariance; Theorem 3 varies measurement axes via local unitaries.",
+        "identifier_or_url": "https://arxiv.org/html/2504.03351v3",
+        "material_read": "Sections 2 and 4 (Theorems 1--3, Eqs. 1, 12, 17), Section 5 and Appendix A--B; relevant swap and trace-distance passages inspected.",
+        "method": "Full primary HTML text, theorem-by-theorem direct statement and implication comparison, including keyword scans",
+        "title": "Non-stabilizerness and violations of CHSH inequalities",
+        "trigger": "Exact same Pauli observable and the strongest known swap-covariance obstruction"
+      },
+      {
+        "assessment": "Not covering: optimized Bell functions and noise-location exchange, and distance-based discord, not norm-to-SWAP fixed Pauli maximization.",
+        "evidence": "Their Bell quantity F maximizes over local settings; their D minimizes distance to zero-discord states rather than distance between rho and swapped rho.",
+        "identifier_or_url": "https://www.nature.com/articles/s41598-017-08457-1",
+        "material_read": "Introduction; X states and swap conditions; Decay of non-locality Eqs. 15--18; Decay of trace-distance discord Eqs. 19--25; Discussion.",
+        "method": "Full lawfully available HTML text and formula-level comparison",
+        "title": "Symmetry in the open-system dynamics of quantum correlations",
+        "trigger": "Quantum correlations and Bell tests under qubit exchange/noise-location symmetry"
+      },
+      {
+        "assessment": "No fixed Pauli axes or swap distance is in the reproduced criterion; residual risk for uninspected original text.",
+        "evidence": "Optimized CHSH = 2 sqrt(top two eigenvalues of the correlation matrix square), not constrained fixed-setting B0 expectation.",
+        "identifier_or_url": "Phys. Lett. A 200 (1995) 340-344 (Horodecki et al.)",
+        "material_read": "Criterion and precise optimization domain as explicitly reproduced in Lyyra et al Eq. (15) and Cusumano et al Theorem 3 discussion; original full paper not opened.",
+        "method": "Secondary full-text restatement of the primary theorem; indirect implication comparison",
+        "title": "Violating Bell inequality by mixed spin-1/2 states: necessary and sufficient condition",
+        "trigger": "Potentially dominating CHSH characterization of all two-qubit mixed states"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "35bd8765-2dfc-4337-9681-303acd82a29c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The literature's motivation is precise: symmetry forbids fixed-resource-free CHSH violation, but imperfect symmetry is ubiquitous and no sharp quantitative resource budget was given. The nonmonotone exact all-mixed-state frontier exhibits two incompatible ways to lose Bell violation (zero and maximal exchange asymmetry), an attained interior Tsirelson point, and optimal inverse certification of a minimum and maximum exchange defect from a Bell observation. This is a natural complete optimization and stability classification, beyond a small numerical gain or textbook restatement. It does not claim computational advantage, noise-control implementation, or global setting-optimized nonlocality.",
+    "status": "PASS"
+  }
+}
