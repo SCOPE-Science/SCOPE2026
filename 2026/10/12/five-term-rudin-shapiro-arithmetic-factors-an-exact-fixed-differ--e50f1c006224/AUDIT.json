@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Binary addition for n+jd, j=0,...,4, produces bounded carries and exact parity updates for 11-block counts. All 864 reachable NFA states are enumerated; an exhaustive least fixed point computes achievable terminal relative parity signatures under arbitrary high n bits once d has ended. All 1302 determinized states satisfy the output-mask invariant with 2,13,1287 states in digit-popcount classes 0,1,2+, with every transition checked, so the relative spectra 0xff96 for powers of two and 0xffff otherwise hold for every positive difference. Adding the separated high block 11 complements all five absolute symbols, giving two words for every relative signature. Direct prefix enumeration for differences 1..128 is a secondary sanity check only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Konieczny–Müllner arXiv:2309.03180, Introduction equations (4) and Theorem A: arithmetical subword complexity quantifies existentially over both starting point and common difference; it does not assert that every pattern occurs for each prescribed positive difference.",
+        "Byszewski–Konieczny–Müllner arXiv:2002.09509, Introduction Theorems A–C: higher-order uniformity and progression counts, not the complete support of each prescribed five-point tuple.",
+        "Sobolewski 2022 Theorems on maximal monochromatic runs at special steps: does not determine nonconstant patterns."
+      ],
+      "reasoning": "Varying-difference maximal complexity and correlation estimates do not imply fixed-difference universal support. Correlation of order five merely guarantees some offset pattern/frequency discrepancy, not the exact zero-support set at the arithmetic-offset tuple (0,d,2d,3d,4d).",
+      "searches": [
+        "arXiv:2309.03180 arithmetical subword complexity automatic sequences Rudin Shapiro",
+        "arXiv:2002.09509 Gowers norms automatic sequences fixed difference progressions",
+        "DOI:10.2478/puma-2022-0012 correlation frequency Rudin Shapiro",
+        "arXiv:2204.05287 Rudin Shapiro monochromatic progression fixed difference"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.2478/puma-2022-0012 open author PDF and publisher metadata",
+      "arXiv:2204.05287v1/v2 open PDF targeted proof sections",
+      "arXiv:2309.03180v2 open PDF definition and main theorems",
+      "arXiv:2002.09509v3 open PDF introductory theorems",
+      "arXiv:2302.12908 indexed abstract (monochromatic progressions, supporting context)",
+      "targeted scientific database and web searches for five-term, support, signature, dyadic, and eight specific absent words",
+      "relevant published research-index results on Rudin–Shapiro and automatic-word statistics",
+      "own current and prior research claims checked for Rudin–Shapiro, five-term, fixed-difference spectra, and arithmetic-progressions overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A maximal-monochromatic-run theorem constrains strings 00000 and 11111 but does not decide the six absent nonconstant strings or guarantee all 24/32 present strings.",
+        "A sequence can have maximal arithmetical subword complexity under ∃d even when some fixed differences lack patterns; the theorem here exhibits precisely this obstruction.",
+        "The correlation paper can identify non-randomness of five-term joint distributions without determining which entries have frequency exactly zero."
+      ],
+      "reasoning": "Existing results are not implication-equivalent to the 24/32 support theorem. The final claim is not presented as a general solution to correlations or longer progression lengths: it fixes five terms and supplies the exact finite support as a function of binary popcount.",
+      "searches": [
+        "Sobolewski Rudin Shapiro monochromatic progression theorem fixed d implications five term nonmonochromatic",
+        "Jugé Marcovici Rudin Shapiro 3 uncorrelated 4 correlated five term support",
+        "Konieczny Müllner arithmetical word complexity existential common difference versus prescribed difference",
+        "Gowers norms automatic sequences 2023 given difference correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jugé–Marcovici DOI:10.2478/puma-2022-0012, §§2–4: pattern and correlation frequencies indexed by arbitrary offset tuples; no formula for this five-sample support as a function of the binary digits of a common difference.",
+        "Sobolewski arXiv:2204.05287v1 §§1,3–4: longest monochromatic progression lengths for Rudin–Shapiro, not the eight missing/24 present nonconstant patterns at every power-of-two difference.",
+        "Targeted searches under five-term tuple, missing bit patterns, support masks, and power-of-two differences returned no equivalent exact formula."
+      ],
+      "reasoning": "The claim is equivalent to an exact list of allowed relative parity XOR signatures: 0xff96 for a difference of binary weight one, and 0xffff for weight at least two. No source inspected supplies this relative-signature dichotomy, and no cited frequency theorem gives the universal fixed-difference existence/nonexistence assertions.",
+      "searches": [
+        "Rudin Shapiro exact length five arithmetic factors at fixed difference powers of two full five-bit patterns",
+        "Rudin Shapiro arithmetic-progression factor spectrum all thirty-two five-bit words for non-power-of-two step",
+        "Golay Shapiro prescribed common difference five-term pattern 00000 01100 01010 00110",
+        "Rudin Shapiro correlation block-additive consecutive 5 progression possible patterns for every difference",
+        "Rudin Shapiro five-term arithmetic progression missing words powers of two",
+        "Rudin Shapiro arithmetic progression binary pattern 5 tuple support zero frequency"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected closest same-word paper includes numerical/morphic calculations of special monochromatic progressions, but no indexed table of all 32 ordered five-bit patterns for every positive difference.",
+        "No targeted table, catalog, or searchable formula giving 24-versus-32 by binary weight of d was found."
+      ],
+      "reasoning": "A small numeric table would not alone prove the all-difference property. The package contributes a finite deterministic automaton invariant over all difference-digit strings, and no preexisting exact finite-state classification for this pattern statistic was located.",
+      "searches": [
+        "Rudin Shapiro 5 term arithmetic progression lookup pattern table for each d",
+        "Rudin Shapiro relative XOR signature support 0xff96 0xffff",
+        "Golay Shapiro arithmetic word 00110 10011 absent powers of two"
+      ]
+    },
+    "rationale": "The final theorem fixes the common difference universally and determines the support of every five-bit word. The primary correlation paper (Jugé–Marcovici 2022) treats limiting frequencies and correlation order across arbitrary offset tuples, and the closest same-word prescribed-step paper (Sobolewski 2022) treats only maximal monochromatic run lengths, not individual nonconstant patterns. The broader arithmetical subword-complexity paper allows the difference to vary and cannot imply a statement for every fixed difference. Actual exact-pattern and alias searches and relevant own-ledger comparisons found no covering claim. The decisive residual risk is an unindexed equivalent calculation or an implicit consequence in another full treatment.",
+    "residual_risks": [
+      "An unindexed older calculation in the large Rudin–Shapiro/correlation literature might already derive the same five-tuple support masks.",
+      "The 62-page general Gowers-norm paper was inspected for its stated main results rather than every technical lemma; a specialized implicit implication remains a small risk.",
+      "The final theorem is only a support classification; it does not provide exact limiting frequencies or results for six or more sampled positions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_FREQUENCY_RESULTS_NO_EXACT_FIXED_STEP_SUPPORT",
+        "evidence": "Correlation is defined via limiting frequencies for increasing tuples of offsets; the paper proves parity-uniformity/correlation-order results, not the 24/32 count for the arithmetic tuple at every d.",
+        "identifier_or_url": "DOI:10.2478/puma-2022-0012; https://marcovici.perso.math.cnrs.fr/Publications/Juge_Marcovici_GASCom2022.pdf",
+        "material_read": "The seven-page open full text, including Definition 2.3, Proposition 3.2, binary-correlation arguments and finite rank classification in sections 3 and 4, as well as its reference list.",
+        "method": "Lawful open PDF inspected as text and visually; publisher record checked for first-public date and MSC ordering.",
+        "title": "Finding automatic sequences with few correlations",
+        "trigger": "Direct primary first-public source with primary MSC 68R15 and general binary block-additive correlation questions encompassing the Rudin–Shapiro sequence."
+      },
+      {
+        "assessment": "SAME_OBJECT_PARTIAL_MONOCHROMATIC_COVERAGE",
+        "evidence": "Theorems give extremal lengths for monochromatic arithmetic progressions and special fixed differences. They do not list allowed non-monochromatic five-term patterns for all positive differences.",
+        "identifier_or_url": "arXiv:2204.05287v1",
+        "material_read": "Open arXiv full-text introduction, exact Rudin–Shapiro main theorem statements, section 3 binary-addition arguments, section 4 morphic block arguments, and pertinent appendix material.",
+        "method": "Open arXiv PDF, section and theorem comparison; symbolic and visual page inspection.",
+        "title": "On Monochromatic Arithmetic Progressions in Binary Words Associated with Pattern Sequences",
+        "trigger": "Same sequence and fixed-difference progression lengths; strongest plausible exact overlap."
+      },
+      {
+        "assessment": "EXISTENTIAL_DIFFERENCE_NOT_COVERING_ALL_FIXED_DIFFERENCES",
+        "evidence": "The defining quantifiers choose both n and m for each factor word; they do not characterize the factor set with m=d fixed in advance.",
+        "identifier_or_url": "arXiv:2309.03180v2",
+        "material_read": "Open PDF Introduction, precise arithmetical-subword-complexity definition (equation (4)), Theorem A and related statements, outline of proof, and references to Rudin–Shapiro.",
+        "method": "Open arXiv full text inspected at the definition, theorem and implication level; visual inspection of the page with the key definition.",
+        "title": "Arithmetical Subword Complexity of Automatic Sequences",
+        "trigger": "Potentially stronger general all-pattern result for automatic words."
+      },
+      {
+        "assessment": "PARTIAL_READ_GENERAL_RESULTS_DIFFERENT_TARGET",
+        "evidence": "Its main theorems address higher-order Gowers norms, structured/uniform decompositions and progression counting rather than an explicit all-word five-term fixed-difference support; the uninspected details remain a literature risk.",
+        "identifier_or_url": "arXiv:2002.09509v3; DOI:10.19086/da.75201",
+        "material_read": "Open PDF abstract, introductory results Theorems A–C, and the stated scope of counting progressions with a given difference; whole 62-page article not read.",
+        "method": "Primary open PDF introductory theorem inspection.",
+        "title": "Gowers Norms for Automatic Sequences",
+        "trigger": "Potential general higher-order pseudorandomness and specified-difference progression implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e50f1c00-6224-4005-b5c5-3341be93e071",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-parameter question (prescribed common difference and complete five-letter pattern support) naturally refines the foundational study of correlations and monochromatic progressions for the Rudin–Shapiro automatic word. The exact 24-versus-32 dichotomy and eight explicit excluded words identify a sharp binary-popcount phase transition, while the symbolic finite-state invariant explains the arithmetic obstruction and supplies a reusable exact mechanism. This is not a routine relabeling or a small finite table; it is a uniform infinite classification at a natural five-term boundary.",
+    "status": "PASS"
+  }
+}

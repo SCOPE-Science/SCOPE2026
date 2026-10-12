@@ -1,0 +1,14 @@
+# Self-review
+
+## Correctness — PASS
+The fixed-difference five-term support question is reduced to finite binary-addition arithmetic. The four carries and five previous digits completely determine the next relative parity bits for occurrences of binary `11`. The exact nondeterministic digit machine has 864 reachable states; terminal signatures are obtained by a least fixed point over zero-difference tails. Determinization yields 1302 reachable states. All their output masks and both transitions are checked under the invariant depending only on the number of one-digits of the difference, truncated at two. The masks are `0x0001`, `0xff96`, and `0xffff`. This establishes the all-difference relative-pattern dichotomy, not just its behavior on a finite sample. A separated high binary `11` toggles all five values and realizes both initial bits for each signature. The reconstructed direct-prefix test agrees for differences through 128, but is expressly not the proof of the infinite theorem.
+
+## Originality — PASS
+The closest full-text source, Sobolewski's arXiv:2204.05287, studies maximal monochromatic arithmetic progressions of specified differences in the Rudin–Shapiro word. Its results do not classify the 32 individual ordered patterns at five sampling positions. Jugé–Marcovici (DOI:10.2478/puma-2022-0012) classify correlation properties of block-additive automatic words, in terms of limiting frequencies for patterns at general offset tuples; their inspected results do not give this exact five-term support dichotomy. Konieczny–Müllner (arXiv:2309.03180) establish arithmetical subword-complexity properties with the common difference existentially quantified and do not settle the spectrum for each prescribed difference. General Gowers-uniformity estimates similarly do not remove fixed-difference obstructions.
+
+Targeted searches included exact five-term Rudin–Shapiro patterns, power-of-two differences, arithmetic-progression supports, correlated patterns, and the eight excluded binary words. No equivalent or stronger statement was found. The main residual risk is an unindexed old finite-state calculation or an implicit all-difference corollary buried in the broader correlation literature.
+
+## Value — PASS
+The result is a complete classification of a natural fixed-difference statistic at the first five-term scale where Rudin–Shapiro's correlations can obstruct universal pattern occurrence. The sharp dichotomy between one and at least two set bits of the difference directly reveals an arithmetic cause of the eight missing words. It refines existing monochromatic and global-correlation questions with a precise all-pattern answer, and supplies a reproducible finite-state invariant usable for further fixed-step statistics.
+
+Self-review: passed. Independent audit: not yet performed.
