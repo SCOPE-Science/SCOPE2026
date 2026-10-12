@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution into the printed rule gives floor(70/35)=2. Model-M with capacity n has 2n+1 kinetic parameters and the article adds one AICc parameter, hence K=2n+2. The resulting sequence 4,4,4,6,6,6,8 differs from Table 2's 4,4,4,4,6,6,8 only at 70 bp. Equation (3.3) independently shows that n=2 adds D_2, k_2, k_2m and the output term 2k_pD_2, so n=2 cannot be equivalent to Model-E.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koul et al. report a minimum dsRNA length of about 35 bp for OAS2 activation, establishing the biological length scale but not the floor-capacity model.",
+        "Structural OAS2 literature supports oligomerization and length-dependent activation but does not determine the published model's discrete 70-bp convention.",
+        "The accepted claim does not treat the generic idea of length-dependent OAS2 activation or multiple binding as new."
+      ],
+      "reasoning": "Broader experimental literature motivates the model but neither implies nor resolves the exact conflict between the article's displayed capacity function and its 70-bp calibration convention.",
+      "searches": [
+        "\"Impact of double-stranded RNA characteristics on the activation of human OAS2\" 35 bp",
+        "OAS2 dsRNA length 70 bp two enzymes multi-binding",
+        "\"Length dependent activation of OAS proteins by dsRNA\" OAS2",
+        "\"Structural and Hydrodynamic Characterization of Dimeric Human Oligoadenylate Synthetase 2\" dsRNA"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2021351",
+      "doi:10.1139/bcb-2019-0060",
+      "University of Manitoba thesis handle 1993/34997",
+      "doi:10.1016/j.bpj.2020.04.025"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Publisher and bibliographic searches located the 2021 article and its 2020 thesis precursor but no indexed correction of the 70-bp boundary.",
+        "The primary experimental paper establishes a 35-bp activation minimum but does not state the Model-M floor-capacity rule.",
+        "The thesis repository record was located, but direct full text was unavailable; it is therefore retained as a residual source risk rather than used as negative evidence."
+      ],
+      "reasoning": "The claim is not a corollary of generic enzyme-kinetic or AIC theory; it compares two incompatible source statements and their table-level implementation. The inaccessible thesis does not erase the article-level contradiction, but it could clarify authorial intent.",
+      "searches": [
+        "\"10.3934/math.2021351\" correction erratum 70",
+        "\"Mathematical modelling of OAS2 activation\" correction 70bp",
+        "OAS2 multi-binding mathematical model 70 bp correction",
+        "\"Mathematical Modelling of OAS2 activation by dsRNA and effects of dsRNA lengths\" thesis"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines n=floor(L/(2R_O)) with 2R_O=35 bp, which makes n(70)=2.",
+        "The source separately states that lengths at most 70 bp are assigned n=1 and Model-M is then equivalent to Model-E.",
+        "Table 2 implements the latter convention by assigning K=4 to Model-M at 70 bp."
+      ],
+      "reasoning": "Searches covered the equivalent descriptions 'capacity boundary', 'floor rule', '70-bp threshold', 'Model-M equivalence', and parameter-count implementation. No located published finding stated the same source-specific incompatibility.",
+      "searches": [
+        "10.3934/math.2021351 Model-M 70bp floor L 2RO n",
+        "\"Mathematical modelling of OAS2 activation by dsRNA and effects of dsRNA lengths\" 70bp n floor",
+        "OAS2 Model-M 70 bp multi-binding floor length diameter",
+        "\"smaller or equal to 70bp\" OAS2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 fixes 2R_O=35 bp and ties the later association/dissociation indices to n=floor(L/(2R_O)).",
+        "Equation (3.3) contains one association/dissociation pair for each binding level and output k_p sum_i iD_i.",
+        "Table 2 reports Model-M K values 4,4,4,4,6,6,8 for 40,50,60,70,80,90,120 bp.",
+        "Equation (4.3) defines K as the number of free model parameters plus one."
+      ],
+      "reasoning": "The comparison is exact and table-specific: formula-derived K=2n+2 gives 4,4,4,6,6,6,8, so the 70-bp entry is the unique mismatch.",
+      "searches": [
+        "doi:10.3934/math.2021351 Table 1 2RO 35 bp",
+        "doi:10.3934/math.2021351 equation 3.3 Model-M n",
+        "doi:10.3934/math.2021351 Table 2 Model-M K 70bp",
+        "doi:10.3934/math.2021351 equation 4.3 K AICc"
+      ]
+    },
+    "rationale": "Length-dependent OAS2 activation, multi-binding as a hypothesis, and AICc are prior knowledge. The original content is restricted to the exact source-specific 70-bp incompatibility between the printed floor-capacity law, the explicit n=1 override, and Table 2's parameter count. Targeted correction and alias searches found no published correction; a same-titled thesis was located but could not be fully inspected and is disclosed as residual risk.",
+    "residual_risks": [
+      "The inaccessible 2020 thesis may explain which 70-bp convention the authors intended, although it cannot make the two rules printed in the 2021 article simultaneously true.",
+      "An unindexed erratum or author note could contain the same boundary correction.",
+      "The biologically preferred occupancy threshold may differ from either simple convention because the geometric floor law is only a modelling approximation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SUPPORT_AND_INTERNAL_BOUNDARY_INCONSISTENCY",
+        "evidence": "The printed rule yields n(70)=2, the prose override sets n(70)=1, and Table 2 uses the n=1 parameter count K=4 at 70 bp.",
+        "identifier_or_url": "doi:10.3934/math.2021351",
+        "material_read": "Publisher full PDF: experimental-length section; Table 1; Sections 3.1-3.3 including equation (3.3); calibration and equation (4.3); Table 2; model-selection discussion and conclusion. The model-definition and Table 2 pages were visually inspected.",
+        "method": "Reconstructed n(L) for every measured length, counted free parameters directly from equation (3.3), and compared the implied K sequence to Table 2.",
+        "title": "Mathematical modelling of OAS2 activation by dsRNA and effects of dsRNA lengths",
+        "trigger": "Primary source containing the capacity formula, fixed 35-bp diameter, Model-M equations, 70-bp override, AICc definition, and Table 2."
+      },
+      {
+        "assessment": "BIOLOGICAL_CONTEXT_NOT_A_CORRECTION_OF_MODEL_BOUNDARY",
+        "evidence": "The source reports a minimum requirement of about 35 bp for OAS2 activation but does not supply the published Model-M capacity function or 70-bp AICc comparison.",
+        "identifier_or_url": "doi:10.1139/bcb-2019-0060",
+        "material_read": "Bibliographic record and scientific abstract describing the in-vitro OAS2 length-dependence experiments and the minimum 35-bp activation requirement.",
+        "method": "Separated the experimentally supported 35-bp activation scale from the later model-specific discrete occupancy assumption.",
+        "title": "Impact of double-stranded RNA characteristics on the activation of human 2'-5'-oligoadenylate synthetase 2 (OAS2)",
+        "trigger": "Primary experimental source for the dsRNA-length data and 35-bp OAS2 activation scale used by the modelling article."
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_PRECURSOR_NOT_DECISIVE_FOR_ARTICLE_LEVEL_CONTRADICTION",
+        "evidence": "The article itself independently contains both incompatible boundary rules and the implementing table, so the article-level logical comparison does not depend on the thesis.",
+        "identifier_or_url": "University of Manitoba thesis handle 1993/34997",
+        "material_read": "Repository-indexed title page and bibliographic existence only; direct PDF access returned an access-denied page during this check.",
+        "method": "Treated as an unresolved source risk and did not use snippets or access failure to infer whole-document non-coverage.",
+        "title": "Mathematical Modelling of OAS2 activation by dsRNA and effects of dsRNA lengths",
+        "trigger": "Same-titled 2020 master's thesis cited by the primary article and therefore a plausible precursor containing a longer version of the model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e97d1a84-887c-44ee-8bbe-5692edb7d3ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 70-bp condition is not an arbitrary slice: it is one of the seven measured dsRNA lengths and exactly the first integer multiple 2 times the model's 35-bp occupancy scale. Model-M versus Model-E selection is a central scientific comparison, and the source explicitly uses equivalence through 70 bp to interpret where multi-binding begins. The discrepancy therefore changes the model class and parameter dimension used at an experimentally observed boundary. The finding does not overclaim the unseen corrected fit.",
+    "status": "PASS"
+  }
+}
