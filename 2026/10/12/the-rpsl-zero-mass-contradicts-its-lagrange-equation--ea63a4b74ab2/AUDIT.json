@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The source defines \\(\\psi\\) by \\(\\psi(u)=u g(\\psi(u))\\), which immediately gives \\(\\psi(0)=0\\). Lagrange inversion yields exactly the source's positive coefficients. Consul-Shenton's general formula shows that those coefficients correspond to \\(f(z)=z\\), hence zero mass \\(f(0)=0\\). Because the source's \\(g\\) is an offspring PGF, the coefficient sum is the smallest fixed point \\(q=g(q)\\), with the standard subcritical/critical versus supercritical extinction dichotomy. The packaged checker verifies the source's simulation example and a supercritical example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Consul-Shenton foundational formula assigns zero mass as \\(f(0)\\), while its positive probabilities contain \\(f'(z)\\).",
+        "Standard total-progeny theory uses the same functional equation and identifies the coefficient sum with extinction probability."
+      ],
+      "reasoning": "General Lagrange and branching theory explains the correction and its phase boundary, but neither source identifies the error in the 2026 RPSL paper.",
+      "searches": [
+        "Lagrange distribution z=u g(z) total progeny support positive integers",
+        "RPSL distribution supercritical extinction probability defective Lagrange",
+        "Galton Watson total progeny PGF H(s)=s f(H(s)) extinction"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14101673",
+      "doi:10.1137/0123026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Consul-Shenton state \\(P(X=0)=f(0)\\) and positive probabilities proportional to derivatives of \\(g(z)^x f'(z)\\).",
+        "The RPSL formula has no nontrivial \\(f'(z)\\) factor, so it corresponds to \\(f(z)=z\\), which has zero mass zero.",
+        "The RPSL source's mean condition is exactly \\(g'(1)<1\\), matching the subcritical total-progeny condition."
+      ],
+      "reasoning": "The cited foundational result implies the opposite of the source's zero-mass interpretation once the source's own positive coefficient formula is matched to the general theorem.",
+      "searches": [
+        "Consul Shenton 10.1137/0123026 f(0) Lagrange distribution",
+        "10.3390/math14101673 equation z=u g(z) PMF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source explicitly states both \\(z=u g(z)\\) and \\(P(X=0)=\\psi(0)=g(0)\\).",
+        "No published-finding corpus hit states an RPSL zero-mass or normalization correction.",
+        "Exact source searches found the original article but no correction note."
+      ],
+      "reasoning": "The contradiction was searched using the model name, exact DOI, zero-mass identity, and normalization terminology. No equivalent model-specific correction was located.",
+      "searches": [
+        "Rational-Power Shifted Lagrangian probability mass at zero psi(0) g(0) correction",
+        "10.3390/math14101673 normalization probability mass zero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source's simulation parameters \\((\\gamma,\\theta,c)=(1.5,0.4,0.3)\\) have \\(m=0.7\\) and reported zero proportion about 0.625.",
+        "The same parameter choice gives the source's reported mean about 3.33, which equals \\(1/(1-m)\\) for the positive-support total-progeny law.",
+        "The simulation instructions explicitly say to truncate and normalize the PMF."
+      ],
+      "reasoning": "The simulation example makes the inconsistency quantitative: the positive coefficients already have unit mass, while the advertised extra zero atom is about 0.625.",
+      "searches": [
+        "10.3390/math14101673 zero proportion 0.625 mean 3.33",
+        "10.3390/math14101673 normalize PMF y_max 500"
+      ]
+    },
+    "rationale": "The primary paper asserts the incompatible identity \\(\\psi(0)=g(0)\\) and explicitly claims that adding this value to the positive coefficients normalizes the law. The foundational Lagrange paper does not support that substitution: its zero mass belongs to a separate function \\(f\\). Five focused published-finding corpus searches and exact-source searches found no published RPSL correction or equivalent extinction-phase diagnosis.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "The paper's numerical normalization step may conceal the analytic defect in simulations while changing the intended model.",
+      "The supercritical conditional law is standard but its statistical inference properties are not assessed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT. The source defines \\(\\psi=u g(\\psi)\\), which forces \\(\\psi(0)=0\\), but then assigns \\(\\psi(0)=g(0)>0\\). Its positive coefficients are a total-progeny law whose normalization depends on the offspring mean.",
+        "evidence": "Section 2 equations (2)-(3), the paragraph immediately following (3), Theorem 1 normalization statement, condition (20), simulation parameters, and Appendix A.",
+        "identifier_or_url": "doi:10.3390/math14101673",
+        "material_read": "Open full HTML including Section 2 functional equation and Lagrange coefficient formula, the claimed zero atom, Theorem 1 and normalization paragraph, mean/variance section and subcritical condition, simulation parameter rationale, simulation normalization instruction, and Appendix A.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Rational-Power Shifted Lagrangian Distribution for Count Data with Flexible Dispersion",
+        "trigger": "Primary 2026 source defining the RPSL law and its normalization."
+      },
+      {
+        "assessment": "BROADER THEORY. It assigns zero mass to \\(f(0)\\), not \\(g(0)\\); with the RPSL positive formula one has \\(f(z)=z\\), so the zero mass is zero.",
+        "evidence": "The displayed Consul-Shenton formula for \\(P(X=0)\\) and \\(P(X=x)\\), \\(x\\ge1\\).",
+        "identifier_or_url": "doi:10.1137/0123026",
+        "material_read": "Publisher abstract displaying the full two-function probability formula.",
+        "method": "Direct publisher abstract inspection.",
+        "title": "Use of Lagrange Expansion for Generating Discrete Generalized Probability Distributions",
+        "trigger": "Foundational result cited by the RPSL source for its Lagrange construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea63a4b7-4ab2-42b3-a087-1eb8108c1141",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defect changes the support, normalization, zero probability, and the existence of an ordinary finite-valued count law across the parameter space. It also makes the source's highlighted simulation zero proportion incompatible with its own mean formula. These are foundational distributional properties underlying likelihood, simulation, and regression, not a cosmetic algebraic discrepancy.",
+    "status": "PASS"
+  }
+}
