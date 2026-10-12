@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts both hub states. With the hub blue, the process on the path is exactly ordinary path zero forcing, and the published endpoint-or-adjacent-pair criterion gives necessity and sufficiency. With the hub white, no path-to-path force can occur before the hub is forced; the hub can be the first forced vertex exactly from a selected boundary pair or selected consecutive triple. Each such pattern leaves an endpoint or adjacent pair on the path after the hub turns blue, so forcing completes. The two disjoint regimes yield the polynomial. The packaged verifier independently checks every subset for \\(3\\le m\\le10\\), every coefficient, and all minimum sets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyer et al. Proposition 5 gives the path polynomial and path nonforcing criterion, but full-text search finds no occurrence of “fan”.",
+        "Boyer et al. ask more generally about recurrence and splitting formulas rather than supplying a universal-vertex join theorem that specializes to this result."
+      ],
+      "reasoning": "The path formula supplies only the hub-selected contribution. Adding a universal vertex creates a new first-force obstruction when the hub is white, and the transfer-matrix term \\(A_m(x)\\) is not implied by the path polynomial alone.",
+      "searches": [
+        "arXiv:1801.08910 fan zero forcing polynomial",
+        "zero forcing polynomial dominating vertex graph",
+        "zero forcing universal vertex path fan",
+        "zero forcing polynomial join graph path universal vertex"
+      ]
+    },
+    "checked_sources": [
+      "AIM Minimum Rank – Special Graphs Work Group, doi:10.1016/j.laa.2007.10.009.",
+      "Boyer et al., arXiv:1801.08910v1 / doi:10.1016/j.dam.2018.11.033.",
+      "Hayat et al., doi:10.3934/math.2021111.",
+      "Kaudan, Taylor, Narayan, doi:10.3390/math11194068.",
+      "published-finding corpus semantic searches under fan, \\(K_1\\vee P_m\\), universal-vertex, all-set, minimum-set, and polynomial formulations.",
+      "Web searches under the same object and alias formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 foundational paper defines standard zero forcing and gives family examples, but not the all-set fan theorem.",
+        "Boyer et al. prove the path nonforcing characterization used as an input; no fan occurrence was found in the full text.",
+        "Hayat et al. treat oriented fans, where orientations alter legal forces.",
+        "Kaudan–Taylor–Narayan study failed zero forcing and use generalized fan notation, but failed zero forcing maximizes nonforcing sets rather than enumerating ordinary zero forcing sets."
+      ],
+      "reasoning": "None of the closest statements implies both cases of the retained iff theorem. The exact polynomial follows only after resolving the hub-white first move and counting its forbidden binary patterns.",
+      "searches": [
+        "doi:10.1016/j.laa.2007.10.009 fan path universal zero forcing",
+        "arXiv:1801.08910 Proposition 5 path fan",
+        "doi:10.3934/math.2021111 fan graph zero forcing",
+        "doi:10.3390/math11194068 fan graph failed zero forcing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no fan-specific all-set or polynomial result for the targeted queries.",
+        "Exact web searches for fan graphs together with ordinary zero forcing polynomial terminology returned the general polynomial paper and oriented/failed variants, not the claimed classification."
+      ],
+      "reasoning": "Aliases such as fan graph, \\(K_1\\vee P_m\\), and path with a universal vertex were searched. The retained iff condition distinguishes the hub-selected and hub-free regimes, so a source stating only \\(Z(F_m)=2\\) would not cover the claim.",
+      "searches": [
+        "zero forcing polynomial fan graph K1 join Pn",
+        "zero forcing sets fan graphs all sets",
+        "fan graph zero forcing polynomial",
+        "zero forcing sets fan graph universal vertex",
+        "zero forcing K1 join path all initial sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus zero-forcing-polynomial hits concern trees, finite-field graphs, dihedral graphs, and other families, with no fan formula.",
+        "The foundational 2008 source lists many families for scalar zero forcing/minimum rank but does not tabulate the retained all-set fan polynomial."
+      ],
+      "reasoning": "No inspected database, family table, or polynomial catalog states the boundary-pair/consecutive-triple criterion, the transfer term, or the four minimum-set classification for all \\(m\\ge3\\).",
+      "searches": [
+        "zero forcing polynomial fan graph",
+        "minimum zero forcing sets fan graph classification",
+        "fan graph zero forcing number polynomial",
+        "K1 join Pn zero forcing polynomial"
+      ]
+    },
+    "rationale": "No inspected source implies the complete ordinary undirected fan classification or its polynomial. Boyer et al. define the polynomial and give the path criterion used here, but their full text has no fan occurrence and no join formula that determines the hub-free first-force obstruction. The retrieved fan literature concerns oriented zero forcing or failed zero forcing, which are different processes/invariants. Targeted published-finding corpus and web searches under fan, join, universal-vertex, and polynomial formulations returned no equivalent or stronger statement.",
+    "residual_risks": [
+      "A poorly indexed thesis, conference paper, or source using an uncommon fan alias could contain an equivalent formula.",
+      "The literature search establishes no detected coverage, not a formal proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL for the standard process and MSC ownership; NOT_COVERING the retained fan all-set classification or polynomial.",
+        "evidence": [
+          "The PDF states “Available online 26 November 2007” and AMS classification 05C50.",
+          "Definition 2.1 states the ordinary color-change rule used in the proof."
+        ],
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009",
+        "material_read": "Front matter, definition of the color-change rule and zero forcing set, and the family-summary portion.",
+        "method": "Full-text public PDF inspection, including rendered first page.",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational ordinary zero forcing source and slot-ownership anchor."
+      },
+      {
+        "assessment": "COVERS the polynomial framework and the path component; NOT_COVERING the fan theorem.",
+        "evidence": [
+          "Proposition 5 states that nonforcing path sets omit both endpoints and contain no adjacent vertices.",
+          "The full text has no occurrence of “fan”."
+        ],
+        "identifier_or_url": "arXiv:1801.08910v1",
+        "material_read": "Abstract and definition, Section 4 specific-family formulas, Proposition 5 on paths, and full-text search for “fan”.",
+        "method": "Full-text arXiv PDF inspection, exact-term search, and rendered page inspection.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Primary source defining the enumerator and giving the exact path criterion used in the proof."
+      },
+      {
+        "assessment": "NOT_COVERING because it studies directed/oriented fan graphs with direction-sensitive forcing and propagation time.",
+        "evidence": [
+          "The paper explicitly defines directed fan graphs and varies edge orientations.",
+          "Its fan theorems give orientation-dependent scalar bounds/values, not the undirected all-set polynomial."
+        ],
+        "identifier_or_url": "doi:10.3934/math.2021111",
+        "material_read": "HTML/PDF-visible fan-graph section, including Theorems 2.4–2.6.",
+        "method": "Primary full-text inspection around the fan theorems.",
+        "title": "On the zero forcing number and propagation time of oriented graphs",
+        "trigger": "Same named graph family and forcing terminology."
+      },
+      {
+        "assessment": "NOT_COVERING because the invariant is the largest failed set and the paper does not enumerate ordinary zero forcing sets of \\(K_1\\vee P_m\\).",
+        "evidence": [
+          "The article defines failed zero forcing as maximizing an initial set that does not force the graph.",
+          "Its generalized fan notation does not convert that failed-set problem into the retained ordinary all-set classification."
+        ],
+        "identifier_or_url": "doi:10.3390/math11194068",
+        "material_read": "Open-access introduction/notation and scope describing failed zero forcing.",
+        "method": "Primary open-access HTML inspection.",
+        "title": "An Inverse Approach for Finding Graphs with a Failed Zero Forcing Number of k",
+        "trigger": "Search result using generalized fan notation under zero forcing terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6f78a6a-8825-4cf9-901b-2922439722d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fan graphs are a canonical join family obtained by adding one universal vertex to a path, and zero forcing polynomials were introduced specifically to refine scalar zero forcing information to all cardinalities. The theorem identifies a sharp dynamical split created by the hub: the selected-hub case inherits the path criterion, while the unselected-hub case is governed by boundary pairs and length-three runs. The resulting transfer-matrix enumerator and complete minimum-set classification give a natural exact benchmark that is materially stronger than the elementary scalar equality \\(Z(F_m)=2\\).",
+    "status": "PASS"
+  }
+}
