@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Writing \\(r=\\beta_2/\\beta_1\\), the source-series term magnitude is \\(a_n=\\Gamma(1+nr,1)/n!\\). Fixed-cutoff incomplete-gamma asymptotics plus Stirling give \\(\\log a_n=(r-1)n\\log n+n(r\\log r-r+1)+O(\\log n)\\), so terms grow for \\(r>1\\). At \\(r=1\\), the exact integer incomplete-gamma formula gives \\(a_n\\to1\\). For \\(0<r<1\\), absolute termwise integration follows from integrability of \\(t^{\\beta_1-1}e^{-t^{\\beta_1}+t^{\\beta_2}}\\). Continuity then gives the exact complementary repair. The packaged checker independently verifies representative direct integrals and both convergence regimes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "NIST DLMF §5.11 supplies standard gamma/Stirling asymptotics used to classify the series terms.",
+        "The closest database results concerned gamma monotonicity, gamma approximation, or unrelated reliability identification rather than the UPGWD stress–strength series.",
+        "No checked broader result supplied the source-specific parameter-domain repair."
+      ],
+      "reasoning": "General special-function asymptotics dominate the term test but do not by themselves identify which UPGWD parameter branch justifies exchanging the improper integral and exponential series.",
+      "searches": [
+        "unit power generalized Weibull stress strength incomplete gamma series divergence",
+        "beta1 beta2 Gamma(n beta2/beta1 +1,1) n factorial convergence",
+        "stress strength reliability UPGWD beta2 greater beta1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2025837",
+      "url:https://www.sciopen.com/article/10.3934/math.2025837",
+      "url:https://dlmf.nist.gov/5.11"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest result 2026/9/21/SCOPE-gamma-monotonicity-critical-tau-bracket--04bd6407a2a1 concerns a different gamma-function monotonicity threshold.",
+        "Closest result 2026/9/18/SCOPE-satterthwaite-transform-gaps-metric-lower-bounds--883f5d776ec4 concerns gamma approximation for heterogeneous sums.",
+        "Closest result 2026/9/21/SCOPE-first-two-failure-marginals-identify-proportional-hazards--ed35170c77f7 concerns reliability identifiability, not this stress–strength expansion.",
+        "No checked previous private finding contains the target DOI, UPGWD acronym, or unit power generalized Weibull source."
+      ],
+      "reasoning": "Neither the closest published-result records nor the checked previous-source claims imply the exact exponent-ratio convergence boundary or its symmetry repair.",
+      "searches": [
+        "10.3934/math.2025837 stress strength series convergence beta1 beta2 incomplete gamma",
+        "unit power generalized Weibull stress strength incomplete gamma series divergence",
+        "UPGWD stress strength reliability beta1 beta2 series",
+        "beta1 beta2 Gamma(n beta2/beta1 +1,1) n factorial convergence",
+        "unit power generalized Weibull reliability coefficient correction",
+        "UPGWD Equation 3.11 convergence",
+        "stress strength reliability UPGWD beta2 greater beta1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary Eq. (3.11) is an alternating upper-incomplete-gamma series indexed by \\(n\\beta_2/\\beta_1\\).",
+        "No located result stated the equivalent term-test condition \\(\\beta_2<\\beta_1\\), divergence at or above equality, or the complementary swapped-shape formula.",
+        "Searches covered the exact DOI, model acronym, equation number, stress–strength terminology, and incomplete-gamma representation."
+      ],
+      "reasoning": "The convergence boundary, failure of the term test, and symmetry-repaired branch formula are equivalent ways to express the same source-specific correction and were compared under those aliases.",
+      "searches": [
+        "10.3934/math.2025837 stress strength series convergence beta1 beta2 incomplete gamma",
+        "UPGWD stress strength reliability beta1 beta2 series",
+        "UPGWD Equation 3.11 convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF shows Eq. (3.11) without a condition on \\(\\beta_1,\\beta_2\\).",
+        "Table 2 explicitly compares the integral with the first 100 series terms.",
+        "Every Table 2 shape pair satisfies \\(\\beta_2<\\beta_1\\), so the table never tests the divergent equality or reversed-order regimes."
+      ],
+      "reasoning": "The paper’s own validation table samples only the mathematically safe half of the shape-order domain, explaining why the missing convergence restriction is not exposed there.",
+      "searches": [
+        "10.3934/math.2025837 Eq 3.11 stress strength",
+        "10.3934/math.2025837 Table 2 series expansion",
+        "unit power generalized Weibull reliability coefficient correction"
+      ]
+    },
+    "rationale": "The primary paper prints Eq. (3.11) without a shape-order restriction and tests only examples with \\(\\beta_2<\\beta_1\\). Targeted source, model-name, reliability, incomplete-gamma, exponent-ratio, equation, and correction searches found no published UPGWD-specific convergence boundary or piecewise repair. Standard gamma asymptotics provide ingredients but do not state this model-specific consequence.",
+    "residual_risks": [
+      "A recent unindexed correction or author note could exist.",
+      "The source may have intended Eq. (3.11) only as a formal expansion, although it presents it as a reliability formula and numerically evaluates partial sums.",
+      "Near \\(\\beta_1=\\beta_2\\), the convergent branch may require numerical acceleration even though mathematical convergence is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING THE CONVERGENCE BOUNDARY. Eq. (3.11) is stated without a shape-order condition; the validation table uses only \\(\\beta_2<\\beta_1\\).",
+        "evidence": "Stress–strength derivation on pp. 18738–18739, especially Eq. (3.11) and Table 2.",
+        "identifier_or_url": "doi:10.3934/math.2025837",
+        "material_read": "Open publisher PDF at the stress–strength subsection, including the original integral, Eqs. (3.8)–(3.11), and Table 2 on the following page.",
+        "method": "Direct parsed-text and rendered-page inspection of the open publisher PDF.",
+        "title": "A novel extension to the unit Weibull distribution: properties and inference with applications to medicine, engineering, and radiation",
+        "trigger": "Primary source deriving and numerically validating the stress–strength series."
+      },
+      {
+        "assessment": "SUPPORTING GENERAL REFERENCE ONLY. It supplies the asymptotic ingredient, not the UPGWD convergence classification.",
+        "evidence": "Standard large-argument gamma/Stirling asymptotics.",
+        "identifier_or_url": "url:https://dlmf.nist.gov/5.11",
+        "material_read": "Gamma-function Stirling/asymptotic formulas; fixed lower cutoff is negligible as the shape tends to infinity.",
+        "method": "Direct reference-page inspection.",
+        "title": "NIST Digital Library of Mathematical Functions, §5.11",
+        "trigger": "Special-function asymptotics needed to compare \\(\\Gamma(1+nr,1)\\) with \\(n!\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ebeed83-400f-42fc-8044-3c8e4fbcf6dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stress–strength reliability is a named reliability property and receives its own derivation and numerical table in the source. The printed series fails on the entire half-space \\(\\beta_2>\\beta_1\\) and at equality, including the natural iid benchmark where the true answer is exactly \\(1/2\\). The correction is not merely a warning: the complement symmetry supplies a simple globally convergent replacement for every positive shape pair.",
+    "status": "PASS"
+  }
+}
