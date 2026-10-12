@@ -1,0 +1,266 @@
+# Twist-compatible Reynolds operators in a three-dimensional Hom–Leibniz example
+
+## Finding
+
+Let \(K\) be a field with
+\[
+\operatorname{char}K\ne2.
+\]
+Consider the three-dimensional Hom–Leibniz algebra \(\mathfrak g_K\) with basis
+\[
+\{e_1,e_2,e_3\},
+\]
+sole nonzero bracket
+\[
+[e_1,e_1]=e_3,
+\]
+and twisting map
+\[
+\phi(e_1)=-e_1,
+\qquad
+\phi(e_2)=e_2,
+\qquad
+\phi(e_3)=e_3.
+\]
+
+For the regular representation, a Reynolds operator \(K:\mathfrak g_K\to\mathfrak g_K\) must satisfy both
+\[
+K\phi=\phi K
+\]
+and
+\[
+[Kx,Ky]
+=
+K\!\left([Kx,y]+[x,Ky]-[Kx,Ky]\right)
+\]
+for all \(x,y\in\mathfrak g_K\).
+
+Writing columns in the displayed basis, twist compatibility forces
+\[
+\boxed{
+K=
+\begin{pmatrix}
+a&0&0\\
+0&u&p\\
+0&v&t
+\end{pmatrix}.
+}
+\]
+For such a matrix the complete Reynolds equation is equivalent to
+\[
+\boxed{a(2-a)p=0,}
+\qquad
+\boxed{a^2=a(2-a)t.}
+\]
+
+Thus the complete solution set is the disjoint union
+\[
+\boxed{
+\mathcal A=
+\left\{
+\begin{pmatrix}
+0&0&0\\
+0&u&p\\
+0&v&t
+\end{pmatrix}:u,p,v,t\in K
+\right\}
+}
+\]
+and
+\[
+\boxed{
+\mathcal B=
+\left\{
+\begin{pmatrix}
+a&0&0\\
+0&u&0\\
+0&v&\dfrac{a}{2-a}
+\end{pmatrix}:
+a\in K\setminus\{0,2\},\ u,v\in K
+\right\}.
+}
+\]
+
+This also exposes a compatibility omission in Example 3.3 of Wang and Ke. Their Definition 3.1 requires \(K\phi=\phi K\), but the example's concluding matrix families allow arbitrary entries in the \(e_2\)- and \(e_3\)-components of \(K(e_1)\). Those entries must vanish.
+
+A concrete false positive in the printed first family is
+\[
+K(e_1)=e_2,
+\qquad
+K(e_2)=K(e_3)=0.
+\]
+It satisfies the displayed bracket equation, but
+\[
+K\phi(e_1)-\phi K(e_1)=-2e_2\ne0.
+\]
+Hence it is not a Reynolds operator under Definition 3.1.
+
+Over every odd finite field \(\mathbf F_q\),
+\[
+\boxed{
+|\operatorname{Rey}(\mathfrak g_{\mathbf F_q})|
+=q^4+q^3-2q^2.
+}
+\]
+The exact rank distribution in ranks \(0,1,2,3\) is
+\[
+\boxed{
+\left(
+1,
+(q-1)(q+1)^2,
+q(q^3-q^2-1),
+q(q-1)(q-2)
+\right).
+}
+\]
+
+Over every extension field,
+\[
+N_m=q^{4m}+q^{3m}-2q^{2m},
+\]
+so the Hasse–Weil zeta function of the reduced solution set is
+\[
+\boxed{
+Z(T)=\frac{(1-q^2T)^2}{(1-q^4T)(1-q^3T)}.
+}
+\]
+
+## Assumptions and scope
+
+Wang and Ke define a Reynolds operator on a Hom–Leibniz algebra by two simultaneous requirements: compatibility with the twisting maps and the Reynolds bracket identity. Their Example 3.3 uses exactly the algebra treated here.
+
+The source works over an algebraically closed field of characteristic zero. The calculation above is valid over every field of characteristic different from \(2\). Characteristic \(2\) is excluded because the two eigenspaces of the displayed twist coalesce.
+
+The bibliographic record gives the article as January 2023 but does not expose a day. The day-level public full-text evidence used for `first_public_date` is 10 August 2023. No journal-publication day is invented.
+
+## Proof
+
+For
+\[
+x=x_1e_1+x_2e_2+x_3e_3,
+\qquad
+y=y_1e_1+y_2e_2+y_3e_3,
+\]
+the bracket is
+\[
+[x,y]=x_1y_1e_3.
+\]
+
+Let
+\[
+K=(k_{ij}).
+\]
+Since
+\[
+\phi=\operatorname{diag}(-1,1,1),
+\]
+the equation \(K\phi=\phi K\) forces all entries connecting the \(-1\)-eigenspace \(Ke_1\) with the \(+1\)-eigenspace \(Ke_2\oplus Ke_3\) to vanish. Thus
+\[
+K=
+\begin{pmatrix}
+a&0&0\\
+0&u&p\\
+0&v&t
+\end{pmatrix}.
+\]
+
+The only bracket contribution depends on the first coordinates. Hence
+\[
+[Kx,Ky]=a^2x_1y_1e_3.
+\]
+Also
+\[
+[Kx,y]+[x,Ky]-[Kx,Ky]
+=(2a-a^2)x_1y_1e_3.
+\]
+Applying \(K\) gives
+\[
+(2a-a^2)x_1y_1(pe_2+te_3).
+\]
+Equality for all \(x,y\) is therefore exactly
+\[
+a(2-a)p=0,
+\qquad
+a^2=a(2-a)t.
+\]
+
+If \(a=0\), both equations vanish and \(u,p,v,t\) are arbitrary, giving \(\mathcal A\).
+
+If \(a\ne0\), then \(a=2\) is impossible because the second equation would give \(4=0\). Thus \(a\ne2\), and the equations force
+\[
+p=0,
+\qquad
+t=\frac{a}{2-a},
+\]
+while \(u,v\) remain arbitrary. This gives \(\mathcal B\).
+
+For the printed false positive \(K(e_1)=e_2\), every bracket involving an image of \(K\) vanishes and \(K(e_3)=0\), so the bracket Reynolds equation holds. But twist compatibility fails by \(-2e_2\).
+
+Over \(\mathbf F_q\), \(\mathcal A\) has \(q^4\) points and \(\mathcal B\) has \((q-2)q^2\) points. They are disjoint because \(a=0\) on \(\mathcal A\) and \(a\ne0\) on \(\mathcal B\).
+
+The rank distribution on \(\mathcal A\) is the usual rank distribution of a free \(2\times2\) block:
+\[
+1,
+\qquad
+(q-1)(q+1)^2,
+\qquad
+(q^2-1)(q^2-q).
+\]
+On \(\mathcal B\), the first and third diagonal entries are nonzero. If \(u=0\), the rank is \(2\), giving \(q(q-2)\) further rank-two maps. If \(u\ne0\), the rank is \(3\), giving \(q(q-1)(q-2)\) maps. Adding the rank-two contributions yields
+\[
+q(q^3-q^2-1).
+\]
+The zeta function follows by replacing \(q\) by \(q^m\) in the point count.
+
+## Verification
+
+The included `artifacts/verify.py` reconstructs the bracket and Reynolds defect symbolically after imposing twist compatibility. It checks that the resulting ideal is generated by
+\[
+a(2-a)p,
+\qquad
+a^2-a(2-a)t.
+\]
+
+It separately verifies that \(K(e_1)=e_2\) satisfies the bracket equation but violates twist compatibility in every tested odd characteristic.
+
+The checker exhaustively enumerates the full five-dimensional twist centralizer over
+\[
+\mathbf F_3,\quad\mathbf F_5,\quad\mathbf F_7,\quad\mathbf F_{11}.
+\]
+It obtains totals
+\[
+90,\quad700,\quad2646,\quad15730
+\]
+and rank profiles
+\[
+(1,32,51,6),
+\quad
+(1,144,495,60),
+\quad
+(1,384,2051,210),
+\quad
+(1,1440,13299,990).
+\]
+These agree with the closed formulas above. The checker returns `VERIFY_OK`.
+
+Finite enumeration is replay evidence; the arbitrary-field classification is the symbolic argument above.
+
+## Relationship to prior work
+
+Wang and Ke introduce Reynolds operators on Hom–Leibniz algebras and give Example 3.3 as their first explicit matrix calculation. Their Definition 3.1 includes twist compatibility, whereas the example's final two matrix families retain entries that map the \(-1\)-twist eigenspace into the \(+1\)-eigenspace. The corrected classification is obtained by reinstating that defining condition before solving the bracket equation.
+
+Targeted searches for the article title, Example 3.3, the offending matrix entries, correction or erratum terminology, low-dimensional Hom–Leibniz Reynolds classifications, and the exact finite-field polynomial found no published repair or dominating classification.
+
+General Reynolds and Hom-algebra operator literature supplies constructions and deformation theory but does not imply the corrected two-component moduli or its finite-field rank census.
+
+## Limitations
+
+Characteristic \(2\) is not covered.
+
+The result corrects and exhaustively classifies only the specific three-dimensional example above; it is not a classification of Reynolds operators on all three-dimensional Hom–Leibniz algebras.
+
+A later unindexed correction, thesis, or basis-equivalent low-dimensional table may exist. Failed searches do not prove absolute novelty.
+
+## References
+
+1. D. Wang and Y. Ke, “Reynolds operators on Hom-Leibniz algebras,” *Filomat* 37 (2023), 2117–2130, DOI `10.2298/FIL2307117W`.
