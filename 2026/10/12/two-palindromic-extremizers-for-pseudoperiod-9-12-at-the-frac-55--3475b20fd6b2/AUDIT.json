@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The finite pseudoperiod condition is prefix-closed and each extension introduces exactly one new equation. Power avoidance is also prefix-closed; any newly created forbidden power is a suffix. For each period p, checking the suffix of length ceil(55p/21) is necessary and sufficient for creation of a factor with exponent at least 55/21. Two independently coded exhaustive engines agree on every level through length 201, yielding exactly two words at length 200 and none at 201. Whole-word rescans verify both boundary words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Table 1 determines optimal exponents and longest finite lengths for the displayed pair range; its largest finite entry is 200 for (9,12).",
+        "The surrounding theorem and conjecture concern existence of infinite pseudoperiodic words and do not determine the number of longest finite e-free words."
+      ],
+      "reasoning": "A scalar maximum plus an existence witness does not imply uniqueness of the complement pair; the equality-layer cardinality is a strictly finer finite statement.",
+      "searches": [
+        "Pseudoperiodic Words and a Question of Shevelev Table 1 full text",
+        "pseudoperiod critical exponent (9,12) later work",
+        "binary pseudoperiodic repetition threshold equality cases"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.10171v1",
+      "DOI:10.46298/dmtcs.9919 full text",
+      "public companion repository sonjashan/sha_gen, especially critical_exp_tables/longest_finite_seqs.txt",
+      "targeted indexed searches for the exact witness and equality-case terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior work implies that no valid word exceeds length 200 and supplies one length-200 word.",
+        "Complementation preserves both constraints, so prior data imply at least two length-200 words, but do not imply that these are the only two.",
+        "The palindrome property is directly checkable from the two equality words; the novel substantive assertion is exhaustion of the top layer."
+      ],
+      "reasoning": "The exact cardinality two requires a complete search of the finite prefix tree and is not a corollary of the scalar upper bound or one stored witness.",
+      "searches": [
+        "arXiv:2207.10171v1 Definition 1 and Table 1",
+        "companion longest_finite_seqs.txt (9,12) row",
+        "searches for unique/extremizers/equality cases at (9,12)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines finite pseudoperiod (a,b) by w_i belonging to {w_{i+a},w_{i+b}} for all permitted i.",
+        "The article and companion data identify the (9,12), 55/21-free, length-200 obstruction but do not state a complete equality count."
+      ],
+      "reasoning": "The searches cover the source terminology, the direct constraint formulation, and the extremizer/equality-case formulation of the same finite language.",
+      "searches": [
+        "pseudoperiod (9,12) 55/21-free longest word length 200 unique extremizer",
+        "binary words pseudoperiod 9 12 55/21 power free equality cases",
+        "Pseudoperiodic Words Table 1 length 200 (9,12) classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected companion file has one line for (9,12), giving 55/21-free, length 200, and one explicit word.",
+        "The companion table contains no multiplicity field and no second or third maximizing word for that entry."
+      ],
+      "reasoning": "The new count is not copied from the public exact-data file. The published word is used only as an anchor; exhaustive regeneration supplies the equality census.",
+      "searches": [
+        "critical_exp_tables/longest_finite_seqs.txt in sonjashan/sha_gen",
+        "exact search for the published length-200 witness",
+        "55/21-free length 200 pseudoperiod"
+      ]
+    },
+    "rationale": "The primary paper states the scalar maximum 200 for pseudoperiod (9,12), and its public companion file prints one maximizing witness. Complement symmetry gives a second witness immediately, but neither inspected source states that there are no others. Targeted statement-level, exact-string, and equality-case searches did not locate the exact multiplicity-two classification.",
+    "residual_risks": [
+      "Unpublished search output from the original computation may contain the full two-word top layer.",
+      "An unindexed note or private computation could state the same uniqueness result.",
+      "Negative search results are supporting evidence, not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY_RELEVANT_NOT_COVERING the equality census.",
+        "evidence": "Table 1 gives exponent 55/21 and longest finite length 200 for pseudoperiod (9,12), but no count or uniqueness classification of length-200 words.",
+        "identifier_or_url": "arXiv:2207.10171v1 / DOI:10.46298/dmtcs.9919",
+        "material_read": "Definition 1, Section 5 on critical exponents, Proposition 33, Table 1 and its explanation, Conjecture 34, and the surrounding proof discussion.",
+        "method": "Full-text open-access PDF inspection, including rendered inspection of the Table 1 page.",
+        "title": "Pseudoperiodic Words and a Question of Shevelev",
+        "trigger": "Direct source for the definition, optimal critical-exponent table, and length-200 obstruction."
+      },
+      {
+        "assessment": "ANCHOR_ONLY_NOT_COVERING the complete equality layer.",
+        "evidence": "The (9,12) row stores one 200-letter witness, which is one of the two words in the new classification; no multiplicity or uniqueness statement is present.",
+        "identifier_or_url": "github:sonjashan/sha_gen/critical_exp_tables/longest_finite_seqs.txt",
+        "material_read": "Complete 5090-byte text file, with specific comparison of the (9,12) row and neighboring table entries.",
+        "method": "Direct public repository file inspection.",
+        "title": "sha_gen companion data: longest_finite_seqs.txt",
+        "trigger": "The article explicitly directs readers to this file for the finite extremal data."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3475b20f-d6b2-47d8-b5c1-d848d3e3361a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The (9,12) cell is distinguished inside the source: its finite obstruction length 200 is the largest finite cutoff in Table 1. Classifying the entire top level of that hardest tabulated obstruction is a natural equality problem, and the result shows extreme rigidity—only a complementary pair, each palindromic—rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
