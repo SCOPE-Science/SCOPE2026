@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The source betting fraction reduces exactly to \\(L^{-1}\\tanh(1/(2n+1))\\) on odd rounds and to zero on even rounds. This forces every odd-indexed iterate after a completed pair back to the initialization. The intervening even iterate loses the fraction \\(a_n\\) of current wealth on the next outcome, giving \\(W_n=W_{n-1}(1-a_n)\\). The excursion equals \\(P_{n-1}-P_n\\), so the source average telescopes exactly. The \\(n^{-1/2}\\) wealth asymptotic follows from an exact harmonic-number decomposition and a convergent cosh product. Fresh replay of the embedded verifier confirms all finite identities and numerical constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining theorem gives a generic data-dependent convergence rate and the appendix proves a lower bound on wealth for arbitrary bounded outcomes.",
+        "The 2020/2022 ODE coin-betting paper explicitly introduces a new continuous-time-derived parameter-free update to improve empirical behavior.",
+        "Neither broad result, as inspected, states the discrete COCOB period-two identity or the exact asymptotic excursion constant."
+      ],
+      "reasoning": "A general regret or convergence bound does not determine the exact transient state sequence on a particular adversarial input. The later ODE-based optimizer uses a different update map, so its guarantees do not imply the discrete COCOB reset law.",
+      "searches": [
+        "coin betting periodic gradients COCOB",
+        "COCOB alternating outcomes",
+        "Better Parameter-Free Stochastic Optimization with ODE Updates for Coin-Betting"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1705.07795v3",
+      "arXiv:2006.07507",
+      "DOI:10.1609/aaai.v36i6.20573"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 supplies the exact \\(G\\), reward, cumulative-gradient, betting-fraction, and iterate recurrences used in the proof.",
+        "The paper states scale-freeness and explains exponential growth during sequences of identical outcomes.",
+        "Appendix A studies a generic lower bound on wealth, not the exact balanced alternating trajectory."
+      ],
+      "reasoning": "The prior work defines the mechanism and proves broad guarantees. The final claim requires specializing the exact recurrence, identifying zero betting fractions on every even round, recognizing the excursion as a wealth difference, and then carrying the product to a sharp asymptotic.",
+      "searches": [
+        "arXiv:1705.07795v3 COCOB Algorithm 1 beta theta G reward",
+        "arXiv:1705.07795v3 Figure 1 equal gradient outcomes effective learning rate",
+        "arXiv:1705.07795v3 Appendix A wealth induction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the exact data-dependent sigmoid betting fraction and dual-averaging update.",
+        "Full-text searches of the defining source for alternating, periodic, and oscillatory formulations did not reveal this response law.",
+        "The source's same-sign discussion is the opposite signal regime and does not imply the exact balanced reset or power-law constant."
+      ],
+      "reasoning": "Equivalent formulations include an every-other-step reset, a balanced-outcome wealth law, a telescoping source average, or an \\(n^{-3/2}\\) high-frequency excursion. None was located in the inspected source or returned published records.",
+      "searches": [
+        "COCOB coin betting alternating gradients exact wealth decay",
+        "COCOB balanced alternating gradient periodic coin outcomes",
+        "COCOB optimizer high frequency alternating gradient product tanh",
+        "arXiv:1705.07795v3 Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest returned records concerned unrelated adaptive-step, minimax, stochastic-feedback, and probability problems.",
+        "No returned record named COCOB in a theorem about alternating or balanced period-two gradients."
+      ],
+      "reasoning": "The closest database records use different state variables and do not imply the COCOB wealth product. Search absence is supporting evidence only and is combined with direct full-text source inspection.",
+      "searches": [
+        "COCOB coin betting alternating gradients exact wealth decay",
+        "COCOB balanced alternating gradient periodic coin outcomes",
+        "COCOB optimizer high frequency alternating gradient product tanh",
+        "continuous coin betting alternating outcomes wealth product"
+      ]
+    },
+    "rationale": "The defining paper analyzes COCOB's generic wealth guarantee and highlights rapid growth under runs of equal outcomes, but its inspected full text and appendix do not state the balanced period-two reset, telescoping-average identity, or the sharp \\(n^{-3/2}\\) excursion law. Focused published-record and web searches found no implication-equivalent COCOB result. Later coin-betting work inspected at the title/abstract level introduces a different ODE-based update rather than this discrete recurrence.",
+    "residual_risks": [
+      "An equivalent elementary specialization of COCOB may exist in unindexed notes or teaching material.",
+      "The exact law is for the theoretical known-bound algorithm, not the practical COCOB-Backprop variant.",
+      "The period-two input is an adversarial diagnostic rather than an objective-generated gradient trajectory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_BALANCED_PERIOD_TWO_RESET_OR_SHARP_POWER_LAW.",
+        "evidence": "The paper supplies every recurrence used here and discusses rapid bet growth under same-sign outcomes, but no exact balanced-alternating reset, telescoping average, or \\(n^{-3/2}\\) excursion law was found.",
+        "identifier_or_url": "arXiv:1705.07795v3",
+        "material_read": "Open full-text HTML covering the coin-betting reduction, Algorithm 1, Section 5 discussion and theorem, the one-dimensional behavior discussion around Figure 1, COCOB-Backprop distinctions, and Appendix A including the wealth induction.",
+        "method": "Full-text source inspection with targeted searches for alternating, periodic, and oscillatory behavior.",
+        "title": "Training Deep Networks without Learning Rates Through Coin Betting",
+        "trigger": "Defining source for the theoretical COCOB recurrence, scale-free property, same-sign behavior, output averaging, and wealth proof."
+      },
+      {
+        "assessment": "DIFFERENT_UPDATE_FAMILY; NOT_USED_FOR_WHOLE_DOCUMENT_NONCOVERAGE.",
+        "evidence": "The work introduces a new continuous-time ODE-based parameter-free optimizer rather than the discrete Algorithm 1 recurrence analyzed here.",
+        "identifier_or_url": "arXiv:2006.07507 / DOI:10.1609/aaai.v36i6.20573",
+        "material_read": "Title, abstract, bibliographic record, and method-level description identifying a new ODE-derived coin-betting update.",
+        "method": "Open-access abstract and proceedings-page inspection.",
+        "title": "Better Parameter-Free Stochastic Optimization with ODE Updates for Coin-Betting",
+        "trigger": "Later primary work in the same parameter-free coin-betting optimization family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e33ec760-9011-4b26-bad0-7f680ff7b871",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "COCOB's central mechanism is data-dependent wealth adaptation to gradient sign consistency. The source itself explains the equal-sign extreme; the balanced alternating extreme is the natural complementary stress test. The result is structurally sharp: it gives every iterate and wealth value, an exact telescoping formula for the source's convex output, and the precise high-frequency rejection exponent and constant. It also makes scale-freeness concrete by showing complete independence from the gradient magnitude \\(L\\).",
+    "status": "PASS"
+  }
+}
