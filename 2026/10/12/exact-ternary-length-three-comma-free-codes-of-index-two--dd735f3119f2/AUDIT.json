@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The defining quantifiers are reconstructed exactly. Exhaustion of every five-subset proves the sharp upper bound by heredity; exhaustion of every four-subset gives nine maxima, all independently matched to the claimed templates. The symmetry computation exhausts all 12 stated transformations.",
+    "risks": [
+      "Finite exhaustive verification depends on faithfully implementing the stated splice and Hamming-distance definitions; the code is short, explicit, and independently rechecks structural consequences."
+    ],
+    "sources": [
+      "verify.py",
+      "census.json"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Levenshtein 2004 gives asymptotic lower bounds for fixed index and difference-system constructions, not a finite theorem covering all ternary length-three codes.",
+        "Jiggs 1963 gives a construction lower bound rather than a general upper bound at this parameter."
+      ],
+      "reasoning": "Neither a general theorem nor an asymptotic result in the inspected literature specializes to an upper bound of four plus the nine equality cases. No stronger result with dominating parameters was found.",
+      "searches": [
+        "published-finding corpus: \"comma-free codes of index 2 ternary length 3 W2(3,3)\"",
+        "published-finding corpus: \"comma-free code of index r\"",
+        "Full-text inspection of Levenshtein 2004, Sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4153/CJM-1963-021-1",
+      "doi:10.1002/jcd.10071",
+      "unt:metadc1536519",
+      "MSC2020 94A45 entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At \\(n=3\\) and alphabet size \\(3\\), Jiggs Theorem 14 yields a construction of size four, so it implies existence but not optimality or classification.",
+        "Levenshtein defines the optimization problem and reviews general bounds, but the inspected statements do not force an upper bound four in this finite nonbinary case."
+      ],
+      "reasoning": "The new claim strictly adds the matching upper bound, exact labeled count nine, and complete equality structure. Those conclusions are not corollaries of the inspected prior statements.",
+      "searches": [
+        "Jiggs 1963, Section 6 and Theorem 14",
+        "Levenshtein 2004, Section 3",
+        "published-finding corpus exact-parameter and alias searches listed above"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jiggs 1963, DOI 10.4153/CJM-1963-021-1, Section 6 defines index-\\(r\\) comma-free codes and Theorem 14 supplies a lower bound for \\(W_2(n,3)\\).",
+        "Levenshtein 2004, DOI 10.1002/jcd.10071, Section 3 defines the general maximum-size problem for a prescribed comma-free index."
+      ],
+      "reasoning": "The checked aliases include \\(W_2(n,3)\\), prescribed comma-free index, code separation, and the splice notation used in the later survey. The historical sources establish the same object but do not imply the finite equality classification at alphabet size three and length three.",
+      "searches": [
+        "published-finding corpus: \"M(3,3,2) comma-free index 2\"",
+        "published-finding corpus: \"W_2(3,3) four comma-free index\"",
+        "published-finding corpus: \"ternary length three comma-free index two maximum four\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit returned an exact table entry for the parameter.",
+        "The inspected Levenshtein survey discusses exact ordinary comma-free values and prescribed-index asymptotics but contains no table entry for the claimed parameter."
+      ],
+      "reasoning": "The direct small-parameter database/table route was checked explicitly. Absence of a hit is not treated as proof of novelty; it is combined with direct inspection of the most relevant historical and survey sources.",
+      "searches": [
+        "published-finding corpus: \"comma-free index two length three alphabet three 4\"",
+        "published-finding corpus: \"ternary length three comma-free index two maximum four\"",
+        "Levenshtein 2004 references and small-parameter discussion"
+      ]
+    },
+    "rationale": "The closest direct historical source gives the lower-bound construction but not the upper bound or equality census; the closest broad full-text survey defines the same optimization problem and does not state this finite classification. Focused published-finding corpus searches found no implication-equivalent record.",
+    "residual_risks": [
+      "Unindexed older tables or correspondence may contain the same nine-code census.",
+      "The exact print day of the 1963 Jiggs article was not resolved; structured dating therefore uses the earliest inspected exact date rather than inventing a 1963 day."
+    ],
+    "risks": [
+      "An obscure unindexed historical computation or table could contain the same finite classification. Jiggs is known to be a 1963 publication, but its exact print day was unresolved in inspected metadata."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_LOWER_BOUND_NOT_COVERING_CLASSIFICATION",
+        "evidence": "Defines index r by Hamming distance from every overlap and proves \\(W_2(n,3)\\) is at least a construction value; at \\(n=3\\) this gives four. No matching upper bound or equality census is stated in the inspected section.",
+        "identifier_or_url": "doi:10.4153/CJM-1963-021-1",
+        "material_read": "Full-text Section 6, especially pp. 186-187 and Theorem 14.",
+        "method": "Full-text PDF inspection.",
+        "title": "Recent Results in Comma-Free Codes",
+        "trigger": "Direct source for comma-free codes of index r and the length-three lower bound."
+      },
+      {
+        "assessment": "BROADER_SURVEY_NOT_COVERING_EXACT_PARAMETER",
+        "evidence": "Defines the general maximum-size problem for prescribed comma-free index and reviews asymptotic and difference-system results; no exact ternary length-three index-two value or equality classification appears in the inspected text.",
+        "identifier_or_url": "doi:10.1002/jcd.10071",
+        "material_read": "Full text pp. 184-195, especially Introduction and Section 3 on codes with given comma-free index.",
+        "method": "Full-text article inspection after open-access searches did not provide the article text.",
+        "title": "Combinatorial Problems Motivated by Comma-Free Codes",
+        "trigger": "Broad survey explicitly keyed to comma-free index and synchronization with errors."
+      },
+      {
+        "assessment": "HISTORICAL_CONTEXT_NOT_COVERING_PARAMETER",
+        "evidence": "Report dated 1967-08-31 discusses exact coset counts at a different comma-free index and length; it supplies date-resolved historical context, not the present finite result.",
+        "identifier_or_url": "unt:metadc1536519",
+        "material_read": "Public report metadata and p. 225 discussion of comma-free index 7.",
+        "method": "Public report text and catalog metadata.",
+        "title": "Space Programs Summary 37-46, Volume IV",
+        "trigger": "Date-resolved historical public source explicitly discussing comma-free index."
+      }
+    ],
+    "sources": [
+      "doi:10.4153/CJM-1963-021-1",
+      "doi:10.1002/jcd.10071",
+      "published-finding corpus focused exact-parameter and alias searches"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd735f31-19f2-499c-b973-14642fa56aef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes a natural smallest ternary prescribed-index synchronization instance whose historical source supplies only a construction lower bound, and the equality classification exposes a rigid coordinate/symbol structure and two symmetry types. This is a motivated exact finite invariant rather than an arbitrary slice.",
+    "risks": [
+      "The result is deliberately narrow and does not by itself imply a general formula for larger alphabets or lengths."
+    ],
+    "sources": [
+      "doi:10.4153/CJM-1963-021-1",
+      "doi:10.1002/jcd.10071",
+      "verify.py"
+    ],
+    "status": "PASS"
+  }
+}
