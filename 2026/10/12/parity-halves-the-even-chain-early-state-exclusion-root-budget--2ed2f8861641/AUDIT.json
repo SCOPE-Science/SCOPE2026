@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For even reduced spectra, every Chebyshev index \\(2\\lambda_k\\) is odd, so \\(P\\) is odd. The cited transfer-time root has multiplicity \\(2n-1\\), and the change of variable \\(x=\\cos(t/2)\\) is locally simple there. Dividing by \\(x^{2n-1}\\) leaves an even polynomial of degree \\(2\\lambda_n-2n+1\\); positive roots consume degree in \\(\\pm x\\) pairs. This proves the bound for multiplicities, hence also for distinct times.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source gives \\(2\\lambda_n-n\\) in the even case and \\(\\lambda_n-n\\) in the odd case; it does not state a parity-halved even bound.",
+        "The 2025 foundational paper proves constructions and no-ESE cases but does not imply the new all-even-order count from a stronger theorem."
+      ],
+      "reasoning": "The closest broader literature concerns PST/ESE constructions. The claimed inequality is stronger than the explicit even-order bound in the latest inspected same-object source, so it is not a corollary of a dominating published count bound found in the search.",
+      "searches": [
+        "perfect state transfer persymmetric Jacobi early state exclusion even order root bound",
+        "web: early state exclusion even chain root bound",
+        "web: spectral fusion early state exclusion even order bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.04353v1",
+      "arXiv:2411.06047v1",
+      "DOI:10.1007/s11128-025-04667-z",
+      "semantic literature-index results for four claim-specific queries",
+      "current and immediately prior research records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.04353v1 supplies exactly the two premises used: odd half-integer Chebyshev indices in the even reduced spectrum and a \\(2n-1\\)-fold zero at the first PST time.",
+        "Its stated even count \\(2\\lambda_n-n\\) is weaker than the claimed \\(\\lambda_n-n+\\tfrac12\\)."
+      ],
+      "reasoning": "The new implication comes from retaining a parity constraint after factoring the compulsory transfer-time root. The cited source counts residual degree without this positive/negative pairing, so its statement does not imply the sharper bound.",
+      "searches": [
+        "2606.04353 Corollary 5 even order early state exclusion",
+        "web: \"early state exclusion\" \"2 lambda_n - n\"",
+        "web: \"early state exclusion\" \"lambda_n - n + 1/2\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.04353v1 states the even-order multiplicity theorem and the looser Corollary 5 root-count bound.",
+        "DOI:10.1007/s11128-025-04667-z develops the Chebyshev formulation of early state exclusion."
+      ],
+      "reasoning": "No inspected source stated the residual-polynomial parity argument or the bound \\(\\lambda_n-n+\\tfrac12\\). Searches for the exact formula and close aliases returned the source paper or unrelated polynomial-root results.",
+      "searches": [
+        "Spectral Fusion for Identifying Early State Exclusion in Symmetric Quantum Spin Chains even order ESE bound",
+        "early state exclusion even qubit spin chain Chebyshev polynomial half integer eigenvalues",
+        "web: \"early state exclusion\" \"lambda_n - n + 1/2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked prior research records contain no match for the source identifiers or ESE terminology.",
+        "The semantic literature search returned no ESE-specific finding among the closest hits; the closest polynomial-root records concern unrelated objects."
+      ],
+      "reasoning": "No database/table entry located in the checked sources tabulates or certifies this formula. The result is an analytic consequence of the amplitude polynomial, not a recomputation of a known table.",
+      "searches": [
+        "semantic literature search for early state exclusion, Chebyshev parity and even-order root count",
+        "prior research records searched by arXiv identifiers, early state exclusion, spectral fusion, Chebyshev and perfect state transfer"
+      ]
+    },
+    "rationale": "Claim-specific searches found the 2026 source’s looser even-order bound but no parity-halved version. The exact same-object source was inspected at its amplitude and corollary statements, and the foundational 2025 paper was compared as background.",
+    "residual_risks": [
+      "The 2026 preprint is recent, so an equivalent observation may exist under different wording or may not yet be indexed.",
+      "No claim is made that the upper bound is attained for every admissible spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PREDECESSOR_NOT_COVERING",
+        "evidence": "The source states multiplicity \\(2n-1\\) at \\(t=\\pi\\) and an even-order bound \\(2\\lambda_n-n\\), but not the residual even-polynomial pairing.",
+        "identifier_or_url": "arXiv:2606.04353v1",
+        "material_read": "Amplitude-polynomial setup; reduced symmetric spectrum conditions; transfer-time zero multiplicity; Corollaries 4 and 5.",
+        "method": "Open-access full-text HTML inspected; targeted web retrieval used again for title/date and corollary summary.",
+        "title": "Spectral Fusion for Identifying Early State Exclusion in Symmetric Quantum Spin Chains",
+        "trigger": "Same objects, same even-order ESE count, and the critical transfer-time multiplicity theorem."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Primary MSC lists 81P45; the paper develops ESE using Chebyshev polynomials but predates the later general even-order multiplicity/count theorem.",
+        "identifier_or_url": "DOI:10.1007/s11128-025-04667-z / arXiv:2411.06047",
+        "material_read": "Abstract, classification metadata, problem formulation and literature role.",
+        "method": "Publisher preview and arXiv metadata inspected.",
+        "title": "Hamiltonians that realize perfect quantum state transfer and early state exclusion",
+        "trigger": "Foundational ESE/Chebyshev formulation and explicit primary MSC classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ed2f886-1641-4e7b-bcf6-ea061013a3f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 source explicitly studies how many ESE events can occur before first PST and gives a dedicated even-order upper bound. The parity refinement improves that central quantitative statement for every even reduced spectrum and gives an immediate zero-ESE threshold at the minimal spectral endpoint. It therefore constrains repeated exclusion/re-injection opportunities without adding model assumptions.",
+    "status": "PASS"
+  }
+}
