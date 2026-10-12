@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Each pair overlap has the exact hypergeometric law. Conditioning on all species sets except a leaf of any species-edge forest shows the leaf overlap is independent of all remaining edge overlaps; induction proves mutual factorization. Two distinct unordered edges form a forest, so all off-diagonal covariances of checkerboard pair contributions vanish. Exact factorial-moment multiplication derives the stated variance formula for all finite H≥2 and all prescribed row occupancies. Independent exact enumeration checks 649 marginal parameter pairs and 30,665 complete matrices, including shared-edge pair independence and a three-edge path. A three-singleton/two-site triangle disproves unrestricted joint independence. Computation is corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gotelli (2000) full article: Table 1 defines C-score as mean pairwise checkerboard units; Table 2 specifies SIM2 as fixed row sums and equiprobable columns; methods repeatedly randomize matrices (usually 1000 times) to obtain the null statistic distribution.",
+        "Veech (2013) full methodological section: exact probabilistic model covers selected species pairs under equal site probabilities and fixed species occupancy.",
+        "Arita (2016) full text discusses both pairwise and aggregate indices and exact Fisher/FE equivalence, including expected values and variances of pairwise overlap quantities in related analyses."
+      ],
+      "reasoning": "These broad sources establish the sampling model and pairwise marginals, and Arita links the two levels. None inspected states that all edges in any forest give mutually independent overlaps or supplies the derived formula for the variance of the average of **all** pairwise checkerboard terms. Knowing marginals alone does not imply covariances vanish.",
+      "searches": [
+        "doi:10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2",
+        "doi:10.1111/j.1466-8238.2012.00789.x",
+        "doi:10.1111/geb.12418",
+        "forest edges independent overlap counts random uniform subsets conditional distribution"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2",
+      "doi:10.1111/j.1466-8238.2012.00789.x",
+      "doi:10.1111/geb.12418",
+      "doi:10.1007/BF00317345",
+      "MSC2020:92D40",
+      "https://ecoevol.ufg.br/adrimelo/div/Gotelli2000-NullModels.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arita (2016) explicitly recognizes that the standard per-pair law coincides with row-fixed/equiprobable-column randomization and that global statistics aggregate pair scores.",
+        "Veech (2013) proves only the marginal two-species probability distribution, which cannot alone determine an average-score variance.",
+        "The accepted theorem adds a forest-wise **joint** probability factorization and uses it to eliminate all covariance terms for arbitrary heterogeneous occupancies. Triangle cycles provide a precise boundary to stronger joint-independence claims."
+      ],
+      "reasoning": "The prior statements are not equivalent to the accepted multi-pair independence lemma or the variance formula. Marginal single-edge hypergeometric moments imply mean but not variance of a sum without dependency information. Leaf conditioning proves the essential extra cross-pair independence; the resulting formula is nonasymptotic and holds at all finite matrix sizes.",
+      "searches": [
+        "\"species co-occurrence analysis: pairwise versus matrix-level approaches\"",
+        "\"A probabilistic model for analysing species co-occurrence\"",
+        "\"Null model analysis of species co-occurrence patterns\"",
+        "\"C-score\" covariance two pairs share species overlap fixed-equiprobable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arita (2016, DOI 10.1111/geb.12418) identifies Veech pairwise hypergeometric test with Fisher exact and F--E matrix null; his full discussion explicitly notes community indices are aggregates of pairwise values.",
+        "Veech (2013, DOI 10.1111/j.1466-8238.2012.00789.x) derives the marginal law of a single species-pair overlap, not joint overlap probabilities for species-pair forests.",
+        "The new forest lemma asserts factorization of distinct overlap variables even when their edges share one species; it is stronger than a one-edge hypergeometric law."
+      ],
+      "reasoning": "The searched ecological aliases were matrix C-score, checkerboard index, fixed--equiprobable null, SIM2, pairwise Fisher overlap, and independent uniform species subsets. The marginal equivalence does not itself supply the cross-edge joint law; the leaf-conditioning argument does.",
+      "searches": [
+        "ecological C-score variance analytical fixed-equiprobable null model",
+        "Stone Roberts checkerboard average random matrices exact variance",
+        "species occurrence independent uniform subsets overlap forest pairwise independence",
+        "doi:10.1111/geb.12418"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected primary source included a table or analytic formula for the variance of the whole-matrix checkerboard C-score across the complete fixed-equiprobable null ensemble.",
+        "Some software defines c_score_var as the variance across pairwise checkerboard scores of one given matrix; this is a different quantity from variance across randomized complete matrices.",
+        "The exact small example with five sites and row sizes (2,3,4) yields whole-matrix null mean 7/5 and variance 49/75; its values are generated from the symbolic result and independently from 500 full matrices."
+      ],
+      "reasoning": "A published table of per-pair overlap variances or within-matrix pair-score dispersion does not imply an across-matrix variance of the pair-score average, because the latter includes cross-edge covariance contributions unless their vanishing is proved. No exact-table coverage was found.",
+      "searches": [
+        "\"C-score\" \"variance\" \"fixed-equiprobable\" analytic",
+        "\"checkerboard\" \"variance\" hypergeometric cooccurrence null model",
+        "\"C-score\" \"hypergeometric\" \"variance\" \"null\"",
+        "\"fixed equiprobable\" \"C-score\" \"variance\" \"analytical\" species"
+      ]
+    },
+    "rationale": "The found primary literature gives the C-score statistic, fixed--equiprobable row randomization, and exact marginal two-species hypergeometric probabilities; it does not derive a forest-indexed joint product distribution or a variance formula for the complete across-random-matrices C-score average. Arita (2016) is the closest potential implication: it connects pairwise Fisher tests with matrix-level aggregation but does not prove the off-diagonal terms vanish. The new conditional-leaf lemma is the substantive added premise required for that exact null variance. Exact searches found no covering result, with residual risk from broader random-set or U-statistic literature.",
+    "residual_risks": [
+      "An equivalent forest-factorization or canonical degenerate-U-statistic argument may exist in more general combinatorial probability literature under a different name.",
+      "The original Stone--Roberts 1990 article was not read in full, although its exact statistic was inspected in the full Gotelli 2000 primary paper.",
+      "Exact null moments do not determine non-Gaussian tail probabilities, and the result is not applicable to fixed-column models or to heterogeneous habitat suitability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes classical C-score, SIM2 definition, and randomized-matrix testing framework. Its inspected calculations and tables do not present a forest joint law or a closed form for the entire C-score null variance.",
+        "evidence": "Table 1 defines the community C-score as the mean of species-pair checkerboard units. Table 2 sets SIM2 as fixed row sums, equiprobable sites. Method section constructs null distribution by repeated simulated matrices and discussion singles out SIM2 for sample lists. DOI 10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2.",
+        "identifier_or_url": "https://ecoevol.ufg.br/adrimelo/div/Gotelli2000-NullModels.pdf",
+        "material_read": "Complete 16-page legal open-access PDF text was accessible; abstract, methodology, Tables 1 and 2, null algorithm definitions, simulation procedure, and discussion of SIM2 versus SIM9 and C-score were examined. Visual confirmation of table layout on PDF page 3.",
+        "method": "University-hosted primary full PDF and publisher original publication record.",
+        "title": "Null model analysis of species co-occurrence patterns",
+        "trigger": "Foundational full primary comparison of the C-score and row-fixed, site-equiprobable matrix null."
+      },
+      {
+        "assessment": "The exact one-pair marginal is prior art; it does not establish independence of distinct overlaps, forest factorizations, or C-score community variance.",
+        "evidence": "Veech fixes two marginal species occurrence counts and calculates exact probabilities of the number of jointly occupied sites, presenting an analytical alternative to randomization. DOI 10.1111/j.1466-8238.2012.00789.x.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/j.1466-8238.2012.00789.x",
+        "material_read": "Full free publisher HTML relevant theoretical section, equations for pair co-occurrence probabilities, examples, and discussion of comparison with randomized matrices.",
+        "method": "Primary publisher open full text.",
+        "title": "A probabilistic model for analysing species co-occurrence",
+        "trigger": "Most relevant derivation of exact species-pair overlap distribution."
+      },
+      {
+        "assessment": "Identifies preexisting pairwise Fisher hypergeometric equivalence to fixed--equiprobable matrices and discusses aggregate C-score, but does not prove a forest overlap independence theorem or a matrix C-score null variance expression.",
+        "evidence": "The article describes standard overlap expected value/variance in a related Q-analysis, then distinguishes pairwise association calculations from matrix-level aggregates; DOI 10.1111/geb.12418.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1111/geb.12418",
+        "material_read": "Full publisher HTML: Fisher test and F--E randomization equivalence, matrix-level aggregation sections, simulation comparison, limitations and conclusion.",
+        "method": "Primary publisher full text.",
+        "title": "Species co-occurrence analysis: pairwise versus matrix-level approaches",
+        "trigger": "A plausible stronger work explicitly connecting exact pairwise tests and aggregate matrix-level metrics."
+      },
+      {
+        "assessment": "Establishes the original ecological statistic; absent full-text inspection of the original source is a residual originality risk but the detailed 2000 and 2016 primary analyses do not report the proposed aggregate moment identity.",
+        "evidence": "Stone and Roberts, Oecologia 85:74--79 (1990), DOI 10.1007/BF00317345, as cited in Gotelli (2000) and Arita (2016).",
+        "identifier_or_url": "doi:10.1007/BF00317345",
+        "material_read": "Bibliographic and abstract records, plus the original C-score definition reproduced in full in Gotelli (2000) Table 1 and cited by Arita (2016). The full 1990 paper was not accessible to read in this run.",
+        "method": "Publisher and secondary primary-source metadata with original index formula independently checked in the 2000 full paper.",
+        "title": "The checkerboard score and species distributions",
+        "trigger": "Origin of the exact checkerboard score definition used throughout."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3c02012c-5939-48c6-8438-b991d2ddb468",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical C-score is widely used to summarize ecological co-occurrence, and Gotelli (2000) evaluates it under SIM2 with repeated randomization. The accepted theorem gives exact finite mean and matrix-null variance for any heterogeneous row totals without Monte Carlo uncertainty or enumerating the full null space. Crucially, pairwise overlap marginals alone cannot yield the variance of an aggregate; the forest proof supplies the missing zero-covariance result, while the triangle obstruction prevents an erroneous complete independence or normality conclusion. The formula is directly useful for variance-based calibration under the precisely stated null.",
+    "status": "PASS"
+  }
+}
