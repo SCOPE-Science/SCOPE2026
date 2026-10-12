@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "A pure-product decomposition gives the exact factorization M=[x T]=sum p_k a_k(1,b_k^T), with every rank-one summand of nuclear norm sqrt(2), hence ||M||_*<=sqrt(2). If s1>=s2>=s3 are the singular values, the standard geometric-discord formula is D=(s2^2+s3^2)/2. From s1+s2+s3<=sqrt(2), ordering gives 2s2+s3<=sqrt(2) and 0<=s3<=sqrt(2)/3; the resulting one-variable quadratic is at most 1/2, hence D<=1/4. Equality forces (s1,s2,s3)=(1/sqrt(2),1/sqrt(2),0). A polar partial-isometry norming functional forces every augmented Bloch vector c_k=(1,b_k) into its two-dimensional initial space; intersecting that plane with c_0=1 and ||c||=sqrt(2) gives at most two points, so rank(rho)<=2. The prior rank-two classification then yields the unique local-unitary orbit. The exact checker confirms the extremizer and scalar algebra; no finite experiment carries the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1608.01547 Theorem 1 gives trace-norm criteria for extended Bloch/correlation matrices, including a larger matrix containing local Bloch vectors and T.",
+        "The inspected theorem does not state the sharp ||[x T]||_*<=sqrt(2) inequality, does not optimize geometric discord, and does not analyze equality to force rank two."
+      ],
+      "reasoning": "A stronger separability theorem could cover the claim only if its stated norm control implied the two-smallest-singular-value bound with the same sharp equality conditions. The inspected extended criterion has a different matrix and bound and does not supply that implication.",
+      "searches": [
+        "Gharibian conjecture geometric discord separable two qubit nuclear norm rank greater than two",
+        "extended correlation matrix trace norm geometric discord separable two qubit one quarter",
+        "matrix [x T] nuclear norm separable two qubit geometric discord"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.1598",
+      "DOI:10.1103/PhysRevA.86.042106",
+      "arXiv:1311.1671",
+      "DOI:10.1007/s11128-014-0865-0",
+      "arXiv:1608.01547",
+      "DOI:10.1038/s41598-021-82303-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gharibian's theorem covers rank at most two and is used only after the new equality argument has independently forced rank at most two.",
+        "Rana--Parashar Proposition 1 covers separable X states, a strict subclass; their abstract and introduction say the general problem remains open.",
+        "The 2021 correlation-minor article's 'maximal discord' remark cites standard-discord sources and does not present this Hilbert--Schmidt geometric-discord conjecture or proof."
+      ],
+      "reasoning": "Neither the rank-two theorem nor the X-state theorem dominates arbitrary separable two-qubit states. The new nuclear-norm inequality supplies exactly the missing global step; prior results are then legitimately reused only for the already-known rank-two equality classification.",
+      "searches": [
+        "Gharibian 1202.1598 rank two maximally non-classical separable two qubit",
+        "Rana Parashar 1311.1671 general problem necessary conditions",
+        "extended correlation matrix separability criterion Bloch representation trace norm",
+        "correlation minor norms separable state maximal discord geometric"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1311.1671 states the same higher-rank question as an unresolved conjecture and rewrites it as maximizing the two smaller eigenvalues of G=xx^T+TT^T.",
+        "Searches using 'maximally non-classical', 'maximally discordant separable', rank, and normalized value 1/4 returned the direct X-state paper but no general analytic solution."
+      ],
+      "reasoning": "The accepted theorem is implication-equivalent to the conjecture plus its equality classification: D<=1/4 globally, and equality forces rank two. Direct alias searches therefore target both the discord wording and the eigenvalue optimization wording.",
+      "searches": [
+        "maximally discordant separable two qubit geometric discord rank greater than two 1/4 Gharibian conjecture",
+        "separable two qubit geometric discord maximum one quarter rank two",
+        "Bloch matrix x T nuclear norm separable geometric discord",
+        "Rana Parashar maximally discordant separable X states general conjecture"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic database retrieval returned no record about the Gharibian conjecture or this exact geometric-discord bound; nearest returned records concerned unrelated Banach or operator-norm problems.",
+        "A prior geometric-discord result in the comparison corpus is restricted to Bell-diagonal states and does not use arXiv:1202.1598 or arXiv:1311.1671; it does not imply the all-separable theorem."
+      ],
+      "reasoning": "The database and owned ledgers were checked at source-id, claim, parameter, and formula levels. The closest owned geometric-discord results are restricted to Bell-diagonal or spin-model families and do not imply the all-separable theorem.",
+      "searches": [
+        "maximally discordant separable two qubit geometric discord rank greater than two 1/4 Gharibian conjecture",
+        "separable two qubit geometric discord maximum one quarter rank two",
+        "maximally nonclassical separable two qubit analytic proof rank two unique"
+      ]
+    },
+    "rationale": "The direct 2012 source proves only the rank-at-most-two classification and states the higher-rank exclusion as a conjecture. The 2013/2014 direct follow-up proves the X-state subclass and explicitly reports only partial general progress. Searches for the conjecture, exact value, augmented Bloch nuclear norm, correlation-matrix aliases, and implication-equivalent formulations found no covering theorem. The closest general extended-correlation trace-norm criterion inspected does not state or imply the equality/rank conclusion. A later paper with nearby 'maximal discord' language cites a different discord optimization. Residual risk of a differently indexed later proof remains.",
+    "residual_risks": [
+      "A later proof may exist under different terminology such as projective-design, correlation-matrix, or convex-geometry language and may be poorly indexed by the inspected searches.",
+      "The phrase 'maximally discordant separable state' is used for several inequivalent discord measures; later papers using that phrase require measure-by-measure comparison before inferring coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_PRIOR_PARTIAL",
+        "evidence": "The source characterizes all maximally non-classical separable two-qubit states of rank at most two, then conjectures that higher-rank states have strictly smaller value and asks for an analytic proof.",
+        "identifier_or_url": "arXiv:1202.1598; DOI:10.1103/PhysRevA.86.042106",
+        "material_read": "ArXiv abstract plus the theorem/conjecture portion of the open full text, including the rank-at-most-two maximizer classification and explicit higher-rank conjecture.",
+        "method": "Open-access arXiv/full-text inspection.",
+        "title": "Quantifying non-classicality with local unitary operations",
+        "trigger": "Original rank-two theorem and conjecture source."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper states the conjecture, proves maximum 1/4 and rank-two equality for separable X states, and explicitly says only partial progress/necessary conditions were obtained in the general case.",
+        "identifier_or_url": "arXiv:1311.1671; DOI:10.1007/s11128-014-0865-0",
+        "material_read": "Open full text: abstract, introduction, equations defining normalized geometric discord and G=xx^T+TT^T, Proposition 1 for X states, and the general-problem discussion.",
+        "method": "Open-access arXiv full-text inspection.",
+        "title": "Maximally discordant separable two qubit X states",
+        "trigger": "Closest direct follow-up on exactly the conjecture."
+      },
+      {
+        "assessment": "RELATED_BROADER_FRAMEWORK_NOT_COVERING",
+        "evidence": "The theorem bounds a different augmented matrix and gives separability criteria; it does not state the global geometric-discord maximum or equality/rank classification.",
+        "identifier_or_url": "arXiv:1608.01547",
+        "material_read": "Theorem 1 and its displayed extended correlation-matrix trace-norm bound, including the qubit specializations shown on the inspected PDF page.",
+        "method": "Open-access PDF inspection.",
+        "title": "Improved Separability Criteria Based on Bloch Representation of Density Matrices",
+        "trigger": "Plausible broader trace-norm theorem involving local Bloch vectors and the correlation matrix."
+      },
+      {
+        "assessment": "TERMINOLOGY_RISK_NOT_COVERING",
+        "evidence": "The remark points to different discord literature and does not state the Gharibian normalized Hilbert--Schmidt geometric-discord conjecture or its analytic solution.",
+        "identifier_or_url": "DOI:10.1038/s41598-021-82303-3",
+        "material_read": "Open web article around the geometric-discord theorem and the cited maximal-discord remark, plus its cited-source context.",
+        "method": "Open web full-text inspection.",
+        "title": "Correlation minor norms, entanglement detection and discord",
+        "trigger": "Later search result using the phrase 'two-qubit separable state with maximal discord'."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "166e9718-408b-43c4-923b-b06acc55729c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This settles a published 2012 conjecture for the complete separable two-qubit state space, not a finite table or arbitrary slice. It gives both the sharp value and the complete equality class and exposes a compact convex-geometric mechanism through the augmented Bloch nuclear norm. The result meaningfully extends the known rank-two and X-state cases.",
+    "status": "PASS"
+  }
+}
