@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each epoch independent signed curvature noise gives exact affine recurrences, and orthogonality yields F2/F3 exactly. Repeated independent epochs multiply second moments. A strictly increasing F2 after t=1, a Bernstein-Descartes argument on (0,1) and strictly positive F3 derivative after t=1 establish unique positive cutoffs. At the F2 cutoff, substitution gives F3−1=(t−2)C(t). C and the eliminated cubic are strictly monotone, yielding the unique crossover and both strict branches. Exact rational witnesses and checker were rerun. Conditions z in (0,1), eta>0, deterministic starts, and excluded endpoints are explicit; finite checks support but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+        "https://arxiv.org/pdf/1908.02725",
+        "https://arxiv.org/pdf/2006.01017",
+        "Published-index search returned other algorithmic variants rather than exact last-snapshot SVRG."
+      ],
+      "reasoning": "A hypothetical theorem deriving all-epoch exact second-moment factors would dominate this result. The inspected established works provide sufficient convergence bounds or alter the snapshot rule; these do not imply exact necessary boundaries and the sign-changing m=2/3 comparison. Related published OSGM and deterministic Richardson findings analyze different operators.",
+      "searches": [
+        "SVRG sharp stepsize convergence quadratic last iterate any epoch",
+        "Towards closing the gap between theory and practice SVRG Free-SVRG 2019",
+        "Improved SVRG for quadratic functions Kahale 2020",
+        "SVRG two component quadratic exact mean square epoch length stability"
+      ]
+    },
+    "checked_sources": [
+      "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+      "https://arxiv.org/pdf/1403.4699v1",
+      "https://arxiv.org/pdf/1908.02725",
+      "https://arxiv.org/pdf/2006.01017",
+      "SIAM journal MSC 65C60 at https://epubs.siam.org/doi/abs/10.1137/140961791"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+        "https://arxiv.org/pdf/1403.4699v1",
+        "https://arxiv.org/pdf/1908.02725",
+        "https://arxiv.org/pdf/2006.01017",
+        "Published-index comparison: no equal last-snapshot short-epoch recurrence located."
+      ],
+      "reasoning": "General linear-convergence sufficiency neither implies the exact necessity at larger stepsizes nor the threshold reversal; results for averaged snapshots cannot be substituted for last-snapshot Option I. Published results for other stochastic-gradient memory-table methods involve different update and state recurrences, so their cutoffs do not imply the stated last-snapshot SVRG comparison. The specific short-epoch signed-moment derivation is required.",
+      "searches": [
+        "\"two component scalar quadratic SVRG last iterate snapshot 2 and 3 inner iterations mean-square stability polynomial phase transition\"",
+        "SVRG Option I convergence theory Johnson Zhang 2013",
+        "quadratic SVRG average snapshot Q-SVRG 2020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnson–Zhang 2013 Figure 1, Option I is exactly the update here.",
+        "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+        "Primary arXiv discussions of last-snapshot versus averaged snapshots."
+      ],
+      "reasoning": "Compared per-epoch conditional second moment under the exact last-snapshot algorithm, not just name/curvature parameters. No exact equalities for the two and three stochastic epochs or cubic crossover appear in inspected full text; differently averaged updates are not equivalent.",
+      "searches": [
+        "SVRG two component quadratic exact mean square epoch length stability",
+        "stochastic variance reduced gradient finite epoch instability scalar quadratic heterogeneous curvature phase transition",
+        "snapshot stochastic gradient variance reduction exact epoch mean square factor",
+        "\"two component scalar quadratic SVRG last iterate snapshot 2 and 3 inner iterations mean-square stability polynomial phase transition\"",
+        "Johnson Zhang 2013 SVRG last iterate Option I quadratic exact stepsize two three epochs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+        "https://arxiv.org/pdf/2006.01017",
+        "Search-index inspection: neighboring items concern deterministic Richardson or other stochastic optimization updates, not this recurrence."
+      ],
+      "reasoning": "Actual published-index searches returned unrelated optimization/stability records, not a database/table of exact short-epoch SVRG mean-square factors. No table in the inspected primary full texts contains the same cubic or two-stage versus three-stage boundary. Non-detection is not treated alone as proof of originality.",
+      "searches": [
+        "SVRG m=2 m=3 exact stability threshold 128 z^3 41 z^2 6 z 1",
+        "SVRG two component quadratic exact mean square epoch length stability",
+        "\"two component scalar quadratic SVRG last iterate snapshot 2 and 3 inner iterations mean-square stability polynomial phase transition\""
+      ]
+    },
+    "rationale": "Original SVRG last-snapshot Option I is prior (Johnson and Zhang 2013); generic and quadratic-specific results from four inspected primary full texts do not state the necessary/sufficient m=2/3 second-moment cutoffs and their unique heterogeneity crossover. Semantic published-finding searches and the primary literature comparison did not identify an equivalent or dominating claim. The narrowly stated new result does not assert a new algorithm, general variance-reduction convergence, or equivalence of different snapshot choices. Older short-epoch special-case calculations are an explicit residual risk.",
+    "residual_risks": [
+      "An older scalar special-case stability computation in incremental-gradient or SVRG literature could be algebraically equivalent despite different terminology.",
+      "No assertion is made regarding unpublished results, all-epoch stability, or nonquadratic generalization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the update but its generic sufficient results do not calculate m=2,m=3 exact scalar mean-square cutoffs or their heterogeneity reversal.",
+        "evidence": [
+          "Original algorithm Figure 1, printed p. 4; Option I sets the snapshot to the last iterate.",
+          "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf"
+        ],
+        "identifier_or_url": "https://proceedings.neurips.cc/paper/2013/file/ac1dd209cbcc5e5d1c6e28598e8cbbe8-Paper.pdf",
+        "material_read": "Full accessible nine-page paper; algorithm and choice of snapshots on printed pp. 3–4; relevant generic convergence proof and assumptions on pp. 2–5.",
+        "method": "Read text and inspected full-page procedure diagram.",
+        "title": "Accelerating Stochastic Gradient Descent Using Predictive Variance Reduction",
+        "trigger": "This is the original SVRG paper with the exact last-iterate Option I snapshot update."
+      },
+      {
+        "assessment": "Uses a distinct averaged-snapshot/proximal construction and sufficient convergence estimates; no exact last-iterate short-epoch reversal found.",
+        "evidence": [
+          "arXiv:1403.4699v1, dated 2014-03-19; journal version first-listed MSC 65C60.",
+          "https://arxiv.org/pdf/1403.4699v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1403.4699v1",
+        "material_read": "Original v1 full text, especially algorithm and convergence theorem on pp. 4–6.",
+        "method": "Read lawful arXiv version of the primary paper.",
+        "title": "A Proximal Stochastic Gradient Method with Progressive Variance Reduction",
+        "trigger": "Closest original-era proximal SVRG convergence analysis and authoritative MSC 65C60 classification."
+      },
+      {
+        "assessment": "Analyzes Free-SVRG and sufficient stepsize bounds, not exact Option I m=2/3 mean-square stability crossover.",
+        "evidence": [
+          "Distinct Free-SVRG averaging and stepsize sufficient restrictions.",
+          "https://arxiv.org/pdf/1908.02725"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.02725",
+        "material_read": "Full arXiv paper, method and theorem pages 4–5, including Free-SVRG iterate averaging.",
+        "method": "Read accessible arXiv PDF and compared snapshot update and quantified guarantee.",
+        "title": "Towards Closing the Gap Between the Theory and Practice of SVRG",
+        "trigger": "Potential stronger modern convergence ranges for SVRG methods."
+      },
+      {
+        "assessment": "Its Q-SVRG variant averages iterates as snapshots and develops associated bounds; no exact two-vs-three last-iterate cutoff comparison in the examined text.",
+        "evidence": [
+          "arXiv:2006.01017, quadratic-specific Q-SVRG and averaged snapshots.",
+          "https://arxiv.org/pdf/2006.01017"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.01017",
+        "material_read": "Full arXiv paper; first four pages covering quadratic formulation, iteration and snapshot averaging.",
+        "method": "Read accessible arXiv PDF and compared the snapshot and squared-error recurrences.",
+        "title": "Improved SVRG for Quadratic Functions",
+        "trigger": "Title explicitly addresses quadratic SVRG and could subsume the scalar claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32b6a9fb-cf89-44b4-a9e5-acd7b4901d97",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Epoch length and stepsize are coupled engineering/analysis choices for SVRG. The shortest epoch with randomness is m=2 (m=1 is deterministic); m=3 is the first nontrivial extension. The exact phase boundary proves increasing epoch length can either expand or contract the stable stepsize region solely due to curvature heterogeneity, with sharp opposite-sign rational examples and full classification. This is not a routine numerical table: it identifies a structural nonmonotonicity and a unique analytic threshold in a natural algorithmic design variable.",
+    "status": "PASS"
+  }
+}
