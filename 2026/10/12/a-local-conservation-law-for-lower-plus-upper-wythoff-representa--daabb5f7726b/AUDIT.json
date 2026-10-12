@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Beatty complementarity yields r(n)=K(n)-s(n) exactly. At N=v(t), exact floor bounds give K(N)=K(N-1)=t-1. Any upper-plus-upper representation of N or N-1 must have index sum t, and the carry in floor(j phi^2)+floor((t-j) phi^2) is determined by the ordering of the two fractional parts. This proves the two rank formulas for every t. The packaged checker independently reconstructs the finite cases through t=1000 using exact integer floors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit's Wythoff-sumset paper gives automata and exact membership statements for L+U, including the complement by Fibonacci shifts, but its inspected Wythoff section does not enumerate representation multiplicities.",
+        "Ashburn's Theorem 1 completely characterizes only multiplicities 0, 1, and 2."
+      ],
+      "reasoning": "Membership and low-fiber classifications are broader in input range but weaker in multiplicity information; they do not imply the arbitrary-t exact two-point identity.",
+      "searches": [
+        "arXiv:2006.04177v1",
+        "arXiv:2610.04842v1",
+        "search phrase: Wythoff convolution local conservation Beatty complementary representation function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04842v1",
+      "OEIS:A259598",
+      "arXiv:2006.04177v1",
+      "targeted semantic searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ashburn proves complete classifications only for the fibers r(n)=0, r(n)=1, and r(n)=2.",
+        "OEIS A259598 supplies the defining convolution and data but no arbitrary-t adjacent identity.",
+        "Shallit determines sumset membership but does not enumerate multiplicities."
+      ],
+      "reasoning": "The published statements determine existence or only three small multiplicity levels. None logically implies the exact identity for every t, where the multiplicities can be arbitrarily large.",
+      "searches": [
+        "arXiv:2610.04842v1",
+        "OEIS:A259598",
+        "arXiv:2006.04177v1",
+        "search phrase: exact identity A259598 adjacent terms upper Wythoff v(t)-1 v(t)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source defines the same r(n) and proves only the fibers r(n)=0,1,2.",
+        "OEIS A259598 lists the same representation function, data, generating function, and the three low-fiber conjectures.",
+        "No targeted semantic search returned a statement of the adjacent-pair conservation law or the complementary rotation-rank formulas."
+      ],
+      "reasoning": "The claim is equivalent to an exact conservation law for the convolution of the two complementary Beatty indicator sequences at the adjacent points v(t)-1 and v(t). None of the inspected equivalent formulations states that identity.",
+      "searches": [
+        "r(v(t)-1)+r(v(t))=t-1 Wythoff representation lower upper",
+        "Wythoff sums representation function adjacent upper Wythoff conservation",
+        "A259598 representation count floor h phi floor k phi^2 identity",
+        "convolution lower upper Wythoff representation count upper Wythoff pair",
+        "OEIS:A259598",
+        "arXiv:2610.04842v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected OEIS entry gives terms, generating functions, computational code, and cross-references but no formula r(v(t)-1)+r(v(t))=t-1."
+      ],
+      "reasoning": "The database records the object exactly but not the proposed local conservation theorem.",
+      "searches": [
+        "OEIS:A259598",
+        "search phrase: A259598 v(t) representation"
+      ]
+    },
+    "rationale": "The direct source and OEIS cover only the low fibers and defining data; Shallit covers membership in Wythoff sumsets. Focused semantic and exact-form searches returned no covering statement; residual risk from differently worded older Beatty literature remains.",
+    "residual_risks": [
+      "An older identity for complementary Beatty convolutions may be phrased in terminology not retrieved by the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING_EXACT_CLAIM",
+        "evidence": "Theorem 1 characterizes exactly r(n)=0, r(n)=1, and r(n)=2; the inspected section does not state the adjacent-pair conservation law.",
+        "identifier_or_url": "arXiv:2610.04842v1",
+        "material_read": "Full arXiv HTML, especially Introduction, Method, and Section 3 on A259598.",
+        "method": "full-text inspection",
+        "title": "Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words",
+        "trigger": "Same representation function and possible stronger theorem."
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_CLAIM",
+        "evidence": "The entry records the low-fiber conjectures and generating function but no adjacent upper-Wythoff identity.",
+        "identifier_or_url": "OEIS:A259598",
+        "material_read": "Current entry including comments, formula, programs, and cross-references.",
+        "method": "database-entry inspection",
+        "title": "A259598",
+        "trigger": "Exact database record for the representation function."
+      },
+      {
+        "assessment": "BROADER_MEMBERSHIP_NOT_MULTIPLICITY",
+        "evidence": "The inspected result identifies the complement of L+U and related sumsets through automata; it does not count arbitrary representations at v(t)-1 and v(t).",
+        "identifier_or_url": "arXiv:2006.04177v1",
+        "material_read": "Full arXiv HTML through the Wythoff sequence and L+U sumset sections, including Theorem 5.",
+        "method": "full-text inspection",
+        "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+        "trigger": "Potential broader sumset theorem for the same lower-plus-upper Wythoff addition problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "daabb5f7-726b-4d48-bd40-287fb593c5b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact conservation law concerns the full multiplicity function, not just the existence of a representation or a small level set. It identifies a canonical infinite family of adjacent arguments where the total multiplicity is exactly linear and decomposes into complementary irrational-rotation ranks. This supplies exact local structure at a scale not resolved by the existing asymptotic profile.",
+    "status": "PASS"
+  }
+}
