@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every \\(\\alpha>2\\), exact Pareto moments put the lower one-sigma endpoint strictly below the support edge, reducing the event to one CDF evaluation. The resulting exact formula is algebraic. Writing its tail exponent as the sum of two logarithms and applying \\(\\log(1+x)>x/(1+x)\\) twice proves the strict exponent bound \\(>2\\) over the entire domain; the second strict step is equivalent to \\((\\alpha-1)^2>\\alpha(\\alpha-2)\\). A direct Taylor expansion gives the stated endpoint limit and first correction. Finite numerical checks are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Gamma paper studies the same central one-standard-deviation functional but for Gamma laws, not Pareto laws.",
+        "The Pareto anti-concentration theorem gives \\(\\inf\\Pr(|X-\\mathbb EX|\\ge y\\sigma)=0\\); this controls a different extremal direction and does not lower-bound central mass."
+      ],
+      "reasoning": "A broader standardized-deviation literature exists, but the retrieved stronger-looking Pareto statement is about tail-infimum rather than central-infimum. Its implication direction is opposite and does not subsume the claim.",
+      "searches": [
+        "arXiv:2401.09998 Pareto anti-concentration standard deviation",
+        "Gamma infimum probability within one standard deviation 2024 Hu Sun",
+        "Pareto distribution central probability standard deviation infimum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.02114v1",
+      "arXiv:2401.09998v2",
+      "DOI:10.1186/s13660-024-03081-w"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li-Hu-Zhou fix \\(\\kappa\\) in \\(P(X\\le\\kappa EX)\\); the candidate has a shape-dependent upper endpoint \\(EX+SD\\), so their fixed-parameter optimization does not imply it.",
+        "Hu-Song-Tan send the shape to \\(2\\) to make the outside probability vanish, whereas the candidate sends shape to infinity to minimize the inside probability.",
+        "The Gamma theorem establishes the analogous functional for a different family."
+      ],
+      "reasoning": "Statement-level implication checks leave the candidate uncovered: the closest results use a different functional, the opposite extremal direction, or a different distribution family.",
+      "searches": [
+        "arXiv:2305.02114 Section 3 Pareto Proposition 3.1",
+        "arXiv:2401.09998 Proposition 3.6 Pareto",
+        "DOI:10.1186/s13660-024-03081-w one standard deviation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.02114v1, Section 3 optimizes the fixed-mean-threshold functional and contains no variance-scaled central interval.",
+        "arXiv:2401.09998v2, Proposition 3.6 treats the infimum of the complementary tail probability and proves it is zero by the opposite endpoint shape regime."
+      ],
+      "reasoning": "The candidate is an infimum of central mass at radius one standard deviation. The closest Pareto papers optimize either a fixed multiple of the mean or the infimum of tail mass. Neither is equivalent to minimizing the central mass.",
+      "searches": [
+        "Pareto distribution one standard deviation central probability infimum 1-e^-2",
+        "Pareto Type I probability within one standard deviation sharp infimum",
+        "Pareto shape standardized central mass mean variance exact 1-exp(-2)",
+        "Weibull Pareto Chvatal central one sigma",
+        "\"Pareto\" \"within one standard deviation\" probability",
+        "\"Pareto distribution\" \"standard deviation\" \"1-e^{-2}\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved indexed result or table stated the constant \\(1-e^{-2}\\) as the infimum of Pareto one-sigma central mass.",
+        "The exact probability is derived symbolically from the Pareto survival function rather than read from a table."
+      ],
+      "reasoning": "The claim is a continuous shape-family extremum with a proof and asymptotic correction, not a recomputation of tabulated probabilities.",
+      "searches": [
+        "Pareto 1-e^{-2} probability standard deviation",
+        "Pareto distribution 1-e^-2 standard deviation",
+        "Pareto one standard deviation infimum"
+      ]
+    },
+    "rationale": "The closest full-text Pareto source optimizes a fixed mean multiple, while the closest standardized-deviation Pareto source optimizes the complementary tail in the opposite direction. The Gamma source motivates the exact functional but concerns a different family. Targeted semantic and exact-expression literature searches found no statement implying the claimed Pareto central-mass infimum.",
+    "residual_risks": [
+      "An equivalent elementary Pareto calculation may appear in older textbooks, exercises, or literature indexed under coverage probability rather than variation comparison.",
+      "No claim is made about arbitrary standardized radii, for which the minimizing shape need not be the infinite-shape endpoint."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the one-standard-deviation central-mass infimum.",
+        "evidence": "The Pareto section treats \\(P(X\\le\\kappa EX)\\) for fixed \\(\\kappa\\); it does not introduce variance or a central one-sigma window.",
+        "identifier_or_url": "arXiv:2305.02114v1",
+        "material_read": "Abstract, introduction, and the complete Pareto section including Proposition 3.1 and Lemma 3.2.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "A study on the Weibull and Pareto distributions motivated by Chvátal's theorem",
+        "trigger": "Same Pareto family and an adjacent probability-minimization problem."
+      },
+      {
+        "assessment": "NOT_COVERING; it proves an opposite extremal statement.",
+        "evidence": "Proposition 3.6 proves that the infimum of the outside probability is zero as shape decreases to \\(2\\), which corresponds to central probabilities approaching one rather than their infimum.",
+        "identifier_or_url": "arXiv:2401.09998v2",
+        "material_read": "Introduction and the complete Pareto subsection, Proposition 3.6 and proof.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "On the anti-concentration functions of some familiar families of distributions",
+        "trigger": "Same Pareto family, same mean/variance normalization, and the complementary tail event."
+      },
+      {
+        "assessment": "NOT_COVERING because the distribution family is Gamma.",
+        "evidence": "The paper studies \\(P(|X-EX|\\le SD)\\) for Gamma variables and obtains the Gaussian limiting constant, not the Pareto formula or Pareto sharp constant.",
+        "identifier_or_url": "DOI:10.1186/s13660-024-03081-w",
+        "material_read": "Abstract and the open full-text theorem section describing the variation comparison.",
+        "method": "Open-access journal/PMC HTML inspection.",
+        "title": "The infimum values of two probability functions for the Gamma distribution",
+        "trigger": "Same one-standard-deviation central-mass functional for a neighboring classical family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1db14b98-a2b7-456c-84fd-b83de4f4b7c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-standard-deviation central probability is an explicitly studied variation-comparison functional for classical distribution families. This result gives its complete sharp Pareto type-I classification throughout the finite-variance regime, including nonattainment and the first approach-to-extremality term. It also separates two opposite Pareto endpoints: shape near \\(2\\) makes tail-infimum anti-concentration vanish, while shape tending to infinity minimizes the central one-sigma mass. This is a natural family-wide invariant rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
