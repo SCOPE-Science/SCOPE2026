@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge2\\), partition \\(S(n,m)\\) into \\(m^{n-2}\\) two-level blocks indexed by the first \\(n-2\\) symbols. In any block, each nonempty row clique \\(K_m\\) contains at least \\(r=m-k\\) selected vertices. Two empty rows are impossible: the off-diagonal vertex \\((p,i,j)\\), \\(i\\ne j\\), has only one neighbor outside its row, namely \\((p,j,i)\\), which would also be omitted. If exactly one row is empty, each of the other \\(m-1\\) rows needs at least \\(r+1\\) selected vertices because its mandatory selected transverse endpoint has an additional omitted neighbor. Thus every block contributes at least \\(\\min\\{mr,(m-1)(r+1)\\}=mr\\), giving \\(|D|\\ge r m^{n-1}\\). An explicit symmetric relation of degree \\(r\\) on \\(m\\) symbols with constant diagonal exists for every \\(1\\le r\\le m-1\\). Selecting all vertex words with related last-two symbols places exactly \\(r\\) selected vertices in every row. Every cross-row link preserves membership by relation symmetry or diagonal uniformity; each selected vertex therefore has exactly \\(k\\) omitted row neighbors and none across links. Every row has a selected vertex and is dominated. The \\(n=1\\) complete-graph base case follows separately. The actual standard-library verifier builds adjacency from the graph definition, checks 69 constructed profiles, and exhaustively examines 160164 candidate subsets for 36 small-parameter profiles. Finite tests corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.01584v1 Theorems 10-11 give the k=1 and m=3 cases, strictly narrower than all parameters.",
+        "The general order/degree bounds and regular-graph identities in arxiv:2606.22422 do not give this exact formula for nonregular Sierpiński graphs."
+      ],
+      "reasoning": "The new theorem strictly extends the named special cases; generic domination bounds or a graph-product estimate do not fix this specific optimum. The general Cartesian-products preprint was located, but its complete text was not inspected, leaving a stated access limitation rather than claiming noncoverage from its title.",
+      "searches": [
+        "On k-limited domination in graphs general bounds Sierpinski graphs 2606.22422",
+        "On k-limited domination complexity and Cartesian products Sierpinski 2606.22428",
+        "Sierpinski graphs k-limited domination conjecture gamma_k^L(S(n,m)) = (m-k) m^(n-1) symmetric relation regular graph construction 2026 Bozovic",
+        "arxiv:2610.01584v1 Sections 5-6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.01584v1 full-text HTML, Sections 2, 5, 6",
+      "arxiv:2606.22422 and journal HTML, relevant sections",
+      "arxiv:2606.22428 bibliographic identification only",
+      "Published mathematical-result semantic index, targeted queries recorded above",
+      "Previous and current project records, claims/IDs only for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.01584v1 Section 6 explicitly proposes the equality as Conjecture 12 after proving the indicated special cases.",
+        "The manuscript distinguishes the restricted proven cases from the full conjecture."
+      ],
+      "reasoning": "The previously proved k=1 and (m,k)=(3,2) cases are logical specializations of the present statement, not conversely. The new off-diagonal block compensation and modular symmetric-relation construction address the remaining parameter range without assuming the conjecture.",
+      "searches": [
+        "arxiv:2610.01584v1 Theorem 10 Theorem 11 Conjecture 12",
+        "arxiv:2606.22422 k-limited domination general bounds",
+        "2026 Sierpinski graph k-limited domination construction regular circulant graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.01584v1 Section 6 explicitly labels the equality Conjecture 12.",
+        "On k-limited domination in graphs (Božović et al., 2026) identifies (0,k)-pitchfork domination as the same parameter."
+      ],
+      "reasoning": "The (0,k)-pitchfork terminology is a true synonym, so that literature was included in searches. Neither the inspected prior parameter paper nor the targeted search results supply an all-n,m,k Sierpiński proof. A conjectural formula does not logically imply its own truth.",
+      "searches": [
+        "Sierpiński graph k limited domination",
+        "S(n,m) limited domination conjecture 12",
+        "Sierpinski pitchfork domination graph",
+        "\"S(n,m)\" \"k-limited\" \"m-k\" domination",
+        "arxiv:2610.01584v1, Section 6, Conjecture 12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact expression occurs in the main 2026 source as an unproved conjecture, not an exhaustive table.",
+        "Independent complete small-graph calculations are documented in verify.py and verify_output.txt."
+      ],
+      "reasoning": "No database or exact table retrieved covered the universal result. Finite enumerations of small instances, whether published or computed, do not imply the universal identity.",
+      "searches": [
+        "Sierpiński graph k limited domination",
+        "S(n,m) limited domination conjecture 12",
+        "k-limited domination Sierpinski graphs exact any k 2026",
+        "\"Sierpiński\" \"limited domination\" \"(m-k)\""
+      ]
+    },
+    "rationale": "The targeted arXiv:2610.01584v1, first public 2026-10-01, explicitly states the complete formula as Conjecture 12 in Section 6 after establishing \\(k=1\\) for general \\(m\\), and \\((m,k)=(3,2)\\) for general \\(n\\). Those published special cases are acknowledged, not claimed as new. The present proof resolves every remaining parameter by a two-level lower-bound compensation and a uniform symmetric-regular-relation construction. Earlier arXiv:2606.22422 derives definitions and general estimates, including the synonymous \\((0,k)\\)-pitchfork parameter, but does not state the Sierpiński equality. published-finding corpus and literature/own-ledger comparisons did not reveal a covering published theorem. Missing index records, alternate nomenclature and partial access to another graph-product preprint remain risks; search nonfindings are not a proof of global novelty.",
+    "residual_risks": [
+      "Incomplete indexing of equivalent results under (0,k)-pitchfork or other nomenclature.",
+      "arxiv:2606.22428 was identified but its full text was not available in this pass. Its described Cartesian-product bounds are not known to imply the universal Sierpiński statement.",
+      "No independently performed mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Special cases proved; the exact general statement explicitly remains a conjecture in this source.",
+        "evidence": [
+          "arxiv:2610.01584v1 Sections 2, 5, 6, Theorems 10-11, Conjecture 12."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01584v1",
+        "material_read": "Definition of S(n,m) and k-limited sets in Section 2; statements and proofs of Theorems 10 and 11 in Section 5; Conjecture 12 in Section 6; abstract and cited references.",
+        "method": "Read accessible primary full-text HTML at the theorem and conjecture locations, including proof paragraphs.",
+        "title": "On k-limited domination: complexity and Sierpiński graphs",
+        "trigger": "Same object, same invariant, exact conjectured formula"
+      },
+      {
+        "assessment": "No inspected theorem determines this Sierpiński parameter family; general bounds do not directly establish the equality.",
+        "evidence": [
+          "Božović et al., On k-limited domination in graphs, Section 2 and general-bounds section."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+        "material_read": "Journal HTML definition, initial graph-family propositions, (0,k)-pitchfork equivalence, general bounds and regular-graph equivalence.",
+        "method": "Read accessible Springer HTML text for definitions and relevant propositions and bounds.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Introduces same invariant and alternative pitchfork formulation, with potential general dominating bounds"
+      },
+      {
+        "assessment": "Not used to assert complete noncoverage; recorded as a residual-risk source.",
+        "evidence": [
+          "arxiv:2610.01584v1 introduction and bibliography [12]."
+        ],
+        "identifier_or_url": "arxiv:2606.22428",
+        "material_read": "Title and bibliographic reference in arxiv:2610.01584v1; full text unavailable in this inspection.",
+        "method": "Located citation and attempted arXiv full-text access.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Reference in the motivating article to related k-limited domination on graph products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "023a3f7e-a943-4194-9d6b-ea0b8c14904c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly asks for the equality at all parameters as a conjecture. Proving it for every height \\(n\\ge1\\), alphabet size \\(m\\ge2\\), and \\(1\\le k\\le m-1\\) settles the natural exact-number question for the entire Sierpiński family, not a routine substitution. The lower-bound proof handles the genuine obstacle of a possibly empty row clique by deriving additional occupancy in each of the other \\(m-1\\) rows. A symmetric modular relation produces optimal sets uniformly without parity exceptions. The result does not purport to classify every optimal set or prove downstream complexity results.",
+    "status": "PASS"
+  }
+}
