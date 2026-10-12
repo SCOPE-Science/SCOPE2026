@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The statement fixes every parameter quantifier and the normalized-Laplacian convention. Degree equality follows from the simple eigenvalue-zero projector. For the only remaining cross-class candidate, exact second moments lie in disjoint ranges. For the same-class candidates singled out by the cited Corollary 8, two explicit vectors in the eigenvalue-one eigenspace force nonzero sum and difference projections, ruling out strong cospectrality. These calculations are exact for every \(m\ge2\) and \(p_i\ge1\). The finite reproducibility checks corroborate but are not substituted for proof.
+
+**Originality — PASS, with residual risk.** The closest normalized-Laplacian work is Coutinho–Baptista, Corollary 8, which restricts candidate pairs rather than eliminating them across this unrestricted heterogeneous family. Monterde's Theorem 3.9/Corollary 3.14 gives general twin criteria, not the explicit entire family exclusion and cross-class moment separation. The adjacency-tree nonexistence theorem of Coutinho–Juliano–Spier concerns a different Hamiltonian. Alvir et al. cover special paths, not the family. Relevant semantic searches and existing-result comparisons did not identify the same unrestricted claim. Because these are specialized applications of existing spectral methods, a more encompassing, unlocated statement remains a substantive possible overlap.
+
+**Value — PASS.** The problem is motivated by the explicit broader tree nonexistence question for normalized-Laplacian quantum walks. The theorem settles a natural, infinite, unbounded and heterogeneous depth-two tree class; it identifies a precise eigenvalue-one obstruction even for cospectral sibling twins and a separate root–hub walk-moment obstruction. The result does not assert a complete classification of all diameter-four trees or rule out approximate transfer.
+
+**Limitations and proximity.** The family excludes neighbors that are direct leaves of the root. It includes the previously known path boundary but also unrestricted non-path cases. Independent corroboration of originality against all possible reformulations is not available.
+
+Self-review: passed. Independent audit: not yet performed.
