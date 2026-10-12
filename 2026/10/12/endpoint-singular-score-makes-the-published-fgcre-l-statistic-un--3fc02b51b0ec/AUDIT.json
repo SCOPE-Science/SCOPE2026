@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Writing v=-log(1-u) converts the published score to v^(beta-1)(beta+1-v)/Gamma(beta+1), which tends to -infinity as u approaches 1 from below for every beta>0. Equation (7) evaluates that score at i/n through i=n, and equation (9) places the same endpoint term in every spacing coefficient. The derivative is proportional to beta^2-1-beta v, proving the all-beta strict-monotonicity assertion false when beta>1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stigler (1974), DOI 10.1214/aos/1176342756, is the classical smooth-weight L-statistic source cited by the target paper.",
+        "A later 2026 entropy-based scale-free L-statistic paper uses related order-statistic and normalized-spacing machinery but does not state a correction to the target DOI."
+      ],
+      "reasoning": "General L-statistic theory does not assign a finite value to a deterministic weight that the target formula evaluates outside its stated domain. The later related methodology does not imply that the printed May 2026 statistic is finite.",
+      "searches": [
+        "order statistic maximum infinite score function i/n L-statistic empirical plug-in",
+        "web: Linear functions of order statistics with smooth weight functions Stigler 1974",
+        "web: An Entropy-Based Scale-Free L-Statistic for Exponentiality Testing in Lifetime Data with DMRL Aging"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026519",
+      "doi:10.1214/aos/1176342756",
+      "doi:10.1214/aoms/1177728786",
+      "MDPI Entropy 28(7):755, later 2026 related scale-free L-statistic article"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target article itself cites Stigler for asymptotic L-statistic theory and Box for the finite-sample spacing distribution.",
+        "Those classical sources concern well-defined deterministic coefficients; the contradiction here occurs before their results can be applied because J_beta(1) is undefined and divergent."
+      ],
+      "reasoning": "The present diagnosis is not a corollary already stated in the cited foundations. It is a direct incompatibility between the target score's endpoint behavior and the target empirical formula.",
+      "searches": [
+        "web: 10.1214/aos/1176342756 Stigler smooth weight L-statistics",
+        "web: 10.1214/aoms/1177728786 Box quadratic forms",
+        "web: 10.3934/math.2026519 i/n J correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no finding about DOI 10.3934/math.2026519, the endpoint value J_beta(1), or an undefined FGCRE L-statistic.",
+        "Exact web searches returned the original article and mirrors but no correction or endpoint diagnosis."
+      ],
+      "reasoning": "The claim was searched under the source terminology, the L-statistic endpoint mechanism, and the exact-null formulation. No equivalent published statement was located.",
+      "searches": [
+        "FGCRE test exponentiality score function J beta empirical distribution i/n",
+        "L-statistic score J beta logarithm one minus u beta exact exponential null distribution",
+        "web: 10.3934/math.2026519 J(1)",
+        "web: 10.3934/math.2026519 undefined statistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact DOI search in published-finding corpus returned no matching record.",
+        "The official AIMS page and SciOpen mirror list the original article and no corrigendum or erratum."
+      ],
+      "reasoning": "No database record or correction notice was found that repairs equations (6)–(10) or supplies an endpoint convention.",
+      "searches": [
+        "10.3934/math.2026519 exact null distribution fractional generalized cumulative residual entropy",
+        "pairwise distinct coefficients exact null distribution normalized exponential spacings beta",
+        "web: 10.3934/math.2026519 corrigendum erratum correction"
+      ]
+    },
+    "rationale": "Focused published-finding corpus, web, correction-notice, and owned-ledger searches found no prior finding or published correction identifying the endpoint singularity in DOI 10.3934/math.2026519.",
+    "residual_risks": [
+      "An unindexed corrigendum or author note may exist.",
+      "The simulations may use an undocumented interior plotting-position convention; the finding does not identify or evaluate that code-level convention.",
+      "A separate repaired statistic may already be known in general L-statistic literature under a different formulation, but that would not make the printed equations finite."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines J_beta only on 0<u<1, evaluates it at i/n including i=n, repeats that term in every b_{r,n}, and asserts strict monotonicity for all beta>0.",
+        "evidence": "Equation (6) gives the score and domain; equation (7) uses J_beta(i/n); equations (9)–(10) give the spacing coefficients and exact-null CDF; Remark 3.1 supplies the monotonicity/distinctness argument.",
+        "identifier_or_url": "doi:10.3934/math.2026519",
+        "material_read": "Open-access full-text PDF, especially pages containing equations (6)–(10), Theorem 3.1, Remark 3.1, and the finite numerical applications.",
+        "method": "Direct full-text and page-image inspection.",
+        "title": "Exact and entropy-based nonparametric tests for exponentiality against increasing failure rate alternatives",
+        "trigger": "Primary source defining the score, empirical statistic, spacing coefficients, and exact-null theorem."
+      },
+      {
+        "assessment": "This source supplies general L-statistic theory; no inspected evidence indicates that it defines the target paper's singular endpoint weight.",
+        "evidence": "The target article cites Stigler for standard smooth-weight L-statistic asymptotics.",
+        "identifier_or_url": "doi:10.1214/aos/1176342756",
+        "material_read": "Bibliographic record and journal issue entry; the target paper's invocation of this source was inspected in full text.",
+        "method": "Bibliographic comparison plus inspection of how the target source applies it.",
+        "title": "Linear functions of order statistics with smooth weight functions",
+        "trigger": "Classical L-statistic source explicitly cited by the target paper for asymptotic theory."
+      },
+      {
+        "assessment": "The target attempts to apply Box only after defining deterministic coefficients b_{r,n}; the endpoint defect prevents those coefficients from being finite before Box's result becomes relevant.",
+        "evidence": "Theorem 3.1 proof in the target source invokes Box after equations (9) and the b_{r,n} definition.",
+        "identifier_or_url": "doi:10.1214/aoms/1177728786",
+        "material_read": "Bibliographic record and the target paper's full-text application of the cited result.",
+        "method": "Bibliographic comparison plus inspection of the target theorem proof.",
+        "title": "Some theorems on quadratic forms applied in the study of analysis of variance problems, I",
+        "trigger": "Classical distributional source explicitly invoked for the exact ratio formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fc02b51-b0ec-4594-a81c-da5ce04b0f93",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The endpoint defect affects the paper's proposed empirical statistic, its advertised exact finite-sample null distribution, and the coefficient-distinctness argument, which are central methodological claims rather than a peripheral typographical quantity. The diagnosis also specifies what any repair must address: endpoint regularization and a fresh distinct-coefficient proof.",
+    "status": "PASS"
+  }
+}
