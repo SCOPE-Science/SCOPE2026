@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "With one-dimensional complement, the exact left-preconditioned error matrix orthogonally reduces in singular values to T_alpha=[[0,-c],[-alpha p,1-alpha d]]. A determinant PSD criterion yields W_z F_z(alpha_z)=z(z-c^2)[(d^2+p^2)z-p^2(1+c^2)], proving a global squared-norm lower bound max(c^2,p^2(1+c^2)/(d^2+p^2)). Each branch supplies a positive scalar attaining it, with unique equality; b=0 and branch equality are treated. Strict Euclidean contraction holds precisely for c<1 and d>pc. Similarity to an SPD symmetrically preconditioned matrix and a Schur complement prove the exact spectral stability interval alpha<2/(d+tau). The explicit SPD witness has exact Schur complement 1/10, alpha_opt=810/2429, minimum squared norm=2550/2429>1, and spectral interval (0,10/13). A separately executed symbolic identity check and the extracted Python test routine (one exact witness, 3,500 random SPD blocks and four alternative alpha values each) reproduced all relevant finite instances; tests are not universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published weighted-Jacobi result: safety for I-omega D^-1 A, with global omega changing the reduced block as well.",
+        "Published two-coordinate GS ordering result: exact one-sweep transient after sequential updates, rather than additive block update.",
+        "Published additive bidirectional GS inverse: symmetric triangular construction and SPD threshold, not Type-II scalar complement."
+      ],
+      "reasoning": "Checked whether a general stronger one-step Euclidean preconditioned iteration theorem subsumes the claim. The closest fixed-B/global damping criterion cannot be instantiated with B_alpha varying solely in the complement while the reduced block remains exactly inverted: the family and optimization quantifiers differ. Spectral condition-number guarantees also do not bound the nonnormal Euclidean one-step norm.",
+      "searches": [
+        "block Jacobi Richardson one-dimensional complementary Schur complement sharp optimal damping Euclidean contraction normalized inverse coupling",
+        "two block diagonal preconditioner nonnormal Richardson error one step norm spectral radius mismatch sharp",
+        "optimal block diagonal preconditioner weighted Jacobi one scalar unresolved complement closed form norm",
+        "additive reduced basis preconditioner Type II codimension one Richardson Euclidean operator norm optimal alpha monotonicity threshold",
+        "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.11097v1 (full 23-page preprint, eqs. 3.3–3.6, theorem 3.4, sections 3.3–3.5 and results)",
+      "arXiv:2001.00711v1 (full arXiv HTML, definitions, theorem 4, discussion, proof)",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f (complete RESULT.md)",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b (complete RESULT.md)",
+      "2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba (complete RESULT.md)",
+      "Demmel 2023 DOI 10.1137/22M1504901 (abstract and bibliographic content only)",
+      "Cornell CS 6210 matrix computations Richardson/Jacobi lecture (full relevant sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fan–Hu–Zhang, eqs. (3.5), Theorem 3.4: operator definition and nonsingularity only; section 3.4: a Type-I approximation-error-dependent estimate.",
+        "Southworth–Olivier Theorem 4: spectral structure of Schur-complement-based block diagonals; section 2.1 acknowledges no universal optimal (2,2) block under unspecified objective.",
+        "Published weighted-Jacobi condition omega_E(A) applies to global damping of a fixed diagonal inverse, not the Type-II complement tuning objective."
+      ],
+      "reasoning": "A result that proves nonsingularity or spectral convergence does not imply a sharp norm-minimizing scalar, a necessary-and-sufficient one-step Euclidean contraction criterion, or the strict 3x3 obstruction. General scalar Richardson convergence after globally scaling all blocks and block condition-number optimality do not logically yield this family-restricted minimax. Classical 2x2 singular-value linear algebra is used in the proof, so potential rediscovery under another nomenclature remains an explicit risk.",
+      "searches": [
+        "Type II additive reduced basis complement scalar alpha optimum minimize Euclidean Richardson one step operator norm codimension one",
+        "optimal block diagonal preconditioner weighted Jacobi one scalar unresolved complement closed form norm",
+        "additive reduced basis preconditioner Type II codimension one Richardson Euclidean operator norm optimal alpha monotonicity threshold",
+        "arXiv:2609.11097v1",
+        "arXiv:2001.00711v1",
+        "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact block representation of the Type-II inverse in Fan–Hu–Zhang (3.5) matches B_alpha, while Prop. 3.6 uses Type I.",
+        "The independent two-by-two matrix T_alpha has first row length c; the new lower bound depends on both c and p, not only the SPD Schur complement tau.",
+        "Southworth–Olivier (Theorem 4) uses generalized Schur eigenvalues and does not optimize singular norms."
+      ],
+      "reasoning": "Searched aliases Type II ARB, two-block diagonal scalar complement, Euclidean Richardson singular-value minimax and exact 2x2 coefficient formulas. Existing papers give construction or eigenvalue comparisons; no equivalent optimized scalar and paired Euclidean/spectral boundary is implied by those results. Absence from search is not itself proof of novelty.",
+      "searches": [
+        "Type II additive reduced basis complement scalar alpha optimum minimize Euclidean Richardson one step operator norm codimension one",
+        "matrix [[0,-c],[-alpha p,1-alpha d]] spectral norm minimization alpha formula d(1+c²)/(d²+p²)",
+        "block diagonal scalar complement inverse norm nonexpansive criterion d greater than norm b times norm H inverse b",
+        "nonnormal preconditioned Richardson Euclidean amplification no relaxation positive definite two level reduced basis",
+        "arXiv:2609.11097v1",
+        "arXiv:2001.00711v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published mathematical records concern damping ceilings, block-GS order and additive triangular inverses; no matching 3x3 rational extremal entry was found.",
+        "The concrete matrix A_* has Schur complement 1/10 and exact factor squared 2550/2429, computed directly from rational entries, not taken from any table."
+      ],
+      "reasoning": "The finding is a parametric identity for all real SPD block inputs, not a lookup-table value. Searches for exact coefficient formulas and three-dimensional examples returned no exact-database or established-table coverage. This is an absence-of-matches report, not an inference of proof from database partitioning.",
+      "searches": [
+        "matrix [[0,-c],[-alpha p,1-alpha d]] spectral norm minimization alpha formula d(1+c²)/(d²+p²)",
+        "three dimensional SPD block Jacobi any positive complementary damping Euclidean transient expansion despite spectral convergence",
+        "block diagonal scalar complement inverse norm nonexpansive criterion d greater than norm b times norm H inverse b",
+        "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+      ]
+    },
+    "rationale": "The September 2026 originating preprint fixes the precise Type-II inverse action and proves nonsingularity but uses Type I for its Richardson estimate and does not optimize Euclidean one-step error. Older full-text Schur-complement/block-preconditioner literature covers eigenvalues and Krylov iteration counts, not the scalar Euclidean minimax. The closest published weighted-Jacobi result varies a global step for a fixed inverse, whereas this theorem varies only the complement block; no statement-to-statement implication establishes the piecewise optimizer. Detailed searches of aliases, formulas, published findings, and a 3x3 boundary found no covering result. This is a qualified self-review, not certified priority.",
+    "residual_risks": [
+      "Older specialized literature on norm-optimal block Jacobi or approximate inverses may express the same two-by-two scalar singular-value minimax under different notation.",
+      "Demmel 2023 journal body was not inspected; its accessible abstract concerns a different condition-number objective, making direct coverage less plausible but not conclusively excluded.",
+      "Search and public-record retrieval cannot establish unique worldwide priority or inspect inaccessible/unindexed results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines B_alpha as the Type-II inverse action and proves nonsingularity; the Richardson analysis in Propositions 3.6–3.7 uses the separate Type-I action and an assumed projected-error bound, not the exact Type-II scalar-complement Euclidean norm minimax.",
+        "evidence": "Eq. (3.5) is the inverse of reduced-basis solve plus alpha(I-PP^T); Theorem 3.4 ensures nonsingularity. Section 3.3 says alpha is usually small. Section 3.4 explicitly selects Type I for Richardson. No alpha_opt, c<1/d>pc criterion, or 3x3 strict noncontracting SPD witness appears in the inspected discussion.",
+        "identifier_or_url": "arXiv:2609.11097v1; https://pdfs.assets.alphaxiv.org/2609.11097v1.pdf",
+        "material_read": "Primary 23-page open-access manuscript: section 3.1 Type-II definitions, equations (3.3)–(3.6), Theorem 3.4, relevant sections 3.3–3.5, main numerical summaries, conclusions and references.",
+        "method": "Read relevant full-text sections of the primary PDF and visually inspected the displayed Type-II equations and nonsingularity theorem on PDF pages 5–6.",
+        "title": "Additive reduced basis preconditioners for large-scale parametrized PDEs",
+        "trigger": "Source defining the Type-II operator and its regularization parameter."
+      },
+      {
+        "assessment": "Derives eigenvalue/minimal-polynomial geometry and Krylov behavior for block diagonals with exact or approximate Schur complements. Does not solve one-step Euclidean operator-norm minimization over an additive reduced-basis scalar.",
+        "evidence": "Section 2.1 explicitly raises the question of an optimal (2,2) block and asks optimal in which sense; Theorem 4 is an eigenvalue decomposition, not a Euclidean singular-norm extremum.",
+        "identifier_or_url": "arXiv:2001.00711v1; https://arxiv.org/html/2001.00711v1",
+        "material_read": "Full-text arXiv HTML: complete theoretical setup and Theorem 4, sections 2.1–2.2 with relevant arguments, discussion, applications overview and conclusion.",
+        "method": "Read full HTML and its block-preconditioner definitions; searched for optimality and norm comparison.",
+        "title": "A note on 2×2 block-diagonal preconditioning",
+        "trigger": "Older closest primary block-preconditioner theory, especially its possible optimization of a complementary block."
+      },
+      {
+        "assessment": "Provides a fixed-inverse/global-step safety ceiling for weighted Jacobi, including a two-coordinate condition-number envelope, but not complement-only regularizer optimization with the resolved block fixed.",
+        "evidence": "Its basic family is I-omega D^-1 A with D=diag(A), and its criterion is omega<=lambda_min(A^-1D+DA^-1); varying omega changes all block rows and cannot imply the piecewise alpha_opt for I-diag(H^-1,alpha)A.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+        "material_read": "Published RESULT.md theorem, assumptions, proof and relevant comparison/limitation sections from the original repository.",
+        "method": "Compared the quantified preconditioner family and objective directly.",
+        "title": "Sharp Euclidean damping frontier for weighted Jacobi on 2×2 SPD systems",
+        "trigger": "Nearest publicly indexed result on Euclidean nonexpansion of nonnormal block/diagonal preconditioning."
+      },
+      {
+        "assessment": "Controls a choice of sequential coordinate update order, not the scalar on an orthogonal complement in a fixed two-block additive inverse.",
+        "evidence": "The operator T_12 has one nonzero column and the theorem minimizes over coordinate orders, whereas the present operator has generally two nonzero singular directions and minimizes over positive alpha.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+        "material_read": "Published RESULT.md theorem, assumptions, proof and relevant comparison/limitation sections from the original repository.",
+        "method": "Compared one-sweep GS triangular map with stationary additive block-diagonal Richardson map.",
+        "title": "Sharp minimax Euclidean transient bound for two-coordinate Gauss–Seidel ordering",
+        "trigger": "Possible preexisting sharp spectral-norm transient for block matrix iterations."
+      },
+      {
+        "assessment": "Does not cover the complement-only scalar tuning; its preconditioner is B=(D+L)^-1+(D+L^T)^-1-D^-1.",
+        "evidence": "Its SPD criterion is ||D^-1/2 L D^-1/2||<1 and weak-coupling spectral estimates; neither states the singular-value minimax for Type-II ARB.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+        "material_read": "Published RESULT.md theorem, assumptions, proof and relevant comparison/limitation sections from the original repository.",
+        "method": "Compared the two triangular-inverse construction with Type-II subspace plus scalar complement.",
+        "title": "Additive bidirectional Gauss–Seidel inverse: exact SPD threshold and quadratic weak-coupling clustering",
+        "trigger": "Additive preconditioner terminology and a possible dominating matrix factorization."
+      },
+      {
+        "assessment": "Optimizes condition numbers of symmetric block scalings, not the one-step Euclidean norm of a left-preconditioned Richardson map. Full text not reviewed; counted as a residual literature risk, not certified noncoverage.",
+        "evidence": "Abstract specifies condition number of DAD^T and a d^2 comparison; no claimed one-step norm alpha frontier in inspected material.",
+        "identifier_or_url": "J. Demmel, SIAM J. Matrix Anal. Appl. 44 (2023), doi:10.1137/22M1504901; https://slice.eecs.berkeley.edu/papers/nearly-optimal-block-jacobi-preconditioning/",
+        "material_read": "Complete abstract and accessible bibliographic description; not full journal text.",
+        "method": "Compared stated optimization target in author-hosted abstract and journal abstract.",
+        "title": "Nearly optimal block-Jacobi preconditioning",
+        "trigger": "Block-optimality title could conceal stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c112d7d-6145-4eb5-a20b-0697cb7d7f0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Type-II ARB adds a scalar inverse action in the orthogonal complement to make a singular reduced-basis approximate inverse usable. Picking that scalar is a natural numerical-analysis decision. This result supplies its exact one-step Euclidean optimum at the first nontrivial complement dimension, a sharp test for whether any scalar guarantees strict one-step error descent, and an open three-dimensional SPD obstruction where the stationary iteration is nevertheless spectrally convergent. The obstruction is sensitive to noncollinearity of b and H^-1 b and cannot arise in two-dimensional SPD blocks with c<1; it is not a table recomputation, renaming, or merely code-backed example. It does not claim multi-step or FGMRES performance.",
+    "status": "PASS"
+  }
+}
