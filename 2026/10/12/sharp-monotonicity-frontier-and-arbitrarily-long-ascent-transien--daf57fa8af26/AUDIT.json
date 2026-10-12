@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The scalar recurrence is an exact specialization of the source algorithm. The per-step objective ratio is a square, making the universal threshold equivalent to the classical interval for the current effective scaled step. Necessity follows from an exact first-step calculation. The arbitrary finite ascent claim follows by a finite-horizon continuity induction showing gamma_k=varsigma+O(x_0^2) and x_j/x_0 tending to the stated power.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Closest published-result records include 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789 and 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53, both for different step rules.",
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa concerns a different adaptive method and a different asymptotic claim.",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 concerns stochastic OSGM feedback targets rather than cumulative-gradient AdaNorm."
+      ],
+      "reasoning": "Nearby stronger-looking stability results use different update maps and therefore do not cover the AdaNorm accumulator dynamics. No broader theorem located in these searches specializes to the stated threshold and arbitrary finite ascent prefixes.",
+      "searches": [
+        "optimization scalar quadratic exact step size 2025 2026 line search counterexample",
+        "proximal gradient adaptive step size scalar quadratic exact limit",
+        "adaptive normalized gradient accumulator scalar quadratic convergence",
+        "AdaNorm deterministic quadratic step size stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.17423v3",
+      "arXiv:1806.01811",
+      "PMLR:97:ward19a",
+      "arXiv:2209.14827v4",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source explicitly emphasizes convergence without a sufficiently small master stepsize and states that AdaNorm is covered by its general theorem.",
+        "Ward--Wu--Bottou prove convergence for arbitrary positive hyperparameters, which is compatible with temporary objective ascent.",
+        "Liu--Nguyen--Ene--Nguyen analyze function-value convergence of vanilla AdaGradNorm but do not assert monotonicity of each iterate."
+      ],
+      "reasoning": "Eventual/best-iterate/average convergence guarantees do not imply per-step monotonicity. The new claim instead exposes the exact boundary between globally monotone scalar trajectories and a locally repelling startup regime, so the prior convergence theorems are compatible but non-covering.",
+      "searches": [
+        "arXiv:2604.17423v3 full text: Algorithm 2.1, Theorem 3.10, Corollary 3.11, Section 4.1",
+        "arXiv:1806.01811 full text: AdaGrad-Norm algorithm and arbitrary-hyperparameter convergence statements",
+        "arXiv:2209.14827v4 full text: Algorithm 1 and deterministic convergence discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.17423v3, Algorithm 2.1 and Section 4.1: current-gradient AdaNorm recurrence; no matching monotonicity or overshoot statement was found.",
+        "arXiv:1806.01811 / PMLR 97: scalar AdaGrad-Norm update and robustness to arbitrary positive hyperparameters; full-text searches found no matching monotonicity, quadratic, or overshoot theorem.",
+        "arXiv:2209.14827v4: vanilla current-gradient AdaGradNorm and deterministic convergence analysis; full-text searches found no matching monotonicity or overshoot statement."
+      ],
+      "reasoning": "The final claim is about trajectory-level objective stability and a local finite-horizon repeller law, not merely convergence. The inspected sources' convergence bounds do not imply or subsume these exact transient statements.",
+      "searches": [
+        "AdaGradNorm arbitrarily long objective ascent scalar quadratic local repeller",
+        "AdaNorm condition-number-one quadratic transient objective increase near minimizer",
+        "AdaGrad-Norm local stability threshold initial accumulator curvature monotonicity",
+        "AdaNorm first-step monotonicity threshold eta lambda 2 sqrt accumulator scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-result record or exact table entry was returned for AdaNorm/AdaGrad-Norm.",
+        "The result is an analytic recurrence theorem and does not recompute a benchmark table."
+      ],
+      "reasoning": "The constants arise from an exact symbolic specialization of the published recurrence, not from fitting or re-reading a numerical table.",
+      "searches": [
+        "AdaNorm scalar quadratic exact dynamics accumulator overshoot",
+        "AdaGradNorm arbitrarily long objective ascent scalar quadratic local repeller"
+      ]
+    },
+    "rationale": "Three highly relevant primary texts were inspected. They establish adaptive convergence and rate results but do not state the sharp scalar objective-monotonicity frontier, exact ascent basin, or arbitrary-length ascent transient. Targeted searches returned nearby frontiers only for different algorithms.",
+    "residual_risks": [
+      "An older AdaGrad-Norm note under different notation may contain the same elementary scalar stability calculation.",
+      "The exact theorem is one-dimensional and deterministic; no multidimensional or stochastic equivalence is claimed.",
+      "The arbitrary-length statement is existential in the size of the starting neighborhood for each fixed horizon; it is not a uniform infinite-time divergence claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the recurrence used here and proves convergence without a small-stepsize restriction, but does not state the scalar monotonicity frontier or arbitrary-length ascent transient.",
+        "evidence": "Algorithm 2.1 initializes gamma_{-1}=varsigma, adds the current squared gradient norm, then steps by eta/sqrt(gamma_k); Section 4.1 states the general convergence theorem applies to one-block AdaNorm.",
+        "identifier_or_url": "arXiv:2604.17423v3",
+        "material_read": "Abstract and contribution statement; Algorithm 2.1; block AdaNorm specialization; Theorem 3.10/Corollary 3.11 linkage in Section 4.1; relevant bibliography.",
+        "method": "Direct full-text inspection of the lawful arXiv version, including rendered page inspection.",
+        "title": "A unified convergence theory for adaptive first-order methods in the nonconvex case, including AdaNorm, full and diagonal AdaGrad and Muon",
+        "trigger": "Primary recent source defining the AdaNorm recurrence and arbitrary-stepsize convergence framework."
+      },
+      {
+        "assessment": "Provides robust convergence for arbitrary positive hyperparameters but no matching trajectory-monotonicity or local-repeller theorem.",
+        "evidence": "The paper defines b_{j+1}^2=b_j^2+||G(x_j)||^2 and x_{j+1}=x_j-eta G(x_j)/b_{j+1}; targeted searches did not locate the claimed frontier.",
+        "identifier_or_url": "arXiv:1806.01811 / PMLR 97 (2019)",
+        "material_read": "Full-text introduction, AdaGrad-Norm algorithm, main arbitrary-hyperparameter convergence statements, and targeted full-text searches for monotonicity/quadratic/overshoot.",
+        "method": "Direct open-access full-text and rendered-page inspection.",
+        "title": "AdaGrad Stepsizes: Sharp Convergence Over Nonconvex Landscapes",
+        "trigger": "Foundational highly relevant AdaGrad-Norm convergence analysis with the same scalar accumulator."
+      },
+      {
+        "assessment": "Analyzes the same current-gradient accumulator and function-value convergence, but no matching exact monotonicity frontier or arbitrary finite ascent-prefix law was found.",
+        "evidence": "Algorithm 1 uses the current gradient in b_t before the step; the paper's quadratic discussion is an experiment on a Nesterov lower-bound function rather than the scalar transient theorem here.",
+        "identifier_or_url": "arXiv:2209.14827v4",
+        "material_read": "Full-text introduction, Algorithm 1, deterministic convergence setup, related-work discussion, quadratic experiment section, and targeted searches for monotonicity/overshoot.",
+        "method": "Direct arXiv full-text and rendered-page inspection.",
+        "title": "On the Convergence of AdaGrad(Norm) on R^d: Beyond Convexity, Non-Asymptotic Rate and Acceleration",
+        "trigger": "Highly relevant vanilla current-gradient AdaGradNorm analysis on unconstrained convex/quasar-convex problems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "daf57fa8-af26-428b-8f89-cb46380f227e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp dimensionless threshold separates two qualitatively different transient regimes on a condition-number-one problem. Above it, the minimizer with the startup accumulator is a genuine local repeller and any prescribed finite number of objective increases can be forced by moving the start closer to the minimizer. This goes beyond a single cheap overshoot example and clarifies why hyperparameter-robust convergence does not imply monotone or benign transients.",
+    "status": "PASS"
+  }
+}
