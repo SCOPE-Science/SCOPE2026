@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The explicit eight codewords have disjoint distinct two-adjacent-deletion shadow sets whose 27 members exactly partition all ternary triples. An exhaustive rejection of seven-or-fewer-word coverings enumerates all 243 possible codewords as 27-bit masks; branching on a mandatory uncovered triple is complete, and pruning uses only the provable at-most-four shadow bound. Two independently written replay programs agree: 649 memoized states, no seven-word cover.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Sun–Ge (2026), Theorem VI.4, supplies a nonbinary two-burst covering construction with a general bound, not the ternary minimum.",
+        "Chee–Li–Zhang (2015) explicitly states exact minimum q^3/4 for even q; its ternary length-five construction from length-three deletion codes yields 9, 12, 15."
+      ],
+      "reasoning": "Even-alphabet and general covering statements do not imply an eight-word ternary perfect code; the latter also requires nonoverlapping shadows. Source parts beyond materials read and unindexed supplementary claims are residual risks.",
+      "searches": [
+        "arxiv:2606.15379v1, Sections III, V, VI and VII; general insertion/deletion and burst covering bounds",
+        "doi:10.1109/ISIT.2015.7282792, introduction, Section III-B and Theorem 1/Corollary 1 as accessible in indexed proceedings excerpts",
+        "published-finding corpus: perfect two consecutive deletion correcting code length five quaternary sixteen codewords; optimal covering q4 n5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.15379v1 (original publicly 2026-06-13)",
+      "doi:10.1109/ISIT.2015.7282792 (2015 proceedings, partial indexed scientific text)",
+      "published-finding corpus published-search results on perfect n5,t2 codes and aliases",
+      "own historical claims in available JSONL g000130/g000131"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 result implies existence of a ternary perfect code with nine words but does not imply eight or the exclusion of seven; it gives a sharp even-q family by a different construction.",
+        "Xie–Sun–Ge (2026) does not claim a perfect length-five ternary partition of size eight."
+      ],
+      "reasoning": "A known nine-word upper bound cannot certify the proposed smaller eight-word existence; generic counting only gives seven as a lower bound. The new codebook plus complete seven-word exclusion supplies both missing implications.",
+      "searches": [
+        "doi:10.1109/ISIT.2015.7282792, spectrum minimum even q and length-five ternary construction",
+        "arxiv:2606.15379v1, burst-deletion covering theorem VI.4 and its restrictions",
+        "published-finding corpus: perfect burst deletion correcting code length five 2 consecutive deletions alphabet 4 quaternary code size 16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee–Li–Zhang (2015), DOI 10.1109/ISIT.2015.7282792, defines perfect (n,t)_q burst-deletion codes by partition of adjacent-deletion shadows.",
+        "published-finding corpus searches returned no finding about a ternary length-five perfect two-burst code of size eight."
+      ],
+      "reasoning": "The claim has been compared under perfect burst-deletion coding, shadow hypergraph exact partition, and spectrum-minimum language, not merely by its title. An exact partition is stronger than simple covering.",
+      "searches": [
+        "published-finding corpus: perfect ternary length five two consecutive burst deletion correcting code eight codewords exact minimum spectrum 3 5 2",
+        "published-finding corpus: specB(3,5,2) 8 ternary perfect burst deletion code size eight",
+        "web: \"perfect (5, 2)3-BDCC\" 8",
+        "web: \"SpecB(3, 5, 2)\" eight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest own-ledger finding about a different length-four adjacent-deletion covering problem is d4593077-776a-4ac1-b3de-0114827e6e80.",
+        "Chee–Li–Zhang (2015) records a ternary length-five subset of the perfect-code spectrum via sizes 9, 12 and 15, not an exact lower-eight result in the inspected sections."
+      ],
+      "reasoning": "The exact ternary length-five eight-word minimum was not found in checked published-finding corpus results, previous own claims, or checked finite tables/constructive sections. Unindexed tables are not excluded.",
+      "searches": [
+        "published-finding corpus: perfect ternary length five two consecutive burst deletion correcting code eight codewords exact minimum spectrum 3 5 2",
+        "published-finding corpus: specB(3,5,2) 8 ternary perfect burst deletion code size eight",
+        "web: \"ternary\" \"perfect\" \"burst deletion\" length 5 8 codewords",
+        "own JSONL ledger g000130 and g000131, comparison of claim texts for burst, perfect, covering and deletion"
+      ]
+    },
+    "rationale": "The 2015 Chee–Li–Zhang length-five burst-deletion spectrum construction produces ternary perfect codes of sizes 9, 12 and 15, but its displayed construction and principal even-alphabet optimum do not imply an eight-word ternary perfect code. The 2026 Xie–Sun–Ge nonbinary covering-code bounds address different or broader regimes without this exact perfect-code minimum. Specific claim/parameter/implication and database comparisons, plus own-ledger deduplication and published-finding corpus searches, found no covering result. Remaining risk: earlier uncatalogued finite data or material outside the accessible parts of the 2015 proceedings article.",
+    "residual_risks": [
+      "The entirety of the closely relevant 2015 proceedings PDF could not be read; potentially covering remarks outside the inspected indexed sections were not ruled out.",
+      "An unindexed prior computation, later erratum, or independently derived eight-word ternary code could predate this finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides bounds and constructions but not eight-word perfect ternary n=5 result.",
+        "evidence": "Section VI, Theorems VI.1 and VI.4, treats binary perfect two-burst codes and general nonbinary covering construction.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+        "material_read": "Full text material: introduction, definitions, sections V–VII on covering and burst-deletion constructions, references; inspected pages 1–5 and 10–14 of 14.",
+        "method": "Authorized extracted full text via academic PDF reader",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Fresh 2026 paper motivating exact small nonbinary burst-deletion covering parameters"
+      },
+      {
+        "assessment": "Length-five construction yields ternary sizes 9, 12, 15; even q minimum q^3/4. Does not visibly establish the n=5 q=3 minimum eight in inspected material; uninspected portions remain risk.",
+        "evidence": "Section III-B: Spec_B(q,5,2) contains q[ceil(q²/3),floor(q(q+2)/3)]; Corollary 1: perfect n=5,t=2 code q³/4 for even q.",
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2015.7282792",
+        "material_read": "Available indexed proceedings full-text excerpts of introduction, Section III-B, Theorem 1, Corollary 1, and Section IV. Entire five-page PDF was not accessible in a parsed representation.",
+        "method": "Search-indexed scientific text from lawful publicly linked manuscript at the author site and CiteSeerX",
+        "title": "Spectrum of sizes for perfect burst deletion-correcting codes",
+        "trigger": "Directly studies same perfect-burst spectrum and exact length-five case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0cfef109-40f6-4e38-b685-06f82351aa5d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2015 perfect-burst spectrum work gives ternary length-five constructions at sizes 9, 12 and 15 and its exact even-alphabet family. Determining the first uncovered odd-alphabet minimum is a natural finite boundary of that motivating spectrum: the eight-word perfect partition improves the directly supplied nine-word ternary construction and the exhaustive bound shows optimality. Both packing (unique decoding) and covering must hold, so this is not just a cheap arithmetic or normalization check.",
+    "status": "PASS"
+  }
+}
