@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Derived all three independent-set output probabilities for every \\(D_{a,b}\\) from independent uniform arrival priorities, including the exact two-variable integral. For fixed n, stars and double-stars exhaust the domain. If a>=2, both center-containing masses are below 1/3, and reciprocal convexity identifies a=2 as the unique best such case; a=1 is optimized separately. Their bias difference equals (\\(n^2-8n+9\\))/(3n(n-3)(n-2)), negative at n=6 and positive for every n>=7. Direct small-order comparisons give n=3,4,5 and star domination. Fraction-only verifier checks 11 complete permutation enumerations, 20,100 double-star parameter profiles, and all fixed-order minimizers up to n=200; these are corroborating checks and the proof covers every n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1.2 of arxiv:2610.02276v1 covers one-length-two-arm mixed spiders (isomorphic to \\(D_{1,b}\\)) and arbitrary diameter-four mixed spiders with multiple arms; it does not cover all \\(D_{a,b}\\) with a,b>=2, or make optimality claims.",
+        "Threshold/cograph classes are P4-free; every double star \\(D_{a,b}\\), a,b>=1, contains induced P4. Chain graphs are induced-2K2-free; double stars contain disjoint leaf-to-center edges forming an induced 2K2."
+      ],
+      "reasoning": "The strongest same-object source supplies some constituent probabilities and the diameter-four upper construction, but does not imply the minimum over every diameter-three tree at fixed n. Adjacent published graph-class laws cannot dominate the entire diameter-three family because of induced forbidden subgraphs.",
+      "searches": [
+        "arxiv:2610.02276v1 §5, Theorem 1.2 and §9 limitations",
+        "\"random greedy\" \"double star\" \"maximal independent set\" probability",
+        "\"random greedy maximal independent set on diameter-three trees fixed order n minimum total variation sharp double-star a=1 b=n-3\"",
+        "\"exact random-greedy independent-set law on threshold graphs\"",
+        "\"exact random-greedy maximal-independent-set law on chain graphs\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.02276v1 (full HTML §§1–9)",
+      "doi:10.1002/rsa.21200 (open-access article intro and main results)",
+      "arxiv:2608.07239 (abstract only, stated limitation)",
+      "Publicly indexed related work on cographs, threshold graphs, and chain graphs (structural inapplicability checked)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 implies each n>=3 tree has positive bias but no common positive bound as n grows. Theorem 1.2 constructs diameter-four near-uniform spiders and gives probabilities on \\(D_{1,b}\\) via k=1, but explicitly disclaims fixed-order optimality and minimizer classification.",
+        "Krivelevich et al. 2024 §1 focuses on expected greedy independent-set size, ratios, and local limits; these do not imply uniformity among maximal sets or a sharp total-variation minimum.",
+        "The new strict comparison b(\\(D_{2,n-4}\\))-b(\\(D_{1,n-3}\\))=(n²−8n+9)/(3n(n−3)(n−2)) settles the previously uncovered a>=2 family and unique phase transition."
+      ],
+      "reasoning": "What is inherited: definitions, the k=1 probabilities, and the existence of diameter-four sequences tending to zero bias. What is not inherited: exact law for general \\(D_{a,b}\\) with a>=2, the sharp all-order minimum over diameter<=3, and uniqueness. The new analytic inequalities are necessary to pass from the partial formulas to the full classification.",
+      "searches": [
+        "arxiv:2610.02276v1 Theorems 1.1–1.2, equations (2)–(3), §9",
+        "\"Greedy maximal independent sets via local limits\" Krivelevich Mészáros Michaeli Shikhelman 2024",
+        "\"Unified framework for asymptotically uniform iterative construction\" Kryven Versendaal de Vries 2026",
+        "\"random greedy maximal independent set double star exact total variation bias \\(1/15\\) five vertex fork\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fairfax-Ball arxiv:2610.02276v1 §2 defines exactly the permutation-fibre law and total variation b(T) used here; its Theorem 1.1 characterizes b(T)=0 but does not quantify a positive lower bound for bounded diameter.",
+        "The ordinary process is also random sequential adsorption / random-priority greedy MIS, as discussed by Krivelevich et al. (2024). Neither equivalent terminology changes the constrained fixed-order optimality comparison."
+      ],
+      "reasoning": "Checked the true event and normalization, not just shared vocabulary: the new statement minimizes total-variation distance on the set of all maximal independent sets among trees of each order and diameter <=3. The known zero/nonzero characterization supplies no exact positive extremum, and expected greedy set size is a different statistic.",
+      "searches": [
+        "\"random greedy maximal independent set double star probability total variation bias \\(1/15\\)\"",
+        "\"greedy maximal independent sets diameter three trees sharp bias gap double stars\"",
+        "arxiv:2610.02276v1, §§1–2 and §§4–7",
+        "\"complete random permutation greedy MIS law for double-star tree and minimum-bias classification\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source §7 reports 436 nonisomorphic trees of order <=11 and a table of tuned mixed-spider biases; the table contains no fixed-order diameter-three optimum theorem and cannot prove an infinite n classification.",
+        "The present new verifier directly enumerates exact permutation fibres on 11 small parameter profiles; finite confirmation is distinguished from the analytic all-n proof."
+      ],
+      "reasoning": "Finite published tree censuses could contain the isolated n<=11 numerical values, so no novelty is claimed for any isolated small computation. The new claim is the universal fixed-order optimization for infinitely many orders, with unique extremizers and a proved phase change at n=6.",
+      "searches": [
+        "arxiv:2610.02276v1 §7 Computational checks, Table 1, §9 Limitations",
+        "\"1/15\" \"greedy\" \"maximal independent\" trees",
+        "\"the 1/6 1/12 \\(1/15\\) 1/9 greedy maximal independent-set bias tree diameter three n=3 4 5 6\"",
+        "\"double star\" \"greedy\" \"uniform\" \"maximal independent\""
+      ]
+    },
+    "rationale": "The main 2026 tree paper gives qualitative nonuniformity and a tuned diameter-four construction, plus the a=1 double-star probability subfamily through its one-arm mixed-spider formula. It does not determine the minimum greedy total-variation bias over every n-vertex tree of diameter at most three, compare arbitrary double stars with two branching centers, or classify all fixed-order minimizers. The new optimization produces the exact all-order bound and unique minimizers, with an exceptional balanced double star at n=6. Related local-limit greedy work concerns expected occupied density rather than this distributional optimum; published cograph/threshold/chain-graph laws do not subsume P4-containing double stars. Targeted scientific searches identified no covering theorem; negative search evidence is not a uniqueness certificate.",
+    "residual_risks": [
+      "An unindexed or differently phrased prior optimization for greedy maximal-independent-set total variation on double stars might exist.",
+      "An exact fixed-order numerical optimum for low n could already be implicit in existing small-tree datasets; the novel scope is the proved all-n classification, not such finite values.",
+      "The full text of arxiv:2608.07239 was not accessible in this check; its abstract and the close parent paper discussion were inspected, leaving bounded comparison risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: contains the k=1 double-star probabilities and diameter-four near-uniform family, but not the all-diameter-three optimum or general two-branching-center analysis.",
+        "evidence": [
+          "arxiv:2610.02276v1 Theorem 1.2 equations for p_c and q_j",
+          "arxiv:2610.02276v1 §9 explicitly leaves fixed-order extremizers undetermined"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.02276v1",
+        "material_read": "Full HTML through §9, especially Theorems 1.1–1.2, §2 definitions, §3 novelty boundary, §4 endpoint proof, §5 exact mixed-spider output law, §7 finite table, and §9 stated open extremal questions.",
+        "method": "Read published full HTML text and compared every theorem and special k=1 formula with the new statement.",
+        "title": "Greedy Uniformity on Trees: Exact Obstruction and Near-Uniform Spiders",
+        "trigger": "Same random-permutation greedy MIS model and TV bias on trees; plausible complete coverage."
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE: expected cardinality/density and local limit, not TV law on maximal sets nor the constrained fixed-order optimum.",
+        "evidence": [
+          "Krivelevich et al., Random Structures & Algorithms 64 (2024), abstract and §1–§1.1"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Open-access journal introduction, process definition, detailed main-results overview including tree expected-density theorem.",
+        "method": "Read open full-text introductory and results sections; compared observable and quantifiers.",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Established random greedy MIS on trees and random-priority equivalent law."
+      },
+      {
+        "assessment": "ACCESS_LIMITED: describes 2-uniformity sufficient structure and asymptotic random configuration sampling, not an identified diameter-three TV optimum. Full-document noncoverage is NOT certified.",
+        "evidence": [
+          "arxiv:2608.07239 abstract",
+          "arxiv:2610.02276v1 §3 comparison of proposition 3.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.07239",
+        "material_read": "Abstract and parent paper §3 discussion of its regular-independent-set uniformity sufficient condition; direct HTML full-text fetch failed.",
+        "method": "Read arXiv abstract and primary motivating paper comparison; attempted direct arXiv full HTML.",
+        "title": "Unified framework for asymptotically uniform iterative construction of generalised random graphs with local constraints",
+        "trigger": "Iterative uniform independent-set sampling and possible stronger graph-class classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e71b45a8-3f23-4328-a077-12044e1729e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The qualitative impossibility of exact greedy output uniformity on nontrivial trees coexists with arbitrarily small bias on diameter-four spiders. Quantifying the precise boundary at diameter three is a natural structural gap. The result determines an exact positive gap and a unique minimizer at every order n>=3, including a balanced-versus-unbalanced phase transition at n=6, rather than an arbitrary small example or mere restatement of a published spider formula. It gives a complete two-branch tree-class optimization; no general all-tree extremizer or new diameter-four family is claimed.",
+    "status": "PASS"
+  }
+}
