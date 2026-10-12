@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from equation (18) and the source's positive-equilibrium formula. At equilibrium the population fractions w_i are positive and sum to one. Substitution into the source's rank-one Jacobian reduces its characteristic determinant to a weighted secular sum. For beta'(N0)<0 every summand has strictly positive real part on the closed right half-plane, excluding all nonnegative-real-part eigenvalues. For beta'(N0)=0 the determinant has a zero root, and for beta'(N0)>0 continuity on the positive real axis forces a positive eigenvalue. The exact three-state replay verifies that the published same-sign condition can fail while all eigenvalues remain negative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lei, Levin, and Nie develop the broader epigenetic-state regeneration and feedback-control framework but do not derive the rank-one finite-state equilibrium stability criterion of equation (18).",
+        "Gupta and coauthors use a Markov state-transition model to explain recovery of breast-cancer phenotypic proportions; that model does not contain the nonlinear total-population feedback derivative that controls the accepted theorem.",
+        "The motivating source itself cites these works as biological/modeling antecedents while presenting Theorem 3.4 as its multi-state local-stability result."
+      ],
+      "reasoning": "The broader literature motivates state conversion and feedback but does not dominate the exact source-specific statement about the Jacobian of the reduced finite-state ODE.",
+      "searches": [
+        "\"Mathematical model of adult stem cell regeneration with cross-talk between genetic and epigenetic regulation\" full text",
+        "\"Stochastic State Transitions Give Rise to Phenotypic Equilibrium in Populations of Cancer Cells\" Markov equilibrium",
+        "stem cell epigenetic transition equilibrium stability nonlinear population feedback"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/mbe.2017071",
+      "openalex:W2618512975",
+      "doi:10.1073/pnas.1324267111",
+      "doi:10.1016/j.cell.2011.07.026"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed correction or source-specific stability refinement removing the same-sign condition was located.",
+        "The earlier stem-cell control paper addresses optimal regulation and robustness rather than this local Jacobian classification.",
+        "The empirical Markov-transition literature establishes convergence of phenotypic proportions in a different model and does not imply the nonlinear feedback theorem.",
+        "Owned current and prior ledgers contain neither the target DOI/title nor an equivalent mixed-sign finite-state stability claim."
+      ],
+      "reasoning": "The accepted statement strictly extends the source theorem: a concrete admissible three-state equilibrium lies outside the printed sufficient sign region but is covered by the new exact criterion. Generic rank-one linear algebra does not by itself publish this implication for the biological model.",
+      "searches": [
+        "\"10.3934/mbe.2017071\" correction erratum stability",
+        "\"10.3934/mbe.2017071\" mixed signs",
+        "\"10.3934/mbe.2017071\" rank one Jacobian",
+        "\"A mathematical model of stem cell regeneration with epigenetic state transitions\" decreasing feedback stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's Theorem 3.4(ii) requires the n feedback expressions to be all nonnegative or all nonpositive.",
+        "The accepted theorem proves the Jacobian Hurwitz criterion directly from the secular function, so equivalent formulations include removal of the sign restriction, exclusion of Hopf/right-half-plane roots under decreasing feedback, and exact finite-n extension of the source's two-state theorem.",
+        "The explicit three-state example has mixed source-sign quantities but a strictly negative exact spectrum."
+      ],
+      "reasoning": "Searches were phrased around the theorem number, exact DOI/title, decreasing proliferation feedback, mixed signs, and rank-one Jacobian structure rather than only around stem-cell keywords.",
+      "searches": [
+        "10.3934/mbe.2017071 multi-state equilibrium stability beta decreasing Theorem 3.4 rank-one",
+        "\"A mathematical model of stem cell regeneration with epigenetic state transitions\" stability decreasing beta",
+        "stem cell epigenetic state transition model positive equilibrium asymptotically stable decreasing proliferation rate",
+        "rank-one Jacobian stem cell epigenetic states beta prime stability",
+        "\"10.3934/mbe.2017071\" \"Theorem 3.4\" stability",
+        "\"A mathematical model of stem cell regeneration with epigenetic state transitions\" \"Theorem 3.4\"",
+        "\"stem cell regeneration\" epigenetic transition \"mixed sign\" stability beta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF was read at equation (18), the equilibrium identities (22)–(27), Theorem 3.4, and the rank-one characteristic determinant (41).",
+        "The source's equations (39), (40), and (46) give the exact a_i and b_i quantities used in the reconstruction.",
+        "The publisher record identifies 92B05 as a primary subject classification.",
+        "The archival publisher page states online publication in May 2017, and the OpenAlex record supplies the day-resolved publication date 2017-05-01."
+      ],
+      "reasoning": "The proof is reconstructed from the exact printed reduced model and its Jacobian, not inferred from title, abstract, simulation plots, or secondary descriptions.",
+      "searches": [
+        "doi:10.3934/mbe.2017071 equation 18 Theorem 3.4",
+        "doi:10.3934/mbe.2017071 equations 39 40 41 46 48",
+        "doi:10.3934/mbe.2017071 Primary 92B05 published online May 2017",
+        "openalex W2618512975 2017-05-01"
+      ]
+    },
+    "rationale": "Rank-one determinant identities and half-plane arguments are standard linear algebra. Originality is restricted to the source-specific conclusion that the extra sign restriction in the published multi-state stability theorem is unnecessary and that the exact finite-state classification is beta'(N0)<0. Targeted source, theorem-number, feedback, mixed-sign, and rank-one searches found no equivalent published refinement.",
+    "residual_risks": [
+      "A non-indexed note or later unpublished calculation could contain the same removal of the source's sign condition.",
+      "The theorem is confined to the source's reduced model after assumption (A3); a mother-state-dependent transition matrix has a different Jacobian structure.",
+      "The nonhyperbolic case beta'(N0)=0 is not classified nonlinearly.",
+      "The day-resolved 2017-05-01 bibliographic date comes from OpenAlex while the archival publisher page gives online publication only to month precision."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_SIGN_SUFFICIENCY_IS_NOT_NEEDED_FOR_FINITE_STATE_LOCAL_STABILITY",
+        "evidence": "The source gives a rank-one Jacobian and a sufficient all-same-sign restriction; the equilibrium normalization turns the secular factor into a positive-real weighted sum whenever beta'(N0)<0.",
+        "identifier_or_url": "doi:10.3934/mbe.2017071",
+        "material_read": "Publisher full PDF at the model formulation, assumptions (A1)–(A3), equation (18), Theorems 3.2–3.5, equations (39)–(48), simulations, and discussion.",
+        "method": "Reparameterized the printed Jacobian by equilibrium fractions, applied the determinant lemma, and analyzed the resulting secular factor throughout the closed right half-plane.",
+        "title": "A mathematical model of stem cell regeneration with epigenetic state transitions",
+        "trigger": "Primary source containing the reduced finite-state model, equilibrium formula, multi-state stability theorem, and characteristic determinant."
+      },
+      {
+        "assessment": "BROADER_FEEDBACK_FRAMEWORK_NOT_COVERING_THE_RANK_ONE_STABILITY_CLASSIFICATION",
+        "evidence": "The earlier work studies performance-maximizing control strategies and robust recovery, not the characteristic determinant or mixed-sign local-stability condition of the later reduced model.",
+        "identifier_or_url": "doi:10.1073/pnas.1324267111",
+        "material_read": "Open full text at the model framework, feedback-regulation results, heterogeneous epigenetic states, recovery experiments, and conclusions.",
+        "method": "Compared its optimization/control statements with the later ODE equilibrium-stability question.",
+        "title": "Mathematical model of adult stem cell regeneration with cross-talk between genetic and epigenetic regulation",
+        "trigger": "Earlier primary model by one of the source authors that motivates epigenetic-state feedback and regeneration control."
+      },
+      {
+        "assessment": "MARKOV_EQUILIBRIUM_MODEL_NOT_COVERING_NONLINEAR_POPULATION_FEEDBACK_STABILITY",
+        "evidence": "The Markov model concerns stochastic conversion among phenotypic states and does not contain the total-population feedback derivative or the source's rank-one nonlinear ODE Jacobian.",
+        "identifier_or_url": "doi:10.1016/j.cell.2011.07.026",
+        "material_read": "Accessible article record and primary abstract describing purified subpopulations returning to equilibrium proportions and the Markov transition model used to explain that behavior.",
+        "method": "Compared state-transition equilibrium claims and model structure.",
+        "title": "Stochastic state transitions give rise to phenotypic equilibrium in populations of cancer cells",
+        "trigger": "Primary experimental/modeling antecedent for recovery of breast-cancer phenotypic proportions cited by the source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bf03c59-87ac-45cb-9773-087bc38bacb3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's central multi-state stability theorem leaves a genuine heterogeneous-feedback region unresolved whenever state-specific removal rates make its feedback quantities change sign. The accepted result removes that restriction completely and yields the same simple iff criterion for arbitrary finite n that the source proved only for two states. The strict three-state example shows the extension is not a cosmetic reformulation: it certifies stable equilibria that the published sufficient condition cannot classify.",
+    "status": "PASS"
+  }
+}
