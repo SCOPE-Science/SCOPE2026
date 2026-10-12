@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A complete path-walk bijection, mutually exclusive change-event criterion, and induced-subgraph transfer count give exact integer density numerators. Each of 40320 rankings was checked for widths 2..9, and an independent direct enumeration of all 128 and 4096 input blocks verifies the two Pareto objectives and score frequencies. Both extracted C++ verification programs return VERIFY_OK. Boundary condition w=2 handled; no infinite generalization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marçais, DeBlasio, Kingsford (2018), DOI 10.1093/bioinformatics/bty258, Discussion §4.1, Fig. 3: explicitly computes scalar lowest and highest density factors for k=3 and windows 1..27 by enumerating all 40320 orders; reports no pairwise joint objective classification in inspected main text."
+      ],
+      "reasoning": "The 2018 all-order brute-force calculation is computationally broader in range of individual widths but the published claim does not quantify simultaneously over two widths with a shared order. Finite Pareto enumeration remains a separate mathematical assertion. An unpublished table could settle it.",
+      "searches": [
+        "published-finding corpus: minimal minimizer density binary k3 w4 w9 Pareto order tradeoff",
+        "published-finding corpus: minimizer ordering winnowing scheme universal best order across window sizes 4 9",
+        "Asymptotically optimal minimizers schemes optimal order de Bruijn all k w"
+      ]
+    },
+    "checked_sources": [
+      "Marçais, DeBlasio, Kingsford (2018), DOI 10.1093/bioinformatics/bty258, Discussion §4.1, Fig. 3: explicitly computes scalar lowest and highest density factors for k=3 and windows 1..27 by enumerating all 40320 orders; reports no pairwise joint objective classification in inspected main text.",
+      "Marçais et al. (2017), DOI 10.1093/bioinformatics/btx235, full OA text: density and ordering comparisons, but not the stated two-window Pareto order multiplicities.",
+      "Orenstein et al. (2016), DOI 10.1007/978-3-319-43681-4_21: abstract and conference bibliographic record, WABI event begins 2016-08-22; universal k-mer hitting sets, not joint fixed-order density."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marçais, DeBlasio, Kingsford (2018), DOI 10.1093/bioinformatics/bty258, Discussion §4.1, Fig. 3: explicitly computes scalar lowest and highest density factors for k=3 and windows 1..27 by enumerating all 40320 orders; reports no pairwise joint objective classification in inspected main text.",
+        "Marçais et al. (2017), DOI 10.1093/bioinformatics/btx235, full OA text: density and ordering comparisons, but not the stated two-window Pareto order multiplicities.",
+        "Orenstein et al. (2016), DOI 10.1007/978-3-319-43681-4_21: abstract and conference bibliographic record, WABI event begins 2016-08-22; universal k-mer hitting sets, not joint fixed-order density."
+      ],
+      "reasoning": "Individual minima at widths four and nine establish lower bounds 46 and 750 but not their incompatibility, let alone that all 40320 objective vectors are dominated by two specified pairs. The new theorem requires correlating the same ranking across widths, whereas source scalar claims quantify over a ranking independently for each width.",
+      "searches": [
+        "published-finding corpus: binary three-mer minimizer orders jointly optimal window lengths four nine two point Pareto density frontier",
+        "published-finding corpus: exact density optimal 3-mer orders 48 simultaneous window lengths 2 through 8 then 9 break",
+        "published-finding corpus: minimal minimizer density binary k3 w4 w9 Pareto order tradeoff",
+        "published-finding corpus: minimizer ordering winnowing scheme universal best order across window sizes 4 9",
+        "Orenstein 2016 compact universal k-mer hitting sets fixed ordering minimum density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marçais, DeBlasio, Kingsford (2018), DOI 10.1093/bioinformatics/bty258, Discussion §4.1, Fig. 3: explicitly computes scalar lowest and highest density factors for k=3 and windows 1..27 by enumerating all 40320 orders; reports no pairwise joint objective classification in inspected main text.",
+        "Marçais et al. (2017), DOI 10.1093/bioinformatics/btx235, full OA text: density and ordering comparisons, but not the stated two-window Pareto order multiplicities."
+      ],
+      "reasoning": "The selector-change probability equals the density factor divided by window length, so ranking-level scalar optima are equivalent to earlier scalar studies; the joint ranking intersection and full coordinatewise-nondominated set cannot be deduced from plotted independent extrema. No equivalent two-objective theorem was located in inspected main texts.",
+      "searches": [
+        "published-finding corpus: binary three-mer minimizer orders jointly optimal window lengths four nine two point Pareto density frontier",
+        "published-finding corpus: exact density optimal 3-mer orders 48 simultaneous window lengths 2 through 8 then 9 break",
+        "Marçais 2018 minimizer Fig. 3 exhaustive ranking k=3 w=1..27"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Marçais, DeBlasio, Kingsford (2018), DOI 10.1093/bioinformatics/bty258, Discussion §4.1, Fig. 3: explicitly computes scalar lowest and highest density factors for k=3 and windows 1..27 by enumerating all 40320 orders; reports no pairwise joint objective classification in inspected main text.",
+        "The new full 40320-ranking table is regenerated independently by verify_transfer.cpp and verify_direct.cpp; no prior table of joint order pairs identified in inspected texts."
+      ],
+      "reasoning": "The previously plotted scalar best/worst density factors are covered and expressly excluded from novelty; no inspected source tabulates the two-column objective-frequency map or the Pareto counts 48 and 32.",
+      "searches": [
+        "published-finding corpus: exact density optimal 3-mer orders 48 simultaneous window lengths 2 through 8 then 9 break",
+        "published-finding corpus: minimal minimizer density binary k3 w4 w9 Pareto order tradeoff",
+        "Marçais 2018 Fig. 3 gray scalar best worst values"
+      ]
+    },
+    "rationale": "The well-known all-order scalar best/worst k=3 densities from the 2018 primary paper are not claimed. The two-width Pareto order classification and the first failure of simultaneous optimality are mathematically stronger comparisons not implied by either scalar bound. published-finding corpus queries and published primary texts were checked. Possibility of an earlier unindexed supplementary cross-width table remains a substantive residual risk.",
+    "residual_risks": [
+      "2018 authors explicitly enumerated all 40320 orders; their unpublished code, supplement or secondary table may already determine this Pareto claim.",
+      "The 2016 conference paper was not fully inspected; its abstract does not indicate matching cross-window data.",
+      "Search engine retrieval is incomplete; no inference of global uniqueness or priority follows from failed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers every separate scalar minimum for k=3; does not state the particular joint Pareto frontier in inspected main text",
+        "evidence": [
+          "Marçais, DeBlasio, Kingsford (2018), DOI 10.1093/bioinformatics/bty258, Discussion §4.1, Fig. 3: explicitly computes scalar lowest and highest density factors for k=3 and windows 1..27 by enumerating all 40320 orders; reports no pairwise joint objective classification in inspected main text."
+        ],
+        "identifier_or_url": "https://academic.oup.com/bioinformatics/article-abstract/34/13/i13/5045769",
+        "material_read": "Full available HTML main article, notably §4.1, Figure 3 discussion and results",
+        "method": "Read and compare exact scalar quantifiers and reported numerical scope with simultaneous-order theorem",
+        "title": "Asymptotically optimal minimizers schemes",
+        "trigger": "Most decisive preexisting exhaustive 40320-order enumeration"
+      },
+      {
+        "assessment": "Related density/order analysis but no exact two-width Pareto-order classification",
+        "evidence": [
+          "Marçais et al. (2017), DOI 10.1093/bioinformatics/btx235, full OA text: density and ordering comparisons, but not the stated two-window Pareto order multiplicities."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5870760/",
+        "material_read": "Full accessible OA main article",
+        "method": "Compared objective functions and findings, including selection-density charging",
+        "title": "Improving the performance of minimizers and winnowing schemes",
+        "trigger": "Original density formulation and ordering methodology"
+      },
+      {
+        "assessment": "Objective is compact universal sets, not full ranking-density Pareto; full text not inspected",
+        "evidence": [
+          "Orenstein et al. (2016), DOI 10.1007/978-3-319-43681-4_21: abstract and conference bibliographic record, WABI event begins 2016-08-22; universal k-mer hitting sets, not joint fixed-order density."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-319-43681-4_21",
+        "material_read": "Abstract and bibliographic conference event date; full paper not obtained",
+        "method": "Read abstract and compared its hitting-set objective",
+        "title": "Compact Universal k-mer Hitting Sets",
+        "trigger": "Date-verified archive foundation and hit-set application"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3dea66fa-f639-4cdc-a5df-13acf2859649",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Applications select a single fixed three-mer priority ranking across changing scanner window sizes. Scalar optimum densities do not tell whether one ranking works across configurations. This exact sharp two-point tradeoff identifies the first shared-order obstruction and every undominated quantitative compromise, a natural complete design decision rather than an arbitrary enumerated slice.",
+    "status": "PASS"
+  }
+}
