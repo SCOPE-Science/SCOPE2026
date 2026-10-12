@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The channel operation is exactly one deletion and at most one substitution, as defined in the inspected primary articles. Every pairwise received-ball overlap is enumerated directly. Admissible codes are graph cliques. A complete greedy-coloring upper-bound search computes exact clique numbers 5,5,6,8,12; correct branch pruning follows from independent proper color classes and monotone processed-prefix bounds. Witness codebooks attain all five values. Independently implemented Python and C++ verifiers agree; a second Python ball construction checks order-of-operations equality. These finite calculations prove only the stated finite range, not any unrestricted asymptotic theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 construction bound is n-log |C| <= 3 log n + 4 for some code, not an upper bound on |C| or a sharp converse.",
+        "2025 N=7 theorem yields a weaker read-parameter construction.",
+        "Song–Cai–Quek theorem imposes n>=29 in the binary setting and Hamming distance >=2."
+      ],
+      "reasoning": "None of these stronger-looking theorems fixes unrestricted small-block extremal code sizes, and different read budgets or input-length assumptions prevent implication of this exact five-read profile.",
+      "searches": [
+        "arXiv:2604.25294v1 Theorem IV.6",
+        "arXiv:2505.04232v1 Table I",
+        "Li Sun Ge 2604.25294 five reads small block length exact optimal finite codebook table"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.25294v1 primary full public HTML: abstract, definitions, Theorem IV.6 and conclusion",
+      "arXiv:2505.04232v1 primary full public HTML: introduction, Table I, definitions and relevant constructions",
+      "arXiv:2501.03833v4 primary full public HTML: definitions and Theorem 1",
+      "MSC2020 class 94B65: bounds on codes",
+      "Indexed related mathematical claims on deletion and non-overlapping codes, checked for implication rather than title only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 preprint proves a lower bound on size via pigeonhole, not exact maxima or converse.",
+        "The predecessor controls N>=7.",
+        "The other 2025 paper supplies ball-overlap bounds but not graph clique extrema at short lengths."
+      ],
+      "reasoning": "The exact codebook-size profile requires both witnesses and upper bounds ruling out all larger codebooks. No inspected prior implication supplies those upper bounds, and pure-deletion maxima are not equivalent to the mixed-error read-threshold condition.",
+      "searches": [
+        "arXiv:2604.25294v1 IV-D",
+        "arXiv:2505.04232v1 Table I",
+        "arXiv:2501.03833v4 Theorem 1",
+        "(4,5),(5,5),(6,5),(7,5),(8,5) mixed deletion substitution reconstruction codes exact clique"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.25294v1 Definition II-A and Theorem IV.6",
+        "arXiv:2505.04232v1 Definition II.1",
+        "arXiv:2501.03833v4 Sec II"
+      ],
+      "reasoning": "Reconstruction-code capacity equals the maximum clique in the graph joining words of ball-intersection size at most four. The inspected primary works define the same balls but do not establish the five exact graph clique numbers. No equivalence reduction to an existing exact table was found.",
+      "searches": [
+        "five distinct reads binary deletion substitution ball intersection < 5",
+        "maximum clique admissibility graph mixed edit five reads",
+        "Five-read one-deletion one-substitution binary reconstruction code maximum cardinalities 5 5 6 8 12 lengths 4 through 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 Theorem IV.6 gives construction and redundancy bound; no maximum values for binary lengths four to eight.",
+        "2025 Table I treats seven reads and larger.",
+        "Searched accessible indexed findings; nearest short-code tables treat pure deletion or non-overlapping codes, different admissibility relation."
+      ],
+      "reasoning": "The exact five-term optimum profile is not supplied by the inspected theorems. The finite graph codebook extremum cannot be read off from the reported asymptotic redundancy inequalities or pure-deletion code-size tables; absence of hits is corroborative, not absolute proof.",
+      "searches": [
+        "Five-read one-deletion one-substitution binary reconstruction code maximum cardinalities 5 5 6 8 12 lengths 4 through 8",
+        "(4,5),(5,5),(6,5),(7,5),(8,5) mixed deletion substitution reconstruction codes exact clique",
+        "Single-deletion single-substitution ball pairwise intersections at most four binary codes maximum cardinality n=8 size 12",
+        "arXiv:2604.25294v1 Theorem IV.6",
+        "arXiv:2505.04232v1 Table I"
+      ]
+    },
+    "rationale": "The closest complete primary papers address asymptotic constructions, larger read numbers, or intersection bounds requiring much longer length. Their conclusions neither contain nor imply the unrestricted five-read finite optimum profile. The closest indexed mathematical records concern different deletion-only or non-overlapping code parameters. An unindexed past enumeration remains possible.",
+    "residual_risks": [
+      "An unindexed earlier enumeration or finite-length table may reproduce the exact profile.",
+      "No exhaustive bibliographic coverage of every archival conference proceeding is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Constructs five-read codes with redundancy 3 log n + 4, not exact unrestricted optimal cardinalities for n=4..8",
+        "evidence": [
+          "arXiv:2604.25294v1, Abstract; Sec. II-A definitions; Theorem IV.6; Sec. VI"
+        ],
+        "identifier_or_url": "arXiv:2604.25294v1",
+        "material_read": "Full HTML introduction, precise error-ball definitions, Theorem IV.6 and proof, conclusions and references; relevant bounds sections examined",
+        "method": "Read lawful public arXiv HTML primary manuscript",
+        "title": "Correcting One Deletion and One Substitution with a Constant Number of Reads",
+        "trigger": "Exact same mixed-error channel and fixed read count five"
+      },
+      {
+        "assessment": "Studies N=7 and larger read counts; does not provide the five-read exact short-length table",
+        "evidence": [
+          "arXiv:2505.04232v1, Introduction Table I, Definition II.1 and Section IV"
+        ],
+        "identifier_or_url": "arXiv:2505.04232v1",
+        "material_read": "Full HTML abstract, introduction and Table I of redundancies, definition and coding theorems, conclusions",
+        "method": "Read public arXiv HTML primary manuscript",
+        "title": "Binary Reconstruction Codes for Correcting One Deletion and One Substitution",
+        "trigger": "Same error-ball definition and early reconstruction-code bound spectrum"
+      },
+      {
+        "assessment": "Bounds pairwise intersections for length at least 29 in binary case and Hamming-distance at least two; does not compute maximum five-read binary codebooks at n<=8",
+        "evidence": [
+          "arXiv:2501.03833v4, Theorem 1 and Definitions"
+        ],
+        "identifier_or_url": "arXiv:2501.03833v4",
+        "material_read": "Full HTML abstract, Definitions, Theorem 1 and proof strategy, limitations including n threshold",
+        "method": "Read public arXiv HTML primary manuscript",
+        "title": "Sequence Reconstruction for the Single-Deletion Single-Substitution Channel",
+        "trigger": "Same ball and possible stronger pairwise intersection classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18ecae6c-abe6-43ed-9221-01a678811b05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies a complete finite optimum profile for the most demanding fixed read budget N=5 developed in the 2026 literature. Lengths 5 through 8 are the first four lengths at which every input has enough distinct outcomes to support five distinct observations. The exact cardinalities quantify the tradeoff between short-block storage and five-read recovery and provide sharp reproducible finite baselines not implied by asymptotic redundancies. Length four is included to expose the boundary-vacuity effect. The result is a bounded but natural classification, not arbitrary unmotivated parameter slicing.",
+    "status": "PASS"
+  }
+}
