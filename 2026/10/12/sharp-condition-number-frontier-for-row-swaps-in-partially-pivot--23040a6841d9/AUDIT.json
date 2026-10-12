@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every leading Schur complement \\(S\\) of an SPD matrix satisfying \\(\\mu I\\preceq A\\preceq LI\\) obeys the same enclosure \\(\\mu I\\preceq S\\preceq LI\\), by the variational characterization of the Schur complement. Any current multiplier is an off-diagonal-to-diagonal ratio in a \\(2\\times2\\) SPD principal block of \\(S\\). If that block has eigenvalue ratio \\(q\\), direct rotation of its eigenbasis gives the exact maximum \\((q-1)/(2\\sqrt q)\\), attained at \\(\tan\\theta=1/\\sqrt q\\). Since \\(q\\le\\kappa\\) and the maximum increases with \\(q\\), the claimed bound follows at every stage. The explicit family \\(A_\\kappa\\) attains equality and yields a tie at \\(\\kappa=3+2\\sqrt2\\) and a forced swap above it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broyden proves condition-number bounds for LU factors and analyzes the multiplier restriction imposed by partial pivoting.",
+        "Higham states that SPD matrices admit stable unpivoted GE with growth factor one, and separately defines partial pivoting by a maximal-magnitude column pivot.",
+        "Higham and Higham analyze partial- and complete-pivot growth factors for general dense matrices."
+      ],
+      "reasoning": "These broader results establish algorithmic context and stability, but none dominates the new claim because 'pivoting is unnecessary' is weaker than 'the partial-pivoting selection rule is guaranteed to perform no interchange'.",
+      "searches": [
+        "Some Condition-Number bounds for the Gaussian Elimination Process",
+        "Gaussian Elimination Higham SPD partial pivoting",
+        "Large Growth Factors in Gaussian Elimination with Pivoting"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1093/imamat/12.3.273",
+      "doi:10.1002/wics.164",
+      "mims:2006.174",
+      "doi:10.1137/0610012"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Broyden's Definition 3 identifies 'partially pivoted' matrices with the no-row-interchange property and his later theorems bound factor conditioning, but the full paper does not derive a spectral SPD criterion for belonging to this class.",
+        "Higham's overview gives SPD no-pivot existence and growth-factor one, but that does not imply that the generic GEPP pivot search leaves each current diagonal in place.",
+        "The exact \\(2\\times2\\) witness at condition number \\(9\\) is SPD yet has first-column magnitudes \\(18\\) and \\(24\\), proving directly that SPD alone does not force GEPP's permutation to be the identity."
+      ],
+      "reasoning": "The new implication needs the Schur-complement spectral enclosure plus the sharp two-dimensional off-diagonal/diagonal extremum. Neither ingredient is supplied by the cited generic pivoting results in a form that yields the frontier.",
+      "searches": [
+        "Broyden partially pivoted no row interchanges Gaussian elimination condition number",
+        "SPD Gaussian elimination pivoting not necessary growth factor one",
+        "partial pivoting multiplier bounded by one Gaussian elimination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned nearby Gauss-Seidel, weighted-Jacobi, adaptive-cross-approximation, and pivot-growth results but no theorem giving the SPD GEPP permutation frontier.",
+        "Exact web searches for the displayed threshold and multiplier constant produced no implication-equivalent Gaussian-elimination theorem.",
+        "The full Broyden paper uses the no-row-interchange notion but does not state the SPD spectral threshold."
+      ],
+      "reasoning": "Equivalent coverage must control every elimination stage on every SPD matrix solely from the spectral condition number, or directly imply the sharp multiplier bound and the forced-swap threshold. General statements that SPD elimination exists without pivoting do not determine what a generic maximum-column pivot rule will actually do.",
+      "searches": [
+        "Gaussian elimination partial pivoting SPD condition number row interchange threshold",
+        "positive definite matrix partial pivoting no row exchanges condition number",
+        "GEPP symmetric positive definite multiplier condition number sharp",
+        "Gaussian elimination SPD multipliers (kappa-1)/(2 sqrt kappa)",
+        "\"3+2 sqrt(2)\" \"partial pivoting\" positive definite Gaussian elimination",
+        "\"(kappa-1)/(2 sqrt(kappa))\" Gaussian elimination multiplier positive definite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched source matched the algebraic frontier or the sharp multiplier constant.",
+        "The constant is derived analytically from a two-dimensional rotation extremum and is attained by a closed-form family, not inferred from a table."
+      ],
+      "reasoning": "The finding is a dimension-free exact theorem with an equality family, not a numerical benchmark or known-table recomputation.",
+      "searches": [
+        "\"3+2 sqrt(2)\" Gaussian elimination partial pivoting",
+        "\"(kappa-1)/(2 sqrt(kappa))\" partial pivoting",
+        "SPD Gaussian elimination multiplier sharp condition number"
+      ]
+    },
+    "rationale": "The classical facts that SPD Gaussian elimination needs no pivoting, that partial pivoting chooses a maximal column entry, and that partial pivoting bounds multipliers by one are treated as prior work. Broyden's full paper explicitly defines 'partially pivoted' matrices as those needing no row interchanges and studies condition numbers of the factors, but no SPD spectral-condition-number threshold or sharp multiplier formula was located. Higham's full overview states that SPD matrices need no pivoting but does not classify when a generic GEPP implementation actually leaves the permutation equal to the identity. Higham and Higham's full pivot-growth paper likewise does not contain this SPD frontier. Targeted database and exact-constant searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "The sharp multiplier inequality may have appeared in older LU/Cholesky literature as a specialized consequence of Kantorovich-type inequalities under terminology not captured by the searches.",
+      "A source may state the same threshold as a criterion for identity permutation under partial pivoting without using the phrase 'row-swap frontier'.",
+      "The equality case depends on tie policy; the tie-independent universal guarantee is strict below the frontier."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING: the paper explicitly studies no-row-interchange partial pivoting and factor conditioning but does not specialize to SPD matrices using the spectral condition number or state the sharp multiplier/row-swap frontier.",
+        "evidence": "Definition 3 calls a matrix partially pivoted when the partial-pivoting rules require no row interchanges. The paper then uses the unit-lower-triangular multiplier restriction to bound factor conditioning; its conclusions discuss factor condition numbers and pivoting/scaling strategies rather than an SPD condition-number threshold.",
+        "identifier_or_url": "doi:10.1093/imamat/12.3.273",
+        "material_read": "The complete fourteen-page article was inspected, including the LU/GE setup, condition-number theorems, element-growth bounds, Section 4 on partial pivoting, Definition 3 of a partially pivoted matrix, and the conclusions.",
+        "method": "Full-text publisher PDF inspection after open-access routes did not provide the article body.",
+        "title": "Some Condition-Number Bounds for the Gaussian Elimination Process",
+        "trigger": "Closest older paper combining condition numbers, Gaussian elimination, and partial pivoting."
+      },
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: states the two classical premises separately but not the condition-number criterion for when GEPP performs no swaps.",
+        "evidence": "The pivoting section states that partial pivoting chooses a maximal-magnitude entry in the active pivot column and bounds multipliers by one. The structured-matrix section states that SPD GE succeeds without pivoting and has growth factor one.",
+        "identifier_or_url": "doi:10.1002/wics.164 / MIMS EPrint 2011.16",
+        "material_read": "The complete ten-page open PDF was inspected around the pivoting section, backward-error discussion, structured-matrix section, and algorithm description. The pages containing the partial-pivoting definition and the SPD no-pivot statement were visually rendered.",
+        "method": "Lawful open full-text PDF inspection with page-image verification.",
+        "title": "Gaussian Elimination",
+        "trigger": "Full modern overview stating both the SPD no-pivot theorem and the exact partial-pivoting rule."
+      },
+      {
+        "assessment": "PRIMARY_CONTEXT_NOT_COVERING: analyzes extremal growth under partial and complete pivoting but does not contain the SPD spectral-condition frontier.",
+        "evidence": "The paper defines partial pivoting as selecting the largest-magnitude element in the active pivot column and lists primary MSC 65F05. No positive-definite specialization was located in the complete text.",
+        "identifier_or_url": "mims:2006.174 / doi:10.1137/0610012",
+        "material_read": "The complete eleven-page public PDF was inspected through its introduction, partial-pivoting definition, growth-factor results, examples, and conclusions; the title/MSC page was visually rendered. Targeted full-text searches for positive-definite terminology returned no match.",
+        "method": "Lawful open full-text PDF inspection with page-image verification and targeted full-text search.",
+        "title": "Large Growth Factors in Gaussian Elimination with Pivoting",
+        "trigger": "Primary pivoting paper with verified primary MSC ownership and a public archive copy."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23040a68-41d9-4ba1-9ec6-24d539d00a4f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For SPD matrices it is classical that pivoting is unnecessary, but general-purpose LU codes may still execute the partial-pivot search and can in fact swap rows, thereby discarding symmetry and changing storage or sparsity patterns. The theorem gives the exact condition-number regime in which this cannot happen, together with a sharp dimension-free bound on every elimination multiplier and a minimal \\(2\\times2\\) obstruction above the boundary. This cleanly separates stability of unpivoted SPD elimination from the actual permutation decisions made by GEPP.",
+    "status": "PASS"
+  }
+}
