@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Direct substitutions into all six published ODEs show E0 is stationary and E02 has derivatives (-alpha*a1/d1,+alpha*a1/d1,0,0,0,0), so E02 is not. At C=0, positive mu, gamma, d6 force H=I=V=0 and then N=N0 and D=D0; if D=0 equilibrium positivity is impossible. Symbolic calculation factors the full Jacobian characteristic polynomial into four negative scalar factors and the exact I/V 2x2 quadratic. Under q,k,h,c>0 the strict Routh sign yields stability below R_EBV=1 and a positive real eigenvalue above. An exact rational witness with d_i=2>a_i=1, beta=20 yields R_EBV=5/3 and eigenvalue -2+sqrt(20/3)>0. The conditional persistence floor follows from bounded D and converging inhomogeneous forcing. Exact symbolic checker executed from the included package path and returned VERIFY_OK. Equality is explicitly not classified beyond a zero eigenvalue.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Smith and De Leenheer, Virus Dynamics: A Global Analysis, DOI 10.1137/S0036139902406905, abstract: classical within-host viral stability is determined by a reproduction-number threshold; no specific 2026 NPC model or E02 equilibrium.",
+        "Wodarz and Nowak (2002), DOI 10.1002/bies.10196, review basic within-host viral infection frameworks."
+      ],
+      "reasoning": "The generic two-variable infected-cell/virus block and reproduction-number criterion are classical and cover the method; they do not assert or correct the named 2026 article's additional spurious equilibrium, full compartment factorization, or concrete contradiction to its claimed sufficient conditions. Originality is limited to this correction, not to the abstract threshold mechanism.",
+      "searches": [
+        "within-host virus three compartments target cells infected virus stability basic reproduction number infection-free",
+        "viral dynamics mathematical modelling reproduction number virus free equilibrium target cell 2002 Nowak Wodarz",
+        "Virus Dynamics: A Global Analysis Smith De Leenheer 2003"
+      ]
+    },
+    "checked_sources": [
+      "https://www.researchgate.net/publication/410114499_MATHEMATICAL_MODELING_OF_NASOPHARYNGEAL_CARCINOMA",
+      "https://doi.org/10.17654/0972087126163",
+      "https://epubs.siam.org/doi/10.1137/S0036139902406905",
+      "https://doi.org/10.1002/bies.10196"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published SEIR and age-structured population papers have different state equations and do not imply any claim about the 2026 NPC model.",
+        "A published dengue switching result concerns mosquito control and neither its theorem nor hypotheses imply the current NPC equilibrium claim.",
+        "Smith and De Leenheer, Virus Dynamics: A Global Analysis, DOI 10.1137/S0036139902406905, abstract: classical within-host viral stability is determined by a reproduction-number threshold; no specific 2026 NPC model or E02 equilibrium."
+      ],
+      "reasoning": "The compared scientific papers concern structurally different systems. Generic within-host infection thresholds justify the method but do not state the present model's E02 equilibrium failure or negate this paper's claimed apoptosis-only sufficiency.",
+      "searches": [
+        "\"Mathematical modeling of nasopharyngeal carcinoma\" Mutijah Sugiyanto carcinoma-free equilibrium stability apoptosis viral reproduction threshold",
+        "EBV dysplastic cells viral load carcinoma-free equilibrium spectral threshold beta D e a3",
+        "within-host virus three compartments target cells infected virus stability basic reproduction number infection-free",
+        "nasopharyngeal carcinoma six-compartment viral infection equilibrium correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mutijah and Sugiyanto, DOI 10.17654/0972087126163, full open-text source: equations (1a)-(1f), Theorem 1 and its second-state discussion, pp. 2943–2945; Section 5 local-stability derivation, pp. 2950–2954. The text prints E02=(a1/d1,0,0,0,0,0) but the original N and D equations give nonzero derivatives there.",
+        "Published-literature exact-title and EBV-dysplasia formula searches did not return an equivalent source-specific finding; the closest hits concern other population models and ordinary dynamical systems."
+      ],
+      "reasoning": "Equivalent forms would identify the nonexistent E02, the viral feedback determinant, or a counterexample to the source's all-apoptosis stability condition. The source instead asserts the contrary, and retrieved records have different equations and statements.",
+      "searches": [
+        "\"Mathematical modeling of nasopharyngeal carcinoma\" Mutijah Sugiyanto carcinoma-free equilibrium stability apoptosis viral reproduction threshold",
+        "EBV dysplastic cells viral load carcinoma-free equilibrium spectral threshold beta D e a3",
+        "nasopharyngeal carcinoma six-compartment model 2026 spurious disease-free equilibrium",
+        "\"Mutijah\" \"Sugiyanto\" \"dysplastic\" \"eigenvalue\" 2026 equilibrium"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published two-patch SEIR bracketing counterexample has distinct movement-coupled transmission and does not state the EBV NPC threshold.",
+        "A published age-structured population convergence result studies a different PDE/ODE model and does not cover the present six-compartment ODE.",
+        "The motivating primary article's full-text equations and stability statements were compared directly, not inferred from an abstract."
+      ],
+      "reasoning": "No exact corrected result or tabulation for this source was found. Search absence by itself does not establish uniqueness; scientific comparison depends on the explicit conflicting source formulas and comparison to general viral dynamics.",
+      "searches": [
+        "\"Mathematical modeling of nasopharyngeal carcinoma\" Mutijah Sugiyanto carcinoma-free equilibrium stability apoptosis viral reproduction threshold",
+        "nasopharyngeal carcinoma six-compartment model 2026 spurious disease-free equilibrium",
+        "EBV dysplastic cells viral load carcinoma-free equilibrium spectral threshold beta D e a3"
+      ]
+    },
+    "rationale": "Published-literature searches targeted both the exact article and equivalent EBV-dysplasia/virus-feedback reductions and returned no source-specific correction. No located source-specific publication makes the present correction. The exact motivating article's full open text explicitly asserts the two defective statements corrected here. Classical within-host virus thresholds are longstanding and are not claimed as original; the narrowly source-specific corrected stability implication, counterexample and nonstationary purported equilibrium are not stated by the general literature.",
+    "residual_risks": [
+      "The publicly accessible original is a full-text transcription rather than a separate rendered PDF; equation glyph conversion is imperfect, though multiple source passages and independent derivative checks are consistent.",
+      "An unindexed corrigendum or independently posted comment might have already noted the same model-specific errors.",
+      "The broad prior within-host literature contains the generic two-stage virus-loop threshold; no priority is claimed for that generic principle.",
+      "The source's word carcinoma-free is interpreted as its explicit condition C=0, rather than no dysplasia; clinically these are different notions.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_SPECIFIC_CONTRADICTION",
+        "evidence": "Mutijah and Sugiyanto, DOI 10.17654/0972087126163, full open-text source: equations (1a)-(1f), Theorem 1 and its second-state discussion, pp. 2943–2945; Section 5 local-stability derivation, pp. 2950–2954. The text prints E02=(a1/d1,0,0,0,0,0) but the original N and D equations give nonzero derivatives there. In its abstract and local-stability discussion the article asserts apoptosis dominance suffices, although its nontrivial viral eigenpair can have positive real root.",
+        "identifier_or_url": "https://www.researchgate.net/publication/410114499_MATHEMATICAL_MODELING_OF_NASOPHARYNGEAL_CARCINOMA",
+        "material_read": "Public CC BY 4.0 full original article text including model formulation (pp. 2938–2942), equations (1a)-(1f), equilibrium Theorem 1 (pp. 2943–2945), source characteristic polynomial and stability proof (pp. 2950–2954), numerical discussion and conclusions (through p. 2964).",
+        "method": "Read publisher-layout original full-text transcription and reconstructed state-by-state derivatives, roots, and Jacobian. Checked the competing formulas in more than one original section.",
+        "title": "Mathematical modeling of nasopharyngeal carcinoma",
+        "trigger": "Exact motivating 2026 paper gives the six ODEs and the claimed pair of carcinoma-free equilibria and apoptosis-based stability theorem."
+      },
+      {
+        "assessment": "CLASSICAL_METHOD_NOT_SOURCE_SPECIFIC",
+        "evidence": "Smith and De Leenheer, Virus Dynamics: A Global Analysis, DOI 10.1137/S0036139902406905, abstract: classical within-host viral stability is determined by a reproduction-number threshold; no specific 2026 NPC model or E02 equilibrium.",
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/S0036139902406905",
+        "material_read": "Primary journal article landing-page title, full abstract and bibliographic metadata; complete full text not accessible at this source.",
+        "method": "Compared stated generic within-host threshold to the claim about the named article's six equations.",
+        "title": "Virus Dynamics: A Global Analysis",
+        "trigger": "Determine whether the source-specific corrected EBV invasion inequality is subsumed by known within-host virus results."
+      },
+      {
+        "assessment": "GENERAL_REVIEW",
+        "evidence": "This 2002 review describes basic viral infection models, but no source-specific statement about the 2026 nasopharyngeal carcinoma article.",
+        "identifier_or_url": "https://doi.org/10.1002/bies.10196",
+        "material_read": "Primary publisher abstract, citation and reference list (not entire full text).",
+        "method": "Abstract-level broader-coverage comparison, not an unsupported claim about unseen sections.",
+        "title": "Mathematical models of HIV pathogenesis and treatment",
+        "trigger": "Canonical within-host infection and antiviral parameter interpretation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "048e1bb3-223e-49a3-b0c2-5d9eb0ac3572",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's headline analytical conclusion is that relative apoptosis dominance guarantees local prevention of progression. The corrected exact inequality demonstrates an uncontrolled EBV feedback loop that destabilizes the reported first carcinoma-free equilibrium despite all such rates, with a concrete exact parameter witness. The alleged second stable carcinoma-free equilibrium is not even a stationary state, so interpreting it as a reachable healthy baseline would be mathematically misleading. The positive dysplasia floor reveals what the model itself cannot eliminate without altering the spontaneous conversion rate. These change the paper's equilibrium and prevention interpretation, not merely symbols or cosmetic algebra; medical applicability is explicitly not asserted.",
+    "status": "PASS"
+  }
+}
