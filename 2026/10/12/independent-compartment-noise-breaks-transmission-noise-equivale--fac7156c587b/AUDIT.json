@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Direct covariance calculation gives \\(g^2I_2\\) for the printed independent drivers and rank-one covariance with off-diagonal \\(-g^2\\) for one shared transmission noise. Therefore the printed sum coordinate has quadratic-variation rate \\(2g^2\\) while genuine transmission noise contributes zero. For finite rectangles, choosing interior initial points \\(O(\\varepsilon)\\) from a positive upper face and time \\(O(\\varepsilon^2)\\) makes the nonzero normal Brownian displacement \\(O(\\varepsilon)\\) while drift is only \\(O(\\varepsilon^2)\\), yielding positive exit probability. The exact-arithmetic checker independently verifies the covariance algebra and positivity at \\(\\alpha=0.85\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji et al. report positivity and a positively invariant set for a different stochastic SIR model.",
+        "Cai et al. describe two independent Brownian motions as two distinct parameter perturbations, rather than treating opposite signs under independence as one shared parameter noise."
+      ],
+      "reasoning": "General positivity or boundedness theorems for other diffusion structures do not imply invariance of a finite rectangle whose outward normal diffusion coefficient is nonzero.",
+      "searches": [
+        "\"arXiv:2601.20181\" \"invariant\" \"Wiener\"",
+        "\"finite rectangle\" \"Fokker-Planck\" epidemic stochastic",
+        "Ji--Jiang--Shi DOI 10.1080/07362994.2012.684319",
+        "Cai--Cai--Mao DOI 10.1016/j.jmaa.2019.02.039"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.20181",
+      "doi:10.1007/s00285-026-02462-7",
+      "doi:10.1137/10081856X",
+      "doi:10.1080/07362994.2012.684319",
+      "doi:10.1016/j.jmaa.2019.02.039",
+      "database queries listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source/title/alias comparison found no earlier checked scientific item implying the stated Fokker--Planck/transmission-noise correction.",
+        "The motivating source does not state that its diagonal independent noise is inequivalent to shared transmission noise or that its simulation rectangle fails stochastic invariance."
+      ],
+      "reasoning": "Neither prior own findings nor the closest published statements imply the new joint-law and finite-domain conclusion.",
+      "searches": [
+        "arXiv:2601.20181 source/title/alias searches for independent Wiener noise, zero flux, transmission noise, invariant rectangle, sigma_S, and quadratic variation",
+        "\"A Fokker-Planck Framework for Control of Epidemics\" \"independent\" \"zero flux\"",
+        "\"transmission-rate noise\" \"quadratic variation\" SIR"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source states that opposite incidence noise is equivalent to one noisy transmission coefficient, but Eq. (2) uses stochastically independent Wiener components and Eq. (5) a diagonal diffusion matrix.",
+        "A single shared Brownian transmission perturbation has rank-one covariance with negative off-diagonal entries and zero noise in the sum coordinate."
+      ],
+      "reasoning": "The common-noise and independent-noise models can share the same marginal diffusion magnitudes but not the same joint law; their covariance matrices and Fokker--Planck generators differ.",
+      "searches": [
+        "\"A Fokker-Planck Framework for Control of Epidemics\" \"independent\" \"zero flux\"",
+        "\"transmission-rate noise\" \"quadratic variation\" SIR",
+        "Parkinson--Roy DOI 10.1007/s00285-026-02462-7, Sect. 2 and Sect. 4",
+        "Gray et al. DOI 10.1137/10081856X"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest database hits for the epidemiological-dynamics queries concerned switching dynamics and coupled-patch reproduction thresholds rather than independent-vs-common Brownian covariance or bounded Fokker--Planck identification.",
+        "No returned database title or summary covered arXiv:2601.20181 or the stated covariance/domain obstruction."
+      ],
+      "reasoning": "The database search found no exact table, certificate, or prior finding from which this claim follows as a special case.",
+      "searches": [
+        "\"A Fokker-Planck Framework for Control of Epidemics\" \"independent\" \"zero flux\"",
+        "\"arXiv:2601.20181\" \"invariant\" \"Wiener\"",
+        "\"transmission-rate noise\" \"quadratic variation\" SIR",
+        "\"finite rectangle\" \"Fokker-Planck\" epidemic stochastic"
+      ]
+    },
+    "rationale": "The exact source-specific implication was not found in the checked scientific database or inspected primary literature. The motivating article itself fully exposes the decisive mismatch: it states a one-white-noise transmission interpretation while displaying independent Wiener coordinates, then combines that SDE with a bounded zero-flux domain. The new claim follows from comparing the resulting covariance operators and from a boundary diffusion argument.",
+    "residual_risks": [
+      "Some older comparison articles were available only at abstract/bibliographic level. This does not affect the internal covariance contradiction, which is determined by the fully inspected 2026 source equations, but it leaves a small risk that an older article states an analogous general warning.",
+      "The short-time rectangle argument uses standard local Itô asymptotics; no claim is made about every possible nonrectangular or reflected domain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source supplies all premises but does not state the covariance non-equivalence or finite-rectangle obstruction.",
+        "evidence": "Eq. (2) declares independent Wiener components; the text calls opposite incidence noise equivalent to one noisy transmission coefficient; Sect. 4 uses [0,1]^2 and sigma_S=-sigma_I=sqrt(0.02)(1-alpha)SI.",
+        "identifier_or_url": "arXiv:2601.20181; DOI 10.1007/s00285-026-02462-7",
+        "material_read": "Relevant full open-access HTML sections containing the SDE, independence declaration, diffusion matrix, invariant-domain assumption, zero-flux condition, simulation domain, control bounds, and diffusion choice.",
+        "method": "Direct full-text inspection of the lawful open-access article and arXiv record.",
+        "title": "A Fokker-Planck framework for control of epidemics",
+        "trigger": "Exact motivating source and primary MSC owner."
+      },
+      {
+        "assessment": "NOT_COVERING at inspected level: it studies stochastic SIS perturbation, not the 2026 diagonal independent-noise bounded-domain identification.",
+        "evidence": "The source distinguishes transmission-rate perturbation by one white noise from its displayed independent two-coordinate Wiener process.",
+        "identifier_or_url": "DOI 10.1137/10081856X",
+        "material_read": "Abstract, bibliographic record, and the 2026 source's explicit description of this literature as transmission-rate perturbation.",
+        "method": "Publisher/author-record inspection.",
+        "title": "A Stochastic Differential Equation SIS Epidemic Model",
+        "trigger": "Cited precedent for stochastic transmission perturbation."
+      },
+      {
+        "assessment": "NOT_COVERING at inspected level; access did not expose a statement matching the covariance/domain correction.",
+        "evidence": "Abstract reports a nonnegative solution in a positively invariant set for its own model.",
+        "identifier_or_url": "DOI 10.1080/07362994.2012.684319",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher abstract inspection.",
+        "title": "The Behavior of an SIR Epidemic Model with Stochastic Perturbation",
+        "trigger": "Cited precedent for positivity and invariant stochastic SIR dynamics."
+      },
+      {
+        "assessment": "NOT_COVERING: it treats two independent Brownian motions as two distinct parameter perturbations and does not analyze the Parkinson--Roy bounded Fokker--Planck construction.",
+        "evidence": "Abstract states that a second parameter perturbation is added to the earlier beta perturbation, producing two independent Brownian motions.",
+        "identifier_or_url": "DOI 10.1016/j.jmaa.2019.02.039",
+        "material_read": "Author-repository abstract and bibliographic record.",
+        "method": "Lawful repository inspection.",
+        "title": "A stochastic differential equation SIS epidemic model with two independent Brownian motions",
+        "trigger": "Closest literature explicitly emphasizing independent Brownian perturbations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fac7156c-587b-474e-baf8-59290d8633f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result changes the joint stochastic law, the forward operator, and the interpretation of the controlled probability density. It identifies when a bounded zero-flux control computation cannot be the law of the unrestricted SDE that motivates it, a structural issue relevant to model interpretation and not a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
