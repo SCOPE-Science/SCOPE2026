@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers are explicit: each 2x2 real invertible matrix with a>b>0, q in nonnegative integers and ell>=1 iid sign columns, rank-revealing Q and target-rank-one truncated SVD. The two sign-line sampling outcomes partition the sample space; when both lines appear, Y is invertible and gives the optimal b^2 residual; otherwise each single-line projector yields the displayed exact rational energy. Event weights each equal 2^{-ell}. The concavity identity H=2-g(c)-g(1-c) proves and attains sharp global extrema, including equality boundaries. Worst sign-line alignment prevents q-repair, while rho→0 gives interior q-consistency; Gaussian ell>=2 has full rank almost surely. Standalone verify.py was executed from its actual path and printed 410 exact-rational identities; finite checks only supplement the universal analytic proof. No unverified nonstandard lemma or infinite computation is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2206.08793v2, Section 3.2 evaluates Gaussian expectations; deterministic upper error bounds in Section 3.1.",
+        "arXiv:2006.10653v3 develops approximate high-rank projection expectations, not exact rank-one truncation on a 2x2 sign sketch.",
+        "published-finding corpus 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 is a normal-matrix spectral-filter residual distortion result, not a distributional risk statement."
+      ],
+      "reasoning": "General deterministic randomized-subspace norm bounds can apply conditionally but do not integrate discrete singular frames including rank loss. The general projection and Gaussian expectation settings are strictly different output operators or distributions and neither dominates the entire equality-and-extremizer claim.",
+      "searches": [
+        "Rademacher randomized SVD 2 by 2 exact expected Frobenius error singular vector orientation rank one power iteration sketch columns all one sign exponential failure",
+        "sharp minimax excess error Rademacher low rank subspace iteration two dimensional sign basis leading singular vector angle",
+        "arXiv:2206.08793v2 Theorems 3.4, 3.8, 3.17, 3.19, 3.20",
+        "arXiv:2006.10653v3 expected residual analysis"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.05814v1",
+      "arXiv:1804.02614v2",
+      "arXiv:2206.08793v2",
+      "arXiv:2006.10653v3",
+      "https://epubs.siam.org/doi/abs/10.1137/23M1593255 (MSC 65F15 primary and later publication metadata)",
+      "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+      "2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saibaba–Międlar structural theorem bounds the untruncated projection residual with pseudoinverse terms and sketch-regularity hypotheses.",
+        "Saibaba 2018 bounds canonical angles/low-rank approximation assuming leading sketch block full row rank, whereas a worst extremizer has positive-probability zero leading block.",
+        "The exact event that every sign column lies in one projective line has probability 2^{-ell}; none of the cited bounds yields this exact risk with endpoints and power dichotomy."
+      ],
+      "reasoning": "A bound on ||(I-QQ^T)A|| or a conditional canonical-angle bound is not an identity for squared ||A-(Q^T A)_1||_F, especially when a 2xell sign sketch is rank deficient and then post-truncated. The independent all-trailing-sign event prevents inferring the all-power minimax law from generic large-gap improvement results.",
+      "searches": [
+        "arXiv:2308.05814v1 Theorem 2.1 Theorem 3.3 and Appendix B",
+        "arXiv:1804.02614v2 Assumption 1 full row rank and projected truncated rank-one",
+        "arXiv:2206.08793v2 Gaussian versus deterministic",
+        "Rademacher randomized SVD 2 by 2 exact expected Frobenius error singular vector orientation rank one power iteration sketch columns all one sign exponential failure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2308.05814v1, Section 2.2 algorithm and Theorem 3.3 (sub-Gaussian error bounds, including signs).",
+        "arXiv:1804.02614v2, Section 2.2 and Assumption 1 (rank truncation and full-row-rank deterministic bounds).",
+        "published-finding corpus nearest record 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee compares adaptive pivoting and omitted columns, not two-line iid sign-sketch SVD."
+      ],
+      "reasoning": "Alternate descriptions include randomized SVD, range finding, power iteration, rank-one subspace capture, Bernoulli ±1 subspace iteration, and the right-singular-frame 45-degree alignment. The source bounds do not state this exact unconditional expectation across rank-deficient sign events; the identified pivoted-column-subset result uses a different distribution and target operator.",
+      "searches": [
+        "Rademacher two-dimensional randomized SVD rank-one truncation power iteration worst rotation sign sketches exact excess Frobenius risk 2^-l",
+        "Bernoulli sketch rank deficiency spectral gap power iteration cannot fix missed leading eigenvector finite-sample minimax orientation",
+        "two-by-two sign range finder randomized low rank Rademacher expected residual orientation invariant skew singular vector",
+        "arXiv:2308.05814v1 §§2.2–3.3; arXiv:1804.02614v2 §§2–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2308.05814v1 Appendix B treats classes of sketches and numerical plots, not a tabulation of all 2x2 sign-frame exact means.",
+        "Full published-finding corpus queries returned no matching table; closest adaptive pivoting and signed-frame geometry records concern different risk objects."
+      ],
+      "reasoning": "The theorem is a symbolic formula over continuous orientation, integer power depth and arbitrary sketch width. The checked source experiments and tables neither enumerate this law nor determine its continuous-frame extrema. Search nonappearance alone is not relied upon as evidence of novelty.",
+      "searches": [
+        "Bernoulli sign sketch subspace iteration rank one approximation rare all collinear columns failure probability 2 to the minus ell despite arbitrarily many power steps",
+        "Gaussian sign random matrix randomized SVD orientation gap spectral condition number oversampling exact minimax risk",
+        "arXiv:2308.05814v1 Appendix B and Section 5 examples",
+        "published-finding corpus search for sharp two-by-two Rademacher orientation"
+      ]
+    },
+    "rationale": "Full comparisons of arXiv:2308.05814v1 §§2–4/Appendix, arXiv:1804.02614v2 §§2–4, arXiv:2206.08793v2 §§3–4, and arXiv:2006.10653v3 reveal bounds or different sketch/rank regimes; none implies the exact unconditional two-dimensional Rademacher rank-one-truncated risk, sharp angular minimax range, and all-power signed-miss dichotomy. published-finding corpus searches for aliases and parameters returned related but not dominating statements. The unindexed specialised-case risk is retained.",
+    "residual_risks": [
+      "A specialised earlier low-dimensional exact Bernoulli/SVD calculation may exist outside the four reviewed full-text sources and searchable published-finding corpus records.",
+      "The source paper commonly restricts sketch width to the matrix column dimension; the theorem explicitly defines a rank-revealing redundant-column extension for larger widths.",
+      "Exact-arithmetic algebra excludes floating-point rank-estimation issues and does not prove general high-dimensional significance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad non-Gaussian structural and probabilistic bounds; no exact orientation-dependent 2x2 post-truncated unconditional expected error",
+        "evidence": "pp. 5–6 Procedure 2.1 and Theorem 2.1; p. 3 summary; Appendix B; Rademacher experiment descriptions",
+        "identifier_or_url": "https://arxiv.org/pdf/2308.05814",
+        "material_read": "37-page v1 PDF: introduction, §§2.1–2.3 and Theorem 2.1, main theorem descriptions §§3–4, Rademacher entries and numerical experiments §§5, Appendix B sign-sketch discussion",
+        "method": "Direct arXiv PDF text and screenshot of algorithm/structural theorem pages",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Defining iid non-Gaussian/Rademacher range finding and subspace iteration"
+      },
+      {
+        "assessment": "Explains rank truncation and norm bounds but assumes leading sketch block full rank in key bounds, so does not cover the nonzero probability missed leading sign line",
+        "evidence": "§2.2 and Assumption 1; full-row-rank reduction in proof around p. 12",
+        "identifier_or_url": "https://arxiv.org/pdf/1804.02614",
+        "material_read": "Sections 1–4 including Algorithm 1, deterministic proof Assumption 1 and bounds, Gaussian special case and manuscript proof appendices relevant to projection",
+        "method": "arXiv PDF text inspect of the algorithm and structural assumptions",
+        "title": "Randomized subspace iteration: Analysis of canonical angles and unitarily invariant norms",
+        "trigger": "Truncation may make generic bounds cover the proposed claim"
+      },
+      {
+        "assessment": "No exact Rademacher 2x2 orientation and post-truncation expectation reported",
+        "evidence": "Theorems 3.4, 3.8 deterministic; 3.17, 3.19, 3.20 Gaussian expected errors",
+        "identifier_or_url": "https://arxiv.org/pdf/2206.08793",
+        "material_read": "Abstract, §§2–4, deterministic bounds and Gaussian expected-error theorems",
+        "method": "arXiv PDF text read, targeted Gaussian theorem inspection",
+        "title": "A general error analysis for randomized low-rank approximation methods",
+        "trigger": "Potentially dominating uniform-random sketch expected norm analysis"
+      },
+      {
+        "assessment": "Expected projection results are approximations in distinct dimensional/rank regimes, without exact sign-sketch target-rank truncation at n=2",
+        "evidence": "Main low-rank approximation theorem under stable-rank assumptions and projection rather than rank-one truncated risk",
+        "identifier_or_url": "https://arxiv.org/pdf/2006.10653",
+        "material_read": "Introduction, main random projection setup, expected low-rank error statements and stated rank/stable-rank assumptions",
+        "method": "arXiv PDF text read with targeted result comparisons",
+        "title": "Precise expressions for random projections: Low-rank approximation and randomized Newton",
+        "trigger": "Precise expected residual formulas might dominate a low-rank sketch law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "01df0b03-e02b-4270-b91b-be4ee8b94dbd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the standard rank-one-truncated randomized SVD with iid ±1 sub-Gaussian sketches, as motivated by arXiv:2308.05814v1. The new result completely classifies a natural two-dimensional model by singular-frame orientation and every power depth, with attained best/worst expected squared errors. It reveals a structural obstruction that power iteration cannot remove—positive-probability omission of the leading singular line—and an exact logarithmic-in-condition-number sample-width criterion for uniform approximation. This is not an arbitrary numeric special case: it contrasts repeated power passes with independent sampling and with almost-sure Gaussian success. No claim about general matrices or new asymptotic algorithms is made.",
+    "status": "PASS"
+  }
+}
