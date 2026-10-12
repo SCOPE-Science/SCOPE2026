@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Strict finite-\\(n\\) optimality follows from an exact second-derivative identity for a Gaussian interval mass and binomial symmetry. The asymptotic coefficients follow from explicit Taylor expansions, exact standardized binomial moments through order six, Stirling expansion, and exponentially small tail control. The included exact-sum checker reproduces the predicted scaled constants; it is not used as proof of the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gavalakis--Kontoyiannis Theorem 1.2 gives qualitative relative-entropy convergence for general lattice sums; Proposition 3.1 gives only a coarse Bernoulli rate.",
+        "Cichoń--Gołębiewski Theorem 1 gives a multinomial entropy expansion but no Gaussian-cell KL comparison."
+      ],
+      "reasoning": "A general theorem would dominate this finding only if it controlled the quantization phase sharply enough to imply both the exact midpoint minimizer and the two-term phase expansion. The inspected general results do not.",
+      "searches": [
+        "public literature: discrete entropic central limit theorem binomial quantized Gaussian rate",
+        "public literature: discrete normal binomial relative entropy asymptotic",
+        "published-finding corpus: symmetric binomial entropy expansion one over twelve n squared discrete normal relative entropy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.00514v1",
+      "DOI:10.46298/dmtcs.2993",
+      "published-finding corpus semantic index via the six recorded candidate-specific searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 source fixes the cell boundary at the lattice point, equivalent here to \\(c=1/2\\), and does not compare shifts.",
+        "The 2012 source gives entropy information only; entropy alone cannot imply the phase-dependent cross-entropy term.",
+        "No own prior finding states or implies the new phase theorem."
+      ],
+      "reasoning": "Neither inspected source dominates the claim: one supplies the comparison object without sharp phase/rate information, while the other supplies entropy asymptotics without the phase-dependent Gaussian cross-entropy. The new conclusion requires both a strict log-concavity argument and a second-order cell expansion.",
+      "searches": [
+        "arXiv:2106.00514v1, especially definition (6), Theorem 1.2, Lemma 2.3, and Proposition 3.1",
+        "DOI:10.46298/dmtcs.2993, entropy section and Theorem 1",
+        "own current and prior finding ledgers searched for entropy, quantization, Gaussian lattice, binomial relative entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2106.00514v1 defines Gaussian cell quantization and proves \\(D\\to0\\), but does not state phase optimization or the displayed fixed-phase expansion.",
+        "No published-finding corpus hit among the candidate-specific semantic searches stated the same binomial-to-cell-integrated-Gaussian KL claim."
+      ],
+      "reasoning": "Continuity correction, midpoint cells, discretized Gaussian, and quantized Gaussian were treated as aliases. The searched formulations therefore cover the most natural equivalent descriptions of the phase parameter.",
+      "searches": [
+        "symmetric Bernoulli discrete entropic CLT quantized Gaussian relative entropy rate one over two n",
+        "binomial quantized Gaussian relative entropy asymptotic",
+        "Bernoulli sum entropy deficit quantized Gaussian one over n",
+        "public literature: quantized Gaussian binomial midpoint relative entropy continuity correction",
+        "public literature: binomial Gaussian Kullback-Leibler continuity correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records concerned multinomial modal Gaussian approximation and unrelated grid-phase problems; none had the same object and implication."
+      ],
+      "reasoning": "No exact table or indexed finding returned by the database records the coefficients, the unique finite-n phase optimum, or their combination.",
+      "searches": [
+        "published-finding corpus: midpoint quantization symmetric binomial discrete entropic CLT KL phase boundary cell one over n one over n squared",
+        "published-finding corpus: Gaussian lattice cell phase Bernoulli sum relative entropy midpoint optimal continuity correction"
+      ]
+    },
+    "rationale": "The nearest primary source defines the boundary-aligned quantized Gaussian and proves only convergence of the lattice relative entropy, with a coarse Bernoulli finite-sample bound. The nearest entropy-expansion source gives a general multinomial expansion whose symmetric-binomial specialization leaves an \\(O(n^{-2})\\) remainder, but it does not analyze Gaussian-cell phase or KL optimality. Candidate-specific database and literature searches did not locate the strict finite-\\(n\\) midpoint minimizer or the phase law with coefficients \\(2c^2\\) and \\(1/9-(2/3)c^2\\).",
+    "residual_risks": [
+      "Jacquet--Szpankowski's older full binomial entropy expansion was not directly inspected in this bounded pass; it may contain the entropy coefficient but would not by itself imply the phase-dependent Gaussian-cell cross-entropy or strict midpoint optimality.",
+      "A classical continuity-correction calculation under different terminology could contain an equivalent special case despite the negative targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves convergence for boundary-aligned quantization and a coarse Bernoulli bound, not the finite-\\(n\\) phase minimizer or phase-dependent \\(n^{-1}\\)/\\(n^{-2}\\) coefficients.",
+        "evidence": "arXiv:2106.00514v1, pp. 2-7, especially definition (6), Theorem 1.2, Lemma 2.3, Proposition 3.1.",
+        "identifier_or_url": "arXiv:2106.00514v1",
+        "material_read": "Full relevant introduction, definition (6), Theorem 1.2, Theorem 2.1, Lemma 2.3, Proposition 3.1, and Bernoulli discussion; PDF page containing definition (6) visually inspected.",
+        "method": "Lawful arXiv full text and rendered PDF inspection.",
+        "title": "Entropy and the discrete central limit theorem",
+        "trigger": "Same relative-entropy object and exact quantized-Gaussian construction."
+      },
+      {
+        "assessment": "PARTIAL_COMPONENT_ONLY: it records the leading entropy expansion with \\(O(n^{-2})\\) remainder at the symmetric point, but not the coefficient needed here and no quantized-Gaussian phase comparison.",
+        "evidence": "DMTCS Proceedings AQ (2012), pp. 185-186, Theorem 1 and surrounding discussion.",
+        "identifier_or_url": "DOI:10.46298/dmtcs.2993",
+        "material_read": "Entropy section and Theorem 1 in the lawful full PDF; theorem page visually inspected.",
+        "method": "Publisher-hosted open PDF inspection.",
+        "title": "On Bernoulli Sums and Bernstein Polynomials",
+        "trigger": "Explicit binomial/multinomial entropy asymptotics could subsume the entropy component."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "240d0d2f-7569-490c-877b-3b39ae61267a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The quantization convention is part of the definition of the discrete entropic CLT. In the canonical symmetric Bernoulli model, changing from boundary-aligned to midpoint cells removes the entire leading KL term, improving the convergence order from \\(n^{-1}\\) to \\(n^{-2}\\). This is a structural continuity-correction effect rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
