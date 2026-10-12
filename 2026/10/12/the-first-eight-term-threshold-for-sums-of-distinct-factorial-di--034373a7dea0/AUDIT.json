@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The finite subset-sum recurrence is proved by the disjoint inclusion-or-omission cases for each divisor. Packed exact arbitrary-precision integer bitsets enumerate all sums from 0 to n! for n=1..12, with no heuristic cutoff. At 12!, the 7-term complement has 175 bits, first at 475785157, while eight terms cover all 479001601 possible totals. Independent divisor generation and a permuted-order traversal agree; direct set-based brute force agrees through n=5; an explicit eight-divisor witness is checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hughes establishes h(n!) <= (2 log 2+o(1))n/log n, and a logarithmic-squared order lower bound, neither of which specializes to the precise n=12 value.",
+        "Tenenbaum–Yokota 1990 Lemma 4 holds for all sufficiently large k with an unspecified threshold and an asymptotic term bound, not an exact minimum."
+      ],
+      "reasoning": "The verified general theorems do not imply h(12!)=8 or count the 175 witnesses. The earlier Yokota papers remain partial-access risks; no decisive full-text comparison is claimed for them.",
+      "searches": [
+        "Sums of distinct divisors of factorials Hughes 2026 Theorem 1 Remark 6",
+        "Tenenbaum Yokota Lemma 4 factorial distinct divisor sums",
+        "Yokota On a Sum of Divisors l(N) 1992 factorial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.10902v1 full HTML",
+      "Tenenbaum–Yokota 1990 primary full PDF",
+      "Yokota 1992 publisher abstract",
+      "Yokota 1995 bibliography record",
+      "OEIS A027423 and exact initial-sequence searches",
+      "published-finding corpus semantic searches with three claim-specific queries",
+      "Current and prior own number-theory ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The asymptotic divisor-gap and greedy proofs bound representation lengths only for large n.",
+        "The SCOPE result on 2^a p^b has only two-prime support and unconstrained subset-sum coverage; 12! has prime factors 2,3,5,7,11 and the claim concerns the minimum allowed number of terms."
+      ],
+      "reasoning": "No checked stronger theorem gives the exact first occurrence of eight terms or the cardinality of that maximal-length layer. The new finite certificate is needed independently.",
+      "searches": [
+        "arXiv:2609.10902v1 Theorem 1 finite exact h factorial",
+        "1990 Tenenbaum Yokota Lemma 4 sum distinct divisors factorial",
+        "published-finding corpus complete-or-injective divisor subset sums 2^a p^b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hughes arXiv:2609.10902v1, Theorem 1 and Remark 6, use h(n!) but present asymptotic bounds only.",
+        "published-finding corpus searches for h(12!), least distinct divisor length, and Hughes returned no exact n=12 statement."
+      ],
+      "reasoning": "The finite invariant is equivalent to optimal length of Egyptian-fraction expansions of m/(12!) with denominators dividing 12!, a condition stricter than unrestricted Egyptian fractions. Searches on h, l, the 12! input, exact exceptional count and witness value found no equivalent finite classification.",
+      "searches": [
+        "factorial divisor subset sum h(12!)=8 exact sequence h(n!)",
+        "least number of distinct divisors of factorial to represent every integer 12 factorial finite exact values",
+        "2026 Sums of distinct divisors of factorials Hughes exact small n h(n!)",
+        "\"h(12!)\" \"distinct divisors\" \"at most\" factorial",
+        "\"l(12!)\" divisors Yokota",
+        "\"475785157\" \"factorial\" divisors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A027423 tabulates tau(n!) but not h(n!).",
+        "Exact-value and full sequence searches did not surface a preexisting h(12!) length table or 175-member exception list."
+      ],
+      "reasoning": "A divisor-count table and factorial-value table do not determine the minimum subset cardinality; the latter requires exact cardinality-constrained reachability across the interval 0..12!.",
+      "searches": [
+        "OEIS minimum number distinct divisors factorial to represent every integer h(n!)",
+        "\"1, 1, 2, 3, 4, 5, 5, 6, 7, 7, 7, 8\" factorial",
+        "\"475785157\" \"12!\" sum divisors",
+        "\"479001600\" \"175\" \"divisors\" sums seven"
+      ]
+    },
+    "rationale": "The same-object Hughes 2026 paper proves an asymptotic upper bound and cites a qualitative counting lower bound, but supplies no exact initial factorial profile or maximal-length census. Tenenbaum–Yokota 1990, Lemma 4 likewise treats sufficiently large factorials and asymptotic term bounds. The exact 12! value, first eight-term threshold and 175-case census were not present in checked published-finding corpus hits, published-index/sequence searches, or the two current/prior own ledgers. Earlier Yokota full texts were inaccessible and are recorded as access risks rather than assumed not to cover.",
+    "residual_risks": [
+      "The full texts of Yokota (1992) and Yokota (1995) were unavailable despite bounded lawful access attempts; an unindexed exact table in them cannot be ruled out.",
+      "The published-finding corpus semantic index and web searches are not exhaustive of unpublished or unindexed literature.",
+      "The theorem gives no asymptotic improvement and no classification for factorials with index greater than 12."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: asymptotic upper/lower bounds; no finite initial-value table.",
+        "evidence": "Theorem 1 and Remark 6 state asymptotic bounds and the unresolved true-growth question, without exact h(12!) or 175 witnesses.",
+        "identifier_or_url": "https://arxiv.org/html/2609.10902v1",
+        "material_read": "Complete HTML manuscript, abstract, Sections 1–4, theorem, proof and references.",
+        "method": "Full-text HTML inspection.",
+        "title": "Sums of distinct divisors of factorials",
+        "trigger": "Direct same-object recent paper defining h(n!)."
+      },
+      {
+        "assessment": "NOT_COVERING: its Lemma 4 is an asymptotic sufficiently-large-n representation bound, not a finite optimal-length table.",
+        "evidence": "Lemma 4 asserts an upper bound k/(log k)^(1/2-eps) for all sufficiently large k without tabulating optimal lengths for k<=12.",
+        "identifier_or_url": "https://tenenb.perso.math.cnrs.fr/PPP/Egyptian.pdf",
+        "material_read": "Introduction, Section 2 including Lemma 4, and its proof, PDF pages 1–5; page 3 also visually inspected.",
+        "method": "Full-text PDF extraction and rendered-page inspection of Lemma 4.",
+        "title": "Length and Denominators of Egyptian Fractions, III",
+        "trigger": "Source of the factorial-divisor representation lemma invoked by the recent paper."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS: no full-text noncoverage claim.",
+        "evidence": "The abstract defines l(N,r) and l(N) for divisor sums and concerns Vose’s sequence; it does not display h(12!).",
+        "identifier_or_url": "DOI:10.4153/CMB-1992-056-7",
+        "material_read": "Publisher abstract and bibliographic record only.",
+        "method": "Publisher page and targeted open-access searches; full PDF inaccessible.",
+        "title": "On a Sum of Divisors",
+        "trigger": "An older primary paper using the same maximum-of-minimum-length functional."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS: no full-text noncoverage claim.",
+        "evidence": "Hughes characterizes its result as an asymptotic upper bound, and the accessible records contain no finite 12! profile.",
+        "identifier_or_url": "Research Bulletin of the Hiroshima Institute of Technology 29 (1995), 25–28",
+        "material_read": "Citation and bibliographic record, not the full text.",
+        "method": "Open-web search for a lawful full copy.",
+        "title": "On a Knapsack Problem involving Divisors of n!",
+        "trigger": "Earlier paper about factorial-divisor knapsack mentioned by Hughes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "034373a7-dea0-443d-8b01-8e4c0382e84a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Erdős’s unresolved growth question for the natural invariant h(n!) motivates exact early-value benchmarks. The complete 1..12 initial profile determines the first new eight-term threshold, not an arbitrarily selected integer. The exceptionally thin 175-member maximal-length layer at 12! is a meaningful exact boundary for conjecturing exceptional-set behavior and evaluating constructive algorithms. This is a self-contained non-implied finite classification, not a generic computation of tau(n!) or a cosmetic numeric improvement.",
+    "status": "PASS"
+  }
+}
