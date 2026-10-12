@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The second positive integral in the source's Eq. (12) becomes exactly \\(E_1(\\alpha/t)=-\\operatorname{Ei}(-\\alpha/t)\\) after the substitution \\(u=\\alpha/y\\). Thus Eq. (15) has the wrong sign. Direct quadrature agrees with the corrected formula, and the large-argument asymptotics of \\(E_1\\), \\(\\Gamma(-1,\\cdot)\\), and the CDF prove the opposite small-time signs of the true and printed expressions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard special-function references state \\(E_1(z)=-\\operatorname{Ei}(-z)\\) for positive real \\(z\\).",
+        "A later 2026 inverted Z-Lindley paper concerns step-stress inference under censoring rather than the mean-inactivity formula."
+      ],
+      "reasoning": "General reliability and special-function literature supplies the defining identities, but does not dominate the source-specific correction.",
+      "searches": [
+        "mean inactivity time exponential integral E1 Ei reliability",
+        "inverted ZLindley reliability mean inactivity time",
+        "inverted Z-Lindley step stress inference 2026"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14091566",
+      "nist-dlmf:6.2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines mean inactivity as a nonnegative conditional expectation and as \\(F(t)^{-1}\\int_0^tF(y)dy\\).",
+        "Its Eq. (12) writes the relevant second term as an integral of a strictly positive integrand.",
+        "The standard identity converts that integral to \\(-\\operatorname{Ei}(-\\alpha/t)\\), not to the sign printed in Eq. (15)."
+      ],
+      "reasoning": "The prior source's own premises imply the corrected sign, while the displayed final formula states the opposite result. The finding therefore corrects, rather than restates, the source.",
+      "searches": [
+        "10.3390/math14091566 mean inactivity definition Eq 11",
+        "10.3390/math14091566 exponential integral Eq 15",
+        "NIST DLMF E1 Ei negative argument identity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-result search hit names the target DOI or identifies the mean-inactivity sign error.",
+        "Exact DOI and title searches located the original article but no corrigendum.",
+        "The primary source itself displays the positive integral in Eq. (12) and the sign-reversed exponential-integral term in Eq. (15)."
+      ],
+      "reasoning": "Searches covered the exact model, DOI, mean-inactivity aliases, and the characteristic Ei/E1 sign formulation. No equivalent model-specific correction was located.",
+      "searches": [
+        "inverted ZLindley mean inactivity time sign Ei E1 correction",
+        "10.3390/math14091566 mean inactivity time error",
+        "IZL distribution mean inactivity time negative formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher full text prints Eq. (15) with a positive coefficient multiplying \\(\\operatorname{Ei}(-\\alpha/t)\\).",
+        "The article was published on 6 May 2026 and lists MSC 60E05 first.",
+        "No correction record was located in exact-source searches."
+      ],
+      "reasoning": "The decisive comparison is the source's own Eq. (12) against Eq. (15), using the standard definition of the exponential integral.",
+      "searches": [
+        "10.3390/math14091566 Eq 15 mean inactivity",
+        "10.3390/math14091566 corrigendum erratum",
+        "10.3390/math14091566 60E05"
+      ]
+    },
+    "rationale": "The primary source prints the incorrect sign and uses the formula as its mean-inactivity result. Five focused published-result searches, exact DOI/correction searches, and current/prior owned-ledger checks found no model-specific correction. The NIST identity is definitional support for the correction, not prior coverage of the inverted-ZLindley error.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "The full shape of the corrected mean inactivity function is not classified.",
+      "A different nonstandard Ei notation could alter symbols, but the source's positive integral and standard real convention fix the mathematical sign."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT. Eq. (12) contains a positive integral whose standard special-function evaluation has the opposite Ei sign from Eq. (15).",
+        "evidence": "CDF Eq. (3), mean-inactivity Eqs. (11)-(15), and the reliability discussion.",
+        "identifier_or_url": "doi:10.3390/math14091566",
+        "material_read": "Public full text covering the CDF, PDF, abstract, Section 3.4 mean inactivity definition and derivation, Eqs. (11)-(15), and publication/MSC metadata.",
+        "method": "Direct full-text inspection of the publisher article.",
+        "title": "A New One-Parameter Model Supports an Upside-Down Bathtub Failure Rate: Theory, Inference, and Real-World Applications",
+        "trigger": "Primary 2026 source defining the inverted ZLindley model and its mean inactivity time."
+      },
+      {
+        "assessment": "DEFINITIONAL SUPPORT. It fixes the sign convention used in the correction.",
+        "evidence": "For positive real \\(z\\), \\(E_1(z)=-\\operatorname{Ei}(-z)\\).",
+        "identifier_or_url": "nist-dlmf:6.2",
+        "material_read": "The definition of \\(E_1\\) and its real relation to \\(\\operatorname{Ei}\\) for positive arguments.",
+        "method": "Direct reference inspection.",
+        "title": "NIST Digital Library of Mathematical Functions, Chapter 6: Exponential, Logarithmic, Sine, and Cosine Integrals",
+        "trigger": "Standard special-function definition needed to distinguish sign conventions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09573b11-c076-4985-ad8f-bd688b250dc4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mean inactivity time is explicitly developed and advertised as a reliability characteristic of the proposed model. The sign error makes the printed expression negative near the origin, violating its interpretation as a conditional expectation and reversing the exact leading asymptotic. The correction is therefore structurally relevant to reliability interpretation, not merely typographical.",
+    "status": "PASS"
+  }
+}
