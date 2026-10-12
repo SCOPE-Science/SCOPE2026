@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The standard Petersen graph is reconstructed from explicit \\(P(5,2)\\) adjacency. A standard-library checker exhausts all 1024 subsets and all 252 five-subsets, verifies the exact coefficient vector, canonicalizes every induced five-vertex subgraph by direct isomorphism, and checks the claimed iff classification. No infinite inference is made from finite data; the theorem itself is finite.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.13069/jacodesmath.729465 states Z(\\(P(n,2)\\))=6 for \\(n\\ge 10\\), excluding \\(n=5\\).",
+        "arXiv:1801.08910 introduces the polynomial and general extremal coefficients but does not treat Petersen."
+      ],
+      "reasoning": "The obvious broader family theorem does not include \\(P(5,2)\\). General extremal-coefficient results may imply some high-degree coefficients after specializing to Petersen, but they do not determine \\(z(P;5)\\), \\(z(P;6)\\), \\(z(P;7)\\), or the minimum-set types; therefore they do not dominate the final statement.",
+      "searches": [
+        "generalized Petersen zero forcing P(n,2) P(5,2)",
+        "zero forcing polynomial graph extremal coefficients Petersen"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.laa.2007.10.009",
+      "arxiv:1410.4191",
+      "arxiv:1801.08910",
+      "doi:10.13069/jacodesmath.729465"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The propagation-time paper records \\(Z(P)=5\\) and \\(\\operatorname{pt}(P)=1\\).",
+        "The polynomial paper defines z(G;i) and characterizes extremal coefficients but contains no Petersen-specific computation.",
+        "The generalized-Petersen paper does not cover \\(n=5\\) in its exact \\(k=2\\) theorem."
+      ],
+      "reasoning": "\\(Z(P)=5\\) proves only the minimum cardinality, and \\(\\operatorname{pt}(P)=1\\) proves the existence of efficient minimum sets; neither determines how many minimum sets exist or their induced types. General extremal-coefficient theory can cover some top coefficients but not the lower coefficients 132,190,120 or the three-type minimum classification. Thus the retained claim is strictly stronger than the inspected prior statements.",
+      "searches": [
+        "arXiv:1410.4191 Petersen Example 3.14",
+        "arXiv:1801.08910 Petersen full text",
+        "DOI:10.13069/jacodesmath.729465 P(n,2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1410.4191, Example 3.14 states \\(Z(P)=5\\) and \\(\\operatorname{pt}(P)=1\\).",
+        "arXiv:1801.08910 full-text inspection has no occurrence of Petersen.",
+        "DOI:10.13069/jacodesmath.729465 treats \\(P(n,2)\\) exactly only for \\(n\\ge 10\\)."
+      ],
+      "reasoning": "The natural aliases Petersen graph, \\(P(5,2)\\), zero forcing basis/minimum set, and zero forcing polynomial were checked. The same-object source supplies only the scalar minimum; neither it nor the inspected family/counting sources state an equivalent full polynomial or induced-type census.",
+      "searches": [
+        "Petersen graph zero forcing polynomial minimum zero forcing sets",
+        "Petersen graph zero forcing basis orbit classification",
+        "generalized Petersen P(5,2) minimum zero forcing sets",
+        "Petersen minimum zero forcing sets induced P5 C5 P4 isolated"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-string web searches returned no relevant scientific source containing the coefficient sequence.",
+        "Focused semantic-record searches returned only different zero-forcing families or Petersen results for different invariants as the closest records."
+      ],
+      "reasoning": "No inspected exact table, database record, or paper was found with the coefficient vector or the 12/60/60 minimum-type split. Failed search is not treated as proof by itself; it supplements direct source inspection.",
+      "searches": [
+        "\"Petersen graph\" \"zero forcing polynomial\"",
+        "\"132 x^5\" \"190 x^6\" Petersen zero forcing",
+        "\"Petersen\" \"minimum zero forcing sets\" 132"
+      ]
+    },
+    "rationale": "Known work gives \\(Z(P)=5\\) and propagation time one, not the complete all-set count. The zero-forcing-polynomial source supplies the general invariant and extremal-coefficient theory but has no Petersen entry, while the generalized-Petersen exact \\(k=2\\) theorem begins at \\(n\\ge 10\\). Focused alias and exact-coefficient searches found no inspected source that implies the three lower nonzero coefficients or all-minimum-set type classification.",
+    "residual_risks": [
+      "An unindexed or non-searchable finite computation may already list the Petersen zero forcing polynomial or the same 132-set classification. The searches and inspected primary sources reduce but cannot eliminate this bibliographic risk.",
+      "Some high-degree coefficients are consequences of general zero-forcing-polynomial theory; originality is asserted for the complete Petersen statement, specifically the lower coefficients and minimum-set structural classification, not for every term in isolation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_ONLY",
+        "evidence": "Introduces Z(G); header gives available online 2007-11-26 and AMS 05C50; 15A18; 15A03.",
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009",
+        "material_read": "Article abstract/header and bibliographic header recording online availability and AMS classification.",
+        "method": "Public article metadata/header inspection.",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational definition, archive date, and slot ownership."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR",
+        "evidence": "Example 3.14 represents the Petersen graph as a matching graph and states the known \\(Z(P)=5\\), hence \\(\\operatorname{pt}(P)=1\\); it does not enumerate all zero forcing sets.",
+        "identifier_or_url": "arxiv:1410.4191",
+        "material_read": "Full-text section 3.2, especially Example 3.14.",
+        "method": "Full-text arXiv inspection and in-document Petersen search.",
+        "title": "Propagation time for zero forcing on a graph",
+        "trigger": "Direct same-object Petersen zero forcing comparison."
+      },
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "Defines the zero forcing polynomial and general extremal coefficients; full-text search returned no Petersen occurrence.",
+        "identifier_or_url": "arxiv:1801.08910",
+        "material_read": "Abstract/full-text searchable version; title/abstract and full-document Petersen search.",
+        "method": "Full-text arXiv inspection.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Exact same invariant and possible broader coefficient theorem."
+      },
+      {
+        "assessment": "FAMILY_NOT_COVERING",
+        "evidence": "States Z(\\(P(n,2)\\))=6 for \\(n\\ge 10\\), Z(P(n,3))=8 for n>=12, and Z(P(2k+1,k))=6 for \\(k\\ge 5\\); \\(P(5,2)\\) and all-set enumeration are outside these exact results.",
+        "identifier_or_url": "doi:10.13069/jacodesmath.729465",
+        "material_read": "Article abstract and stated exact-family results.",
+        "method": "Publisher full article page inspection.",
+        "title": "Computing the zero forcing number for generalized Petersen graphs",
+        "trigger": "Same graph family and plausible stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "126b0b66-117d-441a-82c0-20459c162f80",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Petersen graph is a canonical cubic symmetric graph and \\(P(5,2)\\); the zero forcing polynomial is the standard counting refinement of Z. A complete polynomial and exact structural classification of all optimal sets give a natural reusable benchmark, not an arbitrary parameter slice. The three distinct induced types provide structural information beyond a scalar or raw count.",
+    "status": "PASS"
+  }
+}
