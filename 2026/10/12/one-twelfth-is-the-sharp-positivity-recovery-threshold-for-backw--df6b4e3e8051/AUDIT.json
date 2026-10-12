@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The backward-Euler matrix is exactly \\(A_\\sigma=W-\\sigma D=aI+b(S+S^{-1})\\). For \\(\\sigma\\ge1/12\\), \\(b\\le0\\) and \\(a-2|b|=1\\), so inverse positivity follows and \\(B_\\sigma=A_\\sigma^{-1}W\\ge0\\). For \\(0<\\sigma<1/12\\), the exact inverse Green kernel is \\(Cr^{|j|}\\) with \\(-1<r<0\\); the distance-two output coefficient reduces to \\(-12C\\sigma r^2/(1-12\\sigma)\\), which is strictly negative. At \\(\\sigma=0\\), the map is the identity. The exact rational four-point periodic witness independently checks the finite counterexample.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhao--Dai--Niu derive the classical fourth-order interior compact relation and prove unconditional stability for a Crank--Nicolson heat construction; no pointwise backward-Euler positivity theorem is present in the inspected full paper.",
+        "Li--Xie--Zhang define the exact periodic \\(W_2,D_{xx}\\) operators used here and discuss weak monotonicity and limiters; their brief backward-Euler maximum-principle assertion supplies no threshold or derivation.",
+        "Implicit high-order positivity literature reports lower-CFL phenomena in other discretizations, which supports the relevance of a lower positivity threshold but does not give the compact-heat constant \\(1/12\\)."
+      ],
+      "reasoning": "Unconditional stability and explicit weak monotonicity do not dominate pointwise positivity of the implicit compact update. The new Green-kernel calculation resolves that logically separate property.",
+      "searches": [
+        "Zhao Dai Niu 2007 fourth-order compact heat unconditional stability full text",
+        "Li Xie Zhang compact finite difference backward Euler maximum principle full text",
+        "implicit positivity preserving high order backward Euler lower CFL"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/num.20200",
+      "doi:10.1137/18M1208551",
+      "arXiv:2310.16170",
+      "doi:10.1137/17M112436X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2007 source proves stability via spectral properties of its Crank--Nicolson update; such stability does not imply entrywise nonnegativity.",
+        "The 2018 source's displayed \\(W_2,D_{xx}\\) operators are the same periodic spatial operators, but its introductory maximum-principle sentence is contradicted at \\(\\sigma=1/100\\) by exact inversion of those operators.",
+        "The main weak-monotonicity and limiter conclusions of the 2018 source are different from unconditional pointwise positivity and do not imply the new theorem."
+      ],
+      "reasoning": "The new result is not a corollary of the prior stability or weak-monotonicity results. Its negative small-step regime explicitly separates those notions.",
+      "searches": [
+        "doi:10.1002/num.20200 compact heat stability",
+        "doi:10.1137/18M1208551 backward Euler maximum principle",
+        "arXiv:2310.16170 W2 Dxx maximum principle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located source states the exact positivity set \\(\\{0\\}\\cup[1/12,\\infty)\\) for the classical compact heat step.",
+        "Searches using maximum-principle, inverse-positivity, M-matrix, lower-timestep, and re-entrant terminology did not locate an implication-equivalent threshold.",
+        "The closest direct paper instead gives an unqualified maximum-principle sentence while displaying the same periodic \\(W_2,D_{xx}\\) operators."
+      ],
+      "reasoning": "The theorem is a pointwise one-step kernel-sign classification. Stability, weighted-average weak monotonicity, limiter-based bound preservation, and positivity of a different time filter are not equivalent formulations.",
+      "searches": [
+        "fourth order compact heat backward Euler positivity one twelfth threshold",
+        "compact finite difference heat maximum principle backward Euler monotonicity",
+        "compact finite difference backward Euler re-entrant positivity",
+        "inverse positivity fourth order compact heat backward Euler lower timestep",
+        "M-matrix fourth order compact heat backward Euler maximum principle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry with the \\(1/12\\) lower positivity threshold was located.",
+        "The four-point rational witness is derived from the displayed scheme and is not a recomputation of a known tabulated value."
+      ],
+      "reasoning": "The finding is an analytic phase classification with an exact finite witness rather than a table lookup.",
+      "searches": [
+        "\"1/12\" \"backward Euler\" \"compact finite difference\"",
+        "\"1/12\" compact heat positivity",
+        "\"fourth order compact\" backward Euler maximum principle threshold"
+      ]
+    },
+    "rationale": "The closest classical heat source gives the same fourth-order compact interior relation but studies solvability and unconditional stability, not positivity. The closest direct bound-preserving source defines the identical periodic \\(W_2,D_{xx}\\) operators and contains an unqualified introductory sentence claiming a backward-Euler/Crank--Nicolson maximum principle, but it does not provide a timestep threshold or proof there. The exact \\(1/12\\) phase diagram and rational periodic counterexample are therefore not covered by the inspected statements; rather, they identify a missing condition for pointwise backward-Euler positivity.",
+    "residual_risks": [
+      "Older compact-scheme or monotonicity literature may encode the same \\(1/12\\) constant under inverse-positivity, \\(M\\)-matrix, or lower-CFL terminology not recovered by the searches.",
+      "The 2018 maximum-principle sentence may have been intended with an unstated timestep or interpretation restriction; the present theorem addresses the explicit pointwise backward-Euler map built from the paper's displayed periodic \\(W_2,D_{xx}\\) operators.",
+      "The exact if-and-only-if result is infinite-lattice; only one finite periodic counterexample is claimed, not a full finite-size phase diagram."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives the same interior compact relation and unconditional stability for a Crank--Nicolson construction, but not the backward-Euler pointwise positivity classification.",
+        "evidence": "Equation (7) is the classical fourth-order compact second-derivative relation; Sections 3.1--3.2 prove solvability and stability rather than a maximum principle.",
+        "identifier_or_url": "doi:10.1002/num.20200",
+        "material_read": "Complete 11-page article, including the interior compact formula, boundary closures, matrix form, solvability, stability proof, numerical examples, and conclusions.",
+        "method": "Full-text PDF inspection.",
+        "title": "Fourth-order compact schemes of a heat conduction problem with Neumann boundary conditions",
+        "trigger": "Archive-era primary source for the same classical fourth-order compact heat discretization and primary numerical-PDE classification."
+      },
+      {
+        "assessment": "DIRECT_COMPARATOR_NOT_COVERING: defines the same periodic operators and contains an unqualified backward-Euler/Crank--Nicolson maximum-principle sentence, but gives no \\(1/12\\) threshold or derivation there. Exact inversion of its displayed periodic operators at \\(\\sigma=1/100\\) yields a negative entry.",
+        "evidence": "The paper explicitly defines \\(W_2=(S^{-1}+10I+S)/12\\) and the standard periodic second difference, while its introduction asserts a maximum principle for backward Euler or Crank--Nicolson. The four-point exact calculation shows the pointwise backward-Euler assertion needs qualification.",
+        "identifier_or_url": "doi:10.1137/18M1208551 / arXiv:2310.16170",
+        "material_read": "Abstract, Sections 1.1, 1.4, and 2.1, the displayed \\(W_2,D_{xx}\\) matrices, plus full-text searches for backward Euler, Crank--Nicolson, implicit schemes, and maximum principle; rendered pages containing the key statement and operators were inspected.",
+        "method": "Full-text HTML/PDF inspection with rendered-page verification.",
+        "title": "A high order accurate bound-preserving compact finite difference scheme for scalar convection diffusion equations",
+        "trigger": "Direct pointwise-bound and maximum-principle literature for the identical periodic compact operators."
+      },
+      {
+        "assessment": "CONTEXT_ONLY: concerns implicit DG for conservation laws, not the classical compact heat operator.",
+        "evidence": "Its abstract states that a lower bound for the CFL number is required for positivity in that different high-order implicit setting.",
+        "identifier_or_url": "doi:10.1137/17M112436X",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Publisher abstract inspection.",
+        "title": "Implicit Positivity-Preserving High-Order Discontinuous Galerkin Methods for Conservation Laws",
+        "trigger": "Nearby implicit high-order positivity literature with a lower-CFL phenomenon."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df6b4e3e-8051-413e-b75c-ee6a0976409b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical compact stencil is a standard way to obtain fourth-order spatial accuracy with a narrow stencil, and backward Euler is commonly associated with robust diffusion stepping. The finding isolates a nonstandard but practically important lower timestep threshold: making the implicit step smaller can create negative values, while a sufficiently larger step restores positivity. The exact constant, explicit kernel mechanism, and finite rational counterexample separate unconditional stability from a physically meaningful maximum-principle property and repair a missing qualification in directly relevant literature.",
+    "status": "PASS"
+  }
+}
