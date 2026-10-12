@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For each fixed \\(N\\) and \\(P\\), every positive-cell confusion matrix is enumerated exactly. All pairwise comparisons through \\(N=7\\) are exact, yielding no reversal through six and exactly three at seven. The persistent family is certified by closed-form positive differences and polynomial factorizations rather than by extrapolation from computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chicco and Jurman give the exact MCC and \\(F_1\\) formulas and state that there are many instances where the two measures disagree.",
+        "Their genomics experiment explicitly changes the ranking of classifiers when switching between MCC and \\(F_1\\).",
+        "Matthews 1975 is the foundational biological prediction paper associated with the coefficient and was published on 20 October 1975."
+      ],
+      "reasoning": "This is strong prior coverage of the metrics and of ranking disagreement in general. It does not imply the smallest common-\\(N\\), common-prevalence, positive-cell integer domain supporting a reversal.",
+      "searches": [
+        "The advantages of the Matthews correlation coefficient over F1 score and accuracy binary classification full text",
+        "Matthews correlation coefficient F1 different ranking classifier genomics",
+        "Matthews 1975 predicted observed secondary structure correlation coefficient"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0005-2795(75)90109-9",
+      "doi:10.1186/s12864-019-6413-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fact that \\(F_1\\) ignores \\(TN\\) explains why disagreement is possible but gives no lower bound on the sample size.",
+        "Observed ranking changes in large biomedical data sets prove existence, not the universal exclusion of all smaller positive-cell tables.",
+        "A scatterplot or correlation study over large confusion-matrix domains cannot imply that seven is the first fixed-prevalence lattice point supporting strict reversal."
+      ],
+      "reasoning": "The accepted theorem requires exhaustive exclusion through \\(N=6\\), classification of the first layer at \\(N=7\\), and an explicit family for all larger \\(N\\). Those statements are not direct corollaries of the qualitative or large-sample comparisons in the inspected literature.",
+      "searches": [
+        "F1 independent of true negatives Matthews correlation all four cells",
+        "MCC F1 many instances disagree binary classification",
+        "different metric different ranking MCC F1 genomics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-result searches returned no finding with a seven-observation fixed-prevalence boundary.",
+        "The open comparative literature uses the same confusion-matrix formulas and explicitly notes that the metrics can disagree.",
+        "Queries covered both the names \\(F_1\\)/F-measure and Matthews correlation/MCC, plus ranking, ordering, minimum-size, and same-prevalence language."
+      ],
+      "reasoning": "The theorem is equivalently a statement about when the rational function \\(2TP/(2TP+FP+FN)\\) and the signed phi/Matthews coefficient induce different orders on one fixed-prevalence lattice. The search set covered the metric names and the lattice-comparison phrasing.",
+      "searches": [
+        "F1 score Matthews correlation coefficient ranking reversal classifier comparison",
+        "F-measure Matthews correlation coefficient disagreement ranking binary classifiers",
+        "Matthews correlation coefficient F1 score same confusion matrix compare classifiers",
+        "minimum sample size F1 MCC rank reversal positive confusion matrix",
+        "same data set same prevalence F1 MCC classifier ordering"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-vector search located the witness \\((2,1,2,2)\\) versus \\((3,2,1,1)\\) as an \\(F_1\\)-MCC ranking reversal.",
+        "No checked source supplied reversal counts \\(0,0,0,3\\) for \\(N=4,5,6,7\\).",
+        "The open comparative article enumerates all confusion matrices only for larger illustrative sizes and does not present this first finite layer."
+      ],
+      "reasoning": "Exact cell counts and exact threshold language directly test whether the proposed finite benchmark already appears as a worked example, table, or implementation fixture.",
+      "searches": [
+        "F1 MCC seven samples confusion matrix ranking",
+        "TP 2 FP 1 FN 2 TN 2 F1 MCC",
+        "TP 3 FP 2 FN 1 TN 1 F1 MCC",
+        "minimum Matthews correlation F1 confusion matrix seven"
+      ]
+    },
+    "rationale": "The literature already establishes formulas, qualitative discordance, and empirical ranking changes between Matthews correlation and \\(F_1\\). The inspected sources and targeted searches did not state the fixed-prevalence positive-cell minimum \\(N=7\\), the complete first layer, or the all-larger-size family.",
+    "residual_risks": [
+      "The binary-classification metric literature is large, and an unindexed exercise or software test may contain the same seven-case witness.",
+      "The foundational 1975 article was inspected through its bibliographic record and abstract rather than full text; the exact MCC formula used in the theorem was independently inspected in the open 2020 full article.",
+      "Allowing zero cells or comparing classifiers at different prevalences changes the finite boundary problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers general disagreement and real ranking changes, so those are prior work. The inspected article does not state a minimum fixed-prevalence positive-cell sample size or the seven-case first layer.",
+        "evidence": "The article states that many MCC and \\(F_1\\) instances disagree, notes that \\(F_1\\) is independent of true negatives, and reports different top classifiers under MCC and \\(F_1\\) in a genomics experiment.",
+        "identifier_or_url": "doi:10.1186/s12864-019-6413-7",
+        "material_read": "Open full article sections on notation and mathematical foundations, the MCC and \\(F_1\\) formulas, relationships between rates, the exhaustive confusion-matrix scatterplot discussion, synthetic use cases, and the colon-cancer classifier ranking table.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "The advantages of the Matthews correlation coefficient (MCC) over F1 score and accuracy in binary classification evaluation",
+        "trigger": "Closest full-text research article directly comparing the two accepted metrics and reporting ranking changes."
+      },
+      {
+        "assessment": "Establishes the 20 October 1975 public source date and biological prediction provenance. The full historical article was not required for the new finite-boundary proof because the modern open full-text source supplies the exact formula used.",
+        "evidence": "PubMed records publication on 20 October 1975 and DOI 10.1016/0005-2795(75)90109-9.",
+        "identifier_or_url": "doi:10.1016/0005-2795(75)90109-9",
+        "material_read": "PubMed bibliographic record and abstract, including publication date, prediction-versus-observation setting, and reported correlation coefficients.",
+        "method": "Bibliographic and abstract inspection.",
+        "title": "Comparison of the predicted and observed secondary structure of T4 phage lysozyme",
+        "trigger": "Foundational biological source associated with the Matthews correlation coefficient and the archival date anchor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1fbac7c-9a99-49a2-9109-f856d077c170",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "MCC and \\(F_1\\) are established competing binary-classification summaries, and published biomedical work documents metric-dependent classifier rankings. Holding both \\(N\\) and prevalence fixed isolates the metric geometry itself. The exact smallest positive-cell domain supporting strict disagreement, together with a positive-MCC witness and an all-size continuation family, is a natural benchmark for interpreting and testing biomedical classifier-evaluation pipelines.",
+    "status": "PASS"
+  }
+}
