@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and exhaustively checked. Two independently defined compatibility tests agree on every one of the 496 unordered pairs of length-five binary words. Exhaustive tests of every six-subset and every seven-subset prove that the maximum is six and that exactly six labeled maxima exist. An independent maximal-clique search returns the same six maxima. Perfectness, VT syndromes, shadow profiles, and natural-symmetry orbits are recomputed directly from those six codes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sloane states that \\(VT_0(n)\\) is optimal for the small lengths then known and separately discusses perfect deletion codes.",
+        "The exact census contains four maxima that are not perfect, so perfect-code theory cannot cover the full equality set."
+      ],
+      "reasoning": "Known broader statements establish optimal size or properties of VT/perfect codes, but do not imply that there are exactly six maxima or that four of them are nonperfect.",
+      "searches": [
+        "binary single deletion correcting codes optimal VT small lengths",
+        "perfect single deletion correcting codes VT classes",
+        "arXiv:math/0207197v1 optimality and perfect-code discussion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0207197v1",
+      "arXiv:1211.3128v1",
+      "MSC2020 classification entry 94B50"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A statement that \\(A(5,1)=6\\) proves only cardinality of an optimum, not the number or structure of all optimizers.",
+        "The Kulkarni--Kiyavash closed-form bound gives \\((2^5-2)/(5-1)=15/2\\) before integrality, hence at most 7, so it is not even sharp at this parameter."
+      ],
+      "reasoning": "Neither prior implication reaches the new equality-case classification. The new statement strictly refines the known optimum by determining every optimizer and separating perfect from nonperfect equality cases.",
+      "searches": [
+        "arXiv:math/0207197v1 lines describing A(5,1)=6 and VT_0(5)",
+        "arXiv:1211.3128v1 binary single-deletion upper bound and hypergraph formulation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane formulates the problem as an independent-set problem and records the length-five optimum six.",
+        "Kulkarni--Kiyavash formulate the same single-deletion problem as a hypergraph matching problem and state the deletion-shadow/edit-distance equivalence."
+      ],
+      "reasoning": "These are equivalent formulations of the same optimization problem, so they were checked for stronger statements. Neither inspected source enumerates all six equality cases or gives the perfect/nonperfect and orbit classification.",
+      "searches": [
+        "exact enumeration maximum binary length five one deletion correcting codes six optimal codes",
+        "single deletion length 5 optimal codes equality cases perfect nonperfect VT0 VT3",
+        "arXiv:math/0207197v1, Sections 1-2",
+        "arXiv:1211.3128v1, Sections I-II"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding result concerned quinary length-four deletion codes rather than binary length five.",
+        "Sloane records optimum sizes and VT class sizes, not a table of all maximum length-five codes."
+      ],
+      "reasoning": "No inspected exact-value table or published-finding record contains the six-code equality census or its three natural-symmetry orbits.",
+      "searches": [
+        "published-finding semantic query: exact enumeration maximum binary length five one deletion correcting codes six optimal codes",
+        "published-finding semantic query: binary deletion channel n=5 maximum independent sets deletion graph",
+        "Sloane small-length optimum table and VT-size table"
+      ]
+    },
+    "rationale": "The closest inspected literature gives the optimum size and canonical VT constructions, but not the complete equality-case census. The general hypergraph/upper-bound literature also does not imply the count, the three natural-symmetry orbits, or the split into two perfect and four nonperfect maxima.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite enumeration might exist outside the inspected sources and published-finding search index.",
+      "The natural symmetry group used here is not asserted to be the full automorphism group of the compatibility graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the optimum size \\(A(5,1)=6\\) and VT background; NOT_COVERING for enumeration of all optimum length-five codes and their orbit/perfectness classification.",
+        "evidence": "The text lists maximum sizes 1,2,2,4,6,..., gives the VT construction, and discusses optimal but nonperfect examples at other lengths without listing all length-five optimizers.",
+        "identifier_or_url": "arXiv:math/0207197v1",
+        "material_read": "Full arXiv text, especially the introduction, Sections 1-2, optimality discussion, and related-work section.",
+        "method": "Direct full-text inspection of the lawful arXiv version.",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Closest source for the exact small-length optimum and VT structure."
+      },
+      {
+        "assessment": "NOT_COVERING for the equality census; its general finite bound is weaker than six at length five and it does not enumerate optimizers.",
+        "evidence": "The source gives the general bound \\((q^n-q)/((q-1)(n-1))\\) and explicitly frames exact finite optimality as a separate issue.",
+        "identifier_or_url": "arXiv:1211.3128v1",
+        "material_read": "Full arXiv HTML text for the introduction, related work, definitions, hypergraph characterization, and stated single-deletion bound.",
+        "method": "Direct full-text inspection of the lawful arXiv version.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Potential stronger general result through hypergraph matching and finite upper bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd893089-24e2-4287-bdfb-6e9886d54acb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Length five is the first block length at which the classical \\(VT_0(n)\\) family is nonlinear, while the optimum is already nontrivial. A complete equality classification at this threshold distinguishes canonical perfect VT optima from four equally large nonperfect codes, showing that maximum cardinality and perfect deletion coverage already diverge structurally at this smallest nonlinear VT length. The exact orbit and shadow-profile data are natural finite invariants useful for testing structural conjectures and exact algorithms on deletion codes.",
+    "status": "PASS"
+  }
+}
