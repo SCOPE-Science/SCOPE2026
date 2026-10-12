@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The permanent is reconstructed exactly as the matrix coefficient of the normalized occupation-one vector in the irreducible \\(U(n)\\)-representation \\(\\operatorname{Sym}^n(\\mathbb C^n)\\). Its dimension is \\(\\binom{2n-1}{n}\\), so Schur orthogonality gives the claimed second moment for every \\(n\\). Stirling and Markov then give the asymptotic ratio and probability bound. The bundled checker verifies the finite arithmetic independently; no experiment substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nezami 2021 studies \\(k\\times k\\) submatrices of Haar \\(U(d)\\), a broader parameter family than the full-unitary diagonal \\(d=k=n\\).",
+        "Rivin 2026 applies the \\(n!/n^n\\) scale specifically to full Haar \\(U(n)\\) and then to boson-sampling discussion."
+      ],
+      "reasoning": "Broader submatrix-moment theory does not rescue the recent full-unitary normalization. The regimes must be distinguished: small submatrices of large Haar matrices approach Gaussian-entry behavior, while the exact full-unitary second moment is fixed by an irreducible representation coefficient.",
+      "searches": [
+        "permanent anti-concentration full Haar unitary versus Gaussian submatrix normalization",
+        "Nezami 2104.06423 full unitary permanent second moment k=d",
+        "arXiv:2104.06423 U(d) k by k submatrices Gaussian permanent moments",
+        "arXiv:2602.10141v3 Section 8.3 boson sampling anti-concentration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.10141v3",
+      "arXiv:2104.06423"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rivin 2026 claims the incorrect normalization and derives typical-size and anti-concentration statements from it.",
+        "Nezami 2021 establishes a general representation-theoretic moment framework for Gaussian and Haar-submatrix permanents but does not constitute a published correction of Rivin 2026.",
+        "Markov with the exact full-Haar second moment yields an exponentially small upper bound at the source’s inflated variance scale."
+      ],
+      "reasoning": "Earlier exact-moment theory can imply the mathematical formula, but it predates the recent erroneous application. The final finding is therefore framed as a correction with a new explicit propagation to the source’s claimed full-Haar scaling, not as discovery of the classical second-moment identity.",
+      "searches": [
+        "Haar unitary permanent exact second moment binomial symmetric power correction n factorial over n power variance Gaussian permanent Rivin 2602.10141",
+        "Permanents of matrix ensembles n!/n^n exact second moment full Haar U(n)",
+        "permanent anti-concentration full Haar unitary versus Gaussian submatrix normalization",
+        "arXiv:2602.10141v3 Observation 1 and Section 8.3",
+        "arXiv:2104.06423 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.10141v3 explicitly identifies \\(n!/n^n\\) as the full-Haar exact second moment.",
+        "The normalized occupation-one vector in \\(\\operatorname{Sym}^n(\\mathbb C^n)\\) has matrix coefficient exactly \\(\\operatorname{perm}(U)\\), so Schur orthogonality fixes the second moment as \\(\\binom{2n-1}{n}^{-1}\\).",
+        "Nezami 2021 treats Haar-unitary submatrix permanent moments using representation theory."
+      ],
+      "reasoning": "The search covered the exact source identifier, second-moment wording, symmetric-power matrix-coefficient formulation, and Weingarten/representation aliases. The classical exact moment may be present in earlier literature; the new statement is the source-specific correction and its scale consequences, not priority for Schur orthogonality.",
+      "searches": [
+        "Haar unitary permanent exact second moment binomial symmetric power correction n factorial over n power variance Gaussian permanent Rivin 2602.10141",
+        "2602.10141 Rivin permanent Haar unitary second moment correction",
+        "Haar U(n) permanent symmetric power matrix coefficient dimension binomial second moment",
+        "arXiv:2602.10141v3 Sections 3.2–3.3",
+        "arXiv:2104.06423"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2026 source prints \\(\\widehat\\sigma^2(n)\\approx n!/n^n\\) and labels \\(n!/n^n\\) the exact Weingarten second moment.",
+        "No searched correction or erratum for arXiv:2602.10141 was located; the current v3 still contains the statement."
+      ],
+      "reasoning": "The relevant comparison is not a numerical table lookup but the exact formula used to normalize the paper’s plots and consequences. The formula printed in the current source is analytically incompatible with Schur orthogonality already at \\(n=2\\) and differs exponentially for large \\(n\\).",
+      "searches": [
+        "Permanents of matrix ensembles n!/n^n exact second moment full Haar U(n)",
+        "arXiv 2602.10141 Haar U(n) permanent exact second moment correction 1 binomial 2n-1 n n factorial n power anti-concentration",
+        "arXiv:2602.10141v3 Figures 1–2 and variance paragraph"
+      ]
+    },
+    "rationale": "The exact second moment is classical and is not claimed as new. The original contribution is the identification of a substantive normalization error in the current 2026 full-Haar permanent paper and the exact propagation of that correction to its RMS and anti-concentration scales. Targeted source, alias, representation-theory, and anti-concentration searches found no published correction of this source.",
+    "residual_risks": [
+      "A public comment or correction not indexed by the targeted searches may already note the same normalization error.",
+      "The qualitative empirical Gaussian-shape observation may remain valid after replacing the variance by the exact Haar value; this finding does not assess that question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_SOURCE_ERROR: the paper explicitly uses \\(n!/n^n\\) for the full-Haar second moment and scale.",
+        "evidence": "Section 3.2 states \\(\\sigma^2=n!/n^n\\); Section 3.3 calls it the exact Weingarten second moment; Section 8.3 uses the same scale in the anti-concentration argument.",
+        "identifier_or_url": "arXiv:2602.10141v3",
+        "material_read": "Full PDF metadata and the relevant text in Sections 3.2–3.3 and 8.3, including Observation 1, the exact-second-moment sentence, fitted-variance paragraph, and boson-sampling anti-concentration discussion.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "Permanents of matrix ensembles: computation, distribution, and geometry",
+        "trigger": "Direct source making the full-Haar variance and anti-concentration claims."
+      },
+      {
+        "assessment": "SUPPORTING PRIOR THEORY: broader moment framework; not treated as novelty evidence for the classical second-moment identity.",
+        "evidence": "The abstract explicitly states a representation-theoretic expansion for all even moments of Haar-unitary submatrix permanents.",
+        "identifier_or_url": "arXiv:2104.06423",
+        "material_read": "Repository metadata and abstract describing exact moment expansions for \\(k\\times k\\) submatrices of Haar \\(U(d)\\) and Gaussian matrices; the full text was not available through the consulted open mirror during this review.",
+        "method": "Abstract/metadata inspection and comparison with the citation context in the 2026 source.",
+        "title": "Permanent of random matrices from representation theory: moments, numerics, concentration, and comments on hardness of boson-sampling",
+        "trigger": "The 2026 source cites this work for Haar-unitary permanent moments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d44ad8d-9561-44f9-a223-997313edc646",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The discrepancy is exponential, not a cosmetic constant: it changes the full-Haar RMS scale and reverses the source’s anti-concentration conclusion at the quoted Gaussian-entry scale. The correction also clarifies an important ensemble distinction between a full Haar unitary and a small submatrix of a much larger Haar unitary. These are central quantitative claims in the paper’s main distribution and boson-sampling discussion.",
+    "status": "PASS"
+  }
+}
