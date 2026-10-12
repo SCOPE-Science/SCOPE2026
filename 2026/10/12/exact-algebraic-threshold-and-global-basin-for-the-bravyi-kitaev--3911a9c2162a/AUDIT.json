@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Starting from Bravyi–Kitaev Eq. (36), exact algebra gives \\(f(\\epsilon)-\\epsilon=r(1-r^2)Q(r^2)/[2(1+15r^8)]\\), with \\(Q(y)=y^6+y^5+y^4-14y^3+y^2+y+1\\). The reciprocal identity \\(Q(y)=y^3q(y+y^{-1})\\), \\(q(z)=z^3+z^2-2z-16\\), reduces interior fixed points to one cubic root because \\(q(2)=-8\\), \\(q(3)=14\\), and \\(q'(z)>0\\) for \\(z\\ge2\\). The sign of \\(Q\\), invariance of the physical interval, and continuity give the complete monotone basin classification.",
+    "risks": [
+      "The theorem is restricted to the source's one-dimensional H-twirled independent-input map."
+    ],
+    "sources": [
+      "arXiv:quant-ph/0403025, Eqs. (34)–(38)",
+      "artifacts/verify.py",
+      "artifacts/verification_output.txt"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reichardt proves broader H-state distillability using different routines and does not supply this 15-to-1 recurrence solution in the inspected material.",
+        "Meier–Eastin–Knill identify the H-state Reed–Muller routine as 15-to-1, quote 0.141, and note a different 7-to-1 routine improves the H-state threshold to 0.146."
+      ],
+      "reasoning": "Broader protocol-level distillability does not imply the exact fixed point or global basin of this specific rational map.",
+      "searches": [
+        "arXiv:quant-ph/0608085 single-qubit magic-state distillation sections",
+        "arXiv:1204.4221 comparison with Bravyi–Kitaev 15-to-1",
+        "Bravyi Haah 15-to-1 0.141 magic state distillation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0403025",
+      "DOI:10.1103/PhysRevA.71.022316",
+      "arXiv:quant-ph/0608085",
+      "arXiv:1204.4221",
+      "MaRDI:Q3102456",
+      "Published-finding searches for protocol aliases, exact decimal, polynomial, and basin terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bravyi–Kitaev explicitly say the H-type fixed-point equation is solved numerically and report approximately 0.141.",
+        "Meier–Eastin–Knill continue to quote 0.141 for the 15-to-1 routine and separate it from improved H-state routines.",
+        "Reichardt's inspected results concern the overall distillable region and alternative routines."
+      ],
+      "reasoning": "The exact algebraic threshold and basin are not a stated corollary of a stronger inspected theorem; later results dominate the achievable region but not this protocol-specific dynamical statement.",
+      "searches": [
+        "Full PDF inspection of arXiv:quant-ph/0403025 around Eqs. (34)–(39)",
+        "Full PDF inspection of arXiv:1204.4221 introduction and 15-to-1 comparison",
+        "Full HTML inspection of arXiv:quant-ph/0608085 Sections 1–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The focused published-finding returns were unrelated threshold records and contained no 15-to-1 H-state fixed-point solution.",
+        "Exact-decimal and exact-polynomial web searches did not identify a magic-state source stating the claimed algebraic value."
+      ],
+      "reasoning": "The searches covered protocol names, code aliases, numerical and algebraic fingerprints, and dynamical-system wording; none retrieved an equivalent statement.",
+      "searches": [
+        "15-to-1 magic state distillation threshold exact algebraic fixed point sextic basin",
+        "Bravyi Kitaev H-state 15-qubit Reed-Muller exact threshold fixed point",
+        "magic-state distillation H-type epsilon_out epsilon threshold basin of attraction",
+        "0.141480292656 Bravyi Kitaev",
+        "exact decimal 0.141480292656 with magic-state terminology",
+        "z^3+z^2-2z-16 with quantum/magic-state terminology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MaRDI identifies the anchor and primary-listed MSC 81P68 but has no exact threshold formula.",
+        "The source and later comparison literature use the rounded value 0.141 rather than the cubic characterization."
+      ],
+      "reasoning": "The claim is a symbolic consequence of the published recurrence, not a numerical-table lookup.",
+      "searches": [
+        "exact source identifier quant-ph/0403025 with 15-to-1 threshold aliases",
+        "MaRDI Q3102456 bibliographic/classification record",
+        "arXiv:quant-ph/0403025 threshold 0.141 exact"
+      ]
+    },
+    "rationale": "The motivating paper states the H-type threshold only numerically. A later primary comparison still quotes 0.141 for that 15-to-1 routine, while broader H-state results use different routines. Focused database and literature searches did not find the exact cubic reduction, high-precision algebraic threshold, or complete basin statement.",
+    "residual_risks": [
+      "The factorization is elementary enough that an unindexed thesis, lecture note, or software implementation may have recorded it.",
+      "Terminology for H-, T-, and A-type magic states varies; the claim is pinned to Bravyi–Kitaev Eq. (36)."
+    ],
+    "risks": [
+      "A mathematically equivalent derivation may exist in unindexed literature or technical notes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BASELINE_SOURCE_NOT_COVERING_EXACT_SOLUTION",
+        "evidence": "Eq. (36) gives the exact map; Eq. (37) says the fixed-point equation is solved numerically and reports approximately 0.141.",
+        "identifier_or_url": "arXiv:quant-ph/0403025; DOI:10.1103/PhysRevA.71.022316",
+        "material_read": "Full arXiv PDF, especially Eqs. (34)–(39), with page-image inspection.",
+        "method": "Full-text PDF plus page image.",
+        "title": "Universal quantum computation with ideal Clifford gates and noisy ancillas",
+        "trigger": "Direct source of the H-type 15-qubit recurrence and rounded threshold."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It calls the H-state Reed–Muller routine 15-to-1, quotes 0.141, and notes a different 7-to-1 routine reaches 0.146.",
+        "identifier_or_url": "arXiv:1204.4221",
+        "material_read": "Full arXiv PDF introduction and protocol comparison, with page-image inspection.",
+        "method": "Full-text PDF plus page image.",
+        "title": "Magic-state distillation with the four-qubit code",
+        "trigger": "Close later primary source benchmarking against the 15-to-1 H-state routine."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It broadens the distillable region using other routines and does not solve the specific 15-to-1 fixed-point equation in the inspected material.",
+        "identifier_or_url": "arXiv:quant-ph/0608085",
+        "material_read": "Full arXiv HTML through the introduction and parity-checking sections.",
+        "method": "Full-text HTML inspection.",
+        "title": "Quantum universality by state distillation",
+        "trigger": "Potential broader theorem that could subsume the protocol-specific threshold claim."
+      }
+    ],
+    "sources": [
+      "arXiv:quant-ph/0403025",
+      "arXiv:quant-ph/0608085",
+      "arXiv:1204.4221",
+      "Focused published-finding semantic searches"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3911a9c2-162a-4b7f-ac20-cc8c1b90a59e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 15-to-1 routine is a canonical benchmark. A low-degree exact threshold is a natural protocol invariant, and the same factorization yields the complete global basin theorem on the physical one-parameter family. This is more informative than a decimal refinement because it explains uniqueness and dynamics on both sides.",
+    "risks": [
+      "The practical protocol optimum is not changed because later routines can outperform this threshold."
+    ],
+    "sources": [
+      "arXiv:quant-ph/0403025",
+      "arXiv:1204.4221",
+      "RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
