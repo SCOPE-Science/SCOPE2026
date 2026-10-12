@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Define each output by literal one-coordinate deletion and disjointness by sets. For n=14,15, the explicit nonnegative integer weight u_m has total 96,111 and every possible constant-weight-three codeword has total distinct deletion-output weight at least 3. A three-case proof covers separated ones, exactly one adjacent pair, and a consecutive triple including the n=15 terminal exception. Thus every code has at most 32,37 words. The accompanying two fully explicit witness codebooks have exactly 32,37 words; a standalone verifier constructs every deletion and independently checks all 364 and 455 candidate triples and all pairwise disjoint deletion outputs. No inference from solver status, partial experiments, or prior codebooks is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hagiwara–Nation Theorem 11 gives the general upper bound \\(\\lfloor(n^2-3)/6\\rfloor\\), which specializes to 32 and 37; its Table 3 records the two exact values as unknown.",
+        "Cullina et al. prove general coloring and asymptotic constructions, without finite sharp attainment at these parameters."
+      ],
+      "reasoning": "A broad upper bound alone cannot imply the existence of codes attaining it. The explicit 32- and 37-word witnesses supply the missing lower bounds. Neither general coloring nor asymptotic claims imply these specific attainments.",
+      "searches": [
+        "At length 14 and 15 binary constant Hamming weight three codes correcting one deletion attain 32 and 37, respectively, closing open table rows",
+        "constant weight three binary single deletion correcting codes n 14 maximum 32 2024 2025 2026",
+        "Hagiwara–Nation Theorem 11 and Table 3",
+        "Cullina et al. 2012 Section IV constant-weight coloring"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.4056v1",
+      "doi:10.1109/ISIT.2012.6284242",
+      "https://www.math.hawaii.edu/~jb/k_of_n_writeup_II.pdf",
+      "https://math.hawaii.edu/~jb/nycs_on_deletion_codes.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General single deletion correcting code bounds permit many weights and do not prove maximum codes exist in the weight-three layer.",
+        "Earlier recorded 31 and 35 are strict lower bounds; 32 and 37 are upper bounds without prior attainment."
+      ],
+      "reasoning": "A maximum independent set of all binary words, or a code in another constant-weight layer, does not imply a maximum size for this induced graph. The present two explicit independent sets prove the missing attainability, and the output-packing argument certifies it sharply.",
+      "searches": [
+        "At length 14 and 15 binary constant Hamming weight three codes correcting one deletion attain 32 and 37, respectively, closing open table rows",
+        "Equivalent constant-weight single insertion correcting codes triple supports at length fourteen fifteen, 32 37 packed deletion descendants",
+        "\"max_3(14)\" deletion correcting 31 32",
+        "arXiv:1211.4056v1 Sections III-IV",
+        "Hagiwara–Nation 2023 Table 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Hagiwara–Nation draft, Section 2, explicitly states that disjoint single deletion surfaces are equivalent to disjoint single insertion surfaces of two distinct codewords.",
+        "Cullina et al. Section II defines the constant-weight deletion confusion graph, where a code is an independent set."
+      ],
+      "reasoning": "The theorem concerns independence number of the weight-three layer of the deletion-confusion graph, equivalently single-insertion correction. The inspected prior graph and insertion formulations do not give 32 at length 14 or 37 at length 15.",
+      "searches": [
+        "Equivalent constant-weight single insertion correcting codes triple supports at length fourteen fifteen, 32 37 packed deletion descendants",
+        "Exact maximum size 3-of-14 3-of-15 binary single deletion correcting constant weight three codes 32 37 Hagiwara Nation tight 2023 upper",
+        "arXiv:1211.4056v1 Section II-B: deletion graph and one-deletion equivalence",
+        "Hagiwara–Nation 2023 Section 2: insertion/deletion duality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 3 of Hagiwara–Nation marks n=14 as LB31/search?/maximum?/UB32 and n=15 as LB35/search?/maximum?/UB37.",
+        "The same author’s 2023 seminar slide reproduces the open small-weight cases."
+      ],
+      "reasoning": "The closest exact historical numerical census openly lacks the two claimed values. Targeted searches did not locate a later named exact table settling either; unindexed catalogs remain a risk.",
+      "searches": [
+        "Binary constant weight three length fourteen single-deletion correcting code cardinality thirty-two 32 3-of-14 2023 Nation Culver Hughes exact open table",
+        "Exact maximum size 3-of-14 3-of-15 binary single deletion correcting constant weight three codes 32 37 Hagiwara Nation tight 2023 upper",
+        "\"3-of-n\" \"single deletion\" \"14\" \"32\" \"15\" \"37\"",
+        "\"constant weight\" \"single-deletion\" \"n=14\" \"n=15\" 2024 2025",
+        "https://www.math.hawaii.edu/~jb/k_of_n_writeup_II.pdf Table 3, p.11"
+      ]
+    },
+    "rationale": "The primary exact-parameter comparison, Hagiwara and Nation (draft dated 2023-10-12, Theorem 11 and Table 3, printed p.11), leaves both 3-of-n maxima at n=14,15 unknown, while providing upper bounds 32,37 and lower bounds 31,35. Our explicit disjoint-output codebooks attain both upper bounds. The Cullina–Kulkarni–Kiyavash arXiv:1211.4056v1 full text establishes constant-weight coloring and constructions but no claim implying these exact sizes. Exact-parameter, insertion-equivalent, more general bounds and database searches revealed no stronger coverage. A future or unindexed source is a residual risk; search absence is not itself a proof of novelty.",
+    "residual_risks": [
+      "A post-2023 or unindexed construction might independently achieve 32 or 37 and precede this result; searched titles, aliases, exact code parameters, and equivalent insertion correction but this does not exhaust private or inaccessible work.",
+      "The 2012 conference-paper public day is not independently verifiable from conference dates alone; the dated 2012-11-16 arXiv v1 is used for a conservative source anchor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: the general graph/coloring framework does not settle optimal cardinalities for the two specific weight-three layers.",
+        "evidence": [
+          "Section II introduces induced weight-k confusion graphs and independent-set coding.",
+          "Sections III-IV give colorings/lower bounds but no exact 32/37 attainment at n=14/15."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1211.4056v1",
+        "material_read": "Full v1 HTML: introduction, preliminaries, constant-weight strategy, single-deletion constructions, optimal-coloring discussion, appendices and references.",
+        "method": "Lawful openly available complete manuscript HTML, with parameter and implication comparison.",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Earliest date-verifiable public source and direct structural ancestor: constant-weight deletion-confusion graphs and explicit colorings."
+      },
+      {
+        "assessment": "CLOSEST_OPEN_GAP: upper bound at both parameters is known but attainability is recorded as unresolved.",
+        "evidence": [
+          "Printed Table 3: n=14 LB31, max?, UB32; n=15 LB35, max?, UB37.",
+          "Section 5 Theorem 11 derives upper bound (n^2−3)/6 for all n in its domain."
+        ],
+        "identifier_or_url": "https://www.math.hawaii.edu/~jb/k_of_n_writeup_II.pdf",
+        "material_read": "Author-hosted 21-page PDF located and searched; the relevant introductory definitions, the complete Section 5 upper-bound argument and Theorem 11, and Table 3 (printed p.11) were materially examined, including a page-image reading of the table. Unrelated later sections were not examined individually.",
+        "method": "Author-hosted lawful full PDF, text extraction and page-image examination.",
+        "title": "Bounds on the Size of k-of-n Single Deletion Error Correcting Codes",
+        "trigger": "Closest primary source naming exactly the mathematical object and precise parameters."
+      },
+      {
+        "assessment": "CONSISTENT_WITH_OPEN_GAP; does not exhibit improved 32- or 37-word codebook.",
+        "evidence": [
+          "Seminar slides list the same unresolved n=14,15 3-of-n rows."
+        ],
+        "identifier_or_url": "https://math.hawaii.edu/~jb/nycs_on_deletion_codes.pdf",
+        "material_read": "Relevant 3-of-n bounds and open rows on the author slides, not an exhaustive independent literature review.",
+        "method": "Author-hosted talk PDF, relevant table and context.",
+        "title": "Bounds on the Size of Single Deletion Error Correcting Codes (seminar slides)",
+        "trigger": "Secondary contemporaneous presentation of the exact weight-restricted census."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31b98d1c-763d-4f57-82d3-e5f861acb885",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 primary Table 3 identifies n=14 and n=15 as the first two unresolved weight-three lengths after every n=6..13 is known; prior lower bounds 31 and 35 are increased to proven sharp 32 and 37. These exact table closures bear directly on finite synchronization-code design and are supplied with compact structural dual certificates, not mere tiny unmotivated parameter perturbations. No novel infinite-family result or classification of all optimizers is asserted.",
+    "status": "PASS"
+  }
+}
