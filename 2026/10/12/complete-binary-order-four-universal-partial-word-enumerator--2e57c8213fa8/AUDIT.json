@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For each of 27 length-three prefixes, exact recursive extension by 0,1 or wildcard accepts precisely a four-mer whose matching set is disjoint from the previously covered set. Necessity follows because duplicate coverage cannot be undone, sufficiency because a terminal union of all 16 four-mers is then a disjoint partition; every string follows one unique path. Each extension contributes at least one new factor so depth is bounded by 16 and full length at most 19. C++17 integer-bitmask enumeration and independent Python direct-window expansion both visited 15840 nodes and agreed on all ten profile entries totaling 385. Python checked all 385 words against a separate explicit multiplicity definition and exactly 97 symmetry orbits. Sample witnesses match the original paper. No infinite-order generalization is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goeckner et al., arXiv:1611.03928 / Theoretical Computer Science 713 (2018), section 6, Question 6.5: enumeration by fixed alphabet and order is explicitly posed.",
+        "Chen et al., arXiv:1601.06456, Theorems 6–13, 17–19: position obstructions, constructive families, and specific examples; not exact length-conditioned multiplicities."
+      ],
+      "reasoning": "The known nonexistence theorems rule out some wildcard locations and the constructions ensure examples, but neither subsumes the complete order-four polynomial or the complement/reversal orbit count. The general counting question remains more ambitious, not a dominating proven result. Later nonbinary constructions concern a different alphabet.",
+      "searches": [
+        "\"universal partial words\" \"enumeration\" \"binary\" \"4\" upword",
+        "\"universal partial words\" \"count\" \"length four\" 2016 2020",
+        "universal partial words small parameters complete classification 2 alphabet 4",
+        "finite-state constrained coding run length limited zero-error channels optimal small automata"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.06456v1 and full revised article v5",
+      "Chen et al., Electronic Notes in Discrete Mathematics 61 (2017), open author manuscript",
+      "arXiv:1611.03928 and its accessible 2018 journal HTML sections",
+      "Classical binary de Bruijn enumeration for no-wildcard strings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al. show single-diamond existence at selected positions and two-/three-diamond witnesses, but do not give exact coefficient counts in their full 18-page article or five-page related account.",
+        "Goeckner et al. pose exact number of upwords for fixed parameters as a question in a later article.",
+        "A previously known de Bruijn count covers the zero-wildcard monomial 256 X^19, but cannot imply the remaining eight nontrivial coefficients or 32 symmetry types."
+      ],
+      "reasoning": "The implication from the claimed complete enumerator to each cited example/existence statement goes only in the direction from new to known; the reverse implication fails because witness existence and position obstruction results do not determine multiplicities. The classical ordinary case covers one coefficient only, not the genuinely partial cases. This is a finite exact refinement, not a claim of a new universal construction.",
+      "searches": [
+        "arXiv:1601.06456 original universal partial words n=4 Tables 1 2 3",
+        "arXiv:1611.03928 Question 6.5 universal partial words enumerate count",
+        "complete linear binary universal partial words order four orbit count 32",
+        "2016 universal partial word binary order four 256 de Bruijn length 19"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Kitaev–Mütze–Sun, arXiv:1601.06456, pp. 3–4 and 15–16: individual examples for one, two, three diamonds and an outlook proposing classification; no complete n=4 length-by-wildcard distribution.",
+        "Chen et al., 2017 conference manuscript, pp. 2–4: theorems and example lists for each diamond count, not a joint distribution."
+      ],
+      "reasoning": "An exact list or a generating polynomial for all binary order-four linear upwords would be mathematically equivalent to the ten-coefficient claim. Inspected relevant sections of both primary versions enumerate examples and existence constraints, not all 385 strings or the 128 nontrivial classifications; literal coincidences with their examples are credited. No equivalent counting statement was identified.",
+      "searches": [
+        "binary universal partial words length four exact enumeration with wildcard count and all universal partial strings",
+        "universal partial words n=4 diamond positions enumerator exhaustive counting length profile",
+        "\"universal partial words\" \"n=4\" enumeration 385 128",
+        "arXiv:1601.06456v5 Tables 1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tables 1–3, arXiv:1601.06456: curated witness strings; all twelve displayed binary order-four witnesses match our complete generated file, but the tables present examples rather than totals.",
+        "No matching 385-total or 128-nontrivial published table was located in targeted queries. The website referenced as [www] in the foundational article is a possible unindexed source of computational data and is not certified to lack this enumeration."
+      ],
+      "reasoning": "The known classical 256 ordinary binary length-four de Bruijn linear strings are included and expressly excluded from the novel contribution. No directly matching table or enumerator was identified; importantly, absence from indexed search alone is not novelty proof, and possible historical computational datasets are recorded as a residual risk.",
+      "searches": [
+        "\"binary universal partial words\" \"385\"",
+        "\"upwords\" \"128\" \"n=4\"",
+        "Exactly 385 binary linear universal partial words of order four, 128 with one to three wildcard characters; joint length-diamond enumerator",
+        "Binary length-four universal partial words wildcard length distribution 4 8 11 14 15 16 17 18 19, 256 no-wildcard and 128 nontrivial",
+        "Torsten Mütze universal partial words computations examples data n4"
+      ]
+    },
+    "rationale": "A direct mathematical-implication comparison to complete primary papers distinguishes examples, construction families, and one known ordinary de Bruijn coefficient from the newly computed exact nontrivial profile and 32 reversal/complement orbits. Later sequel explicitly asks enumeration for fixed alphabet and order. Targeted indexed searches of titles, aliases, exact parameters, and counts found no covering published statement. Risk remains from unindexed computations and incomplete material access.",
+    "residual_risks": [
+      "Earlier unpublished or poorly indexed small-order exhaustive listings may have the same 128 nontrivial counts.",
+      "The complete PDF of the later nonbinary-sequel article was not accessible in this session; conclusions about that source are restricted to the material actually read.",
+      "The historical computer-data website referenced as [www] by Chen et al. was not exhaustively inspected; it may contain related parameter-specific computational records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the joint exact order-four enumerator; the tables give examples and theorems give existence/obstructions, not all coefficients.",
+        "evidence": [
+          "arXiv:1601.06456v5, printed pp. 3–5 and 15–16; Theorems 6–13, 17–19."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.06456",
+        "material_read": "Full eighteen-page accessible PDF including Tables 1–3, Section 2 definitions, Sections 3–5 results, Section 6 Outlook, and References.",
+        "method": "Read PDF text and visually inspected pages containing the order-four witness tables and research outlook.",
+        "title": "On universal partial words",
+        "trigger": "Original defining work includes order-four witnesses, position theorems, and potential complete classification."
+      },
+      {
+        "assessment": "Does not cover the complete count, merely presents examples and existence/obstruction theorems.",
+        "evidence": [
+          "2017 author manuscript, pp. 1–5; discussion following Table 2."
+        ],
+        "identifier_or_url": "https://strathprints.strath.ac.uk/60593/1/Chen_etal_ENDM_2017_On_universal_partial_words.pdf",
+        "material_read": "All five pages including Tables 1–2 and the open research section.",
+        "method": "Read full open-access author PDF text; compared exact statements and the supplied examples.",
+        "title": "On universal partial words (conference treatment)",
+        "trigger": "Plausibly shorter separate exposition of same foundational constructions."
+      },
+      {
+        "assessment": "The cited enumerative question is motivation; the accessed portions present no 385/128 order-four counts, but inaccessible portions remain a limited comparison risk.",
+        "evidence": [
+          "arXiv:1611.03928, abstract; 2018 Theoretical Computer Science 713, Section 6 Question 6.5."
+        ],
+        "identifier_or_url": "arXiv:1611.03928 / DOI:10.1016/j.tcs.2017.12.022",
+        "material_read": "Accessible full-text HTML-extracted portions comprising definition, key construction discussion and Section 6 questions, including Question 6.5. Complete paginated PDF not available.",
+        "method": "Searched article full-text rendition and read pertinent sections, also checked arXiv record; PDF retrieval failed and is not represented as read.",
+        "title": "Universal partial words over non-binary alphabets",
+        "trigger": "Direct sequel; could contain full counts or stronger general nonbinary classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e57c821-3fa8-4d08-a338-978fb400eb98",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original literature motivates the natural exact invariant: number of wildcard universal partial words at fixed alphabet and order, and explicitly calls for enumeration. Order four is the first rich binary parameter with both two- and three-wildcard nontrivial families. The complete length-vs-wildcard polynomial shows precisely which compression lengths are attainable and their multiplicities, while 32 nontrivial reversal/complement orbits and an exhaustive independent witness list give reusable construction/benchmark data. The result is a motivated full finite classification, not an arbitrary single statistic or a routine rephrasing of the known ordinary de Bruijn count.",
+    "status": "PASS"
+  }
+}
