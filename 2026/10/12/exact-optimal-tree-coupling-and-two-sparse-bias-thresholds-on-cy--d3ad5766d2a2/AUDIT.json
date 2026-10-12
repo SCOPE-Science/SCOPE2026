@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Cyclic 01 edge-absence encoding yields exact E M, P(M=0) and P(M=1). The deterministic cardinality lower bound |M-1| is attained with rotation-equivariant missing-edge selection, whose uniform marginal is rigorously verified. TV is precisely mass off the M=1 uniform tree sublaw. Binomial Poisson approximation (R-M has mean np^2), a global compactness argument and exact exponential probability upper bounds prove the two optimizer scales. Python exact rational replay: 1936 finite assertions, used only for diagnostics. Boundary values n>=3 and p=0,1 included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mészáros–Peled arXiv:2610.11554v1 Theorem 1 gives E|E(G^{1o}) Δ E(T)|/n <= O(log k/sqrt k), for k>=2, where G^{1o} chooses uniformly from neighbors.",
+        "Nachmias–Peled arXiv:2510.19563v1 Theorem 1.1 assumes degree d(n)->infinity for local limits."
+      ],
+      "reasoning": "The later upper bound at degree 2 is only O(n), far weaker than the exact optimal cost n/4-1+2^{2-n}, does not include nonuniform local direction biases, and cannot imply the distinct optimized asymptotic constants. The earlier local limit assumes degrees diverge and is not an exact coupling assertion.",
+      "searches": [
+        "arXiv:2610.11554 Mészáros Peled 1-out graphs uniform spanning trees coupling degree 2 cycle exact transportation total variation",
+        "Optimal 1-Wasserstein Hamming distance law of uniform spanning tree and biased one-out graph on cycle, sharp formula n p(1-p)-1+2(p^n+(1-p)^n)",
+        "arxiv:2610.11554v1 Theorem 1 and Section 3; coupling of UST and 1-out graph"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2510.19563v1",
+      "https://arxiv.org/html/2610.11554v1",
+      "https://www.math.cmu.edu/~af1p/Texfiles/Gkout.pdf",
+      "Published mathematics search results for seven searches recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2510.19563v1 proves a high-degree local limit, without finite-cycle optimal coupling distances.",
+        "arXiv:2610.11554v1 proves generic unbiased 1-out/UST expected mismatch upper bounds, not exact cycle optima or bias-dependent TV."
+      ],
+      "reasoning": "Neither exact theorem is a corollary of the stated prior conclusions: a qualitative local limit does not control global edge Hamming coupling, and O(n) does not determine a sharp constant or optimum. Some proof ingredients (symmetry, cyclic-runs counting, Poisson approximation) are classical and are not claimed as new independently.",
+      "searches": [
+        "uniform spanning tree on cycle graph optimal coupling random one-out neighbor subgraph symmetric difference exact n/4",
+        "arXiv:2610.11554 Mészáros Peled 1-out graphs uniform spanning trees coupling degree 2 cycle exact transportation total variation",
+        "Optimal 1-Wasserstein Hamming distance law of uniform spanning tree and biased one-out graph on cycle, sharp formula n p(1-p)-1+2(p^n+(1-p)^n)",
+        "arxiv:2510.19563v1 Section 1.2.1 and Theorem 1.1",
+        "arxiv:2610.11554v1 Theorem 1 and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Each missing edge corresponds to a cyclic 01-transition, a standard cyclic runs statistic; the optimal transport cost is E|M-1| for the transitive cycle.",
+        "arXiv:2510.19563v1, Sections 1.1–1.3 and Theorem 1.1 study growing-degree local determinantal limits, not this formula."
+      ],
+      "reasoning": "Looked for cyclic-run distribution, 1-out graph on a cycle, transitive equivariant coupling and Hamming Wasserstein aliases. The general rotation argument can reproduce the coupling construction once this model is specified, but none of the inspected research statements supplies the exact cycle probability metrics and two optimized sparse-bias scales. Classical equivalence remains a named priority risk.",
+      "searches": [
+        "uniform spanning tree on cycle graph optimal coupling random one-out neighbor subgraph symmetric difference exact n/4",
+        "1-out graph on cycle optimal transport to uniform spanning tree expected edge discrepancy",
+        "random one out graph cycle missing edge number exact binomial cyclic runs",
+        "Optimal 1-Wasserstein Hamming distance law of uniform spanning tree and biased one-out graph on cycle, sharp formula n p(1-p)-1+2(p^n+(1-p)^n)",
+        "Poisson regime cycle random 1-out graph nearest-neighbor orientation missing-edge run count optimal coupling ln 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record hits nearest in semantic search concern cycle graph parameters, maximum matching gaps, arboricity, or spanning-forest ratios, not a table of these exact cycle one-out laws.",
+        "Finite rational checks independently confirm the formulas for n=3..10 but are not prior published tables."
+      ],
+      "reasoning": "Searched for the exact closed forms, the cyclic one-out law, their Poisson limits and table/database equivalences; no covering table or mathematical-record summary was returned. A missed or unindexed source remains possible.",
+      "searches": [
+        "random one out graph cycle missing edge number exact binomial cyclic runs",
+        "distance in total variation random one-out cycle versus UST; asymptotically optimal n p to Poisson 1 and e^-1",
+        "Poisson regime cycle random 1-out graph nearest-neighbor orientation missing-edge run count optimal coupling ln 2"
+      ]
+    },
+    "rationale": "The exact optimal symmetric-difference transport, exact full-support total variation, and different sparse-bias optimizers are not implied by the inspected high-degree UST local limits or general bound, or by the closest returned mathematical-record claims. Strong risk remains that classical cyclic-run or symmetric-transport literature already contains some components.",
+    "residual_risks": [
+      "The rotation-equivariant coupling and cyclic-run counts use elementary known methods; a classical theorem about transitive graph optimal transport or cyclic binary patterns could subsume the precise statement.",
+      "Mathematical-record semantic search and inspected open literature do not exhaust all published sources, and absence of a hit is not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: degree diverges, local rooted limit; no exact finite cycle global edge metric comparison or bias optimization",
+        "evidence": [
+          "arXiv:2510.19563v1, first public 2025-10-22, Theorem 1.1 assumes d(n)->infinity"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.19563v1",
+        "material_read": "Abstract, full Introduction Sections 1.1–1.3, main statements, and proof discussion on local coupling in Section 2",
+        "method": "Inspected lawfully open full-text HTML including hypotheses, statements and proof structure",
+        "title": "Local limits of determinantal processes",
+        "trigger": "Motivating uniform-spanning-tree and determinantal local-limit framework"
+      },
+      {
+        "assessment": "Not covering: bound O(n log k/sqrt k), unbiased neighbor selection, no exact cycle-biased formulas, no optimizers",
+        "evidence": [
+          "arXiv:2610.11554v1 first public 2026-10-08; theorem 1 at fixed degree 2 gives a nonsharp order estimate"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11554v1",
+        "material_read": "Abstract, Sections 1.1–1.2 and Theorems 1–2, Section 3 coupling proof",
+        "method": "Inspected lawfully open full-text HTML, theorem and proof sections",
+        "title": "Product approximations for uniform spanning trees and determinantal processes",
+        "trigger": "Closest potential broader uniform-spanning-tree coupling theorem"
+      },
+      {
+        "assessment": "Not covering: connectivity of random k-out models, not exact coupling against UST or distributional metric optimization",
+        "evidence": [
+          "Frieze–Johansson: connectivity regime k-out in large graphs, not cycle 1-out transport laws"
+        ],
+        "identifier_or_url": "https://www.math.cmu.edu/~af1p/Texfiles/Gkout.pdf",
+        "material_read": "Abstract, opening definitions and statements of Theorems 1–3 on first three pages",
+        "method": "Inspected public PDF text and first pages in visual page render",
+        "title": "On random k-out subgraphs of large graphs",
+        "trigger": "Earlier general k-out graph theory might imply fixed-degree cycle law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3ad5766-d2a2-4c0b-b615-5ac798f0993e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact coupling metric at minimal regular degree 2 gives a quantitative boundary to general high-degree UST/1-out approximation. The natural family of orientation biases has two different, nontrivial sharp optimal sparse scales (ln2 versus 1), expressing metric sensitivity of the same Poisson missing-edge transition. The result is an infinite-parameter structural classification, not a single finite comparison; it does not pretend to cover arbitrary graphs.",
+    "status": "PASS"
+  }
+}
