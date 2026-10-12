@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The reciprocal divisor pairs for 2^a p are exactly {2^i,2^(a-i)p} for i=0..a. Exact binary-mask reversal gives a necessary-and-sufficient rational prime completion bounded by 2^(a+1)-1. Two independent standard-library computations exhaust a=1..9: mask/quotient enumeration and dynamic-programming expansion of actual divisor-pair subset sums for every candidate prime. Direct constructed reciprocal-closed witnesses verify p=23 and 179 at a=9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aryan et al. Proposition 5 classifies the one-omitted-divisor-pair branch and lists the prime 179 for exponent 9. The prime 23 witness omits two pairs and falls outside this hypothesis.",
+        "The OEIS b-file ends at 30324, whereas the all-prime-completion bound at exponent 9 requires a cutoff up to 523776."
+      ],
+      "reasoning": "The restricted strong 2-near-perfect theorem cannot rule out two-pair omissions, nor show no other prime at a<=9. The published OEIS table is not exhaustive over the mathematically necessary range, so it does not imply the global first-branching property.",
+      "searches": [
+        "On 2-Near Perfect Numbers Section 4 Proposition 5 Table 3",
+        "Strongly Pseudoperfect Numbers Wang Zelinsky 2026 arxiv full classification",
+        "OEIS A334405 b-file 1650 terms"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.36068v1 accessible abstract",
+      "On 2-Near Perfect Numbers (INTEGERS 2024 Section 4 full text)",
+      "OEIS A334405 and b-file up to 30324",
+      "OEIS A366172 strongly 2-near-perfect examples",
+      "Current and prior own claim ledgers (overlap only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Strong 2-near-perfect requires omission of exactly one divisor reciprocal pair, which covers the p=179 witness but not the p=23 two-pair witness.",
+        "The general 2026 abstract mentions families and restrictions, but states no exact first-multiplicity classification."
+      ],
+      "reasoning": "A theorem classifying omission of a single pair does not dominate a theorem quantifying over all reciprocal-closed subsets. Known instances do not imply an exhaustive first occurrence. The accessible abstract of the 2026 source provides no dominating statement; inaccessibility of its full text is reported as risk, not misrepresented as a whole-document negative inspection.",
+      "searches": [
+        "2024 Proposition 5 strongest 2-near-perfect classification 2^a p",
+        "OEIS A334405 known strong pseudoperfect numbers",
+        "arXiv:2609.36068 abstract families and restrictions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 paper Section 4 gives a formula for strong 2-near-perfect numbers, not the entire strongly pseudoperfect family with multiple omitted reciprocal pairs.",
+        "OEIS A334405 explicitly contains 11776 but does not assert a first prime-fiber branching theorem."
+      ],
+      "reasoning": "Equivalent wording asks for the first exponent a where two distinct primes p complete 2^a p to a strongly pseudoperfect number. The checked source results confirm individual examples, but none states or proves the exhaustive preceding prime-fiber profile. The full 2026 source is a documented limited-access risk.",
+      "searches": [
+        "strongly pseudoperfect two prime factors 2^a p first power a=9 two distinct primes 23 179",
+        "strongly pseudoperfect binary reversal classification 2^a p and 11776 91648",
+        "first exponent with multiple strongly pseudoperfect 2^a p prime branches",
+        "arXiv:2609.36068v1",
+        "OEIS:A334405"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A334405 index 636 is 11776 and final index 1650 is 30324.",
+        "Aryan et al. Table 3 already lists p=179 for the strongly 2-near-perfect family.",
+        "OEIS A366172 lists 91648 as strongly 2-near-perfect."
+      ],
+      "reasoning": "Both winning integers have known database coverage as individual examples; the novelty is NOT the examples. Neither table contains certified exclusion for all smaller exponent fibers and every possible prime up to 2^(a+1)-1, nor the statement that a=9 is the first two-prime fiber.",
+      "searches": [
+        "OEIS:A334405 b334405.txt 11776",
+        "OEIS:A366172 91648",
+        "2024 Aryan et al Table 2 Table 3 p 179"
+      ]
+    },
+    "rationale": "The exact first branching across the two-prime-support prime fibers is not asserted by inspected prior literature. Aryan et al. and OEIS already include the individual examples; their theorem or finite b-file does not imply the exhaustive prime-fiber minimality over a=1..9. Eight scientifically specific searches, semantic research records, and own history found no equivalent claim; inaccessible full text of the 2026 motivating paper remains a named material residual risk.",
+    "residual_risks": [
+      "The complete text of Wang–Zelinsky arXiv:2609.36068 was not available. Its abstract does not imply first-branching classification, but its internal results might discuss the same fiber; this is unresolved access risk rather than evidence of absence.",
+      "The individual examples 11776 and 91648 are documented previously; novelty is confined strictly to the first exact prime-fiber branching theorem and its exhaustive lower-exponent exclusions.",
+      "Unindexed statements could exist; database and semantic searches cannot establish absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: p=179 at exponent 9 known, but only within one-pair omission regime and no first two-prime branching classification.",
+        "evidence": "Proposition 5 and Table 3 identify p=179; Proposition 5 assumes strong 2-near perfectness, while p=23 at exponent 9 omits two pairs.",
+        "identifier_or_url": "DOI:10.5281/zenodo.12167628",
+        "material_read": "Full-text introduction, Section 4 pages 13-17, Proposition 5, Lemmas 8-10, Tables 2-3 and open problems; page images of relevant theorems.",
+        "method": "Full-text PDF with page-level material and rendered page images.",
+        "title": "On 2-Near Perfect Numbers",
+        "trigger": "Exact same two-prime support and the one-omitted-pair p=179 branch"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: confirms 11776 but no complete all-prime exponent-9 cutoff and no first branching proof.",
+        "evidence": "b-file line for index 636 contains 11776, last line contains 1650 30324.",
+        "identifier_or_url": "https://oeis.org/A334405/b334405.txt",
+        "material_read": "OEIS definition, examples, complete displayed b-file start through final index 1650, value 11776 at position 636 and maximum 30324.",
+        "method": "Direct sequence and indexed b-file inspection.",
+        "title": "OEIS A334405 strongly pseudoperfect numbers",
+        "trigger": "Exact sequence of the same strongly pseudoperfect property and known example 11776"
+      },
+      {
+        "assessment": "ACCESS_LIMITED; no claim of whole-document NOT_COVERING.",
+        "evidence": "The publicly accessible abstract says it constructs infinite families and restrictions; does not describe the two-prime completion multiplicity or the first exponent 9.",
+        "identifier_or_url": "arXiv:2609.36068v1",
+        "material_read": "Verified dated abstract and bibliographic metadata; full text could not be accessed.",
+        "method": "Public abstract and metadata only; attempted open versions of full text without successful retrieval.",
+        "title": "Strongly Pseudoperfect Numbers",
+        "trigger": "Identical definition and motivating 2026 new families/restrictions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "05d6e39d-5070-40e6-ba5c-a54a56c89182",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating problem studies strongly pseudoperfect structure and number families. For two-prime-support numbers 2^a p, the count of distinct prime completions at a fixed exponent is a canonical exact fiber invariant. The first multiplicity occurs only at exponent 9 and simultaneously exhibits two different structural omission mechanisms: one omitted reciprocal pair (covered by the narrower 2024 paper) and two omitted pairs (not covered there). This first bifurcation is a natural complete classification and boundary of the one-pair theory, not a random slice or a rediscovery of known individual numbers.",
+    "status": "PASS"
+  }
+}
