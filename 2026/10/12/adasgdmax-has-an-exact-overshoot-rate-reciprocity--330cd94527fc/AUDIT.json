@@ -1,0 +1,87 @@
+{
+  "correctness": {
+    "rationale": "At zero second-moment memory the source max statistic is exactly the largest squared gradient norm seen so far. On an isotropic quadratic this gives the radial recurrence x_next=(1-c/R)x. The three cases follow by one-step comparison with the initial radius. In the supercritical case the first radius is A times the initial radius and immediately freezes the max; direct substitution then gives the fixed multiplier -1/A, proving all formulas and the sharp reciprocity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source Theorem 3.1 establishes convergence for positive base rates except the limiting boundary.",
+        "Generic normalized-gradient and max-accumulator analyses can imply eventual step control, but no inspected source supplies this exact source-specific transient trajectory."
+      ],
+      "reasoning": "The broad convergence theorem does not determine transient peak size, the exact return of the second iterate, or the post-reset contraction rate. These are the novelty-bearing parts.",
+      "searches": [
+        "AdaSGDMax convergence strongly convex quadratic learning rate robust",
+        "normalized gradient running maximum quadratic stability",
+        "adaptive gradient max second moment transient overshoot"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2006.16541v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines the theoretical recurrence theta_next=theta-eta_t g with eta_t based on the running maximum of the scalar second moment.",
+        "Theorem 3.1 covers convergence except the 2/lambda_max boundary.",
+        "The proof gives qualitative freezing of the adaptive rate after it becomes stable."
+      ],
+      "reasoning": "The prior theorem implies convergence in the accepted nonresonant scalar cases, so convergence itself is not claimed as new. It does not imply the exact transient amplification A, the identity x_2=x_0, or the equality between A and the reciprocal asymptotic contraction factor without solving the specialized max recurrence.",
+      "searches": [
+        "arXiv:2006.16541 AdaSGDMax Theorem 3.1 running maximum second moment",
+        "arXiv:2006.16541 AdaSGDMax once enters SGD convergence range behaves exactly like SGD"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the running-max scalar second-moment rule and the deterministic quadratic convergence theorem.",
+        "Its proof states that the max statistic freezes once the effective step enters the gradient-descent convergent range.",
+        "No searched published record returned the exact one-overshoot reset or reciprocal amplification/contraction identity."
+      ],
+      "reasoning": "An equivalent statement would have to identify the exact supercritical max reset and its fixed post-reset multiplier, not merely prove eventual convergence or boundedness. No such statement was located.",
+      "searches": [
+        "AdaSGDMax isotropic quadratic overshoot transient amplification reciprocal contraction rate max second moment",
+        "global adaptive learning rate max gradient norm scalar quadratic transient overshoot",
+        "normalized gradient running maximum quadratic reciprocal overshoot contraction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted published-record searches returned no records for the AdaSGDMax overshoot/transient formulations."
+      ],
+      "reasoning": "Search absence is not a novelty proof; it only supports the statement-level comparison with the defining full text. The main residual risk is equivalent analysis under generic max-normalized gradient terminology.",
+      "searches": [
+        "AdaSGDMax isotropic quadratic overshoot transient amplification reciprocal contraction rate max second moment",
+        "global adaptive learning rate max gradient norm scalar quadratic transient overshoot",
+        "normalized gradient running maximum quadratic reciprocal overshoot contraction"
+      ]
+    },
+    "rationale": "The defining source proves broad convergence of AdaSGDMax and explains that its learning rate freezes after entering the ordinary gradient-descent stability interval. That prior result is explicitly credited. The inspected theorem and proof do not give the exact one-overshoot trajectory, x_2=x_0 identity, or reciprocal transient-versus-rate law. Focused published-record searches returned no implication-equivalent statement.",
+    "residual_risks": [
+      "An equivalent max-normalized-gradient transient calculation may exist under terminology not indexed with AdaSGDMax.",
+      "The result is a zero-memory isotropic specialization of a broader source theorem; originality is restricted to its exact transient and rate law.",
+      "Nonzero second-moment memory and nonisotropic spectra can change the one-reset behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROAD_CONVERGENCE_AND_FREEZE_MECHANISM_PRIOR; EXACT_OVERSHOOT_RECIPROCITY_NOT_STATED.",
+        "evidence": "The source defines the running-max rate, proves convergence except the boundary, and says the rate freezes once inside the gradient-descent stability range, but does not state the exact isotropic supercritical trajectory or transient-rate reciprocity.",
+        "identifier_or_url": "arXiv:2006.16541v1",
+        "material_read": "Full open PDF around Section 3, the AdaSGD and AdaSGDMax definitions, Theorem 3.1, and Appendix E proof pages 12 through 14. The algorithm/theorem page and proof page were visually inspected.",
+        "method": "Full-text PDF extraction plus page-image inspection.",
+        "title": "AdaSGD: Bridging the gap between SGD and Adam",
+        "trigger": "Defining source for AdaSGDMax and its robust-learning-rate theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "330cd945-27fc-485a-8c6e-cdde4945225c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Robustness to the global base learning rate is the defining theoretical motivation for AdaSGDMax. The exact law quantifies the hidden transient cost of that robustness: arbitrarily large base rates are stabilized by a single running-max reset, but the first objective spike grows exactly as the reciprocal of the later contraction. This gives a precise transient-versus-rate tradeoff not visible in the source convergence theorem.",
+    "status": "PASS"
+  }
+}
