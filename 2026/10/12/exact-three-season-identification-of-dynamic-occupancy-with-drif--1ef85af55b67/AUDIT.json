@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary interior pi,c,s,p1,p2,p3 with c!=s, the full observation law yields r2=s*p2, r3=s*p3, h2=z2/s, h3=z3/s and T=c/s+(s-c). Using z3=c+(s-c)z2, the two affine constraints solve delta=(T-h3)/(1-h2), b=T-delta, s=delta/(1-b), c=bs, pi=(s*h2-c)/delta, and all three p. Denominators 1-h2=delta*(1-pi)/s and 1-b=delta/s cannot vanish. A continuous two-season alias family and equal-transition indefinite alias establish sharp necessity. Exact Fraction implementation independently sums all observation histories and passes 554 interior tuples plus alias witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Culpepper (2025) Cambridge openly accessible theorem conditions: stationary latent start, some P_t=P_(t+1), all emission entries positive.",
+        "MacKenzie et al. Ecology 84 (2003) original dynamic occupancy model relies on an ecological observation protocol featuring repeated within-season surveys.",
+        "Doser–Stoudt (2023 online) investigates field-design fractional replication and temporal imperfect detection, but the accessible scientific discussion contains no matching algebraic inverse."
+      ],
+      "reasoning": "A general all-parameter HMM theorem that includes time-dependent false-negative rates and structural emission zeros would dominate the finding, but the highly relevant identified theorems impose assumptions incompatible with the exact claimed domain. The accessible older ecological paper material does not yield a decisive covering theorem; coverage risk is retained.",
+      "searches": [
+        "web: heterogeneous hidden Markov model nonstationary initial distribution time dependent emission identifiability three observations",
+        "web: Doser Stoudt fractional replication single visit multi season occupancy 2023 2024",
+        "web: MacKenzie Nichols Hines 2003 occupancy colonization extinction imperfect detection full paper"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1890/02-3090 [abstract/bibliographic only]",
+      "An, Hu and Shum (2013) author PDF §2.1 and theorem",
+      "doi:10.1017/psy.2025.10024 [open full text, Theorems 1-2]",
+      "doi:10.1111/2041-210X.14275 [accessible summary]",
+      "doi:10.1111/2041-210X.12186 [accessible summary]",
+      "Scientific-index searches for dynamic-occupancy models and exact observation-law inversion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An–Hu–Shum 2013 §2.1 explicitly says hidden transitions and emission laws time independent; arbitrary independently changing p1,p2,p3 falls outside.",
+        "Liu–Culpepper 2025 Theorem 1 uses P_t positive, stationary initialization and some adjacent equality of observation matrices; the model here violates all three possibilities generally.",
+        "Hines et al. 2014 study within-season correlated replicate surveys, not the unreplicated three-season inverse with time-constant hidden transitions."
+      ],
+      "reasoning": "The present theorem implies identification for constant p specializations, which may already be consequences of classical HMM theorems; that specialization is not independently claimed. Conversely, none of the inspected theorems with their published hypotheses implies the unrestricted varying-p model. MacKenzie original study is plausible background, but inaccessible full text is left as a residual risk, not certified as noncovering.",
+      "searches": [
+        "web: An Hu Shum 2013 Identifiability and Inference of Hidden Markov Models homogeneous emissions theorem 3 observations PDF",
+        "web: Liu Culpepper 2025 Designing Learning Intervention Studies Identifiability of Heterogeneous Hidden Markov Models theorem 1 theorem 2 Cambridge",
+        "web: Hines et al. multiseason occupancy correlated replicate surveys 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An–Hu–Shum 2013 §2.1 time-independent emissions; their HMM observation law is homogeneous, unlike arbitrary p1,p2,p3.",
+        "Liu–Culpepper 2025 Theorems 1–2 require positive emission matrices and identical emission probability for an adjacent pair; here emission probabilities may all differ and P(Y=1|Z=0)=0."
+      ],
+      "reasoning": "The latent binary state and observed Bernoulli indicator form an HMM, but standard homogeneous HMM identification does not automatically apply when emissions drift. Existing stated heterogeneous HMM sufficient conditions do not hold for the structural-zero nonstationary-initial model. A direct inverse and the exact singular boundary are therefore compared by hypothesis and implication rather than titles.",
+      "searches": [
+        "Scientific-index query: three surveys one per season dynamic occupancy model Markov hidden detection structural identifiability no false positives exact colonization extinction 3 seasons",
+        "Scientific-index query: two state binary hidden Markov emissions one zero sensitivity zero false positives three observation identifiability",
+        "web: hidden Markov identifiability three observations unknown time-varying emission positive zeros single occupancy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed hit reproduced the observation-law inversion or equal-transition nonidentifiability threshold.",
+        "Related result on static closed occupancy with Markov-correlated detections has a different hidden-state model and different parameters.",
+        "Inspected relevant ecological identification statements concern other latent models or distinct observation designs, not this exact inverse."
+      ],
+      "reasoning": "The claim is a structural continuum-parameter theorem, not a finite census. Closest mathematical statements were compared by model observables and hidden-state evolution, not by shared terminology.",
+      "searches": [
+        "Scientific-index query: sharp three consecutive survey detection history identifiability for two-state colonization persistence occupancy with arbitrary season-varying false-negative detection rates single visit",
+        "Scientific-index query: three-occasion Markov occupancy colonization extinction observation one per season exact inversion for detection probabilities p1 p2 p3",
+        "Published related model search: closed occupancy Markov-correlated detections versus temporal colonization hidden-state dynamics"
+      ]
+    },
+    "rationale": "The assessed finding is the global rational inverse from an eight-cell three-season law with unrestricted p1,p2,p3 and initial pi, together with a sharp two-occasion insufficiency and singular equal-transition boundary. Classical dynamic-occupancy literature does not settle this special inverse in the inspected accessible material. The generic three-observation HMM theorem of An, Hu and Shum assumes homogeneous emissions; Liu and Culpepper heterogeneous-emission theorem imposes strict emission positivity and neighboring equal emissions and stationary hidden initialization, all of which fail for the claimed arbitrary-p three-season model. Relevant literature and indexed scientific records did not identify a stronger encompassing theorem; incomplete access to the original ecological methods article and uncatalogued inverse-HMM papers are acknowledged.",
+    "residual_risks": [
+      "Historical MacKenzie et al. (2003) full text could not be materially read despite open-access attempt; unresolved historical literature may have an equivalent inverse.",
+      "A theorem for partially observed two-state Markov chains not indexed by ecological or HMM vocabulary may cover this restricted structural-zero model.",
+      "Uniqueness fails exactly at c=s and ill-conditioning may become extreme near that boundary; practical finite-sample estimability is unstudied."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines historical dynamic occupancy framework with imperfect detection; full theorem-level noncoverage NOT asserted",
+        "evidence": [
+          "Ecology 84, 2200–2207, dated 2003-08-01; repeat-visit occupancy design described in publicly accessible abstract."
+        ],
+        "identifier_or_url": "doi:10.1890/02-3090",
+        "material_read": "Bibliographic record, publication date and accessible abstract only; full article unavailable",
+        "method": "Publicly accessible abstract and bibliographic metadata; full manuscript not available for reading",
+        "title": "Estimating site occupancy, colonization, and local extinction when a species is detected imperfectly",
+        "trigger": "Original dynamic-occupancy species model and earliest public anchor"
+      },
+      {
+        "assessment": "Time-independent emission assumption excludes arbitrary seasonal detectability",
+        "evidence": [
+          "§2.1 states time independent emission and hidden transition processes; three-visit identification theorem follows under homogeneous observation law."
+        ],
+        "identifier_or_url": "https://www.econ2.jhu.edu/people/hu/HMM.pdf",
+        "material_read": "Full original PDF available; introduction, §2.1 model assumptions and identification theorem passages/pages 1–7 read",
+        "method": "Accessible author PDF; read text and page screenshot of relevant theorem",
+        "title": "Identifiability and Inference of Hidden Markov Models",
+        "trigger": "Plausible broader three-observation general theorem"
+      },
+      {
+        "assessment": "Positive emission matrix, stationary initial latent law and adjacent equal emission assumption exclude all-unequal season rates with a false-positive structural zero",
+        "evidence": [
+          "Theorem 1 conditions at publisher text around lines 581–615: positive P_t, stationary initial hidden state, some P_t=P_(t+1)."
+        ],
+        "identifier_or_url": "doi:10.1017/psy.2025.10024",
+        "material_read": "Full open web article available; model conditions and Theorems 1–2 read",
+        "method": "Cambridge open text, theorem-assumption comparison",
+        "title": "Designing Learning Intervention Studies: Identifiability of Heterogeneous Hidden Markov Models",
+        "trigger": "Most relevant heterogeneous-emission hidden Markov identification theorem"
+      },
+      {
+        "assessment": "Field-model design and empirical studies motivate value but do not in inspected material supply the claimed global algebraic inverse",
+        "evidence": [
+          "First online 2023-12-26; discussion of ecological unreplicated multiseason detection limitations."
+        ],
+        "identifier_or_url": "doi:10.1111/2041-210X.14275",
+        "material_read": "Accessible abstract and methods summary, not every section of full text",
+        "method": "Open-access bibliographic and article web content",
+        "title": "Fractional replication in single-visit multi-season occupancy models",
+        "trigger": "Ecology study precisely concerned with multi-season single visits"
+      },
+      {
+        "assessment": "Uses correlated replicate surveys within seasons, differing from one visit per season with dynamic hidden occupancy",
+        "evidence": [
+          "Model target is within-season correlated replicate detections."
+        ],
+        "identifier_or_url": "doi:10.1111/2041-210X.12186",
+        "material_read": "Accessible publication synopsis and model description",
+        "method": "Publisher article description and abstract",
+        "title": "Multiseason occupancy models for correlated replicate surveys",
+        "trigger": "Related false-negative detection correlation models"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1ef85af5-5b67-4d52-bca2-337c4e83fc22",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a fixed-colonization-and-persistence ecological monitoring model with no within-season repeat visits and drifting seasonal detectability, three surveys are both necessary and sufficient for structural recovery of hidden dynamics and all individual detection rates. The sharp equal-transition exception distinguishes real unobservability from merely low sample size. The result provides an explicit design benchmark and transparent inversion, and does not claim practical statistical consistency or robustness to site heterogeneity.",
+    "status": "PASS"
+  }
+}
