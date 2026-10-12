@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "For t and p arbitrary, the three Kraus unitaries commute because all spatial shifts are global, giving exact independent binomial quantum-step count and symmetric random translations. The coherent Fourier symbol has smooth isolated eigenvalues for 0<theta<pi/2; changing variables in its weighted velocity law yields the normalized Konno density. The three probability regimes follow from binomial concentration and classical CLT; for finite positive lambda, characteristic functions factor and produce Gaussian plus lambda*Konno. Exact integration gives second moment 1-s and fourth moment 1-3s/2+s^3/2, hence strictly negative fourth cumulant. Boundary p=1 and p=0, lambda=0 and infinity, were separately checked. Numerically, an independent finite Kraus density-matrix propagation agrees with the exact convolution (270 channel/normalization/symmetry checks), and 27 additional coherent/critical moment checks passed. Finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahlbrecht et al., Sec V D, Assumption 2 requires simple peripheral eigenvalue for generic diffusion, and Sec VI E Corollary 14 gives fixed-probability velocities in commuting Kraus case.",
+        "Konno–Matsue–Segawa (arxiv:2007.00940), Theorem 5.1 has a stripe-bounded four-state walk with ballistic peaks and diffusive Gaussian subprofiles, a non-equivalent model.",
+        "Chisaki et al. 2011, Theorem 1 and Corollary 1, introduce position measurements and restarted blocks, producing Gaussian power-law regimes rather than the present Gaussian–Konno convolution.",
+        "Ellinas–Bracken–Smyrnakis (arxiv:1207.5257) treats dichotomic random coin-reshuffling matrices and a noise-strength-squared times time crossover, rather than independent global spatial translations or this Gaussian–Konno convolution."
+      ],
+      "reasoning": "The strong known Fourier limits cover the coherent Konno law and may imply constant-p ballistic motion; we exclude those known special cases from the priority claim. Changing the noise channel changes the process: a measurement reset does not commute with U, whereas global translations do. None of the compared theorems directly controls the singular t-dependent limit q_t sqrt(t)→lambda in this exact model.",
+      "searches": [
+        "arxiv:1009.2019",
+        "arxiv:2007.00940",
+        "Chisaki Konno Segawa Shikano 2011 Crossovers induced by discrete-time quantum walks",
+        "Konno Gaussian convolution critical scaling quantum stochastic walk p 1 minus lambda over square root time independent coin unbiased random steps",
+        "arxiv:1207.5257"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2501.08674 (full manuscript sections 2–3 and appendices)",
+      "arxiv:1009.2019 (Sections V, VI E)",
+      "arxiv:2007.00940 (Theorem 5.1 and model)",
+      "Chisaki et al., QIC 11 (2011) 741–760 (Theorem 1, Corollary 1)",
+      "arxiv:quant-ph/0206053 (abstract; pure-walk formula independently derived)",
+      "Published mathematical records using the quoted five claim/source/alias queries",
+      "arxiv:1207.5257 (complete seven-page paper; coin-randomization crossover)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Štefaňák et al. 2025/2026, Eqs. (9)–(11) specify the same channel. Sections 3–4 prove and compute monitored return probabilities rather than unmonitored position scaling.",
+        "Konno 2002 and general Fourier limit theory provide the pure-walk velocity density, used explicitly here.",
+        "Ahlbrecht et al. Sec VI E proves weighted group velocities at fixed channel weights; its result does not give a uniform double limit or Gaussian component at q_t~t^-1/2.",
+        "Chisaki et al. Corollary 1 treats concatenations of measured/reset pure-walk blocks, not spatially shifted coherent blocks.",
+        "Ellinas et al. (2012), Eq. (1)–(3), randomize the coin SU(2) reshuffling U(s), so their noise operators do not commute as global spatial translations; their critical scaling analogy does not imply this exact theorem."
+      ],
+      "reasoning": "The new statement is a derived, model-specific singular scaling theorem. Combining the known Kraus model and Konno law with an independent commutation/binomial argument yields the distribution and exact cumulant, but no compared theorem explicitly gives this window or dominates it under its hypotheses. The elementary derivability from existing ingredients is a genuine originality and value risk, not hidden by terminology.",
+      "searches": [
+        "arxiv:2501.08674",
+        "arxiv:quant-ph/0206053",
+        "arxiv:1009.2019",
+        "arxiv:2007.00940",
+        "Chisaki 2011 theorem 1 corollary 1",
+        "Random unitary quantum walk commuting spatial shifts exact binomial decomposition of position and crossover limit distribution fourth cumulant",
+        "arxiv:1207.5257"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary model has the three spatially commuting Kraus unitaries of Eq. (10), while its investigated observable is monitored first return (Sections 3–4).",
+        "Ahlbrecht et al. 2011, Section VI E, Proposition 13 and Corollary 14 compute fixed-parameter ballistic group velocities for commuting Kraus systems; they do not state the triangular probability sequence law.",
+        "No equivalent Gaussian–Konno finite positive crossover with the stated channel appeared in the returned mathematical-record matches."
+      ],
+      "reasoning": "Random spatial translation commutes with the coined walk; this yields an exact binomial count of coherent steps. That is the relevant equivalence, distinct from coin dephasing or measurement-restarter models. Generic fixed-probability velocity limit theorems can cover the fixed-p consequence, which is not claimed as the original core. They do not establish the simultaneous t-dependent q_t~lambda/sqrt(t) regime with a Gaussian plus non-Gaussian Konno term.",
+      "searches": [
+        "Discrete-time quantum stochastic walk Štefaňák Potoček Yalçınkaya Gabris Jex unmonitored positions classical random translation time change binomial mixture quantum walk",
+        "Random unitary quantum walk commuting spatial shifts exact binomial decomposition of position and crossover limit distribution fourth cumulant",
+        "Quantum walk binomial quantum steps classical shifts non Gaussian critical window lambda Konno",
+        "\"Gaussian\" \"Konno\" convolution limit quantum walk",
+        "\"quantum walk\" \"Gaussian\" \"Konno\" \"convolution\"",
+        "arxiv:2501.08674",
+        "arxiv:1009.2019"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical-record results concerned classical spider-walk mixing, elephant-walk cover times, and Bernoulli testing, not this two-state quantum channel or its limiting distribution; their published source identifiers and titles are recorded in the private overlap comparison.",
+        "The finite-time identity is for arbitrary time, p, and interior theta; it is not a numerical entry in a finite small-system dataset."
+      ],
+      "reasoning": "The identified numerical and analytical database records concern different objects. No exact table of this probability-dependent continuous family was found; unsuccessful retrieval does not prove uniqueness or priority.",
+      "searches": [
+        "Discrete-time quantum stochastic walk Štefaňák Potoček Yalçınkaya Gabris Jex unmonitored positions classical random translation time change binomial mixture quantum walk",
+        "Konno Gaussian convolution critical scaling quantum stochastic walk p 1 minus lambda over square root time independent coin unbiased random steps",
+        "2025 recurrence discrete-time quantum stochastic walks unmonitored crossover phase transition Gaussian Konno position variance",
+        "\"quantum stochastic\" \"Konno\" \"Gaussian\" walks crossover",
+        "\"random shifts\" \"quantum walk\" \"Konno\" normal distribution"
+      ]
+    },
+    "rationale": "The claim is the exact unmonitored spatial-translation mixture and its singular q_t=sqrt-time critical convolution, not the known coherent Konno density or fixed-p weighted ballistic group velocities. Primary full-text checks establish distinct observables, noise channels or only constant-parameter theorems. The four comparison dimensions below record explicit mathematical nonimplication and the genuine risk that this relatively elementary commutation derivation may exist implicitly in earlier work.",
+    "residual_risks": [
+      "An earlier implicit binomial time-change argument may subsume the singular Gaussian–Konno window despite no matching explicit theorem found.",
+      "The exact source model together with classical convolution and Konno limit makes the proof accessible; priority needs independent expert literature assessment.",
+      "The foundational Konno source was accessed as record/abstract, not represented as a full-text noncoverage inspection.",
+      "The scaling exponent one-half for a different kind of quantum-walk noise has been published (Ellinas et al.); only the channel-specific exact critical law and cumulant are assessed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the present channel and studies monitored return/recurrence; does not identify the unmonitored critical-window distribution. Its channel is prior work, not a new contribution.",
+        "evidence": [
+          "Eq. (10) coin-independent translations and U; Eq. (15) monitored projection distinguishes first return from the unmonitored final position."
+        ],
+        "identifier_or_url": "arxiv:2501.08674 / https://quantum-journal.org/papers/q-2026-01-22-1982/pdf/",
+        "material_read": "Full 17-page PDF: abstract/introduction, Section 2 equations (1)–(11), Section 3 return-monitoring definitions and formulas (12)–(35), model conclusions, Appendix C numerical resolvent construction.",
+        "method": "Read primary open-access PDF with equations, hypotheses and pages inspected.",
+        "title": "Recurrence in discrete-time quantum stochastic walks",
+        "trigger": "Exact three-Kraus channel and most direct prior experiment"
+      },
+      {
+        "assessment": "No same-channel implication: the measurements and block restarts remove rather than preserve the long coherent segment generated by commuting spatial shifts.",
+        "evidence": [
+          "Theorem 1 uses independent restarted quantum blocks and the scaling parameter built from squared block lengths; Eq. (8) endpoints are Gaussian or pure Konno."
+        ],
+        "identifier_or_url": "https://www.rintonpress.com/xxqic11/qic-11-910/0741-0760.pdf",
+        "material_read": "20-page primary PDF, model setup, Section 3.1 measurement/restart definition, Theorem 1 and Corollary 1 on pages 5–6, discussion of Gaussian and Konno endpoints.",
+        "method": "Read publisher-hosted full PDF and inspected Theorem 1 with its assumptions.",
+        "title": "Crossovers induced by discrete-time quantum walks",
+        "trigger": "Plausible general earlier Gaussian/quantum crossover law"
+      },
+      {
+        "assessment": "Different open-quantum-walk construction: a finite-width stripe in a two-dimensional lift with Gaussian side peaks; not coin-independent random global translations.",
+        "evidence": [
+          "Theorem 5.1 fixes stripe s=-1,t=0 and yields separate normal central and ballistic modes."
+        ],
+        "identifier_or_url": "arxiv:2007.00940",
+        "material_read": "Full 30-page primary PDF: introduction and stripe model sections, Theorem 5.1 on page 13, Section 7 discussion.",
+        "method": "Read arXiv full PDF with theorem statements and model parameters.",
+        "title": "A crossover between open quantum random walks to quantum walks",
+        "trigger": "Broadly titled crossover limit theorem potentially subsuming claim"
+      },
+      {
+        "assessment": "Fixed-parameter ballistic component is in the scope of Corollary 14 and is not claimed novel. The critical double limit with q_t sqrt(t) finite and Gaussian–Konno convolution is not a stated consequence with uniform hypotheses.",
+        "evidence": [
+          "Proposition 13 and Corollary 14 (pp 31–33), Assumption 2 (p 14)."
+        ],
+        "identifier_or_url": "arxiv:1009.2019",
+        "material_read": "Full 34-page primary PDF: general setup, Section V D simplicity assumption, Section VI E Proposition 13 and Corollary 14, explicit fixed-parameter weighted group-velocity formula.",
+        "method": "Read arXiv full PDF, including the closest applicable propositions.",
+        "title": "Asymptotic evolution of quantum walks with random coin",
+        "trigger": "Potentially dominating general random-unitary and commuting-Kraus limit results"
+      },
+      {
+        "assessment": "Established Konno pure-walk distribution and symmetry condition; not evidence that no earlier noisy crossover exists.",
+        "evidence": [
+          "Abstract explicitly mentions moments and new one-dimensional quantum-walk limit theorems; first public 2002-06-10."
+        ],
+        "identifier_or_url": "arxiv:quant-ph/0206053",
+        "material_read": "Public arXiv full abstract and submission metadata; coherent density was independently reconstructed from the Fourier symbol in the new proof.",
+        "method": "Read arXiv record, and use source to credit the established pure limit, not to assert full-document noncoverage.",
+        "title": "Quantum random walks in one dimension",
+        "trigger": "Known foundational one-dimensional pure-walk limit"
+      },
+      {
+        "assessment": "Coin reshuffling noise drives the crossover, unlike coin-independent spatial translation; a similar scaling exponent is known in a distinct channel.",
+        "evidence": [
+          "Eq. (2): coin reshuffling U(s) with random parameter epsilon; Eq. (3): stochastic averaging over the resulting coin-dependent unitaries."
+        ],
+        "identifier_or_url": "arxiv:1207.5257",
+        "material_read": "Full seven-page primary PDF, model Eqs (1)–(3), moment recursion and stated crossover mechanism.",
+        "method": "Read arXiv open-access full PDF, checking exactly which operator is randomized.",
+        "title": "Discrete Randomness in Discrete Time Quantum Walk: Study via Stochastic Averaging",
+        "trigger": "Closest known squared-noise times time crossover scale"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10e68f1c-4537-4a07-b9fa-e71064df92c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural, physically observable boundary between classical diffusion and residual coherent ballistic spreading is singular as the classical-step probability tends to one. The theorem quantifies that boundary at coherent-step probability proportional to inverse square-root observation time, identifies its entire one-parameter non-Gaussian density family and a strictly negative cumulant diagnostic, and provides an exact finite-time simulation reduction. The result is not merely a renaming of the already known Konno distribution or a fixed-p variance: it classifies a previously unaddressed singular regime of a published quantum stochastic channel. It does not claim a new quantum algorithm, finite-time local limit, or monitored-return law.",
+    "status": "PASS"
+  }
+}
