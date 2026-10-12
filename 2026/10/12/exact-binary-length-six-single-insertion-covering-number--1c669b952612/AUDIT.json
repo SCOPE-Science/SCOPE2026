@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For the exact 64-center, 128-target incidence system, directly checking each target verifies the 20-word witness. The 19-center infeasibility uses an exhaustive target-branching recursion. At every node a valid cover must select one of all centers containing the uncovered target, so every possible extension is explored; two coverage upper bounds safely prune. A compiled C++17 exact bitset replay exhausts 81,671 nodes with no 19-cover. Independent scipy MILP gives optimum 20; proof does not depend on solver logs or floating point. Boundary fixed to binary center length 6, one insertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie--Sun--Ge (2026) prove general insertion bounds (their introduction Eq. 4) and pose exact asymptotics as open (Section VII).",
+        "Lenz et al. (2020/2021) give general sphere-covering estimates and asymptotic constructions (Table I).",
+        "Pikhurko et al. (2025) address asymptotic density and different small exact cases."
+      ],
+      "reasoning": "General existence/bounds do not entail equality 20 at this finite binary parameter; none of these inspected theorems furnishes the 19-center impossibility.",
+      "searches": [
+        "https://arxiv.org/pdf/2606.15379.pdf",
+        "https://arxiv.org/pdf/1911.09944",
+        "https://arxiv.org/pdf/2409.06425",
+        "\"binary\" \"insertion covering\" \"length six\" exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379v1, pp.1-3 and conclusion",
+      "arXiv:1911.09944, introductory and Table I sections",
+      "arXiv:2409.06425, Example 2 and bounds",
+      "Grozea combinatorial data page",
+      "published semantic search: query exact optimal binary single insertion covering code length six I(2,6,1)=20 set cover and minimum covering single insertion code length 6 alphabet 2 20 codewords and insertion covering code S(2,7,6) 20"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The radius-one binary insertion ball has eight outcomes here, giving the volume lower bound 16, not 20.",
+        "No inspected source supplies an exact finite matching lower bound of 20 or the modular 20-center construction."
+      ],
+      "reasoning": "The present exact equality strictly sharpens the elementary 16-center lower bound at a fixed parameter and is not implied by asymptotic statements or special cases with different parameters.",
+      "searches": [
+        "arXiv:2606.15379 introduction and conclusion",
+        "arXiv:2409.06425 Example 2 and main theorem",
+        "arXiv:1911.09944 Table I",
+        "insertion covering code S(2,7,6) 20"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pikhurko et al. define S(q,n+1,n); their notation turns the same statement into S(2,7,6)=20 (arXiv:2409.06425, p.1).",
+        "Lenz et al. define radius-one insertion covering through ordered subsequences (arXiv:1911.09944, p.1)."
+      ],
+      "reasoning": "Both notations have the same alphabet and length dimensions; both were searched. The published exact example S(3,4,3)=12 is different in alphabet and center length.",
+      "searches": [
+        "exact optimal binary single insertion covering code length six I(2,6,1)=20 set cover",
+        "insertion covering code S(2,7,6) 20",
+        "\"covering single-insertion code\" \"binary\" \"optimal\" length 6",
+        "https://arxiv.org/pdf/2409.06425"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Grozea lists exact minimal codes with three-symbol centers over alphabets of sizes two through five, not the six-bit binary centers here.",
+        "No inspected indexed table provides S(2,7,6)."
+      ],
+      "reasoning": "The only directly accessible specialized finite table uses different center length; unsuccessful searches cannot exclude other unpublished or unindexed tables.",
+      "searches": [
+        "https://www.brainsignals.de/users/cristian.grozea/combinatorial.html",
+        "exact optimal binary single insertion covering code length six I(2,6,1)=20 set cover",
+        "minimum covering single insertion code length 6 alphabet 2 20 codewords",
+        "\"I(2,6,1)\" \"20\" covering"
+      ]
+    },
+    "rationale": "Searched equivalent numerical descriptions I(2,6,1)=20 and S(2,7,6)=20, whole-sentence formulations, recent and classical primary literature, Grozea finite tables, and the published semantic database. Closest results address general bounds and a different exact parameter, not the 20-word optimum. A historical unindexed exact table remains a residual risk; absence of a hit is not uniqueness proof.",
+    "residual_risks": [
+      "Older finite enumeration of binary supersequence-covering sets may be unindexed; no assertion of absolute priority or global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state exact I(2,6,1); lower bound is general and nonsharp at this parameter.",
+        "evidence": [
+          "pp.1-3 definition and new bound; p.13 conclusion on exact insertion covering gap."
+        ],
+        "identifier_or_url": "arXiv:2606.15379v1; https://arxiv.org/pdf/2606.15379.pdf",
+        "material_read": "Title, abstract, introduction and main contribution summary, insertion bound statement, conclusion and open problems; 14-page primary PDF accessible.",
+        "method": "Read primary PDF text and inspected relevant rendered pages.",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "June 2026 recent first-public insertion-covering source; direct mathematical setting"
+      },
+      {
+        "assessment": "General estimates and constructions; no stated exact six-bit binary optimum.",
+        "evidence": [
+          "pp.1-3 and Table I give general ball-size and covering bounds."
+        ],
+        "identifier_or_url": "arXiv:1911.09944; https://arxiv.org/pdf/1911.09944",
+        "material_read": "Full-text primary PDF available; introduction, Table I, stated results and conclusion examined.",
+        "method": "Primary PDF text, rendered table page.",
+        "title": "Covering Codes using Insertions or Deletions",
+        "trigger": "Foundational precise insertion-covering definition and bounds"
+      },
+      {
+        "assessment": "Studies S(q,n+1,n) density; exact cited Grozea example concerns different q/length.",
+        "evidence": [
+          "p.1 Example 2 S(3,4,3)=12; concluding main estimates."
+        ],
+        "identifier_or_url": "arXiv:2409.06425; https://arxiv.org/pdf/2409.06425",
+        "material_read": "Primary full text accessible; introductory exact example, main theorem, asymptotic-density section and references examined.",
+        "method": "Primary PDF text, exact-example and reference comparisons.",
+        "title": "New Bounds for the Optimal Density of Covering Single-Insertion Codes via the Turán Density",
+        "trigger": "Potential exact small parameter tables and equivalent notation"
+      },
+      {
+        "assessment": "Lists three-symbol center results for alphabet cardinalities two to five, not S(2,7,6).",
+        "evidence": [
+          "Table introduction and q=2..5 entries."
+        ],
+        "identifier_or_url": "https://www.brainsignals.de/users/cristian.grozea/combinatorial.html",
+        "material_read": "Entire short public HTML table.",
+        "method": "Read complete 12-line public table.",
+        "title": "Combinatorial Data",
+        "trigger": "Exact finite small-alphabet insertion-covering source cited by Pikhurko et al."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c669b95-2612-4132-b33f-c8dcf850e171",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact size for a natural length-six binary insertion-covering problem, at a first nontrivial finite scale with 64 centers and 128 requirements; naive sphere bound 16 is insufficient. A concrete near-modular optimum and complete finite obstruction replace an interval of possibilities. The fact is motivated by synchronization-error covering and provides an exact fixed-length calibration rather than a cosmetic parameter or downstream theorem claim.",
+    "status": "PASS"
+  }
+}
