@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For \\(n<b^{K-r}\\), a \\(K\\)-digit padded representation starts with at least \\(r\\) zeros, so every occurrence of a pattern containing a nonzero digit lies within it. Complementing \\(K\\) digits maps integer \\(n\\) to \\(b^K-1-n\\) and bijects interior occurrences. Outside the complemented word, only one boundary-crossing zero-prefix/maximum-digit-suffix occurrence can arise; it is the constant \\(\\chi(\\bar v)\\), independent of n. Reversing any length-\\(L\\) arithmetic progression about \\(b^K-1\\) at a sufficiently large \\(K\\) preserves its positive difference and uniformly translates colors, so sets of monochromatic lengths include each other after exchanging patterns. Finite or infinite suprema therefore agree. Standalone diagnostic code from the package passed 158464 integer identities and 142800 finite progression-transfer cases; proof does not rely on finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aedo et al. arXiv:2302.12908, Abstract and central theorems: polynomial progression growth for bijective/spin substitutions.",
+        "Joshi--Rust arXiv:2501.05830: Fibonacci, Thue--Morse, Rudin--Shapiro progression behavior.",
+        "Sobolewski arXiv:2204.05287, §6 Problem 10 asks for changing base and modulus."
+      ],
+      "reasoning": "Progression existence or upper/lower growth estimates for particular automatic systems do not yield an all-pattern, all-base, all-modulus correspondence. Any stronger general factor-language isomorphism would dominate this claim, but none appears in the inspected primary sources.",
+      "searches": [
+        "arithmetic progressions pattern counting sequence base b digit complement reversal duality monochromatic traces",
+        "number of overlapping pattern occurrences in base b reflected at b^K-1-N with boundary constant arbitrary modulus",
+        "web: \"pattern sequences\" \"complementary patterns\" arithmetic progressions 2025"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.05287 (first publicly posted 2022-04-11)",
+      "https://arxiv.org/html/2204.05287v2 (source Problem 4, §6)",
+      "https://arxiv.org/abs/2302.12908",
+      "https://arxiv.org/html/2302.12908v1",
+      "https://arxiv.org/html/2501.05830v2",
+      "https://doi.org/10.1016/j.tcs.2024.114815 (published counterpart of arXiv:2204.05287)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2204.05287, §1 gives definitions A_v(n,d), A_v(d), §5 general bounds, §6 Problem 4 unanswered hypothesis.",
+        "arXiv:2302.12908 bounds growth of progression maxima along subsequences of differences, not equality of complementary pattern sequences.",
+        "The known Rudin--Shapiro length-five progression-trace classification addresses a single fixed pattern; it does not imply the universal complementary-pattern reflection theorem."
+      ],
+      "reasoning": "A numerical bound for one A_v(d) cannot imply equality with A_{bar v}(d) without a transport argument; fixed-sequence results are strict special cases, so they do not subsume this universal statement.",
+      "searches": [
+        "monochromatic arithmetic progression of fixed difference d for complement binary patterns v and bitwise complemented v equality A_v(d) A_bar_v(d)",
+        "Sobolewski Problem 4 complementary binary pattern sequences equality maximal monochromatic arithmetic progression length every difference proved"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sobolewski arXiv:2204.05287, §6 Problem 4 explicitly asks for complement equality and conjectures it for mixed patterns.",
+        "Digital complement/reflection is not identified with all-pattern progression equivalence in the inspected published statements."
+      ],
+      "reasoning": "The reflection identity e_{bar v}(b^K-1-n)=e_v(n)+constant would imply this result. None of the inspected results asserts that identity, the associated finite progression-language inclusion, or an equivalent factor-language conjugacy.",
+      "searches": [
+        "Sobolewski Problem 4 complementary binary pattern sequences equality maximal monochromatic arithmetic progression length every difference proved",
+        "digitwise complement involution base b reflected factors arithmetic progression patterns counts residue reverse languages",
+        "web: \"A_v(d)\" \"bar v\" Sobolewski",
+        "web: \"monochromatic arithmetic progressions\" \"complement\" \"pattern\" \"duality\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sobolewski arXiv:2204.05287, §6 Problem 4 reports exploratory checks restricted to pattern length at most 3.",
+        "The paper describes computations for individual progression maxima but no table of all-length complement equivalences."
+      ],
+      "reasoning": "The theorem is an infinite parameter statement, not merely an unlisted row in a finite table. The previously reported small-pattern data do not certify it.",
+      "searches": [
+        "Sobolewski 2022 Problem 4 describe differences A_v(d)=A_complement(v)(d) all mixed v",
+        "web: \"monochromatic arithmetic progressions\" \"complementary\" \"patterns\" proof"
+      ]
+    },
+    "rationale": "The primary 2022 full text explicitly poses the complement-equality problem as Problem 4 and proposes precisely the mixed-binary-pattern all-differences equality; its theorems give bounds, not the all-pattern reflection identity. The present finite-trace transport is stronger, includes arbitrary bases and moduli, and is not implied by the inspected group-structured automatic-sequence progression estimates or the named-sequence results. No inspected published statement provides the all-pattern reflection identity or its fixed-difference consequence. An unindexed equivalent digital-reflection argument is a residual priority risk.",
+    "residual_risks": [
+      "An earlier treatment may phrase the result as a reflection identity for digit-pattern factors, without referring to arithmetic progressions or the conjecture.",
+      "Semantic-index coverage and manually inspected primary literature cannot establish global novelty, and independent priority audit remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_OPEN_PROBLEM_NOT_COVERING",
+        "evidence": "Section 6, Problem 4 proposes equality for all differences and mixed binary patterns on the basis of length<=3 experiments; Sections 1 and 5 furnish bounds, not the universal equivalence. Earliest public arXiv v1 date 2022-04-11.",
+        "identifier_or_url": "https://arxiv.org/html/2204.05287v2",
+        "material_read": "Sections 1 (definitions and Theorems 1.4--1.7), 5 (general patterns), 6 (especially Problem 4 and Problem 10), and 7 (finite computation method).",
+        "method": "Original arXiv full-text HTML, including the problem statements and relevant theorem hypotheses.",
+        "title": "On monochromatic arithmetic progressions in binary words associated with pattern sequences",
+        "trigger": "Directly poses the identical binary complement-equality problem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Results bound asymptotic maxima for specific substitution classes and subsequences of differences, but no universal complementary-digit-pattern trace identity is stated.",
+        "identifier_or_url": "https://arxiv.org/html/2302.12908v1",
+        "material_read": "Introduction, statements of central polynomial growth estimates, and sections on bijective and spin substitutions.",
+        "method": "Primary arXiv HTML text inspection, definitions and theorem hypotheses.",
+        "title": "Monochromatic arithmetic progressions in automatic sequences with group structure",
+        "trigger": "Potentially dominating automatic-word progression theory."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Named-word and Walnut-based progression claims have no arbitrary-pattern, arbitrary-base complement involution.",
+        "identifier_or_url": "https://arxiv.org/html/2501.05830v2",
+        "material_read": "Introduction and main results for named words, with sections addressing Rudin--Shapiro progressions.",
+        "method": "Primary arXiv HTML full-text reading of directly relevant sections.",
+        "title": "Monochromatic arithmetic progressions in the Fibonacci, Thue-Morse, and Rudin-Shapiro words",
+        "trigger": "Recent treatments of arithmetic progression traces of digital automatic sequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8e046b7-32a0-4f5a-a0be-f497b4df0362",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sobolewski (arXiv:2204.05287, §6 Problem 4) explicitly asks to characterize d for complementary-pattern equality and conjectures the all-difference answer for binary non-extreme patterns, supported only by small experiments. This theorem proves that complete conjectured class across all pattern lengths and differences, and extends it in a single structural statement to any base and modulus, answering a concrete aspect of Problem 10. A finite-trace reversal law provides the motivated mechanism and strengthens mere numerical equality; this is a natural mathematical gap, not an arbitrary sample or known-table recomputation.",
+    "status": "PASS"
+  }
+}
