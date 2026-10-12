@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The product rule reconstructs the correct half-gradient drift F_j-(1/2)partial_j D_j and c=div(F-(1/2)partial D) from printed Equation (6). The source uses the full variance gradient in Equation (8), creating the exact operator difference -1/2 sum partial_j[(partial_j D_j)f]. The source Section 5 variance is D1=D2=1/50(1-alpha)^2 S^2 I^2, producing exact altered drift shifts -1/50(1-alpha)^2 S I^2 and -1/50(1-alpha)^2 S^2 I. The weak integral of Equation (8) has full b_j partial_j f, unlike the half b_j printed in Equation (9); the constant-diffusion, constant-drift witness isolates this discrepancy without any variance derivatives. Both algebraic identities are reproduced by the bundled symbolic checker from its included package path. No global numerical or implementation claim is required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Annunziato–Borzì 2018 gives the general Itô Fokker–Planck product-derivative forward equation.",
+        "Bonicatto–Ciampa–Crippa 2025 uses the full state-dependent diffusion product in its weak-solution framework.",
+        "The claimed novelty is not a new product rule or general FPE but the mismatch between printed formulas and specific induced epidemic drift."
+      ],
+      "reasoning": "Existing general FPE results imply the correct rewrite by elementary algebra; they do not make the source-specific identification or the epidemic-moment drift correction routine in context. This limits originality to diagnosis of a consequential recent model, not a new PDE theorem.",
+      "searches": [
+        "Web: Fokker Planck forward equation weak formulation state dependent diffusion derivative drift Itô 2024",
+        "Web: Fokker Planck diffusion divergence form sigma squared effective drift half derivative 2025",
+        "Annunziato Borzi 2018 Fokker Planck control framework stochastic systems DOI 10.4171/EMSS/27",
+        "Bonicatto Ciampa Crippa 2025 Fokker Planck weak solutions doi 10.1016/j.na.2025.113748"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.20181",
+      "arxiv:2601.20181v3",
+      "doi:10.1007/s00285-026-02462-7",
+      "doi:10.4171/EMSS/27",
+      "doi:10.1016/j.na.2025.113748"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior claims on the same source identify independent-versus-common noise covariance differences and an SQH projected minimizer mismatch, not the forward-equation divergence/weak discrepancies.",
+        "The present proof uses only product differentiation of printed (6), (8), (9) and the source Section 5 variances; covariance rank comparison or Hamiltonian minimizer calculation does not imply it."
+      ],
+      "reasoning": "This result diagnoses a different mapping (strong forward PDE to divergence/weak PDE), logically distinct from the noise covariance or optimization step. Neither prior claim contains, or logically implies, the half-variance-gradient drift bias or half-transport weak residual.",
+      "searches": [
+        "Prior published-claim identifiers: fac7156c-587b-474e-baf8-59290d8633f3; 41bbc097-8013-4c3e-8f9c-8dc2c65ef5d7; 2316e46c-ece1-4206-99fb-a1c894b7e1a2",
+        "Published-finding index: Fokker Planck control of epidemics drift control labeling eta v equation 4 typo",
+        "Web: \"A Fokker-Planck framework for control of epidemics\" \"Equation (8)\" \"c\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Publisher full PDF and arXiv v3 Section 2 Equations (6)–(9) reproduce the same mismatch.",
+        "No matching result in source-specific and formula-specific Published-finding index searches; close returned IDs concern unrelated stochastic solver biases.",
+        "The closest source-specific prior previously recorded claims concern different covariance/method components."
+      ],
+      "reasoning": "An equivalent claim would show that printed (8)/(9) change the generator of (6), or identify its exact variance-gradient and half-advection errors. Textual overlap with general forward Kolmogorov theory does not establish that source-specific comparison, and no checked result implies both differences.",
+      "searches": [
+        "Published-finding index: 10.1007/s00285-026-02462-7 incorrect Fokker Planck weak form drift half variance derivative",
+        "Published-finding index: Parkinson Roy 2026 Fokker Planck epidemic Equation 8 9 weak formulation b_j c derivative sigma squared correction",
+        "Web: \"Parkinson\" \"Roy\" \"Fokker-Planck\" \"epidemics\" \"weak\" correction 2026",
+        "Prior published-claim source comparison: 10.1007/s00285-026-02462-7; Parkinson; weak formulation; variance derivative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned `2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b` studies numerical Langevin stationary covariance, not this FPE source.",
+        "Closest returned `2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab` studies positivity of a rational time-step kernel, not Fokker–Planck weak equivalence.",
+        "Previously checked finding records includes no result on this source Equations (8)–(9)."
+      ],
+      "reasoning": "No claim-specific indexed database hit was found; this is supporting evidence, not proof of global uniqueness. No table/database lookup supersedes the inspected primary source equations.",
+      "searches": [
+        "Published-finding index: 10.1007/s00285-026-02462-7 incorrect Fokker Planck weak form drift half variance derivative",
+        "Published-finding index: Fokker Planck divergence form b = F - derivative diffusivity c=div b missing half second derivative",
+        "Published-finding index: epidemic Fokker Planck weak formulation half advection discrepancy Equation 9 Parkinson Roy"
+      ]
+    },
+    "rationale": "The exact published 2026 paper and its accessible preprint both state the mismatched formulas without their drift-generator equivalence defect. General Fokker–Planck textbooks/primary research already give the correct form; that known identity is not claimed new. The new source-specific finding identifies two independent printed operator substitutions, derives the exact modified Itô drift for the source simulations, and isolates the weak-form discrepancy even for constant diffusion. Published-finding index indexed searches of DOI, source title, altered drift, half-advection and variance-gradient aliases found no equivalent claim. Existing related published-claim items concern covariance rank and Hamiltonian minimizer, neither implies these forward-equation defects.",
+    "residual_risks": [
+      "Standard Fokker–Planck generator transformations are established prior mathematics; scientific originality is limited to the exact printed-paper diagnosis and its epidemiological consequence.",
+      "The journal states that its forward solver uses Chang–Cooper discretization but provides no independently inspected implementation path proving it used the defective Equation (8); numerical conclusions are not challenged.",
+      "A correction notice not retrieved by these searches might already address the source equations.",
+      "The weak-form constant-coefficient witness uses an interior local solution and compactly supported tests rather than a global density with no-flux boundary.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_SOURCE_CONFIRMS_BOTH_OPERATOR_MISMATCHES. Forward Equation (6) and flux (7) are standard; Equations (8) and (9) have the stated coefficient differences.",
+        "evidence": "Section 2 explicitly defines b_j=F_j-partial_j sigma_j^2 and c=div b in (8), while (9) contains (1/2)*b_j*partial_j f*phi. Section 5 fixes sigma_j^2=0.02(1-alpha)^2S^2I^2, nonconstant in each own coordinate.",
+        "identifier_or_url": "doi:10.1007/s00285-026-02462-7",
+        "material_read": "Full open-access journal text: Section 2 Equations (1)–(12) including strong FPE (6), flux (7), divergence (8), weak form (9), Proposition 2.1; Section 3 Theorem 3.1 and control-to-state argument invoking (9); Sections 4–5 forward solver description and sigma_S=-sigma_I=sqrt(0.02)(1-alpha)SI; Appendix pp. 26–28 forward-operator identities.",
+        "method": "Publisher full HTML, publisher PDF, direct rendered PDF page 6 of 30, and equation-by-equation symbolic comparison.",
+        "title": "A Fokker-Planck framework for control of epidemics (journal full text)",
+        "trigger": "Exact source of the alleged equivalences, state-dependent simulation variance and control-to-state weak-solution argument."
+      },
+      {
+        "assessment": "MATCHES_JOURNAL_DEFECT. The accessible v3 repeats both the full diffusion-variance gradient and the one-half coefficient in the printed weak transport term.",
+        "evidence": "arXiv PDF states b_j=F_j-partial_j sigma_j^2, c=div b, and the weak integral uses 1/2 sum b_j partial_j f phi; arXiv history verifies original public date.",
+        "identifier_or_url": "arxiv:2601.20181v3",
+        "material_read": "arXiv version history and PDF: Section 2 Equations (6)–(9) and accompanying coefficients; Sections 3–5 source claim layout and solver context.",
+        "method": "Primary arXiv version history (v1 dated 28 Jan 2026) and primary accessible v3 PDF text, including full local passage on PDF pages 4–5.",
+        "title": "A Fokker-Planck Framework for Control of Epidemics (arXiv v3)",
+        "trigger": "Earliest-public-source provenance and independent primary-version comparison to exclude journal-only transcription errors."
+      },
+      {
+        "assessment": "BROADER_THEORY_CONTEXT, not evidence for source-specific noncoverage outside material inspected.",
+        "evidence": "The general Itô forward equation differentiates the full product of diffusion tensor and density; this is the exact starting point printed correctly as Equation (6) in the motivating article.",
+        "identifier_or_url": "doi:10.4171/EMSS/27",
+        "material_read": "Publisher abstract and accessible author full-text excerpt covering the multidimensional Itô model and the associated second-derivative-on-diffusion-times-density forward equation.",
+        "method": "Publisher bibliographic/abstract page and author text excerpt.",
+        "title": "A Fokker–Planck control framework for stochastic systems",
+        "trigger": "General primary Fokker–Planck control framework cited by the motivating article."
+      },
+      {
+        "assessment": "BROADER_FORWARD_EQUATION_CONTEXT; contains standard conservative operator, no inspected statement targeting Parkinson–Roy.",
+        "evidence": "The introduction writes the Itô Fokker–Planck equation with the full second derivative of the product a_ij u; confirms the correct left-side operator algebra.",
+        "identifier_or_url": "doi:10.1016/j.na.2025.113748",
+        "material_read": "Open-access publisher abstract and introduction including its distributional equation (1.1) and discussion of weak solutions; arXiv bibliographic record.",
+        "method": "Open-access primary publisher full-text introduction plus arXiv record.",
+        "title": "A regularity result for the Fokker–Planck equation with non-smooth drift and diffusion",
+        "trigger": "Closest primary mathematical reference on general variable-diffusion weak forward equations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ee6736d-03c7-46af-9873-59288a1ae3d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source claims to optimize the probability distribution of controlled epidemic states and explicitly bases its control-to-state existence proof on the weak problem introduced through Equations (8)–(9). The mismatch is not a cosmetic sign: for exactly its Section 5 multiplicative incidence diffusion, Equation (8) corresponds to extra negative drift in both susceptible and infected coordinates, with an explicit nonzero infinitesimal mean error -0.02(1-alpha)^2SI(S+I). Equation (9) is separately inequivalent even with constant diffusion. This distinguishes which controlled probability law is being optimized and identifies the corrected conservation form and weak formulation needed to connect mathematical analysis to the stated stochastic model. No claim is made that the undisclosed numerical solver is wrong.",
+    "status": "PASS"
+  }
+}
