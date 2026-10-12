@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Every rational canonical primary summand is accounted for. The Hom dimension d_f min(s,t) gives D; endomorphism ring modulo Jacobson radical is a product of M_m(F_{q^d}), with radical of dimension r, and each unit tuple has q^r lifts. On each f^s filtration a diagonal endomorphism has s identical residual F_{q^d}-linear traces; off-diagonal maps contribute none. The matrix Gauss sum equals (-1)^m Q^{m(m-1)/2}, proved directly via subspace-lattice Möbius inversion. Fourier inversion yields T_A(0) and T_A(b) for all b, with every p|s boundary handled. The bundled checker independently exhausts all commuting units for 45 selected q=2,3,4,5 examples, including f of degrees 2 and 3 and unequal block lengths, and ends VERIFY_OK; such tests do not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Britnell–Wildon 1001.0811 Theorem 3.1 studies which determinants occur and Proposition 3.5 counts composition-factor multiplicities, not trace counts",
+        "Mingueza–Montoro–Roca 1909.06198 §§4–6 and Theorem 6.1 describe centralizer blocks, determinant and dimension over arbitrary fields, but no trace-fiber enumeration",
+        "Li–Hu 1105.4513 Theorem 3.1 is restricted to scalar A"
+      ],
+      "reasoning": "Arbitrary-field centralizer classifications are structurally broad but do not by themselves determine the distribution of matrix traces over invertible centralizer elements; the character-sum step is essential. The older full-GL theorem is a proper special case.",
+      "searches": [
+        "arxiv:1001.0811 §§2–3, Theorem 3.1 and Proposition 3.5",
+        "arxiv:1909.06198 centralizer arbitrary field structure",
+        "published-finding corpus: centralizer GL_n(q) nilpotent conjugacy type prescribed trace distribution characteristic dividing Jordan block sizes",
+        "Web: matrix centralizer unit group trace nonzero fibers finite field Jordan primary"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1001.0811: §§1–3 fully read in HTML, specifically Proposition 3.5 and §3.2 determinant range",
+      "arxiv:1105.4513: full PDF accessible, Theorems 2.1 and 3.1 and surrounding derivations materially examined",
+      "arxiv:1909.06198: 24-page open-access PDF materially examined in §§4 and 6; centralizer structure, determinant and dimension only",
+      "SageMath finite field similarity class types API: unit centralizer order and dimension documentation",
+      "published-finding corpus published semantic search: four parameter/alias and matrix Gauss-sum queries, closest records compared by implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.5 in Britnell–Wildon concerns how often each simple centralizer module appears, and its determinant application is the product over part lengths",
+        "Li–Hu Theorem 2.1 evaluates GL_m additive sums, while their Theorem 3.1 treats whole GL_n; no arbitrary commutant C(A) appears",
+        "The new proof determines the radical-fiber cardinality q^r and the precisely weighted finite-field trace factors s Tr_{q^d/q} of each reduction coordinate before multiplying GL_m Gauss sums"
+      ],
+      "reasoning": "The proof openly uses published structural and Gauss-sum ingredients; it is not a new centralizer order formula, determinant classification, nor a claim that the scalar-A case is new. Their individual theorems do not state or directly yield the global trace-fiber enumeration without identifying the trace character on all simple quotient factors and handling characteristic-divisible block lengths. The new claim is the closed two-level all-matrix distribution and its exact block-length bias.",
+      "searches": [
+        "Britnell–Wildon arxiv:1001.0811 Proposition 3.5, Proposition 3.6, Theorem 3.1",
+        "Li–Hu arxiv:1105.4513 Theorems 2.1 and 3.1",
+        "published-finding corpus: exact number of invertible matrices commuting with an arbitrary matrix A over a finite field F_q with prescribed trace, Jordan partition primary block sizes, centralizer group"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Britnell–Wildon 1001.0811 §3.1–3.2: simple centralizer modules and determinant formula, no trace-fiber census",
+        "Li–Hu 1105.4513 §3 Theorem 3.1: complete trace count only for full GL_n over a finite field",
+        "No matching published-finding corpus title/statement among returned centralizer and trace-search hits"
+      ],
+      "reasoning": "The equivalent statement is the additive-character Fourier transform of the trace on C(A)^×, not mere group order, determinant-image description, or dimension of C(A). The full-GL trace count covers exactly scalar A, not arbitrary centralizer groups; no retrieved record states the all-elementary-divisor formula.",
+      "searches": [
+        "published-finding corpus: exact number of invertible matrices commuting with an arbitrary matrix A over a finite field F_q with prescribed trace, Jordan partition primary block sizes, centralizer group",
+        "Web: \"trace distribution\" \"centralizer\" \"finite field\" matrix units",
+        "Web: \"trace\" \"centralizer algebra\" \"Gauss sum\" GL finite fields",
+        "arxiv:1001.0811 §§3.1–3.2",
+        "arxiv:1105.4513 §3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "SageMath finite-field similarity class type reference lists centralizer_algebra_dim and centralizer_group_cardinality but no trace-fiber invariant",
+        "Li–Hu 1105.4513 §3 supplies a known trace table/formula for unrestricted GL_n",
+        "published-finding corpus searches returned semisimple-commutant and matrix-factorization results, not an exact table for trace on invertible centralizers of arbitrary A"
+      ],
+      "reasoning": "The group-order G is classical and recorded in software; replacing group order by the trace distribution requires a second signed product B. A centralizer-cardinality table cannot imply separate T_A(0) and T_A(b≠0) without further structure.",
+      "searches": [
+        "published-finding corpus: trace zero invertible elements centralizer algebra endomorphism module finite field Jordan type Fourier Gauss sums",
+        "published-finding corpus: Gauss sums GL_m(F_q) trace nonzero finite field additive character orthogonality",
+        "SageMath similarity_class_type.centralizer_group_cardinality",
+        "Web: \"trace\" \"centralizer\" \"invertible\" \"finite field\" counting matrices"
+      ]
+    },
+    "rationale": "The complete arbitrary-similarity-type invertible-centralizer trace distribution, including the characteristic-divisible block-length bias B, is not stated in the materially read full texts or the retrieved published research findings. Li–Hu 2011 Theorem 3.1 already covers scalar A and is explicitly excluded from the novelty claim; Britnell–Wildon 2010 computes determinants and centralizer-module composition multiplicities but does not enumerate trace fibers. The classical centralizer group order and Gauss identity are credited as inputs. The structurally relevant 2019 arXiv:1909.06198 source was inspected in full open-access text, including its §§4–6, and no such trace-fiber result was found.",
+    "residual_risks": [
+      "A mathematically equivalent two-level trace enumeration may exist in unindexed or differently termed literature; database search alone is not uniqueness proof.",
+      "Britnell–Wildon structural decomposition and Li–Hu matrix-group Fourier evaluation are strong known ingredients; novelty is the explicit exact synthesis for arbitrary centralizer units, not either ingredient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRUCTURALLY_RELEVANT_NOT_SAME_CLAIM",
+        "evidence": "§3.1 Proposition 3.5 gives simple-module multiplicities equal to Jordan part length; §3.2 Theorem 3.1 gives determinant-image powers. No full distribution by additive trace on unit centralizers is stated.",
+        "identifier_or_url": "arxiv:1001.0811; https://ar5iv.labs.arxiv.org/html/1001.0811",
+        "material_read": "Full HTML: §1 rational canonical preliminaries, §2 structural classification, §3.1–3.2 centralizer-module simple factors, determinant proofs and worked examples",
+        "method": "Read full-text HTML sections and propositions, compared claimed determinant and simple-module statements with trace-fiber formula",
+        "title": "On types and classes of commuting matrices over finite fields",
+        "trigger": "Same finite-field matrix centralizers, class types and determinant output potentially stronger than the new formula"
+      },
+      {
+        "assessment": "KNOWN_SPECIAL_CASE_AND_GAUSS_FACTOR_ONLY",
+        "evidence": "Theorem 3.1 enumerates trace fibers of GL_n(F_q) without a commuting-with-A condition, exactly the scalar-A special case. Theorem 2.1 gives the matrix Fourier factor used in the new centralizer calculation.",
+        "identifier_or_url": "arxiv:1105.4513; https://arxiv.org/pdf/1105.4513",
+        "material_read": "Nine-page open-access PDF; especially §2 Theorem 2.1 on full general-linear-group Gauss sums and §3 Theorem 3.1 on prescribed trace of invertible matrices",
+        "method": "Inspected parsed pages and PDF page screenshots of §2 and §3; compared group domain and parameter",
+        "title": "Gauss sums over some matrix groups",
+        "trigger": "Potential preexisting exact trace-fiber census and group-character identity"
+      },
+      {
+        "assessment": "FULL_TEXT_STRUCTURALLY_RELEVANT_NOT_SAME_CLAIM",
+        "evidence": "§4 parametrizes general matrix centralizers; §6.1 derives the determinant from triangular Weyr blocks and §6.2 computes centralizer dimension. The full text contains no theorem about counting prescribed matrix trace within invertible centralizers.",
+        "identifier_or_url": "arxiv:1909.06198; https://arxiv.org/abs/1909.06198",
+        "material_read": "Full 24-page open-access PDF, with detailed reading of introduction, §4 matrix centralizers, §6 Theorem 6.1, §§6.1–6.2 determinant and dimension calculations",
+        "method": "Read the full arXiv PDF and a page screenshot of the explicit Weyr centralizer and §6.1 determinant formula; searched full extracted text for trace (no occurrence)",
+        "title": "The centralizer of an endomorphism over an arbitrary field",
+        "trigger": "Title plausibly dominates any new centralizer formula"
+      },
+      {
+        "assessment": "KNOWN_TOTAL_COUNT_NOT_TRACE_FIBERS",
+        "evidence": "Functions return centralizer dimension and total unit group cardinality; no prescribed-trace function is shown.",
+        "identifier_or_url": "https://www.sagemath.org/doc/reference/combinat/sage/combinat/similarity_class_type.html",
+        "material_read": "Relevant displayed reference for centralizer_algebra_dim and centralizer_group_cardinality",
+        "method": "Read documentation descriptions and examples",
+        "title": "Similarity class types of matrices with entries in a finite field",
+        "trigger": "Standard database for centralizer group cardinality and possible exact trace counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "400f7615-df35-4ac9-b0a2-b473b56dc7e7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is a natural centralizer-refined version of the classical full-GL prescribed-trace census and complements determinant-image studies for all finite-field similarity types. It supplies one exact product formula for every rational canonical type, detects a characteristic-dependent trace-blindness boundary (all block lengths divisible by p), and recovers all other trace fibers including cases where they vanish. This is a complete invariant and nontrivial Fourier/endomorphism-algebra synthesis, not an isolated small parameter calculation.",
+    "status": "PASS"
+  }
+}
