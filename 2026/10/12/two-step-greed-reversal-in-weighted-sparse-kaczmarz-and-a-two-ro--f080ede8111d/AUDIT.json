@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "The normalized inexact WRaSK recurrence matches the published Algorithm 1 with \\(x_0=y_0=0\\), \\(\\lambda=1/2\\). The three integer row vectors have squared lengths \\(2,5,2\\) and determinant \\(-3\\). The nine uniform two-step squared errors sum to \\(4193/100\\), giving \\(4193/900\\). The row sequence \\((2,1)\\) has exact squared error \\(971/200\\). For every real \\(p\\ge24\\) its probability strictly exceeds \\((100/101)(2048/2049)\\) and the resulting expected-error bound \\(994304/206949>4193/900\\) proves the reversal. The first-step weighted error strictly decreases because the best row has probability exceeding \\(1/3\\). For two arbitrary unit rows, \\(4(R_g-R_u)=(1+c^2)(u^2-v^2)+2(cu-v)^2\\ge0\\) whenever \\(|u|\\ge|v|\\) proves a universal non-reversal for unregularized projections, including ties and parallel rows. The exact-fraction verifier replays all critical probabilities, computations and 343 rational identity checks; the general identity, not the finite checks, establishes the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Steinerberger arXiv:2007.02910v3 Theorem 1 is an all-time upper bound with p-dependent contraction constant, not a cross-p ordering at a fixed k.",
+        "Zhang et al. arXiv:2306.06813v1 Theorem 1 controls expected Bregman error and expected Euclidean norm, not actual two-step Euclidean squared risk dominance.",
+        "Tsipory et al. arXiv:2510.19941 studies without-replacement continual task orderings and task-loss metrics, not these independently resampled row projections.",
+        "Published coherence residual-spike frontier describes one-step total residual norm and not two-step expected solution error.",
+        "Tondji–Winkler–Lorenz (Online ICCHA 2021), Theorem 2.1, gives an all-iteration upper bound on expected squared solution error, not a fixed-iteration comparison of \\(\\mathbb E_p\\) with \\(\\mathbb E_0\\)."
+      ],
+      "reasoning": "A stronger convergence upper bound does not imply smaller actual expected error on each fixed instance and every horizon. One-step residual amplification, multi-task one-pass ordering, and different loss functions cannot dominate this source-initialized two-step risk comparison without additional nontrivial reductions, not found in the inspected statements.",
+      "searches": [
+        "weighted randomized sparse Kaczmarz residual power sampling p finite monotonicity in number of iterations; reversal of greedy advantage",
+        "greedy Motzkin Kaczmarz three row counterexample exact two step Euclidean error worse than iid uniform despite one step improvement",
+        "two projection Kaczmarz greedy dominates uniform random at step 2 with exactly 2 equations",
+        "\"maximal distance\" \"Kaczmarz\" \"not\" \"optimal\" \"two\"",
+        "arXiv:2510.19941 task orderings greed random continual regression"
+      ]
+    },
+    "checked_sources": [
+      "Original 2022 publisher article DOI:10.1007/s40314-022-02105-9 (dated Nov 8); arXiv:2306.06813v1 source full text and original Algorithm 1.",
+      "Steinerberger arXiv:2007.02910v3 full PDF pages 1-4 and theorem.",
+      "Nutini et al. arXiv:1612.07838 original full HTML particularly Section 9.",
+      "Haddock-Ma arXiv:1912.03544 open full HTML and convergence theorems.",
+      "Tsipory et al. arXiv:2510.19941 original PDF sections and page images.",
+      "Relevant publicly indexed one-step coherence residual-spike theorem compared at scientific-statement level (one-step residual-norm bounds only).",
+      "Tondji–Winkler–Lorenz Online ICCHA 2021 conference paper, complete author-uploaded text (algorithm, rate theorem, experiments and tables)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang et al. prove an upper-bound convergence coefficient \\(q(p)\\); smaller upper bounds do not order exact two-iteration risks.",
+        "Steinerberger shows an improved worst-case contraction coefficient for orthogonal projection, compatible with early finite-horizon error reversal.",
+        "Nutini et al. provide multistep greedy convergence estimates, not exact greedy-versus-uniform expectation at two steps.",
+        "The algebraic two-row identity proves a sharp no-reversal result for all error vectors, contrasted with the explicit three-row witness.",
+        "Tondji–Winkler–Lorenz Theorem 2.1 uses a decreasing-in-p worst-case convergence factor; improved sufficient factor does not imply exact fixed-k expected risk domination."
+      ],
+      "reasoning": "The new exact inequalities are about actual finite-iteration expectations of squared Euclidean error; the source theorems are about Bregman distance, expected norm or worst-case rate constants. The former cannot be inferred from the latter merely by comparing rate coefficients. Conversely, the new inequalities do not invalidate those rate bounds. The 2-row identity excludes the reversal in the unregularized variant and is not implied by one-step greedy optimality alone.",
+      "searches": [
+        "greedy maximal residual Kaczmarz versus uniform randomized can be worse after two iterations consistent three-dimensional system even though one-step decrease is larger",
+        "weighted randomized sparse Kaczmarz residual power sampling p finite monotonicity in number of iterations; reversal of greedy advantage",
+        "two projection Kaczmarz greedy dominates uniform random at step 2 with exactly 2 equations",
+        "Steinerberger residual p Kaczmarz p-dependent theorem rate monotonicity finite k",
+        "Zhang Yuan Wang WRaSK Algorithm 1 inexact exact Bregman bound Section 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang et al., arXiv:2306.06813v1, Algorithm 1 and Sections 3.3,4.2; early public publisher DOI:10.1007/s40314-022-02105-9.",
+        "Steinerberger, arXiv:2007.02910v3, Sections 2.1-2.3: residual-power sampler and rate upper bound.",
+        "Nutini et al., arXiv:1612.07838, Section 9: orthogonality-based multistep upper bounds.",
+        "Tondji, Winkler and Lorenz, Linear convergence of a weighted randomized sparse Kaczmarz method, Online ICCHA 2021, Algorithm 1 and Theorem 2.1: same sparse residual-power sampler and a rate guarantee."
+      ],
+      "reasoning": "Aliases tested include residual-power sampling, maximal-residual Motzkin, sampling Kaczmarz-Motzkin, WRaSK/RaSK and greedy versus uniform iid row choice. The equivalent problem here fixes two steps and compares exact Euclidean squared solution errors; reviewed works concern lower bounds on conditional progress, Bregman contraction, upper rate constants or asymptotic success, not this inequality. The exact two-row defect is an additional quantified statement not recovered from their displayed bounds.",
+      "searches": [
+        "greedy maximal residual Kaczmarz versus uniform randomized can be worse after two iterations consistent three-dimensional system even though one-step decrease is larger",
+        "counterexample greedy Motzkin Kaczmarz is slower than randomized Kaczmarz finite-time nonmyopic future residual",
+        "weighted randomized sparse Kaczmarz WRaSK residual p exponent greediness 3 row two iteration reversal versus uniform sparse regularization threshold",
+        "\"greedy Kaczmarz\" \"after two iterations\" random",
+        "\"weighted\" \"Kaczmarz\" \"greedy\" \"worse\" convergence finite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nine-row-pair table is an original exact-fraction enumeration of Algorithm 1 in the stated three-equation example.",
+        "The defining algorithm and published numerical experiments do not list the rational table or a two-row minimality formula."
+      ],
+      "reasoning": "A direct comparison of the same normalized three rows, target and p power in the inspected tables or public-index summaries found no exact risk vector, nine-path table or equivalent threshold. This is not a guarantee of absence from unindexed repositories or specialized articles.",
+      "searches": [
+        "weighted randomized sparse Kaczmarz WRaSK residual p exponent greediness 3 row two iteration reversal versus uniform sparse regularization threshold",
+        "greedy Motzkin Kaczmarz three row counterexample exact two step Euclidean error worse than iid uniform despite one step improvement",
+        "\"weighted randomized sparse Kaczmarz\" \"two-step\" \"counterexample\"",
+        "\"Kaczmarz\" \"three rows\" \"greedy\" \"uniform\""
+      ]
+    },
+    "rationale": "The WRaSK defining publication proves an improving Bregman-distance rate-bound coefficient, not pointwise ordering of true two-step Euclidean squared risks. Steinerberger proves an improved worst-case residual-weighted Kaczmarz contraction bound, not finite-horizon actual-error domination. Nutini et al. and Haddock-Ma analyze greedy or partial-greedy convergence rates, not the specific counterexample nor the exact two-row identity. The 2025 continual-learning task-ordering comparison uses a different task-selection model and performance criteria. Published one-step coherence residual-spike results do not imply this two-step expected solution-error ordering. Matching primary articles and selected original proof sections were examined; negative searches are not a proof of global novelty. The independent 2021 conference treatment by Tondji, Winkler and Lorenz also states the same sparse method and an expected squared-error rate bound, but the full published text offers no exact two-step comparison or row-count barrier. Its first public day is not established from the year-level conference attribution.",
+    "residual_risks": [
+      "Index and internet searches cannot exclude all unindexed specialized Kaczmarz counterexamples or independent unpublished work.",
+      "The public-index coherence result was compared at statement/summary level, not its original full proof, as it concerns a distinct one-step norm observable.",
+      "The 2025 continual-learning paper was checked in relevant sections and page images, not every paragraph of its entire bibliography.",
+      "No independent external audit or priority certification was performed.",
+      "The independent conference source predates the 2022 publisher article by its event attribution, but a precise initial manuscript-publication day is not verified; its accessible full text is read as scientific prior art, and 2022-11-08 is the earliest day-specific verified public date for the identified 2022 source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact update matches inexact branch. The published improved convergence-rate bound does not imply pathwise, finite-horizon squared-Euclidean-error ordering.",
+        "evidence": [
+          "Source states initial \\(x_0=y_0=0\\), row normalization, residual exponent p, dual inexact update, shrinkage; explicit \\(p=0\\) uniform limit.",
+          "Theorem 1 bounds expected Bregman distance by a p-dependent contraction coefficient; it does not compare the true squared Euclidean expectations at \\(k=2\\)."
+        ],
+        "identifier_or_url": "DOI:10.1007/s40314-022-02105-9; arXiv:2306.06813v1",
+        "material_read": "Publisher title/abstract/publication date 2022-11-08 and lawful arXiv v1 full text: introduction, Algorithm 1, Sections 3.1-3.3, 4.2, numerical parameter discussion, Theorem 1 and proof structure.",
+        "method": "Publisher HTML for date and legal open-access full HTML for algorithm and theory.",
+        "title": "A weighted randomized sparse Kaczmarz method for solving linear systems",
+        "trigger": "Defining published residual-power sparse algorithm and its earlier public publication date."
+      },
+      {
+        "assessment": "Gives a universal upper convergence-rate bound, not the exact two-step finite-instance greedy-uniform comparison nor two-row defect identity.",
+        "evidence": [
+          "Theorem displays E||error_k||² <= (1-gamma_p)^k||error_0||² and gamma_p>=a generic randomized coefficient.",
+          "Monotonicity discussed for the bound coefficient, not direct sample-path or fixed-time expected-error ordering."
+        ],
+        "identifier_or_url": "arXiv:2007.02910v3",
+        "material_read": "Full PDF text, especially pages 1-4: projection update, residual p sampling, main rate theorem, greedy limit and monotonicity discussion; page-images of pages 3-4 checked.",
+        "method": "Open-access arXiv PDF rendered and searchable PDF text.",
+        "title": "A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+        "trigger": "Earlier exact same row-sampling rule when shrinkage lambda=0, plausible stronger coverage."
+      },
+      {
+        "assessment": "Bounds greedy convergence through geometric estimates, but does not imply exact two-update expectation reversal nor a two-row impossibility theorem.",
+        "evidence": [
+          "Section 9 expresses multistep greedy rates through orthogonality graph; no identified expected-risk table on a fixed normalized 3x3 sparse WRaSK instance."
+        ],
+        "identifier_or_url": "arXiv:1612.07838",
+        "material_read": "Open-access full HTML: algorithm classes, convergence estimates, Section 9 multistep worst-case orthogonality graph results.",
+        "method": "Open-access arXiv HTML and section-wise statements.",
+        "title": "Convergence Rates for Greedy Kaczmarz Algorithms, and Faster Randomized Kaczmarz Rules Using the Orthogonality Graph",
+        "trigger": "Greedy-row multistep dominance and orthogonality may cover two-row comparison."
+      },
+      {
+        "assessment": "Improved sufficient geometric rate guarantees are compatible with a finite-horizon reversal of exact errors and do not contain the two-row identity.",
+        "evidence": [
+          "Main results control expected convergence rates of partially greedy algorithms rather than exact two-step row-path squared-risk comparison."
+        ],
+        "identifier_or_url": "arXiv:1912.03544",
+        "material_read": "Open-access full HTML introduction, algorithm, main expected convergence-rate theorem and proof discussion.",
+        "method": "Open-access arXiv HTML with matching algorithm/result passages.",
+        "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz-Motzkin",
+        "trigger": "Sampling-Motzkin greed-versus-random sharper convergence guarantees may dominate."
+      },
+      {
+        "assessment": "Continual task ordering and its task-loss criteria are not iid with-replacement two-step residual-power row draws of the source sparse method.",
+        "evidence": [
+          "Their object is greedy ordering versus random task order and associated generalization/task error; current result studies conditional per-step row reselection and squared solution error on one fixed linear system."
+        ],
+        "identifier_or_url": "arXiv:2510.19941",
+        "material_read": "Original arXiv PDF full text searched and opening pages, formal setup, core ordering statements and later comparison sections examined, with page-image checks at PDF pages 1,5,6,9.",
+        "method": "Open-access PDF text and selective page image reading.",
+        "title": "Are Greedy Task Orderings Better Than Random in Continual Linear Regression?",
+        "trigger": "Recent plausible greedy-vs-random reversal in linear least-squares geometry."
+      },
+      {
+        "assessment": "It gives the same sparse sampler and global expected squared-error rate upper bound; no two-step exact comparison or two-row projection-barrier result appears in the accessible full text.",
+        "evidence": [
+          "Algorithm 1 uses \\(x_0=y_0=0\\), normalized rows, probability proportional to \\(|\\operatorname{residual}|^p\\) and soft threshold updates.",
+          "Theorem 2.1 states \\(\\mathbb E\\|x_k-\\widehat x\\|_2^2\\le2q^k f(\\widehat x)\\), Remark 2.2 improves the rate bound as p grows.",
+          "Publication attributed to 2021 Online ICCHA; exact first public day of manuscript not independently evidenced."
+        ],
+        "identifier_or_url": "Tondji–Winkler–Lorenz, Online ICCHA 2021; https://www.researchgate.net/publication/365615547_Linear_convergence_of_a_weighted_randomized_sparse_Kaczmarz_method",
+        "material_read": "Author-uploaded complete four-page conference text mirrored in publicly accessible HTML, including algorithm, Theorem 2.1, Remark 2.2, experiments, numerical tables and references. Original conference PDF endpoint timed out; the author-uploaded text itself was readable in HTML.",
+        "method": "Read complete author-uploaded conference text and original algorithm/theorem via public full-text HTML; checked publication attribution and upload-date metadata.",
+        "title": "Linear convergence of a weighted randomized sparse Kaczmarz method",
+        "trigger": "Earlier independent primary treatment of the identical sparse residual-power method, explicitly acknowledged by the later defining article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f080ede8-111d-4aae-b098-0d59aa42fde5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Residual-power weighting targets the largest immediate corrections and earlier results prove improved sufficient convergence factors. The explicit source-initialized \\(\\lambda=1/2\\) sparse iteration instead exhibits an exact two-step loss in expected squared error after a strict first-step gain. The all-real \\(p\\ge24\\) statement is proved by a probability bound; the general two-row defect identity establishes that three row labels are minimal for this phenomenon **in unregularized orthogonal-projection Kaczmarz**. This is a motivated finite-budget distinction, not an arbitrary numerical slice; it does not assert a worse asymptotic or typical-case rate.",
+    "status": "PASS"
+  }
+}
