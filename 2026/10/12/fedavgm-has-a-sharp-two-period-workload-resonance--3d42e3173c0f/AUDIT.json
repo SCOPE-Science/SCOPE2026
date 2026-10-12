@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The Hsu--Qi--Brown server rule gives the exact recurrence \\(x_{t+1}=(\\beta+q^{K_t})x_t-\\beta x_{t-1}\\). For fixed \\(K\\), all three Jury inequalities are strictly positive under \\(|q|<1\\) and \\(0\\le\\beta<1\\). For the two-round product, two Jury inequalities are automatic and the third reduces exactly to \\((\\beta+q^{K_1})(\\beta+q^{K_2})>-(1-\\beta)^2\\). The rational witness and direct recurrence replay agree with the symbolic result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The later FedGM framework gives convergence analysis under system heterogeneity but uses normalized heterogeneous local updates.",
+        "General heavy-ball literature found in the searches analyzes fixed quadratics or robust parameter ranges rather than workload-induced periodic coefficients.",
+        "No primary source located in the focused search supplied the exact two-period matrix product specialized to federated local-work variation."
+      ],
+      "reasoning": "Generic switched-system theory is a residual risk, but a general matrix-product criterion does not by itself identify the federated workload map, the automatic stability of every frozen workload, or the exact FedAvg comparison.",
+      "searches": [
+        "server momentum system heterogeneity periodic local steps parametric instability federated",
+        "heavy ball periodic switching two curvatures stable modes unstable product",
+        "parametric resonance heavy ball discrete optimization alternating curvature"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1909.06335v1",
+      "arXiv:2312.12670v1",
+      "arXiv:2003.00295v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hsu--Qi--Brown define FedAvgM as server heavy-ball accumulation and hold the server learning rate at one.",
+        "Their experiments state that the local epoch parameter affects the effective-learning-rate choice but do not analyze alternating epochs.",
+        "Sun--Wu--Huang--Zhang allow time-varying local steps, normalize each client update by its local-step count, and require a small local learning rate depending on the maximum workload.",
+        "Adaptive Federated Optimization provides a broad server-optimizer framework but does not give a periodic-workload stability classification."
+      ],
+      "reasoning": "The later system-heterogeneity theorem cannot imply the witness because both its update normalization and its sufficient small-step regime differ from the raw FedAvgM recurrence used here.",
+      "searches": [
+        "Hsu Qi Brown FedAvgM server momentum local epochs",
+        "On the Role of Server Momentum system heterogeneity time-varying local steps",
+        "Adaptive Federated Optimization FedAvgM server optimizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining FedAvgM source gives the heavy-ball server update and experiments with fixed local epoch counts.",
+        "The 2023 server-momentum paper explicitly treats time-varying local work but normalizes each heterogeneous client update by its local-step count.",
+        "The closest indexed findings concern fixed-parameter heavy ball, Nesterov objective spikes, and unrelated feedback-stability problems."
+      ],
+      "reasoning": "Equivalent coverage would need to imply the exact monodromy condition in the raw FedAvgM variables or an equivalent stable-frozen/unstable-periodic workload result. The inspected federated sources and indexed records do not do so.",
+      "searches": [
+        "FedAvgM alternating local epochs exact stability server momentum scalar quadratic",
+        "FedAvgM two-period workload switching Schur stability local SGD",
+        "momentum optimizer switched scalar quadratic periodic coefficients instability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record: 2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158.",
+        "Closest indexed record: 2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad.",
+        "Closest indexed record: 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6.",
+        "Closest indexed record: 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56."
+      ],
+      "reasoning": "These records analyze different fixed or stochastic recurrences. None contains FedAvgM, alternating local workloads, or the displayed monodromy condition.",
+      "searches": [
+        "FedAvgM alternating local epochs exact stability server momentum scalar quadratic",
+        "server momentum system heterogeneity periodic local steps parametric instability federated",
+        "FedAvgM two-period workload switching Schur stability local SGD",
+        "federated server momentum alternating local computation quadratic instability",
+        "heavy ball periodic switching two curvatures stable modes unstable product",
+        "momentum optimizer switched scalar quadratic periodic coefficients instability",
+        "parametric resonance heavy ball discrete optimization alternating curvature"
+      ]
+    },
+    "rationale": "The defining FedAvgM source studies server momentum empirically at fixed local epoch counts. The later dedicated server-momentum study treats system heterogeneity but changes the heterogeneous-computation update by normalizing client differences by local-step count and proves convergence only under a much smaller client-step condition. Focused searches found no published statement giving the exact raw-FedAvgM periodic-workload Schur criterion or the stable-frozen/unstable-switched witness.",
+    "residual_risks": [
+      "Equivalent two-period matrix-product criteria may exist in older switched-control literature under different terminology.",
+      "The explicit instability uses a locally overshooting gradient step and does not apply to nonovershooting local steps.",
+      "The result does not classify arbitrary workload sequences or stochastic client sampling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_UPDATE_NOT_COVERING_PERIODIC_WORKLOAD_STABILITY.",
+        "evidence": "The source defines the exact momentum recurrence used here and discusses fixed local epoch counts, but does not state a periodic workload monodromy or instability criterion.",
+        "identifier_or_url": "arXiv:1909.06335v1",
+        "material_read": "Full open-access text covering the FedAvgM definition, server momentum equation, server learning rate, local epoch experiments, and hyperparameter discussion.",
+        "method": "Open-access full-text inspection.",
+        "title": "Measuring the Effects of Non-Identical Data Distribution for Federated Visual Classification",
+        "trigger": "Defining source for FedAvgM and its server update."
+      },
+      {
+        "assessment": "BROADER_SYSTEM_HETEROGENEITY_FRAMEWORK_WITH_DIFFERENT_NORMALIZED_UPDATE_NOT_COVERING_RAW_FEDAVGM_RESONANCE.",
+        "evidence": "The autonomous algorithm divides each local model difference by its local-step count and its convergence theorem assumes a client step bounded by a constant of order the inverse maximum workload.",
+        "identifier_or_url": "arXiv:2312.12670v1",
+        "material_read": "Abstract, introduction, FedOPT local-update algorithm, Autonomous Multistage FedGM algorithm, heterogeneous local-step normalization, and Theorem 5.1 with its client-step restriction; relevant PDF pages were visually inspected.",
+        "method": "Open-access PDF text plus page-image inspection.",
+        "title": "On the Role of Server Momentum in Federated Learning",
+        "trigger": "Closest primary work on server momentum with system heterogeneity and time-varying local computation."
+      },
+      {
+        "assessment": "BROADER_SERVER_OPTIMIZER_FRAMEWORK_NOT_COVERING_PERIODIC_FEDAVGM_MONODROMY.",
+        "evidence": "The paper develops adaptive federated server optimizers and general heterogeneous-data convergence theory rather than the exact switched FedAvgM quadratic dynamics.",
+        "identifier_or_url": "arXiv:2003.00295v1",
+        "material_read": "Primary abstract, metadata, optimization/control classification, and server-optimizer framing.",
+        "method": "Open-access primary-source inspection.",
+        "title": "Adaptive Federated Optimization",
+        "trigger": "Broader primary server-optimizer framework in federated optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d42e317-3c0f-47db-8caf-dc494e8709e7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Server momentum was introduced to damp federated oscillations, while later work identifies time-varying local computation as an important systems effect. The result isolates a sharp opposite phenomenon: workload variation alone can destabilize server momentum even when every frozen workload and every local gradient map is stable. The exact criterion, the existence result for every positive momentum level, and the side-by-side stable FedAvg witness give a concrete robustness boundary rather than a routine fixed-quadratic calculation.",
+    "status": "PASS"
+  }
+}
