@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The edge-open-packing condition is equivalent to a disjoint union of induced selected stars on all selected endpoints. The neighborhood of any vertex of L(K_n) splits into two cliques, so these stars are K2 or P3; the represented K_n edges form disjoint 3-label P3 and 4-label P4 blocks, and the converse is exact. Three and twelve undirected paths on 3 and 4 prescribed labels give exponential weights z/2 and z^2/2, yielding the displayed coefficient sum. Optimizing 3a+4b over fixed a+2b proves the residue-class extremal formula, and substituting extremal profiles gives exact multiplicities. All labels n>=0 and degenerate graph cases are covered. A separate direct oracle exhaustively checks 21,517 edge-open packings for n=2..8; integer recurrences, degrees, and extremal coefficients agree through n=60; finite checks corroborate rather than prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.numdam.org/item/10.1051/ro/2022171.pdf: standard families and maximum-cardinality results",
+        "https://arxiv.org/pdf/2403.00750: complexity, bounds and tree methods",
+        "https://arxiv.org/pdf/2406.04020: trees, products and terminology for general graphs with triangular edges",
+        "https://arxiv.org/pdf/2508.01935: general characterizations"
+      ],
+      "reasoning": "General induced-star equivalence logically contains the structural premise, but without the special L(K_n) component bound it does not explicitly imply the all-n generating function, the mod-four maximum, or multiplicities by an already-stated enumerative formula. The 2024 paper calls a graph triangular when each edge lies in some triangle; that is not an exact theorem about the graph L(K_n). There remains a risk of a broader unlocated line-graph generating-function theorem.",
+      "searches": [
+        "edge open packing number line graph complete graph triangular graph Johnson graph J(n,2)",
+        "packing vertex-disjoint paths P3 P4 in complete graph edge-open packing",
+        "induced star forest of triangular graph edge open packing enumerator"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "The paper establishes the general notion and induced-star interpretation, which are credited; no inspected formula counts every EOP set of L(K_n).",
+        "identifier_or_url": "doi:10.1051/ro/2022171",
+        "title": "Edge open packing sets in graphs"
+      },
+      {
+        "assessment": "Complexity, bounds, and tree algorithms do not specify a triangular-graph all-coefficient enumerator in inspected passages.",
+        "identifier_or_url": "arXiv:2403.00750v1",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds"
+      },
+      {
+        "assessment": "Uses triangular graphs in a broader edge-in-triangle sense, not specifically T_n=L(K_n), and no inspected result gives the claimed polynomial or maximum multiplicities.",
+        "identifier_or_url": "arXiv:2406.04020v2",
+        "title": "Induced matching vs edge open packing: trees and product graphs"
+      },
+      {
+        "assessment": "No inspected result counts edge-open packings of L(K_n) by size.",
+        "identifier_or_url": "arXiv:2508.01935v1",
+        "title": "Edge open packing: further characterizations"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.numdam.org/item/10.1051/ro/2022171.pdf: induced-star interpretation and results on standard families",
+        "https://arxiv.org/pdf/2403.00750: no identified triangular-graph coefficient enumeration in inspected introduction/main result and tree sections",
+        "https://arxiv.org/pdf/2406.04020: comparison for trees and graph products, general triangular-edge terminology, no L(K_n) coefficient sequence in inspected results",
+        "https://arxiv.org/pdf/2508.01935: further characterizations and structural graph results"
+      ],
+      "reasoning": "The published general reduction to induced star forests proves neither an exact finite set of allowable blocks on the K_n label set nor their multiplicities without the new specialization and bijection. Previously published bounds and graph-family values are not an exact polynomial theorem for L(K_n), and no inspected theorem subsumes the precise all-coefficient statement. This implication analysis is qualified by possible unindexed equivalent combinatorial enumeration.",
+      "searches": [
+        "edge open packing number line graph complete graph triangular graph Johnson graph J(n,2)",
+        "triangular graph L(K_n) edge-open packing exp(u+u^3 z/2+u^4 z^2/2) P3 P4",
+        "induced star forest polynomial line graph complete graph exponential formula vertex-disjoint P3 P4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.numdam.org/item/10.1051/ro/2022171.pdf: induced-star interpretation (2022)",
+        "https://arxiv.org/pdf/2403.00750: edge-open-packing algorithms and bounds; section on trees (2024)",
+        "https://arxiv.org/pdf/2406.04020: induced-matching comparison and product graphs (2024)"
+      ],
+      "reasoning": "The general induced-star-forest interpretation is known and is explicitly credited. Its specialization to L(K_n) forces each induced star to have at most two leaves and forces vertex-disjoint P3 or P4 edge-paths on underlying labels; this unique combinatorial equivalence is what proves the new proposed polynomial. Searches for synonymous induced-star/line-graph and injective-coloring formulations found no equivalent all-coefficient theorem in the checked primary passages, although absence of hits cannot establish priority.",
+      "searches": [
+        "edge-open packing polynomial triangular graph line graph complete graph K_n wedge path packing exponential generating function",
+        "induced star forest of triangular graph edge open packing enumerator",
+        "induced star forest polynomial line graph complete graph exponential formula vertex-disjoint P3 P4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct enumeration for n=2,...,8 yields the complete sequences displayed in verification_output.txt, not a published table.",
+        "https://www.numdam.org/item/10.1051/ro/2022171.pdf: primary established values for other graph families",
+        "https://arxiv.org/pdf/2508.01935: primary graph-structural theorems, not a coefficient database"
+      ],
+      "reasoning": "No checked table gives coefficients of the edge-open-packing polynomial for every triangular graph. The finite checks are newly computed verifications, not novelty evidence; a database indexed under path-block enumeration could still imply the expression.",
+      "searches": [
+        "edge-open packing polynomial triangular graph line graph complete graph K_n wedge path packing exponential generating function",
+        "edge-open packing polynomial triangular Johnson J(n,2) n mod 4 maximal packings",
+        "triangular graph L(K_n) edge-open packing exp(u+u^3 z/2+u^4 z^2/2) P3 P4"
+      ]
+    },
+    "rationale": "Primary literature gives a general induced-star interpretation, complexity and extremal results, but inspected theorem statements do not yield this exact all-cardinality edge-open-packing polynomial for L(K_n), its P3/P4-on-[n] bijection, or mod-four extremal multiplicities. Deduplication searches for synonyms, line-graph dual form, dominating bounds, and indexed related findings found no subsuming theorem. This is not a claim that unsuccessful searching certifies absolute novelty.",
+    "residual_risks": [
+      "Possible classical enumeration of labeled disjoint P3/P4 paths or induced star forests that already supplies the same generating function under another name.",
+      "Potential unindexed preprint, book chapter, or polynomial database using a dual line-graph representation.",
+      "Published abstract searches cannot certify unpublished-priority or independent mathematical verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper establishes the general notion and induced-star interpretation, which are credited; no inspected formula counts every EOP set of L(K_n).",
+        "evidence": [
+          "https://www.numdam.org/item/10.1051/ro/2022171.pdf"
+        ],
+        "identifier_or_url": "doi:10.1051/ro/2022171",
+        "material_read": "Full-text PDF: opening definitions and induced-star observation, statements of standard-family results in section 2, and inspected later section statements. Targeted text search for line-graph terminology.",
+        "method": "Read primary open-access PDF with visual page inspection and section/term navigation.",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "Original source of edge-open packing, needed to distinguish known structural reductions from the claimed specialization"
+      },
+      {
+        "assessment": "Complexity, bounds, and tree algorithms do not specify a triangular-graph all-coefficient enumerator in inspected passages.",
+        "evidence": [
+          "https://arxiv.org/pdf/2403.00750"
+        ],
+        "identifier_or_url": "arXiv:2403.00750v1",
+        "material_read": "Abstract, introduction and main results, and tree algorithm sections of full-text preprint.",
+        "method": "Read open-access arXiv PDF with page inspection and targeted text navigation.",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Potentially more general algorithms or classes subsuming triangular graphs"
+      },
+      {
+        "assessment": "Uses triangular graphs in a broader edge-in-triangle sense, not specifically T_n=L(K_n), and no inspected result gives the claimed polynomial or maximum multiplicities.",
+        "evidence": [
+          "https://arxiv.org/pdf/2406.04020"
+        ],
+        "identifier_or_url": "arXiv:2406.04020v2",
+        "material_read": "Abstract, introductory definitions, product theorems, and relevant later discussion/conclusion; targeted searches for complete graph and line graph.",
+        "method": "Read full-text arXiv PDF with page inspection and terms.",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Product results and use of the term triangular graphs could appear to dominate the claim"
+      },
+      {
+        "assessment": "No inspected result counts edge-open packings of L(K_n) by size.",
+        "evidence": [
+          "https://arxiv.org/pdf/2508.01935"
+        ],
+        "identifier_or_url": "arXiv:2508.01935v1",
+        "material_read": "Abstract, introduction and central characterization theorems and later results, with targeted searches for line and triangular graphs.",
+        "method": "Read open-access arXiv PDF and targeted text searches.",
+        "title": "Edge open packing: further characterizations",
+        "trigger": "Subsequent general characterizations might imply claimed specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e45121c4-da2e-420e-ba7f-210c50b72b04",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full all-cardinality polynomial for the standard infinite triangular-graph family goes beyond the previously studied maximum and general bounds. A graph-specific structural bijection converts the edge constraint into classical labeled path-block enumeration, yielding a concise exponential generating function, exact polynomial-time-in-output recurrence, and a sharp mod-four extremal anomaly with two distinct largest-packing types. These intrinsic enumeration and extremal features motivate this precise invariant; the result is not merely a routine numerical increment.",
+    "status": "PASS"
+  }
+}
