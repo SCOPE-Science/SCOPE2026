@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The exact asymptotic inversion follows from p(N-B)T(N)^2=A and T(N)=kappa(log N)^2(1+o(1)); taking logarithms proves log N/log(1/p)->1.",
+    "sources": [
+      "arXiv:2610.01704v1 equations (19)-(24), (27)-(30)"
+    ],
+    "status": "PASS"
+  },
+  "final_claim": "Within the analytic crossover model of arXiv:2610.01704v1, suppose the FFT-matched adiabatic time obeys \\(T(N)=\\kappa(\\log N)^2(1+o(1))\\) for some \\(\\kappa>0\\), and let \\(N_*(p)\\to\\infty\\) as \\(p\\to0\\) satisfy the paper's crossover equation \\[N_*(p)=\\frac{1}{a\\pi^2 p\\,T(N_*(p))^2}+\\frac{2c}{a\\,{\\rm d}t},\\] with fixed positive \\(a,c,{\\rm d}t\\). Then \\[pN_*(p)\\bigl(\\log(1/p)\\bigr)^4\\longrightarrow\\frac{1}{a\\pi^2\\kappa^2},\\] so \\(N_*(p)=\\Theta(1/[p(\\log(1/p))^4])\\). More generally, if the noiseless adiabatic error scales as \\(T^{-\\gamma}\\) and the crossover balance is \\(N_*(p)=\\Theta(1/[pT(N_*)^{1+\\gamma}])\\), the same \\(T(N)=\\Theta((\\log N)^2)\\) assumption gives \\(N_*(p)=\\Theta(1/[p(\\log(1/p))^{2(1+\\gamma)}])\\). These are conditional consequences of the source's analytic noise model, not hardware-universal asymptotics.",
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2510.05099v2 gives O(log^2 N) depth but no noise-crossover theorem.",
+        "The primary source gives a general T^{-gamma} discussion without the 2(1+gamma) exponent implied by T~log^2 N."
+      ],
+      "reasoning": "The inspected broader sources provide ingredients but not a theorem implying the final claim.",
+      "searches": [
+        "fermionic Fourier transform adiabatic evolution crossover p log^4",
+        "noise diluted adiabatic FFT crossover logarithmic exponent",
+        "FFT adiabatic crossover N log^4 N equals 1/p Lambert W",
+        "arXiv:2510.05099v2 low-depth fermion routing"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01704v1",
+      "arXiv:2510.05099v2",
+      "MSC2020 81P68 entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published-finding corpus semantic hits included 2026/9/19/SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051 and 2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c; both are mathematically unrelated.",
+        "arXiv:2610.01704v1 is the closest scientific source and does not state the final claim."
+      ],
+      "reasoning": "No located prior result implies this source-specific quantum-circuit crossover law.",
+      "searches": [
+        "arXiv 2610.01704 FFT adiabatic crossover noise system size log squared",
+        "Less precise but less noisy local circuits momentum-space crossover N star",
+        "fermionic Fourier transform adiabatic evolution crossover p log^4",
+        "noise diluted adiabatic FFT crossover logarithmic exponent",
+        "N* = 1/(p log^2 p) FFT adiabatic",
+        "arXiv 2610.01704 equation 23 T(N) log^2 N implies crossover 1 over p log^4",
+        "FFT adiabatic crossover N log^4 N equals 1/p Lambert W",
+        "noise crossover fermionic Fourier transform log-fourth correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01704v1 states the crossover equation and then states T(N)~log^2 N.",
+        "No searched record stated the p N*(log(1/p))^4 limit."
+      ],
+      "reasoning": "Formula-level and title-level aliases reduce to the same inversion N(log N)^4~1/p and revealed no covering result.",
+      "searches": [
+        "arXiv 2610.01704 FFT adiabatic crossover noise system size log squared",
+        "Less precise but less noisy local circuits momentum-space crossover N star",
+        "arXiv 2610.01704 equation 23 T(N) log^2 N implies crossover 1 over p log^4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source hardware gate-count table is finite-size data, not an asymptotic crossover table.",
+        "No searched database-style result contained the claimed asymptotic."
+      ],
+      "reasoning": "The finding is an analytic inversion, not a recomputation of a tabulated value.",
+      "searches": [
+        "N* = 1/(p log^2 p) FFT adiabatic",
+        "noise crossover fermionic Fourier transform log-fourth correction"
+      ]
+    },
+    "rationale": "Targeted claim, alias, parameter, and source searches found no covering statement. The primary source states the ingredients but not this implication.",
+    "residual_risks": [
+      "The source may have intended a different resource scaling than the explicit T(N)~log^2 N sentence; the claim is conditional.",
+      "A contemporaneous correction may not yet be indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States the model and T(N)~log^2 N but not the log-fourth consequence.",
+        "evidence": "Equations (19)-(24), (27)-(30), Section II.3, Appendix A.",
+        "identifier_or_url": "arXiv:2610.01704v1",
+        "material_read": "Abstract; Sections II.3, II.4.2-II.4.4; Discussion; Appendix A; references around the FFT compilation.",
+        "method": "Full arXiv HTML inspection.",
+        "title": "Less precise but less noisy: local circuits for momentum-space state preparation and measurement",
+        "trigger": "Primary source defining the crossover model."
+      },
+      {
+        "assessment": "Gives O(log^2 N) depth without ancillas; no crossover inversion.",
+        "evidence": "Abstract explicitly states O(log^2 N) depth.",
+        "identifier_or_url": "arXiv:2510.05099v2",
+        "material_read": "Abstract and metadata.",
+        "method": "arXiv abstract-page inspection.",
+        "title": "Low-depth fermion routing without ancillas",
+        "trigger": "Cited low-depth fermionic routing premise."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "30476071-56e0-4ece-a283-227ab1d981d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The logarithmic power controls a principal small-noise crossover scale and changes it by a growing factor, while the claim remains narrowly conditional on the stated model.",
+    "sources": [
+      "arXiv:2610.01704v1 crossover analysis"
+    ],
+    "status": "PASS"
+  }
+}
