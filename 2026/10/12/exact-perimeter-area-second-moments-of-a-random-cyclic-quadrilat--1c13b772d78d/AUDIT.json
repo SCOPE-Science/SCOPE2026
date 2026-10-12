@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Four iid uniform angles, after cyclic anchoring at one sampled vertex, give Dirichlet(1,1,1,1) gaps, avoiding the nonexchangeable interval endpoint gap. The chord and shoelace formulas express perimeter and area as sums of sines. The one-gap density 3(1-x)^2 and distinct-pair density 6(1-x-y) give eight explicit elementary integrals and hence all five raw moments, variances, and covariance. The exact symbolic checker evaluates these integrals without sampling and confirms all sixteen identities; independent Cartesian reconstruction checks orientation and scaling. Since pi^2<10, 216-19 pi^2>26, so the derived covariance is strictly positive. The proof is finite and exact, not inferred from numerical diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koroleva–Nikitin, arXiv:1301.1360: U-max asymptotics for the largest perimeter or area among all m-subsets, not moments of the four-point sample.",
+        "Pardon, arXiv:1003.4209: CLTs for area and vertex number of random polygons formed from points in the interior of a convex set; the sampling and statistic differ.",
+        "Wang–Li–Xu, sec.2–3 and appendix: a general Dirichlet power-sum asymptotic framework, not a finite-four exact pair covariance statement."
+      ],
+      "reasoning": "A general Dirichlet moment identity determines polynomial moments of gaps and can express trigonometric moments through convergent expansions, so the ingredient framework is broader. It does not, in the inspected statements, provide the closed exact finite-four mixed moment or an unconditional proof of the previously conjecture-dependent E(A^2) value. The two other general polygon papers address extreme selection or interior-point limits rather than this bivariate statistic.",
+      "searches": [
+        "random inscribed polygon perimeter area joint covariance central limit circle",
+        "arxiv:1301.1360",
+        "arxiv:1003.4209",
+        "doi:10.33993/jnaat522-1360"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1610.00510",
+      "doi:10.33993/jnaat522-1360",
+      "arxiv:1301.1360",
+      "arxiv:1003.4209"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Finch, section 5 explicitly says rigorous proof of the proposed angle density remains open and its second area moment was obtained by assuming the conjecture.",
+        "Wang–Li–Xu, pp.273–294: exact sine-sum representation of Sn,An with general asymptotic expansions as n grows."
+      ],
+      "reasoning": "Finch neither proves E(A^2) unconditionally nor supplies E(PA). The later Dirichlet framework gives a route to calculation but its claimed large-vertex asymptotics do not imply the numerical finite-four covariance without separate nontrivial integral evaluation. We do not claim novelty for the representation itself, either marginal expectation, or generic Dirichlet formulas.",
+      "searches": [
+        "arxiv:1610.00510 random quadrilateral perimeter and area joint analysis",
+        "nonlinear random extrapolation estimates pi Dirichlet distributions semiperimeter area covariance",
+        "random cyclic quadrilaterals perimeter area covariance Finch"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finch, arXiv:1610.00510, p.3 and p.12: perimeter-area joint analysis explicitly left unresolved; second area moment conditional on a conjectured density.",
+        "Wang, Li and Xu, doi:10.33993/jnaat522-1360, sec.2: semiperimeter and area as sine sums over symmetric Dirichlet gaps; their stated theorems develop large-n asymptotics."
+      ],
+      "reasoning": "The same random model is equivalently Dirichlet(1,1,1,1) arc spacings; the target is not merely its mean or the asymptotic joint normality. Existing sine representations and marginal formulas do not expressly yield the finite-four evaluated cross moment 140/(3 pi^2), though generic Dirichlet moment calculus can be used to derive it.",
+      "searches": [
+        "random cyclic quadrilaterals perimeter area covariance Finch",
+        "random inscribed quadrilaterals uniform circle exact area and perimeter second moment positive correlation",
+        "arxiv:1610.00510",
+        "doi:10.33993/jnaat522-1360"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The named 2016 paper explicitly reports the area second moment conditionally, but no table of exact perimeter–area covariance.",
+        "The inspected 2023 source reports definitions and asymptotic expansions, not a finite-n=4 exact covariance entry."
+      ],
+      "reasoning": "The searched scholarly material did not yield a published exact numeric or symbolic table entry for the cross moment. Search absence is not a proof of global database uniqueness, and unsearched specialist tables remain a residual risk.",
+      "searches": [
+        "For four independent uniform random points on the unit circle, exact mixed moment of perimeter P and area A, E(PA)=140/(3*pi^2) and Cov(P,A)=4(216-19*pi^2)/(3*pi^4), analytic Dirichlet spacings",
+        "216 19 pi squared 3 pi fourth covariance random cyclic quadrilateral",
+        "random quadrilateral area perimeter correlation 0.905168846"
+      ]
+    },
+    "rationale": "The directly relevant archival Finch paper says joint perimeter–area analysis is beyond its scope; its value for E(A^2) depends on an unproved three-angle density. The present derivation establishes that value unconditionally and evaluates an exact E(PA), hence a previously unreported closed mixed covariance. A later general Dirichlet-polygon paper already gives the sine representations and asymptotic covariance ingredients, but does not state the fixed-four closed covariance. Exact Dirichlet integration and marginal expectations are acknowledged as prior ingredients. Historical implicit-coverage uncertainty remains.",
+    "residual_risks": [
+      "Classic beta/Dirichlet gap integration is general enough that an earlier calculation of the same closed E(PA) might be hidden in a paper or table not located by the recorded searches.",
+      "The 2023 paper supplies a generic sine-sum framework and finite Dirichlet moments, hence algorithmic implication is possible even without an explicit closed n=4 evaluation.",
+      "There is no independent referee or exhaustive historical priority verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact PA covariance; gives conditional expression for A squared whose value is now independently proved.",
+        "evidence": "PDF page 3: joint perimeter-area analysis beyond then current capabilities; PDF p.12: conjectured three-angle density and conditional moment 1/2+105/(16 pi^2).",
+        "identifier_or_url": "https://arxiv.org/pdf/1610.00510",
+        "material_read": "Abstract; first section including sides; angle analysis; Section 5 Area and its conditional second-moment display (PDF pages 0–4 and 10–12).",
+        "method": "Primary lawful arXiv full-text PDF, retrieved text and visual inspection of relevant pages.",
+        "title": "Random Cyclic Quadrilaterals",
+        "trigger": "Same four-point sampling model; article explicitly raises perimeter-area analysis"
+      },
+      {
+        "assessment": "General representation and asymptotic background; fixed-four exact covariance not stated.",
+        "evidence": "PDF p.6 defines Sn=sum sin(pi Yi) and An=1/2 sum sin(2 pi Yi); p.1-3 describes large-n convergence and extrapolation; p.20 appendix covariance matrix involves powers of gamma variables, not P and A of a quadrilateral.",
+        "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/download/1360/1449/3292",
+        "material_read": "Introduction, Section 2 Dirichlet fundamentals and sine-sum expressions, stated asymptotic theorems and proofs, numerical tables, Appendix (PDF pages 0–6 and 12–20).",
+        "method": "Open-access publisher PDF text and visual inspection of relevant formula pages.",
+        "title": "Nonlinear Random Extrapolation Estimates of π Under Dirichlet Distributions",
+        "trigger": "Same Dirichlet gap model, general perimeter and area asymptotics"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: maximal or minimal m-subpolygon functionals, not raw pair moment of four iid vertices.",
+        "evidence": "Abstract studies maximal perimeter and maximal area among m-subsets and their limit theorems.",
+        "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+        "material_read": "Abstract and first-page definitions, target extremes of polygonal subsamples.",
+        "method": "arXiv preprint abstract and first-page PDF inspection.",
+        "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+        "trigger": "Both polygon perimeter and area in title, possible stronger coverage"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL: iid interior random points and CLTs for area and vertex number.",
+        "evidence": "Abstract fixes convex K and studies area and vertex count of random polygon generated by interior sampling.",
+        "identifier_or_url": "https://arxiv.org/abs/1003.4209",
+        "material_read": "Abstract and first page of lawful arXiv PDF; model description.",
+        "method": "arXiv abstract and first-page PDF inspection.",
+        "title": "Central limit theorems for random polygons in an arbitrary convex set",
+        "trigger": "Broad stochastic-geometric polygon covariance theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c13b772-d78d-453a-abdd-521700d667fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Area and perimeter are the two canonical intrinsic dimensions of a random cyclic polygon. Their joint second-moment matrix is a natural, scale-consistent invariant needed for covariance, correlation and joint benchmark comparisons; neither marginal law gives it. The directly relevant 2016 investigation explicitly left the joint problem unresolved, and its previously only conditionally derived area second moment is now established without the unproved density. The new cross covariance is nonzero and strongly positive, and the exact fixed-four formulas offer a useful test case. The claim does not inflate a routine individual integration into broad distributional novelty; it identifies a specific previously unresolved natural invariant with clear theoretical motivation.",
+    "status": "PASS"
+  }
+}
