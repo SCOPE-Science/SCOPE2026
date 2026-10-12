@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The source construction is a smooth sextic hypersurface with a projective order-two linear action. Eigenplane calculations give precisely two disjoint smooth sextic curves of genus \(10\); equivariant formal coordinates give the local \(\frac12(1,1,1)\) quotient, second-Veronese determinantal equations, multiplicity \(4\), and Reid–Tai terminality. Adjunction and the action on the residue form give canonical index \(2\). The exact Chern class, Lefschetz-trace, and rational finite-quotient transfer computations yield \(b_4=1283\) and Euler characteristic \(1287\). The embedded checker was extracted and successfully run; its checks support but do not replace the universal proof.
+
+**Originality — PASS, with residual risk.** Diamond arXiv:2603.29157 studies the same source fourfold and involution, but its full examined treatment concerns invariant cohomology and divisorial support rather than the singular coarse quotient, its two transverse Veronese strata, global index, or the complete Betti polynomial. Focused published-finding corpus searches for the exact source, fixed genus-ten curves, terminal index-two quotients, and Betti numbers returned unrelated or structurally weaker findings. Shioda–Katsura 1979 concerns another cyclic quotient for the inductive Fermat construction and is not an implication of this theorem. A historically implicit quotient computation, especially for the Fermat member, remains possible; the 1979 full text was not exhaustively inspected.
+
+**Value — PASS.** This classifies all singular points, analytic local models, and rational Betti numbers of a natural family of projective Calabi–Yau fourfold involution quotients. Nonrational genus-ten terminal strata, canonical index two, Picard number one, and odd Euler number together supply meaningful birational and topological invariants, not merely a routine named example.
+
+**Scope.** No positive characteristic, degenerate sextics, integral cohomology, intersection cohomology or resolution classification is asserted. The symbolic checker certifies exact identities only, and independent validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
