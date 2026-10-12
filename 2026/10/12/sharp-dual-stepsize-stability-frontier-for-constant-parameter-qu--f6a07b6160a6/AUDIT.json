@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For finite real K, positive mu and lambda, fixed a>=1 and gamma,tau>0, substitution into published Algorithm 1 yields the exact 2-by-2 mode map. Exact characteristic coefficients pass the strict quadratic Schur criterion iff gamma*tau*||K||² is below the displayed rational threshold. Two Schur expressions are unconditionally positive; the third gives the inequality. Rank-deficient singular directions contract separately. At equality the largest mode has root -1, and beyond it a real root <-1: scalar initializations prove necessity. The output filters contract. Reproduced 972 exact rational mode comparisons including critical scalar and all-tau examples with standalone verify.py; independently checked 3000 numerical mode spectra. No finite computation is used to prove the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2604.09245v1 Theorem 3.3 imposes a sufficient coupling condition for broad convex composites.",
+        "https://arxiv.org/html/2201.00139v1 has a 4/3 sharp generic guarantee and a two-dimensional undamped example.",
+        "https://arxiv.org/html/1702.08770v1 Theorem 3.1 proves PAPC linear convergence under pointwise supportability and matrix assumptions."
+      ],
+      "reasoning": "A theorem sufficient for arbitrary convex penalties under a smaller stepsize does not imply a necessary-and-sufficient curvature-conditioned threshold, still less the all-positive-dual-step phase. The generic 4/3 obstruction is a worst-case bound attained with a different, undamped objective, and cannot rule out stronger convergence in a fixed strictly curved quadratic. The present result does not generalize those nonlinear convergence theorems.",
+      "searches": [
+        "PAPC PDFP2O strictly convex primal and smooth dual quadratic stepsize threshold Schur Jury 4/3 exact 2026",
+        "\"PAPC\" \"strongly convex\" \"quadratic\" \"sharp\" \"stepsize\"",
+        "\"APAPC\" \"spectral radius\" \"stepsize\"",
+        "https://arxiv.org/html/2604.09245v1",
+        "https://arxiv.org/html/2201.00139v1",
+        "https://arxiv.org/html/1711.06785v2",
+        "https://arxiv.org/html/1702.08770v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.09245v1",
+      "https://arxiv.org/html/2201.00139v1",
+      "https://arxiv.org/html/1711.06785v2",
+      "https://arxiv.org/html/1702.08770v1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2604.09245v1: Lyapunov sufficiency requires gamma*tau*||K||² <= 1+a*gamma*mu for a constant-a specialization.",
+        "https://arxiv.org/html/2201.00139v1: undamped 4/3 is sharp for general PAPC/Chambolle-Pock, but the quadratic-curvature factors do not occur there.",
+        "https://arxiv.org/html/1711.06785v2: generic PAPC/PDFP²O 4/3 sharpness is worst-case, not a two-curvature if-and-only-if characterization.",
+        "https://arxiv.org/html/1702.08770v1: stronger convexity yields a linear rate under a pre-existing stepsize range; no exact dual-stepsize frontier."
+      ],
+      "reasoning": "Setting the two damping factors to one recovers the prior 4/3 polynomial, credited as a limiting special case. With positive curvatures the new boundary depends on both ratios, and the explicit all-dual-steps regime (e.g. a=gamma=mu=lambda=||K||=1) lies arbitrarily far beyond the sufficient fixed-parameter coupling bound; no cited theorem entails that exact region. The new statement implies neither stronger nonlinear convergence nor an improved generic worst-case PAPC ceiling.",
+      "searches": [
+        "Sharp necessary and sufficient stability of fixed-a Accelerated Proximal Alternating Predictor-Corrector APAPC for strongly convex quadratic g and h; eigenvalue minus one boundary and arbitrary large dual steps",
+        "PAPC PDFP2O strictly convex primal and smooth dual quadratic stepsize threshold Schur Jury 4/3 exact 2026",
+        "APAPC accelerated proximal alternating predictor corrector exact scalar quadratic Schur stability spectral radius primal dual step coupling 4/3",
+        "https://arxiv.org/html/2604.09245v1",
+        "https://arxiv.org/html/2201.00139v1",
+        "https://arxiv.org/html/1711.06785v2",
+        "https://arxiv.org/html/1702.08770v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2604.09245v1 Algorithm 1 is APAPC with g quadratic and implicit primal rescaling; at f=0 it reduces to a PAPC-type core.",
+        "https://arxiv.org/html/2201.00139v1 Section 3.2 proves the classical undamped 4/3 eigenvalue barrier."
+      ],
+      "reasoning": "Translate predictor-corrector, PAPC, PDFP²O, fixed-a, dual curvature, Schur/Jury, and signed real-root terminology. The known 4/3 endpoint is the simultaneous zero-damping limit of the new formula, not the formula for strictly positive primal and dual curvatures. Published-index nearby algorithms have different update matrices. An unindexed identical two-curvature derivation remains a risk.",
+      "searches": [
+        "Sharp necessary and sufficient stability of fixed-a Accelerated Proximal Alternating Predictor-Corrector APAPC for strongly convex quadratic g and h; eigenvalue minus one boundary and arbitrary large dual steps",
+        "PAPC PDFP2O strictly convex primal and smooth dual quadratic stepsize threshold Schur Jury 4/3 exact 2026",
+        "\"APAPC\" \"quadratic\" \"stability\"",
+        "APAPC accelerated proximal alternating predictor corrector exact scalar quadratic Schur stability spectral radius primal dual step coupling 4/3",
+        "https://arxiv.org/html/2201.00139v1",
+        "https://arxiv.org/html/1711.06785v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index nearby IDs: 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a, 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0, 2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f. Their reported theorems treat preconditioner row normalization or normal extragradient / split-skew reflected methods rather than the specified APAPC update.",
+        "https://arxiv.org/html/2604.09245v1 Algorithm 1 and Theorem 3.3 contain no parameterized exact quadratic stability table."
+      ],
+      "reasoning": "Comparison used scientific claims and algorithms rather than title-only matching. No inspected published record or table states this exact operator, threshold, or unbounded-dual-step classification. Absence from an index alone cannot prove originality.",
+      "searches": [
+        "Sharp necessary and sufficient stability of fixed-a Accelerated Proximal Alternating Predictor-Corrector APAPC for strongly convex quadratic g and h; eigenvalue minus one boundary and arbitrary large dual steps",
+        "PAPC PDFP2O strictly convex primal and smooth dual quadratic stepsize threshold Schur Jury 4/3 exact 2026",
+        "2026 accelerated numerical optimization negative momentum matrix iterations stability spectrum",
+        "2026 proximal gradient randomized coordinate sampling sharp convergence lower bounds optimal probabilities"
+      ]
+    },
+    "rationale": "Condat–Sadiev–Richtárik 2026 define APAPC and give a sufficient Lyapunov coupling, not an exact finite-curvature quadratic necessary-and-sufficient stability frontier. Y. Li–M. Yan 2022 and Z. Li–M. Yan 2017/2021 already give the undamped 4/3 barrier, which is explicitly credited and appears as a singular zero-curvature limit; this does not determine positive-curvature damping or an all-finite-dual-steps phase. Luke–Shefi 2017 gives PAPC linear convergence under different hypotheses and conservative parameter conditions. No covering claim was found in the examined indexed published records or primary full-text sections; unindexed equivalent 2-by-2 analyses remain possible.",
+    "residual_risks": [
+      "An earlier primal–dual fixed-point paper or alternate LMI parameterization could contain an algebraically equivalent two-curvature quadratic stability inequality without the term APAPC.",
+      "Existing generic 4/3 analysis supplies the limiting spectral mechanism; the claimed original scope is only the exact strictly positive-curvature phase classification, not the undamped case.",
+      "This special case has zero smooth-gradient term and therefore does not address actual accelerated smooth-component dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the algorithm and sufficient coupling inequalities but not the sharp two-curvature quadratic SVD/Jury bound or arbitrary-finite-dual-step phase.",
+        "evidence": [
+          "https://arxiv.org/html/2604.09245v1 lines 285–317, 390–423"
+        ],
+        "identifier_or_url": "arxiv:2604.09245v1",
+        "material_read": "Full HTML: problem and assumptions in Section 1; Algorithm 1 equations (steps 3–8); description of PAPC relation and constant-a restrictions; Section 3.1 Lyapunov analysis and Section 3.2 Theorem 3.3 step conditions. Full-text search for quadratic and 4/3.",
+        "method": "Read public arXiv HTML full-text passages and mathematical statements",
+        "title": "A Nesterov-Accelerated Primal–Dual Splitting Algorithm for Convex Nonsmooth Optimization",
+        "trigger": "Defines exact algorithm whose fixed-parameter spectral stability is classified"
+      },
+      {
+        "assessment": "Establishes the undamped 4/3 limit; does not determine the strict positive two-curvature APAPC stability region.",
+        "evidence": [
+          "https://arxiv.org/html/2201.00139v1 lines 76–102, 535–569"
+        ],
+        "identifier_or_url": "arxiv:2201.00139v1",
+        "material_read": "Public HTML: related-work conditions and Table 1, the generic PAPC relation, Table 2, Section 3.2 eigenvalue tightness computation lines 545–569.",
+        "method": "Read primary arXiv HTML text and exact characteristic-root argument",
+        "title": "On the improved conditions for some primal-dual algorithms",
+        "trigger": "Strongest plausible published 4/3 stepsize result and matching eigenvalue barrier"
+      },
+      {
+        "assessment": "A distinct explicit-primal-gradient PAPC update with a worst-case generic bound; does not furnish this exact dual quadratic proximal damping rule.",
+        "evidence": [
+          "https://arxiv.org/html/1711.06785v2 lines 38–94, 126–128, 406–446"
+        ],
+        "identifier_or_url": "arxiv:1711.06785v2; original v1 2017-11-18",
+        "material_read": "Public HTML: abstract, algorithmic equivalence in Introduction, Section 2.1 update, discussion of 4/3 tightness and Section 2.5.",
+        "method": "Read arXiv HTML original mathematical update and convergence claims",
+        "title": "New convergence analysis of a primal-dual algorithm with large stepsizes",
+        "trigger": "PAPC/PDFP²O under alternative naming; general exact generic stepsize"
+      },
+      {
+        "assessment": "Linear convergence under supportability and restricted steps, but not a necessary/sufficient dual-stepsize frontier with proximal curvature and arbitrary rank.",
+        "evidence": [
+          "https://arxiv.org/html/1702.08770v1 Section 3, especially lines 257–309"
+        ],
+        "identifier_or_url": "arxiv:1702.08770v1",
+        "material_read": "Public HTML: setup/assumptions, Section 3 Lemma 3.1, Lyapunov estimate, Theorem 3.1 and its hypotheses.",
+        "method": "Read primary arXiv HTML theorem and assumptions",
+        "title": "A Globally Linearly Convergent Method for Pointwise Quadratically Supportable Convex-Concave Saddle Point Problems",
+        "trigger": "Plausible older strongly convex PAPC rate theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6a07b61-60a6-4e27-9e91-87bb0be49e10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent primal–dual method has a generic coupling inequality that does not answer what dual steps are genuinely admissible when proximal curvature is present. The exact finite-dimensional theorem supplies the complete sharp stability frontier and a structural dichotomy: at sufficiently strong dual regularization every finite dual step converges; otherwise a computable finite ceiling is attained by a -1 mode. The a=gamma=mu=lambda=||K||=1 example violates the generic sufficient tau<=2 bound arbitrarily far while remaining convergent. This is a nontrivial boundary of a motivated numerical stability problem; no benefit in iteration count or nonlinear transfer is claimed.",
+    "status": "PASS"
+  }
+}
