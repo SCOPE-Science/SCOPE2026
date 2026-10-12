@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The claim is proved by exact qubit algebra. The state and rotation axis are unit vectors, their cross product gives the stated Jacobian, the source IT-velocity formula gives \\(v=(0,-1)^{\\mathsf T}\\), and exact substitution yields \\(s_E=1/(5+14\\lambda)>0\\). Independently, \\(H^2=2I\\) and \\(E^2=3/2\\), so exact ITE has rate \\(-1\\). The one-term minimality proof is valid for every parameter dimension and for both \\(\\lambda>0\\) and unregularized least squares.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.01954v1 reviews the regularized normal equations \\((J^{\\mathsf T}J+\\lambda I)\\dot\\theta=J^{\\mathsf T}v\\) and notes that least-squares projection does not itself ensure energy descent.",
+        "arXiv:2409.12018v1 develops OVQITE operator-set choices with the condition that \\(H\\) lie in the operator span; its inspected results do not state an exact two-term minimal ascent example."
+      ],
+      "reasoning": "The general papers provide the variational framework and qualitative need for checking descent. They do not dominate the claim because they do not identify the smallest term count, give this exact family valid for all regularization strengths, or prove the single-term impossibility statement.",
+      "searches": [
+        "McLachlan imaginary-time variational principle energy monotonicity operator pool",
+        "Hamiltonian-term pool Tikhonov regularization uphill energy one qubit",
+        "OVQITE energy descent monotonicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01954v1",
+      "arXiv:2409.12018v1",
+      "Journal of Physics A 59 (2026) 245301, DOI 10.1088/1751-8121/ae767d",
+      "Published published-finding corpus records returned by the listed semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.01954v1 states only that \\(J\\dot\\theta\\) need not reproduce \\(v\\), so Eq. (16) does not ensure the parameter update lowers energy; it then imposes a descent test and reports empirical uphill continuation.",
+        "arXiv:2409.12018v1 states a monotonic-energy property for the projected OITE evolution when \\(H\\) lies in the selected operator span, but that statement does not establish monotonicity of every restricted variational least-squares parameter direction."
+      ],
+      "reasoning": "Neither prior statement implies existence of a one-qubit exact ascent direction for every \\(\\lambda\\ge0\\), nor the sharp fact that one nonconstant term cannot ascend while two can. Conversely, the new claim does not contradict the source because VIME explicitly protects against non-descent directions.",
+      "searches": [
+        "operator-projected variational quantum imaginary time evolution energy increase counterexample",
+        "J dot theta directional derivative imaginary time quantum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus search returned no OVQITE/VIME finding with an exact two-term uphill construction; the closest high-level optimization hit was 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af, which concerns classical weak Gauss–Newton frame dependence rather than quantum imaginary-time projection.",
+        "arXiv:2610.01954v1, Appendix A.7, defines \\(s_E=\\sum_k c_k(J\\dot\\theta)_k\\) and rejects nonnegative directions."
+      ],
+      "reasoning": "Searches covered the source acronym, energy-increase language, exact-update language, and the directional-derivative formulation. The closest result is about a different algorithm and different geometric quantity, so it neither states nor implies the present qubit counterexample.",
+      "searches": [
+        "arXiv:2610.01954 VIME OVQITE energy descent check",
+        "operator-projected variational imaginary-time evolution energy increase counterexample",
+        "VIME exact update direction increases energy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published published-finding corpus corpus was searched by both arXiv identifiers and method names; no claim-equivalent record was returned.",
+        "No checked published source or database entry states the explicit exact \\(s_E=1/(5+14\\lambda)\\) counterexample together with the one-term minimality boundary."
+      ],
+      "reasoning": "No tabulated or published-database result found in the checked scientific corpus gives the explicit \\(s_E=1/(5+14\\lambda)\\) counterexample or the one-term minimality theorem.",
+      "searches": [
+        "arXiv:2610.01954 VIME OVQITE energy descent check",
+        "arXiv:2409.12018 operator-projected variational quantum imaginary time evolution"
+      ]
+    },
+    "rationale": "The recent VIME paper states that projected updates can fail its energy-descent test and reports empirical energy increase when continuing past that point, but the inspected text does not give an exact noise-free minimal counterexample or prove a one-term/two-term boundary. The original OVQITE paper requires the Hamiltonian to lie in the span of the selected operator set and studies Hamiltonian-derived pools; the inspected text does not state the exact two-term ascent construction or the one-term minimality theorem.",
+    "residual_risks": [
+      "A contemporaneous note or differently indexed observation could contain an equivalent exact counterexample because the anchor is only days old.",
+      "The search did not establish a literature-wide uniqueness theorem; originality is limited to the inspected primary sources and searched published corpus."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_FRAMEWORK_NOT_CLAIM",
+        "evidence": "The paper defines the termwise Hamiltonian pool, least-squares/Tikhonov update, exact ITE energy identity, directional derivative, and stopping safeguard. The inspected material does not state the explicit minimal two-term exact counterexample or single-term impossibility.",
+        "identifier_or_url": "arXiv:2610.01954v1",
+        "material_read": "Sections II.2–II.3 and Appendix A.6–A.8, including equations (8)–(16) and (80)–(87).",
+        "method": "Full arXiv HTML inspection.",
+        "title": "Hardware-Efficient Ground-State Preparation using Variational Imaginary-Time Majorana Evolution",
+        "trigger": "Primary recent source defining the exact equations and energy-descent safeguard."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper develops OVQITE, requires \\(H\\) to lie in the selected operator span, and reports numerical convergence behavior; it does not provide the present exact two-term ascent construction or its term-count minimality proof.",
+        "identifier_or_url": "arXiv:2409.12018v1",
+        "material_read": "Sections on OITE/OVQITE operator-set choice and Appendix regularization discussion.",
+        "method": "Full arXiv HTML inspection of relevant sections.",
+        "title": "Operator-Projected Variational Quantum Imaginary Time Evolution",
+        "trigger": "Original OVQITE source and closest conceptual predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6f7f048-995c-487b-a4ff-6aba6b369275",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source already treats the energy-descent check as operationally important, but it leaves open whether failure is merely a surrogate/numerical effect or can be intrinsic to exact operator projection. The exact counterexample resolves that boundary in the smallest possible term count and shows that termwise decomposition destroys an automatic descent property retained by a single-observable \\(\\{H\\}\\) pool. This directly informs when a line-search/descent safeguard is logically necessary.",
+    "status": "PASS"
+  }
+}
