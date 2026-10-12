@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For any integer width ell>=2, any kappa>1 and ambient N>=ell+1, the Gaussian proxy covariance reduces exactly to a 2x2 positive-definite Wishart matrix with independent chi-square diagonal masses. The spectral-projector identity proves weaker-mode majority iff V>kappa^2 U; power iteration converges almost surely because the leading eigenvalue is simple and independent Gaussian initialization is nonorthogonal. Independent gamma ratios yield the exact symmetric Beta CDF. Orthogonal Pythagoras yields the strict reconstruction lower bound, including arbitrary co-range postprocessing. Density single-crossing proves strict width monotonicity. Endpoint Laplace plus Stirling proves the sharp fixed-gap prefactor; independent chi-square CLT and monotone inversion prove the collapsing-gap sketch budget. The 40 exact-rational CDF, 1500 spectral and projection tests, 1235 probability monotonic checks, 11 asymptotic checks, 90000 simulated sketches and 200 direct powers in verify.py all passed. Monte Carlo is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang and Yang, Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations, arXiv:2603.26298v1, Sect. 2.3, Thms. 3.1-3.2, Sect. 7 gives expected Frobenius bounds at q=1 and high-probability spectral bounds at general q; its q→∞ identification is explicit. The latter bound assumes oversized range sketch and correlated initialization, not the present independent one-column regime.",
+        "Chenakkod and Dereziński, Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation, arXiv:2605.09755v1, Alg. 1 and Thm. 2.1 bounds regularized spectral approximation with fast sketches in a different success metric; exact two-mode orientation probabilities are not supplied.",
+        "Tropp, Yurtsever, Udell and Cevher, Practical Sketching Algorithms for Low-Rank Matrix Approximation, arXiv:1609.00048, Alg. 4 and Thm. 4.3 bounds one-pass QB Frobenius reconstruction in expectation, not the fixed-proxy infinite-power event.",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee gives adaptive pivoting expected-error product sharpness; it cannot imply the present beta-law proxy misranking event."
+      ],
+      "reasoning": "General approximate low-rank-error bounds do not determine the exact measure of a diagonal misranking event or its sharp confidence constants; however, the known fixed-proxy top-subspace limit is deliberately excluded from novelty. No broad theorem inspected dominates the complete current probabilistic statement.",
+      "searches": [
+        "2026 numerical linear algebra randomized subspace iteration sketch conditioning sharp stability Gaussian",
+        "sketch power iteration randomized singular vectors over-iteration fixed sketch Wishart wrong leading mode exact probability beta",
+        "Chang Yang 2026 sketch-power iterations Wishart beta 2x2 principal eigenvector failure probability",
+        "fixed sketch proxy power repeated iterations wrong top singular vector leading diagonal variance F distribution exact failure sketch dimension",
+        "arXiv:2603.26298v1 Theorems 3.1 and 3.2",
+        "arXiv:2605.09755v1 Theorems 2.1,3.5",
+        "arXiv:1609.00048 Theorem 4.3",
+        "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+        "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+      ]
+    },
+    "checked_sources": [
+      "Chang and Yang, Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations, arXiv:2603.26298v1, Sect. 2.3, Thms. 3.1-3.2, Sect. 7",
+      "Chenakkod and Dereziński, Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation, arXiv:2605.09755v1, Alg. 1 and Thm. 2.1",
+      "Tropp, Yurtsever, Udell and Cevher, Practical Sketching Algorithms for Low-Rank Matrix Approximation, arXiv:1609.00048, Alg. 4 and Thm. 4.3",
+      "NIST/SEMATECH F Distribution section 1.3.6.6.5",
+      "2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chang and Yang, Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations, arXiv:2603.26298v1, Sect. 2.3, Thms. 3.1-3.2, Sect. 7 Sect.7 => top singular direction of Z; NOT => the probability of dominance of the smaller singular mode, which requires the exact 2x2 orientation comparison and independent Gaussian row masses.",
+        "Chenakkod and Dereziński, Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation, arXiv:2605.09755v1, Alg. 1 and Thm. 2.1 is an upper-error regularized-spectral bound for sufficiently wide sketches, not an equality under two-mode Gaussian samples.",
+        "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 concerns deterministic normal spectral filters and sharp Rayleigh-residual amplification, not a random fixed-proxy orientation event.",
+        "2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4 concerns constrained eigenvector stationarity false positives, not Wishart projector tails."
+      ],
+      "reasoning": "The prior limit is a proper component of the new proof, not its conclusion. Classical F/Beta laws plus spectral-projector algebra can derive the new probability; standard tools are credited. The additional sharp fixed-gap exponential constant, closing-gap Gaussian confidence coefficient and positive-probability power-worsening consequence are neither stated nor implied as immediate numeric special cases by inspected algorithm bounds. No novelty claim is made for Gaussian ratio statistics alone.",
+      "searches": [
+        "sketch power iteration randomized singular vectors over-iteration fixed sketch Wishart wrong leading mode exact probability beta",
+        "Chang Yang 2026 sketch-power iterations Wishart beta 2x2 principal eigenvector failure probability",
+        "fixed sketch proxy power repeated iterations wrong top singular vector leading diagonal variance F distribution exact failure sketch dimension",
+        "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+        "2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4",
+        "arXiv:2603.26298v1 Sect. 7",
+        "arXiv:2605.09755v1 Sect. 1 and 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chang and Yang, Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations, arXiv:2603.26298v1, Sect. 2.3, Thms. 3.1-3.2, Sect. 7 explicitly observes that infinite power selects the top left singular subspace of the fixed proxy, without giving an exact probability for incorrect singular-mode majority.",
+        "The event equals a two-degree-of-freedom sample-covariance diagonal ordering, equivalently a central F tail or symmetric beta tail. The chi-square/F/Beta identity is classical (NIST F distribution reference).",
+        "Chenakkod and Dereziński, Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation, arXiv:2605.09755v1, Alg. 1 and Thm. 2.1 analyzes a similar proxy-power form through spectral approximation, not a two-mode exact misranking law."
+      ],
+      "reasoning": "The statement is equivalent to a Wishart two-axis leading-eigenvector majority event and, via a two-by-two spectral-projector identity, to a chi-square ratio. Such a translation is essential for comparing older PCA and F-test results; no identified source states its sketch-power failure probability together with exact and two-regime sharp confidence budgets. Classical distribution transforms are credited and not labeled original. A differently named PCA angular-tail result is the principal residual risk.",
+      "searches": [
+        "sketch power iteration randomized singular vectors over-iteration fixed sketch Wishart wrong leading mode exact probability beta",
+        "approximate power iterations fixed Gaussian covariance sketch leading eigenspace misidentification probability",
+        "SPI sketch-power q infinity limiting random eigendirection rank one misidentification",
+        "Gaussian sample covariance leading eigenvector 45 degree wrong orientation Beta chi-square ratio rank one",
+        "2x2 Wishart principal eigenvector probability angle",
+        "arXiv:2603.26298v1 §7",
+        "NIST F distribution handbook section 1.3.6.6.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The NIST F distribution definition supplies the classical ratio law but no table indexed by fixed-proxy singular-gap and sketch-width failure probability.",
+        "Targeted published-finding corpus semantic searches returned records on Gaussian-chaos statistics and unrelated sketch conditioning, rather than a table of the current algorithm-specific probability.",
+        "The explicit sample case kappa=2, width=4 gives 13/125 by the Beta(2,2) CDF; its numerical value is not itself the asserted novelty."
+      ],
+      "reasoning": "An F-distribution table computes these numbers after recognizing the event equivalence. This is ordinary background computation and is not a covering algorithm-specific theorem or published exact sketch-sizing classification in the inspected sources.",
+      "searches": [
+        "SPI sketch-power q infinity limiting random eigendirection rank one misidentification",
+        "Chang Yang 2026 sketch-power iterations Wishart beta 2x2 principal eigenvector failure probability",
+        "Gaussian sample covariance leading eigenvector 45 degree wrong orientation Beta chi-square ratio rank one",
+        "2x2 Wishart principal eigenvector probability angle",
+        "probability sample principal component 45 degrees eigenvector variance",
+        "NIST e-Handbook F Distribution"
+      ]
+    },
+    "rationale": "The highly relevant original paper already states the fixed-proxy top-eigenspace limit, and a second 2026 paper derives broad fast-sketch guarantees. This claim is limited to the exact wrong-orientation probability, its unavoidable projection-loss event, and sharp confidence budgets in fixed- and collapsing-gap regimes. Primary full-text comparison, actual semantic record searches, alternative PCA/Wishart phrasing, and published scientific record comparisons did not identify a statement implying this conjunction. Standard Gaussian chi-square/F/Beta identities are acknowledged, not claimed new. Residual risk remains for an old PCA principal-axis misclassification law in an unindexed statistical paper.",
+    "residual_risks": [
+      "An older exact two-dimensional sample principal-component/Wishart orientation theorem may directly imply the beta law under a different name; the database search is not proof of uniqueness.",
+      "The limit q→∞ is explicitly known in Chang and Yang and is not claimed original.",
+      "Real one-column range sketches are outside the source paper’s multi-column high-probability theorem parameter conditions; no contradiction to its guarantees is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source explicitly covers limiting sketch eigenspace, but no identified exact two-mode beta probability or sharp wrong-orientation sketch budgets; q→∞ limit excluded from novel contribution",
+        "evidence": [
+          "Chang and Yang, Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations, arXiv:2603.26298v1, Sect. 2.3, Thms. 3.1-3.2, Sect. 7 eqs. (2.5), (3.1), Theorem 3.2, Section 7 paragraph beginning Fourth"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.26298v1",
+        "material_read": "Original 56-page PDF, introduction and equation (2.5) on page 4; Theorems 3.1 and 3.2 and nearby parameter assumptions on pages 9–11; numerical q comparisons; Section 7 on pages 39–40, plus methods and appendix relevant to projection error",
+        "method": "Direct primary full-text reading including specific derivations and scope of bounds",
+        "title": "Improving Sketching Algorithms for Low-Rank Matrix Approximation via Sketch-Power Iterations",
+        "trigger": "Original SPI definition and whether its q→∞ observation already covers misranking probability"
+      },
+      {
+        "assessment": "Explicitly recognizes that q→∞ need not align with population principal components; supplies regularized-spectral approximation bounds for fast-sketch methods but no exact Gaussian two-mode orientation law or sketch-confidence asymptotics",
+        "evidence": [
+          "Chenakkod and Dereziński, Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation, arXiv:2605.09755v1, Alg. 1 and Thm. 2.1 introductory equation (1), Algorithm 1, Theorem 2.1; no applicable exact orientation theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.09755",
+        "material_read": "Original 22-page PDF, Sections 1–3 including equation (1), Algorithm 1, Theorem 2.1 and sketching guarantees, plus targeted searches for Wishart, angles and probabilities across full parsed text",
+        "method": "Primary PDF reading and title/equation/theorem level implication comparison",
+        "title": "Accelerating Power Method with Fast Sketching for Stronger Low-Rank Approximation",
+        "trigger": "Plausible independently motivated near-identical sketched-power method; possible stronger coverage"
+      },
+      {
+        "assessment": "Sketched co-range QB and general expected-error bound do not state or fix a proxy over an unlimited number of power steps and do not provide the misranking law",
+        "evidence": [
+          "Tropp, Yurtsever, Udell and Cevher, Practical Sketching Algorithms for Low-Rank Matrix Approximation, arXiv:1609.00048, Alg. 4 and Thm. 4.3 Algorithm 4 and Theorem 4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.00048",
+        "material_read": "Original 32-page PDF, introduction, Sections 3–4, Algorithm 4, Theorem 4.3, matrix approximation projections and parameter selection",
+        "method": "Direct primary full-text reading of relevant algorithm and error claims",
+        "title": "Practical Sketching Algorithms for Low-Rank Matrix Approximation",
+        "trigger": "Foundational one-pass QB formulation and possibly dominating mean-square error result"
+      },
+      {
+        "assessment": "Covers the statistics identity but not the matrix-iteration reliability theorem",
+        "evidence": [
+          "NIST section 1.3.6.6.5: ratio of two independent normalized chi-square variates"
+        ],
+        "identifier_or_url": "https://itl.nist.gov/div898/handbook/eda/section3/eda3665.htm",
+        "material_read": "Definition of F distribution as ratio of two independent normalized chi-square distributions",
+        "method": "Reference manual definition and comparison of standard probability law",
+        "title": "NIST/SEMATECH e-Handbook: F Distribution",
+        "trigger": "Prior classical chi-square ratio equivalence must be credited"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29bd760f-610f-4577-9b77-6a536fef7d5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact event is naturally motivated by a known limitation of fixed-proxy sketch powering: infinite iterations identify the proxy dominant direction, which can disagree with the data’s dominant mode. Rather than an arbitrary matrix statistic, it is the probability that power iteration concentrates more strongly on the wrong singular mode; on that event every rank-one reconstruction inherits a strict loss floor. The exact confidence budget has two independent, sharp constants: logarithmic in inverse risk for a fixed spectral gap, but quadratic in the inverse spectral gap for a fixed confidence. The positive-probability deterioration of unpowered sketches quantifies the importance of choosing proxy width rather than increasing power depth. The rank-two model is the smallest natural nontrivial competition between singular directions; numerical checks alone are not treated as mathematical value. Limits to independent real Gaussian, one-column, fixed-proxy, exact arithmetic are explicit.",
+    "status": "PASS"
+  }
+}
