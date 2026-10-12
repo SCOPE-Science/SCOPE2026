@@ -1,0 +1,11 @@
+# Review of the sharp four-coordinate quadratic Gaussian moment deficit
+
+**Correctness — PASS.** Wick's recursion gives the exact degree-eight equicorrelation moment polynomial. A rational Bernstein certificate proves strict convexity of its normalized negative-correlation deficit, and endpoint derivatives isolate its unique interior minimizer. The runnable exact checker validates all polynomial coefficients, Bernstein coefficients, endpoint signs and root enclosure. The result covers both positive-semidefinite boundary matrices by continuity.
+
+**Originality — PASS, subject to bibliographic risk.** The 2022 multinomial covariance paper provides a general reformulation of a nonnegative moment difference but not the sharp fourth-moment stability coefficient. The later general Gaussian product inequality papers establish its nonnegativity, not the precise best positive \(\rho^2\) coefficient or its unique interior optimizer. Searches of the directly relevant Gaussian product literature and mathematical research records did not identify this quantitative statement. Hirose's 2026 full journal text was not obtained, so an undiscovered quantitative formula remains possible.
+
+**Value — PASS.** The Gaussian product deficit is a canonical dependence diagnostic. Its *optimal* second-order stability constant in the first equicorrelated four-coordinate quartic case is a natural exact invariant, usable to calibrate how much negative covariance can reduce a strict fourth-moment separation. The unexpected interior sharpness, not a singular boundary, materially changes its worst-case behavior. The contribution is explicitly quantitative and narrow, not a claimed reproof of the settled general Gaussian product inequality.
+
+**Relationship to existing results.** Closest sources: Ouimet (2022), Hirose (2026), Ouimet–Greaves (2026), and Hu–Zhao–Zhou (2023). The first poses the covariance-moment question and supplies an exact combinatorial characterization; the second and third cover the *sign* in much broader generality; the fourth treats two-coordinate quantitative bounds. Residual risk is a previously published sharp four-coordinate coefficient in an inaccessible or differently named source.
+
+Self-review: passed. Independent audit: not yet performed.
