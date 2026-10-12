@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Universal upper construction of weight 2k works at any deleted-matching pair. If weight<2k with n>=2k, each shore has an empty vertex and hence requires at least k incidences on opposite shore, contradiction. At equality either both shores have empties, forcing one occurrence of each color per shore, with matching-index supports by the missing-matched-edge obstruction, or an entire shore is occupied, forcing n=2k, singleton assignments and twice each color. Surjection and multinomial counts are bijections; both directions proved. The direct C++17 incidence checker exhaustively enumerates all functions of weight<=2k for (k,n)=(3,6),(3,7) among others and agrees at exact counts 1446 and 2023; it is not used in lieu of infinite proof. No unproved implications or asymptotic convergence assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar-Henning-Rall 2008, DOI:10.11650/twjm/1500602498, Observation 1.2: general min/order bound and upper k gamma(G).",
+        "Published 2-rainbow complete-multipartite paper SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-graphs, 2026/10/4/...--7f7bcd9e9b58, treats k=2 on multipartite graphs, not k>=3 on crowns."
+      ],
+      "reasoning": "The general bound gives only upper 2k here; its lower bound min(2n,k) cannot force 2k for k>=3. A crown is not a complete multipartite graph for n>=3, because its deleted matching is a cross-shore nonedge set not induced by vertex partition. Thus general product or multipartite statements do not dominate the optimizer theorem.",
+      "searches": [
+        "web: \"k-rainbow domination\" \"crown graph\" optimal solutions",
+        "web: \"crown graphs\" \"k-rainbow domination number\" formula",
+        "minimum k-rainbow dominating functions crown graph K_n,n minus perfect matching all colors k n>2k Stirling numbers onto maps",
+        "k-rainbow domination exact optimizer count crown graphs matched supports",
+        "Dominating sets of crown graph Cartesian product K_k all minimum number surjections onto common matched-index support"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/j.endm.2005.06.059 (university public metadata and abstract)",
+      "DOI:10.11650/twjm/1500602498 (author-posted full text)",
+      "ICONSET 2018 ISBN:978-93-86675-42-2 (exact printed p.39)",
+      "Published result identifier: 2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58 (title and abstract-level summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior crown 2-rainbow minimum classification fixes k=2, e.g., 40 optimizers at n=4 and n+4 binomial(n,2) at n>=5; this result starts at k>=3.",
+        "Brešar-Henning-Rall 2008 Observation 1.1 establishes a bijection, not the particular crown product minimum count.",
+        "Sivagami 2018 one-page abstract states 3-rainbow bounds only without identifying the actual bound or optimizer classification."
+      ],
+      "reasoning": "The k=2 result is not an implication for k>=3; monotonicity or repeated colors do not determine the number of exact optimum functions. An exact gamma_r3 bound, even if contained in a fuller 2018 paper, would not imply the described labeled optimum count. No conclusive inaccessible source implying the full theorem was identified.",
+      "searches": [
+        "2-rainbow domination crown graphs all minimum functions",
+        "minimum k-rainbow dominating functions crown graph K_n,n minus perfect matching all colors k n>2k Stirling numbers onto maps",
+        "k-rainbow domination exact optimizer count crown graphs matched supports",
+        "web: \"3-rainbow domination\" \"crown graphs\" Sivagami pdf",
+        "For k >= 3, n >= 2k, minimum k-rainbow domination of the crown graph K_n,n minus a perfect matching, all minimizers share support indexed by matching and the number is sum binomial(n,t)(t! Stirling(k,t)) squared, plus one-sided exception at n=2k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar-Henning-Rall 2008, DOI:10.11650/twjm/1500602498, Observation 1.1: k-rainbow labels are in weight-preserving bijection with dominating sets of G square K_k.",
+        "Sivagami 2018 p.39, ISBN:978-93-86675-42-2: a one-page abstract announces unspecified 3-rainbow crown bounds, not minimum optimizers."
+      ],
+      "reasoning": "The prism representation is a mathematical equivalence and does not itself enumerate minimum sets on the matching-deleted biclique product. Searching both k-rainbow and crown descriptions yielded no statement equivalent to the two-family classification or Stirling count; no claim of uniqueness from absence of hits.",
+      "searches": [
+        "minimum k-rainbow dominating functions crown graph K_n,n minus perfect matching all colors k n>2k Stirling numbers onto maps",
+        "k-rainbow domination exact optimizer count crown graphs matched supports",
+        "rainbow domination polynomial crown graphs arbitrary k weight 2k",
+        "web: \"k-rainbow domination\" \"crown graph\" optimal solutions",
+        "For k >= 3, n >= 2k, minimum k-rainbow domination of the crown graph K_n,n minus a perfect matching, all minimizers share support indexed by matching and the number is sum binomial(n,t)(t! Stirling(k,t)) squared, plus one-sided exception at n=2k",
+        "Dominating sets of crown graph Cartesian product K_k all minimum number surjections onto common matched-index support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct primary-source comparison at Brešar-Henning-Rall 2008 full text, DOI:10.11650/twjm/1500602498, §§1–3 and Observation 1.1–1.2.",
+        "Sivagami 2018 conference collection page 39 provides only an abstract and no optimizer table."
+      ],
+      "reasoning": "No inspected exact table gives M_{n,k} for all integers k>=3, n>=2k; checked finite cases (6,3) and (7,3) do not establish database novelty and are offered as reproducibility, not as novelty evidence.",
+      "searches": [
+        "minimum k-rainbow dominating functions crown graph K_n,n minus perfect matching all colors k n>2k Stirling numbers onto maps",
+        "rainbow domination polynomial crown graphs arbitrary k weight 2k",
+        "web: \"rainbow domination\" \"crown graph\" enumeration",
+        "3 rainbow crown graph exact count 1446 2023 n=6 n=7 minimum functions"
+      ]
+    },
+    "rationale": "Statement-level comparison distinguishes the new all-k>=3 exhaustive optimizer classification and Stirling count from the known universal prism correspondence and bounds, the prior k=2 crown classification, and a 2018 crown-specific one-page abstract reporting only unspecified k=3 bounds. No inspected accessible full primary paper or returned published result states an equivalent all-k crown support classification or count. Coverage risk from a possible unlocated full conference treatment is explicitly retained; a failed search is not treated as proof of originality.",
+    "residual_risks": [
+      "Only a one-page abstract was found for the 2018 paper by P. Sivagami on 3-rainbow domination of crown graphs. A fuller text, if extant, could contain results beyond its advertised bounds.",
+      "No literature search exhausts all possible older/poorly indexed crown graph results.",
+      "The prior k=2 minimum-family formula is already established and explicitly excluded from the novel parameter range.",
+      "Exact theorem-form, prism-dual and coefficient searches did not return a dominating record; these negative retrieval results cannot exclude unpublished or poorly indexed stronger statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies definition, MSC 05C69 and k gamma(G) upper bound; does not present minimum-support count for crowns.",
+        "evidence": [
+          "https://www.researchgate.net/publication/265574151_RAINBOW_DOMINATION_IN_GRAPHS",
+          "Observation 1.1 and Observation 1.2 in pp.214–215"
+        ],
+        "identifier_or_url": "https://doi.org/10.11650/twjm/1500602498",
+        "material_read": "Full primary text pp.213–225, introduction, Observation 1.1, Observation 1.2 and subsequent sections (through author-posted text)",
+        "method": "Read accessible author-uploaded full paper text and examined crown/complete-bipartite occurrences and principal statements",
+        "title": "Rainbow Domination in Graphs",
+        "trigger": "Foundational full definition, global bounds and prism correspondence"
+      },
+      {
+        "assessment": "Establishes first public source date of 2005-10-15 and origin of notion, not coverage of optimizer enumeration.",
+        "evidence": [
+          "https://pure.uj.ac.za/en/publications/paired-domination-of-cartesian-products-of-graphs-and-rainbow-dom/"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.endm.2005.06.059",
+        "material_read": "University bibliographic record, publication date and abstract; not the entire 5-page article",
+        "method": "Verified publication metadata and abstract at university-hosted repository",
+        "title": "Paired-domination of Cartesian products of graphs and rainbow domination",
+        "trigger": "Earliest verified date for the rainbow domination parameter"
+      },
+      {
+        "assessment": "Announces unspecified bounds on k=3 parameter. Does not state any minimum-function count or proof. An unlocated fuller write-up remains a residual novelty risk.",
+        "evidence": [
+          "Conference proceeding ISBN 978-93-86675-42-2, printed p.39"
+        ],
+        "identifier_or_url": "https://www.isca.co.in/SOUV_PROC/conference/ISBN%20978-93-86675-42-2.pdf#page=39",
+        "material_read": "Entire one-page published conference abstract, printed p.39, PDF page index 38; no full article included",
+        "method": "Visually inspected printed page and compared its declared scope with the exact theorem",
+        "title": "On 3-Rainbow Domination in Crown Graphs",
+        "trigger": "Exact same graph and k=3 regime, potentially covering scalar or optimum families"
+      },
+      {
+        "assessment": "No logical implication to the claimed k>=3 crown support transition. No whole-text NOT_COVERING verdict is drawn from its summary.",
+        "evidence": [
+          "Public summary states 2-rainbow formula for complete multipartite graphs only"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58",
+        "material_read": "Public record title, summary and stated formula; full article was not read",
+        "method": "Compared parameter k=2 and complete-multipartite object to k>=3 matching-deleted biclique",
+        "title": "All 2-rainbow dominating functions of complete multipartite graphs",
+        "trigger": "Possible count-dominating result on graph family or k=2 extension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0eafacfb-9145-40bb-9fd5-1ca898604a05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full all-optimizer classification for a natural well-studied infinite graph family and all color counts k>=3 is more than an elementary bound or tiny gain. The deleted perfect matching forces the nonobvious coincidence of occupied supports, which yields a Stirling-number sum for every minimum configuration. Exactly at n=2k, a second entirely different family appears and vanishes above that sharp threshold. The result counts optimal dominating sets of the natural prism Cr_n square K_k and supplies exact benchmark multiplicities, e.g. M_{6,3}=1446 and M_{7,3}=2023. The already known k=2 result is not repackaged as new. The parameter and precise count are inherently meaningful and the proof covers infinitely many nontrivial instances.",
+    "status": "PASS"
+  }
+}
