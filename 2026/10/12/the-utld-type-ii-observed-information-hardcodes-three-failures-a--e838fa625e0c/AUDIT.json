@@ -1,0 +1,90 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation of the source's own Type-II log-likelihood gives \\(\\ell''=-r/\\alpha^2-(n-r)z^\\alpha(\\log z)^2/(1-z^\\alpha)^2\\). Algebraically rewriting this over the source denominator shows that the printed expression is \\(\\alpha^2\\ell''\\) only after setting \\(r=3\\). Numerical differentiation of the actual likelihood agrees with the corrected formula. The strict negative sign follows immediately for every admissible sample.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General Type-II censoring theory gives the standard likelihood form but does not supply the source-specific UTLD formula defect.",
+        "The source itself cites classical censoring references for the inference framework."
+      ],
+      "reasoning": "General censoring theory provides the differentiation framework, but the accepted result is a direct correction of the 2026 UTLD analytic Hessian and its consequences.",
+      "searches": [
+        "Topp-Leone Type-II censoring likelihood Fisher information",
+        "unit distribution Type-II censoring observed information shape parameter",
+        "censored Topp-Leone Hessian alpha"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14061021"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's log-likelihood has \\(r\\log(2\\alpha)\\) and \\((n-r)\\log(1-z^\\alpha)\\).",
+        "Its printed score contains \\(r/\\alpha\\) and the factor \\(r-n\\), confirming the general censoring count.",
+        "Differentiating those displayed terms yields the corrected Hessian and strict concavity."
+      ],
+      "reasoning": "The source's preceding equations imply the correction but the source explicitly prints and uses a different Hessian. The final claim therefore corrects a stated inferential formula rather than restating an unstated consequence.",
+      "searches": [
+        "10.3390/math14061021 log-likelihood Equation 16 score alpha",
+        "10.3390/math14061021 second derivative alpha r n",
+        "unit Topp-Leone strict concavity Type-II"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-result hit names the target DOI or gives a UTLD observed-information correction.",
+        "Exact-source searches returned the original 2026 article and institutional metadata, not a corrigendum.",
+        "The source's own score retains general \\(r\\), while the following Hessian display contains \\(3\\) and \\(n-3\\)."
+      ],
+      "reasoning": "The searches cover the exact source, model name, censoring design, Hessian, observed information, Fisher information, and asymptotic variance aliases. No equivalent correction was located.",
+      "searches": [
+        "10.3390/math14061021 observed Fisher information Type-II censoring correction",
+        "unit Topp-Leone Type-II censoring second derivative log-likelihood",
+        "On Unit J-Shaped Distributions Fisher information error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Equation (18) defines the inverse observed information from the negative second derivative.",
+        "The displayed second derivative immediately below it contains \\(3\\) and \\(n-3\\), independent of the general observed-failure count \\(r\\).",
+        "No correction record was located."
+      ],
+      "reasoning": "The exact displayed formula is the object corrected here; no external numerical database is needed.",
+      "searches": [
+        "10.3390/math14061021 Equation 18 second derivative",
+        "10.3390/math14061021 asymptotic variance confidence interval",
+        "10.3390/math14061021 corrigendum erratum"
+      ]
+    },
+    "rationale": "The primary article prints the general score with \\(r\\), then prints a second derivative with constants \\(3\\) and \\(n-3\\) and no \\(1/\\alpha^2\\) factor. Five focused published-result searches, exact DOI/correction searches, and current/prior owned-ledger checks found no model-specific correction.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "The paper's numerical code may have differentiated the likelihood correctly even though the printed analytic formula is wrong.",
+      "Expected Fisher information is distinct from the observed information corrected here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT. The displayed second derivative does not follow from the immediately preceding general likelihood and score.",
+        "evidence": "Equations (3), (16), the score following (16), Equation (18), and the second-derivative display immediately below (18).",
+        "identifier_or_url": "doi:10.3390/math14061021",
+        "material_read": "Publisher full text covering the UTLD density and parameter domain; Type-II log-likelihood and score; Equation (18) and the displayed second derivative; the asymptotic confidence-interval discussion; the logit reparameterization; and publication/MSC metadata.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "On Unit J-Shaped Distributions: Properties and Estimation with Applications",
+        "trigger": "Primary 2026 source containing the UTLD Type-II likelihood and observed-information formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e838fa62-5e0c-4528-a057-0a78e8b4d140",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The erroneous Hessian is the paper's stated basis for asymptotic variance and confidence intervals and is also referenced in the MCMC proposal construction. It fails for the general censoring count and, even on the accidental \\(r=3\\) slice, rescales inverse information by \\(1/\\alpha^2\\). The corrected formula additionally proves global strict concavity of the Type-II likelihood in the model parameter, a useful inferential structural fact.",
+    "status": "PASS"
+  }
+}
