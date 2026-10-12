@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The state matrices are derived directly from the exact stale-gradient update. The zero-delay reset to a fixed direction yields an exact positive scalar renewal kernel. The generating resolvent is algebraically verified, the cubic sign regime is exact, and a discrete renewal theorem supplies convergence, critical positive lower bound, and exponential divergence for the stated initial history. The last-zero decomposition transfers conclusions to E[x_t²]. A rational Lyapunov identity and 73 exact weighted-path/renewal/decomposition checks corroborate finite identities without replacing infinite-horizon proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arjevani et al. 2020, PDF pp. 1–11 and appendix: sharp fixed-delay complexity bounds, not Markov persistence probabilities.",
+        "Dutta et al. 2018, main PDF §3.2 and supplement §§8.1–8.2: conditional-staleness inequalities and small-step sufficient convergence, not an all-p exact phase transition.",
+        "Classical Markov jump-linear system criteria can characterize the transfer-operator spectral radius in principle, but a general criterion is not an evaluated two-crossing statement."
+      ],
+      "reasoning": "Broad convergence estimates requiring small steps cannot imply stability at the deliberately overrelaxed step 6/5; a generic moment spectral-radius test does not state the exact cubic or the counterintuitive bounded persistence window. No inspected stronger theorem explicitly covers this exact parametrized result.",
+      "searches": [
+        "web: random Markovian delays gradient descent stability scalar quadratic 0 1 two-state exact 2020 2021",
+        "web: burstiness gradient staleness asynchronous SGD correlated delays Markov chain convergence 2018 2022",
+        "web: correlated delays stochastic gradient descent stability quadratic",
+        "published-finding corpus: switching gradient descent Markovian staleness fixed stepsize cubic stability transition 0-1 delays"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.01113v1 (2018-03-03)",
+      "PMLR 84:803–812 (2018) main and supplement",
+      "arXiv:1806.10188v1 (2018-06-26)",
+      "PMLR 117:111–132 (2020)",
+      "arXiv:1605.09774 abstract",
+      "published-index record 9ae0040f2dac (Exact delay-distribution law for two-coordinate randomized Gauss–Seidel) summary",
+      "118 recoverable prior ledger finding claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dutta 2018 Theorem 3 restricts η and uses conditional instantaneous-freshness lower bounds. Equal marginal freshness across p would not discriminate the three proved regimes.",
+        "Arjevani 2020 studies x_{k+1}=x_k−η∇F(x_{k−τ}) with a fixed τ, which cannot imply the dependence-driven contrast between three p values having the same delay marginals.",
+        "Mitliagkas et al. 2016, arXiv:1605.09774, presents a geometric-queue induced momentum analogy; it is not the present symmetric Markov zero/one-delay phase diagram."
+      ],
+      "reasoning": "At η=6/5 the theorem proves stability at p=1/2 and divergence at p=1/4 and 4/5, all with the same marginal delay law. Neither published fixed-delay bounds nor distribution-insensitive sufficient inequalities logically establish the two regime reversals.",
+      "searches": [
+        "web: \"time-correlated\" \"stale gradients\" \"mean square\"",
+        "web: random delayed gradient descent Markovian switching mean square stability 0 1 delay paper",
+        "web: Asynchrony Begets Momentum, with an Application to Deep Learning 2016 geometric delays",
+        "published-finding corpus: Markov modulated one-step stale gradient descent scalar quadratic fixed gain sharp mean square stability interval persistence probability reentrant, two-state Markov chain"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dutta et al., PMLR 84 (2018), Theorem 3 and supplement §8.1: sufficient strong-convexity error bounds with conditional staleness probability; no exact two-state stationary Markov spectral frontier in inspected passages.",
+        "Arjevani et al., PMLR 117 (2020), equation (2): fixed delay τ; Theorems 1–5 bound delayed quadratic convergence at small steps.",
+        "Indexed published-index record 9ae0040f2dac (Exact delay-distribution law for two-coordinate randomized Gauss–Seidel): abstract concerns random-coordinate Gauss–Seidel with iid bounded delay, not fixed-coordinate Markov-switching delays."
+      ],
+      "reasoning": "The stationary two-state persistence parameter affects the joint history of stale updates while keeping the one-time delay distribution fixed. Fixed-delay analysis, dependent-staleness sufficient bounds, and iid randomized-coordinate moment recurrences do not give the present two roots at fixed 6/5 without an additional nontrivial exact calculation.",
+      "searches": [
+        "published-finding corpus: Markov modulated one-step stale gradient descent scalar quadratic fixed gain sharp mean square stability interval persistence probability reentrant, two-state Markov chain",
+        "published-finding corpus: random delay zero-one stochastic asynchronous gradient descent, Markov persistence, island of mean-square stability, correlated time delays",
+        "web: \"Markovian\" \"delayed gradient descent\" \"mean square\" discrete",
+        "web: \"Markov\" \"random delay\" \"gradient descent\" spectral radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest displayed indexed ID: published-index record 9ae0040f2dac (Exact delay-distribution law for two-coordinate randomized Gauss–Seidel); iid delayed random-coordinate recurrence, not this Markov-stale scalar gradient update.",
+        "The checked historical ledger includes Kaczmarz, random sampling, momentum and consensus claims, but no record with the two-state Markov gradient-delay mechanism or cubic 432p³−156p²−305p+125.",
+        "Nearest own earlier claim was error-feedback Bernoulli compression with independent drops and a different error-memory update; none of 63 previous-week claim statements covers Markov-correlated stale iterates with these cubic stability boundaries."
+      ],
+      "reasoning": "Neither the closest indexed abstract nor recoverable prior claim statements provide an exact table of these boundary roots. Search nonappearance is only supporting evidence, not a proof that no such table exists.",
+      "searches": [
+        "published-finding corpus: Stochastic gradient descent with Markov-correlated gradient delays on scalar strongly convex quadratic: exact mean-square stability region, two-state delay Markov chain, asynchronous SGD",
+        "published-finding corpus: Delayed stochastic gradient descent two-point delays 0 1 correlation spectral radius second moments",
+        "published-finding corpus: stochastic asynchronous gradient descent state-dependent delays Markov two-state stability reversal",
+        "local current/prior claim ledger: 118 finding rows, exact term and implication comparison for delay, staleness, Markov, scalar, correlation and stability",
+        "Own previous-week ledger 2026-09_week4: inspected 63 recoverable claim statements for stale-gradient, Markov delay and mean-square overlap"
+      ]
+    },
+    "rationale": "The 2018 dependent-staleness analysis gives sufficient bounds with restrictive steps, while the 2020 quadratic delayed-gradient analysis treats a fixed delay. Neither inspected theorem implies the exact stationary-Markov overrelaxed re-entrant two-threshold stability window. Published related Gaussian and randomized-coordinate delay claims concern different recurrences. The main incremental statement is the explicit sharp cubic interval for correlated staleness, not the general Markov-jump criterion. Exhaustive literature priority is not established.",
+    "residual_risks": [
+      "An equivalent exact Markov-modulated scalar delay stability computation may occur in unindexed or inaccessible Markov-jump-control literature.",
+      "The semantically nearest indexed delayed-Gauss–Seidel item was available by abstract/summary only; its full statement was not inspectable here.",
+      "The exogenous Markov delay law is a model, not necessarily realizable by a specified distributed worker queue."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest broad asynchronous source; sufficient rate/error guarantee but no exact Markov persistence-window calculation in inspected statements",
+        "evidence": "Equations (3)–(4) and Theorem 3 in §3.2; the paper explicitly describes stochastic staleness, conditional instant freshness, and a conservative learning-rate bound.",
+        "identifier_or_url": "https://proceedings.mlr.press/v84/dutta18a/dutta18a.pdf",
+        "material_read": "Main text abstract, §§1–3, specifically §2.3 and Theorem 3 with its assumptions",
+        "method": "Published PMLR PDF text plus rendered pages 0–6",
+        "title": "Slow and Stale Gradients Can Win the Race: Error-Runtime Trade-offs in Distributed SGD",
+        "trigger": "Same stochastic-staleness update, allows delay dependence"
+      },
+      {
+        "assessment": "Proof manipulates sufficient upper bounds, not the exact scalar two-state Markov second-moment renewal mass",
+        "evidence": "Supplement §8.1 Corollary 2 and equations (28)–(32), plus the conditional freshness probability discussion.",
+        "identifier_or_url": "https://proceedings.mlr.press/v84/dutta18a/dutta18a-supp.pdf",
+        "material_read": "§7 renewal background and §8.1 conditional-staleness proof and §8.2 scope",
+        "method": "Published supplementary PDF text and page-3 image inspection",
+        "title": "Slow and Stale Gradients Can Win the Race, Supplement",
+        "trigger": "Potentially stronger claims hidden in convergence proofs"
+      },
+      {
+        "assessment": "Different fixed-delay recurrence; sharp complexity rates do not address correlated switching delay of 0 and 1 at a fixed overrelaxed step",
+        "evidence": "Page 1 equation (2) explicitly fixes τ; pages 10–11 Theorem 5 uses η≤1/(20µ(τ+1)).",
+        "identifier_or_url": "https://proceedings.mlr.press/v117/arjevani20a/arjevani20a.pdf",
+        "material_read": "Equations (1)–(2), §2 generating-function framework, Theorems 1–5, related-work §1, appendices/technical proof passages",
+        "method": "Published 22-page PMLR PDF text and page-1 rendered inspection",
+        "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+        "trigger": "Potentially dominating sharp quadratic delayed-gradient result"
+      },
+      {
+        "assessment": "Abstract describes independent delay and randomized two-coordinate Gauss–Seidel, rather than Markov-correlated scalar stale-gradient descent; full-text overlap remains unverified",
+        "evidence": "Returned summary states the exact S_{k+1}=S_k/2+(r²/2)E[S_{k−D}] independent bounded-delay recurrence.",
+        "identifier_or_url": "published-index record 9ae0040f2dac (Exact delay-distribution law for two-coordinate randomized Gauss–Seidel)",
+        "material_read": "Indexed title and full returned summary only; linked public file was inaccessible",
+        "method": "Semantic indexed record and bounded public link access attempt",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+        "trigger": "Closest semantic finding involving an exact delay law"
+      },
+      {
+        "assessment": "Different queue-induced momentum equivalence; no claim of absence elsewhere in uninspected text",
+        "evidence": "Abstract identifies an asynchronous SGD momentum analogy under a standard queuing model.",
+        "identifier_or_url": "arXiv:1605.09774",
+        "material_read": "Abstract and bibliographic claim, not full paper",
+        "method": "ArXiv indexed abstract",
+        "title": "Asynchrony begets Momentum, with an Application to Deep Learning",
+        "trigger": "Potential queue-induced stochastic delay characterization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1c014811-e718-47ce-94fd-6338f2fa20ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This provides a sharp and nonmonotone stability phase diagram for an asynchronous optimization idealization: at identical fifty-fifty fresh/stale marginal rates, both very strong alternation and strong persistence destabilize an overrelaxed update, while independent delays converge. The precise two-boundary result tests a meaningful gap between marginal and temporal delay information and is not asserted to imply unproved nonlinear or systems-level extensions.",
+    "status": "PASS"
+  }
+}

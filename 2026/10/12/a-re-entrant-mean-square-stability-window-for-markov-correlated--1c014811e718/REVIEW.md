@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The claim is a sharply specified mean-square classification for a scalar, noiseless, constant-step quadratic with a stationary two-state delay chain. The zero-delay update collapses the two-dimensional state to one fixed direction, making the successive zero-events an exact nonnegative weighted renewal process. The rational renewal mass and its two crossings are derived algebraically; the elementary discrete renewal theorem proves the stability, nonzero critical lower bound, and exponential-growth regimes. The last-zero decomposition rigorously transfers the renewal classification to the full squared iterate. Exact arithmetic reproduces the transfer determinant, generating-function identity, rational Lyapunov certificate, and weighted short histories. Computation is not used as an infinite-horizon proof.
+
+## Originality — PASS, with literature risk
+Closest inspected work includes Dutta and colleagues' 2018 asynchronous-SGD theory under possibly dependent staleness and its accompanying proof supplement, and Arjevani, Shamir and Srebro's 2018/2020 fixed-delay quadratic convergence theory. The former gives sufficient step-size/error guarantees rather than the exact persistence-dependent frontier; the latter does not switch between delay zero and one according to a correlated Markov law. The published two-coordinate random Gauss–Seidel delay result found by semantic search uses an independent bounded stale-read law and a different algorithm, and therefore its stated scalar recurrence does not imply the present Markov correlation transition. A direct full-text inspection of that indexed finding was unavailable, so its summary-only comparison is a residual risk. A general Markov-jump moment criterion is known and is not claimed as new. Equivalently parameterized studies absent from the searched indexes remain possible; no independence of priority is certified.
+
+## Value — PASS
+The motivation is precise: gradient staleness is naturally temporally clustered in asynchronous computation, and its marginal frequency does not characterize the stability of fixed-step updates. The sharp re-entrant interval exhibits both instability from overly rapid alternation and instability from long stale runs, at the same average stale-gradient frequency. The exact two-boundary classification supplies a nontrivial, reproducible stress test for staleness scheduling and for mean-square convergence criteria, rather than a routine algebraic substitution or an arbitrary optimization benchmark. It does not claim a systems-level scheduling guarantee or general convergence theorem.
+
+## Limitations and priority
+The delay chain is an exogenous idealization rather than a derived worker queue. Only one specified scalar overrelaxation parameter and independent initial history are covered. The proof does not establish almost-sure limits or arbitrary-delay robustness. Relevant full texts were compared, but coverage beyond accessible publications remains uncertain.
+
+Self-review: passed. Independent audit: not yet performed.
