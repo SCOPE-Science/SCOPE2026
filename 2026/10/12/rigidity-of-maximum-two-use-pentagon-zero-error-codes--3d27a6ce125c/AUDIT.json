@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The row-fiber proof is complete: a two-point row forces both neighboring rows empty and bounds the total by four; hence a size-five code is a transversal. The five cyclic increments must each be \\(\\pm2\\) and their sum modulo five forces a common sign. Exhaustive replay over all five- and six-subsets independently confirms maximum five and exactly ten maxima.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shannon 1956 gives one two-use five-word construction and studies general zero-error capacity.",
+        "Lovász theory determines the asymptotic capacity of the pentagon, but an asymptotic capacity value does not determine the equality cases of the two-use maximum."
+      ],
+      "reasoning": "General capacity theorems and higher-power results imply or confirm the scalar upper bound but do not imply which five-word sets attain it at block length two.",
+      "searches": [
+        "Shannon capacity pentagon maximum independent sets strong powers equality cases",
+        "Advances in the Shannon capacity of graphs C5 pentagon equality",
+        "pentagon zero-error channel two uses five messages"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.1956.1056798",
+      "https://homepages.cwi.nl/~jop/qcap.pdf",
+      "https://capacityatlas.org/problems/pentagon-zero-error-channel/",
+      "https://doi.org/10.3934/math.2026111"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected original Shannon text states the construction 00,12,24,31,43 and immediately uses it to lower-bound zero-error capacity.",
+        "The later full-text treatment gives the same foundational five-pair phenomenon and graph equivalence."
+      ],
+      "reasoning": "A witness of size five, or even the scalar fact that five is maximum, does not imply the necessity of affine slope \\(\\pm2\\), the exact count ten, or the single natural-isometry orbit. The proof supplies these additional implications explicitly.",
+      "searches": [
+        "Shannon 1956 zero error capacity five-input channel code 00 12 24 31 43",
+        "Briet Buhrman Gijswijt pentagon five pairs zero error",
+        "C5 strong square maximum size five"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shannon 1956 defines adjacency/confusability and gives the five-word code 00,12,24,31,43 for two uses.",
+        "Briët–Buhrman–Gijswijt full text identifies two-use zero-error codes with independent sets in the strong square of the five-cycle."
+      ],
+      "reasoning": "The graph-theoretic and channel formulations are equivalent at this parameter. The new statement is not merely a relabeling: it classifies every maximum independent set, giving exact count and orbit structure.",
+      "searches": [
+        "pentagon channel two uses maximum zero error code equality classification C5 strong square",
+        "C5 strong square maximum independent sets classification",
+        "doi:10.1109/TIT.1956.1056798"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible exact-parameter sources located the standard five-word construction and the scalar equality \\(\\alpha(C_5^{\\boxtimes2})=5\\), but no table or census stating ten labeled maxima was found."
+      ],
+      "reasoning": "No located database/table supplied the exact ten-code census. Absence from search results is not treated as proof of novelty; the claim is supported by direct proof and its relation to inspected literature is stated narrowly.",
+      "searches": [
+        "\"C5 strong square\" \"10\" maximum independent sets",
+        "\"maximum independent sets\" pentagon strong product",
+        "\"C5 x C5\" independent sets five classification Shannon"
+      ]
+    },
+    "rationale": "The inspected primary source gives the classical five-word construction, while the inspected later full-text treatment gives the graph formulation and repeats the construction; neither inspected source states the ten-code equality classification or orbit rigidity. Exact-parameter searches found no statement implying those features. A residual risk of obscure unindexed prior observation is retained.",
+    "residual_risks": [
+      "An obscure or poorly indexed graph-theory note may have observed the ten maximum independent sets of the 25-vertex strong square. No such source was located in exact-parameter searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING scalar construction/background, NOT_COVERING the ten-code equality classification in the inspected text.",
+        "evidence": "The article states that for the five-input channel one can construct the length-two code 00,12,24,31,43 and concludes a lower bound of one-half log 5; it does not state a census or uniqueness theorem for all five-word codes.",
+        "identifier_or_url": "doi:10.1109/TIT.1956.1056798",
+        "material_read": "Original 12-page article, including the zero-error-capacity section and the five-input Fig. 2 example; all 12 pages were read.",
+        "method": "Full-text reading of the original article.",
+        "title": "The Zero Error Capacity of a Noisy Channel",
+        "trigger": "Foundational same-channel, same-blocklength source."
+      },
+      {
+        "assessment": "COVERING the standard construction and graph equivalence, NOT_COVERING the exact ten maximum codes or one-orbit classification in the inspected material.",
+        "evidence": "Figure 1 and adjacent text state that five messages can be sent perfectly with two uses and identify zero-error codes with independent sets in strong powers.",
+        "identifier_or_url": "https://homepages.cwi.nl/~jop/qcap.pdf",
+        "material_read": "Introduction and Figure 1 discussion, including the explicit five nonconfusable pairs and the strong-power independent-set formulation.",
+        "method": "Full-text PDF reading with page image inspection.",
+        "title": "Violating the Shannon capacity of metric graphs with entanglement",
+        "trigger": "Later full-text treatment of the exact pentagon channel and two-use five-word phenomenon."
+      },
+      {
+        "assessment": "COVERING scalar capacity history, NOT_COVERING finite equality classification.",
+        "evidence": "Lists the 1956 two-use lower bound and 1979 Lovász upper bound for the capacity, without an equality-case census.",
+        "identifier_or_url": "https://capacityatlas.org/problems/pentagon-zero-error-channel/",
+        "material_read": "Problem statement, known lower/upper bounds, and references.",
+        "method": "Full HTML reading.",
+        "title": "Pentagon zero-error channel",
+        "trigger": "Current exact-problem status page."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d27a6ce-125c-4b0d-bbb4-d56a735d2760",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pentagon is the foundational example showing that joint zero-error coding can beat independent use. Classifying every optimizer at the first nontrivial block length is a natural equality problem: it shows Shannon’s familiar slope-two witness is not one convenient construction among many shapes but the unique structural type, with an exact count and stabilizer. This is a motivated finite rigidity fact rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
