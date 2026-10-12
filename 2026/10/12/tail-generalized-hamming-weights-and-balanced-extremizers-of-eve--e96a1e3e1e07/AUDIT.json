@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every prime power q>2, edge products of an even vertex cycle have a Q-to-one image equal to the parity-product toric hypersurface; monomials are evaluation independent. An r-dimensional coefficient subspace has a d-dimensional annihilator plane, with at most Q^d nonzero-coordinate points by injective coordinate projection. Balanced odd/even edge grouping attains this for every 1<=d<=k. Equality forces all coordinate functionals to be nonvanishing one-variable linear forms using F_q^*+F_q^*=F_q; the hypersurface identity forces each group imbalance divisible by Q and the scalar product constraint. The group-rescaling action yields Q^(2k-d-1) distinct planes per admissible unlabeled partition. This proves both weights and counts, including q=3 modular cases, with no dependence on finite exhaustive experiments. Independent finite RREF and image enumeration in verify.py returns VERIFY_OK; its restrictions are explicitly delimited.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patanker–Singh, arXiv:2002.10920v4, §§2.1,4.1–4.2: generalized weights for codes on all square-free degree-two monomials (hypersimplices), not restricted to the 2k cycle-edge monomials.",
+        "González Sarabia et al., arXiv:1611.06405v2, Theorems 10,12,18 and Remark 6: general projective-torus statements and second generalized weight for edge-parameterized complete bipartite graph codes."
+      ],
+      "reasoning": "The larger hypersimplex code contains the cycle-edge code as a proper subcode; minimum supports in a larger code supply only inequalities, not this subcode’s exact high-r weights or maximizing-subspace counts. A cycle of length at least six is not a complete bipartite graph. The 2018 projective parameterization code and the affine edge-monomial code also exchange the roles of monomials and evaluation points. General r-MDS tail statements do not match the nonconsecutive Q-power deficits here.",
+      "searches": [
+        "\"The second generalized Hamming weight of some evaluation codes arising from a projective torus\" pdf",
+        "\"Generalized Hamming weights\" \"toric\" \"graphs\" even cycles",
+        "\"The edge code of hypergraphs\" \"generalized Hamming weights\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.30407v1, full §4.2",
+      "arXiv:2404.02301v1, §3 and graph examples",
+      "arXiv:2002.10920v4, §§2–4",
+      "arXiv:1611.06405v2, Theorems 10, 12, 18 and Remark 6",
+      "Published finding-index comparisons for cycle-edge toric higher weights and parameter-equivalent claims",
+      "Previously published mathematical support-hierarchy and square-free code results for neighboring families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.30407v1, Theorem 4.7 gives counts indexed by the Hamming weights of individual polynomials but does not characterize simultaneous common zeros of a coefficient subspace.",
+        "arXiv:1611.06405v2, Remark 6 supplies second generalized weights of *projectively parameterized* complete-bipartite graph codes; that specialization does not apply to cycles with 2k>=6 and does not count all higher-r minimizers.",
+        "arXiv:2002.10920v4, §4 has generic square-free degree-two codes of dimension binomial(2k,2), rather than the 2k-dimensional sparse edge code."
+      ],
+      "reasoning": "One-word distributions do not imply higher-dimensional subcode support, and larger-code support optima need not occur within a proper edge-monomial subcode. The result supplies a rank-specific zero-section bound with an all-extremizer characterization for each r>=k, including extra minimizers when q-1 divides a nonzero block imbalance. These implications do not follow from the inspected exact prior statements.",
+      "searches": [
+        "\"Edge codes constructed from unicyclic graphs\" \"generalized Hamming\"",
+        "\"The second generalized Hamming weight of some evaluation codes arising from a projective torus\" pdf",
+        "generalized Hamming weights edge codes cycle graphs even cycles squarefree monomial evaluation 2025 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Asensio et al., arXiv:2608.30407v1, full §4.2 and Theorem 4.7: individual-codeword zero/weight distribution, not common zeros of arbitrary subcodes.",
+        "Jaramillo-Velez, arXiv:2404.02301v1, Definition A and §3: affine-torus edge-monomial code construction, minimum distances and ordinary tree weights."
+      ],
+      "reasoning": "Compared the exact subcode-minimum support statement, its annihilator sections, all finite fields, and number of extremizing subcodes. Ordinary codeword weight distributions and minimum distance do not determine these rank-r subcode supports or the residue-balanced partition multiplicities. No equivalent theorem was found in the inspected source texts or targeted index results.",
+      "searches": [
+        "even cycle edge toric code generalized Hamming weights C_{2k} q-ary high-dimensional subcode support, balanced partitions minimizers",
+        "generalized Hamming weights edge codes constructed from unicyclic graphs Asensio Gaggero Ragunathan Saha Van Tuyl",
+        "\"generalized Hamming weights\" \"cycle\" \"edge code\" toric"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed-record hits concerned q-ary weight gaps, codimension-two LRC pair incidence, and graphical cycle-group character distributions; their stated mathematical objects differ from the affine even-cycle edge-code hierarchy.",
+        "Comparison with previously stated distinct finite Cartesian square-free and related coding-theoretic results found no statement of this even-cycle edge-code hierarchy or modulo-Q minimizing-subcode counts."
+      ],
+      "reasoning": "Both the symbolic Q-power hierarchy and modular-block extremizer counts were compared, not just a title or matching cycle size. Neither an exact table nor a dominating entry appeared. Failure to find one is supporting search evidence only, not a proof of novelty.",
+      "searches": [
+        "Even cycle edge evaluation code length (q-1)^(2k) generalized weights d_r = (q-1)^(2k) - (q-1)^(2k-r+1) for r from k to 2k, optimum subcode count balanced odd even edge partitions",
+        "cycle toric code edge monomial higher Hamming weight optimal r-subcodes balanced partitions of odd even cycle edges multiplicity",
+        "edge code graph toric even cycle higher support weights linear subcode optimum"
+      ]
+    },
+    "rationale": "The original cycle paper arXiv:2608.30407v1 §4.2 covers the ordinary weight enumerator/minimum distance, not simultaneous zeros of r independent codewords or the complete minimizing-subcode population. Related higher-weight results concern the larger full square-free hypersimplex space (arXiv:2002.10920v4) or projectively parameterized complete-bipartite codes (arXiv:1611.06405v2), not this sparse affine cycle-edge family for 2k>=6. The initial edge-code paper arXiv:2404.02301v1 provides definitions and minimum distances. Exact formula, aliases, broader coverage, and public indexed-record comparisons found no covering statement; an unindexed general finite-torus section theorem remains a residual risk.",
+    "residual_risks": [
+      "A more general unindexed toric linear-section theorem might subsume this special family and its classification.",
+      "Indexed search and inspected primary literature do not prove priority or independence from unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this new rank-r subcode-support/extremizer theorem. It proves individual polynomial weight distributions and cycle-code distance.",
+        "evidence": [
+          "§4.2 Proposition 4.5 counts the zeros of a single full-support polynomial.",
+          "Theorem 4.7 enumerates numbers of codewords of each Hamming weight."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.30407v1",
+        "material_read": "Full arXiv HTML: introduction, preliminaries, §4 cycles including §4.2 Proposition 4.5 and Theorem 4.7, and §5/references.",
+        "method": "Read the original full open-access HTML mathematical statements and arguments.",
+        "title": "Edge codes constructed from unicyclic graphs",
+        "trigger": "Identical code family, cyclic graph parity, and plausible coverage of coefficient geometry."
+      },
+      {
+        "assessment": "NOT_COVERING: defines the code, proves distance/self-orthogonality and tree ordinary weight results, not cyclic higher subcode support.",
+        "evidence": [
+          "Definition A defines the affine edge-monomial evaluation code.",
+          "Theorem 3.15 concerns weight distribution of tree codes; examples cover minimum distances."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.02301",
+        "material_read": "Original PDF introduction, Definition A, §3 Theorems 3.7/3.11/3.15, §4 graph examples and references.",
+        "method": "Read publicly available arXiv PDF text, inspected first page visually and searched specific theorem sections.",
+        "title": "The edge code of hypergraphs",
+        "trigger": "Original edge-code definition; possible general theory covering the current family."
+      },
+      {
+        "assessment": "NOT_COVERING: has all quadratic square-free monomials, not a sparse fixed even-cycle edge subset; the stated range/weights and extremizer counts differ.",
+        "evidence": [
+          "§2.1 code dimension is the entire hypersimplex monomial count.",
+          "§4 develops generalized weights for that ambient code, not all-optimal-r-subcodes of cycle codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2002.10920v4",
+        "material_read": "Full HTML introduction, §§2,3,4 and explicit hypotheses of Theorems in §§4.1–4.2.",
+        "method": "Read the original open-access arXiv HTML mathematical text.",
+        "title": "Generalized Hamming weights of toric codes over hypersimplices and square-free affine evaluation codes",
+        "trigger": "Closest generalized-weight literature for quadratic square-free affine-torus codes; possible stronger theorem."
+      },
+      {
+        "assessment": "NOT_COVERING for cycles of length six or greater and affine edge-monomial subspace, nor the modular all-extremizer enumeration.",
+        "evidence": [
+          "Theorem 10 supplies an r-MDS tail in a different complete-intersection degree regime.",
+          "Remark 6 specifically concerns second weights for complete-bipartite parameterized codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1611.06405",
+        "material_read": "Original 22-page PDF: introduction, Definitions 2/4, Theorems 10 and 12, §5, Example 19, Remark 6 on complete bipartite graphs, and references.",
+        "method": "Read arXiv PDF text with visual confirmation of title/abstract page and inspected critical formula/theorem passages.",
+        "title": "The second generalized Hamming weight of some evaluation codes arising from a projective torus",
+        "trigger": "Explicit prior generalized weights for codes parameterized by graph edges and general complete-intersection tail theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e96a1e3e-1e07-48eb-9c87-8cbd84b4edf1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The generalized Hamming-weight sequence governs minimum supports of all r-subcodes and is not encoded by the ordinary Hamming weight distribution. The theorem determines every high-r weight of an infinite graph-code family, the full population and geometry of minimum-support subcodes for every q>2, and the exact small-field modular effect / large-field balanced-partition transition. A sharp boundary at r=k explains saturation of the linear-section projection bound. These are structural and operationally relevant invariants, not a fixed tiny computation or generic parameter substitution.",
+    "status": "PASS"
+  }
+}
