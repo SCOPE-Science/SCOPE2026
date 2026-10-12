@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For homogeneous intensities the maximum pmf is a Poisson pmf multiplied by a sum of synchronized powers of consecutive Poisson CDFs; the CDF is log-concave by its increasing cumulative-to-point-mass ratio, so the multiplier is log-concave. The exact Poisson recurrence transfers this to ULC. For unequal intensities the maximum pmf normalized by the largest-rate Poisson pmf has expansion m + s exp(b-a)(a/b)^k + o((a/b)^k). Its discrete logarithmic curvature has rigorously negative leading coefficient -m s exp(b-a)(b-a)^2/(ab), giving eventual strict failure. Boundary k=1 and all positive-rate cases are addressed; exact-rational verifier executed from the included code for diagnostic samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chowdhury et al. (2021), Theorem 3.1: heterogeneous Poisson maxima ordinary stochastic ordering under majorization",
+        "Yu (2009), Definition 2 and Theorem 2: relative logconcavity as sufficient input for likelihood-ratio/hazard comparisons"
+      ],
+      "reasoning": "Comparing two maxima stochastically or establishing sufficient conditions for distribution order does not characterize logconcavity of one maximum relative to its largest-rate Poisson pmf. Neither result implies an eventual reversed ULC inequality.",
+      "searches": [
+        "Ultra log concavity order statistics independent non-identically distributed Poisson maximum heterogeneity loss of ultra log concavity",
+        "A Poisson sample maximum has ultra log concavity precisely under homogeneous means, eventual negative discrete curvature for heterogeneous independent rates",
+        "\"log concavity\" \"order statistics\" \"non identically distributed\" Poisson",
+        "arXiv:2103.00763v1",
+        "10.1239/jap/1238592127"
+      ]
+    },
+    "checked_sources": [
+      "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+      "https://arxiv.org/pdf/2103.00763",
+      "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0F48212223E81AC2F5C8ABA08D2760E4/S0021900200005337a.pdf/stochastic_ordering_of_exponential_family_distributions_and_their_mixturesxk.pdf",
+      "10.1016/j.spl.2018.04.018 (abstract and citing discussion only)",
+      "arXiv:1010.2043 (bibliographic / abstract context)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Badiella et al. Theorem 2 proves homogeneous implication only",
+        "Chowdhury et al. Theorem 3.1 concerns usual stochastic order",
+        "Yu (2009) relative logconcavity is a hypothesis for derived stochastic comparisons, not proved for Poisson maxima"
+      ],
+      "reasoning": "The new conclusion is strictly stronger than an iid ULC corollary, not implied by majorization stochastic order, and includes a signed asymptotic constant; no inspected result contains it as a specialization or simple implication.",
+      "searches": [
+        "Ultra log concavity order statistics independent non-identically distributed Poisson maximum heterogeneity loss of ultra log concavity",
+        "All independent Poisson maxima are ultra log concave if and only if all rates are equal; tail log-convexity if rate heterogeneity",
+        "A Poisson sample maximum has ultra log concavity precisely under homogeneous means, eventual negative discrete curvature for heterogeneous independent rates",
+        "10.1016/j.spl.2023.109900",
+        "arXiv:2103.00763v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-text Badiella et al. (2023), Definition 1, Theorem 2 and proof: iid ULC preservation",
+        "Exact tail coefficient depends on multiplicities and the two largest distinct Poisson rates, absent from inspected iid theorem"
+      ],
+      "reasoning": "ULC is log-concavity relative to a Poisson pmf; the comparison uses that normalized mass h_k eventually becomes log-convex for unequal rates. The iid theorem covers the all-equal half only, not an equivalent iff statement.",
+      "searches": [
+        "Poisson different mean maximum order statistic ultra logconcavity eventually tail violation",
+        "All independent Poisson maxima are ultra log concave if and only if all rates are equal; tail log-convexity if rate heterogeneity",
+        "\"maximum of Poisson\" \"ultra log-concave\" unequal means",
+        "\"Poisson maxima\" \"ultra-log-concavity\" \"if and only if\"",
+        "10.1016/j.spl.2023.109900"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited primary results are infinite probabilistic theorems rather than finite tables",
+        "Related Poisson-binomial cumulant results concern Bernoulli sums, not the Poisson-maximum model"
+      ],
+      "reasoning": "No exact table for arbitrary positive real intensity vectors could be read as the complete iff theorem; sampled diagnostic calculations are not an exhaustive classification. Search reveals no relevant exact-database record.",
+      "searches": [
+        "Ultra-log-concavity of discrete order statistics Badiella del Castillo Puig independent heterogeneous Poisson",
+        "Poisson order statistic maximum heterogeneous rates n probability mass factorial times f(k) eventual convex logarithm",
+        "\"heterogeneous Poisson\" \"ultra log-concavity\" maximum",
+        "\"max of Poisson\" \"ultra log-concave\" sample heterogeneous",
+        "Poisson order statistics maximum heterogeneous rates tail curvature"
+      ]
+    },
+    "rationale": "The full 2023 Badiella–del Castillo–Puig paper proves ULC preservation only for iid sample order statistics, hence homogeneous sufficiency but not the unequal-rate necessity or curvature coefficient. The full 2021 Chowdhury–Kundu–Mishra preprint compares heterogeneous Poisson extremes in usual stochastic order, which neither states nor implies ULC. The inspected 2009 Yu paper uses relative log-concavity for stochastic comparisons and mixtures, not maxima with unequal intensities. Targeted published-finding corpus and public source searches, plus own prior claim comparisons, revealed no dominating theorem. Older alternative terminology remains possible; absence from searched records is not conclusive proof of novelty.",
+    "residual_risks": [
+      "Alternative historical terminology (Poisson relative logconcavity, mixed-rate maxima) or unindexed earlier papers could contain an equivalent proof; independent priority confirmation is absent.",
+      "The full primary text of Kim et al. (2018) was not inspected; the cited 2023 paper identifies its scope as ordinary logconcavity of iid order statistics.",
+      "No direct comparison against private or unpublished research outside accessible records is possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS homogeneous sufficiency, NOT heterogeneous converse or precise eventual negative curvature",
+        "evidence": "Theorem 2 establishes ULC preservation for order statistics of one common discrete parent distribution; p.3 proof assumes one common f_k and F_k. First online 2023-06-26 (p.1).",
+        "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+        "material_read": "Full four-page open-access article, including Definition 1, Proposition 1, Theorem 2 and proof",
+        "method": "Opened full PDF; read theorem/proof and visual page 3",
+        "title": "Ultra log-concavity of discrete order statistics",
+        "trigger": "Same ULC property and Poisson maxima; strongest obvious prior theorem"
+      },
+      {
+        "assessment": "Stochastic comparison under majorization, not ULC of a fixed maximum or iff homogeneous characterization",
+        "evidence": "Theorem 3.1 gives ordinary stochastic ordering between two maxima under majorization of mean vectors; Counterexample 3.1 addresses reversed hazard comparison, not ULC.",
+        "identifier_or_url": "https://arxiv.org/pdf/2103.00763",
+        "material_read": "Full arXiv 11-page preprint including Section 3.1 and its Theorems 3.1, 3.2, Counterexample 3.1",
+        "method": "Opened full arXiv PDF; read Poisson section and visual page 4",
+        "title": "Comparisons of Order Statistics from Some Heterogeneous Discrete Distributions",
+        "trigger": "Exact same heterogeneous Poisson maximum model"
+      },
+      {
+        "assessment": "Develops stochastic orders relative to other distributions; no maximum construction or strong-curvature limit identified",
+        "evidence": "Definition 2 defines relative logconcavity; Theorem 2 derives ordinary, hazard and likelihood-ratio orders. Examples treat Poisson mixtures and other convolution models rather than heterogeneous Poisson sample maxima.",
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0F48212223E81AC2F5C8ABA08D2760E4/S0021900200005337a.pdf/stochastic_ordering_of_exponential_family_distributions_and_their_mixturesxk.pdf",
+        "material_read": "Full 11-page article PDF, principally definitions and Theorems 1–2 and sections on Poisson-family comparisons",
+        "method": "Opened and read text of primary PDF, including the first pages and visual first page",
+        "title": "Stochastic Ordering of Exponential Family Distributions and Their Mixtures",
+        "trigger": "Relative log-concavity might subsume ULC through comparison to a Poisson reference"
+      },
+      {
+        "assessment": "Earlier known ordinary log-concavity/strong unimodality for discrete order statistics; potential priority risk but no verified ULC rigidity",
+        "evidence": "Badiella et al. (2023), Section 1 cites Kim, Kim, Lee (2018) for log-concavity of iid order statistics, explicitly motivating its own stronger ULC theorem.",
+        "identifier_or_url": "10.1016/j.spl.2018.04.018",
+        "material_read": "Bibliographic abstract and characterization in the 2023 full-text article, not the entire 2018 paper",
+        "method": "Searched bibliographic record and followed discussion in Badiella et al. Section 1",
+        "title": "Strong unimodality of discrete order statistics",
+        "trigger": "Earlier sample order-statistic shape preservation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26763b30-0b09-447e-a0c0-6062d10656c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact all-rate-vector rigidity sharply identifies the boundary of ultra-log-concavity preservation for a standard and naturally heterogeneous count-extreme family. The second-largest distinct rate and multiplicities govern a new explicit eventual negative curvature scale, which is more informative than a single counterexample; it is useful for deciding whether ULC-based shape/dispersion arguments can be transferred to unequal-rate Poisson maxima. No claim is made for ordinary log-concavity or a finite uniform transition threshold.",
+    "status": "PASS"
+  }
+}
