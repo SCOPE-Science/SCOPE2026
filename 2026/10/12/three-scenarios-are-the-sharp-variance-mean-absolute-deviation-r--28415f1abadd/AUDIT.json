@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "For two equally weighted observations, MAD squared equals variance identically, proving universal order agreement. A three-scenario equal-mean witness reverses the two rankings, the centered triple decomposition is exact, and padding by the common mean proves persistence for every larger support.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Konno and Yamazaki define portfolio standard deviation as the Markowitz L2 risk and mean absolute deviation as the L1 risk.",
+        "Their Theorem 3.1 proves exact proportionality MAD = sqrt(2/pi) times standard deviation under multivariate normal returns.",
+        "Their discussion motivates MAD partly because empirical stock returns need not be normal or symmetric and compares L1 and L2 portfolio models."
+      ],
+      "reasoning": "Normal-distribution proportionality is stronger than mere agreement inside that distributional class, but it does not imply the smallest finite empirical support at which non-proportionality can reverse a ranking.",
+      "searches": [
+        "Konno Yamazaki mean absolute deviation portfolio optimization variance 1991",
+        "Mean-Absolute Deviation Portfolio Optimization Model and Its Applications to Tokyo Stock Market",
+        "mean absolute deviation variance portfolio comparison risk measure"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1287/mnsc.37.5.519"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Konno and Yamazaki prove proportionality only under multivariate normality.",
+        "General nonnormal non-proportionality does not imply a strict ranking reversal at support three or universal agreement at support two.",
+        "The accepted lower bound requires the exact identity V=M^2 for every equally weighted two-scenario sample."
+      ],
+      "reasoning": "The prior theorem supplies a distributional equivalence class; the accepted result is a finite-support extremal statement with a universal lower bound and a sharp witness. Neither direction is an immediate corollary of the other.",
+      "searches": [
+        "Konno Yamazaki Theorem 3.1 mean absolute deviation standard deviation normal distribution",
+        "mean absolute deviation portfolio model standard deviation normal proportional",
+        "MAD variance portfolio nonnormal ranking"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-result record stated a two-versus-three equally weighted scenario threshold.",
+        "Web searches found general comparisons of MAD and standard deviation but not the exact equal-mean witness or support minimality.",
+        "Exact-vector and two-point/three-point searches did not locate the displayed construction."
+      ],
+      "reasoning": "The claim can be phrased as a portfolio-risk ranking reversal, a finite-support distinction between the L1 and L2 centered norms, or the first support where MAD and variance induce different orders. The searches covered each formulation.",
+      "searches": [
+        "mean absolute deviation variance portfolio risk ranking finite scenarios",
+        "mean variance mean absolute deviation opposite ranking portfolios",
+        "mean absolute deviation standard deviation two point distribution exact",
+        "mean absolute deviation standard deviation ranking reversal three point distribution",
+        "(10,20,30) (14,15,31) mean absolute deviation variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the exact two-portfolio witness.",
+        "No checked source stated an exact scenario-support cutoff of three.",
+        "The packaged verifier computes the witness and support identities directly from the definitions rather than importing any table."
+      ],
+      "reasoning": "Exact vectors and exact support-size language directly test whether the benchmark is already recorded as a worked example, table, or implementation test.",
+      "searches": [
+        "(10,20,30) mean absolute deviation variance portfolio",
+        "(14,15,31) mean absolute deviation variance",
+        "three scenarios MAD variance portfolio ranking",
+        "two scenarios MAD standard deviation identical"
+      ]
+    },
+    "rationale": "The closest primary source establishes the MAD and standard-deviation portfolio models and their exact proportionality under normal returns, but not the sharp finite-scenario support boundary. Targeted semantic, alias, exact-vector, and implication searches did not locate the accepted theorem.",
+    "residual_risks": [
+      "An unindexed teaching note, implementation test, or practitioner example could contain an equivalent three-scenario witness.",
+      "The theorem assumes equal scenario weights; unequal probabilities can change the minimum-support problem.",
+      "Only the primary portfolio paper was fully inspected because it is the directly controlling source; broader secondary comparisons were used as search evidence rather than whole-document exclusion evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "This source is strong prior coverage of the models and normal-case equivalence. The inspected text does not state the sharp finite-scenario support threshold, equal-mean three-scenario witness, or centered-triple decomposition.",
+        "evidence": "Management Science 37(5), 519–531, published 1 May 1991; pages 520–522 define the L2 and L1 risks and state w(x)=sqrt(2/pi) sigma(x) for multivariate normal returns.",
+        "identifier_or_url": "doi:10.1287/mnsc.37.5.519",
+        "material_read": "Full public PDF pages covering the review of Markowitz standard-deviation risk, the introduction of the L1 mean-absolute-deviation risk functional, and Theorem 3.1 proving proportionality under multivariate normal returns; the publication page and bibliographic record were also inspected.",
+        "method": "Full-PDF page inspection and publisher/bibliographic metadata inspection.",
+        "title": "Mean-Absolute Deviation Portfolio Optimization Model and Its Applications to Tokyo Stock Market",
+        "trigger": "Direct primary source defining the two portfolio risk models compared in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28415f1a-badd-4d38-b2a0-3864b0776e07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Variance and mean absolute deviation are canonical competing portfolio risk measures. A sharp support threshold tells exactly when a finite scenario model becomes rich enough for the modeling choice to change a risk ranking. The equal-mean witness isolates dispersion alone, while the exact three-point decomposition identifies the structural source of the disagreement.",
+    "status": "PASS"
+  }
+}
