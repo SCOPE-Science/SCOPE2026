@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "At the predator-free state, derivatives of the prey-dependent birth and death rates multiply the zero predator density, so the linearization is triangular. The predator block is a scalar renewal equation and its exponential modes give the displayed characteristic equation. The modulus bound excludes right-half-plane roots when the reproduction integral is below one; above one the positive real characteristic function crosses one exactly once. The source's positive hunger mortality gives exponential tail control. The g-derivatives are strictly negative because the smooth juvenile weight has positive accumulated exposure at every positive age, while k enters fertility linearly. In the sharp limit, change of variables from age to adult age-since-maturation gives the exact exponential factor and the tau-star derivative is strictly negative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cushing 1984 treats general McKendrick stability at net reproductive rate one.",
+        "Lu and Liu 2018 prove threshold dynamics for a different model with age-structured prey and an unstructured predator."
+      ],
+      "reasoning": "These sources dominate the generic threshold principle but do not imply the explicit functions A(g), C(g), the increasing k_c(g), or the sharp source-profile formula for g_c(tau-star).",
+      "searches": [
+        "net reproductive rate age structured predator prey predator-free equilibrium",
+        "threshold dynamics predator prey age structured reproductive number",
+        "McKendrick predator prey juvenile mortality maturation invasion threshold"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2502.19748",
+      "doi:10.1007/s00285-026-02402-5",
+      "doi:10.1007/BF00275988",
+      "doi:10.1186/s13662-018-1614-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cushing's full text defines the inherent net reproductive rate as a fertility-survival integral and places the stability exchange at one.",
+        "Lu and Liu's model has a different age structure and a different predator reproduction number.",
+        "The source's building-block ODE is finite dimensional; the new formulas use the full source-specific age kernel and smooth maturation weights."
+      ],
+      "reasoning": "The generic replacement threshold is prior art and a premise. The source-specific non-reentrant frontier requires differentiating the exact role-reversal fertility-survival kernel and, in the sharp model, using the source's explicit shifted birth profile. Those implications are not contained in the checked priors.",
+      "searches": [
+        "Cushing 1984 net reproductive rate stability age structured parameter monotonicity",
+        "Lu Liu 2018 predator reproductive number juvenile mortality maturation",
+        "role reversal predator prey ODE Li Liu Wei 2022 threshold g k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating article's analytical sections prove well-posedness and derive reductions, while its predator-free classification is obtained numerically from long simulations.",
+        "Cushing 1984 gives a general inherent-net-reproductive-rate stability threshold but no role-reversal parameter decomposition."
+      ],
+      "reasoning": "The accepted claim is not that a renewal threshold exists; it is the exact decomposition and one-way parameter geometry for this model. No inspected source states an equivalent formulation.",
+      "searches": [
+        "A predator-prey model with age-structured role reversal predator-free invasion threshold",
+        "age-structured role reversal juvenile predators prey g maturation age invasion reproduction number",
+        "Suarez Cameron Fagan Levy role reversal predator-free stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact source paper and related general threshold literature were retrieved; no inspected indexed result supplied the model-specific monotone frontier.",
+        "The motivating paper reports a grid-based phase diagram on the tau-star,g rectangle and labels predator-free outcomes after time integration."
+      ],
+      "reasoning": "Absence of a search hit is not novelty proof; it is supporting evidence combined with direct full-statement comparison of the source and closest threshold papers.",
+      "searches": [
+        "A predator-prey model with age-structured role reversal juvenile mortality threshold",
+        "2502.19748 predator invasion g k threshold",
+        "10.1007/s00285-026-02402-5 predator-free threshold"
+      ]
+    },
+    "rationale": "The low-density reproduction-number principle itself is classical and explicitly excluded from the novelty claim. The motivating paper numerically labels predator-free outcomes and highlights g and tau-star but does not derive its predator invasion number, the affine k decomposition, the monotone threshold frontier, or the sharp-maturation factorization. The inspected general McKendrick and structured predator-prey threshold papers do not contain these source-specific parameter identities.",
+    "residual_risks": [
+      "A source-specific equivalent monotonicity calculation could exist in unindexed work or a thesis version not surfaced by the checked searches.",
+      "The sharp tau-star formula is not asserted for finite smoothness nu.",
+      "The threshold is local and does not settle global bistability or attractor selection.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_NOT_COVERING. It contains all model premises and numerical predator-free observations but no analytic predator-invasion number or monotone threshold frontier.",
+        "evidence": "The article identifies g and tau-star as dominant parameters, scans the tau-star,g plane, and declares predator-free outcomes from time integration; no source section derives the reproduction integral at the prey-only state.",
+        "identifier_or_url": "arxiv:2502.19748 / doi:10.1007/s00285-026-02402-5",
+        "material_read": "Abstract and introduction; model development and equations for prey, renewal birth/death rates, and smooth maturation; renewal background; ODE/DDE reductions; numerical profiles; equilibrium and phase-diagram methods; LDA and discussion/conclusion.",
+        "method": "Open-access journal full-text HTML, with earliest version verified from arXiv metadata.",
+        "title": "A predator-prey model with age-structured role reversal",
+        "trigger": "Exact motivating model."
+      },
+      {
+        "assessment": "BROADER_GENERIC_PRIOR_NOT_COVERING_SOURCE_SPECIFIC_FRONTIER. It establishes the generic renewal threshold that is used as prior theory.",
+        "evidence": "The paper defines the inherent net reproductive rate as the lifetime fertility-survival integral and analyzes loss of stability at the critical value one.",
+        "identifier_or_url": "doi:10.1007/BF00275988",
+        "material_read": "Author-hosted full text: abstract, introduction, definition of inherent net reproductive rate, linear-theory setup, and discussion of stability exchange at replacement.",
+        "method": "Author-hosted PDF text and page-image inspection.",
+        "title": "Existence and stability of equilibria in age-structured population dynamics",
+        "trigger": "Closest classical general theorem on low-density renewal stability."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It provides threshold dynamics for a different architecture in which prey, not predator, carries the age structure.",
+        "evidence": "Its reproduction number and comparison proof are model-specific to age-structured prey and an unstructured predator, not the role-reversal renewal kernel here.",
+        "identifier_or_url": "doi:10.1186/s13662-018-1614-y",
+        "material_read": "Abstract, predator-free equilibrium, definition of predator net reproductive number, global-stability theorem below threshold, persistence theorem above threshold, and discussion.",
+        "method": "Open-access publisher full-text HTML.",
+        "title": "Threshold dynamics of a predator-prey model with age-structured prey",
+        "trigger": "Closest open-access structured predator-prey threshold result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "23803b5b-9a1c-47a8-9a7d-901dcff2bc51",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating study spends substantial computation on predator-free phase classification and identifies juvenile predation g and maturation age tau-star as the dominant controls. The result replaces the local predator-free boundary in each g sweep by an exact one-dimensional threshold, proves that boundary cannot re-enter, gives an explicit k trade-off, and in the sharp model proves a closed-form monotone g_c(tau-star). This turns a major numerical phase-boundary feature into a reusable analytic diagnostic while keeping coexistence dynamics outside the claim.",
+    "status": "PASS"
+  }
+}
