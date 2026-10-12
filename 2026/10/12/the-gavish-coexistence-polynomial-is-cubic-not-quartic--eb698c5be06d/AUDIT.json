@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source reconstruction makes r1 and r2 affine, Delta quadratic, and each Cramer numerator N1,N2 quadratic. The infected forces simplify by the rank-one identities to v1*c1 and v2*c2. Multiplying the susceptible residual by the sole denominator Delta therefore produces only Delta times an affine term, s times a quadratic numerator, and r times a quadratic numerator. Every term is degree at most three. Exact rational expansion at a fully positive parameter point gives P_G(s)=s^3+53s^2-356s+260, proving the bound is sharp. The packaged checker also verifies the defining identity P_G=-Delta F_G at rational test points.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gavish and Rabiu, arXiv:2311.11318, report a perturbative regime governed by a quadratic equation in a related seven-equation model; the record states that the manuscript was later withdrawn because the asymptotic assumptions failed.",
+        "The 2026 source treats the full eight-compartment model and independently introduces the exact RUR polynomial P_G whose feasible root count it leaves open."
+      ],
+      "reasoning": "A perturbative quadratic in a related model does not imply the exact degree of the later full-model RUR polynomial. It is useful context but not broader coverage of the accepted claim.",
+      "searches": [
+        "Dynamics of a two-strain epidemic model with waning immunity perturbative quadratic equation Gavish Rabiu",
+        "Feng Gavish waning immunity coexistence equilibrium polynomial",
+        "two strain epidemic waning immunity coexistence polynomial Gavish"
+      ]
+    },
+    "checked_sources": [
+      "preprints:202608.0347",
+      "doi:10.3390/math14183271",
+      "arxiv:2311.11318",
+      "own-ledger:2026-10_week1__private research ledger__p0001_g000051.jsonl",
+      "own-ledger:2026-09_week4__private research ledger__p0001_g000063.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source itself leaves feasible root multiplicity open and explicitly motivates discriminant, resultant, and Sturm calculations after asserting quartic degree.",
+        "The Gavish-Rabiu abstract's quadratic pertains to a perturbative analysis and does not give the exact full-model Cramer polynomial used in the 2026 paper.",
+        "No inspected source implies a quartic-to-cubic correction for the 2026 RUR equation."
+      ],
+      "reasoning": "The accepted claim is a direct algebraic consequence of the later source's exact formulas and is not subsumed by qualitative coexistence results or by the withdrawn perturbative quadratic analysis.",
+      "searches": [
+        "Persistence Coexistence Boundary Transcritical Relays Question 2 P_G degree 4",
+        "Dynamics two-strain epidemic waning immunity explicit steady states quadratic",
+        "Feng Gavish coexistence polynomial root multiplicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source defines P_G=-Delta F_G from the displayed Cramer reconstruction and then states that P_G has degree four before Question 2.",
+        "The exact algebraic reconstruction shows only cubic-or-lower terms after clearing Delta.",
+        "No returned published-finding corpus record states that the 2026 Gavish coexistence polynomial is cubic rather than quartic."
+      ],
+      "reasoning": "Equivalent wording would either correct the polynomial degree directly or provide a formula implying the same cubic bound. The returned published findings were unrelated cubic/quartic algebra problems and did not reference the source DOI or model.",
+      "searches": [
+        "10.3390/math14183271 Gavish coexistence polynomial degree cubic quartic P_G",
+        "Persistence Coexistence Boundary Transcritical Relays Gavish coexistence polynomial degree 4 correction",
+        "Gavish model coexistence polynomial cubic degree root count Question 2",
+        "Feng Gavish waning immunity reduced coexistence polynomial cubic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published-finding corpus hit for the exact-DOI/degree query was `2026/9/19/SCOPE-spearman-gini-quartic-phase-oscillation--9fcf13d0b4cb`, an unrelated probability-boundary result.",
+        "Other close returned identifiers concerned unrelated quartic geometry, recurrence, or polynomial-valence problems.",
+        "The current-week and latest prior-week own ledgers contain no occurrence of DOI 10.3390/math14183271."
+      ],
+      "reasoning": "Database noncoverage is supporting evidence only. Originality is based primarily on direct statement-level comparison with the full motivating preprint and its published metadata.",
+      "searches": [
+        "10.3390/math14183271 Gavish coexistence polynomial degree cubic quartic P_G",
+        "Gavish model coexistence polynomial cubic degree root count Question 2"
+      ]
+    },
+    "rationale": "The motivating paper explicitly states degree four immediately before its open Question 2, while its own reconstruction formulas imply degree at most three. Exact-DOI, P_G, cubic/quartic, Gavish-polynomial, and root-count searches in the published-finding index returned no equivalent correction. The closest primary predecessor, the Gavish-Rabiu waning-immunity preprint, discusses a different perturbative quadratic reduction and was later withdrawn; it does not state this exact RUR degree correction.",
+    "residual_risks": [
+      "A non-indexed author notebook or later correction may already note the cubic degree.",
+      "The correction substantially simplifies degree counting but does not by itself settle how many roots lie in the feasible interval.",
+      "The earlier Gavish-Rabiu manuscript is withdrawn and is not used as evidence of correctness or noncoverage beyond its public record.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_DEGREE_OVERCOUNT. The formulas clear a single quadratic denominator and yield degree at most three, despite the text's quartic statement.",
+        "evidence": "Lemma 6 gives affine r_i, quadratic Delta, and quadratic Cramer numerators; Equation (6) gives an affine noninfectious susceptible balance plus infection and r12 terms with denominator Delta. The paragraph before Question 2 states degree four.",
+        "identifier_or_url": "doi:10.3390/math14183271; preprints:202608.0347",
+        "material_read": "Preprint full text covering Equation (6), the reproduction functions, Lemma 6 Cramer reconstruction, Delta and s_Delta formulas, boundary factorization, positive reconstruction, Theorem 5, the degree-four statement, Question 2, and the conclusion's open-problem summary; published record checked for date and MSC.",
+        "method": "Lawful open full text on Preprints.org plus publisher metadata.",
+        "title": "Persistence, Coexistence, and Boundary Transcritical Relays for Multi-Strain Epidemic Models",
+        "trigger": "Exact source defining the RUR polynomial and posing the root-count problem."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. The record describes a related seven-equation perturbative analysis, not the exact 2026 eight-compartment RUR polynomial; the manuscript is withdrawn.",
+        "evidence": "The arXiv record states that the work was withdrawn because its analysis relied on unfulfilled asymptotic assumptions and directs readers to later work.",
+        "identifier_or_url": "arxiv:2311.11318",
+        "material_read": "Primary arXiv record, submission history, withdrawal notice, and abstract describing explicit steady states and a perturbative regime governed by a quadratic equation.",
+        "method": "Primary arXiv record.",
+        "title": "Dynamics of a two-strain epidemic model with waning immunity—A perturbative approach",
+        "trigger": "Closest earlier primary work by Gavish on the same scientific model family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb698c5b-e06d-4336-913f-90b8bd3c35ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly makes feasible root multiplicity a next-step research problem and recommends discriminants, resultants, and Sturm sequences after characterizing P_G as quartic. Correcting the degree to cubic is not a cosmetic notation change: it lowers the maximum algebraic root count from four to three, removes an unnecessary quartic case from the semialgebraic classification, and simplifies every proposed exact root-count tool. The finding therefore directly sharpens a stated open problem while preserving the source's valid reconstruction and boundary-factorization results.",
+    "status": "PASS"
+  }
+}
