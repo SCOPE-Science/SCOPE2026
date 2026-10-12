@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Explicit simple-pole decomposition gives normalized Taylor coefficients. Direct exact residue inequality yields U>W, and equidistance produces lambda(rho)=0 with positive derivative. Resultant modulo the pole cubic gives primitive irreducible 25t^3-195t^2+534t-353, proving irrational critical phase. Uniform finite-time visits of irrational circle rotations prove the matching limsup to the elementary amplitude liminf; the limit holds along every real delta tending to zero. The pure-birth negative-entry identity is exact. Standalone SymPy checker returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2014 Theorem 4.1 gives an exact radius and partial fraction coefficients; its Section 4.1 ends after positivity at the critical point.",
+        "The published eight-state threshold addresses the different [2/2] Padé rational function, which has radius zero."
+      ],
+      "reasoning": "The strongest relevant source supplies the essential known pole data but not a finite-index near-boundary scaling theorem; the published [2/2] state-count classification neither implies nor gives bounds for the first negative derivative order of [3/3].",
+      "searches": [
+        "Rational functions with maximal radius of absolute monotonicity 2014 Theorem 4.1 full text",
+        "Padé absolute monotonicity high derivative onset uniform phase pole",
+        "finite-state Markov birth process witness size near threshold Padé Gauss Runge Kutta radius asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1303.6651v1 Section 4.1 and DOI 10.1112/S1461157013000326",
+      "doi:10.1137/07070485X Sections 1-2",
+      "doi:10.1016/j.apnum.2008.03.034 Section 2.5",
+      "https://ketch.github.io/numipedia/methods/GL3.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 Thm 4.1: radius and residue domination, positive all derivative values at boundary; no rate beyond.",
+        "2008 Thm 1: qualitative maximal uniform linear monotonicity step, not finite derivative index.",
+        "2009 implicit SSP §2.5: full-method radius zero for three-stage Gauss, distinct matrix-stage condition."
+      ],
+      "reasoning": "The 2014 result implies eventual high-order negativity for any fixed step beyond rho via pole dominance, but does not bound *when* the first negative derivative appears as the step tends down to rho. The exact leading constant requires an independent non-root-of-unity calculation and matched quantitative phase bounds.",
+      "searches": [
+        "Lóczi Ketcheson 2014 3/3 Pade radius pole residues full theorem",
+        "Ketcheson 2008 linear SSP Theorem 1",
+        "first negative derivative asymptotic rational pole oscillation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lóczi–Ketcheson arXiv:1303.6651, Theorem 4.1, explicitly states exact radius 2.207606 and residue inequality, not order-of-first-negative-derivative asymptotic.",
+        "Ketcheson 2008 Theorem 1 equates linear SSP coefficient and function absolute-monotonicity radius, not onset order."
+      ],
+      "reasoning": "The limit for k_*(s), defined as an integer and scaled by s-rho, asks for information not contained in a bare radius or a fixed derivative positivity check. The proof adds irrationality of a pole phase and uniform rotation visits.",
+      "searches": [
+        "first negative derivative order near radius absolute monotonicity Pade Gauss",
+        "critical Padé rational function 2.207606805471 first sign-changing Taylor coefficient order",
+        "published-finding corpus first-negative-index search: no direct match"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Numipedia GL3 lists the exact stability function and full-method SSP radius zero.",
+        "Lóczi–Ketcheson Theorem 4.1 lists the *linear-function* radius 2.207606."
+      ],
+      "reasoning": "The known zero Numipedia coefficient is for stage-level/nonlinear SSP, a different notion; published tabulation of the radius is acknowledged. No consulted table enumerates the near-critical first negative derivative indices or their exact scaling constant.",
+      "searches": [
+        "Numipedia Gauss-Legendre RK36 radius absolute monotonicity",
+        "2.207606805 first negative derivative k critical",
+        "25 t^3 - 195 t^2 + 534 t - 353 Gauss"
+      ]
+    },
+    "rationale": "The exact radius and pole-residue identities are explicitly covered by Lóczi–Ketcheson 2014 and are excluded from novelty. The new first-negative-derivative order limit and its non-root-of-unity angular lemma were not found in the theorem-level primary full text or targeted search; the result is not a simple restatement of the radius because a uniform phase-hitting argument is essential. Residual historical equivalence risk remains.",
+    "residual_risks": [
+      "Other quantitative derivative-sign or analytic-combinatorics work may contain an equivalent onset law under different terminology.",
+      "The first negative derivative order of a rational function does not characterize the minimal state dimension of a general CTMC positivity counterexample."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS exact radius and pole-residue comparison; does not state asymptotic first-negative-order limit or prove phase irrationality",
+        "evidence": [
+          "Theorem 4.1 explicitly computes R(psi36)=2.207606...",
+          "Section 4.1 reduces proof to positivity of derivatives at x* via residues c0>|c1|+|conjugate c1|."
+        ],
+        "identifier_or_url": "arxiv:1303.6651; doi:10.1112/S1461157013000326",
+        "material_read": "Full relevant Section 4.1, Theorem 4.1 and its pole and residue proof; introductory definitions and relevant classes",
+        "method": "Public Cambridge full PDF text and rendered page 13",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Exact same [3/3] Gauss rational function and classical critical radius"
+      },
+      {
+        "assessment": "General linear absolute-monotonicity framework, no [3/3] near-critical first derivative order",
+        "evidence": [
+          "Theorem 1 states linear SSP coefficient equals radius of stability-function absolute monotonicity.",
+          "Source studies explicit methods rather than the three-stage implicit Gauss asymptotic."
+        ],
+        "identifier_or_url": "doi:10.1137/07070485X",
+        "material_read": "Complete Sections 1 and 2.1 and Theorem 1, Section 2.2 beginning",
+        "method": "Author-authorized full PDF text and rendered relevant pages",
+        "title": "Highly Efficient Strong Stability-Preserving Runge–Kutta Methods with Low-Storage Implementations",
+        "trigger": "Potentially dominating general linear SSP equivalence"
+      },
+      {
+        "assessment": "Establishes nonlinear/stage-level SSP radius zero, a different invariant from the linear-end-step function and from k_*(s)",
+        "evidence": [
+          "Section 2.5: Gauss–Legendre methods with more than two stages have R(K)=0.",
+          "No near-critical k_*(s) claim."
+        ],
+        "identifier_or_url": "doi:10.1016/j.apnum.2008.03.034",
+        "material_read": "Full relevant Section 2.5 and table of method-level R(K), Sections 1–2 context",
+        "method": "Author-authorized full PDF text and rendered page 7",
+        "title": "Optimal implicit strong stability preserving Runge–Kutta methods",
+        "trigger": "Three-stage Gauss classical SSP radius potentially confused with the positive linear radius"
+      },
+      {
+        "assessment": "Lists exact stability rational function and stage-level radius zero, not derivative-index onset",
+        "evidence": [
+          "Stability function [3/3] rational exponential approximant.",
+          "Absolute monotonicity radius printed as zero for method-level SSP."
+        ],
+        "identifier_or_url": "https://ketch.github.io/numipedia/methods/GL3.html",
+        "material_read": "Complete method-page text",
+        "method": "Public HTML page",
+        "title": "Gauss-Legendre RK36",
+        "trigger": "Direct mathematical method listing and possible pre-existing table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "22297a32-7baa-42c0-b49a-9abbbd68b04b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical radius determines only the sharp stability window, not how large a nilpotent Markov chain is needed to expose failure infinitesimally outside it. The new k_*(s) invariant gives an explicit asymptotic canonical witness scale, with nontrivial arithmetical phase analysis. This is pertinent to validating positivity of sixth-order Gauss propagators on finite-state models, without exaggerating minimal state size or nonlinear SSP scope.",
+    "status": "PASS"
+  }
+}

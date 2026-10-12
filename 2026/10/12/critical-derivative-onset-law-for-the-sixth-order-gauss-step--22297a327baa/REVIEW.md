@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The pole geometry is reduced to the cubic denominator; a strict, exact residue inequality establishes the positive critical margin. A resultant gives the irreducible polynomial of the double-angle cosine, proving irrationality of the critical pole angle. The resulting uniform rotation-hitting argument supplies the upper first-negative-order bound, while pole-amplitude comparison gives the matching lower bound. The attached checker verifies all critical polynomial reductions and an exact finite absorbing-chain witness. Its finite numerical samples are expressly not substituted for the proof.
+
+**Originality — PASS with a precise restriction.** Lóczi and Ketcheson (arXiv:1303.6651, Theorem 4.1) explicitly prove the same radius \(\rho\) and write the pole/residue formula; those facts are already known and not newly claimed. The reviewed proposition is instead the precise asymptotic \(\lim_{s\downarrow\rho}(s-\rho)k_*(s)=C\), where \(k_*\) is the first negative derivative index. The inspected full relevant theorem and surrounding literature do not state that derivative-index law, the degree-three nonintegrality obstruction for the pole angle, or the resulting quantitative finite-chain witness scaling. Residual risk: equivalent quantified onset could exist in other absolute-monotonicity or analytic-combinatorics literature.
+
+**Value — PASS.** The first negative derivative controls when the classical nonpositivity obstruction becomes visible in finite nilpotent pure-birth tests. The exact inverse-distance law gives the state-size growth of a canonical witness construction near the boundary, resolving a natural quantitative question left open by knowing the radius alone. It is not claimed to be the minimum state size among all generator classes.
+
+**Closest literature and limitations.** Classical exact radius and pole data: Lóczi–Ketcheson (2014), Theorem 4.1. General linear absolute monotonicity: Ketcheson (2008), §2. Distinct stage-level SSP zero: Ketcheson–Macdonald–Gottlieb (2009), §2.5. The verification samples finite parameter choices; the proof covers the limiting real continuum. An independent review of equivalence with broader analytic-combinatorics results remains appropriate.
+
+Self-review: passed. Independent audit: not yet performed.
