@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The source gives an iff regular expression for one-run starts and an exhaustive finite set of zero-run lengths. Parameterizing the regular expression yields four length families, with \\(\\binom{t+2}{2}\\) representations at parameter sum \\(t\\); summation gives the exact binomial formula and leading coefficient \\(1/12\\). At a Fibonacci cutoff, representation length converts directly to numeric size. Each one-run has a distinct preceding zero-run, while every zero-run has length at most 13, giving the two-sided sandwich. Fibonacci exponential growth then converts cubic representation-length growth to \\(\\Theta((\\log N)^3)\\). The verifier independently checks the combinatorial count and direct finite cube endings.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rampersad's full text gives the exact run descriptions and density-zero theorem but no cubic growth law.",
+        "Shallit's later paper concerns suffix exponents approaching \\(\\varphi^2\\); searches of its record found no cube-density or no-cube counting theorem."
+      ],
+      "reasoning": "A theorem guaranteeing high-exponent suffixes for sufficiently long prefixes does not count precisely which positions support exponent at least three. The direct source is stronger on the relevant object, yet still stops at qualitative density zero.",
+      "searches": [
+        "\"no cube ends\" Fibonacci word logarithmic",
+        "\"positions\" \"no cube ends\" Fibonacci word",
+        "\"Fibonacci word\" cube-ending Zeckendorf polynomial",
+        "\"Prefixes of the Fibonacci word\" Shallit cube"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.09253v1 metadata and the open published full text",
+      "DOI:10.5802/crmath.408, especially Theorems 1, 2, and 4 and Figure 6",
+      "arXiv:2302.04640 bibliographic/full-text search",
+      "literature-index searches under no-cube, cube-ending, Zeckendorf, polynomial-degree, and density-rate formulations",
+      "current research ledger through generation 69, searched for Fibonacci/cube-ending overlap",
+      "prior-week research ledger generation 57 in the file library, searched for cube-ending phrases and the direct source identifier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of Rampersad characterizes one-run starts by a Zeckendorf regular expression; Theorem 2 bounds zero-run lengths by 13; Theorem 4 concludes only density zero.",
+        "Theorem 4 explicitly says polynomially many accepted strings suffice, but does not calculate their polynomial growth order.",
+        "The later Shallit paper does not state the final claim."
+      ],
+      "reasoning": "The published premises are sufficient to derive the claim after a new exact language count and a run-incidence argument. Being derivable from earlier structural theorems does not make the quantitative conclusion already covered: the closest source explicitly stops before determining the polynomial degree.",
+      "searches": [
+        "arXiv:2111.09253 Theorem 1 Theorem 2 Theorem 4",
+        "DOI:10.5802/crmath.408 density zero polynomial accepted strings",
+        "arXiv:2302.04640 cube density Fibonacci"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No literature-index result stated a cubic logarithmic counting law for non-cube-ending positions or the exact run-start formula.",
+        "The direct source's Theorem 4 states density zero and justifies it by polynomially bounded accepted strings, without identifying the degree."
+      ],
+      "reasoning": "The queries cover both the positional formulation and the automaton/Zeckendorf-growth formulation. The claim is a quantitative refinement of density zero, not merely a restatement of automaticity.",
+      "searches": [
+        "Fibonacci word positions where no cube ends logarithmic cubic exceptional positions",
+        "Fibonacci word no cube ends Theta log cubed Zeckendorf",
+        "cube-ending Fibonacci complement accepted strings polynomial degree three",
+        "Fibonacci word cube ending run starts Zeckendorf count",
+        "Rampersad Fibonacci cube-ending density rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked search exposed a database entry or table giving the exact cumulative run-start formula or a cubic logarithmic deficit sequence.",
+        "The finite values in the verifier are generated from the source characterization and the cube definition rather than copied from a table."
+      ],
+      "reasoning": "The new formula is derived from the source regular language. No exact database/table was found that already tabulates or implies the claimed asymptotic.",
+      "searches": [
+        "Fibonacci cube ending positions sequence OEIS",
+        "Fibonacci word no cube ending positions sequence",
+        "2111.09253 cube ending runs table"
+      ]
+    },
+    "rationale": "The direct primary source proves density zero only from unspecified polynomial growth of the complement automaton. Its exact run language implies the new cubic count, but the inspected paper does not state the degree, the exact run-start formula, or the global Theta((log N)^3) deficit. Targeted searches under cube-ending, no-cube, Zeckendorf, density-rate, and logarithmic formulations found no covering result. The later Shallit paper studies a different high-exponent suffix property.",
+    "residual_risks": [
+      "An unindexed note may have extracted the same polynomial degree from the published automaton.",
+      "The exact leading constant for \\(Z(N)\\) is not determined here; a finer analysis of the zero-run automaton could sharpen the result.",
+      "The proof depends on the correctness of the published Walnut-derived run characterizations, which are treated as established premises."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper supplies the run regular language and bounded zero-run lengths, then proves density zero by unspecified polynomial growth. It does not state the exact cubic run-start count or the \\(\\Theta((\\log N)^3)\\) exceptional-position law.",
+        "identifier_or_url": "arXiv:2111.09253v1 / DOI:10.5802/crmath.408",
+        "material_read": "Full open paper, especially Theorems 1, 2, and 4; the Zeckendorf definition; and the complement-automaton density argument.",
+        "method": "Primary open full-text inspection with page-level visual inspection of the theorem and automaton page.",
+        "title": "Prefixes of the Fibonacci word that end with a cube",
+        "trigger": "Direct source on the identical cube-ending sequence."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper studies explicit versions of the Mignosi–Restivo–Salemi high-exponent suffix theorem, not the counting function of positions where cubes fail to end.",
+        "identifier_or_url": "arXiv:2302.04640",
+        "material_read": "Abstract, bibliographic record, and text searches for cube, density, and Rampersad.",
+        "method": "Primary arXiv record/full-text search.",
+        "title": "Prefixes of the Fibonacci word",
+        "trigger": "Later highly related paper about repetitive suffixes of Fibonacci prefixes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5a05d3c-2258-46ab-8f28-13e9f22fe06d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper motivates cube-ending frequency as a measure of how close the Fibonacci word is to periodic and proves only that exceptions have density zero. The new theorem supplies the first sharp scale for that deficit—cubic in logarithmic length—plus an exact count of run starts at natural Fibonacci cutoffs. This is a structural quantitative refinement of the paper's central measure, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
