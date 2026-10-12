@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Definitions, graph LCF normalization, cubic edge boundary identity, complement-quotiented partition count, and component-cycle criterion are explicit. verify_cuts.cpp sweeps all 8,388,607 unordered nontrivial cuts; verify_independent.cpp independently computes all 16,777,216 boundaries using a recurrence and DSU components and proves exact equality of canonical cut masks. Every eight-edge side is connected. Degree profiles, paths after suppressing degree-two vertices, cycle counts (7:32 and 8:34), Aut(G)=32, and all 21 orbit sizes are checked by verify_orbits.py against complete embedded certificates. The proof is finite, complete and deterministic; it does not extrapolate or claim independent review.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "R. Lukoťka, E. Máčajová, J. Rajník, Cages and cyclic connectivity, arXiv:2503.07400v2, Theorems 10-11, section 4 (inspected HTML).",
+        "Z. Dvořák, J. Kára, D. Kráľ, O. Pangrác, An Algorithm for Cyclic Edge Connectivity of Cubic Graphs, DOI:10.1007/978-3-540-27810-8_21 (abstract and publication record).",
+        "E. Steffen, Tutte’s 5-flow conjecture for highly cyclically connected cubic graphs, arXiv:math/0607077v2, introduction and Theorems 1-2 (inspected HTML)."
+      ],
+      "reasoning": "Theorem 11 of arXiv:2503.07400v2 covers cubic cages with girth at most 15 and hence implies the *minimum-cut size and structure* for this graph, but it does not quantify or classify cuts one edge above the minimum. The 2004 algorithm and Steffen flow theorems do not logically determine how many eight-edge cuts exist or the structures of their two components.",
+      "searches": [
+        "McGee graph (3,7)-cage cyclic edge connectivity minimum cyclic 7-edge cuts all trivial seven cycles structural census automorphism orbits",
+        "near minimum cyclic edge connectivity cage graph cut-size counting enumerator 8-edge-cut cycle types",
+        "web: \"Cages and cyclic connectivity\" 2019 \"McGee\"",
+        "web: \"McGee graph\" \"cyclic edge connectivity\" cyclically 7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2503.07400v2",
+      "https://arxiv.org/html/math/0607077v2",
+      "https://arxiv.org/abs/math/0607077",
+      "https://doi.org/10.1007/978-3-540-27810-8_21",
+      "https://mathworld.wolfram.com/McGeeGraph.html",
+      "https://www.muni.cz/en/research/publications/1689865",
+      "https://github.com/published-finding corpus/2026",
+      "https://doi.org/10.1016/j.disc.2020.112197"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "R. Lukoťka, E. Máčajová, J. Rajník, Cages and cyclic connectivity, arXiv:2503.07400v2, Theorems 10-11, section 4 (inspected HTML).",
+        "E. Steffen, Tutte’s 5-flow conjecture for highly cyclically connected cubic graphs, arXiv:math/0607077v2, introduction and Theorems 1-2 (inspected HTML).",
+        "Z. Dvořák, J. Kára, D. Kráľ, O. Pangrác, An Algorithm for Cyclic Edge Connectivity of Cubic Graphs, DOI:10.1007/978-3-540-27810-8_21 (abstract and publication record).",
+        "Computed distinct new census at cut cardinality eight: 34+224+80+24=362; corresponding symmetry orbits 4+8+5+4=21, with 12+12 pair profiles AA:6, AB:16, BB:2."
+      ],
+      "reasoning": "Knowledge that cyclic edge-connectivity equals seven, even supplemented by its full minimum-cut classification, does not imply the cardinality, component types, or automorphism orbits for eight-edge cuts. Those require additional exhaustive vertex-partition testing and branch-path analysis. The earlier theorem is credited in the Finding and not repackaged as new.",
+      "searches": [
+        "McGee graph cubic (3,7)-cage exact 8-edge cycle-separating cuts 362 cut spectrum 34 8-cycles 224 seven-cycles with leaf 80 theta 24 balanced K4 subdivision",
+        "cyclic edge cut profile McGee graph cyclically 7-connected nontrivial 8-bonds orbit classification 21 symmetry classes Aut order 32",
+        "McGee graph (3,7)-cage cyclic edge connectivity minimum cyclic 7-edge cuts all trivial seven cycles structural census automorphism orbits",
+        "web: \"McGee graph\" \"cyclic edge\" \"cut\" 2015 2019"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "R. Lukoťka, E. Máčajová, J. Rajník, Cages and cyclic connectivity, arXiv:2503.07400v2, Theorems 10-11, section 4 (inspected HTML).",
+        "Standard equivalent condition: removing the 8-edge boundary leaves two connected cyclic components, as checked for each proposed mask.",
+        "Published research-record search: closest indexed titles concerned total cut complexes of the Heawood/Wagner graphs, not cyclic-edge-cut partitions of the McGee graph.",
+        "The paper The cubic graphs with finite cyclic vertex connectivity larger than girth (DOI 10.1016/j.disc.2020.112197) gives the McGee graph cyclic *vertex* connectivity eight, not a count of eight-edge cycle-separating cuts."
+      ],
+      "reasoning": "An unordered vertex partition S | complement with both sides cyclic is equivalent to a cycle-separating edge cut. For the enumerated candidates both sides are connected, so the eight-edge cuts are also bonds. Searches for cyclic bonds, eight-edge separators and named subdivision types uncovered no competing exact count or orbit classification. The 2025 theorem concerns minimum seven-edge cuts, not the eight-edge layer. The separate invariant cyclic vertex connectivity concerns removing vertices, and its value eight cannot determine or count cycle-separating edge cuts.",
+      "searches": [
+        "cyclic edge cut profile McGee graph cyclically 7-connected nontrivial 8-bonds orbit classification 21 symmetry classes Aut order 32",
+        "McGee (3,7) cage minimal cycle separating edge cut all 7 cuts 8 cuts eight edge separators 10-14 12-12 K4 subdivisions",
+        "web: \"McGee graph\" \"cyclic edge\" \"eight\" cut",
+        "web: \"McGee graph\" \"nontrivial\" \"cyclic edge cut\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "E. Weisstein, McGee Graph, MathWorld, standard LCF [-12,7,-7]^8, cubic girth 7, automorphism order 32.",
+        "arXiv:2503.07400v2, section 2 Table 1 tabulates small nontrivial multipole orders for s<=7 at girth 7, not McGee cut sizes eight.",
+        "Published research-record search: closest indexed titles concerned total cut complexes of the Heawood/Wagner graphs, not cyclic-edge-cut partitions of the McGee graph."
+      ],
+      "reasoning": "MathWorld records the canonical graph and automorphism count but not a cycle-separating cut enumerator. The inspected multipole tables and results in the later cage paper do not tabulate eight-edge-cut masks or symmetry types in the McGee graph. Indexed research records surfaced other cut complexes, not a dominating McGee table. It remains possible that an unindexed census exists.",
+      "searches": [
+        "McGee graph cubic (3,7)-cage exact 8-edge cycle-separating cuts 362 cut spectrum 34 8-cycles 224 seven-cycles with leaf 80 theta 24 balanced K4 subdivision",
+        "McGee (3,7) cage minimal cycle separating edge cut all 7 cuts 8 cuts eight edge separators 10-14 12-12 K4 subdivisions",
+        "web: \"McGee graph\" \"32\" \"7-cycles\"",
+        "web: \"McGee graph\" \"cyclic\" \"cut\" \"count\""
+      ]
+    },
+    "rationale": "The claim is the complete *eight*-edge cycle-separating cut profile (362 cuts, component topologies, 21 automorphism orbits), which is neither the known 7-edge minimum nor an ordinary connected-cut count. The published minimum-connectivity theorem covers only cuts of cardinality seven here. Generic cyclic-connectivity algorithms return the minimum size but do not determine this next layer. Full relevant sections of the strongest known cage source were materially read; exact alias, parameter, and database checks revealed no claim implying the eight-edge classification. Lack of retrieval is not treated as a guarantee of priority.",
+    "residual_risks": [
+      "An older unindexed enumeration or an appendix in an uninspected publication could give the same eight-edge cut spectrum; no global novelty proof is asserted.",
+      "The Dvořák et al. (2004) source was checked only at abstract level, although its algorithmic scope is materially different.",
+      "Only the inspected sections of the strongest 2025 cage paper were assessed; an inaccessible independent table is not excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_MINIMUM_ONLY; it gives the seven-edge threshold and minimum cut structure in cubic cages including girth seven; it does not assert this next-layer profile.",
+        "evidence": "Theorem 11(ii): k=3, girth g<=15; every cycle-separating (k-2)g-edge cut isolates a g-cycle. Table 1 in section 2 treats multipole orders for s<=7 at g=7.",
+        "identifier_or_url": "https://arxiv.org/html/2503.07400v2",
+        "material_read": "Sections 1-2 (definitions and small-multipole table), section 4 (Theorems 10 and 11 and their proofs), and conclusions around the generalized-multipole discussion.",
+        "method": "Read primary public HTML full-text sections and compare the explicit quantifiers to cardinality-8 McGee cut statement.",
+        "title": "Cages and cyclic connectivity",
+        "trigger": "Closest stronger cage cyclic-edge-connectivity theorem, potentially covering the minimum and more."
+      },
+      {
+        "assessment": "DIFFERENT_RESULT; theorem bounds guaranteeing nowhere-zero flows using a connectivity threshold, not enumerating eight-edge cuts of any particular graph.",
+        "evidence": "Introduction and Theorems 1-2 concern oddness, cyclic connectivity and existence of nowhere-zero 5-flows; arXiv version 1 dated 2006-07-04.",
+        "identifier_or_url": "https://arxiv.org/html/math/0607077v2",
+        "material_read": "Introduction, definition of cyclic connectivity, Theorems 1-2 and their hypotheses, and sections defining flow partitions.",
+        "method": "Read primary public HTML text; checked the dated arXiv v1 submission history separately.",
+        "title": "Tutte’s 5-flow conjecture for highly cyclically connected cubic graphs",
+        "trigger": "Earliest exactly dated archived source used to motivate cyclic connectivity of cubic graphs."
+      },
+      {
+        "assessment": "Its advertised output is minimum cyclic edge connectivity, which cannot by itself imply eight-cut multiplicities; full text remains a modest priority risk.",
+        "evidence": "Dvořák et al., SWAT 2004, abstract promises an O(n^2 log^2 n) algorithm for the cyclic edge-connectivity value.",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-540-27810-8_21",
+        "material_read": "Publication listing and abstract; complete full text not accessed.",
+        "method": "Compared exact abstract scope and bibliographic description; no whole-document NOT_COVERING assertion is made.",
+        "title": "An Algorithm for Cyclic Edge Connectivity of Cubic Graphs",
+        "trigger": "Canonical older algorithm that could be mistaken for a complete cut census."
+      },
+      {
+        "assessment": "Gives classical input/normalization data, not a published cyclic eight-edge cut table.",
+        "evidence": "McGee graph order 24, 36 edges, LCF [-12,7,-7]^8 and automorphism group size 32.",
+        "identifier_or_url": "https://mathworld.wolfram.com/McGeeGraph.html",
+        "material_read": "Graph description, LCF notation, order, degree, girth, automorphism group, and related bibliographic notes.",
+        "method": "Inspected the relevant graph-property web page.",
+        "title": "McGee Graph",
+        "trigger": "Graph construction and potential exact graph-property database."
+      },
+      {
+        "assessment": "NO_DIRECT_IMPLICATION from summaries; Heawood/Wagner total 3-cut complexes do not supply McGee cycle-separating eight-edge cuts.",
+        "evidence": "Closest indexed public titles: The total 3-cut complex of the Heawood graph is a wedge of 36 eight-spheres; The total 3-cut complex of the Wagner graph is a wedge of three 2-spheres. Neither is the McGee cyclic-edge-cut census.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026",
+        "material_read": "Returned published finding titles and summaries only, not primary full contents.",
+        "method": "Compared objects (cut simplicial complexes vs cyclic graph edge bonds), parameters, and invariant types.",
+        "title": "Indexed published cut-complex findings (closest semantic hits)",
+        "trigger": "Database search for potentially equivalent cut profiles."
+      },
+      {
+        "assessment": "NOT_EQUIVALENT: the reported McGee value eight is cyclic VERTEX connectivity, whereas the new claim enumerates edge cuts of size eight and their induced component structures.",
+        "evidence": "Section 3.3.1 states cyclic vertex connectivity cκ(McGee)=8; Theorem 3.2 concerns cyclic vertex cutsets in cubic graphs.",
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2020.112197",
+        "material_read": "Sections 3.3.1 and 3.4 around McGee and the final cubic-graph cyclic vertex-connectivity table, plus introductory distinction of cyclic vertex and edge connectivity.",
+        "method": "Read publicly indexed full text on publisher web page and compare mathematical definitions.",
+        "title": "The cubic graphs with finite cyclic vertex connectivity larger than girth",
+        "trigger": "Same named McGee graph and the numeral eight could conceal an equivalent result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2071fe0-4f1e-4598-a63b-49835d03ee41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cyclic edge-connectivity is a classical structural invariant of cubic cages, and the first excess-one cut layer has natural motivation as near-minimal separator stability. The claim classifies the complete eight-edge layer of the unique (3,7)-cage, separating 34 C8 cuts, 224 one-leaf enlargements, and 104 genuinely higher-cycle-core cuts (80 theta and 24 balanced K4 subdivisions), with a nontrivial AA/AB/BB classification and 21 symmetry orbits. Unlike a textbook deduction of the minimum, this information is not supplied by known minimum-cut theorems; it gives a reusable exact testbed for cubic-cage multipoles. It is restricted to the specified finite graph without unsupported general extrapolation.",
+    "status": "PASS"
+  }
+}
