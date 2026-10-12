@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The symmetric matrix perturbation annihilates the population-weighted proportional prevalence vector; with the chosen heterogeneous recovery rates, both distinct contact matrices reduce exactly to the same nonstationary scalar logistic ODE. Every parameter bound and the failure of block regularity are verified algebraically. For two communities the invariant-ray criterion is necessary and sufficient, and the determinant identity gives the sharp quartic and sextic coefficients. The exact-rational finite checks supplement, rather than replace, these proofs.
+
+**Originality — PASS within the explicit scope.** Keliger and Horváth, *Why is it easier to predict the epidemic curve than to reconstruct the underlying contact network?*, arXiv:2506.00059, Definition 3.2 and Conjecture 3.3, state the block-regularity equivalence and report its two-community case as settled with proof omitted. Their Gram criterion is acknowledged as prior theory. Prasse and Van Mieghem's 2022 low-dimensional surrogate framework and Beaufort et al.'s 2022 diffusion-network symmetry theory explain related mechanisms but do not supply this positive symmetric, unequal-initial-prevalence SIS counterfamily or the exact two-community discriminant and Gram orders. This is a specific counterexample and classification, not a claim to originate low-rank inverse-problem ideas.
+
+**Mathematical value — PASS.** A concrete nonstationary counterexample inside the motivating paper's admissible model settles the truth value of a stated parameter-side identifiability conjecture and shows that unequal initial prevalence does not secure reconstructibility, even for two groups. The auxiliary two-community test supplies a precise check for singular observations and distinguishes order-four from order-six short-time ill-conditioning.
+
+The models are deterministic, fully observed and allow positive diagonal contact weights. This does not address loopless unweighted networks, noisy sampling, or the full general-dimensional singular locus. Unindexed parallel treatments of weighted SIS observability and subsequent updates to the motivating article remain originality risks.
+
+Self-review: passed. Independent audit: not yet performed.
