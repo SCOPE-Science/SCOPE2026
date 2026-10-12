@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For the entire stated parameter domain, the radial two-by-two reduction and the orthogonal leaf-null projector are reconstructed exactly. Schur squares yield every matrix entry. The nonstandard rank lemma for three or more spokes follows from the pair-supported vectors orthogonal to the coupling direction; the full two-spoke determinant and the one-spoke boundary are derived separately. The verifier independently checks exact ranks and independently reconstructs spectral projectors. All claims are proven over the full real parameter ranges; finite checks are corroboration only.
+
+**Originality — PASS, with residual risk.** The published projector methods apply generally but do not themselves assert the robust positive-definiteness classification. A published unweighted-star proof is acknowledged as a subsumed special case, not new. Published weighted-star work concerns instantaneous universal mixing, not the Cesàro rank, and the closest available primary sources do not state the all-positive-coupling/all-central-potential theorem with the exact one- and two-spoke singular locus. The dissertation full PDF remained inaccessible through the inspected retrieval route. The possibility of a stronger result beyond the material read is explicitly unresolved; no independence claim is made.
+
+**Value — PASS.** Weighted stars are natural central-site transport networks. The finding gives the exact minimum number of active channels for robust full-rank long-time mixing and distinguishes this all-parameter stability from the two distinct small-network rank-loss mechanisms (resonant energies and equal couplings). The entry formula permits reproducible computation for arbitrary heterogeneous coupling ratios. This is a natural complete classification, not an arbitrary numerical slice; the result does not claim any instantaneous-uniformity consequence.
+
+Closest material: Coutinho–Godsil–Guo–Zhan, *A New Perspective on the Average Mixing Matrix* (2017/2018); Carlson et al., *Universal Mixing of Quantum Walk on Graphs* (2006); Kimmerling, *Continuous-Time Quantum Walks on Windmill Graphs* (2023); Coutinho et al., *Irrational quantum walks* (2022). General methods and the unweighted special case are prior.
+
+Self-review: passed. Independent audit: not yet performed.
