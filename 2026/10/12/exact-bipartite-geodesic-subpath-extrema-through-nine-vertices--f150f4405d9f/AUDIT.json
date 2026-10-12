@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Every connected bipartite graph on each n=7,8,9 has shores a<=b and arises from one of the explicitly enumerated 0<=mask<2^(ab) incidence matrices; disconnected graphs are excluded. BFS path counts satisfy an induction on distance. An independent Floyd--Warshall plus distance-DAG path-count implementation agrees on each exhaustive fixed-shore maximum and count, and independently reports every extremal missing-degree profile. A third BFS program agrees on all order-nine profile counts. Missing-degree profiles mathematically force the stated isomorphism types. For the exceptional graph, independent pairwise shortest-path calculation gives 9+16+20+36+24=105 and diameter four. This proves finite statements only; no infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published diameter-two result: the upper bound applies only to diameter-two graphs; our nine-vertex two-star graph has diameter four.",
+        "Published path-blow-up result: a construction improving a general lower bound, not an upper bound for all bipartite graphs of orders seven through nine.",
+        "Knor et al. 2026 universal bound is not tight at the three orders and does not enumerate equality graphs."
+      ],
+      "reasoning": "A matching-deletion family formula gives values for some candidates but not a global bound over all bipartite graphs, so it cannot subsume the full classification. The strongest directly related published theorem is restricted by diameter; the explicit maximum graph here lies outside its domain.",
+      "searches": [
+        "maximum number of geodesics among matching-deleted complete bipartite graphs K_{a,b}-M_t balanced part sizes optimal matching t",
+        "count geodesic subpaths n=9 bipartite two disjoint stars deleted from K4,5 with graph diameter four",
+        "Knor Sedlar Skrekovski Zhang Problem 15 small n 9 global bipartite maximum 105",
+        "total number of shortest paths bipartite graphs order nine all extremal graphs 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.04907v1 public original full text (April 6, 2026)",
+      "DOI:10.1007/s00009-026-03159-3 (bibliographic identifier for original)",
+      "2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21 full RESULT.md",
+      "2026/9/20/SCOPE-boundary-tapered-geodesic-path-blowups--26120b82068c full RESULT.md",
+      "Semantic public mathematical research records searched using exact numerical, alias, structural and stronger-coverage formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2604.04907v1 Section 4 Problem 15 requests exactly the unrestricted bipartite extremal family.",
+        "2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21 proves only diameter-two graphs maximize at a balanced biclique.",
+        "2026/9/20/SCOPE-boundary-tapered-geodesic-path-blowups--26120b82068c proves specific path-blow-up constructions, not finite exhaustive equality types."
+      ],
+      "reasoning": "Neither a restricted matching-deletion count, a diameter-two extremal theorem, nor a large-n construction rules out other connected bipartite graphs with greater or equal gpn. The new contribution is the exhaustive global finite upper bounds plus unique classification of all equality structures. The two-star equality structure disproves any inference that all equality graphs must arise from deleted matchings.",
+      "searches": [
+        "geodesic subpath number of complete bipartite graphs with a matching deleted, crown graphs, number of shortest paths, exact extremal counts",
+        "maximum number of geodesics among matching-deleted complete bipartite graphs K_{a,b}-M_t balanced part sizes optimal matching t",
+        "geodesic path total shortest paths 9 vertex bipartite extremal 105 deletion of two disjoint 2-edge stars",
+        "Knor Sedlar Skrekovski Zhang Problem 15 small n 9 global bipartite maximum 105"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Knor et al. 2026, Section 4 Problem 15: fixed-order bipartite maxima remains open.",
+        "The verified complete equality profiles at order nine include missing-degree profile (1,1,1,1):(0,0,0,2,2), absent from matching-only formulas."
+      ],
+      "reasoning": "An equivalent result would classify the maxima of total shortest-path multiplicity over all connected bipartite adjacency matrices, possibly named geodesic-subpath count, shortest-path count, or geodesic number. Search results did not provide one; no mere title difference is treated as evidence of originality.",
+      "searches": [
+        "geodesic subpath number bipartite graphs 7 8 9 vertices maximum 49 74 105 labeled extremizers 420",
+        "geodesic path total shortest paths 9 vertex bipartite extremal 105 deletion of two disjoint 2-edge stars",
+        "exact extremal bipartite geodesic subpath number on 7 8 9 vertices M_9 105 first diameter 4 coextremizer",
+        "\"geodesic subpath number\" \"nine\" \"bipartite\" \"105\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating full text does not tabulate unrestricted bipartite equality graphs on seven, eight, or nine vertices.",
+        "Exact complete adjacency-mask enumeration gives 13, 88, and 420 fixed-shore labeled extremizers at the three orders, with seven distinct equality profiles."
+      ],
+      "reasoning": "Searched for explicit numbers 49/74/105, bipartite order nine and its two-star coextremizer, and complete shortest-path-count extrema; no accessible table matched the mathematical statement. This absence is not a proof against unindexed tables.",
+      "searches": [
+        "geodesic subpath number bipartite graphs 7 8 9 vertices maximum 49 74 105 labeled extremizers 420",
+        "exact extremal bipartite geodesic subpath number on 7 8 9 vertices M_9 105 first diameter 4 coextremizer",
+        "total number of shortest paths bipartite graphs order nine all extremal graphs 2026",
+        "\"geodesic subpath\" \"diameter four\" \"bipartite\" 2026"
+      ]
+    },
+    "rationale": "The arXiv:2604.04907v1 primary full text (including the statement of Problem 15) asks for all bipartite maximizers. Its stated results are general bounds and restricted graph families, not the global small-order classification. The public diameter-two theorem covers only diameter-two graphs and cannot imply three- and four-diameter extremizers; the other close full-text record concerns path blow-ups and large-order constructions. The finite claim resolves all extremizers at orders seven through nine, including a diameter-four equality graph not belonging to the matching-deletion subfamily. Scientific literature and semantic searches found no stronger covering result. Equivalent unindexed work remains a genuine residual risk.",
+    "residual_risks": [
+      "An equivalent small-order classification could appear in an unindexed, unpublished or inaccessible work.",
+      "The proof is computationally exhaustive for finite orders and has not been externally audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not prove small-order global bipartite exact equality classifications; explicitly leaves Problem 15 open.",
+        "evidence": [
+          "arXiv:2604.04907v1 (2026-04-06), Introduction formula for gpn.",
+          "Section 4 Problem 15 asks to characterize maximizing fixed-order bipartite graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.04907v1",
+        "material_read": "Full public HTML text with Definition, main extremal theorems, constructed families, Section 4 including Problems 14 and 15, references.",
+        "method": "Read original arXiv HTML from initial definitions through concluding problems; compared domain and quantifiers.",
+        "title": "Counting Geodesic Paths in Graphs",
+        "trigger": "Defines the exact invariant and raises the unrestricted bipartite extremal problem."
+      },
+      {
+        "assessment": "Only proves extremality for diameter-two graphs; the present order-nine example has diameter four.",
+        "evidence": [
+          "Statement explicitly assumes diameter two.",
+          "Equality uniquely balanced complete bipartite within this narrower class."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/17/SCOPE-diameter-two-geodesic-subpath-extremum--d8fd04cc9d21/RESULT.md",
+        "material_read": "Complete RESULT.md text: statement, weighted induced-path lemma, full proof, diameter-two consequence, limitations and references.",
+        "method": "Read the full public research record and checked its diameter assumption and equality statement.",
+        "title": "Balanced complete bipartite graphs uniquely maximize geodesic subpaths at diameter two",
+        "trigger": "Same invariant; plausible stronger extremal result."
+      },
+      {
+        "assessment": "Construction-side lower bound for path blow-ups at orders divisible by three; does not provide global bipartite maximum or classify equality for seven to nine vertices.",
+        "evidence": [
+          "Statement gives a specific n=3q family, q>=3.",
+          "Limitations explicitly do not determine global maximum."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-boundary-tapered-geodesic-path-blowups--26120b82068c/RESULT.md",
+        "material_read": "Complete RESULT.md: general blow-up formula, tapered family, exact calculations, verification, and limitations.",
+        "method": "Read full public scientific record and compared logical implications.",
+        "title": "Boundary-tapered path blow-ups improve the geodesic-subpath lower bound",
+        "trigger": "Similar extremal invariant and possible global domination by constructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f150f440-5d9f-446a-9861-311f1eb3082d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 primary literature explicitly asks for fixed-order bipartite gpn maximizers. This gives the first full three previously-unresolved order layers n=7,8,9, including all equality graphs and exact counts, rather than computing a narrow arbitrary slice. The additional diameter-four coextremizer at n=9 is structurally unexpected and shows that restricting searches to matching deletions would omit true global maximizers. The result is a motivated finite cutoff with a complete certificate, not an unsupported asymptotic claim.",
+    "status": "PASS"
+  }
+}
