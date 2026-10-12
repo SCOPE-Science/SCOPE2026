@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "A full SOR sweep gives an explicit 2x2 residual matrix R. The determinant of I-R^T R factors into two scalar factors; one stays positive throughout 0<omega<2, so the sign change is exactly at omega_E=2s/(1+s-s^2). The remaining principal minor is nonnegative throughout the claimed safe interval. The classical spectral-radius optimum is recovered independently from the characteristic discriminant of the SOR error matrix, and comparing the two exact parameters gives s^2>=1/2, equivalently kappa<=3+2sqrt(2). The rational kappa=9 witness is replayed by the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "LeVeque-Trefethen analyze the classical SOR asymptotic convergence factor and optimal relaxation parameter for a model Poisson problem.",
+        "Louka-Missirlis optimize generalized SOR-type parameters through spectral-radius geometry and explicitly relate their approach to the classical SOR optimum.",
+        "Neither inspected source states one-sweep Euclidean residual monotonicity or an operator-norm ceiling for the residual."
+      ],
+      "reasoning": "Broad spectral-radius optimization is the prior framework that motivates the new comparison, but asymptotic eigenvalue control does not dominate a nonnormal one-sweep Euclidean residual norm.",
+      "searches": [
+        "Fourier Analysis of the SOR Iteration LeVeque Trefethen",
+        "A comparison of the Extrapolated Successive Overrelaxation and the Preconditioned Simultaneous Displacement methods",
+        "SOR optimal relaxation parameter spectral radius SPD"
+      ]
+    },
+    "checked_sources": [
+      "NASA-CR-178191",
+      "arxiv:1502.02280v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Gauss-Seidel residual theorem fixes omega=1 and therefore supplies only one vertical slice of the present two-parameter phase diagram.",
+        "The classical SOR optimum minimizes spectral radius, whereas the residual criterion is the largest singular value of a similarity-transformed one-sweep operator.",
+        "The kappa=9 witness explicitly separates the two metrics: the asymptotically optimal omega is 5/4 while the one-sweep residual-safe ceiling is 30/31."
+      ],
+      "reasoning": "Neither the omega=1 result nor spectral-radius optimality implies the residual-safe interval. The new determinant factorization and parameter comparison are necessary.",
+      "searches": [
+        "two-coordinate Gauss-Seidel Euclidean residual transient threshold",
+        "SOR asymptotic optimal parameter residual norm",
+        "successive overrelaxation one sweep Euclidean residual"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned classical convergence-rate material and nearby Gauss-Seidel or weighted-Jacobi transient results, but no SOR theorem with the one-sweep residual ceiling.",
+        "Exact searches combining optimal SOR, residual increase, two-dimensional SPD, and Euclidean norm produced no formula matching omega_E or the kappa crossover.",
+        "The closest published residual-transient result is for Gauss-Seidel, corresponding only to omega=1 rather than a relaxation-parameter classification."
+      ],
+      "reasoning": "Equivalent coverage would need the completed forward SOR residual operator, universal Euclidean nonexpansion over all incoming residuals, and the exact comparison with the spectral-radius-optimal omega. Asymptotic convergence theorems and the omega=1 Gauss-Seidel special case do not imply this parameter frontier.",
+      "searches": [
+        "successive over-relaxation SOR two by two residual norm one sweep omega safe threshold",
+        "optimal SOR parameter causes residual increase 2x2 SPD",
+        "SOR Euclidean residual monotonicity exact relaxation parameter",
+        "SOR residual amplification equal diagonal SPD condition number",
+        "2x2 SOR residual norm relaxation parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant or formula match was located in the searched published literature.",
+        "The ceiling follows from an exact factorization of det(I-R^T R), not from tabulated experiments."
+      ],
+      "reasoning": "The finding is an analytic phase boundary for the residual diagnostic rather than a recomputation of a known convergence-rate table.",
+      "searches": [
+        "SOR 3+2sqrt2 residual",
+        "SOR 2sqrt(1-rho^2) residual monotonicity",
+        "successive overrelaxation residual safe relaxation ceiling"
+      ]
+    },
+    "rationale": "Classical SOR theory optimizes asymptotic spectral radius, and that part is treated as prior work. The inspected full historical source develops the optimal relaxation factor for the SOR model problem but does not formulate a one-sweep Euclidean residual norm criterion. A later full SOR-type parameter-optimization paper likewise centers on spectral radii and contains no residual-norm occurrence in the accessible text. Targeted searches did not locate the exact residual-safe ceiling or the 3+2sqrt(2) crossover between asymptotic optimality and one-sweep residual monotonicity.",
+    "residual_risks": [
+      "Older stationary-iteration literature is extensive, and an equivalent two-by-two residual-norm calculation may exist under terminology such as transient norm, operator norm, or nonnormal amplification.",
+      "The theorem is restricted to the equal-diagonal Jacobi-scaled family; a robust all-2x2 SPD SOR frontier could differ.",
+      "A nearby published Gauss-Seidel residual theorem covers omega=1, so the novelty rests on the exact relaxation-parameter phase diagram and its crossover with spectral-radius optimality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: establishes spectral-radius optimization of SOR and MSC 65F10, but not a one-sweep Euclidean residual norm ceiling.",
+        "evidence": "The report explicitly analyzes SOR convergence factors and derives an optimal overrelaxation factor from eigenmode asymptotics. The inspected text discusses error eigenmodes and convergence rates, not residual operator norms.",
+        "identifier_or_url": "NASA-CR-178191 / ICASE-86-63",
+        "material_read": "The complete 10-page NASA report was opened. The abstract, introduction, SOR/Gauss-Seidel section, optimal-relaxation derivation, and bibliographic page were inspected; the title/MSC page and the page containing the optimal omega derivation were visually rendered.",
+        "method": "Full-text PDF inspection with rendered-page verification.",
+        "title": "Fourier Analysis of the SOR Iteration",
+        "trigger": "Primary full source for classical SOR asymptotic optimization and verified subject classification."
+      },
+      {
+        "assessment": "BROADER_NOT_COVERING: studies convergence conditions and spectral-radius-optimal parameters for generalized SOR-type methods, not one-sweep Euclidean residual monotonicity.",
+        "evidence": "The paper states that it develops a geometric approach for determining optimum parameter values and corresponding spectral radii; the accessible full text contains no residual-norm formulation.",
+        "identifier_or_url": "arxiv:1502.02280v1",
+        "material_read": "The full arXiv HTML was inspected through the introduction and parameter-optimization setup. In-document searches for 'residual', 'Euclidean', and 'norm' returned no matching occurrences.",
+        "method": "Lawful open full-text HTML inspection with targeted full-text searches.",
+        "title": "A comparison of the Extrapolated Successive Overrelaxation and the Preconditioned Simultaneous Displacement methods for augmented linear systems",
+        "trigger": "Archive-era full source on optimizing SOR-type parameters and spectral radii."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de5bcffd-a3d9-4874-8535-b8fd65c1bf9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "SOR is classically tuned by asymptotic spectral radius, while residual norm is a standard practical stopping diagnostic. The theorem identifies exactly when these two objectives first conflict on the canonical two-coordinate SPD model and gives a closed-form safe relaxation ceiling, a sharp condition-number crossover, and a simple exact residual spike. This is a motivated transient-versus-asymptotic distinction rather than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
