@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "All n>=3, all positive prices: first-step expectations give exact worst omitted-edge identity. An arbitrary simplex mixture and Cauchy yield universal lower bound. Strict concavity and KKT give unique threshold and positive dual weights, with at least two active coordinates. The normalized clipped rates attain the lower bound via the threshold identity, and Cauchy equality enforces unique rate vector. Boundary price equalities are covered explicitly. 385 rational dual systems, 100 exact absorbing-generator systems and 1815 normalized random feasible comparisons provide finite supplementary corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agharkar--Patel--Bullo 2014 pp. 3-7 optimize first-passage objectives using transition matrices and prescribed stationary distributions.",
+        "Yu--Karaman--Rus arXiv:1309.6041 pp. 1-7 analyze cyclic deterministic station dwell and event arrival capture/observation delays."
+      ],
+      "reasoning": "The cited broader graph formulations concern different risk functionals or admissible controls. Graph generality alone does not imply an explicit exact optimum for max ordered-pair continuous-time hitting time with unit linear rate budget.",
+      "searches": [
+        "optimal minimax hitting time continuous time directed cycle rates edge cost budget water filling",
+        "optimal rates directed cyclic Markov chain maximum hitting times price budget",
+        "Markov cycle mean first passage time optimal holding time allocations cost constraint max worst case"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1309.6041 v1 public 2013-09-24, inspected later full PDF v5 with revision distinguished",
+      "Agharkar--Patel--Bullo 2014 author OA conference PDF",
+      "Carron--Patel--Bullo 2016 author OA conference PDF",
+      "Breen--Kirkland 2017 author OA complete PDF",
+      "published indexed finite birth--death maximum-passage record dated 2026-09-07"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Breen--Kirkland Proposition 2.10 compares largest discrete-time MFPT of a Hessenberg cycle to the smallest stationary weight; rates or prices do not enter that asserted bound.",
+        "Yu--Karaman--Rus Theorem 1 minimizes Poisson observation gap after equalizing expected event counts, whose variables are deterministic station dwell times, not CTMC jump rates.",
+        "Exact optimizer here is strictly positive on every edge even for arbitrarily disparate prices, and cheap arcs share a rate while expensive ones obey inverse-square-root pricing."
+      ],
+      "reasoning": "Neither a bound on discrete-time hitting given stationary weights nor a different balanced surveillance objective implies the price-threshold allocation, the exact optimum Z squared, or global uniqueness for all positive prices. The weighted Cauchy dual/equality proof establishes this target without using an unproved source premise.",
+      "searches": [
+        "Breen Kirkland directed-cycle worst-case first-passage times optimizing rates fixed edge costs",
+        "optimal minimax hitting time continuous time directed cycle rates edge cost budget water filling",
+        "Minimising the largest mean first passage time directed graph Breen Kirkland stationary vector",
+        "Persistent Monitoring Events Stochastic Arrivals cyclic policy optimal time allocations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Breen--Kirkland 2017 pp. 1, 11, 15, 24: irreducible discrete-time stochastic matrices, stationary-distribution bound and Hessenberg cycle characterization; no independent continuous-time arc-price allocation.",
+        "Carron--Patel--Bullo 2016 pp. 2-4: double-weighted first-passage recursion but its optimization is stationary-weighted aggregate."
+      ],
+      "reasoning": "A deterministic directed path with adjustable waiting rates can be represented by a self-looped discrete-time uniformization, but the price budget depends on physical generators and is not reduced to either a fixed stationary vector or an average first-passage objective. The explicit clipped threshold and equality-uniqueness law are not furnished by these equivalent stochastic representations.",
+      "searches": [
+        "minimize largest mean first passage time on directed cycle continuous-time Markov chains with node-dependent exponential holding rates and linear price budget",
+        "Breen Kirkland directed-cycle worst-case first-passage times optimizing rates fixed edge costs",
+        "cost optimal continuous time directed cycle Markov chain minimax mean hitting time rate budget"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-indexed record, dated 2026-09-07, reports an exhaustive maximum endpoint hitting time on a finite 8-state quarter-grid birth--death stratum, under discrete parameter restrictions.",
+        "Direct searches for one-way ring, clipped inverse-square-root rate pricing and worst-pair hitting did not surface a matching closed-form parameter table."
+      ],
+      "reasoning": "A finite birth--death enumeration neither contains continuous positive prices on arbitrary-size unidirectional rings nor an optimizer for those prices; the positive-parameter theorem cannot be recovered as its table entry. A search nonhit is evidence of residual uncertainty, not a novelty certificate.",
+      "searches": [
+        "minimize largest mean first passage time on directed cycle continuous-time Markov chains with node-dependent exponential holding rates and linear price budget",
+        "water filling transition cost threshold among optimal jump rates finite directed ring",
+        "single directed cycle unequal rates optimal worst-case pairwise hitting latency resource allocation",
+        "one-way unidirectional directed ring Markov chain worst mean first passage time optimal rates"
+      ]
+    },
+    "rationale": "Explicit clipped price-threshold classification for the worst of all directed continuous-time pair hitting times, including exact unique optimizer and all-price threshold law, is not implied by the inspected published average-hitting, stationary-distribution-bound, cyclic-dwell, or fixed-graph results. Closest mathematical challenge is Breen--Kirkland (2017) on maximum discrete-time first-passage; its graph/stationary bound does not optimize physical holding rates against arbitrary linear prices. A specialized historical precedent remains possible.",
+    "residual_risks": [
+      "A specialized earlier result for costed Markov renewal cycles or optimally weighted directed cycles may be unpublished or absent from indexed searches.",
+      "Only a same-model proof and literature assessment were conducted; independent scientific validation is not represented.",
+      "The target is distinct from first-return and stationary-weighted hitting objectives; literature using those words differently may conceal equivalent results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different arrival-based event-capture and observation-gap objective; no max-pair continuous-time CTMC price-budget rate optimizer",
+        "evidence": "Theorem 1 selects deterministic observation durations in proportion to inverses of event-arrival intensities under a two-objective surveillance criterion, with fixed travel times.",
+        "identifier_or_url": "arxiv:1309.6041; https://arxiv.org/pdf/1309.6041",
+        "material_read": "Accessible 25-page original-paper PDF: read abstract, model and related work, Theorem 1 and Lemma 2 statement and derivation, plus the final conclusion; not all pages inspected line by line.",
+        "method": "Read mathematical definitions, optimization criteria, hypotheses and proof setup in legal open PDF",
+        "title": "Persistent Monitoring of Events with Stochastic Arrivals at Multiple Stations",
+        "trigger": "Directed cyclic scheduling with variable dwell times and optimality/uniqueness claims"
+      },
+      {
+        "assessment": "Stationary-weighted average first-passage with stochastic transitions, not maximum pairwise continuous-time hitting under rate prices",
+        "evidence": "Its objective averages mean first-passage over a prescribed invariant distribution rather than taking the maximum over ordered node pairs.",
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014b-apb-conference.pdf",
+        "material_read": "Author-hosted eight-page conference paper: inspected abstract, formulation of mean passage, representative weighted-hitting equations, and the optimization objective; not every page inspected line by line.",
+        "method": "Inspected author-hosted full text and relevant optimization sections",
+        "title": "Robotic Surveillance and Markov Chains with Minimal First-Passage Time",
+        "trigger": "First-passage optimization on stochastic transition matrices"
+      },
+      {
+        "assessment": "General pairwise formula is a component available to the target but does not derive this minimax rate-allocation solution",
+        "evidence": "Theorem 4 expresses weighted pairwise hitting, whereas surveillance optimization concerns a stationary-weighted first-passage aggregate and transition matrix design.",
+        "identifier_or_url": "https://motion.me.ucsb.edu/pdf/2014k-pcb-conference.pdf",
+        "material_read": "Complete five-page author-hosted paper accessible: read abstract, definitions, main weighted-hitting theorem, and application optimization section including the fixed stationary-law constraints.",
+        "method": "Inspected mathematical recurrence, theorem scope and optimization objective",
+        "title": "Hitting Time for Doubly-Weighted Graphs with Application to Robotic Surveillance",
+        "trigger": "General weighted graph pairwise hitting-time formulas might subsume target"
+      },
+      {
+        "assessment": "Closest statement; solves graph classification for equality in a discrete-time stationary-distribution bound, not free positive CTMC jump rate allocation with arbitrary prices",
+        "evidence": "Proposition 2.10: maximum mean first-passage time of a Hessenberg cycle equals an expression involving the smallest stationary mass; no rate-price budget appears.",
+        "identifier_or_url": "https://server.math.umanitoba.ca/~kirkland/LAA_mfp_lowerbound2.pdf",
+        "material_read": "Accessible thirty-four-page author manuscript: read abstract, definitions, directed-cycle proof passages and Proposition 2.10; no claim of line-by-line examination of all thirty-four pages.",
+        "method": "Read definitions, stationary-weight lower bounds, directed-cycle and Hessenberg proof passages",
+        "title": "Minimising the Largest Mean First Passage Time of a Markov Chain: The Influence of Directed Graphs",
+        "trigger": "Same max mean first-passage objective and directed-cycle graph structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8c1669f-972b-4e03-9c01-829e64d5bc3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural exact minimax latency allocation for irreversible cyclic transitions under a physical linear rate-resource budget. For arbitrary n and real prices, identifies all rates and optimum, unique optimizer, cheap-edge equalization and expensive-edge square-root scaling, uniform-price threshold and O(n log n) computational rule. In three-state example c=(1,3,100), improves minimax latency 208 to 144; structural transition gives information generic convexity methods do not alone provide.",
+    "status": "PASS"
+  }
+}
