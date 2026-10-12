@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Every clique projects to three identical permutations in a hypothetical three-uniform word. Cyclic rotation and global column relabeling normalize the first row. Exhausting 24 permutations and C(23,11) interleavings produces exactly 354 pair patterns. Both complete implementations exhaust all 125,316 projection pairs and every within-gap merge, finding no full word. One enumerates 158,483,130 full merged projections; a separately coded bitmask automaton counts 238,188 shuffles obeying the four required matching alternations, none obeying the twelve nonedge constraints. The lower bound extends by induced-subgraph restriction. Broere--Zantema Section 5 provides the explicit four-word upper construction for all n; its substitution is separately checked for n=2 through 10. The finite exhaustive lemma, not experimental extrapolation, proves the universal claim. The induced Rook_{3,3}, with published representation number three, separately excludes one- and two-uniform representations, so ruling out three copies is sufficient.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broere--Zantema, arXiv:1808.01800v1, Section 5 Theorem 1 and proof: if G has a k-uniform representation, k>1, then G Cartesian K_r has a (k+r-1)-uniform representation. For G=K_n, k=2 and r=3 this yields four, only as an upper bound.",
+        "Kitaev--Pyatkin, arXiv:2609.22311v1, Section 3 lists the missing rook-graph values from 3 by 4 upward."
+      ],
+      "reasoning": "The stronger-parameter product theorem is fully applicable but proves only existence of a four-uniform word; it does not exclude three-uniform words. There is no implication from a four-uniform construction to a minimum of four. The new exhaustive lower obstruction supplies the missing direction.",
+      "searches": [
+        "The k-dimensional cube is k-representable Broere Zantema Cartesian product complete graph k+n-1",
+        "word representation number rook graph K3 square K4 4-representable",
+        "word representable rook graph Hamming graph upper bound three rows"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.22311v1 (2026-09-15), full Springer open-access text, Sections 1.4/2.3/3",
+      "arXiv:1808.01800v1, full HTML Sections 4/5",
+      "DOI:10.1007/s00236-026-00547-w",
+      "DOI:10.25596/jalc-2019-003",
+      "MSC2020 05C62 graph representations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source establishes the adjacent widths Rook_{2,n} and Rook_{3,3}, and offers an unproved observation for Rook_{3,4}; neither implies the nonexistence certificate proved here.",
+        "The 2018 Cartesian-product theorem implies the universal upper bound and is explicitly reused rather than claimed as new.",
+        "The exhaustive lower-bound computation checks 32,449,872 canonical two-row candidates, 354 viable projections, and 158,483,130 compatible three-row shuffles with no valid word, a statement not present in the inspected sources."
+      ],
+      "reasoning": "The new implication is: exhaustive normalized obstruction at Rook_{3,4} implies the lower bound for all Rook_{3,n} with n>=4 by induced subgraphs; combined with the pre-existing product upper bound it gives equality. The earlier observation of a failed unspecified search is suggestive but not a complete proof and does not imply a mathematically audited exhaustive finite certificate.",
+      "searches": [
+        "Rook graph K3 Cartesian K4 representation number 4 lower bound 3-uniform nonrepresentability",
+        "word-representable rook graph Rook 3,n exact 4 for n at least 4",
+        "three cliques of size four connected by matching triangles 3-uniform representable",
+        "On the representation number of chessboard graphs Kitaev Pyatkin Section 2.3 open problems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kitaev--Pyatkin, arXiv:2609.22311v1, Section 1.4 defines rook graphs as complete-graph Cartesian products and line graphs of complete bipartite graphs; Section 2.3 does not give a 3-uniform obstruction for 3 by 4.",
+        "These are isomorphic forms of the same exact representation-number claim, not different problems."
+      ],
+      "reasoning": "A three-by-n rook graph, K_3 Cartesian K_n, and L(K_{3,n}) have the same vertices and adjacency relation, so an exact theorem for any of these would cover the result. Searches found no such lower-bound theorem; the nearest primary work explicitly leaves it open. Mere absence of a search hit is not treated as proof of originality.",
+      "searches": [
+        "word-representable rook graph Rook 3,n exact 4 for n at least 4",
+        "chessboard rook graph 3 by 4 no 3 word representation word-representable",
+        "word representable graph Cartesian product complete graphs representation number upper bound",
+        "word-representable graph 3 by 4 rook graph line graph of complete bipartite K3,4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kitaev--Pyatkin, arXiv:2609.22311v1, Table 2, Section 2.3, and Section 3: a computer search suggested R(Rook_{3,4}) >=4, but the authors explicitly say this is not a proof and leave the lower bound open.",
+        "No exact three-row, width-at-least-four representation-number table was found in the checked primary works."
+      ],
+      "reasoning": "A computational suggestion without an exhaustive verified and explained search does not imply the proved finite obstruction. The attached search explicitly establishes a normal form and enumerates all possibilities. No retrieved published table or source states the new exact infinite-family result.",
+      "searches": [
+        "\"representation number\" \"rook\" \"3,4\" 2026",
+        "\"Rook_{3,4}\" \"word\" \"representable\"",
+        "\"K_3\" \"K_4\" \"representation number\" word",
+        "2026 rook 3 4 representation number exact counterexample computer search"
+      ]
+    },
+    "rationale": "The most relevant 2026 paper expressly labels the three-row four-column lower bound a computational suggestion rather than proof; its Section 3 lists it as open. The product theorem from 2018 proves the upper bound but is insufficient for equality. published-finding corpus semantic searches under word, rook, Hamming, line-graph, Cartesian-product and three-uniform equivalents produced no logically covering result; both available research ledgers were checked for equivalent claims. An unindexed equivalent remains a residual risk.",
+    "residual_risks": [
+      "An unindexed or newly posted exact three-row theorem could exist; indexed searches do not prove global uniqueness.",
+      "The lower bound is a computer-assisted finite exhaustive proof whose C++ implementations have not been independently externally audited. The 2018 upper-bound construction is a cited published theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives 3-representation for 3 by 3 and 2 by n, explicitly leaves the 3 by 4 lower bound unproved",
+        "evidence": "Section 2.3 says the computer search is not regarded as proof; Section 3 names Rook_{m,n}, n>=4, 3<=m<=n as open.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00236-026-00547-w",
+        "material_read": "Full open-access HTML; Sections 1.1, 1.4, 2.3, 3, table and references inspected",
+        "method": "Direct full-text HTML inspection, not search snippets",
+        "title": "On the representation number of chessboard graphs",
+        "trigger": "Same rook graphs, same representation-number parameter and open three-by-four case"
+      },
+      {
+        "assessment": "PARTIAL: gives a four-uniform upper word for all three-row rook graphs but no corresponding three-uniform impossibility",
+        "evidence": "Section 5 Theorem 1 provides k+r-1 representation of G Cartesian K_r from a k-uniform word, k>1.",
+        "identifier_or_url": "https://arxiv.org/html/1808.01800v1",
+        "material_read": "Complete relevant Sections 2, 3, 4, 5 including Section 5 substitution theorem and its proof",
+        "method": "Direct open-access HTML full-text inspection",
+        "title": "The k-cube is k-representable",
+        "trigger": "Broad Cartesian-product construction might dominate the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2314cb77-4323-458d-b81d-c1ddc533c02f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves an explicit open lower-bound problem from a 2026 chessboard word-representation study and hence determines a natural exact invariant on an infinite family of standard rook/Hamming/line graphs. The obstruction is minimal in the studied three-row parameter, since the width-three graph was already known to admit a three-uniform word; the gap is structurally meaningful and not an arbitrary table increment.",
+    "status": "PASS"
+  }
+}
