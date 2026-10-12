@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For two positive Nash weights, subtracting the two source equations after multiplying by the corresponding weight forces equal norm-weight products. This gives the exact angular-bisector direction. Reusing those coefficients after pure magnitude drift yields an explicit weighted sum whose two current gradient projections have signs determined by two linear inequalities; solving them gives the sharp reciprocal interval. The embedded verifier checks the equations, boundary cases, and randomized instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 unified framework identifies non-conflicting directions as a sufficient convergence condition and records fresh Nash-MTL as non-conflicting.",
+        "Its Nash-MTL formula solves weights from the current Jacobian.",
+        "Public implementations expose an update frequency and reuse prior weights between solves."
+      ],
+      "reasoning": "The general non-conflict theory makes the stale-direction sign loss scientifically relevant but does not itself derive when stale Nash weights leave the dual cone. The final claim supplies that exact two-task boundary.",
+      "searches": [
+        "A Unified Framework for Gradient Aggregation Nash-MTL non-conflicting",
+        "Nash-MTL stale gradient weights Pareto descent failure",
+        "Nash-MTL update frequency gradient weights"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.01017v1",
+      "arXiv:2202.01017v2",
+      "arXiv:2605.30452v1",
+      "LibMTL:Nash_MTL"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Claim 3.1 gives the fresh positive-weight equation.",
+        "The source scale-invariance discussion motivates ignoring task gradient norms.",
+        "Section 3.3 proposes stale reuse for speed and reports occasional performance degradation.",
+        "The later unified framework proves relevance of non-conflicting directions but analyzes fresh current-gradient aggregation."
+      ],
+      "reasoning": "Fresh scale invariance and a practical reuse heuristic do not imply preservation of scale invariance under reuse. The final theorem requires solving the two-task equation and then evaluating the old solution against a new Gram geometry.",
+      "searches": [
+        "arXiv:2202.01017 Claim 3.1 G transpose G alpha reciprocal",
+        "arXiv:2202.01017 practical speedup update gradient weights once every few iterations",
+        "arXiv:2605.30452 Nash-MTL non-conflicting current Jacobian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source equation is current-gradient based and its scale-invariance discussion says gradient norms should not affect the solution.",
+        "The defining source separately recommends reusing task weights for several iterations.",
+        "No inspected published source states the exact reciprocal relative-scale interval for stale common descent."
+      ],
+      "reasoning": "Equivalent formulations would characterize the two-task stale-weight dual-cone condition, give the loss-scale drift margin in terms of gradient cosine, or state that relative norm drift alone can break Nash-MTL non-conflict. None was located.",
+      "searches": [
+        "Nash-MTL stale weights reuse gradient norms two task common descent",
+        "two task Nash-MTL closed form inverse gradient norms angular bisector",
+        "Nash-MTL relative gradient norm drift common descent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concern stale information in unrelated algorithms, multi-objective conflict methods, and generic stability frontiers.",
+        "No returned record states a Nash-MTL stale-scale safety window or the formula \\(-\\rho<q<-1/\\rho\\)."
+      ],
+      "reasoning": "Database absence is only supporting evidence; originality is grounded in direct comparison with the defining full text and a later unified primary theory.",
+      "searches": [
+        "Nash-MTL stale weights reuse gradient norms two task common descent",
+        "Nash bargaining multi task reused alpha gradient norm drift conflict",
+        "Nash-MTL update weights every few iterations stale task weights theory",
+        "two task Nash-MTL closed form inverse gradient norms angular bisector",
+        "Nash-MTL stale gradient weights Pareto descent failure",
+        "Nash-MTL scale invariance stale weights conflict",
+        "Nash-MTL relative gradient norm drift common descent"
+      ]
+    },
+    "rationale": "The defining paper separately establishes fresh scale invariance and proposes less-frequent weight refreshes, but the inspected full text does not analyze how reuse affects non-conflict under relative norm drift. A later unified gradient-aggregation theory explicitly treats fresh Nash-MTL as non-conflicting but still solves from the current gradients. Focused published-record searches found no implication-equivalent stale-weight interval.",
+    "residual_risks": [
+      "An equivalent two-task cone calculation may appear in unindexed implementation discussions.",
+      "Higher-task stale-weight geometry is not classified.",
+      "Angular drift can create additional failure modes beyond the pure scale mechanism proved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FRESH_THEORY_AND_REUSE_HEURISTIC; SHARP_STALE_SCALE_WINDOW_NOT_STATED.",
+        "evidence": "The source states the exact current-gradient equation and independently recommends less-frequent alpha updates; no stale-weight common-descent condition was found.",
+        "identifier_or_url": "arXiv:2202.01017v1/v2",
+        "material_read": "Full open-access HTML covering the scale-invariance axiom discussion, Claim 3.1 and proof, Algorithm 1, interaction interpretation, and Section 3.3 practical speedup.",
+        "method": "Full-text open-access HTML inspection with direct equation and surrounding-text comparison.",
+        "title": "Multi-Task Learning as a Bargaining Game",
+        "trigger": "Defining source for scale invariance, the Nash weight equation, per-iteration algorithm, and practical stale-weight speedup."
+      },
+      {
+        "assessment": "BROADER_NONCONFLICT_THEORY_FOR_FRESH_NASH_MTL; STALE_REUSE_NOT_COVERED.",
+        "evidence": "The paper identifies fresh Nash-MTL as non-conflicting using weights solved from the current Jacobian but does not analyze stale task weights.",
+        "identifier_or_url": "arXiv:2605.30452v1",
+        "material_read": "Open full HTML including the non-conflicting direction framework and Appendix A.1.3 Nash-MTL formulation and convergence discussion.",
+        "method": "Full-text open-access inspection.",
+        "title": "A Unified Framework for Gradient Aggregation in Multi-Objective Optimization",
+        "trigger": "Strong later primary theory potentially providing broader non-conflict coverage for Nash-MTL."
+      },
+      {
+        "assessment": "IMPLEMENTATION_MATCHES_STALE_WEIGHT_MECHANISM.",
+        "evidence": "On non-refresh steps the implementation assigns the prior alpha and backpropagates the current weighted losses.",
+        "identifier_or_url": "LibMTL:Nash_MTL",
+        "material_read": "Public source around update_weights_every, GTG solve, prvs_alpha state, and backward aggregation.",
+        "method": "Public implementation inspection.",
+        "title": "LibMTL Nash-MTL implementation",
+        "trigger": "Verify that an exposed update period reuses previous weights on non-refresh steps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1caf00d0-68b1-48c0-a7ad-9a27212e1924",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Independent task-scale invariance is a stated design motivation of Nash-MTL, while less-frequent weight refresh is a source-recommended practical speedup with large runtime savings. The theorem identifies a sharp mathematical boundary where that speedup loses the method's non-conflicting property even before gradient directions rotate. The conflict-dependent log-scale margin gives a direct diagnostic for refresh policies and becomes especially restrictive near antiparallel task gradients.",
+    "status": "PASS"
+  }
+}
