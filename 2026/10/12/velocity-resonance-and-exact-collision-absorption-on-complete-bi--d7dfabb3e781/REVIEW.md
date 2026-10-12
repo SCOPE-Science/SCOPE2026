@@ -1,0 +1,12 @@
+# Scientific review: velocity resonance and collision absorption
+
+## Correctness — PASS
+The proof fixes an explicit Kronecker-sum Hamiltonian, positive coincidence-loss operator, and infinite-time observable projector. Contractive dissipativity identifies the dark spectrum, while the single-particle \(\{+,-,0\}\) splitting and detector Gram matrices prove the rank formulas. Crucially, it separately addresses the exceptional unequal-speed ratios \(2{:}1\) and \(1{:}2\), and inverts the equal-speed two-class Gram block for same-class probabilities. The supplied verifier independently builds full Hermitian and lossy matrices, returning 35 spectral cases, 2,290 localized probabilities and six dissipative spectral checks at numerical error below \(7\times10^{-15}\). Finite tests do not replace the all-size proof. No claim is made about finite-time uniformity.
+
+## Originality — PASS, with residual risk
+Read full open-access HTML versions of arXiv:0705.1985v1 (§§2–4), arXiv:1511.04828v1 (§§I–IV), and arXiv:2011.13794v2 (§4.1 and Appendix B.1, including the closest complete-bipartite transport model). The first two investigate discrete-time two-particle walks; the third investigates one particle with one trap and a Laplacian Hamiltonian. None of those statements implies the present two-particle, adjacency-based, all-coincidence-detector classification. Literature searches also targeted two-particle biclique trapping, meeting, and spectral observability; no equivalent theorem was found. Existing general spectral-subspace methods are credited. An unidentified stronger theorem, or a treatment under different terminology, remains a priority risk; independent review is outstanding.
+
+## Value — PASS
+The exact \(2(p+q)-2\) loss of absorbing directions at equal velocities and the exact discontinuous factor of two for cross-class initial states identify a physical boundary that rate-dependent simulations could miss. The classification holds for every pair of class sizes at least three, both balanced and imbalanced, with arbitrary positive site-specific reaction rates. It provides exact detector benchmarks for collision transport rather than a routine perturbative estimate. The exceptional behavior of two-vertex color classes, nonrectangular losses, coherent interactions, and finite-time crossover remain open within this treatment.
+
+Self-review: passed. Independent audit: not yet performed.
