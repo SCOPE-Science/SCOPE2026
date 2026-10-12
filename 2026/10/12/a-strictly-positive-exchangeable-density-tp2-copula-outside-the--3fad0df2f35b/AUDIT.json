@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Exact six-by-six P is symmetric and doubly stochastic; its TP2 matrix factorization uses adjacent averaging and Cauchy–Binet. The exact base PMI defect is -1/64. The 25-factor rational smoothing S is positive and TP2, making Q=S^TPS strictly positive, symmetric, doubly stochastic, and TP2. The max-row-norm argument bounds each changed entry by 50/100000 and the four-cell defect by -1/64+200/100000<0. Extracted standalone exact-rational checker tests each step including all 225 ordered minors. Proof quantifiers cover all point pairs via finitely many constant grid rectangles; no finite sampling is mistaken for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fuchs–Tschimpke, arXiv:2306.09676v1, §2 Remark 1 (density reflection criterion), Example 7 (singular Marshall–Olkin MK-TP2 but non-PMI).",
+        "Fuchs–Tschimpke, arXiv:2205.01914v1, §§1,3 (d-TP2 stronger than MK-TP2 and the two-by-two minor hierarchy).",
+        "Known density-TP2=>MK-TP2, whereas Example 7 only MK-TP2 without absolute continuity."
+      ],
+      "reasoning": "The earlier failure of MK-TP2=>PMI cannot imply failure of the strictly stronger d-TP2=>PMI, because its witness has a singular component. The new example uses a strictly positive density and exchanges coordinates. Existing Gaussian/Frank/FGM equivalences hold only within named parametric families.",
+      "searches": [
+        "Density totally positive TP2 does not imply positive measure inducing PMI for an exchangeable copula; symmetric six-bin checkerboard positive TP2 matrix",
+        "Total positivity TP2 copulas is not convex mixing two TP2 checkerboard copulas three by three bistochastic matrices minimal grid size",
+        "arXiv:2205.01914v1 d-TP2 MK-TP2 implication"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.09676v1",
+      "arXiv:2205.01914v1",
+      "doi:10.1016/j.jmva.2023.105259",
+      "arXiv:2306.09676v1#Definition-1",
+      "arXiv:2306.09676v1#Example-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fuchs–Tschimpke, arXiv:2306.09676v1, §2 Remark 1 (density reflection criterion), Example 7 (singular Marshall–Olkin MK-TP2 but non-PMI).",
+        "Fuchs–Tschimpke, arXiv:2205.01914v1, §§1,3 (d-TP2 stronger than MK-TP2 and the two-by-two minor hierarchy).",
+        "A prior own Archimedean PQD/non-PMI claim has a weaker antecedent PQD and is not shown to have d-TP2."
+      ],
+      "reasoning": "The present implication refutation is strictly stronger than the previously published MK-TP2 counterexample and than a PQD/non-PMI witness. It does not follow as a corollary of those constructions, and the earlier family-specific d-TP2/PMI equivalences cannot be universalized.",
+      "searches": [
+        "MK-TP2 Markov kernel total positivity not preserved under convex mixtures copulas finite checkerboard three cells",
+        "Fuchs Tschimpke 2024 PMI density TP2 implication not enough",
+        "Totally positive density copula not positive measure inducing counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fuchs–Tschimpke, arXiv:2306.09676v1, §2 Remark 1 (density reflection criterion), Example 7 (singular Marshall–Olkin MK-TP2 but non-PMI).",
+        "Full source equation (2.4) gives the same four-reflection inequality used in the proof.",
+        "Exact six-by-six reflection contrast is -1/64 before smoothing and remains negative afterward."
+      ],
+      "reasoning": "Both four-cell reflection and positive-measure inducing formulations are compared via the published density criterion. Related aliases of additive reflection supermodularity and multiplicative TP2 were queried. The searched sources do not present the same density-level exchangeable counterexample.",
+      "searches": [
+        "Fuchs Tschimpke positive measure inducing PMI versus d-TP2 absolutely continuous symmetric checkerboard copula counterexample",
+        "Reflection four-term density sign for positive total positivity of order two copulas and Markov total positivity",
+        "d-TP2 copula fails PMI example density totally positive positive measure inducing",
+        "arXiv:2306.09676v1 Remark 1 eq (2.4) Example 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches in indexed mathematical records on density-TP2, PMI, symmetric checkerboard and reflection aliases returned no equivalent copula/positive-dependence theorem.",
+        "The 2023 preprint contains no exact six-by-six doubly-stochastic matrix witness of this type in its inspected definitions/examples/appendix."
+      ],
+      "reasoning": "No exact-entry/table or equivalently stated result was found through the actual queries. Lack of a database hit alone does not prove priority; the primary theorem comparisons are the substantive evidence.",
+      "searches": [
+        "Fuchs Tschimpke positive measure inducing PMI versus d-TP2 absolutely continuous symmetric checkerboard copula counterexample",
+        "Mixtures of multivariate totally positive distributions with uniform marginals, nonclosure minimum 3 state",
+        "exchangeable symmetric checkerboard copula d-TP2 PMI violation reflection"
+      ]
+    },
+    "rationale": "The full HTML preprints arXiv:2306.09676v1 and arXiv:2205.01914v1 were directly inspected in their relevant definitions, examples and comparison theorems. The former proves only an MK-TP2/non-PMI failure via a Marshall–Olkin copula with a singular part, while the latter proves the strict hierarchy d-TP2=>MK-TP2. Neither states or implies a strictly positive absolutely continuous exchangeable d-TP2/non-PMI counterexample. Related searchable mathematical records and old own claims do not subsume this statement. Residual unknown-priority risk is acknowledged, not equated with independent originality certification.",
+    "residual_risks": [
+      "An equivalent older TP2 matrix/coupling witness could exist under additive reflection-positivity or totally nonnegative matrix terminology.",
+      "The scope concerns piecewise-constant densities and does not claim all smooth or Archimedean density-TP2 models violate PMI."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the PMI four-reflection density test and a weaker, singular MK-TP2 counterexample; no strictly positive density-TP2 exchangeable counterexample in the inspected material",
+        "evidence": "§2 eq (2.4), Example 7 item 2: Marshall–Olkin with alpha=.05, beta=1 MK-TP2, not PMI.",
+        "identifier_or_url": "https://arxiv.org/html/2306.09676v1",
+        "material_read": "Complete navigable HTML source, including §2 definition/Remarks 1–2, Examples 3–7, and the Example 7 MK-TP2/non-PMI witness",
+        "method": "Direct HTML reading and statement/implication comparison",
+        "title": "A novel positive dependence property and its impact on a popular class of concordance measures",
+        "trigger": "Defines PMI and directly discusses its relationship to Markov-kernel and density total positivity"
+      },
+      {
+        "assessment": "Establishes d-TP2 stronger than MK-TP2; predates PMI and does not imply the new density-level nonimplication.",
+        "evidence": "Abstract and Introduction explicitly distinguish d-TP2 from MK-TP2; §3 eq (3.1) total positivity definition.",
+        "identifier_or_url": "https://arxiv.org/html/2205.01914v1",
+        "material_read": "Full navigable HTML preprint, Introduction and §3 definitions, implication hierarchy and parametric discussion",
+        "method": "Direct HTML reading, source-level comparison",
+        "title": "Total positivity of copulas from a Markov kernel perspective",
+        "trigger": "Checks exact meaning of density-TP2 and whether existing total positivity results cover PMI"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3fad0df2-f35b-43dd-94f0-0c86ddf6fc75",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PMI controls reflection-based concordance inequalities while d-TP2 is the strongest standard density-level positive dependence property. The strictly positive exchangeable witness demonstrates that multiplicative total positivity and the PMI additive reflection inequality differ even under strong natural regularity/symmetry constraints; this is a structural boundary for use of PMI in dependence modeling. It is sharper than the existing singular MK-TP2 example without asserting a paper-sized contribution, minimal grid or smoothness.",
+    "status": "PASS"
+  }
+}
