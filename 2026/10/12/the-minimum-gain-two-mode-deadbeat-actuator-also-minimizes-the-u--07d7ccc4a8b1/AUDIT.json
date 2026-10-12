@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For each admissible actuator direction, matching trace and determinant to \\(\\lambda^2\\) gives the unique feedback products \\(b_1k_1=a^2/(a-d)\\) and \\(b_2k_2=-d^2/(a-d)\\). Cauchy--Schwarz gives the sharp feedback-norm minimum. The resulting closed-loop matrix is nonzero, rank one, and nilpotent, so its spectral and Frobenius norms coincide. A separate sharp square inequality gives the transient minimum at the same squared actuator weights. The rational witness and symbolic identities are replayed from the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1996 robust-deadbeat paper states that deadbeat closed-loop matrices are nilpotent and may have nontrivial Jordan structure, motivating a robustness objective beyond pole location.",
+        "The 2014 arbitrary-pole-placement paper explicitly defines the minimum-gain exact pole-placement problem as minimizing the feedback-matrix norm for prescribed poles.",
+        "The 2023 input-assignment/gain paper jointly designs input assignment and feedback gain, but its objective shifts one dominant eigenvalue while preserving the remaining eigenstructure rather than making the whole closed loop nilpotent."
+      ],
+      "reasoning": "These broader works cover the ingredients—deadbeat placement, minimum gain, transient robustness, and input assignment—but no inspected statement dominates the exact two-mode co-design theorem.",
+      "searches": [
+        "Minimum-gain minimum-time deadbeat controllers Amin Elabdalla",
+        "On the Design of Robust Deadbeat Regulators Lam Tso Tsing",
+        "A unified method for optimal arbitrary pole placement minimum gain",
+        "Feedback norm minimisation with regional pole placement",
+        "Design of input assignment and feedback gain re-stabilizing networks"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0167-6911(88)90061-8",
+      "doi:10.1109/CDC.1996.573597",
+      "hdl:10722/46599",
+      "doi:10.1080/00207179.2014.908476",
+      "arxiv:1405.1516v1",
+      "doi:10.1002/rnc.6720"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schmid et al. formulate exact pole placement for a given pair \\((A,B)\\) and then minimize the feedback norm; varying \\(B\\) is not part of that optimization.",
+        "Lam–Tso–Tsing optimize a robustness measure of a nilpotent deadbeat closed loop and cite minimum-norm deadbeat designs as prior work, but the inspected formulation assumes the input matrix is part of the given reachable pair.",
+        "Yasukata et al. do vary input assignment and feedback gain, but impose a single dominant-eigenvalue shift and explicitly retain the other eigenvalues/eigenvectors, so their theorem does not imply the nilpotent two-step design or its transient norm."
+      ],
+      "reasoning": "The new implication requires solving the pole equations as functions of the actuator coordinates and then optimizing two different norms over those coordinates. None of the compared prior statements performs that actuator-direction elimination for the two-mode deadbeat problem.",
+      "searches": [
+        "minimum gain exact pole placement fixed input matrix feedback norm",
+        "robust deadbeat nilpotent transient response feedback gain",
+        "joint input assignment feedback gain pole placement minimum Frobenius norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic searches returned deadbeat-controller and general pole-placement literature but no theorem optimizing a continuously variable scalar actuator direction for the two-mode nilpotent closed loop.",
+        "Exact-form searches for the two displayed algebraic constants produced no implication-equivalent control result.",
+        "The full 2014 arbitrary-pole-placement preprint contains no occurrence of “two-dimensional” and treats minimum gain through the feedback matrix with the plant input matrix fixed."
+      ],
+      "reasoning": "An equivalent formulation would have to allow the actuator direction itself to vary, enforce both closed-loop poles at zero, and either recover the squared actuator weights or imply both sharp minima. Fixed-input feedback optimization and generic robustness measures do not imply that joint statement.",
+      "searches": [
+        "minimum gain minimum time deadbeat actuator direction input matrix co-design two state diagonal",
+        "deadbeat pole placement input assignment feedback gain norm transient response",
+        "two mode scalar input deadbeat minimum feedback gain closed loop norm",
+        "deadbeat actuator placement minimum gain nilpotent transient",
+        "\"a^2+d^2\" \"deadbeat\" feedback actuator",
+        "\"2ad/(a-d)\" deadbeat control"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed 1988 article is explicitly about minimum Frobenius norm deadbeat controllers but the available record does not mention actuator placement or a variable input direction.",
+        "No searched database result stated the optimal squared actuator weights or the minimum closed-loop transient norm.",
+        "The formulas are derived symbolically and are not inferred from a numerical table."
+      ],
+      "reasoning": "The accepted claim is a continuous closed-form minimization over actuator directions, so fixed-controller tables or fixed-input algorithms do not cover it without an implication establishing the same optimizer and sharp values.",
+      "searches": [
+        "\"minimum-gain minimum-time deadbeat controllers\" input matrix actuator",
+        "\"minimum gain\" \"deadbeat\" \"two\" state feedback",
+        "\"actuator placement\" \"deadbeat\" feedback norm",
+        "\"optimal input direction\" deadbeat minimum gain"
+      ]
+    },
+    "rationale": "Minimum-gain minimum-time deadbeat control, robust deadbeat regulation, and minimum-gain exact pole placement are prior work. The closest inspected full sources optimize the feedback matrix for a fixed input matrix or optimize deadbeat robustness after the plant input matrix is fixed. A later joint input-assignment/gain paper solves a different one-mode eigenvalue-shift problem rather than nilpotent deadbeat placement. The 1988 minimum-gain deadbeat article was not available in full through the inspected routes and remains an explicit residual risk, but its indexed subject is controller gain for a given linear discrete-time system rather than actuator-direction co-design. Targeted semantic and exact-form searches found no source implying the common actuator optimizer, the sharp transient minimum, or the reciprocal modal-gap law.",
+    "residual_risks": [
+      "The 1988 minimum-gain minimum-time deadbeat article was not available in full through the inspected routes and could contain a low-dimensional specialization not visible in indexing records.",
+      "Older eigenstructure-assignment literature may express actuator-direction co-design through an equivalent input-coordinate parametrization not captured by the search terminology.",
+      "The simultaneous transient optimum is proved only for two orthogonal modes and one scalar actuator; broader co-design literature may contain higher-dimensional results whose special cases were not stated explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: establishes the nilpotent deadbeat and transient-robustness context for a given reachable pair, but no inspected section varies the actuator direction or derives the two-mode joint gain/transient optimum.",
+        "evidence": "The paper describes all-zero closed-loop poles as deadbeat regulation, notes nontrivial Jordan structure and perturbation sensitivity, and treats the input matrix as part of the given reachable pair.",
+        "identifier_or_url": "doi:10.1109/CDC.1996.573597 / hdl:10722/46599",
+        "material_read": "The searchable six-page public PDF was inspected at the introduction, minimum-time regulation setup, nilpotent closed-loop formulation, and robustness-measure discussion; the first two pages were also rendered visually.",
+        "method": "Lawful public repository PDF inspection with rendered-page verification.",
+        "title": "On the Design of Robust Deadbeat Regulators",
+        "trigger": "Closest full deadbeat source discussing nilpotent Jordan structure, robustness, and prior minimum-norm deadbeat design."
+      },
+      {
+        "assessment": "BROADER_FIXED_INPUT: treats any admissible Jordan structure and minimizes feedback gain, but the pair \\((A,B)\\) is given and the actuator direction is not a design variable.",
+        "evidence": "The paper explicitly defines MGEPP as minimum feedback-matrix norm for exact pole placement and optimizes \\(F\\) for a fixed reachable pair.",
+        "identifier_or_url": "arxiv:1405.1516v1",
+        "material_read": "The full public arXiv HTML was inspected through the introduction, arbitrary repeated pole-placement formulation, minimum-gain discussion, and optimal objective functions; targeted searches for two-dimensional and diagonal specializations were performed.",
+        "method": "Lawful open full-text arXiv inspection with targeted in-document search.",
+        "title": "A unified method for optimal arbitrary pole placement",
+        "trigger": "Full primary source for minimum-gain exact pole placement with repeated desired poles."
+      },
+      {
+        "assessment": "PLAUSIBLE_ACCESS_LIMITED: definitely prior work for minimum-gain deadbeat feedback. It remains a residual originality risk, but available records do not indicate actuator-direction co-design or the sharp transient statement.",
+        "evidence": "The indexed keywords identify linear discrete-time systems, minimum Frobenius norm, and minimum-gain minimum-time deadbeat controllers.",
+        "identifier_or_url": "doi:10.1016/0167-6911(88)90061-8",
+        "material_read": "Bibliographic and indexing records, keywords, MSC classification, citation relationships, and later papers describing the result were inspected; the article body was not available through the inspected lawful routes.",
+        "method": "Bibliographic-record inspection; no whole-document noncoverage inference.",
+        "title": "Minimum-gain minimum-time deadbeat controllers",
+        "trigger": "Title-level closest historical source combining the two accepted objectives of minimum gain and minimum-time deadbeat control."
+      },
+      {
+        "assessment": "RELATED_NOT_DOMINATING: co-designs input assignment and gain for a one-mode re-stabilization objective, not all-zero pole placement or two-step nilpotent transient minimization.",
+        "evidence": "Its pole-placement requirement shifts the dominant eigenvalue while leaving the remaining eigenvalues and eigenvectors unchanged.",
+        "identifier_or_url": "doi:10.1002/rnc.6720",
+        "material_read": "The full public HTML was inspected through the problem formulation, gain-norm objective, eigenvalue-shift requirements, and conclusions; targeted searches for deadbeat and nilpotent terminology returned no match.",
+        "method": "Full public HTML inspection with targeted in-document search.",
+        "title": "Design of input assignment and feedback gain for re-stabilizing undirected networks with High-Dimension Low-Sample-Size data",
+        "trigger": "Later work explicitly co-designing input assignment and feedback gain, therefore a strong potential broader-coverage risk."
+      },
+      {
+        "assessment": "CLASSIFICATION_AND_CONTEXT: establishes primary MSC 93B55 context and gain-minimization motivation, but does not expose an actuator-direction deadbeat classification in the inspected material.",
+        "evidence": "The article minimizes a feedback-gain norm bound under exact or regional pole placement and its accepted author version was posted online on 2014-03-26.",
+        "identifier_or_url": "doi:10.1080/00207179.2014.908476",
+        "material_read": "Publisher abstract, posting history, problem description, and available author-manuscript excerpts were inspected.",
+        "method": "Publisher-record and accessible manuscript-excerpt inspection.",
+        "title": "Feedback norm minimisation with regional pole placement",
+        "trigger": "Archive-era primary-MSC source for feedback-norm minimization under exact or regional pole constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "07d7ccc4-a8b1-4432-ad71-c0e188ce5ff6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Deadbeat pole placement trades settling time against gain and transient robustness. The theorem resolves the first nontrivial actuator-direction co-design exactly: it shows that gain and one-step transient objectives unexpectedly have the same actuator optimizer, while proving that neither can prevent reciprocal-gap blow-up as stable modes coalesce. The exact stable-plant witness has a first-step amplification \\(24/5\\) despite zero closed-loop poles and minimum gain within the actuator class, making the boundary directly relevant to robust pole-placement intuition.",
+    "status": "PASS"
+  }
+}
