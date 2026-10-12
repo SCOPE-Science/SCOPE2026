@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "The LD-set characterization is reconstructed directly: a set meeting both bipartition classes is LD exactly when it omits at most one vertex from each class, while a one-side set can be LD only when it is the whole side opposite a singleton class. This gives a three-block construction for every biclique of order at least three, an upper bound of three for stars, an upper bound of four when both sides have size at least two, and a contradiction to four blocks unless both sides have size two. The exceptional four-singleton partition of K_{2,2} and the K_{1,1} obstruction are checked explicitly. Exhaustive finite replay matches the theorem on all tested cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The initiating paper proves general bounds and exact values for paths and cycles, plus extremal characterizations, but does not give a complete-bipartite or complete-multipartite coalition-number theorem.",
+        "Its Proposition 2.8 supplies only the general bound C_L(G) <= |V(G)|-gamma_L(G)+2; it does not resolve the equality pattern for bicliques."
+      ],
+      "reasoning": "The general upper bound is compatible with four blocks when both bipartition classes have size at least two, so the exclusion of four blocks outside K_{2,2} requires the new coalition-structure argument.",
+      "searches": [
+        "arXiv:2602.18760v1 full text Sections 1–4",
+        "complete multipartite locating domination coalition partition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.18760v1",
+      "Semantic-database exact/alias searches for complete bipartite locating-dominating coalitions",
+      "Nearby locating-domination complete-multipartite records returned by those searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source path formula includes K_{1,2}=P_3 and the cycle formula includes K_{2,2}=C_4.",
+        "The source tree extremal theorem covers only particular star boundary cases; complete bipartite graphs K_{m,n} with m,n>=2 are not trees except K_{2,2} as a cycle."
+      ],
+      "reasoning": "These prior special cases are explicitly separated. They neither give the constant value three for all other bicliques nor rule out a four-block LDC-partition in the general two-large-side case.",
+      "searches": [
+        "arXiv:2602.18760v1 path cycle tree exact results",
+        "locating-dominating complete bipartite coalition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.18760v1 contains the definitions and no occurrence of “bipartite” or “biclique” in the inspected full text.",
+        "The closest semantic-database hit 2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf concerns self/solid locating domination, not coalition partitions."
+      ],
+      "reasoning": "A biclique is exactly a complete bipartite graph, so these searches cover the standard family aliases. The nearest returned locating-domination results use different feasibility conditions and do not determine C_L.",
+      "searches": [
+        "\"locating-dominating coalition\" complete bipartite biclique K_mn C_L",
+        "\"locating-domination coalition number\" \"complete bipartite\"",
+        "\"locating-dominating coalition\" \"K_{m,n}\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned database record gives a table or formula for C_L(K_{m,n}). Nearby complete-multipartite records concern different domination variants."
+      ],
+      "reasoning": "Tables for paths/cycles cover K_{1,2} and K_{2,2} only through graph isomorphism; they do not tabulate or imply the infinite biclique family.",
+      "searches": [
+        "\"locating-dominating coalition\" complete bipartite exact",
+        "\"locating-dominating coalition\" biclique",
+        "C_L K_mn locating coalition"
+      ]
+    },
+    "rationale": "The initiating 2026 paper defines the invariant and gives general bounds plus exact path/cycle and extremal-tree results, but its inspected full text contains no complete-bipartite or biclique theorem. Exact web and semantic-database searches for locating-dominating coalitions on K_{m,n}, bicliques, and complete bipartite graphs returned the initiating paper and nearby but different locating-domination variants rather than an implication-equivalent classification. Known path/cycle/tree special cases account for small boundary graphs only and do not imply the uniform all-biclique result.",
+    "residual_risks": [
+      "An unindexed paper or terminology variant could contain the same biclique classification.",
+      "Some small boundary cases are already covered through the initiating paper’s path, cycle, or extremal-tree theorems; the originality claim is only for the uniform all-complete-bipartite classification beyond those cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the invariant and several special families but no biclique classification.",
+        "evidence": "The paper states AMS 05C60 and arXiv v1 date 2026-02-21; full-text searches found no “bipartite” or “biclique” occurrence.",
+        "identifier_or_url": "arXiv:2602.18760v1",
+        "material_read": "Abstract; Definitions 1.1–1.2; Section 2 existence and upper bounds including Proposition 2.8; Section 3 path/cycle results; Section 4 extremal-tree discussion; keyword/full-text searches for bipartite, biclique, and complete bipartite.",
+        "method": "Lawful open full-text inspection.",
+        "title": "Locating-dominating coalitions in graphs",
+        "trigger": "Primary source introducing the invariant and the closest possible broader coverage."
+      },
+      {
+        "assessment": "Different invariants: self/solid locating domination, with no coalition partition.",
+        "evidence": "Its summary gives gamma^{DLD} and gamma^{SLD}, not C_L or LDC-partitions.",
+        "identifier_or_url": "2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf",
+        "material_read": "Database title and scientific summary.",
+        "method": "Semantic database inspection.",
+        "title": "Self- and solid-locating domination in complete multipartite graphs",
+        "trigger": "Closest semantic-database record combining locating domination with complete multipartite graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a420613-30f8-49d8-9052-6c68c580f6df",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete bipartite graphs are a canonical infinite family, and the invariant was introduced in 2026 with exact-family determination as a central theme. The result gives a complete infinite classification, including existence, a unique exceptional jump at K_{2,2}, and a structural explanation via LD-set complements. It is not a numerical recomputation or arbitrary slice; it resolves the new coalition parameter on one of the standard graph families against which domination-type invariants are routinely tested.",
+    "status": "PASS"
+  }
+}
