@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Three distinct columns violate two-row strength-three perfect hashing precisely when their grid edges form a three-edge path. A bipartite graph with no such path is a star forest; exhaustive maximality analysis yields spanning star forests plus exactly two complementary isolated-side cases. The standard labeled component exponential formula gives the spanning coefficients and associated Stirling partitions give isolated-side coefficients without overcounting. Every allowable cardinality is constructed. Two different executable checks agree at \\(q=3,4,5\\) and symbolic recurrence values \\(q\\leq8\\); finite checks supplement an all-q proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shangguan and Ge, arXiv:1601.04807v1, Theorems 1.5 and 1.7, furnish the upper bound/construction giving the known maximum \\(2q-2\\).",
+        "Walker and Colbourn (2007), DOI 10.1515/JMC.2007.008, investigate PHF existence/constructions and extremal tables."
+      ],
+      "reasoning": "Results bounding the largest possible family do not determine which smaller families are inclusion-maximal or their labeled cardinality distribution. The known maximum is not claimed as new.",
+      "searches": [
+        "\"two-row\" \"perfect hash family\" \"3\"",
+        "\"perfect hash families\" \"two rows\" \"maximal\" saturation",
+        "arXiv:1601.04807 Theorems 1.5 1.7 perfect hashing two rows"
+      ]
+    },
+    "checked_sources": [
+      "Walker and Colbourn (2007), doi:10.1515/JMC.2007.008",
+      "Shangguan and Ge (2016), arXiv:1601.04807v1",
+      "Aoudia et al. (2014), doi:10.1109/CoDIT.2014.6996904"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Walker–Colbourn definitions imply the edge-set model; the additional maximally admissible structural trichotomy is proven in the result.",
+        "Theorem 1.7 of Shangguan–Ge yields existence at the maximal size, but its bound alone does not count maximal families with q through 2q-3 edges.",
+        "The graph-polytope work optimizes star forests and does not state the two-sort labeled generating polynomial in inspected relevant passages."
+      ],
+      "reasoning": "The new full distribution implies the classical maximal cardinality but the reverse implication fails logically: knowledge of a maximum does not determine the number of saturated nonmaximum configurations. A full stronger statement that enumerates all labeled maximal P4-free subgraphs would subsume the claim; none was identified in inspected sources.",
+      "searches": [
+        "\"perfect hash family 2 rows strength 3\" star forest maximal",
+        "\"p_3(2,q)\" \"perfect hashing\" upper bound construction",
+        "\"maximal star forest\" \"complete bipartite\" saturation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The failure of the strength-three property for two rows is equivalent to containing a three-edge path in a bipartite graph.",
+        "Aoudia et al. (2014), DOI 10.1109/CoDIT.2014.6996904, discuss star-forest graphs and a polytope, with specific maximality results for cycles, not a labeled K_{q,q} maximal enumerator."
+      ],
+      "reasoning": "The graph translation is explicitly included in the search and comparison. The claimed statement counts inclusion-maximal subgraphs of complete bipartite graphs with both sides labeled, whereas general star-forest results or maximality on cycles do not imply the displayed enumeration without an additional classification.",
+      "searches": [
+        "\"maximal star forest\" \"complete bipartite graph\" number",
+        "\"maximal star forests\" \"complete bipartite\" enumeration",
+        "\"perfect hash family\" \"maximal\" \"two rows\" strength three"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct enumeration yields q=3: 12,9; q=4: 104,144,16; q=5: 530,1800,1000,25; primary sources inspected do not give these labeled maximal spectra.",
+        "No direct exact distribution table or coefficient generating function was identified in the relevant inspected primary literature."
+      ],
+      "reasoning": "The searches target both hash-language and graph-language tables, rather than merely distinct title words. Search failure does not certify novelty against unindexed tables.",
+      "searches": [
+        "\"perfect hash families\" \"two rows\" \"maximal\" saturation",
+        "\"maximal P4-free subgraphs\" \"complete bipartite\"",
+        "\"maximal star forests\" \"complete bipartite\" enumeration"
+      ]
+    },
+    "rationale": "The established maximum two-row three-perfect-hash-family size \\(2q-2\\) is explicitly excluded from the novelty claim. Checked primary hash-family and star-forest literature gives definitions, bounds, maxima and related graph optimization, not a labeled all-q enumerator of every inclusion-maximal codebook. The maximality-type classification and resulting coefficient formula are a distinct statement; possible unindexed graph enumerations remain a residual risk.",
+    "residual_risks": [
+      "An older or unindexed enumeration of labeled maximal P4-free subgraphs of complete bipartite graphs could already imply the polynomial.",
+      "General labeled combinatorial species calculations could contain a logically dominating specialization even without matching perfect-hash terminology.",
+      "Published maximum-size statements do not constitute proof of originality; the comparison is bounded to the sources actually inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines PHFs and gives extremal constructions/tables, not this inclusion-maximal coefficient classification in the material inspected",
+        "evidence": [
+          "Walker and Colbourn, Journal of Mathematical Cryptology 1 (2007), 125–150, original online date April 19, 2007."
+        ],
+        "identifier_or_url": "doi:10.1515/JMC.2007.008",
+        "material_read": "full open article text, introduction/definitions, construction and extremal sections and tables",
+        "method": "article text inspection of relevant definitions, constructions, sections and tables",
+        "title": "Perfect Hash Families: Constructions and Existence",
+        "trigger": "standard underlying two-row perfect hashing definitions and maximum constructions"
+      },
+      {
+        "assessment": "Covers the known maximum \\(2q-2\\), which is excluded; does not supply the claimed labeled cardinality enumerator in inspected relevant statements",
+        "evidence": [
+          "Shangguan and Ge, arXiv:1601.04807v1 (posted 2016-01-19), Theorems 1.5 and 1.7."
+        ],
+        "identifier_or_url": "arXiv:1601.04807v1",
+        "material_read": "full 20-page preprint, with relevant Theorems 1.5 and 1.7, their proof and parameter bounds specifically inspected",
+        "method": "open preprint reading, targeted theorem, proof and table examination",
+        "title": "Separating hash families: A Johnson-type bound and new constructions",
+        "trigger": "possibly dominating two-row strength-three upper bound and construction"
+      },
+      {
+        "assessment": "Studies the star-forest polytope and maximal forests for other ambient graphs; no labeled enumeration for K_{q,q} found",
+        "evidence": [
+          "Aoudia, Nguyen, Mahjoub and Aïder (2014), CoDIT pp. 263–268."
+        ],
+        "identifier_or_url": "doi:10.1109/CoDIT.2014.6996904",
+        "material_read": "all six pages of the lawfully accessible paper",
+        "method": "page-by-page reading including graph-optimization statements, polytope work and cycle case",
+        "title": "On the Star Forest Polytope",
+        "trigger": "plausible graph-theoretic formulation of inclusion-maximal forbidden-path-free subgraphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "137d2065-92f5-4609-badf-8833969630ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Greedy admissible column insertion can stop at an inclusion-maximal family, not necessarily a maximum one. The theorem determines, for every alphabet size \\(q\\geq3\\), the complete labeled distribution of those possible terminal codebooks, all attainable sizes and the sharp minimum/maximum efficiency ratio tending to one half. This is more informative than known optimal-size bounds and is a natural full classification rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
