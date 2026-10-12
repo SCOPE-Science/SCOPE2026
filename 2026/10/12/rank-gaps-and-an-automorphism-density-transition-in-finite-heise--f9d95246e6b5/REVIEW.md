@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The unique Lie map decomposition \(\varphi(v)=Av+f(v)z\), \(\varphi(z)=\lambda z\) is forced by the derived algebra. The bracket constraint is exactly \(A^{\mathsf T}JA=\lambda J\). A nonzero multiplier gives precisely the invertible symplectic similitudes; the zero multiplier gives maps into isotropic images. Dividing the count of ordered isotropic frames by the order of the general linear group computes their image-space count, while row-space membership of the central functional distinguishes the two possible ranks. All product normalizations and characteristic-two cases were checked; finite enumerations agree for the complete small cases. The leading-degree comparison proves the density transition for fixed \(m\).
+
+**Originality — PASS, with residual risk.** Fisher–Gray–Hydon (arXiv:1303.3376v1, pp. 1–13 and the three-dimensional automorphism table) treat real automorphism groups rather than all finite-field Lie endomorphisms. Rieck (JCMCC 34 (2000), pp. 23–32) treats pairings of independent vector configurations over finite fields of odd characteristic, not the central-functional rank refinement or the automorphism-density phase boundary. Prior published summaries on Heisenberg subalgebra-commutativity and fixed-point-free automorphisms likewise concern different functions. A more general historical symplectic-monoid enumeration might imply this formula after a reduction; that possibility has not been eliminated by the available bibliographic search.
+
+**Value — PASS.** The endomorphism monoid is a natural algebraic invariant, its ordinary-rank strata control noninjective homomorphism behaviour, and the result determines every stratum, not just its support. The sharp missing-rank interval and three-regime large-field density transition are structurally meaningful for every dimension and are not supplied by the known automorphism-group counts alone. The proof requires and displays a nontrivial interface between finite symplectic geometry and central Lie algebra data.
+
+The complete rank formulas count individual Lie algebra homomorphisms; they neither classify conjugacy orbits nor assert a uniform-in-dimension asymptotic.
+
+Self-review: passed. Independent audit: not yet performed.
