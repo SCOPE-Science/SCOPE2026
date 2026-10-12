@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For all m>=2, rank m+1 is immediate from columns (1,a) over all a. A width-two syndrome is exactly zero, any odd (1,a), or an even adjacent XOR. In both window models the XOR of all nonzero field elements vanishes, whereas full adjacent-XOR coverage would contradict telescoping (one duplicated label in the cyclic case). The explicit primitive-power order supplies q-2 distinct differences, misses Delta=(1+alpha)alpha^(q-2), and has adjacent end edges already in the list; alpha^j+alpha^(j+2)=Delta with j=q-2-t closes the gap in a three-window, including m=2. Actual packaged verifier checks degrees 2..8 and 6+5040 small normalized orderings. Finite checks support but cannot replace all-rank algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sac Himelfarb–Schwartz 2026, Theorem 13: burst covering is parity-check window syndrome covering; Example 16: coordinate permutation yields radius three at length eight; Theorem 17: general length versus redundancy bounds.",
+        "The primary paper does not state an all-rank optimized radius for extended Hamming codes or the exact two-window cardinality."
+      ],
+      "reasoning": "The source gives the m=3 example (a strict special case) and broad counting bounds. Its bounds with length 2^m and redundancy m+1 do not force a missing two-window syndrome, and its one example cannot produce the uniform explicit field-power ordering or its general proof. No inspected stronger theorem covers both parts.",
+      "searches": [
+        "All binary extended Hamming codes coordinate permutation burst covering radius exactly three, two-window syndrome set missing one element, primitive power ordering",
+        "permutation optimized burst covering radius of extended Hamming codes 2^m exactly three all m",
+        "https://arxiv.org/html/2601.00435v2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.00435v2",
+      "https://arxiv.org/abs/2601.00435",
+      "https://doi.org/10.1002/jcd.21396",
+      "https://onlinelibrary.wiley.com/doi/10.1002/jcd.21396"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 13 of arXiv:2601.00435 equates the syndrome formulation to covering; Example 16 verifies just an eight-coordinate case and Theorem 17 only states general necessary bounds.",
+        "Ollis–Willmott abstract treats terraces for additive groups; it does not visibly assert the optimal three-window burst-covering radius of extended Hamming codes."
+      ],
+      "reasoning": "The 2026 paper implies that the optimized radius is at most three only at m=3, with no implication at arbitrary m. The terrace obstruction may already imply the bound |D|<=2^m-2 but, without an additional constructive near-terrace plus two-step coverage result, it does not imply the full theorem. Full-text inaccessibility creates a residual overlap risk rather than a manufactured NOT_COVERING judgment.",
+      "searches": [
+        "All binary extended Hamming codes coordinate permutation burst covering radius exactly three, two-window syndrome set missing one element, primitive power ordering",
+        "Cyclic and noncyclic 2 burst sum coverage binary extended Hamming primitive element ordering optimal one missing syndrome",
+        "https://arxiv.org/html/2601.00435v2",
+        "https://doi.org/10.1002/jcd.21396"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Elementary abelian binary groups cannot admit an exhaustive terrace of distinct nonzero consecutive differences; see Ollis–Willmott 2015 abstract and the independently proved XOR obstruction.",
+        "The width-three constructive coverage of the one missing difference is a separate claim, not present in the terrace abstract."
+      ],
+      "reasoning": "The nearest equivalence would treat the parity-check labels as an ordering of the additive group and the burst-two syndromes as its consecutive XOR differences. In a binary group, a full adjacent difference enumeration is ruled out by telescoping. The theorem additionally computes the sharp achievable deficiency, supplies an all-rank finite-field ordering, and proves length-three window coverage. The related group-ordering full article was not read, leaving a disclosed risk of a hidden equivalent near-terrace result.",
+      "searches": [
+        "Cyclic and noncyclic 2 burst sum coverage binary extended Hamming primitive element ordering optimal one missing syndrome",
+        "complete mapping sequencing elementary abelian 2 group adjacent differences rotational sequencing no directed terrace XOR obstruction",
+        "https://doi.org/10.1002/jcd.21396"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published item concerns Griesmer-optimal cyclic symbol-pair codes, not binary extended Hamming burst-covering syndromes; the primary objects and invariants differ.",
+        "The originating paper exhibits only a length-eight permutation, not a tabulation over all field extension degrees."
+      ],
+      "reasoning": "The proposed invariant is an infinite family formula, not a lookup of code parameters or a known numerical table; no observed indexed table of orderings and two-window syndrome deficits contains this statement. The unrelated nearest returned IDs do not imply it. Lack of a matching database entry alone is not used to assert novelty.",
+      "searches": [
+        "extended Hamming parity-check primitive finite field ordering pair differences within two positions",
+        "cyclic order all binary vectors burst covering radius three extended Hamming code",
+        "All binary extended Hamming codes coordinate permutation burst covering radius exactly three, two-window syndrome set missing one element, primitive power ordering",
+        "2026 locally recoverable codes generalized weight spectrum maximum availability"
+      ]
+    },
+    "rationale": "Primary full-text comparison (arXiv:2601.00435, Sections III-VIII) finds only the length-eight permutation example, general bounds, and cyclic BCH/Melas results; no all-length exact optimized two-window deficit and three-window construction. Direct syndrome, consecutive-difference, terrace and published-index semantic searches returned no dominating or equivalent statement. An older near-terrace theorem could be equivalent and a relevant terrace article was available only by abstract, so novelty is provisional to this evidence.",
+    "residual_risks": [
+      "The related terraces article was only checked at abstract level; an older equivalently phrased near-complete adjacent XOR ordering with span-three coverage may exist.",
+      "Searches of a semantic research index and public web do not establish global uniqueness; unindexed/other-language coding literature could contain the construction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The m=3 example is covered and credited; the exact all-m two-window maximum and single constructive uniform radius-three theorem are not stated in inspected primary text. General bounds are too weak to imply them.",
+        "evidence": [
+          "arXiv:2601.00435v2 Section III Theorem 13 and Example 16; Theorem 17; Section VIII"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.00435v2",
+        "material_read": "Full HTML text Sections III–VIII including Definition 11, Theorem 13, Example 16, Theorems 17–18, conclusion and references; checked PDF page 6 (zero-index page 5) visually",
+        "method": "Direct examination of primary arXiv full text, theorem statement and example, not search snippets",
+        "title": "On the Burst-Covering Radius of Binary Cyclic Codes",
+        "trigger": "Same burst-covering objects, syndrome characterization and extended Hamming permutation example"
+      },
+      {
+        "assessment": "Terraces relate to impossible exhaustive adjacent differences for elementary abelian 2-groups. Cannot rule out a hidden stronger near-terrace or two-step result in the inaccessible full text.",
+        "evidence": [
+          "Journal of Combinatorial Designs 23 (2015), 1–17, DOI:10.1002/jcd.21396; abstract states all noncyclic elementary abelian 2-groups lack terraces."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jcd.21396",
+        "material_read": "Bibliographic record and abstract only; no complete original full text",
+        "method": "Published abstract-level comparison of group-ordering statements",
+        "title": "Constructions for Terraces and R-Sequencings, Including a Proof That Bailey’s Conjecture Holds for Abelian Groups",
+        "trigger": "Possible additive-group sequence equivalence of the adjacent-XOR obstruction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fba7773e-2080-4b8e-8b35-4a0d756747b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated exact structural invariant for a recently defined burst-covering setting: localized parity-check access depends on coordinate order unlike Hamming covering radius. The theorem settles optimal width uniformly for the entire extended Hamming family, sharpens this by one-syndrome exact two-window deficiency for every ordering, and gives a single explicit all-size sequence and boundary-robust proof. It is neither a table lookup nor a new notation for a one-off computation; the original article only gives m=3 and asks for additional code families.",
+    "status": "PASS"
+  }
+}
