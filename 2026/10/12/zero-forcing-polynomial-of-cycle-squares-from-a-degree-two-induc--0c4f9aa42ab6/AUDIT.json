@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For n>=7, four distinct cyclic neighbors are exactly offsets ±1,±2. A legal first force exists precisely at a black vertex with >=3 black neighbors, and then all five centered consecutive vertices become black. A length-five black interval monotonically propagates around the cycle, proving the equivalence for every subset and n. Failed words are precisely those avoiding a central selected position with >=3 selected neighbors in its five-window, so the explicit 16-state transfer trace bijection is exact. The finite 16x16 determinant is reconstructed by integer-polynomial Newton identities from 16 exact traces in verify.py and equals the displayed degree-eight polynomial; the formal trace/determinant relation proves the generating function for arbitrary n, not by extrapolating finite cases. The min-cardinality and 3n count follow from four-subset centers, and the maximum failed size by cut counting plus explicit cyclic strings. Exhaustive direct iterative forcing/transfer checks cover all 32,640 subsets on orders n=7..14. Boundary n>=7, complement empty and all-black configurations, and the distinction from skew forcing were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyer et al. 2018 gives polynomial framework and formulas for ordinary cycles and other graph classes.",
+        "AIM 2007 treats minimum forcing and graph rank, not a full enumerator.",
+        "Bermond-Peyrat 1989 concerns induced-subgraph size bounds given minimum degree.",
+        "Johnson et al. 2025 studies skew rather than ordinary forcing on cycle powers."
+      ],
+      "reasoning": "A polynomial for the underlying ordinary cycle does not determine the polynomial for its square. An ordinary minimum cardinality, a skew-failed number, or a minimum-degree bound on induced subgraphs do not determine all cardinality coefficients. The full 1989 and Gomez et al. sources remain unavailable; no comparison is asserted beyond the accessible mathematical statements.",
+      "searches": [
+        "arxiv:1801.08910",
+        "doi:10.1016/j.laa.2007.10.009",
+        "doi:10.1137/0402039",
+        "doi:10.3390/appliedmath5020032",
+        "failed zero forcing polynomials of quartic circulant C_n(1,2)"
+      ]
+    },
+    "checked_sources": [
+      "2007 DOI 10.1016/j.laa.2007.10.009, full published article (first public 2007-11-26).",
+      "2018 arXiv:1801.08910 full open preprint.",
+      "1989 DOI 10.1137/0402039, abstract/metadata only.",
+      "Gomez et al. DOI 10.20429/tag.2024.110105, abstract only.",
+      "2025 DOI 10.3390/appliedmath5020032, open publisher HTML full text/targeted sections.",
+      "Bermond and Peyrat bibliography and 2009 independence-polynomial citation pointers.",
+      "Published literature and preprints on zero-forcing polynomials, circulant graphs, and local bounded-degree subset enumeration."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Even the exact minimum number Z(H_n)=4 and the maximum failed number F(H_n)=floor(2n/3) do not determine intermediate coefficients of the polynomial.",
+        "Gomez et al. studies exact largest failed-cardinality and could cover the upper-size corollary; that part is excluded as a standalone novelty contribution.",
+        "The local degree criterion and exact transfer determinant provide all cardinality coefficients."
+      ],
+      "reasoning": "Compared the mathematical strength of prior extrema and enumerators. The full polynomial strictly refines both minimum and maximum alone, unless an earlier complete 2-dependent-set enumerator exists; that residual risk is explicitly retained.",
+      "searches": [
+        "doi:10.1016/j.laa.2007.10.009",
+        "arxiv:1801.08910",
+        "doi:10.20429/tag.2024.110105",
+        "doi:10.3390/appliedmath5020032",
+        "failed zero forcing number of powers of cycle C_n^2 exact floor(2n/3) and number maximum failed sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For n>=7, the forcing characterization is exactly the induced maximum-degree-two subset condition, not merely a minimum size.",
+        "The complete evaluated formal rational function has denominator 1-u-zu^2-z^2u^3-z^3u^5+z^4u^7+z^5u^8, and provides every coefficient at every n>=7.",
+        "Bermond-Peyrat 1989 publisher abstract involves induced subgraphs of cycle powers with a lower bound given a minimum-degree condition, not a polynomial of maximum-degree-two induced subsets."
+      ],
+      "reasoning": "The same object can be described as the quartic circulant C_n(1,2), the square of a cycle, binary circular words avoiding central-one/three-neighbor windows, or 2-dependent vertex subsets. Searched these aliases; no checked source supplies the exact rational polynomial. The abstract-only paper on induced subgraphs remains a stated risk rather than a claimed noncovering inspection.",
+      "searches": [
+        "Zero forcing number and enumeration of all minimum zero forcing vertex sets for square of cycle C_n^2 / quartic circulant graph",
+        "Zero forcing polynomial of cycle square graphs, cyclic gap sequences, minimum zero forcing sets",
+        "Minimum zero forcing sets of square of cycles quartic circulant edge distance 1 2",
+        "maximum induced subgraph of maximum degree two in square of a cycle, 2-dependent number and classification",
+        "\"2-dependent\" \"square of cycle\" counting",
+        "\"failed zero forcing polynomials of quartic circulant C_n(1,2)\"",
+        "doi:10.1137/0402039"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned indexed research title/summary matched the cycle-square all-cardinality polynomial; among returned zero-forcing polynomial hits were unrelated dihedral and finite-field graphs.",
+        "The 2007 minimum-rank catalogue tabulates minimum-rank cases rather than full zero-forcing polynomials."
+      ],
+      "reasoning": "Checked titles, contents and claim implications, not only keyword matches. A finite table of minimum forcing values or isolated failed-set counts would not cover every coefficient for arbitrary n. Undiscovered table aliases remain possible.",
+      "searches": [
+        "Zero forcing polynomial of cycle square graphs, cyclic gap sequences, minimum zero forcing sets",
+        "failed zero forcing polynomials of quartic circulant C_n(1,2)",
+        "\"zero forcing polynomial\" \"square of a cycle\"",
+        "\"2-dependent\" \"square of cycle\" counting",
+        "\"Zero forcing polynomial of cycle square graphs, cyclic gap sequences, minimum zero forcing sets\""
+      ]
+    },
+    "rationale": "The general 2007 ordinary-forcing article treats minimum forcing cardinalities, Boyer et al. 2018 present cycle (not cycle-square) polynomials, and the 2025 skew circulant results concern a distinct rule. The present evaluated bivariate rational enumerator counts every ordinary failed subset of each cycle square using an exact induced-degree equivalence. The published findings compared concern different graphs or invariants and do not provide the complete polynomial. Bermond-Peyrat (induced subgraph degree bounds) and Gomez et al. (largest failed forcing sets) were only compared on abstracts and remain risk; no novelty claim rests solely on missing search hits. The lower and upper extrema alone are not claimed new.",
+    "residual_risks": [
+      "Bermond-Peyrat 1989 full text not obtainable in this session; its abstract provides a different min-degree question but an unstated subsidiary enumeration could exist.",
+      "Gomez et al. circulant failed-forcing full text not obtainable; the maximum-failed-size corollary may be known, and the more ambitious polynomial requires later independent literature confirmation.",
+      "Equivalent rational enumerator could be published under binary necklace, bounded-induced-degree or forbidden-word terminology not retrieved by indexed searches.",
+      "No independent mathematical audit is included."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces forcing mechanism and minimum-number bounds; its result catalogue treats other graph classes. No evaluated all-subset polynomial for cycle squares in the material examined.",
+        "evidence": [
+          "Cover: Available online 26 November 2007, primary MSC 05C50.",
+          "Section 2 defines a zero-forcing set and minimum size; table of contents and Section 3 catalogue cover minimum ranks, not cycle-square coefficient counts."
+        ],
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009; https://draganstevanovic.wordpress.com/wp-content/uploads/2012/09/published-version2.pdf",
+        "material_read": "Published 21-page PDF text, original cover/date/MSC; sections 1 and 2, definitions, section 3 results catalogue and section 4; searched square/circulant.",
+        "method": "Full-text PDF reading, targeted full-text search and visual inspection of page 1 (0-indexed page 0).",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Original ordinary zero-forcing definition and an archive-dated source with MSC 05C50."
+      },
+      {
+        "assessment": "Defines the full zero-forcing polynomial and computes ordinary cycle examples, but does not give the n-dependent denominator or every coefficient for the square of a cycle.",
+        "evidence": [
+          "Preprint first posted 26 January 2018; abstract describes closed forms for several families.",
+          "Its ordinary-cycle result concerns C_n, which differs from C_n squared for n>=7."
+        ],
+        "identifier_or_url": "arxiv:1801.08910; https://arxiv.org/abs/1801.08910",
+        "material_read": "Open-access 23-page preprint text and checked family-specific statements concerning paths/cycles/wheels and other graph families.",
+        "method": "Full-text OA preprint reading and targeted searches for squares and circulant graphs.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "The strongest published general polynomial framework and plausible exact dominance."
+      },
+      {
+        "assessment": "Published abstract states a lower bound for the order of an induced subgraph having specified minimum degree. No full-text inference of noncoverage is made; risk remains.",
+        "evidence": [
+          "Published SIAM J. Discrete Math. 2(4) (1989), 452-455.",
+          "Abstract theorem assumes minimum degree d+k and produces a size bound, unlike an all-subset maximum-degree-two enumeration."
+        ],
+        "identifier_or_url": "doi:10.1137/0402039; https://epubs.siam.org/doi/10.1137/0402039",
+        "material_read": "Publisher abstract and bibliographic record only; attempted OA/arXiv discovery without obtaining full text.",
+        "method": "Title, publisher abstract, bibliography and open-access search; no complete article obtained.",
+        "title": "Induced Subgraphs of the Power of a Cycle",
+        "trigger": "Same graph family, induced subgraph parameters; could dominate via an equivalent 2-dependent enumeration."
+      },
+      {
+        "assessment": "Explicitly studies F(G), the maximal failed-cardinality, including circulants. The present cardinality bound is not asserted to be independently novel. An exact complete polynomial potentially hidden in full text is an unresolved comparison risk.",
+        "evidence": [
+          "Abstract defines F(G) and announces exact F(G) for families of circulants.",
+          "The accessible summary does not state a full all-cardinality zero-forcing polynomial."
+        ],
+        "identifier_or_url": "doi:10.20429/tag.2024.110105; https://www.researchgate.net/publication/388054523_Failed_Zero_Forcing_Numbers_of_Trees_and_Circulant_Graphs",
+        "material_read": "Published abstract and bibliographic metadata; accessible full PDF not obtained (a public journal PDF endpoint denied access).",
+        "method": "Abstract and source record; attempted lawful OA PDF endpoint.",
+        "title": "Failed Zero Forcing Numbers of Trees and Circulant Graphs",
+        "trigger": "Ordinary failed forcing in the same class; may already imply largest failed-set corollary."
+      },
+      {
+        "assessment": "Skew forcing allows currently white vertices to force; it is not the ordinary all-subset polynomial and does not imply this criterion.",
+        "evidence": [
+          "Published 24 March 2025.",
+          "Introduction explicitly distinguishes ordinary forcing (only black vertex) from skew forcing (white may force)."
+        ],
+        "identifier_or_url": "doi:10.3390/appliedmath5020032; https://www.mdpi.com/2673-9909/5/2/32",
+        "material_read": "Open full-text HTML introduction, definitions, theorem descriptions including circulants, and publication metadata.",
+        "method": "Publisher OA HTML reading, targeted conceptual comparison ordinary versus skew color-change rules.",
+        "title": "Failed Skew Zero Forcing Numbers of Path Powers and Circulant Graphs",
+        "trigger": "Same cycle-square graph but distinct skew zero-forcing variant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0c4f9aa4-2ab6-4af6-b691-10d952dc4b0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the natural infinite graph family of quartic cycle-square circulants, and the invariant is the whole ordinary zero-forcing polynomial rather than an isolated exceptional size. The induced maximum-degree-two characterization replaces arbitrary iterative propagation with a local structural constraint, permitting an unusually compact evaluated degree-eight rational bivariate enumerator for all n>=7. It yields every intermediate cardinality count and both extremal regimes from one proof, information not determined by the classical minimum zero-forcing number or by a failed-number theorem. The explicit denominator and checkable recurrence constitute a useful closed exact classification, not merely a routine named parameter or a small computational increment. Main risks are prior equivalent forbidden-word enumerations, separately acknowledged.",
+    "status": "PASS"
+  }
+}
