@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "After the logarithmic substitution, the objective is strictly convex. KKT conditions force a threshold active set ordered by \\(G_j/a_j\\); solving the self-consistency equation gives \\(\\tau=B_k/A_k\\), the displayed optimizer, and the exact square minimum. The recurrence for \\(B_k/A_k\\) proves the threshold index exists and is unique. Upward rounding cannot increase the reciprocal-cost factor and multiplies the linear-delay factor by at most two. Deterministic replay checks in artifacts/verify.py corroborate the formulas without serving as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.03393v1 optimizes per-variable query degree for multivariate polynomial transformations and explicitly contrasts its circuit model with Low's concurrent analytic-transfer-function framework.",
+        "Quantum 10, 2102 (2026) gives a constructive decision algorithm for realizable multivariable-QSP polynomials, not delayed multi-oracle gate-cost allocation."
+      ],
+      "reasoning": "Broader multivariate-QSP results optimize different objects. Degree-optimal query counts or polynomial realizability do not dominate a delay-versus-known-gate objective with lower bounds on each delay.",
+      "searches": [
+        "downfolded Hamiltonian leading gate cost delay allocation exact optimizer",
+        "geometric program delay allocation lambda chi G r exact solution",
+        "arXiv:2610.03393v1 multivariate quantum signal processing optimal query complexity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01125v1",
+      "arXiv:2610.03393v1",
+      "doi:10.22331/q-2026-05-12-2102",
+      "published-finding corpus focused searches listed in the four originality checks",
+      "current and immediately prior own ledgers for source/claim/alias overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.01125v1 says the minimum in Eq. (7.51) is within a universal constant of Eq. (7.52), then constructs Eq. (7.53); it does not identify the active-set threshold or exact minimum.",
+        "arXiv:2610.03393v1 counts calls to commuting input unitaries by polynomial degree and does not introduce delays, a per-step gate term, or the same constrained objective."
+      ],
+      "reasoning": "The anchor supplies the objective but only approximate resource control; the concurrent and earlier M-QSP literature addresses different access models. None of the inspected statements implies the closed-form threshold allocation as a stated scientific result, although the proof uses standard convex/KKT tools.",
+      "searches": [
+        "Primary full-text comparison: arXiv:2610.01125v1 Section 7.1 and Theorem 7.8 resource discussion",
+        "Primary full-text comparison: arXiv:2610.03393v1 introduction and query model",
+        "Quantum 10, 2102 (2026) abstract and method scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac is a different stale-read iterative-method problem.",
+        "published-finding corpus closest rounding hit 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8 concerns sampling variance, not quantum-oracle scheduling.",
+        "Own current and prior ledgers contain no arXiv:2610.01125 identifier and no weighted-delay-allocation or exact-threshold claim."
+      ],
+      "reasoning": "Searches included source identifiers and water-filling, threshold, rounding, and cost-to-weight aliases. No returned statement is implication-equivalent to the exact solution of Eq. (7.51).",
+      "searches": [
+        "arXiv:2610.01125 exact gate-cost allocation Equation 7.51 water filling delays",
+        "Multivariate Quantum Signal Processing gate oracle workspace counts exact delay threshold",
+        "quantum oracle delay allocation cost-to-weight ratio water filling ceiling rounding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor's Eq. (7.51) is the exact optimization object; Eqs. (7.52)-(7.53) give only a universal-constant comparison/construction, and Eq. (7.54) is delegated to geometric programming.",
+        "No numerical database or finite table is the source of the claimed formula."
+      ],
+      "reasoning": "The decisive exact comparison is the source's own displayed optimization and surrounding proof, not a parameter table. The new claim solves that displayed leading relaxation in closed form without recomputing a known database entry.",
+      "searches": [
+        "published-finding corpus exact source query: arXiv:2610.01125 exact gate-cost allocation Equation 7.51 water filling delays",
+        "Primary full text arXiv:2610.01125v1 Eqs. (7.51)-(7.54)"
+      ]
+    },
+    "rationale": "The exact anchor states the same leading optimization problem but only bounds it within a universal constant and supplies an approximate schedule; the inspected concurrent M-QSP papers optimize different query models. Focused published-finding corpus searches and the current/prior own ledgers found no implication-equivalent published claim.",
+    "residual_risks": [
+      "A generic optimization paper may contain an equivalent special-case water-filling formula without MQSP terminology; none was identified in the focused scientific searches.",
+      "Very recent or unindexed work may independently solve Eq. (7.51).",
+      "The anchor's full precision-aware Eq. (7.54) is broader and is not claimed solved here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Eq. (7.51) is the claimed optimization object. The source states only a universal-constant comparison in Eq. (7.52), an approximate constructive schedule in Eq. (7.53), and a geometric-program treatment for the fuller Eq. (7.54).",
+        "identifier_or_url": "arXiv:2610.01125v1",
+        "material_read": "Abstract; Section 1.1.3; Lemma 3.12 and Corollary 3.14; pages containing Eqs. (7.51)-(7.55), including page-image inspection.",
+        "method": "Primary arXiv full text plus rendered PDF-page inspection.",
+        "title": "Multivariate Quantum Signal Processing",
+        "trigger": "Exact same-object source containing the gate-cost objective and delay schedule."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It proves one-query-per-degree optimality for multivariate polynomial transformations and commuting unitaries; it does not use the delay/known-gate tradeoff of Eq. (7.51).",
+        "identifier_or_url": "arXiv:2610.03393v1",
+        "material_read": "Abstract, introduction, access/query model, and note comparing the concurrent Low framework.",
+        "method": "Primary arXiv full text.",
+        "title": "Multivariate quantum signal processing with optimal query complexity",
+        "trigger": "Concurrent paper with a plausibly dominating title about optimal query complexity."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper decides polynomial realizability and constructs phase parameters; it does not optimize heterogeneous oracle delays or leading gate cost.",
+        "identifier_or_url": "doi:10.22331/q-2026-05-12-2102",
+        "material_read": "Published abstract, method scope, and reference context.",
+        "method": "Publisher full-text landing page.",
+        "title": "Polynomial time constructive decision algorithm for multivariable quantum signal processing",
+        "trigger": "Recent broad constructive M-QSP result cited by the concurrent literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f57a0dbb-91c7-484c-b2f0-faa1e54d5616",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source leaves the leading gate-cost allocation at a universal-constant schedule. The result turns that resource tradeoff into an exact, sortable threshold law, identifies which component oracles should be delayed, gives the exact optimum, and supplies a simple factor-two integerization guarantee. This directly sharpens a resource-design step in the new MQSP downfolding framework rather than selecting an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
