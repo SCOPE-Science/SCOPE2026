@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Write an even prefix-normal palindrome as x x^R and insert a central zero. For factors of length at most |x|, factors avoiding the new zero are inherited, while a crossing factor loses only a zero and becomes a length-(k-1) factor of the original word that can be extended to length k. For longer factors, every factor crosses the center; deleting the zero gives a factor one shorter, and the new prefix similarly reduces to the old prefix one shorter. Prefix normality transfers in both regimes. Deleting the center proves injectivity, and the all-one odd palindrome proves strictness. Exhaustive replay through length 23 agrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019/2020 paper states that npal(n) is unsolved and gives Table 2 plus recursive relations.",
+        "The 2021 dissertation again says exact npal(n) is unavailable and studies different length-changing constructions."
+      ],
+      "reasoning": "The strongest direct literature covers the same objects and recursive question but does not dominate the one-step center-zero map from every even prefix-normal palindrome.",
+      "searches": [
+        "On Collapsing Prefix Normal Words full text prefix normal palindromes",
+        "On Special k-Spectra dissertation prefix normal palindrome recursive construction",
+        "prefix normal palindrome relations 1w1 w0w"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.11847v1 full text",
+      "DOI:10.1007/978-3-030-40608-0_29 bibliographic record",
+      "2021 dissertation indexed Section 5.2 text",
+      "OEIS A308465",
+      "targeted web searches for the center-zero and parity-inequality formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published relation w -> 1w1 changes length by two and does not imply a one-step map from length 2m to 2m+1.",
+        "The dissertation conditions for w0w assume the repeated half w is itself a prefix-normal palindrome, unlike x0x^R with arbitrary half x from an even palindrome.",
+        "No exact npal(2m+1) versus npal(2m) theorem was located."
+      ],
+      "reasoning": "The new map applies to every even prefix-normal palindrome and uses its reversal halves. It is neither a special case nor an immediate consequence of the recursive constructions inspected.",
+      "searches": [
+        "arXiv:1905.11847 Lemma 31 Theorem 33 Lemma 34 Lemma 35 prefix normal palindrome",
+        "2021 dissertation npal arbitrary n 1w1 w0w",
+        "npal(2n+1) npal(2n)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact inequality and center-insertion terminology returned no covering mathematical result.",
+        "The direct source describes only an observed/conjectured even-versus-odd behavior and an open counting problem."
+      ],
+      "reasoning": "The searches cover the claim as an inequality, an injection, the explicit construction, parity behavior, and the standard database identifier.",
+      "searches": [
+        "prefix normal palindromes odd length even length injection middle zero",
+        "npal 2n+1 greater than npal 2n prefix normal palindrome",
+        "center zero insertion prefix normal palindrome",
+        "prefix normal palindrome parity inequality",
+        "A308465 odd even inequality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A308465 lists the counts but supplies no formula or injection supporting the strict inequality.",
+        "The source table through length 30 is empirical data, not a proof for all lengths."
+      ],
+      "reasoning": "A table can confirm finite instances but cannot imply the quantified injection. The proof is structural rather than a recomputation of those entries.",
+      "searches": [
+        "OEIS A308465 prefix normal palindromes",
+        "224 prefix normal palindrome counts parity",
+        "prefix normal palindrome table odd even"
+      ]
+    },
+    "rationale": "The direct paper defines npal(n), says its general enumeration is unsolved, tabulates values showing an even/odd phenomenon, and proves several recursive relations, but it does not state the center-zero injection or the inequality npal(2m+1)>npal(2m). The 2021 dissertation revisits the recursion, including 1w1 and conditional w0w constructions, without covering the half-word center insertion. Exact-formula and construction searches found no statement implying the claim.",
+    "residual_risks": [
+      "An unindexed note or unpublished observation may contain the same injection.",
+      "The dissertation PDF itself was not directly retrievable during this check; the relevant indexed section was readable and is treated as partial inspection.",
+      "The theorem does not settle the exact pnPal enumeration problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and not covering the final claim. It records the parity phenomenon and open enumeration problem but not the center-zero injection.",
+        "evidence": "The paper states that determining the number of pnPals is unsolved, says Table 2 supports different even/odd behavior, and later says exact npal(n) is unavailable for arbitrary n.",
+        "identifier_or_url": "arXiv:1905.11847v1 / DOI:10.1007/978-3-030-40608-0_29",
+        "material_read": "Full open preprint: definitions; prefix-normal-palindrome section; singleton-class characterization; Table 2; recursive construction section including Lemmas 31 and 34–36; conclusion.",
+        "method": "Full-text arXiv PDF inspection, including rendered-page inspection of the pnPal table and recursive section.",
+        "title": "On Collapsing Prefix Normal Words",
+        "trigger": "Direct source introducing the same prefix-normal-palindrome counting problem."
+      },
+      {
+        "assessment": "The accessible section repeats the open enumeration status and analyzes different constructions; no center-zero half-word injection is stated.",
+        "evidence": "The indexed section says exact npal(n) is needed but unavailable and treats 1w1, ww, w1w, and conditional w0w constructions.",
+        "identifier_or_url": "Kiel University dissertation, 2021",
+        "material_read": "Indexed full-text extract of Section 5.2 around the statement that exact npal(n) is unknown and Lemmas 5.2.21–5.2.22 on recursive constructions.",
+        "method": "Search-indexed dissertation text; direct PDF endpoint returned an access error during inspection.",
+        "title": "On Special k-Spectra, k-Locality, and Collapsing Prefix Normal Words",
+        "trigger": "Later source by a lead author extending the same pnPal recursion."
+      },
+      {
+        "assessment": "Provides finite values and references but no general inequality or injection.",
+        "evidence": "The sequence lists npal(n) through n=48 and cites the paper and dissertation.",
+        "identifier_or_url": "OEIS:A308465",
+        "material_read": "Current sequence values, definition, and cited references.",
+        "method": "Direct database page inspection.",
+        "title": "OEIS A308465",
+        "trigger": "Exact database for the sequence npal(n)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "efbe030a-cda8-4879-9967-8529d1727b2c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies npal(n) as an open subproblem tied to the prefix-normal equivalence index and highlights different even/odd behavior in the computed data. The center-zero map gives a uniform structural relation across every even length, proving one strict side of that parity phenomenon rather than merely extending a table. It is a reusable injection for future recursive bounds even though it does not solve the full enumeration.",
+    "status": "PASS"
+  }
+}
