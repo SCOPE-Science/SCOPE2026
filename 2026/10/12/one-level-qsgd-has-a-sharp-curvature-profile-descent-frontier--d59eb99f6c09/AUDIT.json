@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "At \\(s=1\\), source-form QSGD makes coordinate \\(i\\) equal to \\(\\|g\\|_2\\operatorname{sign}(g_i)B_i\\) with Bernoulli mean \\(|g_i|/\\|g\\|_2\\), so \\(\\mathbb E[Q_i^2]=\\|g\\|_2|g_i|\\). Substitution into the exact diagonal-quadratic expansion gives the stated conditional expectation. Cauchy--Schwarz gives the universal frontier \\(2/\\|(a_i)\\|_2\\) and the equal-coordinate-magnitude equality direction. The isotropic factor then follows from the sharp inequality \\(\\|x\\|_1/\\|x\\|_2\\le\\sqrt d\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General compressed-gradient convergence theory uses a scalar compressor variance parameter together with a scalar smoothness constant.",
+        "That theory is compatible with the isotropic square-root-dimension dependence but does not retain the full diagonal curvature vector.",
+        "Det-CGD retains matrix smoothness but assumes unbiased random sketches with a fixed sketch law, whereas QSGD's coordinate probabilities change with the current normalized gradient."
+      ],
+      "reasoning": "The scalar framework loses the information required to produce \\(\\|(a_i)\\|_2\\). The matrix-sketch framework uses a different compression model, so its stepsize matrix inequality is not a direct theorem for the nonlinear QSGD law.",
+      "searches": [
+        "compressed gradient diagonal quadratic exact curvature l2 threshold",
+        "Acceleration for Compressed Gradient Descent QSGD compression parameter",
+        "Det-CGD matrix smoothness QSGD state dependent compressor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1610.02132v1",
+      "arXiv:2002.11364v1",
+      "arXiv:2305.12568v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "QSGD Lemma 3.1 gives \\(\\mathbb E[Q_s(v)]=v\\) and a dimension/precision variance bound, while its construction gives the coordinate stochastic rounding law.",
+        "The 2020 compressed-gradient paper explicitly includes QSGD in its compressor framework and gives rates parameterized by scalar smoothness and compression variance.",
+        "The 2023 matrix-stepsize paper gives a matrix-smooth stepsize condition for random linear sketches and discusses QSGD only among broader unbiased-compression literature."
+      ],
+      "reasoning": "The QSGD source supplies the exact stochastic law but stops at a norm variance bound. The scalar compressed-gradient theorem can imply a dimension-only safe scale but cannot imply the sharper anisotropic curvature norm. The matrix-sketch theorem is inapplicable without an additional argument because QSGD is nonlinear and its random diagonal law depends on the current gradient.",
+      "searches": [
+        "arXiv:1610.02132 Lemma 3.1 QSGD unbiased variance bound",
+        "arXiv:2002.11364 compressed gradient descent QSGD omega convergence",
+        "arXiv:2305.12568 matrix smoothness compressed gradient fixed sketch"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining QSGD paper states unbiasedness and a variance upper bound for the generalized stochastic quantizer.",
+        "No inspected QSGD statement gives an exact one-step expected objective formula on a diagonal quadratic or the threshold involving the Euclidean norm of the curvature vector.",
+        "The closest indexed records concern other stochastic or compressed recurrences and do not use the QSGD state-dependent quantizer."
+      ],
+      "reasoning": "An implication-equivalent result would need to determine the exact conditional objective change for the source quantizer and optimize it over gradient directions. Dimension-only variance bounds do not determine the anisotropic curvature profile or its equality direction.",
+      "searches": [
+        "QSGD diagonal quadratic curvature profile exact descent threshold",
+        "one-level QSGD sqrt dimension stability isotropic quadratic",
+        "QSGD mean-square stability constant stepsize quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record: 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6.",
+        "Closest indexed record: 2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815.",
+        "Closest indexed record: 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789.",
+        "Closest indexed record: 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0.",
+        "No indexed hit stated a QSGD diagonal-curvature frontier or the exact one-level objective identity."
+      ],
+      "reasoning": "The closest records analyze different stochastic feedback, deterministic polynomial, or uncompressed recurrences. Search absence is supporting evidence only and is not treated as a uniqueness proof.",
+      "searches": [
+        "PowerSGD low rank gradient compression exact rank one matrix dynamics convergence blind spot",
+        "ALI-G adaptive learning rate lower bound scalar quadratic exact dynamics stability",
+        "FedProx two client scalar quadratic exact fixed point bias proximal parameter",
+        "QSGD stochastic quantization exact mean square stability scalar quadratic distributed optimization",
+        "local SGD periodic averaging scalar quadratic exact stability communication interval",
+        "QSGD diagonal quadratic curvature profile exact descent threshold",
+        "one-level QSGD sqrt dimension stability isotropic quadratic",
+        "compressed gradient diagonal quadratic exact curvature l2 threshold",
+        "QSGD mean-square stability constant stepsize quadratic"
+      ]
+    },
+    "rationale": "The defining QSGD source proves unbiasedness and a dimension-only variance bound but does not state the exact diagonal-quadratic expected-objective identity or curvature-profile frontier. General scalar compressed-gradient theory can recover the square-root-dimension scale in the isotropic case, so that scaling is treated as prior-compatible rather than novel. The surviving originality is the exact replacement by the curvature profile \\(\\|(a_i)\\|_2\\), its attaining direction, and the associated sharp boundary. Matrix-smooth fixed-sketch theory does not directly cover QSGD because its quantization probabilities depend on the current gradient direction.",
+    "residual_risks": [
+      "An unindexed compressed-optimization note may have specialized QSGD to diagonal quadratics and obtained the same curvature norm.",
+      "Generic scalar compressor theory already explains the isotropic square-root-dimension scale; originality does not rely on that scaling alone.",
+      "The result is coordinate-basis dependent because QSGD is coordinate dependent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_QUANTIZER_NOT_COVERING_EXACT_DIAGONAL_QUADRATIC_FRONTIER.",
+        "evidence": "The source gives unbiasedness and a dimension-dependent variance bound. It does not state the diagonal-Hessian expected-objective identity, the curvature-vector norm threshold, or its equality direction.",
+        "identifier_or_url": "arXiv:1610.02132v1",
+        "material_read": "Open full text covering Section 3.1, the coordinate quantizer definition, Lemma 3.1, the proof of its variance bound, and the convergence discussion.",
+        "method": "Open-access full-text inspection with targeted searches of the quantizer and moment statements.",
+        "title": "QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding",
+        "trigger": "Defining source for the generalized QSGD stochastic quantizer and its moment guarantees."
+      },
+      {
+        "assessment": "GENERAL_SCALAR_VARIANCE_THEORY_COMPATIBLE_WITH_ISOTROPIC_SCALE_NOT_COVERING_CURVATURE_PROFILE.",
+        "evidence": "Its guarantees depend on scalar smoothness and a scalar compression parameter. They do not retain the coordinate curvature vector needed for the accepted threshold.",
+        "identifier_or_url": "arXiv:2002.11364v1",
+        "material_read": "Open full text covering the compressor framework, QSGD comparison, non-accelerated compressed-gradient descent proof, and the convex and strongly convex rate statements.",
+        "method": "Open-access full-text inspection and targeted theorem searches.",
+        "title": "Acceleration for Compressed Gradient Descent in Distributed and Federated Optimization",
+        "trigger": "Closest general single-machine compressed-gradient theory explicitly including QSGD."
+      },
+      {
+        "assessment": "MATRIX_SMOOTH_FIXED_SKETCH_FRAMEWORK_NOT_DIRECTLY_COVERING_STATE_DEPENDENT_QSGD.",
+        "evidence": "The framework assumes random linear sketches with an iteration-independent sketch law. One-level QSGD instead chooses coordinate probabilities from the current normalized gradient.",
+        "identifier_or_url": "arXiv:2305.12568v1",
+        "material_read": "Open full text covering the matrix-smoothness assumption, det-CGD updates, random-sketch assumptions, stepsize matrix inequalities, main theorem, and QSGD-related-work discussion.",
+        "method": "Open-access full-text inspection.",
+        "title": "Det-CGD: Compressed Gradient Descent with Matrix Stepsizes for Non-Convex Optimization",
+        "trigger": "Closest broader work retaining matrix smoothness information in compressed gradient descent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d59eb99f-6c09-44b0-b36a-8c3762288d87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Aggressive quantization is useful only if its communication savings are not erased by an unnecessarily conservative learning rate. The exact frontier shows that the relevant stability scale on diagonal quadratics is the Euclidean norm of the curvature profile, not the worst curvature times a generic dimension penalty. This can improve the safe step by a factor approaching \\(\\sqrt d\\) on highly anisotropic problems, while the isotropic specialization identifies the dense-gradient direction that exactly realizes the quantization penalty. The result therefore supplies a natural sharp benchmark for smoothness-aware quantizer and stepsize design.",
+    "status": "PASS"
+  }
+}
