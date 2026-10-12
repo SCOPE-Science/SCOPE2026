@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The prime-power formula makes every non-squarefree n impossible. For squarefree n with two primes, parity and the bound on (P(n)+1)/n force one exact quotient and an impossible factor equation. For three primes, the even case forces quotient 5 and the odd case quotient 6. The resulting equations are exhausted, including the small boundary pairs before the monotone inequalities apply. No finite experiment is used to justify the universal conclusion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broughan's full paper establishes multiplicativity and the prime-power formula and contains no located plus-one divisibility theorem.",
+        "Tóth's survey explicitly treats n|P(n), including low-prime-factor squarefree cases, but not the shifted condition n|P(n)+1.",
+        "The 2025 OEIS counterexample has five distinct prime factors and therefore does not cover the proved lower-complexity exclusion."
+      ],
+      "reasoning": "A broader theorem would need to classify the shifted congruence or force a stronger prime-factor lower bound. The inspected closest source instead classifies the unshifted congruence, whose local equations differ.",
+      "searches": [
+        "gcd-sum function composite n divides P(n)+1 prime characterization semiprime",
+        "Pillai gcd-sum n divides P(n)+1 semiprime Omega at most 2",
+        "Pillai function squarefree counterexample prime",
+        "gcd-sum function P(n)+1"
+      ]
+    },
+    "checked_sources": [
+      "JIS:4:01.2.2",
+      "JIS:13:10.8.1",
+      "OEIS:A018804",
+      "OEIS-linked archived Mathematical Reflections target",
+      "targeted exact-phrase and semantic literature searches",
+      "semantic research-result searches for the exact shifted equation and prime-factor aliases",
+      "current and prior owned ledgers for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth's survey says that for the unshifted condition n|P(n), the only squarefree solutions with at most three distinct prime factors are 1 and 15.",
+        "The present condition has an added 1, so the congruences modulo every prime divisor change and the unshifted classification does not imply the new theorem.",
+        "No current or prior owned finding located in the overlap search states this shifted four-prime barrier."
+      ],
+      "reasoning": "The closest implication risk is the low-prime-factor result for n|P(n). It is not stronger coverage because 15 itself illustrates that the unshifted and shifted solution sets differ, and the proof here requires new quotient equations for P(n)+1.",
+      "searches": [
+        "Toth gcd-sum n divides P(n) squarefree at most three distinct primes",
+        "Pillai gcd-sum P(n)+1 versus n divides P(n)",
+        "gcd-sum congruence semiprime three primes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A018804 states the exact condition as n>1 divides a(n)+1 and records the former prime-only conjecture.",
+        "The squarefree formulation is equivalent for composites only after using the prime-power formula; it is not a renaming of a database statement.",
+        "Targeted searches returned no theorem excluding all two- and three-prime composite solutions."
+      ],
+      "reasoning": "Searches used the exact equation, the OEIS identifier, the squarefree consequence, and both omega and prime-factor-count formulations. The closest semantic hits concern different divisor-function equations.",
+      "searches": [
+        "Pillai gcd-sum every composite n dividing P(n)+1 squarefree at least four distinct prime factors",
+        "A018804 composite solution n divides a(n)+1 squarefree omega at least 4",
+        "Pillai arithmetical function n | P(n)+1 three prime factors",
+        "P(n)+1 squarefree gcd-sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A018804 records the conjecture dated 22 October 2014.",
+        "A018804 records the composite n=3*37*43*42307*116341 with a(n)+1=26*n, dated 19 June 2025.",
+        "The entry gives the prime-power formula but does not state the four-prime barrier."
+      ],
+      "reasoning": "The exact database settles that the unrestricted conjecture is false and supplies a five-prime witness. It neither proves nor tabulates the universal exclusion of all non-squarefree and two-/three-prime composite shapes.",
+      "searches": [
+        "OEIS A018804 divides a(n)+1",
+        "A018804 P(n)+1 prime conjecture",
+        "A018804 composite counterexample"
+      ]
+    },
+    "rationale": "The exact plus-one conjecture is recorded in OEIS A018804, while the primary and survey literature inspected give the standard formulae and the different unshifted problem n|P(n). No located source states or implies that every composite plus-one solution is squarefree with at least four distinct prime factors.",
+    "residual_risks": [
+      "An equivalent elementary proof may exist in an unindexed problem source or note.",
+      "The OEIS-linked Mathematical Reflections target was ambiguous and is not used to assert noncoverage.",
+      "The theorem leaves the four-or-more-prime squarefree layers open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING. It supplies the critical identities but no plus-one low-prime-factor classification.",
+        "evidence": "The paper gives P(p^a)=p^(a-1)((a+1)p-a) and multiplicativity; its stated scope is gcd-sum structure and analytic estimates.",
+        "identifier_or_url": "JIS:4:01.2.2",
+        "material_read": "Definition, MSC line, Theorem 2.2 prime-power formula, Corollary 2.4 multiplicativity, and surrounding structural discussion; exact-text searches for divisibility/congruence terminology were also checked.",
+        "method": "Direct inspection of the lawful open-access full text and rendered PDF pages.",
+        "title": "The gcd-sum Function",
+        "trigger": "Primary full text for the same gcd-sum function and its prime-power structure."
+      },
+      {
+        "assessment": "CLOSEST_DIFFERENT_EQUATION. It treats n|P(n), not n|P(n)+1, so it does not imply the present theorem.",
+        "evidence": "The survey's Problem 1 asks for n|P(n) and states that its squarefree solutions with at most three distinct prime factors are 1 and 15.",
+        "identifier_or_url": "JIS:13:10.8.1",
+        "material_read": "The prime-power formula and the open-problems section, including the squarefree at-most-three-prime statement for n|P(n); rendered pages containing both were inspected.",
+        "method": "Direct inspection of the open-access full PDF and page images.",
+        "title": "A Survey of Gcd-Sum Functions",
+        "trigger": "Broad same-function survey and the closest low-prime-factor divisibility problem."
+      },
+      {
+        "assessment": "EXACT_PROBLEM_SOURCE_NOT_COVERING. It records the unrestricted conjecture and its failure but no low-complexity barrier.",
+        "evidence": "The entry states the 2014 iff-prime conjecture and the 2025 five-prime counterexample with quotient 26.",
+        "identifier_or_url": "OEIS:A018804",
+        "material_read": "Definition, dated conjecture, dated counterexample, prime-power formula, and linked literature list.",
+        "method": "Direct inspection of the exact OEIS entry.",
+        "title": "A018804",
+        "trigger": "Exact database entry containing the shifted conjecture and current counterexample."
+      },
+      {
+        "assessment": "ACCESS_AMBIGUOUS. The archived target did not expose a matching gcd-sum problem, so no whole-document noncoverage claim is made from this link.",
+        "evidence": "The accessible target's visible numbered problem near the matching index is an unrelated inequality.",
+        "identifier_or_url": "OEIS A018804 link labelled Solution to Problem O364",
+        "material_read": "The accessible archived PDF target was searched for the labelled problem and gcd-sum terminology; its available matching pages were inspected.",
+        "method": "Direct inspection of the archived PDF target and rendered page image.",
+        "title": "Mathematical Reflections solution link attached to A018804",
+        "trigger": "Plausible elementary-problem source linked from the exact database entry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "198e115c-c1d3-49d2-a906-ce617dc6a06b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original iff-prime conjecture is now false, making the structural location of the first possible composite failures mathematically natural. The theorem proves that every composite failure is squarefree and needs at least four distinct prime factors, completely resolving the full Omega<=3 layer. This is an infinite structural restriction on the exact historical congruence rather than a bounded search.",
+    "status": "PASS"
+  }
+}
