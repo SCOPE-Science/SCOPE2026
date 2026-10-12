@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+Under a fixed positive \(C^2\) rate profile with finitely many nondegenerate interior global minima, the centered exceedance intensity admits a multiwell Laplace expansion. Its exact normalization gives the \(-\frac12\log\log n\) centering correction. A product-to-exponential bound establishes Gumbel convergence. The exact joint winner-height density, compact-window Gaussian rescaling, and no-escaped-mass argument establish the joint mixture and independence. The finite example in `verify.py` probes the central constants but is not the infinite proof.
+
+## Originality — PASS, with residual risk
+The closest inspected primary source, Davydov–Rotar (arXiv:2305.05967, first posted 10 May 2023), assumes asymptotically proportional marginal tails. Distinct exponential rates do not satisfy that hypothesis, so its result does not imply the shrinking localization scale, curvature weights and independent Gumbel height. Malmberg's 2013 thesis discusses spatial argmax distributions for common-rate exponential noise with additive trends; this also fails to imply the varying-rate theorem. The nine-page 2025 follow-up (arXiv:2503.02473) was inspected: its Theorem 2 uses fixed-scale spatial marks and a common normalized tail-measure limit uniformly across indices (H2). Unequal exponential rates generally violate that uniform tail-shape requirement, and the claimed Gaussian marks require a shrinking spatial rescaling; neither its stated theorem nor its corollaries determine the curvature constants or the logarithmic centering. Generic nonstationary extremes and marked-point-process theorems remain relevant proof technology, but no inspected statement supplies the explicit multiwell rate-curvature comparison. The full earlier Hüsler paper and other historical probability references remain a priority risk.
+
+## Value — PASS
+The explicit asymptotic selection frequencies for competing equally favorable hazard valleys and the independent Gaussian/Gumbel limiting laws answer a natural heterogeneous-winner problem. The log-log shift and inverse-square-root-curvature selection rule identify nontrivial spatial structure not obtained from the unscaled index limit alone. The theorem is restricted to fixed independent exponential arrays and nondegenerate interior minima; no universal rate or dependent case is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
