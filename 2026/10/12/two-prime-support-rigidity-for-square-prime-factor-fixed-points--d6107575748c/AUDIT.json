@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For prime powers, \\(p^m=mp^2\\) reduces to \\(m=p^{m-2}\\), giving only \\(3^3\\) and \\(2^4\\). For two odd primes, parity forces one exponent even and one odd. The exponent-one odd branch has a square discriminant whose factorization forces \\(p^{2A-1}\\le4A\\), leaving only a direct impossible case. When the odd exponent is at least three, reduction modulo each prime square forces \\(q^2\\mid A\\) and \\(p^2\\mid2B+1\\), after which the divided equation has an exponentially large left side and linear right side. In the \\(2^kp^{2B}\\) branch, \\(p^2\\mid k\\) and the same growth contradiction applies. All quantifiers and boundary cases are covered. The packaged verifier independently checks a broad finite grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hurd--McCranie Lemma 14 rules out even total exponent and one small pattern; Lemma 15 gives divisibility conditions for odd two-prime candidates but stops short of contradiction.",
+        "OEIS A338093 reports five known equality cases, including three huge later examples, without a support-at-most-two classification.",
+        "De Koninck--Luca use distinct prime factors without multiplicity and therefore study a different equation."
+      ],
+      "reasoning": "Neither the focal necessary conditions nor later existence data imply the complete low-support theorem. The present proof closes the remaining two-prime branches by combining the divisibility conditions with exact growth contradictions.",
+      "searches": [
+        "JIS:19.3.4 Section 4 Lemmas 14--18",
+        "OEIS:A338093",
+        "OEIS:A339062",
+        "De Koninck--Luca 2007 distinct-prime power sums"
+      ]
+    },
+    "checked_sources": [
+      "JIS:19.3.4",
+      "OEIS:A067666",
+      "OEIS:A068916",
+      "OEIS:A338093",
+      "OEIS:A339062",
+      "JIS:07.1.6",
+      "published-finding corpus semantic index"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 completely settles prime-power fixed points and therefore covers the \\(\\omega=1\\) part.",
+        "Lemma 14 gives parity and excludes the exponent pair \\((2,1)\\).",
+        "Lemma 15 supplies the prime-square divisibility necessary conditions for \\(p^{2A}q^{2B+1}\\) but does not derive impossibility.",
+        "The conclusion explicitly says many forms were eliminated but the two-element conjecture was not proved."
+      ],
+      "reasoning": "The new content is exactly the unresolved \\(\\omega=2\\) layer. It is not a special case of a stronger published theorem: the focal source leaves those divisibility-compatible exponent patterns open, while later counterexamples concern higher support.",
+      "searches": [
+        "JIS:19.3.4 Theorem 3",
+        "JIS:19.3.4 Lemma 14",
+        "JIS:19.3.4 Lemma 15",
+        "JIS:19.3.4 conclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit concerned this multiplicity-weighted fixed-point equation with a complete two-prime-support classification.",
+        "Exact web searches surfaced the focal paper, OEIS A067666/A338093, and discussion of later large examples, but no theorem equivalent to the claim."
+      ],
+      "reasoning": "The claim was searched both in the source notation \\(T_2\\) and in the OEIS description “sum of squares of prime factors counted with multiplicity,” together with support-size aliases.",
+      "searches": [
+        "published-finding corpus: A067666 fixed points omega at most 2 16 27",
+        "published-finding corpus: sum of squares of prime factors counted with multiplicity fixed point two distinct prime factors",
+        "web: \"T_2(n)\" \"two prime factors\" 16 27",
+        "web: \"A067666\" \"two distinct prime factors\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A067666 defines exactly the arithmetic function and notes 16 and 27 as fixed points.",
+        "A338093 states that five equality cases are currently known and links the large discoveries.",
+        "A339062 documents prime Markoff--Hurwitz tuples underlying large fixed points.",
+        "A068916 records the smallest fixed point as the exponent varies. None states that support size at most two forces 16 or 27."
+      ],
+      "reasoning": "The exact database object is A067666, with A338093 giving the later equality cases. Their current comments provide examples and status, not the claimed support classification.",
+      "searches": [
+        "OEIS:A067666",
+        "OEIS:A338093",
+        "OEIS:A339062",
+        "OEIS:A068916"
+      ]
+    },
+    "rationale": "The 2019 focal paper gives the prime-power criterion and necessary conditions for several two-prime exponent patterns but does not conclude a complete two-prime-support classification. Later OEIS records disprove its global two-element conjecture by exhibiting very large additional fixed points, but the checked database entries do not state the \\(\\omega(n)\\le2\\) classification. published-finding corpus and exact web searches found no implication-equivalent theorem.",
+    "residual_risks": [
+      "An unindexed note or informal derivation may have completed the same two-prime-support argument.",
+      "The odd two-prime divisibility step begins from a lemma already present in the 2019 paper, so the novelty is the completion to a contradiction rather than a wholly new setup.",
+      "The theorem says nothing about support size at least three, where large fixed points are known."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper settles prime powers and provides necessary conditions for two-prime patterns but does not state or prove that all two-prime-support fixed points are impossible.",
+        "evidence": "Section 4 says the goal is to prove cardinality two, Lemma 15 stops at divisibility conditions, and the conclusion says many forms were eliminated without proving the conjecture.",
+        "identifier_or_url": "JIS:19.3.4",
+        "material_read": "Full open-access paper sections containing the definition, Theorem 3, Section 4 Lemmas 14--18, conclusion, MSC classification, and publication metadata; relevant PDF pages were visually inspected.",
+        "method": "Open-access PDF/full-text inspection.",
+        "title": "Integers That Are Sums of Uniform Powers of All Their Prime Factors: The Sequence A068916",
+        "trigger": "Primary source defining \\(T_s\\), analyzing \\(T^*(2)\\), and leaving the global fixed-point problem open."
+      },
+      {
+        "assessment": "It defines the same function and notes 16 and 27 as fixed points, but contains no low-support classification.",
+        "evidence": "The formula is \\(a(p^k)=kp^2\\); the current comment mentions 16 and 27 and points to later material.",
+        "identifier_or_url": "OEIS:A067666",
+        "material_read": "Current name, formula, fixed-point comment, links, and provenance.",
+        "method": "Database-page inspection.",
+        "title": "A067666",
+        "trigger": "Exact database entry for the function \\(T_2\\)."
+      },
+      {
+        "assessment": "It reports five known equality cases, including three huge later examples, but no theorem about \\(\\omega(n)\\le2\\).",
+        "evidence": "The entry states there are five known numbers with multiplier one: 16, 27, and three examples with more than one hundred digits.",
+        "identifier_or_url": "OEIS:A338093",
+        "material_read": "Current comments and equality-case status.",
+        "method": "Database-page inspection.",
+        "title": "A338093",
+        "trigger": "Current database status of equality cases and later counterexamples to the 2019 conjecture."
+      },
+      {
+        "assessment": "Not covering: multiplicity is ignored, so the defining equation differs on prime powers and repeated prime factors.",
+        "evidence": "The paper defines sums over distinct prime divisors rather than weighting each prime square by its exponent.",
+        "identifier_or_url": "JIS:07.1.6",
+        "material_read": "Full-paper introduction and definitions distinguishing sums over distinct prime factors/subsets.",
+        "method": "Open-access PDF inspection.",
+        "title": "Partial Sums of Powers of Prime Factors",
+        "trigger": "Closest older literature explicitly cited by Hurd--McCranie."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6107575-748c-415c-b2b5-c05a1183466e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source devoted an entire section to eliminating forms for \\(T^*(2)\\), and later discoveries show the global fixed-point problem is nontrivial. The support-at-most-two classification is a natural structural boundary: it proves every nontrivial fixed point must enter the genuinely multi-prime regime. This is an infinite, exact classification rather than a bounded search or an arbitrary slice, and it sharpens the source’s necessary conditions into a complete theorem.",
+    "status": "PASS"
+  }
+}
