@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The covariance lower bound and its equality conditions are reconstructed explicitly. Equality yields \\(\\mathbb E[\\widetilde X\\mid T]=aT\\); boundedness makes the noise characteristic function entire. The differential identity \\((1-a)\\phi_X\\prime\\phi_Y=a\\phi_X\\phi_Y\\prime\\) and a simple Bernoulli characteristic-function zero force integer multiplicity \\((1-a)/a=v/\\sigma^2\\), after which the quotient argument identifies the noise as the corresponding convolution power. Integer attainment is exact by exchangeability. Huang existence converts pointwise nonattainment into strict infimum inequality. The checker uses exact arithmetic only as supplemental consistency evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ernst--Kagan--Rogers proves optimality of an m-fold i.i.d. noise when the variance budget is the corresponding integer multiple and proves an all-budget semigroup result for infinitely divisible signals.",
+        "Huang proves existence of the least favorable noise for every nondegenerate square-integrable signal and saturation of the variance budget.",
+        "Dembo--Kagan--Shepp concerns maximal correlation of i.i.d. partial sums and supports the linear-regression mechanism for convolution powers, not the converse variance-budget classification for arbitrary independent noise."
+      ],
+      "reasoning": "The broader known results imply the integer attainment direction and existence, but not that no noninteger budget can attain the covariance lower bound or that every equality noise must be shifted binomial.",
+      "searches": [
+        "least favorable noise Bernoulli conditional expectation variance additive noise",
+        "Ernst Kagan Rogers least favorable noise binomial Bernoulli",
+        "conditional expectation Bernoulli X given X+Y affine iff Y binomial convolution power",
+        "Remarks on the maximum correlation coefficient Bernoulli binomial regression equality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.09794",
+      "DOI:10.1214/22-ECP467",
+      "arXiv:2303.09023",
+      "DOI:10.1007/BF02480967",
+      "DOI:10.1002/bimj.4710270422",
+      "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+      "2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b",
+      "2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "2026/9/19/SCOPE-sharp-weak-signal-mirror-bernoulli-profiles--80bd8eba23bd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source explicitly supplies the integer-multiple optimizer, so that direction is prior work and is not claimed as new by itself.",
+        "Huang supplies existence and budget saturation, which are used as premises but do not classify equality with the covariance bound.",
+        "The inspected characterization sources use conditional-distribution assumptions not present in the least-favorable-noise problem."
+      ],
+      "reasoning": "The final claim combines a standard covariance lower bound and the known integer construction with a new converse: affine-regression equality plus the simple zeros of the Bernoulli characteristic function force an integer variance ratio and a binomial convolution law. None of the inspected prior statements implies that converse under the same assumptions.",
+      "searches": [
+        "arXiv:2103.09794 Bernoulli least favorable noise",
+        "arXiv:2303.09023 least favorable noise existence variance",
+        "DOI:10.1007/BF02480967 binomial regression characterization",
+        "DOI:10.1002/bimj.4710270422 binomial linear regression characterization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ernst--Kagan--Rogers gives the matching i.i.d.-sum optimizer at integer variance multiples but does not state an only-if sharpness spectrum.",
+        "Cacoullos--Papageorgiou (1983) characterizes discrete bivariate laws from a specified conditional distribution together with a regression function; that hypothesis is not equivalent to fixing an independent Bernoulli signal and only a noise-variance budget.",
+        "The 1985 Papageorgiou abstract likewise describes characterizations using both a conditional distribution and linear regression."
+      ],
+      "reasoning": "The new statement is an equality classification for a variance-constrained prediction functional. Linear-regression characterization literature is relevant because equality forces affine regression, but the inspected formulations impose additional conditional-law structure and do not state the least-favorable-noise sharpness set.",
+      "searches": [
+        "Bernoulli least favorable noise integer variance sharp covariance lower bound shifted binomial",
+        "linear regression equality least favorable noise Bernoulli shifted binomial",
+        "conditional expectation Bernoulli additive noise noninteger variance strict lower bound",
+        "Bernoulli characteristic function simple zero affine regression sum binomial",
+        "binomial characterization linear regression on sum independent random variables"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records were 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda, 2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b, 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96, and 2026/9/19/SCOPE-sharp-weak-signal-mirror-bernoulli-profiles--80bd8eba23bd.",
+        "Those records concern cumulants, dependence limits, exchangeable tail envelopes, or product distinguishability, not least-favorable additive-noise regression sharpness."
+      ],
+      "reasoning": "Queries used the source problem name, Bernoulli object, equality mechanism, variance-ratio parameter, shifted-binomial law, and characteristic-function-zero alias. No indexed result had a statement implying the claimed sharpness spectrum.",
+      "searches": [
+        "Bernoulli least favorable noise integer variance sharp covariance lower bound shifted binomial",
+        "linear regression equality least favorable noise Bernoulli shifted binomial",
+        "conditional expectation Bernoulli additive noise noninteger variance strict lower bound",
+        "Bernoulli characteristic function simple zero affine regression sum binomial",
+        "Bernoulli additive noise conditional mean linear regression convolution powers"
+      ]
+    },
+    "rationale": "The source gives integer-multiple optimizers but not an only-if sharpness spectrum. Targeted published-finding corpus and literature searches found no covering statement. Classical regression characterizations were treated as the main equivalence risk and, in the inspected material, require additional conditional-law structure rather than only Bernoulli signal independence and a variance budget.",
+    "residual_risks": [
+      "Older discrete-distribution characterization literature is only partly indexed and one plausible 1985 full text was inaccessible; a differently phrased equivalent regression characterization remains possible.",
+      "The exact noninteger least-favorable value is not computed, so the result should not be read as a full solution of the Bernoulli optimization problem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: proves the integer-multiple attainment direction and analyzes Bernoulli optimizers, but does not state that these are the only covariance-sharp budgets or classify all equality noises.",
+        "evidence": "The explicit-solutions section states that an m-fold i.i.d. sum is optimal at variance m times the component variance; the Bernoulli section separately reports increasingly complicated optimizers as the budget grows.",
+        "identifier_or_url": "arXiv:2103.09794; DOI:10.1214/22-ECP467",
+        "material_read": "Abstract, problem formulation, explicit-solutions section including the i.i.d.-sum construction and infinitely divisible proposition, monotonicity discussion, and Bernoulli example section.",
+        "method": "Lawful public full text.",
+        "title": "The least favorable noise",
+        "trigger": "Exact motivating extremal-noise problem and Bernoulli example."
+      },
+      {
+        "assessment": "SUPPORTING_ONLY: establishes existence and budget saturation, not the Bernoulli equality spectrum.",
+        "evidence": "The paper proves a minimizer exists for every nondegenerate square-integrable signal and that every least-favorable noise uses the full variance budget.",
+        "identifier_or_url": "arXiv:2303.09023",
+        "material_read": "Abstract, introduction, existence theorem, and variance-saturation theorem statements.",
+        "method": "Public arXiv full text.",
+        "title": "The existence of the least favorable noise",
+        "trigger": "Needed to turn nonattainment of the covariance bound into a strict inequality for the infimum."
+      },
+      {
+        "assessment": "NOT_COVERING: characterizes bivariate integer-valued laws from a specified conditional distribution plus regression; it does not consider the least-favorable variance functional or arbitrary independent noise with a Bernoulli signal.",
+        "evidence": "The setup prescribes the law of one variable conditional on the other, including x-fold convolution families, before using the regression function.",
+        "identifier_or_url": "DOI:10.1007/BF02480967",
+        "material_read": "First two pages, including summary, introduction, and setup of the conditional convolution families.",
+        "method": "Lawful journal PDF page inspection.",
+        "title": "Characterizations of discrete distributions by a conditional distribution and a regression function",
+        "trigger": "Plausible classical equivalence through affine conditional regression and binomial laws."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_RISK: the abstract again requires both a conditional-distribution specification and linear regression; no same-assumption theorem was visible, but full-text comparison was unavailable.",
+        "evidence": "The abstract describes characterizations of binomial and related laws by linear regression together with the conditional distribution of the other variable.",
+        "identifier_or_url": "DOI:10.1002/bimj.4710270422",
+        "material_read": "Indexed abstract and references; publisher full text was inaccessible during the comparison.",
+        "method": "Bibliographic abstract and repository metadata.",
+        "title": "On Characterizing Some Discrete Distributions by a Conditional Distribution and a Regression Function",
+        "trigger": "Plausible later binomial characterization with linear regression."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d564bd7c-0f04-432b-9dc2-6159bbef9c90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies the exact set of variance budgets where a universal lower bound solves the Bernoulli least-favorable-noise problem and classifies every equality law. It gives a structural divisibility obstruction explaining why the source's convolution solution cannot interpolate through noninteger budgets, while leaving the genuinely harder exact noninteger optimizer problem explicit.",
+    "status": "PASS"
+  }
+}
