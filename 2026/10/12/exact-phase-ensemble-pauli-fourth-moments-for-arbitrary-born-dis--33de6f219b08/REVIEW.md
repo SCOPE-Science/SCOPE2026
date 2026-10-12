@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The result uses the conventional normalized fourth Pauli moment and counts every \(a=0\) and \(a\ne0\) Walsh sector. In a nonzero XOR sector, independence of pair-orbit phases forces the six single-orbit or twenty-four two-orbit arrangements, giving \(3C(a)^2-3D(a)\). The finite summation identity produces the exact general law. Fifth-root discrete quadrature independently matches the continuous phase fourth moment for six complete small ensembles; additional orbit and flat-case comparisons pass. The entropy corollaries use Jensen and Markov, with no unjustified interchange of logarithm and expectation. Scope includes vanishing entries and every \(n\ge1\). No assertion of independent certification is made.
+
+## Originality — PASS, with priority uncertainty
+Płodzień's arXiv:2609.32025v1 proves a phase-orbit **minimum**, not the **ensemble mean** derived here; its random-phase numerical references use three draws and do not supply an exact mean. The complete text of Turkeshi–Dymarsky–Sierant, arXiv:2312.11631v2, gives Haar amplitude-and-phase averages and structured sparse-sign states, not fixed arbitrary Born probabilities and independent continuous phase integration. Leone–Oliviero–Hamma (2022) defines the measure. Liu–Xu arXiv:2608.22017v1 addresses structured codeword sets and was available only at abstract level, leaving a specific limited access risk. Searches for the XOR-autocorrelation law, its flat coefficient and phase-twirl aliases across scholarly sources and published mathematical records did not locate an equivalent theorem; non-detection does not prove global novelty. Earlier related work supplies the Walsh representation, which is fully credited.
+
+## Value — PASS
+The 2026 work introduces a practical phase-orbit baseline and approximates random-phase magic numerically. The new exact expression makes that baseline deterministically computable for every target probability distribution, without phase Monte Carlo. For a flat target, an explicit near-maximal-magic mean bound and sharp-order low-magic tail distinguish independent phase encoding from the zero-magic positive-amplitude encoder. This quantitative finite-size and all-dimension statement is a motivated ensemble theorem, not a routine renaming or arbitrary low-dimensional census. It does not purport to establish operational quantum advantage, circuit implementability, or the mean of the logarithm.
+
+Self-review: passed. Independent audit: not yet performed.
