@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The four-qubit Pauli and spin-flip expansion establishes sum of balanced purities >=1 for all pure states; Gaussian-integer parity forces each phase-restricted purity into (1/64)Z and hence worst-cut >=11/32. The concrete 16-entry phase array has three exact Gram numerators 88/256. Gauge removal is unique; the C++17 exhaustive loop checks all 4^11 classes and all equality cases and symmetry images; an independent Python matrix implementation confirms the representative/orbit and the real-sign threshold. The inference is finite-exhaustive where appropriate, not extrapolated from samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pauwels–Gühne arXiv:2608.21185v1, pp. 0–1 and 6–7, shows local encoding for flat states and constructs an unrestricted 16-vector basis from a Higuchi–Sudbery state whose support/phases differ from the entire 16-entry quarter-phase family.",
+        "Gour–Wallach arXiv:1006.0036v2, Sections III–IV, provides broader unconstrained average-entanglement results, but its unrestricted lower bound is not an equality classification after restricting to fourth-root phase amplitudes."
+      ],
+      "reasoning": "A theorem giving an unrestricted optimum at average purity 1/3 does not determine the optimal restricted minimax value 11/32, because unrestricted optimizers need not belong to the finite phase alphabet. A general local-encoding theorem implies only the basis-construction corollary, not optimization or uniqueness.",
+      "searches": [
+        "Butson complex Hadamard 2x2x2x2 phase arrays optimal approximate 2-unitary minimally entangled marginals",
+        "Entanglement Content of Quantum Measurement Bases Pauwels Guhne four qubit discrete phases basis optimal",
+        "qubit four root of unity flat states three bipartition purity 11/32 phase 96",
+        "four qubit general maximal entanglement linear entropy Gour Wallach weighted hypergraphs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.21185v1 (public full text)",
+      "arxiv:1006.0036v2 (public full text)",
+      "arxiv:1409.0928v1 (public full text)",
+      "doi:10.1049/qtc2.12027 (abstract/section)",
+      "four targeted semantic published-result queries and web searches for quarter-phase purity, balanced cuts, and hypergraph equivalents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pauwels–Gühne arXiv:2608.21185v1 Theorem 4 and Section IV imply a flat fiducial yields a locally encoded orthonormal basis, so that portion is expressly credited as prior.",
+        "Gour–Wallach arXiv:1006.0036v2 Theorem 6 implies the universal sum-of-purities bound used here, which is not claimed as new.",
+        "The exact counting result 96 and the discrete improvement over the real-only optimum follow from a completed 4^11 finite classification, not from either prior theorem."
+      ],
+      "reasoning": "Neither a broader all-state lower bound nor guaranteed local encoding of flat states implies existence of the stated quarter-phase equality vector, the stricter sharp restricted optimum, or complete equality symmetry orbit. Prior real-sign classifications cover a strict subalphabet only.",
+      "searches": [
+        "four qubit equal-amplitude fourth-root-of-unity phase states maximal minimal balanced bipartition Renyi-2 entanglement purity 11/32",
+        "four-qubit {1,i,-1,-i} weighted hypergraph states purity 96 phase classes cut entanglement",
+        "Butson complex Hadamard 2x2x2x2 phase arrays optimal approximate 2-unitary minimally entangled marginals",
+        "Entanglement Content of Quantum Measurement Bases Pauwels Guhne four qubit discrete phases basis optimal",
+        "qubit four root of unity flat states three bipartition purity 11/32 phase 96",
+        "four qubit equally weighted complex hypergraph local phase 2|2 entanglement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gour–Wallach arXiv:1006.0036v2, Theorem 6, supplies global four-qubit average linear-entanglement bounds but no fourth-root phase restriction.",
+        "Chen–Wang arXiv:1409.0928v1, Section 4 Eq. (14), explicitly takes real coefficient signs ±1, excluding quarter-phase states."
+      ],
+      "reasoning": "Balanced marginal purity, two-versus-two Rényi-2 entropy and linear entropy are monotone equivalent per cut; searches covered these aliases and the real/complex hypergraph-state formulation. Neither inspected statement evaluates the fourth-root discrete minimax nor classifies its equality cases.",
+      "searches": [
+        "four qubit equal-amplitude fourth-root-of-unity phase states maximal minimal balanced bipartition Renyi-2 entanglement purity 11/32",
+        "four-qubit {1,i,-1,-i} weighted hypergraph states purity 96 phase classes cut entanglement",
+        "\"four qubits\" \"11/32\" \"purity\" entanglement phases",
+        "\"four-qubit\" \"fourth roots\" \"purity\" \"entanglement\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen–Wang arXiv:1409.0928v1 Section 4 Tables I–II enumerates real ±1 hypergraph entanglement, not complex fourth-root phases.",
+        "Published-result search matches include a four-character Walsh Fourier flatness extremum and a three-ququart stabilizer-AME equivalence, with neither object possessing the same four-qubit two-versus-two marginal-purity objective."
+      ],
+      "reasoning": "No inspected exact table lists the 96 complex-phase gauge optimizers or their 11/32 worst-cut purity. The 3/8 real-sign limit does not entail the improved complex limit or its orbit count. Search absence alone is not used as a novelty proof.",
+      "searches": [
+        "\"four qubits\" \"11/32\" \"purity\" entanglement phases",
+        "\"four-qubit\" \"fourth roots\" \"purity\" \"entanglement\"",
+        "\"phase states\" \"four qubits\" \"11/32\"",
+        "four qubit equal-amplitude fourth-root-of-unity phase states maximal minimal balanced bipartition Renyi-2 entanglement purity 11/32",
+        "four-qubit {1,i,-1,-i} weighted hypergraph states purity 96 phase classes cut entanglement"
+      ]
+    },
+    "rationale": "The closest full texts prove unrestricted four-qubit average entanglement bounds, local encodability of flat states, and real-sign hypergraph classifications, but none of the inspected statements implies a sharp minimax purity 11/32 with exactly 96 gauge classes constituting one discrete symmetry orbit for fourth-root phases. Targeted published-result and literature searches found no equivalent classification; the residual risk of unindexed specialization is explicit.",
+    "residual_risks": [
+      "An independently derived but unindexed Z4 discrete minimax purity formula or exact 96-case table could exist; semantic search cannot prove global novelty.",
+      "The completeness of the 96-case classification is conditional on executing and inspecting the provided finite exhaustive enumeration; external audit has not been performed.",
+      "The symmetry classification is for the stated discrete operations, not equivalence under arbitrary local unitaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general local-encoding framework and a different unrestricted maximally entangled basis, not the Z4 equal-amplitude 2|2 minimax purity or the equality-orbit enumeration.",
+        "evidence": [
+          "pp. 0–1 independent encoding of flat states; pp. 6–7 Eq. (12) has six nonzero cubic-root amplitudes for the M4 fiducial; p. 17 each balanced marginal M4 purity equals 1/3."
+        ],
+        "identifier_or_url": "arxiv:2608.21185v1; https://pdfs.assets.alphaxiv.org/2608.21185v1.pdf",
+        "material_read": "Full-text introduction pp. 0–2, Theorem 6 discussion, Section IV pp. 6–7, Appendix A p. 17, and references to the Higuchi–Sudbery construction and linear entropy.",
+        "method": "Direct text and page-image inspection of the lawful publicly accessible PDF.",
+        "title": "The Entanglement Content of Quantum Measurement Bases",
+        "trigger": "Closest recent source: flat fiducials, locally generated entangled measurement bases, four-qubit extrema."
+      },
+      {
+        "assessment": "Provides stronger unrestricted average-entropy bounds but does not restrict amplitude phases to fourth roots or derive the discrete minimax/classification.",
+        "evidence": [
+          "Theorem 6 relates the average two-versus-two tangle to average one-qubit tangle and four-tangle; Corollary 7 identifies the unrestricted extremal manifold."
+        ],
+        "identifier_or_url": "arxiv:1006.0036v2; https://arxiv.org/html/1006.0036v2",
+        "material_read": "Sections I and III including Theorems 5–6, Corollary 7, and the discussion of average Rényi/Tsallis measures.",
+        "method": "Public arXiv full-text HTML inspection.",
+        "title": "All Maximally Entangled Four Qubits States",
+        "trigger": "Universal four-qubit average linear entropy and spin-flip/4-tangle bound potentially dominating the candidate."
+      },
+      {
+        "assessment": "Only real equally weighted signs ±1 and real hypergraph states; its classification does not contain general complex fourth-root configurations.",
+        "evidence": [
+          "Equation (14) explicitly has coefficients (-1)^g; Table I gives bipartition von Neumann entropies for rank-four hypergraphs, not the quarter-phase constrained Rényi-2 extremum."
+        ],
+        "identifier_or_url": "arxiv:1409.0928v1; https://arxiv.org/html/1409.0928v1",
+        "material_read": "Section 4 Eq. (14), local X/Z reduction and Tables I–II of entanglement values.",
+        "method": "Public arXiv full-text HTML inspection.",
+        "title": "Locally inequivalent four qubit hypergraph states",
+        "trigger": "Closest earlier finite classification of four-qubit equal-amplitude hypergraph states and entanglement."
+      },
+      {
+        "assessment": "Studies conventional hypergraph connectivity and multipartite/1|3 entanglement, not the finite Z4 phase alphabet worst 2|2 marginal purity classification.",
+        "evidence": [
+          "Section 3 explicitly analyzes 1|234 and related single-vs-three bipartitions of 2^16 graph-sign hypergraph states."
+        ],
+        "identifier_or_url": "doi:10.1049/qtc2.12027; https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/qtc2.12027",
+        "material_read": "Public article abstract and Section 3 description of four-qubit hypergraph states.",
+        "method": "Publisher-hosted open webpage inspection.",
+        "title": "Geometry of distributive multiparty entanglement in 4-qubit hypergraph states",
+        "trigger": "Potential wider prior treatment of four-qubit hypergraph-state bipartitions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7209596-a4aa-4a2d-9f10-e69143eaed99",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The alphabet {1,i,-1,-i} is a natural discrete set of controlled phase-gate resources for flat qubit fiducials, and the bottleneck 2|2 purity determines the weakest balanced bipartite Rényi-2 entanglement across all outcomes of locally Z-encoded measurement bases. An exact best possible value, 96-case equality classification as a single symmetry orbit, and strict improvement from the real-only 3/8 bound are motivated structural and design facts, not arbitrary parameter slices or code-only novelty. No global quantum advantage or noise-robustness claim is made.",
+    "status": "PASS"
+  }
+}
