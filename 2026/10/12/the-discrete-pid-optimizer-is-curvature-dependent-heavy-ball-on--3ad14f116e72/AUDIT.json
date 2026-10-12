@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Using the preceding source parameter update gives \\(V_t+K_dD_t=x_t-x_{t-1}\\), so substitution yields the exact second-order recurrence. Diagonalizing the SPD Hessian gives a monic quadratic with root product \\(\\beta(\\lambda)=\\alpha+K_d(1-\\alpha)\\lambda\\). The three strict Jury inequalities reduce exactly to the stated all-spectrum conditions. The product bound gives \\(\\rho_\\lambda\\ge\\sqrt{\\beta(\\lambda)}\\), and choosing \\(r\\lambda=1+\\beta(\\lambda)\\) attains equality. Direct replay of the source state equations and characteristic roots from the packaged verifier agrees with every formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The journal extension uses continuous Laplace-transform and Ziegler--Nichols reasoning for gain initialization and leaves optimal PID hyperparameter relations for further work.",
+        "The rethinking paper changes the derivative treatment to address high-frequency stochastic noise.",
+        "Later adaptive-PID work studies different recurrences built around Adam rather than this source three-state rule."
+      ],
+      "reasoning": "Broader PID-optimizer papers do not dominate the accepted statement because they analyze different recurrences or empirical tuning questions. Classical heavy-ball stability becomes applicable only after the optimizer-specific state elimination proved here.",
+      "searches": [
+        "DOI:10.1109/TNNLS.2019.2963066 full text hyperparameter ablation",
+        "DOI:10.1109/ICME46284.2020.9102970 derivative noise PID optimizer",
+        "PID optimizer convergence stability deep neural networks"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/CVPR.2018.00889",
+      "DOI:10.1109/TNNLS.2019.2963066",
+      "DOI:10.1109/ICME46284.2020.9102970"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source recurrence uses \\(V_{t+1}=\u0007lpha V_t-rg_t\\), a filtered gradient-difference state, and an additive \\(K_dD_{t+1}\\) parameter correction.",
+        "The extended paper says larger derivative gain can make validation performance more unstable and that optimal hyperparameter relations remain for further study.",
+        "The later rethinking work weakens the derivative effect because of high-frequency stochastic noise."
+      ],
+      "reasoning": "Those qualitative observations do not imply the necessary-and-sufficient deterministic condition \\(K_dL<1\\), the exact learning-rate interval, or the exact best modal rate floor. The accepted claim comes from the discrete source equations rather than the continuous PID analogy.",
+      "searches": [
+        "DOI:10.1109/CVPR.2018.00889 PID recurrence Laplace Ziegler Nichols",
+        "DOI:10.1109/TNNLS.2019.2963066 larger Kd unstable validation",
+        "DOI:10.1109/ICME46284.2020.9102970 rethinking derivative noise"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conference source prints the momentum, filtered gradient-difference, and parameter recurrences and motivates the derivative term as overshoot reduction.",
+        "The journal extension retains the same recurrence and reports that larger derivative gain can make validation behavior more unstable.",
+        "No inspected source states the exact modal identity \\(\beta(\\lambda)=\u0007lpha+K_d(1-\u0007lpha)\\lambda\\)."
+      ],
+      "reasoning": "An equivalent formulation would need to eliminate the internal states on a fixed Hessian and identify the derivative gain as a curvature-linear addition to heavy-ball momentum, or imply the same necessary-and-sufficient Schur boundary. The inspected statements do not.",
+      "searches": [
+        "DOI:10.1109/CVPR.2018.00889 equation 10 discrete PID update",
+        "DOI:10.1109/TNNLS.2019.2963066 equation 19 discrete PID update",
+        "PID optimizer deep networks curvature-dependent momentum heavy ball"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results concerned heavy-ball root geometry, Nesterov objective spikes, and unrelated quadratic stability frontiers.",
+        "No checked indexed result returned the defining PID optimizer together with the curvature-dependent momentum identity or the hard condition \\(K_dL<1\\)."
+      ],
+      "reasoning": "Database absence is supporting evidence only. Originality rests primarily on direct statement-and-implication comparison with the defining conference paper and its full journal extension.",
+      "searches": [
+        "PID optimizer deep networks scalar quadratic exact discrete stability derivative term momentum curvature",
+        "A PID Controller Approach stochastic optimization quadratic Schur stability derivative gain",
+        "PID optimizer Hessian eigenmode effective momentum Kd alpha exact recurrence",
+        "deep learning PID optimizer derivative term quadratic instability Kd lambda"
+      ]
+    },
+    "rationale": "The defining and extended PID-optimizer papers present the derivative term as changing-gradient information for overshoot reduction and tune it through continuous-control heuristics, but the inspected full texts do not state the constant-Hessian elimination, the curvature-linear heavy-ball momentum, or the sharp discrete Schur region. The later rethinking paper motivates a different PID construction because of derivative-noise sensitivity. Focused database and web searches did not identify an implication-equivalent optimizer-specific result.",
+    "residual_risks": [
+      "Classical discrete-control literature contains broad PID Schur-stability machinery, but no checked source applied it to this optimizer-specific filtered-gradient recurrence with the accepted modal identity.",
+      "The 2020 rethinking paper was inspected through primary abstract/method material rather than complete full text.",
+      "The finding concerns asymptotic fixed-Hessian stability; transient overshoot can behave differently for a fixed learning rate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_DISCRETE_RULE_NOT_COVERING_FIXED_HESSIAN_SCHUR_FRONTIER.",
+        "evidence": "The source prints the exact three-state recurrence and motivates positive derivative gain as overshoot-reducing future information, but does not state the curvature-dependent heavy-ball reduction or a Hessian-dependent stability ceiling.",
+        "identifier_or_url": "DOI:10.1109/CVPR.2018.00889",
+        "material_read": "Open-access full PDF covering the SGD-momentum/PI derivation, the De Jong overshoot example, Equation 10 with the filtered derivative recurrence, and the Laplace/Ziegler--Nichols gain initialization; the optimizer-equation and tuning pages were visually inspected.",
+        "method": "Open-access full-PDF text and page-image inspection.",
+        "title": "A PID Controller Approach for Stochastic Optimization of Deep Networks",
+        "trigger": "Defining source for the discrete deep-learning PID optimizer."
+      },
+      {
+        "assessment": "EXTENDED_EMPIRICAL_AND_CONTINUOUS_TUNING_ANALYSIS_NOT_COVERING_EXACT_DISCRETE_MODAL_REDUCTION.",
+        "evidence": "The article retains the source recurrence and reports that larger derivative gain can destabilize validation behavior, but does not derive \\(K_dL<1\\), the exact modal polynomial, or loss-scale sensitivity.",
+        "identifier_or_url": "DOI:10.1109/TNNLS.2019.2963066",
+        "material_read": "Full journal PDF covering Equation 19 for the discrete PID rule, the continuous Laplace-transform tuning derivation, the derivative-gain ablation, and the conclusion that hyperparameter relations need further study.",
+        "method": "Authorized full-PDF inspection after open-access attempts did not yield the complete article.",
+        "title": "PID Controller-Based Stochastic Optimization Acceleration for Deep Neural Networks",
+        "trigger": "Full journal extension of the same optimizer and the strongest plausible covering source."
+      },
+      {
+        "assessment": "DIFFERENT_PID_RULE_MOTIVATED_BY_STOCHASTIC_DERIVATIVE_NOISE.",
+        "evidence": "The work changes the derivative treatment for stochastic robustness rather than stating the accepted fixed-Hessian identity.",
+        "identifier_or_url": "DOI:10.1109/ICME46284.2020.9102970",
+        "material_read": "Primary abstract and method summary describing high-frequency derivative-noise sensitivity and a modified PID construction.",
+        "method": "Primary-source abstract/method-summary inspection.",
+        "title": "Rethinking The PID Optimizer For Stochastic Optimization Of Deep Networks",
+        "trigger": "Closest later primary work directly reconsidering the original derivative mechanism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3ad14f11-6e72-4d20-86d6-42a4898c6850",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The derivative channel is the defining addition that distinguishes the optimizer from ordinary momentum and is explicitly motivated as an overshoot-damping mechanism. On the canonical fixed-Hessian model, the exact algebra shows that this channel becomes positive curvature-dependent momentum and imposes a hard gain ceiling independent of the learning rate. The exact best modal rate floor and loss-rescaling instability sharpen the interpretation: increasing derivative gain raises an irreducible asymptotic rate floor and can make a mere positive rescaling of the loss impossible to stabilize. This is a structural optimizer calibration result rather than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
