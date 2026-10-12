@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each stable h the symplectic Euler matrix is elliptic with no real eigenline and preserves its unique positive quadratic metric P_h up to scale. The covariance map and its adjoint have positive-definite Perron eigenmatrices by cone PF and rank-one exclusion. Determinant-root concavity shows spectral radius at least one; equality forces a common P_h, impossible for nonpoint timestep law, proving rho>1. Positive-definite dual eigenmatrix then proves exact weighted expectation rho^k and uniform Euclidean two-sided bounds for every nonzero input and iteration. Exact rational matrix, characteristic polynomial, first-moment decay, finite-step enumeration and jitter perturbation identities were replayed at the actual packaged verifier path. Analytic simple-eigenvalue perturbation establishes the small-jitter coefficient; finite histories alone are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sturman–Thiffeault 2019 analyzes random products of separate shears",
+        "published-finding corpus:2026/9/18/SCOPE-ordered-product-spectral-rate-nonconvergence--4cd423fedf50"
+      ],
+      "reasoning": "General random SL(2,R) product theorems provide tools for Lyapunov growth but do not automatically give the same exact second-moment spectral criterion and all-direction rates for i.i.d correlated kick–drift steps. Two independently chosen shear factors are not equivalent to choosing one magnitude for both factors. Generic random-matrix coverage remains a residual risk.",
+      "searches": [
+        "random step Störmer Verlet harmonic oscillator no common modified Hamiltonian mean-square instability for every nonconstant step distribution",
+        "random time-step symplectic integrator harmonic oscillator long-time energy drift phase instability",
+        "i.i.d symplectic Euler stable individual step matrices exponential expected energy rate stochastic time stepping",
+        "doi:10.1007/s00332-018-9497-3",
+        "random symplectic integrators stochastic timestep harmonic oscillator Furstenberg Lyapunov exponent stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.01340v1 submission date 2018-01-04; version 4 full PDF Sections 2,7,9.6",
+      "arXiv:1011.3830 introduction and relevant energy sections",
+      "doi:10.1007/s00332-018-9497-3 initial sections and main statement",
+      "published-finding corpus targeted semantic searches and own deduplication ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2018 theorem controls finite times under proximity assumptions",
+        "2010 adaptive symplectic scheme analyzes numerical energy with timestep switches",
+        "Random shear product source has distinct per-factor randomization"
+      ],
+      "reasoning": "Convergence on polynomial finite windows and approximate conservation do not imply any infinite-time boundedness, nor strict exponential blowup. Prior reported linear drift for adaptive steps does not imply a positive exponent for every nondegenerate iid stable step law. Different shear-products and top Lyapunov exponents are not identical to the covariance Perron spectral radius or its exact two-point polynomial.",
+      "searches": [
+        "arXiv:1801.01340 Sections 2,7,9.6, Theorem 6, Remarks 12–13",
+        "arXiv:1011.3830 introduction/timestep energy discussion",
+        "doi:10.1007/s00332-018-9497-3 sections 1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1801.01340 Theorem 6 bounded finite horizons",
+        "arXiv:1011.3830 adaptation-driven energy-error discussion"
+      ],
+      "reasoning": "Searched equivalent mean-square instability, invariant covariance metric, random elliptic SL(2) products. The source theorem bounds energy on explicitly restricted time windows and cannot imply perpetual strict spectral expansion. The adaptive-step source changes step based on motion, not iid across all fixed stable magnitudes.",
+      "searches": [
+        "symplectic Euler harmonic oscillator random independent positive time steps exponential mean square energy growth all nondegenerate distributions",
+        "independent random timesteps symplectic Euler harmonic oscillator second moment determinant concavity invariant metric exponential growth",
+        "randomized time step symplectic Euler harmonic oscillator invariant quadratic form mean square instability arbitrarily small jitter",
+        "arXiv:1801.01340 Theorem 6; arXiv:1011.3830"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact characteristic polynomial in published-finding corpus nearest results",
+        "The inspected 2018 source has finite-time energy data but no 3×3 covariance spectrum"
+      ],
+      "reasoning": "The rational polynomial and small-jitter constant were compared with indexed finding summaries and inspected oscillator source; no exact same invariant or tabulation was seen. Index incompleteness is not treated as proof of priority.",
+      "searches": [
+        "symplectic Euler harmonic oscillator random independent positive time steps exponential mean square energy growth all nondegenerate distributions",
+        "independent random timesteps symplectic Euler harmonic oscillator second moment determinant concavity invariant metric exponential growth",
+        "randomized time step symplectic Euler harmonic oscillator invariant quadratic form mean square instability arbitrarily small jitter",
+        "i.i.d symplectic Euler stable individual step matrices exponential expected energy rate stochastic time stepping",
+        "random timestep symplectic Euler mean square exponential energy growth random steps nondegenerate distribution"
+      ]
+    },
+    "rationale": "The earliest motivating open-access 2018 paper explicitly studies independent random timesteps and symplectic finite-time energy bounds, but the inspected Sections 2, 7, 9.6, theorem and remarks do not supply a universal infinite-step mean-square instability iff or small-jitter spectral rate. General adaptive timestep energy drift and random shear Lyapunov results are close but not covering under the stated hypotheses. Actual published-finding corpus and primary-source searches found no exact/dominating prior. A broader random SL(2,R) theory might subsume the phenomenon and priority is not independently certified.",
+    "residual_risks": [
+      "Unindexed or non-open random matrix/symplectic integration literature could contain an equivalent specialized mean-square consequence.",
+      "Broader Furstenberg random-product theorems may imply almost-sure growth in special cases, but not explicitly compared exhaustively for all laws and this quantitative second-moment statement.",
+      "Only the inspected material, not a universal literature search, supports priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Finite-time symplectic energy-error estimates conditioned on assumptions and proximity; no all-time covariance Perron root or two-point oscillator polynomial",
+        "evidence": [
+          "arXiv:1801.01340 Theorem 6 (PDF page 17), Remarks 12–13 (PDF page 19), Section 9.6 (PDF pages 27–29)",
+          "https://arxiv.org/abs/1801.01340"
+        ],
+        "identifier_or_url": "arXiv:1801.01340; https://arxiv.org/pdf/1801.01340",
+        "material_read": "Full PDF title/MSC, Section 2 independent random-step update, Section 7 Theorem 6 and Remarks 11–13, Section 9.6 and Figure 10, plus conclusion",
+        "method": "Lawful open-access arXiv PDF text and rendered title/Theorem pages",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Exact motivating algorithm and closest published energy-conservation theorem"
+      },
+      {
+        "assessment": "Adaptively changing steps in celestial mechanics; does not give iid harmonic-oscillator second-moment spectral formula or universal strict growth criterion",
+        "evidence": [
+          "arXiv:1011.3830",
+          "https://arxiv.org/abs/1011.3830"
+        ],
+        "identifier_or_url": "arXiv:1011.3830; https://arxiv.org/pdf/1011.3830",
+        "material_read": "Introduction and original discussion of timestep switches and energy-error behavior",
+        "method": "Lawful open-access full PDF text",
+        "title": "Decreasing Computing Time with Symplectic Correctors in Adaptive Timestepping Routines",
+        "trigger": "Prior adaptive symplectic timestep energy-drift work"
+      },
+      {
+        "assessment": "Studies different random product of individual shears (not same-h correlated positive/negative two-shear symplectic Euler updates); no theorem in inspected parts implies every nonconstant elliptic-h law has exact covariance inflation",
+        "evidence": [
+          "https://doi.org/10.1007/s00332-018-9497-3"
+        ],
+        "identifier_or_url": "doi:10.1007/s00332-018-9497-3",
+        "material_read": "Introduction, random shear product definition and principal statements on shear sign regimes",
+        "method": "Lawful openly accessible author/publisher full PDF",
+        "title": "Lyapunov Exponents for the Random Product of Two Shears",
+        "trigger": "Potential reduction to existing random matrix products of shears"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d766129a-463b-4e38-afa0-3aee45f0d133",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural geometric-probabilistic numerical method preserves symplecticity and each individual step lies strictly inside the deterministic stability interval, yet any nonzero iid timestep variability yields uniformly exponential expected-energy inflation at infinite step horizon. This resolves an all-time reliability question outside the source finite-horizon theorem, with an exact rational witness where mean decay masks mean-square growth and a sharp quadratic jitter response. It is a natural complete classification, not an arbitrary narrow numerical parameter slice. Practical physical-time and nonlinear implications are explicitly unproved.",
+    "status": "PASS"
+  }
+}
