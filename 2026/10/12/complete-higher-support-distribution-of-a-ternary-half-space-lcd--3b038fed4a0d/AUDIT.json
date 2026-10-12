@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Expanding the published polynomial gives exactly \\(D=(\\{x_1=0\\}\\cup\\{x_1=1\\})\\setminus\\{0\\}\\). For an \\(r\\)-subcode with annihilator \\(W\\) of dimension \\(h=n-r\\), zero coordinates are precisely the defining-set columns and systematic basis columns contained in \\(W\\). If \\(W\\) lies in the hyperplane \\(x_1=0\\), the defining-set intersection has size \\(3^h-1\\); otherwise the nonzero first-coordinate functional has three equal fibers and the intersection has size \\(2\\cdot3^{h-1}-1\\). Inclusion-exclusion over coordinate axes proves the stated \\(E_{m,h}(s)\\) counts. The minimizer comparison is strict by \\(3^{h-1}\\) for \\(h\\ge1\\), and equality \\(s=h\\) forces a coordinate subspace in the hyperplane. Exhaustive replay for \\(n=3,4,5\\) agrees with every distribution formula and the source's \\(n=3\\) weight enumerator.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Chen--Qu explicitly provide a general defining-set framework and evaluate selected Bent and Semi-Bent families.",
+        "Pan--Chen--Liu--Liu determine complete SSWDs for several Griesmer, modified Solomon--Stiffler, and simplex-complement constructions.",
+        "The Mondal--Lee generator includes systematic identity columns in addition to a nonprojective two-slice defining set, producing support terms depending on the number of coordinate axes contained in the annihilator."
+      ],
+      "reasoning": "The general framework leaves a family-specific subspace optimization unevaluated, while the complete-SSWD families inspected use different projective generator geometries. Neither source supplies the two-branch count in the claim.",
+      "searches": [
+        "Generalized hamming weights of linear codes from cryptographic functions defining set general formula",
+        "Optimal Few-GHW Linear Codes subcode support distributions modified Solomon-Stiffler simplex complement",
+        "ternary systematic LCD generalized Hamming weights defining set"
+      ]
+    },
+    "checked_sources": [
+      "Mondal--Lee, DOI 10.1007/s00200-026-00756-3, open-access full text",
+      "Pan--Chen--Liu--Liu, arXiv:2408.10005 and DOI 10.1109/TIT.2024.3519672",
+      "Li--Chen--Qu, DOI 10.3934/amc.2022081, public abstract and metadata",
+      "Exact public searches for Theorem 3.9, the hierarchy formula, half-space aliases, and subcode-support terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.9 gives only codeword-weight frequencies for the new LCD family.",
+        "The defining-set GHW framework does not include the systematic identity columns as a solved family and does not count every support layer.",
+        "The full-simplex systematic extension has a single annihilator-intersection regime, whereas the present defining set has distinct contained and transverse regimes."
+      ],
+      "reasoning": "The ordinary distribution and the full-simplex case do not imply the present formulas: the support of an \\(r\\)-subcode depends on whether its annihilator lies in \\(x_1=0\\) and on exactly how many coordinate axes it contains. Those two data are absent from the prior statements.",
+      "searches": [
+        "Mondal Lee Theorem 3.9 weight distribution",
+        "Li Chen Qu generalized Hamming defining set formula",
+        "Pan Chen Liu Liu complete subcode support distributions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's polynomial coefficient support is exactly the two-slice defining set with the origin removed.",
+        "No inspected search result stated the hierarchy \\(r+2\\cdot3^{n-1}-3^{n-r}\\) or the two-branch complete SSWD."
+      ],
+      "reasoning": "The searches cover the source theorem, the geometric half-space alias, the exact hierarchy formula, and the systematic-extension interpretation.",
+      "searches": [
+        "Mondal Lee Theorem 3.9 generalized Hamming hierarchy",
+        "systematic extension half simplex ternary subcode support distribution",
+        "2*3^(n-1)-3^(n-r)+r generalized Hamming weights ternary LCD",
+        "half-space defining set x1 in {0,1} complete subcode support ternary",
+        "DOI 10.1007/s00200-026-00756-3 generalized Hamming weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mondal--Lee Example 3.10 tabulates only the ordinary codeword weights for the [20,3,10] member.",
+        "No inspected table or indexed record gives its two-dimensional spectrum \\(17:2,18:3,19:8\\), nor an all-\\(n\\) extension."
+      ],
+      "reasoning": "Ordinary weight tables determine only one-dimensional subcodes. The higher-dimensional distributions require the annihilator incidence calculation proved here.",
+      "searches": [
+        "\"Theorem 3.9\" \"subcode support\" LCD ternary",
+        "\"20,3,10\" \"generalized Hamming\" ternary LCD",
+        "\"10,17,20\" ternary code hierarchy",
+        "\"E_{n,h}\" subcode support LCD"
+      ]
+    },
+    "rationale": "The primary paper determines the family parameters and ordinary weight distribution but has no generalized-Hamming or subcode-support discussion. A broad prior framework gives generalized-weight formulas for defining-set codes, but it does not evaluate this systematic half-space extension or count all support layers. The closest complete-SSWD paper treats projective simplex deletion and complement constructions rather than a two-slice nonprojective defining set with identity columns. The formulas are also not implied by the previously known full-simplex systematic case because the half-space family splits annihilators into contained and transverse regimes.",
+    "residual_risks": [
+      "The full text of Li--Chen--Qu was access-restricted in the inspected publisher source, so a generic theorem there is treated as prior framework rather than exhaustively excluded; its advertised evaluated families are different.",
+      "A differently named equivalent half-space construction could exist in unindexed literature.",
+      "The result is specific to the Mondal--Lee Theorem 3.9 family and does not claim new ordinary weight distributions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_FAMILY_AND_ORDINARY_WEIGHTS_ONLY",
+        "evidence": "Theorem 3.9 gives the systematic LCD family and ordinary weight distribution; exact full-text searches return no occurrence of generalized Hamming or subcode support.",
+        "identifier_or_url": "DOI:10.1007/s00200-026-00756-3",
+        "material_read": "Open-access full HTML: defining-set construction and coefficient-support definition; Theorem 3.9 and proof; Example 3.10; conclusion; publication metadata and Mathematics Subject Classification.",
+        "method": "open-access publisher full text",
+        "title": "Infinite families of LCD codes and their weight distributions",
+        "trigger": "Primary source defining the exact family, its polynomial coefficient support, and its ordinary weights."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_GENERATOR_GEOMETRY",
+        "evidence": "The solved families are projective simplex deletion/complement constructions. No systematic two-slice generator matching the present family was located.",
+        "identifier_or_url": "arXiv:2408.10005; DOI:10.1109/TIT.2024.3519672",
+        "material_read": "Public full text: construction overview; modified Solomon--Stiffler SSWD section; simplex-complement section; examples and conclusion.",
+        "method": "public arXiv full text",
+        "title": "Optimal Few-GHW Linear Codes and Their Subcode Support Weight Distributions",
+        "trigger": "Strongest located prior source devoted to complete SSWDs of few-weight optimal codes."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_RESIDUAL_COMPARISON",
+        "evidence": "The paper advertises a general defining-set formula and evaluates selected Bent and Semi-Bent families; it does not advertise this later systematic LCD extension or complete SSWDs.",
+        "identifier_or_url": "DOI:10.3934/amc.2022081",
+        "material_read": "Public abstract, bibliographic metadata, scope, and listed evaluated construction classes; publisher full text was access-restricted.",
+        "method": "publisher abstract and metadata",
+        "title": "Generalized hamming weights of linear codes from cryptographic functions",
+        "trigger": "Potential broad implication through a generic defining-set generalized-weight formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b038fed-4a0d-4f15-b97b-969081cd8bdb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper introduces the family as a new infinite ternary LCD construction but records only one-dimensional weight data. The new theorem gives every higher support layer for every dimension and every family parameter \\(n\\), together with a simple geometric dichotomy and exact extremal multiplicities. This is substantially more informative than a finite example or a routine minimum-distance check: it resolves the full SSWD of an infinite newly published family and identifies all generalized-weight minimizers.",
+    "status": "PASS"
+  }
+}
