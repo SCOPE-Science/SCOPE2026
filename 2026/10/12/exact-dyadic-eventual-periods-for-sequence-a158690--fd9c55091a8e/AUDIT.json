@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The coefficientwise formal identity \\(a(N)=\\sum_m c_m m!S(N,m)\\) is valid. For \\(k\\ge2\\), \\(n\\ge k+3\\), even-base power differences vanish modulo \\(2^{k+3}\\); the odd-base difference divided by \\(2^{k+1}\\) reduces modulo four to \\(j^{n\\bmod2}(j^2-1)/8\\). The eighth finite difference \\(\\Delta^8\\) annihilates both parity functions modulo four, so only \\(m<8\\) contribute. The independently reconstructed coefficient and difference rows have weighted residues \\(2\\) and \\(0\\) modulo four. Hence the half-shift is nonzero modulo \\(2^{k+3}\\) at all sufficiently large even indices, while two half-shifts always cancel, proving least eventual period \\(2^k\\). Two independent integer algorithms agree on 146 coefficients modulo \\(8192\\) and on 705 parity-lift tests. The written proof covers every stated parameter.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2609.07238v1 (Theorem 2.6: lambda(M) is an eventual period for generic integral formal series)",
+        "https://oeis.org/A158690 (conjecture 1: period divides Euler totient)"
+      ],
+      "reasoning": "The general Carmichael-period theorem establishes existence, not sharpness. Specifically \\(\\lambda(2^r)=2^{r-2}\\) for \\(r\\ge5\\), whereas the proved period is smaller and its leastness needs an additional persistent obstruction.",
+      "searches": [
+        "Fishburn A158690 G(e^t-1) dyadic half Carmichael period",
+        "Bala Kallat 2609.07238 Carmichael period not sharp 2 powers period length",
+        "https://arxiv.org/html/2609.07238v1 (Theorem 2.6 and Section 3)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.07238v1",
+      "https://oeis.org/A158690",
+      "https://arxiv.org/abs/2609.07238"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2609.07238v1 (only eventual periods lambda(M), not sharp minimal periods)",
+        "https://oeis.org/A158690 (period two at modulus 16)"
+      ],
+      "reasoning": "At modulus \\(2^r\\), \\(r\\ge5\\), the previously proved period \\(2^{r-2}\\) is twice the new least period. That old congruence does not establish whether the half-shift is a period or a nonperiod. The new parity congruence proves both its twofold cancellation and an even-index nonzero obstruction.",
+      "searches": [
+        "https://arxiv.org/html/2609.07238v1 (Theorem 1.1, Proposition 2.1, Remark 2.2, concluding remarks)",
+        "https://oeis.org/A158690 (Bala conjectures and Kallat update)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2609.07238v1#S2.SS1",
+        "https://oeis.org/A158690 (COMMENTS, Dec. 18, 2021)"
+      ],
+      "reasoning": "Matching the same exact sequence and modular-period notion, the source proves a nonminimal upper period; the OEIS example modulo 16 is not an equivalent all-r result. The parity-sensitive half-shift has distinct content.",
+      "searches": [
+        "OEIS A158690 Bala Kallat exact least eventual period modulo powers of two 2-adic period 2^(r-3) parity difference",
+        "\"A158690\" \"least\" \"period\" powers two congruence",
+        "\"A158690\" \"2-adic\" period",
+        "arXiv 2609.07238 minimal period 2-adic A158690 32 64 128"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A158690 (one explicit period-2 example modulo 16, finite table n<=170)"
+      ],
+      "reasoning": "A finite coefficient table and one modulus-16 demonstration cannot state or imply the infinite exact period theorem. No all-2power period table or general exact formula was located in the inspected OEIS entry.",
+      "searches": [
+        "https://oeis.org/A158690 (A158690 COMMENTS, FORMULA, LINKS, initial sequence and table)",
+        "\"A158690\" \"period\" \"32\" \"64\" OEIS"
+      ]
+    },
+    "rationale": "The primary full text establishes only the Carmichael eventual period \\(2^{r-2}\\) modulo \\(2^r\\), not its minimality; the all-exponent least period \\(2^{r-3}\\) and parity-sensitive obstruction are neither stated nor implied. OEIS gives only an isolated period-two example modulo \\(16\\). Focused object, equivalent-formula, half-Carmichael and parity-lift searches found no covering publication. Unindexed equivalent work remains a genuine risk.",
+    "residual_risks": [
+      "Search coverage is incomplete by nature; unindexed, inaccessible, or independently developed equivalent results may exist.",
+      "The minimal eventual preperiod and exact least periods for other modulus families were not checked or claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: upper period bound and general congruence methodology, not least dyadic periods or parity obstruction",
+        "evidence": "https://arxiv.org/html/2609.07238v1 (especially lines corresponding to Theorem 1.1, Proposition 2.1, Remark 2.2 and Section 4)",
+        "identifier_or_url": "arXiv:2609.07238v1 / https://arxiv.org/html/2609.07238v1",
+        "material_read": "Full arXiv HTML manuscript, title/date/MSC, sections 1, 2.1, 2.2, 3, 4 including proofs and concluding remarks",
+        "method": "Full-text HTML page, inspection of definitions, Theorem 1.1, Proposition 2.1, Theorem 2.6, application, examples and limitations",
+        "title": "A Proof of Bala's Congruence Conjectures for A158690",
+        "trigger": "Same exact sequence and strongest known general eventual-period theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: isolated modulo-16 example but no all-r period classification",
+        "evidence": "https://oeis.org/A158690 (Peter Bala, December 18, 2021; subsequent September 2026 update)",
+        "identifier_or_url": "https://oeis.org/A158690",
+        "material_read": "Full entry, COMMENTS, LINKS, FORMULA, bibliography and available initial coefficient table",
+        "method": "Direct HTML inspection of sequence and text comments",
+        "title": "The On-Line Encyclopedia of Integer Sequences: A158690",
+        "trigger": "Primary definitional entry, original conjecture and isolated period example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd9c5509-1a8e-4ecc-8117-10c63a56a02c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharpness of a newly proved Carmichael-period bound is a natural infinite arithmetic question. Exact least period \\(2^{r-3}\\) for every \\(r\\ge5\\), with a persistent parity obstruction, is not a finite table extension or a routine implication of the earlier \\(\\lambda\\)-periodicity theorem. The proof isolates a reusable residue profile annihilated by eight finite differences and explains the factor-two reduction.",
+    "status": "PASS"
+  }
+}
