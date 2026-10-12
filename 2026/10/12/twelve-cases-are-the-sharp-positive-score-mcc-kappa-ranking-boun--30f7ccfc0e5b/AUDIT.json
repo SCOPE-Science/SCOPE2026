@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The exact formulas \\(M=\\Delta/\\sqrt{PQRS}\\) and \\(\\kappa=2\\Delta/(PS+QR)\\) are derived from the standard binary definitions. For the representative witness, both determinants equal \\(4\\), giving \\(\\kappa_A=2/17>1/10=\\kappa_B\\) but \\(M_A=1/\\sqrt{70}<1/8=M_B\\). The verifier exhausts every positive-determinant, positive-cell table through total twelve and proves the lower bound and complete first strict layer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chicco, Warrens, and Jurman give the direct MCC–kappa comparison, including their formulas, the equality condition when false positives equal false negatives, and the inequality that kappa is no more extreme than MCC.",
+        "Their full text says the positive region is generally concordant and emphasizes larger negative-score discordance.",
+        "Their use-case table contains positive examples but does not formulate or establish the minimum pairwise ranking reversal found here."
+      ],
+      "reasoning": "The closest literature already owns generic comparison and discordance. The accepted claim is narrower: a strict positive-score ordinal reversal under common sample size and common true prevalence, with a sharp finite minimum.",
+      "searches": [
+        "The Matthews correlation coefficient MCC is more informative than Cohen kappa full text",
+        "Matthews correlation coefficient Cohen kappa discordant outcomes",
+        "Cohen kappa Matthews correlation coefficient positive concordant"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ACCESS.2021.3084050",
+      "doi:10.1016/0005-2795(75)90109-9",
+      "doi:10.1177/001316446002000104",
+      "MSC2020:92B15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The pointwise inequality that positive MCC is at least positive kappa compares the two scores on one table and does not imply that two tables are ranked in the same order.",
+        "If true and predicted margins are both fixed, the formulas make MCC and kappa proportional; the accepted reversal necessarily exploits different predicted margins while keeping true prevalence fixed.",
+        "The closest full-text article describes positive scores as generally concordant rather than proving ordinal equivalence."
+      ],
+      "reasoning": "Known pointwise inequalities and equality conditions do not dominate the new claim. The finite lower bound and first-layer classification require comparing pairs of tables, not values within one table.",
+      "searches": [
+        "MCC kappa geometric mean harmonic mean binary confusion table",
+        "MCC equals kappa if FP FN Warrens",
+        "positive MCC kappa same trend classifier rankings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For binary tables MCC is the phi coefficient, so searches using MCC cover the standard correlation formulation.",
+        "Cohen kappa is a chance-corrected agreement coefficient; the accepted claim concerns pairwise classifier ordering, not merely different numerical values on one table.",
+        "No close semantic-database result concerned a positive-score MCC–kappa ranking boundary."
+      ],
+      "reasoning": "The search set covers the main aliases and distinguishes pointwise score differences from ordinal disagreement between two classifiers under fixed true prevalence.",
+      "searches": [
+        "Matthews correlation coefficient Cohen kappa classifier ranking disagreement fixed prevalence",
+        "MCC kappa comparison confusion matrix ranking reversal",
+        "Matthews correlation coefficient Cohen kappa binary classification exact confusion matrix",
+        "positive kappa MCC ranking classifier same prevalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-count search located the representative twelve-case pair as a published MCC–kappa reversal.",
+        "No checked source tabulated the complete two-pair first strict layer.",
+        "The packaged verifier derives the boundary from the full positive-cell census rather than importing a confusion-matrix table."
+      ],
+      "reasoning": "Exact-cell and exact-value searches test whether the small witness is already present as a worked example, benchmark, or software fixture.",
+      "searches": [
+        "2 3 2 5 MCC kappa",
+        "3 5 1 3 Cohen kappa MCC",
+        "1/sqrt(70) MCC kappa",
+        "2/17 kappa Matthews",
+        "MCC kappa positive ranking classifier"
+      ]
+    },
+    "rationale": "Published work directly compares MCC and Cohen kappa and establishes pointwise inequalities and generic discordance, especially in the negative-score regime. The checked full text, semantic database results, exact-table searches, and own-ledger comparisons did not state or imply the sharp positive-score fixed-prevalence boundary or its complete first strict layer.",
+    "residual_risks": [
+      "A small positive-score reversing pair could occur in unindexed teaching material or software tests without the sharp finite minimality statement.",
+      "The exact publication day of Cohen's 1960 article was not established in the checked source; only April 1960 was verified, so the metadata date anchor uses the later exact Matthews date.",
+      "The finding is an ordinal finite-census result and does not settle broader debates over which performance measure should be preferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong direct prior art for formulas and generic discordance. It does not state the positive-score fixed-prevalence minimum or complete first strict layer.",
+        "evidence": "The article states MCC equals kappa when false positives equal false negatives, gives the geometric/harmonic-mean relationship and the inequality that kappa is no more extreme than MCC, and describes positive scores as generally concordant while locating larger discrepancies in the negative region.",
+        "identifier_or_url": "doi:10.1109/ACCESS.2021.3084050",
+        "material_read": "Publisher-version full text, including the metric definitions, the section deriving the MCC–kappa relationship, the positive-versus-negative scatter discussion, the MCC–kappa use-case table, conclusions, and references.",
+        "method": "Full-text PDF inspection with rendered-page verification of the relationship section and use-case table.",
+        "title": "The Matthews correlation coefficient (MCC) is more informative than Cohen’s kappa and Brier score in binary classification assessment",
+        "trigger": "Closest direct primary comparison of MCC and Cohen kappa in binary classification."
+      },
+      {
+        "assessment": "Establishes the MCC source and exact archival day; it does not compare MCC with kappa.",
+        "evidence": "PubMed records the article as published 20 October 1975 and identifies Matthews as author.",
+        "identifier_or_url": "doi:10.1016/0005-2795(75)90109-9",
+        "material_read": "PubMed bibliographic record and abstract, including the exact publication date 20 October 1975.",
+        "method": "PubMed metadata and abstract inspection.",
+        "title": "Comparison of the predicted and observed secondary structure of T4 phage lysozyme",
+        "trigger": "Foundational biological source introducing the coefficient later called MCC and exact archival date anchor."
+      },
+      {
+        "assessment": "Establishes foundational priority for kappa, but the checked source gives month precision rather than an exact day.",
+        "evidence": "The publisher page identifies the article, volume, pages, and first publication as April 1960.",
+        "identifier_or_url": "doi:10.1177/001316446002000104",
+        "material_read": "Publisher metadata and article landing-page material showing first publication in April 1960.",
+        "method": "Publisher metadata inspection.",
+        "title": "A coefficient of agreement for nominal scales",
+        "trigger": "Foundational source for Cohen kappa."
+      },
+      {
+        "assessment": "The result concerns biostatistical performance evaluation of binary classifiers.",
+        "evidence": "MSC2020 lists 92B15 as General biostatistics.",
+        "identifier_or_url": "MSC2020:92B15",
+        "material_read": "Official MSC2020 hierarchy entry naming 92B15.",
+        "method": "MSC database inspection.",
+        "title": "MSC2020 database: 92B15 General biostatistics",
+        "trigger": "Primary classification ownership for binary classifier evaluation in biological and medical applications."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "30f7ccfc-0e5b-4d30-8bd7-c52b7545de65",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "MCC and Cohen kappa are both balanced, chance-sensitive summaries used in binary classification, and the closest direct comparison literature says their positive values are generally concordant. The sharp twelve-case counterexample shows that this numerical concordance does not extend to model ranking, even after fixing true prevalence and excluding zero or negative-score pathologies. Equal determinant in the witness isolates predicted-margin treatment as the mechanism, making the result structurally interpretable rather than a bare enumeration.",
+    "status": "PASS"
+  }
+}
