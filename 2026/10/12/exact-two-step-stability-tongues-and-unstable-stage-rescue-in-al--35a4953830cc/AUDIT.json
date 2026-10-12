@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Direct kick-drift-kick linear map yields determinant one, trace-2=(x+y)^2(xy-4)/4 and trace+2=(x(x+y)-4)(y(x+y)-4)/4. Elliptic/hyperbolic and Jordan classifications prove the complete necessary-and-sufficient statement. On trace=+2, F12=-(x+y) proves nonidentity. On trace=-2, F=-I iff x=y=sqrt(2). The rational checker ran on the actual standalone package path: 399 exact maps, 1596 checks and 4 rational witnesses. Universal proof relies on exact identities, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Skeel 1993 abstract proves variable steps can destabilize leapfrog/Verlet even with ratio restriction; Richardson–Finn 2011 shows parametric resonances in smooth periodic modulation."
+      ],
+      "reasoning": "Qualitative existence of instability and perturbative instability windows do not imply a necessary-and-sufficient stability classification for every pair of positive physical step sizes, both parabolic Jordan boundaries, or bounded pairing with one individually hyperbolic step. The unavailable original Skeel full text remains an explicit coverage risk.",
+      "searches": [
+        "doi:10.1007/BF01990352 Skeel 1993 abstract",
+        "arxiv:1108.0322v1 §1–2",
+        "doi:10.1016/0167-2789(92)90247-K"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1108.0322",
+      "https://doi.org/10.1007/BF01990352",
+      "https://doi.org/10.1016/0167-2789(92)90247-K"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Richardson–Finn establishes resonance mechanism but does not give the exact trace factorization for alternating velocity-Verlet steps; Skeel 1993 accessible abstract establishes instability can occur; A published harmonic UBU result concerns Langevin splitting schemes with damping, unlike undamped phase-space Verlet."
+      ],
+      "reasoning": "The new sufficient-and-necessary classification has both stage-stable/cycle-unstable (6/5,8/5) and stage-unstable/cycle-stable (3,6/5), plus isolated -I exception. These conclusions cannot be inferred from a mere existence-of-instability statement. Unavailable historical full text could change the assessment.",
+      "searches": [
+        "arxiv:1108.0322v1 §2 (time-only modulation and resonances)",
+        "doi:10.1007/BF01990352 abstract (variable-step destabilization)",
+        "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Richardson–Finn 2011 §2 analyzes smooth sinusoidal prescribed timestep modulation via modified equation and resonance widths, not exact kick-drift-kick two-cycle trace; Indexed related records did not yield the same-object theorem."
+      ],
+      "reasoning": "Compared velocity Verlet, kick-drift-kick, Störmer/leapfrog, periodic Floquet, parametric-resonance aliases. The two-parameter exact boundedness criterion and the isolated -I point are not stated in inspected full text; nonmatching indexed searches are not novelty proof.",
+      "searches": [
+        "alternating step Störmer Verlet harmonic oscillator exact Floquet trace stability reentrant parametric resonance",
+        "period-two variable timestep velocity Verlet harmonic oscillator symmetric two-step stability bands",
+        "Störmer Verlet alternating timestep resonance symplectic Floquet threshold",
+        "alternating time steps Verlet harmonic oscillator parametric instability factor (h+k) stability",
+        "periodically varying time steps velocity Verlet parametric resonance exact criterion",
+        "Skeel 1993 Verlet step size alternating linear oscillator instability Floquet",
+        "arxiv:1108.0322v1 §2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-parameter phase diagram or table was found in the searched indexed records; the nearest indexed related mathematical sources records address Langevin UBU harmonic stability or unrelated Floquet cycles."
+      ],
+      "reasoning": "A missing result is not a novelty certificate. Named published sources were assessed separately by mathematical implication; the exact rational examples and Jordan point are not an indexed table recomputation.",
+      "searches": [
+        "alternating step Störmer Verlet harmonic oscillator exact Floquet trace stability reentrant parametric resonance",
+        "period-two variable timestep velocity Verlet harmonic oscillator symmetric two-step stability bands",
+        "\"Skeel\" \"Jackson\" \"alternating\" BDF"
+      ]
+    },
+    "rationale": "Full 2011 predecessor addresses smoothly modulated periodic steps and qualitative resonance, not this exact two-parameter alternating velocity-Verlet classification. Skeel 1993 abstract warns of instability but original full text remains inaccessible and might cover more. Historic overlap with a complete earlier theorem is residual; no partition or failed search proves independence.",
+    "residual_risks": [
+      "Original Skeel 1993 full text unavailable despite bounded open-access and lawful-access attempts; an exact two-cycle derivation may already exist there.",
+      "The unpublished Piché 1998 report cited by Richardson–Finn may discuss closely related periodic resonances.",
+      "Indexed database searches are incomplete and neither show independence nor global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes smooth periodic time-step modulation and parametric-resonance perturbation theory; does not formulate or classify the exact two-step velocity-Verlet matrix for arbitrary x,y.",
+        "evidence": [
+          "arXiv v1 first public 2011-08-01",
+          "§2 studies Delta(t)=Delta0(1+epsilon cos omega t); pp. 3–4 describe modified-equation resonances and width scaling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.0322",
+        "material_read": "Original open-access 23-page preprint: title/abstract, §1, §2.1 through resonance analysis, final references and original figures on opening pages",
+        "method": "Original open-access PDF text and rendered pages",
+        "title": "Symplectic integrators with adaptive time steps",
+        "trigger": "Primary literature on variable prescribed steps and parametric instability for symplectic integrators"
+      },
+      {
+        "assessment": "Abstract states lack of general step-size/ratio stability guarantee; it does not resolve full bidirectional two-parameter alternating classification in the text available. No full-document noncoverage assessment is claimed.",
+        "evidence": [
+          "Original author-uploaded abstract on ResearchGate; BIT Numer. Math. 33 (1993) 172–175",
+          "Residual direct-source risk, full PDF not available"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01990352",
+        "material_read": "Original author-posted abstract and journal/bibliographic information only; original complete paper unavailable",
+        "method": "OA and repository attempts did not yield the original PDF; complete text remained inaccessible by the available lawful routes",
+        "title": "Variable step size destabilizes the Störmer/leapfrog/Verlet method",
+        "trigger": "Direct 1993 predecessor on the identical family of numerical integration methods"
+      },
+      {
+        "assessment": "General qualitative variable-step instability source; possible specialized derivations remain unverified.",
+        "evidence": [
+          "Richardson–Finn bibliography identifies Skeel and Gear, Physica D 60 (1992), 311–313"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0167-2789(92)90247-K",
+        "material_read": "Citation/title in Richardson–Finn reference list and bibliographic abstract references only",
+        "method": "Cross-reference/abstract comparison, not a complete full-text inspection",
+        "title": "Does variable step size ruin a symplectic integrator?",
+        "trigger": "Historical ancestor cited in the primary full text"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "35a49538-30cc-4ae1-ad53-a0117f7ff330",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp entire positive-pair phase diagram answers the substantive design question whether composing two stable steps remains stable (no) or whether an unstable step necessarily makes a periodic cycle unstable (no), with exact witnesses. The exceptional parabolic point is needed for a correct if-and-only-if theorem. Periodic timestep resonance is known, but its full exact bidirectional classification is a motivated structural fact rather than a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
