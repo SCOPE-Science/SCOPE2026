@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "From the exact scalar plant solution and integral cost, differentiating gives \\(J'(k)=\\frac12(1-\\frac{1+a^2}{(k-a)^2})\\) and \\(J''(k)=\\frac{1+a^2}{(k-a)^3}>0\\). Normalization gives \\(F_t(y)=y+t(y^{-2}-1)\\) for \\(y>0\\). The unique global critical point \\(y=(2t)^{1/3}\\) yields \\(\\min F_t=\\frac32(2t)^{1/3}-t\\); strict positivity is equivalent to \\(t<3\\sqrt3/2\\). Positive two-cycle equations imply \\(t=2p^2/s\\) and \\(s^2=2p(p+1)\\), hence \\(p>1\\) and \\(t^2=2p^3/(p+1)\\). This last function rises strictly from one to infinity, establishing existence and uniqueness for \\(t>1\\). The multiplier simplifies to \\(M=5-8p+8/(p+1)\\), strictly decreases, and equals minus one at \\(p=(\\sqrt{113}-1)/8\\). SymPy verifies identities and radical exact witness (\\(p=9/8\\), \\(M=-4/17\\)). The strict hyperbolic boundaries only are classified; no unsupported global-attraction assertion or extrapolation from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bu et al. §4.1 Lemma 4.5 and §8 give cost-decreasing stabilizing steps, not an if-and-only-if global stabilizing-domain invariance threshold; https://arxiv.org/html/2006.09178v1",
+        "Mohammadi et al. Theorem 2 and §V.C require sufficiently small step sizes based on initial sublevel cost, ensuring descent; https://hesameddinm.github.io/papers/mohzarsoljovTAC22.pdf",
+        "Fazel et al. cover discrete-time rather than this continuous-time scalar gain cost; https://proceedings.mlr.press/v80/fazel18a/fazel18a.pdf",
+        "Mazumdar et al. (2019) analyze multiple agents in a discrete-time LQ game; their cycles are observed empirically for joint strategy gradient-play and do not imply an exact prime period-two classification for a single-agent continuous-time scalar LQR map; https://arxiv.org/pdf/1907.03712"
+      ],
+      "reasoning": "A general convergence claim under sufficiently small or adaptively chosen learning rates does not imply the behavior at larger fixed rates, much less existence/uniqueness/multiplier of a nonoptimal 2-cycle. Conversely the scalar claim neither improves nor contradicts those sufficient convergence theorems. The discrete-time cost has a different stabilizing-gain domain.",
+      "searches": [
+        "scalar continuous-time LQR policy gradient descent exact discrete bifurcation flip critical step size two-cycle stability",
+        "gradient descent on continuous linear quadratic regulator cost sharp step size global stabilization scalar control gain nonlinear rational map",
+        "fixed step policy gradient continuous LQR controller stabilizing but nonconvergent oscillatory two-cycle gain",
+        "linear quadratic regulator policy gradient descent limit cycles large learning rates continuous time scalar",
+        "https://arxiv.org/html/2006.09178v1",
+        "https://hesameddinm.github.io/papers/mohzarsoljovTAC22.pdf",
+        "https://arxiv.org/pdf/1907.03712"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2006.09178v1",
+      "https://hesameddinm.github.io/papers/mohzarsoljovTAC22.pdf",
+      "https://proceedings.mlr.press/v80/fazel18a/fazel18a.pdf",
+      "https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=90Cxx",
+      "https://arxiv.org/abs/2006.09178",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "https://arxiv.org/pdf/1907.03712"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bu et al. give a gain-dependent sufficient condition to ensure each step decreases cost, whereas a nontrivial period-two orbit has unchanged cost over two steps and is outside that descent guarantee.",
+        "Mohammadi et al. provide a sublevel-set-Lipschitz sufficient descent bound and do not characterize this map for arbitrary eta.",
+        "Fazel et al. are discrete-time LQR with gradient-descent small-steps guarantees.",
+        "Mazumdar et al. §§2,4,5 assume a discrete-time plant and a general-sum multiagent game; the instability condition involves a strict-saddle Nash equilibrium and their limit cycles are numerical observations, unlike the proved hyperbolic positive two-cycle in the strictly convex one-agent objective."
+      ],
+      "reasoning": "The exact positive-invariance threshold is independent of initial gain, the two-cycle exists for *every* \\(t>1\\) and is attracting for \\(1<t<t_*\\), whereas prior papers restrict learning rate to ensure objective descent, which excludes these cycle orbits. Thus their implications do not contain the submitted sharp characterization.",
+      "searches": [
+        "scalar continuous-time LQR policy gradient descent exact discrete bifurcation flip critical step size two-cycle stability",
+        "fixed step policy gradient continuous LQR controller stabilizing but nonconvergent oscillatory two-cycle gain",
+        "https://arxiv.org/html/2006.09178v1",
+        "https://hesameddinm.github.io/papers/mohzarsoljovTAC22.pdf",
+        "https://proceedings.mlr.press/v80/fazel18a/fazel18a.pdf",
+        "https://arxiv.org/pdf/1907.03712"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct substitution converts the exact LQR objective to \\(J=a+(r/2)(y+y^{-1})\\) and its Euclidean gradient update to \\(F_t(y)=y+t(y^{-2}-1)\\).",
+        "Focused semantic searches returned different dynamical maps/algorithms; no source demonstrated this exact orbit classification.",
+        "Primary complete continuous-time source https://arxiv.org/html/2006.09178v1 §4.1 and appendices do not analyze a positive inverse-square two-cycle."
+      ],
+      "reasoning": "A statement in variables y and t would cover the full scalar LQR result if it establishes a positive two-cycle for F_t with the exact thresholds; the search included those aliases. Generic period-doubling theory does not by itself determine this map's rational product law, unique orbit, or the two sharp constants.",
+      "searches": [
+        "scalar continuous time linear quadratic feedback gradient descent inverse-square rational map period two attracting cycle sharp constant learning rate",
+        "iteration y + c (1/y^2 - 1) critical parameter attracting period-2 orbit",
+        "inverse square iteration x+h(1/x^2 -1) 2-cycle period-doubling attractive",
+        "convex function x + 1/x gradient descent period two cycle exact threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest hit SCOPE-polyak-objective-monotonicity-frontier concerns scaled Polyak steps on SPD quadratic cost; it does not study continuous-time LQR rational gain cost.",
+        "published-finding corpus closest hit SCOPE-sosgm-feedback-curvature-stability studies random-curvature stochastic feedback, not deterministic scalar LQR gradient policy dynamics.",
+        "The local weekly and preceding-week claim comparisons found no same LQR object/update, despite a few optimizer cycles on distinct objectives."
+      ],
+      "reasoning": "No inspected exact-value table or publication-record entry tabulates the two-cycle product law or t_* for this map. Matching words such as sharp step-size or periodic orbit without the same objective and operator do not imply coverage.",
+      "searches": [
+        "scalar continuous-time LQR policy gradient descent exact discrete bifurcation flip critical step size two-cycle stability",
+        "scalar continuous time linear quadratic feedback gradient descent inverse-square rational map period two attracting cycle sharp constant learning rate",
+        "iteration y + c (1/y^2 - 1) critical parameter attracting period-2 orbit",
+        "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "riccati",
+        "lqr",
+        "policy gradient",
+        "linear quadratic regulator",
+        "two-cycle"
+      ]
+    },
+    "rationale": "The same-policy-gradient source Bu et al. (arXiv:2006.09178v1) provides gain-dependent sufficient stabilizing/descent steps but no exact all-gain scalar positive-map threshold or an attracting fixed-step two-cycle. Mohammadi et al. (TAC 2022) prove convergence at sufficiently small sublevel-dependent steps, without classifying large steps or two-cycles. Fazel et al. (PMLR 2018) concern discrete-time LQR, a different objective. published-finding corpus alias/formulation searches and available own ledgers did not show dominating/equivalent coverage. These are real inspected scope comparisons, not a proof of universal uniqueness; unindexed equivalent one-dimensional rational-map work remains a priority risk.",
+    "residual_risks": [
+      "Some one-dimensional rational inverse-square iteration literature may use a different name and remain unindexed despite targeted queries.",
+      "No independent priority/correctness assessment has been performed; finite coverage of published mathematical records cannot prove uniqueness.",
+      "No claim for nonlinear, stochastic, or higher-dimensional control problems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes exact policy gradient setting and sufficient cost-decreasing stabilizing steps; no result derives the normalized scalar map's sharp all-gain threshold or a unique stable nonoptimal two-cycle.",
+        "evidence": [
+          "§4.1 equation (15): \\(K_{j+1}=K_j-\\eta_j\\nabla f(K_j)\\); Lemma 4.5 sufficient step conditions imply \\(f(K_{j+1})<f(K_j)\\).",
+          "Appendix B bounds positive gain-dependent permissible steps; §8 demonstrates convergence for those choices."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.09178v1",
+        "material_read": "Full-text HTML §3.2-3.4 model/cost and analyticity, §4.1 update equation (15), Lemmas 4.4-4.5 and stepsize analysis, §8 gradient demonstrations, §9 conclusions, appendices A/B and references.",
+        "method": "Read material sections in full-text arXiv HTML v1, not only title/abstract.",
+        "title": "Policy Gradient-based Algorithms for Continuous-time Linear Quadratic Control",
+        "trigger": "Same controlled object and same gradient-descent policy update; potential direct coverage of large-step cases."
+      },
+      {
+        "assessment": "Theorem 2 and §V.C analyze sufficiently small steps and guarantee cost decrease, not exact inverse-square 2-cycle or global positive half-line invariance threshold.",
+        "evidence": [
+          "Theorem 2 gives convergence rates with learning rate depending on the initial stabilizing gain and problem parameters.",
+          "§V.C obtains descent for alpha≤2/L_f on a bounded sublevel set."
+        ],
+        "identifier_or_url": "https://hesameddinm.github.io/papers/mohzarsoljovTAC22.pdf",
+        "material_read": "Full-text legal author-hosted PDF, mathematical formulation, Theorem 2 (p. 3), §V.C and proof of Theorem 2 (pp. 5-6), including sublevel-set Lipschitz constant and sufficient descent inequality.",
+        "method": "Read full PDF extracted text at theorem and proof; inspect PDF page image of relevant section.",
+        "title": "Convergence and Sample Complexity of Gradient Methods for the Model-Free Linear–Quadratic Regulator Problem",
+        "trigger": "Continuous-time LQR exact policy gradient descent and fixed-step convergence theorem potentially dominating scalar claim."
+      },
+      {
+        "assessment": "Discrete-time state dynamics and discounted/summed cost, unlike continuous-time scalar integral; supplies no exact fixed-step inverse-square map classification.",
+        "evidence": [
+          "The paper defines x_{t+1}=Ax_t+Bu_t and discrete-time infinite-horizon cost.",
+          "Theorems 7/9 establish convergence under prescribed sufficiently small learning rates, not large-step-cycle behavior."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v80/fazel18a/fazel18a.pdf",
+        "material_read": "Accessible full-text PMLR PDF, initial model definition, gradient analysis and Theorem 7/9 convergence sections.",
+        "method": "Read downloaded-page-text representation and PDF page images.",
+        "title": "Global Convergence of Policy Gradient Methods for the Linear Quadratic Regulator",
+        "trigger": "Foundational policy-gradient convergence and potential implication from generic LQR theory."
+      },
+      {
+        "assessment": "Different object: two- or multiple-player general-sum game on a discrete-time plant with a coupled nonconvex gradient field, and empirical cycles. Does not establish a scalar continuous-time convex LQR map or its unique prime period-two orbit, exact product parameter and stability boundaries.",
+        "evidence": [
+          "Their §2 equation (1) is z(t+1)=Az(t)+sum_i B_i u_i(t); §2 equation (2) is joint multi-player gradient-play.",
+          "Their §5 Figures 2–3 describe numerically observed multiagent limit cycles; no exact 1D positive two-cycle parametrization is asserted."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1907.03712",
+        "material_read": "Full primary arXiv PDF text: abstract; §2 discrete-time multi-player setup and feedback update; §3 gradient-play Nash conditions; §4 strict saddle avoidance proof; §5 two-player numerical limit cycles; §6 conclusions, with relevant PDF page-image inspection.",
+        "method": "Read original PDF and page images; compared the plant, number of agents, update and proven dynamical claims.",
+        "title": "Policy-Gradient Algorithms Have No Guarantees of Convergence in Linear Quadratic Games",
+        "trigger": "Potential stronger or equivalent statement about oscillation under LQ policy-gradient learning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3bfbf5bd-c023-443b-9153-f349846ef8da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cost is a natural and motivated scalar continuous-time feedback-control objective from the foundational LQR policy-gradient literature. The proven separation between globally preserved stabilization \\(0<t<3\\sqrt3/2\\) and failed optimization (repelling optimum and locally attracting nonoptimal cycle for \\(1<t<t_*\\)) directly addresses choosing a fixed learning rate. The phase boundaries and unique cycle are exact, distinct and not implied by small-step convergence. Their dependence on the plant parameter is explicit via \\(\\eta=2\\sqrt{1+a^2}t\\). The cycle-multiplier threshold and radical witness expose a dynamical mechanism; this is more than recomputing a textbook gradient or a numerical simulation. Natural limits and unproved extensions are explicit.",
+    "status": "PASS"
+  }
+}
