@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof uses only the exact printed model (1). A weighted B-cell/plasma quantity cancels every maturation and differentiation flux and is nonincreasing, while N+H+G obeys a scalar dissipative bound, establishing global boundedness. Variation-of-constants formulas then propagate strict positivity through the finite chain to B_n and P for every positive time. Since P is nondecreasing and strictly positive after any t0>0, the exact antigen equation gives an exponential upper bound forcing V to zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meyer-Hermann and coauthors study B-cell selection, division, exit, and plasma-cell production in a different germinal-center model.",
+        "De Boer and Perelson study broad neutralizing-antibody evolution during chronic HIV infection with persistent evolving viral diversity.",
+        "Neither comparison model has the exact finite irreversible chain plus P'=kappa B_n and V'=-mu V P that makes the accepted theorem immediate once positivity is established."
+      ],
+      "reasoning": "The broader literature covers germinal-center maturation and chronic-antigen dynamics, but does not subsume the exact structural contradiction in the motivating ODE.",
+      "searches": [
+        "\"A theory of germinal center B cell selection division and exit\" plasma cells mathematical model",
+        "\"How Germinal Centers Evolve Broadly Neutralizing Antibodies\" mathematical model chronic infection",
+        "germinal center B cell mutation model plasma cell chronic virus persistence"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/mbe.2017037",
+      "doi:10.1128/JVI.00983-17",
+      "doi:10.1016/j.celrep.2012.05.010"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific asymptotic correction was located.",
+        "The source presents persistence as a consequence of not reaching the terminal clone in the finite simulation.",
+        "The inspected broader models use different germinal-center mechanisms and do not imply the exact finite-chain theorem.",
+        "Owned current and prior ledgers contain no target DOI, exact title, or equivalent clearance claim."
+      ],
+      "reasoning": "A generic biological statement that chronic viruses can persist does not imply persistence in this exact ODE. Conversely, generic positivity theory does not by itself state the source-specific consequence for its n=50 interpretation. The accepted result combines the exact cascade with the monotone plasma-cell/antigen equations.",
+      "searches": [
+        "\"10.3934/mbe.2017037\" correction erratum",
+        "\"Germinal center dynamics during acute and chronic infection\" B50",
+        "\"Germinal center dynamics during acute and chronic infection\" plasma cells virus persists",
+        "finite germinal center mutation chain asymptotic antigen clearance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source states that B50 is not reached in its chronic calculation and therefore predicts no plasma-cell virus removal.",
+        "The exact finite chain is strongly positive for every t>0, so B50 and P are never identically absent after positive time.",
+        "The antigen equation with monotone P then forces V to zero, which is equivalent to exclusion of positive asymptotic persistence."
+      ],
+      "reasoning": "Equivalent formulations include positivity of the terminal clone, eventual plasma-cell production, impossibility of a positive antigen limit, and reinterpretation of chronic persistence as a finite-window effect. The searches covered these formulations.",
+      "searches": [
+        "\"10.3934/mbe.2017037\" plasma cells virus persists model positivity",
+        "\"Germinal center dynamics during acute and chronic infection\" virus persists B50 never reached",
+        "germinal center model finite mutation chain antigen clearance plasma cells asymptotic",
+        "Erwin Ciupe 2017 mathematical model B50 virus persists correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at model (1), including N, H, G, the finite B-cell chain, P'=kappa B_n, and V'=-mu V P.",
+        "The n=50 discussion was inspected where the source says the terminal clone is not reached and interprets the lack of plasma-cell removal as viral persistence.",
+        "Table 1 gives positive initial B0 and V and zero initial downstream clones and plasma cells.",
+        "The publisher record lists primary MSC 92 and a day-resolved publication date of 1 June 2017; a legacy portal gives only month-level online timing in December 2016."
+      ],
+      "reasoning": "The claim is reconstructed from the exact printed equations, initial conditions, and chronic-infection interpretation rather than from a secondary summary.",
+      "searches": [
+        "doi:10.3934/mbe.2017037 model 1 B_n plasma cells virus",
+        "doi:10.3934/mbe.2017037 Figure 4 B50 chronic infection",
+        "doi:10.3934/mbe.2017037 Table 1 initial B0 V",
+        "doi:10.3934/mbe.2017037 publication MSC"
+      ]
+    },
+    "rationale": "Finite positive cascades and comparison arguments are standard tools. Originality is restricted to the source-specific consequence that the published n=50 chronic-persistence interpretation cannot hold asymptotically for model (1) as written. Targeted source, alias, persistence, terminal-clone, and broader germinal-center searches found no equivalent published correction.",
+    "residual_risks": [
+      "A non-indexed note could have observed the same finite-chain asymptotic without appearing in the checked searches.",
+      "The terminal clone may be far below numerical or biological resolution over the time horizon used by the source; the theorem is about exact asymptotic dynamics, not practical detectability.",
+      "The publisher has conflicting bibliographic granularity: a legacy portal reports only 'Published online: December 2016', while the day-resolved publisher record gives 1 June 2017."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FINITE_CHAIN_MODEL_FORCES_ASYMPTOTIC_ANTIGEN_CLEARANCE",
+        "evidence": "Every downstream clone is strictly positive for positive time, P is strictly increasing from zero, and V obeys an exponential upper bound after any positive time.",
+        "identifier_or_url": "doi:10.3934/mbe.2017037",
+        "material_read": "Full publisher PDF at model (1), initial conditions and parameter table, sensitivity discussion, n=50 chronic calculation and Figure 4, and the later mutating-antigen section. The model-equation page and the pages containing the n=50 interpretation were visually inspected.",
+        "method": "Constructed a weighted dissipative quantity for the B-cell/plasma cascade, proved global boundedness, propagated strict positivity through the finite chain, and applied the exact antigen equation.",
+        "title": "Germinal center dynamics during acute and chronic infection",
+        "trigger": "Primary source containing the target finite mutation-chain model and chronic-persistence interpretation."
+      },
+      {
+        "assessment": "BROADER_GERMINAL_CENTER_MODEL_DIFFERENT_MECHANISM",
+        "evidence": "The model treats affinity selection and plasma-cell exit through a distinct germinal-center framework rather than the target's finite serial ODE chain and multiplicative antigen-removal equation.",
+        "identifier_or_url": "doi:10.1016/j.celrep.2012.05.010",
+        "material_read": "Open article record and accessible full-paper material covering the model's B-cell selection, division, dark-zone return, and plasma-cell exit mechanism.",
+        "method": "Compared model mechanism and implication scope with the finite one-way mutation cascade.",
+        "title": "A theory of germinal center B cell selection, division, and exit",
+        "trigger": "Primary mathematical/computational germinal-center model cited by the motivating article and closely related to B-cell selection and plasma-cell production."
+      },
+      {
+        "assessment": "CHRONIC_GERMINAL_CENTER_PRIOR_ART_DIFFERENT_VIRAL_DYNAMICS",
+        "evidence": "The later model explicitly represents chronic and evolving viral diversity and does not contain the target finite cascade with irreversible plasma-cell accumulation.",
+        "identifier_or_url": "doi:10.1128/JVI.00983-17",
+        "material_read": "Open full article at the model motivation and chronic-infection discussion, including the role of T follicular helper cells, continuing germinal centers, and evolving viral populations.",
+        "method": "Compared whether a chronic-infection germinal-center model with persistent antigen implied the target source's finite-chain asymptotics.",
+        "title": "How Germinal Centers Evolve Broadly Neutralizing Antibodies: the Breadth of the Follicular Helper T Cell Response",
+        "trigger": "Later primary chronic-HIV germinal-center modeling with sequential antibody evolution and persistent viral diversity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0af780b9-db30-43b8-9c1f-157ad95f21bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses failure to reach the terminal clone as the mathematical mechanism representing chronic infection. The exact ODE instead guarantees that every finite chain reaches the terminal clone immediately in the strict-positivity sense and eventually clears antigen because plasma cells accumulate without death. This changes the model's long-time biological interpretation and identifies the simulations as metastable or resolution-limited rather than genuinely persistent.",
+    "status": "PASS"
+  }
+}
