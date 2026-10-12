@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Derived exactly the two Bernoulli branches, 3x3 covariance operator, determinant factorization, one positive root, and positive-map Perron eigenmatrix crossing argument. Every nonzero initialized coordinate excites a positive definite covariance after one step; this proves necessity and exponential growth beyond threshold, not merely a simulation. 64 rational determinant plus 320 exact finite-history checks agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alderman et al. explicitly discuss the missing critical momentum parameter and expected Euclidean norm in Section 4.2.",
+        "The minibatch-HBM result requires sufficiently large batches for accelerated linear rates, unlike KGSM batch one."
+      ],
+      "reasoning": "Searched for blanket KGSM mean-square theorems and comparison with stochastic heavy ball stability. The closest broader rate claims concern signed error or a different minibatch solver; neither implies the exact quadratic threshold for source-form batch-one KGSM.",
+      "searches": [
+        "KGSM diagonal A geometric smoothing M beta mean square stability second moment sharp parameter frontier",
+        "stochastic heavy ball Kaczmarz projection orthogonal coordinates second moment matrix mean-square stability",
+        "2024 randomized Kaczmarz geometrically smoothed momentum variance instability moment proof",
+        "\"geometrically smoothed momentum\" \"mean-square\" \"Kaczmarz\"",
+        "\"KGSM\" \"mean squared\" stability",
+        "arxiv:2401.09415v3 Sections 2.7 4.2; arxiv:2206.07553v5 Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.09415v1 (first public date 2024-01-17; primary MSC 65F10)",
+      "arxiv:2401.09415v3 (source full-text algorithm, theorem, limitations, discussion)",
+      "arxiv:2206.07553v5 (related but distinct minibatch-HBM)",
+      "SIAM 10.1137/24M1633820 (KGSM journal identity; journal date not used for D)",
+      "published-finding corpus mathematical research index, targeted KGSM/diagonal/moment searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At M=9/10, beta=0, pi=1/2 the signed first-moment eigenvalues have modulus sqrt(9/10)<1, while det(I-T)=-31/100<0 guarantees mean-square instability.",
+        "KGSM Section 4.2 itself states the critical momentum and expected norm questions are outstanding."
+      ],
+      "reasoning": "The actual implication comparison is strict: existence of convergent signed means cannot imply mean-square stability; the concrete rational parameters refute it. The stochastic minibatch result is not an all-parameter batch-one KGSM statement, even in the orthogonal family.",
+      "searches": [
+        "arxiv:2401.09415v3 eqs (9)-(14), Remark 2.2, Section 4.2",
+        "arxiv:2206.07553v5 equations (HBM), (Minibatch-HBM)",
+        "KGSM Alderman Luikart Marshall geometrically smoothed momentum exact second moment stability spectral radius diagonal orthogonal rows",
+        "Kaczmarz geometrically smoothed momentum positive mean-square divergence signed expectation converges threshold root"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The KGSM source equation (10) fixes a geometric momentum state; its Theorem 1.1 computes only signed first moments.",
+        "Bollapragada–Chen–Ward use minibatch-HBM rather than the KGSM geometric smoothing state."
+      ],
+      "reasoning": "Translated the proposed result into spectral radius of the exact 3x3 second-moment operator, covariance mean-square stability, and the Schur criterion for the expected 2x2 operator. The defining 2x2 signed-moment theorem is not equivalent: the M=9/10 witness has stable signed expectation but unstable covariance. Minibatch heavy ball changes the random update and cannot identify this operator.",
+      "searches": [
+        "KGSM Alderman Luikart Marshall geometrically smoothed momentum exact second moment stability spectral radius diagonal orthogonal rows",
+        "Kaczmarz geometrically smoothed momentum positive mean-square divergence signed expectation converges threshold root",
+        "KGSM diagonal A geometric smoothing M beta mean square stability second moment sharp parameter frontier",
+        "arxiv:2401.09415v3 Section 1.5; arxiv:2206.07553v5 Section 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching published-finding corpus indexed result was returned in targeted semantic searches.",
+        "The source plots algorithm trajectories and parameters but does not tabulate or derive an exact all-probability 3x3 covariance determinant and phase root."
+      ],
+      "reasoning": "Unlike an already-tabulated spectral threshold, the reported root is derived from the source algorithm and the full second-moment transition. A failed search alone is not a priority guarantee.",
+      "searches": [
+        "KGSM Alderman Luikart Marshall geometrically smoothed momentum exact second moment stability spectral radius diagonal orthogonal rows",
+        "Kaczmarz geometrically smoothed momentum positive mean-square divergence signed expectation converges threshold root",
+        "KGSM diagonal A geometric smoothing M beta mean square stability second moment sharp parameter frontier",
+        "stochastic heavy ball Kaczmarz projection orthogonal coordinates second moment matrix mean-square stability",
+        "2024 randomized Kaczmarz geometrically smoothed momentum variance instability moment proof",
+        "\"geometrically smoothed momentum\" \"mean-square\" \"Kaczmarz\"",
+        "\"KGSM\" \"mean squared\" stability",
+        "published-finding corpus: KGSM diagonal A geometric smoothing M beta mean square stability second moment sharp parameter frontier"
+      ]
+    },
+    "rationale": "The exact full orthogonal-diagonal KGSM second-moment stability frontier, its probability-dependent root, and the signed-vs-squared separation do not follow from the defining signed-first-moment analysis; the original article explicitly identifies these questions. Related minibatch momentum paper uses a different update. Priority risk from unindexed specialized derivations remains.",
+    "residual_risks": [
+      "An unindexed specialized exact second-moment analysis of KGSM might exist; keyword and semantic searches cannot establish absolute novelty.",
+      "The result does not settle the defining paper’s general nonorthogonal critical momentum question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves a signed first-moment 2x2 recurrence and poses missing norm and critical-momentum analysis; no all-beta probability-dependent 3x3 covariance stability root found in the material reviewed.",
+        "evidence": [
+          "arxiv:2401.09415v3 eq. (9), Theorem 1.1, Remark 2.2, Section 4.2.1 and 4.2.4",
+          "arXiv v1 submitted 2024-01-17; published source labels Primary 65F10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.09415v3",
+        "material_read": "Sections 1.1–1.5, equations (9)–(14), Section 2.7 and Remark 2.2, Section 3 recurrence proof, Sections 4.1–4.2 and Appendix topics",
+        "method": "Read lawful public full-text HTML and compared update and first-moment/euclidean-moment quantifiers",
+        "title": "Randomized Kaczmarz with geometrically smoothed momentum",
+        "trigger": "Identical source-form iteration, expected-error claims and open critical-momentum question"
+      },
+      {
+        "assessment": "Different algorithm with minibatch stochastic gradient and heavy-ball velocity; sufficient acceleration results do not imply a source-form KGSM batch-one covariance threshold. This is not evidence about every possible result in its appendices.",
+        "evidence": [
+          "arxiv:2206.07553v5 equations (HBM), (Minibatch-HBM), Assumption 1.1 and Theorem 1.3 description"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.07553v5",
+        "material_read": "Abstract, Section 1 (HBM and Minibatch-HBM update definitions, batch-size assumptions, claimed results), section listing of main results",
+        "method": "Read lawful public full-text HTML update and compare momentum state/batching to KGSM",
+        "title": "On the fast convergence of minibatch heavy ball momentum",
+        "trigger": "Plausible stronger stochastic momentum convergence analysis cited by KGSM paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e894b5e6-0aeb-4870-af0c-be527466d224",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Source explicitly identifies the unknown critical KGSM momentum and expected Euclidean norm as research questions. The full sharp threshold on all invertible diagonal linear systems and arbitrarily unequal induced row probabilities provides a natural exact baseline; smoothing changes the stability region, and signed expectation can decay while mean-squared error grows. A meaningful solver-design boundary, not a trivial normalization or fabricated generalization.",
+    "status": "PASS"
+  }
+}
