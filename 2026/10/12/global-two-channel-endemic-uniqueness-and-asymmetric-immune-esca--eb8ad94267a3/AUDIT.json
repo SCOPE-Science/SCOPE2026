@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) follows by an invertible 2-by-2 equilibrium system. An explicitly positive coefficient expansion gives F prime >1 for every independent nonnegative feedback pair, guaranteeing unique positive root and positive reconstruction. Exact implicit partial derivatives prove individual comparative statics including the sigma=1 exception. A feedback-uniform positive infection lower bound controls the independent axis and joint singular limits; the recovered and cross-immune steady equations imply the stated O(1/eps1+1/eps2) estimate without any ratio assumption. A standalone SymPy checker evaluates these identities and one exact example; the infinite assertions are proved analytically, not by testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Casagrandi et al. 2006 describes original SIRC dynamics without state-dependent immune-escape feedback; the 2026 source explicitly defines it as the epsilon1=epsilon2=0 limit.",
+        "published-finding corpus: 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd concerns reversible mutation for microbial chemostats, not the four-compartment SIRCm prevalence-feedback equilibrium."
+      ],
+      "reasoning": "Classical SIRC analysis, finite-rate persistence, and diagonal feedback results cover strict subfamilies, not arbitrary independent nonnegative (epsilon1,epsilon2) and both separate axes. Related chemostat Perron monotonicity concerns a different state equation and cannot imply this rational endemic balance.",
+      "searches": [
+        "mutation selection infection-driven immune escape prevalence-driven SIRCm endemic equilibrium stability bifurcation 2026",
+        "Prevalence-driven SIRCm four compartment model independent waning feedback epsilon1 epsilon2 all-strength endemic equilibrium uniqueness monotonicity anisotropic strong-feedback limits SIS",
+        "global uniqueness endemic equilibria susceptible infected recovered cross-immune SIRC model with state-dependent waning rate prevalence proportional feedback",
+        "Casagrandi 2006 SIRC model analytical endemic equilibrium uniqueness",
+        "doi:10.1016/j.mbs.2005.12.029"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01111v1 (full HTML)",
+      "doi:10.1016/j.mbs.2005.12.029 (abstract/bibliography)",
+      "2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd (summary)",
+      "2026/9/14/SCOPE021 (summary)",
+      "2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f (summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original Theorem 3.1 proves existence for all independent epsilon parameters, not uniqueness; its weak/strong analysis is diagonal or single strength.",
+        "The equal-feedback diagonal is a proper parameter subfamily. Its uniqueness and monotonicity do not logically imply results for arbitrary independent parameters or the unequal feedback limits.",
+        "published-finding corpus record 2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f treats a bistable age-structured Gurtin–MacCamy population model, not the same implication."
+      ],
+      "reasoning": "Prior diagonal uniqueness is strictly contained in this result; it cannot determine fixed-epsilon2/epsilon1-infinity limits or prove monotonicity in each coordinate separately. The motivating source has numerical two-dimensional pictures but neither analytic all-strength uniqueness nor the asymmetry theorem. These differences concern quantified statements, not titles.",
+      "searches": [
+        "Compartmental epidemiological models with infection-driven immune escape SIRCm transmission driven prevalence driven feedback equilibria",
+        "Cross-immune SIRC epidemic two feedback rates separate singular limits one feedback diverges residual immune compartment endemic prevalence",
+        "arXiv 2610.01111 Ramírez-Gutiérrez Lóczi Muñoz-Moncayo Ketcheson SIRCm uniqueness prevalence-driven endemic equilibrium all epsilon1 epsilon2",
+        "site:arxiv.org/html/2610.01111 prevalence driven unique equilibrium feedback epsilon_1 epsilon_2 independent existence",
+        "arXiv:2610.01111v1 Theorem 3.1, Proposition 4.2, Proposition 4.8, Appendix 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source Eq. (1), (3): two independent feedback factors; Section 4 restricts to equal-feedback diagonal for analytic asymptotics; Appendix 8 gives reconstructed compartments on diagonal.",
+        "The new scalar relation uses I+alpha I N/D=L with N=d+(1-sigma)a, D=mu d+a e and permits all independent pairs."
+      ],
+      "reasoning": "Eliminating R and C from the printed equations yields the scalar rational relation and positive derivative. A two-dimensional continuation plot or a proof valid on the diagonal does not entail its strict monotonicity in each independent coordinate, nor the different one-channel singular limits.",
+      "searches": [
+        "Compartmental epidemiological models with infection-driven immune escape SIRCm transmission driven prevalence driven feedback equilibria",
+        "arXiv 2610.01111 Ramírez-Gutiérrez Lóczi Muñoz-Moncayo Ketcheson SIRCm uniqueness prevalence-driven endemic equilibrium all epsilon1 epsilon2",
+        "\"SIRCm\" \"two-parameter\" \"unique\" equilibrium prevalence driven",
+        "prevalence-driven SIRC model independent immune waning escape parameters equilibrium uniqueness monotonicity",
+        "arXiv:2610.01111v1 Sections 3–4, Appendix 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source displays numerical 2D endemic-prevalence surfaces without an exact all-strength independent-feedback table.",
+        "The strongest published-finding corpus approximate hit 2026/9/14/SCOPE021 concerns R0 bracketing in a two-patch SEIR model, not this SIRCm equilibrium identity."
+      ],
+      "reasoning": "The finding is an exact analytic classification of a two-dimensional continuous parameter family, not a recomputation of a published table. Searches were negative but do not establish uniqueness or publication novelty.",
+      "searches": [
+        "SIRCm prevalence driven endemic I scalar rational equation positivity of derivative all mutation feedback and coordinatewise comparative statics",
+        "SIRCm one mutation channel strong epsilon1 infinite epsilon2 fixed cross immune persists anisotropic fast slow equilibrium",
+        "\"SIRCm\" \"unique\" endemic \"epsilon\" all feedback 2026",
+        "\"Compartmental epidemiological models with infection-driven immune escape\" no uniqueness independent parameters",
+        "arXiv:2610.01111v1 Appendix 8 Figure 16"
+      ]
+    },
+    "rationale": "The motivating full text gives all-strength existence but only weak/strong diagonal analytic uniqueness; its two-parameter plots are numerical. The diagonal restriction is a strict special case and is not counted as independent novelty; the novel claim is the full independent-parameter classification and distinct one-axis limits. Classical SIRC is a zero-feedback specialization. Structured searches found no stronger covering theorem; absence of hits is not a proof of novelty, and inaccessible older full-text literature remains a genuine residual risk.",
+    "residual_risks": [
+      "Full text of Casagrandi et al. (2006) was not inspected; only abstract/bibliographic evidence was available. Its zero-feedback model is not expected to dominate the two-feedback theorem, but no whole-document noncoverage is claimed.",
+      "Unindexed or not-yet-public mathematical research, including possible independent reductions, cannot be ruled out.",
+      "The diagonal specialization alone is not counted as novel; the claim requires unequal independent feedback strengths."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Existence applies to both independent feedbacks; proven uniqueness is limited to small/large diagonal feedback. Full two-parameter stability diagrams are numerical. No analytic joint all-strength uniqueness or separate-channel limit is stated in examined material.",
+        "evidence": [
+          "Eq. (1a–d) and Eq. (3) define the target ODE; Theorem 3.1 asserts existence for any epsilon1,epsilon2; Section 4 imposes diagonal epsilon1=epsilon2 for analytic results; Appendix 8, Fig. 16 reconstructs prevalence on a 2D plot."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01111v1",
+        "material_read": "Material portions of the complete accessible HTML inspected, especially Sections 2, 3, 4.1, 4.3, and Appendix 8, including equations, proofs and figure captions",
+        "method": "Reading full open-access arXiv HTML text, comparing the quantifiers in Eq. (1), Theorem 3.1, Proposition 4.2, Proposition 4.8, Appendix 8",
+        "title": "Compartmental epidemiological models with infection-driven immune escape",
+        "trigger": "Exact motivating model, parameters, and potentially dominating results"
+      },
+      {
+        "assessment": "Classical cross-immune SIRC equilibrium and bifurcation context, but no examined indication that it treats infection-dependent two-channel immune escape. Cannot conclude anything about unexamined full text.",
+        "evidence": [
+          "2006 abstract describes SIRC, cross immunity, influenza drift, seasonal dynamics; 2026 paper explicitly recovers this as epsilon1=epsilon2=0."
+        ],
+        "identifier_or_url": "doi:10.1016/j.mbs.2005.12.029",
+        "material_read": "PubMed abstract and Princeton repository bibliographic synopsis; full article not accessible in reviewed open locations",
+        "method": "Bibliographic and abstract inspection at https://pubmed.ncbi.nlm.nih.gov/16504214/ and https://collaborate.princeton.edu/en/publications/the-sirc-model-and-influenza-a/",
+        "title": "The SIRC model and influenza A",
+        "trigger": "Original zero-feedback predecessor that could cover equilibrium uniqueness"
+      },
+      {
+        "assessment": "Different chemostat growth-weighted mutation equations; claims about Perron growth thresholds do not encompass SIRCm endemic equilibria. Full paper not read and no whole-document noncoverage assertion is made.",
+        "evidence": [
+          "Summary specifies irreducible reversible generator and all-rate washout/coexistence; target is prevalence-dependent R-to-C and C-to-S feedback."
+        ],
+        "identifier_or_url": "2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd",
+        "material_read": "Title and detailed public research summary",
+        "method": "Read indexed title and summary from mathematical research search",
+        "title": "All-rate threshold theorem for growth-weighted reversible mutation in a chemostat",
+        "trigger": "Closest semantic database result for two mutation coefficients and all-rate thresholds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb8ad942-67a3-4d14-9f69-6791bbe4c5c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Independent immune-waning and immune-escape feedbacks are biologically distinct modeled channels. The original article explicitly displays a two-dimensional feedback surface but its analytical uniqueness and asymptotic results focus on the diagonal. Complete global parameter-wise uniqueness, exact monotonic prevalence response with a sharp sigma=1 zero-sensitivity boundary, and provably noncommensurate one-channel limits resolve the natural question of whether either channel alone creates SIS-like endemic prevalence. This determines precise immune-class residues and prevents interpreting a large single feedback as an SIS reduction. It does not rely on arbitrary finite slices or claim dynamical stability.",
+    "status": "PASS"
+  }
+}
