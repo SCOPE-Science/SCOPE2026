@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each diagonal SPD metric the symmetric similarity transform is a nonnegative symmetric four-vertex path with squared edges q_i=p_i/p_{i+1}. Strict Perron monotonicity forces extremal endpoint weights. At fixed central ratio s=p_3/p_2, the product q_1q_3 and q_2 are fixed; the exact characteristic polynomial shows the Perron eigenvalue increases with q_1+q_3, so AM-GM uniquely balances the outer edges, with a feasible equality metric for every s. The remaining one-variable Perron eigenvalue has an explicitly differentiated sign controlled by K r^3=2, proving the unique phase-change minimizer. Substitution gives the two formulas for R(K). The logarithmic norm derivative at t=0 makes the weighted semigroup nonexpansion criterion an iff, and monotone inversion gives the three sharp conditioning thresholds. A rational K=16 witness has a congruent symmetric certificate with spectrum 0,-1,-3,-4, replayed by the standalone exact checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaszkurewicz–Bhaya defines robust diagonal Lyapunov stability in the control category but the public abstract does not state an exact conditioned optimum.",
+        "Mason–Shorten proves a common quadratic Lyapunov existence theorem and Metzler stability preliminaries; its full text does not state a metric-conditioning allocation theorem.",
+        "Mason 2012 studies existence of a diagonal Riccati stability inequality for positive time-delay systems.",
+        "Bhatia–Kahan–Li proves a monotone-scaling norm inequality under a very different objective, based on the public abstract."
+      ],
+      "reasoning": "Existence for a single Hurwitz Metzler matrix is weaker than the exact smallest allowed condition number achieving a prescribed logarithmic decay margin. Common-Lyapunov existence and triangular norm pinching do not supply the objective-dependent interior-balance transition. Full-body noncoverage is not inferred from an abstract.",
+      "searches": [
+        "Robust Stability and Diagonal Liapunov Functions Kaszkurewicz Bhaya 1993",
+        "On the simultaneous diagonal stability of a pair of positive linear systems Mason Shorten",
+        "Diagonal Riccati Stability and Positive Time-Delay Systems Mason",
+        "Pinchings and Norms of Scaled Triangular Matrices Bhatia Kahan Li",
+        "optimal diagonal scaling Jordan block logarithmic norm condition number constrained Lyapunov decay cascade"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0614036",
+      "doi:10.1016/j.laa.2005.07.019",
+      "doi:10.1016/j.sysconle.2011.09.022",
+      "doi:10.1080/03081080290011674",
+      "2026/9/9/SCOPE008",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published Mason–Shorten theorem asks for a single diagonal Lyapunov matrix valid for a pair of positive systems and characterizes matrix-pencil nonsingularity, without fixing or optimizing the conditioning of the metric.",
+        "The published SCOPE008 Jordan-block finding bounds Euclidean norm peaks on large blocks, but cannot yield optimal P or necessity against all conditioned diagonal P.",
+        "The objective here is the eigenvalue of the symmetric part after similarity, whereas the Bhatia–Kahan–Li theorem bounds norms of monotone diagonal similarities of an upper-triangular matrix."
+      ],
+      "reasoning": "The needed implication is an all-P lower bound together with an equality profile under condition number K. It follows from a new constrained spectral-graph reduction and is neither the existence of some stable metric nor a general matrix norm inequality. The related triangular-scaling paper remains a named access risk rather than being declared definitively noncovering based only on its abstract.",
+      "searches": [
+        "Metzler positive systems diagonal Lyapunov function condition number bounded decay rate",
+        "diagonal similarity weighted spectral abscissa path 4 nodes optimize product ratio",
+        "On the simultaneous diagonal stability of a pair of positive linear systems Theorem 4.2",
+        "Pinchings and Norms of Scaled Triangular Matrices scaled upper triangular matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest indexed published mathematical finding SCOPE008 treats transient peaks of unweighted Jordan cascades of dimensions 8–16, not diagonal metric condition budgets; other hits concern weighted Jacobi, Gauss–Seidel, or reflected-gradient stability.",
+        "The full Mason–Shorten paper discusses strong common diagonal Lyapunov functions and matrix-pencil nonsingularity, and did not give an optimally conditioned diagonal metric or the K=2 phase.",
+        "Searches of the exact phase, all-budget conditioned logarithmic norm, and related positive-Jordan scaling expressions returned no equivalent statement."
+      ],
+      "reasoning": "An equivalent formulation would optimize the diagonal quadratic metric for the four-stage upper Jordan cascade under a bound on its own spectral condition number, or give a universal lower bound proving the exact K=2 phase and the sixth-power threshold. Unrestricted diagonal stability, numerical-abscissa estimates without conditioning, and Euclidean transient peaks do not logically imply the minimizer or its budget dependence.",
+      "searches": [
+        "four state positive Jordan cascade diagonal Lyapunov condition number budget sharp phase transition K=2",
+        "optimal diagonal energy metric for Metzler Jordan block constrained condition number numerical abscissa",
+        "diagonal positive definite Lyapunov norm condition number upper triangular system exact optimal",
+        "conditioned diagonal Lyapunov function decay rate 4x4 path Metzler Jordan matrix",
+        "\"diagonal\" \"Lyapunov\" \"condition number\" \"logarithmic norm\" positive",
+        "\"minimum condition number\" \"diagonal Lyapunov\"",
+        "\"condition-number-constrained\" \"Lyapunov\" diagonal",
+        "\"4\" \"Jordan\" \"diagonal scaling\" \"norm\" optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The specific four-stage optimal profile, exact K=2 transition and inverse-sixth-power exponent were not found in searched database records or primary text.",
+        "The K=16 witness is checked by exact rational characteristic identities; the all-budget formula follows analytically, not from a table."
+      ],
+      "reasoning": "This is an infinite-parametric exact optimization theorem with a unique equality metric; matching only a witness or a similar triangular matrix is not sufficient coverage.",
+      "searches": [
+        "four stage Metzler Jordan diagonal norm K=2 phase transition",
+        "Jordan block diagonal Lyapunov conditioning Kcrit 16",
+        "positive Jordan cascade 1/(4 c^6) Lyapunov condition number",
+        "two outer edge balance four node Jacobi eigenvalue condition budget"
+      ]
+    },
+    "rationale": "Classical positive-systems theory establishes existence of some diagonal Lyapunov function for every Hurwitz Metzler matrix; this is not claimed as new. The full 2006 Mason–Shorten paper establishes a common-diagonal-Lyapunov existence criterion for two matrices, not the constrained condition-number budget and optimal logarithmic norm for one four-stage positive cascade. The full 2012 Mason diagonal-Riccati source concerns positive delay systems. A related triangular similarity-norm theorem of Bhatia–Kahan–Li has a substantially different objective; only its public abstract could be inspected, so its body is retained as an explicit residual risk. Searching the exact phase K=2, Jordan chain aliases, matrix measure, metric condition number, and diagonal rate margins located no equivalent or dominating statement. The claim requires the exact all-budget phase law and necessity of the sixth-power threshold, rather than generic diagonal stability or generic numerical-abscissa bounds.",
+    "residual_risks": [
+      "Some older diagonal-stability or matrix-scaling theorem may encode this constrained metric optimization under a different parameterization despite negative exact-form and semantic searches.",
+      "Only an abstract was available for Bhatia–Kahan–Li; its full text could potentially provide a relevant stronger triangular-scaling implication.",
+      "The early robust-diagonal-Lyapunov article was not read in full; the inspected record cannot establish whole-document noncoverage.",
+      "The result is tied to the uniform four-stage cascade and diagonal quadratic metrics; other matrix classes may have different phase laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSE_FOUNDATIONAL_NOT_COVERING: common Lyapunov existence for a pair of positive systems is prior background; no conditioned diagonal quadratic norm optimization or sharp four-stage cascade profile found.",
+        "evidence": "Abstract and introduction expressly specify necessary-and-sufficient existence of a common diagonal quadratic Lyapunov function; Theorem 4.2 concerns a matrix-pencil condition. No spectral condition-number budget or nongeometric four-link phase appears in the full source.",
+        "identifier_or_url": "doi:10.1016/j.laa.2005.07.019 / https://mural.maynoothuniversity.ie/id/eprint/1886/1/HamiltonSimultaneous.pdf",
+        "material_read": "Complete publicly accessible 11-page manuscript, from preliminary Metzler criteria and diagonal common quadratic Lyapunov definitions through the matrix-pencil existence theorem, examples, and conclusions; title/abstract page visually inspected.",
+        "method": "Lawful open institutional manuscript PDF; full-text inspection, targeted terminology checks, and rendered-page verification.",
+        "title": "On the simultaneous diagonal stability of a pair of positive linear systems",
+        "trigger": "Highly relevant full primary paper on diagonal Lyapunov functions and Metzler positivity."
+      },
+      {
+        "assessment": "RELEVANT_DIFFERENT_OBJECT: time-delay Riccati stability rather than condition-limited logarithmic norm of a finite Jordan cascade.",
+        "evidence": "Main object is a diagonal Riccati solution for positive time-delay systems; no fixed metric condition budget, exact K=2 transition, or sixth-power frontier.",
+        "identifier_or_url": "doi:10.1016/j.sysconle.2011.09.022",
+        "material_read": "Complete 11-page open institutional PDF inspected, including introduction, diagonal Riccati condition and examples; visually verified title/abstract page.",
+        "method": "Lawful open full-text PDF inspection with page image verification and targeted term searches.",
+        "title": "Diagonal Riccati Stability and Positive Time-Delay Systems",
+        "trigger": "Primary full manuscript on diagonal stability of positive systems with quantitative matrix inequalities."
+      },
+      {
+        "assessment": "CLASSIFICATION_AND_PRIOR_BACKGROUND; access-limited for statement-level exclusion beyond abstract.",
+        "evidence": "Primary MSC 93D09 and published-online date 2006-07-17 are shown in publisher metadata; record addresses diagonal Lyapunov robust stability, not explicitly the conditioned four-stage theorem.",
+        "identifier_or_url": "doi:10.1137/0614036",
+        "material_read": "Publisher abstract, bibliographic chronology and primary MSC classifications; article body was not accessible through inspected routes.",
+        "method": "Publisher record and bibliographic metadata inspection; no full-body noncoverage assertion.",
+        "title": "Robust Stability and Diagonal Liapunov Functions",
+        "trigger": "Early literature with verified primary control MSC and day-resolved public archival source date."
+      },
+      {
+        "assessment": "PLAUSIBLE_PARTIAL_COMPARISON: the abstract proves a monotone diagonal-similarity norm inequality, not the conditioned symmetric-part eigenvalue problem; full-body overlap remains a residual risk.",
+        "evidence": "Abstract states \\(\\|D^{-1}UD\\|\\ge\\|U\\|\\) for upper triangular \\(U\\) with monotone diagonal \\(D\\) and pinching-reduced matrix norms; it does not display a condition-limited optimal logarithmic norm.",
+        "identifier_or_url": "doi:10.1080/03081080290011674",
+        "material_read": "Full public journal abstract and bibliographic data; a search surfaced an author-uploaded ResearchGate version but the seven-page body was not obtained and read.",
+        "method": "Journal abstract plus open-access version search before classifying as unresolved access risk.",
+        "title": "Pinchings and Norms of Scaled Triangular Matrices",
+        "trigger": "Plausible stronger diagonal-similarity matrix norm theorem for triangular systems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d808ba1-bdde-4d21-8d22-afeef7c2eebf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stable positive linear systems always admit some diagonal quadratic Lyapunov function, but an arbitrarily ill-conditioned metric is of limited practical value for controlling observable transients. This theorem solves the first positive chain with three competing link scalings under a natural fixed condition-number budget, shows a nontrivial K=2 optimizer phase transition, and gives the exact sixth-power conditioning price for a nonexpansive semigroup certificate. The profile changes from two constant plateaus to unequal link allocations and is not given by default geometric scaling. The exact rational K=16 obstruction exhibits a meaningful quantitative distinction between Hurwitz stability and a well-conditioned diagonal Lyapunov certificate.",
+    "status": "PASS"
+  }
+}
