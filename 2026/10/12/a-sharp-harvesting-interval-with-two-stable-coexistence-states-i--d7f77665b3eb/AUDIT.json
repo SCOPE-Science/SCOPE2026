@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The reported equations are Eq. (4) in the 2026 source. In the source subfamily e=1 and gamma=eta, predator equilibrium implies v=beta*u/eta. The positive coexistence equation h(u)=E/alpha has cubic numerator. The explicit first and second derivatives show h has precisely two positive turning points iff beta^2>eta, h′(0)<0<h′(u_i); the three monotone arcs give the strict, necessary-and-sufficient harvest interval including u=0 and E=0 boundaries. At equilibria, direct Jacobian differentiation gives det J = -alpha*beta*u^2*h′(u)/(1+beta*u)^2. In the rational witness the cubic has opposite exact endpoint signs on three disjoint positive intervals, certifying precisely three simple roots. The exact equilibrium trace is -2*u*Q(u)/(15*(1+8u)^2), with Q′=(24u-7)(120u+23), minimum Q(7/24)=335/18>0; hence outer roots are hyperbolic attractors and middle root a hyperbolic saddle. The implicit-function theorem proves local persistence. The included current-path verify.py independently checks all critical identities and rational endpoint signs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2022 Frontiers article (DOI 10.3389/fams.2021.731038) explicitly reports two stable states and three positive roots for a weak-Allee Leslie–Gower model; its reduced nullclines are v=u and v=(u+A)(1-u)(u-M)/Q, not Liu’s v=(beta/eta)u with h(u)=E/alpha.",
+        "Devi and Fatma (2024), DOI 10.1007/s40819-023-01673-6, abstract describes strong-Allee prey, Holling-I response, and predator harvesting, not the exact current weak-Allee prey-harvesting ODE.",
+        "Published published-finding corpus record 2026/9/17/SCOPE-degenerate-porous-neumann-steady-patterns--5a1b4944a368 discusses an unrelated porous-diffusion steady pattern; record 2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175 discusses an unrelated replicator model."
+      ],
+      "reasoning": "Three coexistence states and ecological bistability themselves are known and explicitly not claimed as new. The prior models have different nonlinear flow equations and parameter maps; no general theorem located entails this particular E-dependent sharp interval or the simultaneous negative-trace rational witness. A similarly titled inaccessible 2024 full text carries residual risk, mitigated by its materially different abstract.",
+      "searches": [
+        "\"Stability Analysis of a Modified Leslie–Gower Predation Model With Weak Allee Effect in the Prey\" 2022",
+        "\"weak Allee\" \"prey harvesting\" \"three\" \"coexistence\" \"predator\" 2026",
+        "ecological bistability coexistence weak Allee saturating mortality alternative stable equilibria"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1186/s13662-025-04046-z",
+      "https://www.frontiersin.org/journals/applied-mathematics-and-statistics/articles/10.3389/fams.2021.731038/full",
+      "https://link.springer.com/article/10.1007/s40819-023-01673-6",
+      "https://openalex.org/W7118194955",
+      "2026/9/17/SCOPE-degenerate-porous-neumann-steady-patterns--5a1b4944a368",
+      "2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu et al. (2026) Theorem 1 is an equilibrium existence account based on a cubic and Descartes sign tests; its Theorem 4 gives a conditional trace/determinant stability test; its global theorem assumes a unique coexistence equilibrium.",
+        "The new equivalence h(u)=E/alpha, h′′ monotonicity and exact height interval prove the positive-root count beyond sufficient uniqueness conditions; det J=-alpha*beta*u^2*h′/(1+beta*u)^2 and the witness-specific positive Q prove two attracting states, rather than merely restating Routh-Hurwitz."
+      ],
+      "reasoning": "The source supplies essential premises but does not establish the new iff condition or apply them to find two stable positive states at one harvested parameter point; its uniqueness theorem applies only under distinct constraints violated by the witness. The 2022 result is a same-phenomenon precedent, not a same-equation implication. No stronger result was found that subsumes this model-specific classification.",
+      "searches": [
+        "Sharp interval of positive prey harvesting rate with three predator–prey coexistence equilibria and two asymptotically stable states in 2026 Liu Liang Li Ye Ma weak Allee and hyperbolic mortality model",
+        "exact one-window saddle node bifurcation in proportional prey harvesting weak Allee Rosenzweig MacArthur hyperbolic predator mortality model",
+        "\"Turing instability and pattern induced by weak Allee effect and prey harvesting\" \"three\" equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu et al. (2026), DOI 10.1186/s13662-025-04046-z, Sect. 2, Eq. (4), Theorem 1 and Sect. 2 cubic: the exact same mortality subfamily and cubic are inspected; no published iff three-positive-harvest interval is stated.",
+        "Arancibia-Ibarra et al. (2022), DOI 10.3389/fams.2021.731038, Sect. 2, Lemma 2.1: three equilibria under a different Leslie–Gower nullcline pair."
+      ],
+      "reasoning": "An equivalent claim would explicitly apply to this ODE, its alpha,A,beta,eta,E parameter domain, and yield both the three-crossing criterion and stable-outer-state witness. The near paper has the correct cubic but only sufficient one-root conditions and a general Routh-Hurwitz test; the older Leslie–Gower model does not include this prey-harvest height and saturating predator mortality. Generic polynomial calculus alone is not a published parameter classification for this nonlinear ecological model.",
+      "searches": [
+        "2026 Turing instability pattern weak Allee effect prey harvesting hyperbolic mortality Liu Liang Li Ye Ma three positive coexistence equilibria bistability",
+        "predator prey weak Allee prey harvesting hyperbolic predator mortality cubic three positive roots two stable coexistence states saddle",
+        "\"weak Allee effect\" \"hyperbolic mortality\" \"bistability\" harvesting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu et al. (2026), Sect. 5, numerical example uses alpha=0.65,beta=6,eta=gamma=1.22,A=0.2,E=0.06 or E=0.08, distinct from the present rational witness.",
+        "Searches returned no exact matching record of the witness polynomial -4800u^3+3240u^2-296u+3 or the rational interval signs; search failure is not proof of novelty."
+      ],
+      "reasoning": "There is no identified exact tabulation of three positive roots plus Jacobian types for the witness. The positive findings are mathematical sign certificates, not reliance on absence from a table.",
+      "searches": [
+        "coexistence multiplicity in Liu Liang Li Ye Ma 2026 predator prey three positive roots, saddles and two stable nodes under beta=8 eta=gamma=6 A=1/5 E=39/200",
+        "beta eta gamma equal e=1 harvesting Allee predator prey multiple endemic coexistence equilibria 0.195 8 6",
+        "\"Liu\" \"Liang\" \"Ma\" \"beta=8\" \"eta=6\" \"E=0.195\" predator"
+      ]
+    },
+    "rationale": "The 2026 Liu et al. article gives the coexistence cubic and conditional uniqueness and stability criteria but does not classify the complete positive-harvest three-root interval or exhibit two positive stable coexistence states for that ODE. The closest established generic phenomenon is the 2022 weak-Allee Leslie–Gower bistability result, whose predator and prey nullclines are structurally different and whose parameter conditions cannot imply the present exact harvest interval. Published mathematical-result index and full-text/title searches found no published formulation covering this model-specific statement. Originality remains a scoped assessment, not a proof of exhaustive absence.",
+    "residual_risks": [
+      "Search in public scientific literature and published result indexes is not exhaustive, particularly for unpublished claims or differently worded results.",
+      "The 2024 strong-Allee predator-harvesting article full text was unavailable; its abstract describes a distinct model and does not decisively raise same-equation coverage.",
+      "All-parameter bistability is not classified; only a sharp subfamily interval and local persistence around the explicit hyperbolic witness are proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and cubic verified; paper gives sufficient one-root conditions but not sharp complete E-window or the explicit two-stable-positive-states case.",
+        "evidence": "The source explicitly sets e=1 and gamma=eta for the cubic and identifies v=(beta/eta)u. Theorem 4 tests trace/determinant; Sect. 5 focuses on the unique equilibrium numerical regime.",
+        "identifier_or_url": "https://doi.org/10.1186/s13662-025-04046-z",
+        "material_read": "Full open HTML: introduction/model, Sect. 2 Eq. (4), cubic and Theorems 1-4, positivity/persistence/global discussion, Sect. 3 diffusion, Sect. 5 numerical cases, Sect. 6 conclusions and publication metadata.",
+        "method": "Direct reading of publisher full article HTML, not snippets only.",
+        "title": "Turing instability and pattern induced by weak Allee effect and prey harvesting in a predator-prey model",
+        "trigger": "Original, potentially covering source with same governing equations, coexistence cubic, stability and uniqueness discussions."
+      },
+      {
+        "assessment": "Covers the generic ecological bistability phenomenon but uses an algebraically and dynamically different Leslie–Gower system; its exact theorem does not classify harvesting in Liu’s source model.",
+        "evidence": "Its nondimensional nullclines are v=u and v=(u+A)(1-u)(u-M)/Q, and three equilibria follow from its parameters M,Q; Liu’s reduced nullclines instead involve E and hyperbolic predator mortality.",
+        "identifier_or_url": "https://doi.org/10.3389/fams.2021.731038",
+        "material_read": "Full journal HTML abstract, introduction, Sect. 2 model and Lemma 2.1, Sect. 3 equilibrium and bifurcation discussion, Sect. 4 conclusions.",
+        "method": "Direct reading of lawful open-access publisher full HTML.",
+        "title": "Stability Analysis of a Modified Leslie–Gower Predation Model With Weak Allee Effect in the Prey",
+        "trigger": "Strong thematic overlap: three positive equilibria and two stable coexistence states already known under weak Allee effects."
+      },
+      {
+        "assessment": "The abstract explicitly describes strong-Allee prey, Holling-I response and predator harvesting, so is a different model; full-text limits remain recorded.",
+        "evidence": "Published 25 January 2024; abstract states model types and Hopf/Turing focus.",
+        "identifier_or_url": "https://doi.org/10.1007/s40819-023-01673-6",
+        "material_read": "Publisher bibliographic information and full abstract only; subscription full text not obtained.",
+        "method": "Publisher article HTML preview.",
+        "title": "Diffusion-Driven Instability and Bifurcation in the Predator–Prey System with Allee Effect in Prey and Predator Harvesting",
+        "trigger": "Similar title involving harvesting, Allee effect, and predator–prey diffusion."
+      },
+      {
+        "assessment": "Different porous-diffusion equilibrium ray, no matching harvested weak-Allee coexistence criterion; limited to displayed summary.",
+        "evidence": "Summary describes Cherniha–Kriukova porous prey–predator steady patterns and Neumann thresholds.",
+        "identifier_or_url": "2026/9/17/SCOPE-degenerate-porous-neumann-steady-patterns--5a1b4944a368",
+        "material_read": "Publicly indexed title and substantive summary; no full text read.",
+        "method": "Published result index search.",
+        "title": "Positive Neumann steady patterns at a degenerate porous-diffusion resonance",
+        "trigger": "High-ranked published mathematical ecology overlap result from semantic search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7f77665-b3eb-473f-9254-35f74074c45f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated complete positive-coexistence classification for the exact prey-harvesting control parameter in a recently published weak-Allee hyperbolic-mortality predator–prey model. It proves that a nonempty open, sharply bounded positive-harvest interval can contain three living coexistence states, not merely a numerical anomaly; exact Jacobian identities and a rational example establish two locally attracting positive states divided by a saddle. Multiplicity outside the original sufficient uniqueness regime matters for interpreting single-equilibrium stability and spatial pattern studies: initial conditions may select different equilibria even without altering the harvest effort. It adds a concrete parameter-phase boundary not available from the source’s stated sufficient one-root conditions. Ecological field validation and global basins are not claimed. At the rational witness alpha*A-E=1/200>0, so the two positive attractors occur despite positive baseline low-density prey growth, underscoring interaction-induced rather than immediate extinction-threshold bistability.",
+    "status": "PASS"
+  }
+}
