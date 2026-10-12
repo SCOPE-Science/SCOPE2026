@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The source initialization gives \\(x^2=x^1/2\\). When a step is uncapped, the identity \\(\\bar f_{k-1}=x^k d_{k-1}\\) makes the next source model residual exactly \\(h_k=(1-\\beta)a(x^k)^2/2\\). The induction \\(d_k\\ge a x^k>0\\) proves the cap remains inactive. The reduced state satisfies the exact contraction recurrence, and its fixed point yields \\(2q_\\beta^2-q_\\beta-\\beta=0\\). Direct package replay agrees with the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical stochastic Polyak-step theory covers the no-momentum branch.",
+        "Generalized Polyak momentum methods provide convergence and even a one-step scalar least-squares result for a different heavy-ball rule.",
+        "Later momentum-SPS theory supplies heavy-ball convergence guarantees under a different adaptive step."
+      ],
+      "reasoning": "These broader Polyak-with-momentum frameworks do not dominate the claim because the accepted theorem is about the defining MoMo loss-and-gradient momentum model. Indeed, a different momentum-aware Polyak rule can solve the scalar quadratic in one step while MoMo has the slower factor derived here.",
+      "searches": [
+        "PMLR:v202:wang23l",
+        "arXiv:2002.10542v1",
+        "arXiv:2406.04142v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.07583v1",
+      "PMLR:v235:schaipp24a",
+      "PMLR:v202:wang23l",
+      "arXiv:2002.10542v1",
+      "arXiv:2406.04142v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source's Algorithm 1 uses \\(\\bar f_k\\), \\(d_k\\), \\(\\gamma_k\\), a lower bound, and the capped ratio \\((h_k-f_*^k)_+/\\|d_k\\|^2\\).",
+        "Its interpolation proof derives \\(h_k-f^\\star=(1-\\beta)(f(x^k,s_k)-f^\\star)\\) when uncapped and remarks that its generic bound is best at \\(\\beta=0\\).",
+        "The generalized momentum Polyak paper's scalar exact-solve example is for ALR-HB(v2), not MoMo.",
+        "The later MomSPS paper studies stochastic heavy-ball variants rather than MoMo."
+      ],
+      "reasoning": "The source remark that a generic bound worsens with momentum does not imply the exact algorithmic factor, monotonicity of that factor, or learning-rate-collapse constant. The distinct momentum-aware Polyak algorithms cannot be substituted for MoMo because their recurrences differ.",
+      "searches": [
+        "arXiv:2305.07583v1 Algorithm 1",
+        "arXiv:2305.07583v1 convergence interpolation momentum beta",
+        "PMLR:v202:wang23l scalar least squares one step",
+        "arXiv:2406.04142v1 MomSPS"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining MoMo algorithm and its convergence proof were inspected in full.",
+        "The defining source explicitly identifies the no-momentum branch with the capped stochastic Polyak step.",
+        "The generalized Polyak momentum paper uses heavy-ball and moving-average-gradient updates derived from a different distance-minimization principle.",
+        "The later stochastic heavy-ball Polyak paper proposes MomSPS variants rather than the MoMo moving model."
+      ],
+      "reasoning": "Equivalent coverage would need to imply the exact MoMo state recurrence or the closed factor \\(q_\\beta=(1+\\sqrt{1+8\\beta})/4\\). The checked methods share Polyak-style adaptivity but have different states and update equations.",
+      "searches": [
+        "arXiv:2305.07583v1",
+        "PMLR:v235:schaipp24a",
+        "PMLR:v202:wang23l",
+        "arXiv:2406.04142v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed optimization records concern scaled Polyak objective monotonicity, adaptive-gradient spectral persistence, and other feedback step-size rules.",
+        "No indexed record returned the MoMo source together with the exact scalar recurrence or the polynomial \\(2q^2-q-\beta\\)."
+      ],
+      "reasoning": "The closest indexed findings analyze different algorithms or different adaptive-state variables. Search absence is used only as supporting evidence, not as a proof of uniqueness.",
+      "searches": [
+        "MoMo momentum models adaptive learning rates scalar quadratic exact asymptotic rate",
+        "MoMo Polyak momentum quadratic contraction beta 0.9",
+        "MoMo 2 q^2 - q - beta scalar quadratic momentum exact contraction",
+        "momentum model Polyak adaptive learning rate exact scalar slowdown beta quadratic MoMo"
+      ]
+    },
+    "rationale": "The defining MoMo source gives the algorithm, a generic convex interpolation bound, and a remark that its bound has the best constant without momentum, but it does not state the exact deterministic scalar recurrence or rate. The no-momentum stochastic Polyak method is prior and is used only as a baseline. Other momentum-aware Polyak rules in the checked literature use different update constructions. Focused source and database searches found no implication-equivalent MoMo scalar slowdown formula.",
+    "residual_risks": [
+      "An unindexed note or implementation analysis may contain the same elementary scalar reduction.",
+      "The exact result depends on the original total-weight-one exponential averaging variant and a nonbinding cap.",
+      "The benchmark is deliberately free of stochasticity and conditioning, so it diagnoses MoMo's momentum mechanism rather than overall practical performance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ALGORITHM_NOT_COVERING_EXACT_SCALAR_RATE_LAW.",
+        "evidence": "The source proves a generic sublinear guarantee and remarks that its bound constant is best without momentum; no exact scalar-quadratic fixed-point recurrence or asymptotic factor is stated in the inspected material.",
+        "identifier_or_url": "arXiv:2305.07583v1 / PMLR:v235:schaipp24a",
+        "material_read": "Full open-access text covering Algorithm 1, the exponential averaging coefficients, the no-momentum SPS equivalence, and the convex interpolation proof including the exact source identity for the model residual.",
+        "method": "Open-access full-text inspection.",
+        "title": "MoMo: Momentum Models for Adaptive Learning Rates",
+        "trigger": "Defining source for the algorithm and the closest convergence statement."
+      },
+      {
+        "assessment": "DIFFERENT_MOMENTUM_POLYAK_RULE_NOT_COVERING_MOMO_RECURRENCE.",
+        "evidence": "Its ALR-HB(v2) rule uses a different adaptive formula and can solve a one-dimensional least-squares problem in one step, so it neither states nor implies the MoMo slowdown law.",
+        "identifier_or_url": "PMLR:v202:wang23l",
+        "material_read": "Full open-access PDF material covering the adaptive-step framework, ALR-HB update, and the one-dimensional least-squares example; the relevant algorithm/example page was visually inspected.",
+        "method": "Open-access PDF text and page-image inspection.",
+        "title": "Generalized Polyak Step Size for First Order Optimization with Momentum",
+        "trigger": "Highly relevant prior work on Polyak-style adaptive steps with momentum."
+      },
+      {
+        "assessment": "NO_MOMENTUM_BASELINE_PRIOR.",
+        "evidence": "The source develops stochastic Polyak step sizes for SGD and does not contain the MoMo momentum state.",
+        "identifier_or_url": "arXiv:2002.10542v1",
+        "material_read": "Primary abstract, scope, and submission metadata.",
+        "method": "Open-access primary-source inspection.",
+        "title": "Stochastic Polyak Step-size for SGD: An Adaptive Learning Rate for Fast Convergence",
+        "trigger": "Prior method to which source-form MoMo reduces at zero momentum."
+      },
+      {
+        "assessment": "DIFFERENT_STOCHASTIC_HEAVY_BALL_METHOD_NOT_COVERING_MOMO.",
+        "evidence": "The paper proposes MomSPS, MomDecSPS, and MomAdaSPS for stochastic heavy ball rather than the MoMo moving loss model.",
+        "identifier_or_url": "arXiv:2406.04142v1",
+        "material_read": "Primary abstract, method names, convergence claims, and submission metadata.",
+        "method": "Open-access primary-source inspection.",
+        "title": "Stochastic Polyak Step-sizes and Momentum: Convergence Guarantees and Practical Performance",
+        "trigger": "Later primary work explicitly combining stochastic Polyak steps with momentum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "221d377b-ff32-477e-a2b3-cfd15158ac4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "MoMo is specifically designed to combine momentum with Polyak-style adaptive learning rates. The scalar quadratic is the cleanest benchmark on which conditioning and sampling noise cannot explain behavior. The exact law shows that the source-default momentum changes the objective factor from \\(1/4\\) to about \\(0.933\\), and identifies the mechanism as collapse of the adaptive learning rate. This supplies a sharp diagnostic boundary case for momentum-aware adaptive-step design, rather than a routine recomputation of a known bound.",
+    "status": "PASS"
+  }
+}
