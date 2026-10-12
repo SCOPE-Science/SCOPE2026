@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The projector decomposition is exact. For \\(0<s\\le1/2\\), the characteristic roots yield a positive decreasing response; for \\(s>1/2\\), an explicit damped-trigonometric representation yields uniform tail bounds. Exact low-index inequalities prove \\(u_k>-1/11\\) for all remaining cases, with rationally bounded exponential constants. Matrix nonnegativity is equivalent to \\(-1/(m-1)\\le u_k\\le1\\). For \\(m\\ge13\\), \\(s=3\\) gives \\(u_2<-1/12\\) by \\(e^3>16\\). The standalone checker verifies symbolic rational recurrences and supporting inequalities; finite sampling is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2002 report treats positivity/monotonicity for classes of general linear multistep problems and specifies starting procedures. Its generic restrictions cannot be identified with a uniform complete-graph all-step dimension classification.",
+        "The 2010 report gives sharp general coefficient-based bounds/monotonicity conditions. Its scalar test-equation and convolution recurrence machinery is relevant, but the inspected discussion does not give a lower envelope valid under exact exponential start and translate it into the 12/13 vertex cutoff.",
+        "A-stability bounds spectral amplification, whereas the claimed positivity lower bound depends on the minimum allowed diagonal of \\(J+u(I-J)\\) and on m."
+      ],
+      "reasoning": "A theorem asserting entrywise positivity for every generator in a class containing uniform complete graphs under exact exponential startup and all timesteps would imply this claim; a general impossibility theorem would not provide the sharp smallest dimension. The primary literature compared is broader in method class, but its hypotheses/conclusions do not directly settle the quantified family.",
+      "searches": [
+        "\"BDF2 positivity\" \"stochastic matrix\" \"Markov\"",
+        "\"linear multistep\" \"monotonicity\" \"starting procedures\"",
+        "https://ir.cwi.nl/pub/16707/16707B.pdf",
+        "https://epubs.siam.org/doi/10.1137/S0036142902406326"
+      ]
+    },
+    "checked_sources": [
+      "https://ir.cwi.nl/pub/4231/04231D.pdf",
+      "https://ir.cwi.nl/pub/16707/16707B.pdf",
+      "https://ir.cwi.nl/pub/4596/04596D.pdf",
+      "https://epubs.siam.org/doi/10.1137/S0036142902406326"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hundsdorfer--Ruuth--Spiteri 2002: general multistep monotonicity plus starting procedures. It recognizes nontrivial BDF2 positivity constraints but does not, in inspected sections, bound complete-graph exact-start scalar minima at -1/11.",
+        "Hundsdorfer--Mozartova--Spijker 2010: coefficient-based stepsize restrictions for generic methods, not a necessary-and-sufficient threshold in graph dimension.",
+        "Hundsdorfer 1998: convection-focused BDF2 blends, not the exact homogeneous diffusion semigroup starting operation.",
+        "A generic result about loss of unconditional monotonicity does not force failure at \\(m=13\\) nor ensure success up to \\(m=12\\). Conversely the present result is not a general monotonicity theorem."
+      ],
+      "reasoning": "The proved conclusion demands exact exponential startup, uniform complete-graph generator, all positive stepsizes and all time indices, and \\(m\\le12\\) iff positivity. None of the materially compared theorems is shown to imply every component of that conclusion. The work does not claim the known scalar recurrence and spectral reduction as original.",
+      "searches": [
+        "\"Monotonicity-preserving linear multistep methods\" 2002 CWI MAS-R0210",
+        "\"Stepsize Restrictions for Boundedness and Monotonicity of Multistep Methods\" 2010",
+        "\"Partially implicit BDF2 blends for convection dominated flows\" 1998",
+        "\"uniform mixing\" \"BDF2\" Markov all times positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uniform complete-graph symmetry reduces BDF2 transitions to \\(J+u(I-J)\\), a two-eigenvalue test with lower bound \\(u\\ge-1/(m-1)\\); comparison must concern scalar overshoot and dimension, not merely method names.",
+        "Hundsdorfer--Ruuth--Spiteri 2002, section 3.3 (pp. 10-12), discusses general A-stable implicit two-step schemes and starting procedures but not this exact-start complete-graph scalar lower envelope.",
+        "Hundsdorfer 1998 discusses BDF2 blends for convection-dominated spatial discretizations, not the uniform complete-graph exact-start mode."
+      ],
+      "reasoning": "The closest plausible equivalence is a two-mode spectral or uniform-mixing formulation. A result proving the scalar all-index lower bound or the precise matrix threshold would subsume the claim. The inspected primary sections and targeted searches did not identify that conclusion. This is a bounded evidence comparison, not proof of novelty.",
+      "searches": [
+        "\"BDF2\" \"complete graph\" stochastic matrix exact exponential initialization",
+        "\"BDF2\" \"two eigenvalue\" Markov transition negativity diagonal",
+        "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "https://ir.cwi.nl/pub/4596/04596D.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The object is a parameter-uniform all-time classification, not an existing named finite database or single tabulated instance.",
+        "The bound is proved analytically for all integers m and positive stepsizes; a finite 12- or 13-state numerical table would not imply the all-step direction.",
+        "The explicit counterexample at \\(m=13\\) and \\(h\\lambda=3\\) is certified by \\(e^3>16\\) rather than numerically read off a pre-existing table."
+      ],
+      "reasoning": "Searches for an exact dimension entry or precomputed positivity table returned no matching evidence. Lack of a retrieved table is not a novelty certificate; the main differentiator is the exact proof with all-step quantification.",
+      "searches": [
+        "\"13\" \"BDF2\" \"complete graph\" positivity dimension",
+        "\"12-state\" \"BDF2\" positivity",
+        "\"BDF2\" exact semigroup start complete-graph diagonal stochastic",
+        "https://ir.cwi.nl/pub/4231"
+      ]
+    },
+    "rationale": "Primary texts on multistep monotonicity, starting procedures and BDF2 positivity were compared with the strict implication of the new theorem. The finding concerns a quantified complete-graph exact-semigroup-start all-index lower envelope and the sharp \\(m=12\\) versus \\(m=13\\) boundary, not general monotonicity or a solver formula. Targeted searches yielded no dominating published instance. Residual equivalence risk remains in older or differently indexed symmetric-network stability literature.",
+    "residual_risks": [
+      "An older source on scalar BDF2 decay started from the exact exponential may implicitly contain the sharp -1/11 bound or a sharper sufficient estimate.",
+      "A specialized numerical Markov-chain study may state an equivalent minimum-state positivity obstruction using a different normalization.",
+      "Primary sections were assessed for the relevant results; literature coverage is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General monotonicity and boundedness statements; no all-step dimension threshold for exact-semigroup-start complete graph in inspected material.",
+        "evidence": [
+          "2002 CWI report cover MAS-R0210 dated 30 April 2002",
+          "Printed page 10 §3.3 gives implicit second-order scheme family and starts; DOI 10.1137/S0036142902406326"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "material_read": "Official 2002 CWI report cover with date and section 3.3 on implicit second-order two-step methods, especially printed page 10; relevant theorem and starting-procedure discussion in surrounding pages.",
+        "method": "Primary open-access full-text report, visual PDF page inspection and text where legible.",
+        "title": "Monotonicity-preserving linear multistep methods",
+        "trigger": "Same BDF2 method, positivity and initiation of multistep solutions"
+      },
+      {
+        "assessment": "Generic coefficient monotonicity and stepsize restrictions are not shown to imply the exact-start complete-graph all-step twelve-state threshold.",
+        "evidence": [
+          "CWI 2010 author manuscript §5, printed page 12, scalar recurrences and Lemma 5.1",
+          "Official publication metadata lists 65L06 first."
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/16707/16707B.pdf",
+        "material_read": "CWI 2010 manuscript, introduction and sections on scalar stability, boundedness and coefficient recurrences; printed page 12, formulas (5.2)-(5.5), Lemma 5.1 and related tests.",
+        "method": "Primary open-access full-text PDF, relevant sections inspected including visually.",
+        "title": "Stepsize Restrictions for Boundedness and Monotonicity of Multistep Methods",
+        "trigger": "Could provide a stronger all-system or scalar necessary-sufficient BDF2 positivity theorem"
+      },
+      {
+        "assessment": "Handles convection-dominated spatial schemes and blended methods; no same symmetric uniform graph or exact exponential starting criterion found in examined portions.",
+        "evidence": [
+          "CWI MAS-R9831, December 1998",
+          "DOI 10.1137/S0036142999364741 for later publication"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4596/04596D.pdf",
+        "material_read": "1998 CWI primary report, title/abstract and positivity-related discussion including relevant early methodological pages.",
+        "method": "Open-access report and published abstract checked; relevant PDF pages inspected.",
+        "title": "Partially implicit BDF2 blends for convection dominated flows",
+        "trigger": "Older direct BDF2 positivity and monotonicity literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26f885f8-ab83-4ce2-8cad-f514fa6232fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of diffusion states is a natural invariant controlling how far a negative decaying mode may be tolerated while transition entries remain nonnegative. The result proves a complete all-stepsize/all-time classification in the simplest homogeneous nontrivial reversible Markov family, with a sharp dimension obstruction distinguishing A-stability from probabilistic validity. Exact exponential startup rules out a spurious artifact of low-order initialization. The threshold is not an arbitrary slice: it is determined by the scalar lower envelope and the complete-graph stationary diagonal \\(1/m\\).",
+    "status": "PASS"
+  }
+}
