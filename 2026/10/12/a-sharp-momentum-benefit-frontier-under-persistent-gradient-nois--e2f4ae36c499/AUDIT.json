@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "A three-dimensional stable AR(1)-driven linear recurrence has a unique stationary covariance. Solving its cross- and lag-moment identities gives an explicit stationary variance and an exact signed difference against zero momentum. All denominators are positive on the open stability domain. The comparison polynomial has nonnegative quadratic coefficient and a negative value at momentum one; its constant term crosses zero exactly at the claimed increasing threshold, proving exhaustive strict comparison intervals and uniqueness. The standalone checker independently solves exact-rational Lyapunov equations for 270 parameter triples and verifies the two reversal witnesses; the general proof is analytical, not an extrapolation from testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kühn and Rosenow, arXiv:2306.05300, Sec. 4 and Appendix B: generic stationary covariance expression; actual physical correlations finite-range negative rather than nonnegative geometric.",
+        "Dang, Babanezhad and Vaswani, arXiv:2401.06738, Sections 3 and 4: acceleration/noise-adaptive convergence bounds, not the stationary AR1 comparison.",
+        "Gadat et al., arXiv:1609.04228, Sections 2.3 and 4: stochastic heavy ball with martingale-noise/decaying-step assumptions rather than the stated stationary autoregressive constant-step model."
+      ],
+      "reasoning": "A general Lyapunov or double-correlation formula describes a large class of linear responses but does not determine the optimal sign across the momentum interval. The strongest inspected formula covers covariance generation, not the full phase diagram as a derived theorem. Remaining risk is that a specialized time-series result already performs the same comparison.",
+      "searches": [
+        "SGD correlated noise momentum optimal beta steady state variance AR(1) 2023 2024 2025",
+        "Polyak heavy-ball momentum colored noise AR1 stationary covariance optimal momentum",
+        "stochastic gradient descent autoregressive noise momentum phase transition variance stationary"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1609.04228v2",
+      "arxiv:2012.03636v4",
+      "arxiv:2306.05300v3",
+      "arxiv:2401.06738v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu et al., arXiv:2012.03636, stationary SGDM covariance establishes precisely the zero-autocorrelation boundary, not its persistence-dependent deformation.",
+        "Kühn and Rosenow, arXiv:2306.05300, Eq. (21) is a general covariance double sum and Eq. (23) inserts a negative finite-range correlation function; the paper compares noise structures and curvature, not globally positive momentum against zero momentum under an AR(1) process.",
+        "The exact difference factorization in this finding has sign determined by a quadratic with a negative endpoint, yielding a unique momentum crossover."
+      ],
+      "reasoning": "White-noise variance formulas imply only the previously known zero-correlation special case. Although a generic covariance transfer theorem allows computation of every stable linear model, no inspected prior statement alone gives the strict threshold or classifies all momentum parameters; the new comparative inequality and phase boundary are the mathematical content assessed.",
+      "searches": [
+        "stochastic heavy ball momentum temporally correlated gradient noise variance minimization optimal positive momentum threshold normalized stepsize",
+        "AR(1) temporally correlated gradient noise heavy-ball momentum scalar quadratic stationary variance exact optimal momentum threshold for beneficial momentum, step t and noise correlation r, threshold between 1 and sqrt 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu, Ziyin and Ueda (arXiv:2012.03636), Theorem 5 and Table 1, explicitly provide constant-step momentum covariance under white noise.",
+        "Kühn and Rosenow (arXiv:2306.05300), Appendix B equations (21), (29), (44)-(50), use general covariance sums then specialize to finite-range negative epoch noise.",
+        "Relevant searchable mathematical findings on momentum and noisy quadratics address random curvature, momentum rates, and different optimizers, not positive-AR(1) stationary variance sign classification."
+      ],
+      "reasoning": "The stationary AR(1) model is an ARMA linear filter, and its raw variance can be obtained from general covariance-response identities. The assessed assertion is instead the exhaustive sign classification against plain SGD over all positive momentum at fixed normalized stepsize, including the unique crossing and strictly rising phase threshold. No inspected statement gives this classification or one that logically forces its sign inequalities without new parameter analysis. The uncorrelated slice is expressly treated as covered.",
+      "searches": [
+        "On scalar strongly convex quadratic with gradient noise following stationary positive AR(1), heavy-ball momentum reduces stationary iterate variance relative to plain SGD if and only if normalized stepsize exceeds correlation-dependent threshold tau(r) from 1 to sqrt 2; exact quadratic momentum crossover",
+        "colored AR1 noise heavy-ball AR2 stationary variance comparison gradient descent exact crossover momentum beta nonzero",
+        "stochastic heavy ball momentum temporally correlated gradient noise variance minimization optimal positive momentum threshold normalized stepsize",
+        "stationary variance positive autoregressive gradient noise scalar quadratic SGD vs momentum",
+        "heavy ball momentum AR(1) colored temporally correlated gradient noise stationary variance threshold gradient descent",
+        "momentum AR(1) noise stationary variance SGD choose beta minimizing covariance",
+        "momentum variance under autocorrelated gradient noise stochastic quadratic AR(1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-research record searches yielded closest records on random-curvature stochastic momentum, Polyak one-step objective monotonicity and heavy-ball real-root barriers; they do not tabulate the claimed AR1 crossover.",
+        "Liu et al. (arXiv:2012.03636), Table 1 gives the exact independent-noise covariance but no persistent-noise threshold.",
+        "No exact positive-AR1 threshold table was found in the inspected sources."
+      ],
+      "reasoning": "The target is a continuum of exact parameter inequalities, not a numerical lookup. Previously tabulated white-noise covariance is credited, and failure to find a table is not by itself regarded as evidence of novelty.",
+      "searches": [
+        "colored AR1 noise heavy-ball AR2 stationary variance comparison gradient descent exact crossover momentum beta nonzero",
+        "stationary variance positive autoregressive gradient noise scalar quadratic SGD vs momentum"
+      ]
+    },
+    "rationale": "The stationary white-noise formula is expressly excluded from novelty, as established in Liu et al. (arXiv:2012.03636). Kühn and Rosenow (arXiv:2306.05300) give a broad covariance response and a different negative finite-range correlation law, without the positive-AR1 sharp comparison classification. Gadat et al. (arXiv:1609.04228) and Dang et al. (arXiv:2401.06738) investigate other stochastic momentum regimes. Targeted mathematical-research record queries and primary-source comparisons found no claim with the same full implication; a general covariance identity could facilitate deriving the result, and equivalent older work remains a residual risk.",
+    "residual_risks": [
+      "General colored-noise transfer/covariance identities may enable derivation of the comparison after algebraic optimization; a stronger specialized prior result in filtering, control or stochastic approximation could be missed.",
+      "An educational web page discussing momentum and autoregressive gradient noise was visible in search output but not available in full after a bounded fetch; its quantitative content was not used to claim novelty or noncoverage.",
+      "Database search and selected primary full texts cannot establish global priority or exclude unpublished overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant foundational different assumptions, no exact positive-AR1 stationary variance-benefit threshold.",
+        "evidence": "Preprint v1 submitted 2016-09-14; primary focus martingale increments with decreasing step sizes; Theorem 4 provides asymptotic convergence rates.",
+        "identifier_or_url": "https://arxiv.org/html/1609.04228v2",
+        "material_read": "Abstract, introduction, baseline noise assumptions, main results and sections on strongly convex/quadratic behavior.",
+        "method": "Read publicly available arXiv full-text HTML, with original v1 date checked on arXiv abstract page.",
+        "title": "Stochastic Heavy Ball",
+        "trigger": "Earliest public source for stochastic heavy-ball work and its noise hypotheses"
+      },
+      {
+        "assessment": "Establishes exact constant-step momentum covariance for independent-in-time gradient noise, so its zero-correlation specialization is prior art; no positive temporal autocorrelation comparison frontier in the inspected results.",
+        "evidence": "Table 1 SGDM and Theorem 5 show exact covariance/training error under white noise; original submission 2020-12-07.",
+        "identifier_or_url": "https://arxiv.org/html/2012.03636v4",
+        "material_read": "Introduction, Table 1, Section 4.2, Theorem 5, Appendix D and the covariance derivation in Appendix E.",
+        "method": "Read available arXiv full-text HTML and paper appendices.",
+        "title": "Noise and Fluctuation of Finite Learning Rate Stochastic Gradient Descent",
+        "trigger": "Direct stationary SGDM covariance formula potentially covering the result"
+      },
+      {
+        "assessment": "A general covariance response can be specialized but the particular correlation law in that work is negative finite-range epoch sampling; no exact all-momentum positive-AR1 benefit frontier or uniqueness classification stated in inspected material.",
+        "evidence": "Appendix B Eq. (21) stationary covariance double sum; Eq. (29) finite-range negative correlation; Eqs. (44)-(50) derive the corresponding specific variance.",
+        "identifier_or_url": "https://arxiv.org/html/2306.05300v3",
+        "material_read": "Introduction and stated contributions, Sections 3-4, Appendix B equations (21)-(50), and explicit correlation law equation (29).",
+        "method": "Read available arXiv full-text HTML, including analytic derivations.",
+        "title": "Anti-Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances in Flat Directions",
+        "trigger": "Highly relevant study of temporal noise correlations with heavy-ball momentum"
+      },
+      {
+        "assessment": "Concerns nonasymptotic acceleration and batch-size/noise-adaptive algorithms, not the exact positive-AR1 stationary comparison across all momenta.",
+        "evidence": "Section 4 develops acceleration-to-neighborhood and multistage algorithms, rather than an AR1 stationary covariance phase frontier.",
+        "identifier_or_url": "https://arxiv.org/html/2401.06738v3",
+        "material_read": "Abstract, introduction, problem setup and stated contributions on convergence bounds and noise-adaptive schedules.",
+        "method": "Read publicly available arXiv full-text HTML.",
+        "title": "(Accelerated) Noise-adaptive Stochastic Heavy-Ball Momentum",
+        "trigger": "Candidate broader result about optimal momentum in stochastic quadratics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2f4ae36-c499-4756-852f-ad725a6969f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural persistent-noise model, stationary squared error is a practical criterion for deciding whether fixed positive momentum helps or harms. The result identifies a nontrivial correlation-dependent necessary and sufficient threshold and a unique complete momentum crossover; an exact countervailing example keeps curvature, stepsize and momentum fixed and changes only the noise correlation. These are structural design boundaries, not a table recomputation or an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
