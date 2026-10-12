@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, singleton deletion descendants force t+2s<=n-1; adjacent supports at neighboring starts conflict, forcing t<=floor(n/2); integer elimination gives M<=floor((3n-2)/4). A periodic support construction has exactly floor(n/2)+floor((n-1)/4) words and disjoint singleton and two-one deletion descendants by explicit coordinate cases. The modified-VT residue-class count follows from the involution u->r-u on Z_(n-1) with exactly one duplicated coordinate residue. Boundaries n=2..5 and zero deletion positions were checked, and the standalone program passed all specified independent finite tests. Finite checks do not prove the unbounded result; the combinatorial steps do.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1211.3128v1 gives general nonasymptotic hypergraph packing bounds but no reported closed weight-two optimum and equality construction.",
+        "arXiv:1211.4056v1 Theorem 5 gives chi(L_1,n,k)=max(k,n-k)+1; its text explicitly distinguishes maximum independent sets from colorings."
+      ],
+      "reasoning": "General deletion-code capacity, packing bounds, and coloring optimality do not logically imply the asserted sharp alpha(L_1,n,2). The proof independently supplies both a new upper and matching construction for all n. No dominating theorem was identified in inspected material.",
+      "searches": [
+        "published-finding corpus: binary weight-two single deletion correcting codes optimum all blocklength n and comparison to modified Varshamov Tenengolts color classes",
+        "Web: constant weight 2 deletion code largest size",
+        "arXiv:1211.3128v1 Sections I, III, and constrained-source discussion",
+        "arXiv:1211.4056v1 Sections III-IV"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.4056v1 full text",
+      "arXiv:1211.3128v1 full text",
+      "University of Illinois 2015 thesis repository abstract",
+      "published-finding corpus published findings searches for weight-two deletion codes and equivalent graph invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arXiv:1211.4056v1 is exactly about chi, not alpha, and the largest explicitly colored weight-two class is ceil(n/2) versus this result floor((3n-2)/4).",
+        "The general q-ary nonasymptotic bound from arXiv:1211.3128v1 is not weight-specialized and does not imply the optimum.",
+        "The 2015 thesis abstract addresses exact graph bounds generally but does not state a weight-two closed formula; full text was not inspectable."
+      ],
+      "reasoning": "For n growing, the claimed alpha is 3n/4+O(1) while the maximum class in the 2012 modified-VT coloring is n/2+O(1). Equality in chromatic number is consistent with both, and does not entail alpha. The thesis remains an unresolved bibliographic priority risk, not evidence of a decisive stronger prior theorem.",
+      "searches": [
+        "arXiv:1211.4056v1 Theorem 5 and Lemma 8",
+        "arXiv:1211.3128v1 all-length nonasymptotic bound",
+        "published-finding corpus: deletion channel sparse words support two ones runs adjacent separated optimum linear blocklength",
+        "University of Illinois thesis Constant composition deletion correcting codes 2015 bibliography and abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1211.4056v1 defines single-deletion correction as independent sets in the confusability graph and proves chromatic, not independence, exactness for every weight (Theorem 5).",
+        "The exact maximum independent-set statement can be translated to the support-pair deletion-shadow packing problem used in the proof.",
+        "No published-finding corpus hit or inspected primary paper supplied the formula floor((3n-2)/4) for fixed weight two."
+      ],
+      "reasoning": "A code is an independent set of the weight-two deletion-confusability graph, equivalently a family of pairwise disjoint deletion shadows. The exact independence number is a strictly stronger and different invariant than an optimal graph coloring, and in fact exceeds each class of that specific coloring asymptotically by factor 3/2.",
+      "searches": [
+        "published-finding corpus: exact independence number single deletion confusability graph induced binary words with exactly two ones length n floor three n minus two over four",
+        "Web: fixed weight two single deletion code maximum",
+        "Web: weight two single deletion codes exact maximum",
+        "arXiv:1211.4056v1 Sections II and IV (single-deletion confusion graph)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published mathematical-record index returned only other parameter values (notably nonbinary length-four codes) and asymptotic deletion-coding bounds.",
+        "Searches for the exact formula and support-pair description did not locate an earlier exact value or classification."
+      ],
+      "reasoning": "Checked exact sequence, modular algebra, deletion-confusability graphs, and coding-table aliases. No accessible table asserting this all-length value was located. Absence in an index is not a proof of absolute novelty.",
+      "searches": [
+        "published-finding corpus: exact independence number single deletion confusability graph induced binary words with exactly two ones length n floor three n minus two over four",
+        "Web: 3n-2 single-deletion constant weight",
+        "Web: fixed weight two single deletion code maximum"
+      ]
+    },
+    "rationale": "Primary full-text comparison separates the known chromatic number and modified-VT construction (arXiv:1211.4056v1, Section IV, Theorem 5) from the new exact weight-two independence number. The generalized packing bounds of arXiv:1211.3128v1 are not exact fixed-weight equalities. The new elementary obstruction and a periodic construction prove an all-length equality; neither is entailed merely by optimal coloring. Published mathematical-record searches reveal no covering statement; absence in an index is not a proof of novelty. A related 2015 thesis could not be read in full and is explicitly a residual priority risk.",
+    "residual_risks": [
+      "The complete 2015 Cullina thesis could contain the same special-case formula, although its accessible abstract does not establish this.",
+      "Unindexed literature or a table under an unexpected alias could predate this precise all-length result.",
+      "No independent external mathematical validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct match for the objects but does not assert the exact weight-two independence number or periodic optimal family. It supplies the chromatic statement used as a benchmark.",
+        "evidence": [
+          "Section II: deletion shadows and confusability graphs",
+          "Section IV, Lemma 8 and Theorem 5: modified-VT coloring and chi=max(k,n-k)+1",
+          "Section II graph inequalities distinguish alpha and chi"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+        "material_read": "Full original 17-page arXiv v1 text, focusing on definitions in Section II, constant-weight methods in Section III, Section IV and Theorem 5, and conclusion/appendix structure.",
+        "method": "Public PDF full-text and page-image inspection",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Same constant-weight one-deletion graph and known optimal coloring"
+      },
+      {
+        "assessment": "No exact binary weight-two independence number or matching periodic construction in the inspected results. General packing inequalities alone do not settle it.",
+        "evidence": [
+          "General q-ary one-deletion upper bound in the abstract and Section III",
+          "Hypergraph matching framework in Section II",
+          "Constrained sources highlighted as a separate application"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.3128",
+        "material_read": "Original 18-page arXiv v1 text including Introduction, linear-programming method, one-deletion bound, and constrained-source discussion.",
+        "method": "Public PDF full-text and page-image inspection",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Strong all-length general deletion packing bounds with constrained-source techniques"
+      },
+      {
+        "assessment": "Unresolved possible overlap; neither coverage nor noncoverage is inferred from the abstract.",
+        "evidence": [
+          "Thesis description identifies nonbinary constant-composition deletion codes, graph bounds, and constructions",
+          "Full text was not reliably accessible"
+        ],
+        "identifier_or_url": "https://www.ideals.illinois.edu/items/73103",
+        "material_read": "Repository title, date 2015-01-21, and abstract; attempted complete text but repository PDF and page returned access errors.",
+        "method": "Accessible repository metadata and indexed public abstract; attempted open of primary full text",
+        "title": "Constant composition deletion correcting codes",
+        "trigger": "Highly relevant thesis by an author of the main prior paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f07c464a-7d1d-48c0-a01a-13c720124f43",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact weight-two constant-composition deletion-coding capacity is a motivated fundamental invariant of a classic synchronization-error model. The formula settles all blocklengths, gives a constructive optimum, and quantifies a genuine design gap: the maximum code is asymptotically 50 percent larger than any individual class of a classical optimum coloring. The result is not a numerical increment, a relabeling, or an unsupported application; it determines sharp code size with an all-length obstruction and matching construction.",
+    "status": "PASS"
+  }
+}
