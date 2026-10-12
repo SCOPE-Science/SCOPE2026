@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The one-probe variance is exactly twice the off-diagonal Frobenius energy. For fixed eigenvalues, constant diagonal minimizes diagonal square energy and is attainable by Schur--Horn, yielding the sharp orientation reduction. Each spectral coordinate has an interior minimum, so a maximum occurs at endpoint eigenvalues. The resulting one-parameter integer objective has derivative proportional to n-(kappa+1)r, proving the two-candidate floor/ceiling law. Averaging independent probes divides variance by m. Exact rational replay checks the algebra and an equality witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roosta-Khorasani--Ascher Theorem 2 uses K_H=max_j sum_{k!=j} a_kj^2/a_jj^2 for a sufficient probabilistic sample bound.",
+        "Avron--Toledo discuss exact one-sample variance and potentially large variance for SPD matrices.",
+        "Later stable-rank work gives concentration bounds and improved sample scaling rather than the exact condition-number variance supremum."
+      ],
+      "reasoning": "These sources dominate general stochastic-trace theory but their statements do not imply the claimed finite-n extremal value from only dimension and spectral condition number.",
+      "searches": [
+        "Roosta-Khorasani and Ascher full text, arXiv:1308.2475, Hutchinson estimator bounds",
+        "Avron Toledo randomized trace estimator variance off-diagonal energy",
+        "Cortinovis Kressner randomized trace estimates stable rank SPD Rademacher"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1308.2475 full text",
+      "DOI:10.1145/1944345.1944349 accessible excerpt",
+      "DOI:10.1007/s10208-021-09525-9 publisher text",
+      "DOI:10.1029/WR010i002p00220 abstract",
+      "Focused published-finding corpus searches listed in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The archive source provides N>2 K_H epsilon^{-2} log(2/delta) as a matrix-dependent sufficient condition, not a sharp variance supremum over fixed kappa.",
+        "The continuous bounded-ratio inequality implies only the simpler (kappa-1)^2/(2 kappa n) corollary and loses the finite integer multiplicity correction and basis-attainment statement."
+      ],
+      "reasoning": "Prior results supply ingredients or looser consequences, but not the exact finite-dimensional Hutchinson envelope claimed here.",
+      "searches": [
+        "Compare exact formula against arXiv:1308.2475 Sections 1-2 and its K_H bound",
+        "Compare against standard Kantorovich-type bounded-ratio inequality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no trace-estimation finding matching the condition-number variance envelope.",
+        "Web searches surfaced classical Hutchinson variance descriptions, general Kantorovich/coefficient-of-variation bounds, and later trace-estimator tail work, but no exact floor/ceiling Hutchinson theorem."
+      ],
+      "reasoning": "Equivalent language was sought through relative variance, coefficient of variation, condition number, Schur--Horn, bounded spectra, and endpoint eigenvalue formulations. The continuous scalar inequality is acknowledged as prior; the discrete finite-n Hutchinson statement remained unmatched.",
+      "searches": [
+        "published-finding corpus query: Hutchinson trace estimator sharp condition number relative variance SPD",
+        "published-finding corpus query: Rademacher trace estimator exact condition-number variance envelope positive definite",
+        "Web query: Hutchinson Schur-Horn variance trace estimator",
+        "Web query: coefficient of variation bounded data exact maximum finite sample range"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record located a Hutchinson/trace-estimation database or table containing the formula."
+      ],
+      "reasoning": "The claim is analytic rather than a tabulated invariant; the database check found no pre-existing published SCOPE entry storing an equivalent exact envelope.",
+      "searches": [
+        "published-finding corpus query: Hutchinson variance Schur-Horn constant diagonal eigenvalues condition number",
+        "published-finding corpus query: Hutchinson trace estimator eigenvalue endpoints condition number worst-case variance"
+      ]
+    },
+    "rationale": "Inspected trace-estimation sources cover the variance identity, general concentration/sample bounds, columnwise off-diagonal energy, stable rank, and determinant applications. No located source states the exact finite-dimensional condition-number-only Hutchinson relative-variance envelope with endpoint multiplicity and Schur--Horn orientation attainability. The continuous Kantorovich-type corollary is explicitly treated as prior scalar structure, narrowing the originality claim to the finite-n trace-estimator extremum.",
+    "residual_risks": [
+      "An older inequality on bounded finite samples or coefficient of variation may encode the same endpoint-count optimization outside trace-estimation terminology.",
+      "The Avron--Toledo direct PDF timed out; comparison relied on accessible article excerpts and a later full-text source quoting its role.",
+      "Schur--Horn attainability is standard matrix analysis and was used as a theorem rather than reproved constructively for every n and r."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives general and columnwise off-diagonal-energy sufficient sample bounds, not the exact finite-n spectral-condition-number variance envelope.",
+        "evidence": "Full text classifies the paper under MSC 65C20 and defines K_H^j=(||a_j||^2-a_jj^2)/a_jj^2, with N>2 K_H c(epsilon,delta).",
+        "identifier_or_url": "arXiv:1308.2475",
+        "material_read": "Full arXiv text, including introduction and Section 2 Hutchinson bounds; title page visually inspected.",
+        "method": "Compared theorem statements and the K_H parameter with the new condition-number variance supremum.",
+        "title": "Improved bounds on sample size for implicit matrix trace estimators",
+        "trigger": "Closest archive-era matrix-dependent Hutchinson analysis and source for MSC ownership."
+      },
+      {
+        "assessment": "NOT_COVERING in accessible material; retains access risk because full PDF was not retrievable during this run.",
+        "evidence": "Accessible excerpt states the Hutchinson variance can be large even for SPD matrices and contrasts variance analysis with probabilistic sample bounds.",
+        "identifier_or_url": "DOI:10.1145/1944345.1944349",
+        "material_read": "Search-accessible article excerpt and bibliographic abstract; direct PDF fetch timed out in this run.",
+        "method": "Compared the stated off-diagonal variance discussion and sample-complexity focus.",
+        "title": "Randomized algorithms for estimating the trace of an implicit symmetric positive semi-definite matrix",
+        "trigger": "Seminal trace-estimator convergence and variance comparison."
+      },
+      {
+        "assessment": "NOT_COVERING: improves tail/sample bounds and uses stable rank, but does not state the finite-n condition-number-only variance supremum.",
+        "evidence": "Publisher text explicitly frames contributions as tail/sample bounds proportional to stable rank and gives a Rademacher chaos tail inequality.",
+        "identifier_or_url": "DOI:10.1007/s10208-021-09525-9",
+        "material_read": "Substantial publisher full-text sections exposed by search, including contributions and Rademacher tail theorem.",
+        "method": "Compared stable-rank/tail statements against the exact condition-number variance extremum.",
+        "title": "On Randomized Trace Estimates for Indefinite Matrices with an Application to Determinants",
+        "trigger": "Later broader Rademacher/Gaussian tail analysis with stable-rank dependence."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_RISK: abstract gives population-independent CV bounds, not the fixed positive lower/upper range formula used here.",
+        "evidence": "Abstract reports a general finite-sample upper bound for positive-data coefficient of variation but does not expose a condition-number/range-refined extremum.",
+        "identifier_or_url": "DOI:10.1029/WR010i002p00220",
+        "material_read": "Abstract only.",
+        "method": "Checked whether the accessible description reports a range-constrained finite-n formula matching the endpoint multiplicity law.",
+        "title": "Algebraic boundedness of sample statistics",
+        "trigger": "Possible generic coefficient-of-variation prior art for bounded finite samples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36648ef4-c043-468a-8ae0-f7771f9d8a60",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result converts two commonly available spectral summaries, dimension and condition number, into the exact worst Hutchinson relative variance and identifies all extremal spectral multiplicities. This directly informs preconditioning and sampling-risk interpretation and sharpens a natural continuous bound by a finite-dimensional correction.",
+    "status": "PASS"
+  }
+}
