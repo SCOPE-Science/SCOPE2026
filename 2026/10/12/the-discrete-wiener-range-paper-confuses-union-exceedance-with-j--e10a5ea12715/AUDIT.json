@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The source itself assumes independent coordinates and writes the joint CDF as a product. De Morgan's law makes its complement the union event that at least one coordinate exceeds its threshold. Independence makes simultaneous strict or inclusive survival a product of marginal survivals. The source's own Proposition 1 independently confirms the product-survival denominator for its conditional hazard. The bundled checker verifies the algebra and a discrete geometric hazard counterexample.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Documented bivariate discrete survival functions use simultaneous exceedance probabilities such as P(X>=x,Y>=y).",
+        "The 2025 Wiener-range precursor discusses multivariate upper-tail/simultaneous movements but also uses the complement-of-joint-CDF construction.",
+        "The 2026 source's Proposition 1 states that its joint survival denominator factorizes into marginal survivals."
+      ],
+      "reasoning": "General multivariate reliability definitions establish the event meaning but do not themselves identify the 2026 source error. The same-object 2025 paper is not covering prior art because it propagates the disputed construction rather than correcting it.",
+      "searches": [
+        "multivariate survival function simultaneous exceedance independent variables",
+        "bivariate discrete survival P(X>=x,Y>=y)",
+        "A multivariate model for the Wiener process range survival 2025"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026146",
+      "doi:10.3934/math.2025980",
+      "cran:bivgeom"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 1 in the target source explicitly factorizes the denominator P(R1>=r1,R2>=r2) into marginal survivals.",
+        "The 2025 precursor does not supply the correction and uses the same complement convention.",
+        "Independent discrete-bivariate documentation defines joint survival as a simultaneous exceedance event."
+      ],
+      "reasoning": "The target source contains all premises needed for the correction but applies mutually incompatible multivariate tail constructions. No inspected source gives the final union-versus-co-exceedance diagnosis together with its unbounded tail inflation consequence.",
+      "searches": [
+        "10.3934/math.2026146 Proposition 1 joint hazard survival product",
+        "10.3934/math.2025980 multivariate Wiener range survival",
+        "Basu Dhar bivariate geometric joint survival"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit names the target DOI or states the union-versus-intersection correction.",
+        "Exact web searches returned the original paper and mirrors, not a corrigendum.",
+        "The primary paper's Eq. (2.4) is literally the complement of its product joint CDF."
+      ],
+      "reasoning": "Searches used the exact DOI, title/object, survival/co-exceedance aliases, and the characteristic complement-of-joint-CDF formulation. No equivalent source-specific correction was located.",
+      "searches": [
+        "10.3934/math.2026146 joint survival correction",
+        "multivariate discrete Wiener range joint survival co-exceedance",
+        "bivariate Wiener range survival 1 minus joint CDF correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Eq. (2.4) defines S=1-F_joint.",
+        "The bivariate survival discussion says the quantity characterizes tail dependence and detects co-excesses.",
+        "Figure 16 is captioned as the probability that both plotted range values exceed limits.",
+        "Eq. (3.6) uses truncated joint f divided by 1 minus truncated joint F, while Proposition 1 defines a different simultaneous-survival conditional hazard."
+      ],
+      "reasoning": "The source's own formulas and figure interpretation supply a direct statement-level contradiction, without relying on title or keyword similarity.",
+      "searches": [
+        "10.3934/math.2026146 Eq 2.4 survival",
+        "10.3934/math.2026146 Figure 16 survival exceed limits",
+        "10.3934/math.2026146 Eq 3.6 truncated hazard"
+      ]
+    },
+    "rationale": "The 2026 paper states and operationalizes the opposite interpretation, and no corrigendum or source-specific correction was located. The closely related 2025 precursor repeats the complement-of-joint-CDF construction rather than correcting it. Five focused published-finding corpus searches and both current/prior owned-ledger checks found no covering finding.",
+    "residual_risks": [
+      "Some authors use the complement of a multivariate CDF as a generic upper-set probability, but that convention cannot support the source's simultaneous-co-exceedance interpretation.",
+      "The exact numerical values of the source's plotted surfaces were not regenerated.",
+      "A very recent unindexed corrigendum may exist outside the records examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY CONTRADICTED on event interpretation. The complement of a multivariate joint CDF is a union exceedance, while the paper interprets it as simultaneous co-exceedance; Proposition 1 itself uses the correct product survival event.",
+        "evidence": "Eqs. (2.3)-(2.4), the Section 3 survival discussion, Proposition 1, Eq. (3.6), and Figure 16.",
+        "identifier_or_url": "doi:10.3934/math.2026146",
+        "material_read": "Open full PDF including the product joint CDF, Eq. (2.4), bivariate and truncated survival discussion, Figures 5-6, Proposition 1 and its proof, Eq. (3.6), Figure 16 interpretation, and publication/MSC metadata.",
+        "method": "Direct parsed-text and rendered-page inspection.",
+        "title": "A multivariate discrete Wiener range distribution with truncation: Theory, reliability properties, and applications to constrained financial markets",
+        "trigger": "Primary 2026 source containing the disputed joint survival and truncated hazard formulas."
+      },
+      {
+        "assessment": "NOT COVERING THE CORRECTION. It repeats the complement-of-joint-CDF construction.",
+        "evidence": "Its Eq. (2.4) and multivariate survival discussion.",
+        "identifier_or_url": "doi:10.3934/math.2025980",
+        "material_read": "Open full PDF at the product joint CDF, Eq. (2.4) survival construction, truncated-survival proposition, and the discussion of simultaneous upper-tail movements.",
+        "method": "Direct parsed-text and rendered-page inspection.",
+        "title": "A multivariate model for the Wiener process range, with statistical properties under stochastic volatility",
+        "trigger": "Closest same-object precursor cited by the 2026 paper."
+      },
+      {
+        "assessment": "DEFINITIONAL SUPPORT ONLY; no Wiener-range model is discussed.",
+        "evidence": "The documented joint survival event is simultaneous coordinatewise exceedance.",
+        "identifier_or_url": "cran:bivgeom",
+        "material_read": "Documentation defining the joint survival function through P(X>=x,Y>=y).",
+        "method": "Direct documentation inspection.",
+        "title": "bivgeom documentation: Joint survival function",
+        "trigger": "Independent discrete-bivariate reliability comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e10a5ea1-2715-42e5-97dc-437a9decf18c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The error concerns the paper's core multivariate risk object, not a notation-only choice. The source explicitly uses the disputed function for tail dependence, co-exceedance detection, option/risk interpretation, and truncated-market figures. For identical independent margins, the relative overstatement of simultaneous tail risk diverges like 2/s, so the distortion becomes most severe precisely in the extreme-risk regime the model is intended to analyze. The correction also restores consistency between the survival definition and the paper's own conditional hazard Proposition 1.",
+    "status": "PASS"
+  }
+}
