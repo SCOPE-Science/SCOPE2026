@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The exact client recurrences sum to the displayed two-state round matrix. Under \\(|z_i|<1\\), one has \\(-1<p_i<1\\) and \\(0<s_i<1\\); the three exact Jury expressions are then strictly positive. The explicit \\(K=3\\) witness is checked in exact rational arithmetic, with negative characteristic discriminant and determinant \\(1629/12500<1\\), so its spectral radius is exactly \\(\\sqrt{1629/12500}\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang et al. 2022 classify SCAFFOLD within a stochastic multi-rate control framework but do not provide the present scalar Option-II spectrum.",
+        "Luo et al. 2025 broaden convergence-rate analysis of LocalSGD and SCAFFOLD under similarity and smoothness assumptions.",
+        "Broader optimization literature contains mechanisms where globally convergent schemes use locally unstable steps, but those recurrences are not the SCAFFOLD control-coupled round map."
+      ],
+      "reasoning": "Generic convergence or control-system frameworks do not imply this exact two-client discrete spectrum. The accepted claim is a mechanism-level stability fact for one named algorithm, not a generic assertion that local instability can sometimes be averaged away.",
+      "searches": [
+        "stochastic controlled averaging federated learning control variate client drift",
+        "locally unstable gradient descent steps globally stable iteration quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.06378v1",
+      "PMLR:119:5132-5143",
+      "PMLR:162:26206-26222",
+      "PMLR:258:2539-2547"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source states that Option II reuses local gradients, that its quadratic theory benefits from Hessian similarity, and that its simulations use two quadratic clients.",
+        "The source theorem is a convergence-rate bound under chosen stepsizes; it does not identify the full linear round matrix or the exact Jury inequalities.",
+        "The 2022 multi-rate paper represents SCAFFOLD as one member of a broad distributed-control class and contains no spectral occurrence for SCAFFOLD in full-text search."
+      ],
+      "reasoning": "The source rate results are compatible with but do not imply the exact claim. In particular, a sufficient convergence theorem does not imply that every locally contractive pair is Schur stable for arbitrary \\(K\\), nor that some locally divergent client can still yield a stable round.",
+      "searches": [
+        "SCAFFOLD Stochastic Controlled Averaging 1910.06378",
+        "SCAFFOLD two client scalar quadratic exact stability control variate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karimireddy et al. Algorithm 1 supplies the exact local and Option-II control updates used in the derivation.",
+        "Full-text inspection of the defining paper found rate theorems and two-client quadratic experiments but no Jury, spectral-radius, or locally divergent-client statement.",
+        "Focused indexed-record searches returned no SCAFFOLD-specific implication-equivalent finding."
+      ],
+      "reasoning": "Equivalent coverage would need to imply the exact two-state matrix in \\((x,d)\\), the all-\\(K\\) Schur guarantee under \\(|1-\\eta a_i|<1\\), or the explicit stabilization of a client with local factor below \\(-1\\). The inspected statements do not do so.",
+      "searches": [
+        "SCAFFOLD two client quadratic exact spectral radius Option II local steps",
+        "SCAFFOLD option II sharp stability local learning rate quadratic",
+        "federated SCAFFOLD control variate stabilizes unstable local SGD"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-source or SCAFFOLD-specific published-record hit was returned for the source identifier or algorithm name.",
+        "Closest indexed stability results concern Polyak steps, reflected-gradient methods, skew-splitting methods, and other recurrences rather than SCAFFOLD."
+      ],
+      "reasoning": "The nearest indexed records have different state updates and cannot imply the Option-II client-control matrix. Search absence is supporting evidence only and is not treated as a uniqueness proof.",
+      "searches": [
+        "SCAFFOLD two client scalar quadratic exact stability control variate",
+        "SCAFFOLD locally unstable client gradient steps stable global control variate quadratic",
+        "SCAFFOLD two client quadratic exact spectral radius Option II local steps",
+        "SCAFFOLD option II sharp stability local learning rate quadratic",
+        "federated SCAFFOLD control variate stabilizes unstable local SGD",
+        "SCAFFOLD Stochastic Controlled Averaging 1910.06378",
+        "stochastic controlled averaging federated learning control variate client drift",
+        "locally unstable gradient descent steps globally stable iteration quadratic"
+      ]
+    },
+    "rationale": "The defining SCAFFOLD source gives the algorithm, client-drift motivation, quadratic similarity rates, and two-client quadratic experiments. A later multi-rate-control treatment models SCAFFOLD generically, and a 2025 revisit broadens convergence-rate theory. None of the inspected material states the all-local-contractions Jury theorem or a stable Option-II round containing a locally divergent client.",
+    "residual_risks": [
+      "The 2025 revisit was checked at published abstract/summary level rather than line-by-line full-paper inspection, so an obscure equivalent scalar lemma there remains a residual literature risk.",
+      "A specialized federated-control note could contain an equivalent two-client spectral calculation under different notation.",
+      "The explicit witness shows strict inclusion beyond local stability but does not characterize the full supercritical stable region."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ALGORITHM_AND_RATE_THEORY_NOT_COVERING_EXACT_TWO_STATE_JURY_REGION_OR_UNSTABLE_CLIENT_WITNESS.",
+        "evidence": "Algorithm 1 matches the reconstructed recurrence. Theorem IV gives similarity-dependent communication-rate guarantees; the inspected source does not state the accepted spectral theorem.",
+        "identifier_or_url": "arXiv:1910.06378v1 / PMLR 119:5132-5143",
+        "material_read": "Full paper sections containing Algorithm 1, Option II, server aggregation, Theorem IV on quadratic Hessian similarity, and the two-client quadratic experimental setup; relevant pages were visually inspected.",
+        "method": "Open-access full-text and page-image inspection.",
+        "title": "SCAFFOLD: Stochastic Controlled Averaging for Federated Learning",
+        "trigger": "Defining source and highly relevant quadratic analysis."
+      },
+      {
+        "assessment": "GENERIC_MULTI_RATE_MODEL_NOT_COVERING_THE_EXACT_TWO_CLIENT_SPECTRAL_CLASSIFICATION.",
+        "evidence": "The paper classifies SCAFFOLD as a Case-II multi-rate method and discusses convergence generically; no SCAFFOLD spectral/Jury theorem or scalar unstable-client witness was found.",
+        "identifier_or_url": "PMLR 162:26206-26222",
+        "material_read": "Full-text searches for SCAFFOLD, spectral, quadratic, and stability; the algorithm-classification section and SCAFFOLD table entry were read and visually inspected.",
+        "method": "Open-access full-text search plus page-image inspection.",
+        "title": "A Stochastic Multi-Rate Control Framework For Modeling Distributed Optimization Algorithms",
+        "trigger": "Plausible broader control-theoretic coverage of SCAFFOLD."
+      },
+      {
+        "assessment": "BROAD_RATE_REVISIT_WITH_NO_IDENTIFIED_EXACT_OPTION_II_TWO_CLIENT_SPECTRAL_CLAIM.",
+        "evidence": "The public description emphasizes broader rate theory rather than a sharp scalar round-spectrum or locally divergent-client stabilization statement.",
+        "identifier_or_url": "PMLR 258:2539-2547",
+        "material_read": "Published abstract and public summary describing the strengthened LocalSGD and SCAFFOLD rate results under gradient similarity, Hessian similarity, weak convexity, and Lipschitz-Hessian assumptions.",
+        "method": "Published abstract and public summary inspection.",
+        "title": "Revisiting LocalSGD and SCAFFOLD: Improved Rates and Missing Analysis",
+        "trigger": "Recent published revisit of SCAFFOLD convergence theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "259297fc-aa07-4686-a0da-2beb3ce673a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result directly addresses the central systems question behind local federated steps: whether unstable local computation necessarily destabilizes the communicated iteration. On the same two-client quadratic setting used in the defining SCAFFOLD study, it proves a clean all-\\(K\\) safety theorem for locally stable clients and then shows that SCAFFOLD can go strictly further, stabilizing a client whose isolated local solver expands. This clarifies a concrete role of control coupling and aggregation that convergence-rate bounds alone do not expose.",
+    "status": "PASS"
+  }
+}
