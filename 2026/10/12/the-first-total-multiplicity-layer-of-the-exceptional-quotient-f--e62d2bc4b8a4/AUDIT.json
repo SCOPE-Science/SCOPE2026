@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Every even integer with \\(\\Omega(n)\\le3\\) is a power of \\(2\\), one of \\(2p,4p,2p^2\\), or a squarefree \\(2pq\\). Substitution into \\(\\sigma(n)=4\\varphi(n)\\) leaves \\(p=7\\) in the two-support cases and \\((p-7)(q-7)=48\\) in the three-support case. The latter has only one prime-coordinate factor pair, \\((11,19)\\). Direct evaluation verifies \\(14\\) and \\(418\\), and the packaged checker independently corroborates the classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broughan--Zhou define \\(R_a=\\{n:\\sigma(n)=a\\varphi(n)\\}\\) and state that the even \\(R_4\\), \\(\\omega(n)=3\\) case is the exceptional unresolved case.",
+        "Their Lemma 13 completely characterizes even \\(R_4\\) with two distinct prime factors.",
+        "Immediately after the odd three-support classification, they list \\(418=2\\cdot11\\cdot19\\), \\(3596=2^2\\cdot29\\cdot31\\), and further even three-support examples."
+      ],
+      "reasoning": "The primary paper dominates the two-distinct-prime-support part but not the present three-total-prime-factor claim. Its unresolved three-support branch includes arbitrarily larger exponent patterns; imposing \\(\\Omega(n)\\le3\\) forces the squarefree boundary and enables an exact completion.",
+      "searches": [
+        "\"On the Ratio of the Sum of Divisors and Euler's Totient Function II\" quotient 4 even solutions",
+        "\"phi(n)\" \"sigma(n)\" quotient 4 even three prime factors Broughan Zhou",
+        "JIS 17 14.9.2 R4 even omega 3"
+      ]
+    },
+    "checked_sources": [
+      "JIS:17:14.9.2",
+      "OEIS:A068390",
+      "zbMATH:1358.11015"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 13 implies the two-support portion of the new result, but the present proof independently reconstructs the needed \\(\\Omega\\le3\\) cases.",
+        "The primary paper explicitly says it found many even \\(R_4\\) elements with \\(\\omega(n)=3\\) and had not resolved that branch.",
+        "The listed next even example \\(3596=2^2\\cdot29\\cdot31\\) has \\(\\Omega(3596)=4\\), showing that the total-multiplicity boundary separates the first example from the larger family."
+      ],
+      "reasoning": "The prior two-support theorem plus the mere listing of \\(418\\) does not imply uniqueness at \\(\\Omega\\le3\\): one must still exclude every squarefree \\(2pq\\). The factorization \\((p-7)(q-7)=48\\) supplies that missing implication exactly.",
+      "searches": [
+        "Broughan Zhou Lemma 13 even R4 two prime factors",
+        "Broughan Zhou 418 3596 R4 omega 3",
+        "sigma phi quotient four total prime factors Omega"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed research-record hit stated the \\(\\Omega(n)\\le3\\) classification.",
+        "Direct statement searches returned the Broughan--Zhou paper and sequence databases, but no theorem asserting that only \\(14\\) and \\(418\\) occur at total multiplicity at most three.",
+        "The closest primary source uses \\(\\omega(n)\\), the number of distinct prime supports, and explicitly leaves the even quotient-four three-support case unresolved."
+      ],
+      "reasoning": "The claim was searched as a quotient-four totient equation, a low-total-prime-factor classification, and through its decisive factorization \\((p-7)(q-7)=48\\). The located primary statement is broader in support but unresolved in precisely the even three-support branch; the present total-multiplicity slice is not a restatement of its theorem.",
+      "searches": [
+        "sigma(n)=4 phi(n) Omega at most 3 14 418",
+        "even quotient four divisor sum totient 418 14",
+        "R4 multiplicative complexity three 2pq 418",
+        "sum of divisors four times Euler phi Omega 3",
+        "\"sigma(n) = 4 phi(n)\" 418 14 Omega",
+        "\"418\" \"sigma(n)\" \"phi(n)\" \"14\" divisor totient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A068390 is exactly the sequence of \\(n\\) satisfying \\(\\sigma(n)=4\\varphi(n)\\) and begins \\(14,105,248,418,1485,3135,3596,\\ldots\\).",
+        "A068390 records the Mersenne-prime two-support family and links the Broughan--Zhou paper.",
+        "The table confirms the two claimed values as members but, as a finite enumeration, does not prove that no later member has \\(\\Omega(n)\\le3\\)."
+      ],
+      "reasoning": "The database is the exact ambient sequence and is therefore the strongest finite-data comparison. The theorem adds a global exclusion within a natural multiplicative-complexity stratum rather than recomputing initial terms.",
+      "searches": [
+        "OEIS A068390 sigma 4 phi",
+        "\"sigma(n)=4*phi(n)\" OEIS",
+        "OEIS A293391 sigma phi perfect square"
+      ]
+    },
+    "rationale": "The closest primary paper classifies low distinct-prime support except for the even quotient-four three-support branch, which it explicitly leaves unresolved while listing \\(418\\) and larger examples. It does not formulate or prove the total-multiplicity boundary \\(\\Omega(n)\\le3\\). The exact database A068390 supplies examples but not the exclusion theorem. Targeted indexed and statement searches found no equivalent claim.",
+    "residual_risks": [
+      "An equivalent elementary \\(\\Omega(n)\\le3\\) observation may occur in unindexed notes or commentary.",
+      "The theorem does not resolve even quotient-four solutions once \\(\\Omega(n)\\ge4\\).",
+      "Finite database agreement is corroborative only and is not used as an exhaustive proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PARTIAL_COVERAGE. It completely handles even two-support \\(R_4\\) and lists the first even three-support examples, but explicitly leaves the full even three-support quotient-four case unresolved and does not state the \\(\\Omega\\le3\\) classification.",
+        "evidence": "The abstract and introduction identify quotient \\(4\\) with even \\(n\\) as the exception. Lemma 13 classifies even \\(R_4\\) with two distinct prime factors. The later paragraph lists \\(418=2\\cdot11\\cdot19\\), \\(3596=2^2\\cdot29\\cdot31\\), and further examples.",
+        "identifier_or_url": "JIS:17:14.9.2",
+        "material_read": "Searchable 22-page full PDF; title, abstract, introduction, the complete Section 4 treatment of \\(R_4\\), Lemma 13, Lemma 14, the closing even-three-support discussion and examples, theorem summary, and publication metadata were inspected. Page images of the title page, Lemma 13 page, and the page listing \\(418\\) and subsequent examples were also inspected.",
+        "method": "Direct lawful open-access PDF text inspection with page-image verification of the decisive pages.",
+        "title": "On the Ratio of the Sum of Divisors and Euler's Totient Function II",
+        "trigger": "Primary archival source defining the same quotient sets and explicitly identifying the even quotient-four three-support branch as exceptional."
+      },
+      {
+        "assessment": "DATA_NOT_COVERING. It tabulates the ambient sequence but gives no total-multiplicity classification.",
+        "evidence": "The entry begins \\(14,105,248,418,1485,3135,3596,\\ldots\\) and links the Broughan--Zhou paper.",
+        "identifier_or_url": "OEIS:A068390",
+        "material_read": "Definition, initial terms, comments, references, links, programs, and cross-references.",
+        "method": "Direct database-page inspection.",
+        "title": "A068390: Numbers k such that sigma(k) = 4*phi(k)",
+        "trigger": "Exact database for the same quotient-four equation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e62d2bc4-b8a4-4b4e-8f81-3c225e739569",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source paper explicitly isolates the even quotient-four three-support case as the remaining exceptional branch of its low-support program. Total prime-factor multiplicity is a standard independent complexity measure, and \\(\\Omega(n)\\le3\\) is its first boundary that reaches the unresolved branch. The theorem closes that boundary globally, explains the uniqueness of the listed example \\(418\\), and shows that every later even solution must cross to at least four total prime factors.",
+    "status": "PASS"
+  }
+}
