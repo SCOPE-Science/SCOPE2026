@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Binary order-five de Bruijn cycles are independently enumerated as Eulerian cycles of the order-four de Bruijn graph and by length-five-factor backtracking rooted at the unique factor 00000. The complete sets coincide and have 2048 elements. Prefix-range and direct circular-factor discrepancy implementations agree on every cycle, yielding exactly 224,688,912,224 cycles at discrepancies 5,6,7,8. Complement/reversal orbit recomputation gives 60 minimizer orbits with sizes 2:8 and 4:52.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Álvarez et al. prove optimal minimum discrepancy and report only minimum attainable values for computed parameters.",
+        "Gabric and Sawada analyze 13 named constructions and primitive-polynomial LFSR sequences rather than all order-five cycles.",
+        "Gabric and Sawada explicitly list studying the distribution over all de Bruijn sequences as future work."
+      ],
+      "reasoning": "Neither a minimum-value theorem nor results for selected construction families imply the multiplicities of all discrepancy levels among all 2048 cycles.",
+      "searches": [
+        "De Bruijn Sequences with Minimum Discrepancy full text Table 2 exhaustive search",
+        "Investigating the discrepancy property of de Bruijn sequences distribution all possible",
+        "de Bruijn discrepancy constructions primitive polynomial LFSR distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.17367v1 full text",
+      "DOI:10.1016/j.disc.2021.112780 full text",
+      "exact searches for 224 and order-five discrepancy tables",
+      "semantic searches for minimizer counts and discrepancy distributions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing that the minimum discrepancy is 5 implies only that at least one minimizer exists, not that there are 224.",
+        "A construction producing one minimum-discrepancy sequence does not determine the full distribution or symmetry-orbit census.",
+        "The earlier construction study explicitly leaves the all-sequence distribution as future work."
+      ],
+      "reasoning": "The new claim requires exhaustive enumeration of all order-five cycles and all discrepancy values; it is not a corollary or special case of the minimum theorem.",
+      "searches": [
+        "arXiv:2407.17367 binary minimum discrepancy theorem",
+        "Gabric Sawada 2022 future directions discrepancy distribution",
+        "De Bruijn Sequences with Minimum Discrepancy order 5 enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 source defines the same circular-substring discrepancy and proves minimum discrepancy n in the binary case.",
+        "No checked result states that 224 order-five cycles attain discrepancy 5 or gives the complete histogram."
+      ],
+      "reasoning": "The searches cover minimum-discrepancy, exact-count, distribution, equality-layer, and symmetry-class formulations of the finite claim.",
+      "searches": [
+        "binary de Bruijn sequence minimum discrepancy order 5 number of minimizers",
+        "de Bruijn discrepancy order five exact count minimum discrepancy",
+        "minimum discrepancy de Bruijn sequence symmetry classes order 5",
+        "\"224\" \"de Bruijn\" discrepancy order 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper's Table 2 gives minimum attainable discrepancy by alphabet size and order but no enumeration of minimizers.",
+        "No inspected exact table or search result contained the histogram 224,688,912,224."
+      ],
+      "reasoning": "An order-five database or small-case table could directly dominate the claim, so searches targeted the total cycle count, exact minimizer count, and full histogram.",
+      "searches": [
+        "2048 de Bruijn sequences order 5 discrepancy classification",
+        "224 de Bruijn sequences order 5 discrepancy",
+        "order 5 minimum discrepancy de Bruijn 224",
+        "binary de Bruijn order 5 discrepancy table"
+      ]
+    },
+    "rationale": "The 2024 primary paper proves only the minimum binary discrepancy value and constructs a minimizer; its exhaustive Table 2 records minimum attainable values, not counts or distributions. The 2022 paper studies selected constructions and LFSR families and explicitly names the distribution over all de Bruijn sequences as a future direction. Exact-count, order-five distribution, and symmetry-class searches found no covering publication.",
+    "residual_risks": [
+      "An unindexed or unpublished small-order computation may contain the same order-five histogram.",
+      "The 2024 authors performed exhaustive minimum searches for small parameters, so their private experimental output may contain counts not reported in the paper.",
+      "No claim is made about order six or asymptotic distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the minimum value and an explicit optimal construction but not the order-five multiplicity or full distribution.",
+        "evidence": "Section 7 states binary output has discrepancy exactly n; Table 2 reports minimum attainable values from exhaustive search but no counts of cycles attaining those values.",
+        "identifier_or_url": "arXiv:2407.17367v1",
+        "material_read": "Abstract and statement of results; de Bruijn graph and discrepancy definitions; binary discrepancy proof; example sequences; Analysis sections 7.1–7.3; Table 1; Table 2; implementation section.",
+        "method": "Full-text PDF statement and implication comparison, including rendered inspection of the experimental minimum table.",
+        "title": "De Bruijn Sequences with Minimum Discrepancy",
+        "trigger": "Primary source proving the exact binary minimum-discrepancy theorem for the same objects."
+      },
+      {
+        "assessment": "Studies named constructions and primitive-polynomial LFSR families, not the complete order-five cycle space.",
+        "evidence": "Its future-directions section explicitly asks to study the distribution of discrepancy over all possible de Bruijn sequences.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2021.112780",
+        "material_read": "Abstract; introduction and discrepancy definition; experimental-construction overview; discrepancy algorithm; future directions.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Investigating the discrepancy property of de Bruijn sequences",
+        "trigger": "Earlier paper centered on the same discrepancy invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c8828a3-eb45-4778-9a6e-993201d0b395",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete distribution over all de Bruijn sequences was explicitly identified as a future direction in the 2022 discrepancy paper, while the 2024 breakthrough settles only the minimum value and provides an optimal construction. The order-five census is the first nontrivial full layer with 2048 cycles and quantifies both how abundant the newly characterized minimizers are and how they organize under the natural complement/reversal symmetries.",
+    "status": "PASS"
+  }
+}
