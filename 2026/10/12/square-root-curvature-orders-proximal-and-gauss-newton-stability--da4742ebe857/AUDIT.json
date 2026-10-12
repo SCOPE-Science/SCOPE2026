@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the two quadratic-regularized model minima with the factors 1/(2 alpha) and g/(2 sqrt(F)) unchanged. The exact radial prox minimum is on [0,r], and the NGN envelope is F/(1+alpha g^2/(2F)). In the convex-square-root branch the proof separates positive and negative affine tangents at t0=r-2F/g and lower-bounds every exact prox candidate by the NGN minimum. In the concave branch the squared tangent majorizes the loss on [0,r]; if the NGN minimizer exits through t<0, an explicit inequality shows the exact-proximal center candidate still has smaller envelope. p-power strictness follows from strict tangent inequalities; the small- and large-alpha limits are derived from the exact prox scalar equation, including the nonsmooth p=1 case. The packaged verify.py returned VERIFY_OK 702 cases; tests were not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orvieto–Xiao, arXiv:2407.04358v1, §§2–4 studies the NGN step, nonnegative estimate and convergence, not a joint NGN/SPP envelope ordering.",
+        "Schaipp–Gower–Taylor, arXiv:2602.09842v2, §4.3 explicitly notes that global model lower-bound conditions for NGN are subtle, which precludes taking a naive global tangent-square implication.",
+        "Islamov et al., arXiv:2508.15071v1, abstract states an NGN method with momentum, not an exact proximal model comparison."
+      ],
+      "reasoning": "A general lower-surrogate theorem does not directly cover this claim: when the square root is convex the affine tangent becomes negative near the center, so its square is not everywhere a lower surrogate; when it is concave the unrestricted NGN minimizer can pass the center. These two obstructions are treated by new explicit case arguments. General convergence rates for either method alone do not imply ordering of their one-step index minima.",
+      "searches": [
+        "nonnegative Gauss Newton NGN versus stochastic proximal point SPP stability index ordering radial losses square root concavity convexity power p threshold 2",
+        "\"Step-Size Stability in Stochastic Optimization\" \"Normalized Gradient\" \"Proximal Point\" spectral quadratic",
+        "stochastic proximal point versus nonnegative Gauss Newton model comparison power loss p exponent 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.09842v2 (relevant full HTML and appendices)",
+      "arXiv:2407.04358v1 (relevant full HTML and whole-document term searches)",
+      "arXiv:2508.15071v1 (abstract only)",
+      "Published research semantic queries on NGN/SPP model index, radial power, tangent-square aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 source, §§4.3–4.4 gives the indices separately and only generic upper bounds for SPP; its Appendix A.3 assumes a single quadratic curvature and proves equality of NGN and SPP there.",
+        "2024 original, §2.1 provides the NGN squared tangent; Section 2.2 compares its steps with GD and Polyak, rather than the actual Moreau envelope."
+      ],
+      "reasoning": "The original derivation identifies a model and gives the NGN minimum but does not compare the minimum with an arbitrary radial exact objective; the 2026 upper bound for SPP and the equality p=2 case permit both signs, so neither statement dominates or logically implies the new all-alpha curvature classification. This conclusion uses statement-and-hypothesis comparisons, not title matching.",
+      "searches": [
+        "\"Step-Size Stability in Stochastic Optimization\" \"Lambda\" bound tightness proximal point",
+        "nonnegative Gauss Newton NGN versus stochastic proximal point SPP stability index ordering radial losses square root concavity convexity power p threshold 2",
+        "\"An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes\" proximal point"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schaipp–Gower–Taylor (2026), arXiv:2602.09842v2, §4.3 Lemma 4.2 and §4.4 Lemma 4.3 define the same indices, but compare each with SGD; Appendix A.3 establishes only scalar quadratic equality.",
+        "Orvieto–Xiao (2024), arXiv:2407.04358v1, §2.1 gives the same squared-tangent NGN model."
+      ],
+      "reasoning": "The closest alias is comparing the proximal Moreau envelope with the quadratic regularization of the squared tangent to sqrt(f). Published formulas for the two separate indices or for p=2 do not entail the sign reversals for p<2 versus p>2, which depend on the behavior of the tangent after crossing zero. The exact radial shape theorem was not identified in the searched records.",
+      "searches": [
+        "nonnegative Gauss Newton NGN versus stochastic proximal point SPP stability index ordering radial losses square root concavity convexity power p threshold 2",
+        "sharp comparisons of NGN squared tangent surrogate vs Moreau envelope exact proximal gap for radial convex power functions",
+        "Gauss Newton sqrt loss tangent stochastic proximal point step-size stability index hierarchy across power exponents",
+        "\"NGN\" \"SPP\" stability index positive definite quadratic comparison"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Schaipp–Gower–Taylor, arXiv:2602.09842v2, Appendix A.3 has a scalar quadratic entry whose NGN and SPP indices coincide; it supplies neither sign change nor nonquadratic power-family entries.",
+        "Published research records searched by mathematical meaning yielded topics such as proximal convexification and Newton stability but no indexed p-threshold for these two model minima."
+      ],
+      "reasoning": "The quadratic table entry is the equality boundary, not a covering table for all p. The present result states and proves both open-side orderings and asymptotic coefficients; absence of a record alone is not presented as proof of novelty.",
+      "searches": [
+        "nonnegative Gauss Newton NGN versus stochastic proximal point SPP stability index ordering radial losses square root concavity convexity power p threshold 2",
+        "sharp comparisons of NGN squared tangent surrogate vs Moreau envelope exact proximal gap for radial convex power functions",
+        "Gauss Newton sqrt loss tangent stochastic proximal point step-size stability index hierarchy across power exponents"
+      ]
+    },
+    "rationale": "The 2026 source introduces the NGN and SPP stability indices and compares them separately with SGD, while its Appendix A.3 computes equality only for isotropic quadratics. The current theorem provides a new all-stepsize inter-method sign criterion from square-root radial curvature, including both strict reversal regimes, the center-crossing proof, and explicit signed asymptotic laws for power losses. Orvieto-Xiao 2024 derives NGN itself but does not make this NGN-versus-exact-proximal-index comparison. The available 2025 momentum paper is about a different algorithm. Not a claim of exhaustive uniqueness: unindexed equivalent general-surrogate literature is a residual risk.",
+    "residual_risks": [
+      "Unindexed equivalent square-root surrogate or Moreau-envelope comparison theorem may exist under alternate terminology.",
+      "The relevant 2025 momentum-variant manuscript was inspected only at abstract level; it is not a decisive probable coverage, but full comparison remains incomplete.",
+      "A theorem on one-step indices must not be mistaken for a global convergence or actual objective-decrease ordering."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines ingredients and covers p=2 equality; does not establish convex/concave-square-root radial inter-method ordering or signed power gap.",
+        "evidence": [
+          "§4.3 Lemma 4.2 exact NGN index; §4.4 Lemma 4.3 separate SPP bound; Appendix A.3 scalar quadratic equality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.09842v2",
+        "material_read": "Complete relevant HTML sections 4.3–4.4, section 4.5, proof appendix for Lemmas 4.2–4.3, and Appendix A.3 scalar-quadratic example.",
+        "method": "Lawful arXiv HTML full-text inspection and statement/implication comparison.",
+        "title": "Step-Size Stability in Stochastic Optimization: A Theoretical Perspective",
+        "trigger": "The motivating paper defines both stability indices and computes equality for scalar quadratics."
+      },
+      {
+        "assessment": "Provides exact NGN squared-tangent minimizer and comparison to GD and SPS. No SPP/Moreau-envelope inter-method index ordering was found in inspected material.",
+        "evidence": [
+          "§2.1 equations (8)–(12), §2.2 stepsize bounds and Polyak comparison; no whole-document match for proximal point or Moreau."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.04358v1",
+        "material_read": "Full-text HTML Sections 2.1 and 2.2, algorithm derivation, stated §3–4 objectives, and whole-document searches for proximal point and Moreau.",
+        "method": "Lawful arXiv v1 HTML inspection, relevant section comparison and whole-text term search.",
+        "title": "An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes",
+        "trigger": "Original NGN model could contain more general objective or surrogate dominance comparisons."
+      },
+      {
+        "assessment": "Abstract concerns momentum adaptation and convergence; decisive equivalent hidden coverage cannot be ruled out without full text.",
+        "evidence": [
+          "arXiv:2508.15071v1 abstract describes NGN-M with convergence rates and experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.15071",
+        "material_read": "Bibliographic abstract only; full manuscript not obtained or compared.",
+        "method": "arXiv abstract and public metadata.",
+        "title": "Enhancing Optimizer Stability: Momentum Adaptation of The NGN Step-size",
+        "trigger": "Subsequent NGN research could contain model-comparison generalizations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da4742eb-e857-4ab2-bcc3-3eeee11f44e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 stability-index framework evaluates NGN and SPP separately relative to SGD; a cross-method ranking is not universal. The radial shape theorem identifies a natural, verifiable geometric criterion yielding a global-in-step-parameter ranking, explicitly handles model-root and minimizer crossing (where naive Jensen or surrogate logic fails), and locates the exact reversal at the quadratic homogeneity p=2. Two signed asymptotic coefficients quantify the discrepancy and supply robust benchmark regimes for analyzing models. The result is structural rather than a cosmetic reparameterization, and no broader algorithmic claim is asserted.",
+    "status": "PASS"
+  }
+}
