@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Independent rate-p_i Poisson processes realize exactly the original discrete mark sequence. Given last first-arrival time t and type j, other counts are independent zero-truncated Poissons; their means a_i and singleton probabilities q_i yield negative conditional covariance. Last-type weights are q_i/Q; mixing adds a nonpositive covariance because a_i increase and q_i decrease with p_i. The singleton conditional mean strictly decreases in t, while the total count conditional mean strictly increases; the total covariance identity gives strict negativity for all m>=2 and p_i>0. Reconstructed boundaries m=1 and p_i=0 excluded; 59 exact-rational finite-state comparisons passed, but finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anceaume–Busnel–Sericola arXiv:1402.5245v1 describes arbitrary-probability cover-time laws and moments; no singleton or exactly-once stopping statistic in investigated results.",
+        "Zoroa et al. arXiv:1608.00155v1 describes fixed-n occupancy and coverage speed, not stopping-time dependence with terminal singletons."
+      ],
+      "reasoning": "The related stronger *marginal* coverage theorems do not imply the mixed joint-sign claim. A hypothetical general arbitrary-p joint law would dominate it; no such result was identified in inspected primary sections, and this remains a residual risk.",
+      "searches": [
+        "joint moments stopping time and once-visited cells at first occupancy cover in unequal coupon collector",
+        "web: unequal probabilities coupon collector terminal singleton count joint distribution completion time",
+        "arXiv:1402.5245v1 Sections 2–5",
+        "arXiv:1608.00155v1 Sections 2–4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0304229v1 (Myers–Wilf 2003), full Section 4",
+      "DOI:10.1017/S0269964808000132 (Brown–Peköz–Ross 2008), Proposition 1",
+      "arXiv:1402.5245v1 (Anceaume–Busnel–Sericola 2014), full PDF mathematical scope",
+      "arXiv:1608.00155v1 (Zoroa et al. 2016), full PDF mathematical scope",
+      "Published records 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac and 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed: different statements and models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brown et al. Proposition 1(e–h) describes the last-collected type and single-type terminal multiplicity; it does not provide simultaneous N and X_i moments or N and S covariance.",
+        "Myers–Wilf equation (44) completely covers uniform p but does not permit unequal p_i.",
+        "The conditional Poissonization proof uses the unequal-rate last-arrival weights q_i(t)/sum q and an additional covariance-ordering argument."
+      ],
+      "reasoning": "The new implication Cov(N,S)<0 for every strictly positive unequal p is distinct from and not a corollary of the inspected marginal or uniform joint claims. The prior uniform case is recognized as covered. The conditional monotonicity mechanism is new work in the same compound theorem.",
+      "searches": [
+        "nonuniform coupon collector number of singleton coupons at completion cover time negative covariance correlation",
+        "coupon collector unequal coupons joint law of cover time and exactly-once types, number singleton terminal negative covariance",
+        "general coupon collector last missing coupon singleton count stop, variable probability model covariance",
+        "Brown–Peköz–Ross 2008 Proposition 1(e–h)",
+        "Myers–Wilf 2003 equation (44)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Myers–Wilf arXiv:math/0304229v1 pp.18–19 derives f(n,j), complete joint cover-length/singleton law for uniform p_i=1/m.",
+        "Brown–Peköz–Ross (2008) Proposition 1(h) gives terminal P(X_i=1) and (a–d) the marginal cover-time law, not a joint formula for N and S at arbitrary p."
+      ],
+      "reasoning": "Uniform-case mixed moments are subsumed by Myers–Wilf and expressly excluded from originality; the present unrestricted nonuniform strict-sign theorem cannot be obtained by merely relabeling the uniform joint law. Separate nonuniform marginals do not determine covariance.",
+      "searches": [
+        "nonuniform coupon collector stopping time number types occurring exactly once covariance negative for all unequal p",
+        "cover time and singleton count under unequal coupon probabilities universal anticorrelation",
+        "web: coupon collector singleton count upon completion weak limit exponential distribution cover time",
+        "arXiv:math/0304229v1 Section 4 equation (44)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The uniform joint table/distribution f(n,j) in Myers–Wilf (2003) is an exact known source, but cannot cover arbitrary unequal probability vectors.",
+        "The finite verifier computes 59 rational cases independently; these are reproducibility checks, not a claim of an absent database."
+      ],
+      "reasoning": "No exact table or general nonuniform covariance sign classification was identified. In particular, the uniform full joint distribution is an acknowledged dominating exact source for that subcase.",
+      "searches": [
+        "Brown Pekoz Ross coupon collecting 2008 proposition X_i N joint cov",
+        "web: \"singleton\" \"nonuniform\" \"coupon collector\" terminal",
+        "nonuniform coupon collector stopping time number types occurring exactly once covariance negative for all unequal p"
+      ]
+    },
+    "rationale": "Uniform case covered by Myers–Wilf 2003 complete joint distribution; not claimed new. Brown–Peköz–Ross 2008 gives nonuniform marginal terminal counts and cover-time distributions, not their mixed covariance. Anceaume et al. 2014 and Zoroa et al. 2016 cover nonuniform marginal and fixed-time behavior. The new universal negative covariance under arbitrary unequal p and its conditional structural proof were not subsumed by inspected statements. Residual risk of an earlier broad nonuniform joint-law theorem remains.",
+    "residual_risks": [
+      "A broader pre-existing arbitrary-probability joint stopping-time/terminal-singleton theorem may imply the sign; not found in inspected sources.",
+      "Full-text inspection focused on scientifically relevant sections and theorem statements; historical search is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers entire uniform joint law; does not extend to unequal probabilities",
+        "evidence": [
+          "Eq. (44) gives f(n,j) for uniform coupon types; Eq. (47) singleton marginal; end of Section 4 gives E[S]=H_m."
+        ],
+        "identifier_or_url": "arXiv:math/0304229v1; https://arxiv.org/pdf/math/0304229",
+        "material_read": "Full-text introduction and Section 4 pp.18–20 including equations (44)–(48) and references",
+        "method": "Opened lawful arXiv full PDF, read section and inspected page 19 visually",
+        "title": "Some New Aspects of the Coupon-Collector's Problem",
+        "trigger": "Direct joint cover-length and singleton-count result for uniform sampling"
+      },
+      {
+        "assessment": "Gives marginal N, last-coupon J, and each terminal X_i, but not N–S mixed covariance or global sign",
+        "evidence": [
+          "Proposition 1(c–d) covers N marginal factorial moments; (g–h) gives P(X_i=k), P(X_i=1), not P(N,X_i)."
+        ],
+        "identifier_or_url": "DOI:10.1017/S0269964808000132; https://www.researchgate.net/publication/228916314_Coupon_collecting",
+        "material_read": "Full-text introduction, Proposition 1(a–h), its proof and Poissonization argument, and description of subsequent simulation sections",
+        "method": "Read the publicly displayed author-uploaded full text and proposition around article pp.221–224",
+        "title": "Coupon Collecting",
+        "trigger": "Most directly relevant nonuniform terminal count literature"
+      },
+      {
+        "assessment": "Studies cover-time laws/means and tail minimizers; no terminal singleton-covariance theorem",
+        "evidence": [
+          "Abstract and Section 1 specify distribution and moments of T_{c,n}; full-text searches did not locate terminal singleton statistics."
+        ],
+        "identifier_or_url": "arXiv:1402.5245v1; https://arxiv.org/pdf/1402.5245",
+        "material_read": "Full-text abstract, mathematical theorem statements, section descriptions, examples and references; searched parsed document for singleton, once and frequency",
+        "method": "Read arXiv full-text statements relevant to the claim and checked full document for terminal-singleton topics",
+        "title": "New results on a generalized coupon collector problem using Markov chains",
+        "trigger": "Arbitrary probability vector and coupon cover-time moment theory"
+      },
+      {
+        "assessment": "Unequal-probability fixed-time occupation and coverage-speed results do not state or determine the claimed stopping-time covariance",
+        "evidence": [
+          "PDF p.1 explicitly lists 2010 MSC 60C05; pp.1–5 describe fixed-draw occupancy, coverage speed, and expected collection effort."
+        ],
+        "identifier_or_url": "arXiv:1608.00155v1; https://arxiv.org/pdf/1608.00155",
+        "material_read": "Full-text abstract, motivation, model, section synopsis and coverage/marginal-occupancy statements; searched entire parsed document for covariance and singleton",
+        "method": "Inspected arXiv PDF and mathematical scope through full-document search",
+        "title": "The coupon collector urn model with unequal probabilities in ecology and evolution",
+        "trigger": "Verified archival motivating source with primary MSC 60C05"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "095ece1f-b7b6-4834-a7b9-ee91d7dec386",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nonuniform coupon collection is motivated by heterogeneous species detection and coverage testing. The theorem resolves a dependence-sign question between collection effort and how many types remain unique at first complete coverage for the entire positive simplex, independent of heterogeneity. Separate marginals and monotonic cover-time results cannot determine this sign, and the proof identifies a structural conditional-order mechanism. No downstream publication-size consequence or numeric sharp bound is asserted.",
+    "status": "PASS"
+  }
+}
