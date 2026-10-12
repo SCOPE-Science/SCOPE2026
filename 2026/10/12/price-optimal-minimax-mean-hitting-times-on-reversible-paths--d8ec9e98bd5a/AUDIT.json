@@ -1,0 +1,184 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3 positive pi and prices, generator Poisson equations telescope to H_(i,i+1)=P_i/w_i and H_(i+1,i)=(1-P_i)/w_i; strong Markov telescoping gives the global ordered-pair maximum exactly at endpoints. For each lambda in [0,1], Cauchy–Schwarz yields the S(lambda)^2 bound with a unique positive equality conductance vector. S is strictly concave since G'<0 when the P_i cannot all equal 1/2. At its unique maximizer lambda*, derivative = forward minus backward endpoint hitting time; the interior-zero or appropriate boundary derivative sign ensures the max equals S(lambda*)^2. Cauchy equality implies unique global optimizer. Direct algebra proves mass-cancellation and the three-state price thresholds. The extracted finite checker completed 220 exact rational Poisson solves and 800 optimized design comparisons; these support but do not establish the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi (2006) Sections I, VI and VII: optimize sum of effective resistances; mention max effective resistance as an SDP extension; Figure 3 shows a path design.",
+        "For the present chain, directed means split as sums of prefix masses and complementary prefix masses, not simply the resistance sum: swapping the stationary-mass profile changes each direction but not the path resistance."
+      ],
+      "reasoning": "A generic convex design method does not supply the specific optimum automatically. Maximum effective resistance is a symmetric pair functional; average commute/total effective resistance has different coefficients. Neither dominates the exact directional minimax statement by corollary or parameter restriction; the change to a fixed arbitrary stationary law is mathematically essential.",
+      "searches": [
+        "optimal worst mean hitting time reversible path birth death chain prescribed stationary distribution conductance budget prices exact minimax formula",
+        "best edge rates minimax first passage latency chain weighted cost sqrt edge prices endpoint hitting",
+        "max endpoint hitting time optimal allocation path continuous time Markov chain first passage",
+        "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf"
+      ]
+    },
+    "checked_sources": [
+      {
+        "title": "Minimizing Effective Resistance of a Graph (2006 conference full text; 2008 journal)",
+        "url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf"
+      },
+      {
+        "title": "Hitting Times of Walks on Graphs through Voltages (2014 complete HTML)",
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1155/2014/852481"
+      },
+      {
+        "title": "Birth and death chains on finite trees (2016 accepted PDF)",
+        "url": "https://eprints.lse.ac.uk/66937/1/Quiroz_Birth%20and%20death.pdf"
+      },
+      {
+        "title": "Reversible Markov Chains and Random Walks on Graphs (targeted chapters)",
+        "url": "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf"
+      },
+      {
+        "title": "A Note on Expected Hitting Times for Birth and Death Chains (1996 abstract only)",
+        "url": "https://doi.org/10.1016/0167-7152(95)00209-X"
+      },
+      {
+        "title": "Maximum endpoint hitting time in 8-state quarter-grid stratum",
+        "url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/7/SCOPE009"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 Ghosh–Boyd–Saberi full conference paper Section VII explicitly formulates minimax *effective resistance* as convex, not minimax *directed hitting time* with separate prescribed stationary masses and prices.",
+        "The 2014 full Palacios paper §2 Corollary 6 states a fixed-walk line-graph formula; it does not vary conductances under a budget.",
+        "The reviewed optimal spectral gap on priced reversible paths maximizes a Laplacian eigenvalue, not a maximum hitting-time functional."
+      ],
+      "reasoning": "The proposed result needs new joint optimization after using the old first-passage identities; reciprocal conductance terms have two distinct directional prefix coefficients and the maximum selects their balance. No compared prior stronger theorem entails the unique price-weighted formula or its universal mass-cancellation and three-state phase conclusions. The presence of old formulas and general convex techniques is acknowledged rather than claimed as new.",
+      "searches": [
+        "optimal worst-case hitting times bidirectional path reversible Markov chain stationary masses",
+        "max endpoint hitting time optimal allocation path continuous time Markov chain first passage",
+        "Minimizing Effective Resistance of a Graph path example and maximum effective resistance extension",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "https://onlinelibrary.wiley.com/doi/full/10.1155/2014/852481",
+        "https://eprints.lse.ac.uk/66937/1/Quiroz_Birth%20and%20death.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Palacios–Gómez–Del Río (2014) §2 Corollary 6 gives birth–death first-passage sums for fixed walks.",
+        "Palacios–Quiroz (2016) Theorem 1 and Sections 2–4 compute stationary and hitting quantities for given finite-tree transition probabilities.",
+        "Aldous–Fill Ch.3 §3.7 and Ch.5 §5.3 give fixed reversible-chain hitting/commute-time relations."
+      ],
+      "reasoning": "Potential aliases checked included birth–death rate allocation, worst first-passage latency, directed endpoint hitting time, reversible paths, and inverse-square-root conductance design. Classical flux/voltage formulas supply the objective terms but not a minimizing price-constrained conductance allocation; no inspected claim gives its unique multiplier and both-sided active-constraint classification. This is an implication comparison, not an inference from search nonmatches.",
+      "searches": [
+        "minimax expected hitting time reversible birth-death chain fixed stationary distribution edge conductance budget price",
+        "maximum mean first-passage time all ordered states finite path exact conductance allocation inverse square root prices",
+        "optimal worst-case hitting times bidirectional path reversible Markov chain stationary masses",
+        "minimum maximum hitting time edge weights path Cauchy Schwarz dual scalar",
+        "resistance design hitting time maximum all pairs stationary mass budget square root edge cost",
+        "minimum max mean hitting time birth death chain conductance allocation",
+        "minimax hitting time birth-death chain",
+        "Palacios Gómez Del Río 2014 Corollary 6",
+        "https://onlinelibrary.wiley.com/doi/full/10.1155/2014/852481",
+        "https://eprints.lse.ac.uk/66937/1/Quiroz_Birth%20and%20death.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest identified published research record `2026/9/7/SCOPE009` reports a maximum endpoint hitting time over a finite 8-state quarter-grid birth–death stratum.",
+        "The 2016 accepted article includes numerical tables for *evaluating* fixed birth–death hitting times, not optimal priced allocations.",
+        "No inspected source tabulates the full arbitrary-parameter scalar minimax optimizer."
+      ],
+      "reasoning": "The finite quarter-grid *maximization* is neither an exact table of the present continuous positive-parameter family nor a stronger theorem implying the minimum. No catalog search alone proves novelty; it only reduces identifiable duplicates.",
+      "searches": [
+        "minimax expected hitting time reversible birth-death chain fixed stationary distribution edge conductance budget price",
+        "optimal worst mean hitting time reversible path birth death chain prescribed stationary distribution conductance budget prices exact minimax formula",
+        "max endpoint hitting time optimal allocation path continuous time Markov chain first passage",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/9/7/SCOPE009",
+        "2026/9/7/SCOPE009"
+      ]
+    },
+    "rationale": "The closest full papers establish given-chain hitting-time identities (Palacios–Gómez–Del Río 2014; Palacios–Quiroz 2016), and conductance design for total/maximum symmetric effective resistance (Ghosh–Boyd–Saberi 2006/2008). Those premises do not imply the optimum of the maximum of two *directed* endpoint hitting-time functionals with prescribed externally fixed stationary masses and arbitrary prices, its unique scalar multiplier, mass-cancellation invariance or exact three-state price frontier. Separate reviewed path spectral-gap optimization targets a different functional. The closest relevant research-record ID studies a fixed quarter-grid 8-state discrete chain and maximization, not the present minimax resource allocation. Residual uncertainty remains concerning the uninspected full text of Palacios–Tetali (1996) and unknown equivalent historical specializations.",
+    "residual_risks": [
+      "The 1996 Palacios–Tetali paper could not be inspected beyond its abstract and references, so its entire contents are not cleared. The inspected later fixed-hitting-time formulas reduce but do not remove this uncertainty.",
+      "Equivalent specialized network-design results in uncatalogued historical optimization literature could exist; semantic and keyword search failures do not prove global novelty.",
+      "Aldous–Fill was inspected by relevant sections, not all 516 pages; related formulations in unread chapters remain a historical risk.",
+      "The accessible 2006 Ghosh conference version predates the 2008 online journal, but the exact first-public day of the conference manuscript remains unverified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the directed arbitrary-stationary-mass hitting-time minimax, although it covers conductance design as a general methodology",
+        "evidence": [
+          "Section I objective sum of resistances; Section VII maximum effective resistance as SDP, not one-way hitting time",
+          "Figure 3 path design for total resistance",
+          "DOI 10.1137/050645452 first online 2008-02-01"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Conference preprint (12 pages): abstract, Sections I–IV, VI (path allocation), VII (minimum pair, sum-to-node and maximum effective resistance), references and relevant Figure 3; 2008 journal metadata inspected",
+        "method": "Lawful freely posted Stanford full PDF textual sections and rendered page 11; SIAM bibliographic source",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Same graph path and same variable conductance budget, plausible stronger optimization coverage"
+      },
+      {
+        "assessment": "FIXED-WALK FORMULAS; no price-constrained minimax design found in inspected material",
+        "evidence": [
+          "Section 2 Corollary 6 explicitly dispatches given birth-and-death hitting-time computations",
+          "Subsequent necklace example and electrical reciprocity are computed for given networks",
+          "First published 2014-05-20, DOI 10.1155/2014/852481"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1155/2014/852481",
+        "material_read": "Accessible full HTML: Introduction, Section 2 Theorem 2 and Corollary 6, Sections 3–4 and references; mathematical equations include some image-rendered content",
+        "method": "Open-access full publisher HTML",
+        "title": "Hitting Times of Walks on Graphs through Voltages",
+        "trigger": "Exact linear-graph first-passage formulas might already contain equivalent optimal design"
+      },
+      {
+        "assessment": "FIXED-CHAIN ALGORITHMS; does not state or solve arbitrary-edge-price minimax conductance choice",
+        "evidence": [
+          "Theorem 1 supplies stationary probabilities and mean hitting times for a given random walk on a finite tree",
+          "Section 4 computes all fixed-chain hitting times with quadratic work",
+          "Accepted PDF available June 2016; original DOI 10.1007/s11009-014-9436-1"
+        ],
+        "identifier_or_url": "https://eprints.lse.ac.uk/66937/1/Quiroz_Birth%20and%20death.pdf",
+        "material_read": "Full 20-page accepted-version parsed text: abstract, Theorem 1 and conductance construction in Sections 1–2, performance/numerical tables Section 3, and all-pair hitting-time procedure Section 4 and references",
+        "method": "Lawful institutional open repository author accepted PDF, section-by-section text inspection",
+        "title": "Birth and death chains on finite trees: computing their stationary distribution and hitting times",
+        "trigger": "Most closely related tree/path setting and all-pair hitting-time calculation"
+      },
+      {
+        "assessment": "BACKGROUND for fixed chains; targeted text does not establish price-weighted directional minimax edge design",
+        "evidence": [
+          "Chapter 3 Theorem 3.36 addresses fixed-chain commute-time extremal characterizations",
+          "Chapter 5 Theorem 5.20 supplies fixed-tree hitting-time formulas",
+          "Other chapters not exhaustively searched, residual risk noted"
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~aldous/RWG/book.pdf",
+        "material_read": "Targeted chapters: 3 §3.7 fixed-chain extremal characterizations, 4 maxima of hitting/commute parameters, 5 §5.3 tree hitting identities; remaining monograph not exhaustively read",
+        "method": "Freely hosted 516-page monograph PDF; targeted full section text and rendered tree theorem page",
+        "title": "Reversible Markov Chains and Random Walks on Graphs",
+        "trigger": "Potential stronger historical extremal characterization of maximal hitting or commute time"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; do not infer whole-document absence of optimal design",
+        "evidence": [
+          "Statistics & Probability Letters 30 (1996), pp. 119–125",
+          "Later Palacios 2014 Corollary 6 explicitly attributes fixed birth–death hitting-time formulas to this article"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0167-7152(95)00209-X",
+        "material_read": "Only bibliographic abstract and citations in subsequent full texts; full article inaccessible",
+        "method": "Publisher abstract and cross-citation analysis; unrestricted full-text access attempt did not succeed",
+        "title": "A Note on Expected Hitting Times for Birth and Death Chains",
+        "trigger": "Original path hitting-time treatment could contain the priced optimizer"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8ec9e98-bd5a-4bc3-bcf9-80fb13c7cceb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Worst directed expected hitting time is a natural robust communication/transport latency objective. All arbitrary path sizes, positive stationary laws and independently priced edges are classified, with exact unique optimal rates and a scalar monotone-root computation rather than general multi-variable SDP. The stationary-mass cancellation condition reveals a substantial invariant family, and the exact three-state threefold-price interval identifies a meaningful complete phase boundary. The result is not a fixed-table recomputation, a routine subsumed corollary of total effective resistance, or a mere renaming of a spectral-gap optimization. Its value is restricted to this precise robustness objective; no arbitrary-graph or downstream mixing-time claim is asserted.",
+    "status": "PASS"
+  }
+}
