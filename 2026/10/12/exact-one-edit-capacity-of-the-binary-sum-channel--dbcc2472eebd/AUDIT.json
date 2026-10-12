@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each of exactly \\(2^{\\ell(n-1)}\\) prefixes, the augmented distance when the free column changes in \\(t\\) bits is \\(t+(t\\bmod2)\\), so any two free columns of Hamming distance one or two have overlapping single-error balls. Thus every fiber is an \\(\\ell\\)-bit distance-three code. Conversely, row-parity words in a maximum classical distance-three seed yield exactly \\(2^{\\ell(n-1)}A_2(\\ell,3)\\) matrices; row-length detection recovers insertion/deletion, and column parity plus uniquely nearest seed parity recovers substitutions. All quantified \\(n>\\ell\\ge2\\) are covered by this formal argument. The attached standard-library verifier exhaustively checks three representative SID constructions, Hamming-distance lemmas for \\(\\ell\\le8\\), small classical optima, and 190 seed pairs at \\(\\ell=8\\). Finite checks are corroboration, not a proof of the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abboud–Yaakobi Theorem 5: \\(A_n^{\\mathrm S}(\\ell;1)\\le\\lfloor2^{n\\ell}/(\\ell+1)\\rfloor\\), a sphere-packing bound; the new bound is \\(2^{\\ell(n-1)}A_2(\\ell,3)\\).",
+        "For \\(\\ell=8\\) this old sphere bound is \\(\\lfloor2^{8n}/9\\rfloor\\), strictly greater than \\(20\\cdot2^{8(n-1)}\\)."
+      ],
+      "reasoning": "The original paper proves exactness for ell=2, which is a special case of this claim, and gives only a general weak upper bound for arbitrary ell. No broader exact single-edit maximum covering all ell was identified in the primary-source comparisons.",
+      "searches": [
+        "sum-channel one error perfect codes parity row sphere pack optimal",
+        "https://arxiv.org/html/2601.10256v2 Theorem 5",
+        "sum channel maximum one substitution optimal exact 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.10256v2",
+      "https://arxiv.org/abs/2601.10256",
+      "https://aeb.win.tue.nl/codes/binary-1.html",
+      "https://users.aalto.fi/~pat/72.html",
+      "https://users.aalto.fi/~pat/opt/20.txt",
+      "https://cris.technion.ac.il/en/publications/error-correcting-codes-for-the-sum-channel/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing Construction 4 with arbitrary single-error seed gives \\(A_n^{\\mathrm{SID}}(\\ell;1)\\ge2^{\\ell(n-1)}A_2(\\ell,3)\\).",
+        "The source upper bound only gives \\(A_n^{\\mathrm S}(\\ell;1)\\le2^{\\ell n}/(\\ell+1)\\) and does not force equality unless classical Hamming sphere packing is tight (e.g., \\(\\ell=7\\)).",
+        "The claimed inequality \\(A_n^{\\mathrm S}(\\ell;1)\\le2^{\\ell(n-1)}A_2(\\ell,3)\\) follows by the new fixed-column fiber argument and is strictly stronger at \\(\\ell=8\\)."
+      ],
+      "reasoning": "The old construction does not imply optimality of all its nonlinear seeds: it provides a lower bound. The old sphere-packing theorem is numerically too weak at \\(\\ell=8\\) (normalized old bound \\(256/9>20\\)). Combined statements therefore do not already entail the exact identity. The claim does not repackage the known ell=2 special case as the sole contribution.",
+      "searches": [
+        "coding theory 2026 new construction parity check locality availability weight hierarchy distance spectrum",
+        "Abboud Yaakobi sum channel exact one substitution one edit code size classical A_2(l,3) column fiber optimal",
+        "sum channel 2026 optimum nonlinear binary one error correcting code length eight 20 words",
+        "https://arxiv.org/html/2601.10256v2 §V-B"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact theorem can be restated as the independence number of the Cartesian product of n copies of the graph on F_2^ell joining Hamming distances 1 or 2.",
+        "This precise channel graph and its fiber/sharp lower comparison are not stated in the inspected arXiv §V; Theorem 4 provides only the lower construction."
+      ],
+      "reasoning": "Direct characterization of adjacency: two distinct codewords have augmented Hamming distance <=2 iff exactly one input column changes in 1 or 2 bits, because every nonzero column difference has even augmented weight >=2. Fixing n-1 columns proves alpha upper; XOR of all columns into an independent classical seed proves equality. Standard Cayley/Cartesian graph theory may independently yield this identity in a different language; searched mathematical records did not exhibit an explicit covering reduction, which remains a residual risk.",
+      "searches": [
+        "Abboud Yaakobi sum channel exact one substitution one edit code size classical A_2(l,3) column fiber optimal",
+        "sum channel single-edit exact optimum cardinality alpha binary length-ell minimum Hamming distance three Abboud Yaakobi parity row",
+        "sum channel confusability graph Cartesian power hypercube-square independent set maximum",
+        "one substitution sum channel tensor product parity code exact A_2(length,3) upper bound",
+        "https://arxiv.org/html/2601.10256v2 §V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical \\(A_2(8,3)=20\\) is explicitly established in existing tables; the twenty-word witness is previously published.",
+        "The database tables concern ordinary length-\\(\\ell\\) Hamming codes, not the augmented-parity sum channel for arbitrary n."
+      ],
+      "reasoning": "The finite code-size invariant is an input to the new theorem, not a novel table computation. An exact classical table cannot imply the sum-channel capacity without an additional statement/proof reducing the channel to this invariant; that upper reduction is supplied here.",
+      "searches": [
+        "https://aeb.win.tue.nl/codes/binary-1.html",
+        "https://users.aalto.fi/~pat/72.html",
+        "https://users.aalto.fi/~pat/opt/20.txt",
+        "sum channel one edit codes exact nonlinear length ell Hamming code parity vector maximal size"
+      ]
+    },
+    "rationale": "The same-object January 2026 source explicitly supplies the lower-bound seed construction, but retains only a sphere-packing upper and an at-most-one-bit gap for general \\(\\ell\\). The new fiberwise sharp upper bound and resulting exact all-\\(\\ell\\) identity are not stated or implied by those inequalities; the difference is strict for \\(\\ell=8\\), where classical \\(A_2(8,3)=20\\) versus \\(2^8/9\\) sphere capacity. Classical code tables predate and do not address the appended-parity sum channel. published-finding corpus searches, previous own claims, and primary/full section inspection detected no covering statement. Residual risk: a general Cartesian-product/Cayley graph independence theorem or unindexed subsequent work might derive the same capacity.",
+    "residual_risks": [
+      "A general existing theorem on independent sets of Cartesian powers of finite Abelian Cayley graphs may specialize to the same result, despite no equivalent sum-channel statement found in inspected sources.",
+      "Unindexed or inaccessible publications could contain an equivalent observation; no search proves global novelty.",
+      "Conference proceedings full text was not separately inspected because lawful arXiv full text of the same paper was available; version differences beyond the abstract may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers row-parity-seed construction and the length-two exact optimum; arbitrary-row upper bound only packing bound, which is generally weaker than \\(A_2(\\ell,3)\\) fiber bound. No exact all-row cardinality identity is stated in inspected text.",
+        "evidence": [
+          "§II defines the appended parity row and the SID error balls (HTML lines 59–88).",
+          "§V-B Construction 4/Theorem 4 (HTML lines 409–424) proves any length-\\(\\ell\\) classical distance-three seed yields a single-edit code.",
+          "§V-B Theorem 5 (HTML lines 433–454) bounds by \\(\\lfloor2^{\\ell n}/(\\ell+1)\\rfloor\\), explicitly leaving a one-bit gap."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.10256v2",
+        "material_read": "Full Section II Definitions 1–3 and Section V §§V-A,V-B (Construction 4, Theorems 4 and 5, proofs, and cited references); introduction and abstract.",
+        "method": "Read lawful full-text arXiv HTML, checked statements and proof implications.",
+        "title": "Error-Correcting Codes for the Sum Channel",
+        "trigger": "Identical sum-channel object and one-edit code parameters; decisive direct prior-work comparison"
+      },
+      {
+        "assessment": "Establishes \\(A_2(8,3)=\\(A_2(9,4)=20\\)\\), with no treatment of the 2026 sum-channel model; classical bounds are not claimed new.",
+        "evidence": [
+          "Table lines 5–20 gives the conversion of odd to even distance and \\(A_2(9,4)=20\\).",
+          "Table cites Best et al (1978) and later classical refinements."
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/codes/binary-1.html",
+        "material_read": "Table definition, entries for distance four and lengths 6–13, references and historical update paragraphs.",
+        "method": "Read public mathematical code bounds table; apply its explicitly stated equality \\(A_2(\\ell-1,3)=A_2(\\ell,4)\\).",
+        "title": "Table of general binary codes",
+        "trigger": "Classical \\(A_2(\\ell,3)\\) equality cases and whether the seed cardinality is independently known"
+      },
+      {
+        "assessment": "Supplies a classical twenty-word seed; does not address channel capacity or the new fiber bound.",
+        "evidence": [
+          "Header numbers (5 codes, length 8, first code size 20), followed by its 20 decimal codewords; all 190 word pairs verified distance at least 3."
+        ],
+        "identifier_or_url": "https://users.aalto.fi/~pat/opt/20.txt",
+        "material_read": "Complete 107-line code-list text, including the first 20 length-eight decimal codewords.",
+        "method": "Read complete electronic list and independently check selected 20 words by exhaustive pair distances using the packaged verifier.",
+        "title": "Optimal binary one-error-correcting codes of length 10 have 72 codewords — electronic examples",
+        "trigger": "Reproducible explicit nonlinear length-eight twenty-word distance-three seed"
+      },
+      {
+        "assessment": "Conference version title matches, abstract advertises only within-one-bit optimality; no contradictory exact result is indicated, but abstract alone cannot exclude revisions in inaccessible versions.",
+        "evidence": [
+          "Conference record cites ISIT 2026 and DOI 10.1109/ISIT62367.2026.11654129; abstract reports within-one-bit optimum."
+        ],
+        "identifier_or_url": "https://cris.technion.ac.il/en/publications/error-correcting-codes-for-the-sum-channel/",
+        "material_read": "Bibliographic details and abstract; full paper inspection performed using arXiv version above.",
+        "method": "Read institutional bibliography and compare abstract claims with full arXiv content.",
+        "title": "2026 IEEE ISIT publication record: Error-Correcting Codes for the Sum Channel",
+        "trigger": "Check publication metadata and alternate version/title of precisely relevant source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbcc2472-eebd-4bc6-9db5-f9745478f7fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the explicit within-one-bit optimality gap for the one-edit sum channel for every eligible number of rows and frame length, expressing exact maximum cardinality through the classical one-error-correcting code invariant. Theorem proves even substitution-only codes cannot exceed the same maximum, which is useful in RAID-style striped parity storage and low-rate DNA coding. An established nonlinear \\((8,20,3)\\) seed improves input-code cardinality by 25% over the original shortened-Hamming choice; no misstatement about fixed-length indexing or new classical seed optimality is made.",
+    "status": "PASS"
+  }
+}
