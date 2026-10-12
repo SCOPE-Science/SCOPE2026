@@ -1,0 +1,173 @@
+{
+  "correctness": {
+    "rationale": "The two gradient compositions are exactly \\(gx+\\eta^2bc\\) and \\(gx-\\eta^2ac\\); with balanced sign S the epoch recurrence is \\(g x+m+dS\\). Absolute convergence for \\(|g|<1\\) establishes the stationary mean and second moment for any stationary sign covariance. Herglotz representation and the min/max of \\(1/(1-2g\\cos\\theta+g^2)\\) give sharp bounds; equality forces covariance lag-one ±1 and hence the unique fixed or alternating fair-sign processes. The exact Markov formula follows from geometric summation, its monotonicity from differentiation, and the step switches from the factorization of g. For the explicit individually contractive family, \\(g=-(1-1/N)^3\\) and the computed risk ratio divided by N^2 tends to 2/9. The embedded standard-library verify.py passed 728 exact-rational identity checks, which support but do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Domingo-Enrich (2022) Theorem 2 covers arbitrary stationary input second-order spectra for an already-given stable LTI system, but its SGD specialization uses a zero-order approximation with common average curvature",
+        "Hu et al. (2022) Theorem 3.6 concerns efficiency ordering for diminishing-step CLT covariances; Appendix E uses averaged constant-step iterates and common curvature",
+        "Mohtashami et al. (2022) use general ordering quality bounds rather than exact stationary optimal-coupling laws"
+      ],
+      "reasoning": "The strongest nearby generic result is the LTI spectral transfer theorem. Its analytical tool is explicitly acknowledged and independently applied; it does not directly assert optimized exact risk for the underlying heterogeneous two-gradient model. The full new statement also specifies exact admissible binary extremizers, a complete equality classification, two order switches and an unbounded gap with individual contraction. Other broad convergence bounds do not imply sharp equality at these finite parameters.",
+      "searches": [
+        "random reshuffling two-component quadratic optimize temporal dependence of epoch permutations sharp stationary risk alternating vs fixed order spectral frequency step size sign switch",
+        "stochastic gradient epoch-order temporal correlations Herglotz optimal worst case stationary mean squared error linear scalar quadratic",
+        "fixed order versus alternating reversal optimal over stationary balanced shuffling sequences exact mean square error quadratic",
+        "arXiv:2206.00632 Theorems 1-2, Sections 4-5",
+        "arXiv:2209.07446 Theorem 3.6 and Appendix E",
+        "arXiv:2202.01838 order-sensitive convergence theorems"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.07964v1",
+      "arXiv:2202.01838v1",
+      "arXiv:2206.00632v1",
+      "arXiv:2209.07446v1",
+      "arXiv:2306.05300v1",
+      "arXiv:2604.00260v1",
+      "MSC2020 official 90C15 Stochastic programming",
+      "published-index closest mathematical results on delayed Gauss-Seidel, Gauss-Seidel ordering and reverse-order Kaczmarz"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Independent RR is the single Markov parameter \\(\\rho=0\\), but the proved class allows every strictly stationary fair-marginal sign process",
+        "The 2022 power-spectral density framework assumes approximated gradient maps sharing a mean Hessian, which forces a nonnegative two-step scalar gain in the two-point equal-curvature case; an exact heterogeneous-curvature gain can instead be negative",
+        "The theorem constructs individually contractive component steps with a stationary objective ratio growing as \\(2N^2/9\\)"
+      ],
+      "reasoning": "Independent random reshuffling is a special coupling rather than a dominating result. The published LTI formula is a proof ingredient but does not instantiate the heterogeneous curvature or optimize over admissible correlated permutations. Hu et al. compare asymptotic CLT covariances with different normalization; this does not imply the fixed-positive-stepsize stationary last-iterate ordering that can reverse. No source inspected provides stronger, matching, or directly dominating statements for the final theorem.",
+      "searches": [
+        "arXiv:1803.07964 epoch recursion and Theorem 2",
+        "arXiv:2202.01838 objective-sensitive order bounds",
+        "arXiv:2206.00632 Eqs. (3),(6),(22)-(27) and Theorem 2",
+        "arXiv:2209.07446 Theorem 3.6 and Appendix E",
+        "arXiv:2306.05300 covariance analysis",
+        "arXiv:2604.00260 paired reversal operator",
+        "random reshuffling versus sampling with replacement scalar two-component quadratic exact transient expected squared error sampling order",
+        "random reshuffling two-component quadratic optimize temporal dependence of epoch permutations sharp stationary risk alternating vs fixed order spectral frequency step size sign switch",
+        "stochastic gradient epoch-order temporal correlations Herglotz optimal worst case stationary mean squared error linear scalar quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1803.07964 analyzes independently redrawn epoch permutations",
+        "arXiv:2206.00632 Equation (6) is an LTI spectral-variance formula under zero-order gradient noise",
+        "arXiv:2209.07446 Appendix E considers common-curvature quadratic updates and averaged iterates"
+      ],
+      "reasoning": "Equivalent formulations include filtered stationary Bernoulli-sign noise, spectral placement at frequencies 0/pi, fixed-order (shuffle once), deterministic alternation with random phase, Markov epoch persistence, and shuffle-noise covariance. Generic LTI transfer identities permit the spectral proof but do not themselves furnish the exact original heterogeneous-gradient composition, sharp feasible-binary extremizers, the sign-changing optimality intervals, or the component-stable family with unbounded objective ratio. Checked direct and reduced formulations rather than only matching titles.",
+      "searches": [
+        "random reshuffling versus sampling with replacement scalar two-component quadratic exact transient expected squared error sampling order",
+        "random reshuffling two-component quadratic optimize temporal dependence of epoch permutations sharp stationary risk alternating vs fixed order spectral frequency step size sign switch",
+        "stochastic gradient epoch-order temporal correlations Herglotz optimal worst case stationary mean squared error linear scalar quadratic",
+        "fixed order versus alternating reversal optimal over stationary balanced shuffling sequences exact mean square error quadratic",
+        "arXiv:2206.00632 Sections 1-2 and 4-5; arXiv:2209.07446 Sections 3-4, Appendix E"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result search returned nearest works on stochastic delays in Gauss-Seidel, two-coordinate Gauss-Seidel transient geometry, Kaczmarz reversed-order bias, and scalar stochastic optimization; none of their statements is about inter-epoch permutation coupling for the specified two-gradient recurrence",
+        "No exact published numeric table or claim with the two step-size switches or order-coupling bound was identified by the searches performed"
+      ],
+      "reasoning": "The proposed result is a sharp infinite-parameter analytic classification, not a recomputation of an existing numeric database entry. Search nonappearance alone is not taken as proof of novelty; close literature has been compared by hypotheses and mathematical implications.",
+      "searches": [
+        "two-component scalar random reshuffling SGD stationary Bernoulli convolution optimizer gap exact variance",
+        "epoch permutation temporal dependence spectral minimax stationary risk two functions SGD",
+        "alternating deterministic permutations fixed repeated order correlated SGD stationary error threshold",
+        "sharp optimal correlation between epoch permutations randomized reshuffling alternating order fixed shuffle stationary MSE quadratic different curvatures",
+        "constant step shuffle once versus alternating epoch order 2 quadratic strongly convex unbounded stationary variance ratio",
+        "temporally correlated random reshuffling negative contraction optimal order persistent alternating step size",
+        "published mathematical research index search: inter-epoch correlation, fixed-order risk, alternating two-gradient quadratic, and exact stationary shuffle risk"
+      ]
+    },
+    "rationale": "The exact heterogeneous-curvature two-component gradient composition yields an epoch multiplier g that can be negative while both component steps are individually contractive. Its sharp optimal stationary order-coupling envelope, uniqueness of persistent/alternating extrema, two order-policy switches, and an unbounded policy gap are not established by the inspected constant-step random-reshuffling analyses. Ying et al. give iid-reshuffling MSD, Mohtashami et al. study order-sensitive convergence bounds, and Kühn--Rosenow study within-epoch anticorrelation. Domingo-Enrich proves a general LTI spectral-transfer identity but, for optimization, replaces heterogeneous component Hessians by their mean in the zero-order noise model and analyzes independent reshuffling/shuffle-once; its formula is a methodological antecedent, not an exact calculation for the original heterogeneous-gradient maps or a sharp extremization over every stationary epoch-order law. Hu--Doshi--Eun compare limiting efficiency mainly through diminishing-step CLTs and, at constant step, averaged iterates; no stated last-iterate sharp envelope/phase-reversal law. The 2026 paired-reversal work averages epoch maps rather than imposing sequential anticorrelated orders. Unindexed or unstated directly implied specialized work is still a priority risk.",
+    "residual_risks": [
+      "The general 2022 LTI variance-transfer theorem may facilitate unstated specialized corollaries, and an exact construction independently obtained elsewhere could affect priority. The search and full-text comparison do not establish worldwide uniqueness.",
+      "The claim is deliberately specialized to scalar quadratic two-component constant-step reshuffling, not a broad convergence guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest independent-reshuffling stationary MSD analysis, not a theorem for dependent epoch permutations",
+        "evidence": [
+          "first public 2018-03-21 on arXiv submission history",
+          "Theorem 2 treats standard random reshuffling with independently drawn permutations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.07964",
+        "material_read": "arXiv open full-text PDF; update algorithm and mean-square result Theorem 2 and related discussion",
+        "method": "read source PDF sections and formulas directly, compared hypotheses and epoch sampling law",
+        "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+        "trigger": "original constant-step reshuffling analysis and motivating source"
+      },
+      {
+        "assessment": "Bounds for chosen sequences but not sharp all-stationary-binary-law risk and equality characterization",
+        "evidence": [
+          "Convergence bound is sensitive to order quality; its optimized quantity is not the fixed-step asymptotic two-order coupling envelope"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01838",
+        "material_read": "arXiv full PDF introduction, order metrics, main convergence theorems and comparisons",
+        "method": "read relevant body and theorem statements in full-text paper",
+        "title": "Characterizing & Finding Good Data Orderings for Fast Convergence of Sequential Gradient Methods",
+        "trigger": "explicit good/bad permutation order analysis"
+      },
+      {
+        "assessment": "Strong methodological overlap: published transfer identity for filtered stationary noise. Its SGD computations use the zero-th-order common-Hessian approximation and only SO/RR laws, not the exact heterogeneous-epoch composition and sharp all-law optimum",
+        "evidence": [
+          "Eq.(3) replaces per-component Hessians by average Hessian",
+          "Eq.(6) gives general LTI noise-to-variance transfer",
+          "Eqs.(22)-(27) give SO/RR covariance laws",
+          "Appendix B Theorem 2 handles non-absolutely-summable stationary spectra"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2206.00632v1",
+        "material_read": "full-text HTML Introduction, Sections 2, 4 and 5 and Appendix B general input covariance transfer result",
+        "method": "read arXiv HTML, compared exact objective-gradient assumptions and stated formulas",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "directly relevant power spectral density method and stationary shuffle-once/RR variance"
+      },
+      {
+        "assessment": "Main result treats diminishing stepsize CLTs, constant-step appendix treats common-Hessian and time-averaged iterates; does not furnish final fixed-step last-iterate coupled-order theorem",
+        "evidence": [
+          "Assumption A1 uses diminishing gamma_t",
+          "Appendix E eq.(34) addresses time-averaged theta_bar_t, not stationary squared last-iterate risk"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.07446v1",
+        "material_read": "arXiv full-text HTML, main efficiency-ordering theorem and Appendix E constant-step quadratic case",
+        "method": "compared required step normalization and output statistics",
+        "title": "Efficiency Ordering of Stochastic Gradient Descent",
+        "trigger": "possible broad theorem on ordering correlated input sampling processes"
+      },
+      {
+        "assessment": "Within-epoch noise correlations and flat-direction approximations, not exact all-interepoch order coupling with heterogeneous step multipliers",
+        "evidence": [
+          "Focus on anti-correlation from reshuffling within epochs and resulting weight variances"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.05300",
+        "material_read": "arXiv open HTML relevant analysis of within-epoch noise autocorrelation and stationary variances",
+        "method": "read source main analysis in lawful OA full text",
+        "title": "Anti-Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances in Flat Directions",
+        "trigger": "potential coverage by anti-correlated SGD noise"
+      },
+      {
+        "assessment": "Different method averages reversed epoch maps rather than sequentially alternating order signs",
+        "evidence": [
+          "Paired reversal operator averages forward and reverse cycle outcomes, giving a method outside the two ordinary epoch-order actions considered here"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.00260",
+        "material_read": "arXiv full-text HTML algorithm definition and main theorem for paired reversal",
+        "method": "compared the actual update map, not just the word reversal",
+        "title": "Learning to Shuffle: Block Reshuffling and Reversal Schemes for Stochastic Optimization",
+        "trigger": "post-period potentially stronger reversal result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0365743e-ee2e-437e-80a8-78a0f2df8382",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The practical mathematical quantity is a stationary objective-risk envelope for all fair-cost, stationary inter-epoch scheduling policies, rather than a narrow arbitrary numerical example. The theorem identifies exactly when retaining an epoch ordering outperforms alternation and when the preference reverses as the step changes. It also shows that even with both individual gradient steps contractive, the policy choice alone can change limiting objective error by an unbounded factor. The strong family-level separation and complete extremizer classification make the fact a useful counterexample and benchmark in sampling-dependent stochastic programming. General methods that average both orders remain outside the claim, as stated.",
+    "status": "PASS"
+  }
+}
