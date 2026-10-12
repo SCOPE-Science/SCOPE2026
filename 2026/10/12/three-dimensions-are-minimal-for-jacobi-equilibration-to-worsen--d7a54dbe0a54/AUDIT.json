@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For 2x2 SPD matrices the original and Jacobi-scaled condition numbers are monotone functions of q and rho, and q^2-rho^2 factors as a nonnegative SPD quantity. For the 3x3 family, the rank-one construction fixes the spectrum at {1,1,kappa}; exchange symmetry of coordinates two and three gives one equilibrated eigenvalue explicitly and reduces the other two to a 2x2 block. Their exact formulas prove the stated condition number, strict worsening for every kappa>1, and the 4/3 family limit. The packaged checker independently replays the rational identities and the integer kappa=10 witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van der Sluis Theorem 4.1 shows that an SPD matrix with equal diagonal is within a factor n of the optimally symmetrically scaled condition number.",
+        "Braatz-Morari formulate and solve optimal Euclidean row/column condition-number scaling by convex optimization.",
+        "Modern block-Jacobi work describes unit-diagonal Jacobi scaling as a classical near-optimal choice, not as universally condition-reducing relative to the input."
+      ],
+      "reasoning": "Near-optimality relative to the best diagonal scaling permits the Jacobi choice to be worse than the unscaled matrix and therefore does not imply the new safety/minimality classification.",
+      "searches": [
+        "Condition Numbers and Equilibration of Matrices van der Sluis",
+        "Minimizing the Euclidean Condition Number Braatz Morari",
+        "Nearly Optimal Block-Jacobi Preconditioning van der Sluis unit diagonal"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/BF02165096",
+      "doi:10.1137/S0363012992238680"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Van der Sluis bounds the equilibrated matrix by a factor n times the optimum; since the unscaled matrix is merely one admissible scaling, this bound does not force Jacobi scaling to improve it.",
+        "Optimal-scaling theory proves existence or computation of a best diagonal scaling, not that the fixed diagonal-normalizing scaling is itself improving.",
+        "Practical equilibration documentation describes the scaling as intended to reduce condition number, which is a heuristic purpose rather than a universal theorem."
+      ],
+      "reasoning": "The new theorem fills exactly the logical gap between near-optimality and guaranteed improvement: guarantee holds in dimensions at most two, while an explicit rank-one family destroys it in dimension three.",
+      "searches": [
+        "van der Sluis equal diagonal SPD factor n optimal scaling",
+        "optimal diagonal scaling Euclidean condition number SPD",
+        "Jacobi equilibration reduce condition number LAPACK"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published research-record searches returned weighted-Jacobi iteration and Gauss-Seidel results rather than symmetric diagonal equilibration.",
+        "Exact-constant and 2x2 monotonicity searches did not return the family formula or the value 7+2sqrt(6) in this scaling context.",
+        "Web searches recovered the classical equilibration literature but no implication-equivalent minimal-dimension statement."
+      ],
+      "reasoning": "Equivalent coverage would have to compare the spectral condition number of D^{-1/2} A D^{-1/2}, with D=diag(A), against that of A itself, including universal dimension-two safety and an all-kappa dimension-three obstruction. Iteration-matrix Jacobi results are different objects.",
+      "searches": [
+        "Jacobi equilibration condition number dimension three minimal SPD",
+        "unit diagonal scaling SPD can worsen condition number every kappa rank one",
+        "diagonal equilibration 2x2 SPD condition number never increases",
+        "7+2sqrt(6) Jacobi scaling condition number",
+        "Jacobi scaling can increase condition number SPD three by three minimal dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulation of the displayed family or the kappa=10 value was located.",
+        "The values are derived from the exact three-dimensional eigenvalue reduction rather than from a benchmark table."
+      ],
+      "reasoning": "The finding is an analytic classification and explicit family, not a recomputation of a known numerical dataset.",
+      "searches": [
+        "7+2sqrt(6) Jacobi scaling condition number",
+        "Jacobi equilibration rank one condition number 4/3",
+        "unit diagonal scaling condition number 3x3 example"
+      ]
+    },
+    "rationale": "Van der Sluis's full paper proves a dimension-factor near-optimality theorem for equal-diagonal symmetric scaling, and Braatz-Morari solve optimal Euclidean diagonal scaling. Those statements do not compare the Jacobi choice directly with no scaling in low dimension. Searches did not locate the universal 2x2 non-worsening theorem, the minimal-dimension-three statement, or the fixed-condition-number rank-one obstruction family.",
+    "residual_risks": [
+      "An older matrix-scaling source may contain the 2x2 monotonicity observation or a similar 3x3 counterexample under different notation.",
+      "The displayed family does not establish a globally sharp worst-case inflation factor in dimension three.",
+      "Terminology varies between Jacobi preconditioning, equilibration, unit-diagonal scaling, and symmetric diagonal scaling, so differently indexed coverage remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: proves dimension-factor near-optimality of equal-diagonal SPD scaling but does not state the low-dimensional comparison against the unscaled matrix or the displayed 3x3 obstruction family.",
+        "evidence": "Theorem 4.1 states that for positive-definite Hermitian P with equal diagonal, its spectral condition number is at most n times the minimum under symmetric diagonal scaling; the paper calls such scaling reasonably optimal in relevant applications.",
+        "identifier_or_url": "doi:10.1007/BF02165096",
+        "material_read": "The full 10-page paper was inspected, including Sections 3 and 4, Theorem 4.1, its proof, applications, and surrounding discussion; the theorem page was also rendered and visually checked.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "Condition Numbers and Equilibration of Matrices",
+        "trigger": "Foundational primary source for symmetric equal-diagonal equilibration and its condition-number guarantee."
+      },
+      {
+        "assessment": "BROADER_OPTIMAL_SCALING_NOT_CLAIM: solves the optimization over diagonal scalings but does not provide the minimal-dimension Jacobi-worsening classification.",
+        "evidence": "The paper explicitly formulates row, column, and two-sided diagonal scaling to minimize Euclidean condition number and lists AMS 65F35 as its first subject classification.",
+        "identifier_or_url": "doi:10.1137/S0363012992238680",
+        "material_read": "The complete 6-page paper was inspected, including the abstract, introduction, scaling formulations, convex-programming reduction, conclusions, and references; the first two pages were rendered and visually checked.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Primary source on exact Euclidean condition-number minimization under diagonal scaling and subject classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7a54dbe-0a54-44f3-a29a-8ada24c624e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Jacobi equilibration is among the simplest and most widely used SPD scalings, motivated specifically by conditioning. The result gives a natural complete minimal-dimension boundary for a basic safety question: whether the scaling can make the spectral condition number worse than doing nothing. The all-kappa 3x3 family shows that failure is not confined to extreme conditioning, while the exact 2x2 theorem explains why small examples can misleadingly suggest universal improvement.",
+    "status": "PASS"
+  }
+}
