@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The source supplies the exact independent geometric stages. The proof derives the limiting bulk log moment generating function, the interior Legendre saddle for \\(2<x\\le3\\), and the boundary-controlled branch for \\(x\\ge3\\). A matching lower bound is obtained by separating the \\(p_1=1/4\\) stage from the bulk. Finite dynamic programming is used only as corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.02031v1 gives the exact stage probabilities and stopping-time sum, but only applies a general upper-tail bound.",
+        "arXiv:1709.08157v1 concerns general bounds for sums of geometric and exponential variables.",
+        "arXiv:1707.04012 uses Bell sampling and therefore a different measurement model.",
+        "arXiv:2609.10974v1 concerns sample-optimal stabilizer learning under unrestricted measurements."
+      ],
+      "reasoning": "The closest broader probabilistic source supplies explicit inequalities for geometric sums rather than the exact non-steep-boundary reliability exponent. The two stabilizer-learning comparison papers use different measurement models and therefore do not dominate this algorithm-specific statement.",
+      "searches": [
+        "stabilizer learner failure exponent linear copy budget 4n 6n geometric waiting times",
+        "adaptive single-copy stabilizer learning exact large-deviation rate stopping rounds",
+        "general geometric-sum tail bounds stabilizer learning"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02031v1",
+      "arXiv:1709.08157v1",
+      "arXiv:1707.04012",
+      "arXiv:2609.10974v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.02031v1 gives the exact stage probabilities and stopping-time sum, but only applies a general upper-tail bound.",
+        "arXiv:1709.08157v1 concerns general bounds for sums of geometric and exponential variables.",
+        "arXiv:1707.04012 uses Bell sampling and therefore a different measurement model.",
+        "arXiv:2609.10974v1 concerns sample-optimal stabilizer learning under unrestricted measurements."
+      ],
+      "reasoning": "The anchor gives a stochastic representation and a sufficient concentration bound; obtaining equality of exponential rates requires a matching lower construction. The upper branch further requires separating the single slow stage because the limiting cumulant generating function is non-steep at the relevant boundary. No inspected prior theorem was found that already states this application-specific consequence.",
+      "searches": [
+        "arXiv:2610.02031 stopping time upper-tail large-deviation exponent phase transition geometric p_r=(1-2^-r)/2",
+        "sum geometric p_r (1-2^-r)/2 large deviation rate outlier bottleneck",
+        "Janson geometric sum theorem exact large deviation non-steep boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02031v1 gives the exact stage probabilities and stopping-time sum, but only applies a general upper-tail bound.",
+        "arXiv:1709.08157v1 concerns general bounds for sums of geometric and exponential variables.",
+        "arXiv:1707.04012 uses Bell sampling and therefore a different measurement model.",
+        "arXiv:2609.10974v1 concerns sample-optimal stabilizer learning under unrestricted measurements."
+      ],
+      "reasoning": "Searches covered stopping-time, runtime-distribution, geometric-waiting-time, computational-difference-sampling, and fixed-confidence formulations. No inspected source stated the same piecewise exact exponent or the same six-copies-per-qubit mechanism transition.",
+      "searches": [
+        "arXiv 2610.02031 Adaptivity is all you need optimal stabilizer learning single-copy measurements",
+        "adaptive single-copy stabilizer learning stopping time central limit theorem geometric waiting time",
+        "stabilizer learning exact runtime distribution variance Gaussian fluctuations 4n copies",
+        "single-copy stabilizer learning fixed failure probability second-order sample complexity",
+        "computational difference sampling stabilizer state adaptive Clifford runtime distribution",
+        "adaptive stabilizer learning optimal leading constant n+o(n) 4n O(sqrt n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published prior-result searches returned no result with the source identifier or an equivalent stabilizer reliability-exponent claim."
+      ],
+      "reasoning": "No exact prior-result record matching the source, piecewise rate function, or codimension-one bottleneck formulation was found.",
+      "searches": [
+        "arXiv 2610.02031 Adaptivity is all you need optimal stabilizer learning single-copy measurements",
+        "arXiv:2610.02031 stopping time upper-tail large-deviation exponent phase transition geometric p_r=(1-2^-r)/2",
+        "codimension-one bottleneck stabilizer learning tail exponent"
+      ]
+    },
+    "rationale": "The anchor states only a concentration-based sufficient runtime, while the compared stabilizer-learning papers use different measurement models. Targeted searches did not locate the exact piecewise reliability function or its bottleneck transition.",
+    "residual_risks": [
+      "A differently indexed theorem for heterogeneous triangular arrays with a non-steep limiting cumulant generating function could abstractly subsume the probability calculation even though no inspected source stated this specialization.",
+      "The anchor preprint is very recent, so contemporaneous follow-up work may not yet be fully indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source derives \\(p_r=(1-2^{-r})/2\\), \\(T_{stop}=\\sum_r G_r\\), and a general upper-tail runtime bound, but does not derive a sharp large-deviation rate or a two-mechanism transition.",
+        "identifier_or_url": "arXiv:2610.02031v1",
+        "material_read": "Full sections on exact learning, Algorithm 1, the stopping-time analysis, and the open question on the leading constant.",
+        "method": "Full-text inspection.",
+        "title": "Adaptivity is all you need: Optimal stabilizer learning using just single-copy measurements",
+        "trigger": "Primary source for the adaptive algorithm and exact geometric stage probabilities."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected material provides explicit probability bounds, not the sharp stabilizer-specific piecewise exponent with a matching lower construction.",
+        "identifier_or_url": "arXiv:1709.08157v1",
+        "material_read": "Abstract and surfaced theorem statement for the geometric-sum upper bound.",
+        "method": "Bibliographic and theorem-statement inspection.",
+        "title": "Tail bounds for sums of geometric and exponential variables",
+        "trigger": "Cited by the anchor for the stopping-time concentration step."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It uses Bell sampling, so its failure mechanism is not the adaptive single-copy stopping-time process analyzed here.",
+        "identifier_or_url": "arXiv:1707.04012",
+        "material_read": "Abstract and algorithm-level description.",
+        "method": "Source comparison.",
+        "title": "Learning stabilizer states by Bell sampling",
+        "trigger": "Closest established linear-sample stabilizer learner with coherent two-copy measurements."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It addresses a different measurement model and does not state the reliability law for the adaptive single-copy algorithm.",
+        "identifier_or_url": "arXiv:2609.10974v1",
+        "material_read": "Abstract and result summary.",
+        "method": "Source comparison.",
+        "title": "Sample-optimal learning of stabilizer states",
+        "trigger": "Recent sample-optimal stabilizer-learning comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0a5f2c4a-e5b5-47cd-bf45-18cb5f288c89",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result converts a concentration guarantee into the exact worst-case reliability function for every linear budget and reveals a qualitative rare-event mechanism transition at six copies per qubit. The transition is caused by the natural codimension-one bottleneck of the algorithm rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
