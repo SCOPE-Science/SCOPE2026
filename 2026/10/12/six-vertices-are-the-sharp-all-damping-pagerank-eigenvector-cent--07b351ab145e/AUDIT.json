@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The witness proof is symbolic: \\(\\rho>2\\) and symmetry imply eigenvector maximum at vertex \\(3\\), while the exact PageRank differences \\(p_0-p_1\\), \\(p_0-p_3\\), and \\(p_0-p_4\\) are positive throughout \\(\\alpha\\in(0,1)\\). All connected graph isomorphism classes through five vertices are exhaustively generated; exact PageRank crossing roots and exact Perron-coordinate comparisons rule out an earlier unique-max conflict.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Perra and Fortunato compare spectral centrality rankings and report that rankings on real networks can differ considerably.",
+        "Their open full text gives the PageRank random-walk equation, the eigenvector-centrality equation, and an explicit undirected PageRank extension.",
+        "Later work on spectral rank monotonicity studies PageRank and eigenvector centrality under edge additions, a different question from direct smallest-graph top-node disagreement."
+      ],
+      "reasoning": "The broader literature establishes non-equivalence and structural sensitivity of spectral centralities, but it does not supply the finite minimum or an all-damping minimal witness.",
+      "searches": [
+        "\"Spectral centrality measures in complex networks\" PageRank eigenvector centrality",
+        "\"PageRank\" \"eigenvector centrality\" undirected networks comparison",
+        "\"Spectral Rank Monotonicity on Undirected Networks\" PageRank eigenvector"
+      ]
+    },
+    "checked_sources": [
+      "stanford-report:1999-66",
+      "arxiv:0805.3322",
+      "doi:10.1103/PhysRevE.78.036107",
+      "arxiv:2202.01044",
+      "MSC2020:91D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Empirical low rank correlation establishes that the measures can disagree somewhere, not the minimum graph order.",
+        "Undirected PageRank being approximately degree-like at large degree does not imply its unique maximizer agrees with the adjacency Perron maximizer on small graphs.",
+        "Rank-monotonicity counterexamples concern how a score changes after adding an edge, not whether two centralities select different top vertices on one fixed graph."
+      ],
+      "reasoning": "The accepted claim requires both a universal all-damping nonexistence theorem through five vertices and a single six-vertex witness valid for every damping value. None of the broader prior statements implies either component.",
+      "searches": [
+        "PageRank eigenvector centrality rankings Kendall tau Perra Fortunato",
+        "PageRank eigenvector centrality real networks rankings differ",
+        "PageRank eigenvector rank monotonicity undirected network"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "On a connected undirected graph, ordinary eigenvector centrality is the positive Perron vector of \\(A\\), while PageRank is the stationary vector of a uniformly teleported degree-normalized walk.",
+        "Perra and Fortunato explicitly discuss both spectral ranking constructions and the undirected PageRank extension.",
+        "No checked result stated the order-six unique-max boundary or the displayed bridge witness."
+      ],
+      "reasoning": "Equivalent search formulations include top-node disagreement, ranking reversal, Perron versus random-walk centrality, and damping-robust conflict. The searches covered both named metrics and structural descriptions of the witness.",
+      "searches": [
+        "PageRank eigenvector centrality smallest graph different unique maximizer",
+        "PageRank eigenvector centrality ranking reversal undirected graph damping",
+        "PageRank eigenvector centrality triangle pendant leaves bridge six vertex graph",
+        "PageRank eigenvector centrality all damping parameter ranking"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-structure search located the triangle-plus-two-leaf witness as a PageRank–eigenvector conflict.",
+        "No checked table stated a smaller connected undirected unique-max counterexample.",
+        "The lower-order census is generated independently rather than imported from a graph table."
+      ],
+      "reasoning": "Exact-structure and size-specific searches test whether the small witness or finite cutoff is already recorded as an example, benchmark, or catalog entry.",
+      "searches": [
+        "\"PageRank\" \"eigenvector centrality\" \"six vertices\"",
+        "\"PageRank\" \"eigenvector centrality\" \"smallest graph\"",
+        "\"triangle\" \"two leaves\" PageRank eigenvector centrality",
+        "PageRank eigenvector centrality cherry triangle bridge undirected graph"
+      ]
+    },
+    "rationale": "Prior work already compares PageRank and eigenvector-based centralities and documents substantial ranking differences. The checked sources and database searches did not state or imply the smallest undirected unique-top conflict, the six-vertex witness, or its all-damping persistence.",
+    "residual_risks": [
+      "The legacy Stanford primary report host was inaccessible in this run; the report date and identity were verified through public Stanford-hosted reproductions and bibliographic records.",
+      "Perra and Fortunato compare PageRank with an eigenvector-based centrality variant in their empirical ranking tables, although their full text also states the ordinary adjacency-eigenvector definition.",
+      "An unindexed teaching example, code test, or small-network note could contain the same witness without proving the all-damping minimality result.",
+      "The theorem does not classify full ranking disagreements or personalized PageRank."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational for PageRank; not used to assert noncoverage of the finite-boundary claim.",
+        "evidence": "Public Stanford course material reproduces the report title with the date 29 January 1998, and bibliographic records identify the Stanford Digital Library Technologies Project report.",
+        "identifier_or_url": "stanford-report:1999-66",
+        "material_read": "The report title, authorship, Stanford technical-report identity, random-surfer description, and date 29 January 1998 were cross-checked through public Stanford-hosted reproductions and bibliographic records.",
+        "method": "Bibliographic and Stanford-hosted reproduction inspection; the legacy primary report host was not retrievable.",
+        "title": "The PageRank Citation Ranking: Bringing Order to the Web",
+        "trigger": "Foundational source for the PageRank construction and archival date anchor."
+      },
+      {
+        "assessment": "Direct prior art for comparing spectral centrality rankings and for undirected PageRank. It establishes generic ranking differences but does not state the six-vertex all-damping unique-max boundary.",
+        "evidence": "The paper formulates PageRank as a random walk with random jumps, defines eigenvector centrality from the adjacency eigenproblem, extends PageRank to undirected graphs, and reports substantially different rankings on real networks.",
+        "identifier_or_url": "arxiv:0805.3322",
+        "material_read": "Complete open preprint, including the PageRank definition, ordinary eigenvector-centrality equation, undirected PageRank extension, undirected eigenvector-based discussion, ranking section, Kendall comparisons, and conclusions.",
+        "method": "Open full-text PDF inspection with rendered-page checks of the centrality definitions and ranking tables.",
+        "title": "Spectral centrality measures in complex networks",
+        "trigger": "Highly relevant primary full text directly treating PageRank and eigenvector-based centralities, including undirected networks and ranking comparisons."
+      },
+      {
+        "assessment": "Node-ranking centralities on social and information networks fit the social-network classification.",
+        "evidence": "MSC2020 lists 91D30 as Social networks; opinion dynamics.",
+        "identifier_or_url": "MSC2020:91D30",
+        "material_read": "MSC2020 hierarchy entry naming 91D30.",
+        "method": "Public MSC database inspection.",
+        "title": "MSC2020 database: 91D30 Social networks; opinion dynamics",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "07b351ab-145e-45f5-85fa-5025eb2fde6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PageRank and adjacency-eigenvector centrality are canonical recursive network-importance measures with different normalization mechanisms. The exact minimum unique-top conflict is a natural structural benchmark, and the witness is stronger than a parameter-specific example because the disagreement persists for every nontrivial damping value.",
+    "status": "PASS"
+  }
+}
