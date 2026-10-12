@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The source first-order condition specializes exactly to \\((a+\\beta)x_{k+1}=(a+\\beta/2)x_k+\\lambda_k\\), and the source extrapolated dual residual gives \\(\\lambda_{k+1}=\\lambda_k-\\sigma^{-1}(2x_{k+1}-x_k)\\). The resulting characteristic polynomial has trace \\(1+r-2u\\) and determinant \\(r-u\\), with \\(r=(a+\\beta/2)/(a+\\beta)\\) and \\(u=[\\sigma(a+\\beta)]^{-1}\\). Necessary-and-sufficient Jury inequalities reduce to \\(\\sigma>3/(4a+3\\beta)\\). The discriminant roots give the unique critical-damping optimum and exact factor. Substitution of the source proof relation \\(\\sigma=2/\\beta\\) gives the stated piecewise rate and the unique equality point \\(a/\\beta=1/8\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He--Yuan's balanced ALM uses a proximal primal step and an H0-inverse dual preconditioner and says that its penalty tuning is model-dependent rather than governed by a generic optimum.",
+        "The 2025 correction method adds a prediction-correction mechanism and analyzes different convergence-rate coefficient matrices."
+      ],
+      "reasoning": "Neither broader balanced-ALM framework contains the source residual-reduction half term together with the scalar dual step 1/sigma, so their convergence statements do not imply this two-state characteristic polynomial.",
+      "searches": [
+        "Balanced Augmented Lagrangian Method for Convex Programming arXiv 2108.08554 optimal parameter",
+        "balanced augmented Lagrangian method optimal parameter spectral radius",
+        "A Balanced Augmented Lagrangian Method with Correction linearly constrained optimization spectral decomposition"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.4208/nmtma.oa-2025-0132",
+      "arXiv:2108.08554",
+      "DOI:10.1007/s10915-025-02935-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source says 1/sigma is the dual step size and discusses changing sigma to damp or accelerate behavior, while its convergence derivation imposes sigma=2/beta.",
+        "The primary source proves broad convergence and a local linear rate but does not optimize sigma on an exact mode.",
+        "The predecessor and correction methods use different state recurrences and therefore do not dominate the source-specific result."
+      ],
+      "reasoning": "A sufficient convergence coupling does not imply the exact stable interval, the unique rate-minimizing dual step, or the fact that the coupling is optimal only at one metric-to-penalty ratio.",
+      "searches": [
+        "Primary full text: Algorithm 2, Remark 2.1, Appendix A first-order condition and sigma=2/beta relation",
+        "arXiv:2108.08554 balanced ALM algorithm and parameter discussion",
+        "DOI:10.1007/s10915-025-02935-9 correction-method spectral discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary algorithm uses an extrapolated residual in the dual step and a one-half previous-residual correction in the x surrogate.",
+        "No retrieved published-result record states the threshold sigma greater than 3 over 4a plus 3beta, the critical-damping sigma, or the metric-ratio one-eighth tuning point."
+      ],
+      "reasoning": "Searches covered the method name, source parameter coupling, scalar feasibility, residual-reduction aliases, spectral radius, Schur stability, and critical damping. The closest returned records concern other splitting, Richardson, and preconditioning dynamics with different iteration matrices.",
+      "searches": [
+        "b-ASADMM scalar equality feasibility exact spectral radius dual stepsize sigma residual reduction",
+        "b-ASADMM sigma 2 beta scalar spectral radius optimal sigma critical damping",
+        "balanced augmented Lagrangian residual reduction sigma 2 beta exact rate scalar",
+        "residual-reduction ADMM scalar feasibility critical damping sigma beta proximal metric"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed result matched the primary article identifier with scalar spectral tuning or a necessary-and-sufficient sigma interval.",
+        "The finding is derived from the iteration matrix and does not recompute a numerical table."
+      ],
+      "reasoning": "The database comparisons were performed at the level of the update map and parameter implication, not by title similarity.",
+      "searches": [
+        "10.4208 nmtma OA-2025-0132 exact dual stepsize stability",
+        "stochastic ADMM balanced augmented Lagrangian dual step 1 sigma optimal quadratic",
+        "balanced augmented Lagrangian scalar quadratic residual reduction optimal dual step sigma"
+      ]
+    },
+    "rationale": "The primary full text defines the residual-reduction recurrence, dual step, and proof coupling but does not give the scalar Schur frontier or rate-optimal dual parameter. The original balanced ALM has a different primal/dual map and explicitly leaves tuning model-dependent. The inspected 2025 correction variant studies another prediction-correction state map. Focused published-result searches found no implication-equivalent b-ASADMM scalar critical-damping result.",
+    "residual_risks": [
+      "An equivalent two-by-two root-locus calculation may exist in older primal-dual or predictor-corrector literature under different terminology.",
+      "The result is source-specific and deterministic; it does not establish rate-optimal tuning in the stochastic nonconvex regime.",
+      "The first-public date follows the publisher's Online First listing, which precedes the article-history online date shown on the issue page."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines every nonstandard update used in the proof but does not state the exact scalar stability or critical-damping law.",
+        "evidence": "Algorithm 2 has the one-half prior-residual correction and the extrapolated residual dual update; Remark 2.1 identifies 1/sigma as the dual step; Appendix A imposes sigma=2/beta in the convergence derivation.",
+        "identifier_or_url": "DOI:10.4208/nmtma.oa-2025-0132",
+        "material_read": "Publisher metadata and licensed full-text material covering Algorithm 2, Remark 2.1, the residual-reduction surrogate, the dual update, Appendix A's first-order condition, the sigma=2/beta convergence relation, convergence discussion, and the sigma sensitivity experiment.",
+        "method": "Publisher metadata plus licensed full-text HTML extraction.",
+        "title": "Stochastic ADMM with Balanced Augmented Lagrangian Method for Nonconvex and Nonsmooth Finite-Sum Optimization",
+        "trigger": "Primary recent source defining b-ASADMM, residual reduction, and the dual step parameter."
+      },
+      {
+        "assessment": "Uses a different proximal primal update and matrix dual preconditioner and does not cover the b-ASADMM residual-reduction scalar recurrence.",
+        "evidence": "The source states full flexibility of its penalty parameter and explicitly notes that its best tuning depends on the model and data rather than a generic rule.",
+        "identifier_or_url": "arXiv:2108.08554",
+        "material_read": "Open full-text portions containing the balanced ALM primal and dual updates, parameter discussion, and convergence framework.",
+        "method": "Public arXiv HTML full-text inspection.",
+        "title": "Balanced Augmented Lagrangian Method for Convex Programming",
+        "trigger": "Foundational balanced-ALM predecessor cited by the primary source."
+      },
+      {
+        "assessment": "The prediction-correction iteration differs from b-ASADMM's residual-reduction map and does not state the accepted scalar frontier.",
+        "evidence": "Its correction step and coefficient matrices are structurally different from the two-state source specialization derived here.",
+        "identifier_or_url": "DOI:10.1007/s10915-025-02935-9",
+        "material_read": "Published abstract, method description, correction-step formula, and accessible spectral appendix material.",
+        "method": "Public publisher HTML inspection.",
+        "title": "A Balanced Augmented Lagrangian Method with Correction for Linearly Constrained Optimization",
+        "trigger": "Recent balanced-ALM work with spectral convergence-rate coefficient analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f481a28a-2977-4844-9dc9-d9ba9e76f666",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dual step \\(1/\\sigma\\) is an explicit tuning mechanism emphasized by the primary source, while the proof ties it to \\(\\beta\\) through \\(\\sigma=2/\\beta\\). The exact scalar mode shows that this coupling is rate-optimal only at \\(a/\\beta=1/8\\), gives the complete stability margin, and shows an arbitrarily large asymptotic rate gap as the proximal metric dominates the penalty. This is a natural diagnostic for parameter coupling and residual-reduction design rather than a routine restatement of Schur stability.",
+    "status": "PASS"
+  }
+}
