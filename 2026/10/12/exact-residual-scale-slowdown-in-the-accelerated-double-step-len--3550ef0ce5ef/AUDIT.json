@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the source update and line search exactly. Scalar linearity makes the secant update exact after any nonterminal step; direct substitution yields a single quadratic acceptance inequality. The positive root, geometric backtracking stabilization, and small-scale asymptotics follow without finite-enumeration assumptions. The embedded verifier independently replays representative identities and asymptotic bounds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1038/s41598-025-24537-z uses a Picard-Mann combined-step method with a different acceleration update.",
+        "DOI:10.3934/math.2026448 uses Broyden/Frobenius acceleration and a simultaneous two-parameter line search rather than the ADSM penalty test.",
+        "The 2020 ancestor uses two independently chosen lengths, so its statements do not determine the newer single-grid asymptotic index."
+      ],
+      "reasoning": "The closest broader double-step schemes share problem class and motivation but not the exact ADSM combination of direction, coupled lengths, secant scalar, and line-search penalties. Their convergence results therefore do not imply the claimed closed-form threshold or the \\(a^{-2}\\) accepted-step scaling.",
+      "searches": [
+        "double step length nonlinear equations exact scalar linear acceleration parameter line search scale sensitivity",
+        "Li Fukushima line search omega2 direction norm scalar scaling invariance nonlinear equations",
+        "inexact double step length scalar linear F(s)=a s convergence",
+        "Accelerated double step-length method for solving monotone nonlinear equations convex constraint 2026"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.30538/oms2026.0315",
+      "DOI:10.19139/soic-2310-5070-532",
+      "DOI:10.1038/s41598-025-24537-z",
+      "DOI:10.3934/math.2026448"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source proves global convergence but does not give a scalar Q-factor or residual-rescaling complexity law.",
+        "DOI:10.1038/s41598-025-24537-z and DOI:10.3934/math.2026448 use materially different updates and line searches.",
+        "The closest published scalar-iteration comparisons concern Newton damping or generic spectral methods rather than this ADSM penalty-induced scale effect."
+      ],
+      "reasoning": "A global-convergence theorem only gives eventual residual convergence under assumptions; it does not imply this exact scale-dependent asymptotic rate. Conversely, the new scalar calculation does not refute the source theorem.",
+      "searches": [
+        "ADSM 10.30538/oms2026.0315 scalar linear convergence rate",
+        "double step length secant acceleration exact Jacobian scalar linear equation",
+        "inexact double step length scalar linear F(s)=a s convergence",
+        "scalar Newton derivative sector minimax residual scaling line search"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.30538/oms2026.0315, equations (14), (15), (20) and Algorithms 1-2: direction, fixed step-length relation, secant update, and line search are stated separately.",
+        "DOI:10.19139/soic-2310-5070-532: abstract describes a single-direction double-step method with scalar Jacobian approximation and inexact line search; later full texts reproduce its independently selected two-step update.",
+        "No inspected source states the exact ADSM acceptance polynomial or residual-scale rate law."
+      ],
+      "reasoning": "Exact scalar secant calibration by itself is not claimed as novel; the accepted claim is the combined ADSM law after calibration, including the exact geometric-grid threshold and residual-scale slowdown. The older method lacks the newer fixed relation between the two lengths that makes this exact one-parameter law possible.",
+      "searches": [
+        "ADSM accelerated double-step-length nonlinear equations scalar linear exact secant calibration",
+        "double step length secant acceleration exact Jacobian scalar linear equation",
+        "ADSM 10.30538/oms2026.0315 scalar linear convergence rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is derived symbolically from Algorithms 1-2 and is not a recomputation of a numerical benchmark table.",
+        "The primary source numerical section reports benchmark performance but does not tabulate scalar residual-rescaling rates or exact backtracking indices."
+      ],
+      "reasoning": "No external table or finite enumeration supplies the result; the proof quantifies all \\(a>0\\) and then derives the small-scale asymptotic directly from the exact inequality.",
+      "searches": [
+        "ADSM line search omega1 omega2 eta scalar",
+        "line search absolute scaling F -> a F derivative-free nonlinear systems omega2",
+        "double step length nonlinear equations exact scalar linear acceleration parameter line search scale sensitivity"
+      ]
+    },
+    "rationale": "The primary full text was compared at the formula level with the closest double-step predecessors and a contemporaneous constrained variant. The new statement combines the source-specific fixed relation between its two step lengths with its two-penalty line search, producing an exact scale-sensitive threshold and rate not stated in the inspected literature or returned by targeted published-result searches.",
+    "residual_risks": [
+      "A complete publisher-hosted copy of the 2020 predecessor was not directly inspectable; an uninspected passage could contain a related scalar observation.",
+      "A later note or implementation discussion not indexed by the targeted searches could independently identify the same residual-scaling effect.",
+      "The exact slowdown is proved only for the scalar positive linear family and does not establish a multidimensional worst-case theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the ingredients but not the scalar acceptance polynomial, stabilized grid index, or residual-scale slowdown.",
+        "evidence": "Equation (15) fixes the second length to the first divided by the correction parameter; equation (20) gives the secant scalar; Algorithm 1 contains both merit and unscaled direction-norm penalties.",
+        "identifier_or_url": "DOI:10.30538/oms2026.0315",
+        "material_read": "Abstract; MSC and publication metadata; equations (14)-(20); Algorithm 1 line-search inequality; Algorithm 2 update; convergence statements around the penalty terms.",
+        "method": "Direct open-access full-text PDF and rendered-page inspection.",
+        "title": "An accelerated double-step-length iterative method for nonlinear systems of equations with applications to motion control",
+        "trigger": "Primary source defining ADSM and all coefficients used in the claim."
+      },
+      {
+        "assessment": "Different combined-step and acceleration formulas; it does not state the ADSM exact scalar scale law.",
+        "evidence": "Its update retains independently occurring step lengths and a different correction/acceleration construction.",
+        "identifier_or_url": "DOI:10.1038/s41598-025-24537-z",
+        "material_read": "Open-access full-text introduction, scalar acceleration formulas, combined Picard-Mann update, line-search discussion, and convergence use of the penalty terms.",
+        "method": "Direct publisher full-text HTML inspection.",
+        "title": "Modified iterative double step length model for solving nonlinear systems with application to motion control",
+        "trigger": "Very close predecessor by overlapping authors using scalar Jacobian acceleration, Picard-Mann correction, and an inexact double-step line search."
+      },
+      {
+        "assessment": "Uses Broyden/Frobenius acceleration and a different simultaneous two-parameter line search, so it does not cover the ADSM threshold.",
+        "evidence": "Algorithm 1 backtracks two parameters through a monotonicity inequality rather than the two-penalty merit inequality of ADSM.",
+        "identifier_or_url": "DOI:10.3934/math.2026448",
+        "material_read": "Abstract; method derivation around the acceleration parameter; Algorithm 1 line search; parameter discussion and convergence-rate description.",
+        "method": "Direct open-access full-text PDF, text extraction, and rendered-page inspection.",
+        "title": "Accelerated double step-length method for solving monotone nonlinear equations with convex-constraint and application",
+        "trigger": "Contemporaneous 2026 double-step method on the same broad nonlinear-equation family."
+      },
+      {
+        "assessment": "It shares scalar acceleration and double-step ideas, but its two lengths are independently selected; no inspected material states the newer ADSM one-grid scale law.",
+        "evidence": "The public abstract describes a single direction with two line-searched step lengths; successor full texts reproduce the acceleration update with the sum of those independent lengths.",
+        "identifier_or_url": "DOI:10.19139/soic-2310-5070-532",
+        "material_read": "Public abstract plus the method equations and characterization reproduced explicitly in the 2025 and 2026 full-text successor papers.",
+        "method": "Public bibliographic/abstract inspection supplemented by formula-level quotations in later open full texts; direct publisher full text was not available in the inspected sources.",
+        "title": "Inexact Double Step Length Method For Solving Systems Of Nonlinear Equations",
+        "trigger": "Direct 2020 ancestor cited by the primary source for the scalar secant acceleration update."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3550ef0c-e5ef-4763-a609-09d890e755e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result exposes a mathematically motivated invariance gap: multiplying a scalar residual by a positive constant leaves the root and condition number unchanged, and ADSM even identifies the new slope exactly, yet the line search forces accepted-step complexity to deteriorate as the inverse square of that scale. The formula isolates the responsible penalty term and quantifies both iteration and backtracking costs, which is directly relevant to residual normalization and method tuning.",
+    "status": "PASS"
+  }
+}
