@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The discrete infinite-horizon Gramian entries are geometric series. With \\(x=\\cos^2\\theta\\), its trace is affine in \\(x\\) and its determinant is \\((pq-r^2)x(1-x)\\), with \\(pq-r^2>0\\) exactly because the two stable eigenvalues are distinct. For a positive \\(2\\times2\\) matrix, minimizing spectral condition number is equivalent to minimizing trace squared over determinant. That scalar quotient has the unique global minimizer \\(x=q/(p+q)\\), since it diverges at both endpoints. Substitution equalizes the diagonal entries and gives eigenvalue ratio \\((1+\\rho)/(1-\\rho)\\). The hyperbolic identity and coalescence asymptotic follow exactly. The packaged checker independently replays an exact rational example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Summers–Cortesi–Lygeros give the energy interpretation of Gramian eigenvalues and optimize several scalar Gramian metrics over actuator sets.",
+        "Enyioha–Rahimian–Pappas–Jadbabaie use Gramian condition number to quantify well-conditioned controllability as network size changes.",
+        "Dilip gives the discrete infinite-horizon Hadamard entry \\(1/(1-\\lambda_i\\lambda_j)\\) and exact single-input actuator-selection rules for determinant and trace-inverse metrics."
+      ],
+      "reasoning": "These works jointly supply the motivation and the structural Gramian formula, but none of the inspected material covers the continuous actuator-direction condition-number problem. The new result is therefore not a restatement of their set-selection or network-scaling conclusions.",
+      "searches": [
+        "On Submodularity and Controllability in Complex Dynamical Networks",
+        "Controllability and Fraction of Leaders in Infinite Network",
+        "The Controllability Gramian the Hadamard Product optimal actuator leader sensor selection"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1404.7665v1",
+      "arxiv:1410.1830v1",
+      "doi:10.1137/140960967",
+      "doi:10.1109/LCSYS.2019.2919278"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full 2019 Hadamard paper treats discrete-time single-input systems but chooses from a finite candidate set and optimizes determinant or trace inverse; condition number is not among its stated objectives.",
+        "The 2014 network condition-number paper bounds Gramian conditioning as topology and network size vary, then switches to least-eigenvalue analysis for leader placement.",
+        "For a unit actuator in the present two-mode model, determinant maximization always gives equal squared actuator components, whereas condition-number minimization generally gives unequal components. Thus the determinant theorem does not imply the new optimizer."
+      ],
+      "reasoning": "The implication gap is substantive: optimizing ellipsoid volume or average energy is not the same as minimizing directional anisotropy. The proof requires the two-dimensional trace/determinant condition-number reduction and yields a different actuator direction except in the symmetric modal case.",
+      "searches": [
+        "controllability Gramian condition number actuator placement discrete-time",
+        "single input diagonalizable system controllability Gramian Hadamard product determinant trace inverse",
+        "Gramian condition number leaders infinite network"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic searches returned control-transient and generic conditioning results but no discrete-time two-mode Gramian condition-number optimizer.",
+        "Exact-form searches using sech, coth, artanh, actuator direction, and Gramian condition number did not locate the displayed law.",
+        "The closest full Gramian actuator-selection paper has no full-text occurrence of 'condition number'."
+      ],
+      "reasoning": "Equivalent coverage would need either the same continuous-direction minimization or a stronger result implying the squared modal weights and the minimum condition number. Discrete candidate-actuator selection under determinant or trace-inverse objectives does not imply this condition-number optimum.",
+      "searches": [
+        "two state discrete time controllability Gramian optimal actuator direction condition number diagonal system",
+        "actuator placement minimize condition number controllability Gramian two dimensional exact",
+        "scalar input diagonal stable system controllability Gramian condition number optimal",
+        "controllability Gramian conditioning actuator placement 2x2 diagonal",
+        "two mode discrete time controllability Gramian optimal scalar actuator sech coth",
+        "controllability Gramian artanh eigenvalue separation actuator condition number",
+        "diagonal stable system optimal input direction Gramian condition number",
+        "controllability Gramian coth squared actuator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched source matched the hyperbolic separation formula or the exact two-state example.",
+        "The value follows from a symbolic all-parameter minimization and not from a numerical actuator table."
+      ],
+      "reasoning": "The claim is a closed-form structural classification. A database or table would cover it only if it encoded the same continuous optimization or a stronger invariant formula.",
+      "searches": [
+        "\"optimal input direction\" \"controllability Gramian\" condition number",
+        "\"controllability Gramian\" \"sech\" actuator",
+        "\"controllability Gramian\" \"coth\" condition number",
+        "\"controllability Gramian\" \"artanh\" actuator"
+      ]
+    },
+    "rationale": "Gramian-based actuator placement, condition-number use as a controllability quality measure, and the diagonalizable-system Hadamard formula are prior work. The closest full paper on Hadamard Gramian actuator selection was inspected through its discrete-time construction and single-input optimization section; it optimizes determinant, trace inverse, and trace and contains no located condition-number statement. Earlier condition-number work studies network-size/topology scaling rather than continuous actuator-direction optimization. Targeted published-record and exact-form searches did not locate the optimal direction or the hyperbolic-separation law.",
+    "residual_risks": [
+      "Older modal-control or optimal-actuator literature may contain the same two-state condition-number minimization under different terminology.",
+      "Condition number is coordinate-sensitive outside orthonormal modal coordinates, so broader normal/nonnormal formulations can differ materially.",
+      "The condition-number objective is less common than determinant, trace inverse, and smallest-eigenvalue metrics, which can make exact prior art harder to retrieve by terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: motivates quantitative Gramian actuator design over finite placement sets but does not supply the two-mode continuous-direction condition-number optimizer.",
+        "evidence": "The paper explicitly interprets small and large Gramian eigenvalues as hard and easy control directions and formulates actuator-set optimization for several scalar Gramian metrics.",
+        "identifier_or_url": "arxiv:1404.7665v1",
+        "material_read": "The complete public HTML was inspected through the introduction, controllability and energy-metric sections, and actuator-placement setup, including the interpretations of Gramian eigenvalues, trace, trace inverse, determinant, smallest eigenvalue, and rank.",
+        "method": "Lawful open full-text arXiv HTML inspection.",
+        "title": "On Submodularity and Controllability in Complex Dynamical Networks",
+        "trigger": "Archive-era primary source for Gramian-based actuator placement and energy metrics."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING: supplies the structural entry formula used as prior background but optimizes different metrics over a finite actuator set.",
+        "evidence": "For stable discrete time it gives the factor \\(1/(1-\\lambda_i\\lambda_j)\\). Its problem statement and Theorems 3–5 use determinant, trace inverse, and trace; no condition-number optimization was located.",
+        "identifier_or_url": "doi:10.1109/LCSYS.2019.2919278",
+        "material_read": "The full six-page article was inspected through the discrete-time Gramian/Hadamard construction and the single-input determinant, trace-inverse, and trace actuator-selection theorems. Relevant pages were visually rendered. A full-text search for 'condition number' returned no occurrence.",
+        "method": "Full-text PDF inspection with rendered-page verification and targeted in-document search.",
+        "title": "The Controllability Gramian, the Hadamard Product, and the Optimal Actuator/Leader and Sensor Selection Problem",
+        "trigger": "Closest full primary source: diagonalizable discrete-time systems, single-input actuator selection, and an explicit Gramian Hadamard formula."
+      },
+      {
+        "assessment": "MOTIVATION_NOT_COVERING: uses Gramian condition number as a network controllability-quality metric but does not optimize a continuous scalar actuator direction for a fixed two-mode system.",
+        "evidence": "The work studies condition-number scaling with network size when every node is actuated, then uses the smallest Gramian eigenvalue for leader placement.",
+        "identifier_or_url": "arxiv:1410.1830v1",
+        "material_read": "The public abstract and available full-text excerpts covering the introduction, condition-number motivation, canonical-network results, and leader-selection discussion were inspected.",
+        "method": "Open preprint record and public full-text excerpt inspection.",
+        "title": "Controllability and Fraction of Leaders in Infinite Network",
+        "trigger": "Archive-era source directly motivating controllability-Gramian condition number."
+      },
+      {
+        "assessment": "CLASSIFICATION_CONTEXT: verifies primary MSC 93B05 for discrete-time controllability; it addresses constrained controllability rather than Gramian conditioning.",
+        "evidence": "The publisher lists MSC 93B05 first and gives online publication date 2015-08-06.",
+        "identifier_or_url": "doi:10.1137/140960967",
+        "material_read": "Publisher abstract, history, keywords, references, and MSC metadata were inspected.",
+        "method": "Publisher-record inspection.",
+        "title": "A Spectral Characterization of Controllability for Linear Discrete-Time Systems with Conic Constraints",
+        "trigger": "Archive-era primary discrete-time controllability source used to verify MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ffcc724-2b3f-4847-a98b-1d21f5944db1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gramian eigenvalues quantify easy and hard control directions, so their ratio is a natural scale-free anisotropy measure. The theorem solves the smallest nontrivial continuous actuator-design problem exactly: it identifies the direction that balances modal control energies, distinguishes that direction from the standard determinant optimum, and shows that nearly coincident stable modes impose an unavoidable quadratic conditioning penalty on every scalar actuator orientation. This gives a compact structural diagnostic for actuator-direction design rather than a routine recomputation.",
+    "status": "PASS"
+  }
+}
