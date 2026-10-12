@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The generalized Cayley graph on S_6 is reconstructed from all 70 generalized transpositions. Breadth-first search proves the complete distance distribution and diameter; a complete Bron–Kerbosch search over the resulting 720-vertex compatibility graph proves maximum clique size 6 and exactly 6000 maxima. Every structural statement is then directly checked on the complete list. The packaged verifier replays these steps without external dependencies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee–Vu Theorem 2 gives a general upper bound that specializes to A_{rho_gC}(6,3) <= 24, not the exact value 6.",
+        "Yang–Schoeny–Dolecek describes theoretical bounds and order-optimal constructions; its inspected statements do not provide a complete fixed-parameter census at (6,3)."
+      ],
+      "reasoning": "The strongest directly relevant general sources found provide bounds or constructions. Their statements do not dominate the new exact value, the count of all maxima, the equidistance statement, or the orbit/subgroup classification.",
+      "searches": [
+        "Query: Breakpoint Analysis permutation codes generalized Cayley small parameters",
+        "Query: generalized Cayley metric extremal codes classification 6000",
+        "Source inspection: DOI 10.1109/ISIT.2014.6875376",
+        "Source inspection: arXiv:1803.04314"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/ISIT.2014.6875376",
+      "arXiv:1803.04314",
+      "DBLP record conf/isit/CheeV14",
+      "Targeted exact-parameter and alias searches recorded in the four originality checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At d=3, the Chee–Vu upper-bound theorem permits as many as 24 codewords, so it does not force 6.",
+        "The later source emphasizes order-optimal and systematic constructions and general bounds; these do not logically determine the finite maximum, the number of maximizers, or their orbit partition."
+      ],
+      "reasoning": "The accepted statement is strictly more specific than the known bounds and construction results, and it is not a corollary of them. The exhaustive finite computation supplies both the sharper upper bound and the classification data.",
+      "searches": [
+        "Source comparison: Chee–Vu 2014 general generalized-Cayley bound versus A_{rho_gC}(6,3)",
+        "Source comparison: Yang–Schoeny–Dolecek 2018/2019 constructions versus exact S_6 census",
+        "Query: generalized Cayley metric exact size permutation code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee–Vu, DOI 10.1109/ISIT.2014.6875376: full text defines generalized transpositions and the generalized Cayley distance on S_n.",
+        "Yang–Schoeny–Dolecek, arXiv:1803.04314: studies the same generalized-transposition metric and its coding problem."
+      ],
+      "reasoning": "The aliases generalized transposition distance, generalized Cayley distance, and permutation codes under generalized transpositions were all searched. No inspected result states an equivalent exact S_6, distance-3 maximum or extremizer census.",
+      "searches": [
+        "Query: generalized Cayley permutation codes S6 minimum distance 3 maximum size",
+        "Query: C_G(6,3) generalized Cayley code exact",
+        "Query: generalized transposition code length 6 distance 3 permutation",
+        "Query: generalized transposition metric S_6 minimum generalized Cayley distance 3 six-word code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed records found were for different permutation relations or different code metrics; none reported the exact S_6 generalized-Cayley parameter or a 6000-extremizer table.",
+        "No inspected primary or indexed source supplied an exact database row, table, or downloadable census matching this claim."
+      ],
+      "reasoning": "Searches targeted the exact parameters, likely notation, and finite-table language. Absence of a hit is not itself a novelty proof, so the residual risk of an unindexed census is retained.",
+      "searches": [
+        "Query: maximum permutation code generalized Cayley length 6 distance 3",
+        "Query: six word generalized Cayley permutation code S6",
+        "Query: cyclic subgroup generalized Cayley code order 6",
+        "Web query: \"generalized Cayley\" \"6\" \"3\" permutation code",
+        "Web query: \"generalized Cayley distance\" \"S_6\" code"
+      ]
+    },
+    "rationale": "The directly relevant primary literature defines the same metric and develops general bounds/constructions, but the inspected statements do not imply the exact parameter, extremizer count, or structural classification. Targeted semantic and web searches over aliases, exact parameters, tables, and stronger coverage found no implication-equivalent source; an unindexed finite census remains a stated risk.",
+    "residual_risks": [
+      "An obscure, unindexed, or unpublished finite enumeration of the same parameter may exist.",
+      "The orbit statement is only under left multiplication by S_6; no claim about the full isometry group is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_CLAIM",
+        "evidence": "Defines generalized transpositions and generalized Cayley distance and gives general bounds/constructions. Its bound at (6,3) is only A <= 24; no exact S_6 extremizer census was found.",
+        "identifier_or_url": "doi:10.1109/ISIT.2014.6875376",
+        "material_read": "Full five-page conference paper.",
+        "method": "Full-text inspection of definitions, Theorem 2, generalized-Cayley construction section, conclusion, and references.",
+        "title": "Breakpoint Analysis and Permutation Codes in Generalized Kendall tau and Cayley Metrics",
+        "trigger": "Foundational source introducing the exact metric and code-size notation."
+      },
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_CLAIM",
+        "evidence": "Studies theoretical bounds, order-optimal constructions, and systematic codes for the same metric; no exact length-six distance-three optimum or maximum-code census was located.",
+        "identifier_or_url": "arXiv:1803.04314",
+        "material_read": "Full-text definitions and the main bounds/construction discussion, with abstract and introductory scope checked against the claim.",
+        "method": "Open-access full-text inspection.",
+        "title": "Theoretical Bounds and Constructions of Codes in the Generalized Cayley Metric",
+        "trigger": "Later broad treatment of the same metric that could potentially dominate a small-parameter result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2a79c3b-36a0-45a7-bb1c-361f663c76af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding gives an exact and complete finite benchmark for a metric whose literature emphasizes general constructions and the difficulty of distance computation. It determines not only the optimum but every labeled extremizer, their equidistance, the exceptional subgroup maxima, and the natural left-action orbit structure. Those data are reusable for testing bounds, constructions, and algorithms at the smallest scale of this nontrivial instance.",
+    "status": "PASS"
+  }
+}
