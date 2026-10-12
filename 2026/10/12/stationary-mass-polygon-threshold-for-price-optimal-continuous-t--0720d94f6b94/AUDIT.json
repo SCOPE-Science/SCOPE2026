@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The normalized L²(pi) Rayleigh quotient gives covariance matrix diag(p)-pp^T positive definite since pi0>0. Strong SDP duality gives price-weighted Gram vectors, whose optimal resultant has the exact polygon deficit. Primal vectors explicitly achieve the dual upper bound in both regimes; the imbalanced Schur complement is zero with all other pivots positive. Complementary slackness forces every x_i uniquely because each dual Gram vector has nonzero norm. The slack nullities imply multiplicities; exact rational checks 321 cases supplement rather than replace the infinite-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jafarizadeh 2020, section VI-E equations (52)-(55), treats star with arbitrary stationary masses for discrete-time reversible SLEM but does not impose variable edge-purchase prices or state a continuous-time budgeted optimal gap.",
+        "Göring et al. 2005, general SDP dual establishes a method and unweighted tree geometry, not this arbitrary-mass-and-price closed star classification."
+      ],
+      "reasoning": "The most relevant apparent broader treatment is Jafarizadeh’s all-mass star case, but its stochastic transition constraints and SLEM objective do not imply this price-dependent continuous-time formula. The general SDP and embedding theorem provides a technique, not an explicit statement classifying all two-independent-parameter star instances. General algorithms do not themselves supply the exact all-parameter boundary.",
+      "searches": [
+        "optimal spectral gap star Markov chain prescribed stationary distribution edge costs polygon imbalance",
+        "fastest mixing weighted star stationary weights unequal leaf probabilities phase transition cost",
+        "arXiv:2501.02421 star topology (section VI-E)",
+        "optimization-online:2005/09/1202 section 5",
+        "doi:10.1109/TSIPN.2020.2964211"
+      ]
+    },
+    "checked_sources": [
+      "optimization-online:2005/09/1202",
+      "doi:10.1137/S0036144503423264",
+      "Boyd-Diaconis-Xiao SIAM Review 2004",
+      "Boyd-Diaconis-Parrilo-Xiao SIAM J Optim 2009",
+      "Jafarizadeh doi:10.1109/TSIPN.2020.2964211",
+      "Kirkland-Neumann doi:10.1080/03081089708818498"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The equal-vertex-mass case reduces to the classical unweighted-vertex priced-star polygon calculation after the generator-vs-Laplacian time normalization.",
+        "The three-state case is a birth-death chain; the new claim is only the arbitrary-mass star with at least three leaves and price-dependent multiplicity/imbalance.",
+        "Jafarizadeh 2020 explicitly gives a different discrete-time star SLEM optimizer; his formula is not this arbitrary-price budget optimizer."
+      ],
+      "reasoning": "Neither an equal-mass star theorem nor an arbitrary-mass path theorem implies the m>=3 star result directly; the leaf covariance couples all m leaf coordinates. The joint masses-and-prices dependence changes the exact polygon lengths to pi_i sqrt(c_i), and can create symmetry breaking with all prices equal. General SDP duality motivates the derivation but does not state the closed result. Unknown inaccessible historical equivalent remains a risk.",
+      "searches": [
+        "arbitrary stationary distribution weighted star fastest mixing continuous time Markov chain conductance edge prices polygon inequality spectral gap",
+        "weighted star graph vertex masses fastest mixing optimal algebraic connectivity geometric dual embedding weighted masses",
+        "fastest mixing weighted star stationary weights unequal leaf probabilities phase transition cost",
+        "arXiv:2501.02421 section VI-E",
+        "optimization-online:2005/09/1202 corollary 30",
+        "doi:10.1137/S0036144503423264"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Göring et al. 2005, optimization-online:2005/09/1202, section 2 SDP and section 5 tree embeddings: fixed unweighted-vertex variance and unpriced edge total.",
+        "Boyd et al. 2004, section on reversible chains: discrete-time SLEM with per-state row-sum constraints; no budgeted continuous-time stationary-mass star polygon law."
+      ],
+      "reasoning": "The present eigenvalue is the continuous-time L²(pi) Poincare gap under a priced sum of conductances; neither symmetric discrete-time SLEM nor unweighted-vertex algebraic connectivity is an equivalent formulation when masses and prices vary. The two prior specializations yield different feasible domains and dual geometry. The exact mass-weighted resultant and strict positivity are not statements of these sources.",
+      "searches": [
+        "arbitrary stationary distribution weighted star fastest mixing continuous time Markov chain conductance edge prices polygon inequality spectral gap",
+        "weighted star graph vertex masses fastest mixing optimal algebraic connectivity geometric dual embedding weighted masses",
+        "reversible continuous time Markov chain star nonuniform stationary masses and arbitrary edge costs unique optimal conductances",
+        "fastest mixing continuous time Markov chain star arbitrary stationary distribution edge budget prices analytic solution spectral gap",
+        "Göring--Helmberg--Wappler 2005 sections 2 and 5",
+        "Boyd--Diaconis--Xiao 2004 reversible-chain extension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published published-finding corpus record reported a table or exact formula for the joint arbitrary-stationary-mass, arbitrary-edge-price continuous-time star budget. Closest returned SCOPE002 concerns lazy random walk on balanced spiders, a different object.",
+        "The inspected sources provide spectral SDPs and related discrete-time star formulas, not a table of arbitrary positive real parameters."
+      ],
+      "reasoning": "This is a continuum all-parameters formula, so a finite graph-spectral table cannot dominate it. Failed semantic search is not a proof of historical priority; residual risk is explicitly retained.",
+      "searches": [
+        "exact weighted star algebraic connectivity optimization edge price lengths polygon imbalance spectral gap",
+        "reversible continuous time Markov chain star nonuniform stationary masses and arbitrary edge costs unique optimal conductances",
+        "published-finding corpus query: exact weighted star algebraic connectivity optimization edge price lengths polygon imbalance spectral gap",
+        "weighted star general mass matrix price conductances polygon inequality"
+      ]
+    },
+    "rationale": "The final all-positive-mass/all-positive-price continuous-time star classification was compared by implications with general spectral SDP, equal-vertex price-star, positive-mass birth-death path and arbitrary-mass discrete-time star SLEM. The joint-parameter polygon law and mass-induced transition are not stated by inspected relevant full texts. General SDP does not directly present this classification. Search is not priority proof and a plausible older weighted-tree source was abstract-only.",
+    "residual_risks": [
+      "A specialized theorem in older weighted-tree or generalized eigenvalue optimization literature could imply the result without matching titles.",
+      "The original Kirkland-Neumann full text was not inspected; abstract-only comparison cannot show whole-document noncoverage.",
+      "Continuous-time mass-cost normalization is not equivalent to the discrete-time SLEM model even when stationary masses agree; careless conflation would overstate novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SDP/equal-vertex unpriced Laplacian framework; did not find the simultaneous positive arbitrary stationary-mass and per-edge-price star formula",
+        "evidence": "Section 2 equations (1)-(4) use sum of edge weights <=1 and unweighted vertex Laplacian; section 5 treats tree geometry.",
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "material_read": "Full-text sections 1-2 and tree/embedding discussion in section 5 including the star specialization and corollary 30",
+        "method": "Read searchable preprint PDF text, selected pages, definitions, stated theorems and proof discussion",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "Primary historical source for optimized Laplacian gaps and geometric embeddings, including trees"
+      },
+      {
+        "assessment": "Discrete-time SLEM constraints rather than priced continuous-time spectral-gap budget; provides foundational convex methodology",
+        "evidence": "The paper explicitly minimizes second-largest eigenvalue modulus for a discrete-time transition matrix and discusses reversible target distributions.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full text introduction, original semidefinite formulation, and reversible-chain extensions",
+        "method": "Read author-hosted PDF text and relevant theorem statements",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Potential broader stationary-distribution spectral optimization formulation"
+      },
+      {
+        "assessment": "Discrete-time symmetry-reduced SLEM optimization; no arbitrary masses and individually priced star complete polygon classification identified",
+        "evidence": "The paper describes discrete-time transition-matrix SLEM and symmetry reduction.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc_sym.pdf",
+        "material_read": "Author-hosted PDF abstract, introductory and symmetry-reduction portions",
+        "method": "Read relevant full-text PDF sections",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible symmetry-based complete star optimization"
+      },
+      {
+        "assessment": "Explicit arbitrary-mass discrete-time star SLEM solution, but not independent edge price budget nor continuous-time gap; very relevant residual conceptual antecedent",
+        "evidence": "Section VI-E explicitly states star results with stationary masses and stochastic transition weights; no per-edge price input in its equations.",
+        "identifier_or_url": "https://arxiv.org/abs/2501.02421",
+        "material_read": "Full-text accessible manuscript introduction and section VI-E Star Topology including equations (52)-(55), using the 2020 IEEE version mirrored in later preprint",
+        "method": "Read original paper full-text on publicly available research manuscript pages, cross-checked article metadata",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Highly relevant arbitrary stationary mass star in later historical work"
+      },
+      {
+        "assessment": "Studies tree branch perturbations and edge-weight arrangement, no conclusive full-document noncoverage assessment",
+        "evidence": "Abstract discusses weighted-tree algebraic connectivity under changing branches; lack of full text remains a residual risk.",
+        "identifier_or_url": "https://doi.org/10.1080/03081089708818498",
+        "material_read": "Original published abstract only, not full text",
+        "method": "Read publisher abstract and bibliographic metadata",
+        "title": "Algebraic connectivity of weighted trees under perturbation",
+        "trigger": "Possible specialized pre-2005 weighted tree theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0720d94f-6b94-47a3-8e19-033f0acb8ff9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural classification of the reversible star budgeted mixing design under independent stationary masses and edge prices, with a sharp polygon threshold, explicit unique conductances, positivity, a spectral multiplicity phase change, and a mass-only transition for equal prices. This is not a mere tabulation or name substitution: it provides decisions invisible to equal-mass star formulas and applicable for any real parameters, including arbitrarily disparate stationary masses.",
+    "status": "PASS"
+  }
+}
