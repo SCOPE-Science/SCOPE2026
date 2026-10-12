@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "All 128 binary words and every exact single-overwrite error ball are reconstructed by two distinct formulas. The first coordinate is unchanged and complement maps its two 64-word fibers bijectively. In one fiber, exact pivoted Bron--Kerbosch enumeration finds exactly one clique of size at least 13; an independent ordered backtracking enumeration with provably safe greedy-coloring bounds finds exactly one clique of size 13 and no clique of size 14. Their common unique clique is the explicitly displayed 13-word half. The 26-word complement union is independently checked for all pairwise disjoint balls. This proves both the upper bound and unique equality, with no unproved extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharov--Roth (2014), Section IV, proves some uniqueness results; Theorem 4.4 treats infinite-grain correction, while the odd-length radius theorem has radius (n-3)/2 and thus radius two at n=7.",
+        "Sharov--Roth Table II and Gabrys--Yaakobi--Dolecek Table II both give 26 at length seven and one grain error.",
+        "The inspected construction sections supply extremizers/bounds, not a theorem identifying all size-26 codebooks."
+      ],
+      "reasoning": "The historical optimum size is covered, but the named uniqueness theorems either use unrestricted numbers of grain errors or specialize to a different radius. Such theorems do not imply the full labeled equality statement for t=1,n=7.",
+      "searches": [
+        "Bounds and Constructions for Granular Media Coding Sharov Roth finite exact n=7 t=1 uniqueness",
+        "Correcting Grain-Errors in Magnetic Media 2013 Table II 26 grain errors",
+        "Sharov Roth grain correcting code length 7 one error optimum 26 unique"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/TIT.2014.2301811",
+      "arXiv:1307.7087",
+      "DOI:10.1109/TIT.2015.2409860"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published upper and lower bounds give M(7,1)=26.",
+        "Theorem 4.4 in Sharov--Roth concerns infinity-grain correction, whose size at n=7 differs from 26; the higher-radius odd-length theorem concerns t=2 at n=7.",
+        "Exact enumeration of the first-bit-zero compatibility graph gives a unique 13-word optimizer, a statement not implied by knowing a full-code optimum of 26."
+      ],
+      "reasoning": "A sharp numerical bound and a construction of one size-26 code provide no uniqueness implication; the additional branch classification and exhaustive search are needed.",
+      "searches": [
+        "binary length 7 overlapping single grain errors 26 maximum code exact classification uniqueness",
+        "binary grain-correcting code length seven M_2^(O)(7,1) 26 full equality layer",
+        "Sharov Roth grain correcting code length 7 one error optimum 26 unique"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gabrys--Yaakobi--Dolecek Definition 1 makes a grain error a flip precisely at a transition position other than the first coordinate; their Definition 2 introduces the related mineral model.",
+        "The first physical coordinate is never modified, and binary global complementation conjugates the two first-coordinate components.",
+        "The verifier directly checks the transition-flip and overwrite formulations on all 128 transmitted words."
+      ],
+      "reasoning": "Both a grain-code size-26 uniqueness statement and an equivalent size-13 uniqueness statement for the prefixed mineral model would cover the claim. These aliases were searched and the equivalence was incorporated into the exhaustive argument.",
+      "searches": [
+        "binary 6 bit single mineral error code maximum 13 uniqueness",
+        "Exact unique size 13 six bit one-mineral-error-correcting codes under transition-dependent bit-flip model, equivalent size 26 seven-bit single-grain",
+        "arXiv:1307.7087 Definition 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sharov--Roth, Table II, lists the sharp cardinality 26 at length seven and one grain error.",
+        "Gabrys--Yaakobi--Dolecek, Table II, also lists previous/current lower bound 26 and upper bound 26 for n=7,t=1.",
+        "No inspected table gives the number of labeled size-26 maximizers or an explicit uniqueness certificate."
+      ],
+      "reasoning": "The exact-size tables dominate only a maximum-cardinality claim. They do not, by themselves, determine whether the attaining family has one or several members.",
+      "searches": [
+        "Sharov Roth Table II single grain length 7 size 26",
+        "M(7,1) grain-error correcting code 26 unique",
+        "single-grain code length 7 exactly one optimal code"
+      ]
+    },
+    "rationale": "Sharov--Roth and Gabrys--Yaakobi--Dolecek explicitly cover the classical numerical optimum M(7,1)=26, which is excluded from the new contribution. Section IV of the former states uniqueness for other correction radii and infinity-grain codes, not for n=7,t=1. Neither fully inspected directly relevant source states the unique labeled 26-word extremizer or forces it from a general theorem; the finite equality classification is checked against published-record and own-prior findings under natural aliases.",
+    "residual_risks": [
+      "An obscure or unindexed finite census may already list the same unique size-26 length-seven code.",
+      "The paper comparison distinguishes published uniqueness theorems by their quantifiers and radii; it does not certify absence from all unpublished supplementary sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_EXACT_OPTIMUM_NOT_TARGET_UNIQUENESS",
+        "evidence": "The sharp size 26 is recorded at n=7,t=1. The explicitly proved uniqueness cases inspected are infinite-grain or the odd-length radius (n-3)/2, which is two at n=7, not the radius-one code of size 26.",
+        "identifier_or_url": "DOI:10.1109/TIT.2014.2301811",
+        "material_read": "Full 18-page article, with particular attention to Definitions, Section IV, Theorems 4.4 and 4.6, Proposition 4.10, Tables II and III, and the discussion of their uniqueness annotations.",
+        "method": "Lawful full-text page inspection and parameter specialization.",
+        "title": "Bounds and Constructions for Granular Media Coding",
+        "trigger": "Closest primary work with exact length-seven one-grain optimum and explicit uniqueness results in nearby regimes."
+      },
+      {
+        "assessment": "DEFINITION_AND_OPTIMUM_NOT_TARGET_UNIQUENESS",
+        "evidence": "Definition 1 gives the ball used here; Table II has n=7,t=1 previous/current lower 26 and upper 26. No all-code uniqueness theorem for that parameter appears in the inspected material.",
+        "identifier_or_url": "arXiv:1307.7087 (full text v2; first version v1 dated 2013-07-26)",
+        "material_read": "Full 18-page available version, especially Section II-A, Construction A and Table II for single-grain codes.",
+        "method": "Direct lawful full-text inspection; graphical check of Definition 1 and Table II.",
+        "title": "Correcting Grain-Errors in Magnetic Media",
+        "trigger": "Source defining the exact transition-dependent ball and reproducing small-parameter bounds/constructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "21e150a8-9fdd-473d-9569-030dab6dc86b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The known sharp cardinality 26 is not the contribution. The new result is a natural complete equality classification at the canonical length-seven single-grain parameter in classical optimal-size tables: every maximum is forced to contain a particular 13-word branch and its complement, and it is unique even with physical coordinates labeled. This rigidity is substantive structural information beyond the bound and one construction, and is useful as a finite design benchmark in grain-channel coding.",
+    "status": "PASS"
+  }
+}
