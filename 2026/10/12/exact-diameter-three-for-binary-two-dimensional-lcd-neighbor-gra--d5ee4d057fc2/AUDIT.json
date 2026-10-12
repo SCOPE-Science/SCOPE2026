@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The LCD-plane criterion is an exact two-by-two Gram determinant computation. The map \\(T(z)=z+q(z)w\\) converts the condition into a linear functional. Dimension bounds on the two preimages \\(T^{-1}(C^\\perp)\\) and \\(T^{-1}(D^\\perp)\\) leave a permissible vector for every \\(n\\ge4\\), producing a path of length at most three. The explicit pair has no LCD common neighbor because every mixed two-plane has zero Gram determinant. The bundled exhaustive checker independently confirms the graphs for \\(n=4,5,6\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The conference source gives the broader all-dimension diameter formula only for odd q.",
+        "The arXiv paper proves regularity and connectedness over binary fields and regularity of orbit subgraphs, but its conclusion does not include a binary diameter result."
+      ],
+      "reasoning": "A result covering all q would dominate the present theorem, but the closest broader source explicitly limits the diameter statement to odd q. Binary connectedness alone supplies no finite diameter value sharper than existence.",
+      "searches": [
+        "published-finding corpus: LCD neighbor graph odd q diameter min(k,n-k) binary q=2",
+        "web: \"linear complementary dual\" \"neighbor graph\" diameter",
+        "arXiv:2609.07580v1 full text, Sections 4-6"
+      ]
+    },
+    "checked_sources": [
+      "HSG:20.500.14171/124507",
+      "arXiv:2609.07580v1",
+      "https://cargo.wlu.ca/5thPythagorean/talks/Carlos_Vela.pdf",
+      "10.3934/amc.2025034",
+      "published-finding corpus:2026/9/20/SCOPE-codimension-two-lrc-pair-incidence--43ade2b4102e",
+      "published-finding corpus:2026/10/4/SCOPE-exact-shortest-path-metric-of-the-cube-cross-polytope-intersecti--55d5baa0a495",
+      "record:159df54d-52bf-4a37-9e6c-a5f8f0e073aa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Opaque record 159df54d-52bf-4a37-9e6c-a5f8f0e073aa proves edge-regularity and exact triangle counts for the binary LCD neighbor graph.",
+        "No checked current or prior claim states a binary LCD neighbor-graph diameter."
+      ],
+      "reasoning": "The prior edge-regularity result is local: a constant number of common neighbors across edges and a triangle count do not determine distances between nonadjacent vertices. The new theorem supplies a global upper construction and an explicit distance-three pair, so it is not a corollary of that record.",
+      "searches": [
+        "prior-result comparison: LCD neighbor graph",
+        "prior-result comparison: binary LCD diameter",
+        "prior-result comparison: Grassmann neighbor",
+        "prior-result comparison: dimension-two LCD"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.07580v1, Section 4: the binary LCD neighbor graph is defined and proved connected, with no occurrence of a diameter theorem in the arXiv text.",
+        "Carlos Vela Cabello conference slides, Connectedness and Diameter slide: diameter min(k,n-k) is stated only for odd q."
+      ],
+      "reasoning": "Equivalent wording in terms of shortest neighbor chains, the induced Grassmann subgraph, and dimension-two LCD planes was searched. The inspected primary sources separate binary connectedness from the odd-field diameter theorem and do not imply the binary value 3.",
+      "searches": [
+        "published-finding corpus: binary LCD neighbor graph dimension two diameter three",
+        "published-finding corpus: linear complementary dual codes neighbor graph k=2 diameter",
+        "web: \"binary LCD\" \"diameter\" neighbor graph codes",
+        "web: \"LCD neighbor graph\" binary diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Harada-Tanaka Table 4 enumerates equivalence classes of binary dimension-two LCD codes for many lengths, but the full text contains no occurrence of neighbor or diameter.",
+        "published-finding corpus returned no database or table recording the all-length neighbor-graph diameter."
+      ],
+      "reasoning": "Classification counts do not encode the labeled induced Grassmann graph or its shortest-path metric. No checked table supplies the claimed diameter.",
+      "searches": [
+        "published-finding corpus: binary [n,2] LCD codes neighbor adjacency graph",
+        "Harada-Tanaka 10.3934/amc.2025034 full text: neighbor",
+        "Harada-Tanaka 10.3934/amc.2025034 full text: diameter",
+        "Harada-Tanaka Table 4 dimension 2"
+      ]
+    },
+    "rationale": "Primary full text establishes binary connectedness but not binary diameter, while the conference diameter theorem is stated only for odd fields. Dimension-two classification tables do not address neighbor-graph distance. Focused published-finding corpus, web, and prior-result comparisons found no implication covering the exact all-length binary diameter-three theorem.",
+    "residual_risks": [
+      "The 2025-04-03 repository presentation is a highly relevant early source whose PDF contents were not accessible through the available retrieval route; later full-text versions explicitly restrict the diameter formula to odd fields.",
+      "An unindexed earlier note could in principle contain the binary dimension-two special case, although focused exact-object and equivalent-formulation searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves binary regularity and connectedness but gives no binary diameter theorem.",
+        "evidence": "Section 4 defines the induced LCD neighbor graph and Theorem 4.2 proves connectedness; the conclusion lists regularity, connectedness, and orbit-subgraph regularity without a diameter claim.",
+        "identifier_or_url": "arXiv:2609.07580v1",
+        "material_read": "Full arXiv PDF, especially Section 4 and the conclusion.",
+        "method": "Full-text search for diameter plus direct reading of the binary graph definition, Theorem 4.2, and conclusion.",
+        "title": "The Neighbor Graph of Linear Complementary Dual (LCD) Codes",
+        "trigger": "Same object and graph definition; strongest plausible covering source."
+      },
+      {
+        "assessment": "NOT_COVERING: states diameter \\(\\min\\{k,n-k\\}\\) only for odd \\(q\\); binary diameter is omitted.",
+        "evidence": "The theorem slide says the graph is connected and, for odd q, has diameter min(k,n-k); the summary repeats the odd-field restriction.",
+        "identifier_or_url": "https://cargo.wlu.ca/5thPythagorean/talks/Carlos_Vela.pdf",
+        "material_read": "Full text-extracted slide deck around the Connectedness and Diameter theorem and summary.",
+        "method": "Direct reading of the theorem and summary slides.",
+        "title": "The Neighbor Graph of Linear Complementary Dual Codes",
+        "trigger": "Conference version contains a connectedness-and-diameter theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: classifies equivalence classes but does not define or analyze the neighbor-graph distance.",
+        "evidence": "Primary MSC is 94B05; Table 4 is a dimension-two classification table; full-text searches found no neighbor or diameter discussion.",
+        "identifier_or_url": "10.3934/amc.2025034",
+        "material_read": "Full HTML including Mathematics Subject Classification and the dimension-two table.",
+        "method": "Read classification table and searched the full text for neighbor and diameter.",
+        "title": "On the classification of binary LCD codes",
+        "trigger": "Recent primary-MSC 94B05 paper with a dedicated dimension-two binary LCD classification."
+      },
+      {
+        "assessment": "DATE_EVIDENCE_ONLY: establishes public availability on 2025-04-03, not scientific noncoverage.",
+        "evidence": "University repository metadata lists the presentation, issue date 2025-04-03, and downloadable file neighborLCD.pdf.",
+        "identifier_or_url": "HSG:20.500.14171/124507",
+        "material_read": "Repository metadata page only; the listed PDF itself was not retrievable through the available route.",
+        "method": "Verified issue date, authors, type, filename, and public file listing.",
+        "title": "The Neighbor Graph of Linear Complementary Dual Codes",
+        "trigger": "Earliest verified public source with the same title."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5ee4d05-7fc2-4b84-b0bc-b384b609d2c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Diameter is a central global invariant of the newly studied LCD neighbor graph. The theorem resolves the first nontrivial binary dimension uniformly for all lengths, exposes a characteristic-two one-step defect relative to both the ambient Grassmann diameter and the stated odd-field formula, and supplies a structural obstruction plus constructive path proof rather than a routine enumeration.",
+    "status": "PASS"
+  }
+}
