@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The exact published survival is regularly varying with exponent \\(-\\kappa\\eta\\). Differentiating its continuous interpolation gives logarithmic derivative asymptotic \\(-\\kappa\\eta/x\\), and the mean-value theorem therefore yields the exact PMF order \\(p_n\\sim2^\\kappa\\kappa\\eta n^{-\\kappa\\eta-1}\\). The positive-moment threshold is then the ordinary p-series boundary, including divergence at equality. Positive exponential moments diverge because their summands fail to approach zero. The bundled checker confirms the exact formulas numerically but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The continuous PITL precursor gives the parent survival and moment/MGF formulas but the inspected text does not state the discrete DPITL threshold.",
+        "The earlier discrete inverted Topp-Leone model is a related special construction, but the focused searches did not return a theorem covering the two-parameter DPITL phase boundary.",
+        "Generic power-tail theory would imply the p-series comparison after the DPITL tail is identified, but it does not supply the model-specific table correction."
+      ],
+      "reasoning": "The surviving contribution is the model-specific sharp phase diagram and its consequences for the 2026 published table and dispersion claim, rather than the generic fact that a power-law sequence has a moment cutoff.",
+      "searches": [
+        "power inverted Topp-Leone moments tail regular variation",
+        "Power Inverted Topp-Leone Distribution in Acceptance Sampling Plans moments MGF",
+        "discrete analog inverted Topp-Leone moments survival discretization"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026049",
+      "doi:10.32604/cmc.2021.014620",
+      "doi:10.28924/2291-8639-19-2021-695"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target defines \\(S_n=[(1+2n^\\eta)/(1+n^\\eta)^2]^\\kappa\\) and \\(p_n=S_n-S_{n+1}\\).",
+        "Its moment section gives formal series expressions and its table reports finite summaries without the sharp moment-domain restrictions.",
+        "The continuous PITL precursor is not a statement about the discrete finite-difference PMF or the 2026 table."
+      ],
+      "reasoning": "The source formulas imply the accepted theorem once their tail is analyzed, but the published claims do not state the convergence boundary. The finding therefore changes which displayed summaries are mathematically defined.",
+      "searches": [
+        "target DPITL survival equation probability mass function",
+        "target DPITL moment generating function noncentral moments",
+        "target DPITL Table 1 dispersion full parameter space",
+        "continuous PITL moments MGF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches for DPITL, moment existence, the parameter product, and positive MGF behavior returned unrelated endpoint and moment results rather than the target theorem.",
+        "Exact public searches for the target DOI plus moment and correction terminology returned the original paper and mirrors, not a corrigendum.",
+        "The target article's own moment section presents formal series expressions but does not state the iff threshold \\(r<\\kappa\\eta\\)."
+      ],
+      "reasoning": "The claim was searched as regular variation of the survival, power-law PMF decay, moment-existence thresholds, and nonexistence of positive exponential moments. No equivalent DPITL statement was located.",
+      "searches": [
+        "DPITL moment existence eta kappa power inverted Topp-Leone tail",
+        "discrete power inverted Topp-Leone moment generating function divergence",
+        "10.3934/math.2026049 moments variance correction",
+        "power inverted Topp-Leone regular variation tail moment condition",
+        "discrete survival discretization power law moment threshold eta kappa"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source's Table 1 displays six parameter pairs with finite mean, variance, skewness, kurtosis, CV and dispersion values.",
+        "Four of those six parameter products fall below at least one required integer-moment threshold.",
+        "No correction or erratum for the table was located."
+      ],
+      "reasoning": "The table comparison is a direct implication of the proved threshold, not a numerical disagreement: population quantities requiring divergent moments cannot have the printed finite values.",
+      "searches": [
+        "10.3934/math.2026049 Table 1 mean variance skewness kurtosis",
+        "10.3934/math.2026049 corrigendum moments",
+        "DPITL Table 1 kappa eta"
+      ]
+    },
+    "rationale": "The target full PDF was inspected at the defining survival/PMF, PGF/MGF and moment formulas, Table 1, and the dispersion discussion. It gives finite numerical summaries in parameter regimes where the sharp tail theorem makes the required moments divergent. The continuous PITL precursor was inspected in full text and supplies the parent model but no explicit discrete DPITL moment-existence phase diagram. Focused published-finding corpus, exact DOI, correction, parameter-product, and MGF searches found no covering correction.",
+    "residual_risks": [
+      "A convergence restriction may be implicit in special-function formulas of the continuous precursor even though it was not stated in the inspected prose.",
+      "An unindexed correction or note may already have identified the DPITL table issue.",
+      "The earlier discrete inverted Topp-Leone paper was not available as fully inspectable text during the final comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the exact tail formula needed for the proof and prints finite moment-based summaries in parameter regimes where those moments diverge. It does not state the sharp \\(r<\\kappa\\eta\\) condition or restrict the ordinary MGF to nonpositive arguments.",
+        "evidence": "Model equations in Section 2; moment equations in Section 3; Table 1 and the paragraph interpreting dispersion.",
+        "identifier_or_url": "doi:10.3934/math.2026049",
+        "material_read": "Open-access PDF text and page images covering the continuous survival, discrete PMF/CDF/SF, PGF/MGF and moment equations, Table 1, and dispersion discussion.",
+        "method": "Direct full-text plus page-image inspection.",
+        "title": "An innovative discrete distribution for modeling genotoxicity data: Applications in pharmacology and environmental health",
+        "trigger": "Primary 2026 source defining DPITL and reporting the moment table."
+      },
+      {
+        "assessment": "The precursor supplies the continuous parent model and formal moment expressions. The inspected text does not state the discrete DPITL power-tail moment cutoff or repair the 2026 summary table.",
+        "evidence": "Continuous PITL survival and the section on moments and moment-generating function.",
+        "identifier_or_url": "doi:10.32604/cmc.2021.014620",
+        "material_read": "Full open HTML, including distributional formulas and the moment/MGF section.",
+        "method": "Direct full-text inspection.",
+        "title": "Power Inverted Topp–Leone Distribution in Acceptance Sampling Plans",
+        "trigger": "Primary continuous PITL precursor."
+      },
+      {
+        "assessment": "A related survival-discretization precursor, but no indexed statement was located that covers the DPITL \\(\\kappa\\eta\\) threshold or the 2026 table.",
+        "evidence": "Model-level bibliographic comparison; no covering theorem located.",
+        "identifier_or_url": "doi:10.28924/2291-8639-19-2021-695",
+        "material_read": "Bibliographic and indexed model-description material located in focused searches.",
+        "method": "Target-reference and indexed-record comparison.",
+        "title": "A discrete analog of inverted Topp-Leone distribution: Properties, estimation and applications",
+        "trigger": "Earlier discrete inverted Topp-Leone special-model literature cited by the target."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "270283bc-6e7c-4e62-aa24-18c26472a960",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Moments, skewness, kurtosis, coefficient of variation, and dispersion are central advertised mathematical properties of the new distribution. The sharp phase diagram establishes exactly when each population quantity exists, invalidates at least one finite printed statistic in four of six showcase rows, and shows that the ordinary MGF has no positive-side domain. This is a structural convergence theorem with direct consequences for the paper's principal summary table, not a routine recomputation.",
+    "status": "PASS"
+  }
+}
