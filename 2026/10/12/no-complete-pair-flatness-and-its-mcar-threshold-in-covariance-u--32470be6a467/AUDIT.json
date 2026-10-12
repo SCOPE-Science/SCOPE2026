@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact pair-scatter identity gives n(n-1)S; cyclicity of trace yields n(n-1)p whenever every pair is active and S is positive definite. The explicit six-row, two-dimensional example has six missing variables, full-column-rank frozen-covariance design, SPD initial covariance and two distinct SPD completions, each attaining the same constant objective. Spectral decomposition proves the ridge identity, and binomial counting/Poisson limit/variance control rigorously give the MCAR regimes. A standalone program replayed the deterministic checks and numerical mask probabilities; finite checks supplement the proof rather than substituting for it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mozharovskyi–Josse–Husson (arXiv:1701.03513), Sections 3 and 4, connect Mahalanobis depth to iterated regression and regularized PCA.",
+        "The current paper instead uses a global sum over all pairs with at least one incomplete row, with covariance recomputed from the same completed dataset.",
+        "General all-pairs covariance-scatter identities cover the algebraic step, but do not themselves analyze this source-defined imputation optimization and MCAR event."
+      ],
+      "reasoning": "The broader Mahalanobis-depth regression equivalence is explicitly excluded as a novelty claim; it does not imply a flatness statement for a distinct global active-pair objective without identifying that active set and its covariance update. Generic whitening formulas imply the trace step once source-specific active pairs are complete, which is fully acknowledged.",
+      "searches": [
+        "nonparametric imputation by data depth Mahalanobis regression 2017 all pairwise objective invariant",
+        "\"Nonparametric imputation by data depth\" \"Mahalanobis\" \"regression\" 2017",
+        "high dimensional missingness all rows incomplete no complete pair covariance geometry imputation degeneracy",
+        "arxiv:1701.03513",
+        "doi:10.1080/01621459.2018.1543123"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026600",
+      "https://www.sciopen.com/article/10.3934/math.2026600",
+      "arxiv:1701.03513",
+      "doi:10.1080/01621459.2018.1543123",
+      "P. C. Mahalanobis (1936), generalized distance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published-result ID 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a concerns coherent constraints in a different optimization rule.",
+        "Closest ID 2026/9/19/SCOPE-complete-line-angular-collapse-sylvester-covariance-metrics--821fc9209308 addresses geometry of covariance-matrix metrics, not missing-data active-pair imputation.",
+        "Closest ID 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e addresses identifiability in dynamical modeling rather than this objective.",
+        "Earlier literature on data-depth imputation studies iterative regression, not the active-pair objective; existing historical claims contain no equivalent result."
+      ],
+      "reasoning": "No inspected result or recoverable prior claim covers the joint package: exact flatness despite a full-rank linear-stage design plus its independent-cell MCAR event and threshold. Sharing covariance or identifiability language does not constitute implication.",
+      "searches": [
+        "10.3934/math.2026600 nonlinear Mahalanobis covariance-updating objective constant no complete rows flat full rank linear design",
+        "Mahalanobis active pair imputation all incomplete rows MCAR probability zero complete cases phase transition",
+        "Mahalanobis pairwise distance sum n(n-1)p sample covariance eigenvalues ridge objective flat",
+        "high dimensional missingness all rows incomplete no complete pair covariance geometry imputation degeneracy",
+        "nonparametric imputation by data depth Mahalanobis regression 2017 all pairwise objective invariant",
+        "\"Mahalanobis-geometry imputation\" \"nonidentifiability\" \"missing\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 source Eq. (3.1) defines a sample covariance recomputed from completed rows; Eqs. (3.3) and (3.8) sum distances for active pairs.",
+        "For a full active set, the pair scatter tensor is n(n-1) times this very covariance, so trace against its inverse is n(n-1)p.",
+        "Searches for covariance whitening, pairwise-distance invariance and flat imputation objectives did not identify a source-specific theorem."
+      ],
+      "reasoning": "Complete-pair Mahalanobis sum, trace of whitened covariance, pairwise scatter invariance and a constant optimized imputation criterion are algebraically equivalent formulations. The finding asserts the consequence for the paper’s exact active-pair construction, not independent novelty of the elementary identity.",
+      "searches": [
+        "10.3934/math.2026600 nonlinear Mahalanobis covariance-updating objective constant no complete rows flat full rank linear design",
+        "Mahalanobis pairwise distance sum n(n-1)p sample covariance eigenvalues ridge objective flat",
+        "\"sum of squared Mahalanobis distances\" sample covariance constant \"n\"",
+        "\"Mahalanobis\" \"pairwise\" \"invariant\" \"sum\" sample covariance",
+        "\"pairwise Mahalanobis\" \"constant\" sample covariance all pair distances"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source establishes a rank criterion for its frozen-covariance linear design and offers a regularized fallback.",
+        "The primary source reports an empirical wine dataset and masking experiments; its analyzed setting has 11 columns rather than the dimension-45 illustrative MCAR event.",
+        "No inspected table or original appendix states the exact n(n-1)p invariant or the MCAR binomial flat-mask probability."
+      ],
+      "reasoning": "The exact result is a new structural reading of the original nonlinear equation, not a recomputation of a published table. The paper’s numerical application is not asserted to have been impacted.",
+      "searches": [
+        "10.3934/math.2026600 nonlinear Mahalanobis covariance-updating objective constant no complete rows flat full rank linear design",
+        "Mahalanobis active pair imputation all incomplete rows MCAR probability zero complete cases phase transition",
+        "Mahalanobis pairwise distance sum n(n-1)p sample covariance eigenvalues ridge objective flat",
+        "\"Mahalanobis-geometry imputation\" \"constant\" \"covariance\"",
+        "\"Mahalanobis-geometry imputation\" \"complete cases\" \"regression\"",
+        "doi:10.3934/math.2026600"
+      ]
+    },
+    "rationale": "The all-pair sample-covariance trace identity is standard rather than independently novel, but the original 2026 article does not apply it to its active-pair, covariance-updating imputation objective. Its rank theorem concerns the frozen-covariance linear stage. A full-rank witness demonstrates that stage is no protection against completely flat nonlinear refinement. The exact MCAR logarithmic mask threshold is a consequential source-specific derivation. The closest independent imputation predecessor establishes Mahalanobis depth/iterated-regression links, not constant active-pair sums with recomputed sample covariance. Source-specific and synonym searches, the public findings index, and historical claim overlap comparison found no decisive covering prior statement; this is not a claim of absolute uniqueness.",
+    "residual_risks": [
+      "A recent, unindexed preprint may mention the same collapse; failure to locate it is not a proof of novelty.",
+      "Different covariance normalizations rescale the flat constant, so the quantitative identity relies on the cited sample-covariance divisor n-1.",
+      "The result does not imply that all possible observed missingness masks are flat or that a ridge-updated criterion is flat.",
+      "The source could have used undocumented implementation safeguards; no assertion about unavailable code is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING: contains the defining objective and rank discussion but no complete-pair flatness or MCAR threshold. The claimed result targets its nonlinear criterion, not its frozen-covariance linear solution.",
+        "evidence": "Eqs. (3.1)–(3.3), (3.8), (3.11); associated linear rank argument and appendix.",
+        "identifier_or_url": "doi:10.3934/math.2026600",
+        "material_read": "Full 14-page open primary article including model Eq. (3.1), active-pair Eq. (3.3), nonlinear Eq. (3.8), the ridge discussion, rank theorem, numerical experiment and Appendix.",
+        "method": "Read the lawful open primary article and inspect the displayed equations and relevant page images.",
+        "title": "Mahalanobis-geometry imputation for multivariate data with missing entries",
+        "trigger": "Primary 2026 source proposing frozen-covariance linear imputation and covariance-updated nonlinear pairwise optimization."
+      },
+      {
+        "assessment": "Metadata lists Published 15 May 2026, while AIMS lists 25 May 2026; use earliest explicit public date without claiming acceptance date is publication.",
+        "evidence": "SciOpen: Published 15 May 2026; primary classification 62F35 from publisher.",
+        "identifier_or_url": "https://www.sciopen.com/article/10.3934/math.2026600",
+        "material_read": "Bibliographic metadata including Received, Revised, Accepted, Published dates and journal citation.",
+        "method": "Inspect public journal-mirror metadata page.",
+        "title": "Mahalanobis-geometry imputation for multivariate data with missing entries (public metadata)",
+        "trigger": "Verify earliest public date and primary mathematics classification."
+      },
+      {
+        "assessment": "GENERAL RELATED WORK, NOT COVERING: contains Mahalanobis-depth and regression equivalences, not the covariance-recomputed global active-pair sum or missing-mask binomial threshold.",
+        "evidence": "Mahalanobis-depth characterization and its iterated-regression connection in the 2017 manuscript; subsequently published JASA 2020.",
+        "identifier_or_url": "arxiv:1701.03513",
+        "material_read": "Open full 2017 research manuscript on data depth, Mahalanobis depth and regression connections, especially sections on Mahalanobis and iterative imputation.",
+        "method": "Lawful full-text arXiv/working-paper inspection and comparison of optimized functionals and theorems.",
+        "title": "Nonparametric imputation by data depth",
+        "trigger": "Potential broader prior covering Mahalanobis imputation, iterated regression and covariance estimation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32470be6-a467-46bc-a73b-b2172ae4d801",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper motivates nonlinear covariance updating as a refinement of missing-value imputation, and its rank theorem supports only the frozen-covariance step. Identifying complete loss of its nonlinear objective even with an invertible, full-rank linear formulation exposes a genuine objective-function identifiability boundary, not a low-impact arithmetic slip. The exact independent-cell MCAR threshold makes the obstruction operationally useful in high-dimensional design; it sharply delineates when changing the target or introducing independent information is necessary, without extrapolating to source experiments.",
+    "status": "PASS"
+  }
+}
