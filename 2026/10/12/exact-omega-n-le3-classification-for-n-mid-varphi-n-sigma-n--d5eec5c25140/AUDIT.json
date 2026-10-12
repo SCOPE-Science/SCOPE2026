@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Prime powers have \\(p\\)-adic valuation exactly one below that required by \\(p^a\\). For \\(pq\\), the larger prime forces the unique pair \\(2,3\\). For squarefree \\(pqr\\), the largest prime cannot divide any factor from the two smaller blocks. For \\(p^2q\\), the necessary and sufficient local conditions are \\(p\\mid q^2-1\\) and \\(q\\mid(p-1)(p^2+p+1)\\). These yield the unique smaller-cofactor case \\(18\\) and, for \\(q>p\\), exactly \\(q=p^2+p+1\\) prime.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broughan–Ford–Luca use \\(\\varphi(n)\\sigma(n)/n^2=\\prod(1-p^{-a-1})\\) and study when the product is a square.",
+        "Their main results concern the square equation \\(\\varphi(n)\\sigma(n)=m^2\\) and associated finite sets, not \\(n\\mid\\varphi(n)\\sigma(n)\\).",
+        "No broader inspected source implies the low-\\(\\Omega\\) divisibility theorem."
+      ],
+      "reasoning": "Square-value structure of the product does not imply its divisibility by the input; the local prime divisibility conditions used here are different.",
+      "searches": [
+        "On square values of the product of the Euler totient and sum of divisors functions",
+        "phi(n) sigma(n) divisibility semiprime prime square low multiplicity",
+        "Euler totient sum divisors product divisibility n"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A056100",
+      "OEIS:A062354",
+      "DOI:10.4064/cm130-1-11",
+      "targeted exact-divisibility, repeated-prime, and cyclotomic web searches",
+      "semantic published-result searches for exact and equivalent formulations",
+      "current and prior owned ledgers for identifier, formula, and claim overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest semantic result on \\(p^2+p+1\\) concerns \\(\\sigma_{2,2}\\) prime pairs and shared cyclotomic divisors, a different predicate.",
+        "Other close results concern divisibility of \\(\\sigma\\) alone, low-support totient problems, or unrelated semiprime equations.",
+        "Current and prior owned ledgers contain no A056100 classification or residue-one theorem."
+      ],
+      "reasoning": "The new theorem requires simultaneous local divisibility at the repeated prime and the cofactor prime; none of the closest records implies those conditions or their cyclotomic collapse.",
+      "searches": [
+        "A056100 sigma phi residue one n divides phi(n) sigma(n) Omega at most 3",
+        "n divides phi(n) sigma(n) p^2 q prime classification",
+        "p squared times q divides phi sigma p^2+p+1 prime",
+        "phi(n) sigma(n) divisibility semiprime prime square low multiplicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A056100 is exactly \\((\\varphi(n)\\sigma(n)+1)\\bmod n\\), so residue \\(1\\) is equivalent to \\(n\\mid\\varphi(n)\\sigma(n)\\) for \\(n>1\\).",
+        "A062354 is exactly the product \\(\\varphi(n)\\sigma(n)\\).",
+        "No located statement gives the complete \\(\\Omega(n)\\le3\\) residue-one classification."
+      ],
+      "reasoning": "The searches cover the canonical residue identifier, direct divisibility, low-multiplicity wording, repeated-prime shape, and the cyclotomic polynomial alias.",
+      "searches": [
+        "A056100 sigma phi residue one n divides phi(n) sigma(n) Omega at most 3",
+        "n divides phi(n) sigma(n) p^2 q prime classification",
+        "phi(n) sigma(n) divisibility semiprime prime square low multiplicity",
+        "p squared times q divides phi sigma p^2+p+1 prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A056100 supplies the exact residue table and is authored 28 July 2000.",
+        "A062354 supplies the exact product, its prime-power formula, and a conjugacy-class interpretation.",
+        "Neither inspected entry states the \\(\\Omega(n)\\le3\\) residue-one family."
+      ],
+      "reasoning": "A residue table corroborates small examples such as \\(6,18,28\\), but cannot exclude arbitrarily large low-multiplicity solutions. The theorem supplies the unrestricted implication.",
+      "searches": [
+        "OEIS A056100",
+        "OEIS A062354",
+        "A056100 residue 1"
+      ]
+    },
+    "rationale": "The exact residue and product databases do not state the theorem. The closest full primary paper concerns square values of the same product rather than divisibility by the argument. Targeted statement-level searches found no covering result.",
+    "residual_risks": [
+      "An equivalent elementary observation may occur in an unindexed note or discussion of A056100.",
+      "The theorem does not classify \\(\\Omega(n)\\ge4\\).",
+      "Infinitude of primes \\(p\\) for which \\(p^2+p+1\\) is prime is not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_OBJECT_NOT_COVERING.",
+        "evidence": "The page defines \\((\\sigma(n)\\varphi(n)+1)\\bmod n\\), dates the entry to 28 July 2000, and does not state a residue-one low-multiplicity classification.",
+        "identifier_or_url": "OEIS:A056100",
+        "material_read": "Definition, initial residues, prime comment, reference, programs, cross-references, author line, and status.",
+        "method": "Direct inspection of the exact sequence page.",
+        "title": "OEIS A056100",
+        "trigger": "Exact public residue sequence."
+      },
+      {
+        "assessment": "EXACT_PRODUCT_NOT_COVERING.",
+        "evidence": "The entry identifies \\(a(n)=\\sigma(n)\\varphi(n)\\), records \\(a(p^e)=p^{e-1}(p^{e+1}-1)\\), and gives a group-theoretic interpretation, but no divisibility classification.",
+        "identifier_or_url": "OEIS:A062354",
+        "material_read": "Definition, conjugacy-class comment, prime-power formula, bounds, references, and author line.",
+        "method": "Direct inspection of the exact sequence page.",
+        "title": "OEIS A062354",
+        "trigger": "Exact public database for the product \\(\\sigma(n)\u000barphi(n)\\)."
+      },
+      {
+        "assessment": "SAME_PRODUCT_DIFFERENT_PROBLEM_NOT_COVERING.",
+        "evidence": "The paper lists primary MSC \\(11A41\\), writes the normalized product explicitly, and studies square values \\(\\varphi(n)\\sigma(n)=m^2\\), not divisibility by \\(n\\).",
+        "identifier_or_url": "DOI:10.4064/cm130-1-11",
+        "material_read": "Full lawful PDF first page, abstract, normalized product identity, theorem statements, and problem scope.",
+        "method": "Direct full-text PDF inspection with rendered first-page verification.",
+        "title": "On square values of the product of the Euler totient and sum of divisors functions",
+        "trigger": "Highly relevant primary literature on the exact product and subject ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5eec5c2-5140-4baa-98b2-d34281fcbb55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The residue-one condition is a natural divisibility question for the classical product \\(\\varphi(n)\\sigma(n)\\). The classification is unbounded, covers all factorization shapes through multiplicity three, and reveals an exact cyclotomic-prime mechanism in the first nontrivial repeated-prime layer.",
+    "status": "PASS"
+  }
+}
