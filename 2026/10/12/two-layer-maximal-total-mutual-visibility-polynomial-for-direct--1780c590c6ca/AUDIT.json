@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For every nonadjacent pair in the direct product, the set of middle vertices is computed exactly: same-row pairs require an omitted cell off the row and outside their two columns, and symmetrically for same-column pairs. These are equivalent to the two projection-at-least-three constraints. If the omitted bipartite graph lacks a four-matching, König’s theorem gives a cover of size at most three. Mixed covers or covers of at most two vertices violate one of the projection constraints, so all omitted edges lie on three rows or three columns. In a three-row solution, every row has degree at least two and any two row neighborhoods have union of size at least three; minimality eliminates degree three or more. Three distinct two-sets therefore give precisely the six-edge minimal solutions. Four-matchings give the other minimal solutions. The labeled count and six-cycle overlap lead to the stated two monomials. Direct independent-criterion subset checks on 102,912 masks and sample checks on larger boards passed; finite runs are not used as proof of the all-order statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2401.02373, Theorem 2.2: largest size equals \\(mn-4\\) for factor orders at least five; one complement of size four constructed",
+        "arXiv:2307.02951, Section 1.2: lower total visibility defined as smallest maximal-set size; Section 2.3 treats Cartesian complete-graph products"
+      ],
+      "reasoning": "The previous maximum-size theorem implies the upper exponent and existence of a four-rook configuration, but not that other maximal configurations have six omissions, nor the lower size or either multiplicity. The lower-parameter paper provides motivation and definitions, not a dominating result for this graph family.",
+      "searches": [
+        "Maximal total mutual visibility polynomial of complete graph direct tensor products exact enumeration of maximal sets",
+        "lower total mutual-visibility number of direct product of two complete graphs K_n tensor K_m, classify all maximal sets as four-cell matchings or three rows each two cells",
+        "\"lower total mutual-visibility\" \"direct product\" \"complete graphs\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.02951 (initial posting 2023-07-06)",
+      "arXiv:2401.02373 (initial posting 2024-01-04)",
+      "DOI:10.1016/j.ejc.2024.103995",
+      "Published studies of connected Cartesian-product visibility and dual general-position variants, used solely for scientific implication comparisons."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2401.02373, Section 2, Theorem 2.2 and its proof (2024): constructs \\(Y=\\{(1,1),(2,2),(3,3),(4,4)\\}\\), proves \\(\\mu_t=mn-4\\)",
+        "arXiv:2307.02951, Introduction and Section 2.3: lower total-visibility as distinct invariant; Cartesian setting"
+      ],
+      "reasoning": "A proof that no selected set exceeds size \\(mn-4\\) and an example attaining it imposes no general restriction on inclusion-maximal sets smaller than that maximum. The present structural theorem requires an additional König-cover dichotomy and a separate minimality argument, and supplies many maximal sets of size \\(mn-6\\) and all counts. Hence neither prior claim logically implies this one.",
+      "searches": [
+        "Total mutual visibility in direct products of complete graphs K_m x K_n inclusion-maximal sets four non-attacking rooks six-edge supports size mn-4 mn-6",
+        "Maximal total mutual visibility polynomial of complete graph direct tensor products exact enumeration of maximal sets",
+        "\"K_n × K_m\" \"total mutual visibility\" \"maximum sets\" \"4\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.02951, pp.1–4 and conclusions on lower variants and graph products",
+        "arXiv:2401.02373, Theorem 2.2 and Section 2 for direct products"
+      ],
+      "reasoning": "The result can be restated as the complete minimal-transversal classification for the common-neighborhood hypergraph of nonadjacent pairs in a direct complete-graph product. Searches for direct-product maximal total visibility and covering/common-neighborhood equivalents did not retrieve this classification. The primary 2023 paper introduces lower total visibility but addresses Cartesian products rather than this direct-product transversal problem.",
+      "searches": [
+        "Total mutual visibility in direct products of complete graphs K_m x K_n inclusion-maximal sets four non-attacking rooks six-edge supports size mn-4 mn-6",
+        "Minimal total mutual visibility sets complements transversal hypergraph common neighborhoods direct product complete graphs 4-matchings cycles 6",
+        "Covering all common neighborhoods in Kronecker product K_m x K_n minimal hitting sets three rows two cells each",
+        "\"maximal total mutual-visibility sets\" direct product complete graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published finding “Connected mutual-visibility in Cartesian products of high-girth graphs” concerns connected visibility for high-girth Cartesian products, not total visibility for tensor products of complete graphs.",
+        "The published finding “Complete multipartite dual general-position sets and exact variant enumerators” concerns a different graph family and position parameter.",
+        "Neither relevant inspected primary article provides a table of inclusion-maximal total-visible direct-product sets."
+      ],
+      "reasoning": "The searched indexed records and primary sources showed related maximality and product results but no exact enumeration for these omitted-support types. Nonretrieval does not certify novelty outside the searched corpus.",
+      "searches": [
+        "Total mutual visibility in direct products of complete graphs K_m x K_n inclusion-maximal sets four non-attacking rooks six-edge supports size mn-4 mn-6",
+        "lower total mutual-visibility number of direct product of two complete graphs K_n tensor K_m, classify all maximal sets as four-cell matchings or three rows each two cells",
+        "\"total mutual visibility polynomial\" \"direct product\" \"complete graphs\"",
+        "\"maximal total mutual-visibility\" \"tensor product\""
+      ]
+    },
+    "rationale": "The nearest product-specific primary theorem (Cicerone et al., 2024, Theorem 2.2) establishes only the maximum total mutual-visibility cardinality and exhibits a four-rook omitted configuration. The foundational lower-visibility study (Brešar–Yero 2023) introduces the lower parameter and compares other graph-product families but does not cover direct products of complete graphs. Neither inspected work classifies all inclusion-maximal sets, their two distinct sizes, or their exact counts. A full implication comparison rules out derivation of the six-cell exceptional family from the existing maximum-size statement alone.",
+    "residual_risks": [
+      "Some prior minimal transversal/hitting-set enumeration may use terminology unrelated to total mutual visibility, so it could escape the cited searches.",
+      "The closest article on the direct-product maximum proves scalar information only, but an unindexed later classification might exist. Independent expert literature review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains lower-total-visibility definitions and general results; studied complete-graph product is Cartesian, not the direct product; does not enumerate the present maximal sets.",
+        "evidence": "arXiv:2307.02951, pp.2–4 and Section 2.3, plus conclusion.",
+        "identifier_or_url": "https://arxiv.org/pdf/2307.02951",
+        "material_read": "Primary open-access full text inspected: abstract, introduction and parameter definition on pp.1–4, Section 2.3 product discussion, and concluding problem discussion; checked full searchable text for direct/tensor product terminology.",
+        "method": "Public arXiv PDF textual inspection with page visual check of research-scope discussion.",
+        "title": "Lower (total) mutual-visibility number in graphs",
+        "trigger": "Introduces inclusion-maximal total mutual visibility, the exact lower parameter being evaluated, and analyzes related graph products."
+      },
+      {
+        "assessment": "Theorem 2.2 gives only the largest cardinality \\(mn-4\\) with one four-cell complement and no enumeration of inclusion-maximal solutions; the lower number and six-edge configurations are absent in the material checked.",
+        "evidence": "arXiv:2401.02373, later EJC 120 (2024) 103995, Theorem 2.2 and Corollary 2.3.",
+        "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/1-s2.0-S0195669824000805-main.pdf",
+        "material_read": "Primary lawful full-text PDF inspected: abstract, introduction, Section 2 on pp.4–6, complete Theorem 2.2 proof on p.6 (PDF page index five), and section organization. Full-text keyword searches for maximal and direct-product results.",
+        "method": "Open-access publisher-version PDF text with page-five visual inspection.",
+        "title": "Mutual-visibility problems on graphs of diameter two",
+        "trigger": "Directly studies total mutual visibility for tensor products of complete graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1780c590-c6ca-44e8-b2fc-b65095af1565",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The lower total-mutual-visibility number was introduced precisely to measure the worst possible terminal output of greedy visibility selection. For the natural two-parameter family of tensor products of complete graphs, this establishes all such terminal set types and counts, not just one maximum witness: maximal cardinalities have exactly two values separated by two, the lower value is \\(mn-6\\), and the complete maximal-set enumerator has two explicit coefficients. The six-edge three-row patterns are a genuine obstruction invisible to the previous scalar maximum result. This is a structural classification and a complete natural enumeration, not an arbitrary small computation.",
+    "status": "PASS"
+  }
+}

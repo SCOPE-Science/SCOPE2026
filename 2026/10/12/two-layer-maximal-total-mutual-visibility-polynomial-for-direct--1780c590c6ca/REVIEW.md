@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof gives necessary and sufficient neighborhood-hitting conditions for all vertex pairs in a direct complete-graph product. A four-edge matching satisfies the constraints; otherwise König's theorem forces a three-row or three-column vertex cover, and inclusion-minimality forces exactly two incident edges at each of the three support vertices with pairwise distinct neighbor pairs. The overlap is the six-cycle in a three-by-three bipartite subgraph. These steps prove the exact two-term enumerator and lower parameter for every factor order at least four. A standalone direct common-neighbor checker passed exhaustive small-board tests and larger predetermined samples. The finite tests corroborate, but do not replace, the proof.
+
+**Originality — PASS, subject to residual literature risk.** Brešar and Yero (arXiv:2307.02951) introduced lower total mutual visibility, including maximality as distinct from maximum cardinality, but their relevant complete-graph product discussion is Cartesian. Cicerone, Di Stefano, Klavžar and Yero (arXiv:2401.02373, Theorem 2.2) proved the maximum total mutual-visible cardinality for direct products and gave one four-cell omitted configuration; that scalar theorem does not classify or count all inclusion-maximal sets, nor imply the lower cardinality. Searches for direct/tensor products, maximality, neighborhood transversals, and matching formulations found no dominating statement. An equivalent result in older minimum-hitting-set literature remains a risk; these searches do not constitute a uniqueness proof.
+
+**Value — PASS.** A complete classification of all outcomes of greedy total-visibility selection in an unrestricted two-parameter family determines the lower number, the exactly two possible sizes, and their exact multiplicities. The six-omission configurations contribute a distinct mathematical phenomenon beyond the previously known optimum.
+
+**Scientific limitations.** This applies to the tensor product with both factor orders at least four, not to Cartesian products or other visibility variants. It enumerates inclusion-maximal sets only, not all feasible sets. The results have received no independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
