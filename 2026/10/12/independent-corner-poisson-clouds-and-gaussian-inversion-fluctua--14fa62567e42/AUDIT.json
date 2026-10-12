@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Uniform compatible-cell probability 1/(n)_m, O(n^{m-1/2}) collision loss, and uniform O(mn) pinned inversion correction prove mixed factorial/characteristic convergence; independent Lehmer digit CLT yields N(0,1/36). Finite proof identities independently checked by verify.py for 46,232 permutations. No finite computation is used as proof of convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour–Janson, Introduction and Theorems 2.1/3.3, concern Gaussian approximations for additive permutation-matrix sums.",
+        "Baxter–Zeilberger, Introduction and mixed moment theorem, concern inversions and the major index, not extreme corners."
+      ],
+      "reasoning": "Neither cited Gaussian framework supplies the sparse Poisson corner process and its joint factorization with nonlinear inversion counts as a stated consequence. A separate uniform finite-pinning stability argument is supplied.",
+      "searches": [
+        "random permutation corner point Poisson limit independent Gaussian inversions",
+        "arXiv:0907.0347v1 functional combinatorial central limit theorem Sections 1–3",
+        "arXiv:1004.1160v2 inversion major index joint normal Introduction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0907.2682v1",
+      "arXiv:1004.1160v2",
+      "arXiv:0907.0347v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0907.2682v1, Sections 2 and 4, finite Chebyshev metric and permanent.",
+        "arXiv:1004.1160v2, Introduction, asymptotic inv/major-index factorization.",
+        "arXiv:0907.0347v1, Introduction and Theorems 2.1 and 3.3, additive combinatorial CLT."
+      ],
+      "reasoning": "The finite ball formula implies only the scalar maximum marginal after asymptotic analysis; inv/maj independence does not imply inv/max independence, and additive Gaussian CLTs alone do not give Poisson extreme corners. The new finite-pin proof supplies the missing implication. Potential stronger unstated general extreme-process theorems remain a priority risk.",
+      "searches": [
+        "permutation Chebyshev distance Kendall tau joint Gaussian Poisson",
+        "arXiv:1004.1160v2 inversion major index joint independence",
+        "random permutation maximum Chebyshev distance permanent inversion joint generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kløve et al. Section 2 defines d_max(pi,sigma)=max_i|pi_i-sigma_i|, matching the present maximum with identity.",
+        "Section 4 Lemma 4 writes the number of permutations within bounded Chebyshev distance as a permanent."
+      ],
+      "reasoning": "The scalar maximum can be expressed through this older finite ball count, so its marginal distribution is not asserted to be newly counted. A joint Poisson process of both corners independent of the inversion Gaussian is a stronger multivariate statement, absent from the cited metric paper.",
+      "searches": [
+        "uniform random permutation maximum absolute displacement Rayleigh limit",
+        "random permutation Chebyshev metric limiting distribution inversion covariance",
+        "arXiv:0907.2682v1 Section 4 Chebyshev ball permanent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kløve et al. Section 4, Lemma 4: V(n,d)=per A^(n,d), an exact finite expression for Chebyshev-ball sizes.",
+        "The same source tables code-size bounds P(n,d), not the inversion-refined joint point law."
+      ],
+      "reasoning": "The earlier permanent formula exactly covers marginal maximum-distance counts, but it contains no inversion weights or joint spatial mark process; no inspected table specifies the joint Poisson–Gaussian claim.",
+      "searches": [
+        "arXiv:0907.2682v1 V(n,d) per A n d",
+        "random permutation matrix antidiagonal corner Poisson extreme displacement"
+      ]
+    },
+    "rationale": "Compared direct Chebyshev metric and exact ball-permanent enumeration [Kløve et al.], inversion/major-index independent normal limit [Baxter–Zeilberger], and functional combinatorial Gaussian limit [Barbour–Janson]. The precise three-way independence of two spatial corner Poisson limits and the inversion Gaussian was not stated in inspected primary materials. Known marginal permanent and Gaussian claims are excluded from novelty; historical completeness is not guaranteed.",
+    "residual_risks": [
+      "General rare-event Poisson point-process or permutation asymptotic independence theorems outside the located primary literature may imply the result without identical terminology.",
+      "The known exact permanent expression encodes the marginal max-distance distribution; only the joint spatial Poisson–Gaussian independence is assessed as novel.",
+      "External expert and independent historical audit are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers metric definition and exact V(n,d) permanent; does not state Poisson corner process or its independence from inversion fluctuations.",
+        "evidence": [
+          "Section 2 defines d_max",
+          "Section 4 Lemma 4 V(n,d)=per A",
+          "Section 4 discusses fixed-radius asymptotics and code bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0907.2682v1",
+        "material_read": "Introduction, Section 2, Section 3 constructions, Section 4 bounds, permanent identities and table",
+        "method": "Full open-access arXiv HTML text inspection of relevant sections",
+        "title": "Permutation Arrays Under the Chebyshev Distance",
+        "trigger": "Identical maximum displacement/Chebyshev metric and exact metric-ball formulas"
+      },
+      {
+        "assessment": "Proves inversions with major index, not inversions with maximum displacement or spatial corner points.",
+        "evidence": [
+          "Introduction specifies inv and maj",
+          "Section on permutation statistics states exact inversion variance and joint Gaussian theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1004.1160v2",
+        "material_read": "Full-text Introduction, permutation statistics and theorem statement, mixed-moment method and recurrences",
+        "method": "Open-access arXiv HTML examination of proofs and introductory comparisons",
+        "title": "The Number of Inversions and the Major Index of Permutations are Asymptotically Joint-Independently Normal",
+        "trigger": "Most direct known joint asymptotic independence theorem involving inversions"
+      },
+      {
+        "assessment": "Addresses Gaussian permutation-matrix additive functionals and tableaux; no sparse corner Poisson process or inversion statistic joint limit.",
+        "evidence": [
+          "Introduction equations for additive rank sums",
+          "Theorem 2.1 and Theorem 3.3 functional Gaussian approximations"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0907.0347v1",
+        "material_read": "Introduction, central limit formulation, Sections 2 and 3 theorem statements, Section 5 application description",
+        "method": "Open-access arXiv HTML examination",
+        "title": "A functional combinatorial central limit theorem",
+        "trigger": "Plausible general permutation-process limit that might imply the statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "14fa6256-7e42-4062-8c4a-29fb8a02fdc8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural joint law for extreme Chebyshev permutation displacement and global Kendall inversion fluctuations, retaining full two-corner spatial Poisson geometry and a Gaussian bulk independent of both. It calibrates simultaneous extreme-rank and aggregate-disorder statistics beyond known marginal formulas; not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
