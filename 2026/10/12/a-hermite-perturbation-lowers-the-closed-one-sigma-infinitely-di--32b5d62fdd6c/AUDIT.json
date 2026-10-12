@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For X_epsilon=N_epsilon+2M_epsilon with independent Poisson intensities epsilon and 1-epsilon/2, infinite divisibility follows from the compound-Poisson Lévy measure. Exact cumulant addition gives mean 2 and variance 4-epsilon. For 0<epsilon<2, the standard deviation lies strictly between 1 and 2, so the closed central event on the integer lattice is exactly {1,2,3}. Enumerating the only Poisson pairs giving totals 1,2,3 yields exp(-1-epsilon/2)(1+3epsilon/2+epsilon^3/6), whose limit is exp(-1). Thus the infimum over the full class is at most exp(-1). No finite computation is used for the quantifier over epsilon.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang-Hu-Sun prove P_I >= P_I0 > 0, obtain P_I0 <= exp(-1), and obtain only P_I <= 0.46576... from symmetric Poisson laws.",
+        "The source explicitly says the exact values of P_I and P_I0 remain open."
+      ],
+      "reasoning": "A broader prior theorem would cover the new claim only if it implied a closed-interval global upper bound no larger than exp(-1). The inspected source gives a strictly weaker published upper bound for the closed functional.",
+      "searches": [
+        "measure concentration infinitely divisible P_I upper bound e^{-1} compound Poisson",
+        "arXiv 2310.03471 compound Poisson upper bound",
+        "P_I e^{-1} infinitely divisible",
+        "0.36788 infinitely divisible distributions measure concentration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.03471v1/v2",
+      "DOI:10.1007/s10473-025-0211-x",
+      "classical Hermite/discrete compound-Poisson references",
+      "published-record searches for Hermite, stuttering-Poisson, compound-Poisson, and one-standard-deviation formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.2 of the source concerns the strict Poisson interval and gives exp(-1); Theorem 4.3 concerns the closed symmetric-Poisson interval and gives 0.46576.... Neither theorem supplies the two-jump limiting construction.",
+        "The checked Hermite and compound-Poisson references provide standard distribution formulas but do not imply the global one-sigma extremal consequence."
+      ],
+      "reasoning": "The strict Poisson result does not imply a closed-interval bound because boundary atoms are included. The new construction is precisely a variance-preserving lattice perturbation that moves those boundary atoms outside the closed interval, so an additional argument is essential.",
+      "searches": [
+        "arXiv:2310.03471v2 Theorem 4.2 Theorem 4.3",
+        "Hermite distribution closed one standard deviation infinitely divisible upper bound",
+        "compound Poisson closed central probability exp(-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The classical Hermite distribution is the law of N1+2N2 for independent Poisson variables, but the retrieved Hermite references describe distributional formulas and estimation rather than the one-sigma extremal bound.",
+        "No checked published-record or public-web result states the family with intensities epsilon and 1-epsilon/2 or the resulting closed one-sigma upper bound exp(-1)."
+      ],
+      "reasoning": "Hermite distribution, discrete compound Poisson, and stuttering Poisson are the principal aliases of the construction. Searches across those aliases did not yield the claimed concentration consequence.",
+      "searches": [
+        "infinitely divisible closed one standard deviation probability compound Poisson e^{-1}",
+        "Poisson jumps 1 and 2 one standard deviation central probability",
+        "stuttering Poisson one standard deviation probability",
+        "Hermite distribution one standard deviation concentration probability",
+        "compound Poisson one standard deviation e^{-1}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard Hermite tables provide the pmf and moments, not the one-standard-deviation infimum over the infinitely divisible class.",
+        "No exact-expression search returned exp(-1-epsilon/2)(1+3epsilon/2+epsilon^3/6) in this concentration context."
+      ],
+      "reasoning": "The proof uses elementary Hermite probabilities, but the scientific claim is the limiting extremal consequence for P_I, which was not found in checked tables or indexed records.",
+      "searches": [
+        "Hermite distribution N1+2N2 Poisson central probability",
+        "stuttering Poisson central probability mean variance e^{-1}",
+        "compound Poisson one standard deviation e^{-1}"
+      ]
+    },
+    "rationale": "The motivating paper explicitly states the closed-class upper bound 0.46576... from symmetric Poisson laws and leaves the global infimum open. Its inspected full text treats geometric, symmetric geometric, Poisson, and symmetric Poisson families but not the Hermite two-jump family. Candidate-specific published-record and public literature searches using compound-Poisson, Hermite, stuttering-Poisson, and exact exp(-1) formulations found no covering claim. Residual risk remains because the Hermite distribution is classical and an equivalent short observation could appear under older terminology.",
+    "residual_risks": [
+      "An older observation under Hermite, stuttering-Poisson, or lattice-boundary terminology may reproduce the same short construction.",
+      "The result improves only the upper bound; it does not establish P_I=exp(-1) or identify an extremizer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper states P_I <= exp(-1) sum_k 1/(2^(2k)(k!)^2) approximately 0.46576, P_I0 <= exp(-1), and leaves exact P_I open. Its listed families do not include the two-jump Hermite perturbation.",
+        "identifier_or_url": "arXiv:2310.03471v2",
+        "material_read": "Abstract; Introduction definitions and open-problem statement; Theorem 2.1; Poisson Theorems 4.1 and 4.2; symmetric-Poisson Theorem 4.3 and surrounding formulas.",
+        "method": "Public arXiv HTML full-text inspection.",
+        "title": "On the measure concentration of infinitely divisible distributions",
+        "trigger": "Direct source defining the global infima and giving the previously best explicit closed-interval upper bound."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "The retrieved material confirms the family and moments but does not discuss the one-standard-deviation infinitely-divisible extremal problem.",
+        "identifier_or_url": "classical Hermite distribution / NIST probability-function documentation",
+        "material_read": "Definition, independent-Poisson representation, mean/variance formulas, and standard distribution documentation.",
+        "method": "Public web reference inspection.",
+        "title": "Hermite distribution reference material",
+        "trigger": "The candidate family N1+2N2 is the classical Hermite distribution, so an alias check was necessary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32b5d62f-dd6c-4829-8591-9340017f76f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly leaves the global one-sigma infinitely-divisible concentration constants open and reports a closed-interval upper bound about 0.46576, while its strict-interval upper bound is exp(-1). The new construction lowers the closed-interval bound all the way to exp(-1), eliminating the published numerical gap between those two upper bounds. The mechanism is structurally informative: an arbitrarily small intensity of unit jumps shifts a lattice boundary while keeping the mean fixed, showing that closed-interval concentration can approach the strict Poisson value within the infinitely divisible class. This directly advances the source open problem rather than being a routine recomputation of a known subfamily.",
+    "status": "PASS"
+  }
+}
