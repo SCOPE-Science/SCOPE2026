@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces color equality to rooted universal-cover truncation isomorphism using Krebs--Verbitsky Lemma 2.6. The tadpole universal cover is explicitly a periodic spine with pendant tails. Distinct cycle distance classes need at most floor(m/2) rounds, tail positions need exactly ceil(k/2) rounds internally, and the cycle-neighbor/tail-neighbor pair survives exactly min(m,k)-1 rounds before splitting. These give matching upper and lower bounds. Direct replay verifies 3840 parameter pairs and all fixed-order extrema through order 100.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krebs--Verbitsky proves the exact universal-cover/color-refinement correspondence and near-linear unrestricted lower bounds.",
+        "Kiefer--McKay studies the unrestricted iteration-number extremum and explicitly mentions paths, but the inspected full text does not state the tadpole formula.",
+        "DeMaio--Jacobson defines and studies the tadpole family for Fibonacci numbers rather than color refinement."
+      ],
+      "reasoning": "These broader sources motivate both the invariant and the graph family, but none subsumes the exact family-specific comparison of cycle, tail, and cross-branch propagation.",
+      "searches": [
+        "arXiv:1407.3175 full text, Sections 1 and 2, especially Lemma 2.6",
+        "arXiv:2005.10182 full text, Introduction and iteration-number statements",
+        "DOI:10.5614/ejgta.2014.2.2.5 article page and abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1407.3175",
+      "arXiv:2005.10182",
+      "DOI:10.5614/ejgta.2014.2.2.5",
+      "DOI:10.4230/LIPIcs.ICALP.2020.73",
+      "published-finding corpus semantic searches listed above",
+      "Current private ledger 2026-10_week1__private research ledger__p0001_g000011.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior cycle and path results concern the component families separately, while the lollipop result joins a clique to a path.",
+        "No prior claim treats a cycle joined by a bridge to a path or yields the cross-branch term min(m,k)."
+      ],
+      "reasoning": "The new formula is not a parameter substitution into an existing claim. Its decisive term comes from the universal-cover ambiguity between the cycle branch and tail branch at the degree-three attachment vertex.",
+      "searches": [
+        "Own ledger 2026-10_week1__private research ledger__p0001_g000011.jsonl",
+        "Own prior claims on cycles, paths, lollipop graphs, subdivided stars, double spiders, and the tree extremum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus returned no hit whose title or summary involved color-refinement depth of tadpole, kite, or dragon graphs.",
+        "Web searches returned the standard tadpole family and unrelated graph invariants, but no 1-WL/color-refinement stabilization formula."
+      ],
+      "reasoning": "The searches cover the three common family names and the standard algorithmic aliases. No statement equivalent to the three-term maximum surfaced.",
+      "searches": [
+        "published-finding corpus: tadpole graph color refinement stabilization exact formula cycle path bridge",
+        "published-finding corpus: kite graph one dimensional Weisfeiler Leman iteration number",
+        "published-finding corpus: dragon graph color refinement cycle path exact rounds",
+        "published-finding corpus: tadpole graph equitable partition Weisfeiler Leman",
+        "published-finding corpus: color refinement unicyclic named tadpole graph",
+        "Web: \"tadpole graph\" \"color refinement\" Weisfeiler Leman",
+        "Web: \"tadpole graph\" Weisfeiler-Leman stabilization rounds",
+        "Web: \"tadpole graph\" \"iteration number\" colour refinement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or graph-database entry for the color-refinement stabilization depth of tadpoles was found."
+      ],
+      "reasoning": "The claimed invariant is not reproduced from a known tadpole property table in the inspected sources.",
+      "searches": [
+        "published-finding corpus: tadpole graph color refinement stabilization exact formula cycle path bridge",
+        "published-finding corpus: color refinement unicyclic named tadpole graph",
+        "Web exact-family searches under tadpole, kite, and dragon graph"
+      ]
+    },
+    "rationale": "No equivalent tadpole-family stabilization formula was found in the current/prior ledger, published-finding corpus, or the inspected primary literature. The closest sources provide either the universal-cover mechanism, unrestricted iteration-number bounds, or unrelated tadpole invariants.",
+    "residual_risks": [
+      "An obscure family-specific computation under unusual terminology may exist outside the searched sources.",
+      "No independent literature audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact equivalence between round colors and rooted universal-cover truncations, but no tadpole-family calculation.",
+        "evidence": "Lemma 2.6 states that depth-i universal-cover truncations are isomorphic if and only if the corresponding round-i colors agree.",
+        "identifier_or_url": "arXiv:1407.3175",
+        "material_read": "Abstract, Introduction, universal-cover definitions, color-refinement discussion, and Lemma 2.6 with proof.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+        "trigger": "Primary archive-era source for the stabilization parameter and the universal-cover method used in the proof."
+      },
+      {
+        "assessment": "Studies unrestricted extremal iteration numbers and notes the path lower bound; no tadpole, kite, or dragon family formula appears in the inspected material.",
+        "evidence": "The paper defines the global maximum WL_1(n), notes path lower bounds, and proves n-1 tightness for unrestricted graphs.",
+        "identifier_or_url": "arXiv:2005.10182",
+        "material_read": "Full-text arXiv HTML introduction, main theorems, related work, and path discussion.",
+        "method": "Full-text arXiv HTML inspection.",
+        "title": "The Iteration Number of Colour Refinement",
+        "trigger": "Closest later primary work centered on the same iteration-number invariant."
+      },
+      {
+        "assessment": "Confirms the cycle-plus-path-by-a-bridge family but studies independent-set counts, not color refinement.",
+        "evidence": "The abstract defines the tadpole graph and announces Fibonacci-number formulas.",
+        "identifier_or_url": "DOI:10.5614/ejgta.2014.2.2.5",
+        "material_read": "Article page, abstract, and stated tadpole definition.",
+        "method": "Journal HTML inspection.",
+        "title": "Fibonacci number of the tadpole graph",
+        "trigger": "Primary source using the same standard named graph family and notation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb11442b-4180-4887-9daa-a934a4249155",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The tadpole graph is a standard named unicyclic family and the color-refinement iteration number is an established algorithmic invariant. The exact answer exhibits three competing propagation mechanisms rather than a routine one-parameter wave, and the cross-branch term can dominate. The fixed-order corollary gives a sharp family extremum attained by balanced tadpoles.",
+    "status": "PASS"
+  }
+}
