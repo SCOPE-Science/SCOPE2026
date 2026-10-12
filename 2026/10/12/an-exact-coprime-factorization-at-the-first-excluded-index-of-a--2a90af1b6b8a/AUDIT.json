@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For n positive and 3 not dividing n, writing z=2^n and epsilon=(-1)^n yields exact cubic factors C,E,F. The modular-19 order-three argument proves 57 divides E, while C,F are divisible by 3; T_n=(C/3)(E/57) and T_{3n}=(F/3)(E/57). As z^3 is epsilon modulo C, F is 3 modulo C; hence gcd(C,F)=3 and the reduced factors are coprime. The boundary n=1 vs n>=2 is established by an elementary inequality. An exact finite verifier checks 267 admissible indices but is not relied upon for the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sanna (2016), Theorem 1.5 and Corollary 1.6, give all individual prime-adic valuations of terms of a general Lucas sequence.",
+        "Panraksa--Tangboonduangjit (2022), Lemma 4, quotes a multiple-index Lucas valuation formula; Theorem 7 applies only when gcd(mn, Delta)=1.",
+        "Ballot (2018), Theorems 6 and 9, involve Lucasnomial Fuss-Catalan products rather than the two normalized quotient terms."
+      ],
+      "reasoning": "General term-valuation formulas could be combined to rederive the result but do not by direct parameter specialization state the coprime-factor decomposition U_n,V_n or the exact gcd at indices n and 3n. The new computation uses a specific cyclotomic polynomial congruence and the order-three residue -8 modulo 19. Their strength poses a residual risk of implicit derivability, reported separately.",
+      "searches": [
+        "Lucas sequence quotient gcd T_n and T_{3n} normalized discriminant Jacobsthal infinite obstruction",
+        "Lucas sequence U_{mn} divisible by U_m U_n iff U_gcd(m,n) divides gcd(m,n)",
+        "\"p-adic valuation of Lucas sequences\" Sanna Theorem 1.5",
+        "\"Lucasnomial Fuss-Catalan\" integrality quotient"
+      ]
+    },
+    "checked_sources": [
+      "JIS 25 (2022) Article 22.9.2 equations (4), Lemmas 4-6, Theorem 7",
+      "arXiv:2212.08814v1 full text",
+      "Sanna 2016 Theorem 1.5, Corollary 1.6",
+      "JIS 21 (2018) Lucasnomial Theorems 6, 9",
+      "OEIS A396358 complete entry",
+      "Public mathematical literature queries on normalized Jacobsthal quotient gcd and the explicit n,3n formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For Delta=9, gcd(n(3n),Delta) is divisible by 3, so the cited Theorem 7 does not apply.",
+        "The explicit n=2 case gives T_2=511 but gcd(T_2,T_6)=73, so the missing-index case is not simply a positive extension of Theorem 7.",
+        "The factorization T_n=(C/3)(E/57), T_{3n}=(F/3)(E/57), gcd(C,F)=3 proves the exact new relation without importing the known gcd theorem."
+      ],
+      "reasoning": "The original result has a disjoint index hypothesis from the first-excluded stratum considered here. Known term-divisibility and valuation lemmas are ingredients, but the exact lost factor and its universal sharpness are not a direct stated corollary of the checked source theorems.",
+      "searches": [
+        "Jacobsthal quotient T_n=J_{9n}/(J_9 J_n) gcd(T_n,T_{3n}) = J_{9n}/(57 J_{3n}) when 3 does not divide n",
+        "Panraksa Tangboonduangjit discriminant 9 Lucas quotient almost strong divisibility fails indices divisible by 3 exact gcd",
+        "Lucas sequence quotient gcd T_n and T_{3n} normalized discriminant Jacobsthal infinite obstruction",
+        "Panraksa Tangboonduangjit Theorem 7 almost strong divisibility discriminant 9 Jacobsthal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Panraksa--Tangboonduangjit (2022), equation (4) and Theorem 7, formulate only almost strong divisibility under index coprimality with the discriminant.",
+        "Yildiz (arXiv:2212.08814v1), Section 2, studies Jacobsthal divisibility and odd-power identities, not gcd of the two normalized quotients."
+      ],
+      "reasoning": "The new claim computes gcd(T_n,T_{3n}) and a coprime factorization for 3 coprime n, while the cited existing gcd theorem excludes this pair because 3 divides 3n. The index n=2 supplies an explicit incompatibility with a naive extension: gcd(T_2,T_6)=73 whereas T_2=511.",
+      "searches": [
+        "Jacobsthal quotient T_n=J_{9n}/(J_9 J_n) gcd(T_n,T_{3n}) = J_{9n}/(57 J_{3n}) when 3 does not divide n",
+        "Panraksa Tangboonduangjit discriminant 9 Lucas quotient almost strong divisibility fails indices divisible by 3 exact gcd",
+        "\"gcd\" \"J_{9n}\" \"J_{3n}\" quotient Lucas Jacobsthal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A396358 defines the sequence J_{(n-1)(n+1)}/(J_{n-1}J_{n+1}), without the fixed discriminant-9 denominator or the gcd of two consecutive 3-adic index layers.",
+        "OEIS A001045 supplies the original Jacobsthal sequence, not the present infinite exact gcd formula."
+      ],
+      "reasoning": "The inspected sequence/table is a distinct coprime-index quotient and does not tabulate, or prove, the stated n versus 3n normalized quotient gcd. No exact database covering the claim was located.",
+      "searches": [
+        "Jacobsthal quotient T_n=J_{9n}/(J_9 J_n) gcd(T_n,T_{3n}) = J_{9n}/(57 J_{3n}) when 3 does not divide n",
+        "OEIS Jacobsthal quotient J_{(n-1)(n+1)} / (J_{n-1} J_{n+1}) A396358",
+        "Jacobsthal numbers J_mn divisible by product J_m J_n"
+      ]
+    },
+    "rationale": "The primary 2022 normalized-Lucas-quotient strong gcd theorem assumes index coprimality with discriminant 9 and excludes the n versus 3n pair. No checked primary theorem, sequence record or nearby published finding states the present exact coprime factorization and its missing factor. General Lucas valuation theorems could yield alternative derivations but do not directly state this structural boundary; unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "A previously unindexed explicit gcd identity for the normalized Jacobsthal quotient may exist.",
+      "A more general published valuation theorem could make the present special factorization an elementary but unstated corollary; the current evaluation treats the explicit coprime polynomial decomposition and sharp infinite boundary as additional structure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 7 is restricted to gcd(mn,Delta)=1; n and 3n with 3 not dividing n do not satisfy that restriction; exact missing-index gcd is not stated.",
+        "evidence": [
+          "Article 22.9.2, equations (4)-(5), Lemma 5, Theorem 7, pages 3-7; last-page MSC and publication metadata."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL25/Tangboonduangjit/tang17.pdf",
+        "material_read": "Abstract, introduction, Sections 2.1-2.3 including equation (4), Lemmas 4-6 and Theorem 7 and the references/classification/publication date on page 14.",
+        "method": "Open-access publisher PDF text and visual inspection of the quotient definition.",
+        "title": "Some Divisibility Properties Concerning Lucas and Elliptic Divisibility Sequences",
+        "trigger": "The focal source defines precisely the normalized Lucas quotient with discriminant Delta=9 in the Jacobsthal specialization."
+      },
+      {
+        "assessment": "Discusses term divisibility, power-index identities and prime divisors, not the normalized quotient gcd or lost factor for n versus 3n.",
+        "evidence": [
+          "arXiv:2212.08814v1, Sections 1-2, pp. 1-4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2212.08814",
+        "material_read": "Full five-page preprint, including Proposition 1, Section 2, prime-index assertions and references.",
+        "method": "Accessible arXiv PDF text plus a page image of the divisibility section.",
+        "title": "Some divisibility properties of Jacobsthal numbers",
+        "trigger": "The same Jacobsthal sequence and index divisibility could imply the claimed factorization."
+      },
+      {
+        "assessment": "Completely determines valuations of each term but does not state the coprime polynomial factorization or exact gcd for the excluded normalized quotient pair; possible derivability remains a risk.",
+        "evidence": [
+          "Sanna (2016), Theorem 1.5 and Corollary 1.6."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/304251918_The_p-adic_valuation_of_Lucas_sequences",
+        "material_read": "Author-uploaded full text, introduction, LTE Lemma 1.2, Theorem 1.5, Corollaries 1.6-1.7 and basic Lucas divisibility lemmas.",
+        "method": "Lawfully accessible author-posted text rendering.",
+        "title": "The p-Adic Valuation of Lucas Sequences",
+        "trigger": "General term-valuation formulas could dominate prime-valuation arguments for normalized quotients."
+      },
+      {
+        "assessment": "Different Lucasnomial object with many factors; does not give the two-term normalized quotient gcd at a 3-multiple.",
+        "evidence": [
+          "JIS 21 (2018), Proposition 3, Theorems 6 and 9."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL21/Ballot/ballot30.pdf",
+        "material_read": "Open-access PDF sections on Lucas term valuations and the Lucasnomial Fuss-Catalan expressions (Proposition 3, Theorems 6, 9 and surrounding definitions).",
+        "method": "Full-text targeted theorem inspection in the 36-page PDF.",
+        "title": "Lucasnomial Fuss-Catalan Numbers and Related Divisibility Questions",
+        "trigger": "Potential stronger integrality results for Lucas quotient products."
+      },
+      {
+        "assessment": "Covers a distinct quotient for adjacent index factors n-1 and n+1; neither the gcd of T_n,T_3n nor the exact lost factor is tabulated.",
+        "evidence": [
+          "OEIS A396358 formula and comments, dated May 23, 2026."
+        ],
+        "identifier_or_url": "https://oeis.org/A396358",
+        "material_read": "Whole rendered entry, formula, listed terms, links and references.",
+        "method": "Public mathematical sequence database page.",
+        "title": "OEIS A396358",
+        "trigger": "A directly plausible Jacobsthal product quotient database entry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a90af1b-6b8a-471d-a4d6-a5cfdea24d83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The investigated n,3n pair is the first index stratum excluded by an explicit published almost-strong-divisibility theorem. The result gives the exact common factor and a natural complete coprime factorization, not just a single counterexample, and proves a sharp infinite family of failures along the first excluded 3-adic layer. The precise lost factor is motivated by the source theorem.",
+    "status": "PASS"
+  }
+}
