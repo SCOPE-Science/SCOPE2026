@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "With zero-velocity initialization, each eigenmode satisfies p_1=1-alpha*lambda and p_2=(1-alpha*lambda)^2-beta*alpha*lambda. Substitution of the classical parameters gives exact endpoint factors. In dimension two, exact condition number forces the spectrum to the two endpoints, so f(x_2)/f(x_1) is a weighted average of the two squared modal ratios and is maximized at L. Solving that exact ratio <=1 gives kappa<=9+4sqrt(5). In dimension three, 1/alpha lies strictly inside (mu,L); that mode has p_1=0 and p_2=-beta, while arbitrarily small perturbations make the adjacent objective ratio diverge. Exact rational witnesses and identities were replayed from the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 full text states that optimal Heavy-Ball can be strongly non-monotone, analyzes endpoint eigenmodes, and gives peak-effect bounds under standard initialization.",
+        "The 2014 full text states the recurrence and recalls the classical optimal quadratic convergence factor and parameters.",
+        "Neither inspected source states a condition-number-uniform bound or blow-up for f(x_2)/f(x_1) at the second completed update."
+      ],
+      "reasoning": "Qualitative peak-effect theory is broader in time but does not dominate the exact local ratio classification. The new theorem sharpens a specific adjacent-step question that is not logically implied by the reported endpoint peak bounds.",
+      "searches": [
+        "arXiv:1811.00658 Non-monotone Behavior Heavy Ball full text standard initialization peak effect",
+        "arXiv:1412.7457 Heavy-ball optimal parameters quadratic full text",
+        "heavy ball momentum non-monotone objective quadratic peak effect"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1412.7457",
+      "arXiv:1811.00658",
+      "doi:10.3390/math14193460",
+      "SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad",
+      "SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+      "SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "own:65172700-34e2-48d4-90a9-a7473c7e9d75"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Nesterov finding has an analogous dimensional phenomenon but uses a different accelerated recurrence and does not imply Heavy-Ball modal formulas.",
+        "The scaled-Polyak-step finding is a one-step result for a different step-size construction, not momentum recurrence behavior.",
+        "The heavy-ball real-root barrier concerns asymptotic root geometry, not the first two objective values.",
+        "The own Heavy-Ball ledger finding classifies componentwise positivity on positive diagonal systems, not objective monotonicity or adjacent amplification."
+      ],
+      "reasoning": "None of the closest published or own-ledger claims entails the interior-curvature reset or the exact two-dimensional second-step ratio. The final claim is therefore not a corollary or special case of those statements.",
+      "searches": [
+        "SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad",
+        "SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+        "own finding 65172700-34e2-48d4-90a9-a7473c7e9d75"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest comparison-search hit was SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad, which concerns Nesterov rather than Heavy-Ball.",
+        "SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158 concerns characteristic-root geometry for interval acceleration, not adjacent objective ratios.",
+        "Direct web searches for the exact constant and reset language did not locate a Heavy-Ball statement matching the theorem."
+      ],
+      "reasoning": "The searches cover the algorithm name, the exact adjacent ratio, the interior zero/reset mechanism, the dimensional claim, and the exact algebraic threshold. The retrieved statements are related but not equivalent.",
+      "searches": [
+        "heavy ball second iterate objective amplification unbounded interior eigenvalue optimal parameters",
+        "Polyak heavy ball standard initialization f2 f1 ratio unbounded quadratic three eigenvalues",
+        "heavy ball hits minimizer then leaves due momentum quadratic",
+        "optimal heavy ball two dimensional endpoint objective ratio 9+4 sqrt 5",
+        "\"9+4 sqrt(5)\" \"heavy ball\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry for the frontier 9+4sqrt(5) or limiting two-dimensional ratio 25/9 was found.",
+        "The constants arise directly from endpoint modal polynomials rather than numerical fitting or table lookup."
+      ],
+      "reasoning": "The result is a closed-form consequence of the recurrence, and no exact pre-tabulation was located.",
+      "searches": [
+        "\"9 + 4 sqrt 5\" momentum optimization heavy ball",
+        "\"9+4sqrt5\" heavy ball objective",
+        "Heavy-Ball 25/9 second step ratio"
+      ]
+    },
+    "rationale": "The 2014 convergence paper supplies the recurrence and classical optimal quadratic parameters but not adjacent objective amplification. The 2018 full-text peak-effect paper explicitly establishes non-monotone Heavy-Ball behavior and analyzes endpoint modes, but the inspected statements do not give the interior reset, unbounded second-to-first objective ratio for every kappa>1, minimal dimension three at fixed exact condition number, or the exact two-dimensional frontier 9+4sqrt(5). Targeted comparison searches found related acceleration-transient results but no implication-equivalent Heavy-Ball theorem.",
+    "residual_risks": [
+      "The 2018 peak-effect paper contains the same scalar recurrence machinery, so the final theorem may be an unstated but short corollary of techniques already present there.",
+      "Older momentum or second-order difference-equation literature may phrase the interior-zero reset without using modern Heavy-Ball objective-ratio terminology.",
+      "The exact dimension-minimal statement fixes the matrix condition number globally; if one defines condition number only on the active subspace, the three-dimensional construction should be interpreted differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: supplies the algorithm and parameterization but does not analyze adjacent objective spikes.",
+        "evidence": "The source was first posted 2014-12-23, defines the Heavy-Ball recurrence, and recalls Polyak's optimal quadratic convergence factor and parameters.",
+        "identifier_or_url": "arXiv:1412.7457",
+        "material_read": "Full arXiv HTML text, with focused inspection of the introduction, background recurrence, classical quadratic rate discussion, and the displayed optimal parameters in the strongly-convex discussion.",
+        "method": "Full-text arXiv inspection.",
+        "title": "Global convergence of the Heavy-ball method for convex optimization",
+        "trigger": "Archive-era source with exact public date reproducing the Heavy-Ball recurrence and classical optimal quadratic parameters."
+      },
+      {
+        "assessment": "CLOSEST_PARTIAL_COVERAGE: proves and quantifies Heavy-Ball peak effects but does not state the second-step dimension split or exact frontier in the final claim.",
+        "evidence": "The paper states that optimal Heavy-Ball with standard initialization can be strongly non-monotone and derives endpoint peak behavior; no f(x_2)/f(x_1) reset theorem or 9+4sqrt(5) threshold appears in the inspected text.",
+        "identifier_or_url": "arXiv:1811.00658",
+        "material_read": "Full arXiv HTML text, especially Sections 2 and 3, including standard initialization, optimal parameters, endpoint-mode recurrences, peak-effect theorem, and the conclusion on non-monotonicity.",
+        "method": "Full-text arXiv inspection.",
+        "title": "Non-monotone Behavior of the Heavy Ball Method",
+        "trigger": "Closest primary full-text source devoted specifically to Heavy-Ball transient non-monotonicity."
+      },
+      {
+        "assessment": "CLASSIFICATION_BACKGROUND: verifies primary MSC 90C25 for a Heavy-Ball optimization review.",
+        "evidence": "The publisher page lists MSC 90C25 first, followed by 65K10.",
+        "identifier_or_url": "doi:10.3390/math14193460",
+        "material_read": "Publisher article metadata and classification line, together with the Heavy-Ball review context.",
+        "method": "Publisher-page inspection.",
+        "title": "Two Accelerations for First-Order Optimization: A Comparative Review of Heavy Ball and Nesterov Acceleration",
+        "trigger": "Primary-MSC ownership cross-check for Heavy-Ball optimization literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb99a117-98ac-414f-925e-5d6ca932cff3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Heavy-Ball is a foundational accelerated method, and non-monotone transients motivate restart and safeguard rules. The result gives a sharp structural distinction rather than merely another example: two dimensions admit an exact finite adjacent-step bound and a closed algebraic monotonicity frontier, whereas adding one interior curvature makes the ratio unbounded for every nontrivial condition number. The reset mechanism explains why condition number alone cannot control local objective spikes once an interior spectral mode is available, while the two-dimensional formula quantifies exactly what is still protected.",
+    "status": "PASS"
+  }
+}
