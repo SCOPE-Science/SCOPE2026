@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact event after scale removal, proves the lower endpoint is outside the support, rewrites the remaining event using the exact Weibull survival function, and obtains an additive o(1) expansion of its exponent from Stirling. Because the exponent error is o(1), exponentiation legitimately yields a multiplicative probability equivalent. Uniformity on compact threshold intervals follows from the exponentially small mean-to-standard-deviation ratio and bounded log y.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DLMF §5.11 gives general Gamma-function asymptotic expansions, including the logarithmic Stirling series.",
+        "Hu--Song--Tan give the exact Weibull moment formulas and a qualitative zero anti-concentration result."
+      ],
+      "reasoning": "The general Gamma expansion is an ingredient rather than a theorem covering the standardized Weibull probability. The primary probability result retains only convergence to zero and therefore does not imply the multiplicative prefactor or threshold-ratio profile as a stated corollary.",
+      "searches": [
+        "Weibull small shape standardized tail asymptotic Gamma 1+2/alpha",
+        "Weibull standardized tail small shape Stirling gamma variance anti-concentration rate",
+        "Weibull probability |X-EX| >= y sd shape tends zero exact asymptotic prefactor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.09998v1/v2",
+      "DOI:10.3969/j.issn.1006-8074.2024.01.001",
+      "DLMF:5.11.1",
+      "2026/9/20/SCOPE-exact-block-product-small-ball-constants--cf3421945354",
+      "2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a",
+      "2026/9/18/SCOPE-variance-gamma-median-large-noise-phase-transitions--2d5865f4207e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full text of arXiv:2401.09998v2, pp. 11--12, shows Proposition 3.7 and its proof: the true standardized tail is reduced to a one-sided tail, then bounded above using the mean threshold.",
+        "The source establishes \\(A_{11}(y)=0\\) for every \\(y>0\\), but no asymptotic equivalent in \\(\u0007lpha\\) is stated."
+      ],
+      "reasoning": "A zero infimum or a one-sided upper bound cannot recover the multiplicative prefactor or compare two fixed thresholds. The present statement is strictly stronger along the small-shape path and needs the exact standardized threshold plus a sharper Stirling expansion.",
+      "searches": [
+        "On the anti-concentration functions of some familiar families of distributions Weibull rate",
+        "Weibull anti-concentration small shape asymptotic standardized deviation tail fixed y exp(-2/(e alpha))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.09998v2, Proposition 3.7: the standardized Weibull tail is shown to converge to zero, with exact moments displayed but no multiplicative equivalent.",
+        "Published semantic-search hits concerned unrelated anti-concentration, endpoint, Gamma, or power-profile problems and did not state a Weibull small-shape tail profile."
+      ],
+      "reasoning": "The ratio-law formulation and the renormalized-profile formulation are equivalent consequences of the displayed multiplicative asymptotic. Neither formulation appears in the inspected primary source or in the closest published semantic-search results.",
+      "searches": [
+        "Weibull standardized anti-concentration hidden power-law threshold profile y^{-2/e} small shape",
+        "Weibull small-shape tail ratio fixed standardized thresholds ratio power 2/e",
+        "renormalized Weibull anti-concentration exp(2/(e alpha)) alpha^{-1/(2e)}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-expression search returned a probability table or formula matching the coefficient \\((4\\pi)^{-1/(2e)}\\), the power \\(y^{-2/e}\\), and the essential-exponential factor together.",
+        "DLMF tables concern Gamma-function asymptotics, not this standardized Weibull tail."
+      ],
+      "reasoning": "Known formula tables supply the special-function expansion used in the proof but not an entry for the claimed normalized Weibull tail probability.",
+      "searches": [
+        "anti-concentration Weibull exp(-2/(e alpha))",
+        "Weibull y^{-2/e} probability standard deviation",
+        "sharp prefactor Weibull anti-concentration small shape Gamma Stirling"
+      ]
+    },
+    "rationale": "The inspected primary Weibull anti-concentration result is qualitative and does not state the multiplicative equivalent, threshold profile, or ratio law. Candidate-specific exact-expression and semantic searches found no covering published statement. The claim is nevertheless subject to residual risk from differently named older reliability asymptotics.",
+    "residual_risks": [
+      "An equivalent small-shape Weibull prefactor may exist in older reliability or asymptotic-distribution literature under terminology not retrieved by the searches.",
+      "The claim concerns one degeneration path and does not assert a rate for a global optimization over shape."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new prefactor/profile: it proves the infimum is zero, displays exact moments, and uses a mean-threshold upper bound, but does not give the multiplicative tail equivalent or ratio law.",
+        "evidence": "Proposition 3.7 states the zero infimum and its proof reduces the standardized event to an upper tail before bounding it by \\(\\exp[-(\\Gamma(1+1/\\alpha))^\\alpha]\\).",
+        "identifier_or_url": "arXiv:2401.09998v2",
+        "material_read": "Full PDF, title/MSC page and the complete Weibull section, Proposition 3.7 and proof on pp. 11--12.",
+        "method": "Full-text and page-image inspection.",
+        "title": "On the anti-concentration functions of some familiar families of distributions",
+        "trigger": "Primary source treating exactly the standardized Weibull anti-concentration functional."
+      },
+      {
+        "assessment": "SUPPORTING_ONLY: supplies the Gamma-function asymptotic series but does not state a standardized Weibull probability result.",
+        "evidence": "Equation 5.11.1 gives the Poincare expansion for log Gamma.",
+        "identifier_or_url": "DLMF:5.11.1",
+        "material_read": "Section 5.11(i), including the logarithmic Gamma expansion and Stirling terminology.",
+        "method": "Authoritative online reference inspection.",
+        "title": "NIST Digital Library of Mathematical Functions, §5.11",
+        "trigger": "Critical non-elementary asymptotic input used to sharpen the Weibull exponent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ac4d9da-9e82-4b14-be21-f9bb91a5d72f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating anti-concentration function is identically zero and therefore discards all dependence on the standardized threshold. The renormalized theorem recovers a nonconstant limiting profile \\(y^{-2/e}\\) and an exact threshold-ratio law. This answers a natural structural question about what survives after the qualitative invariant collapses, rather than merely tightening a finite numerical bound.",
+    "status": "PASS"
+  }
+}
