@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The source Lyapunov derivative remains nonpositive when \\(\\mathcal R_0=1\\). Equality forces \\(T=T_0\\), \\(C=C_0\\), and \\(A=A_0\\); invariance of that set then forces \\(V=0\\) from the target-cell equation and \\(I=0\\) from the virus equation. Hence the largest invariant subset is the infection-free equilibrium. The endpoint characteristic equation has \\(F(0)=0\\) and \\(F' (0)=a+b+ab\\tau>0\\), so the zero root is simple. The proof uses the source hypotheses and does not infer infinite-dimensional stability from finite computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ji and Liu study a different delayed viral model with nonlinear immune response and derive global stability conditions using Lyapunov functionals and LaSalle invariance.",
+        "Elaiw and Raezah study a broad class of delayed virus models and describe equilibrium stability in terms of threshold parameters.",
+        "Neither inspected record states the source-specific equality argument for the Jiang-Wang-Song recruitment-and-saturation model or its simple-zero characteristic root."
+      ],
+      "reasoning": "General threshold and delay-virus literature makes a closed endpoint mathematically natural, so the value is not the abstract method. The accepted claim is the exact missing endpoint theorem for the motivating model and proof.",
+      "searches": [
+        "delay virus model recruitment saturation immune responses critical reproduction number equality global stability",
+        "\"Global stability of a delayed viral infection model with nonlinear immune response and general incidence rate\"",
+        "\"Stability of general virus dynamics models with both cellular and viral infections and delays\" threshold"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/mbe.2017063",
+      "openalex:W2619292381",
+      "doi:10.3934/dcdsb.2016.21.133",
+      "doi:10.1002/mma.4436"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves the infection-free theorem only under a strict inequality and does not state the equality case.",
+        "At equality the linearized infection characteristic equation has a zero root, so the strict local-stability result cannot simply be quoted to cover the endpoint.",
+        "The same Lyapunov derivative plus an invariant-set argument proves the endpoint directly; no searched source was found to make that implication for this model."
+      ],
+      "reasoning": "A stronger prior result would need to include the critical equality for the same model or imply it by a theorem whose hypotheses were checked here. The inspected broad delay-virus results do not supply that source-specific implication.",
+      "searches": [
+        "\"10.3934/mbe.2017063\" critical threshold",
+        "\"10.3934/mbe.2017063\" equality reproduction number",
+        "\"Jiang\" \"Wang\" \"Song\" recruitment saturation virus R0=1",
+        "\"Global dynamics of a delay virus model\" critical case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states Theorem 3.1 only for the strict subthreshold case, while the derivative of its Lyapunov functional contains the reproduction-number dependence solely through a coefficient proportional to the reproduction number minus one.",
+        "At equality, the zero-derivative set from the source formula fixes the target-cell, cellular-response, and antibody-response variables at their disease-free values; invariance then forces virus and infected cells to vanish.",
+        "Exact-source searches using equality, critical-threshold, erratum, and correction terminology did not locate a published statement of this endpoint extension."
+      ],
+      "reasoning": "The claim can be phrased as closing the strict threshold, proving critical global stability, or identifying the largest invariant set at equality. Searches covered these equivalent statement forms rather than only the article title.",
+      "searches": [
+        "\"Global dynamics of a delay virus model with recruitment and saturation effects of immune responses\" R0=1",
+        "\"10.3934/mbe.2017063\" \"R0=1\" equality threshold",
+        "\"Global dynamics of a delay virus model with recruitment and saturation effects of immune responses\" erratum correction R0=1",
+        "10.3934/mbe.2017063 critical case R0 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary open PDF was inspected at model (2), the disease-free equilibrium and reproduction-number formula, Theorem 3.1, and the full derivative of the Lyapunov functional used for infection-free global stability.",
+        "The theorem page and the following derivative page were visually inspected; the critical coefficient is exactly proportional to the reproduction number minus one.",
+        "The publisher record lists primary MSC 92D30 and formal publication on 1 October 2017; the day-resolved OpenAlex record dates the article to 1 May 2017, consistent with a month-level May 2017 public record."
+      ],
+      "reasoning": "The endpoint proof uses the exact primary equations and the source Lyapunov derivative. Dating and ownership were independently checked against bibliographic and publisher records.",
+      "searches": [
+        "doi:10.3934/mbe.2017063 model (2) R0 Theorem 3.1 Lyapunov",
+        "doi:10.3934/mbe.2017063 Published MSC 92D30",
+        "openalex W2619292381 publication date 2017-05-01"
+      ]
+    },
+    "rationale": "Lyapunov-LaSalle threshold arguments for delayed virus models are established prior methods and are not claimed as new. The original content is the exact source-specific closure of Theorem 3.1 at \\(\\mathcal R_0=1\\), together with the proof that the endpoint is nonhyperbolic through a simple zero characteristic root. Exact-source, equality, critical-threshold, and correction searches found no published repair.",
+    "residual_risks": [
+      "A non-indexed author note or inaccessible full-text source could have stated the same endpoint observation.",
+      "The broad comparator records were used for coverage context; the source-specific theorem is proved directly from the motivating open full text.",
+      "The theorem establishes asymptotic stability at the critical endpoint but does not derive a sharp nonlinear decay rate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CRITICAL_EQUALITY_CASE_IS_GLOBALLY_STABLE_AND_NONHYPERBOLIC",
+        "evidence": "At the critical value the source derivative has no positive term; its equality set fixes three variables and the vector field then forces the remaining infected variables to zero. The linearized characteristic equation has a simple zero root.",
+        "identifier_or_url": "doi:10.3934/mbe.2017063",
+        "material_read": "Open full PDF at model (2), the feasible-region setup, the infection-free equilibrium and reproduction-number formula, Theorem 3.1, the full Lyapunov derivative, and the nearby persistence discussion. The theorem and derivative pages were visually inspected.",
+        "method": "Recomputed the zero-derivative set at the critical parameter, imposed invariance using the target-cell and virus equations, and derived the infection-subsystem characteristic equation at the disease-free equilibrium.",
+        "title": "Global dynamics of a delay virus model with recruitment and saturation effects of immune responses",
+        "trigger": "Primary source containing the exact delayed virus system, reproduction number, strict infection-free theorem, and Lyapunov functional whose boundary case is under examination."
+      },
+      {
+        "assessment": "BROADER_DELAY_VIRUS_STABILITY_LITERATURE_NOT_SOURCE_SPECIFIC",
+        "evidence": "The paper establishes global stability conditions for a different delayed virus model and does not state the Jiang-Wang-Song critical equality theorem.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2016.21.133",
+        "material_read": "Publisher abstract, bibliographic record, and scope statement describing equilibrium existence, delay effects, and global stability via Lyapunov functionals and LaSalle invariance.",
+        "method": "Compared object class and implication strength with the critical endpoint claim for the motivating model.",
+        "title": "Global stability of a delayed viral infection model with nonlinear immune response and general incidence rate",
+        "trigger": "Closely related delayed-virus Lyapunov literature involving nonlinear immune response."
+      },
+      {
+        "assessment": "GENERAL_THRESHOLD_FRAMEWORK_DOES_NOT_IDENTIFY_THIS_OMITTED_ENDPOINT",
+        "evidence": "The inspected record does not state the critical equality result for the motivating model or the simple-zero characteristic calculation.",
+        "identifier_or_url": "doi:10.1002/mma.4436",
+        "material_read": "Publisher abstract and bibliographic page stating threshold-based equilibrium stability for a general virus-dynamics class with delays and Lyapunov-LaSalle proofs.",
+        "method": "Compared the general scope with the exact recruitment-and-saturation equations and equality invariant-set proof.",
+        "title": "Stability of general virus dynamics models with both cellular and viral infections and delays",
+        "trigger": "Broad 2017 delayed-virus threshold literature potentially capable of subsuming a boundary result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de8ddb09-5ad9-4079-8485-50d5c7333df6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source advertises global dynamics determined by the basic reproduction number but leaves the mathematically decisive equality out of its explicit infection-free theorem. Closing that endpoint changes the usable threshold from a strict to a closed condition. The endpoint is nonhyperbolic, so the result is not a routine corollary of strict linear stability; the nonlinear invariant-set step is essential. Exact critical-threshold classification is directly relevant when the reproduction number is used as an eradication boundary.",
+    "status": "PASS"
+  }
+}
