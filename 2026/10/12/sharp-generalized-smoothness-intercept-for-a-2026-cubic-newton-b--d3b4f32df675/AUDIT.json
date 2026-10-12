@@ -1,0 +1,103 @@
+{
+  "claim": "For the scalar benchmark \\(f(x)=\\sqrt{1+x^2}-x\\cos x\\) used in arXiv:2607.10741v1, the least \\(L_0\\) such that \\(|f'''(x)|\\le L_0+|f'(x)|\\) for every \\(x\\in\\mathbb R\\) is exactly \\(L_0=3\\). Equivalently, at the source's natural choice \\(L_1=1\\), the pointwise generalized-smoothness certificate improves sharply from the printed pair \\((6,1)\\) to \\((3,1)\\). This value is optimal because along \\(x_n=2\\pi n\\), \\(|f'''(x_n)|-|f'(x_n)|\\to3\\).",
+  "correctness": {
+    "rationale": "The proof uses exact derivative formulas, an exact positive-polynomial identity for the global upper bound, and the explicit sequence x_n=2*pi*n for sharpness. The polynomial has strictly positive value for every y>=0, so no finite-grid inference is needed. The claim fixes L1=1 and does not overstate a full admissible-pair classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.10741v1 states that a fixed objective may admit many generalized-smoothness pairs and that the complexity guarantee can be optimized over admissible pairs, but it does not characterize this benchmark's admissible frontier.",
+        "The closest retrieved optimization records concern scalar Newton derivative sectors, Polyak steps, stochastic feedback, Lanczos convexification, or reflected-gradient stability, all with different objects and hypotheses.",
+        "The source's related-work discussion distinguishes its pointwise condition from local two-point generalized smoothness and gradient-normalized smoothness; those broader frameworks do not supply the candidate's exact benchmark constant in the inspected material."
+      ],
+      "reasoning": "A general convergence or smoothness theorem would cover the claim only if it determined the least intercept for this exact function at L1=1. No inspected or retrieved result did so.",
+      "searches": [
+        "parameter-free cubic Newton L1 sharpness lower bound generalized smoothness exponential exact",
+        "2607.10741 L1 term lower bound epsilon complexity",
+        "pointwise third derivative bound L0 L1 gradient cubic regularization sharpness",
+        "2026 optimization adaptive method quadratic exact stability threshold fixed step cumulative gradient norm",
+        "2026 numerical optimization control exact finite termination scalar quadratic adaptive stepsize",
+        "2026 optimization operator splitting new method sharp parameter regime quadratic counterexample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.10741v1",
+      "Gratton--Jerad--Toint, A fast Newton method under local Lipschitz smoothness (bibliographic comparison via the primary source)",
+      "Semenov--Jaggi--Doikov, Gradient-normalized smoothness for optimization with approximate Hessians (bibliographic comparison via the primary source)",
+      "Xie et al., Trust region methods for nonconvex stochastic optimization beyond Lipschitz smoothness (bibliographic comparison via the primary source)",
+      "2026/9/21/SCOPE-scalar-newton-derivative-sector-minimax--46b773bf52ed",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+      "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In Example 2 the source rewrites f''' using -f' and bounds the remaining terms to obtain L0=6, L1=1.",
+        "The source's universality discussion says its bound holds for every admissible pair and can be optimized over them, which motivates but does not solve the constant-minimization problem.",
+        "The source uses this benchmark to separate its pointwise assumption from a stronger local two-point condition; no exact intercept statement appears in the inspected sections."
+      ],
+      "reasoning": "A sufficient pair (6,1) cannot imply that 3 is admissible or minimal. The candidate strictly strengthens that numerical certificate on the same function and fixed slope, while remaining compatible with every source theorem.",
+      "searches": [
+        "arXiv:2607.10741v1 Example 2 generalized smoothness (6,1)",
+        "arXiv:2607.10741v1 universality admissible pairs best bound",
+        "pointwise generalized smoothness sharp certificate L0 3 L1 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.10741v1, Example 2: the exact benchmark is analyzed and the source concludes with the admissible pair (6,1), not the minimal intercept at slope 1.",
+        "Exact-formula web searches for the benchmark together with L0/L1 terminology returned no scientific source stating the constant 3.",
+        "Current and prior ledgers contain no occurrence of arXiv:2607.10741 or the benchmark formula."
+      ],
+      "reasoning": "At fixed L1=1, the candidate is exactly the supremum of |f'''|-|f'| over the real line. The source's (6,1) upper certificate does not imply the exact value of that supremum, while the proof establishes both an upper bound of 3 and a sequence attaining 3 asymptotically.",
+      "searches": [
+        "2607.10741 Example 2 sharp generalized smoothness constant L0 3 L1 1 sqrt(1+x^2)-x cos x",
+        "parameter-free cubic Newton Example 2 optimal constants generalized smoothness",
+        "sqrt(1+x^2)-x cos x third derivative gradient sharp bound 3",
+        "pointwise generalized smoothness sharp certificate L0 3 L1 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit matched the source identifier plus the benchmark formula and constant.",
+        "The source gives a hand-derived sufficient constant 6 rather than a table or database of optimal constants.",
+        "The new value comes from an analytic supremum certificate, not recomputation of a known numerical table."
+      ],
+      "reasoning": "The exact number 3 is proved symbolically from a global inequality and a sharpness sequence; there is no database lookup whose entry already supplies it.",
+      "searches": [
+        "2607.10741 Example 2 sharp generalized smoothness constant L0 3 L1 1 sqrt(1+x^2)-x cos x",
+        "sqrt(1+x^2)-x cos x third derivative gradient sharp bound 3"
+      ]
+    },
+    "rationale": "The primary source was inspected directly and prints only the admissible pair (6,1) for this benchmark. It does not give the exact fixed-slope intercept 3. Targeted semantic and exact-formula searches, together with current/prior ledger overlap checks, found no statement implying the claim.",
+    "residual_risks": [
+      "An unindexed note or differently notated calculation may contain the same elementary fixed-slope sharpening.",
+      "Only L1=1 is classified; a different slope may admit a smaller intercept and the full Pareto frontier is not claimed.",
+      "The result sharpens source constants but does not establish that any displayed complexity upper bound is itself information-theoretically sharp."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact benchmark and a sufficient (6,1) certificate but does not state the sharp fixed-slope intercept or the polynomial identity proving it.",
+        "evidence": "Example 2 gives f(x)=sqrt(1+x^2)-x cos x, its first and third derivatives, rewrites f''' using -f', and concludes Assumption 1(a) with L0=6 and L1=1. The universality paragraph states that the complexity guarantee can be optimized over admissible pairs.",
+        "identifier_or_url": "arXiv:2607.10741v1",
+        "material_read": "Abstract and MSC metadata; Assumption 1 and complexity statement; universality discussion for admissible (L0,L1) pairs; Example 2 derivative calculation and printed (6,1) certificate; comparison with stronger local two-point generalized smoothness; relevant bibliography.",
+        "method": "Direct full-text inspection of the open arXiv PDF, including rendered-page inspection.",
+        "title": "Parameter-Free Cubic-Regularized Newton Method: Sharp Complexity and Generalized Smoothness",
+        "trigger": "Primary recent source defining the pointwise generalized-smoothness condition and the exact benchmark."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3b4f32d-f675-498f-a195-4e40e3bac046",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary source explicitly makes its complexity theorem valid for every admissible pair and invites optimization over those pairs. For its benchmark separating pointwise from stronger two-point smoothness, the exact natural-slope intercept is therefore a meaningful invariant. Replacing 6 by the sharp 3 changes the raw sqrt(L0) coefficient by 1/sqrt(2) and the raw L0^2 coefficient by 1/4, while the explicit sharpness sequence proves that no further fixed-slope improvement is possible.",
+    "status": "PASS"
+  }
+}
