@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=2 the root-chord arc split has exactly M_k M_(n-1-k) valid matchings and independent uniform within-arc diagrams. Their crossing means add and subtract from n(n-1)/6 to give negative conditional shift -[(n-1)+k(n-1-k)]/3. Rooting at one uniform chord yields the exact covariance. K=0,n-1 are the simple chords; the k=1,n-2 layer yields -2n/[3(2n-1)]. All further layers are O(1/n) in covariance by the ratio a_(k+1)/a_k=(2k+1)/(2n-3-2k) and geometric-plus-central-tail bounds. The script verify.py separately enumerates all 146598 matchings through n=7, verifies 27 conditional splits, and checks 499 further exact identities up to n=500. Finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet--Noy, INRIA RR3914, §§1--2 (https://algo.inria.fr/flajolet/Publications/FlNo00.pdf) provides component-count generating functions and independent crossing-count moment formulas, but no marked joint crossing/degree-zero series.",
+        "Acan, Sections 3--5 (https://arxiv.org/html/1501.01489v1), proves asymptotic monolithic structure, length counts and degree results, not all-n crossing covariance with every isolated chord.",
+        "Paguyo, Theorems 1.1--1.3 (https://arxiv.org/html/2104.01134v2), bounds separate marginal limit laws."
+      ],
+      "reasoning": "The classical component generating function marks the number of components without recording crossings, and the Touchard--Riordan crossing polynomial records crossings without recording isolated components. These marginals do not logically determine mixed covariance. Combining them into a marked joint theory requires additional component-size/crossing decomposition; no inspected published theorem presents the displayed all-n kernel or its nonzero rare-event correction.",
+      "searches": [
+        "Flajolet Noy mixed moments components crossings chord diagram 2000",
+        "random intersection graph circle graph isolated vertices edges negative covariance probabilistic geometric matching",
+        "Flajolet Noy analytic combinatorics chord diagrams pdf 2000 1999 components crossings generating function joint"
+      ]
+    },
+    "checked_sources": [
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/html/1501.01489v1",
+      "https://arxiv.org/html/2104.01134v2",
+      "https://oeis.org/A322456",
+      "https://oeis.org/A018193",
+      "https://oeis.org/A324327"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical simple-chord covariance is -2n(n-1)/[3(2n-1)] in this model, whereas the full isolated-chord covariance has additional terms indexed 1 <= k <= n-2.",
+        "The additional covariance converges to -1/3 although the expected number of additional chords is 1/(2n)+O(n^-2); thus the simple-chord formula cannot imply the full claim by replacing isolated by simple without a new moment calculation.",
+        "Flajolet--Noy (https://algo.inria.fr/flajolet/Publications/FlNo00.pdf) supplies a crossing mean and component means separately; Acan (https://arxiv.org/html/1501.01489v1) supplies isolation probability asymptotics, not cross moments."
+      ],
+      "reasoning": "The event of being a simple chord is strictly contained in degree-zero isolation. The difference is not negligible in covariance even asymptotically. General elementary random-graph intuition may suggest a negative sign, but does not produce the exact double-factorial summation or the -1/3 non-simple correction.",
+      "searches": [
+        "Random chord diagram simple chords versus non-simple isolated chords covariance crossing count constant -1/3",
+        "random chord diagram intersection graph isolated vertices exact covariance with number of crossings edges",
+        "simple chords covariance crossings random chord diagram",
+        "Acan 2015 isolated vertices crossings https://arxiv.org/html/1501.01489v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan, arXiv:1501.01489v1, Sections 2 and 3 (https://arxiv.org/html/1501.01489v1), defines chord degree, monolithicity and isolated chords but does not give a count-zero-degree / edge-count mixed covariance.",
+        "Paguyo, arXiv:2104.01134, Sections 2 and 3 (https://arxiv.org/html/2104.01134v2), treats crossings and simple chords separately."
+      ],
+      "reasoning": "Equivalent vocabulary includes degree-zero chord, isolated vertex of the intersection graph, component of size one, crossing pair, and edge of the intersection graph. Conditional matching-splitting and a double-factorial weighted sum determine their mixed covariance. Neither inspected source formulates the corresponding joint moment under those aliases.",
+      "searches": [
+        "Uniform random chord diagram intersection graph number of isolated vertices covariance with number of crossing pairs exact formula using double factorial arch splitting",
+        "Random perfect matching circle zero-degree vertices crossings mixed moment E[isolated chords * crossings] asymptotic -n/3 -1/6",
+        "Random chord diagram simple chords versus non-simple isolated chords covariance crossing count constant -1/3",
+        "\"random chord diagrams\" \"isolated vertices\" \"crossings\" \"covariance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A322456 (https://oeis.org/A322456) tabulates connected chord-diagram crossing coefficients (not zero-degree-vertex/crossing mixed moments).",
+        "OEIS A018193 (https://oeis.org/A018193) counts diagrams with an isolated chord of a prescribed length; OEIS A324327 (https://oeis.org/A324327) counts topologically connected diagrams."
+      ],
+      "reasoning": "A connected-only crossing table, a fixed-length isolated-chord count, or an univariate marginal crossing table does not specify the covariance between the number of all degree-zero vertices and total edges in the random intersection graph. No exact mixed table was located in those entries.",
+      "searches": [
+        "site:oeis.org random chord diagram isolated vertices crossings mixed moments",
+        "isolated chords number of crossings mixed distribution Touchard Riordan",
+        "OEIS A322456 isolated chord crossings mixed moments",
+        "OEIS A018193 isolated chord length 1"
+      ]
+    },
+    "rationale": "The exact finite mixed moment for every degree-zero chord and every crossing pair, and its asymptotic non-simple correction, are not in the inspected full-text studies. The earlier simple-chord law is strictly narrower: its omitted contribution tends to -1/3. The marginal isolated-chord and crossing distributions and connected-crossing coefficient tables do not by themselves specify this joint covariance. A general but unlocated joint-component/crossing enumerator remains a residual risk.",
+    "residual_risks": [
+      "Older unindexed bivariate component-size versus crossing generating functions, knot-diagram literature, or alternate notation for joint degree-zero / crossing moments may encode the same formula.",
+      "The connected-diagram crossing polynomial plus a separate decomposition could be refined into a joint isolated-component marker; such a derivation was not located as a prior result.",
+      "No literature search is exhaustive, and the resulting originality assessment has not received independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_COVERAGE_NOT_JOINT: derives component number and crossing count separately, but no zero-degree vertex/crossing pair covariance.",
+        "evidence": "Section 1 equations (1)--(4) mark components without crossings; Section 2 equation (5), Theorem 3 and equation (9) concern the univariate crossing polynomial and its moments.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Author-hosted full 14-page report: introduction, Sections 1 and 2 including component generating functions, theorem on crossings, integral representation, conclusions and references.",
+        "method": "Inspected author-hosted PDF text, including rendered pages 4 and 9 for mathematical formulas.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational joint setting: exact crossing moments and component enumerators in random chord diagrams."
+      },
+      {
+        "assessment": "NOT_COVERING_MIXED_MOMENT: Section 3 bounds rare non-monolithic blocks, but does not attach crossing-count weights to isolation events.",
+        "evidence": "Manuscript header states Primary 60C05; Section 2 gives degree distribution; Section 3, Theorem 3.2 and equations for E[B_k] concern monolithic/isolation asymptotics; Section 5 mentions number of isolated vertices tending to Poisson(1).",
+        "identifier_or_url": "https://arxiv.org/html/1501.01489v1",
+        "material_read": "Original full 27-page preprint in rendered HTML: title/MSC, introduction, degree calculations Section 2, monolithic/isolate analysis Section 3, and results/definitions in Sections 4--7.",
+        "method": "Read the original arXiv v1 HTML manuscript, including original-results statements and all relevant displayed formulas.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Exact same uniform model, degree-zero chords and monolithic intersection graphs; eligible earliest dated probability source."
+      },
+      {
+        "assessment": "MARGINAL_COVERAGE_NOT_JOINT: crossing normal approximation and simple-chord Poisson approximation are separate, with no degree-zero/edge covariance.",
+        "evidence": "Theorems 1.1 and 1.2 estimate marginal convergence of X_n and S_n respectively; Section 3.2 counts diagrams with no *simple* chords.",
+        "identifier_or_url": "https://arxiv.org/html/2104.01134v2",
+        "material_read": "Full arXiv HTML body: abstract, Theorems 1.1--1.3, Sections 2--3 and final remarks Section 4.",
+        "method": "Read full rendered arXiv article and relevant proofs/lemmas.",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Close probability study with both crossing and simple-chord variables; could have supplied a stronger joint size-bias theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: connected-diagram crossings distribution is not an all-diagram joint zero-degree/crossing table.",
+        "evidence": "OEIS A322456 comment identifies T(n,k) as connected diagrams indexed by number of crossings only.",
+        "identifier_or_url": "https://oeis.org/A322456",
+        "material_read": "Sequence title, comments, entries, provenance and associated table description.",
+        "method": "Inspected directly readable OEIS sequence page and related A018193 and A324327 entries.",
+        "title": "OEIS A322456, Triangle of Touchard chord enumerating polynomial coefficients",
+        "trigger": "Potential exact database of crossing counts that might dominate the finite formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f60fb4d-de2a-4c30-b290-8591c2e1fd53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Isolated vertices and edge count of a random chord intersection graph are canonical joint network observables, and the finite double-factorial expression quantifies their exact negative dependence. The derived -1/3 covariance correction arises from nonsimple isolated chords that occur with vanishing mean 1/(2n)+O(1/n^2), a nontrivial second-order contribution not obtainable by substituting the simple-chord statistic. This separates local adjacency isolation from global zero crossing degree and identifies a finite-size structural boundary.",
+    "status": "PASS"
+  }
+}
