@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "At \\(\\beta=0\\), the source bias-corrected second moment is exactly \\(g_t^2\\), so on the positive scalar-quadratic branch the normalized gradient is one and the adaptive regularization coefficient is \\(c_t\\xi^2\\). This yields the autonomous buffer recurrence and affine parameter recurrence stated in the finding. The buffer increment divided by \\(\\sqrt{b_t}\\) tends to \\(2\\xi^{7/4}\\), which gives \\(b_t/t^2\\to\\xi^{7/2}\\) by the square-root increment identity and Stolz--Cesaro. The resulting \\(t^{-3}\\) and \\(t^{-2}\\) coefficient tails are summable; the positive infinite product and variation-of-constants formula then prove the exact threshold and nonstationary limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper compares Amos with classical SGD and recalls a \\(1/t\\) learning-rate scale.",
+        "Generic optimization theory recognizes cumulative step mass as relevant to convergence.",
+        "The accepted result does not claim the generic summable-step principle; it derives the summable sequence endogenously from the Amos buffer and normalization."
+      ],
+      "reasoning": "Generic summable-step counterexamples do not determine Amos's buffer asymptotics, curvature cancellation, or the exact threshold \\(X_\\star\\). Those method-specific statements require the published Amos equations.",
+      "searches": [
+        "Amos adaptive weight decay learning rate decay summable steps convergence",
+        "Amos learning rate decay t^-2 normalized gradient nonconvergence",
+        "summable step gradient descent nonconvergence strong convexity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.11693v1",
+      "arXiv:2210.11693v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 allows \\(\beta\\in[0,1)\\), defines \\(c_t\\), \\(d_t\\), \\(\\gamma_t\\), the buffer update, and the normalized-gradient parameter update.",
+        "The appendix derives \\(c_t\\) and \\(d_t\\) heuristically from asymptotic error arguments.",
+        "The related-work discussion explicitly states that rigorous convergence analysis is left to future work."
+      ],
+      "reasoning": "The source provides all premises but does not analyze the deterministic \\(\beta=0\\) closure. Its asymptotic-design argument does not imply convergence to the objective minimizer; on the accepted slice, the same decay mechanism instead yields finite total normalized-gradient displacement.",
+      "searches": [
+        "arXiv:2210.11693 Algorithm 1 beta c_t d_t b_t gamma_t",
+        "arXiv:2210.11693 heuristic derivation decay factors convergence proof future work",
+        "arXiv:2210.11693 connection SGD learning rate 1 over t"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper supplies the exact normalized-gradient, adaptive-weight-decay, decay-factor, and buffer equations.",
+        "The paper says a rigorous convergence proof is left to future work.",
+        "No inspected source states a scalar strongly convex Amos trajectory converging to a nonstationary point or gives the threshold series."
+      ],
+      "reasoning": "An equivalent result would need to close the published state equations on a deterministic objective, prove the generated step mass is finite, and derive the nonzero limiting branch. The source's heuristic decay design and empirical convergence discussion do not imply that conclusion.",
+      "searches": [
+        "Amos optimizer scalar quadratic convergence nonzero limit summable learning rate",
+        "Amos optimizer nonstationary limit scalar strongly convex quadratic summable decay b_t",
+        "Amos beta zero scalar quadratic exact convergence threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed result on summable-step failure concerns a different adaptive gradient method and a different product-decay condition.",
+        "Other nearby indexed records concern quadratic frontiers for Polyak, Barzilai--Borwein, stochastic feedback, or gradient-mapping accumulation rather than Amos.",
+        "No Amos-specific indexed record returned a deterministic scalar stalling threshold or nonstationary-limit formula."
+      ],
+      "reasoning": "The nearest records share only the broad theme of adaptive steps or summability. Their recurrences do not imply the autonomous Amos buffer, the \\(t^{-2}\\) normalized-gradient displacement, or the series threshold.",
+      "searches": [
+        "Amos optimizer scalar quadratic convergence nonzero limit summable learning rate",
+        "Amos adaptive weight decay learning rate decay summable steps convergence",
+        "Amos optimizer deterministic quadratic sign normalized stall",
+        "Amos optimizer b_t asymptotic t squared learning rate t minus two",
+        "Amos optimizer nonstationary limit scalar strongly convex quadratic summable decay b_t",
+        "Amos adaptive decay deterministic quadratic stalling away from minimizer",
+        "Amos beta zero scalar quadratic exact convergence threshold",
+        "Amos learning rate decay t^-2 normalized gradient nonconvergence"
+      ]
+    },
+    "rationale": "The defining paper already gives the buffer recurrence and heuristic decay-factor asymptotics, and explicitly leaves a rigorous convergence proof to future work. Those source results are treated as prior. The accepted claim is the exact deterministic quadratic closure at the allowed memoryless endpoint, where normalization makes the buffer independent of curvature and the generated displacement becomes summable, producing an explicit half-line of nonstationary limits. Focused literature and indexed-database searches did not identify this Amos-specific stalling theorem.",
+    "residual_risks": [
+      "A later unindexed analysis of Amos may contain the same memoryless deterministic specialization.",
+      "The generic principle that summable steps can stall is classical and is not part of the novelty claim.",
+      "The theorem is for the allowed endpoint \\(\beta=0\\), not the default high-memory second-moment setting.",
+      "Adding an implementation-level denominator regularizer changes the near-zero normalized-gradient dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_AND_HEURISTIC_DECAY_PRIOR_NOT_COVERING_DETERMINISTIC_NONSTATIONARY_LIMIT.",
+        "evidence": "The paper defines the exact recurrence used here, says the decay factors go to zero, derives their form heuristically, and explicitly leaves a rigorous convergence proof to future work. No deterministic scalar nonstationary-limit theorem or threshold series was found.",
+        "identifier_or_url": "arXiv:2210.11693v1/v2",
+        "material_read": "Open full text covering Algorithm 1, the global learning-rate and model-oriented scale definitions, adaptive L2 regularization, decay factors, hyperparameter discussion, related work on convergence, and Appendix A.2--A.3 on decay-factor asymptotics and the connection to SGD.",
+        "method": "Open-access full-text inspection with targeted searches of the buffer, asymptotic, and convergence passages.",
+        "title": "Amos: An Adam-style Optimizer with Adaptive Weight Decay towards Model-Oriented Scale",
+        "trigger": "Defining source for the optimizer, decay factors, buffer recurrence, allowed second-moment range, and convergence claims."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "295a1f71-bd6f-4568-bcd6-3dfe3618c30c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Amos is explicitly designed around self-generated learning-rate decay and the source says this removes the need for a terminal external schedule, while leaving rigorous convergence analysis open. The result isolates a concrete failure mode of that design: on the simplest strongly convex objective, normalization can decouple the decay state from curvature and make the optimizer spend only finite total gradient displacement. The exact threshold distinguishes convergence to the minimizer from stalling and provides a reproducible diagnostic for future convergence analyses or safeguards. The claim is not merely that summable steps can fail; it proves that the source optimizer generates such a summable regime by its own coupled equations.",
+    "status": "PASS"
+  }
+}
