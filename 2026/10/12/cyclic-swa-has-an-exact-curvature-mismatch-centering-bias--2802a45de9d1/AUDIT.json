@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The two-step cyclic SGD map is an affine contraction under the stated condition. Its phase fixed points, arithmetic center, finite-sum minimizer, bias, objective gap, and curvature-weighted cancellation are exact algebraic identities and are replayed by the embedded checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical incremental-gradient theory permits constant-step phase effects.",
+        "Random-reshuffling theory studies order-dependent bias under different step regimes."
+      ],
+      "reasoning": "Generic cyclic bias is prior-covered, but it does not imply the exact SWA center or correction without solving this map.",
+      "searches": [
+        "cyclic incremental gradient constant stepsize limit cycle quadratic",
+        "random reshuffling iterate averaging quadratic bias"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.05407v1",
+      "UAI2018:Izmailov-Podoprikhin-Garipov-Vetrov-Wilson",
+      "arXiv:1510.08560v4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The SWA paper defines equal-weight averaging and motivates it by a distribution centered at a minimizer.",
+        "The random-reshuffling paper analyzes order-sensitive finite-sum methods and averaging under different regimes."
+      ],
+      "reasoning": "Neither primary source implies the exact constant-step phase formulas or the cross-phase correction.",
+      "searches": [
+        "arXiv:1803.05407 SWA constant learning rate equal weight average convex minimization",
+        "arXiv:1510.08560 cyclic incremental gradient quadratic averaging bias"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining SWA source uses equal-weight averaging under constant or cyclical learning rates.",
+        "Its convex discussion uses a center-of-samples intuition.",
+        "No inspected source states the exact two-component curvature-mismatch center."
+      ],
+      "reasoning": "Equivalent coverage would give the same phase-cycle arithmetic center or the exact cross-phase curvature correction. None was located.",
+      "searches": [
+        "Stochastic Weight Averaging cyclic two-component scalar quadratic exact phase-cycle average bias",
+        "SWA alternating minibatch quadratic curvature mismatch average iterate exact",
+        "stochastic weight averaging curvature-weighted correction cyclic SGD two quadratics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result: 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881, which concerns block Kaczmarz rather than SWA.",
+        "Other close records concern unrelated quadratic feedback and stability."
+      ],
+      "reasoning": "No indexed finding returned the SWA two-phase curvature correction.",
+      "searches": [
+        "Stochastic Weight Averaging cyclic two-component scalar quadratic exact phase-cycle average bias",
+        "SWA alternating minibatch quadratic curvature mismatch average iterate exact",
+        "stochastic weight averaging curvature-weighted correction cyclic SGD two quadratics"
+      ]
+    },
+    "rationale": "The defining SWA paper gives equal-weight averaging and a centered fixed-step sampling intuition, while incremental-gradient and random-reshuffling literature already covers generic order-dependent bias. The inspected literature does not state this exact constant-step two-phase SWA center, objective gap, or curvature-weighted phase correction.",
+    "residual_risks": [
+      "An equivalent elementary formula may exist in an older incremental-gradient note or exercise.",
+      "The correction is model-specific rather than a scalable SWA algorithm.",
+      "Deterministic cyclic order differs from common randomized SWA training."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_EQUAL_WEIGHT_AVERAGING_NOT_COVERING_TWO_PHASE_CURVATURE_BIAS.",
+        "evidence": "The source gives arithmetic averaging and centered-sampling intuition but not this deterministic two-component formula.",
+        "identifier_or_url": "arXiv:1803.05407v1/v3",
+        "material_read": "Full open PDF including Algorithm 1 and the convex-minimization discussion; the relevant page was also visually inspected.",
+        "method": "Full-text PDF extraction plus page-image inspection.",
+        "title": "Averaging Weights Leads to Wider Optima and Better Generalization",
+        "trigger": "Defining SWA source."
+      },
+      {
+        "assessment": "BROADER_CYCLIC_BIAS_PRIOR; EXACT_CONSTANT_STEP_SWA_CENTER_NOT_STATED.",
+        "evidence": "The source studies different step regimes and does not state this exact stable two-phase SWA identity.",
+        "identifier_or_url": "arXiv:1510.08560v4",
+        "material_read": "Open full text covering cyclic incremental gradients, quadratics, averaging, and order-dependent bias.",
+        "method": "Full-text open-access inspection.",
+        "title": "Why Random Reshuffling Beats Stochastic Gradient Descent",
+        "trigger": "Closest primary finite-sum ordering theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2802a45d-e9d1-4d11-85ce-962544ae0f8e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Arithmetic centering is SWA's defining operation. This minimal strongly convex model exactly separates symmetric-curvature centering from deterministic curvature-mismatch bias, quantifies the objective penalty, and identifies an exact phase correction.",
+    "status": "PASS"
+  }
+}
