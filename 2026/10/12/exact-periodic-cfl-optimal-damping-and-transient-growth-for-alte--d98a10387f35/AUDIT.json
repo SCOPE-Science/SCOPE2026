@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The full scalar interpolation AB2 update yields the explicit 2×2 matrices M(x,y), M(y,x). Rational symbolic multiplication gives trace F(L)+d and determinant d=xy/4. The quadratic Schur condition has sharp sign L(1-L/2); positive real eigenvalue classification and a repeated-root boundary prove decay iff 0<L<2, neutral boundedness at L=2, and expansion above. For fixed L<2, d≤L²/16, the discriminant is nonnegative, and implicit differentiation gives strictly decreasing dominant root with increasing d, establishing equal-step uniqueness. The equal-step AB2 characteristic roots straddle zero and yield a sharp lower radius 1/3 attained only at z=2/3, with M²=I/3. Finally yP→(L²/2)[[-1,1],[-1,1]] has norm L² while eigenvalues tend F(L),0. The standalone standard-library checker exactly reproduced 6724 rational cases and 199 discriminant identities and ran supplementary numerical comparisons; those finite checks are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1137/0711079 abstract contrasts techniques for changing mesh size; no accessible real-negative two-period spectral radius optimization.",
+        "DOI 10.1137/0720056 abstract describes Nordsieck stability under ratio bounds and infrequent variation.",
+        "arXiv:1504.04107 sections 2–5 explicitly construct and analyze alternative SSP multistep formulas, not the conventional AB2 exact two-period amplification."
+      ],
+      "reasoning": "General variable-step stability theory could dominate a new condition only if it implies the sharp scalar negative-real condition and additionally optimal damping/transient law. Accessible general statements do not establish that implication, and there is no justified whole-document noncoverage claim for the old inaccessible papers.",
+      "searches": [
+        "\"The effect of variable mesh size on the stability of multistep methods\" Gear Tu 1974 abstract",
+        "\"The Stability of Variable-Stepsize Nordsieck Methods\" pdf",
+        "\"On the Stability of Interpolatory Variable-Stepsize Adams Methods\" pdf",
+        "site:arxiv.org variable step Adams Bashforth two stability"
+      ]
+    },
+    "checked_sources": [
+      "C. W. Gear and K. W. Tu, The Effect of Variable Mesh Size on the Stability of Multistep Methods, DOI 10.1137/0711079, publisher abstract (full text inaccessible).",
+      "R. D. Skeel and L. W. Jackson, The Stability of Variable-Stepsize Nordsieck Methods, DOI 10.1137/0720056, publisher abstract (full text inaccessible).",
+      "M. Calvo, F. Lisbona, and J. Montijano, On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form, DOI 10.1137/0726052, publisher abstract (full text inaccessible).",
+      "A. Sandu and E. M. Constantinescu, Multirate Explicit Adams Methods for Time Integration of Conservation Laws, TR-07-30, 2007, full repository PDF.",
+      "Y. Hadjimichael et al., Strong Stability Preserving Explicit Linear Multistep Methods with Variable Step Size, arXiv:1504.04107, complete public PDF, pages 1-15 and 19-20 inspected for stated approaches and core theorems."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sandu–Constantinescu 2007, PDF pp. 3–7, uses shared constant-step AB base with differing steps across spatial components, not a single scalar value-state AB2 with alternating step lengths.",
+        "Hadjimichael et al. arXiv:1504.04107, introduction, §2 and §5, develop nonnegative-coefficient SSP formulas and a zero-stability/convergence theorem, not an exact negative-real period eigenvalue classification.",
+        "Gear–Tu 1974 and Skeel–Jackson 1983 publisher abstracts are potentially relevant but insufficient to determine whether equivalent specializations occur in their body."
+      ],
+      "reasoning": "The full claim has three logically distinct assertions beyond classical constant-step AB2: invariance of the exact sharp stability boundary under arbitrary positive alternation, strict optimality of equal steps at each fixed total physical period, and a precise stable unbounded-transient scaling. Neither analyzed OA full text states them. The old unavailable works create residual historical priority uncertainty but their accessible descriptions do not demonstrate dominance.",
+      "searches": [
+        "two-periodic variable-step Adams Bashforth AB2 decay stability monodromy Floquet scalar negative real equation average step",
+        "periodic timestep variation Adams method two-step optimizer asymptotic convergence equal steps",
+        "variable step size adams bashforth 2 stability analysis step ratio",
+        "\"On the Stability of Interpolatory Variable-Stepsize Adams Methods\" pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Publisher abstract and cited context of DOI 10.1137/0726052 concern Nordsieck interpolation stability with step-ratio conditions; full text not accessible.",
+        "arXiv:1504.04107, sections 1, 2.3, 5 present SSP-optimized schemes with at least three steps and zero-stability/convergence, rather than the classical two-step interpolation AB2 period map."
+      ],
+      "reasoning": "The same physical step variability does not give an equivalent method: the AB2 coefficients depend on the ratio of the two previous physical intervals, whereas Nordsieck restarts and optimized SSP formulas have different matrices and constraints. A general convergence or zero-stability theorem does not imply the real-negative Floquet optimizing statement. A hidden special case in the unavailable early full texts remains possible.",
+      "searches": [
+        "\"Adams-Bashforth\" \"alternating\" stepsizes 2 cycle spectral radius",
+        "\"two-periodic\" \"Adams-Bashforth\" step stability",
+        "\"Adams-Bashforth\" \"periodic\" \"monodromy\" stability",
+        "two-periodic variable-step Adams Bashforth AB2 decay stability monodromy Floquet scalar negative real equation average step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The classical constant-step AB2 root polynomial and negative-real stability interval are recorded in standard numerical-analysis treatments, but no consulted source table supplied a variable-ratio periodic optimum or the norm limit.",
+        "The fully inspected 2007 TR-07-30 primarily treats multirate component coupling and interface CFL properties, rather than an arbitrary positive real two-step ratio of a scalar test equation."
+      ],
+      "reasoning": "The constant-step optimum is a special case; it does not by itself imply that all unequal splits are slower, or that the sharp stability threshold ignores their ratio while transient gain diverges. A query failure alone is not proof of database novelty.",
+      "searches": [
+        "\"Adams Bashforth\" \"two step\" \"equal step\" optimal convergence",
+        "\"Adams Bashforth\" \"2/3\" \"optimal\" \"amplification\"",
+        "\"Adams-Bashforth\" \"alternating\" \"steps\" \"stability\"",
+        "Adams-Bashforth two step alternating stepsizes exact stability sum of consecutive steps"
+      ]
+    },
+    "rationale": "The joint finding is a fixed-total-time two-period classification for the classical interpolation-based AB2 scalar dissipative test equation: an exactly ratio-invariant sharp stability boundary, a globally unique optimal two-step decay factor, and an unbounded stored-value transient at stable multipliers. Historical variable-step Adams/Nordsieck stability literature was compared at the level available, not merely by title; available descriptions emphasize variable-grid/zero-stability conditions or distinct Nordsieck implementations. Two complete OA primary papers discuss other multirate or SSP formulas. Published mathematical-index searches returned closest records for other schemes (Richardson, variable-step BDF, Verlet, forward-reflected-backward), not a stronger result implying the full triple. Nonetheless original early full texts remain inaccessible, so an equivalent specialized statement remains a material residual risk, not a novelty certificate.",
+    "residual_risks": [
+      "The original complete papers of Gear–Tu (1974), Skeel–Jackson (1983), and Calvo–Lisbona–Montijano (1989) were inaccessible; they might contain an exact two-period specialization despite the available abstracts.",
+      "The result does not establish novelty against all books, theses, proprietary solver manuals, or unindexed works.",
+      "The exact fixed-step AB2 scalar stability and optimum are classical algebraic consequences; originality is assessed only for the combined arbitrary-alternation classification and transient-optimization statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distinct method family: SSP multistep schemes, generally three or more steps, with coefficient nonnegativity/monotonicity and zero-stability criteria; does not imply target AB2 Floquet optimization",
+        "evidence": [
+          "PDF pp. 1–7 defines SSP variable-step formulas and named SSPMSV32/SSPMSV43 schemes; p.15 §5 explicitly defines zero-stability via u′=0 and proves it from nonnegative coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1504.04107",
+        "material_read": "Public PDF, title/abstract, introduction, §§2–2.3, §5 stability/convergence including Theorems 8–9, and relevant numerical-experiment overview",
+        "method": "Read extracted PDF text and examined page images for initial pages",
+        "title": "Strong Stability Preserving Explicit Linear Multistep Methods with Variable Step Size",
+        "trigger": "Same broad variable-step multistep optimization and stability keywords"
+      },
+      {
+        "assessment": "Different spatially multirate construction, with fixed AB coefficients on each component and interface handling, not the scalar temporal alternation model",
+        "evidence": [
+          "PDF pp. 3–7 defines slow/fast spatial decomposition and MAB2(2) formulas; steps are different across components, not successive steps for one scalar AB2 history."
+        ],
+        "identifier_or_url": "https://vtechworks.lib.vt.edu/bitstreams/e7d20454-b131-46be-a110-dcde8005bb77/download",
+        "material_read": "Public report PDF abstract, introduction, §2 construction and §2.1 examples of MAB2(2) and MAB2(3)",
+        "method": "Read extracted full PDF target sections and visually inspected rendered equation page",
+        "title": "Multirate Explicit Adams Methods for Time Integration of Conservation Laws",
+        "trigger": "Adams-Bashforth with multiple step lengths and CFL stability"
+      },
+      {
+        "assessment": "Plausible related historical theory; not classified as not-covering without complete text",
+        "evidence": [
+          "Abstract: comparison of two ways to implement variable mesh sizes and stability under small changing rates. No accessible two-period scalar negative-real result."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0711079",
+        "material_read": "Publisher abstract, references, journal metadata only; complete paper inaccessible after arXiv/OA search and institutional download access failure",
+        "method": "Publisher webpage and lawful full-text access attempt",
+        "title": "The Effect of Variable Mesh Size on the Stability of Multistep Methods",
+        "trigger": "Earlier general stability of variable-mesh Adams formulas; could contain specialization"
+      },
+      {
+        "assessment": "Unresolved historical specialization risk: abstract addresses Nordsieck zero-stability and ratio bounds, not enough to infer full-text coverage",
+        "evidence": [
+          "Abstract discusses stability under variation-bounded mesh selection and changes in allowed ratio depending on frequency."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0720056",
+        "material_read": "Publisher abstract and metadata only; complete text inaccessible after OA and institutional attempts",
+        "method": "Publisher webpage and lawful full-text access attempt",
+        "title": "The Stability of Variable-Stepsize Nordsieck Methods",
+        "trigger": "Potentially dominating 1983 stability results with periodically changing steps"
+      },
+      {
+        "assessment": "Material historical priority risk explicitly retained; not treated as whole-document negative evidence",
+        "evidence": [
+          "Abstract describes sufficient and sometimes necessary conditions on step-size ratios for Nordsieck interpolatory variable-step Adams methods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0726052",
+        "material_read": "Publisher abstract, references and metadata only; complete paper inaccessible after OA and institutional attempts",
+        "method": "Publisher webpage and lawful full-text access attempt",
+        "title": "On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form",
+        "trigger": "Directly named interpolatory variable-step Adams stability paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d98a1038-7f35-42a1-a46e-1e879c6edfee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The simplest nontrivial variable-step cycle has an exact and unexpected **total-period-only** dissipative stability threshold, while optimal decay provably forces equal steps and severe stable transient amplification remains possible. These are explicit design and diagnostic rules for a natural classical method, not a relabeling or arbitrary slice. The 1/3 sharp global optimum and norm-divergence coefficient make the conclusion operational and establish strict boundaries between spectral stability and transient safety. Scope remains one scalar real-negative test mode and does not promise general nonlinear/complex stability.",
+    "status": "PASS"
+  }
+}
