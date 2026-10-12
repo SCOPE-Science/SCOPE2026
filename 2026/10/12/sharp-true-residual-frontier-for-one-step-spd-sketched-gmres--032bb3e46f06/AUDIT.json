@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "In exact arithmetic the sketched minimizer exists uniquely on span{r,Ar}. Its true-residual ratio is sin(angle(r,Ar))*sqrt(1+(B21/B11)^2), with B the restricted Gram. The matrix perturbation operator bound yields |B21/B11|<=eps/sqrt(1-eps^2), and a 2x2 Gram with eigenvalues 1±eps achieves it. A direct eigenvalue-weight proof gives sin(angle)<= (kappa-1)/(kappa+1), attained by diagonal(1,kappa), r=(sqrt(kappa),1). Both attainments hold together; rational kappa=9 witnesses demonstrate threshold equality and strict growth. All kappa>=1, 0<=eps<1 checked analytically; 10556 finite numeric cases are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2311.14206v2: all Krylov dimensions, bound sqrt((1+eps)/(1-eps)) times unsketched optimal residual",
+        "arXiv:2605.19096v2 Section 2: statistical sharp sketched regression results",
+        "arXiv:2503.19086v3: finite-precision stability of sketched GMRES"
+      ],
+      "reasoning": "The general quasioptimality result concerns more dimensions and matrices but gives a larger distortion factor, and so cannot imply the precise smaller factor, equality example, or sharp threshold here. Mean-square sketch bounds and finite-precision backward stability have different quantifiers and objectives.",
+      "searches": [
+        "perturbed inner product minimal residual steepest descent exact worst case residual contraction sketch distortion",
+        "exact sharp residual amplification factor (kappa-1)/((kappa+1)*sqrt(1-epsilon^2)) for sketched GMRES(1) SPD",
+        "\"sketch\" \"minimal residual\" \"sqrt(1-epsilon^2)\" quasi optimal",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.04904v1 Sections 1-4",
+      "arXiv:2311.14206v2 Sections 3-4.4",
+      "arXiv:2605.19096v2 Sections 1-2",
+      "arXiv:2503.19086v3 abstract and main stability claims",
+      "DOI:10.1002/nla.70029 Section 5",
+      "published-finding corpus published finding 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "published-finding corpus published finding 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "published-finding corpus published finding 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burke–Güttel–Soodhalter generic factor sqrt((1+eps)/(1-eps)) bounds the claim from above but does not attain or certify its optimality",
+        "Bucci–Durastante prove sketched-AA/sketched-GMRES equivalence, not the sharp true-residual norm threshold",
+        "Known Kantorovich SPD sine bound supplies only the unsketched half of the construction"
+      ],
+      "reasoning": "The candidate is not merely an instance of a published sharp constant: the tested generic estimates yield strictly weaker constraints, and the simultaneous equality construction is necessary to classify every epsilon/kappa pair. The underlying angle and projector facts are acknowledged as non-original ingredients.",
+      "searches": [
+        "sharp worst case Euclidean residual after one sketched GMRES iteration epsilon subspace embedding condition number kappa contraction sqrt(1-epsilon^2)",
+        "perturbed Euclidean least squares sharp quasioptimality 1/sqrt(1-epsilon^2) sketch inner product",
+        "\"sketched GMRES\" \"1-epsilon^2\" sharper convergence residual quasioptimal bound",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.14206v2 Section 3: general sketched quasi-optimality; no sharp two-mode SPD penalty",
+        "arXiv:2607.04904v1 Section 2: sketched residual minimization and possibly nonmonotone true residual",
+        "published-finding corpus symmetric-GMRES(1) entry concerns solution-error amplification, not true residual under a sketch"
+      ],
+      "reasoning": "Oblique-projection geometry yields one ingredient of the proof, so an abstract reformulation might be in classical approximation theory. The checked sources do not state the simultaneously sharp SPD first-step residual factor or the necessary-and-sufficient epsilon/kappa safety frontier. Absence from indexed results is not uniqueness proof.",
+      "searches": [
+        "sharp worst case Euclidean residual after one sketched GMRES iteration epsilon subspace embedding condition number kappa contraction sqrt(1-epsilon^2)",
+        "sketch inner product GMRES one step true residual expansion threshold Kantorovich cosine epsilon",
+        "\"sketched GMRES\" \"1/sqrt(1-epsilon^2)\" residual",
+        "\"oblique projector\" \"sqrt(1-epsilon^2)\" \"sketch\"",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic results yielded no exact match; nearest published claims concern distinct methods and error metrics",
+        "arXiv:2607.04904v1 contains no table of sharp SPD epsilon/kappa one-step residual thresholds"
+      ],
+      "reasoning": "No numerical lookup table is needed for this all-parameter analytic formula. Searches of published-finding corpus and named full texts found no exact database entry; an unindexed prior table is an acknowledged risk.",
+      "searches": [
+        "exact sharp residual amplification factor (kappa-1)/((kappa+1)*sqrt(1-epsilon^2)) for sketched GMRES(1) SPD",
+        "GMRES one-step residual norm increases despite 2-dimensional epsilon subspace embedding SPD matrix threshold epsilon 2 sqrt(kappa)/(kappa+1)",
+        "\"sketched GMRES\" \"one step\" \"condition number\" \"residual\"",
+        "2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+      ]
+    },
+    "rationale": "Published same-method literature gives an AA equivalence and generic weaker sketched-residual bounds; no inspected source implies the exact simultaneously sharp SPD/embedding factor with an if-and-only-if nonexpansion tolerance. The broad oblique-projection and Kantorovich ingredients are classical and explicitly credited, and an unindexed exact analogue remains a residual risk.",
+    "residual_risks": [
+      "An unindexed older exact oblique-projector-angle result could be equivalent to the geometric sublemma or even its SPD special case.",
+      "Semantic search and inspected articles cannot certify universal novelty; independent literature audit remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME METHOD and embedding; does not imply the exact SPD sketched GMRES(1) true-residual worst-case factor. Section 2 explicitly recognizes loss of true-norm monotonicity.",
+        "evidence": [
+          "arXiv:2607.04904v1 Section 2 Definition 1 and sketched least-squares identity",
+          "arXiv:2607.04904v1 Theorem 1 and its sketched Anderson acceleration equivalence"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.04904v1",
+        "material_read": "Complete arXiv HTML (introduction; squared-norm embedding Definition 1; sketched GMRES construction in Section 2; Theorem 1 and proof of sketched AA equivalence; numerical results; conclusions).",
+        "method": "Read original author-hosted arXiv HTML and compare equations, assumptions and theorem implications",
+        "title": "An Equivalence result for sketched Anderson Acceleration and sketched GMRES",
+        "trigger": "Originating 2026 sketched GMRES method, correct primary MSC and first-public date"
+      },
+      {
+        "assessment": "General quasiminimal residual guarantee is not sharp for first-step SPD: quoted generic factor is larger than the derived sharp factor; does not give necessary-sufficient threshold.",
+        "evidence": [
+          "arXiv:2311.14206v2 Section 3, equation (8), generic sqrt((1+eps)/(1-eps)) factor",
+          "arXiv:2311.14206v2 Section 4.4, Corollary 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.14206v2",
+        "material_read": "Complete arXiv HTML, especially Section 3 and Section 4.4 (embedding quasioptimality and angle residual bounds).",
+        "method": "Read full-text theorem statements and their residual/error implications",
+        "title": "GMRES with randomized sketching and deflated restarting",
+        "trigger": "Most plausible general covering sketched GMRES convergence theorem"
+      },
+      {
+        "assessment": "Sharp expected-error law over sketch ensembles, not the deterministic SPD true-residual frontier under bounded Gram distortion.",
+        "evidence": [
+          "arXiv:2605.19096v2 Section 2 and Theorem 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.19096v2",
+        "material_read": "Full-text introduction and Section 2-2.1, including main regression theorem and statistical hypotheses; other sections surveyed.",
+        "method": "Read arXiv HTML and compare probability versus deterministic supremum and regression versus GMRES(1)",
+        "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+        "trigger": "Plausible stronger source for sharp sketched least squares"
+      },
+      {
+        "assessment": "Addresses backward stability / finite-precision conditioning rather than exact sharp first-step residual amplification under a two-plane embedding.",
+        "evidence": [
+          "arXiv:2503.19086v3 abstract and introductory analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.19086v3",
+        "material_read": "Abstract, introductory problem statement, and main stability claims in full arXiv HTML.",
+        "method": "Read original preprint HTML for finite-precision versus exact-arithmetic statements",
+        "title": "On the numerical stability of sketched GMRES",
+        "trigger": "Potential broader stability result for same algorithm"
+      },
+      {
+        "assessment": "Distinguishes sketched-norm from true-norm GMRES and solves an orthogonalization issue, not a sharp epsilon-dependent SPD one-step threshold.",
+        "evidence": [
+          "Jang–Grigori, Section 5, randomized GMRES sketched-norm vs reorthogonalized L2-norm minimization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.70029",
+        "material_read": "Open-access publisher abstract, introduction, Section 5 Application to GMRES and comparison of sketched and Euclidean norm minimization.",
+        "method": "Read publisher full-text HTML and compare algorithmic normalizations",
+        "title": "Randomized Orthogonalization Process With Reorthogonalization",
+        "trigger": "Strongly related randomized GMRES true-residual control"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "032bb3e4-6f06-41b7-81aa-911469c5fb01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sketched GMRES papers explicitly distinguish sketched norm from possibly nonmonotone true residual. This result closes the quantitative necessary-and-sufficient one-step safety gap for SPD matrices and identifies a sharp condition-number/embedding boundary, with dimension-2 extremizers, rather than merely reproducing a generic convergence bound. It is a natural algorithm-design question: when can an approximate norm still guarantee actual residual descent? The finding makes no multistep convergence or typical-sketch promise.",
+    "status": "PASS"
+  }
+}
