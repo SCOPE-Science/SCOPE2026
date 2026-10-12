@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The model assumptions match the published independent Poisson-contact household SIR model. The two mixtures of conditional Poisson household offspring are derived by conditioning on initial type and whether a partner becomes infected. Exact rational coefficient, mean and bounding-polynomial identities are reconstructed in `verify.py`; the inequalities imply \(q_b<1/5\) and strict growth of \(q_b\) for all \(b\). Standard supercritical Galton–Watson fixed-point uniqueness and the source's finite-to-infinite household coupling complete the argument. Strict inequalities uniformly on compact intervals also justify a small open parameter neighborhood. No infinite conclusion is extrapolated from finite simulation.
+
+## Originality — PASS, with disclosed precedent and residual access risk
+The broad warning that \(R_*\) may increase while outbreak probability decreases is already known: the source explicitly cites Ball, Sirl and Trapman (2010, Figure 7), and Britton–Pardoux (2019) describes its network-clustering example. This finding **does not** claim that broad effect. Its precise statement instead orders *every* member of a type-balanced AA/AB/BB household-matching continuum under fixed positive local rates and global infectivities, with an explicit closed PGF difference and perturbative robustness. Ball–Critcher (2026) gives general formulas, not the matched type-family theorem. Nishiura et al. (2011) vary between-individual assortative mixing, and Ball–Britton–Neal (2025) vary local-versus-global contact replacement, so neither implies this quantified family. Multiple close-query literature and published-record searches found no covering claim. The 2010 source full text remained inaccessible; the known earlier qualitative overlap has been accounted for, but a further special-case precedent is still possible.
+
+## Mathematical value — PASS
+Holding host-type fractions and infection rates fixed while varying only *who shares a household* is a natural intervention in heterogeneous structured epidemics. The strict all-fraction reversal proves that the household reproduction number and major-outbreak risk give opposite comparative answers on a robust, fully specified continuum. This is more informative than a single numerical example, and the proof is an exact structural PGF comparison. It does not assert an effect for all parameters, finite populations or conditional outbreak sizes.
+
+## Limits and closest references
+Primary model: Ball–Critcher (2026), doi:10.1007/s00285-026-02359-5, especially §§4.1–4.4 and electronic Supplement Theorem 9.1. Earlier qualitative ranking mismatch: Ball–Sirl–Trapman (2010), doi:10.1016/j.mbs.2009.12.003; see also Britton–Pardoux (2019). Other comparisons: Nishiura–Cook–Cowling (2011), doi:10.1155/2011/194507; Ball–Britton–Neal (2025), arXiv:2505.17890. The verification program checks the finite algebraic lemmas, not the cited general convergence theorem.
+
+Self-review: passed. Independent audit: not yet performed.

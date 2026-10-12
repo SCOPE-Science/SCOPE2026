@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "All type marginals remain exactly one half for every b, so the incoming global-contact type is uniform; for size-two households a partner is locally infected with \\(p_{ij}=1-e^{-\\lambda_{ij}}\\), and global household offspring are conditionally Poisson with mean \\(\beta_i\\) or \\(\beta_i+\beta_j\\). Exact fractions yield the displayed PGF mixtures; derivative means \\(7/2\\) and \\(801/200\\). Since \\(e^{4/5}>53/25>2\\), the two exact coefficient evaluations at \\(u=1/2\\), \\(30049/204800\\) and \\(2159/12800\\), are below \\(1/5\\), enclosing every extinction root. On this interval the difference polynomial is at least \\(3839/512>0\\), forcing strict ordering of unique nontrivial fixed points, hence opposite monotonicities of mean and takeoff probability. Uniform margins and compact parameter dependence prove robust persistence. The provided standalone checker recomputes all exact inequalities; supplementary Theorem 9.1 independently supplies the underlying large-population branching approximation, not any mathematical novelty certification. Computations are algebraic, not evidence of infinite limits by enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ball–Critcher (2026) §4.2.2 explicitly warns that \\(R_*\\) can misrank populations with different household structures and cites Ball–Sirl–Trapman (2010) Fig. 7.",
+        "Britton and Pardoux (eds.), Stochastic Epidemic Models with Inference (2019), text discussing Figure 7: under network clustering, the major-outbreak probability decreases while \\(R_*\\) initially increases.",
+        "Ball–Britton–Neal arXiv:2505.17890v1, introduction and Theorem 2.2: takeoff monotonicity when local contact counts are swapped to global contacts in a homogeneous household model."
+      ],
+      "reasoning": "The qualitative mean-versus-survival mismatch is **covered** and is not claimed as new. Figure 7 pertains to varied network clustering and states only an initial rising region; the current result proves an exact strict reverse order throughout an entire interpolation of AA/AB/BB pair frequencies at fixed individual-type marginals in a different proportionately global-mixed model. The 2025 swapping theorem changes global/local contact counts rather than reallocating fixed-type individuals among households, so its monotonicity direction cannot cover this claim. The unavailable 2010 full text remains a risk, not a positive exclusion claim.",
+      "searches": [
+        "Household clustering reproduction number R star increases outbreak probability decreases Ball Sirl Trapman Figure 7 2010 fixed marginal two type pair assortative mixing",
+        "Ball Sirl Trapman 2010 analysis stochastic SIR epidemic random network incorporating household structure figure 7 probability of major outbreak reproduction number",
+        "\"household structure\" \"reverse\" \"outbreak probability\" \"reproduction number\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s00285-026-02359-5",
+      "2026 Ball–Critcher electronic Supplement Theorem 9.1",
+      "arxiv:2505.17890v1",
+      "doi:10.1155/2011/194507",
+      "doi:10.1016/j.mbs.2009.12.003 (secondary comparison/abstract only)",
+      "doi:10.1007/978-3-030-30900-8 (relevant excerpt only)",
+      "published-finding corpus 2026/9/14/SCOPE021 (distinct 2-patch SEIR bound)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ball–Critcher (2026) eq. (4.1) states \\(R_*\\); §4.4 states the extinction-root calculation; its supplementary Theorem 9.1 gives convergence of major-outbreak probabilities.",
+        "Nishiura–Cook–Cowling (2011) Fig. 4 treats between-type preferential mixing and changes the next-generation matrix, unlike pair matching.",
+        "Ball–Britton–Neal (2025) Theorem 2.2 addresses swapping local contacts for global contacts in a single-type household model, unlike fixed six rates and changing household composition.",
+        "Ball–Sirl–Trapman (2010) network-clustering qualitative effect is acknowledged through [1] and the Britton–Pardoux 2019 discussion."
+      ],
+      "reasoning": "Specializing the 2026 general formulas to the present parameters requires new calculations: explicit coefficient mixtures, slope \\(101/200>0\\), extinction-root enclosure \\(q_b<1/5\\), and the positive polynomial \\(55-95u+41u^5-u^9\\) throughout the relevant domain. No inspected earlier statement entails this exact monotonic theorem or its open-neighborhood robustness. Earlier examples do entail the weaker qualitative warning, which is explicitly excluded from the novelty claim.",
+      "searches": [
+        "Household clustering reproduction number R star increases outbreak probability decreases Ball Sirl Trapman Figure 7 2010 fixed marginal two type pair assortative mixing",
+        "Two-type size-two household SIR AB AA BB pairing fixed type proportions heterogeneity offspring generating function mean increases extinction probability increases all mixing parameters",
+        "Multitype SIR epidemics proportionate global mixing Ball Critcher 2026 household pairing AA BB AB extinction reversal reproduction number",
+        "\"household\" \"higher reproduction number\" \"lower\" \"major outbreak probability\" pair mixing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ball–Critcher (2026) §§4.1,4.4: global offspring are a one-type household PGF with extinction probability its least fixed point, doi:10.1007/s00285-026-02359-5.",
+        "Nishiura–Cook–Cowling (2011), §§2.2–3: assortativity modifies a *between-person next-generation matrix*, not fixed-marginal within-household composition, doi:10.1155/2011/194507."
+      ],
+      "reasoning": "Reformulating the claim as first-order PGF dominance \\(F_{b_2}(s)>F_{b_1}(s)\\) on an interval containing every extinction root yields a concrete all-parameter extinction ordering. General fixed-point formulas and other assortativity examples do not assert this domain-wide PGF comparison for the specified household matching perturbation.",
+      "searches": [
+        "Two-type size-two household SIR AB AA BB pairing fixed type proportions heterogeneity offspring generating function mean increases extinction probability increases all mixing parameters",
+        "\"household\" \"matching\" \"outbreak probability\" reproduction number assortative",
+        "\"assortative households\" \"reproduction number\" \"probability of extinction\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 source main text §§4.1,4.2.1,4.4 and supplement §§9.1,10 include general formulas and limiting results but no numerical table or parameter family in the statement tested here.",
+        "published-finding corpus nearest record 2026/9/14/SCOPE021 concerns a 2-patch SEIR \\(R_0\\) bound with different objects and parameters."
+      ],
+      "reasoning": "A specific finite table of reproduction numbers or numerical risk values could not imply the strict quantified all-interpolation claim. The published PGF is a method that allows this specialization, not a table supplying this exact fact. No exact formula or parameter family found in the checked scientific sources.",
+      "searches": [
+        "Multitype SIR epidemics proportionate global mixing Ball Critcher 2026 household pairing AA BB AB extinction reversal reproduction number",
+        "Ball Critcher 2026 proportionate mixing probability epidemic household composition counterexample",
+        "\"household composition\" \"probability of major outbreak\" monotonic"
+      ]
+    },
+    "rationale": "The general household PGF and extinction limit are known, as is qualitative failure of ordering epidemics by the household reproduction number (Ball–Sirl–Trapman 2010, Fig. 7, as cited by Ball–Critcher 2026 and Britton–Pardoux 2019). The narrower, explicit claim compared here is a strict opposite ordering for **every** within-type/heterotypic pair-matching fraction with fixed type marginals and fixed six biological parameters, plus perturbative robustness, inside the 2026 proportionate-global-mixing model. Neither the inspected source main text and supplement nor the relevant 2011 global-assortative and 2025 homogeneous-household perturbation claims implies this pointwise family. published-finding corpus comparisons retrieved none with this claim, although absence from search is not novelty proof. Related inaccessible 2010 full text leaves specified residual risk.",
+    "residual_risks": [
+      "The full text of Ball–Sirl–Trapman (2010), especially Figure 7, was not obtainable from the open sources examined. The already-known qualitative warning has been excluded from the new claim. A finer comparison with that full article remains a documented risk.",
+      "published-finding corpus semantic searches and local ledger scans are incomplete coverage guarantees; a different paper may state an equivalent all-parameter fixed-composition result.",
+      "Only relevant mathematical parts, not every line, of the 2025 54-page arXiv preprint were inspected; it analyzes a substantively different perturbation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general branching and threshold facts; warns qualitative R* nonranking; does not state the fixed-type-composition all-b counterordering",
+        "evidence": "§4.1 offspring law; eq. (4.1) mean; §4.4 PGF fixed point; §4.2.2 cites earlier Fig. 7.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-026-02359-5",
+        "material_read": "Open full HTML main text: model §§2–3, approximation/reproduction/extinction §§4.1–4.4, relevant remarks, conclusion and bibliography; publication and MSC information",
+        "method": "Material mathematical sections and stated theorems examined directly",
+        "title": "Multitype SIR epidemics among a population partitioned into households with proportionate global mixing",
+        "trigger": "Exact source model and most plausible stronger coverage"
+      },
+      {
+        "assessment": "Establishes actual major-outbreak limit; does not state household-pair parameterized reversal",
+        "evidence": "Theorem 9.1, p.2: limit major-outbreak probability 1 minus household branching extinction; uniform-type initialization.",
+        "identifier_or_url": "https://media.springernature.com/original/springer-static/esm/art:10.1007%2Fs00285-026-02359-5/MediaObjects/285_2026_2359_MOESM1_ESM.pdf",
+        "material_read": "§9.1 Theorem 9.1 and coupling argument including condition for a uniform index; remainder of source proof overview and §10 computational context",
+        "method": "Published 22-page PDF parsed and relevant pages visually inspected",
+        "title": "Supplementary Information to Ball–Critcher 2026",
+        "trigger": "Original proof and appendix coverage"
+      },
+      {
+        "assessment": "Global between-type assortativity and source index-type composition differ; no fixed-AA/AB/BB household matching theorem",
+        "evidence": "§2.3 preferred global mixing \\(\theta\\); §3 Fig. 4 extinction probability versus \\(\theta\\).",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2011/194507",
+        "material_read": "HTML full article §§1–5, preferred mixing parameterization, Figs. 2–5 and conclusions",
+        "method": "Direct full-text HTML scientific inspection",
+        "title": "Assortativity and the Probability of Epidemic Extinction: A Case Study of Pandemic Influenza A (H1N1-2009)",
+        "trigger": "Most similar mixing-versus-extinction idea"
+      },
+      {
+        "assessment": "Proves monotonicity in household size and replaced-local-by-global contact fraction in single-type setting, not all-b type matching at fixed rates",
+        "evidence": "Abstract and introduction of arXiv:2505.17890v1: outbreak probability increases as local contacts are reassigned to global contacts.",
+        "identifier_or_url": "https://arxiv.org/pdf/2505.17890",
+        "material_read": "PDF abstract, introduction, model, and main monotonicity theorem descriptions on pp.1–4; relevant first theorem discussion",
+        "method": "Direct arXiv preprint PDF text and a rendered scientific page inspected",
+        "title": "Household epidemic models revisited",
+        "trigger": "Potential monotonicity theorem dominating household mixing"
+      },
+      {
+        "assessment": "Qualitative mean/risk reversal already known; full-source finer exclusions not asserted",
+        "evidence": "Britton–Pardoux 2019 Figure 7 discussion: risk decreases as network clustering rises whereas \\(R_*\\) initially increases.",
+        "identifier_or_url": "doi:10.1016/j.mbs.2009.12.003",
+        "material_read": "Bibliographic abstract and precise Figure 7 implication relayed by Ball–Critcher 2026 §4.2.2 and a 2019 mathematical epidemiology textbook discussion; full article unavailable",
+        "method": "Abstract and cross-source comparison; direct 2010 full text not inspected",
+        "title": "Analysis of a stochastic SIR epidemic on a random network incorporating household structure",
+        "trigger": "Named stronger predecessor Figure 7"
+      },
+      {
+        "assessment": "Confirms qualitative phenomenon predates this theorem; does not show same parameter family",
+        "evidence": "Passage describes falling outbreak probability and initially rising \\(R_*\\) with network clustering.",
+        "identifier_or_url": "doi:10.1007/978-3-030-30900-8",
+        "material_read": "Publicly indexed passage interpreting the 2010 Figure 7; bibliographic metadata",
+        "method": "Extracted passage, not whole textbook",
+        "title": "Stochastic Epidemic Models with Inference",
+        "trigger": "Details of the previously documented qualitative clustering paradox"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "33769d70-b0e4-475a-8aa4-54ddb1ba8bc1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact invariant problem is the pair-matching interpolation between same-type and cross-type household configurations under fixed type frequencies and fixed person-level infection laws. R* is routinely used to compare structured epidemics, but only acts as an existence threshold; this explicit theorem establishes a sharp full-interval failure of risk ranking, not just one numerical pair, and proves it persists under small biological parameter errors. The mismatch has an identified structural mechanism: reallocating local secondary infections changes both the expected number of high-infectivity infected individuals and offspring dispersion. The qualitative phenomenon was known and is not presented as new. Exact fixed-marginal monotonicity in the recent two-type model is mathematically useful as a robust benchmark for assessing whether a scalar reproduction summary preserves the ranking of outbreak risks. No empirical outbreak, public-health prescription, final-size ranking or general all-model theorem is asserted.",
+    "status": "PASS"
+  }
+}
