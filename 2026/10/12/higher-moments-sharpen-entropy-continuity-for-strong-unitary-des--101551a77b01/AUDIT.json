@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The cutoff identity and low-tail Kolmogorov estimate are taken with their exact constants from Hung. For even \\(q=2r\\) with \\(r\\le k\\), Hung’s squared-polynomial design estimate applied to \\(p(t)=t^r\\) gives the required relative \\(q\\)-th moment bound. The beta moment is exact, the inequality \\(\\ln z\\le z^{q-1}/(e(q-1))\\) is globally sharp for \\(z\\ge1\\), and one-variable minimization yields the displayed constant. The case \\(\\eta=0\\) and the cutoff boundary cases are handled separately. The asymptotic \\(n^2(\\ln n)^2\\) corollary follows by substituting the source marginal rate in the regime \\(k\\ll2^n\\). The finite verifier checks algebraic reductions but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hung’s locally invariant design theorem gives exponentially small marginal error and \\(O(\\log n)\\) design order for the entropy application, but requires local unitary invariance absent from the generic claim.",
+        "Brandao–Harrow–Horodecki and later unitary-design construction literature concern design generation and moment approximation rather than this entropy interpolation."
+      ],
+      "reasoning": "The locally invariant theorem is stronger only on a strictly narrower structural class; it does not dominate the generic strong-design statement. General design constructions do not imply the displayed entropy bound without the new truncation calculation.",
+      "searches": [
+        "approximate unitary design entropy higher moments",
+        "random quantum circuit Porter Thomas entropy moment matching",
+        "approximate unitary design expected Shannon entropy random circuits",
+        "unitary t-design Shannon entropy measurement",
+        "arXiv:2610.02135v1 Theorems 1.2, 1.3, 1.4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02135v1",
+      "DOI:10.1109/TIT.2007.903122",
+      "DOI:10.1007/s00220-016-2706-8",
+      "published-finding corpus semantic corpus under the recorded scientific queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hung explicitly states \\(O(\\sqrt\\eta)\\) and the resulting \\(O(n^4)\\) sufficient generic design scale.",
+        "Zhang (2007), from the accessible bibliographic description, studies mutual information for finite discrete variables via Kolmogorov distance and does not supply matched-high-moment beta-marginal control for unitary designs."
+      ],
+      "reasoning": "Hung’s theorem is recovered at \\(q=2\\) up to the exact finite-dimension factor \\(R_{N,2}<1\\), so the new theorem strictly strengthens that implication whenever higher even moments are used. The searched older entropy-distance result addresses a different object and does not imply the unitary-design resource corollary from its accessible statement.",
+      "searches": [
+        "Random Quantum Circuits Beyond Moment Matching n^4 entropy",
+        "higher moments entropy truncation unitary design",
+        "Estimating Mutual Information via Kolmogorov Distance Zhang 2007",
+        "arXiv:2610.02135v1 Theorem 1.4 and Section 7 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hung, arXiv:2610.02135v1, Theorem 7.2 uses only the second moment and obtains \\(O(\\sqrt\\eta)\\).",
+        "Hung, arXiv:2610.02135v1, Theorem 3.2 controls squared polynomial expectations and hence even output-probability moments through order \\(2k\\).",
+        "No searched published-finding corpus hit stated the \\(\\eta^{1-1/q}\\) or \\(\\eta\\ln(1/\\eta)\\) entropy interpolation for strong unitary designs."
+      ],
+      "reasoning": "The nearest equivalent formulation is higher-moment truncation of the source entropy proof. The source contains the ingredients separately but does not state or derive the optimized higher-moment family or its resource consequence.",
+      "searches": [
+        "Random Quantum Circuits Beyond Moment Matching Shannon entropy Kolmogorov higher moments",
+        "unitary design expected Shannon entropy higher moment tail Kolmogorov Porter Thomas",
+        "approximate unitary k-design entropy gap eta^(q-1)/q q-th moment",
+        "unitary design Shannon entropy Kolmogorov Porter Thomas quantum",
+        "arXiv:2610.02135v1 Sections 3 and 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published-finding corpus records concerned unrelated topological entropy or Fourier moment problems rather than unitary-design output entropy.",
+        "The source’s exact finite-dimensional Haar marginal is \\(\\operatorname{Beta}(1,N-1)\\), whose \\(q\\)-th moment is \\(q!/[N(N+1)\\cdots(N+q-1)]\\)."
+      ],
+      "reasoning": "No exact table or database result located in the searched corpus records the claimed \\(q\\)-dependent constant or the \\(n^2(\\ln n)^2\\) sufficient generic design-order scale.",
+      "searches": [
+        "Porter-Thomas Kolmogorov entropy moment matching random circuits",
+        "strong approximate unitary design Shannon entropy moment bound",
+        "Kolmogorov distance Shannon entropy moments probability vector",
+        "published-finding corpus semantic searches for Porter-Thomas, Shannon entropy, Kolmogorov distance, and higher moments"
+      ]
+    },
+    "rationale": "The primary source uses only the second moment in its entropy tail and states an \\(O(\\sqrt\\eta)\\) entropy error and \\(O(n^4)\\) sufficient generic design-order scale. The new statement uses the source’s higher even moment control to obtain a \\(q\\)-parameter family, a near-linear \\(\\eta\\ln(1/\\eta)\\) bound, and the \\(n^2(\\ln n)^2\\) sufficient generic scale. Searches found no published-finding corpus or literature statement with this implication.",
+    "residual_risks": [
+      "A general probability/entropy interpolation theorem under Kolmogorov distance plus matched high moments may exist under terminology not surfaced by the searches and could subsume the analytic inequality.",
+      "The primary source is only days old, so contemporaneous follow-up work may not yet be indexed.",
+      "The Zhang (2007) full text was not available in the inspected open result; its accessible description appears inapplicable, but this leaves a small bibliographic residual risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source stops at the second-moment tail \\(O(1/B)\\), \\(O(\\sqrt\\eta)\\) entropy error, and \\(n^4\\) generic design scale; it does not optimize the tail with higher even moments.",
+        "evidence": "Theorem 7.2, equations (277)–(286), uses the second moment; Theorem 3.2 gives squared-polynomial moment control; the introduction following Theorem 1.4 states the \\(n^4\\) generic sufficient scale.",
+        "identifier_or_url": "arXiv:2610.02135v1",
+        "material_read": "Full-text HTML sections containing Definitions 2.1–2.2, Theorem 3.2, Theorems 1.1–1.4, the technical overview, and Section 7 including Theorem 7.2 and its proof.",
+        "method": "Direct full-text comparison of hypotheses, statements, proof ingredients, and the displayed \\(n^4\\) consequence.",
+        "title": "Random Quantum Circuits Beyond Moment Matching",
+        "trigger": "Primary source with the closest entropy theorem and the exact strong-design moment machinery."
+      },
+      {
+        "assessment": "NOT_COVERING on accessible evidence: it concerns mutual information of finite discrete variables, not unitary-design output-probability marginals with matched high moments.",
+        "evidence": "The accessible record identifies finite-variable mutual-information bounds via Kolmogorov distance; no unitary-design, Porter-Thomas, beta-moment, or design-order statement is indicated.",
+        "identifier_or_url": "DOI:10.1109/TIT.2007.903122",
+        "material_read": "Accessible bibliographic abstract/record and metadata; full text was not available in the inspected open result.",
+        "method": "Scope and object comparison from the accessible record.",
+        "title": "Estimating Mutual Information via Kolmogorov Distance",
+        "trigger": "Search hit coupling Shannon-information terminology with Kolmogorov distance."
+      },
+      {
+        "assessment": "NOT_COVERING: it supplies approximate-design generation, not the entropy-continuity interpolation proved here.",
+        "evidence": "Its role is moment/design construction; the new claim concerns a quantitative Shannon-entropy consequence of simultaneous marginal Kolmogorov and high-moment control.",
+        "identifier_or_url": "DOI:10.1007/s00220-016-2706-8",
+        "material_read": "Bibliographic statement and the primary source’s discussion of its role in unitary-design construction.",
+        "method": "Implication comparison at the level of the stated design-construction result.",
+        "title": "Local Random Quantum Circuits are Approximate Polynomial-Designs",
+        "trigger": "Foundational unitary-design construction cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "101551a7-7b01-4ef7-ad26-eac8d2650064",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly translates its \\(O(\\sqrt\\eta)\\) entropy theorem into an \\(O(n^4)\\) sufficient generic design-order scale. The higher-moment refinement reduces that scale to \\(n^2(\\ln n)^2\\) under the same generic strong-design setting and yields a reusable dimension-free interpolation family. This is a structural improvement tied directly to the source’s stated randomness-generation application, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
