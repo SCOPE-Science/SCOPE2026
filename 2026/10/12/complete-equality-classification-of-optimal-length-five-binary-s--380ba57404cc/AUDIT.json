@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and exhaustive. The verifier rebuilds all 32 binary words, proves that the asymmetric-distance adjacency and disjoint one-error Z-ball adjacency coincide on every pair, enumerates every maximal clique, obtains maximum size 6 and exactly 120 maximizers, and then recomputes the complete order-240 symmetry action. The three orbit sizes sum to 120 and their stabilizer orders agree with orbit--stabilizer. No infinite inference is drawn from sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weber--de Vroedt--Boekee, DOI:10.1109/18.21262, gives short-block optimum-size tables for asymmetric distance below six.",
+        "Zhou--Jiang--Bruck, arXiv:1209.0740v1, Sections I--III, reviews classical asymmetric-code bounds and develops general upper bounds."
+      ],
+      "reasoning": "These sources cover the code model and the optimum-size question more broadly, but the inspected statements do not enumerate all length-five equality cases or classify them under the stated symmetry group.",
+      "searches": [
+        "binary asymmetric error correcting codes Z-channel arXiv optimal codes length 5 Z(5,2)",
+        "Bounds and constructions for binary codes of length less than 24 asymmetric distance less than 6",
+        "Nonuniform Codes for Correcting Asymmetric Errors in Data Storage"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.0740v1",
+      "doi:10.1109/18.21262",
+      "OEIS:A010101",
+      "J. H. Weber, Ph.D. thesis, Delft, 1989 (bibliographic check only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The optimum-size table implies only that no valid code has more than six words.",
+        "The general disjoint-ball criterion characterizes validity but does not count or classify the six-word equality cases."
+      ],
+      "reasoning": "Neither the known upper bound nor the standard validity criterion logically implies that there are exactly 120 maxima or that they split into orbit sizes 60, 30, and 30. Those statements require the additional complete finite census.",
+      "searches": [
+        "binary length 5 asymmetric distance 2 120 optimal codes three orbits",
+        "single asymmetric error correcting codes n=5 size 6 classification",
+        "binary asymmetric Z-channel length five one-error-correcting code maximum six equality classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhou--Jiang--Bruck, arXiv:1209.0740v1, Section II, states the Z-channel error-ball formulation and disjoint-ball criterion.",
+        "The supplied verifier checks, for every pair of length-five words, that disjoint one-error downward balls are equivalent to asymmetric distance at least two."
+      ],
+      "reasoning": "The candidate was compared in both standard formulations. The equality census is therefore not an artifact of a nonstandard distance convention.",
+      "searches": [
+        "binary asymmetric Z-channel length five one-error-correcting code maximum six equality classification",
+        "Z(5,2) asymmetric code exact 6 length 5 optimal codes classification",
+        "single asymmetric error correcting codes n=5 size 6 classification",
+        "arXiv:1209.0740v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A010101 records the length-five optimum value 6 for asymmetric distance two and cites the classical short-code literature.",
+        "The classical 1988 finite table agrees with the value 6."
+      ],
+      "reasoning": "The exact database/table evidence covers the maximum cardinality, so the new claim is deliberately narrowed to the complete set of maximizers and its three symmetry orbits.",
+      "searches": [
+        "OEIS A010101 asymmetric distance 2 length 5",
+        "binary length 5 asymmetric distance 2 120 optimal codes three orbits"
+      ]
+    },
+    "rationale": "The numerical optimum 6 is prior work and is not claimed as new. The checked sources and exact-parameter searches did not locate the 120-code labeled census or the three-orbit equality classification. The closest classical source supplies short-length optimum tables, while the later Z-channel source supplies the error-ball framework and bounds rather than the finite equality layer.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite census could contain the same 120-code or orbit classification.",
+      "The 1989 Weber thesis was not available in full text, so it remains a specifically identified bibliographic risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OPTIMUM_NOT_EQUALITY_CENSUS",
+        "evidence": "The source supports the classical optimum-size value but no inspected statement gives 120 maximizers or the three-orbit classification.",
+        "identifier_or_url": "doi:10.1109/18.21262",
+        "material_read": "Full article, including definitions, bounds, and short-length parameter tables.",
+        "method": "Full-text inspection.",
+        "title": "Bounds and constructions for binary codes of length less than 24 and asymmetric distance less than 6",
+        "trigger": "Exact short-block asymmetric-code parameter and possible finite table coverage."
+      },
+      {
+        "assessment": "NOT_COVERING_EQUALITY_CENSUS",
+        "evidence": "The paper states the disjoint asymmetric-ball criterion and reviews bounds, but does not state the length-five 120-code census or orbit data.",
+        "identifier_or_url": "arXiv:1209.0740v1",
+        "material_read": "Full text, with particular attention to Sections I--III and the cited classical asymmetric-code literature.",
+        "method": "Open full-text inspection.",
+        "title": "Nonuniform Codes for Correcting Asymmetric Errors in Data Storage",
+        "trigger": "Standard Z-channel definitions, error-ball equivalence, and broader bounds."
+      },
+      {
+        "assessment": "COVERS_OPTIMUM_NOT_EQUALITY_CENSUS",
+        "evidence": "The entry records the value 6 at length five; it does not enumerate equality cases.",
+        "identifier_or_url": "OEIS:A010101",
+        "material_read": "Entry value sequence and cited references.",
+        "method": "Database-entry inspection.",
+        "title": "OEIS A010101",
+        "trigger": "Exact database lookup for the length-five asymmetric-distance-two optimum."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK",
+        "evidence": "Its existence is confirmed by the classical references, but no claim of noncoverage is made without full text.",
+        "identifier_or_url": "J. H. Weber, Ph.D. thesis, Delft, 1989",
+        "material_read": "Bibliographic reference only; full text was not available in the inspected material.",
+        "method": "Bibliographic cross-check.",
+        "title": "Bounds and Constructions for Binary Block Codes Correcting Asymmetric or Unidirectional Errors",
+        "trigger": "Plausible historical source that could contain additional short-code enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "380ba574-04cc-413d-b3c6-94fb291e28ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification at a classical finite Z-channel parameter, not an arbitrary slice. The optimum value is already known, but equality is not rigid: the 120 optima split into three inequivalent symmetry types with different stabilizers. The exact equality layer therefore supplies a reusable finite benchmark for constructions, searches, and symmetry reductions in asymmetric coding.",
+    "status": "PASS"
+  }
+}
