@@ -1,0 +1,13 @@
+# Scientific review of the double-star average-mixing classification
+
+**Correctness — PASS.** The proof identifies all five distinct adjacency energies (four nonzero simple energies and a possibly absent zero energy), computes the zero projector including the small leaf cases, and writes the whole average mixing matrix as a sum of positive-semidefinite terms. The leaf-block eigenvalues and two-hub determinant give exact ranks, while explicit vectors and matching dimensions give the entire kernel. Direct projector reconstruction and numerical diagonalization check boundary cases. The infinite conclusion is analytical, not an inference from enumeration.
+
+**Originality — PASS, with residual risk.** Fan and Godsil [2] treat double-star adjacency state transfer, which neither determines the Cesàro mixing matrix nor its kernel. Coutinho, Godsil, Guo and Zhan [1] and the quantum-walk lecture notes [4] provide general average-mixing rank tools and identify strongly cospectral pair differences, but do not state the full two-parameter classification including singleton-leaf three-coordinate nullvectors. Coutinho and collaborators [3] provide exact computational machinery, not this family theorem. Mohan and collaborators [5] address Laplacian average-mixing trace; their full text was inaccessible, so an unindexed or incidental adjacency result remains a residual risk. Database and primary-literature searches did not locate an equivalent or stronger theorem, but negative search results alone do not establish novelty.
+
+**Value — PASS.** The result supplies a complete natural tree-family rank classification and exact kernel, with a sharp positive-definiteness boundary. In particular, highly degenerate zero adjacency spectra are compatible with full-rank mean mixing for unequal hub leaf counts at least three, whereas symmetric hubs, two-leaf modules and singleton-leaf constraints each have a different explicit nullspace mechanism. This gives structural information unavailable from a trace statistic or state-transfer criterion.
+
+**Scientific limitations.** The theorem assumes unweighted adjacency evolution; it does not address Laplacian evolution, arbitrary decorations or finite-time rates. The most recent related Laplacian paper could only be compared at abstract level. The verification script provides supportive finite checks. Further independent review and literature verification have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
+
+References: [1] arXiv:1709.03591; [2] arXiv:1206.0082; [3] arXiv:2208.08971; [4] Godsil, *Graph Spectra and Quantum Walks*, §§11.5, 13.5; [5] arXiv:2608.20739.

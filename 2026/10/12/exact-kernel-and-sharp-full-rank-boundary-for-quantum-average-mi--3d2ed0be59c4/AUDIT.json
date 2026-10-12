@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all positive integers p,q, the bipartite adjacency block has precisely two distinct positive squared singular values and their negatives, plus an explicit zero leaf-space projector. The Schur-square sum reduces to two rank-one squared-profile matrices and leaf-block Schur squares. Leaf-block eigenvalues (s-1)/s and (s-2)/s, together with the hub-profile determinant (p-q)/(4 Delta), settle all boundary cases and yield matching explicit complete kernel bases. Independently reconstructed spectral projectors and 144 independent finite matrices corroborate the proof; finite tests are not used to establish universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutinho et al., Irrational Quantum Walks (arXiv:2208.08971), §2: exact spectral-projector algorithms for any integral Hamiltonian; no parameter-uniform double-star rank statement.",
+        "Mohan et al., Laziness of Quantum Walks on Graphs (arXiv:2608.20739), available abstract: trace of Laplacian mixing on double stars, not adjacency rank or kernel."
+      ],
+      "reasoning": "A general exact-entry algorithm for individual graphs is not a proved uniform two-parameter nullspace classification. Laplacian and adjacency have different projectors on irregular double stars, and trace does not determine rank. The full 2026 paper was inaccessible, so an unobserved incidental adjacency result remains a residual risk.",
+      "searches": [
+        "\"rank\" \"average mixing\" \"double star\"",
+        "\"double star\" \"positive definite\" \"average mixing\"",
+        "arXiv:2208.08971 exact average-mixing algorithm for integral adjacency Hamiltonians",
+        "arXiv:2608.20739 Laplacian laziness on double stars"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.08971",
+      "arXiv:1709.03591",
+      "arXiv:1206.0082",
+      "Godsil, Graph Spectra and Quantum Walks, §§11.5,13.1,13.5",
+      "arXiv:2608.20739 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fan and Godsil (arXiv:1206.0082), §§2–4: classify pretty good state transfer and strongly cospectral vertices for double stars but not Cesàro mixing ranks.",
+        "Coutinho et al. (arXiv:1709.03591), §5: general rank inequalities and experimental tabulations, not the claimed full-parameter equality.",
+        "Godsil, Graph Spectra and Quantum Walks, §§11.5, 13.1, 13.5: transfer results and universal Schur-square/strong-cospectral formulas."
+      ],
+      "reasoning": "Perfect or pretty good transfer is a phase-sensitive pointwise time property and does not entail this precise long-time averaged kernel. General Schur-square and pair-difference theorems give ingredients, but their conclusions alone do not imply absence of all further kernel directions. The explicit hub-weight determinant and leaf-sector eigenvalue analysis supply those missing parameter-uniform implications.",
+      "searches": [
+        "site:arxiv.org \"double stars\" \"average mixing\" adjacency",
+        "arXiv:1206.0082 Pretty good state transfer on double stars",
+        "arXiv:2608.20739 Laziness of quantum walks on graphs Laplacian",
+        "arXiv:1709.03591 A New Perspective on the Average Mixing Matrix"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Coutinho et al. (arXiv:1709.03591), sections 2–5: average mixing is a Gram matrix for diagonal spectral compressions, with rank linked to commutants.",
+        "Godsil, Graph Spectra and Quantum Walks §13.5: a two-vertex difference is in the mixing kernel exactly for a strongly cospectral pair."
+      ],
+      "reasoning": "The commutant formulation is equivalent to the average-mixing rank problem abstractly but does not specify the full double-star kernel. The strongly-cospectral criterion explains only certain pair differences; at a singleton side the kernel has a three-coordinate relation, and full-rank for unequal large arms requires an additional rank calculation.",
+      "searches": [
+        "\"average mixing matrix\" \"double stars\" graph",
+        "\"double-star\" \"average mixing matrices\"",
+        "arXiv:1709.03591 sections 4-5 commutant rank and strongly cospectral equivalence",
+        "Godsil Graph Spectra and Quantum Walks section 13.5 strongly cospectral vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Coutinho et al. arXiv:1709.03591 Table 3 gives graph counts by rank for small bipartite orders, not an identity indexed by two arm sizes.",
+        "Targeted published-record similarity searches for exact double-star rank and kernel returned no identified directly covering result; adjacent hits concerned unrelated tree invariants or different quantum observables."
+      ],
+      "reasoning": "A tabulation by graph order does not imply the complete infinite rank and kernel formulas; neither exact arm-size indices nor an equivalent classification appeared in inspected tables. Failed retrieval of a matching table is not in itself a proof of novelty.",
+      "searches": [
+        "\"double star\" \"average mixing matrix\" \"rank\"",
+        "continuous-time quantum walk average mixing Schur square spectral projectors double star diameter three tree classification",
+        "arXiv:1709.03591 Table 3 aggregate bipartite graph rank counts"
+      ]
+    },
+    "rationale": "The closest primary work gives exact average mixing algorithms, rank frameworks or double-star state transfer; none of the inspected full-text materials states or logically immediately implies the complete unweighted-adjacency double-star kernel and sharp full-rank criterion. Exact source comparisons below distinguish this statement from pairwise strong cospectrality and Laplacian trace results; residual access and index risks are disclosed.",
+    "residual_risks": [
+      "The complete text of arXiv:2608.20739 was not accessible for inspection; its abstract describes a different Hamiltonian and observable but incidental overlap cannot be excluded.",
+      "Equivalent rank statements might appear under equitable quotient, broom/bistar or spectral-multiplicity terminology, or in unpublished research.",
+      "A general exact-entries algorithm can compute any finite instance; the claimed novelty is the uniform structural rank and full-kernel theorem, not the algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies a general exact spectral computation framework; no double-star rank/kernel classification in the examined material",
+        "evidence": "arXiv:2208.08971, pp. 1–5; formula for average mixing as sum of Schur squares.",
+        "identifier_or_url": "arXiv:2208.08971; DOI:10.1137/22M1521262",
+        "material_read": "Introduction and section 2, especially the projector formula and exact-entry algorithm",
+        "method": "Open full arXiv PDF; inspect relevant page content and mathematical statements",
+        "title": "Irrational quantum walks",
+        "trigger": "Qualifying mathematical-physics source and exact average-mixing computation"
+      },
+      {
+        "assessment": "Proves universal rank framework and inequalities; no two-parameter double-star nullspace theorem found",
+        "evidence": "arXiv:1709.03591, §5 and Table 3.",
+        "identifier_or_url": "arXiv:1709.03591; DOI:10.37236/7867",
+        "material_read": "Full paper introduction and sections 2–5; mathematical definitions, rank bounds, and tables",
+        "method": "Open arXiv PDF and inspect pages 2–9 with text and page images",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "Potential general rank/commutant domination"
+      },
+      {
+        "assessment": "Transfer theorem, not the rank or full kernel of long-time quantum average mixing",
+        "evidence": "arXiv:1206.0082, §§1–4; no average-mixing statement in indexed text.",
+        "identifier_or_url": "arXiv:1206.0082",
+        "material_read": "Abstract, introduction, quotient-spectrum arguments, strongly cospectral and transfer statements, and searched full-text index for average-mixing terminology",
+        "method": "Inspect full arXiv PDF text and relevant page images",
+        "title": "Pretty good state transfer on double stars",
+        "trigger": "Identical graph object and ordinary adjacency evolution"
+      },
+      {
+        "assessment": "Pairwise kernel directions follow in certain cases; not the full double-star classification, especially three-coordinate singleton-side relations",
+        "evidence": "Notes, pages 193–195, 215–216 and 221.",
+        "identifier_or_url": "https://homepages.dcc.ufmg.br/~gabriel/assets/files/coutinho-grafspec.pdf",
+        "material_read": "Sections 11.5, 13.1 and 13.5, including the hub and leaf transfer results and strong cospectral kernel theorem",
+        "method": "Inspect full PDF text at the specified sections and relevant page images",
+        "title": "Graph Spectra and Quantum Walks",
+        "trigger": "Broader reference explicitly treats double-star walks and average-mixing kernels"
+      },
+      {
+        "assessment": "Abstract is explicitly about Laplacian average-mixing trace, which does not directly entail adjacency nullity; cannot rule out incidental stronger results without full text",
+        "evidence": "arXiv:2608.20739 abstract, public 2026-08-21 record.",
+        "identifier_or_url": "arXiv:2608.20739",
+        "material_read": "Publicly accessible abstract only; complete text inaccessible after open-access attempts",
+        "method": "Inspect available article abstract and public bibliographic record; no unsupported full-text verdict",
+        "title": "Laziness of Quantum Walks on Graphs",
+        "trigger": "Recent article naming double stars and average mixing; plausible collision"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d2ed0be-59c4-4c2d-a944-4695948c1193",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The diameter-three double-star family is a recognized model for adjacency quantum state transfer. Its long-time mixing matrix has full rank precisely for distinct arm sizes at least three, despite an arbitrarily large zero-energy eigenspace. The theorem gives an exhaustive parameter boundary and explicit nullvectors for symmetric hubs, twin leaves and asymmetric singleton constraints, thereby resolving a natural complete classification rather than a chosen numeric example.",
+    "status": "PASS"
+  }
+}
