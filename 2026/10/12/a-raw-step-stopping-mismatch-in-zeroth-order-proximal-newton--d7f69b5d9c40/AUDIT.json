@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The source definitions, assumptions, Algorithms 1--2, Lemmas 2.4--2.5, and Theorem 3.3 were reconstructed from the full text. On the scalar quadratic the central difference is exact, the first FISTA update is d_0=-epsilon/2, its subproblem residual is exactly zero, and the printed outer stopping rule fires. With the stated parameters, underline t=1/4 and Theorem 3.3(i) allows Delta<=epsilon/42, so Delta=epsilon/100 is compliant. The returned stationarity residual is exactly 3epsilon/2. Exact rational replay independently checks these identities within the package.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1007/s10589-023-00515-x"
+      ],
+      "reasoning": "The predecessor has broader qualitative scope about misleadingly small damped steps, but it does not cover the source-specific theorem implication tested here. Its scaled criterion depends on its own damping and forcing quantities rather than the ZOPN Lemma 2.5 bound.",
+      "searches": [
+        "inexact proximal Newton small update norm damping stopping criterion",
+        "proximal Newton scaled stopping criterion stationarity residual"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.06016v1",
+      "DOI:10.48550/arXiv.2605.06016",
+      "DOI:10.1007/s10589-023-00515-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.06016v1",
+        "DOI:10.1007/s10589-023-00515-x"
+      ],
+      "reasoning": "The primary source supplies the exact raw stop, output rule, stationarity bound, and theorem radius bound but does not state the counterexample. The older inexact-proximal-Newton warning makes the mechanism plausible, yet cannot derive the exact first-iteration construction, the epsilon/42 radius compatibility, or the contradiction with the 2026 theorem statement without the new source-specific calculation.",
+      "searches": [
+        "\"A Unified Zeroth-Order Proximal Newton-Type Framework\" stopping criterion epsilon stationarity",
+        "\"2605.06016\" correction erratum stopping criterion",
+        "\"proximal Newton\" \"small step\" stationarity stopping criterion inexact subproblem",
+        "\"proximal Newton\" step norm stationarity residual bound Hessian",
+        "\"2605.06016\" ZOPN Algorithm 1 raw step norm epsilon stopping theorem 3.3",
+        "zeroth order proximal Newton exact central difference scalar quadratic premature stop H0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.06016v1, Algorithms 1--2 and Lemma 2.5",
+        "DOI:10.1007/s10589-023-00515-x, stopping-criterion discussion"
+      ],
+      "reasoning": "The closest alias class is small-step stopping versus stationarity in proximal Newton methods. The older paper establishes a damping-related generic warning, whereas the present claim is a literal counterexample to the 2026 ZOPN raw threshold under exact gradient estimation and its own complexity-radius condition.",
+      "searches": [
+        "\"A Unified Zeroth-Order Proximal Newton-Type Framework\" stopping criterion epsilon stationarity",
+        "\"2605.06016\" correction erratum stopping criterion",
+        "\"proximal Newton\" \"small step\" stationarity stopping criterion inexact subproblem",
+        "\"proximal Newton\" step norm stationarity residual bound Hessian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No implication-equivalent published finding was located in the searched records; primary source formulas were inspected directly."
+      ],
+      "reasoning": "The claim is not a recomputation of a tabulated invariant or benchmark value. It is an analytic compatibility check between a stopping rule and a theorem in a specific new algorithm.",
+      "searches": [
+        "arXiv:2605.06016 stopping theorem counterexample",
+        "ZOPN epsilon stationary raw step"
+      ]
+    },
+    "rationale": "Searches found no published statement that identifies this exact stopping/theorem mismatch for arXiv:2605.06016v1 or gives this scale-invariant first-iteration witness. The closest substantive predecessor gives a generic warning that damping can make inexact proximal-Newton steps misleadingly small; it neither analyzes this zeroth-order algorithm nor implies the exact theorem-compatible witness.",
+    "residual_risks": [
+      "A generic small-step-stopping pitfall is established in earlier proximal-Newton literature, so originality is limited to the exact source-specific theorem/algorithm mismatch and witness.",
+      "A future revision of the 2026 preprint could alter the stopping rule or distinguish the algorithmic threshold from the theorem target; this claim is version-specific to v1."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source does not cover the counterexample. Its proof obtains a smaller step at an existential iterate before applying Lemma 2.5, while the printed algorithm may terminate earlier at the larger raw threshold.",
+        "evidence": "Algorithms 1--2 stop at ||d_k||<=epsilon and output x_k+d_k; Lemma 2.5 scales the step by L_f+(2-gamma)bar{kappa} and adds kappa_eg Delta; Theorem 3.3 states epsilon-stationarity under (3.10).",
+        "identifier_or_url": "arXiv:2605.06016v1",
+        "material_read": "Assumptions 1.1 and 2.1--2.2; central-difference formula; subproblem and residual conditions; Lemmas 2.4--2.5; Algorithms 1--2; Theorem 3.3 and its proof; BFGS initialization discussion.",
+        "method": "Full-text HTML inspection at formula and algorithm-line level.",
+        "title": "A Unified Zeroth-Order Proximal Newton-Type Framework for Composite Optimization",
+        "trigger": "Primary source with the same algorithm, tolerance, stationarity claim, and Hessian/gradient assumptions."
+      },
+      {
+        "assessment": "Conceptually related and broader as a warning, but not covering the exact 2026 ZOPN stopping/theorem mismatch or the theorem-compatible scalar witness.",
+        "evidence": "The paper explicitly warns that a small update can occur far from optimality because of damping and proposes a method-specific scaled step criterion.",
+        "identifier_or_url": "DOI:10.1007/s10589-023-00515-x",
+        "material_read": "Stopping-criterion discussion explaining that small inexact update norms can result from large damping and motivate a scaled criterion.",
+        "method": "Full-text HTML inspection of the stopping-criterion section.",
+        "title": "Inexact proximal Newton methods in Hilbert spaces",
+        "trigger": "Closest published discussion found on small-step stopping in an inexact proximal Newton method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7f69b5d-9c40-4060-a2bc-960eba0cf7cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mismatch directly affects what the printed algorithm certifies at termination and the interpretation of its nonconvex epsilon-stationarity complexity theorem. The witness is deliberately minimal—strongly convex, one-dimensional, exact-gradient, exact-inner-solve—so it isolates the stopping rule rather than numerical noise. The same source supplies a simple mathematically justified repair through Lemma 2.5.",
+    "status": "PASS"
+  }
+}
