@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A physical two-mode state is parity block diagonal. Every normalized pure vector in either two-dimensional parity block is obtained from a Gaussian Fock state by an explicit determinant-one matchgate block, so spectral decomposition makes every physical mixed state convex-Gaussian. The source's parity-preserving unitary plus local depolarization preserves parity superselection. Therefore its written local set-preservation channel property holds for the entire family. At SWAP and \\(p=0\\), the source's own \\(\\eta=1\\) and Eq. (36) give \\(C_+=1\\), while it states \\(C_-=0\\), directly contradicting Eq. (35).",
+    "sources": [
+      "arXiv:2609.09467v1 Sections II.1.3, II.1.5, III, Appendix A",
+      "arXiv:1406.1577v1 introduction and Eqs. (3)--(5)"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 paper proves the convex-Gaussian concurrence criterion for four-mode states, not a channel-Choi equivalence.",
+        "Broader fermionic simulation literature treats Gaussian decompositions and non-Gaussian resources but does not make the source's local two-mode channel definition nontrivial."
+      ],
+      "reasoning": "A stronger theorem covering the present claim would need to imply that local preservation on two modes is equivalent to a four-mode Choi property. The inspected broader state-resource results do not do so; instead the first-nontrivial-four-mode observation supports the state-space collapse used in the counterexample.",
+      "searches": [
+        "convex Gaussian channel Choi state fermionic linear optics",
+        "four-mode Choi concurrence stronger ancilla-sensitive complete convex Gaussian channel",
+        "Classical simulation of fermionic linear optics augmented with noisy ancillas arXiv:1406.1577 full text",
+        "Classical simulation of non-Gaussian fermionic circuits arXiv:2307.12912"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.09467v1",
+      "arXiv:1406.1577v1",
+      "arXiv:2307.12912v3",
+      "pith:CMOJ3IHM"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 theorem implies that four-mode convex-Gaussianity is nontrivial and supplies a concurrence criterion; it does not itself apply that theorem to channels.",
+        "The 2026 public review says the channel-Choi equivalence needs proof, which is weaker than showing a concrete channel for which the two sides disagree."
+      ],
+      "reasoning": "The new claim is not a corollary of the prior criticism alone: it adds a complete two-mode state-space argument and an explicit internal counterexample using the source's SWAP concurrence formula. Conversely, the new claim does not dominate the four-mode state theorem; it only corrects its use as a criterion for the source's written local channel definition.",
+      "searches": [
+        "arXiv 2609.09467 every physical two-mode fermionic state convex Gaussian stated channel definition SWAP p=0 Choi concurrence contradiction",
+        "two-mode fermionic channels convex Gaussian property vacuous all physical states convex combinations Gaussian",
+        "SWAP noiseless convex Gaussian channel definition Choi concurrence Eq. 35 fermionic",
+        "arXiv:1406.1577v1 lines identifying four modes as first non-trivial case",
+        "pith:CMOJ3IHM major comment on Eq. (35)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allison--Coffman define channel convex-Gaussianity by local preservation of convex-Gaussian states, then equate it with four-mode Choi concurrence vanishing.",
+        "Oszmaniec--Gutt--Kuś identify four modes as the first non-trivial convex-Gaussian state case and state that two- and three-mode even pure states are Gaussian."
+      ],
+      "reasoning": "The exact equivalent formulation checked was whether the written local set-preservation property had already been recognized as automatic on two modes, or whether the Choi condition had already been distinguished as a stronger complete/ancilla-sensitive property. No retrieved source stated the two-mode vacuity theorem or the explicit SWAP-at-zero-noise contradiction.",
+      "searches": [
+        "fermionic Choi state convex Gaussian channel equivalence concurrence local depolarizing parity preserving gate",
+        "fermionic convex Gaussian channel Choi state equivalence two modes",
+        "two-mode fermionic channels convex Gaussian property vacuous all physical states convex combinations Gaussian",
+        "arXiv:2609.09467v1 Sections II.1.5 and III; Eq. (35)",
+        "arXiv:1406.1577v1 Eqs. (3)--(5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No semantic-index hit was about arXiv:2609.09467 or the SWAP \\(p=0\\) contradiction.",
+        "The closest public technical review flags Eq. (35)'s state-to-channel step as unproved, but does not give the two-mode vacuity proof or an explicit counterexample."
+      ],
+      "reasoning": "There is no known database table for this definition-level issue. Exact identifier and claim searches were therefore used. The closest indexed records were mathematically unrelated; the external review is only partial prior coverage because it reports a proof gap rather than falsity under the written definition.",
+      "searches": [
+        "arXiv 2609.09467 every physical two-mode fermionic state convex Gaussian stated channel definition SWAP p=0 Choi concurrence contradiction",
+        "SWAP noiseless convex Gaussian channel definition Choi concurrence Eq. 35 fermionic",
+        "arXiv:2609.09467 correction",
+        "pith:CMOJ3IHM"
+      ]
+    },
+    "rationale": "The four-mode state criterion is prior art and is not claimed as new. A public technical review already noted that the state-to-channel step in Eq. (35) lacked a proof. The accepted claim is the stronger explicit result that the equivalence is false under the written local channel definition, with a complete two-mode state-space proof and the noiseless-SWAP counterexample. Exact-identifier, alias, implication, broader-coverage, semantic-index searches did not locate this counterexample or an equivalent published correction.",
+    "residual_risks": [
+      "An author note, unindexed correction, or unpublished manuscript may already make the same explicit counterexample.",
+      "The authors may have intended 'convex Gaussian channel' to mean a stronger ancilla-stable resource-nongenerating notion. If so, the mathematical correction is a mismatch between the written definition and the Choi criterion rather than a refutation of the stronger intended notion.",
+      "The ordered MSC metadata was verified through the paper's public classification record; arXiv itself exposes only the quant-ph subject category."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper explicitly defines a local set-preserving channel notion and then asserts equivalence with a four-mode Choi-state concurrence condition. Its own SWAP formula supplies the right-hand-side failure at zero noise.",
+        "evidence": [
+          "arXiv:2609.09467v1 II.1.3, II.1.5, III Eqs. (35)--(37), Appendix A"
+        ],
+        "identifier_or_url": "arXiv:2609.09467v1",
+        "material_read": "Full HTML: parity-superselection definition; fermionic convex-Gaussian channel definition; Choi construction; Eqs. (33)--(37); Appendix A gate parameterization.",
+        "method": "Line-by-line statement and implication comparison against the reconstructed two-mode state-space proof.",
+        "title": "Noise Limits on Fault-Tolerant Fermionic Quantum Computing",
+        "trigger": "Direct source whose Eq. (35) and noise-threshold interpretation are tested."
+      },
+      {
+        "assessment": "It proves a four-mode state criterion and explicitly calls four modes the first non-trivial convex-Gaussian state case. It does not state the channel-Choi equivalence used by the 2026 paper.",
+        "evidence": [
+          "arXiv:1406.1577v1 lines 35--37 and Eqs. (3)--(5)"
+        ],
+        "identifier_or_url": "arXiv:1406.1577v1",
+        "material_read": "Full HTML through the convex-Gaussian definitions, first-nontrivial-dimension statement, Eqs. (3)--(5), and the start of the criterion proof.",
+        "method": "Checked whether the paper states a channel-Choi equivalence or only a state criterion, and whether its dimensional statement covers the two-mode state-space premise.",
+        "title": "Classical simulation of fermionic linear optics augmented with noisy ancillas",
+        "trigger": "Cited source for the four-mode concurrence criterion and closest structural prior work."
+      },
+      {
+        "assessment": "The review flags the equivalence as unverified but does not prove it false under the written definition and does not exhibit the SWAP zero-noise contradiction. Thus it is partial but non-covering prior discussion.",
+        "evidence": [
+          "pith:CMOJ3IHM major comment 1; classification MSC 81P68 81P45"
+        ],
+        "identifier_or_url": "pith:CMOJ3IHM",
+        "material_read": "Desk verdict and major comment concerning the channel-Choi implication; classification metadata.",
+        "method": "Compared the review's stated proof gap with the accepted explicit counterexample.",
+        "title": "Pith review of Noise Limits on Fault-Tolerant Fermionic Quantum Computing",
+        "trigger": "Closest discovered public critical discussion of Eq. (35), also carrying ordered MSC metadata."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed89ca2d-8f0b-4b13-ae05-5227e0e3c897",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Eq. (35) is the logical bridge from a four-mode Choi calculation to the claimed two-mode channel resource threshold and depth-independent fault-tolerance interpretation. Showing that the written local property is automatic on two modes is therefore a structural correction, not a cosmetic normalization issue. It pinpoints the exact repair needed: distinguish local state-set preservation from an ancilla-sensitive channel resource notion before the Choi threshold can carry the advertised interpretation.",
+    "sources": [
+      "arXiv:2609.09467v1 abstract, Introduction, Sections II.1.5 and III",
+      "arXiv:1406.1577v1 first-nontrivial-four-mode statement"
+    ],
+    "status": "PASS"
+  }
+}
