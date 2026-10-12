@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The exact independent-chi-square representation and exact F moments yield moving endpoints with explicit first-order shifts. Taylor expansion of the conditional chi-square CDF in the normalized denominator uses exact central moments through order four; on a fixed neighborhood the derivatives are bounded and the complement is exponentially small. The endpoint algebra gives the signed coefficients \\(\\pm2\\sqrt{2d}\\,f_d(d\\pm\\sqrt{2d})\\), so subtraction yields the positive coefficient and an \\(O_d(m^{-2})\\) remainder. The packaged numerical replay is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published published-finding corpus record 2026/9/18/SCOPE-satterthwaite-transform-gaps-metric-lower-bounds--883f5d776ec4 concerns weighted-Gamma approximation in transform and smooth metrics, not F central probabilities.",
+        "General F references located by public search give the chi-square ratio representation and limiting relation but not the moving one-standard-deviation coefficient."
+      ],
+      "reasoning": "General approximation results checked do not dominate the exact central-probability statement because both the distribution and the interval endpoints vary with the denominator degree.",
+      "searches": [
+        "F distribution standardized central probability one standard deviation large denominator degrees asymptotic chi-square",
+        "F distribution central mass mean variance chi-square benchmark asymptotic expansion",
+        "\"F distribution\" asymptotic expansion \"chi-square\" denominator degrees of freedom 1/m"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.13615v1",
+      "arXiv:2303.17487v1",
+      "published-finding corpus 2026/9/18/SCOPE-satterthwaite-transform-gaps-metric-lower-bounds--883f5d776ec4",
+      "published-finding corpus 2026/9/19/SCOPE-gamma-sum-quantile-curvature-and-median-endpoint-rates--bd16316e417a",
+      "own current-week ledger through g000043",
+      "own prior-week ledger through g000059",
+      "public searches for F-to-chi-square first-order central-probability expansions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own prior numerator-degree-5 result proves a complete statement only for numerator degree \\(5\\); the new claim excludes it.",
+        "arXiv:2305.13615v1 resolves numerator degrees \\(1\\) through \\(4\\) and its Section 5 discusses the unresolved higher-degree range.",
+        "arXiv:2303.17487v1 supplies the Gamma/chi-square normal benchmark but no finite-denominator F correction."
+      ],
+      "reasoning": "Neither the special numerator degree \\(5\\) theorem nor the chi-square limit determines the sign and coefficient for any fixed numerator degree \\(d\\ge6\\).",
+      "searches": [
+        "own ledger: F(5,d) one-standard-deviation central probability monotonicity chi-square benchmark",
+        "arXiv:2305.13615v1 Theorem 1.2 and Section 5",
+        "arXiv:2303.17487v1 Gamma one-standard-deviation infimum normal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.13615v1 proves the full F comparison for numerator degrees 1 through 4 and treats degrees at least 5 as the remaining range.",
+        "Candidate-specific published-finding corpus searches did not return an F-to-chi-square one-standard-deviation expansion with the endpoint-density coefficient."
+      ],
+      "reasoning": "Weak convergence to the chi-square endpoint and the paper's finite-degree comparison are not equivalent to a signed first-order expansion of a moving mean-plus/minus-standard-deviation interval.",
+      "searches": [
+        "F distribution large denominator one-sigma central probability positive first order chi-square density endpoint correction",
+        "F(d,m) central probability mean standard deviation asymptotic m infinity chi square endpoint density",
+        "variation comparison F distribution chi-square large d2 first order correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published-finding corpus record or public reference supplied the coefficient consisting of \\(2\\sqrt{2d}\\) times the sum of the two chi-square endpoint densities.",
+        "Verification values are recomputed from regularized beta and gamma functions, not copied from a table."
+      ],
+      "reasoning": "Probability tables do not imply the analytic coefficient or eventual strict sign for all sufficiently large denominator degrees.",
+      "searches": [
+        "2 sqrt(2d) chi square density F distribution central probability correction",
+        "\"F-distribution\" \"one standard deviation\" \"chi-square\" asymptotic",
+        "\"F_{d1,d2}\" \"chi-square\" central probability asymptotic"
+      ]
+    },
+    "rationale": "The direct F source settles numerator degrees 1 through 4 and leaves higher degrees for further work; it states convergence to the chi-square endpoint but no first-order direction. An own prior result handles numerator degree 5 and is excluded. published-finding corpus and public searches for aliases and exact coefficient forms found no covering statement. Residual risk remains for a general F-CDF expansion under different terminology.",
+    "residual_risks": [
+      "A broad asymptotic expansion for F distribution functions not surfaced by the searches might imply the coefficient after specializing to the moving interval.",
+      "The theorem is pointwise in the numerator degree and does not settle a uniform threshold or the complete conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new asymptotic coefficient.",
+        "evidence": "The paper proves the conjecture for numerator degrees 1 through 4, records the chi-square limit for fixed numerator degree, and leaves higher-degree inequalities as the remaining problem.",
+        "identifier_or_url": "arXiv:2305.13615v1",
+        "material_read": "Abstract, introduction, Theorem 1.2, exact F moments and ratio representation, and final Section 5 for numerator degrees at least 5.",
+        "method": "Full-text arXiv PDF inspection with page-level visual inspection of the title/classification page and the Section 5 opening page.",
+        "title": "Variation comparison between the F-distribution and the normal distribution",
+        "trigger": "Direct source defining the conjecture and closest fixed-parameter comparison."
+      },
+      {
+        "assessment": "SUPPORTING but NOT_COVERING.",
+        "evidence": "It supplies the normal benchmark for Gamma and hence chi-square laws, but no finite-denominator F expansion.",
+        "identifier_or_url": "arXiv:2303.17487v1",
+        "material_read": "ArXiv abstract and metadata stating the Gamma-family one-standard-deviation infimum.",
+        "method": "ArXiv abstract inspection.",
+        "title": "The extreme values of two probability functions for the Gamma distribution",
+        "trigger": "Benchmark source cited by the F paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "141a6029-fe60-4a93-a9bc-0dfe604e0649",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies higher numerator degrees as its obstruction. The new result determines the missing direction of approach to the chi-square endpoint for every fixed degree \\(d\\ge6\\), with a closed positive first-order margin, and therefore proves a nontrivial sufficiently-large-denominator region of the conjecture for every such degree. Weak convergence alone does not provide this information.",
+    "status": "PASS"
+  }
+}
