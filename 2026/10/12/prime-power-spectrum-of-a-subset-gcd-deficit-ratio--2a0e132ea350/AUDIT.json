@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=2, a forbidden gcd is at least its least obstruction. Counting nonempty subsets of multiples of that obstruction and using a union bound gives exact two-sided powers-of-two estimates, with the extra unit accounting for the empty subset. Taking logarithms yields the uniform O(log n/n) exponent comparison. The r=k fiber is exactly divisible by L_(k-1) but not L_k; lcm increases exactly at prime powers. The least-prime fibers have the stated finite inclusion-exclusion densities. Both missing tails tend to zero, proving weak convergence. Even/odd bounds follow globally. The standalone stdlib checker independently enumerated subset gcds for n<=16, used Möbius counts and bounds for n<=1500, and confirmed exact finite arithmetic fibers for n<=200000; it is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pongsriiam (2015/2016), Theorem 9 proves D(2m)>Phi(2m) and D(2m+1)<Phi(2m+1) for m>=2.",
+        "Łydka (2019), §§2–3 prove log-concavity and related g-function quotient properties rather than the stated D/Phi defect measure.",
+        "No broader statement including the explicit atom weights was found in the inspected relevant literature."
+      ],
+      "reasoning": "The 2015 sign theorem implies only that the positive ratio is below or above 1 according to parity, not that it goes exponentially to 0 or infinity or has the asserted atomic log-scale law. The later work treats different functions and does not imply these measures.",
+      "searches": [
+        "Pongsriiam 2015 \"Local behaviors of the number of relatively prime sets\" Theorem 9",
+        "arXiv:1910.02418v1 full text, §§1–3",
+        "limiting distribution of logarithmic ratio (2^n-D(n))/(2^n-Phi(n)) for relatively prime subsets gcd-divisor sums; Pongsriiam question 3.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1306.4891v1",
+      "JIS 16 (2013), Article 13.9.1",
+      "DOI:10.1142/S1793042116500962",
+      "arXiv:1910.02418v1",
+      "OEIS:A224840",
+      "OEIS:A038199"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013: definitions, identities and questions; no first-public theorem gives spectral atoms.",
+        "2015/2016: strict alternating D−Phi inequality, not a quantitative defect ratio distribution.",
+        "2019: different log-concavity inequalities; no requested ratio results."
+      ],
+      "reasoning": "The older exact counting identities are used as definitions and a starting point, not an equivalent formulation of the theorem. To obtain the new result, one must prove two localized exponential bounds, identify the least nondivisor as a prime power, count its lcm-fibers and the least-prime-fibers, and control both tails. Published sign-only results do not logically give exponential escape or its limiting measure. Standard elementary facts are used openly, not represented as novel.",
+      "searches": [
+        "arXiv:1306.4891v1 §§1–4 and Question 3.3",
+        "Pongsriiam (2015/2016), Theorem 9 proof",
+        "Łydka arXiv:1910.02418v1 §§1–3",
+        "\"gcd(A) divides n\" \"least\" asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pongsriiam (2013), closing Question 3.3, explicitly asks for extreme limits of this ratio.",
+        "Pongsriiam (2013), Corollary 9, identifies the same gcd-divisor subset count.",
+        "Identified papers do not present this logarithmic empirical measure or its prime-power/odd-prime weights."
+      ],
+      "reasoning": "The exact object and its reciprocal share notation with prior work; the new statement is stronger than sign or finite-value equality. Its content is a uniform exponent estimate followed by a complete probability law with explicit masses, plus exponential parity separation. The 2013 question states the limiting comparison as open rather than answering it.",
+      "searches": [
+        "Pongsriiam ratio 2^n-D(n) 2^n-Phi(n) limsup liminf question 3.3 solved",
+        "\"D(n)\" \"Phi(n)\" \"limsup\" \"relatively prime\" subset Pongsriiam",
+        "arXiv:1306.4891v1, Question 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A224840 lists the divisor-sum count and sample values, cites arXiv:1306.4891, and provides finite tables and code.",
+        "The direct formulas permit computing finitely many values, but no limiting distribution or infinite parity rate is recorded."
+      ],
+      "reasoning": "A finite database listing of D(n) cannot establish the asserted infinite limiting probability law, and no exact table annotation supplies the spectrum or the two asymptotic extremes.",
+      "searches": [
+        "OEIS A224840 divisor sum of arithmetic function A085945",
+        "OEIS A038199 relatively prime subsets",
+        "\"least nondivisor\" \"relatively prime\" \"subsets\" D(n)"
+      ]
+    },
+    "rationale": "The 2013 primary source expressly poses the ratio limit as a question. The strongest directly adjacent inspected 2015 result proves only an alternating sign, and a 2019 follow-up treats different f/g ratio inequalities. OEIS A224840 tabulates the counts without the prime-power and prime atomic law. Exact mathematical implication comparisons found no covering theorem in the identified literature. Residual risk of unindexed proofs is acknowledged.",
+    "residual_risks": [
+      "Earlier unindexed derivations of the same logarithmic atom law may exist; absence from retrieved sources is not a guarantee of novelty.",
+      "The 2013 and 2015 sources contain elementary formulas and sign bounds; these are not the same theorem, but a related argument may have been stated elsewhere."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the ratio and asks for its extrema; does not state the logarithmic prime-power distribution or exponential parity rates.",
+        "evidence": [
+          "Section 4 gcd-divisor counting interpretation; Question 3.3 lists limsup and liminf of (2^n-D(n))/(2^n-Phi(n)."
+        ],
+        "identifier_or_url": "arXiv:1306.4891v1; https://arxiv.org/html/1306.4891v1",
+        "material_read": "Author full arXiv v1 HTML sections 1–4, closing Questions 3.1–3.5, and journal PDF treatment of Corollary 9 and references.",
+        "method": "Read the primary full-text mathematical definitions, theorem statements, comparison identities and explicit question.",
+        "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+        "trigger": "Exact source defining D and Phi and explicitly posing ratio limit question."
+      },
+      {
+        "assessment": "Theorem 9 proves sign alternation of D−Phi but does not imply exponential separation or the atomic limiting measure.",
+        "evidence": [
+          "Theorem 9 and proof give D(2m)>Phi(2m) and D(2m+1)<Phi(2m+1) for m>=2."
+        ],
+        "identifier_or_url": "DOI:10.1142/S1793042116500962; https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+        "material_read": "Accessible author full text, introduction, Theorem 9 and its proof, related lemma and corollary context.",
+        "method": "Read the stated hypotheses and proved inequalities and compare their implications for the ratio.",
+        "title": "Local behaviors of the number of relatively prime sets",
+        "trigger": "Same author, same functions, directly resolves a nearby sign question."
+      },
+      {
+        "assessment": "Results concern f and g inequalities, not logarithmic D/Phi deficit ratios.",
+        "evidence": [
+          "Sections 2 and 3 address generalized f-log-concavity and ratios of g on progressions."
+        ],
+        "identifier_or_url": "arXiv:1910.02418v1; https://arxiv.org/html/1910.02418v1",
+        "material_read": "Full 7-page arXiv HTML, including introduction, proofs in sections 2 and 3, and stated questions.",
+        "method": "Inspected text and theorem targets for a D/Phi defect ratio or atom-distribution implication.",
+        "title": "On some properties of the function of the number of relatively prime subsets",
+        "trigger": "2019 paper claims to solve several earlier problems about related subsets."
+      },
+      {
+        "assessment": "Records same object and finite calculations, no logarithmic limit law.",
+        "evidence": [
+          "Comment identifies count of subsets with gcd dividing n; formula gives divisor sum and finite table."
+        ],
+        "identifier_or_url": "https://oeis.org/A224840",
+        "material_read": "Sequence definition, values, comments, links, formulas, programs, references and cross-references.",
+        "method": "Read the relevant complete sequence entry and compare to the infinite theorem.",
+        "title": "OEIS A224840: divisor sum of A085945",
+        "trigger": "Database entry of exact counted sequence; inspect whether theorem is known as annotation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a0e132e-a350-4ea4-8e8d-cef398f34e13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact atom-and-weight distribution determines a natural invariant of a ratio explicitly singled out in a published open question, with no input-size restriction. It completely identifies the negative prime-power and positive odd-prime regimes and supplies quantitative exponential bounds proving both extreme limits. This exceeds finite tabulation, a textbook normalization check, and sign-only comparisons; no unsolved summatory claim is asserted.",
+    "status": "PASS"
+  }
+}
