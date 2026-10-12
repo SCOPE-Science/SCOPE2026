@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The step-(1) Pell shift formula follows from two initial values and recurrence. The normalized square-period gcd is supported entirely on 7 and has at most one 7 factor, by an explicit modular recurrence argument. Telescoping gives 64F0 congruent 5k mod Qk; Pell norm excludes 5 and 7-adic lifting eliminates the extra 7. This proves the quantified formula for every odd k and every n, not just checked finite windows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2204.12626 involves homogeneous recurrence G_n=G_{n-1}+G_{n-2}, not the affine cobalancing recurrence",
+        "arXiv:2301.05758v3 explicitly leaves cobalancing square-window closed forms as Question 30"
+      ],
+      "reasoning": "The general Fibonacci formula has distinct recurrence coefficients and seed class. The subject paper provides only numerical observations and a divisibility by four, not the sharp odd-k gcd.",
+      "searches": [
+        "web: GCD sums squares cobalancing associated Pell 2024 2025",
+        "arXiv:2204.12626 generalized Fibonacci square-window gcd"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.05758v3",
+      "J. Integer Sequences 26(2023), 23.6.4",
+      "arXiv:2204.12626",
+      "doi:10.3934/era.2024097",
+      "published-finding corpus semantic searches (three queries; closest Pell IDs in prior_checks)",
+      "Own current and initialization ledgers for duplicate claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source directly asks for the same type of gcd",
+        "Its stated partial result covers P² and Q², not cobalancing b²",
+        "published-finding corpus neighboring hits discuss Pell digit extraction, Pell solutions, or gcds of different divisor functions"
+      ],
+      "reasoning": "The present formula specializes exactly to one natural half of the open cobalancing case; neither prior source entails it, as the affine recurrence carries a nontrivial constant and seven-adic square-period effect.",
+      "searches": [
+        "arXiv:2301.05758v3 §6.1 Question 30",
+        "arXiv:2204.12626 abstract and formula",
+        "published-finding corpus: cobalancing squares odd k Q_k formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.05758v3 Section 6.1 Question 30 does not provide an odd-k formula",
+        "published-finding corpus nearest Pell hits concern different summatory or recurrence invariants"
+      ],
+      "reasoning": "The statement concerns gcd of the full family of length-k square windows, not gcd of two neighboring terms or unsquared windows. No inspected result implies the explicit 4*gcd(k,Q_k) value.",
+      "searches": [
+        "published-finding corpus: For odd k GCD over all n of sums of k consecutive squares of cobalancing numbers b_n equals 4 gcd(k,Q_k) associated Pell sequence",
+        "web: cobalancing consecutive squares gcd odd; gcd squares cobalancing Q_k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected table supplies the odd-k formula; source [1] records a congruence b²(k)=0 mod4 only",
+        "The locally generated 251-length diagnostic data match the symbolic theorem"
+      ],
+      "reasoning": "The computed tests are original verification rather than a rediscovery of a checked exact table; unpublished private records are not available for comparison.",
+      "searches": [
+        "web: cobalancing b^2(k) gcd",
+        "web: cobalancing squares consecutive gcd odd k",
+        "published-finding corpus: Mbirika Schrader Spilker Question 30 cobalancing squares gcd k consecutive"
+      ]
+    },
+    "rationale": "The focal primary work asks Question 30 for cobalancing-square gcd and proves only divisibility by four. The related homogeneous Fibonacci square theorem does not cover the affine Pell-type cobalancing recurrence. Actual published-finding corpus and web searches found no equivalent or stronger statement in the checked material; originality is provisional against unindexed works.",
+    "residual_risks": [
+      "A later or unindexed equivalent computation of the odd-length cobalancing-square gcd could exist.",
+      "The 2022 generalized Fibonacci work was compared at the abstract/theorem level, not exhaustively searched full text; its specific recurrence cannot directly imply the affine cobalancing claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same invariant and leaves its cobalancing-square closed form open, recording only 4-divisibility",
+        "evidence": "Section 6.1, Question 30, and opening braid identities",
+        "identifier_or_url": "arXiv:2301.05758v3; https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+        "material_read": "Abstract, definitions/recurrences, explicit cobalancing and balancing identities, Section 6.1 full page and references; 24-page PDF text search for square-window statements",
+        "method": "Primary arXiv metadata and publisher-hosted open PDF, textual search and inspected page-image 22",
+        "title": "Pell and associated Pell braid sequences as GCDs of sums of k consecutive Pell, balancing, and related numbers",
+        "trigger": "Directly posed square-window gcd Question 30"
+      },
+      {
+        "assessment": "No claim concerning affine cobalancing recurrence; not implication-equivalent",
+        "evidence": "Generalized Fibonacci recurrence G_n=G_{n-1}+G_{n-2}",
+        "identifier_or_url": "arXiv:2204.12626",
+        "material_read": "Primary abstract, recurrence hypotheses, exact formula and bibliography metadata",
+        "method": "ArXiv mirror abstract and theorem statement",
+        "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+        "trigger": "Potential dominating earlier square-window gcd theorem"
+      },
+      {
+        "assessment": "Confirms cobalancing recurrence, not square-window gcds",
+        "evidence": "Definition 2.4",
+        "identifier_or_url": "https://doi.org/10.3934/era.2024097",
+        "material_read": "Definitions 2.3-2.4 and first recurrence excerpt",
+        "method": "Open publisher text",
+        "title": "Global stability and co-balancing numbers in a system of rational difference equations",
+        "trigger": "Independent cobalancing sequence normalization source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "11cd03c1-9bb6-493a-887b-934d6805520e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines an infinite, mathematically distinguished parity class of a specifically posed square-window gcd problem by a closed expression in associated Pell numbers. It sharpens mere 4-divisibility and exposes a genuine seven-adic exception mechanism; not an arbitrary numerical cutoff or simple substitution.",
+    "status": "PASS"
+  }
+}
