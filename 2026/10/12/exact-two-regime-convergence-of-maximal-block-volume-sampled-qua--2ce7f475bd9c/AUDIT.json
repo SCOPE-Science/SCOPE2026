@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "evidence": [
+      "Analytical RESULT.md steps 1--5",
+      "verify.py: 1147 exact rational checks on four SPD matrices"
+    ],
+    "rationale": "For SPD H, complementary principal minors exactly give omitted-label probabilities G_ii/trace G. Conditional block minimization x+ = x_i G e_i/G_ii yields a scalar switching chain; squaring gives Q and diagonal similarity to K. Schur positivity and strict Perron domination prove 0<rho(K)<1. Positive initial and terminal weights imply an exact positive Perron coefficient. Inverse offdiagonal zeros induce independent-pair finite absorption; dense inverse ensures nonzero products and an almost-sure exponent via a finite-state ergodic theorem. Exact rational finite-path verifier independently checks update and transfer identities; no finite experiment is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mutny--Derezinski--Krause derive expected inverse submatrix bounds for determinantal block sampling but not the exact complete path law.",
+        "Published stochastic-delay Gauss--Seidel gives a bounded-read-delay scalar recurrence on a two-coordinate SPD system; its update is structurally distinct."
+      ],
+      "reasoning": "General DPP expected improvement does not logically specify the exact Perron matrix, absorption when the inverse has a zero, or quenched product exponent. A broader projection theorem might be specialized to this result; the search and examined candidate texts did not establish such coverage.",
+      "searches": [
+        "Exactly computable almost sure Lyapunov exponent randomized coordinate descent using inverse precision correlations",
+        "Block Gauss-Seidel one excluded coordinate per step finite termination from inverse matrix zero entries",
+        "arxiv:1910.11561 Sections 1,2,4 and appendix list",
+        "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.04587",
+      "arxiv:1910.11561",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original objective expectation bounds can hold regardless of the inverse-sparsity dichotomy; they cannot imply no finite absorption when G is dense or finite absorption when it contains a zero.",
+        "Single-coordinate rate inequalities provide only a worst-case one-step contraction, not the exact asymptotic annealed and quenched factors from the chosen n-1 block sampler."
+      ],
+      "reasoning": "An upper bound on E objective is compatible with many pathwise laws, so neither the exact higher-order operator nor the zero-vs-dense almost-sure dichotomy is a corollary of the compared statements. The new proof derives the necessary line-state reduction and transition probabilities.",
+      "searches": [
+        "Rodomanov Kropotov volume sampling Theorem 3.10 exact expected convergence",
+        "Mutny Derezinski Krause determinantal coordinate expected pseudoinverse convergence",
+        "Block Gauss-Seidel one excluded coordinate per step finite termination from inverse matrix zero entries"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rodomanov--Kropotov use determinant-weighted coordinate blocks and analyze expected objective decrease; they do not identify the inverse-Hessian-column switching-chain formula (2).",
+        "The published inverse-positive sampling record fixes a single coordinate per step with freely optimized probabilities, unlike determinant-selected (n-1)-coordinate blocks."
+      ],
+      "reasoning": "The matching original algorithm does not by its stated convergence bounds give the all-k exact covariance operator or finite absorption / dense-case Lyapunov classification. Singleton-coordinate updates are not equivalent to maximal proper-block updates for n>2.",
+      "searches": [
+        "Maximal block n minus one coordinate descent volume sampling exact finite time termination iff off-diagonal inverse Hessian is zero",
+        "Volume sampled coordinate descent  n-1 update exact mean square spectral rate Hadamard square inverse covariance Perron eigenvalue",
+        "arxiv:1904.04587 Section 2.1 and Theorem 3.10",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest identified published-finding corpus records 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 and 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac contain different algorithms and do not tabulate the claimed inverse-Hessian operator or absorption criterion."
+      ],
+      "reasoning": "No exact finite table is involved. No exact indexed database match or stronger entry giving this all-dimensional statement was found; absence from an index does not prove novelty.",
+      "searches": [
+        "Maximal block n minus one coordinate descent volume sampling exact finite time termination iff off-diagonal inverse Hessian is zero",
+        "Volume sampled coordinate descent  n-1 update exact mean square spectral rate Hadamard square inverse covariance Perron eigenvalue",
+        "Published published-finding corpus ranked searches for maximal proper block, Hadamard-square inverse, volume sampling and finite termination"
+      ]
+    },
+    "rationale": "The original 2019 volume-sampling paper defines the method but provides expected contraction estimates, not the exact annealed/quenched law and inverse-zero finite termination. The 2019 determinantal block analysis likewise gives one-step expected inverse and convergence bounds, whereas the published 2026 single-coordinate and delayed Gauss--Seidel records treat different processes. Statement-implication comparison shows their claims do not imply this full theorem. Priority against unindexed general random-projection work remains a risk.",
+    "residual_risks": [
+      "Unindexed general randomized alternating-projection or finite-state Markov-product literature may give equivalent operator/absorption descriptions.",
+      "The original 2019 full paper was materially inspected at key methods/convergence/appendix locations, not asserted to be exhaustively read at every page.",
+      "No independent human priority check has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_SAME_METHOD; does not state the exact full-time second-moment Perron law, inverse-zero absorption, or dense-inverse almost-sure exponent",
+        "evidence": [
+          "Algorithm 2.1 exact block minimization; Theorem 3.10 expected convergence bound"
+        ],
+        "identifier_or_url": "arxiv:1904.04587",
+        "material_read": "ArXiv 27-page primary PDF: introduction, algorithm Section 2.1, volume sampling identities, convergence Theorem 3.10 and relevant appendix portion",
+        "method": "Read primary PDF text and inspect PDF page renderings for algorithm and proof steps",
+        "title": "A Randomized Coordinate Descent Method with Volume Sampling",
+        "trigger": "Same volume-sampling algorithm with original first public date"
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING_CHECKED_STATEMENTS; expected inverse-submatrix analyses do not give the exact switched-line process",
+        "evidence": [
+          "Determinantal sampling expected convergence bounds and block-size variability in the inspected sections"
+        ],
+        "identifier_or_url": "arxiv:1910.11561",
+        "material_read": "Open-access full-text HTML: Sections 1, 2, 4, and appendix/theorem index",
+        "method": "Read method, assumptions, convergence expressions and contrast independent fixed n-1 cardinality",
+        "title": "Convergence Analysis of Block Coordinate Algorithms with Determinantal Sampling",
+        "trigger": "Closest broader determinant / DPP block sampling framework"
+      },
+      {
+        "assessment": "NOT_COVERING; each update chooses one coordinate, whereas claim updates all but one (except n=2), and studies optimal fixed probabilities vs fixed volume weights",
+        "evidence": [
+          "RESULT.md states p-optimal single-coordinate update x+ = x - ((Ax-b)_i/A_ii)e_i and sharp one-step contraction parameter"
+        ],
+        "identifier_or_url": "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Full published RESULT.md (approximately 9.3 kB)",
+        "method": "GitHub repository file read; compared definition, theorem, proof and parameters",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Top published-finding corpus hit for normalized inverse Hessian and coordinate sampling"
+      },
+      {
+        "assessment": "NOT_COVERING; stale-coordinate update and independent delay distribution, not maximal determinant-selected block minimization",
+        "evidence": [
+          "RESULT.md exact delayed-coordinate recurrence S_{k+1}=S_k/2+(r^2/2)E[S_{k-D}] in n=2"
+        ],
+        "identifier_or_url": "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "material_read": "Full published RESULT.md (approximately 10.3 kB)",
+        "method": "GitHub repository file read; compared stochastic delay mechanism and recurrence",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss-Seidel",
+        "trigger": "Related exact stochastic Gauss--Seidel second-moment rate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2ce7f475-bd9c-41c4-94a6-103371898ebd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximal proper-block determinant sampling is a natural extremal specialization of an established method. A closed n-state exact mean-square law (instead of generic expected improvement bounds), inverse-Hessian sparsity-dependent finite termination despite a fully coupled Hessian, and an explicit gap between quenched and annealed factors are motivated structural insights, not arbitrary small-parameter numerics. It supplies exact reproducible benchmarks and clarifies what the first-step bound misses.",
+    "status": "PASS"
+  }
+}
