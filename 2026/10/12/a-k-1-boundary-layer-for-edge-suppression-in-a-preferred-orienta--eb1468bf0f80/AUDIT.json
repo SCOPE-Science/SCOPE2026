@@ -1,0 +1,111 @@
+{
+  "claim": "For the rectangular lattice strip of Exner--Lipovský with preferred-orientation coupling, let \\(g_1(x)=a e^{-ikx}+b e^{ikx}\\) be the left boundary vertical edge of length \\(\\ell_2\\), let \\(f_1(x)=c e^{-ikx}+d e^{ikx}\\) be the adjacent horizontal edge of length \\(\\ell_1\\), and let \\(\\theta\\) be the vertical Floquet phase. Put \\(\\delta=k\\ell_2-n\\pi\\in(-\\pi/2,\\pi/2]\\). For every sequence of normalized Bloch generalized eigenfunctions with \\(k\\to\\infty\\) and \\(k|\\sin\\delta|\\to\\infty\\),\n\\[\n\\|g_1\\|_{L^2(0,\\ell_2)}=O\\!\\left(\\frac{1}{k|\\sin\\delta|}\\right).\n\\]\nThus the fixed-width exclusion used in the published edge-suppression theorem can be replaced, at the left boundary, by any shrinking exclusion whose angular detuning still satisfies \\(k|\\sin\\delta|\\to\\infty\\).\n\nThe complementary transition scale is \\(|\\delta|\\asymp k^{-1}\\). More precisely, suppose \\(n=n(k)\\) has fixed parity \\(s=(-1)^n\\in\\{\\pm1\\}\\), \\(k\\delta\\to\\xi\\in\\mathbb R\\), and \\(s\\xi\\ne2\\sin\\theta\\). Whenever \\(c\\ne0\\), the exact boundary matching equations imply\n\\[\n\\frac{a}{c},\\frac{b}{c}\\longrightarrow R_s(\\theta,\\xi):=\\frac{s-e^{i\\theta}}{i(s\\xi-2\\sin\\theta)},\\qquad \\frac{d}{c}\\longrightarrow1,\n\\]\nand hence\n\\[\n\\frac{\\|g_1\\|_{L^2(0,\\ell_2)}^2}{\\|f_1\\|_{L^2(0,\\ell_1)}^2}\n\\longrightarrow\n\\frac{\\ell_2}{\\ell_1}\\,\n\\frac{2(1-s\\cos\\theta)}{(s\\xi-2\\sin\\theta)^2}.\n\\]\nThe limiting transfer law has a Floquet-dependent pole on \\(s\\xi=2\\sin\\theta\\), identifying the local resonance curve inside the narrow windows left unresolved by the published theorem. No claim is made that every point of this local resonance curve belongs to the full-strip spectrum, and the singular curve itself is excluded from the ratio limit.",
+  "correctness": {
+    "rationale": "Exact solution of the first two published boundary-scattering equations gives the displayed rational formulas. The denominator decomposition yields |D| >= 2 k^2 |sin(delta)| - 4k - 8, proving the shrinking-window estimate after normalization. The scaled limit q=s exp(i delta), k delta -> xi gives the stated R_s, and norm cross terms are O(k^{-1}). The singular denominator is explicitly excluded. The finite checker corroborates, but does not replace, the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary theorem assumes a fixed K>0 and therefore does not imply estimates when K shrinks with k.",
+        "The 2017 vertex result has no vertical edge length, Floquet phase, or near-multiple n pi propagation factor.",
+        "The 2022 thesis repeats the fixed-K theorem and describes momenta merely as not close to multiples of pi/ell_2."
+      ],
+      "reasoning": "No inspected broader theorem controls the simultaneous competition between the O(k^{-1}) off-diagonal scattering and the O(delta) propagation mismatch. That competition is exactly what produces the new k^{-1} scale and R_s profile.",
+      "searches": [
+        "source comparison: arXiv:2001.10735v1 Section 3 and Theorem 1",
+        "source comparison: arXiv:1710.02664v1 Section 2 scattering formulas",
+        "source comparison: Lipovsky 2022 habilitation thesis Section 2.8.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.10735v1",
+      "doi:10.1016/j.physleta.2020.126390",
+      "arXiv:1710.02664v1",
+      "Lipovsky habilitation thesis (2022), Section 2.8.2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A fixed positive K does not allow delta -> 0, so the source theorem does not imply the shrinking-window statement.",
+        "The isolated-vertex limit S(k)->I omits the propagation factor q whose deviation from parity is of order k^{-1}; it therefore does not determine R_s(theta,xi).",
+        "The 2022 restatement contains the same fixed-K hypothesis and no scaled Floquet resonance curve."
+      ],
+      "reasoning": "The new claim is not a corollary of the published statements as written: it requires retaining the leading constants in both the scattering defect and the propagation mismatch and solving the exact two-row boundary system.",
+      "searches": [
+        "implication check: fixed-K O(k^{-1}) theorem versus k|sin(delta)| -> infinity",
+        "implication check: fixed odd-degree S(k)->I versus q=s exp(i xi/k)",
+        "implication check: 2022 thesis Theorem 2.18 versus scaled-detuning ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2001.10735v1 states only a fixed-K exclusion theorem and derives b sin(k ell_2)=O(k^{-1})b+O(k^{-1})c.",
+        "arXiv:1710.02664v1 gives the preferred-orientation on-shell scattering matrix and fixed odd-degree high-energy limit, but no strip boundary layer.",
+        "Targeted indexed searches returned no finding with the same strip object, scaled detuning, or transfer ratio."
+      ],
+      "reasoning": "Equivalent searches included boundary-layer, shrinking-window, resonance-window, detuning, Floquet-phase, and local-scattering language. The located literature either stops at fixed-width high-energy suppression or studies a single vertex without the strip propagation phase.",
+      "searches": [
+        "query: Topological bulk-edge effects rectangular lattice preferred orientation boundary resonance high energy Floquet detuning",
+        "query: quantum graph strip preferred orientation k inverse resonance window boundary amplitude Floquet",
+        "query: preferred orientation quantum graph odd boundary vertex local scattering resonance sin theta detuning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed table or database entry located the claimed transfer profile or shrinking-window estimate.",
+        "The current/prior owned ledger contains no use of arXiv:2001.10735 and no rectangular-strip finding; the closest owned phrase boundary-layer concerns a different single-star interpolation problem."
+      ],
+      "reasoning": "The claim concerns a continuous local asymptotic transfer law, not a standard tabulated invariant. Exact-identifier and object searches found no prior owned or indexed record that covers it.",
+      "searches": [
+        "query: Exner Lipovsky 2001.10735 boundary suppression narrow energy intervals asymptotic scale",
+        "query: rectangular lattice preferred orientation quantum graph resonance high energy",
+        "owned-ledger exact search: 2001.10735; Topological bulk-edge; rectangular lattice"
+      ]
+    },
+    "rationale": "The primary article proves only fixed-width exclusion with O(k^{-1}) boundary suppression. Its 2022 author thesis restates that fixed-width theorem, while the earlier preferred-orientation paper supplies the vertex S-matrix but has no strip detuning or joint k(k ell_2-n pi) scaling. Statement-level searches over shrinking windows, boundary layers, Floquet detuning, resonance, and equivalent preferred-orientation terminology found no covering result.",
+    "residual_risks": [
+      "An equivalent local calculation may exist under weakly indexed boundary-transfer or resonance-window terminology.",
+      "The local pole curve need not be realized by the full-strip spectrum; the claim explicitly does not assert such realization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The source excludes a fixed-width neighborhood of n pi/ell_2 and proves O(k^{-1}) suppression; it does not analyze shrinking detuning or give the boundary-layer transfer ratio.",
+        "identifier_or_url": "arXiv:2001.10735v1; doi:10.1016/j.physleta.2020.126390",
+        "material_read": "Full abstract/introduction and rectangular-lattice Section 3, including Theorem 1, exact degree-three scattering matrix, boundary amplitude equation, and proof through the normalization estimate.",
+        "method": "Lawful open full text and PDF inspected at the exact formulas and theorem.",
+        "title": "Topological bulk-edge effects in quantum graph transport",
+        "trigger": "Primary source and closest possible coverage."
+      },
+      {
+        "assessment": "BROADER_VERTEX_THEORY_NOT_COVERING",
+        "evidence": "It gives S(k) for a single vertex and fixed-k/fixed-vertex limits but has no periodic strip, Floquet phase, edge propagation detuning, or joint near-resonant scaling.",
+        "identifier_or_url": "arXiv:1710.02664v1",
+        "material_read": "Section 2 through the general on-shell S-matrix, the explicit degree-three matrix, and the odd/even high-energy discussion.",
+        "method": "Lawful open PDF inspected at the scattering formulas.",
+        "title": "Quantum graphs with vertices of a preferred orientation",
+        "trigger": "Underlying exact scattering matrix and parity asymptotics."
+      },
+      {
+        "assessment": "LATER_RESTATEMENT_NOT_COVERING",
+        "evidence": "The thesis again assumes fixed K and states only O(k^{-1}) edge suppression for momenta not close to multiples of pi/ell_2.",
+        "identifier_or_url": "Lipovsky habilitation thesis, Czech Technical University in Prague, 2022, Section 2.8.2",
+        "material_read": "Section 2.8.2 and Theorem 2.18 summarizing the rectangular strip result.",
+        "method": "Open thesis PDF/text inspected around the theorem and summary.",
+        "title": "Spectral Theory Problems on Graphs and Their Applications",
+        "trigger": "Later author-level synthesis likely to mention refinements of the 2020 result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb1468bf-0f80-4831-afc8-6422ef648e14",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The narrow exceptional windows are explicitly the unresolved part of the primary source's central bulk-edge transport theorem. Replacing a fixed exclusion by a quantitative shrinking condition and resolving the local O(k^{-1}) transition profile identifies where edge suppression actually loses uniformity and how the Floquet phase shifts that crossover. This is a structural asymptotic refinement with direct relevance to the source phenomenon, not a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
