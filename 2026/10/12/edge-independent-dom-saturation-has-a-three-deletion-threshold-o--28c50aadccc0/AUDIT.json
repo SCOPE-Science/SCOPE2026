@@ -1,0 +1,110 @@
+{
+  "claim": "For integers \\(2\\le m\\le n\\) and \\(0\\le t\\le m\\), let \\(G_{m,n,t}=K_{m,n}-M_t\\), where \\(M_t\\) is a matching of size \\(t\\). If \\(\\operatorname{eis}(G)\\) denotes the edge independent dom-saturation number, equivalently the maximum over edges \\(e\\) of the minimum cardinality of a maximal matching containing \\(e\\), then\n\\[\n\\operatorname{eis}(G_{m,n,t})=\n\\begin{cases}\nm-1,&m=n\\text{ and }t\\ge3,\\\\\nm,&\\text{otherwise.}\n\\end{cases}\n\\]\nThus a balanced biclique requires deletion of at least three independent edges before \\(\\operatorname{eis}\\) drops, whereas any strict shore imbalance prevents a drop under deletion of a matching. In the balanced regime with \\(t\\ge3\\), every present edge lies in a maximal matching of size \\(n-1\\); for \\(t=1\\) or \\(t=2\\), a present edge incident with all deleted pairs forces local value \\(n\\).",
+  "correctness": {
+    "rationale": "The proof characterizes maximality by unmatched cross-shore pairs. In the unbalanced case, any matching smaller than m leaves one smaller-shore vertex and at least two larger-shore vertices unmatched, forcing an extendable edge. In the balanced case, maximal matchings have size at least n-1. One or two deletions leave an explicit prescribed edge that cannot participate in any size-(n-1) maximal matching; with at least three deletions, a deleted index disjoint from the prescribed edge can be left unmatched and Hall's theorem supplies the residual perfect matching. All boundaries 2<=m<=n and 0<=t<=m are covered. Exhaustive enumeration through n=6 independently reproduces every local minimum and the global formula; the finite check is not used as the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.17654/0974165826003, Observation 3.3(iv), gives only the undeleted value for complete bipartite graphs.",
+        "DOI 10.17654/0974165826003, Theorem 3.6, places the new invariant within one unit of the edge domination number but does not select the branch for this family.",
+        "DOI 10.1137/0138030 treats minimum maximal matchings/edge domination, a weaker scalar than the prescribed-edge profile needed here."
+      ],
+      "reasoning": "No inspected broader theorem determines the local minimum maximal-matching size for every prescribed edge after matching deletion. In fact the global minimum maximal-matching size can be smaller while the new invariant remains at the larger value, so global edge-domination results do not dominate the claim.",
+      "searches": [
+        "edge independent dom-saturation K_n,n minus matching exact n-1 threshold three deleted edges",
+        "edge domination saturation complete bipartite minus matching",
+        "complete bipartite graph minus a matching maximal matchings"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.17654/0974165826003",
+      "doi:10.1137/0138030",
+      "Targeted semantic searches under edge-independent dom-saturation, prescribed-edge maximal matching, crown, and matching-deleted biclique terminology",
+      "Prior scientific records on the same graph family, including well-edge-domination, checked for implication overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For balanced shore size at least three and one or two deleted matching edges, a maximal matching of size one below the shore size exists, yet the prescribed edge a_1 b_2 requires a perfect maximal matching. Hence the edge domination number does not imply the claimed invariant.",
+        "The previously compared well-edge-domination result classifies cardinalities of inclusion-minimal edge-dominating sets, not minimum maximal matchings through a prescribed edge."
+      ],
+      "reasoning": "The target statement is not a corollary of the complete-bipartite boundary, ordinary edge domination, or well-edge-domination. Its decisive information is which prescribed edges can participate in a smallest maximal matching.",
+      "searches": [
+        "prescribed edge minimum maximal matching matching-deleted complete bipartite",
+        "every edge lies in a minimum maximal matching K_n,n minus matching",
+        "well edge dominated K_m,n minus matching maximal matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.17654/0974165826003, Definition 3.1: the invariant is the maximum of prescribed-edge minimum cardinalities over maximal edge-independent sets.",
+        "A maximal edge-independent set is exactly a maximal matching, so the prescribed-edge matching formulation is statement-equivalent."
+      ],
+      "reasoning": "Searches were performed under both the paper's terminology and the equivalent maximal-matching terminology. Retrieved matching results concerned global minimum/average maximal matchings or different invariants, not the maximum of prescribed-edge minima on the matching-deleted biclique family.",
+      "searches": [
+        "edge independent dom-saturation K_m,n minus matching",
+        "prescribed edge minimum maximal matching matching-deleted complete bipartite",
+        "every edge lies in a minimum maximal matching K_n,n minus matching",
+        "crown graph edge independent dom-saturation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic records returned results on average maximal matchings, edge metric dimension of crown graphs, and unrelated domination variants; none stated an edge-independent dom-saturation value for the target family.",
+        "The initiating paper's exact-value list includes complete graphs, stars, cycles, paths, and complete bipartite graphs, but no matching-deleted complete bipartite family."
+      ],
+      "reasoning": "No exact table or indexed record found in the targeted searches covers the formula. Search noncoverage is used only as bibliographic evidence, not as a logical novelty proof.",
+      "searches": [
+        "edge independent dom-saturation K_n,n minus matching exact n-1 threshold three deleted edges",
+        "edge independent dom-saturation K_m,n minus matching",
+        "crown graph edge independent dom-saturation"
+      ]
+    },
+    "rationale": "The initiating paper defines the same invariant and settles only the undeleted complete-bipartite boundary in this family. Its full text has no matching/crown treatment in the relevant section. Classical edge domination optimizes the size of one smallest maximal matching and does not imply the maximum over prescribed-edge minima; the balanced one- and two-deletion cases demonstrate the separation. Targeted semantic searches and prior-record comparison found no statement covering the matching-deletion threshold.",
+    "residual_risks": [
+      "Because the invariant was only recently named, older matching-theory work may contain an equivalent prescribed-edge statement under different terminology.",
+      "The classical edge-domination source was used for its standard global-minimum relation, not for a whole-document claim of noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the matching-deleted biclique theorem. The paper states the undeleted complete-bipartite value and a one-unit relation with edge domination, but does not state the threshold or prescribed-edge classification. Whole-document searches returned no 'matching' or 'crown' occurrence.",
+        "evidence": [
+          "Definition 3.1",
+          "Observation 3.3(iv)",
+          "Theorem 3.6",
+          "published-online date 2025-11-17",
+          "MSC 05C15 listed first, followed by 05C69"
+        ],
+        "identifier_or_url": "doi:10.17654/0974165826003",
+        "material_read": "Accessible full text: abstract and introduction; Definition 3.1; Remark 3.2; Observation 3.3; Theorems 3.4–3.6; document-wide searches for 'matching', 'crown', and deletion terminology.",
+        "method": "Open-access full-text HTML extraction corresponding to the CC-BY article was inspected directly.",
+        "title": "On the Independent Dom-Saturation Number of a Graph",
+        "trigger": "This paper introduces the exact invariant used in the claim and computes complete bipartite graphs."
+      },
+      {
+        "assessment": "INAPPLICABLE as a covering implication: it addresses the global minimum size of a maximal matching and complexity, whereas the new invariant takes a maximum over prescribed-edge minimum sizes.",
+        "evidence": [
+          "SIAM J. Appl. Math. 38(3) (1980), 364–372",
+          "DOI 10.1137/0138030"
+        ],
+        "identifier_or_url": "doi:10.1137/0138030",
+        "material_read": "Publisher abstract and accessible bibliographic statement of the minimum-maximal-matching relation; no whole-document noncoverage claim is made from this inspection.",
+        "method": "Publisher abstract/metadata and an accessible scholarly summary were inspected.",
+        "title": "Edge Dominating Sets in Graphs",
+        "trigger": "Classical source for the equivalence between edge domination and minimum maximal matching."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "28c50aad-ccc0-419c-8b60-5052ad7faa0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a full natural perturbation profile for a recently introduced edge invariant. It identifies a sharp third-deletion transition in the balanced canonical family and proves that every strict imbalance removes the transition. It also isolates a meaningful difference between ordinary edge domination and prescribed-edge dom-saturation, rather than merely recomputing a known minimum matching parameter.",
+    "status": "PASS"
+  }
+}
