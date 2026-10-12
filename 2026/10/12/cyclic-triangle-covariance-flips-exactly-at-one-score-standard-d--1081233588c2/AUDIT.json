@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on D_v=k gives E[C_n|D_v=k]=binom(n-1,3)/4+k(n-1-k)/2, hence the exact quadratic deviation from EC_n. Exchangeability proves the master identity. The exact joint score-class probability for two vertices and pairwise independence of distinct cyclic-triangle indicators give the two variance formulas. Direct enumeration through n=6 independently reconstructs the statistics from orientations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beineke--Harary prove in full text that transitive triples equal the sum of binomial outdegree terms and remark that cyclic triples are fixed by the score sequence.",
+        "Barbour--Godbole--Qian define the standard independent fair random tournament and study Poisson approximation for unbeaten subsets.",
+        "Andersson studies asymptotic counts of fixed digraphs in the standard random tournament."
+      ],
+      "reasoning": "The deterministic identity is broader as a pointwise tournament statement, while Andersson is broader for fixed motif-count asymptotics. Neither inspected statement supplies the random covariance with a score class, whose degree k may itself vary with n.",
+      "searches": [
+        "DOI:10.4153/CMB-1965-035-x",
+        "DOI:10.1017/S0963548396002829",
+        "DOI:10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.4153/CMB-1965-035-x",
+      "DOI:10.1017/S0963548396002829",
+      "DOI:10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+      "DOI:10.1239/jap/1014842556"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current and prior own ledgers contain no tournament finding; apparent outdegree hits are random-tree claims.",
+        "The classical score identity determines C_n from the full score sequence but does not by itself give the covariance of C_n with the random count of a specified score class.",
+        "Fixed-digraph count asymptotics do not directly cover N_k because N_k is a degree-class statistic depending on all incident edges and may have k varying with n."
+      ],
+      "reasoning": "The accepted formula requires an additional conditional calculation at one labeled vertex and an exact two-vertex score computation for the correlation. It is not a corollary of the own Erdős--Rényi degree/motif result because tournament orientations and directed cyclicity have a different conditional structure.",
+      "searches": [
+        "own current prior ledger tournament cyclic triangle outdegree",
+        "Beineke Harary cyclic triples score sequence",
+        "Andersson random tournament subgraph counts",
+        "Barbour Godbole Qian random tournament"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record semantic searches returned no tournament covariance finding; the closest semantic-database hit was 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91, which concerns ordering probabilities under pairwise independence rather than tournaments.",
+        "Web searches for degree-class, score-class, covariance, and cyclic-triangle aliases found classical deterministic score identities and motif-count literature but no matching mixed formula."
+      ],
+      "reasoning": "The searches cover score/outdegree terminology, exact degree-class counts, cyclic triples/triangles, covariance, and the standard-deviation sign boundary. Statement-level comparison with the classical score identity prevents treating a search miss as novelty proof.",
+      "searches": [
+        "random tournament score class cyclic triangle covariance exact sign one standard deviation",
+        "random tournament outdegree class count cyclic triangle covariance",
+        "tournament cyclic triples score count binomial covariance",
+        "random tournament outdegree cyclic triangle count covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or literature record matching n p_{q,k}(q-(2k-q)^2)/8 or its one-standard-deviation sign rule was located."
+      ],
+      "reasoning": "The finding is symbolic for every n and score class; exhaustive orientation enumeration is only supplementary verification.",
+      "searches": [
+        "\"Cov(N_k\" tournament cyclic triangle",
+        "\"degree class\" cyclic triangles random tournament covariance",
+        "\"score class\" \"cyclic triangles\" tournament",
+        "\"number of vertices of score\" cyclic triples tournament"
+      ]
+    },
+    "rationale": "The classical score-sequence identity is prior art and is not claimed as new. The accepted claim is the random additive-score covariance identity, the exact score-class sign boundary, and its correlation profile. No inspected source states these mixed results.",
+    "residual_risks": [
+      "Andersson 1998 was not available in full text in the inspected source, so an implicit mixed-statistic computation there remains possible.",
+      "Older tournament score-distribution literature may contain the covariance as an unstated consequence of multivariate score enumeration.",
+      "The deterministic score-sequence formula itself is classical; originality is claimed only for the explicit random additive-score covariance identity, sign threshold, and correlation profile."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DETERMINISTIC_SCORE_IDENTITY_PRIOR_NOT_RANDOM_SCORE_CLASS_COVARIANCE",
+        "evidence": "The full text counts transitive triples by summing binomial outdegree terms and states that cyclic 3-tournament count is fixed by the score sequence; it does not formulate the random mixed covariance.",
+        "identifier_or_url": "DOI:10.4153/CMB-1965-035-x",
+        "material_read": "Full eight-page publisher PDF; especially the proof on pages 492--493 and the explicit corollary that the number of 3-cycles is determined by the score sequence.",
+        "method": "Compared the exact deterministic statement with the random score-class covariance and checked whether a probability law or covariance appears.",
+        "title": "The Maximum Number of Strongly Connected Subtournaments",
+        "trigger": "Classical source directly linking tournament score sequences to cyclic triples."
+      },
+      {
+        "assessment": "SAME_RANDOM_MODEL_DIFFERENT_UNBEATEN_SET_STATISTICS",
+        "evidence": "The source defines a random tournament by independent coin-flip orientations and studies Poisson approximation for unbeaten subsets, not scores or cyclic triangles.",
+        "identifier_or_url": "DOI:10.1017/S0963548396002829",
+        "material_read": "Publisher article page and abstract/model definition, plus bibliographic issue record.",
+        "method": "Compared the random model and named statistics with the score-class/cyclic-triangle claim.",
+        "title": "Imperfections in Random Tournaments",
+        "trigger": "Archive-era source using exactly the independent fair random-tournament model."
+      },
+      {
+        "assessment": "FIXED_DIGRAPH_COUNT_ASYMPTOTICS_PLAUSIBLE_BROADER_SOURCE_FULL_TEXT_UNAVAILABLE",
+        "evidence": "The abstract states asymptotic distribution theory for counts of a given fixed digraph in a random tournament; it does not expose a score-class mixed covariance in accessible material.",
+        "identifier_or_url": "DOI:10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+        "material_read": "Publisher abstract, references, publication record, and later citation context; full article text was not accessible in the inspected source.",
+        "method": "Compared fixed-digraph count scope with the degree-class statistic and retained the access limitation as a residual risk.",
+        "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+        "trigger": "Broad classical source on motif counts in the same random-tournament model."
+      },
+      {
+        "assessment": "PRIMARY_60C05_TOURNAMENT_PROBABILITY_BACKGROUND",
+        "evidence": "The publisher record explicitly lists Primary 60C05 and studies a random tournament model.",
+        "identifier_or_url": "DOI:10.1239/jap/1014842556",
+        "material_read": "Publisher article record, abstract, and MSC classification.",
+        "method": "Used only to verify probability-slot ownership, not as novelty evidence.",
+        "title": "Oriented graphs generated by random points on a circle",
+        "trigger": "Tournament-probability source with explicit primary MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "10812335-88c2-4b1b-8eef-d1697980579b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Scores and cyclic triangles are canonical tournament statistics. The exact one-standard-deviation sign boundary identifies where central versus extreme score classes change their relation to global cyclicity, and the master identity extends this to every additive score functional. The n^{-1/4} local correlation profile quantifies the effect on the natural binomial score scale.",
+    "status": "PASS"
+  }
+}
