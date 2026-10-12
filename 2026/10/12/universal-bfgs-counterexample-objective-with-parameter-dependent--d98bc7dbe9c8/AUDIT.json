@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source gives, for every width \\(0<\\delta\\le1/20\\), a globally smooth tube function constant outside its tube, bounded below by \\(f_\\infty-2\\delta\\), with Hessian norm at most \\(K/\\delta^2\\), and an affine ratio map satisfying \\(r(1)<6\\delta\\) and \\(r(0)>1-6\\delta\\). Choosing \\(\\delta(q)=\\min\\{1/20,q/12,(1-q)/12\\}\\) therefore realizes every target \\(q\\in(0,1)\\). Spatial scaling by \\(b=1/\\delta\\) converts the Hessian bound to \\(K\\) and the unit orbit gradient to the positive constant \\(\\delta\\), while preserving normalized decrease ratios, exact endpoint orthogonality, and conjugacy rays. The source polyline has summable transverse heading error, so each scaled tube lies in a finite-width strip; recursive transverse translations make the strips pairwise disjoint and locally finite. The resulting sum is \\(C^\\infty\\), bounded below, and has uniformly bounded Hessian. Rational density covers every Goldstein interval. The common-start impossibility follows because a fixed first-local-minimizer step has one fixed normalized decrease ratio that cannot belong to every subinterval of \\((0,1)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper supplies parameter-specific tube counterexamples, arbitrary ratio placement, constant exterior extension, and a Hessian bound scaling as \\(K/\\delta^2\\), but leaves universalization open.",
+        "The DFP paper reports pairwise-disjoint smooth-support interpolation on a uniformly convex counterexample, showing a related gluing device but no all-parameter BFGS objective.",
+        "No broader quasi-Newton result located implies a single parameter-independent objective with parameter-dependent starts for the entire parameter triangle."
+      ],
+      "reasoning": "The closest broader constructions either fix a line-search parameter regime or use disjoint supports to realize one prescribed orbit. They do not exploit a countable dense set of normalized decrease ratios together with spatial normalization of an otherwise unbounded family of Lipschitz constants.",
+      "searches": [
+        "arXiv:2609.09686v1 full text, Sections 3-5 and 7",
+        "arXiv:2608.21708 abstract and construction summary",
+        "BFGS counterexample arbitrary strong Wolfe constants universal smooth function Goldstein all parameters"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.09686v1",
+      "arXiv:2608.21708"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diao's Lemma 17 calibrates one objective for one chosen ratio inside one chosen parameter interval; Section 7 explicitly says eliminating parameter dependence remains open.",
+        "The source's \\(K/\\delta^2\\) estimate becomes uniformly bounded only after the additional spatial rescaling used here.",
+        "The countable dense ratio cover and the global disjoint-strip sum are not consequences stated in the source.",
+        "The common-start impossibility uses the Goldstein interval on the first fixed step and is not part of the source theorem."
+      ],
+      "reasoning": "The source ingredients are necessary but do not by themselves state the final universal quantifier order. The new proof adds two substantive operations: uniformizing the diverging Hessian constants by spatial scaling and using rational density plus locally finite gluing to cover uncountably many parameter pairs with one function. The negative common-start clause distinguishes the stronger quantifier order and prevents overclaiming.",
+      "searches": [
+        "arXiv:2609.09686v1 Lemmas 16-18 and Section 7 universal-versus-parameter-specific remark",
+        "arXiv:2608.21708 disjoint-support interpolation summary",
+        "single universal smooth function all line-search parameters BFGS"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact-title and universal-objective searches returned the 2026 source and its stated open problem, not a solution by dense ratios or disjoint copies.",
+        "Published-result searches returned unrelated universal stability and line-search results but no statement with the quantifier split ∃F ∀parameters ∃start versus common start.",
+        "The primary source's remarks explicitly say that its objective is tailored to each parameter pair and ask whether one universal smooth function exists."
+      ],
+      "reasoning": "The search vocabulary covered the source terminology and equivalent formulations: parameter-independent objective, universal line-search counterexample, parameter-dependent initialization, dense ratio cover, disjoint gluing, and simultaneous Goldstein validity. The final claim is not merely the source theorem with renamed parameters because it constructs one function shared by all parameter pairs and separately proves a no-go result for the stronger common-start quantifier order.",
+      "searches": [
+        "BFGS universal objective all strong Wolfe constants single smooth function parameter dependent initialization",
+        "BFGS universal objective parameter dependent starting point rational Armijo ratio disjoint copies Goldstein",
+        "single smooth function all Wolfe parameter pairs different initializations countable gluing BFGS",
+        "common initialization impossible all Goldstein parameter pairs first local minimizer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed published finding states the dense-rational universal objective or the common-start interval obstruction for this source.",
+        "The closest returned optimization findings concern unrelated sharp step-size frontiers, stability thresholds, or other quasi-Newton counterexamples."
+      ],
+      "reasoning": "The result is a new analytic construction and quantifier classification, not a numerical lookup, parameter table, or recomputation of a known database record.",
+      "searches": [
+        "2609.09686 universal parameter-specific objective countable gluing",
+        "quantifier universal objective BFGS line search parameters Goldstein",
+        "disjoint translated counterexamples BFGS Wolfe universal function"
+      ]
+    },
+    "rationale": "The primary source explicitly labels the existence of a single parameter-independent objective as an open question and constructs only parameter-specific objectives. Targeted searches for universal BFGS objectives, countable gluing, rational Armijo ratios, parameter-dependent starts, and common-start Goldstein obstructions found no equivalent resolution. A recent DFP counterexample uses disjoint smooth supports for a different interpolation purpose, but does not combine dense line-search ratios, uniform Hessian rescaling, and one objective covering every parameter pair.",
+    "residual_risks": [
+      "The phrase 'single universal function' in the source open question does not explicitly fix the quantifier order for the initial point; the result therefore states both natural interpretations rather than claiming an unqualified resolution.",
+      "A solution using countable gluing may exist in very recent or poorly indexed material not returned by the searches.",
+      "The universal construction is existential and noncompact; it does not preserve bounded level sets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides all local building blocks but explicitly stops at parameter-specific objectives; the universal objective is posed as open.",
+        "evidence": "The paper states \\(r(1)<6\\delta\\), \\(r(0)>1-6\\delta\\), \\(f\\ge f_\\infty-2\\delta\\), \\(\\|\nabla^2 f\\|\\le K/\\delta^2\\), and that \\(f\\) is constant outside its tube; Section 7 asks whether one universal objective exists.",
+        "identifier_or_url": "arXiv:2609.09686v1",
+        "material_read": "Full-text introduction; discrete orbit and heading formulas; tubular geometry; global exterior-constant extension; lower and Hessian bounds; parameter calibration and first-local-minimizer verification; Section 7 universal-objective remark.",
+        "method": "Full-text HTML inspection with targeted line reads.",
+        "title": "Counterexamples for BFGS-type methods under arbitrary strong Wolfe constants",
+        "trigger": "Primary recent source defining the class, tube construction, line-search calibration, and universal-objective open question."
+      },
+      {
+        "assessment": "Shows a related disjoint-support technique in quasi-Newton counterexamples but does not address a universal all-parameter BFGS objective or dense line-search-ratio covering.",
+        "evidence": "Its abstract describes pairwise disjoint supports for interpolating a prescribed DFP trajectory in a fixed parameter regime.",
+        "identifier_or_url": "arXiv:2608.21708",
+        "material_read": "Abstract and construction summary describing pairwise-disjoint smooth-support interpolation added to a quadratic.",
+        "method": "ArXiv abstract inspection.",
+        "title": "A counterexample to global convergence of classical DFP under the standard strong Wolfe conditions",
+        "trigger": "Closest recent quasi-Newton construction using disjoint smooth supports."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d98bc7db-e9c8-41c0-985a-dbdaff3e13e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper explicitly identifies parameter-universalization as an open structural question. The finding gives a single globally smooth lower-bounded Lipschitz-gradient objective covering every line-search parameter pair when starts may vary, while keeping one uniform Hessian bound despite the source family's \\(1/\\delta^2\\) blow-up. It also proves that the stronger common-start interpretation is impossible under simultaneous Goldstein validity. This separates the real mathematical issue from an ambiguity in the quantifiers and turns a family of parameter-specific counterexamples into one universal objective without weakening the line-search conditions.",
+    "status": "PASS"
+  }
+}
