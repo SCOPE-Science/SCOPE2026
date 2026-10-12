@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The three-space dichotomy is complete: all-affine subspaces have <=q zeros; any determinant-containing subspace contains two independent affine constraints, whose common solution is empty or an affine plane of size q^2. Equality is equivalent to det being affine on that plane, with a bijection between optimal subcodes and eligible planes. The polarization identity identifies all eligible directions: for q>2 exactly the 2(q+1) rank-one directions; for q=2 exactly 15 symplectic-isotropic directions. Multiplying by q^2 translates gives the stated multiplicities. The finite verifier enumerates all 1395, 33880, and 376805 three-subspaces and independently all eligible directions over fields of size 2,3,4; it returns VERIFY_OK and 60,72,160, consistent with the proof. This does not infer an all-field result from finite testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Datta–Ghorpade, arXiv:1503.02196, indexed author abstract and table of contents: initial and terminal generalized Hamming-weight *values*; no multiplicity theorem established in material inspected.",
+        "Piñero–Singh (2019), complete manuscript, Sections 2–3: m-general *one-dimensional* weight spectra and codeword counts.",
+        "Yadav, arXiv:2609.10274 (2026-09-09): described scope is an alternative one-codeword weight formula for all m>=4."
+      ],
+      "reasoning": "A formula for d_3 only constrains the optimal support SIZE, not how many distinct 3D subcodes attain it; a complete ordinary weight enumerator only counts individual words, not their three-way shared zeros. The published m=5 individual-word spectrum involves a different evaluation space and does not supply equality counts for C^A(2,4) at arbitrary q. A genuinely stronger full subcode-support enumerator for the present code would cover the claim, but none was found in inspected accessible material.",
+      "searches": [
+        "affine Grassmann generalized Hamming weights Datta Ghorpade 2015 initial terminal",
+        "affine Grassmann code C A(2,4) dimension 6 generalized Hamming weight 3 count optimal subcodes totally singular planes rulings finite fields q=2",
+        "2026 affine Grassmann code C A 2 4 counting subcodes third generalized Hamming weight enumerator 60 72"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.10274 (2026-09-09), abstract; full preprint unavailable",
+      "arxiv:1503.02196 (2015), author abstract/contents/indexed excerpt; full preprint unavailable",
+      "doi:10.1007/s10623-018-0567-1 (2019), full 19-page accepted manuscript, Theorem 3.11 and Example 3.13 inspected",
+      "arxiv:0911.1298 (2009), founding abstract",
+      "Piñero–Singh (2019), Theorem 3.11 and Example 3.13, ordinary weight-spectrum table",
+      "Beelen–Ghorpade–Høholdt (2010), founding code parameters and minimum-word statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The inspected 2019 theorem counts A_i for single nonzero codewords, not N_q for 3-subcodes.",
+        "The geometric equality classification uses the additional condition det|P affine-linear and its field-two difference, which is not a consequence of a numeric d_3 value.",
+        "Yadav 2026 and Datta–Ghorpade 2015 remain partly access-limited and thus cannot be asserted whole-document noncovering."
+      ],
+      "reasoning": "The proposed statement properly includes the known/generalized weight size, but its substantive content is the complete set and multiplicity of three-subcodes achieving that size. A prior single-word spectrum or d_3 value is neither logically equivalent nor known to dominate the new extremizer theorem. Full-text risk for two plausible source documents is explicitly retained.",
+      "searches": [
+        "Revisiting the Weight Spectrum of the Affine Grassmann Code 2609.10274",
+        "The weight spectrum of certain affine Grassmann codes Theorem 3.11 Example 3.13",
+        "Higher Weights of Affine Grassmann Codes and Their Duals first three weights",
+        "Exact number of dimension-three affine Grassmann code C^A(2,4) subcodes attaining third generalized Hamming weight q^4-q^2 equals 60 when q=2 and 2q^2(q+1) for q>2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Piñero–Singh, DOI 10.1007/s10623-018-0567-1, Theorem 3.11 and Example 3.13: individual codeword weight spectrum; no subcode-support classification in the accessible complete accepted manuscript.",
+        "Here a three-subcode has support q^4−|Z(D)|; optimality is equivalent to an affine plane P on which det is affine-linear. This aliases the coding count to a geometric plane count."
+      ],
+      "reasoning": "The plane-count, determinant-restriction, third generalized-weight *multiplicity*, and minimal-union-support formulations are equivalent by the proof, not just by matching words. No matched result supplies the equivalence and the q=2 versus q>2 cardinalities; the standard isolated counts of symplectic planes and hyperbolic-quadric rulings are geometric ingredients, not alone a classification of code subcodes.",
+      "searches": [
+        "\"affine Grassmann\" \"number\" \"subcodes\" \"third\" support",
+        "\"C A(2,4)\" \"three-dimensional\" subcodes 60 72",
+        "r=3 minimum support subcodes affine grassmann binary dimension 6 exceptional 60 optimal supports enumeration",
+        "hyperbolic quadric 2 by 2 determinant affine planes with affine-linear restrictions binary symplectic isotropic 15 optimal generalized code support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Piñero–Singh (2019), Example 3.13 gives ordinary weight enumerator of C^A(2,4), not a table of dimension-3 subcode support multiplicities.",
+        "No exact-parameter published finite table found for N_2=60, N_3=72, N_4=160 or N_q=2q^2(q+1)."
+      ],
+      "reasoning": "The displayed ordinary-codeword tables do not encode intersections among the zeros of three independent generators, so they are not the same tables. The absence of an indexed extremizer table does not exclude obscure tables and is included as an unresolved risk.",
+      "searches": [
+        "\"C^A(2,4)\" \"60\" subcodes generalized",
+        "\"C A(2,4)\" \"minimum support\" \"three-dimensional\"",
+        "\"affine Grassmann\" \"number of subcodes\" support",
+        "Piñero Singh 2019 The weight spectrum of certain affine Grassmann codes Example 3.13 table"
+      ]
+    },
+    "rationale": "The fully examined 2019 Piñero–Singh manuscript (Theorem 3.11 and Example 3.13, pages 13–16) gives one-codeword weights and counts for C^A(2,4), not the common-support multiplicities for three-dimensional subcodes; its individual weight enumerator does not determine the three-subspace incidence statistic. Datta–Ghorpade 2015 concerns numerical generalized Hamming weights; Yadav 2026 revisits one-codeword weight spectra, as confirmed by the dated abstracts and available indexed sections. Independent published-record and exact-parameter searches, including algebraic-geometric aliases, revealed no explicitly identical all-prime-power extremizer classification. This is a bounded, non-certifying novelty conclusion: full text of two plausible manuscripts was inaccessible, and an earlier unpublished or unindexed equality-case enumeration remains possible.",
+    "residual_risks": [
+      "Full text of Datta–Ghorpade 2015, including its geometric appendix, was inaccessible; it might contain an equality-case enumeration not visible in indexed abstracts.",
+      "Yadav 2026 full text was inaccessible; although its abstract is one-codeword-focused, an unindexed higher-dimensional remark is possible.",
+      "A nonindexed finite code table or classical polar-geometry translation may already state the exact multiplicity, beyond the checked sources.",
+      "No independent review of the new algebraic proof has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Main statements and tables count individual codewords by Hamming weight. They do not give or imply a stated number of optimal three-dimensional subcodes without additional intersection geometry.",
+        "evidence": "Theorem 3.11 defines A_i as number of codewords of weight i; Example 3.13 computes W_{C^A(2,4)}(X) for individual weights.",
+        "identifier_or_url": "https://backend.orbit.dtu.dk/ws/files/204176529/Pin_Sin_Weight_Spec_of_Aff_Grass_code.pdf",
+        "material_read": "Complete 19-page accepted manuscript indexed; introduction (pp. 2–4), main Theorem 3.11 and proof (pp. 13–15), Example 3.13 (pp. 15–16), references and term search for subcodes/generalized weights.",
+        "method": "Read full-document indexed PDF text, locate Theorem 3.11 and Example 3.13, inspect rendered pages of introduction and theorem, search subcode and generalized terminology.",
+        "title": "The weight spectrum of certain affine Grassmann codes",
+        "trigger": "Same family and exactly m=4 parameters; plausible existing complete enumeration."
+      },
+      {
+        "assessment": "Available material asserts weight VALUE formulas. It is not sufficient to assert no extremizer multiplicity in the unavailable full paper, so remaining overlap is acknowledged.",
+        "evidence": "Indexed introduction describes initial/terminal d_r formulas and geometric appendix; no searchable precise N_q claim was located.",
+        "identifier_or_url": "arxiv:1503.02196; https://www.math.iitb.ac.in/~srg/preprints/DattaGhorpade_ForAGCT2013.pdf",
+        "material_read": "Author-hosted abstract and detailed contents, searchable indexed excerpt from page 3 on first and terminal weight formulas; full PDF not retrievable for comprehensive examination.",
+        "method": "Checked dated arXiv abstract, author-hosted manuscript page, indexed PDF result, attempted open-access PDF retrieval.",
+        "title": "Higher Weights of Affine Grassmann Codes and Their Duals",
+        "trigger": "Directly related third generalized Hamming weight and equality cases."
+      },
+      {
+        "assessment": "The abstract specifies a formula for Hamming weights of individual codewords, not subspace support multiplicities. An unexamined appendix remains a minor but real overlap risk.",
+        "evidence": "Dated arXiv description: each codeword weight expressed through two affine subspaces and their intersection.",
+        "identifier_or_url": "arxiv:2609.10274",
+        "material_read": "2026-09-09 dated arXiv abstract and secondary public abstract views; full text unavailable.",
+        "method": "Searched preprint and open-access pages, inspected arXiv date and abstract; full PDF could not be retrieved.",
+        "title": "Revisiting the Weight Spectrum of the Affine Grassmann Code C^A(2,m)",
+        "trigger": "Recent motivating paper for the same family and m=4 instance."
+      },
+      {
+        "assessment": "Introduces the code and determines length, dimension, minimum distance and number of minimum-weight codewords; does not announce counts of 3D subcode support minimizers.",
+        "evidence": "Original paper abstract specifically lists length, dimension, d_1 and minimum-weight word count.",
+        "identifier_or_url": "arxiv:0911.1298",
+        "material_read": "2009 arXiv abstract and published research synopsis.",
+        "method": "Checked publicly indexed preprint metadata and synopsis.",
+        "title": "Affine Grassmann Codes",
+        "trigger": "Original definition and normalization of the evaluation code."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd6833fb-e400-4ba5-bbd8-807c40a52972",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The statistic is the exact number and geometric classification of all support-minimizing three-subcodes of a naturally occurring affine Grassmann evaluation code, not a randomly selected finite parameter. Generalized Hamming weights record only the minimum support sizes, while higher-order support multiplicities distinguish the entire extremal incidence structure. The binary field exhibits 60 extremizers instead of the 24 from naive continuation of the two-ruling formula, explained by the difference between quadratic functions and their finite-field linearizations. The theorem covers every prime power and makes a substantive structural distinction; no unsupported generalization to other code levels is claimed.",
+    "status": "PASS"
+  }
+}
