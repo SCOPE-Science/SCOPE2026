@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The upper bound 16 has a direct injective four-coordinate projection proof. The embedded verifier reconstructs all 64 vertices and 1,632 compatibility edges, exhaustively enumerates all 100,772 maximal cliques, independently re-enumerates all 76 sixteen-cliques, checks every declared isometry on every unordered pair, and directly tests affine closure. Fresh replay reproduces the five orbit sizes and the 44/32 split. Risk is confined to ordinary implementation error; two distinct clique-enumeration routines and explicit invariants reduce that risk.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ding--Zhang--Ge construct and study linear MDS b-symbol codes and explicitly frame their existence results as linear.",
+        "The 2023 generalized-weight paper gives linear-code criteria and generalized b-symbol weights, not unrestricted nonlinear extremizer enumeration."
+      ],
+      "reasoning": "Broader linear MDS existence and structure results do not dominate a classification of every size-16 subset of the binary length-six metric space. In particular they cannot imply the existence, count, or single symmetry orbit of the 32 nonlinear maxima.",
+      "searches": [
+        "Maximum Distance Separable Codes for b-Symbol Read Channels arXiv 1609.09236",
+        "Generalized b-Symbol Weights of Linear Codes and b-Symbol MDS Codes DOI 10.1109/TIT.2022.3223729",
+        "binary MDS 3-symbol code nonlinear length 6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.09236",
+      "CaltechAUTHORS:20160426-074534474",
+      "DOI 10.1016/j.ffa.2017.10.002",
+      "DOI 10.1109/TIT.2022.3223729",
+      "published-finding corpus exact/alias searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Singleton theorem implies only \\(M\\le16\\) here.",
+        "The linear-MDS implication theorem has a linearity hypothesis and relates window widths; it does not classify nonlinear codes.",
+        "The foundational source abstract describes cyclic-code bounds, decoding, and extensions to \\(b\\ge3\\), not a complete finite equality-case classification."
+      ],
+      "reasoning": "The final claim strictly refines the known optimum by enumerating every equality case and separating affine from nonlinear cases. None of the inspected stronger statements logically determines those quantities or orbit structures.",
+      "searches": [
+        "arXiv:1609.09236 Theorem 2.4 Singleton bound",
+        "arXiv:1609.09236 Theorem 2.5 linear MDS implication",
+        "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels CaltechAUTHORS abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest hit SCOPE080 concerns three binary cyclic symbol-pair codes and does not state this three-symbol finite census.",
+        "arXiv:1609.09236 Theorem 2.4 gives only the general Singleton bound; Theorem 2.5 is restricted to linear MDS codes and a change of window width."
+      ],
+      "reasoning": "Aliases using 3-symbol, b-symbol, MDS, and the exact parameters were checked. The prior Singleton statement fixes the maximum-size ceiling but neither counts equality cases nor classifies affine versus nonlinear equality cases.",
+      "searches": [
+        "binary 3-symbol code length 6 distance 5 maximum 16",
+        "A_3(6,5,2) b-symbol code",
+        "b-symbol MDS binary length six distance five classification",
+        "arXiv:1609.09236 full text, definitions and Theorems 2.4-2.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-finding corpus record or web result gave an exact table entry of 76 labeled maxima, five orbit sizes, or a 44/32 affine/nonlinear split.",
+        "The strongest exact numerical prior statement located is the general Singleton bound specialized to 16."
+      ],
+      "reasoning": "A database/table could cover the count even without matching terminology; exact-number and parameter searches therefore targeted 76, 16, length 6, distance 5, binary, and 3-symbol terminology. None of the returned sources contained the census.",
+      "searches": [
+        "binary 3-symbol code length 6 distance 5 maximum 16",
+        "3-symbol read channel 76 maximum codes",
+        "n=6 3-symbol code 16",
+        "published-finding corpus search over published SCOPE findings"
+      ]
+    },
+    "rationale": "The located prior work supplies the metric framework, Singleton bound, and linear MDS constructions/criteria, but no inspected statement implies the complete unrestricted equality-case census, orbit decomposition, or nonlinear orbit. Exact-parameter and alias searches in published-finding corpus and the public literature found no covering result. Residual risk is an obscure or unindexed finite enumeration.",
+    "residual_risks": [
+      "The full text of the foundational Yaakobi--Bruck--Siegel paper was not available from the inspected repository record; its abstract was read.",
+      "An obscure, nonindexed, or differently phrased finite census may exist despite the exact-parameter and implication searches.",
+      "The 768-element group is only a declared natural subgroup, so the five-orbit decomposition is not a classification up to the unknown full isometry group."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the final census claim. Theorem 2.4 gives \\(M\\le16\\) on specialization; the remaining inspected results concern linear existence/constructions and do not enumerate all equality cases.",
+        "evidence": "Theorem 2.4 states \\(M\\le q^{n-d_b+b}\\); Theorem 2.5 explicitly assumes a linear MDS code. The paper states its construction program in terms of linear MDS \\(b\\)-symbol codes.",
+        "identifier_or_url": "arXiv:1609.09236",
+        "material_read": "arXiv abstract and full-text sections containing definitions, Theorems 2.4-2.6, linear construction statements, conclusion.",
+        "method": "HTML full-text inspection with targeted searches for Singleton bound, linear MDS, and exact parameter patterns.",
+        "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+        "trigger": "Exact metric family and MDS terminology; possible stronger coverage."
+      },
+      {
+        "assessment": "No covering census appears in the material read. The abstract describes cyclic-code distance bounds, decoding, and \\(b\\ge3\\) extensions. Full-text noninspection is retained as a residual access risk rather than treated as evidence of absence.",
+        "evidence": "Repository abstract states extensions of concepts, results, and code constructions to \\(b\\ge3\\); it does not state an unrestricted length-six equality-case enumeration.",
+        "identifier_or_url": "CaltechAUTHORS:20160426-074534474 / DOI 10.1109/TIT.2016.2522434",
+        "material_read": "Public repository abstract and metadata; full text was not available from the inspected repository record.",
+        "method": "Repository record inspection and cross-check of title, abstract, DOI, dates, and stated scope.",
+        "title": "Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels",
+        "trigger": "Foundational b-symbol source and possible same-object prior result."
+      },
+      {
+        "assessment": "NOT_COVERING for unrestricted equality cases: the stated results concern generalized b-symbol weights and characterizations for linear codes.",
+        "evidence": "The abstract repeatedly specifies linear codes and linear isomorphisms and gives linear MDS criteria.",
+        "identifier_or_url": "DOI 10.1109/TIT.2022.3223729",
+        "material_read": "Public abstract and introduction excerpt.",
+        "method": "Web source inspection targeted to scope and hypotheses.",
+        "title": "Generalized b-Symbol Weights of Linear Codes and b-Symbol MDS Codes",
+        "trigger": "Later potentially stronger structural treatment of b-symbol MDS codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd85fab7-5c15-4a93-a040-fe2da7b343ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The case \\(b=3\\) is the first read-window width beyond the extensively studied symbol-pair setting, and equality in the Singleton bound is the canonical extremal regime. The result supplies a complete finite equality-case landscape rather than another construction: \\(76\\) maxima, five natural symmetry types, and a sharp affine/nonlinear split with all \\(32\\) nonlinear extrema in one orbit. This is a natural benchmark for MDS \\(b\\)-symbol constructions and structural questions, not an arbitrary coordinate slice.",
+    "status": "PASS"
+  }
+}
