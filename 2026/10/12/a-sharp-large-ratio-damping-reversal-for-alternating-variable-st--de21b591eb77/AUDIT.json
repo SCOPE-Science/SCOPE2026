@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "At every positive step the cubic interpolatory derivative has a positive newest-value coefficient, giving the displayed exact first-row damping multipliers. Explicit rational formulas for both transfer matrices give entrywise limits for fixed q>0. The product has characteristic polynomial z²(z+2/(1+q)); continuity of the roots gives the exact limiting spectral radius and the strict q<1 and q>1 eventual conclusions. A separate exact calculation gives det(I+P_100(1/10))=-4621393451/14621500436, which forces a real Floquet multiplier <-1. Standalone Fraction checker executed successfully. The claim explicitly excludes q=1 finite-r classification and nonperiodic steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guglielmi-Zennaro abstract specifies zero-stability for the three-step BDF on variable-step grids; the full text was inaccessible.",
+        "Li-Liao treat small-enough ratios in almost all steps, which fails for alternating ratios r and reciprocal r as r grows."
+      ],
+      "reasoning": "Published sufficient conditions for general grids do not subsume instability at arbitrarily large periodic ratios; the inaccessible 2001 full text remains a historical risk and is not asserted to be excluded.",
+      "searches": [
+        "third order backward differentiation alternating large and small time steps scalar negative real axis instability amplification factor minus two",
+        "alternating BDF3 arbitrary ratio two-cycle parasitic roots Schur stability",
+        "Guglielmi and Zennaro 2001 joint spectral radius BDF3 DOI 10.1007/s211-001-8010-0",
+        "Li and Liao 2022 DOI 10.1137/21M1462398"
+      ]
+    },
+    "checked_sources": [
+      "Guglielmi-Zennaro (2001), DOI 10.1007/s211-001-8010-0, abstract only",
+      "Calvo-Grande-Grigorieff (1990), DOI 10.1007/BF01386395, bibliographic description only",
+      "Hadjimichael et al. (2015), arXiv:1504.04107v1, abstract and dated record",
+      "Li-Liao (2022), arXiv:2201.00527, relevant open-access full-text sections",
+      "Published research database semantic searches for BDF3 alternating Floquet and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 Hadjimichael-Ketcheson-Loczi-Nemeth result concerns explicit SSP linear multistep methods, whereas the proposed scheme is implicit BDF3.",
+        "The nearest published conceptual comparison is positive-damping BDF stability with ratio restrictions, not a large-ratio instability asymptotic."
+      ],
+      "reasoning": "The stated theorem yields instability for every q in (0,1) and sufficiently large r, plus eventual stability for fixed q>1. None of the inspected prior claims implies both sides or the exact spectral-radius limit. The specialized historical source remains an explicitly documented unresolved coverage risk.",
+      "searches": [
+        "third order backward differentiation alternating large and small time steps scalar negative real axis instability amplification factor minus two",
+        "periodic step size BDF3 Floquet multiplier stability vs absolute stability negative real axis",
+        "\"backward differentiation\" \"alternating\" \"step\" \"unstable\"",
+        "arXiv:1504.04107v1, title/abstract and method class"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected 2022 BDF3 paper bounds variable-grid stability when most adjacent ratios are below a fixed ceiling; its theorem does not give the two-period scalar Floquet limit.",
+        "The present fixed-q limit has multiplier -2/(1+q), which is not a zero-equation characteristic multiplier."
+      ],
+      "reasoning": "A zero-stability theorem at q=0 is not equivalent to a q>0 spectral-radius law; constant-step negative-real-axis stability also fixes r=1 and cannot imply a limit as r tends to infinity.",
+      "searches": [
+        "variable-step BDF3 two-periodic alternating step sizes arbitrary ratio zero-stability characteristic polynomial monodromy",
+        "periodic step size BDF3 Floquet multiplier stability vs absolute stability negative real axis",
+        "\"BDF3\" \"two-periodic\" damped stability",
+        "arXiv:2201.00527, introduction and Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted bibliographic searches located standard BDF stability-region descriptions, variable-step zero-stability analyses, and unrelated alternating-direction-implicit BDF schemes, but no table of the q-dependent two-period multiplier."
+      ],
+      "reasoning": "This is an infinite-parameter asymptotic Floquet statement plus a rational finite witness, not a catalog lookup. Failed searches alone are not a novelty certificate.",
+      "searches": [
+        "variable-step BDF3 two-periodic alternating step sizes arbitrary ratio zero-stability characteristic polynomial monodromy",
+        "\"BDF3\" alternating steps \"negative real\" stable instability",
+        "\"BDF3\" \"two-periodic\" damped stability"
+      ]
+    },
+    "rationale": "Statement-level comparisons distinguish implicit alternating BDF3 dissipative Floquet stability from existing zero-equation joint-spectral-radius studies, variable-step SSP explicit methods, and ratio-restricted sufficient BDF3 stability. Search did not locate the fixed-q spectral-radius limit or finite counterexample. Historical priority cannot be certified: the full 2001 spectral-radius paper remained inaccessible, disclosed here as a specific residual risk.",
+    "residual_risks": [
+      "Complete 2001 Guglielmi-Zennaro paper could include a directly comparable periodic damped test-equation statement; unavailable through the permitted access routes.",
+      "Older obscure works may contain the same asymptotic example; negative search is not a proof of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not establish asymptotic unstable scalar two-cycle at large ratio; its sufficient ratio regime does not cover alternating extreme ratios.",
+        "evidence": "Li and Liao (2022), introduction and BDF3 stability theorem on almost all adjacent step ratios below 2.553.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Introduction, formula definitions, BDF3 ratio-dependent stability statement and its theorem in available arXiv full text",
+        "method": "Read available open-access text and checked claim hypotheses",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Direct BDF3 variable-step stability theorem and precise ratio hypothesis"
+      },
+      {
+        "assessment": "Abstract addresses zero stability, but full-content comparison is unresolved; do not claim complete exclusion.",
+        "evidence": "2001 abstract explicitly treats zero-stability of variable-step BDF3 using joint spectral-radius methods.",
+        "identifier_or_url": "https://iris.gssi.it/handle/20.500.12571/302",
+        "material_read": "Repository title, 2001 bibliographic metadata, abstract; no complete paper",
+        "method": "University archive record, second university record, arXiv/OA attempts, authorized institutional access attempt unsuccessful because remote access not connected",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "Closest historical BDF3 spectral-radius study, possible overlap"
+      },
+      {
+        "assessment": "Explicit SSP third-order methods, not implicit interpolatory BDF3; provides distinct context, no direct coverage.",
+        "evidence": "arXiv v1 submission timestamp 2015-04-16 06:47:03 UTC; abstract identifies explicit SSP family.",
+        "identifier_or_url": "https://arxiv.org/abs/1504.04107",
+        "material_read": "ArXiv dated landing page, full abstract, and method-class description",
+        "method": "Original arXiv bibliographic and abstract record",
+        "title": "Strong stability preserving explicit linear multistep methods with variable step size",
+        "trigger": "Day-verifiable archive-cohort primary source on variable-step third-order multistep stability"
+      },
+      {
+        "assessment": "General zero-stability rather than positive-damping scalar Floquet stability in accessible description; historically relevant unresolved text.",
+        "evidence": "Calvo, Grande and Grigorieff (1990), published zero-stability study.",
+        "identifier_or_url": "https://doi.org/10.1007/BF01386395",
+        "material_read": "Bibliographic and abstract-level description, not full PDF",
+        "method": "Search for lawful open access; no full text recovered",
+        "title": "On the zero stability of the variable order variable stepsize BDF-formulas",
+        "trigger": "Early historical general BDF variable-grid zero-stability results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de21b591-eb77-4484-a2df-973fc7c58c3e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same natural two-periodic adaptive mesh that is zero-stable can amplify a strictly decaying real scalar mode for any fixed 0<lambda*h<1 when the ratio is large; stronger damping lambda*h>1 restores asymptotic stability. The exact coefficient 2/(1+q) and rational finite witness give a precise boundary between numerical stability mechanisms in a central stiff-solver method; this is not merely a parameter rename or trivial tiny gain.",
+    "status": "PASS"
+  }
+}
