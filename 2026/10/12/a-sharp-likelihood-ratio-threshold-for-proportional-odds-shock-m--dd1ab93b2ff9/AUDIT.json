@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For 0<p,q<1 and positive odds and common baseline with f>0, direct differentiation gives G=(E/D)^n, mass (1-p)^n, and g=n p alpha f E^(n-1)/D^(n+1). The positive-part log LR derivative reduces to H(s)/(Ea Eb) with H(s)=(n-1)(beta(1-q)-alpha(1-p))-(n+1)(beta-alpha)P(s); P decreases strictly from 1 to (1-p)(1-q). The zero-atom jump yields beta p(1-q)<=alpha q(1-p). Endpoint analysis at s=1 for beta>=alpha and s=0 for beta<alpha proves necessity and sufficiency in both branches, including equality and n=1. An extracted standalone standard-library checker passed 76803 exact-rational checks; finite checks are not claimed as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Panja–Kundu–Hazra–Pradhan (2023), DOI 10.1017/S0269964823000104, sections 2–6: usual/reversed-hazard/star ordering; section 6 expressly proposes likelihood-ratio order.",
+        "Das–Kayal (2021), arXiv:2104.08605, main theorems 3.1 and 3.3 concern majorization comparisons of usual stochastic order; later theorems on reversed-hazard order, not the proposed atom-sensitive LR characterization.",
+        "Kundu–Kundu–Hawlader (2023), DOI 10.1111/stan.12296: abstract describes heterogeneous semiparametric majorization comparisons; full theorem statements not available; priority risk explicitly unresolved.",
+        "Nadeb–Torabi–Dolati (2020), arXiv:1812.08343 abstract specifies usual stochastic order for largest claims."
+      ],
+      "reasoning": "General majorization comparison theorems for usual stochastic or reversed-hazard ordering cannot imply a necessary-and-sufficient likelihood-ratio criterion: the latter is strictly stronger and requires a separate density-ratio monotonicity proof. Papers proving LR order for specialized exponentiated/inverse-Kumaraswamy samples do not assert the arbitrary-baseline proportional-odds characterization. The Wiley full text was unavailable, so possible broader coverage there remains an explicit unresolved risk.",
+      "searches": [
+        "maxima iid shock proportional odds severities likelihood ratio comparison sample-size threshold q beta minus p alpha",
+        "stochastic order likelihood ratio max multiple i.i.d. Bernoulli insurance claims occurrence probabilities severity tradeoff",
+        "stochastic comparisons largest claim amounts proportional odds likelihood ratio order identical portfolios Bernoulli shocks necessary sufficient",
+        "2025 likelihood ratio order largest claim amounts proportional odds Bernoulli"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1017/S0269964823000104",
+      "https://arxiv.org/abs/2104.08605",
+      "https://doi.org/10.1111/stan.12296",
+      "https://arxiv.org/abs/1812.08343",
+      "https://doi.org/10.1111/stan.12296 bibliographic abstract only",
+      "Published published-finding corpus related result 2026/9/21/SCOPE-first-two-failure-marginals-identify-proportional-hazards--ed35170c77f7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Panja–Kundu–Hazra–Pradhan (2023), DOI 10.1017/S0269964823000104, sections 2–6: usual/reversed-hazard/star ordering; section 6 expressly proposes likelihood-ratio order.",
+        "Das–Kayal (2021), arXiv:2104.08605, main theorems 3.1 and 3.3 concern majorization comparisons of usual stochastic order; later theorems on reversed-hazard order, not the proposed atom-sensitive LR characterization.",
+        "Kundu–Kundu–Hawlader (2023), DOI 10.1111/stan.12296: abstract describes heterogeneous semiparametric majorization comparisons; full theorem statements not available; priority risk explicitly unresolved.",
+        "For \\(\u0007lpha=2,\beta=1,p=1/5,q=9/10\\), the LR order fails for \\(n\\le4\\) and holds for \\(n\\ge5\\); neither the monotone severity-only nor occurrence-only sufficient comparisons determines this threshold."
+      ],
+      "reasoning": "Panja et al. prove weaker orders for the model and explicitly leave LR open. The inspected Das–Kayal theorems are sufficient orderings for other semiparametric distributions, not the two-parameter-shift iff characterization. The 2023 Kundu–Kundu–Hawlader abstract covers a broad semiparametric setting but does not state an LR theorem; incomplete full-text access is named as a risk, not treated as an affirmative noncoverage finding.",
+      "searches": [
+        "https://doi.org/10.1017/S0269964823000104",
+        "https://arxiv.org/abs/2104.08605",
+        "https://doi.org/10.1111/stan.12296"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Panja–Kundu–Hazra–Pradhan (2023), DOI 10.1017/S0269964823000104, sections 2–6: usual/reversed-hazard/star ordering; section 6 expressly proposes likelihood-ratio order.",
+        "Das–Kayal (2021), arXiv:2104.08605, main theorems 3.1 and 3.3 concern majorization comparisons of usual stochastic order; later theorems on reversed-hazard order, not the proposed atom-sensitive LR characterization.",
+        "The mixed discrete-continuous LR definition requires comparing the atom at zero, and cannot be inferred from the hazard ratio of unthinned severities alone.",
+        "Published published-finding corpus hit 2026/9/21/SCOPE-first-two-failure-marginals-identify-proportional-hazards--ed35170c77f7 addresses identifiability of hazard ratios from failure marginals, not LR stochastic ordering of Bernoulli-thinned maxima; related risk and correlation hits are also distinct."
+      ],
+      "reasoning": "The natural equivalent formulations are stochastic LR order, monotone density-ratio order on the positive support plus an atom boundary, and LR order for parallel-system maximum lifetime under independent instantaneous shocks. Checked published records and related primary material do not give both the exact atom inequality and the lower-severity sample-size threshold.",
+      "searches": [
+        "likelihood-ratio order homogeneous Bernoulli-thinned Marshall-Olkin proportional odds maxima necessary sufficient atom zero",
+        "likelihood ratio stochastic order zero-inflated maximum with identical proportional-odds hazards and all baseline laws",
+        "likelihood ratio order proportional odds largest claim Bernoulli",
+        "likelihood ratio order Marshall Olkin Bernoulli largest claim"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus hit 2026/9/21/SCOPE-first-two-failure-marginals-identify-proportional-hazards--ed35170c77f7 addresses identifiability of hazard ratios from failure marginals, not LR stochastic ordering of Bernoulli-thinned maxima; related risk and correlation hits are also distinct.",
+        "The proposed answer is a parameter-region classification over continuous \\(p,q,\u0007lpha,\beta\\), rather than a computed constant or a known finite catalog entry."
+      ],
+      "reasoning": "published-finding corpus searches returned probabilistic ordering/portfolio neighbors but no equivalent exact two-branch parameter test or portfolio-size boundary. Published-database absence alone does not prove novelty, hence the separate primary source implication comparisons.",
+      "searches": [
+        "exact likelihood ratio stochastic order for maximum of Bernoulli-thinned proportional odds distributions, iid portfolios different claim probabilities and odds parameters",
+        "Bernoulli shock max proportional odds claim severity likelihood ratio order sample size threshold",
+        "proportional odds distributions largest claim amount likelihood ratio ordering necessary and sufficient occurrence probabilities",
+        "proportional odds distributions largest claim amount likelihood ratio ordering necessary and sufficient occurrence probabilities"
+      ]
+    },
+    "rationale": "The primary 2023 openly readable article treats exactly the underlying proportional-odds shock maximum and explicitly names likelihood-ratio comparisons as a possible further problem. The new iff conditions incorporate the no-claim atom, cover all positive common baselines and exhibit a quantitative lower-severity/high-frequency sample-size threshold absent from the inspected stated results. Published-record and published-finding corpus searches did not identify a dominating theorem. The inaccessible 2023 semiparametric comparison paper and unindexed equivalents remain genuine bibliographic priority risks, not represented as inspected or ruled out.",
+    "residual_risks": [
+      "The full text and theorem list of DOI 10.1111/stan.12296 were inaccessible. Its abstract covers a broad semiparametric class including Marshall–Olkin distributions, so a previously published stronger LR theorem there cannot be ruled out.",
+      "A general theorem about LR ordering of maxima under shocks might imply the criterion after an unsearched reparameterization; published-result searches do not exclude all equivalents.",
+      "The search is limited to accessible published records; unpublished work and independent priority review were not available."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its stated proved orders are usual stochastic, reversed hazard and star, not the claimed sharp likelihood-ratio iff criterion.",
+        "evidence": "Panja–Kundu–Hazra–Pradhan (2023), DOI 10.1017/S0269964823000104, sections 2–6: usual/reversed-hazard/star ordering; section 6 expressly proposes likelihood-ratio order.",
+        "identifier_or_url": "https://doi.org/10.1017/S0269964823000104",
+        "material_read": "Open-access full HTML article: preliminaries; section 3 theorem 3.1, 3.4, 3.8, 3.12, 3.13, 3.15; sections 4–5 organization and the full concluding remarks in section 6.",
+        "method": "Direct full-text HTML reading and targeted searches for likelihood ratio and theorem statements.",
+        "title": "Stochastic comparisons of largest claim and aggregate claim amounts",
+        "trigger": "Exact same Bernoulli-thinned proportional-odds largest-claim objects and explicit open LR direction."
+      },
+      {
+        "assessment": "The inspected results provide sufficient usual/reversed-hazard comparisons, not an iff LR statement with an atom and a sharp integer threshold.",
+        "evidence": "Das–Kayal (2021), arXiv:2104.08605, main theorems 3.1 and 3.3 concern majorization comparisons of usual stochastic order; later theorems on reversed-hazard order, not the proposed atom-sensitive LR characterization.",
+        "identifier_or_url": "https://arxiv.org/abs/2104.08605",
+        "material_read": "Authors’ openly accessible manuscript text, especially theorem 3.1, theorem 3.3, related main comparison statements, and occurrences of likelihood-ratio terminology.",
+        "method": "Read HTML presentation of the full publicly available manuscript together with arXiv bibliographic record.",
+        "title": "Ordering results between the largest claims arising from two general heterogeneous portfolios",
+        "trigger": "Plausible dominating general largest-claim ordering framework."
+      },
+      {
+        "assessment": "Comparison is incomplete; no whole-paper noncoverage conclusion can be drawn.",
+        "evidence": "Kundu–Kundu–Hawlader (2023), DOI 10.1111/stan.12296: abstract describes heterogeneous semiparametric majorization comparisons; full theorem statements not available; priority risk explicitly unresolved.",
+        "identifier_or_url": "https://doi.org/10.1111/stan.12296",
+        "material_read": "Publisher abstract, bibliographic metadata, and reference list only. Full article text was not available through lawful open sources or the accessible institutional path.",
+        "method": "Publisher abstract and literature lookup; full-text access attempt did not yield material.",
+        "title": "Stochastic comparisons of largest claim amounts from heterogeneous portfolios",
+        "trigger": "Closely relevant semiparametric family including Marshall–Olkin severities and shock portfolios."
+      },
+      {
+        "assessment": "The abstract explicitly states usual stochastic order rather than exact likelihood-ratio order; a stronger unstated theorem is not excluded by this limited inspection.",
+        "evidence": "ArXiv abstract https://arxiv.org/abs/1812.08343",
+        "identifier_or_url": "https://arxiv.org/abs/1812.08343",
+        "material_read": "ArXiv abstract and publication reference information; full text not available during comparison.",
+        "method": "Abstract comparison and title/keyword search.",
+        "title": "Stochastic comparisons of the largest claim amounts from two sets of interdependent heterogeneous portfolios",
+        "trigger": "Earlier same type of Bernoulli maximum with dependent heterogeneous severities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd1ab93b-2ff9-408a-862d-ad8e750e1bca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary 2023 paper explicitly motivates LR ordering of proportional-odds largest claims, a stronger actuarial/reliability comparison than its usual stochastic conclusions. The result supplies an exact classification across all positive odds, two occurrence probabilities, every size and every positive common baseline; the sharp lower-odds sample-size transition determines when higher claim frequency compensates for less severe individual claims in the likelihood-ratio sense. Its discrete no-claim atom makes ordinary continuous LR arguments insufficient. The scope is a naturally homogeneous portfolio, not an arbitrary narrow parameter slice or numerical lookup.",
+    "status": "PASS"
+  }
+}

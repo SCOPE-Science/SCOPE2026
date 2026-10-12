@@ -1,0 +1,12 @@
+# Scientific review: likelihood-ratio threshold for homogeneous shock maxima
+
+## Correctness — PASS
+The claimed direction is established by an exact common-baseline distribution formula and a positive-part density ratio. The crucial derivative is reduced to one scalar function of the baseline survival; its maximum occurs at a known endpoint according to the sign of the difference between the two odds parameters. Atoms of no-claim probability \((1-p)^n\) and \((1-q)^n\) are explicitly compared. The boundary inequality in the higher-odds case and the sample-size inequality in the lower-odds case are both necessary and sufficient. The derivation covers every real parameter in its stated domain; the exact-rational script's 76,803 checks are only supplemental diagnostics.
+
+## Originality — PASS, with residual priority risk
+The directly motivating open-access study of Panja, Kundu, Hazra and Pradhan (DOI 10.1017/S0269964823000104) investigates the same proportional-odds maximum model but proves usual-stochastic, reversed-hazard and star-order comparisons. Its concluding remarks specifically identify likelihood-ratio order as a further direction. The inspected Das–Kayal work (arXiv:2104.08605) gives sufficient comparisons for different parametric families and orders, rather than the present if-and-only-if atom-sensitive threshold. Nearby literature on general stochastic comparisons and smaller claim order statistics has not been found to imply the criterion. The 2023 Kundu–Kundu–Hawlader full text was inaccessible and could conceivably contain a relevant stronger result; this risk remains, as does the possibility of an equivalent unnamed theorem under a different parameterization. No independent priority verification is claimed.
+
+## Value — PASS
+The source problem asks for stronger stochastic comparisons of largest claims; an exact classification rather than a merely sufficient ordering is useful in that context. In the scientifically meaningful tradeoff where frequency increases while severity odds decrease, the theorem gives the exact integer portfolio size at which likelihood-ratio ordering first appears. This is not a fixed-case arithmetic example: it holds over all positive odds parameters and all continuous positive common baselines, and it explicitly handles the discontinuous probability mass at zero. This first classification does not address heterogeneous risks within portfolios or dependence.
+
+Self-review: passed. Independent audit: not yet performed.
