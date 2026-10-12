@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The coin-count decomposition N=aT+2j, J=j+ka, t=T-2k is exact because a is odd. The bounded-partition lemma is proved by base-case counts and zero/three padding inductions with endpoint uniqueness. All j=0,1,2 and j>=3 thresholds account for every k>=0, and the maximal threshold comparison is strict for a>=9. Monotonicity by adding the smallest coin lifts the Apéry maxima to the unrestricted Frobenius formula. Exact DP verifies 97 odd parameter cases, but it is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mohammed (2017), Chapter 6 concludes F_2(a,a+d,a+2d,a+3d)=a floor(a/3)+d(a+1), for the threshold of at least two representations.",
+        "Komatsu--Hyun--Song (2026), Theorems 1.2--1.3 study h+1 or h+2 generators whose first term is 2h+1; no four-element case with least term >=9."
+      ],
+      "reasoning": "The older exact arithmetic-progression theorem does cover the previous representation layer but not the three-representation Apéry set. The 2026 broad odd-block theorems have >=5 coins when the least coin is >=9. Changing the number of generators changes the denumerant, so no reduction establishes the new claim.",
+      "searches": [
+        "\"p-Frobenius\" \"arithmetic progression\" \"p = 2\" four 2024",
+        "\"p-Frobenius\" \"arithmetic sequence\" \"four\" \"odd\" representation formula 1",
+        "Source 2017 Cardiff thesis: Chapter 6 and conclusion, arithmetic progressions of four terms",
+        "Source arXiv:2608.14053v1: Theorems 1.2, 1.3 and Remark 1.4"
+      ]
+    },
+    "checked_sources": [
+      "Cardiff ORCA thesis 98161, Chapter 6 (2017)",
+      "Komatsu--Ying Symmetry 15:1328 (2023)",
+      "Komatsu--Hyun--Song arXiv:2608.14053v1 (2026)",
+      "OEIS A138984 classical difference-one Frobenius table",
+      "Published mathematical research index searched via equivalent formulations, no covering record found"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 F_2 formula is a statement about at most one representation and cannot by itself compute where the third representation first occurs in each residue.",
+        "The 2026 paper covers least terms 5 and 7 in isolated four-generator examples but its general theorems use lengths growing with the least term.",
+        "New lemma directly computes threshold Q(t,J)>=3 using digit-multiset partitions and unique extremal 3-representation Apéry residue."
+      ],
+      "reasoning": "Both exact formula and full Apéry layer are distinct from published predecessors by changed representation threshold or by fixed versus varying number of generators.",
+      "searches": [
+        "Cardiff PhD 2017: F2 four-term arithmetic progression exact formula",
+        "arXiv:2608.14053v1 exact Theorems 1.2--1.3 and Remark 1.4",
+        "\"four term arithmetic progression generalized Frobenius number g1\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cardiff thesis Chapter 6 (F_2 means fewer than 2, not fewer than 3); Komatsu--Hyun--Song 2026 Theorems 1.2--1.3 (different parameter-linked-length objects)"
+      ],
+      "reasoning": "Equivalent standard terminology is g_2(A), F_3(A), or largest integer with at most two coefficient-vector representations. Neither the two-representation F_2 result nor published variable-length odd blocks states the claimed next fixed-length threshold.",
+      "searches": [
+        "\"four consecutive odd\" \"three representations\" \"Frobenius\"",
+        "\"a,a+2,a+4,a+6\" \"three\" Frobenius",
+        "F3(a,a+d,a+2d,a+3d) generalized Frobenius number 3 representations",
+        "Result index query: F3 three-representation Frobenius exact formula 4-term arithmetic progression 2022 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A138984 is the classical Frobenius number for four consecutive integers (difference one), not a three-representation cutoff for step two.",
+        "Relevant index returned adjacent semigroup and Frobenius records with distinct objects; no exact matching tabulation was identified."
+      ],
+      "reasoning": "A four-consecutive-integer classical Frobenius table is neither a four-consecutive-odd three-representation table nor a formula implying it.",
+      "searches": [
+        "\"a,a+2,a+4,a+6\" \"three\" Frobenius",
+        "\"g2(a,a+2,a+4,a+6)\"",
+        "Result index query: p=2 Apéry set four term arithmetic progression denumerant 3 representations g2",
+        "OEIS A138984 (four successive integers, classical p=0)"
+      ]
+    },
+    "rationale": "The fixed-four-denomination three-representation threshold and its complete next Apéry layer for all odd a>=9 are not implied by the first (two-representation) layer in Mohammed (2017, Chapter 6), the three-generator formulas in Komatsu--Ying (2023), or Komatsu--Hyun--Song (2026) whose odd progression blocks grow in length with their least generator. Their only four-generator parameter-linked blocks have least terms 5 or 7, both outside the new domain. Searches for the equivalent at-most-two / at-least-three formulation and the fixed arithmetic progression detected no covering published theorem.",
+    "residual_risks": [
+      "An equivalent formula could exist in an unindexed or inaccessible work; no database exhausts all prior publications.",
+      "The older thesis provides powerful adjacent-method coverage, so the distinction is the precise three-representation level rather than a new general theory of semigroups."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the prior two-representation threshold but not the new three-representation threshold; the initial two-representation candidate was excluded as covered.",
+        "evidence": [
+          "2017 thesis Chapter 6, F_2 formula a floor(a/3)+d(a+1) counts failure of at least 2 representations; Section 6.2.1 states no F_3 formula."
+        ],
+        "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/98161/1/Final%20Thesis.pdf",
+        "material_read": "Summary, table of contents, Chapter 6 main theorem and conclusion pp. 151-155, including Eq. (6.2.17) and proposed conjectures",
+        "method": "Full-length open-access university PDF text and page image inspected",
+        "title": "Generalised Frobenius numbers: geometry of upper bounds, Frobenius graphs and exact formulas for arithmetic sequences",
+        "trigger": "Exact four-term arithmetic progression F_2 theorem potentially dominates initial candidate"
+      },
+      {
+        "assessment": "Triples only; broader methodological context, no same fixed-four-coin result.",
+        "evidence": [
+          "2023 Symmetry 15:1328, Section 7 says four-or-more-variable positive-p arithmetic progression formulas remain difficult."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym15071328",
+        "material_read": "Publisher full-text introduction, abstract and Section 7 Final Comments, explicitly discussing four or more variables",
+        "method": "Open-access publisher HTML full text inspected",
+        "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+        "trigger": "Authoritative primary source and motivating difficulty beyond triples"
+      },
+      {
+        "assessment": "Theorems require an (h+1)- or (h+2)-element block starting 2h+1; cannot cover fixed four-element block with least element >=9.",
+        "evidence": [
+          "2026 arXiv:2608.14053v1 pp. 1-3: A_h^- has h+1 terms and A_h^+ has h+2 terms; Theorem 1.3 is p=1 for A_h^+ and Theorem 1.2 positive p for A_h^- when h>=4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.14053",
+        "material_read": "All stated Theorems 1.2, 1.3, Remark 1.4, definitions, proof structure and conclusion within 12-page full text",
+        "method": "Full arXiv open-access PDF text and theorem-page image inspected",
+        "title": "p-numerical semigroup of the sequence of consecutive odd integers",
+        "trigger": "Same odd arithmetic-progression subject and positive-p Frobenius statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa8a216d-058e-48f5-b700-5994d5b1375c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines the first previously untreated representation layer beyond the known fixed-four-arithmetic-generator two-representation threshold, resolving the precise at-most-two gap bound and the complete three-representation Apéry set for an infinite and natural family of four consecutive odd denominations. A unique-residue maximizer and complete threshold formula are structural exact invariants, not arbitrary numerical slices.",
+    "status": "PASS"
+  }
+}
