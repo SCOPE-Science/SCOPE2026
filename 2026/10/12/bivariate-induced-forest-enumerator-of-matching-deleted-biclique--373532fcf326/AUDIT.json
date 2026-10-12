@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For selected side sizes a,b and d selected missing-matching edges, the induced edge count is ab-d with d<=min(a,b,t). Any 3-by-3 or 2-by-4 selection contains a six-vertex subgraph with at least six edges, hence a cycle. Among 2-by-2 selections, precisely one or two removed matching edges yield P4 and 2K2, respectively; among 2-by-3 selections, exactly two yield P5. Remaining one-small-side cases are stars with possibly one isolate. Count these disjoint categories, correcting 1-by-1 double counting, to derive the full bivariate polynomial. The path, feedback-set and crown endpoint claims follow from its support/coefficient comparison. Exhaustive stdlib verification checked 163 parameter triples and 413040 vertex subsets through p,q<=7; no finite test is asserted to prove all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chappell–Pelsmajer 2013 bounds forest order in bounded-treewidth classes but does not give this exact forest-subset generating function.",
+        "Axenovich et al 2018, Proposition 3 proof, describes induced forests in an unperturbed complete biclique as stars; a deleted matching creates P4, 2K2, and P5 cases absent there.",
+        "published-finding corpus arboricity of joins concerns edge partitioning; induced-matching-gap bounds concern matching parameters, neither implies this coefficient polynomial."
+      ],
+      "reasoning": "No identified general theorem yields the full bivariate coefficients via specialization. The proof explicitly handles missing-edge incidence and component counts.",
+      "searches": [
+        "published-finding corpus: crown graphs induced forest polynomial bivariate vertex-count component-count maximal forests and feedback vertex sets",
+        "published-finding corpus: vertex induced forest polynomial of K_{n,n} minus matching complete explicit",
+        "published-finding corpus ID 2026/9/19/SCOPE-arboricity-joins-pseudotrees--b7ba35900aa1",
+        "published-finding corpus ID 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.37236/3826 (full PDF inspected, 2013-10-28, primary MSC 05C35)",
+      "arXiv:1803.02152 (full PDF inspected, 2018-03-06)",
+      "published-finding corpus published findings queried semantically using six distinct formulations",
+      "Own 2026-10_week1 part 1 ledgers through g000097, claims/IDs checked for overlap only",
+      "2026-09_week4 combinatorics archive initialization ledger (no findings)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Restrained domination on crowns determines a different family of subsets, not forest membership or components.",
+        "Zero forcing on trees does not imply induced-forest counts in bicliques.",
+        "Published induced-forest bounds and induced-arboricity statements do not furnish the exact matching-deficiency interpolation or the P4–P5 balance criterion."
+      ],
+      "reasoning": "Compared mathematical implications rather than titles: neither class-level cardinality bound nor edge-cover arboricity nor other crown invariant fixes these polynomial coefficients. Corollary feedback-set multiplicities are presented as consequences of the new enumerator, not as independent novelty.",
+      "searches": [
+        "published-finding corpus ID 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+        "published-finding corpus ID 2026/9/17/SCOPE002",
+        "doi:10.37236/3826",
+        "arXiv:1803.02152"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Induced forest subsets are equivalently complements of feedback vertex sets; full bivariate polynomial retains component count, which standard minimum-feedback-set results alone cannot recover.",
+        "DOI 10.37236/3826 considers maximum induced-forest cardinality lower bounds, not the full bivariate forest enumerator.",
+        "arXiv:1803.02152 treats induced arboricity, not vertex-subset forest enumeration."
+      ],
+      "reasoning": "Searched induced-forest polynomial, decycling/feedback-vertex-set aliases, and matching-deleted biclique/crown terminology; no found equivalent formula or bijection subsumes the order-by-component distribution.",
+      "searches": [
+        "published-finding corpus: Induced forest polynomials of crown graphs K_{n,n} minus perfect matching; feedback vertex sets and acyclic induced subsets",
+        "published-finding corpus: Counting induced forests in crown graphs bipartite cocktail party incidence graph",
+        "published-finding corpus: crown graph induced tree induced paths four vertices five vertices P4 P5 counts",
+        "web: \"crown graph\" \"induced forest\" polynomial",
+        "web: \"K_{n,n}\" \"perfect matching\" \"induced forest\" enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible indexed literature and published-finding corpus hits do not provide a table of all forests split by vertex number and connected-component number for H_{p,q,t}.",
+        "Finite checker produces coefficient counts from first principles, not by reproducing a found table."
+      ],
+      "reasoning": "The claim is a general three-parameter symbolic formula, not a lookup of isolated small-graph coefficients. Absence in examined tables is limited evidence, not uniqueness proof.",
+      "searches": [
+        "published-finding corpus: crown graph induced tree induced paths four vertices five vertices P4 P5 counts",
+        "published-finding corpus: bipartite Kneser graph H(n,1) induced forests forest complex face polynomial",
+        "web: \"crown graphs\" \"feedback vertex set\" enumerator",
+        "web: \"matching-deleted biclique\" \"induced forests\"",
+        "web: \"induced-forest polynomial\" bipartite graph \"matching\""
+      ]
+    },
+    "rationale": "The 2013 full-text maximum-induced-forest paper proves graph-class bounds rather than this exact order-and-component generating function; the 2018 full-text induced-arboricity paper observes stars in K_{k,k+1} but does not enumerate vertex-induced forests after a deleted matching. Published published-finding corpus close hits concern unrelated invariants, and matched-parameter aliases and polynomial/database queries returned no stronger covering theorem. Exact novelty remains subject to poorly indexed prior work.",
+    "residual_risks": [
+      "Older small-graph/crown-specific counting papers not indexed by searched terms could contain this or a stronger equivalent formula.",
+      "Published published-finding corpus coverage is a limited published database, not a guarantee of uniqueness; no comparison to unpublished findings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses graph-class bounds for maximum induced forests, not all induced vertex-subset/component coefficients of matching-deleted bicliques.",
+        "evidence": [
+          "Electronic Journal of Combinatorics 20 (2013) P8, first page: publication date 2013-10-28, primary 05C35.",
+          "The body treats bounded treewidth and maximum forest sizes, with no matching-deletion biclique polynomial discovered."
+        ],
+        "identifier_or_url": "doi:10.37236/3826",
+        "material_read": "Complete 39-page lawful open journal PDF, including theorem statements, introduction and literature scope.",
+        "method": "Direct PDF text examination and first-page screenshot for date and primary MSC; searched matching and complete bipartite terminology.",
+        "title": "Maximum Induced Forests in Graphs of Bounded Treewidth",
+        "trigger": "Foundational archival source for induced forests, feedback vertex sets and primary 05C35 ownership."
+      },
+      {
+        "assessment": "The induced-star observation in complete bicliques is related but is used for an edge-partition parameter, not a bivariate vertex-subset enumeration under deleted matchings.",
+        "evidence": [
+          "The Proposition 3 proof says every induced forest of K_{k,k+1} is a star.",
+          "Paper defines induced arboricity, a minimum number of induced forests covering edges, which is not the claimed enumerator."
+        ],
+        "identifier_or_url": "arXiv:1803.02152",
+        "material_read": "Full 13-page open preprint, especially proof of Proposition 3 describing forests induced in K_{k,k+1}.",
+        "method": "Direct PDF text plus screenshot of material proof passage.",
+        "title": "Induced and Weak Induced Arboricities",
+        "trigger": "Plausible covering result for induced forests of bipartite graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "373532fc-f326-4295-b112-8498a881c924",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Deleting a natural matching from a complete bipartite graph changes the induced-forest structure in a sharply constrained way. This exact natural three-parameter bivariate enumeration refines feedback-vertex-set cardinalities by all component strata, counts the minimal deletion solutions, and proves a P4-versus-P5 path balance criterion that detects the crown endpoint for any balanced nonzero matching deletion. It is a complete infinite-family classification rather than a routine substitution or isolated small computation.",
+    "status": "PASS"
+  }
+}
