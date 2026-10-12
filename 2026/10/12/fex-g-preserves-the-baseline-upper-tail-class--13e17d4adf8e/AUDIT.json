@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exact FEx-G CDF algebraically reduces to survival (exp(s^(1-s))-1)/(e-1). Expanding s^(1-s) at s=0 gives the stated constant tail equivalence and second-order term. Differentiating the exact survival map yields an explicit hazard-ratio factor whose two factors both tend to one. Positive-moment equivalence follows from two-sided eventual comparison of the survival functions and the tail-integral moment identity. The packaged checker independently verifies the limits and the Pareto quantile constant.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General T-X papers define generator compositions but do not calculate this transform's endpoint derivative or survival constant.",
+        "A 2021 exponential T-X paper discusses heavy-tail modeling for a different generator rather than the 2026 FEx-G map.",
+        "The 2025 article sharing the FEx-G name has CDF 1-exp(-G1^nu/S2^omega), so its tail structure is not the same problem."
+      ],
+      "reasoning": "The comparison searched both the general generating framework and similarly named exponential-generated families to exclude a broader theorem that would automatically dominate the result.",
+      "searches": [
+        "flexible exponential-G regular variation tail",
+        "T-X family tail equivalence baseline survival asymptotic",
+        "generated family tail equivalence baseline distribution survival"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026571",
+      "doi:10.25259/JKSUS_820_2025",
+      "doi:10.1186/2195-5832-1-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 same-name family uses two baseline distributions and extra shape parameters, so its statements do not imply this map's constant tail ratio.",
+        "The source's bounded FEx-Kumaraswamy endpoint proposition is implied by the present hazard theorem after inserting its baseline hazard, not conversely.",
+        "General T-X quantile construction results do not give the endpoint expansion of the specific map s -> (exp(s^(1-s))-1)/(e-1)."
+      ],
+      "reasoning": "The closest published statements are either a special case or concern a different generator; none dominates the baseline-uniform theorem.",
+      "searches": [
+        "A novel flexible exponential-G 10.25259/JKSUS_820_2025 tail",
+        "FEx-G Kumaraswamy endpoint hazard asymptotic",
+        "T-X quantile family endpoint tail equivalence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper gives the exact 2026 transform and CDF but no general survival-ratio limit.",
+        "Its FEx-Kumaraswamy Proposition 3 treats one bounded special model and an HRF/MRL relation, not arbitrary baselines.",
+        "No located published-result record states either the constant survival ratio or the baseline hazard-ratio limit."
+      ],
+      "reasoning": "Survival equivalence, hazard equivalence, unchanged regular-variation index, and unchanged moment threshold are the principal equivalent or immediate formulations of the endpoint rigidity and were searched explicitly.",
+      "searches": [
+        "10.3934/math.2026571 FEx-G tail asymptotics survival equivalence baseline",
+        "flexible exponential-G tail equivalence hazard ratio baseline",
+        "FEx-G upper tail preserves baseline tail index moment existence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Equation (2.2) is the exact CDF used in the proof.",
+        "Section 4.1 expands the CDF around small baseline CDF values but does not analyze the upper survival as baseline survival tends to zero.",
+        "Proposition 3 in the FEx-Kumaraswamy section gives h(t) asymptotic to b/(1-t), which matches the baseline Kumaraswamy endpoint hazard and is a single special case of the general hazard-equivalence theorem."
+      ],
+      "reasoning": "The source's exact formulas and its only closely related endpoint proposition were compared at implication level, not merely by title or terminology.",
+      "searches": [
+        "doi:10.3934/math.2026571 tail behavior",
+        "doi:10.3934/math.2026571 asymptotic FExKw hazard",
+        "doi:10.3934/math.2026571 linear representation moments"
+      ]
+    },
+    "rationale": "The primary article advertises tail flexibility, develops a lower-endpoint power series, and proves a bounded FEx-Kumaraswamy endpoint result, but does not state baseline-uniform upper-tail survival equivalence, hazard equivalence, or moment-threshold invariance. The 2025 FEx-G article is a different two-baseline, two-shape construction. Focused published-result searches found no theorem covering the 2026 parameter-free map.",
+    "residual_risks": [
+      "A recent unindexed note may contain the same endpoint calculation.",
+      "The source's broad phrase 'tail behavior' is qualitative; the finding limits ultimate tail order rather than all finite-range tail diagnostics.",
+      "The extreme-quantile ratio beyond exact Pareto baselines needs the usual regular-variation inversion conditions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING THE GENERAL THEOREM. The source contains the exact ingredients and one bounded special-case endpoint calculation, but no arbitrary-baseline survival ratio, hazard ratio, regular-variation preservation, or moment-threshold theorem.",
+        "evidence": "Equation (2.2), Equation (2.3), Section 4.1, and Proposition 3.",
+        "identifier_or_url": "doi:10.3934/math.2026571",
+        "material_read": "Open full PDF at the motivation, Section 2 transformation and CDF/PDF, Section 4.1 linear representation, and the FEx-Kumaraswamy endpoint asymptotics in Proposition 3.",
+        "method": "Direct parsed-text and rendered-page inspection of the publisher PDF.",
+        "title": "A unified parsimonious exponential-G family for modeling real-world data: theory and statistical inference",
+        "trigger": "Primary source defining the parameter-free FEx-G map and advertising tail flexibility."
+      },
+      {
+        "assessment": "NOT APPLICABLE TO THE SAME TRANSFORM. Its CDF uses two baselines and extra positive shape parameters.",
+        "evidence": "Equation (2.1) defines 1-exp(-G1^nu/S2^omega).",
+        "identifier_or_url": "doi:10.25259/JKSUS_820_2025",
+        "material_read": "Open full HTML at the defining family CDF and hazard-shape discussion.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "A novel flexible exponential-G family: Properties, estimation, and applications in environmental and engineering sciences",
+        "trigger": "Same family label and plausible prior coverage."
+      },
+      {
+        "assessment": "GENERAL FRAMEWORK ONLY. It does not evaluate the endpoint asymptotics of the 2026 FEx-G transformation.",
+        "evidence": "General T-X composition definitions.",
+        "identifier_or_url": "doi:10.1186/2195-5832-1-2",
+        "material_read": "Open article sections defining T-X and survival-function constructions.",
+        "method": "Direct full-text inspection.",
+        "title": "On generating T-X family of distributions using quantile functions",
+        "trigger": "General framework that could potentially dominate a generator-specific tail statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13e17d4a-df8e-4317-8dac-24f978882ae9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Tail behavior is explicitly presented as part of the new family's flexibility. The theorem identifies a sharp structural limit on that flexibility: extreme upper-tail order, hazard scale, and positive-moment thresholds are inherited from the baseline. This matters for reliability and heavy-tail use because choosing the transform cannot repair a baseline with the wrong moment boundary or extreme-tail index, even though it may improve central fit and hazard shape.",
+    "status": "PASS"
+  }
+}
