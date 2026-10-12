@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For any two distinct words, pair distance <4 is equivalent to XOR support in a single adjacent cyclic two-set. Six four-bit erasure projections therefore must all be bijective on a 16-word code. Exhaustive exact-cover recursion over 96 requirements found 76 solutions (685 nodes), while independent pair-distance compatibility clique recursion found the same 76 sorted sixteen-word sets (391978 nodes). Every code was directly pair-distance checked, affinity and all 768 isometries were checked; five orbit sizes sum to 76. Search invariants prove completeness of finite domains.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. prove existence for all even lengths at pair distance 4 and the symbol-pair Singleton bound; these do not enumerate all size-16 length-six codes.",
+        "Ding et al. restrict their new constructions to linear codes and emphasize pair distances >=5.",
+        "published-finding corpus SCOPE080 lists particular optimal cyclic linear codes with parameters distinct from (6,16,4) binary."
+      ],
+      "reasoning": "Previously stronger parameter-range existence theorems and bounds do not dominate an all-optimizer orbit census, because existence and maximum size alone imply neither the number of nonlinear optimizers nor their orbits. The only size-16 length-six code assertion already covered (existence) is expressly excluded from the novelty claim.",
+      "searches": [
+        "All binary length-six symbol-pair MDS codes of size sixteen with pair distance four, 76 codes, affine and nonlinear, classification",
+        "all nonlinear MDS symbol pair codes (6,4) binary 16 codewords burst erasure seven coordinate complements",
+        "arXiv:1211.1728 sections 3,4",
+        "arXiv:1605.08859 sections 2--6",
+        "published-finding corpus 2026/9/8/SCOPE080"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.1728v2 Chee et al. full HTML sections 1--4 and appendix; public source date arXiv v1 2012-11-07.",
+      "arXiv:1605.08859v2 Ding et al. full HTML sections 1--6 (linear constructions only); public date 2016-05-28.",
+      "Cassuto and Blaum (2011), Codes for Symbol-Pair Read Channels: bibliographic record, accessible abstract/background; full published text unavailable.",
+      "published-finding corpus 2026/9/8/SCOPE080 closest indexed item for symbol-pair linear cyclic codes at other parameters.",
+      "Previously recorded own binary length-five pair-distance-four optimum (prior-week ledger item 2810c6c2-86b8-4060-b87b-3e9b9e262157) has a distinct length and bound.",
+      "All current-week 139 existing finding claims scanned for overlap; no length-six size-16 distance-four all-code enumeration identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee: (i) 16 is the sharp upper bound, (ii) at least one optimum exists; neither statement determines the other 75 optimizers.",
+        "Ding: constructs linear MDS codes and gives no non-linear census.",
+        "Closest same-metric indexed record considers different cyclic linear code parameters [8,3,6], [12,5,8], [14,3,12] and cannot imply this exhaustive count."
+      ],
+      "reasoning": "The new conjunctive claim (76 labeled equality cases, affine/nonaffine split, five natural-isometry orbits) strictly refines known bounds and examples. The implication cannot be reversed: even perfect singleton equality and existence do not count nonlinear designs, and the 2016 linear-only theorem does not exclude them.",
+      "searches": [
+        "Chee et al. Theorem 2.1 and Corollary 3.2(iv), arXiv:1211.1728",
+        "Ding et al. Table 1 and Theorem 2.5, arXiv:1605.08859",
+        "published-finding corpus 2026/9/8/SCOPE080",
+        "All binary length-six symbol-pair MDS codes of size sixteen with pair distance four, 76 codes, affine and nonlinear, classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "By Lemma 1, binary cyclic pair-distance >=4 equals unique recovery from any known adjacent two-symbol erasure; Chee et al. Theorem 2.1 gives size <=16.",
+        "No matching completed 76-code census was identified in the checked exact-erasure and symbol-pair formulations."
+      ],
+      "reasoning": "A stronger complete classification in erasure-recovery terminology could cover this theorem even without pair-distance vocabulary. Exact searches for this dual vocabulary found none; the metric equivalence itself is elementary and is not claimed as a new contribution. Retain unindexed-classification risk.",
+      "searches": [
+        "optimal (6,4)_2 symbol pair codes systematic burst erasure perfect, nonlinear 16 codewords, orbit enumeration",
+        "binary length 6 perfect single cyclic two-burst erasure correcting codes enumeration 76",
+        "web: \"cyclic adjacent\" \"erasures\" \"6\" \"16\" codes complete classification",
+        "arXiv:1211.1728 §2, Theorem 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned constructions, MDS bounds and parameter-existence tables; none identified 76 labeled codes, 44 affine, 32 nonlinear, or five orbits.",
+        "Full results are enumerated in pair6_codes.txt and independently reconstructed by pair6_verify.py."
+      ],
+      "reasoning": "A known exact table of all length-six 16-word distance-four cyclic pair codes would cover this theorem even with no common terminology. The primary papers searched have existence tables, not a complete list of optimum codes. Residual exact-table risk remains because search failure alone cannot establish novelty.",
+      "searches": [
+        "exact 76 binary 6-bit cyclic symbol pair MDS codes 44 affine 32 nonlinear five dihedral orbits",
+        "web: \"MDS symbol-pair codes\" \"classification\" binary",
+        "web: \"pair-distance 4\" \"length 6\" \"binary\" \"codes\" enumerations",
+        "published-finding corpus exact nonaffine orbit counts search"
+      ]
+    },
+    "rationale": "Primary Chee et al. 2012 establish the Singleton bound and existence for (6,4), not counts of all optimizers; Ding et al. 2016 treat linear constructions at different distances, not the full nonlinear census. In-scope published-finding corpus and prior records did not contain the length-six all-code enumeration. Novelty claimed only for the 76/44/32/five-orbit equality-class classification; a closed foundational paper and unindexed erasure-code tables remain risks.",
+    "residual_risks": [
+      "Older unindexed calculations or unpublished tables could independently give the 76-code census or its nonlinear/orbit decomposition.",
+      "The foundational Cassuto--Blaum full published text was not accessible; abstract-level reading is not used to assert definitive noncoverage.",
+      "Affine characterization depends on the stated binary-coordinate group and is not a classification under arbitrary coordinate permutations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BOUND_AND_EXISTENCE_ONLY for present claim: supplies Singleton <=16 and an even-length d=4 optimizer, not all labeled equality cases nor nonlinear/orbit census.",
+        "evidence": [
+          "Theorem 2.1: q^(n-d+2) Singleton bound, lines 72--76.",
+          "Corollary 3.2(iv): existence of (2n,4)_q symbol-pair MDS for n>=2, lines 122--143.",
+          "Section 4 develops general existence and construction methods; no exact length-six enumeration identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1211.1728v2",
+        "material_read": "Full accessible HTML mathematical sections 1--4, key corollaries and appendix headings/proofs; specifically §§2,3-B,4-A,4-C and relevant matches for enumeration, nonlinear, and 6,4.",
+        "method": "Read original freely accessible manuscript HTML and searched within full document for classification/count/nonlinear terms.",
+        "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+        "trigger": "Foundational exact parameter (6,4) MDS existence and Singleton bound, plausible stronger covering classification."
+      },
+      {
+        "assessment": "NOT_COVERING: states a focus on linear MDS codes for pair-distances 5, 6, and larger, with known distance-four existence cited as prior work; no nonlinear length-six all-code enumeration.",
+        "evidence": [
+          "Section 1 and Table 1: distance-four existence attributed to Chee.",
+          "Section 2: linear parity-check sufficient conditions.",
+          "Section 6: summary of linear constructions with distances at least five."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1605.08859v2",
+        "material_read": "Full freely accessible HTML sections 1--6, including Table 1, Theorem 2.5, relevant main results and conclusion.",
+        "method": "Read article text and mathematical statement ranges in original arXiv HTML.",
+        "title": "New Constructions of MDS Symbol-Pair Codes",
+        "trigger": "Potential stronger classification of pair-distance-four MDS codes."
+      },
+      {
+        "assessment": "ACCESS_LIMITED: cannot exclude that a table or appendix gives this finite count; documented residual risk.",
+        "evidence": [
+          "Known foundational subject: pair-read channel, metric, constructions and decoding.",
+          "No complete manuscript inspected."
+        ],
+        "identifier_or_url": "Cassuto and Blaum, IEEE Transactions on Information Theory 57 (2011), 8011--8020",
+        "material_read": "Bibliographic metadata and abstract-level descriptions; not publisher full text.",
+        "method": "Searched public bibliographic records and lawful-access versions; did not infer whole-document noncoverage.",
+        "title": "Codes for Symbol-Pair Read Channels",
+        "trigger": "Original symbol-pair metric and pair-error-correction paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e22aa432-fba2-4ac7-8208-e45d75823846",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original literature motivated optimal read-pair codes; here (6,16,4) is a natural exact Singleton-equality case for recovery from two adjacent erasures. The bound and known constructions do not identify 32 genuinely nonaffine optimum designs, five isometry classes, or all 76 labeled choices. The exact reproducible finite classification provides a canonical design inventory and a structural boundary for linear-only constructions, not merely a new numerical bound or a routine re-expression of existence.",
+    "status": "PASS"
+  }
+}
