@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The Newton–Schulz residual squares exactly, so scalar initialization gives X_k=q_m(A) with m=2^k. On the spectral convergence interval q_m is positive; for even m it is strictly decreasing. In two dimensions, q_m(A)=c_0 I+c_1 A with c_1<=0, so a Stieltjes off-diagonal becomes nonnegative and positive definiteness supplies positive diagonals. The 3x3 rational witness has A>0 and 2I-A>0 by exact leading principal minors, hence rho(I-A)<1; exact multiplication gives A^{-1}>0, X_1>=0, and (X_2)_{13}=-1/500.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hackbusch--Khoromskij--Tyrtyshnikov 2005/2008 treats inverse iteration and preservation/loss of hierarchical or tensor structure; its published abstract does not make an entrywise-sign claim.",
+        "Higham 1997 concerns a Schulz iteration for the matrix square root of M-matrices, a different matrix function and update."
+      ],
+      "reasoning": "Broader structure-preservation results found in the literature concern data-sparse formats or different matrix functions. They do not imply that inverse Newton–Schulz iterates preserve entrywise nonnegativity in 2x2 Stieltjes systems or fail first in dimension three.",
+      "searches": [
+        "Approximate iterations for structured matrices Newton inversion structure preservation",
+        "M-matrix Schulz inverse iteration matrix inverse",
+        "Newton-Schulz positive matrix inverse nonnegative iterates"
+      ]
+    },
+    "checked_sources": [
+      "MPI-MIS-Preprint-112/2005",
+      "DOI:10.1007/s00211-008-0143-0",
+      "DOI:10.1155/2014/731562",
+      "Higham 1997 Stable iterations for the matrix square root"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hackbusch--Khoromskij--Tyrtyshnikov motivate structured inverse iterations and note intermediate loss of computational structure, but the accessible article material concerns tensor/hierarchical structure.",
+        "Soleymani--Sharifi--Shateyi fully describes Schulz-type inversion, initialization, convergence and preconditioning applications without an entrywise positivity/Stieltjes result."
+      ],
+      "reasoning": "Neither prior source implies the present claim: convergence and sparsity-format preservation do not determine entrywise signs of intermediate polynomial inverse approximants.",
+      "searches": [
+        "MPI-MIS-Preprint-112/2005",
+        "DOI:10.1007/s00211-008-0143-0",
+        "DOI:10.1155/2014/731562"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic-index searches returned no Newton–Schulz/Stieltjes sign-preservation result; the closest inverse-related hit was SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba, which studies a different approximate inverse and SPD threshold.",
+        "Soleymani--Sharifi--Shateyi 2014 explicitly states the Schulz inverse iteration and scalar initialization V_0=alpha I under a contraction condition, but full-text searches for nonnegative, positivity, Stieltjes, entrywise, and M-matrix yielded no corresponding theorem."
+      ],
+      "reasoning": "Equivalent formulations would describe preservation of nonnegative entries, inverse positivity, or sign structure of q_m(A) for Stieltjes/M-matrices. The inspected sources discuss convergence, stability, sparsity, and preconditioning rather than the dimension-two sign theorem or the three-dimensional obstruction.",
+      "searches": [
+        "Newton Schulz inverse iteration nonnegative inverse M-matrix positivity preserving matrix inverse iteration",
+        "Newton-Schulz Stieltjes matrix nonnegative iterates inverse-positive matrix polynomial",
+        "matrix inverse iteration X_{k+1}=X_k(2I-AX_k) positivity M-matrix",
+        "Newton Schulz three dimensional positivity loss nonnegative approximate inverse Stieltjes matrix scalar initialization dimension two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2014 full text gives V_0=alpha I and the standard contraction requirement, and treats approximate inverse preconditioning as prior methodology.",
+        "The 2005 preprint record gives primary MSC 65F30 and an exact public posting date of 2005-11-30."
+      ],
+      "reasoning": "The matrix coefficients and convergence identities are not taken from a sign table. The negative entry -1/500 and the two-dimensional preservation theorem are derived from the iteration and exact functional calculus.",
+      "searches": [
+        "Newton Schulz scalar initialization alpha I convergence matrix inverse preconditioner",
+        "Schulz iteration residual squaring matrix inverse"
+      ]
+    },
+    "rationale": "The method, convergence criterion, scalar initialization, and preconditioning applications are classical. The new claim is the exact dimension boundary for entrywise nonnegativity of convergent Newton–Schulz inverse iterates on symmetric Stieltjes matrices. No implication-equivalent statement was found in the required own-ledger, semantic-index, or published-literature comparisons.",
+    "residual_risks": [
+      "Older M-matrix or monotone approximate-inverse literature may state a related sign-preservation theorem under terminology not retrieved by the searches.",
+      "The full PDF of Hackbusch--Khoromskij--Tyrtyshnikov was not machine-readable in this run; its abstract and metadata were inspected, while the 2014 Schulz-type source was inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed entrywise sign boundary.",
+        "evidence": "The paper states the Schulz method, recommends V_0=alpha I with a contraction condition, and uses approximate inverses as preconditioners, but contains no matching sign-structure theorem.",
+        "identifier_or_url": "DOI:10.1155/2014/731562",
+        "material_read": "Full web text: introduction, initialization discussion, main result, computational/preconditioning section, conclusions, and references; targeted full-text searches for M-matrix, nonnegative, positivity, Stieltjes, and entrywise.",
+        "method": "Lawful open-access full-text inspection.",
+        "title": "Approximating the Inverse of a Square Matrix with Application in Computation of the Moore–Penrose Inverse",
+        "trigger": "Highly relevant full text on Schulz inversion, scalar initialization, convergence, sparsity, and preconditioning."
+      },
+      {
+        "assessment": "NOT_COVERING in accessible material; discusses tensor/hierarchical structure rather than entrywise positivity.",
+        "evidence": "The abstract says intermediate matrices may lose the structure of the initial matrix and studies inverse computation in structured formats; no entrywise-sign statement is present in the accessible text.",
+        "identifier_or_url": "MPI-MIS-Preprint-112/2005; DOI:10.1007/s00211-008-0143-0",
+        "material_read": "Repository record, journal abstract, classification, references, and scope statement; the full PDF endpoint was not machine-readable in this run.",
+        "method": "Repository/journal metadata and abstract inspection.",
+        "title": "Approximate Iterations for Structured Matrices",
+        "trigger": "Closest primary structured-matrix inverse-iteration source and source of primary MSC 65F30 ownership."
+      },
+      {
+        "assessment": "INAPPLICABLE to the inverse iteration claim.",
+        "evidence": "The paper studies a Schulz iteration for the matrix square root of M-matrices, not X_{k+1}=X_k(2I-AX_k) for A^{-1}.",
+        "identifier_or_url": "Higham, Numerical Algorithms 15 (1997), 227–242",
+        "material_read": "Repository abstract and bibliographic metadata.",
+        "method": "Repository abstract inspection.",
+        "title": "Stable iterations for the matrix square root",
+        "trigger": "M-matrix plus Schulz terminology could potentially dominate the sign claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2c2f43a9-b905-4c71-b318-00152158d876",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For Stieltjes matrices the exact inverse is entrywise nonnegative, and Newton–Schulz approximate inverses are used in preconditioning. A minimal-dimension theorem identifies exactly when convergent intermediate approximants can first create a wrong-signed coupling. The strict 3x3 rational witness is robust and small enough to serve as a diagnostic example; the result is structural rather than a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
