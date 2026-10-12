@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The proof uses only convexity, endpoint chord domination, monotonicity of pi', and monotonic root comparison. The signs were reconstructed from f(P)=-r-epsilon*pi'(P)(1-P)+pi(P). The source inverse endpoint is impossible because its argument is strictly positive while pi' is nonpositive. The implicit root h is unique since h'<0 and changes sign, and the affine majorant H yields U. The linear admissible case pi(P)=1-P attains U exactly. The checker confirms representative algebra but is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1073/pnas.0403823101 gives the classic risk-crossing vaccination game without the adaptive derivative term",
+        "doi:10.1080/17513758.2016.1213319 studies uniqueness of vaccination-game Nash equilibria in a different formulation"
+      ],
+      "reasoning": "Broader vaccination-game literature addresses equilibrium existence or uniqueness, but the corrected enclosure depends on the specific adaptive term -epsilon*pi'(P)(1-P). Those results do not imply the chord/slope bounds proved here.",
+      "searches": [
+        "individual payoff game theoretic vaccination unique Nash equilibrium convex pi bound",
+        "web: adaptive dynamics vaccination game equilibrium convex infection probability",
+        "web: vaccination game Nash equilibrium infection probability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2411.09519",
+      "doi:10.3934/jdg.2025037",
+      "doi:10.1073/pnas.0403823101",
+      "doi:10.1080/17513758.2016.1213319",
+      "published-result semantic index"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves f is decreasing and obtains a comparison equation h=0, but its final pi'-inverse endpoint is invalid because (1-r)/epsilon is outside the derivative range.",
+        "The classic Bauch–Earn equilibrium is defined by pi(P)=r and therefore supplies the lower comparison point, not the adaptive upper enclosure."
+      ],
+      "reasoning": "The new claim is not a corollary of a stronger located result: it repairs a failed implication in the source, retains the valid comparison root, derives a new explicit slope-only upper bound, and gives an equality witness.",
+      "searches": [
+        "Adaptive dynamics individual payoff vaccination Theorem 3.2 upper bound pi inverse derivative convex infection probability equilibrium",
+        "Balabanova Duong vaccination equilibrium pi prime inverse (1-r)/epsilon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2411.09519, Theorem 3.2(ii) and its proof in the accepted manuscript",
+        "doi:10.3934/jdg.2025037, published theorem and MSC record"
+      ],
+      "reasoning": "The source's own implicit comparison function h is equivalent to the first replacement bound, but the paper does not state P_0<=bar P as the final corrected enclosure and instead performs an invalid inverse step. No indexed result located an equivalent correction or the explicit slope bound U.",
+      "searches": [
+        "Adaptive dynamics individual payoff vaccination Theorem 3.2 upper bound pi inverse derivative convex infection probability equilibrium",
+        "vaccination adaptive dynamics convex infection probability corrected equilibrium upper bound initial slope",
+        "web: exact source title + correction upper bound pi prime inverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result 2026/9/14/SCOPE021 concerns coupled-SEIR R0 bracketing, not vaccination adaptive dynamics.",
+        "Closest indexed result 2026/9/18/SCOPE-two-stage-kernels-close-age-structured-threshold-dynamics--361cf4b95c9f concerns an age-structured threshold model, not this scalar game."
+      ],
+      "reasoning": "The semantic published-result index returned no entry matching the source, the invalid derivative-inverse endpoint, the implicit chord correction, or the explicit initial-slope bound.",
+      "searches": [
+        "Adaptive dynamics individual payoff vaccination Theorem 3.2 upper bound pi inverse derivative convex infection probability equilibrium",
+        "vaccination adaptive dynamics convex infection probability corrected equilibrium upper bound initial slope",
+        "Balabanova Duong vaccination equilibrium pi prime inverse (1-r)/epsilon",
+        "individual payoff game theoretic vaccination unique Nash equilibrium convex pi bound"
+      ]
+    },
+    "rationale": "Full-text inspection of the source shows the invalid inverse step and no corrected final enclosure. published-finding corpus and literature searches found no equivalent source-specific correction or stronger bound that implies it. The classic vaccination-game literature uses a different equilibrium equation and does not dominate the claim.",
+    "residual_risks": [
+      "A source-specific correction could exist outside the indexed literature under wording not retrieved by the searches.",
+      "The 2016 uniqueness paper's direct full text was access-blocked during this run; available indexed material showed a different formulation and no decisive overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source states the positive-argument derivative-inverse upper endpoint and its proof obtains the valid h-comparison before an invalid final inversion. It does not state the corrected enclosure or U.",
+        "evidence": "Theorem 3.2 displays pi'^{-1}((1-r)/epsilon); proof equation (3.3) compares pi'(bar P)<= (1-r)/epsilon even though pi' is negative.",
+        "identifier_or_url": "arXiv:2411.09519 / doi:10.3934/jdg.2025037",
+        "material_read": "Accepted manuscript pages 3–9, especially Theorem 3.2 and proof pages 5–7; publisher metadata and abstract.",
+        "method": "Lawful open accepted-manuscript PDF plus publisher HTML.",
+        "title": "Adaptive dynamics for individual payoff game-theoretic models of vaccination",
+        "trigger": "Primary source for the adaptive equation and disputed bound."
+      },
+      {
+        "assessment": "Defines equilibrium through the infection-risk curve and relative risk, but has no adaptive derivative term and no convex derivative-bound result.",
+        "evidence": "Its Nash equilibrium satisfies the classical risk-crossing condition pi_p=r when vaccination is interior.",
+        "identifier_or_url": "doi:10.1073/pnas.0403823101",
+        "material_read": "Open article/search-accessible vaccination-game and Nash-equilibrium sections.",
+        "method": "Lawful open web text.",
+        "title": "Vaccination and the theory of games",
+        "trigger": "Foundational model cited by the source and plausible broader coverage of vaccination-game equilibria."
+      },
+      {
+        "assessment": "Different replicator/payoff formulation; no evidence of the source-specific adaptive derivative enclosure.",
+        "evidence": "Search-indexed material discusses uniqueness via attack-ratio monotonicity and payoff matrices, not the Balabanova–Duong scalar f.",
+        "identifier_or_url": "doi:10.1080/17513758.2016.1213319",
+        "material_read": "Search-indexed abstract/formulation; direct full-text fetch was access-blocked.",
+        "method": "Search index; no bypass of access control.",
+        "title": "Uniqueness of Nash equilibrium in vaccination games",
+        "trigger": "Title suggests potentially broader uniqueness coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd340182-ed41-4b59-a722-174fcba17fd8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The erroneous endpoint is part of a theorem describing where the unique stable vaccination equilibrium lies. Under the theorem's assumptions the printed inverse is not merely loose but undefined, so it cannot be used for interpretation or computation. The replacement preserves a valid implicit enclosure, adds a closed-form slope bound requiring only pi'(0), and supplies an equality case proving the explicit bound is not a cosmetic weakening. This is a substantive correction to a policy-facing equilibrium localization result rather than a typographical sign check.",
+    "status": "PASS"
+  }
+}
