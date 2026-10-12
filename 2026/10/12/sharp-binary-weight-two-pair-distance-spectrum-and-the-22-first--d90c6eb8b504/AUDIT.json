@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The direct pair-distance formula for disjoint weight-two supports is 8 minus cycle-induced edges. Disjoint support gives the universal n/2 upper bound; a second incidence bound excludes length-seven/eight size-three and length-nine size-four. Constructive Euler tours of connected circulant 4-regular graphs attain all n>=10 and zero insertion preserves pair-distance for odd n. Every even equality case partitions coordinates and forces a simple 4-regular Euler graph. At n=10 this is K5; exact DP gives 528 starting-0 tours, 22 unlabeled-support codes, and an independently exhaustive direct 45-vertex compatibility-graph search yields 22 and D10 orbits 2,10,10. Both packaged verifiers were run successfully. No finite check stands in for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhao–Chang abstract explicitly claims optimal codes at pair-weight four and distance seven for some lengths, potentially including ten; full paper inaccessible.",
+        "Elishco–Gabrys–Yaakobi Lemma 3 gives Ap(n,2w,w)=floor(n/w), at w=4 distance eight, not seven.",
+        "General MDS Euler lifting in Chee et al. neither covers equality sets of weight-two codes nor counts their dihedral classes."
+      ],
+      "reasoning": "Broader numerical optimality may already be known; the asserted novel part is complete equality rigidity and first equality-case census, not the general size bound by itself. The missing 2025 full-text comparison remains an acknowledged risk.",
+      "searches": [
+        "doi:10.1007/s10623-025-01598-9 constant pair-weight four distance seven",
+        "doi:10.1109/TIT.2019.2942283 Lemma 3",
+        "arXiv:1211.1728 MDS construction",
+        "constant pair-weight four binary code pair-distance seven exact 22 optimal configurations at n 10"
+      ]
+    },
+    "checked_sources": [
+      {
+        "id": "arXiv:1211.1728",
+        "scope": "full-text sections and construction"
+      },
+      {
+        "id": "doi:10.1109/TIT.2019.2942283",
+        "scope": "relevant Sections I-III-A of eleven-page paper, including Lemma 3"
+      },
+      {
+        "id": "doi:10.1007/s10623-025-01598-9",
+        "scope": "abstract and first-page preview only"
+      },
+      {
+        "id": "arXiv:1211.1728v2, Section 3-C",
+        "scope": "Euler construction and K5 example"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al. K5 Euler graph is a sufficient construction to lift general MDS codes, not a necessary and sufficient characterization for all five-word weight-two codes.",
+        "2020 Lemma 3 imposes strictly greater distance eight; a distance-eight code with weight-two words cannot have five codewords at length ten.",
+        "2025 abstract supplies an existence and optimality claim for some pair-weight-four distance-seven codes, but says nothing about equality classification."
+      ],
+      "reasoning": "Neither a construction attaining an upper bound nor the distance-eight bound implies the exhaustive count of equality cases and their coordinate-dihedral orbit decomposition. A complete unread 2025 proof might conceivably contain a census; accordingly the novelty claim is limited and risk remains.",
+      "searches": [
+        "arXiv:1211.1728 Section 3-C Example 3.1",
+        "doi:10.1109/TIT.2019.2942283 Lemma 3",
+        "doi:10.1007/s10623-025-01598-9 abstract",
+        "In binary cyclic symbol-pair metric, Hamming-weight exactly two words, minimum pair distance 7, maximum code size floor(n/2) and all even-length optima are Euler tours of connected 4-regular simple graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the fixed Hamming-weight-two sublayer, d_pair>=7 is equivalent to disjoint two-subsets whose union induces at most one edge on C_n.",
+        "An optimal full-support code is equivalent to a cyclic double-occurrence vertex sequence in which every unordered adjacent pair is unique, hence a 4-regular simple Euler circuit.",
+        "Chee et al. show how Euler tours can construct MDS symbol-pair codes, but not converse equality classification in this sublayer."
+      ],
+      "reasoning": "The exact code census is invariant under arbitrary relabeling of graph vertices but not under arbitrary permutation of cyclic coordinates. The two formulations are bijective, so the count 22 and dihedral orbit sizes cannot be escaped by relabeling. Searches against this equivalence produced no covering claim.",
+      "searches": [
+        "In binary cyclic symbol-pair metric, Hamming-weight exactly two words, minimum pair distance 7, maximum code size floor(n/2) and all even-length optima are Euler tours of connected 4-regular simple graphs",
+        "length ten binary constant weight two pair distance seven 22 optimal codebooks 3 inequivalent dihedral classes K5 Euler tours",
+        "constant pair-weight four binary code pair-distance seven exact 22 optimal configurations at n 10",
+        "Search: \"K5\" \"symbol-pair\" \"constant weight\" Euler cycle binary length ten",
+        "arXiv:1211.1728"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exhaustive enumeration finds 22 codes of length ten; Euler-tour enumeration finds 2640 labeled vertex sequences and gives 22 after quotienting by S5.",
+        "The closest published-record cyclic symbol-pair claim concerns linear cyclic codes with other n, dimension and pair-distance parameters, with no count of weight-two optimal subsets."
+      ],
+      "reasoning": "The relevant database object would be a list or table of all optimal sets at n=10 or an equivalent K5 Euler-tour quotient. No checked source or record supplies it; absent matching hits alone is not proof of uniqueness.",
+      "searches": [
+        "length ten binary constant weight two pair distance seven 22 optimal codebooks 3 inequivalent dihedral classes K5 Euler tours",
+        "Twenty two optimal binary length ten constant Hamming weight two symbol pair codes minimum pair distance seven three dihedral classes",
+        "Search: \"22\" \"symbol-pair\" \"distance seven\" \"weight two\"",
+        "Title: Three binary cyclic symbol-pair codes meeting the b-symbol Griesmer bound outside the two known families"
+      ]
+    },
+    "rationale": "The core new comparison-resistant assertion is the converse characterization of every optimal even full-support weight-two binary code by a 4-regular simple Euler circuit and, at the natural first full-support length ten, the exact 22 labeled-coordinate code sets and 3 dihedral orbits. Chee et al. 2012 provides the Eulerian construction technique but does not count or characterize all weight-two equalities. Elishco et al. treat constant pair weight four at pair-distance eight rather than the present seven. Zhao–Chang treat pair-weight four distance seven but were not readable beyond the abstract/preview: broad size claims may be prior; this is not a priority claim for numerical bounds. No inspected source or indexed mathematical record entails the exact equality census, subject to residual full-text risk.",
+    "residual_risks": [
+      "The full 2025 Zhao–Chang paper is unavailable and might contain equality-case statements that were not in its abstract; its optimal-size conclusions may subsume part of the size theorem.",
+      "Searches of indexed literature and record summaries do not establish bibliographic uniqueness; unindexed Euler-tour classifications may overlap.",
+      "A future or inaccessible exhaustive classification could imply the 22 / three-orbit count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses K5 Euler tours to lift existing MDS codes; establishes general Eulerian existence construction, not converse classification of all weight-two optimal codes or count 22",
+        "evidence": [
+          "2012-11-07 original arXiv timestamp",
+          "Section 3-C Proposition 3.2: Euler graph lifts classical MDS codes",
+          "Example 3.1: K5 tour 01234024130 produces a length-ten symbol-pair MDS code of pair-distance nine"
+        ],
+        "identifier_or_url": "arXiv:1211.1728 / https://arxiv.org/html/1211.1728v2",
+        "material_read": "Sections 2 and 3-C, Proposition 3.2 and Example 3.1; abstract, all theorem statements and comparison-relevant construction",
+        "method": "Public arXiv full-text HTML",
+        "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+        "trigger": "Same cyclic symbol-pair metric and K5 Euler tours"
+      },
+      {
+        "assessment": "Lemma 3 determines Ap(n,2w,w)=floor(n/w); with w=4 this is distance eight, not distance seven. Does not state all optimal weight-two length-ten code sets or dihedral decomposition",
+        "evidence": [
+          "PDF pp. 1386–1388 definition of pair-weight, cyclic distance, Lemma 3",
+          "Lemma 3 covers distance exactly 2w; the present census requires distance 2w-1 at w=4"
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2019.2942283 / https://yaakobi.net.technion.ac.il/files/2020/07/47_Symbol_Pair_IT20.pdf",
+        "material_read": "Abstract, introduction, notation, Section III-A and Lemma 3 in primary full-length PDF; other sections overview only",
+        "method": "Lawful author-hosted PDF, extracted text and page-image inspection",
+        "title": "Bounds and Constructions of Codes Over Symbol-Pair Read Channels",
+        "trigger": "Optimal constant pair-weight coding and symbol-pair distance-seven results"
+      },
+      {
+        "assessment": "Overlaps parameters and likely some optimal-size statements; no equality census or dihedral classification appears in inspected material. Complete body inaccessible, so residual risk is material and cannot be ruled out",
+        "evidence": [
+          "Abstract claims optimal codes of constant pair-weight w_p and distance 2w_p-1 for some n",
+          "Publication date 2025-02-22, not source anchor",
+          "Full text not read; no whole-document NOT_COVERING inference"
+        ],
+        "identifier_or_url": "doi:10.1007/s10623-025-01598-9 / https://www.researchgate.net/publication/389253055_Bounds_and_constructions_of_optimal_symbol-pair_codes_with_constant_pair-weight",
+        "material_read": "Abstract, introduction first-page publisher preview, bibliographic identity only; no complete body",
+        "method": "Springer publisher preview mirrored at ResearchGate; open full-text searches unsuccessful",
+        "title": "Bounds and constructions of optimal symbol-pair codes with constant pair-weight",
+        "trigger": "Closest later paper: precisely pair-weight four and distance seven"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d90c6eb8-b504-4481-b7ff-0c35fca31d3f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first full-support extremal blocklength n=10 of the binary weight-two cyclic distance-seven problem is a canonical non-arbitrary equality case. The finding gives a full all-length exact size spectrum and structural equality theorem for every even n>=10, then classifies all first-threshold optima (22 into three natural symmetry classes). This determines design diversity at the onset of sharpness and identifies a rigorous graph-theoretic invariant for further finite enumeration. Known Euler existence and bounds alone do not supply this complete classification; neither improved general-code bounds nor higher-weight results are asserted.",
+    "status": "PASS"
+  }
+}
