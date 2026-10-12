@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For m,n>=3 graph-distance layers are exactly 1 and 2, plus a unique distance-3 missed partner of a matched root. No successful game can empty its target; partition initial cups by their final transfers into the target. Each packet holding an A-side cup other than a root in A contains a B-side cup; the sole possible distance-3 packet additionally can hold at most two A-side cups. The sharp necessary inequality m-1<=n+1_{matched} follows. The sufficiency proof constructs one 3-cup packet at the missed partner when matched and saturating 2-cup packets by a proved Hall matching fact; all legal moves and the symmetric B case are explicit. Independent brute-force state search matched every target classification on 346 cases, 666192 memoized states counted across cases; the constructive verifier executed 6984 valid sequences. These are finite checks only, not infinite certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2310.06192, full PDF pp. 7–8, Lemma 10 and Corollary 12",
+        "arxiv:2401.06189, full PDF pp. 2–7 and 12–13, Theorems 1, 6, 19"
+      ],
+      "reasoning": "Full graph stackability for some balanced instances is implied by the Hamilton-path sufficient theorem, and undeleted root cases are established in earlier work. The new statement explicitly covers matched roots at bipartition imbalance 2, where no Hamilton path exists and eccentricity is 3, so these earlier sufficient hypotheses do not cover those positive instances. The other cases are retained only as part of the coherent complete target classification.",
+      "searches": [
+        "arxiv:2310.06192 Lemma 10 Corollary 12 diameter-two matching criterion complete multipartite",
+        "arxiv:2401.06189 Theorem 1 Hamiltonian path stackable; Theorem 6 bipartite path chunking; Theorem 19 complete bipartite target profile",
+        "\"cup stacking\" \"complete bipartite\" matching deleted"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.06192 (full-text relevant sections)",
+      "arxiv:2401.06189 (full-text relevant sections)",
+      "published finding index: crown graph and cup stacking semantic searches; no directly covering result",
+      "Targeted searches for crown graphs, matching deletion, and cup stacking found no directly covering published statement."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In K_{n+2,n}, all larger-side targets are non-stackable (arxiv:2401.06189 Theorem 19).",
+        "For G_{n+2,n,1}, the matched larger-side endpoint is stackable by a 3-packet, though the other n+1 larger-side vertices fail."
+      ],
+      "reasoning": "The new result is not just the already-known balanced-region global stackability: it gives a different truth value for a specified root after deleting a single edge, at a non-Hamiltonian parameter range excluded by the main theorem. Prior complete-multipartite statements do not apply to graphs with missing matching edges.",
+      "searches": [
+        "arxiv:2310.06192 Corollary 12 complete multipartite criterion",
+        "arxiv:2401.06189 Theorems 1 and 19, rooted complete bipartite and Hamilton path",
+        "published-claim semantic query: Rooted cup stacking sharp target threshold K_{m,n} minus matching; deleted edge endpoint viable at larger-side size n+2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2310.06192 (defines geodesic cup stacking and notes frog-jumping terminology)",
+        "arxiv:2401.06189 (nongeodesic frog-jumping rule is distinct)",
+        "Closest indexed crown-related results concern unrelated graph invariants (such as edge-metric bases), not rooted cup stacking."
+      ],
+      "reasoning": "An equivalent rooted-target classification would require the same geodesic stack-transfer rule, identical matching deletion family, and the sharp +1 versus +2 inequalities. Searches found no such theorem. The nongeodesic frog version does not imply exact equivalence because allowed transfer distances differ.",
+      "searches": [
+        "\"cup stacking\" \"crown graph\"",
+        "\"cup stacking\" \"matching deleted\" \"bipartite\"",
+        "\"frog jumping\" \"crown graph\" \"stacking\"",
+        "published-claim semantic query: rooted cup stackability of K_{m,n} with a deleted matching exactly which target vertices are stackable",
+        "published-claim semantic query: frog jumping geodesic one-cup complete bipartite partial matching deleted root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2310.06192 and arxiv:2401.06189 complete specified graph-family results; no displayed deleted-matching profile",
+        "Published-result search returned unrelated closest titles about edge-metric bases, matching complexes and other graph parameters"
+      ],
+      "reasoning": "No exact table, sequence, or full-root classifier matching these indicators was located; absence is a residual search risk and not proof of novelty.",
+      "searches": [
+        "\"cup stacking\" \"near-complete bipartite graphs\"",
+        "\"root-stackable\" \"matching\" bipartite",
+        "published-claim semantic query: target stackability one-edge deletion K_{n+2,n} matching endpoints distance three triple cup packets"
+      ]
+    },
+    "rationale": "The 2023 complete-multipartite criterion is the t=0 baseline and the eccentricity-two matching lemma does not reach a matched endpoint (eccentricity three). The 2024 Hamilton-path theorem covers many globally stackable graphs, but cannot imply the new successful targets on bipartite G_{n+2,n,t}, which has no Hamilton path because its sides differ by two. The 2024 rooted K_{a,b} theorem explicitly says the larger-side roots fail for t=0; deleting one incident edge yields a sharp opposite outcome. Targeted literature and published-claim-index searches under cup stacking, crown graphs, deleted matchings, frog jumping, and aliases did not identify the full rooted profile. Residual independent/unindexed overlap is possible.",
+    "residual_risks": [
+      "Earlier or unindexed geodesic frog-jumping results could use a different title/notation.",
+      "No claim is made about all graph families, initial configurations, or all successful sequences.",
+      "Publication search cannot prove global absence of an equivalent theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Baseline covers t=0; diameter-two matching lemma inapplicable to endpoints of deleted matching at eccentricity three",
+        "evidence": [
+          "arxiv:2310.06192 Lemma 10",
+          "arxiv:2310.06192 Corollary 12",
+          "https://arxiv.org/abs/2310.06192 submission history 2023-10-09"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.06192",
+        "material_read": "Introduction and problem definitions pp.1–3; Lemma 10 and proof pp.7–8; Corollary 12 proof p.8; associated primary source date from arxiv abstract and submission history",
+        "method": "Read publicly accessible full-text PDF pages and searched text for crown and deleted edge aliases; checked theorem hypotheses and conclusions",
+        "title": "Cup Stacking in Graphs",
+        "trigger": "Original definition and complete-multipartite/diameter-two rooted criteria"
+      },
+      {
+        "assessment": "Hamilton-path implication cannot cover bipartition imbalance two, Theorem 19 describes only undeleted bicliques; no matching-deleted rooted profile identified",
+        "evidence": [
+          "arxiv:2401.06189 Theorem 1",
+          "arxiv:2401.06189 Theorem 6",
+          "arxiv:2401.06189 Theorem 19",
+          "https://arxiv.org/abs/2401.06189 submission history 2024-01-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.06189",
+        "material_read": "Introduction, Theorem 1 and proof pp.1–4; chunking Theorem 6 and proof pp.5–7; target classification Theorem 19 and nonmonotonic examples pp.12–13; textual searches for crown, matching-deleted and relevant parameters",
+        "method": "Read primary full-text PDF sections including original theorem statements/proofs and checked implications on bipartition imbalance",
+        "title": "Graphs that admit a Hamilton path are cup-stackable",
+        "trigger": "Potentially stronger blanket covering theorem and nonmonotonicity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6983c6d-3468-4914-992e-70e8b9fb3bef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Root feasibility is an intrinsically defined goal of the original cup-stacking game, and deleting disjoint matching edges is a canonical controlled perturbation of complete bipartite graphs. The complete three-parameter theorem has a sharp, nontrivial +2 versus +1 threshold, explicit efficient witnesses, and a natural one-edge non-Hamiltonian target-flip family absent from the known complete-bipartite rooted classification. This identifies the function of the new distance-3 packet, not a routine restatement of a general bound.",
+    "status": "PASS"
+  }
+}
