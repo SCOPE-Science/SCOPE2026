@@ -1,0 +1,21 @@
+# Scientific review: priced spectral mixing on the Petersen graph
+
+## Correctness — PASS
+
+The claim specifies the ten vertices, fifteen edges, arbitrary nonnegative individual conductances, a strictly positive matching-edge price, a unit linear budget, and the symmetric continuous-time Laplacian spectral gap. Concavity and price-preserving automorphisms establish that a symmetric optimizer exists. Exact two-by-two Fourier blocks yield the characteristic polynomial and a one-variable optimization. A strictly decreasing derivative certificate establishes a unique scalar maximizer and the sharp price \(2/5\), including the boundary. The proof then uses the two complex Fourier Fiedler modes, Rayleigh equality, and nodewise imaginary/real equations to force every individual edge perturbation to zero. It does not infer uniqueness merely from symmetry. Strict positivity, multiplicity, and small-price limits follow from explicit formulas.
+
+Exact rational characteristic-polynomial checks at four price choices and supplementary numerical full-spectral and feasible-allocation comparisons completed successfully. The finite computations are not substituted for the universal proof. Main correctness risk: the interpretation is strictly the continuous-time symmetric generator gap; the result has no discrete-time or alternative-budget extension.
+
+## Originality — PASS, with specified residual risk
+
+Göring–Helmberg–Wappler (public 2005 preprint) establish general unpriced maximum-algebraic-connectivity optimization, not this unequal-price closed form. Boyd–Diaconis–Parrilo–Xiao (arXiv:0709.0955v1, §3.3.2) explicitly solve the Petersen *discrete-time* symmetric chain under a SLEM objective; that strong closest comparison is acknowledged as existing Petersen mixing work, rather than presented as unrelated. Kolokolnikov (arXiv:1412.6147v1) enumerates favorable unweighted topologies, including Petersen, but does not allocate conductance for unequal costs. Shakeri and collaborators (arXiv:1510.06785v1) optimize only cross-layer matching conductances with prescribed intralayer Laplacians and so do not solve simultaneous cycle/matching expenditure. Steinerberger–Thomas (arXiv:2402.11758v1, Example 4.9) establish uniform-price conformal rigidity of Petersen, covering the equal-price optimum already known and narrowing the new claim to the heterogeneous-price frontier, its formula, and uniqueness. None of the materially inspected statements implies that full two-price classification. published-finding corpus searches for graph, priced spectral design, symmetry equivalence, matching, and spectral optimization returned no comparable claim; this is supporting evidence, not a proof of novelty. A specialized unindexed treatment of priced Petersen eigenvalue design remains a historical risk.
+
+## Value — PASS
+
+The Petersen graph is a natural small benchmark whose edges decompose into two five-cycle families and a matching. Unequal costs break full edge transitivity while retaining enough symmetry for meaningful exact optimization. The sharp price \(2/5\) distinguishes uniform-all-edge design from enhanced matching investment, yet proves that deleting the matching is never optimal. The complete edgewise uniqueness classification and explicit gap/multiplicity/square-root price asymptotics are nontrivial information not supplied by a generic SDP or an unweighted spectrum table. No generalization to all generalized Petersen graphs or downstream algorithmic superiority is claimed.
+
+## Source and access limitations
+
+Primary article material read included the public unpriced optimization preprint, the Petersen section and formal SLEM definition in the 2007 discrete-time mixing work, the two-layer fixed-intralayer problem and principal theorems of the 2015 interconnection study, the 2014 unweighted topology study, and the Petersen example and conformal-rigidity statements in the 2024 work. The classification is established by the attached proof and checker, not by absence of search results. Other historical papers may contain equivalent specialized computations. Independent assessment and validation have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
