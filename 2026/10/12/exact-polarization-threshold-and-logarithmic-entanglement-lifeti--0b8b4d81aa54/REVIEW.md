@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The complete four-by-four model, product-state populations, partial transpose, and negative-eigenvalue normalization are derived explicitly. The system recurrence gives \(p_{k-1}=[1+m(1-q^{k-1})]/2\). The strict entanglement inequality factors with precisely one positive threshold, giving the entire all-index classification and the limiting logarithmic count. Algebraic and numerical checks are reproduced by `verify.py`; they corroborate rather than replace the unrestricted proof.
+
+**Originality — PASS, subject to priority uncertainty.** The closest direct antecedent [1] already derives the anti-thermalizing collision map and plots transient negativity, but the full main and supplemental text examined do not give the exact polarization--angle phase boundary or the entangling-collision lifetime. [2] established the equivalent partial-swap relaxation and general entangling-capability theory, while [3] studies the general input-state entangleability problem. This claim is narrowly confined to the explicit **entire reset trajectory**, its strict finite lifetime, non-revival and asymptotic divergence, and not the previously known map/PPT elements. An unindexed closed specialization or a derivation implicit in earlier literature remains a genuine priority risk.
+
+**Value — PASS.** In the experimental model of [1], early ancilla--system negativity is observed but its disappearance is described graphically. The theorem changes that observation into an exact, physically interpretable bath-polarization and interaction-strength design boundary, including precise number of entangling strokes and the singular pure-reservoir limit. The object and threshold are natural, not a selected arbitrary parameter table.
+
+**Limitations.** Initial system is maximally mixed; ancillas are identical diagonal states and are perfectly refreshed; the anti-exchange unitary is fixed and ideal. The claim concerns pre-reset two-qubit entanglement, not sustained steady-state entanglement or imperfect experimental implementation. The underlying relaxation and single-stroke PPT principles are pre-existing.
+
+Self-review: passed. Independent audit: not yet performed.
