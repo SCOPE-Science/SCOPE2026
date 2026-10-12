@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Summing the source equations gives exactly \\(z'=-\\mu z-\\sum_j\\delta_jI_j\\) for \\(z=N-\\lambda/\\mu\\), hence \\(S-S^0\\le (N(0)-S^0)_+e^{-\\mu t}\\). This produces an explicit exponential bound for \\(I_1\\) when \\(\\mathcal R_0<1\\). At equality, the rescaled first-stage variable is monotone and therefore has a limit; any positive limit forces, through \\(\\delta_1>0\\), a persistent negative gap \\(N-S^0\\), which in turn forces exponential decay of \\(I_1\\), a contradiction. Stable linear cascade equations then send every later stage and \\(R\\) to zero and \\(N\\) to \\(S^0\\). The positive first-stage eigenvalue proves instability for \\(\\mathcal R_0>1\\). The bundled checker replays the exact algebraic cancellations and representative cascade identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1137/120876642, Theorem 2.1 and Theorem 2.2: the matrix method needs a nonnegative nonlinear remainder on the chosen invariant region.",
+        "For the present infection subsystem that remainder is beta(S^0-S)I_1 in its only nonzero component, so the cited sufficient sign condition is not global when S>S^0.",
+        "DOI:10.1137/110827028 defines the removed class as terminal or permanently protected and explicitly ignores it in the at-risk population; it has no R-to-S waning-immunity return.",
+        "DOI:10.1016/j.amc.2020.125259 uses a nonfatal constant-population SIS progression chain in which the last stage returns directly to S.",
+        "DOI:10.3934/dcdsb.2015.20.3057 concerns a delayed multi-group SIRS architecture rather than the source's single-susceptible sequential progression chain."
+      ],
+      "reasoning": "The strongest general DFE theorem inspected explains the source's restricted-region observation but does not imply the arbitrary-initial-data extension because its remainder sign changes when S exceeds S^0. The all-stage progression papers use materially different removal/return structures. The multi-group SIRS theorem is a plausible broad comparator but not the same stage-progression object.",
+      "searches": [
+        "\"Global Stability of Infectious Disease Models Using Lyapunov Functions\" multistage SIRS",
+        "\"Global Dynamics of a General Class of Multistage Models for Infectious Diseases\" waning immunity SIRS",
+        "\"multistage SIRS\" disease-free equilibrium all n R0 recovery each stage",
+        "\"Global stability of a delayed multi-group SIRS epidemic model\" stage progression sequential infected compartments"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1080/17513758.2026.2728357",
+      "DOI:10.1137/120876642",
+      "DOI:10.1137/110827028",
+      "DOI:10.1016/j.amc.2020.125259",
+      "DOI:10.3934/dcdsb.2015.20.3057",
+      "published-finding corpus semantic searches for multistage SIRS extinction, Condition A, immunity loss, arbitrary initial population, and general DFE Lyapunov formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 matrix theorem gives a Lyapunov function when its nonlinear remainder is nonnegative, but that hypothesis fails for this model whenever S>S^0.",
+        "The 2012 multistage theorem treats R as permanently removed from infection and therefore does not contain waning immunity back to S.",
+        "The 2020 multistage SIS theorem assumes constant total population and direct return from the last stage, with no recovered compartment or stage-specific recovery/death."
+      ],
+      "reasoning": "None of the inspected statements implies the new arbitrary-initial-data, arbitrary-stage SIRS convergence theorem. The proof's essential extra comparison is the exponentially decaying upper envelope for total population above S^0.",
+      "searches": [
+        "Shuai van den Driessche f(x,y) S<=S0 multistage SIRS global initial",
+        "\"Stability and oscillations of multistage SIS models depend on the number of stages\" R0 disease dies out",
+        "\"Global dynamics of a general class of multistage models\" removed permanently protected R"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1080/17513758.2026.2728357, Theorem 3, Theorem 5, discussion, and the note following Theorem 3 about the region with total population at most lambda/mu.",
+        "published-finding corpus exact-source and alias searches returned no item stating the all-stage arbitrary-initial-data extinction theorem."
+      ],
+      "reasoning": "Equivalent formulations were searched using the source authors, the two named auxiliary conditions, arbitrary initial population, stage count, and global extinction. The source itself stops at two and three stages and retains auxiliary conditions for global all-initial-data stability.",
+      "searches": [
+        "multistage SIRS global disease-free arbitrary initial conditions all n immunity loss threshold R0",
+        "Somnic Gasparyan Rao DFE Condition A immunity loss global extinction",
+        "stage progression SIRS only first stage infectious global disease free stability",
+        "\"Stability analysis of a multistage compartmental model of infection\" DFE Condition A alpha"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact source statements compared are Theorem 3 for two stages, Theorem 5 for three stages, the post-Theorem-3 restricted-region note, and the discussion that the sufficient conditions appear non-necessary.",
+        "The exact broader theorem compared is Shuai–van den Driessche Theorem 2.1 with f(x,y)>=0."
+      ],
+      "reasoning": "No numerical database or table controls the result. Statement-level comparison shows that the new claim strictly enlarges the source's proved basin/parameter coverage on the disease-free side.",
+      "searches": [
+        "10.1080/17513758.2026.2728357 Theorem 3 alpha DFE",
+        "10.1080/17513758.2026.2728357 Theorem 5 Condition A DFE",
+        "10.1137/120876642 Theorem 2.1 f(x,y) nonnegative"
+      ]
+    },
+    "rationale": "The motivating article proves global disease-free stability only for two and three stages under additional parameter conditions, while explicitly observing a no-extra-condition argument only on the restricted region with total population at most \\(S^0\\). The present statement removes that region restriction for arbitrary nonnegative initial data and simultaneously extends the disease-free result to every stage count. The closest general matrix theorem requires a nonlinear remainder that, in this model, has the sign \\(\\beta(S^0-S)I_1\\) and therefore does not directly cover initial states with \\(S>S^0\\). Other inspected all-stage results use permanently removed or SIS architectures and do not imply the stated SIRS result.",
+    "residual_risks": [
+      "The multi-group SIRS comparator was inspected at abstract/metadata level rather than full text; a nontrivial embedding of the sequential-stage model into that framework was not found but cannot be ruled out completely.",
+      "An unlocated theorem specialized to the exact sequential SIRS architecture may exist.",
+      "At R0=1 the claim is global convergence only; no borderline Lyapunov-stability statement is included."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves DFE GAS globally for n=2 only with an alpha bound and for n=3 with Condition A, while noting a simpler no-alpha argument only when total population is initially at most lambda/mu.",
+        "evidence": "Published online 2026-09-16; Mathematics subject classification lists 92D30 first.",
+        "identifier_or_url": "DOI:10.1080/17513758.2026.2728357",
+        "material_read": "Open-access full HTML covering the model definition, Theorem 1, two-stage Theorem 3 and its restricted-region note, three-stage Theorem 5, simulations, discussion, and MSC listing.",
+        "method": "Direct theorem/equation comparison.",
+        "title": "Stability analysis of a multistage compartmental model of infection",
+        "trigger": "Motivating 2026 paper with the exact sequential SIRS architecture and auxiliary global-stability conditions."
+      },
+      {
+        "assessment": "For the present model the theorem's nonlinear remainder is beta(S^0-S)I_1 in the new-infection coordinate, so its required nonnegativity does not hold on arbitrary states with S>S^0.",
+        "evidence": "Theorem 2.1 requires f(x,y)>=0 on the invariant region; Theorem 2.2 gives GAS for R0<1 under further hypotheses.",
+        "identifier_or_url": "DOI:10.1137/120876642",
+        "material_read": "Full PDF pages containing model (1.1), next-generation formulation, Theorem 2.1, and Theorem 2.2.",
+        "method": "Direct full-text theorem-hypothesis substitution.",
+        "title": "Global Stability of Infectious Disease Models Using Lyapunov Functions",
+        "trigger": "Most relevant general DFE Lyapunov theorem that could dominate the source-specific claim."
+      },
+      {
+        "assessment": "Its removed class is terminal or permanently immune and is excluded from the at-risk population; it does not return to S, so the source SIRS architecture is not a special case in the relevant sense.",
+        "evidence": "PDF model formulation states that R contains terminal-stage or permanently protected individuals.",
+        "identifier_or_url": "DOI:10.1137/110827028",
+        "material_read": "Full PDF introduction and model-formulation pages, including the definition of the removed compartment and the at-risk population.",
+        "method": "Direct full-text model-class comparison.",
+        "title": "Global Dynamics of a General Class of Multistage Models for Infectious Diseases",
+        "trigger": "Broad all-stage threshold theorem for progression/amelioration models."
+      },
+      {
+        "assessment": "It treats a nonfatal constant-population SIS chain with return from the final stage directly to S; it lacks the recovered compartment, waning immunity, and per-stage recovery/death of the 2026 source.",
+        "evidence": "The paper states constant total population and displays the direct final-stage-to-S return architecture.",
+        "identifier_or_url": "DOI:10.1016/j.amc.2020.125259",
+        "material_read": "Full open PDF abstract and model section, including equations (1)-(3) and Theorem 3.1.",
+        "method": "Direct full-text architecture and implication comparison.",
+        "title": "Stability and oscillations of multistage SIS models depend on the number of stages",
+        "trigger": "Closest all-stage progression theorem with an R0 extinction threshold."
+      },
+      {
+        "assessment": "The stated object is a delayed multi-group SIRS system rather than a sequential infection-stage chain. No implication to the exact source architecture was identified from the inspected material.",
+        "evidence": "The abstract repeatedly specifies multi-group SIRS with nonlinear incidence, immunity loss, and relapse; primary MSC is 34D23/34K20 and 92D30 is secondary.",
+        "identifier_or_url": "DOI:10.3934/dcdsb.2015.20.3057",
+        "material_read": "Open article metadata, abstract, MSC classification, and reference list.",
+        "method": "Primary-source abstract/model-class comparison.",
+        "title": "Global stability of a delayed multi-group SIRS epidemic model with nonlinear incidence rates and relapse of infection",
+        "trigger": "Broad SIRS theorem with R0<=1 that could potentially dominate the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31afbf1a-9601-4905-942c-497c47364e8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source itself highlights that its DFE conditions are sufficient rather than apparently necessary, supplies simulations outside them, and leaves arbitrary stage count for future analysis. The new comparison resolves the entire disease-free convergence question for the stated architecture with a short structural argument: demographic dissipation makes every initial excess over carrying population transient, after which the first infectious stage controls the feed-forward cascade. This removes a biologically counterintuitive lower bound on immunity loss, removes the lengthy three-stage Condition A from extinction, and scales to arbitrary stage count. It is therefore a meaningful structural closure rather than a parameter substitution or routine recomputation.",
+    "status": "PASS"
+  }
+}
