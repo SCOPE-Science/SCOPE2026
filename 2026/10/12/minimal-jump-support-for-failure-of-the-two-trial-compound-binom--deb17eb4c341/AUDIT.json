@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "Writing the one-trial compound pmf as \\((A,B,C)\\) makes the two-trial law its convolution square. All three log-concavity defects are computed exactly: the two edge defects are positive factors times \\(3B^2-2AC\\), and the middle defect is \\(B^4+4A^2C^2>0\\). Substitution \\(A=q+pf_0\\), \\(B=pf_1\\), \\(C=pf_2\\) gives exact equivalence with \\(3\\delta f_1^2\\ge2f_2\\). No enumeration or limiting argument is used for the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected Xia--Lv Section 4 gives the recursive compound-binomial criterion and its failure example but no support-restricted sufficiency theorem.",
+        "Xia--Lv identify Yu's earlier work as providing compound-distribution entropy and relative-log-concavity results and the compound Poisson criterion, not this finite-support classification."
+      ],
+      "reasoning": "The broader frameworks supply necessary conditions and ordering machinery but do not imply that later log-concavity inequalities collapse automatically for three-point jumps.",
+      "searches": [
+        "Xia Lv Proposition 4.6 compound binomial support 0 1 2 log concavity",
+        "compound binomial three point log-concavity",
+        "log-concavity compound distributions Yu 2009 compound binomial"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/S0269964823000293",
+      "DOI:10.1109/TIT.2009.2023725",
+      "arXiv:0805.4112",
+      "current own ledger 2026-10_week1__private research ledger__p0001_g000047.jsonl",
+      "prior own ledger 2026-09_week4__private research ledger__p0001_g000059.jsonl",
+      "published-finding corpus semantic searches for compound-binomial, three-point-jump, convolution-square, and minimal-support formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full relevant primary-source passage was inspected: its counterexample uses \\(p=20/23\\) and \\(f=(1/20,1/5,3/10,9/20,0,\\ldots)\\) and violates a later log-concavity inequality.",
+        "Current and prior own ledgers were searched for compound-binomial, Xia--Lv, three-point-jump, and convolution-square aliases; no own finding states or implies this equivalence."
+      ],
+      "reasoning": "A counterexample showing that a criterion can fail does not imply the sharp boundary at which failure first becomes possible. The new exact convolution calculation is needed to rule out every maximum-jump-two law.",
+      "searches": [
+        "Xia Lv Proposition 4.6 n=2 counterexample support 0 1 2 3",
+        "own ledger compound binomial log-concavity Xia Lv",
+        "own ledger three point convolution log-concavity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xia--Lv Proposition 4.6 states necessity for general binomial trial count, sufficiency only for one trial, and a two-trial counterexample with \\(f_3>0\\).",
+        "Targeted published-finding corpus searches returned only unrelated log-concavity records; no record stated the three-point convolution-square equivalence."
+      ],
+      "reasoning": "For support \\(\\{0,1,2\\}\\), the compound-binomial question is exactly the log-concavity of the square of a positive three-term sequence. The stated equivalence exhausts all three local inequalities, so aliases involving convolution squares and three-point laws were explicitly checked.",
+      "searches": [
+        "compound binomial n=2 log-concavity jump support {0,1,2} necessary sufficient",
+        "compound binomial two trials three point jump distribution log-concavity criterion",
+        "convolution square three point distribution log-concavity 3 b^2 2 ac"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public exact-expression searches did not retrieve a probability or sequence reference containing the criterion \\(3B^2\\ge2AC\\) for a three-point convolution square.",
+        "No retrieved published-finding corpus record matched the factorized three-point convolution defects."
+      ],
+      "reasoning": "The result is not a recomputation of a tabulated distribution: it is an all-parameter equivalence and a support-minimality conclusion.",
+      "searches": [
+        "3B^2 2AC log-concave convolution",
+        "3 b^2 2 a c log-concavity",
+        "square of three point distribution log-concave"
+      ]
+    },
+    "rationale": "The primary source proves the condition necessary for general compound binomial laws, sufficient for one trial, and gives a two-trial counterexample with positive mass at jump \\(3\\). It does not state that the condition becomes sufficient for every jump law supported on \\(\\{0,1,2\\}\\), nor that its own maximum-jump-\\(3\\) example is minimal in jump support. published-finding corpus, own-ledger, and public exact/alias searches found no covering statement.",
+    "residual_risks": [
+      "An older paper on convolution squares or finite positive sequences could contain the same three-point log-concavity criterion without compound-binomial terminology.",
+      "The support-minimality conclusion is specific to two binomial trials; it does not classify the minimal jump support for every larger trial count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the support-{0,1,2} sufficiency equivalence or support-minimality claim.",
+        "evidence": "Proposition 4.6 proves necessity, sufficiency for one trial, and failure in general for at least two trials via a maximum-jump-three example. It does not analyze the complete maximum-jump-two subclass.",
+        "identifier_or_url": "DOI:10.1017/S0269964823000293",
+        "material_read": "Article metadata, MSC classification, Section 4 around Lemma 4.5 and all of Proposition 4.6 including its n=2 counterexample, plus the reference list identifying earlier compound-distribution work.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "Log-concavity and relative log-concave ordering of compound distributions",
+        "trigger": "Same compound-binomial object and the exact necessary condition being sharpened."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "deb17eb4-c341-4080-9dd5-2499fd4069d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper's own two-trial counterexample leaves open whether failure of its necessary condition is caused immediately by the two-trial count or by additional jump-support geometry. The theorem isolates that mechanism sharply: the criterion is complete for every maximum-jump-\\(2\\) law, while the published maximum-jump-\\(3\\) example fails. This gives a natural minimal-support boundary and a complete smallest nontrivial classification rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
