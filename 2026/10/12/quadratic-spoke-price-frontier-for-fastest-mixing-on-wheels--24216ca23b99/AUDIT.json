@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proof uses a radial Rayleigh trial yielding (n+1) mean spoke conductance and two orthogonal first rim Fourier vectors whose averaged Rayleigh quotient is mean spoke plus mu_n times mean rim conductance. Their sharp one-dimensional affine max-min upper bound yields the three cost regimes. Complete uniform wheel Fourier eigenvalues give attainment. At ANY optimum both sine and cosine Rayleigh quotients are tight at lambda_2, hence these vectors are eigenvectors; the imaginary part of the complex rim Fourier eigenvector equation forces all rim conductances equal for n>=4, and the real part forces all spoke conductances equal. This covers nonnegative boundaries and exact equality price and proves global optimizer completeness. Taylor expansion gives T_n quadratic scaling. Actual standalone checker path check_wheel.py executed with VERIFY_OK 1246, including 4 rational eigenspectra, 2 rational Rayleigh identities and 1200 budget-feasible asymmetric competitors; finite checks are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al., The Fastest Mixing Markov Process on a Graph, SIAM Review 48 (2006), DOI 10.1137/S0036144504443821, §§1,3–5; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf: general convex SDP and dual, worked examples are a small network, paths and cycle; wheel price threshold and complete extremal face are not established there.",
+        "Shafi et al., Graph Weight Allocation to Meet Laplacian Spectral Constraints, IEEE TAC 57 (2012), DOI 10.1109/TAC.2011.2181795; full public PDF https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf: graph-design algorithms and examples on a path and multi-cluster graphs, without an exact wheel optimization classification.",
+        "Boyd et al., Fastest Mixing Markov Chain on Graphs with Symmetries, SIAM J. Optim. 20 (2009), DOI 10.1137/070689413, §5.4.3; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf: graph-specific wheel Fourier spectrum under discrete-time SLEM, a close but nondominating constrained optimization result."
+      ],
+      "reasoning": "The general convex optimization theory covers solvability and supplies algorithms for any wheel with given prices, but a general computability result neither states nor logically specifies the new closed-form threshold, all optimal edge conductances, or the absence of asymmetric optimizers. The strongest exact wheel theorem covers a different discrete-time problem and is not a parameter-dominating continuous-time theorem.",
+      "searches": [
+        "optimal weighted Laplacian wheel graph Fiedler eigenvalue spokes cycle edges price",
+        "complete characterization unique algebraic connectivity maximizing weights on wheel with radial and circular link costs",
+        "wheel graph optimal edge weights algebraic connectivity total weight radial circumferential",
+        "DOI 10.1109/TAC.2011.2181795 full text §§III–VI",
+        "DOI 10.1137/S0036144504443821 full text §§4–5"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al., The Fastest Mixing Markov Process on a Graph, SIAM Review 48 (2006), DOI 10.1137/S0036144504443821, §§1,3–5; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "Boyd et al., Fastest Mixing Markov Chain on Graphs with Symmetries, SIAM J. Optim. 20 (2009), DOI 10.1137/070689413, §5.4.3; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "Shafi et al., Graph Weight Allocation to Meet Laplacian Spectral Constraints, IEEE TAC 57 (2012), DOI 10.1109/TAC.2011.2181795; full public PDF https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf",
+      "2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 (cover-free-set combinatorial wheel values, different invariant)",
+      "2026/9/8/SCOPE031 (unrelated fixed 29-vertex circulant spectral census, not wheel edge-rate optimization)",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (coordinate sampling, different object)",
+      "Related wheel Kirchhoff index optimization with a different objective",
+      "Fastest mixing on alternating even cycles is a different graph class"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al., Fastest Mixing Markov Chain on Graphs with Symmetries, SIAM J. Optim. 20 (2009), DOI 10.1137/070689413, §5.4.3; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf: n-rim-vertex wheel is analyzed by a Fourier block with eigenvalues of the form 1-p-mu_k q in the discrete-time transition matrix, which motivates the candidate Laplacian spectrum.",
+        "Sun et al., The Fastest Mixing Markov Process on a Graph, SIAM Review 48 (2006), DOI 10.1137/S0036144504443821, §§1,3–5; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf: the spectrum maximization under linear edge costs is the established general setup.",
+        "Shafi et al., Graph Weight Allocation to Meet Laplacian Spectral Constraints, IEEE TAC 57 (2012), DOI 10.1109/TAC.2011.2181795; full public PDF https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf: linear matrix inequalities and node/edge spectral design do not provide the independent edgewise Fourier tightness argument."
+      ],
+      "reasoning": "Combining existing Laplacian eigenvalues with symmetry and a fresh one-dimensional max-min computation can recover the symmetric candidate, but that derivation is not an already stated implication giving the complete set of all edgewise optimizers. For an arbitrary non-symmetric optimum, saturation of both orthogonal Fourier Rayleigh tests and the imaginary parts of the eigenvector equations rule out each possible asymmetric rim weight. This critical structural step is not supplied by a generic spectral table or by a mere existence-of-symmetric-optimum theorem. The exact price threshold and critical continuum consequently remain the claim under assessment. The risk of an unlocated stronger paper remains explicitly open.",
+      "searches": [
+        "wheel graph maximum algebraic connectivity under conductance budget hub spoke rim edge relative prices sharp threshold",
+        "complete characterization unique algebraic connectivity maximizing weights on wheel with radial and circular link costs",
+        "price optimal wheel continuous time fastest mixing spoke cost rim cycle conductance critical 4sin2",
+        "maximizing second Laplacian eigenvalue wheel star transition rim weights unique solution",
+        "\"wheel graph\" \"algebraic connectivity\" \"optimal\" \"weights\"",
+        "wheel graph maximum algebraic connectivity weighted edges sum weights spokes rim wheel optimal",
+        "Published research-record queries for source titles, cycle/wheel aliases and singular price threshold",
+        "DOI 10.1137/070689413 §5.4.3 wheel closed-form discrete-time optimizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al., The Fastest Mixing Markov Process on a Graph, SIAM Review 48 (2006), DOI 10.1137/S0036144504443821, §§1,3–5; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf: equation (1) is precisely weighted-edge-rate lambda_2 maximization on arbitrary graphs, hence it supplies the general formulation.",
+        "Boyd et al., Fastest Mixing Markov Chain on Graphs with Symmetries, SIAM J. Optim. 20 (2009), DOI 10.1137/070689413, §5.4.3; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf: wheel eigenblocks are derived for discrete-time transition matrix P and optimized for SLEM, not the continuous-time Laplacian lambda_2 with a spoke-to-rim price ratio."
+      ],
+      "reasoning": "The aliases absolute algebraic connectivity, continuous-time FMMP, spectral-gap-maximizing weight allocation, and graph-Laplacian SDP describe the same overall optimization class. The claimed wheel formula is a specific exact classification of that class. The discrete-time wheel FMMC in the closest source shares Fourier diagonalization but uses a distinct objective (max absolute nontrivial transition eigenvalue), self-loop constraints, and no arbitrary spoke-price parameter. Its closed-form rates are not an equivalent formulation of the new claimed price phase diagram.",
+      "searches": [
+        "wheel graph maximum algebraic connectivity under conductance budget hub spoke rim edge relative prices sharp threshold",
+        "continuous time fastest mixing wheel network all weighted edges spectral gap optimization rim deletion phase",
+        "\"wheel graph\" \"algebraic connectivity\" \"optimal\" \"weights\"",
+        "\"wheel\" \"fastest mixing\" \"continuous-time\" \"conductances\" \"threshold\"",
+        "DOI 10.1137/S0036144504443821 full text §§1,3–5",
+        "DOI 10.1137/070689413 full text §5.4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 (cover-free-set combinatorial wheel values, different invariant)",
+        "2026/9/8/SCOPE031 (unrelated fixed 29-vertex circulant spectral census, not wheel edge-rate optimization)",
+        "Existing full-text Fourier decomposition of the fixed two-class wheel spectrum in Boyd et al., Fastest Mixing Markov Chain on Graphs with Symmetries, SIAM J. Optim. 20 (2009), DOI 10.1137/070689413, §5.4.3; full public PDF https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf: diagonal entries entail the weighted Laplacian eigenvalues after changing interpretation, but not the optimal price regime.",
+        "Wheel Kirchhoff-index optimization is a distinct objective and does not in general determine the spectral-gap optimizer."
+      ],
+      "reasoning": "The exact eigenvalue spectrum is prior spectral data; the new claimed contribution is the global allocation classification under relative prices, an optimized quantity not directly tabulated in these published results. The retrieved wheel combinatorial table concerns cover-free-family numbers, and the circulant table a different graph class. A previous wheel resistance optimum does not imply the spectral-gap optimum, even when the graphs share parameters.",
+      "searches": [
+        "price optimal wheel continuous time fastest mixing spoke cost rim cycle conductance critical 4sin2",
+        "maximizing second Laplacian eigenvalue wheel star transition rim weights unique solution",
+        "optimal weighted Laplacian wheel graph Fiedler eigenvalue spokes cycle edges price",
+        "Published research-record semantic search for wheel, algebraic connectivity and rim/spoke price aliases",
+        "wheel graph optimal edge weights algebraic connectivity total weight radial circumferential"
+      ]
+    },
+    "rationale": "Originality is the exact continuous-time wheel price frontier, all classwise conductance formulas, the complete critical optimal face and global non-asymmetric rigidity, not the general SDP or wheel Fourier spectrum. The closest exact wheel source Boyd et al. 2009 Section 5.4.3 solves a different discrete-time SLEM problem without arbitrary spoke cost; Sun et al. 2006 defines the continuous-time general SDP but lacks the specialized classification; Shafi et al. 2012 gives general spectral constraints. Searches of published records, primary full text, and wheel optimization aliases found no statement dominating the entire claim. Related wheel resistance work addresses the Kirchhoff index rather than lambda_2; no independence from unpublished work claimed. Residual risk of overlooked equivalent literature acknowledged.",
+    "residual_risks": [
+      "An earlier or inaccessible source might already combine the weighted continuous-time wheel spectrum with the same sharp spoke-price optimization and global rigidity; retrieved evidence cannot certify absence.",
+      "The formula can be reconstructed from known general SDP methods and an already published wheel Fourier decomposition, so the novelty rests on the explicit complete optimization and uniqueness, not on inventing spectral modes.",
+      "Search-result rankings cannot establish uniqueness against unpublished or unindexed mathematics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHED_GENERAL_FRAMEWORK_NOT_WHEEL_CLASSIFICATION",
+        "evidence": "2006 electronically published 2006-11-02 stated on p. 681; equation (1) maximizes lambda_2 under positive linear edge costs; §5 examples do not develop wheel-price frontier or optimizer rigidity.",
+        "identifier_or_url": "doi:10.1137/S0036144504443821 | https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Accessible full 19-page primary paper; abstract/introduction §§1.1–1.2, framework and duality material §§3–4, examples in §5, particularly the small example, path and cycle, and references searched for wheel.",
+        "method": "Opened actual full text, read extracted mathematics and section text, inspected first page visually; searched full article for wheel.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same objective of continuous-time second Laplacian eigenvalue maximization subject to arbitrary weighted edge budget, including price interpretation."
+      },
+      {
+        "assessment": "CLOSE_SPECTRAL_PRECURSOR_DIFFERENT_DISCRETE_TIME_OBJECTIVE",
+        "evidence": "Section 5.4.3 has transition matrix P(p,q) and optimizes SLEM over discrete-time stochastic chains. Fourier decomposition anticipates wheel eigenvalues; paper has no arbitrary linear spoke-price parameter, continuous-time lambda_2 price frontier, or proof ruling out all asymmetric rate allocations for that objective.",
+        "identifier_or_url": "doi:10.1137/070689413 | https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Accessible full 28-page primary article; model/objective and symmetry arguments §§1–2, exact Section 5.4.3 on wheel graph on journal pp. 813–814 / PDF pp. 21–22; paper conclusion/context.",
+        "method": "Opened full text, targeted wheel occurrence and neighboring sections, visually inspected PDF p.22 containing the transition matrix and SLEM optimum.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Highly relevant primary full text actually contains an exact wheel graph formula and Fourier block diagonalization."
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_WHEEL_SPECIALIZATION",
+        "evidence": "The article explains convex feasibility and numerical spectral reweighting but gives no wheel graph or two-class spoke-price threshold.",
+        "identifier_or_url": "doi:10.1109/TAC.2011.2181795 | https://people.eecs.berkeley.edu/~elghaoui/Pubs/Laplace_tac2012.pdf",
+        "material_read": "Full six-page primary article; Section III convex eigenvalue constraints, Sections IV–V numerical path, clustered graph, and formation-control examples; wheel searched in full text.",
+        "method": "Opened complete full-text PDF, read methodology and graph examples, visually inspected journal p.1875.",
+        "title": "Graph Weight Allocation to Meet Laplacian Spectral Constraints",
+        "trigger": "General continuous-time graph Laplacian edge-weight optimization and spectral constraints might dominate special wheel design."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24216ca2-3b99-4e7b-99aa-d70d0dd5d997",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural infinite family of hub-and-cycle communication networks receives a complete exact conductance purchasing rule under relative prices, not a finite artificial slice. The optimal topology changes at a sharp quadratic-in-size price threshold, with all rim edges deleted for fixed finite spoke price in sufficiently large wheels. The theorem resolves all optimal edgewise allocations, including degeneracy at the transition, and supplies analytic design without solving an SDP separately for each size or price. The rigidity proof and nonlinear size scaling make this more than a textbook spectral-table substitution. No claim of paper-sized contribution, downstream theorem, or arbitrary-network applicability is required.",
+    "status": "PASS"
+  }
+}
