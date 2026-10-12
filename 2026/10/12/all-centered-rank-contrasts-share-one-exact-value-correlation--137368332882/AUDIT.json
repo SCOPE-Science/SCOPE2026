@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For a continuous parent, the diagonal rank-value covariance is (N-1)G/4 by the identity G=4 Cov(X,F(X)). Exchangeability plus the deterministic rank sum forces every off-diagonal covariance to be -G/4. The resulting matrix acts as NG/4 times the identity on the zero-sum contrast subspace. The usual random-permutation rank covariance matrix and independence of the observations give the two variances, hence the common correlation. Cauchy-Schwarz with F(X) uniform proves the sharp uniform-parent envelope. Exact rational checks independently replay the uniform and beta-family special cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maturi and Elsayigh reproduce the exact Stuart single-coordinate rank-value correlation formula in full text.",
+        "Weber and Sawilowsky compare t and Wilcoxon procedures by Type I error and power but do not give their exact joint null covariance.",
+        "Kössler and Kumar treat adaptive two-sample U-statistic tests and explicitly include Wilcoxon-Mann-Whitney procedures, but the accessible abstract contains no mean-difference joint law."
+      ],
+      "reasoning": "These sources are broader on single-coordinate rank-value correlation or on test comparison, but the inspected statements do not imply that every zero-sum contrast direction has the same finite-sample correlation.",
+      "searches": [
+        "Stuart correlation variate-values ranks continuous distribution",
+        "Maturi Elsayigh correlation variate values ranks full text",
+        "comparative power independent t permutation t Wilcoxon tests",
+        "adaptive two sample location U statistics Wilcoxon Mann Whitney"
+      ]
+    },
+    "checked_sources": [
+      "Maturi and Elsayigh (2009), DOI 10.5539/jmr.v1n1p14, complete accessible article.",
+      "Stuart (1954), DOI 10.1111/j.2044-8317.1954.tb00138.x, publisher record plus exact formula reproduced in later full text.",
+      "Weber and Sawilowsky (2009), DOI 10.22237/jmasm/1241136120, complete open article.",
+      "Kössler and Kumar, DOI 10.1080/03610910801983152, abstract and classification.",
+      "Prior scientific records covering signed-rank/mean, Mann-Whitney/runs, Mann-Whitney/Cramer-von Mises, and Gini-variance questions.",
+      "Semantic searches under rank-value, contrast, Mann-Whitney, mean-difference, and Gini formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously checked scientific work on signed ranks and the sample mean uses signs and absolute ranks under symmetry, not ordinary pooled ranks and arbitrary centered coefficient vectors.",
+        "Previously checked two-sample work couples Mann-Whitney with runs or Cramer-von Mises statistics, not with raw value contrasts.",
+        "Previously checked Gini-variance work concerns scale inequalities rather than the cross-covariance operator between observed values and ranks."
+      ],
+      "reasoning": "None of the closest prior statements contains the full rank-value covariance matrix or a theorem for every zero-sum contrast, so the accepted result is not a special case or corollary of those checked claims.",
+      "searches": [
+        "Wilcoxon signed rank sample mean Gini covariance",
+        "Wald Wolfowitz runs Mann Whitney covariance",
+        "Mann Whitney Cramer von Mises joint null",
+        "Gini variance finite support rank covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest historical formula concerns Corr(X_i,R_i), a single labeled observation and its own rank, rather than arbitrary zero-sum coefficient vectors.",
+        "Searches under both rank-statistic language and Mann-Whitney/two-sample language did not return the common centered-contrast correlation formula."
+      ],
+      "reasoning": "The theorem can be expressed as a cross-covariance matrix identity, as isotropy on the centered contrast subspace, or as an allocation-invariant Mann-Whitney/mean-difference correlation. The searches covered all three formulations.",
+      "searches": [
+        "Mann-Whitney sample mean difference covariance exact Gini mean difference",
+        "Wilcoxon rank-sum sample mean covariance",
+        "Mann Whitney U mean difference correlation null exact",
+        "rank sum sample mean covariance continuous distribution",
+        "linear rank statistic linear statistic covariance exact Gini mean difference contrasts",
+        "rank contrasts value contrasts correlation iid continuous Gini",
+        "covariance matrix ranks observations continuous distribution exact",
+        "zero sum rank scores variate values covariance Gini"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched exact-formula record stated Cov(U,Delta)=NG/4 or the allocation-free correlation coefficient.",
+        "The packaged values are generated from complete rank-allocation enumeration rather than copied from a table."
+      ],
+      "reasoning": "The result is an all-N and all-contrast symbolic identity. Finite enumeration is used only as a replay check.",
+      "searches": [
+        "sqrt N over N plus 1 Wilcoxon mean difference correlation",
+        "Gini mean difference Wilcoxon rank sum covariance",
+        "rank sum difference of means exact covariance",
+        "zero sum rank scores value contrast exact correlation"
+      ]
+    },
+    "rationale": "The closest historical result located is a single-coordinate observation-rank correlation formula. Later full text reproduces that formula explicitly, but does not formulate the full rank-value cross-covariance matrix or its scalar action on every centered contrast. Direct comparisons of Wilcoxon and mean-based tests were also inspected without finding the exact joint null covariance or allocation-invariant two-sample correlation. Targeted searches across rank-score, value-contrast, Mann-Whitney, mean-difference, and Gini terminology did not locate the final theorem.",
+    "residual_risks": [
+      "The complete Stuart 1954 article was not available for direct inspection; an equivalent matrix or contrast-space consequence may be stated there or in classical linear-rank monographs.",
+      "The theorem is algebraically short once the diagonal/off-diagonal rank-value covariance matrix is recognized, increasing the possibility of an older result under different notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SINGLE_COORDINATE_BACKGROUND_NOT_COVERING_CONTRAST_ISOTROPY",
+        "evidence": "The article gives the correlation of one observation with its own rank and applies it to a specific distribution; it does not state the arbitrary zero-sum contrast theorem or the Mann-Whitney allocation-invariance corollary.",
+        "identifier_or_url": "doi:10.5539/jmr.v1n1p14",
+        "material_read": "Complete accessible article, with focused inspection of the derivation and displayed Stuart correlation formula.",
+        "method": "Open full-text inspection.",
+        "title": "The Correlation between Variate-Values and Ranks in Samples from Complete Fourth Power Exponential Distribution",
+        "trigger": "Closest accessible full-text source reproducing the classical finite-sample observation-rank correlation formula."
+      },
+      {
+        "assessment": "CLOSEST_HISTORICAL_RESIDUAL_RISK",
+        "evidence": "The accessible description concerns theoretical correlation between variate values and ranks; no arbitrary centered-contrast statement was available for direct inspection.",
+        "identifier_or_url": "doi:10.1111/j.2044-8317.1954.tb00138.x",
+        "material_read": "Publisher abstract and bibliographic record; the exact formula was cross-checked through the later full-text reproduction. Complete article text was not available through the retrieval paths used.",
+        "method": "Publisher metadata/abstract inspection plus full-text secondary reproduction of the formula.",
+        "title": "The Correlation between Variate-Values and Ranks in Samples from a Continuous Distribution",
+        "trigger": "Historical source most likely to dominate a finite rank-value covariance claim."
+      },
+      {
+        "assessment": "TEST_COMPARISON_NOT_JOINT_NULL_MOMENTS",
+        "evidence": "The article compares Type I error and power but does not derive the exact null covariance or correlation between the statistics.",
+        "identifier_or_url": "doi:10.22237/jmasm/1241136120",
+        "material_read": "Complete open article, including method, simulations, and conclusions.",
+        "method": "Open full-text inspection.",
+        "title": "Comparative Power of the Independent t, Permutation t, and Wilcoxon Tests",
+        "trigger": "Direct comparison of mean-based and Wilcoxon two-sample procedures."
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_NO_COVERING_STATEMENT_IN_ACCESSIBLE_MATERIAL",
+        "evidence": "The accessible material concerns adaptive location tests and U-statistics, not a joint covariance with the raw sample mean difference.",
+        "identifier_or_url": "doi:10.1080/03610910801983152",
+        "material_read": "Abstract, publication metadata, keywords, and classification; complete article text was not available in the retrieval path used.",
+        "method": "Publisher abstract and metadata inspection.",
+        "title": "An Adaptive Test for the Two-Sample Location Problem Based on U-Statistics",
+        "trigger": "Primary two-sample U-statistic source explicitly including Wilcoxon-Mann-Whitney procedures."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13736833-2882-461a-abad-377203b7ec68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem converts a coordinatewise rank-value relationship into a complete structural statement on the (N-1)-dimensional contrast space. It shows that the choice of contrast direction does not change rank-versus-value correlation under the iid continuous null, and yields the practically interpretable consequence that Mann-Whitney and the raw two-sample mean difference have an exact correlation depending only on total sample size and the parent Gini-to-standard-deviation ratio, not on group allocation. The sharp uniform-parent envelope gives a natural extremal interpretation rather than a routine moment calculation.",
+    "status": "PASS"
+  }
+}
