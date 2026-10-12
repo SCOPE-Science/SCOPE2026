@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For binary words, changing a set of positions is exactly a Hamming move, so k-delicacy is equivalent to Hamming isolation at least k+1 inside the fixed-length overlap-free language. Two independent exact enumerators agree on every overlap-free word through length 14. The resulting complete isolation profiles have maximum at most 2 through length 12, exactly 3 at length 13, at most 3 through length 13, and exactly 4 at length 14. This proves L_2=13 and L_3=14 and exhausts all shortest equality cases. The certificate and replay script are bundled and were run from their packaged paths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Przybocki, Section 5, defines k-delicacy and asks whether finite k-delicate overlap-free binary words exist for every k.",
+        "Przybocki, Theorem 1.4, classifies ordinary delicate overlap-free words, which is only the k=1 case.",
+        "Later targeted searches did not locate a theorem resolving the finite overlap-free branch or implying these first two exact minima."
+      ],
+      "reasoning": "The strongest directly relevant prior theorem guarantees delicate words at k=1 and poses the generalized problem; it gives neither a finite k=2/k=3 witness nor a minimum-length lower bound, so it does not imply the new classification.",
+      "searches": [
+        "Lengths of Irreducible and Delicate Words Question 21 finite k-delicate overlap-free",
+        "\"k-delicate\" word combinatorics overlap-free",
+        "\"k-delicate\" squarefree overlap-free cubefree",
+        "\"Question 5.1\" \"delicate\" overlap-free",
+        "\"Hamming distance\" overlap-free words delicate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.06646 full relevant sections",
+      "Electronic Journal of Combinatorics DOI:10.37236/10669 metadata/full-text record",
+      "Computability DOI:10.3233/COM-230441 abstract",
+      "published-index searches under generalized-delicacy, Hamming-isolation, exact-parameter, and exact-string formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.4 of arXiv:2108.06646 proves existence for every length at ordinary delicacy k=1.",
+        "Question 5.1 explicitly asks about finite k-delicate overlap-free words for all k rather than supplying k>=2 finite witnesses.",
+        "The 2024 Hamming-isometric paper studies preservation/avoidance of a prescribed factor along transformations and not the nearest-neighbor distance within the overlap-free language."
+      ],
+      "reasoning": "Existence at k=1 cannot imply k=2 or k=3 because generalized delicacy is strictly stronger. The different Hamming-isometric notion also has no implication to the fixed-language isolation thresholds.",
+      "searches": [
+        "arXiv:2108.06646 Section 3 ordinary delicacy",
+        "arXiv:2108.06646 Section 5 generalized delicacy",
+        "Computability DOI:10.3233/COM-230441 abstract and scope",
+        "finite 2-delicate overlap-free word shortest length 13 binary",
+        "finite 3-delicate overlap-free word shortest length 14 binary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source definition makes binary k-delicacy equivalent to absence of another overlap-free word within Hamming radius k.",
+        "Searches under both generalized-delicacy terminology and Hamming-isolation terminology returned the source paper or unrelated coding/string-distance results, not the thresholds L_2=13 and L_3=14."
+      ],
+      "reasoning": "The binary alphabet removes ambiguity about substitutions: a chosen changed position has only one new symbol. Thus Hamming isolation is the principal equivalent formulation and was searched explicitly.",
+      "searches": [
+        "finite 2-delicate overlap-free word shortest length 13 binary",
+        "finite 3-delicate overlap-free word shortest length 14 binary",
+        "delicate overlap-free words Hamming distance overlap-free language",
+        "\"2-delicate\" overlap-free words shortest",
+        "\"3-delicate\" overlap-free words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact witness-string searches did not return a scientific table or publication identifying them as shortest generalized-delicacy witnesses.",
+        "The semantic research index returned no record asserting length 13 for k=2 or length 14 for k=3."
+      ],
+      "reasoning": "Because the result is a small exact finite invariant, exact strings and exact parameter statements were checked to guard against an existing census or table.",
+      "searches": [
+        "\"0100110010110\" overlap-free",
+        "\"00101100110100\" overlap-free",
+        "2-delicate overlap-free length 13",
+        "3-delicate overlap-free length 14"
+      ]
+    },
+    "rationale": "The direct source introduces k-delicacy and asks for finite k-delicate overlap-free words for all k, while its classification theorem concerns only ordinary delicacy k=1. The inspected source contains no minima or equality classification for k=2 or k=3. Dedicated semantic-index and public-literature searches for the exact generalized-delicacy statements, Hamming-isolation equivalents, and witness strings found no covering result. The closest Hamming-distance paper concerns isometric avoidance of a fixed factor during transformations, not isolation of overlap-free words.",
+    "residual_risks": [
+      "An unindexed computation, unpublished note, or informal data file may contain the same small thresholds.",
+      "The searches do not prove absence from all literature; originality is based on direct source comparison plus targeted alias, implication, and exact-string searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it settles k=1 and asks the all-k finite question, but does not state or imply the k=2 and k=3 minimum lengths or shortest-word classifications.",
+        "evidence": "Section 5 defines k-delicacy and Question 5.1; Theorem 1.4 is the k=1 length classification; journal metadata lists Mathematics Subject Classification 68R15.",
+        "identifier_or_url": "arXiv:2108.06646 / DOI:10.37236/10669",
+        "material_read": "Full relevant PDF material: introduction and Theorem 1.4, the overlap-free delicacy proof in Section 3, Theorem 1.6 family in Section 4, and Section 5 definition and Question 5.1; journal metadata including MSC.",
+        "method": "Lawful public full-text and rendered-page inspection.",
+        "title": "Lengths of Irreducible and Delicate Words",
+        "trigger": "Primary source introducing generalized delicacy and posing the motivating question."
+      },
+      {
+        "assessment": "NOT_COVERING: its object is whether occurrences of a prescribed factor can be avoided along a shortest transformation, not Hamming isolation among overlap-free words.",
+        "evidence": "The abstract defines Ham-isometric words via transformations avoiding a fixed factor and gives algorithms for that index; no generalized-delicacy threshold is stated.",
+        "identifier_or_url": "DOI:10.3233/COM-230441",
+        "material_read": "Published abstract and scope statement.",
+        "method": "Bibliographic abstract inspection.",
+        "title": "Computing the index of non-isometric k-ary words with Hamming and Lee distance",
+        "trigger": "Closest later search hit combining word avoidance and Hamming distance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fee6e6d-4a4e-45d2-9ca4-703fa564c6b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "These are the first two nontrivial values of a natural parameter introduced explicitly in the source, immediately after its complete k=1 theory. Determining both exact minima and all shortest witnesses answers the first two cases of the source question with complete finite classifications rather than reporting arbitrary test lengths. The Hamming-isolation reformulation also makes the strengthened delicacy notion quantitatively concrete.",
+    "status": "PASS"
+  }
+}
