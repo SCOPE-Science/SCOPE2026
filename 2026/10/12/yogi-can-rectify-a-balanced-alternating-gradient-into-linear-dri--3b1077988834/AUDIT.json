@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "Constant gradient magnitude makes the Yogi second-moment recurrence an exact additive threshold map. For noninteger \\(1/(1-\\beta_2)\\) it enters a two-cycle whose parity is fixed by the first threshold crossing; for integer reciprocal step it hits \\(G^2\\) exactly. The alternating first moment has an exact geometric closed form. Pairing the two denominators gives a nonzero limiting normalized-update sum, and the remaining transient is absolutely summable, proving the stated linear parameter slope rather than merely suggesting it numerically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper proves stochastic stationarity guarantees under smoothness, bounded-gradient, and variance assumptions rather than exact forced periodic trajectories.",
+        "Current optimizer documentation restates Yogi's effective-learning-rate control and denominator convention but does not analyze periodic forcing."
+      ],
+      "reasoning": "General stochastic convergence bounds do not imply the exact state trajectory for a deterministic period-two forcing signal, and implementation documentation does not supply a stronger theorem covering the drift law.",
+      "searches": [
+        "Yogi optimizer periodic gradient convergence",
+        "Yogi optimizer zero mean gradient behavior",
+        "adaptive optimizer alternating gradient Yogi"
+      ]
+    },
+    "checked_sources": [
+      "NeurIPS:2018:90365351ccc7437a1309dc64e4db32a3",
+      "Optax:yogi-documentation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 supplies the exact first-moment, second-moment, and parameter recurrences used in the proof.",
+        "The source states that Yogi's second-moment increment magnitude depends only on the current squared gradient.",
+        "The source notes that second-moment initialization materially affects early learning rates and proposes a gradient-square initialization."
+      ],
+      "reasoning": "The prior work defines the mechanism but does not combine its additive thresholding with an alternating first moment. The final claim requires solving both recurrences jointly, tracking the parity of the denominator cycle, and summing the resulting nonzero pair drift.",
+      "searches": [
+        "Adaptive Methods for Nonconvex Optimization Algorithm 2 Yogi",
+        "Adaptive Methods for Nonconvex Optimization Yogi initialization gradient square",
+        "Adaptive Methods for Nonconvex Optimization Yogi effective learning rate additive update"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper contains no occurrence of an alternating-gradient or periodic-input analysis.",
+        "The defining paper explains only the local additive second-moment mechanism and general effective-learning-rate motivation.",
+        "No located published record states that zero pairwise gradient sum can yield nonzero linear Yogi parameter drift."
+      ],
+      "reasoning": "Equivalent formulations would include rectification of a zero-mean period-two input, a phase-locked denominator cycle coupled to momentum, or a nonzero asymptotic parameter velocity under balanced alternating gradients. None was found.",
+      "searches": [
+        "Yogi optimizer alternating gradient magnitudes exact second moment recurrence periodic two cycle",
+        "Yogi optimizer balanced alternating gradients zero mean drift second moment oscillation",
+        "Yogi optimizer linear drift alternating gradient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published records concern other adaptive-step, spectral, and stochastic-feedback methods.",
+        "No returned published record names Yogi in a theorem about alternating gradients, second-moment cycles, or zero-mean drift."
+      ],
+      "reasoning": "The closest indexed results use different state recurrences and do not imply this phase-locking mechanism. Search absence is supporting evidence only and is combined with direct full-text inspection of the defining paper.",
+      "searches": [
+        "Yogi optimizer alternating gradient magnitudes exact second moment recurrence periodic two cycle",
+        "Yogi adaptive method two-level alternating gradients second moment sign update",
+        "Yogi optimizer constant magnitude alternating sign exact state",
+        "Yogi second moment bounded oscillation gradient square two-cycle",
+        "Yogi optimizer balanced alternating gradients zero mean drift second moment oscillation",
+        "Yogi optimizer constant squared gradient two-cycle denominator oscillation",
+        "Yogi additive second moment quantization beta2 reciprocal integer",
+        "Yogi alternating sign gradient linear drift effective learning rate phase"
+      ]
+    },
+    "rationale": "The defining Yogi paper describes the additive second-moment mechanism, controlled effective learning rate, and initialization sensitivity, but does not state the balanced-input phase locking or its induced parameter drift. Focused published-record searches for alternating, periodic, zero-mean, cycle, and drift formulations did not locate an implication-equivalent result.",
+    "residual_risks": [
+      "An equivalent forced-input calculation may exist in unindexed implementation notes.",
+      "The exact reciprocal-step resonance can be perturbed by floating-point representation or debiasing conventions.",
+      "The diagnostic gradient sequence is not asserted to arise from a fixed objective."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_BALANCED_ALTERNATING_RECTIFICATION.",
+        "evidence": "The source gives the additive sign-controlled second-moment update and practical initialization guidance; no periodic or alternating-gradient state analysis was found.",
+        "identifier_or_url": "NeurIPS:2018:90365351ccc7437a1309dc64e4db32a3",
+        "material_read": "Full open-access paper covering Algorithm 2, the Yogi mechanism discussion, the nonconvex convergence theorem, experimental initialization guidance, and reported hyperparameter ranges.",
+        "method": "Full-text proceedings PDF inspection with targeted searches for alternating, periodic, and constant-gradient analyses.",
+        "title": "Adaptive Methods for Nonconvex Optimization",
+        "trigger": "Defining source for Yogi's printed recurrence, controlled effective-learning-rate motivation, reported decay values, and practical second-moment initialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3b107798-8834-468e-8ed2-ae45f0987ae1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Balanced sign alternation is the canonical highest-frequency zero-drift input for an adaptive optimizer. The result shows a qualitatively stronger effect than denominator oscillation alone: Yogi can rectify that balanced input into systematic linear parameter motion because the two gradient parities receive different effective learning rates. It also identifies exact mechanisms that suppress the effect—arithmetic locking and the source's own gradient-square initialization—so the statement directly clarifies the role of initialization and additive second-moment phase in the method's central effective-learning-rate mechanism.",
+    "status": "PASS"
+  }
+}
