@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For 0<s<1 and a≥0, the positive-definite energy E(u,v)=u²−2suv/(1+s)+s v² obeys the exact unconstrained difference −s(1−s)[u²/(1+s)+v²], and projection to the lower error bound −a can only further reduce it. This yields a uniform geometric contraction. At a>0 and s≥1, the eventual linear companion has eigenvalues of modulus √s≥1, so a nonstationary state cannot converge; backward uniqueness of consecutive positive fixed values rules out finite capture. At a=0 monotonicity gives convergence for every s, with finite absorption for s≥1. At a<0 a deterministic decrement bound gives finite absorption for every s. Coordinate independence yields the exact all-dimensional iff criterion. Exact rational witnesses and finite computations are treated only as corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full open manuscript arXiv:1403.3862v2, Sections 2–4, describes a current-state proximal coordinate update with gradient at a possibly stale state and sufficient stepsize/delay constraints for stochastic schedules.",
+        "The 2013 precursor develops random asynchronous coordinate descent for smooth or separably constrained functions. Its public abstract does not present the deterministic one-lag three-face exact law."
+      ],
+      "reasoning": "The stochastic sufficient step restrictions do not imply necessity at interior optimizers, infinite feasible stepsizes on active coordinates, or a finite-time absorption theorem at strict complementarity. The recurrence and quantifiers differ: here all coordinates are updated synchronously with a fixed one-step stale gradient and every feasible two-state initialization is covered.",
+      "searches": [
+        "asynchronous proximal gradient strict complementarity active constraints step sizes delayed",
+        "asynchronous stochastic coordinate descent Liu Wright bounded delay proximal 2014",
+        "arxiv:1403.3862v1",
+        "arxiv:1311.1873v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1311.1873v1",
+      "arxiv:1403.3862v1",
+      "arxiv:1403.3862v2",
+      "doi:10.1137/140961134",
+      "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 full manuscript Section 3, Algorithm 1, explicitly projects a current-state coordinate update using a stale gradient, but Theorem 4 treats random-coordinate expectations and technical sufficient steplength conditions rather than an if-and-only-if activity classification.",
+        "The nearest independently retrieved delayed randomized Gauss–Seidel result addresses convergence rates governed by a delay distribution; it does not project onto a nonnegative face or optimize steps under strict complementarity."
+      ],
+      "reasoning": "The new implication concerns the contrast in global allowable steps between interior and active components under identical Hessian and lag. Neither stochastic speedup theorems nor spectral stability of the unconstrained recurrence entails all the active-coordinate convergence or termination statements. The statements differ in algorithms and quantifiers, not merely names.",
+      "searches": [
+        "arxiv:1403.3862v1 delayed proximal update step condition theorem",
+        "arxiv:1311.1873v1 constrained asynchronous stochastic coordinate",
+        "projected delayed gradient orthant strict complementarity stepsize"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No displayed query returned a deterministic lag-one projected scalar exact active/inactive convergence trichotomy or six-cycle criterion.",
+        "The nearest published stochastic-coordinate delay finding uses a randomized two-coordinate Gauss–Seidel model and its mean-square delay law rather than the present deterministic projected scalar map."
+      ],
+      "reasoning": "An equivalent statement must permit fixed stale gradient evaluated one iterate behind the state, projection onto a halfline, and an exact all-initializations convergence threshold separated by optimizer activity. Generic projected-gradient step bounds or unconstrained delayed eigenvalue criteria do not imply the unlimited-step active regime.",
+      "searches": [
+        "projected gradient delayed one step scalar halfline active boundary arbitrary stepsize finite termination stochastic coordinate descent",
+        "stale gradient projection nonnegative orthant delayed convex quadratic globally convergent no step size upper bound",
+        "stale projected gradient one-step deterministic delay nonnegative scalar quadratic active constraint unconstrained interior sharp stepsize condition",
+        "\"delayed projected gradient\" scalar quadratic cycle convergence",
+        "\"stale gradient\" \"finite termination\" projected quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No accessible exact table or symbolic classification matching the active-set-dependent global step ceiling was located.",
+        "The six-periodic boundary orbit is explicitly constructed using exact half-integers, rather than inferred from an experiment."
+      ],
+      "reasoning": "The claim is a theorem for all positive steps, all nonnegative initial pairs, and every finite diagonal dimension; a finite experiment or lookup table cannot alone dominate it.",
+      "searches": [
+        "\"stale gradient\" \"finite termination\" projected quadratic",
+        "\"delayed projected gradient\" \"stepsize\" \"strict complementarity\" one dimensional",
+        "\"delayed gradient\" \"nonnegative\" \"finite termination\" optimization",
+        "lagged gradient projected onto positive orthant exact convergence iff step size lower bound upper bound period six"
+      ]
+    },
+    "rationale": "The complete 2014 stochastic stale-proximal coordinate paper was inspected as direct prior and the 2013 predecessor identified; both establish asynchronous coordinate methods but the examined results are stochastic sufficient convergence bounds, not the deterministic one-lag, all-initializations, active/inactive necessary-and-sufficient step law. Targeted semantic and exact-form searches found no dominating equivalent. The claim is narrow and explicit about the changed update quantifiers.",
+    "residual_risks": [
+      "The full 2013 original-body text was not verified through the inspected routes; its stochastic method is nearby enough to merit careful independent checking for an equivalent deterministic fixed-delay lemma.",
+      "Classical asynchronous fixed-point and active-set identification literature may encode this scalar phase law under different terminology.",
+      "The source algorithms use stochastic coordinate updates, while the proved law is for deterministic one-lag simultaneous projected updates; no inference between those quantifiers is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FUNDAMENTAL_METHOD_DISTINCT_OBJECTIVE: establishes a stochastic asynchronous proximal coordinate scheme and sufficient convergence steps but no located deterministic lag-one all-initialization active-face phase law.",
+        "evidence": "The algorithm writes the updated coordinate from the current iterate and delayed-gradient evaluation; Section 4 conditions γ and bounded delay τ to prove expected rates. The publisher lists MSC 90C25 first; public preprint version v1 is dated 2014-03-15.",
+        "identifier_or_url": "arxiv:1403.3862v2; doi:10.1137/140961134",
+        "material_read": "Full open HTML across the problem formulation, related asynchronous fixed-point work, Algorithm 1 in Section 3, main result/stepsize discussion in Section 4, and theorem context; publisher metadata and arXiv first-public version were separately checked.",
+        "method": "Lawful arXiv public full-text HTML and publisher bibliographic record.",
+        "title": "Asynchronous Stochastic Coordinate Descent: Parallelism and Convergence Properties",
+        "trigger": "Closest methodological source with stale proximal gradient updates, separable nonsmooth terms, and primary MSC 90C25."
+      },
+      {
+        "assessment": "CLOSE_METHOD_ACCESS_LIMITED: establishes earlier stochastic projected-coordinate methodology; lack of whole-body access is carried as residual risk, not used to assert complete noncoverage.",
+        "evidence": "The original arXiv v1 submission is dated 2013-11-08. The original and JMLR records state smooth unconstrained or separably constrained stochastic asynchronous coordinate descent and linear/sublinear rates.",
+        "identifier_or_url": "arxiv:1311.1873v1; Journal of Machine Learning Research 16 (2015), 285–322",
+        "material_read": "The arXiv original public record, JMLR full article bibliographic/abstract page, and public excerpts of the original separably constrained problem and introduction; the complete earlier article body was not verified through the inspected routes.",
+        "method": "Open original submission and publisher article record, supplemented with publicly visible original-paper excerpts.",
+        "title": "An Asynchronous Parallel Stochastic Coordinate Descent Algorithm",
+        "trigger": "Earlier chronological predecessor with separable coordinate constraints and asynchronous execution."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4636729-0d14-4161-92d4-b1f6ece0c291",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact admissible step is controlled by which bound constraints are active at the optimum, not only by curvature and delay: each positive optimizer coordinate forces s<1, but active coordinates permit arbitrarily large s, and strict activity gives finite termination. This resolves a natural mismatch between conservative generic asynchronous step bounds and specific bound-constrained dynamics, while providing an explicit quadratic energy that survives projection and a sharp six-cycle at the boundary. The all-dimensional separable classification allows checking a whole active/inactive support pattern without a general coupled-Hessian theory.",
+    "status": "PASS"
+  }
+}
