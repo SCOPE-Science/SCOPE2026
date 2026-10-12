@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "For N≥3, BB^T=(N-2)I+11^T is positive definite and A(J(N,2))=B^TB-2I, yielding distinct Hamiltonian eigenvalues 2(N-2),N-4,-2. For any detector graph X, the unsigned incidence rank is N-b(X) including isolated vertices. The rank on the middle eigenspace is N-b(F)-u(F); on the lowest it is |D|-b(G), and on the trivial sector it is one. Strictly positive losses guarantee precisely the common detector-zero Hamiltonian eigenspaces survive asymptotically. This proves R(D) and the full absorption criterion, while explicit complementary odd-unicyclic constructions meet the bottom eigenspace lower bound for all N≥5; N=3,4 are treated separately. Packaged numerical verifier passed 1760 spectral rank checks, 14 witness/threshold checks, 80 non-Hermitian tests; numerics are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agliari §2.3 models random many-trap graphs with effective H=H0-iΓ and describes mean survival, without fixed triangular placements.",
+        "Razzoli et al. conclusion explicitly leaves multiple trap sites and different trap strengths/locations for future research.",
+        "Novo et al. consider projection-based transport for one-site loss on other graph families."
+      ],
+      "reasoning": "The general Hamiltonian projection theorem is a strong methodological antecedent, but it does not state the specialized arbitrary-D bipartite-component formula or sharp universal detector count. Its implication needs the independent unsigned-incidence analysis. Claims about exact single-trap results and random-graph averaging do not subsume all prescribed subsets on J(N,2).",
+      "searches": [
+        "graph quantum walk site detection triangular graph K_n line graph all-site absorption minimum detectors odd cycles",
+        "Razzoli Paris Bordone multi-site trapping triangular network J(n,2) signless incidence rank dark eigenspace codimension",
+        "arxiv:1102.3994 §2.3",
+        "arxiv:2011.13794 §§4–5",
+        "https://www.nature.com/articles/srep13304 trapping sections"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0803.3446; https://arxiv.org/pdf/0803.3446",
+      "arxiv:1102.3994; https://arxiv.org/pdf/1102.3994",
+      "https://www.nature.com/articles/srep13304",
+      "arxiv:1601.04212; https://arxiv.org/pdf/1601.04212",
+      "arxiv:1706.03987; https://arxiv.org/pdf/1706.03987",
+      "arxiv:2011.13794; https://arxiv.org/pdf/2011.13794",
+      "arxiv:2302.07757; https://arxiv.org/pdf/2302.07757",
+      "doi:10.1049/cth2.12385; https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cth2.12385"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wong works with a Hermitian search oracle at one marked vertex and supplies a unitary algorithmic runtime, not an irreversible multi-loss invariant.",
+        "Razzoli method reduces absorption to eigenspace visibility but does not determine detector ranks on J(N,2).",
+        "Abiad Corollary 9 determines an upper bound based on zero forcing, not the smaller exact fixed-matrix minimum; Vorob’ev support lower bounds are necessary pointwise data but insufficient for rank across each eigenspace."
+      ],
+      "reasoning": "The proposed claim implies a necessary-and-sufficient classification for every nonempty D, arbitrary positive losses, and an exact extremal count. Each relevant prior statement has been checked at the level of its hypotheses and consequence; none directly yields that conclusion without an additional incidence-rank theorem and complementary graph classification. An unseen stronger control result could still imply it.",
+      "searches": [
+        "distance regular graphs quantum perfect state transfer absorbing traps sitewise capture Johnson graphs",
+        "Exact multiple-trap quantum transport classification on triangular graph J(n,2) line graph of complete graph, odd cycle pseudoforest complementary detector sets and critical minimum absorbing sites",
+        "Johnson J(n,2) minimum number of traps full quantum capture binomial n 2 minus n graph odd cycle zero forcing two fewer",
+        "arxiv:1601.04212 unique marked vertex",
+        "arxiv:2011.13794 conclusion",
+        "doi:10.1049/cth2.12385 §§1–2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A detector set is completely absorbing iff no eigenvector of A vanishes at all detector coordinates; this is the observable-leader eigenvector condition for a fixed symmetric matrix.",
+        "Vorob’ev et al. determine minimum support sizes of *individual* Johnson eigenfunctions, not all patterns with injective restriction.",
+        "Dai Proposition 1 states a broad Laplacian controllability criterion and solves different network families."
+      ],
+      "reasoning": "Eigenvector support, leader controllability, fixed-matrix Kalman observability, and dark-state trapping are searched as equivalent formulations. Their general equivalence is acknowledged; none of the inspected statements evaluates all detector sets via b(F),u(F),b(G). The present claim depends on the new simultaneous rank computation, not on a renamed established count.",
+      "searches": [
+        "Johnson graph continuous-time quantum walk traps absorbing vertices spectral projector dark states quantum transport",
+        "quantum absorption arbitrary absorbing subsets Johnson graph J(n,2) triangular graph line graph complete graph detector graph complement unsigned incidence rank odd pseudoforest controllability",
+        "Minimum supports of eigenfunctions of Johnson graphs 2-subsets triangular graph completely observable detector vertex subsets signed incidence odd unicyclic complementary graph absorption",
+        "spectral controllability edge line graph complete graph absorbing detector sets unsigned incidence bipartite components",
+        "arxiv:1706.03987 §§1–2",
+        "doi:10.1049/cth2.12385 Proposition 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Abiad–Simoens–Zeijlemaker Corollary 9 gives Z(J(N,2))=M-N+2, while the proposed exact minimum is M-N for N≥5.",
+        "The eigenfunction minimum-support article provides extremal single-eigenvector support classes rather than a table of all absorbing sets."
+      ],
+      "reasoning": "The known Johnson-graph zero-forcing invariant is not the exact observer minimum for the fixed adjacency Hamiltonian: the latter is lower by two, so the present result cannot be a numerical recomputation of that table. No exact table of arbitrary-detector trapping rank was found in the inspected primary literature; search incompleteness remains a risk.",
+      "searches": [
+        "Exact multiple-trap quantum transport classification on triangular graph J(n,2) line graph of complete graph, odd cycle pseudoforest complementary detector sets and critical minimum absorbing sites",
+        "Johnson J(n,2) minimum number of traps full quantum capture binomial n 2 minus n graph odd cycle zero forcing two fewer",
+        "arxiv:2302.07757 Corollary 9",
+        "arxiv:1706.03987 minimum support tables"
+      ]
+    },
+    "rationale": "Primary literature and mathematical-record comparisons distinguish this arbitrary-detector exact J(N,2) spectral-absorption classification, including the sharp M-N minimum, from existing generic dark-subspace methods, minimum support of individual eigenvectors, one-vertex unitary Johnson search, random graph trapping, and known graph zero-forcing number M-N+2. Broad spectral observation is acknowledged as prior; no exact equivalent all-detector theorem was identified. Residual priority risk remains from specialized control-theoretic line-graph results or literature not indexed.",
+    "residual_risks": [
+      "Equivalence with the full fixed-matrix Kalman controllability literature might reveal a more general evaluated triangular/line-graph theorem not identified here.",
+      "The mathematical-record database search and primary-literature searches do not constitute exhaustive global novelty proof; private or unpublished results are not observable.",
+      "The priority assessment has not undergone external independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Measurement at Poisson times and general infinite-hitting effects, not an all-detector indefinite-loss classification for J(N,2).",
+        "evidence": "Abstract explicitly defines hitting via random-time Poisson measurements and notes graph-symmetry-dependent infinite hitting times; original submission dated 2008-03-24.",
+        "identifier_or_url": "arxiv:0803.3446; https://arxiv.org/pdf/0803.3446",
+        "material_read": "Abstract and relevant model/absorbing-time discussion in the twelve-page primary PDF; original public-submission record.",
+        "method": "Read arXiv primary manuscript with page-resolved text and original abstract.",
+        "title": "Hitting time for the continuous quantum walk",
+        "trigger": "Early quantum hitting and trapping with infinite-time protected modes."
+      },
+      {
+        "assessment": "Defines multiple randomly placed traps and average survival on Erdős–Rényi graphs; no all-placement exact graph-component classification for triangular graphs.",
+        "evidence": "Section 2.3 defines H=H0-iΓ, random trap set, and uniform Γ; paper studies random graph connectivity and average survival, unlike arbitrary fixed D and arbitrary strictly positive strengths.",
+        "identifier_or_url": "arxiv:1102.3994; https://arxiv.org/pdf/1102.3994",
+        "material_read": "Primary PDF sections 1, 2.3, selected spectral and dark-state discussion pp.1-8.",
+        "method": "Read page-resolved arXiv full-text material, including Equation (11) and trap-model assumptions.",
+        "title": "Trapping of Continuous-Time Quantum walks on Erdos-Renyi graphs",
+        "trigger": "Exactly the non-Hermitian irreversible many-trap dynamics on random graphs."
+      },
+      {
+        "assessment": "Gives transport-to-a-trap reduction methods on other networks and a single distinguished trap; does not evaluate arbitrary detector subsets on triangular graphs.",
+        "evidence": "Transport efficiency examples on hypercubes and a complete graph with a trap; no corresponding labelled-edge bipartite-component formula.",
+        "identifier_or_url": "https://www.nature.com/articles/srep13304",
+        "material_read": "Accessible primary HTML methods and transport sections on the hypercube, complete graph and trap projector.",
+        "method": "Read publisher full HTML sections discussing single-trap transfer and Hamiltonian invariance.",
+        "title": "Systematic Dimensionality Reduction for Quantum Walks: Optimal Spatial Search and Transport on Non-Regular Graphs",
+        "trigger": "Established trapped-walk spectral-subspace projection and transport efficiency."
+      },
+      {
+        "assessment": "Unitary one-marked-vertex spatial search with real oracle perturbation; its statement cannot imply arbitrary multisite irreversible absorption ranks.",
+        "evidence": "§1 gives H=-γA-|w><w| for a unique marked vertex and focuses on search success/runtimes, not loss and dark states for arbitrary detector D.",
+        "identifier_or_url": "arxiv:1601.04212; https://arxiv.org/pdf/1601.04212",
+        "material_read": "Primary seventeen-page PDF introduction and §§1–2; inspected graph diagrams and search Hamiltonian.",
+        "method": "Read primary arXiv text with page-specific examination of the marked-vertex model.",
+        "title": "Quantum Walk Search on Johnson Graphs",
+        "trigger": "Same Johnson family and especially the triangular graph J(N,2)."
+      },
+      {
+        "assessment": "Minimum supports of individual eigenfunctions do not give the full rank of all simultaneous restrictions for a particular arbitrary detector pattern; not a direct implication of the claimed all-D formula.",
+        "evidence": "The paper quantifies a minimum possible support size and extremizing functions for each eigenvalue; it does not classify injectivity of the detector-coordinate map for each D.",
+        "identifier_or_url": "arxiv:1706.03987; https://arxiv.org/pdf/1706.03987",
+        "material_read": "Primary PDF abstract, §§1–2, statements of Theorems 1–3 and minimum-support construction, pp.1–4.",
+        "method": "Read arXiv paper text and page image of eigenspace machinery.",
+        "title": "Minimum supports of eigenfunctions of Johnson graphs",
+        "trigger": "Directly studies vanishing coordinates of eigenvectors of the same Johnson eigenspaces."
+      },
+      {
+        "assessment": "Overlapping foundational method, but paper solves principally one-sink transport problems and explicitly sets multiple trap positions/rates as future work; no formula for arbitrary D in J(N,2).",
+        "evidence": "Conclusion defines η as spectral overlap with the subspace visible at a single vertex w and explicitly proposes investigating more than one trap vertex and different trapping rates/locations.",
+        "identifier_or_url": "arxiv:2011.13794; https://arxiv.org/pdf/2011.13794",
+        "material_read": "Primary PDF discussion of trapping and strongly regular graphs in §4, plus conclusion pp.16–17.",
+        "method": "Read arXiv full-text by sections and page-resolved proof/limitations.",
+        "title": "Transport efficiency of continuous-time quantum walks on graphs",
+        "trigger": "Closest general non-Hermitian projector method for actual asymptotic absorption."
+      },
+      {
+        "assessment": "Corollary 9 yields Z(J(N,2))=M-N+2 for N≥4; different graph-uniform forcing parameter, and two larger than the new exact fixed-Hamiltonian absorber minimum for N≥5; does not imply the all-D classification.",
+        "evidence": "Corollary 9 states Z(J(n,k))=binom(n,k)-binom(n-2,k-1), giving M-(N-2) at k=2, and no non-Hermitian detector-rank theorem.",
+        "identifier_or_url": "arxiv:2302.07757; https://arxiv.org/pdf/2302.07757",
+        "material_read": "Primary PDF §§1, 4, proof context and Corollary 9 on page 9 of 17 (PDF page index 8).",
+        "method": "Read original arXiv full text including displayed corollary and its graph forcing definitions.",
+        "title": "On the diameter and zero forcing number of some graph classes in the Johnson, Grassmann and Hamming association scheme",
+        "trigger": "Exact zero-forcing number of J(N,2) is a possible stronger coverage or domination parameter."
+      },
+      {
+        "assessment": "General controllability criterion for Laplacian-based leader/follower systems, with special results for tree and scale-free networks; no evaluated arbitrary subset classifier for triangular graphs in the read material.",
+        "evidence": "Proposition 1 requires nonzero restriction of every Laplacian eigenvector to leader set, structurally analogous to loss observability; the paper states its solved families are deterministic scale-free networks and Cayley trees.",
+        "identifier_or_url": "doi:10.1049/cth2.12385; https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cth2.12385",
+        "material_read": "Accessible primary publisher HTML §§1–2, eigenvector criterion and described graph families.",
+        "method": "Read publisher full HTML article intro, mathematical criterion and listed applications.",
+        "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+        "trigger": "Potential dual classical leader-observability formulation for detecting eigenspace-supported dark states."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1643b6b3-bf63-4b1b-b614-488f7166e47f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Arbitrary detector placement on a natural infinite family of quantum networks is a meaningful engineering and spectral question. The exact condition identifies which arrangements destroy every dark state through simple bipartite-component/odd-cycle invariants without exponential-state simulation, and the sharp minimum for N≥5 is two below the published generic graph zero-forcing number. The complete classification and sharp, constructive threshold are not merely a routine small case or isolated numerical gain; they explain the structural role of degeneracies and the strict difference between fixed Hamiltonian observability and zero forcing.",
+    "status": "PASS"
+  }
+}
