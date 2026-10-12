@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A 106-character complete witness is explicitly given and every one of its 106 cyclic windows is checked nonpalindromic. Two separate standard-language implementations verify all 5565 unordered pairs differ both directly and under reversal, including cyclic wraparound; the formal definition therefore gives existence. No claim of global optimality or extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gabrić and Sawada (2024) provide asymptotically optimal general constructions, not this length-106 explicit parameter.",
+        "Alhakim et al. (2024) derive upper bounds and recursive constructions.",
+        "Mitchell and Wild (2025), Table 7 for order four and alphabet size four: documented largest period 88 and upper bound 112."
+      ],
+      "reasoning": "The general existence and asymptotic theorems do not supply a cycle of period 106 for this fixed parameter. A formal upper bound 112 is compatible with, but does not entail, an improved construction.",
+      "searches": [
+        "\"orientable sequences\" \"88\" \"112\" 4-ary",
+        "\"orientable sequence\" \"k=4\" \"n=4\" \"period\" 2026",
+        "arXiv:2407.07029v1 general k-ary orientable sequences",
+        "arXiv:2407.14866v1 nonbinary orientable sequences",
+        "arXiv:2507.02526v1 Table 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.02526v1 complete open HTML: Definition 1.2 and Section 6 Tables 6–7",
+      "arXiv:2407.07029v1 2024-07-09 public source",
+      "arXiv:2407.14866v1 2024-07-20 public source",
+      "Direct independent Python and C witness checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary 2025 authors state their k=4,n=4 best known period 88 with a 112 upper bound.",
+        "The present complete witness establishes the strictly stronger lower bound 106."
+      ],
+      "reasoning": "Prior bounds 88<=M_4(4)<=112 neither imply nor refute M_4(4)>=106; the new witness implies the prior 88 lower bound and improves it. We do not conclude equality with 106 nor contradict the proven 112 upper bound.",
+      "searches": [
+        "arXiv:2507.02526v1 Section 6 order-four even-alphabet gap",
+        "arXiv:2407.07029v1 Theorems and constructions",
+        "\"orientable\" \"106\" \"4\" \"order 4\" de Bruijn"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mitchell and Wild (2025), Definition 1.2, orientability as avoidance of reversed windows including self-reversal.",
+        "Direct certificates verify 106 distinct nonpalindromic reversal orbits of order-four windows."
+      ],
+      "reasoning": "An order-four orientable cycle is equivalently a directed Euler circuit in the order-three de Bruijn digraph selecting at most one oriented edge from each nonpalindromic reversal pair. The primary source uses this equivalence and its best documented row remains 88.",
+      "searches": [
+        "\"orientable\" \"106\" \"4\" \"order 4\" de Bruijn",
+        "\"orientable sequence\" \"106\" quaternary",
+        "arXiv:2507.02526v1 Sections 1, 3, 6; reversed 4-factors / orientable cycles / bidirectional position sensing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 6, order four, k=4: construction of period 88, bound 112.",
+        "Table 7, same parameter: largest then known period 88, upper 112."
+      ],
+      "reasoning": "The exact row matches both alphabet size four and window length four. A 106-symbol certified cycle is not a recomputation of the period-88 table entry; it improves the displayed construction lower bound.",
+      "searches": [
+        "\"orientable\" \"4-ary\" \"104\" \"106\" cyclic",
+        "\"orientable\" \"k=4\" \"n=4\" \"106\" sequence",
+        "Mitchell and Wild (2025), Table 6 and Table 7"
+      ]
+    },
+    "rationale": "The exact matching parameter row of the 2025 primary paper reports a largest known period of 88, whereas the embedded 106-cycle certifies a stronger lower bound by direct inspection; that paper does not contain a covering 106-cycle. Relevant 2024 constructions and nonbinary bounds do not imply the new witness. A later/unindexed equivalent or stronger construction remains a residual priority risk.",
+    "residual_risks": [
+      "Search and indexed literature are not exhaustive: a newer, unindexed, or differently named cycle of period >=106 may exist.",
+      "The witness alone does not prove maximality; 106<=M_4(4)<=112 is the supported interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the exact row lists 88 rather than 106, and the upper bound is 112",
+        "evidence": [
+          "Definition 1.2: reversed four-factor exclusion",
+          "Table 6 and Table 7: order 4, k=4, 88 (112)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.02526v1",
+        "material_read": "Definitions 1.1–1.2, constructions Sections 3–5, Sections 6–7, Tables 6 and 7",
+        "method": "Inspected publicly available complete HTML manuscript including exact parameter tables, definitions and conclusions",
+        "title": "New orientable sequences",
+        "trigger": "Direct match to four-symbol order-four maximum-period question"
+      },
+      {
+        "assessment": "NOT_COVERING: asymptotic and recursive construction, no explicit 106-cycle",
+        "evidence": [
+          "arXiv:2407.07029v1 submitted 2024-07-09",
+          "Abstract states O(n) time per symbol asymptotically optimal construction and n=2 maximal case"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.07029",
+        "material_read": "Public v1 manuscript discussion of main constructions, parameter examples and general bounds",
+        "method": "Examined open full-text version and arXiv v1 publication metadata",
+        "title": "Constructing k-ary Orientable Sequences with Asymptotically Optimal Length",
+        "trigger": "Earliest 2024 systematic k-ary construction motivating the fixed small-order gap"
+      },
+      {
+        "assessment": "NOT_COVERING: supplies general upper bounds and recursive constructions, not the explicit length-106 witness",
+        "evidence": [
+          "arXiv:2407.14866v1 submitted 2024-07-20; primary MSC2020 94A55 listed on arXiv",
+          "General recursive methods and upper bounds in abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.14866",
+        "material_read": "Public v1 paper: nonbinary homomorphism constructions and bounds",
+        "method": "Inspected publicly available paper and dated preprint metadata",
+        "title": "Orientable sequences over non-binary alphabets",
+        "trigger": "Same class of objects and primary MSC 94A55"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "341177c7-af0a-44e5-9847-0d3ba32358a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact small-parameter case k=4,n=4 is explicitly open between constructive period 88 and theoretical ceiling 112 in Mitchell-Wild 2025 Table 7. An explicit period 106 closes 18 of the 24 units of this gap and gives an immediately verifiable bidirectional position-sensing cycle. This is a substantive 75-percent reduction of the specific documented gap, not a routine renaming.",
+    "status": "PASS"
+  }
+}
