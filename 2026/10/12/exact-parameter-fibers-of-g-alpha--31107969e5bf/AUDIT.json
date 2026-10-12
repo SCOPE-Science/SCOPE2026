@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For each prime \\(\\ell\\), equality of outputs is equality of the vectors \\((\\max(v_\\ell(e_i),v_\\ell(\\alpha)))_i\\). With \\(m=\\min_i v_\\ell(e_i)=v_\\ell(h)\\), this vector records exactly \\(\\max(v_\\ell(\\alpha)-m,0)\\), which is the \\(\\ell\\)-adic valuation of \\(\\alpha/\\gcd(\\alpha,h)\\). The converse is identical prime by prime. The fiber formula follows by solving these valuation constraints, and the injectivity statement follows from the \\(s=1\\) fiber. The embedded verifier independently checks 2,714,400 parameter instances and 7,900 closed-fiber instances without finding a violation. Risk: the finite replay is not an infinite proof; correctness rests on the prime-adic argument given in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 follow-up gives broader composition identities for \\(f_\\alpha\\) and \\(g_\\alpha\\), and an equivalence relation on base integers, but its quantified variables and implications differ from the fixed-base parameter-fiber theorem."
+      ],
+      "reasoning": "The broader-looking 2025 results do not determine when \\(g_\\alpha(n)=g_\\beta(n)\\) for arbitrary \\(\\alpha,\\beta\\) at fixed \\(n\\), nor the size of any such parameter fiber.",
+      "searches": [
+        "Mittou least common multiple arithmetic function parameter equality",
+        "\"New properties of arithmetic functions related to gcd and lcm\" g_alpha equivalence"
+      ]
+    },
+    "checked_sources": [
+      "Mittou (2023), DOI 10.46939/J.Sci.Arts-23.1-a09",
+      "Mittou (2025), DOI 10.7546/nntdm.2025.31.1.91-97",
+      "Targeted scholarly web searches for the function formula, equality aliases, quotient invariant, and parameter fibers",
+      "Literature-claim searches using the same source/claim/alias formulations",
+      "Available previously checked research results for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior item 98417f7a-6769-4ad7-83bd-80a6ea9760d7 classifies fixed-base parameter fibers for the gcd-exponent companion \\(f_\\alpha\\) using \\(\\gcd(\\alpha,L)\\), where \\(L=\\operatorname{lcm}(e_i)\\)."
+      ],
+      "reasoning": "The prior theorem concerns minima of prime-adic parameter valuations through gcd, producing a finite periodic image. The present theorem concerns maxima through lcm, uses \\(h=\\gcd(e_i)\\), and produces finite collision fibers but an infinite image. Neither statement implies the other by substitution or specialization.",
+      "searches": [
+        "Previously checked number-theory claims, including aliases around gcd/lcm exponent functions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.46939/J.Sci.Arts-23.1-a09, especially Theorems 2.2 and 2.3",
+        "DOI 10.7546/nntdm.2025.31.1.91-97, especially Remark 2.1 and the surrounding main results"
+      ],
+      "reasoning": "Searches used the function name, its defining lcm-exponent formula, equality of two parameters, fibers, and the normalized quotient invariant. No inspected source stated an equivalent fixed-base parameter classification.",
+      "searches": [
+        "lcm exponent arithmetic function g_alpha exact parameter fibers",
+        "g_alpha(n) lcm exponents equality parameters alpha beta",
+        "Mittou least common multiple arithmetic function parameter equality",
+        "\"New arithmetic function related to the least common multiple\" fibers",
+        "\"g_alpha(n)\" \"[e_i, alpha]\" equality alpha beta least common multiple Mittou",
+        "\"g_α(n)\" \"least common multiple\" parameter alpha beta arithmetic function",
+        "\"alpha/gcd(alpha\" \"g_alpha\" arithmetic function lcm",
+        "\"New properties of arithmetic functions related to gcd and lcm\" g_alpha equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant table or database result matching the fixed-base parameter fibers was returned; the closest semantic hits concerned unrelated lcm or fiber problems."
+      ],
+      "reasoning": "This claim is symbolic and unbounded rather than a finite sequence lookup. No checked database/table supplied the quotient invariant or fiber counts.",
+      "searches": [
+        "lcm exponent arithmetic function g_alpha exact parameter fibers",
+        "\"New arithmetic function related to the least common multiple\" fibers"
+      ]
+    },
+    "rationale": "The 2023 focal paper proves only the special output fiber \\(g_\\alpha(n)=n\\), equivalent to \\(\\alpha\\mid h\\), plus composition and other properties. The inspected 2025 follow-up studies compositions, inequalities, and an equivalence relation that varies the base integer; it does not classify collisions between two parameters for one fixed base integer. Targeted public literature searches found no statement implying the normalized-parameter criterion or its fiber cardinalities. A previously checked result classifies the gcd-exponent companion \\(f_\\alpha\\), whose invariant is \\(\\gcd(\\alpha,L)\\) with \\(L=\\operatorname{lcm}(e_i)\\); that result does not imply the present lcm-exponent theorem, whose invariant instead uses the gcd of the exponents and whose image is infinite.",
+    "residual_risks": [
+      "An equivalent elementary lemma may occur in literature under notation not mentioning Mittou's function.",
+      "The 2023 focal paper does not print an MSC code; ownership is supported by the 2025 follow-up on the same function family, which explicitly assigns 2020 MSC 11A25."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the full claim. Theorem 2.2 is exactly the \\(s=1\\) fiber, while the paper does not state equality of arbitrary parameter outputs or fiber cardinalities.",
+        "evidence": "Theorem 2.2 states \\(g_\\alpha(n)=n\\) iff \\(\\alpha\\) divides the common gcd of the exponents; the conclusion summarizes this finite-solution result and composition/monotonicity/perfect-number results.",
+        "identifier_or_url": "doi:10.46939/J.Sci.Arts-23.1-a09",
+        "material_read": "Full six-page paper, with focused inspection of the definition, Theorems 2.2-2.4, and conclusions.",
+        "method": "Authoritative journal PDF text and page images.",
+        "title": "New arithmetic function related to the least common multiple",
+        "trigger": "Primary source defining the exact function and containing the closest special-fiber theorem."
+      },
+      {
+        "assessment": "NOT_COVERING. Its relation \\(n\\mathrel{R}m\\) asks for existence of one parameter relating two base integers; it is not a relation between two parameters at one fixed base integer.",
+        "evidence": "Remark 2.1 defines \\(n\\mathrel{R}m\\iff\\exists\\alpha:g_\\alpha(n)=g_\\alpha(m)\\). The later orbit theorem is formulated for the gcd-exponent family \\(f_\\alpha\\), not the parameter fibers of \\(g_\\alpha\\).",
+        "identifier_or_url": "doi:10.7546/nntdm.2025.31.1.91-97",
+        "material_read": "Full paper text, with focused inspection of the definitions, composition theorems, equivalence-relation section, and orbit discussion.",
+        "method": "Official journal full text and PDF page inspection.",
+        "title": "New properties of arithmetic functions related to gcd and lcm",
+        "trigger": "Later paper by the same author on the same \\(f_\\alpha,g_\\alpha\\) family, plausibly capable of dominating the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "31107969-e5bf-4cdd-befe-270fc51d5c63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The focal source singles out the finiteness of the special equation \\(g_\\alpha(n)=n\\). The new theorem naturally completes that question from one output fiber to every output collision, gives exact fiber sizes, an injectivity criterion, and shows that the lcm-exponent family has an infinite parameter image despite finite fibers. This is a structural classification of the parameterization, not a chosen numerical slice. It also reveals a qualitative contrast with the gcd-exponent companion: finite periodic orbit versus infinite image with explicitly controlled collisions. Risk: the proof is elementary and the theorem is narrow to this arithmetic-function family; its value is completeness and structure rather than a downstream application.",
+    "status": "PASS"
+  }
+}
