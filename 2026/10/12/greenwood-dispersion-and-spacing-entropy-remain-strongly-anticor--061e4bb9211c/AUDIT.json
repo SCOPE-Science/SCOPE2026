@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Differentiating the exact Dirichlet gamma-moment formula yields the required D_i^3 log D_i and D_i^2 D_j log D_j terms. Their equal/unequal-index sum simplifies exactly to the displayed covariance. Second derivatives yield the entropy variance, fourth moments yield the Greenwood variance, and the harmonic-square tail expansion gives the correlation limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Royen gives exact marginal distributional representations and quantiles for the Dirichlet square sum and Greenwood statistic.",
+        "Holst proves asymptotic normality for broad sum-functions of uniform spacings.",
+        "L'Ecuyer studies sums of logarithms and sums of squares of spacings as distinct goodness-of-fit statistics and derives separate finite moments."
+      ],
+      "reasoning": "General marginal or single-statistic results do not determine a cross-covariance. The unweighted sum of log spacings is not the Shannon functional -sum D_i log D_i, so the closest paired-test paper does not imply the accepted mixed law.",
+      "searches": [
+        "arXiv:1008.4059",
+        "DOI:10.1214/AOP/1176994901",
+        "DOI:10.1080/00949659708811859"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1008.4059",
+      "DOI:10.1214/AOP/1176994901",
+      "DOI:10.1080/00949659708811859"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item 57e423a7-945b-48f7-b8d4-4114466f55f0 pairs Greenwood's statistic with maximum spacing and has positive covariance with correlation tending to zero.",
+        "The current and immediately prior own ledgers contain no Shannon-spacing-entropy/Greenwood covariance claim.",
+        "Royen's inspected full text contains no matches for entropy, Shannon, or covariance.",
+        "L'Ecuyer's inspected full text treats log-spacing and square-spacing statistics separately and does not state their cross-covariance; moreover its log statistic is not Shannon spacing entropy."
+      ],
+      "reasoning": "The prior maximum-spacing theorem shares the Greenwood marginal but its second statistic is an extreme coordinate rather than a global concave functional. Its implication structure cannot determine the present covariance, and the opposite sign plus nonzero correlation limit are new features requiring separate Dirichlet differentiation.",
+      "searches": [
+        "own ledger Greenwood maximum spacing covariance",
+        "own ledger spacing entropy Greenwood",
+        "Royen Greenwood Dirichlet entropy covariance",
+        "L'Ecuyer log spacing square spacing covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Database returned no record stating a covariance between Greenwood's square-sum statistic and Shannon entropy of the spacing vector.",
+        "Targeted web searches located Greenwood distribution theory, general spacing tests, and Dirichlet entropy material, but no exact formula matching the accepted covariance or limiting correlation."
+      ],
+      "reasoning": "The searches cover the Greenwood, Dirichlet square-sum, spacing-entropy, Shannon-entropy, power-sum, and covariance aliases. Search absence is used only as supporting evidence; the main comparison is against full primary text.",
+      "searches": [
+        "Greenwood statistic spacings entropy covariance Dirichlet",
+        "Dirichlet Shannon entropy power sum covariance exact",
+        "\"Greenwood\" \"Shannon entropy\" covariance spacings",
+        "\"sum of squared spacings\" \"spacing entropy\" covariance",
+        "\"Dirichlet(1\" entropy square sum covariance",
+        "\"Cov\" Greenwood entropy spacings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula record matching -(m-1)/((m+1)^2(m+2)) or the limiting correlation constant was located."
+      ],
+      "reasoning": "The claim is an all-dimension symbolic identity. Royen's Greenwood tables contain marginal quantiles and do not encode the entropy cross-moment.",
+      "searches": [
+        "\"Greenwood\" \"Shannon entropy\" covariance spacings",
+        "\"sum of squared spacings\" \"spacing entropy\" covariance",
+        "\"Cov\" Greenwood entropy spacings"
+      ]
+    },
+    "rationale": "The closest full inspected primary source gives the exact marginal distribution of the Dirichlet square sum/Greenwood statistic but no entropy or covariance result. The closest spacing-test source studies unweighted log-spacings rather than Shannon spacing entropy. database and own-ledger searches did not locate the mixed law; the main residual risk is an equivalent calculation hidden in general Dirichlet-moment or compositional-data literature.",
+    "residual_risks": [
+      "General Dirichlet mixed-moment literature may contain the same entropy/power-sum covariance without mentioning Greenwood spacings.",
+      "Compositional-data literature may use concentration or Simpson-index terminology for the square sum and diversity terminology for Shannon entropy.",
+      "The proof becomes short once differentiated Dirichlet moments are applied; originality is restricted to the explicit mixed law and its asymptotic-correlation consequence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_GREENWOOD_MARGINAL_WITHOUT_ENTROPY_CROSS_LAW",
+        "evidence": "The manuscript defines Greenwood's statistic as the square sum of uniform spacings and develops its exact distribution. Targeted full-text searches found no occurrences of entropy, Shannon, or covariance. Its front matter gives MSC 2010 classifications 62E15 and 62H10.",
+        "identifier_or_url": "arXiv:1008.4059",
+        "material_read": "Full public arXiv HTML, including introduction, Dirichlet setup, relation to Greenwood's statistic, gamma/Dirichlet representation, distributional sections, and targeted full-text searches for entropy, Shannon, and covariance.",
+        "method": "Compared the stated objects and exact formulas with the proposed mixed entropy/Greenwood moment, and searched the full text for equivalent terminology.",
+        "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood's statistic",
+        "trigger": "Closest primary source because it treats exactly the Dirichlet square sum and its uniform-spacing Greenwood specialization."
+      },
+      {
+        "assessment": "SEPARATE_LOG_AND_SQUARE_SPACING_TESTS_NOT_SHANNON_CROSS_COVARIANCE",
+        "evidence": "The article studies the unweighted sum of logarithms and the sum of squared spacings, derives their marginal centering/scaling separately, and contains no covariance match. The Shannon functional in the accepted claim instead weights each logarithm by its spacing.",
+        "identifier_or_url": "DOI:10.1080/00949659708811859",
+        "material_read": "Full author-uploaded text as indexed on ResearchGate, including the introduction, general sum-function setup, exact log-spacing moments, exact square-spacing moments, and targeted searches for covariance/correlation.",
+        "method": "Checked whether the paper forms a joint law or cross-covariance and whether its logarithmic statistic equals Shannon spacing entropy.",
+        "title": "Tests based on sum-functions of spacings for uniform random numbers",
+        "trigger": "Closest full source placing logarithmic and quadratic spacing summaries in the same goodness-of-fit framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "061e4bb9-211c-47fc-9976-c0534f3d6c26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Greenwood's statistic and Shannon entropy are canonical concentration and evenness summaries of a random spacing profile. Their exact finite covariance quantifies a natural competition, and the limiting correlation reveals a strong persistent dependence that is invisible from the vanishing raw covariance alone. This is a structural relation between two motivated diagnostics, not an arbitrary slice or table recomputation.",
+    "status": "PASS"
+  }
+}
