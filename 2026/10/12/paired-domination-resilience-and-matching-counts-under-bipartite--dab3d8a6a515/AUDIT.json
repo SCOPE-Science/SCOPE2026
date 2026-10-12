@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Every paired-dominating set in a bipartite graph selects equally many vertices on both shores. With s>=2 on each shore, deleting a matching removes at most one neighbor per vertex, so the selected set dominates. Hall’s condition holds since a singleton selected vertex sees at least s-1>=1 selected opposite vertices, while every subset of two or more selected vertices sees the entire selected opposite shore. For s=1, any endpoint touched by a deleted edge causes either an absent selected edge or one undominated omitted partner; untouched endpoints are sufficient. Independent binomial counting yields the all-set polynomial, Vandermonde yields its total, and rook inclusion-exclusion yields the exact pairing-weighted coefficients. An independent brute-force graph-neighborhood and perfect-matching verifier checks every vertex subset for all m,n from two to six and all possible matching deletion sizes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 Henning--Ralaivaosaona work proves a tree algorithm and random-tree limit law.",
+        "Two older crown-focused works give a four-vertex minimum set / gamma_pr=4, but not a full paired-domination polynomial.",
+        "The 2016 generic polynomial source is only a one-page abstract with unspecified standard families.",
+        "The 2026 Lu--Wu abstract is about cubic bipartite paired-domination bounds."
+      ],
+      "reasoning": "The matching-deletion theorem is not implied by a scalar crown value, tree algorithm, or cubic bipartite bound. The generic 2016 polynomial work remains a documented access-related risk, particularly for the already-known undeleted biclique boundary.",
+      "searches": [
+        "Full HTML source arXiv:2505.17672v1, definitions and Sections 2-3",
+        "Full PDF source The Minimum Paired Dominating Energy of a Graph, Theorem 3.3",
+        "Accessible original text of The Independent Transversal Paired Domination in Graphs, Proposition 2.6",
+        "ArXiv:2609.30152v1 abstract scope and timestamp",
+        "One-page 2016 conference source https://publications.waset.org/abstracts/52964.pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2505.17672v1",
+      "arXiv:2609.30152v1",
+      "https://ijmaa.in/index.php/ijmaa/article/download/1006/991",
+      "https://www.academia.edu/26699115/THE_INDEPENDENT_TRANSVERSAL_PAIRED_DOMINATION_IN_GRAPHS",
+      "https://publications.waset.org/abstracts/52964.pdf",
+      "published-finding corpus:2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+      "published-finding corpus:2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+      "published-finding corpus:2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Undeleted bicliques do satisfy the previously known balance formula, so that special case is explicitly credited.",
+        "The crown scalar minimum four is known, but a scalar value cannot determine binomial coefficients at every size.",
+        "A generic paired-domination polynomial does not itself imply edge-deletion invariance or counting of perfect-matching witnesses.",
+        "A matching-deleted biclique with at least two deleted edges contains an induced 2K2 and is not a chain graph."
+      ],
+      "reasoning": "The final theorem is a matching-fault resilience and witness-enumeration result rather than a new name for the known undeleted biclique polynomial or the known crown minimum. It quantifies over every deletion count and every balanced vertex subset.",
+      "searches": [
+        "Comparison of t=0 formula with published-finding corpus 2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba",
+        "Comparison of crown gamma=4 with The Independent Transversal Paired Domination in Graphs Proposition 2.6",
+        "Comparison of crown four-set in The Minimum Paired Dominating Energy of a Graph Theorem 3.3",
+        "Comparison with published-finding corpus 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest hit 2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba concerns the undeleted complete multipartite family.",
+        "Targeted web searches located known crown minimum statements and a generic paired-domination-polynomial abstract, without an all-t matching-deletion identity."
+      ],
+      "reasoning": "The all-t theorem uses a graph family that loses the complete multipartite property after any nontrivial deletion, and its coefficient stability and pairing counts are stronger than the known crown minimum or t=0 complete bipartite polynomial.",
+      "searches": [
+        "published-finding corpus query: paired domination polynomial crown graphs K_n,n minus perfect matching exact enumeration",
+        "published-finding corpus query: paired-domination polynomial K_{m,n} minus disjoint matching M_t all coefficients equal complete bipartite except x^2",
+        "published-finding corpus query: paired dominating sets almost complete bipartite graphs deleted disjoint independent edges exact polynomial matching deficit",
+        "Web query: \"paired domination\" \"crown graph\" polynomial",
+        "Web query: \"paired domination polynomial\" \"deleted matching\" bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-paired-domination-polynomial-of-complete-multipartite-graphs--ea2bc935cbba: formula for undeleted complete multipartite graphs, including K_{m,n}.",
+        "published-finding corpus 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528: paired-domination enumeration of chain graphs.",
+        "published-finding corpus 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa: same crown family but restrained domination rather than paired domination."
+      ],
+      "reasoning": "The first record covers precisely the t=0 boundary, not any general t>0 case; the chain-graph record does not apply to deletion of two disjoint edges, and the restrained crown record is a different invariant. None yields the x^2-only stability or the pairing-weighted inclusion-exclusion law.",
+      "searches": [
+        "published-finding corpus query: paired domination polynomial crown graphs K_n,n minus perfect matching exact enumeration",
+        "published-finding corpus query: paired domination matching deletion robust minimum cardinality bipartite crown graphs all sizes",
+        "published-finding corpus query: paired domination polynomial crown graph K_n,n minus perfect matching coefficient binomial square"
+      ]
+    },
+    "rationale": "The all-t deleted-matching stability and paired-set-matching counting theorem was not located in targeted published-finding corpus and literature searches. The published complete-multipartite paired-domination polynomial covers only the t=0 biclique, while the chain-graph result does not apply after deleting at least two matching edges, which induce a 2K2. Earlier crown-specific sources already state gamma_pr=4 and are credited as covering that scalar endpoint; neither inspected original crown source gives the all-size polynomial or matching multiplicities. An older 2016 generic polynomial contribution is accessible only as a one-page abstract, a genuine residual originality risk, not proof of absence.",
+    "residual_risks": [
+      "The 2016 generic paired-domination-polynomial conference item was available only as a one-page abstract; unspecified standard families could include a previously published matching-deletion special case.",
+      "The recent cubic bipartite paper was read at abstract level only, although its stated cubic theorem is not directly relevant to dense matching-deleted bicliques.",
+      "Matching-deleted bicliques have alternate names (crown graphs when balanced and fully deleted; almost complete bipartite graphs generally), and differently worded work may escape search.",
+      "Neither search nor graph-family partition establishes absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper studies exact algorithms and limiting distributions for trees, not the polynomial or deleted-matching stability of dense bipartite graphs.",
+        "evidence": "First public 2025-05-23 UTC, primary MSC 05C69; the paper defines a dominating set inducing a perfect matching and organizes its theorems by trees and random trees.",
+        "identifier_or_url": "arXiv:2505.17672v1",
+        "material_read": "ArXiv submission history and classification; full accessible HTML abstract, introduction and definitions, Section 2 algorithm and stated Section 3 random-tree scope.",
+        "method": "Read full HTML text sections and compared the graph-family statement to matching-deleted bicliques.",
+        "title": "Paired domination in trees: A linear algorithm and asymptotic normality",
+        "trigger": "Primary recent literature anchor with exact paired-domination definition and MSC 05C69."
+      },
+      {
+        "assessment": "Its stated theorem concerns a conjectured upper bound for cubic bipartite graphs, not a matching-deletion polynomial for nearly complete bicliques.",
+        "evidence": "First public 2026-09-24; the abstract states a bound of twice the floor of one-quarter of the vertex count and identifies the cube and K_{3,3} as equality examples.",
+        "identifier_or_url": "arXiv:2609.30152v1",
+        "material_read": "Indexed primary arXiv abstract and submission timestamp, plus abstract mirroring on alphaXiv; full text was not available through the inspected web route.",
+        "method": "Abstract-level comparison, without asserting absence from the inaccessible complete manuscript.",
+        "title": "Paired Domination in Cubic Bipartite Graphs",
+        "trigger": "Recent 2026 bipartite paired-domination development and sharp matching-based bounds."
+      },
+      {
+        "assessment": "Theorem 3.3 fixes one four-vertex minimum paired-dominating set of a crown graph and determines an associated spectral energy, not all paired-dominating sets or the matching-deletion polynomial.",
+        "evidence": "The theorem explicitly uses D={u_1,u_2,v_1,v_2} for a crown graph and computes a characteristic polynomial / energy, with no cardinality distribution.",
+        "identifier_or_url": "https://ijmaa.in/index.php/ijmaa/article/download/1006/991",
+        "material_read": "Eleven-page accessible PDF; definitions in Section 1 and Theorem 3.3 and proof on PDF page 4, with the relevant page image inspected.",
+        "method": "Read original theorem and proof and compared its minimum chosen set and energy calculation to the all-set polynomial and pairing count.",
+        "title": "The Minimum Paired Dominating Energy of a Graph",
+        "trigger": "Plausible earlier treatment of paired domination on crown graphs (perfect-matching deletion)."
+      },
+      {
+        "assessment": "States the crown minimum paired-domination number is four, so the scalar endpoint is prior. Does not supply all cardinality coefficients or matching-witness counts.",
+        "evidence": "Proposition 2.6 and proof give an explicit four-vertex set for the crown graph and assert gamma_pd=4.",
+        "identifier_or_url": "https://www.academia.edu/26699115/THE_INDEPENDENT_TRANSVERSAL_PAIRED_DOMINATION_IN_GRAPHS",
+        "material_read": "Accessible source text around Proposition 2.6, the crown graph proof, and nearby family theorems.",
+        "method": "Direct comparison of the stated minimum / independent-transversal parameter with the complete all-size polynomial.",
+        "title": "The Independent Transversal Paired Domination in Graphs",
+        "trigger": "Source explicitly containing the known scalar crown paired-domination value."
+      },
+      {
+        "assessment": "The record defines a paired-domination polynomial and mentions unspecified standard families. It does not establish that this matching-deleted-biclique all-t theorem is covered, nor prove it absent.",
+        "evidence": "The PDF is one page and provides only an abstract, keywords and conference metadata, without coefficient formulas.",
+        "identifier_or_url": "https://publications.waset.org/abstracts/52964.pdf",
+        "material_read": "One-page official 2016 conference abstract PDF, with its page image; the PDF contains no theorem statements or family list.",
+        "method": "Read available original one-page record and documented missing full details as residual novelty risk.",
+        "title": "Introduction to Paired Domination Polynomial of a Graph",
+        "trigger": "Potential older general polynomial treatment and exact graph families."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dab3d8a6-a515-4a84-a1fd-83a51459fb52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating question is edge-fault tolerance of paired domination: vertex placements should dominate and admit distinct backup pairings even after disjoint communication links fail. The theorem identifies a sharp robustness threshold—every 2s-set with s>=2 survives every matching deletion, and only size-two feasibility changes—then provides complete coefficients and a separate exact measure of how many pairing options remain. This is a natural all-parameter structural result, not a single scalar crown computation; both the deletion-invariant set spectrum and the rook-counted witness spectrum are potentially useful for fault-tolerant matching and paired-domination studies.",
+    "status": "PASS"
+  }
+}
