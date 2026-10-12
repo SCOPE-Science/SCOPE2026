@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact recurrence \\(S'_j=S_j\\cup(r+S_{j-1})\\) modulo25 follows by partitioning selected positions. Monotone prefix pruning and nondecreasing canonical ordering cover every multiset. Two independent implementations enumerate all 0..11 depths with counts (1,20,210,1540,8855,35700,78700,89100,58350,21600,3900,0). The explicit ten-term avoiding multiset is verified directly. This gives a complete finite proof of equality, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun conjectures \\(s_1(n)=2n+1\\), giving 11 at \\(n=5\\) as unproved target in abstract.",
+        "Gao et al prove \\(\\mathsf{s}^{*}_p\\)≤\\(3p-2\\), i.e. 13 at \\(p=5\\).",
+        "At-most-five terms is strictly weaker than exactly-five terms."
+      ],
+      "reasoning": "No accessible broader theorem implies \\(s_1(5)=11\\); the variable-cardinality theorem cannot be substituted.",
+      "searches": [
+        "Sun arXiv:2606.18234 abstract",
+        "Gao et al DOI:10.4064/aa251115-21-1 abstract",
+        "Gao–Jiang–Mu arXiv:2607.11313 abstract"
+      ]
+    },
+    "checked_sources": [
+      "Official Acta Arithmetica DOI:10.4064/aa251115-21-1 landing and abstract",
+      "arXiv:2606.18234 abstract and original date",
+      "Public complete RESULT.md for e0dfeeac2337",
+      "arXiv:2607.11313 abstract",
+      "Exact-phrase web searches and semantic published-finding matches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Gao upper bound 13 cannot imply 11; Sun's lower bound 11 plus upper 17 leaves a gap.",
+        "A theorem for modulus four is independent of the specific modulus-five classification.",
+        "Variable-length results do not certify an exact-length selection."
+      ],
+      "reasoning": "The new exact upper 11 combined with known lower 11 closes the prime-five gap, absent in the checked statements.",
+      "searches": [
+        "Zhi Wei Sun zero sum s_1(5)=11 exact eleven nonmultiple 5 residues modulo 25 all 5-sums not divisible 25",
+        "Zhi-Wei Sun 2026 conjecture s_1(4)=9 every nine nonmultiples of four contains four with sum divisible by four not sixteen",
+        "journal DOI 10.4064/aa251115-21-1",
+        "arXiv 2606.18234"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao's prime invariant \\(\\mathsf{s}^{*}_p\\) equals Sun's \\(s_1(p)\\) when p is prime: coprimality equals nondivisibility.",
+        "Official Gao abstract states conjecture for all odd p, with only a weaker bound."
+      ],
+      "reasoning": "Exact prime-five result is identical under both notations, so both were searched; no published coverage located.",
+      "searches": [
+        "Zhi Wei Sun zero sum s_1(5)=11 exact eleven nonmultiple 5 residues modulo 25 all 5-sums not divisible 25",
+        "web exact phrase: s_1(5) 11 zero sum",
+        "s*_5=11 prime-five local zero sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Complete published modulus-four result has 160 modulus-16 length-eight obstructions but no modulus-25 data.",
+        "Independent enumeration of all residue multisets here gives 3900 ten-term obstructions."
+      ],
+      "reasoning": "Did not find a published table or database containing the prime-five exact count or the upper proof.",
+      "searches": [
+        "Zhi Wei Sun zero sum s_1(5)=11 exact eleven nonmultiple 5 residues modulo 25 all 5-sums not divisible 25",
+        "web: exact table s1(5), s*_5, length-eleven modulo25",
+        "Published four-case identifier e0dfeeac2337"
+      ]
+    },
+    "rationale": "The official 2026 Gao et al abstract states the conjecture and only its \\(3p-2\\) upper bound; Sun's 2026 abstract retains the conjecture for \\(n\\ge4\\). The closest fully inspected published case covers \\(n=4\\) only; the variable-length local zero-sum theorem is not an implication. Equivalent-terminology semantic searches and general web exact-phrase searches found no matching prime-five theorem. Full inaccessible original manuscripts leave residual risk.",
+    "residual_risks": [
+      "Publisher full text of Gao et al and original full Sun manuscript could not be read; an unindexed small prime-five case may have been treated without being advertised in abstracts.",
+      "Unpublished and unindexed literature cannot be ruled out by accessible-database search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No prime-five equality in accessible published claims; full-text not examined",
+        "evidence": "For odd primes authors conjecture \\(\\mathsf{s}^{*}_p\\)=\\(2p+1\\); prove \\(\\mathsf{s}^{*}_p\\)≤\\(3p-2\\), giving only 13 at \\(p=5\\).",
+        "identifier_or_url": "DOI:10.4064/aa251115-21-1",
+        "material_read": "Full official publication record: authors, date, primary MSC and abstract stating the conjecture and bound; publisher PDF inaccessible",
+        "method": "Read official journal landing page and compared stated theorem",
+        "title": "A new problem from zero-sum theory",
+        "trigger": "Same prime-five exact-cardinality invariant and conjecture"
+      },
+      {
+        "assessment": "The accessible abstract explicitly conjectures, but does not announce a proof of, \\(s_1(5)=11\\)",
+        "evidence": "For \\(n\\ge4\\), 2n+1≤s_1(n)≤\\(n^2-2n+2\\); authors conjecture equality.",
+        "identifier_or_url": "arXiv:2606.18234",
+        "material_read": "Public abstract and paper metadata; full text could not be retrieved",
+        "method": "Examined indexed abstract, original first-version date, and stated inequality",
+        "title": "On zero-sum problems of two new types",
+        "trigger": "Exactly defined s_1(n) with exact n-term condition"
+      },
+      {
+        "assessment": "Modulus four only; neither implies nor tabulates modulus five",
+        "evidence": "Establishes \\(s_1(4)\\)=9, 160 length-eight obstructions, seven orbits modulo16.",
+        "identifier_or_url": "e0dfeeac2337",
+        "material_read": "Complete RESULT.md scientific proof, initial sample, references and scope",
+        "method": "Fetched public complete text and compared exact statement for each modulus",
+        "title": "Exact evaluation of \\(s_1(4)\\) and the eight-term extremals",
+        "trigger": "Closest published exact finite case of the same invariant"
+      },
+      {
+        "assessment": "Cardinality mismatch means their constants cannot imply the exact-five-term assertion",
+        "evidence": "D*(n,nk) and eta*(n,nk) permit some or at most n terms, unlike exact n terms.",
+        "identifier_or_url": "arXiv:2607.11313",
+        "material_read": "Full available abstract and precise cardinality conditions; manuscript not downloaded",
+        "method": "Compared exact length n against at-most-n and unrestricted length theorems",
+        "title": "Two local zero-sum problems",
+        "trigger": "Similar valuation-one sum but variable subset length"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb4d91ef-031d-4848-a748-bfd29a9ab447",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The prime-five case is the first odd-prime boundary for which the previously proved \\(3p-2\\) bound fails to meet \\(2p+1\\) (at \\(p=3\\) they coincide). The exact minimum resolves an explicitly posed number-theoretic zero-sum conjecture in a natural first open case; full ten-term obstruction count provides a reproducible structural base for inverse questions. This is an exact finite classification, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
