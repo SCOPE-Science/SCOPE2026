@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For each positive balanced coupling P, the log-Sinkhorn Jacobian is J=diag(c)^(-1) P^T diag(r)^(-1)P; weighted similarity to W^T W and positive Perron separation place its nongauge spectrum in [0,1). The two-step BDRS derivative has mode polynomial lambda²-2sigma lambda+sigma and spectral radius s2<1. Analyticity plus an adapted norm proves a local basin with any rate above s2; the coupling-output derivative is nonzero on each positive top mode, proving sharpness. The exact-rational script verifies the recurrence, feasibility and exemplars, while finite differences check derivative numerically. No experimental step is used for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma (May 2026) Theorem 4.1 requires tanh²(Delta(M)/4)<1/3 and proves global convergence, not unconditional local stability; its comparison polynomial has a minus constant term.",
+        "Liang–Fadili–Peyré (2017), §§1–4: Euclidean primal–dual and ordinary Douglas–Rachford local convergence with partially smooth and polyhedral hypotheses; no entropy-Bregman cumulative recurrence.",
+        "Classical Douglas–Rachford local cosine-angle analogy does not give the exact weighted matrix scaling singular-value formula without a separate derivation."
+      ],
+      "reasoning": "The established sufficient global BDRS condition does not dominate an all-positive-matrices local theorem: the hypotheses and conclusions differ. The Euclidean local DR theorem is structurally related but not an explicit specialization to this positive nonlinear entropy map; positivity and the logarithmic two-step derivative must be verified.",
+      "searches": [
+        "\"BDRS\" \"locally\" \"convergence\" matrix scaling",
+        "\"Local Linear Convergence Analysis of Primal–Dual Splitting Methods\" 2017",
+        "\"Douglas Rachford\" \"Friedrichs angle\" local convergence",
+        "https://optimization-online.org/2026/05/convergence-of-bdrs-as-a-matrix-scaling-algorithm/"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/2026/09/bdrs-can-fail-for-matrix-scaling-and-optimal-transport/",
+      "https://optimization-online.org/2026/05/convergence-of-bdrs-as-a-matrix-scaling-algorithm/",
+      "https://arxiv.org/abs/2509.08739",
+      "https://link.springer.com/article/10.1007/s11590-021-01830-0",
+      "https://optimization-online.org/2017/05/5995/",
+      "https://arxiv.org/abs/2609.33814"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ma (May 2026) uses positive comparison e_{k+1} <= kappa(2e_k+e_{k-1}) yielding characteristic lambda²-2kappa lambda-kappa; it requires kappa<1/3.",
+        "The exact derivative here is lambda²-2sigma lambda+sigma, with complex roots of modulus sqrt(sigma) for all 0<sigma<1.",
+        "Lehmann et al. (2021) analyze first-order standard or overrelaxed Sinkhorn, giving rate sigma; replacing it by BDRS momentum changes the state dimension and characteristic roots.",
+        "Ma (September 2026) constructs a six-cycle, which cannot contradict local attraction in a separate neighborhood."
+      ],
+      "reasoning": "The published global lower/sufficient condition, finite counterexample and Sinkhorn rate neither imply nor refute this unconditional local theorem. The two different characteristic polynomials demonstrate why the earlier error envelope does not determine exact local dynamics. A related momentum paper has not been compared beyond its abstract and remains a specific risk.",
+      "searches": [
+        "\"A note on overrelaxation in the Sinkhorn algorithm\" local rate theorem",
+        "\"BDRS Can Fail for Matrix Scaling and Optimal Transport\" Ma 2026",
+        "\"Convergence of BDRS as a Matrix Scaling Algorithm\" Ma 2026 theorem 4.1",
+        "\"Annealed Sinkhorn with Momentum\" 2609.33814"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma (September 2026), §2 equations (2.2)–(2.6): exact nonlinear cumulative-column BDRS recurrence; §§3–6: nonconstant cycle, not local spectral theorem.",
+        "Ma–Xiao–Zhao (2025): general BDRS and OT formulations; no matrix-scaling local rate statement in inspected text."
+      ],
+      "reasoning": "The proposed theorem works on the same cumulative-column recurrence but supplies a new fixed-point Jacobian computation and local exponential stability. A derivation of a nonlinear recurrence alone is not the local theorem; the sign and spectrum of its derivative are decisive.",
+      "searches": [
+        "\"BDRS\" \"spectral radius\" Sinkhorn",
+        "\"Bregman Douglas-Rachford\" \"local linear convergence\" scaling",
+        "\"Bregman Douglas Rachford\" 2-step Sinkhorn map S(q^2/qprev) Jacobian quadratic eigenvalues",
+        "https://arxiv.org/abs/2509.08739",
+        "https://optimization-online.org/2026/09/bdrs-can-fail-for-matrix-scaling-and-optimal-transport/"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of public research records returned general splitting stability, Sinkhorn acceleration and unrelated spectral-rate results, but no exact BDRS-MS local rate table; closest record IDs include 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56 and 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705.",
+        "Lehmann et al. (2021) §1, eqs. (3)–(6): ordinary Sinkhorn local rate is the second positive Jacobian eigenvalue, not the BDRS two-step square-root rate."
+      ],
+      "reasoning": "No exact numerical table or mathematical record with the same algorithm, parameter and conclusion was located. Failed searches alone do not certify novelty, so the explicit implication comparisons and remaining risks also matter.",
+      "searches": [
+        "BDRS matrix scaling unconditional local convergence near positive Sinkhorn fixed point square-root spectral singular value",
+        "BDRS global periodic orbit versus locally attracting Sinkhorn balance singular modes rate square root",
+        "overrelaxed Sinkhorn local rate second largest singular value versus BDRS matrix scaling recurrence",
+        "\"Sinkhorn\" \"square root\" \"Bregman Douglas\" convergence",
+        "matrix scaling Sinkhorn local spectral convergence rate sigma2 squared Franklin Lorenz 1989"
+      ]
+    },
+    "rationale": "The September 2026 BDRS counterexample provides global cycles and the recurrence, but no unconditional local fixed-point rate. The May 2026 sufficient global-convergence theorem bounds errors by a different, sign-positive recurrence under a projective-diameter restriction. Sinkhorn spectral formulas and Euclidean DR local angle results do not state or imply this exact entropy-BDRS two-step Jacobian without further reduction. The BDRS local theorem and sharp square-root-versus-Sinkhorn comparison are not established in the inspected sources. A 2026 momentum manuscript remains inaccessible in full and is an explicit residual originality risk.",
+    "residual_risks": [
+      "The full arXiv:2609.33814 manuscript was inaccessible; it derives a momentum formulation and might contain a mathematically equivalent local spectral comparison.",
+      "General local-Douglas–Rachford geometry could admit an unlocated entropy-metric specialization with the same all-data rate.",
+      "Database and search comparisons cannot exclude unindexed or unpublished equivalent results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact two-step projective recurrence and shows global six-cycle; no local Jacobian eigenvalue law or all-data local basin theorem.",
+        "evidence": [
+          "§2 (2.2)–(2.6); §3 construction and §6 conclusions; published 2026-09-30."
+        ],
+        "identifier_or_url": "https://optimization-online.org/2026/09/bdrs-can-fail-for-matrix-scaling-and-optimal-transport/",
+        "material_read": "Full relevant text: §§1–3, §6, exact recurrence and source counterexample argument, plus referenced appendix equations.",
+        "method": "Original open-access publisher PDF, text and page visual inspection.",
+        "title": "BDRS Can Fail for Matrix Scaling and Optimal Transport",
+        "trigger": "Same BDRS-MS algorithm and explicit positive-matrix periodic orbit."
+      },
+      {
+        "assessment": "Global only under kappa<1/3; comparison recurrence has different constant-term sign from exact local derivative; no unconditional local rate formula.",
+        "evidence": [
+          "Theorem 4.1, equations (21)–(25), the bound e_(k+1) <= kappa(2e_k+e_(k-1)), and its polynomial lambda²-2kappa lambda-kappa."
+        ],
+        "identifier_or_url": "https://optimization-online.org/2026/05/convergence-of-bdrs-as-a-matrix-scaling-algorithm/",
+        "material_read": "Full 9-page original PDF, including Proposition 3.1, Theorem 4.1 and complete proof §§3–4.",
+        "method": "Original open-access publisher PDF, text and page visual inspection.",
+        "title": "Convergence of BDRS as a Matrix Scaling Algorithm",
+        "trigger": "Strongest original sufficient convergence theorem, projective diameter and comparison recurrence."
+      },
+      {
+        "assessment": "Introduces broad BDRS under assumptions; no exact local matrix-scaling square-root spectrum in inspected material.",
+        "evidence": [
+          "arXiv:2509.08739, algorithm definitions and OT discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.08739",
+        "material_read": "Relevant full-text sections of the 32-page arXiv PDF: abstract, introduction, algorithm formulation, OT specialization, conclusions and references; searched local convergence and matrix scaling.",
+        "method": "Open-access original arXiv PDF, text and first-page visual inspection.",
+        "title": "Bregman Douglas-Rachford Splitting Method",
+        "trigger": "Original method and OT specialization that could dominate the claim."
+      },
+      {
+        "assessment": "Proves standard Sinkhorn local rate sigma and overrelaxed Sinkhorn convergence, but its update is not BDRS-MS two-step cumulative scaling.",
+        "evidence": [
+          "§1, eq. (3), local rate theta², Theorems 1–2."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11590-021-01830-0",
+        "material_read": "Open-access HTML original, §1, equations (1)–(6), Theorems 1–2 and local spectral comparison.",
+        "method": "Full scientific article accessible through publisher HTML.",
+        "title": "A note on overrelaxation in the Sinkhorn algorithm",
+        "trigger": "Strong relevant local spectral results for competing matrix-scaling iteration."
+      },
+      {
+        "assessment": "Euclidean primal–dual/ordinary DR settings; not a direct formulation of entropy-Bregman matrix-scaling or its weighted Sinkhorn spectral rate.",
+        "evidence": [
+          "§1.3 describes polyhedral DR cosine principal-angle rate and assumptions."
+        ],
+        "identifier_or_url": "https://optimization-online.org/2017/05/5995/",
+        "material_read": "Full relevant introduction §§1–2 and DR specialization material of the 34-page original PDF, with comparison to partially smooth/polyhedral local convergence.",
+        "method": "Original open-access Optimization Online PDF, text and page visual inspection.",
+        "title": "Local Linear Convergence Analysis of Primal–Dual Splitting Methods",
+        "trigger": "Plausible general superior result on Douglas–Rachford tangent-angle local rates."
+      },
+      {
+        "assessment": "Focuses BDRS as annealed Sinkhorn, memory reduction and certificates for unregularized OT. Exact local static matrix-scaling rate not established by accessible material; coverage risk not resolved.",
+        "evidence": [
+          "arXiv:2609.33814 abstract, submitted 2026-09-27; unavailable complete text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.33814",
+        "material_read": "Abstract only; original arXiv full text and open mirrors attempted but inaccessible during review.",
+        "method": "Public arXiv abstract through scientific search; several original/preprint full-text retrieval attempts unsuccessful.",
+        "title": "Annealed Sinkhorn with Momentum: Certified Unregularized Optimal Transport in Linear Memory",
+        "trigger": "Closely related BDRS momentum and dual recurrence, plausible implicit coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa8e1e84-c052-43c6-b2f9-81815068498b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A rigorous unconditional local-attraction boundary is meaningful because the same 2026 BDRS-MS algorithm has explicit strictly positive globally periodic trajectories; the result reconciles the local and global behaviors rather than repairing an old source. The exact s2-versus-s2² comparison proves that log-momentum BDRS is locally slower than ordinary Sinkhorn and can be arbitrarily slow, identifying an algorithm-design tradeoff invisible in the earlier projective-diameter sufficient condition. The claim is an all-dimensions structural theorem with sharp two-dimensional witnesses, not a routine special-case computation.",
+    "status": "PASS"
+  }
+}
