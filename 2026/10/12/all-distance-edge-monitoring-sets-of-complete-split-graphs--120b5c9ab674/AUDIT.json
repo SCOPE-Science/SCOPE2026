@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For m>=2, universal clique probes cannot monitor nonincident edges, while an independent probe has all clique vertices as first-layer neighbors and at least two possible predecessors for each distance-two independent vertex. Hence every probe monitors exactly its incident edges, making distance-edge-monitoring equivalent to vertex cover. The independent sets are exactly arbitrary subsets of the independent side and singleton clique vertices, yielding the enumerator and basis classification. For m=1, every edge is a bridge, so every nonempty set monitors all edges. Direct edge-deletion verification agrees for m,n=1..6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The foundational paper proves that vertex covers are distance-edge-monitoring and identifies the incident-edge-only regime, but its stated exact graph families do not include complete split graphs.",
+        "The 2024 perturbation paper studies changes under graph modifications, not all monitoring sets of complete split graphs.",
+        "The 2025 proceedings paper states the complete-split distance-edge-monitoring number and handles star and complete boundaries, but its exposed theorem is scalar."
+      ],
+      "reasoning": "The general vertex-cover theorem becomes exact only after proving the incident-edge-only property for this family. The scalar complete-split formula does not determine how many nonminimum monitoring sets exist or which supersets and near-complete sets are feasible.",
+      "searches": [
+        "arXiv:2011.00029v1: definition, edge-monitoring characterization, vertex-cover relationship, complete-bipartite results",
+        "DOI 10.3233/FI-242176: perturbation results and subject classification",
+        "DOI 10.5281/zenodo.17533261: indexed proceedings text for complete split graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2011.00029v1",
+      "DOI:10.1016/j.dam.2021.07.002",
+      "DOI:10.3233/FI-242176",
+      "DOI:10.5281/zenodo.17533261",
+      "targeted exact web searches under complete-split, join, all-set, polynomial, and generating-function formulations",
+      "semantic published-result searches under the same scientific formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The foundational source implies only that every vertex cover is monitoring in general, not that every monitoring set is a vertex cover.",
+        "The 2025 theorem fixes the minimum size \\(m\\) in the nondegenerate complete-split case but does not determine all feasible sets.",
+        "The tree and complete-graph boundaries agree with the two boundary cases of the new classification."
+      ],
+      "reasoning": "The decisive extra statement is that every vertex of a complete split graph with m>=2 monitors exactly its incident edges. Once established, it upgrades the known scalar theorem to an exact all-set equivalence with vertex cover and yields the polynomial and basis multiplicities.",
+      "searches": [
+        "foundational vertex-cover upper bound and incident-edge-only criterion in arXiv:2011.00029v1",
+        "complete-split scalar theorem in DOI 10.5281/zenodo.17533261",
+        "complete-graph and tree boundary theorems in arXiv:2011.00029v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact searches located the 2025 scalar complete-split paper but no all-set classification.",
+        "Searches under the equivalent join description \\(K_m\\vee\\overline{K_n}\\) found no distance-edge-monitoring enumerator.",
+        "Semantic published-result searches returned other distance and resolving invariants, not this statement."
+      ],
+      "reasoning": "The searches cover both the standard graph-family name and its join representation, as well as set-classification, polynomial, and generating-function language. The new claim is stronger than the scalar formula because it determines all feasible monitoring placements.",
+      "searches": [
+        "complete split graph distance-edge-monitoring sets",
+        "distance-edge-monitoring K_m join independent set",
+        "distance-edge-monitoring complete split graph all sets",
+        "distance-edge-monitoring set polynomial complete split",
+        "distance-edge-monitoring generating function split graph",
+        "complete split vertex cover distance-edge monitoring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact all-set table or polynomial was located.",
+        "The nearest exact family result is the 2025 formula for the minimum cardinality."
+      ],
+      "reasoning": "The enumerator follows from an exact structural classification of vertex covers after the monitoring reduction; it is not inferred from finite data.",
+      "searches": [
+        "distance-edge-monitoring complete split graph polynomial",
+        "all distance-edge-monitoring sets complete split graph",
+        "distance-edge-monitoring set enumerator split graph",
+        "DEM sets K_m join independent set"
+      ]
+    },
+    "rationale": "The 2025 complete-split source establishes the scalar minimum but does not state the all-set classification or generating polynomial. The foundational source supplies only the general monitoring-versus-vertex-cover machinery. No searched source states the complete feasible-set theorem.",
+    "residual_risks": [
+      "The full 2025 proceedings PDF could not be fetched directly from the checked endpoint, although indexed proceedings text exposed the theorem and comparison-critical material.",
+      "A differently named or non-indexed all-set classification could exist.",
+      "Because the all-set theorem follows cleanly from the incident-edge-only property plus vertex-cover structure, it may have appeared informally without polynomial terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general mechanism used in the proof but does not state the complete-split all-set classification or enumerator.",
+        "evidence": [
+          "arXiv version 1 is dated 30 October 2020.",
+          "The paper introduces distance-edge-monitoring sets and the parameter dem.",
+          "It proves every vertex cover is distance-edge-monitoring and gives an exact criterion under which monitoring sets coincide with vertex covers.",
+          "Its abstracted exact families include grids, hypercubes, and complete bipartite graphs rather than complete split graphs."
+        ],
+        "identifier_or_url": "arXiv:2011.00029v1; DOI:10.1016/j.dam.2021.07.002",
+        "material_read": "Abstract and accessible indexed/full-text material covering the distance-edge-monitoring definition, monitoring sets, exact standard families, the vertex-cover upper bound, and the incident-edge-only criterion.",
+        "method": "Primary-source definition and implication comparison.",
+        "title": "Monitoring the edges of a graph using distances",
+        "trigger": "Foundational definition and the strongest general vertex-cover implication relevant to the claim."
+      },
+      {
+        "assessment": "Proves the exact minimum value for complete split graphs but does not expose an all-set classification, enumerator, or complete minimum-basis multiplicities.",
+        "evidence": [
+          "Proceedings pages are 208–211.",
+          "The abstract states that the exact distance-edge-monitoring number of the complete split graph is the clique-size parameter.",
+          "The indexed theorem gives the nondegenerate scalar formula and treats the star and complete boundary cases separately.",
+          "The accessible indexed text does not state an all-set polynomial."
+        ],
+        "identifier_or_url": "DOI:10.5281/zenodo.17533261",
+        "material_read": "Indexed proceedings text exposing the abstract, introduction, theorem statement and proof outline, star and complete-graph boundary cases, and conclusion. The full proceedings PDF endpoint was unavailable during the review.",
+        "method": "Direct predecessor statement and implication comparison.",
+        "title": "Distance-edge-monitoring number of complete split graphs",
+        "trigger": "Direct same-object same-parameter predecessor."
+      },
+      {
+        "assessment": "Studies perturbations rather than complete-split all-set structure and explicitly lists 05C12.",
+        "evidence": [
+          "First published online 31 May 2024.",
+          "The displayed classification includes 05C12.",
+          "The abstract concerns edge and vertex deletion perturbations and persistence algorithms."
+        ],
+        "identifier_or_url": "DOI:10.3233/FI-242176",
+        "material_read": "Abstract, publication metadata, keywords, and subject-classification line.",
+        "method": "Subject ownership and broader-coverage comparison.",
+        "title": "Perturbation Results for Distance-edge-monitoring Numbers",
+        "trigger": "Same-parameter paper used to verify subject classification and broader later coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "120b5c9a-b674-4236-a1b6-aa14cd49f622",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a natural complete classification for a graph family whose minimum monitoring number has already attracted dedicated study. Knowing every monitoring set and the size enumerator measures redundancy and alternative sensor placements, information absent from the scalar optimum. The star-to-nonstar transition is structurally sharp and the closed form is reusable for reliability and counting questions.",
+    "status": "PASS"
+  }
+}
