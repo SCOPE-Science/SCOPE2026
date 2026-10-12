@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each k, the future increment S_n-S_k is independent of S_k and centered, so its contribution against the event S_k>0 vanishes. Symmetry gives E[S_k 1{S_k>0}]=E|S_k|/2. Summation proves the exact covariance. The classical Sparre-Andersen discrete arcsine law yields Var(A_n)=n(n+1)/8. Finite variance gives uniform integrability of S_k/(sigma sqrt(k)), so the central limit theorem transfers to first absolute moments and yields the stated universal correlation limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ivanovs proves distributional Sparre-Andersen identities for occupation and extremal times using exchangeable increments and time reversal.",
+        "Döbler proves quantitative convergence for the symmetric-random-walk occupation statistic to the arcsine law.",
+        "Erdős--Kac prove the classical arcsine limit for the number of positive partial sums.",
+        "Hartmann--Majumdar compute joint laws among Brownian occupation time, time of maximum, and last-passage time."
+      ],
+      "reasoning": "These sources cover the marginal occupation statistic and several broader path-distribution questions, but their inspected statements do not imply the accepted endpoint covariance without an additional mixed-moment calculation. The covariance identity depends on coupling terminal displacement with each partial-sum sign and is not a marginal corollary of the arcsine law.",
+      "searches": [
+        "arXiv:1501.04542 Sparre-Andersen identity last passage time",
+        "arXiv:1207.2401 arcsine law Stein method",
+        "DOI:10.1090/S0002-9904-1947-08928-X positive sums",
+        "DOI:10.1103/PhysRevE.111.044134 Brownian occupation correlations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1501.04542",
+      "DOI:10.1017/jpr.2016.24",
+      "arXiv:1207.2401",
+      "DOI:10.1090/S0002-9904-1947-08928-X",
+      "DOI:10.1103/PhysRevE.111.044134",
+      "own:5e8da517-94ea-4d2e-8743-276555a98553",
+      "2026/9/21/SCOPE-four-way-interaction-sparre-andersen-persistence--a412ed2dcdb6",
+      "2026/9/20/SCOPE-linear-wise-independent-rademacher-bounded-stopping-bias--ffc9773418a4",
+      "2026/9/20/SCOPE-sharp-levy-tail-inflation-pairwise-independent-rademachers--be082b5ae3c3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior own finding 5e8da517-94ea-4d2e-8743-276555a98553 gives an exact covariance between the running maximum and an odd function of terminal displacement under reversal and sign symmetry; it does not involve occupation time or positive-partial-sum counts.",
+        "The closest semantic-search record on Sparre-Andersen persistence concerns higher-order dependent signs, not terminal displacement.",
+        "The closest bounded-stopping and maximal-tail records concern weakened independence and path extrema, not the occupation-count/endpoint mixed moment."
+      ],
+      "reasoning": "The closest own theorem controls a different path functional, the running maximum, against the terminal value. Neither its statement nor its proof implication supplies the sum over positive-partial-sum indicators. The new statistic and its Sparre-Andersen variance produce a distinct universal correlation constant.",
+      "searches": [
+        "own ledger random walk maximum terminal covariance",
+        "own ledger positive partial sums occupation terminal",
+        "own ledger Sparre Andersen persistence",
+        "own ledger random walk occupation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned Sparre-Andersen persistence, random-walk maximum, and bounded-stopping results but no terminal-displacement covariance for the positive-sojourn count.",
+        "Web searches located classical occupation-count marginal laws and modern joint laws among other Brownian global times, but no exact endpoint covariance formula."
+      ],
+      "reasoning": "The searches used occupation-time, positive-partial-sum, sojourn, endpoint, terminal-position, covariance, joint-distribution, and Sparre-Andersen aliases. Search absence alone is not treated as novelty proof; it was combined with statement-level inspection of the closest full texts.",
+      "searches": [
+        "random walk number positive partial sums endpoint covariance",
+        "occupation time positive random walk terminal position covariance",
+        "arcsine law positive partial sums covariance endpoint",
+        "Sparre Andersen number positive sums joint endpoint covariance",
+        "Cov number positive partial sums S_n",
+        "covariance number of positive sums random walk terminal",
+        "number of positive sums S_n joint distribution",
+        "time spent positive terminal position random walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact record matching the constant 4/(3 sqrt(pi)) as occupation-time/terminal-position correlation or the finite covariance sum was located."
+      ],
+      "reasoning": "The result is symbolic for all n and all continuous symmetric finite-variance increment laws. The finite checks are replays, not the source of the formula.",
+      "searches": [
+        "4/(3 sqrt(pi)) random walk occupation correlation",
+        "4/(3√π) Brownian occupation correlation",
+        "2/(3 sqrt(2 pi)) Brownian occupation terminal",
+        "positive partial sums terminal covariance exact"
+      ]
+    },
+    "rationale": "The closest inspected full fluctuation-theory source treats occupation times and Sparre-Andersen identities but does not state their covariance with terminal displacement. The closest arcsine approximation source treats the occupation marginal. A recent full Brownian correlation paper compares three global times but not terminal position. No targeted database or literature search located the exact sum-of-absolute-moments covariance or the 4/(3 sqrt(pi)) terminal-correlation statement.",
+    "residual_risks": [
+      "Classical fluctuation theory is extensive, and an equivalent mixed first-moment identity may exist in older work under sojourn-time or positive-sum terminology.",
+      "The exact covariance identity is elementary once decomposed at time k, so it may have appeared as an unhighlighted corollary in a broader treatment.",
+      "Older Brownian occupation-time transform literature could encode the same continuum covariance implicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OCCUPATION_AND_FLUCTUATION_IDENTITIES_WITHOUT_TERMINAL_DISPLACEMENT_COVARIANCE",
+        "evidence": "The paper defines positive and negative occupation times and proves distributional equivalences with extremal times using exchangeability and time reversal. The inspected random-walk section does not state the accepted covariance or terminal-correlation result. Its front matter verifies Primary MSC 60G51 and Secondary 60G50.",
+        "identifier_or_url": "arXiv:1501.04542 / DOI:10.1017/jpr.2016.24",
+        "material_read": "Full six-page public PDF: abstract and classification; Sections 1--4, especially the random-walk definitions and Proposition 3 on occupation and extremal times.",
+        "method": "Compared theorem statements and proofs for a mixed first moment, covariance, or correlation between occupation count and terminal displacement.",
+        "title": "Sparre-Andersen identity and the last passage time",
+        "trigger": "Closest full source combining random walks, occupation times, exchangeable increments, and Sparre-Andersen identities."
+      },
+      {
+        "assessment": "ARCSINE_MARGINAL_WITHOUT_TERMINAL_COVARIANCE",
+        "evidence": "The paper treats the symmetric random-walk arcsine statistic and quantitative convergence to the beta(1/2,1/2) law. Targeted full-text searches found no covariance or terminal-value formulation.",
+        "identifier_or_url": "arXiv:1207.2401",
+        "material_read": "Full public arXiv text, including the introduction, occupation statistic, Stein characterization, and theorem development; targeted searches for covariance and terminal terminology.",
+        "method": "Compared the stated occupation marginal and approximation results with the accepted mixed endpoint moment.",
+        "title": "A rate of convergence for the arcsine law by Stein's method",
+        "trigger": "Archive-era full public source centered on the same random-walk occupation statistic."
+      },
+      {
+        "assessment": "BROWNIAN_GLOBAL_TIME_CORRELATIONS_WITHOUT_TERMINAL_POSITION",
+        "evidence": "The article studies occupation time, time of maximum, and last-passage time and computes pairwise laws among those three. Terminal position is not among the stated observables, and targeted article searches found no endpoint or terminal formulation.",
+        "identifier_or_url": "DOI:10.1103/PhysRevE.111.044134",
+        "material_read": "Full open HTML article: abstract, introduction, Brownian occupation-time discussion, conclusions, and targeted searches for final position, endpoint, and terminal.",
+        "method": "Checked whether terminal Brownian position is one of the joint observables or whether occupation-time/endpoint covariance is stated.",
+        "title": "Exact joint distributions of three global characteristic times for Brownian motion",
+        "trigger": "Modern source explicitly motivated by correlations among Brownian global observables including occupation time."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2038cfde-1faf-468e-8655-5823d9e5e753",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The positive-sojourn count is the canonical arcsine statistic and terminal displacement is the canonical endpoint statistic of a one-dimensional random walk. The theorem gives an exact finite local-to-global covariance and, after combining with Sparre-Andersen universality, a nonzero distribution-free limiting correlation. The exact Brownian match shows the constant is a stable discrete-to-continuum dependence feature rather than a small finite-size artifact.",
+    "status": "PASS"
+  }
+}
