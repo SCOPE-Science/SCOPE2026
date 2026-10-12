@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "With 0 weighted +1 and 1 weighted -1, the regular paperfolding recurrence implies S(2m)=S(m)+1_{m odd} and S(2m+1)=S(m)+1_{m even}. These are exactly the recurrences for the number of runs in the standard binary expansion, so Dyck factors are precisely nonnegative return intervals of binary run count. For equal-length binary endpoints, the two numbers at the first 0/1 boundary force each endpoint suffix to have at most one transition; equality then makes their difference 2^d-2^i with 1<=i<d. Different-length endpoints force baseline run count 1 and hence endpoints 2^i-1 and 2^k-1. Conversely those endpoints give canonical Dyck factors. The verifier independently checks all key identities and finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves several Thue--Morse and Rudin--Shapiro Dyck results but leaves paperfolding as a conjecture.",
+        "Later paperfolding literature located in the search concerns runs and other word invariants rather than Dyck-factor lengths."
+      ],
+      "reasoning": "Nearby automatic-sequence results do not imply the binary-run return-interval classification for regular paperfolding.",
+      "searches": [
+        "paperfolding sequences Dyck factors automatic sequence",
+        "Dyck Words Pattern Avoidance Automatic Sequences paperfolding conjecture",
+        "paperfolding sequence Walnut Dyck factor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.06145v3 Section 6 and Conjecture 6.5",
+      "Communications in Mathematics open-access full text DOI:10.46298/cm.12695",
+      "Cambridge Chapter 12 DOI:10.1017/9781108775267.014",
+      "targeted semantic searches for paperfolding Dyck lengths, power-difference formulations, and binary-run equivalents",
+      "claim-level overlap checks against current and previous research records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source labels the statement Conjecture 6.5 rather than deriving it from preceding theorems.",
+        "The earlier paperfolding facts used here define the sequence but do not classify Dyck return intervals."
+      ],
+      "reasoning": "The new step is the identity between parenthesis balance and binary run count plus the exact interval-minimum classification; neither is supplied as an implication of the source paper.",
+      "searches": [
+        "arXiv 2301.06145 Conjecture 6.5 paperfolding",
+        "Mol Rampersad Shallit paperfolding Dyck conjecture proof",
+        "regular paperfolding binary run count prefix sum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mol--Rampersad--Shallit, arXiv:2301.06145v3, Conjecture 6.5, states the power-difference characterization as a conjecture.",
+        "Searches under both Dyck-factor and binary-run formulations returned no theorem proving the classification."
+      ],
+      "reasoning": "The claim can be phrased either as a Dyck-factor length set or as classification of nonnegative equal-height return intervals of binary run count, so both vocabularies were searched.",
+      "searches": [
+        "paperfolding Dyck factors exact lengths powers of two difference",
+        "paperfolding sequence Dyck factor length 2^k - 2^i",
+        "binary run count paperfolding Dyck factors",
+        "2301.06145 paperfolding conjecture Dyck"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed result gives a table or automaton resolving the conjectured length set.",
+        "The standard paperfolding convention 001001100011011... is documented in Walnut-oriented material by the same research circle."
+      ],
+      "reasoning": "A finite-state accepted-length automaton or explicit table tied to the conjecture could subsume the classification, so the characteristic sequence and sample allowed lengths were checked.",
+      "searches": [
+        "Conjecture 6.5 paperfolding Dyck factor",
+        "paperfolding Dyck length 6 12 14 24 30",
+        "paperfolding 001001100 Dyck factors"
+      ]
+    },
+    "rationale": "The direct 2023 source states the paperfolding length characterization as Conjecture 6.5 and does not provide a proof. The published range includes i=0, which is incompatible with the even length of nonempty Dyck words; the result proves the natural parity-corrected statement i>=1. Focused searches for the conjecture, exact power-difference formulation, paperfolding Dyck factors, and binary-run aliases found no covering proof. Own current and prior records contain paperfolding results and a different Dyck result from the same source, but none classifies paperfolding Dyck lengths.",
+    "residual_risks": [
+      "The printed i=0 endpoint is almost certainly a parity slip, so the theorem is best read as proving the intended parity-corrected conjecture.",
+      "An unindexed note or unpublished proof may contain the same short binary-run argument.",
+      "The result covers only the regular paperfolding convention, not all paperfolding sequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Conjecture 6.5 states the power-difference characterization but supplies no proof; its printed i=0 branch would give odd lengths.",
+        "identifier_or_url": "arXiv:2301.06145v1 / DOI:10.46298/cm.12695",
+        "material_read": "Section 6 through Conjecture 6.5, together with the paper definitions that take 0 as left parenthesis and 1 as right parenthesis; bibliographic first-version and MSC metadata.",
+        "method": "Open-access full-text inspection with statement and implication comparison.",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Direct source states the paperfolding Dyck-length conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source defines/studies paperfolding sequences but does not state the Dyck-factor length classification.",
+        "identifier_or_url": "DOI:10.1017/9781108775267.014",
+        "material_read": "Chapter metadata and paperfolding-sequence scope; sequence convention cross-checked against public Walnut teaching material.",
+        "method": "Publisher metadata plus same-author public sequence-definition material.",
+        "title": "The Logical Approach to Automatic Sequences, Chapter 12: Paperfolding sequences",
+        "trigger": "Same-author reference for the regular paperfolding convention and automatic-sequence context."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fcfd6f0d-3cb8-4af7-a954-3e15920ae056",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly singles out the paperfolding length set as a conjecture. The result resolves the substantive even-length version completely with a short structural invariant, rather than by a finite census: it identifies all possible lengths and gives canonical factors at every allowed length. This is a natural complete classification directly adjacent to the source paper’s established automatic-sequence Dyck results.",
+    "status": "PASS"
+  }
+}
