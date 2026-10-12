@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The occupied-row/column domination criterion and line-graph connectivity equivalence are immediate and complete. Cycle-edge deletion forces minimal connected supports to be trees. A spanning-both-sides tree permits deleting a leaf while preserving the opposite full side. For exactly one full side, minimality is equivalent to forbidding leaves on the proper side. The weighted matrix-tree cofactor is evaluated explicitly and its surjective-word coefficients give m^(b-1) b! S(m-1,b); the exponential formula gives every connected set. Exhaustive independent direct-subset checking on 190277 nonempty subsets across eleven labeled boards matches every coefficient and each minimality classification, but the general proof is independent of these tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mertens arXiv:2401.00716, Theorem 4 and Section 3: full ordinary domination polynomial of rook graphs; no connectedness refinement or minimal-connected spectrum.",
+        "Abu-Khzam et al. arXiv:2205.00086, whole preprint: algorithm for enumerating minimal connected dominating sets of arbitrary graphs; no closed rook-family count.",
+        "Kanté et al. arXiv:1407.2053, Section 6: complexity equivalences for general minimal connected domination, rather than this family-specific formula."
+      ],
+      "reasoning": "General algorithms apply to the family and can enumerate the objects, but their complexity statements do not give the closed coefficient counts, all-size generating function, or two-interval minimal size spectrum. Mertens supplies ordinary domination counts, which merge connected and disconnected configurations.",
+      "searches": [
+        "connected dominating sets rook graph K_m square K_n connectivity polynomial",
+        "connected domination polynomial of Cartesian product of cliques rook graph via connected bipartite graph exponential generating function",
+        "arxiv:2401.00716",
+        "arxiv:2205.00086",
+        "arxiv:1407.2053",
+        "2026/10/4/SCOPE-total-and-connected-total-domination-polynomials-of-chain-graphs--fe5d354bccbd"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1404.3501",
+      "arxiv:1407.2053",
+      "arxiv:2205.00086",
+      "arxiv:2401.00716",
+      "OEIS:A368831",
+      "Published mathematical-finding index: searches for rook/line-graph/complete-bipartite aliases and cardinality polynomials"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 of Mertens 2024 gives ordinary domination counts; its proof on complete-bipartite incidence does not distinguish the connected occupied-edge subgraphs.",
+        "Kanté et al. 2014 edge-domination algorithm has different membership and minimality requirements.",
+        "The earlier general enumerations of minimal connected domination do not state restricted tree counts for K_{m,n}."
+      ],
+      "reasoning": "The new claim is strictly more refined than the ordinary rook domination polynomial and its coefficient counts: it imposes connectivity, classifies precisely the inclusion-minimal surviving trees, and proves two exact Stirling-counted size intervals. Neither general algorithmic search nor the old scalar minimum directly yields this statement; standard weighted-tree identities used in its derivation are acknowledged as tools.",
+      "searches": [
+        "minimal connected dominating sets of rook graphs K_m square K_n have incidence spanning bipartite trees with leaves on one side; Stirling numbers enumeration",
+        "connected edge domination of complete bipartite graphs K_{m,n}, minimal connected edge dominating edge sets classified as trees, spectrum gaps n>=2m",
+        "connected domination polynomial of Cartesian product of cliques rook graph via connected bipartite graph exponential generating function",
+        "arxiv:2401.00716",
+        "arxiv:1404.3501",
+        "arxiv:2205.00086",
+        "2026/10/4/SCOPE-connected-accurate-domination-of-complete-multipartite-graphs--01eafb554ef9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1404.3501, pp. 1-11: general minimal edge-dominating set enumeration in line graphs without requiring connectedness; connected edge domination is the correct alias for the present family.",
+        "arXiv:1407.2053, Section 6: general minimal connected domination, without rook graph specialization.",
+        "The published mathematical finding index returned differently defined domination in multipartite/crown graphs; these do not imply the rook graph two-interval spectrum."
+      ],
+      "reasoning": "A connected dominating set in L(K_{m,n}) is exactly a connected edge dominating set of K_{m,n}; this reduction was explicitly checked as an alternative term. Generic minimal edge domination enumerators count a different, weaker family. Search of those aliases and inspected full texts revealed no formula with exactly one fully covered bipartition class and the nonleaf tree restriction.",
+      "searches": [
+        "connected edge domination of complete bipartite graphs K_{m,n}, minimal connected edge dominating edge sets classified as trees, spectrum gaps n>=2m",
+        "inclusion minimal connected dominating set rook graph connected edge dominating set",
+        "all inclusion-minimal connected dominating sets of line graphs L(K_{m,n}) and upper connected domination number m+n-2",
+        "\"connected edge domination\" \"complete bipartite\" minimal sets counting",
+        "\"connected edge domination polynomial\" \"complete bipartite\"",
+        "arxiv:1404.3501",
+        "2026/10/4/SCOPE-doubly-connected-dominating-sets-of-complete-multipartite-graphs--f48b17ab6b28",
+        "2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A368831 tabulates ordinary dominating subsets on square rook graphs, based on Mertens 2024, not the connected or inclusion-minimal refinement.",
+        "Mertens 2024 gives the ordinary polynomial; the checked table does not distinguish selected-edge connectivity.",
+        "Searches of published mathematical records did not return an exact table for the present labeled family under the formulas or aliases."
+      ],
+      "reasoning": "The known coefficient table A368831 records all dominating sets, so it does not give coefficients of connected or inclusion-minimal connected dominating sets. It therefore does not cover the exact minimal-cardinality gap.",
+      "searches": [
+        "domination polynomial rook graphs connected dominating sets cardinality",
+        "connected spanning bipartite graphs labeled exponential generating function rook graph",
+        "enumerator connected bipartite spanning subgraphs Stirling numbers minimal edge cover",
+        "rook graph domination polynomial OEIS A368831",
+        "arxiv:2401.00716",
+        "2026/10/4/SCOPE-outer-connected-domination-polynomial-of-complete-multipartite-g--d20c862da642"
+      ]
+    },
+    "rationale": "Full-text statement and implication comparisons distinguish generic connected domination algorithms, general edge domination, and the ordinary rook domination polynomial from the newly obtained exact connected polynomial, all inclusion-minimal structural types, size coefficients and sharp gap. Published-record alias/equivalence searches and direct mathematical implication comparisons found no covering exact rook connected-minimal claim. Standard component and weighted-tree identities are not asserted to be new. Potential poorly indexed earlier specializations remain a documented residual risk.",
+    "residual_risks": [
+      "Older exact formulas for connected edge dominating sets of complete bipartite graphs might exist under uncommon terminology or non-indexed print sources.",
+      "General algorithms enumerate these sets computationally, though no direct closed coefficient formula was found in the inspected sources.",
+      "This is a self-review only, not an independent priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General nonconnected minimal edge-dominating enumeration and complexity; does not state the connected K_{m,n} size-enumerator or one-sided-spanning-tree classification.",
+        "evidence": [
+          "arXiv:1404.3501, pp. 1-11, particularly Introduction and Section 5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.3501",
+        "material_read": "Full twelve-page open arXiv PDF, including theorem, definitions, algorithm and conclusion.",
+        "method": "Read section-by-section; checked connected and bipartite mentions and matching-edge arguments.",
+        "title": "Polynomial Delay Algorithm for Listing Minimal Edge Dominating sets in Graphs",
+        "trigger": "Connected edge domination of complete bipartite graphs is the direct alias for connected domination of rook-graph line graphs."
+      },
+      {
+        "assessment": "Discusses general enumeration reductions and complexity, not connected-domination polynomials or Stirling spectra of rook graphs.",
+        "evidence": [
+          "arXiv:1407.2053, Section 6 and Proposition 30."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1407.2053",
+        "material_read": "Full fifteen-page open arXiv PDF, especially Section 6 on connected domination.",
+        "method": "Read the proof section and review entire article for exact family treatment or bipartite line-graph specialization.",
+        "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+        "trigger": "Foundational theory of enumerating inclusion-minimal connected dominating sets."
+      },
+      {
+        "assessment": "Gives all ordinary rook domination coefficients but not those restricted to connected or inclusion-minimal connected sets.",
+        "evidence": [
+          "arXiv:2401.00716, Section 3, Theorem 4, and adjacency-to-edge-cover discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.00716",
+        "material_read": "Full ten-page open arXiv PDF, including Sections 2-4, all main theorems and references.",
+        "method": "Compared the square-to-bipartite-edge equivalence and polynomial Theorem 4, searching for connected, minimal, and trees.",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Direct treatment of same graph and all ordinary dominating subsets."
+      },
+      {
+        "assessment": "General output-size/time bounds, not the exact rook-family Stirling-counted support profile.",
+        "evidence": [
+          "arXiv:2205.00086, Introduction and stated enumeration results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.00086",
+        "material_read": "Full twenty-eight-page open arXiv PDF, including preliminaries, algorithms, results and graph class bounds.",
+        "method": "Read central statements and scanned document for rook/line-graph specializations.",
+        "title": "Enumerating Connected Dominating Sets",
+        "trigger": "Modern general-purpose enumeration of minimal connected dominating sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bb2bf04-3c50-41c5-81b1-84a9c544d745",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Inclusion-minimal connected domination is a natural global and nonmonotone extremal set system; the theorem classifies every solution, counts each possible cardinality via Stirling numbers, derives an all-connected-set generating function, and proves an exact growing forbidden size interval n>=2m. It supplies structural and quantitative data strictly beyond the known ordinary domination polynomial and scalar minimum, without claiming that standard enumeration tools are novel.",
+    "status": "PASS"
+  }
+}
