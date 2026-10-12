@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "PASS: For every integer n>=2 the source Algorithm 3 specializes exactly to independently sampled uniform increasing parents with conductance (n-i)/n, yielding a rooted weighted tree and E[T]=P. Backward induction over added pendant vertices proves E[R_T(a,b)]=n for every distinct pair; double-centering the resistance matrix proves E[T^dagger]=(n/2)P. The mandatory last edge has resistance n deterministically, giving lambda_min(T|1^perp)<=2/n. Quantifiers, positive edge weights, nullspaces, normalization and the star-center elimination order were checked against arXiv:2011.07769 and arXiv:2303.00709. The package verifier exhaustively enumerated 5,913 weighted trees for 2<=n<=8 using exact fractions. Enumeration supplements but does not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kyng–Sachdeva, arXiv:1605.02353, proves graph Laplacian approximation for a different split-edge random-elimination scheme rather than a single unsplit ordered tree at a fixed star hub.",
+        "Gao–Kyng–Spielman, arXiv:2303.00709, Sections 4.2–4.3 distinguish a single tree from multi-edge merged schemes and establish unbiasedness; they do not assert the exact inverse expectation.",
+        "CAST, arXiv:2609.09255, Sections 2–4 and 6, uses a weighted random spanning-tree law with leverage-score marginals, not order-dependent increasing-parent sampling."
+      ],
+      "reasoning": "Strong global spectral guarantees use extra structural assumptions or repeated/split samples. Those stronger-looking statements do not cover the exact local one-tree setting under the same hypotheses. CAST characterizes a distinct distribution even at equal star weights; its edge conductances equal 1/2 rather than the sampled varying (n-i)/n, so it does not imply the displayed inverse matrix for SampleClique.",
+      "searches": [
+        "published-finding corpus: spectral sparsification random spanning tree approximation resistance gap linear graph size",
+        "published-finding corpus: RCHOL factorization preconditioner local clique tree expected effective resistance",
+        "Web: Approximate Cholesky CliqueTreeSample star pseudoinverse effective resistance Kyng Gao Spielman 2023",
+        "Web: RCHOL SampleClique tree effective resistance pseudoinverse n/2 star weighted recursive tree"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2011.07769v4, complete method discussion Sections 1–2, Algorithms 1–3, Theorems 7 and 10",
+      "arXiv:2303.00709v2, complete relevant Section 4 and appendix, Algorithm 3, Corollary 4.4, Claim 4.5",
+      "arXiv:1605.02353, approximate elimination and edge splitting results",
+      "arXiv:2609.09255v1, CAST construction, local leverage optimization and comparative prior work",
+      "published-finding corpus published finding records queried using aliases, inverse-moment and resistance formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7 and Theorem 10 of [1] respectively assert connectedness and expected Laplacian, while the present claim concerns the nonlinear Moore–Penrose inverse and all-pairs effective resistance.",
+        "Corollary 4.4 and Claim 4.5 of [2] likewise establish unbiasedness/trees; its sample quality discussion and edge splitting do not state E[T^dagger]=(n/2)P.",
+        "Closest published published-finding corpus ID 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba concerns a different deterministic triangular inverse; ID 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee concerns distinct adaptive randomized pivoting."
+      ],
+      "reasoning": "By Jensen, E[T^dagger] is at least (E[T])^dagger in centered PSD order, but this only yields a qualitative inequality, not the scalar n/2. The source probability law mathematically permits deriving the theorem, yet its stated outputs do not imply a **specified** all-pairs inverse moment without the new backward resistance recurrence. Neither closest published-finding corpus record is a dominating parameter or special case of this law.",
+      "searches": [
+        "published-finding corpus: RCHOL Chen Liang Biros star graph single elimination sparse tree resistance all pair expectation n",
+        "published-finding corpus: approximate Cholesky unbiased clique sampling last edge weight 1/n effective resistance distortion",
+        "published-finding corpus: RCHOL Spielman Kyng SampleClique equal weights random recursive tree effective resistance n divided by two pseudoinverse expectation",
+        "Primary source [1] complete Section 2 and appendices; primary source [2] complete Section 4 and appendix; CAST [4] full sections on local update and prior work."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Liang–Biros, arXiv:2011.07769, Section 2.1 Algorithm 3 gives independent increasing-label sampling with normalized edge conductance; Section 2.2 Theorem 7 proves tree support, Theorem 10 proves unbiasedness.",
+        "Gao–Kyng–Spielman, arXiv:2303.00709, Algorithm 3 and Claim 4.5 give the same increasing-parent tree under equal weights.",
+        "Full-text comparisons found no theorem expressing mean pseudoinverse or uniform expected pairwise electrical resistance for this sampler."
+      ],
+      "reasoning": "Electrical resistance and pseudoinverse are equivalent observables by the double-centering identity, so the checked equivalent formulation is all-pairs expected resistance equal to n. The primary sampler papers determine the probability law and prove expected Laplacian, but do not explicitly provide the inverse expectation; a unique new series-resistance induction is required. Search nonmatches alone are not proof of priority.",
+      "searches": [
+        "published-finding corpus: RCHOL Spielman Kyng SampleClique equal weights random recursive tree effective resistance n divided by two pseudoinverse expectation",
+        "published-finding corpus: random clique sampling tree Laplacian pseudoinverse Jensen spectral distortion star uniform weights",
+        "Web: \"SampleClique\" \"resistance\" \"tree\" RCHOL",
+        "Web: \"random recursive tree\" \"effective resistance\" conductance \"(n-i)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches of published published-finding corpus results produced no exact matching formula, value table or equivalent all-pairs resistance classification.",
+        "Finite exact enumerations for n=2,...,8 were newly computed from the source law, not copied from a prior table."
+      ],
+      "reasoning": "The theorem applies to every neighborhood size n>=2 and includes an exact identity for an n-by-n inverse operator. It is not merely one computed entry or a re-reading of an existing table. Incomplete indexes and uninspected specialist sources remain a residual priority risk.",
+      "searches": [
+        "published-finding corpus: unbiased graph Laplacian sparse Cholesky effective resistance inflation on star exact n/2",
+        "published-finding corpus: recursive tree sampler expected inverse pseudoinverse full clique n times",
+        "Web: \"clique sampling\" \"pseudoinverse\""
+      ]
+    },
+    "rationale": "PASS with residual priority risk: Exact all-pairs expected resistance n and isotropic inverse moment (n/2)P are different from the cited source theorems' tree-support and primal expectation statements; the newer Gao–Kyng–Spielman full text also provides the same algorithm but no corresponding inverse theorem. Kyng–Sachdeva's extra-sample spectral approximation is outside the one-tree hypotheses. CAST has a distinct weighted random spanning-tree distribution. Actual semantic published-finding corpus and web queries for aliases, effective resistance, inverse, star and Schur clique found no matching published finding; closest results study other operators. Lack of a matching search result is not proof of absolute novelty; unindexed random-tree/network results and implicit consequences of old methods remain the substantive risk.",
+    "residual_risks": [
+      "An equivalent ordered-tree resistance identity may appear in unindexed probability/electrical-network literature.",
+      "The exact identity follows from the published sampling law by an additional induction, so priority cannot be decided from the absence of an explicitly named theorem alone.",
+      "No access to unpublished or unindexed private work and no independent novelty certification; searches do not establish absolute uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the tree distribution, support, positive definiteness behavior and primal unbiasedness; does not state the all-pairs expected inverse or deterministic fixed-pair spectral obstruction.",
+        "evidence": [
+          "Section 2.1 Algorithm 3: order, conditional parent draw and weight S|ell_ki|/ell_kk.",
+          "Section 2.2 Theorem 7: resulting sample is a spanning tree.",
+          "Theorem 10: clique update is unbiased."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2011.07769v4",
+        "material_read": "Sections 1.1–1.2, 2.1–2.3, Algorithms 1–3, Theorems 7 and 10, related work and appendices.",
+        "method": "Lawful openly accessible full arXiv HTML; method and theorem statements examined.",
+        "title": "RCHOL: Randomized Cholesky Factorization for Solving SDD Linear Systems",
+        "trigger": "Exact source of the sampled ordered clique tree; potentially identical published theorem."
+      },
+      {
+        "assessment": "Reformulates the identical equal-weight ordered tree, proves unbiasedness and support, and identifies practical limitations; not an inverse-moment law.",
+        "evidence": [
+          "Algorithm 3 and Corollary 4.4: sampled clique unbiased.",
+          "Claim 4.5: backward construction of a tree.",
+          "Section 4.3: extra multi-edge sampling introduced to improve quality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.00709v2",
+        "material_read": "Sections 4.1–4.5 and relevant technical appendix, Algorithm 3, Corollary 4.4, Claim 4.5, explanations of multi-edge splitting.",
+        "method": "Lawful openly accessible full arXiv HTML; algorithm and relevant propositions examined.",
+        "title": "Robust and Practical Solution of Laplacian Equations by Approximate Elimination",
+        "trigger": "Same-tree algorithm in later approximate Cholesky development and possible dominating theorem."
+      },
+      {
+        "assessment": "Provides a high-probability global spectral approximation under extra sampling structure; not the fixed unsplit one-tree law.",
+        "evidence": [
+          "Its algorithm uses random elimination with edge splitting/sampling controls; no theorem equating an ordered tree inverse expectation to n/2 of the clique inverse."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1605.02353",
+        "material_read": "Open preprint sections introducing sparse elimination, edge splitting, sampling and approximation guarantee.",
+        "method": "Lawful open-access arXiv full-text HTML/PDF equivalent inspected in relevant algorithmic sections.",
+        "title": "Approximate Gaussian Elimination for Laplacians: Fast, Sparse, and Simple",
+        "trigger": "Foundational approximate-Cholesky spectral theorem potentially broader than local-obstruction claim."
+      },
+      {
+        "assessment": "CAST-1 samples a weighted random spanning tree with leverage-score marginals and inverse-marginal conductance; distribution and weights differ from the ordered RCHOL tree. Local minimax statement is not this inverse-moment identity.",
+        "evidence": [
+          "Section 3.1 assigns conductance a_i a_j/(a_i+a_j) to sampled edge and uses weighted spanning-tree distribution.",
+          "Section 6 explicitly contrasts order-dependent AC/RCHOL updates against CAST order independence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.09255v1",
+        "material_read": "Sections 2–4, Section 6, relevant proof appendix, including CAST-1 definition and comparison with AC/RCHOL.",
+        "method": "Lawful open-access arXiv full HTML and local sampling formulas checked.",
+        "title": "CAST: Canonical Approximate Schur Tree for Approximate Cholesky on Graphs",
+        "trigger": "Recent direct competing local one-tree numerical linear algebra result; possible stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "20411aed-cb08-4819-9039-9ca1d9386552",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: This is a complete infinite-family inverse-sensitivity law of an actual published approximate-Cholesky elimination primitive. It proves an exact n/2 pseudoinverse inflation in every centered direction despite E[T]=P and connectedness, and a deterministic tiny-eigenvalue witness for every sampled tree. Effective resistance is a natural electrical/numerical invariant central to Laplacian solution quality; its exact degree dependence motivates alternatives with more edges or different distributions. Neither a routine finite table nor unsupported conjectured downstream speedup. Its scope is explicitly local and does not infer whole-solver performance.",
+    "status": "PASS"
+  }
+}
