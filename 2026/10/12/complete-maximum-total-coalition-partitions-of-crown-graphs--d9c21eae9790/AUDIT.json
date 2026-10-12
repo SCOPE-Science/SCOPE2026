@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The crown total-domination criterion is proved in both directions, including matched nonadjacencies. Under deficit <=4, at most eight vertices are in nonsingleton blocks. Assuming one side has no singleton forces a singleton on the other side and a (r,1) coalition partner; the absence of pure blocks would require at least n>4 deficit units, while a pure block plus its necessary >=2-opposite-side partner saturates all four units and leaves at most four vertices on that side. Therefore both sides have singletons, whose disjoint distinct partners must cost at least two units each, forcing exactly opposing (2,1) and (1,2) triple blocks and no other nonsingletons. Conversely every such partition is a valid total-coalition partition. Profile-disambiguated binomial choices yield the exact count, while the union criterion yields the unique double-star partner graph. Explicit exhaustive adjacency checks for n=3..7 and all small partition witnesses support, but do not replace, this symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2301.09979v3 (Theorem 5.1 only applies when total-coalition number attains general sharp maximum-degree bound)",
+        "https://arxiv.org/html/2502.07310v3 (general bounds and small-regular-degree exact cases)",
+        "https://pure.uj.ac.za/en/publications/a-characterization-of-graphs-with-given-total-coalition-numbers/ (2024 paper characterizes minimum total coalition number 2 and min-degree-one graphs)"
+      ],
+      "reasoning": "The sharp-bound rigidity results of Barát–Blázsik require equality in TC(G)=floor(Delta^2/4+Delta+1), whereas the crown has Delta=n-1 and TC=2n-4, strictly smaller for n>=5; their uniqueness theorem thus does not apply. The other broad bounds/classifications do not cover all crown optimum profiles or exact optimizer counts.",
+      "searches": [
+        "published-finding corpus: total coalition number bipartite regular graphs maximum total coalition partition count",
+        "published: arXiv:2301.09979v3 Sections 4-6, optimal total coalition graph rigidity",
+        "published: arXiv:2502.07310v3 Section 3, bounds for total-k-coalition",
+        "web: A characterization of graphs with given total coalition numbers Henning Jogan results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.11590v2, Sections 1-5; definition and first verified public date 2022-11-21, MSC 05C60",
+      "arXiv:2301.09979v3, Sections 2-6, sharp-bound coalitions and coalition graph rigidity",
+      "Golmohammadi, Alikhani, Bakhshesh, Double total coalitions in graphs, public full text Proposition 3.3",
+      "arXiv:2502.07310v3, total k-coalition bounds and exact regular graph cases",
+      "arXiv:2507.18306v1, Section 5 and Theorem 5.3 exact total k-coalition for complete bipartite",
+      "Henning, Jogan (2024), A characterization of graphs with given total coalition numbers, abstract-only scope",
+      "published-finding corpus: SCOPE restrained domination of crown graph, 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+      "published-finding corpus: SCOPE crown proper conflict-free coloring, 2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brešar–Henning–Samadi 2025 prove scalar 2n-4 for total-2-coalition K_{n,n}, displaying one partition with (2,1) and (1,2) triples (https://arxiv.org/html/2507.18306v1).",
+        "Golmohammadi–Alikhani–Bakhshesh 2024 Proposition 3.3 also displays one two-triple partition while proving only the scalar (https://www.researchgate.net/publication/387352932_Double_total_coalitions_in_graphs).",
+        "Alikhani–Bakhshesh–Golmohammadi posed total coalition graph questions (https://arxiv.org/html/2211.11590v2)."
+      ],
+      "reasoning": "The published scalar conclusion and existence of a two-triple witness do not imply *every* maximum partition has this unique block shape, nor determine the number of partitions or partnership graph. The new deficit-saturation lemma rules out all other profiles for n>=5, then proves the count; no implication from a broader prior result was identified.",
+      "searches": [
+        "published: arXiv:2507.18306v1 Theorem 5.3 proof equality cases",
+        "published: Golmohammadi et al. Double total coalitions, Proposition 3.3 proof",
+        "published: arXiv:2211.11590v2 Section 2 and concluding problems on coalition graphs",
+        "published-finding corpus: exact total coalition number crown graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2507.18306v1 (Theorem 5.3: exact total-k-coalition number of K_{s,t}, with explicit construction)",
+        "https://www.researchgate.net/publication/387352932_Double_total_coalitions_in_graphs (Proposition 3.3: exact double-total-coalition scalar of K_{p,q})",
+        "For any subset of crown H_n with n>=3, total domination holds iff its two occupancies are >=2, exactly as for total-2 domination on K_{n,n}."
+      ],
+      "reasoning": "The scalar is equivalent to already solved total-2-coalition and double-total-coalition statements and is expressly excluded from novelty. The transfer is equivalence of all feasible partitions, not just a similar name. The source texts do not claim the universal shape of every optimum, their count, or unique partner graph.",
+      "searches": [
+        "published-finding corpus: total coalition partitions of regular bipartite crown graphs complete bipartite graph minus a perfect matching",
+        "published-finding corpus: Total 2-coalition partition K_{n,n} maximum partition classification and count; coalition graph double star",
+        "published: arXiv:2507.18306v1 Section 5, Theorem 5.3",
+        "published: Golmohammadi et al. Double total coalitions in graphs, Proposition 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus crown records 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa and 2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105 use unrelated invariants.",
+        "Independent bounded checker reproduces optimizer counts 900, 3600, 11025 at n=5,6,7; no exact enumeration table/source in the inspected primary literature."
+      ],
+      "reasoning": "No matching all-optimum table or exact enumerator was found. A finite checker is evidence for correctness at small n, not evidence of publication novelty. The explicit infinite formula and shape are compared to the primary source theorems rather than inferred novel from a missing search hit.",
+      "searches": [
+        "published-finding corpus: All maximum total coalition partitions of crown graphs K(n,n)-perfect-matching have exactly two three-vertex blocks of profiles (2,1) and (1,2), with n choose 2 times n times (n-2) times (n-1 choose 2) partitions",
+        "web: total coalition K_{n,n} matching partitions number maximum",
+        "web: total coalition partitions crown maximum count"
+      ]
+    },
+    "rationale": "Full-text analysis uncovered decisive prior scalar coverage, which is explicitly not claimed. The 2024 manuscript on double total coalitions, Proposition 3.3, and the 2025 complete-bipartite total-k-coalition result, Theorem 5.3, give the same 2n-4 optimum by a complete predicate equivalence and display opposing triple blocks; neither claims that all optimizers have that form, supplies the exact number, or proves their unique partnership graph. The Barát–Blázsik sharp-general-bound coalition-graph theorem has a nonapplicable equality hypothesis. Targeted published-finding corpus and primary literature searches found no stronger published all-extremizer coverage, but incomplete indexing and one unavailable secondary full text leave a residual novelty risk; absence of search hits alone is not treated as proof.",
+    "residual_risks": [
+      "Nonindexed publications or manuscripts may contain exact maximum-partition counts not surfaced in the searches.",
+      "Henning–Jogan 2024 full text was inaccessible, although its official abstract restricts its classifications to TC=2 or graphs with a degree-one vertex; crown n>=5 lies in neither class.",
+      "Two already published results contain the same scalar and an example extremizer; independent human verification is recommended to confirm the novelty boundary of the all-extremizer theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact ordinary total coalition and poses graph-structure problems; does not give crown maximum partition count or structural characterization.",
+        "evidence": [
+          "https://arxiv.org/abs/2211.11590 (first public 2022-11-21 and primary MSC 05C60)",
+          "https://arxiv.org/html/2211.11590v2 (Sections 2-5)"
+        ],
+        "identifier_or_url": "arXiv:2211.11590v2 | https://arxiv.org/html/2211.11590v2",
+        "material_read": "Full available arXiv HTML including definitions 2.1-2.2, degree-one/two results, and concluding research questions.",
+        "method": "Read public primary HTML, searched crown and bipartite and inspected Sections 1-5.",
+        "title": "Introduction to total coalitions in graphs",
+        "trigger": "Original invariant and total-coalition graph questions; first public date and primary MSC."
+      },
+      {
+        "assessment": "The sharp-equality optimal-coalition-graph uniqueness results do not apply to crowns: TC(Cr_n)=2n-4 is strictly below their quadratic degree bound.",
+        "evidence": [
+          "https://arxiv.org/html/2301.09979v3 (Section 5 and Theorem 5.1)"
+        ],
+        "identifier_or_url": "arXiv:2301.09979v3 | https://arxiv.org/html/2301.09979v3",
+        "material_read": "Full arXiv HTML, especially definitions and Theorems 4.2, 5.1-5.2 and their precise sharp-equality assumptions.",
+        "method": "Read primary HTML and compare crown graph degree and scalar against sharp-bound hypotheses.",
+        "title": "General sharp upper bounds on the total coalition number",
+        "trigger": "Potentially dominating general theorem about optimal total-coalition graphs."
+      },
+      {
+        "assessment": "Proposition 3.3 gives same scalar via equivalent two-side predicate and displays a witness partition of opposing triples, but does not count or characterize all maximum partitions.",
+        "evidence": [
+          "https://www.researchgate.net/publication/387352932_Double_total_coalitions_in_graphs (Proposition 3.3 and proof; public manuscript 2024-12-24)"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/387352932_Double_total_coalitions_in_graphs",
+        "material_read": "Author-posted public full text as HTML text, including Proposition 3.3 and its complete proof covering complete bipartite graphs.",
+        "method": "Read the posted full text around Sections 2-3 and Proposition 3.3, comparing theorem statement and proof equality cases.",
+        "title": "Double total coalitions in graphs",
+        "trigger": "Exact predicate duality/alias: double-total domination means every vertex has at least two neighbors in the set."
+      },
+      {
+        "assessment": "Gives broad degree-based bounds and selected regular-graph results, not maximum-partition enumeration for crowns or complete bipartite graphs.",
+        "evidence": [
+          "https://arxiv.org/html/2502.07310v3 (Sections 1-4)"
+        ],
+        "identifier_or_url": "arXiv:2502.07310v3 | https://arxiv.org/html/2502.07310v3",
+        "material_read": "Available full arXiv HTML Sections 1-4 including bounds and regular-graph exact results.",
+        "method": "Read definitions, scope and major theorems; searched complete bipartite specialization.",
+        "title": "Total k-coalition: bounds, exact values and an application to double coalition",
+        "trigger": "Potential broader theorem in all-total-k-coalition setting."
+      },
+      {
+        "assessment": "Exactly covers scalar 2n-4 for corresponding total-2-coalition K_{n,n}; does not prove all maxima have only opposing triple blocks, derive their number, or specify unique coalition graph.",
+        "evidence": [
+          "https://arxiv.org/html/2507.18306v1 (Theorem 5.3 and proof)"
+        ],
+        "identifier_or_url": "arXiv:2507.18306v1 | https://arxiv.org/html/2507.18306v1",
+        "material_read": "Full public arXiv HTML, Sections 1-5 and complete Theorem 5.3, explicit construction, upper bound proof.",
+        "method": "Read theorem and proof and compare both total-domination equivalence and all-extremizer implications.",
+        "title": "On k-coalition in graphs: bounds and exact values",
+        "trigger": "Closest stronger scalar theorem: Theorem 5.3 exact total k-coalition numbers of complete bipartite graphs."
+      },
+      {
+        "assessment": "The available stated results concern TC=2 or minimum degree one, neither class includes crown n>=5. Remaining inaccessible source risk recorded.",
+        "evidence": [
+          "https://pure.uj.ac.za/en/publications/a-characterization-of-graphs-with-given-total-coalition-numbers/"
+        ],
+        "identifier_or_url": "https://pure.uj.ac.za/en/publications/a-characterization-of-graphs-with-given-total-coalition-numbers/",
+        "material_read": "Author/university publication record abstract, enumerated scope (TC=2 and minimum-degree-one graphs); full article unavailable.",
+        "method": "Read official author publication abstract and cross-reference to arXiv 2507 citations; no claim of complete full-text inspection.",
+        "title": "A characterization of graphs with given total coalition numbers",
+        "trigger": "Plausible broad structural theorem might imply the count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9c21eae-9790-41b8-9085-e3883096c0f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification of the optimum solution space for ordinary total-coalition partitions of crown graphs: it proves extremal rigidity, a closed labeled optimizer count of order n^6, and a unique induced total-coalition graph. The first total-coalition paper explicitly proposed examining such graphs, and later works already give only the scalar and one construction. Counting and specifying all optima distinguishes many inequivalent partitions sharing one partnership graph, which is useful structural information and not an arbitrary finite-case table or marginal numerical improvement.",
+    "status": "PASS"
+  }
+}
