@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The one-deletion condition is exactly pairwise disjointness of deletion shadows. The verifier reconstructs all 81 shadows, enumerates every maximal clique, and separately counts all size-11 and size-12 cliques. It obtains maximum 11, six maxima, and zero size-12 cliques. It then directly checks every maximum, the common nine-word core, the six-cycle of residual words, the full order-12 symmetry action, and the census hash.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1003.4057v1 Theorem 2.2 is sharp for even q; Remark 1 states the same bound is not sharp for odd q and that a sharp odd-q bound appears difficult.",
+        "arXiv:1211.3128v1 gives the general bound (q^n-q)/((q-1)(n-1)), which is 13 at q=3,n=4.",
+        "The closest indexed exact length-four record located for q=5 concerns the different alphabet size and does not imply the q=3 classification."
+      ],
+      "reasoning": "Neither the even-alphabet theorem nor the general q-ary bound dominates the ternary statement. The former excludes q=3 from its sharp case; the latter is numerically weaker.",
+      "searches": [
+        "length four deletion correcting odd alphabet code",
+        "N(4,q,1) odd q deletion",
+        "q-ary single deletion exact small parameters",
+        "exact quinary length-four single-deletion code size"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1003.4057v1",
+      "doi:10.1109/TIT.2010.2048492",
+      "arXiv:1211.3128v1",
+      "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For q=3, the 2010 length-four analysis yields only the nonsharp bound 12.",
+        "The 2012 general bound yields 13.",
+        "Neither source counts equality cases or classifies them under symmetry."
+      ],
+      "reasoning": "The new statement strengthens the best directly applicable inspected upper bound from 12 to the exact value 11 and adds a complete six-code structural and symmetry classification; those conclusions are not logical corollaries of the inspected prior results.",
+      "searches": [
+        "arXiv:1003.4057v1 odd q Remark 1",
+        "arXiv:1211.3128v1 q-ary single-deletion upper bound",
+        "ternary length four single deletion exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1211.3128v1 defines a single-deletion code by pairwise disjoint one-deletion sets and gives the equivalent edit-distance formulation.",
+        "arXiv:1003.4057v1 defines N(n,q,d) in the deletion/insertion metric and specializes to length four."
+      ],
+      "reasoning": "The claim was compared under the standard deletion-shadow, insertion/deletion-distance, and N(4,3,1) formulations rather than only by title. No inspected source stated the ternary exact value or equality census.",
+      "searches": [
+        "ternary length four single deletion correcting code maximum 11",
+        "3-ary length-4 single deletion code equality cases six maxima",
+        "N(4,3,1) deletion",
+        "Levenshtein distance ternary length four minimum edit distance three maximum 11",
+        "arXiv:1003.4057v1",
+        "arXiv:1211.3128v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched exact-result records returned a quinary length-four result as the closest same-length finite computation, not a ternary row.",
+        "The 2010 same-length primary paper explicitly identifies odd q as nonsharp under its bound, providing substantive gap evidence beyond failed keyword search."
+      ],
+      "reasoning": "No exact ternary table entry or equality classification was found in the searched records. This absence is not used alone as novelty proof; it is combined with the explicit odd-alphabet gap in the closest primary source.",
+      "searches": [
+        "ternary length four one deletion correcting code maximum 11 six optimal codes",
+        "q=3 n=4 single deletion correcting code exact maximum",
+        "ternary deletion code length 4 equality classification",
+        "N(4,3,1)=11"
+      ]
+    },
+    "rationale": "The closest same-length primary source proves the even-alphabet case and explicitly says its odd-alphabet bound is not sharp; at q=3 it leaves only the upper bound 12. A later general q-ary bound gives 13 at this parameter. Searches under deletion-shadow, edit-distance, N(4,3,1), ternary single-deletion, and equality-classification aliases found no source implying the exact value 11, the six extremizers, or their orbit structure.",
+    "residual_risks": [
+      "An obscure or unindexed historical enumeration could contain the q=3,n=4 equality census.",
+      "The quinary indexed record was available only through its scientific title and summary for this comparison; no stronger cross-alphabet implication was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the sharp theorem assumes even alphabet size. For odd q the paper explicitly says the inherited bound is not sharp and a sharp bound appears difficult.",
+        "evidence": "The paper defines N(n,q,d), proves the length-four even-q bound, and states in Remark 1 that the odd-q bound is not sharp.",
+        "identifier_or_url": "arXiv:1003.4057v1",
+        "material_read": "Full arXiv HTML, including Introduction, Section 2, Theorem 2.2, Remark 1, and the displayed constructions.",
+        "method": "Direct full-text comparison of hypotheses and conclusions.",
+        "title": "Construction of optimal codes in deletion and insertion metric",
+        "trigger": "Exact same block length and deletion model; title promises optimality."
+      },
+      {
+        "assessment": "NOT_COVERING: the general bound gives 13 at q=3,n=4 and does not enumerate optimal ternary codes.",
+        "evidence": "The source defines pairwise disjoint deletion sets and states |C| <= (q^n-q)/((q-1)(n-1)).",
+        "identifier_or_url": "arXiv:1211.3128v1",
+        "material_read": "Full arXiv HTML through the definitions, related work, and single-deletion bound discussion.",
+        "method": "Direct full-text comparison and parameter substitution.",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "General q-ary single-deletion upper bound on the same object."
+      },
+      {
+        "assessment": "NOT_COVERING: it concerns alphabet size five and exact size 42, with no ternary implication stated.",
+        "evidence": "The indexed summary is explicitly quinary, not ternary.",
+        "identifier_or_url": "2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+        "material_read": "Indexed scientific title and summary.",
+        "method": "Parameter and implication comparison.",
+        "title": "Exact quinary length-four single-deletion code size",
+        "trigger": "Closest indexed exact length-four single-deletion finite result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a1578e5-e9f0-470f-883a-05c01eaf0e5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter is the smallest odd nonbinary alphabet in the exact length-four problem singled out by the 2010 source as having a nonsharp bound. Closing N(4,3,1) from the known bound 12 to the exact value 11 is a natural boundary case, and the complete six-extremizer classification reveals a rigid common core plus a six-cycle that is not visible from the numerical optimum alone.",
+    "status": "PASS"
+  }
+}
