@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For each shore of size s, legal strong-majority play is exactly a k-bin occupancy process with every bin capped at floor(s/2). A nonfull dead state exists exactly when k floor(s/2)<s; otherwise at least one color remains legal until the shore is full. Applying this independently to both shores proves the claimed all-palette criterion and the exact parity formula. The bundled verifier independently enumerates reachable occupancy states for small s and checks the closed formula through m,n=100.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.37796v1 introduces the strong majority game, determines cycles, and proves hardness; its only broad bipartite statements in the inspected passages concern other majority-game complexity results.",
+        "arXiv:2605.23828v1 gives static strong-majority values for cycles and complete graphs plus general bounds, but no complete-bipartite statement."
+      ],
+      "reasoning": "Neither the initiating game paper nor the underlying static paper contains a broader theorem whose specialization yields the all-palette biclique game classification.",
+      "searches": [
+        "arXiv:2609.37796v1 full HTML: search for complete bipartite and bipartite",
+        "arXiv:2605.23828v1 full HTML: search for complete bipartite and K_{m,n}",
+        "published-finding corpus query: strong majority number complete bipartite both shores even"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.37796v1",
+      "arXiv:2605.23828v1",
+      "published-finding corpus:2026/9/17/SCOPE005",
+      "own current ledger through g000022",
+      "own prior ledger 2026-09_week4 through g000061"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Static strong-majority feasibility alone does not state that arbitrary adversarial legal play always completes.",
+        "The game paper explicitly emphasizes that game parameters can behave differently from static parameters, while its strong-majority exact family is cycles."
+      ],
+      "reasoning": "The new implication is the collapse of the adversarial game to a shore-capacity condition for every palette size; this is stronger than a static coloring existence statement and is not implied by the cited exact cycle or complete-graph results.",
+      "searches": [
+        "arXiv:2609.37796v1 Sections 1.3, 1.4, 7, 8",
+        "arXiv:2605.23828v1 Section 2",
+        "published-finding corpus query: strong majority game chromatic number complete bipartite graph K_mn"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus item stated the vertex strong-majority game value for complete bipartite graphs.",
+        "The closest repeated hit, 2026/9/17/SCOPE005, concerns generalized strong-majority edge colouring rather than the vertex game."
+      ],
+      "reasoning": "The candidate was searched both as an exact game-number formula and as the stronger universal-completion/capacity formulation; edge-coloring records do not imply a vertex-coloring game statement.",
+      "searches": [
+        "published-finding corpus query: strong majority game complete bipartite every legal play completes capacity",
+        "published-finding corpus query: strong majority game chromatic number K_mn parity",
+        "published-finding corpus query: Maj_g complete bipartite parity two three colors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database record for the strong majority vertex game on complete bipartite graphs was returned.",
+        "Own current ledger search found no strong-majority-game or Maj_g claim; the prior ledger semantic search returned only different majority-C and strong-majority-edge results."
+      ],
+      "reasoning": "The exact parity boundary and universal legal-play completion property were not present in the searched database or own ledgers.",
+      "searches": [
+        "published-finding corpus query: strong majority 2-coloring complete bipartite both parts even",
+        "published-finding corpus query: strong majority number complete bipartite both shores even",
+        "published-finding corpus query: strong majority game complete bipartite even odd shores"
+      ]
+    },
+    "rationale": "The 2026 paper introducing the strong majority coloring game was inspected in full HTML; it treats cycles and complexity and has no complete-bipartite occurrence. The 2026 paper introducing static strong majority coloring was also inspected in full HTML; it treats cycles, complete graphs, general bounds, and extremal constructions, with no complete-bipartite occurrence. published-finding corpus searches under exact and alias formulations found no record implying the all-palette biclique game theorem.",
+    "residual_risks": [
+      "An older or differently indexed observation about strong majority coloring on bicliques could state the static parity threshold; the accepted claim is stronger because it proves universal completion of every legal play for every palette size.",
+      "The semantic database and web searches cannot establish absolute uniqueness, so an unindexed equivalent game statement remains a residual literature risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed biclique theorem.",
+        "evidence": "The paper defines the parameter, gives exact cycle values and hardness results, and contains no “complete bipartite” occurrence.",
+        "identifier_or_url": "arXiv:2609.37796v1",
+        "material_read": "Full arXiv HTML, including introduction, known-results survey, statement of strong-majority game results, and the strong-game/hardness sections; full-text searches for “complete bipartite” and “bipartite”.",
+        "method": "Direct full-text HTML inspection and exact in-document searches.",
+        "title": "Structural and computational aspects of majority coloring games",
+        "trigger": "Primary recent source introducing the strong majority coloring game and therefore the most plausible covering source."
+      },
+      {
+        "assessment": "NOT_COVERING for the game theorem and no explicit complete-bipartite static theorem located.",
+        "evidence": "The paper states exact values for cycles and complete graphs and general bounds/constructions; the searched complete-bipartite phrases do not occur.",
+        "identifier_or_url": "arXiv:2605.23828v1",
+        "material_read": "Full arXiv HTML, especially the static strong-majority vertex-coloring section; exact searches for “complete bipartite” and “K_{m,n}”.",
+        "method": "Direct full-text HTML inspection and exact in-document searches.",
+        "title": "Strong majority colorings of graphs",
+        "trigger": "Underlying static invariant could potentially imply the same biclique threshold or a stronger family theorem."
+      },
+      {
+        "assessment": "No covering published finding located.",
+        "evidence": "Closest recurring result 2026/9/17/SCOPE005 is an edge-coloring theorem and does not imply the vertex game claim.",
+        "identifier_or_url": "published-finding corpus semantic database",
+        "material_read": "Ranked titles and summaries returned by targeted queries for the exact game value, biclique aliases, parity, capacity, and static-to-game formulations.",
+        "method": "Semantic database search with statement-level implication comparison.",
+        "title": "Published published-finding corpus findings under exact/alias queries",
+        "trigger": "Required overlap and equivalent-formulation check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18a038c1-9054-4847-8160-6c897fa2c7c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification of a newly introduced game parameter on the canonical two-parameter complete-bipartite family. It proves more than the minimum palette size: for every palette size it identifies exactly when every legal play is forced to finish, revealing a sharp static-to-game collapse and a parity boundary.",
+    "status": "PASS"
+  }
+}
