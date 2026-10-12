@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact four-subset covariance transfer produces the stated two-by-two matrix; Frobenius self-adjointness and conjugation by the positive square root of the Gram matrix transfer stability to all deterministic starts. The characteristic factorization proves Schur stability for all mu below the algebraic root; positivity/Perron-Frobenius establishes nondecay and growth at and above the root. Independent exact one-step operator spectrum proves the 1/2 boundary and deterministic-block expansion. Rational checker reconstructs all formulas from four by four matrices, but the infinite-time claims rest on the complete analytic proof. No pseudo-inverse projection is conflated with the chosen unaveraged row sum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2011.10353v2 Theorem 5 gives a sufficient contraction bound for BRUS with coefficient 1 only when coherence below one-half, and does not claim instability above that boundary.",
+        "arXiv:2011.06688 Algorithm 2 and arXiv:2211.16682v1 Algorithm 1 employ the selected-block pseudoinverse and hence an orthogonal block projector.",
+        "Necoara arXiv:1902.09946 analyzes normalized weighted row projection averages and convergence in certified step regimes; no exact four-row unaveraged mean-square threshold was found in the inspected text."
+      ],
+      "reasoning": "The relevant BRUS sufficient theorem does not imply exact mean-square stability for coherence above one-half. Separately, the source projection theorem guarantees nonexpansive individual updates and is inapplicable to expansive unaveraged sums. General averaged-block sufficient bounds do not imply an exact necessary-and-sufficient random-stabilization frontier for the unsupported large relaxation.",
+      "searches": [
+        "parallel simultaneous Kaczmarz unaveraged sum independent uniform three of four equicorrelated rows sharp mean square stability threshold sqrt7 randomization stable unstable individual blocks",
+        "arXiv:2011.10353v2 Theorem 5 and Section 2.1.2",
+        "arXiv:2011.06688 Algorithm 2",
+        "arXiv:2211.16682v1 Theorem 1",
+        "arXiv:1902.09946 Section 2.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2011.10353v2",
+      "https://arxiv.org/abs/2011.10353",
+      "https://arxiv.org/html/2211.16682v1",
+      "https://arxiv.org/pdf/2211.16682",
+      "https://arxiv.org/pdf/2011.06688",
+      "https://arxiv.org/pdf/1902.09946",
+      "https://doi.org/10.3390/math10142408",
+      "https://doi.org/10.1137/19M1251643"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 of arXiv:2011.10353v2 covers the same BRUS uniform-block update but supplies only a sufficient one-step-safe regime; its formula does not imply the exact threshold beyond mu=1/2.",
+        "Theorem 1 of arXiv:2211.16682v1 is proved for its pseudoinverse-based Algorithm 1, whose operator is an orthogonal projection rather than the unaveraged selected-row update.",
+        "The pseudoinverse-free formula is separately given in Remark 2, without an assertion that relaxation 3 inherits Algorithm 1 guarantees.",
+        "The relevant indexed neighboring result on maximal-distance Kaczmarz controls total residual spikes for single-row maximization, not this random parallel three-row expected-squared-error spectrum."
+      ],
+      "reasoning": "The prior BRUS bound proves only the one-step-safe sufficient interval and is strictly weaker than the new exact asymptotic interval. The other source algorithms with pseudoinverses strictly contract or preserve Euclidean error at each step, whereas every deterministic fixed block in the claimed window has an expansive eigenvalue. Therefore their theorems cannot imply this stochastic phenomenon. Nor does the result claim their theorems are false.",
+      "searches": [
+        "randomized block subsampling Kaczmarz Motzkin Zhang Li Algorithm 1 transpose convergence counterexample 4 by 4 equicorrelation stochastic mean-square divergent",
+        "parallel simultaneous Kaczmarz unaveraged sum independent uniform three of four equicorrelated rows sharp mean square stability threshold sqrt7 randomization stable unstable individual blocks",
+        "arXiv:2011.10353v2 BRUS Algorithm 1/Theorem 5",
+        "arXiv:2211.16682v1 Algorithm 1/Theorem 1",
+        "arXiv:2011.06688 Algorithm 2",
+        "arXiv:1902.09946 (RBK)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2011.10353v2 Algorithm 1 BRUS(3) is precisely the uniform three-subset unaveraged sum at absorbed coefficient 1; its Theorem 5 provides a sufficient rather than necessary stepsize range.",
+        "arXiv:2211.16682v1 Remark 2 expresses an alpha-weighted average of individually normalized row corrections; one-third weight per selected row and relaxation three gives exactly the unaveraged sum.",
+        "arXiv:1902.09946 Section 2.2 uses normalized weighted row averages and prescribed safe relaxation; formally matching the unaveraged sum requires choosing a larger relaxation outside the cited sufficient guarantee."
+      ],
+      "reasoning": "The same operator is BRUS(3) with absorbed coefficient 1, and also the optional alpha-weighted pseudoinverse-free family at a different parameter convention; this is not the Zhang--Li projection algorithm. Equivalence to ordinary block projection would require the selected-row sum matrix to be idempotent, which fails for positive coherence.",
+      "searches": [
+        "parallel simultaneous Kaczmarz unaveraged sum independent uniform three of four equicorrelated rows sharp mean square stability threshold sqrt7 randomization stable unstable individual blocks",
+        "\"equiangular\" \"randomized block Kaczmarz\" mean square stability threshold",
+        "arXiv:2011.10353v2 Section 2.1.2 BRUS Algorithm 1",
+        "arXiv:2211.16682v1 Remark 2",
+        "arXiv:1902.09946 Section 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source numerical sections report empirical rates/counts for random/sparse matrices and does not tabulate the equicorrelated four-row moment map.",
+        "A finite numerical table cannot imply a necessary-and-sufficient criterion for every real coherence value and every initial error."
+      ],
+      "reasoning": "Neither the inspected source plots nor published record hits constitute an exact table containing the algebraic critical value or Perron stability proof.",
+      "searches": [
+        "exact mean-square convergence stability critical coherence (sqrt(7)-1)/3 randomly select 3 of 4 equicorrelated rows simultaneous block Kaczmarz Motzkin unnormalized transpose",
+        "parallel simultaneous Kaczmarz unaveraged sum independent uniform three of four equicorrelated rows sharp mean square stability threshold sqrt7 randomization stable unstable individual blocks",
+        "arXiv:2011.10353v2 Section 4 experiments",
+        "arXiv:2211.16682v1 Section 3 experiments",
+        "arXiv:1902.09946 Section 5"
+      ]
+    },
+    "rationale": "Full-text inspection of Du--Sun BRUS confirms the exact update and a mean-square theorem with only a conservative sufficient bound, and distinguishes the Zhang--Li block pseudoinverse projection from its undamped pseudoinverse-free alternative; the exact all-time phase diagram is not implied by Du--Sun’s one-step-safe sufficient condition or by other weighted-average stepsize guarantees. Exact four-row phase boundaries and stochastic stabilization of individually expansive maps were absent in the inspected relevant published records. The remaining risk is unindexed specialized work, not a decisive known implication.",
+    "residual_risks": [
+      "Specialized unindexed work on exact Kronecker mean-square stability for equicorrelated parallel row-projection sums could predate this computation.",
+      "The source sufficient convergence condition for BRUS is not a necessary stability condition; comparison must distinguish its guaranteed safe interval from the exact larger mean-square stable interval, while not attributing unaveraged dynamics to Zhang--Li’s pseudoinverse Algorithm 1.",
+      "General non-equicorrelated matrices and varying block size or relaxation are not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Section 2.1.2 BRUS(3) at absorbed coefficient one is the same algorithm. Theorem 5 suffices below coherence 1/2 in this family, but contains no claimed exact necessary-and-sufficient threshold; the result establishes mean-square convergence beyond that sufficient window until (sqrt7-1)/3.",
+        "evidence": [
+          "arXiv:2011.10353v2 HTML lines 186-204 (Theorem 5) and 263-287 (BRUS definition and Algorithm 1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2011.10353v2",
+        "material_read": "Read the arXiv HTML introduction, Section 2 definition, Section 2.1/Theorem 5 and proof, Section 2.1.2 including Algorithm 1; other sections and appendix identified but not used",
+        "method": "Matched the coefficient-one uniform 3-subset update exactly; specialized the published sufficient spectral stepsize bound and compared it to the necessary-and-sufficient two-moment spectrum",
+        "title": "Pseudoinverse-free randomized block iterative algorithms for consistent and inconsistent linear systems",
+        "trigger": "Exact published block-row uniform sampling algorithm and potentially stronger mean-square convergence theorem"
+      },
+      {
+        "assessment": "Source Algorithm 1 uses the selected-block pseudoinverse and its convergence theorem does not apply. Remark 2 provides a distinct alpha-weighted pseudoinverse-free formula that includes the stated unaveraged specialization. No exact four-row moment stability threshold or transient window stated.",
+        "evidence": [
+          "arXiv:2211.16682v1 lines 65-112 (Algorithm 1 and Remark 2), lines 116-146 (proof); Section 3 experiments, HTML v1 and PDF pp. 3-4,10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.16682v1",
+        "material_read": "Read the arXiv HTML introduction, Algorithm 1, Remark 2, Theorem 1 and proof, parameter table, Section 3 experiment descriptions and references; matching PDF pages checked",
+        "method": "Compared operator algebra and parameter restrictions with the claimed unaveraged update",
+        "title": "Randomized block subsampling Kaczmarz-Motzkin method",
+        "trigger": "Defining paper for the three-row subsampling scheme and optional weighted correction"
+      },
+      {
+        "assessment": "Its projector update is distinct from unaveraged parallel row corrections; no implication to sharp random stabilization of expansive maps.",
+        "evidence": [
+          "arXiv:2011.06688, Algorithm 2, PDF p. 3 (zero-index screenshot page 2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.06688",
+        "material_read": "Algorithm 2, model description and its pseudoinverse block update in PDF p. 3; supporting theorem context",
+        "method": "Direct update-level comparison of the selected-block pseudoinverse versus A_S^T",
+        "title": "Block sampling Kaczmarz-Motzkin methods for consistent linear systems",
+        "trigger": "Prior block selection and a plausible dominating convergence theorem"
+      },
+      {
+        "assessment": "Weighted averages and sufficient convergence theory, not an exact unaveraged four-row stability frontier. The present undamped update lies outside the generic prescribed conservative step regime.",
+        "evidence": [
+          "arXiv:1902.09946, Section 2.2, PDF p. 3 (zero-index screenshot page 2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1902.09946",
+        "material_read": "Algorithmic framework in Sections 1.3 and 2.2, normalized weighted row updates, block spectral condition and theorem context in PDF pp. 2-3",
+        "method": "Examined weights, step policies, and whether exact equicorrelation two-moment recurrence is present",
+        "title": "Faster randomized block Kaczmarz algorithms",
+        "trigger": "General stochastic block methods could subsume this result through step conditions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1d7a5e2e-c82f-4f1e-ac84-247942e0019a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Block-row uniform sampling is a published low-cost pseudoinverse-free method, with a known sufficient stepsize ceiling. The canonical unaveraged three-row sum admits two distinct sharp safety scales: the one-step universal nonexpansion cutoff 1/2 and the asymptotic mean-square stability cutoff (sqrt7-1)/3. The intervening strict region shows genuine stochastic stabilization of individually expansive fixed-block maps, a nontrivial algorithmic design boundary rather than a merely finite, redundant computation.",
+    "status": "PASS"
+  }
+}
