@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "At a full conflict the source rules fix both the current-gradient momentum weight and the backtrack coefficient. The equal-magnitude reversal keeps the second-moment maximum constant, leaving two exact scalar recurrences. Their closed forms and interval-certified signs show four stale parameter increments, a fifth-step update reversal, and a sixth-step momentum reversal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source motivates DEAM as correcting momentum errors and zig-zag updates.",
+        "The later journal abstract describes the backtrack as restricting redundant updates and providing anticipatory correction.",
+        "General momentum reversal phenomena do not imply the DEAM-specific constants or recurrence."
+      ],
+      "reasoning": "The accepted result is a source-parameter response law, not the generic observation that momentum has lag. It quantifies how the paper's particular angle branch and \\(-1/2\\) backtrack interact.",
+      "searches": [
+        "adaptive momentum gradient reversal backtracking optimizer",
+        "DEAM zig zag correction midpoint backtrack",
+        "DEAM anticipatory update momentum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.11307v1",
+      "DOI:10.1002/int.22854"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining algorithm sets the full-conflict momentum weight to \\(1/K\\) and the backtrack coefficient to \\(-1/2\\).",
+        "The source explains the first full-conflict backtrack as moving toward the midpoint of the preceding update.",
+        "The later journal description states qualitative anticipatory correction but no multi-step sign timing."
+      ],
+      "reasoning": "The prior statements specify one-step mechanics but do not imply the exact number of stale parameter steps. The final claim requires solving the repeated full-conflict state and comparing it to the no-backtrack counterfactual.",
+      "searches": [
+        "arXiv:1907.11307 discriminative angle beta backtrack",
+        "arXiv:1907.11307 180 degree backtrack midpoint",
+        "DOI:10.1002/int.22854 DEAM backtrack anticipatory update"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the angle-π branch with fixed momentum weight and backtrack coefficient.",
+        "Its discussion describes midpoint backtracking qualitatively but gives no repeated-reversal recurrence.",
+        "No inspected source states the exact parameter-sign or momentum-sign reversal steps."
+      ],
+      "reasoning": "Equivalent coverage would give the persistent full-conflict step response, the exact stale-update count, or a direct comparison with the same adaptive momentum rule with the backtrack removed. None was located.",
+      "searches": [
+        "DEAM permanent gradient reversal backtrack latency exact",
+        "DEAM discriminative angle 180 backtrack momentum sign reversal",
+        "DEAM scalar gradient reversal momentum backtrack"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed findings concern unrelated delayed iterations, adaptive-moment equivariance, and momentum stability.",
+        "No returned indexed finding names DEAM or provides a permanent-reversal latency law."
+      ],
+      "reasoning": "The nearest records use different algorithms and do not imply the source DEAM full-conflict recursion. Search absence is supporting evidence only.",
+      "searches": [
+        "DEAM permanent gradient reversal backtrack latency exact",
+        "DEAM discriminative angle 180 backtrack momentum sign reversal",
+        "adaptive momentum discriminative weight DEAM alternating gradient exact",
+        "DEAM scalar gradient reversal momentum backtrack"
+      ]
+    },
+    "rationale": "The defining paper explains the \\(-1/2\\) backtrack geometrically as a correction for zig-zag motion but does not derive its persistent-reversal response. The later journal version retains the qualitative anticipatory-update motivation without an exact stale-step count. Focused published-record and owned-ledger searches did not locate the four-versus-five reversal law.",
+    "residual_risks": [
+      "An equivalent scalar recurrence may exist in unindexed implementation notes.",
+      "The claim is restricted to the equal-magnitude permanent-reversal regime.",
+      "The no-backtrack comparator is a surgical ablation of the source rule rather than a separately published optimizer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ONE_STEP_MECHANISM_NOT_COVERING_PERSISTENT_REVERSAL_LATENCY.",
+        "evidence": "The source specifies \\(\beta=1/K\\) and \\(d=-1/2\\) at full conflict and gives a midpoint interpretation, but no repeated-reversal sign count.",
+        "identifier_or_url": "arXiv:1907.11307v1",
+        "material_read": "Open full text covering Algorithm 1, the angle definition, the piecewise momentum weight, the backtrack coefficient, the update recursion, and the geometric discussion of the \\(180^\\circ\\) case.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "DEAM: Adaptive Momentum with Discriminative Weight for Stochastic Optimization",
+        "trigger": "Defining source for the discriminative angle, adaptive momentum branch, and backtrack recursion."
+      },
+      {
+        "assessment": "QUALITATIVE_BACKTRACK_MOTIVATION_NOT_COVERING_EXACT_LATENCY.",
+        "evidence": "The accessible journal account describes backtracking as restricting redundant updates and providing anticipatory correction without an exact persistent-reversal law.",
+        "identifier_or_url": "DOI:10.1002/int.22854",
+        "material_read": "Accessible journal text including the abstract and method motivation describing discriminative-angle momentum and anticipatory backtracking.",
+        "method": "Publisher HTML inspection.",
+        "title": "Adaptive momentum with discriminative weight for neural network stochastic optimization",
+        "trigger": "Later journal version of the same method and closest subsequent primary account of the backtrack motivation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "15a36fcb-d972-4ac6-9f91-82af8be94c03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "DEAM's distinctive contribution is its angle-triggered momentum adaptation plus explicit backtracking intended to correct erroneous or zig-zag motion. A full \\(180^\\circ\\) reversal is the natural strongest test of that mechanism. The exact four-versus-five law quantifies both the residual latency and the precise benefit of the backtrack, while showing that the update reverses before the stored momentum does.",
+    "status": "PASS"
+  }
+}
