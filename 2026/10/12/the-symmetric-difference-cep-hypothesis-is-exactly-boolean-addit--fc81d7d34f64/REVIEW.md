@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The first implication of the theorem derives monotonicity from the quasi-identity and then proves join preservation using the triple \((x\vee y,x,y)\). Conversely, the disjoint decomposition of \(x\) and \(y\) proves the quasi-identity from join preservation without assuming \(f(0)=0\). The finite count follows from independent output-atom choices. `verify.py` checks all 4 unary maps on the two-element algebra, all 256 maps on the four-element algebra, all 8,000 monotone maps on the eight-element algebra, and the stated counterexample, and finishes with `VERIFY_OK`. Exhaustive finite checks do not replace the universal proof.
+
+**Originality — PASS, with risk.** The arXiv manuscript *More on modal logics and deduction* (arXiv:2603.17724v1, Sections 1–2) expressly claims that the displayed quasi-identity is strictly weaker than additivity and that its Example 2.2 satisfies it. The complete relevant proof context and example have been read and tested. The present equivalence entails neither claim. Semantic literature searches and published mathematical-result searches did not return an equivalent formulation. The primary risk is that the equivalence, viewed as a standalone Boolean-algebra identity, may have been stated in earlier algebra literature independently of this new application; database absence does not prove novelty.
+
+**Value — PASS.** This is a correction to a mathematically consequential proposed weakening of additivity in a recent analysis of CEP and deduction: it proves that the new intermediate condition collapses exactly to the known additive class, supplies a counterexample to the article's asserted witness, and gives a complete exact finite census. This is not merely an unexplained negative calculation or a claim that the entire article fails. No statement is made about the CEP of the example under other arguments.
+
+**Scope and risk.** Only the explicit quasi-identity of Fact 2.1 and the asserted satisfaction by Example 2.2 are addressed. Later strongly non-additive constructions, their proofs, and historical equivalence of the Boolean identity remain outside this result.
+
+Self-review: passed. Independent audit: not yet performed.
