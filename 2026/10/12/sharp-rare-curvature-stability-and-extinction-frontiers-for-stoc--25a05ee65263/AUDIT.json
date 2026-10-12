@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "PASS. The actual undamped SRKCD coefficients reduce to the Chebyshev stage recurrence with a single sampled curvature per macrostep; exact polynomial evaluation gives two multipliers. Iid product factorization proves every positive moment for all n; monotonic affine dependence on p proves each boundary including equality; SLLN and strict Jensen prove almost-sure exponent/separation, with a separate geometric extinction proof at a=0. Hyperbolic-cosine expansion establishes asymptotics. The verifier independently checked 6099 exact/numeric identities and the s=3 rational witness. No finite experiment substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stillfjord–Williamson arXiv:2201.12782v1 §§2–3 proves convergence with suitable decreasing stepsizes; §3.4 discusses per-eigenvalue linear stability.",
+        "Eftekhari et al., arXiv:1805.07199v1, deterministic quadratic Proposition 1 controls max over a fixed spectrum, not iid random curvatures.",
+        "Abdulle–Cirilli DOI:10.1137/070679375 abstract describes S-ROCK stability for stiff stochastic differential equations."
+      ],
+      "reasoning": "A worst-case deterministic spectral bound controls SRKCD at macrosteps stable for both curvatures; it does not determine stability for an aggressive step stable only for the common low-curvature branch. Diminishing-step convergence and additive-noise SDE stability use different hypotheses and do not imply a sharp constant-step Bernoulli batch threshold. The existence of these stronger-looking frameworks therefore does not dominate the present specified statement.",
+      "searches": [
+        "randomized numerical linear algebra sketching power iteration mean-square instability coupling spectral quadrature",
+        "SRKCD Stillfjord Williamson Chebyshev polynomial random batch stochastic optimization mean square stability",
+        "SRKCD stochastic stabilized Runge Kutta Chebyshev descent mean square stochastic curvature stability polynomial 2201.12782",
+        "Runge Kutta Chebyshev descent stochastic quadratic rare outlier mean square stability two point curvature"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.12782v1",
+      "arxiv:1805.07199v1",
+      "doi:10.1137/070679375",
+      "doi:10.1007/s11075-025-02251-1",
+      "published-finding corpus index reference 021cc30589a6 (different scalar random-curvature OSGM)",
+      "published-finding corpus index reference 31fff666d705 (deterministic two-step Richardson)",
+      "The original deterministic Chebyshev descent paper, arxiv:1805.07199v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2201.12782v1 equations (3.1)–(3.2) determine stage coefficients; the article does not present the exact two-point probability boundary or the almost-sure-vs-mean-square separation.",
+        "Eftekhari et al., deterministic RKCD Proposition 1 uses the maximum amplification across eigenvalues at one common fixed Hessian.",
+        "The rational witness has low-mode Chebyshev multiplier 0, high-mode multiplier -26, mean factor -13/50 and second-moment factor 169/25."
+      ],
+      "reasoning": "The main theorem is obtained by composing the published Chebyshev stage polynomial with a genuinely iid macrostep curvature switch, then solving the resulting exact moment and Lyapunov equations. Under the hypotheses of source deterministic stability, the large-curvature branch would be disallowed; relaxing that worst-case choice and quantifying its rare probability is the new substantive statement. Earlier scalar feedback and classical random-products principles are acknowledged as related tools rather than rebranded results.",
+      "searches": [
+        "SRKCD stabilized Runge Kutta Chebyshev descent two point random curvature mean square Lyapunov almost sure stability stage threshold",
+        "SRKCD Stillfjord Williamson Chebyshev polynomial random batch stochastic optimization mean square stability",
+        "SRKCD stochastic stabilized Runge Kutta Chebyshev descent mean square stochastic curvature stability polynomial 2201.12782",
+        "Eftekhari Vandereycken Vilmart Zygalakis Explicit stabilised gradient descent faster strongly convex optimisation arxiv 2018 RKCD"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2201.12782v1 §3.1–3.4: shared-sample SRKCD recurrence; no two-point curvature moment/independent-product classification there.",
+        "Eftekhari et al. arXiv:1805.07199v1, §2: deterministic polynomial T_s(1+z/s²) and fixed-curvature stability domain.",
+        "published-finding corpus closest indexed item 021cc30589a6 uses population feedback under scalar random curvature for a different optimization iteration."
+      ],
+      "reasoning": "Checked the polynomial multiplier and shared-within-stage sampling against random-product, switched-coefficient, Chebyshev-root, and almost-sure Lyapunov aliases. General iid-product moment and strong-law identities are classical, but the explicit SRKCD probability threshold, stage-count law, and root extinction in this specific method are not stated by the inspected closely related papers. The indexed scalar random-curvature result concerns an OSGM feedback algorithm, not the Chebyshev recursion.",
+      "searches": [
+        "SRKCD stabilized Runge Kutta Chebyshev descent two point random curvature mean square Lyapunov almost sure stability stage threshold",
+        "stochastic Chebyshev iteration random curvature mean square stability exact two-point distribution",
+        "\"SRKCD\" \"mean-square\" Chebyshev quadratic",
+        "\"Runge-Kutta-Chebyshev\" \"random curvature\" stability polynomial stochastic descent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source equations contain Chebyshev recurrences and stability regions but no table of two-curvature sampling thresholds.",
+        "published-finding corpus returned nearby Chebyshev polynomial/descent and scalar-curvature analyses with different mathematical objects; no exact indexed match for the combined moment sampling-threshold formula."
+      ],
+      "reasoning": "Searched numerical-optimization literature and mathematical-index records for the exact Bernoulli curvature stability table, Chebyshev-zero dropout resonance, and stage-exponential moment threshold. Neither source inspection nor indexed hits identified the proposed parameter-function table. Search non-detection is evidence of comparison effort, not proof of priority.",
+      "searches": [
+        "Runge Kutta Chebyshev stochastic descent random Hessian rare outlier Chebyshev stage moment instability",
+        "randomized Chebyshev-descent binary curvature moment exponent stage resonance",
+        "stochastic Runge Kutta Chebyshev two point curvature distribution moment stability exact frontier",
+        "\"SRKCD\" \"almost surely\" Chebyshev stochastic curvature",
+        "\"Runge-Kutta-Chebyshev\" \"Bernoulli\" Hessian stochastic optimization"
+      ]
+    },
+    "rationale": "PASS for the scoped scalar SRKCD claim after checking the defining full text, deterministic predecessor full text, SDE and later momentum literature, indexed prior mathematical results, and two own deduplication ledgers. General Chebyshev polynomials, iid product moments, and Jensen inequalities are known and credited; the inspected results do not assert or imply the combined exact Bernoulli sampling threshold, exponentially decreasing stage frontier, and almost-sure extinction versus exploding moments. An unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed stochastic stabilized-method derivation could recover the same Bernoulli scalar law.",
+      "Full text of the older S-ROCK SDE paper was not accessed; its stochastic model differs on accessible evidence.",
+      "Full text of the later momentum-inspired 2025 method was not accessed; accessible description does not establish the present model.",
+      "The polynomial reduction and IID-product facts are classical; novelty is specifically their sharp interpretation and stage-scaling in SRKCD."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_DEFINES_METHOD_NOT_COVERING_THE_SPECIFIED_EXACT_FRONTIER",
+        "evidence": "At zero damping, the displayed \\(\\omega_1\\) equals \\(1/s^2\\) and the stage recurrence reduces to \\(T_s(1+z/s^2)\\); it develops general convergence and linearization but does not derive the Bernoulli moment threshold.",
+        "identifier_or_url": "https://arxiv.org/html/2201.12782v1",
+        "material_read": "Full HTML including introduction, Assumptions 1–5, §3 stage coefficients and §3.4 stability, §4 experiments, appendix Chebyshev identities.",
+        "method": "Read primary open-access HTML and compared formulas (3.1)–(3.2), (3.5) and stated convergence assumptions to exact claim.",
+        "title": "SRKCD: a stabilized Runge–Kutta method for stochastic optimization",
+        "trigger": "Defining numerical method and shared-within-stage stochastic sample; highest-risk same-object source."
+      },
+      {
+        "assessment": "DETERMINISTIC_FORMULA_KNOWN_NO_RANDOM_CURVATURE_COVERAGE",
+        "evidence": "Section 2 explicitly gives \\(R_s(z)=T_s(1+z/s^2)\\); Proposition 1 bounds a fixed-matrix quadratic by a maximum over fixed eigenvalues, not a Bernoulli moment or Lyapunov frontier.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-020-00819-y",
+        "material_read": "Open HTML: introduction, §2 scalar polynomial and stability region, §3 strongly convex quadratic including Proposition 1, conclusion and bibliography.",
+        "method": "Compared deterministic polynomial and spectral max condition against iid random-curvature expectation.",
+        "title": "Explicit stabilised gradient descent for faster strongly convex optimisation",
+        "trigger": "Original deterministic RKCD polynomial and risk of stronger fixed-spectrum result."
+      },
+      {
+        "assessment": "DIFFERENT_SDE_NO_DEFINITIVE_FULL_TEXT_EXCLUSION",
+        "evidence": "Describes strong-order-one stochastic differential equation integrators and mean-square stability domains, not an iid sampled quadratic objective with one frozen curvature per macrostep; full-text residual risk retained.",
+        "identifier_or_url": "https://doi.org/10.1137/070679375",
+        "material_read": "Publisher abstract and metadata; not full text.",
+        "method": "Compared abstract model and mathematics with optimization sampling convention.",
+        "title": "S-ROCK: Chebyshev methods for stiff stochastic differential equations",
+        "trigger": "Potential earlier stochastic Chebyshev mean-square stability framework."
+      },
+      {
+        "assessment": "DIFFERENT_MOMENTUM_METHOD_ABSTRACT_ONLY_RESIDUAL",
+        "evidence": "The accessible abstract concerns sufficient convergence conditions for a momentum scheme and comparisons of epochs; no detailed scalar two-point Chebyshev sampler was accessible.",
+        "identifier_or_url": "https://doi.org/10.1007/s11075-025-02251-1",
+        "material_read": "Accessible indexed abstract and bibliographic summary only.",
+        "method": "Compared different momentum method and general convergence conditions, with no unsupported whole-text exclusion.",
+        "title": "Application of stochastic gradient method with momentum inspired by explicit stabilized Runge–Kutta method in unconstrained convex optimization",
+        "trigger": "Later RK-inspired stochastic optimization potentially broader."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25a05ee6-5263-40f4-ac6d-035a9d203c0d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS for a motivated sharp solver-design stability law: stochastic Chebyshev descent was designed to enlarge fixed-curvature stability regions, but rare out-of-region batch curvature can make the allowable sampling frequency exponentially small in stage count. The complete probability-versus-stage frontier, mean-square-versus-almost-sure gap, and exact phase/resonance boundaries isolate a tangible risk of aggressive step selection, not a tiny numerical increment or arbitrary table. The theorem is narrow but naturally defined by the original algorithm and its typical/rare curvature model; it does not claim a higher-dimensional result.",
+    "status": "PASS"
+  }
+}
