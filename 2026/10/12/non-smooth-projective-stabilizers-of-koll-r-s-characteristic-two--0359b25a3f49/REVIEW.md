@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The complete claim follows from a finite birational normalization map supplied by the initiating source and a direct test of the three-dimensional plane linear series under all affine normalization automorphisms. The exceptional \(q=2\) cancellation is accounted for separately. Differentiating the defining homogeneous polynomial gives five independent monomial constraints on nine infinitesimal matrix entries, leaving a three-dimensional projective tangent space. The code checks small fields but does not replace this proof. The group-scheme conclusion is restricted to non-smoothness, not a guessed infinitesimal group structure.
+
+**Originality — PASS, with risk.** The initiating paper treats unique double cusps, characteristic-dependent liftings and singularities, not the projective stabilizer or its Lie algebra. The directly inspected positive-characteristic linear-automorphism paper classifies curves invariant under selected maximal finite groups, with no implication for this specific family or its nonreduced scheme. Focused mathematical-search and published-result comparisons located other curve stabilizers but no same-object or dominating claim. The possibility of an implicit equivalent result in earlier literature on strange curves or positive-characteristic automorphism schemes remains.
+
+**Value — PASS.** The family is central to a characteristic-two construction exhibiting unexpectedly severe cusp geometry; its projective symmetry is therefore an intrinsic, natural geometric invariant. Determining every symmetry for all degrees reveals a sharp quartic-to-higher-degree group jump and a persistent three-dimensional infinitesimal stabilizer invisible to the geometric-point group. This is a structural phenomenon, not an arbitrary finite computation. The full nonreduced scheme and abstract curve automorphisms are outside scope.
+
+Self-review: passed. Independent audit: not yet performed.
