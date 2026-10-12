@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The growth identities for leaves and the Wiener index are exact. The auxiliary leaf-transmission statistic has a closed conditional expectation because the sum of all transmissions is twice the Wiener index. These identities yield exact recurrences for the Wiener mean, leaf-transmission mean, and mixed leaf-Wiener moment, from which the displayed covariance recurrence and closed form follow. Exhaustive enumeration through n=9 and exact recurrence replay independently agree with the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neininger studies Wiener-index expectations, variance asymptotics, limits, and joint behavior with internal path length.",
+        "Bryc--Minda--Sethuraman give a complete treatment of the random-recursive-tree leaf-count Markov chain and do not discuss the Wiener index.",
+        "Munsonius gives a complete treatment of Wiener-index tail bounds for recursive-tree families, explicitly including the standard random recursive tree as a special case, and the inspected text contains no leaf analysis."
+      ],
+      "reasoning": "These sources cover the two marginal themes and a broader Wiener/path-length framework, but none supplies a theorem whose statement implies the mixed leaf-Wiener covariance. The missing ingredient is the expectation of the leaf-transmission sum.",
+      "searches": [
+        "DOI:10.1017/S0963548302005321",
+        "arXiv:0809.4741",
+        "arXiv:1106.3865",
+        "DOI:10.1239/jap/1339878805"
+      ]
+    },
+    "checked_sources": [
+      "Neininger (2002), DOI 10.1017/S0963548302005321, publisher abstract and bibliographic record.",
+      "Bryc, Minda, and Sethuraman, arXiv:0809.4741, complete public text.",
+      "Munsonius, arXiv:1106.3865, complete public text.",
+      "Munsonius (2012), DOI 10.1239/jap/1339878805, publisher classification and abstract.",
+      "Current and prior own ledgers searched for leaf, Wiener, path-length, and recursive-tree claims.",
+      "Published-record semantic searches for random-recursive-tree leaf/Wiener covariance and exact-form aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior own result gives \\(\\operatorname{Cov}(L_n,P_n)=-(n-2)/4\\) for internal path length \\(P_n\\), not Wiener index.",
+        "A prior own result studies root-attachment indicators against total path length, not leaf abundance against pairwise distances.",
+        "No checked own claim contains the auxiliary leaf-transmission mean or the leaf-Wiener covariance."
+      ],
+      "reasoning": "The Wiener index is not determined by internal path length. Its one-step increment is \\(n+D_n(U_n)\\), so the earlier leaf/path-length covariance cannot be substituted into the new recurrence; the new statistic \\(S_n\\) is genuinely required.",
+      "searches": [
+        "own random recursive tree leaves internal path length covariance",
+        "own random recursive tree root attachment path length",
+        "own random recursive tree leaves Wiener index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned sources on the two statistics separately and recent work on the terminal Wiener index, but no exact covariance between total leaves and the ordinary Wiener index.",
+        "No exact-form match for the displayed harmonic-polynomial expression was located."
+      ],
+      "reasoning": "The searches covered leaf, terminal-vertex, Wiener, pairwise-distance, covariance, and exact harmonic formulations. The assessment was then checked against full primary texts for each marginal statistic.",
+      "searches": [
+        "\"random recursive tree\" leaves \"Wiener index\" covariance",
+        "\"random recursive tree\" \"number of leaves\" \"Wiener index\"",
+        "\"leaf count\" \"Wiener index\" recursive tree covariance",
+        "\"n H_n\" \"Wiener index\" leaves random recursive tree",
+        "\"number of leaves\" \"Wiener index\" recursive tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact symbolic formula or finite table was located.",
+        "The result is an all-n identity derived from a recurrence, not a finite numerical census."
+      ],
+      "reasoning": "The searches target both the closed covariance and its normalized limit under common terminology for the two statistics.",
+      "searches": [
+        "\"nH_n-n(n+5)/4\" recursive tree",
+        "\"Cov\" leaves \"Wiener index\" recursive tree",
+        "\"leaf transmission\" random recursive tree Wiener",
+        "\"-1/2\" leaf count mean pairwise distance recursive tree"
+      ]
+    },
+    "rationale": "The closest classical Wiener-index sources study its own moments, limits, tails, and dependence with internal path length, while the closest leaf source studies the marginal leaf process. Neither inspected full text states the mixed leaf-Wiener covariance or the leaf-transmission closure. A prior exact leaf/internal-path-length covariance does not imply the result because Wiener growth depends on vertex transmission rather than depth alone. Exact-form and semantic searches found no equivalent statement.",
+    "residual_risks": [
+      "The complete 2002 Neininger article was not available in the inspected open path, so an unindexed mixed moment there remains a specific risk.",
+      "Older recursive-tree literature may express the same identity via terminal vertices or total vertex transmissions.",
+      "Recent terminal-Wiener work studies distances among leaves rather than covariance of leaf count with the ordinary Wiener index; a future full paper could contain nearby mixed moments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LEAF_PROCESS_NOT_WIENER_DEPENDENCE",
+        "evidence": "The text identifies the uniform recursive-tree leaf count with the transition chain having attachment denominator n and develops its marginal asymptotics; targeted full-text search found no Wiener-index discussion.",
+        "identifier_or_url": "arXiv:0809.4741",
+        "material_read": "Complete public arXiv text, including the introduction, leaf Markov-chain definition, and the random-recursive-tree application section.",
+        "method": "Public full-text inspection with targeted search for Wiener terminology.",
+        "title": "Large deviations for the leaves in some random trees",
+        "trigger": "Direct primary source for the leaf-count process in uniform random recursive trees."
+      },
+      {
+        "assessment": "WIENER_FRAMEWORK_NOT_LEAF_COVARIANCE",
+        "evidence": "The article treats Wiener and internal path length and states that beta=0 yields the standard random recursive tree; targeted full-text search returned no occurrence of leaf analysis.",
+        "identifier_or_url": "arXiv:1106.3865",
+        "material_read": "Complete public arXiv HTML, especially the introduction and random-linear-recursive-tree application.",
+        "method": "Public full-text inspection with targeted search for leaf terminology.",
+        "title": "On tail bounds for random recursive trees",
+        "trigger": "Complete source treating Wiener index in recursive-tree families and explicitly identifying the standard random recursive tree as a special case."
+      },
+      {
+        "assessment": "FOUNDATIONAL_WIENER_SOURCE_ACCESS_RISK",
+        "evidence": "The abstract states that expectations, variance asymptotics, limit laws, and covariance with internal path length are derived for random recursive trees; the complete article was not available in the inspected open path.",
+        "identifier_or_url": "DOI:10.1017/S0963548302005321",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher-page inspection after targeted open-web search.",
+        "title": "The Wiener Index of Random Trees",
+        "trigger": "Foundational source devoted specifically to the Wiener index of random recursive trees."
+      },
+      {
+        "assessment": "MSC_OWNER",
+        "evidence": "The publisher record assigns primary MSC 60C05 and describes Wiener-index results for recursive-tree models.",
+        "identifier_or_url": "DOI:10.1239/jap/1339878805",
+        "material_read": "Publisher abstract, references, and MSC classification.",
+        "method": "Publisher-page inspection.",
+        "title": "On Tail Bounds for Random Recursive Trees",
+        "trigger": "Classification check for the recursive-tree Wiener-index literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1fd12a7f-1d1d-481b-8d00-eb6cd08b0372",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf count is a canonical branching statistic and Wiener index is a canonical global distance statistic. Their exact finite dependence is not captured by either marginal theory or by the known leaf/internal-path-length covariance. The result identifies a new closing statistic, proves a sharp sign law from n=4 onward, and shows that after natural pair-count normalization the covariance converges to the nonzero constant -1/2. This quantifies the intuitive but nontrivial compacting effect of leaf abundance in a standard random-tree model.",
+    "status": "PASS"
+  }
+}
