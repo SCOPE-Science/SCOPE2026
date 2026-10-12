@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The source's Lemma 2.1 gives both direct decompositions and the identities \\(AX=0\\), \\(FX=I_k\\), \\(YE=I_k\\), \\(YA=0\\), \\(FG=GE=0\\), \\(AG+EY=I_n\\), and \\(GA+XF=I_n\\). On \\(u+Xc\\), direct substitution gives \\(T_D(u+Xc)=A_0u+EDc\\), proving the block normal form. The kernel and cokernel statements follow exactly. Multiplication gives \\(T_D(G+XHY)T_D=A+E(DHD)F\\) and \\((G+XHY)T_D(G+XHY)=G+X(HDH)Y\\); conversely \\(D(FQE)D=D\\) whenever \\(T_DQT_D=T_D\\). The packaged exact-arithmetic replay independently checks every \\(D\\in M_2(\\mathbb F_3)\\) in a canonical instance and ends with CHECK_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jiao 2025 covers broad generalized-inverse and pseudoinverse low-rank-update identities, but its published abstract is framed for rectangular matrices with rank-preserving or rank-augmenting conditions, not arbitrary unital rings.",
+        "Deng 2011 develops generalized Sherman-Morrison-Woodbury formulas for Moore-Penrose and generalized Drazin inverses, again in a different generalized-inverse setting.",
+        "Öinert's 2026 arbitrary-ring theorem explicitly focuses on invertibility and records no kernel/cokernel theorem for singular D."
+      ],
+      "reasoning": "The broad SMW literature can dominate some field-specialized generalized-inverse consequences, so the accepted claim is anchored on the stronger arbitrary-unital-ring block normal form and cokernel transfer. No inspected broader theorem was found to imply that full statement.",
+      "searches": [
+        "Sherman Morrison Woodbury singular base exact rank defect",
+        "von Neumann regularity structured perturbation A+EDF D reflexive generalized inverse",
+        "A+EDF reflexive generalized inverse G+XHY kernel cokernel"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01948v1",
+      "arXiv:2403.16896v2",
+      "DOI:10.1137/25M1723724",
+      "DOI:10.1016/j.aml.2011.03.046"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Öinert's proof factors T_D through T_1 and proves invertibility iff D is invertible, but it stops at invertibility and determinant consequences.",
+        "Eriksson-Nordqvist, arXiv:2403.16896v2, assumes the relevant small matrix is invertible and works over the complex numbers.",
+        "Jiao's abstract states generalized inverse update formulas but not a noncommutative-ring decomposition of the underlying module map."
+      ],
+      "reasoning": "The motivating source supplies essential lemmas but does not state the singular-D classification. The accepted statement is a structural consequence requiring the simultaneous domain and codomain splittings and adds regularity equivalence. It is therefore not a special case of the inspected invertible results.",
+      "searches": [
+        "structured perturbation A+EDF kernel cokernel singular D",
+        "von Neumann regularity structured perturbation A+EDF D reflexive generalized inverse",
+        "A+EDF reflexive generalized inverse G+XHY kernel cokernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no record matching the all-D block normal form, cokernel transfer, or regularity equivalence for A+EDF.",
+        "Öinert, arXiv:2610.01948v1, Theorem A states invertibility equivalence and the inverse formula only when D is invertible; Lemma 2.1 gives the direct decompositions; Remark 2.2 identifies G as a reflexive generalized inverse of A.",
+        "Jiao, DOI:10.1137/25M1723724, describes generalized SMW identities for field matrices, pseudoinverses, rank-preserving updates, and rank augmentation."
+      ],
+      "reasoning": "The claim is not merely the source's inverse formula rewritten: singular \\(D\\) is allowed, and the conclusion is an isomorphism class of a two-term module map plus exact kernel/cokernel and regularity consequences. The closest generalized-inverse literature uses low-rank-update formulations over fields and does not supply the stated arbitrary-ring source/target splitting result.",
+      "searches": [
+        "structured perturbation A+EDF kernel cokernel singular D",
+        "A+EDF exact rank nullity kernel cokernel",
+        "von Neumann regularity structured perturbation A+EDF D reflexive generalized inverse",
+        "A+EDF reflexive generalized inverse G+XHY kernel cokernel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus's closest hits were unrelated rank-defect and matrix-update findings; none concerned the structured family A+EDF with the same split-kernel/image hypotheses.",
+        "The own current and prior ledgers contain no finding about Öinert's structured perturbations, generalized inverses of A+EDF, or the same kernel/cokernel transfer."
+      ],
+      "reasoning": "No database record, ledger entry, theorem table, or exact stored claim located covers the accepted statement.",
+      "searches": [
+        "structured perturbation A+EDF kernel cokernel singular D",
+        "A+EDF exact rank nullity kernel cokernel",
+        "structured singular matrix perturbation exact cokernel transfer D"
+      ]
+    },
+    "rationale": "The motivating source proves only the invertibility equivalence and inverse formula for invertible \\(D\\), although its Lemma 2.1 contains the splittings used here. The new claim identifies the full map for arbitrary singular \\(D\\), transfers both kernel and cokernel, and proves equivalence of von Neumann regularity over arbitrary unital rings. The inspected older invertible-case paper and generalized SMW literature do not state this arbitrary-ring module normal form or its cokernel transfer.",
+    "residual_risks": [
+      "Generalized Sherman-Morrison-Woodbury literature is large, and a field-specialized formula equivalent to part of the generalized-inverse consequence may exist under different notation.",
+      "The full text of Jiao's 2025 SIAM article was not available through the publisher access inspected here; its abstract is broad, but it does not indicate arbitrary noncommutative coefficient rings or cokernel transfer.",
+      "The block normal form is a concise consequence of the motivating source's splittings, so specialists may regard the derivation as natural even though the structural statement was not located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves invertibility iff D is invertible and gives the inverse for invertible D. It constructs both decompositions and G,X,Y, but does not state the all-D block normal form, cokernel transfer, or regularity equivalence.",
+        "evidence": "Theorem A and its proof; Lemma 2.1; Remark 2.2; Proposition 2.4 in arXiv:2610.01948v1.",
+        "identifier_or_url": "arXiv:2610.01948v1",
+        "material_read": "Primary arXiv full HTML: Introduction, Theorem A, Lemma 2.1, Remark 2.2, proof of Theorem A, and Proposition 2.4.",
+        "method": "Primary open full text.",
+        "title": "Invertibility of structured perturbations of singular matrices over unital rings",
+        "trigger": "Direct motivating source with exactly the same structured perturbation and arbitrary-ring hypotheses."
+      },
+      {
+        "assessment": "The central theorem assumes an invertible small matrix and complex coefficients; it does not cover arbitrary singular D or arbitrary unital rings.",
+        "evidence": "The abstract and Theorem 2.1 assumptions require invertible D and complex matrices.",
+        "identifier_or_url": "arXiv:2403.16896v2",
+        "material_read": "Primary arXiv abstract and open published-text theorem statement.",
+        "method": "Primary arXiv metadata plus open published full text.",
+        "title": "Inverting the sum of two singular matrices",
+        "trigger": "Closest predecessor explicitly cited by the motivating paper."
+      },
+      {
+        "assessment": "The abstract covers generalized inverses and pseudoinverses for rank-preserving and rank-augmenting low-rank updates of rectangular matrices. It does not state arbitrary-ring module splittings or a cokernel equivalence.",
+        "evidence": "SIAM J. Matrix Anal. Appl. 46 (2025), 1917-1929, abstract and MSC 15A09/15A23.",
+        "identifier_or_url": "DOI:10.1137/25M1723724",
+        "material_read": "Publisher abstract, bibliographic metadata, and reference list; institutional abstract mirror.",
+        "method": "Publisher and institutional webpages.",
+        "title": "Unified SMW-Like Identities of Low-Rank Updates for Generalized Inverses and Pseudoinverses",
+        "trigger": "Most plausible broader generalized-inverse update source."
+      },
+      {
+        "assessment": "It develops Moore-Penrose and generalized-Drazin SMW formulas, a different setting from the arbitrary-unital-ring split module map here.",
+        "evidence": "Applied Mathematics Letters 24 (2011), 1561-1564.",
+        "identifier_or_url": "DOI:10.1016/j.aml.2011.03.046",
+        "material_read": "Abstract-level description and bibliographic metadata surfaced through later literature.",
+        "method": "Publisher/search metadata and citations in inspected sources.",
+        "title": "A generalization of the Sherman-Morrison-Woodbury formula",
+        "trigger": "Earlier generalized-inverse SMW source cited by later literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1406e089-2e9d-4547-9b00-edcfd609e686",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result addresses the singular parameter regime excluded from the motivating inversion formula and identifies the complete defect, not just a new invertibility criterion. Exact transfer of kernel, cokernel, and von Neumann regularity over arbitrary unital rings is a structural statement with direct use for singular structured systems and generalized inverses. Its value comes from collapsing a large singular map to the smaller parameter map while retaining noncommutative coefficients, rather than from a numerical parameter increment or finite census.",
+    "status": "PASS"
+  }
+}
