@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exact balance cancels second moments to q=A; fixed-point feedback follows by algebra. Weighted Chebyshev proves q>=T. A probability-measure maximizer exists and its first variation forces support only at spectral endpoints because the derivative numerator of h is strictly increasing. The resulting one-variable rational optimization yields the precise factor, rational-square-root finite equality criterion and general sharp approximations. Exact-rational testing of 32059 samples and stationary witnesses is supplementary, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2605.12878v1, equation (9), Lemma 2.2 and Appendix C: q>=T",
+        "arxiv:2604.08742v1 §§3.2-3.6: deterministic preconditioning, no stochastic trace surrogate"
+      ],
+      "reasoning": "The motivating work proves a lower bound q>=T under similarly ordered moments; a lower bound cannot imply the claimed sharp upper bound q/T<=C(kappa), let alone sharpness at two endpoint masses. The earlier deterministic paper treats its own consistency conditions rather than conditional second-moment trace surrogates. Closest published optimization records concern unrelated stability constants and do not have the same objects.",
+      "searches": [
+        "Adam-SHANG trace ratio safe learning rate under mismatched gradient second moment alignment robust bounds weighted Chebyshev",
+        "coordinatewise alignment approximate gradient variance diagonal preconditioning trace lower bound",
+        "Adam-SHANG stationary mean second-moment preconditioner trace-ratio gap",
+        "arxiv:2604.08742 §§3.2-3.6",
+        "arxiv:2605.12878v1 §2, Appendix C"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.12878v1 §§2, Appendix C",
+      "arxiv:2604.08742v1 §§3.2-3.6",
+      "https://en.wikipedia.org/wiki/Lehmer_mean",
+      "https://en.wikipedia.org/wiki/Kantorovich_inequality",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/19/SCOPE-matrix-valued-equivariant-stiefel-adaptation--1fa8a4cea945",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source shows the comparison q>=T and uses T in a sufficient admissibility condition; its Appendix C contains only a weighted Chebyshev argument.",
+        "The earlier 2026 deterministic paper uses a preconditioned directional ratio without deriving this stochastic trace-loss extremum.",
+        "Classical Lehmer mean monotonicity establishes only order, and Kantorovich product constants optimize a different functional."
+      ],
+      "reasoning": "The claimed sharp factor and exact stationary-balanced interpretation are not logical consequences of merely knowing q>=T, or of knowing generic spectral bounds 1<=q/T<=kappa. The proof supplies the nontrivial endpoint-support reduction and the optimal proportion; the cited inspected works do not state those conclusions.",
+      "searches": [
+        "arxiv:2605.12878v1 proof of Lemma 2.2 and Appendix C",
+        "arxiv:2604.08742 §3 practical consistency",
+        "Adam-SHANG stationary mean second-moment preconditioner trace-ratio gap",
+        "generalized Kantorovich bound E[x] E[x^-2] / E[x^-1] spectral spread"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lehmer mean definition and monotonicity: https://en.wikipedia.org/wiki/Lehmer_mean",
+        "Kantorovich product inequality: https://en.wikipedia.org/wiki/Kantorovich_inequality"
+      ],
+      "reasoning": "Write T as the Lehmer mean of order minus one and q as the Lehmer mean of order one. Classical monotonicity implies only T<=q; the target determines the sharp condition-number-dependent ratio of these distinct means under the additional balanced moment relation. The classical Kantorovich product involves E[p]E[1/p], rather than E[p]E[p^-2]/E[p^-1]; the inspected statements do not supply the claimed sharp coefficient or its endpoint frequencies. Uninspected generalized-mean theorems remain a risk.",
+      "searches": [
+        "\"kappa - sqrt(kappa) + 1\" trace ratio Lehmer means optimizer",
+        "exact sharp upper bound arithmetic mean divided by inverse-square Lehmer mean conditioned positive entries",
+        "generalized Kantorovich bound E[x] E[x^-2] / E[x^-1] spectral spread",
+        "web: \"Lehmer mean\" \"arithmetic\" \"range\" ratio sharp bound",
+        "web: \"Kantorovich constant\" \"Lehmer mean\" reverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicit extremizer for integer t: one scale 1 and t scales t^2, with ratio (t^2-t+1)^2/t^2; no matching table/constant located in inspected records."
+      ],
+      "reasoning": "This result is a continuous analytic variational maximum, not a finite tabulation. Search for its radical expression and mean-ratio aliases did not identify an exact database entry; absence of a hit alone is not a proof of novelty.",
+      "searches": [
+        "\"kappa - sqrt(kappa) + 1\" trace ratio Lehmer means optimizer",
+        "exact sharp upper bound arithmetic mean divided by inverse-square Lehmer mean conditioned positive entries",
+        "web: \"E[X]\" \"E[1/X^2]\" \"E[1/X]\" sharp bound"
+      ]
+    },
+    "rationale": "Material inspection of the motivating arXiv v1 §2 and Appendix C reveals a one-sided Chebyshev lower bound but no sharp upper gap under exact stationary second moments; predecessor arXiv:2604.08742 treats deterministic ratios. Classical Lehmer/Kantorovich statements inspected do not cover this three-moment extremum. No matching published record identified in actual targeted searches, but specialized unindexed inequalities remain a live residual risk.",
+    "residual_risks": [
+      "A specialized reverse inequality for generalized Lehmer means might be mathematically equivalent and absent from indexed search results.",
+      "The exact balance concerns frozen moments and does not establish its occurrence on a stochastic algorithm trajectory.",
+      "No conclusion of global priority or independent validation follows from published-search coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the source ordering q>=T, not the upper ratio bound or sharp endpoint distribution under balanced moments.",
+        "evidence": [
+          "arxiv:2605.12878v1: Lemma 2.2, equations (7),(9), Appendix C"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.12878v1",
+        "material_read": "Section 2 equations (5c),(7),(9),(10), Lemmas 2.1/2.2; Appendix C weighted Chebyshev proof (lines 552-599); related discussion and parameter conditions",
+        "method": "Open-access arXiv HTML, inspect displayed equations and proof paragraphs",
+        "title": "Adam-SHANG: A Convergent Adam-Type Method for Stochastic Smooth Convex Optimization",
+        "trigger": "Same admissibility moment ratio and computable inverse-trace surrogate"
+      },
+      {
+        "assessment": "Earlier deterministic ratio and dynamical motivation, but no matching sharp random-gradient trace-surrogate factor.",
+        "evidence": [
+          "arxiv:2604.08742v1 §§3.2, 3.5-3.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.08742",
+        "material_read": "Introduction, §3.2 directional descent, §3.5 consistency, §3.6 adaptive feedback discussion; HTML mathematical rendering partially incomplete",
+        "method": "Open-access arXiv HTML relevant section/statement reading",
+        "title": "Adam-HNAG: A Convergent Reformulation of Adam with Accelerated Rate",
+        "trigger": "Earlier paper with same preconditioning feedback family"
+      },
+      {
+        "assessment": "Covers general mean ordering but not the special sharp three-moment quotient bound.",
+        "evidence": [
+          "Lehmer means L_1 and L_-1, classical monotonicity"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Lehmer_mean",
+        "material_read": "Definition, monotonicity and special cases of Lehmer means",
+        "method": "Read accessible mathematical exposition; not a primary originality certificate",
+        "title": "Lehmer mean",
+        "trigger": "Equivalent identification of q and T with orders one and minus one"
+      },
+      {
+        "assessment": "The inspected formula bounds first/inverse-first moments, not the specified first/inverse-second divided by inverse-first quotient.",
+        "evidence": [
+          "Classical Kantorovich product coefficient for bounded positive entries"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Kantorovich_inequality",
+        "material_read": "Classical bounded positive numbers statement with product of arithmetic and inverse means",
+        "method": "Read accessible theorem statement; no claim of exhaustive primary monograph access",
+        "title": "Kantorovich inequality",
+        "trigger": "Plausible dominating bounded-spectrum mean ratio theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18bb5407-fc05-4362-b335-c46ad3f0ceac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise worst-case cost of the proposed computable descent certificate is a motivated missing quantity. Even in the strongest natural expected-feedback balance, the surrogate can lose a factor asymptotic to the full preconditioner condition number; explicit multiplicities identify why. This quantifies a material limitation in an optimization-relevant sufficient learning-rate rule, independently of algorithmic acceleration claims.",
+    "status": "PASS"
+  }
+}
