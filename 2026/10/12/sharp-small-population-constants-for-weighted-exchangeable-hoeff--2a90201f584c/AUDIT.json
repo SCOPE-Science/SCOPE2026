@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The lead 2026 paper supplies an exact hypergeometric reduction valid for all exchangeable bounded vectors. Classical sharp Kearns--Saul treats Bernoulli cases. New proofs handle each remaining N<=6 hypergeometric polynomial by a globally bounded tilted variance or a coefficientwise MGF majorant, with matching Bernoulli extremizers. Exact symbolic checks of algebraic identities passed; finite tests do not substitute for analytic t>0 arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lee--Kim Theorem 1 provides upper Gamma_N and Proposition 1 lower finite-sample bounds",
+        "Barber (2024) provides a weaker weighted-exchangeable upper bound"
+      ],
+      "reasoning": "The stronger-looking general Lee--Kim identity is variational rather than a closed-form evaluation and its upper/lower bounds differ for N=3..6. Barber gives only a looser sufficient upper constant; neither implies exact computed equalities.",
+      "searches": [
+        "optimal constant C_N star exchangeable bounded weighted Hoeffding inequality N=3 N=4 exact hypergeometric log moment generating",
+        "Lee Kim 2026 weighted exchangeable Hoeffding optimal C3 C4 sharp small sample constants",
+        "arXiv:2404.06457 weighted exchangeable Hoeffding"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2608.04900v2",
+      "https://arxiv.org/abs/1405.4496",
+      "https://arxiv.org/abs/2404.06457",
+      "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+      "2026/9/20/SCOPE-sharp-worst-case-moderate-deviations-randomized-experiments--364da77b6b14",
+      "2026/9/17/SCOPE-heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6",
+      "2026/9/20/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lead paper gives an explicit sup expression, not its value, plus Gamma_3=3/2, Gamma_4=13/9, Gamma_5=125/96 and Gamma_6>6/5",
+        "Schlemm supplies exact Bernoulli coefficients but does not cover hypergeom H(5,2,2), H(6,2,2), H(6,2,3), H(6,3,3)"
+      ],
+      "reasoning": "The new statement computes the unresolved sup for four consecutive sizes by showing every previously uncontrolled hypergeometric MGF is below a specified Bernoulli extremizer. It is a nontrivial evaluation of a credited exact variational characterization, not a claim to have discovered that characterization.",
+      "searches": [
+        "arXiv:2608.04900 Theorem 1 Proposition 1 Remark 1",
+        "arXiv:1405.4496 Bernoulli inequality",
+        "three four exchangeable variables optimal subGaussian proxy variance arbitrary signed zero-sum contrasts Bernoulli hypergeometric",
+        "Lee Kim 2026 weighted exchangeable Hoeffding optimal C3 C4 sharp small sample constants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.04900 Proposition 2 and Remark 1: exact reduction to hypergeometric cumulant bounds",
+        "arXiv:1405.4496: Bernoulli Kearns--Saul optimal sub-Gaussian proxy"
+      ],
+      "reasoning": "The two-level Hamming-slice formulation is mathematically equivalent to the target constant and is credited. It contains a sup over real tilts and marked/sample sizes; the explicit four values are not stated nor implied by the nonsharp envelopes alone. Bernoulli optimality evaluates only m=1, while the other m=2,3 cases require separate global variance bounds.",
+      "searches": [
+        "optimal constant C_N star exchangeable bounded weighted Hoeffding inequality N=3 N=4 exact hypergeometric log moment generating",
+        "three four exchangeable variables optimal subGaussian proxy variance arbitrary signed zero-sum contrasts Bernoulli hypergeometric",
+        "arXiv:2608.04900 Remark 1 hypergeometric optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus related outputs: 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda, 2026/9/20/SCOPE-sharp-worst-case-moderate-deviations-randomized-experiments--364da77b6b14, 2026/9/17/SCOPE-heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6, 2026/9/20/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96"
+      ],
+      "reasoning": "No indexed published-finding corpus finding or searched primary literature table identifies the four evaluated constants. This is an absence-of-evidence observation only; it is not treated as proof of novelty.",
+      "searches": [
+        "optimal constant C_N star exchangeable bounded weighted Hoeffding inequality N=3 N=4 exact hypergeometric log moment generating",
+        "Lee Kim 2026 weighted exchangeable Hoeffding optimal C3 C4 sharp small sample constants",
+        "\"sharp\" \"C_3\" \"C_4\" exchangeable Hoeffding"
+      ]
+    },
+    "rationale": "Lee and Kim arXiv:2608.04900 Remark 1 reduces all population sizes to a sharp variational optimization, but leaves that optimization unevaluated. The present four exact cases establish genuinely tighter attained constants than its Gamma_N bounds. Known Kearns--Saul only settles Bernoulli subcases. Searches for exact small-population constants and aliases found no coverage, subject to an unindexed-priority risk.",
+    "residual_risks": [
+      "An unindexed equivalent low-N optimization or derivation from older hypergeometric proxy-variance literature cannot be excluded.",
+      "Only lead primary full text was fully accessible; a precise source-level priority search is not a mathematical uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers universal variational reduction; does not evaluate four claimed C_N values",
+        "evidence": [
+          "Theorem 1 defines Gamma_N; Proposition 1 gives lower C_N star; Remark 1 gives exact hypergeometric sup; no explicit C_3,C_4,C_5,C_6 values"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.04900v2",
+        "material_read": "Complete HTML article including introduction, main theorem, Remark 1, proof of reduction, hypergeometric martingale estimates, proposition and references",
+        "method": "Opened arXiv full HTML and inspected main definitions, exact reduction and proof",
+        "title": "A Sharper Hoeffding Bound for Weighted Sums of Exchangeable Random Variables",
+        "trigger": "Same optimal constant C_N star, identical exchangeability, range, and weight projection"
+      },
+      {
+        "assessment": "Directly establishes Bernoulli ingredient only; not claimed novel",
+        "evidence": [
+          "Sharp log-MGF quadratic coefficient (1-2p)/(4 log((1-p)/p)); nonzero tilt 2 log((1-p)/p)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.4496",
+        "material_read": "ArXiv landing page abstract and bibliographic classification; standard inequality cross-checked from accessible expository statement",
+        "method": "Read arXiv abstract and accessible explicit inequality statement",
+        "title": "The Kearns--Saul inequality for Bernoulli and Poisson-binomial distributions",
+        "trigger": "Bernoulli extreme subcases and exact tilted MGF coefficients"
+      },
+      {
+        "assessment": "Weaker uniform constant, not exact finite-N values",
+        "evidence": [
+          "Barber upper factor of order 1+(log N)/N; Lee--Kim comparison proves strict improvement for N>=3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.06457",
+        "material_read": "Abstract and theorem-level overview",
+        "method": "Read accessible overview and lead 2026 paper comparison",
+        "title": "A Hoeffding inequality for weighted sums of exchangeable random variables",
+        "trigger": "Earlier general weighted exchangeable concentration bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a90201f-584c-4afb-993c-6f3da2340410",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimal constant is a motivated invariant explicitly unresolved beyond variational form in the recent lead article. Four first nontrivial exact small-population values identify how finite-population exchangeability changes sharp weighted concentration and reveal odd-size nonlocal-tilt versus even-size variance-limit extremality. It is a meaningful finite classification even without an all-N theorem.",
+    "status": "PASS"
+  }
+}
