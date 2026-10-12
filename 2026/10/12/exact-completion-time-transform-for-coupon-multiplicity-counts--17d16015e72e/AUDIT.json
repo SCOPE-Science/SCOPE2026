@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For fixed completion time t and multiplicity r>=2, marking the last new coupon and one multiplicity-r coupon gives exactly m! binom(t-1,r) S(t-1-r,m-2) weighted successful sequences. Summing this coefficient identity produces the stated derivative transform. Differentiating the r=2 rational function at x=1 gives the displayed harmonic mean and covariance. The covariance sign follows from an explicit strictly positive increment for its harmonic bracket. Exhaustive sequence enumeration and exact rational replay agree with every checked identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Myers--Wilf derive the exact joint distribution of the completion time and singleton count at successful termination.",
+        "Mahmoud--Smythe study exact-r coupon-type counts and their joint behavior at deterministic or externally randomized phases, not the first-completion stopping time.",
+        "The complete 24-page siblings manuscript gives exact residual-count expectations at completion, a monotone coupling, joint fixed-index limits, and mixed moments among those residual counts, but no finite transform involving the discrete completion time."
+      ],
+      "reasoning": "These sources jointly cover the two natural neighboring directions: stopping-time/singleton dependence and general multiplicity spectra. None of the inspected statements implies the r>=2 completion-time transform without the new marked-sequence count.",
+      "searches": [
+        "arXiv:math/0304229 full text singleton completion time coupon collector",
+        "DOI:10.1239/aap/1339878719 full text coupon types exactly r times",
+        "arXiv:2606.29635 full manuscript siblings coupon collector residual counts"
+      ]
+    },
+    "checked_sources": [
+      "Myers and Wilf, arXiv:math/0304229, complete public manuscript.",
+      "Mahmoud and Smythe, DOI 10.1239/aap/1339878719, complete article.",
+      "Long, arXiv:2606.29635, complete 24-page manuscript.",
+      "Current and prior own ledgers searched for coupon-collector, occupancy-frequency, singleton, and doubleton overlap.",
+      "Published semantic searches under completion-time, type-r, doubleton, covariance, and transform formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A current own finding gives covariance between fixed-sample multinomial frequency counts and Pearson chi-square; its sample size is deterministic and it has no completion stopping time.",
+        "Prior own findings give fixed-sample occupancy richness/frequency-count covariance laws and an Ewens cycle-count analogue, neither of which determines stopped coupon-collector multiplicities.",
+        "No checked own claim contains the transform E[K_{m,r} x^{T_m}] or the doubleton/completion-time covariance."
+      ],
+      "reasoning": "Conditioning on a fixed number of draws does not imply the law at the first-completion stopping time. The stopping constraint forces a distinguished final new coupon and changes the exact marked occupancy count.",
+      "searches": [
+        "own coupon collector completion multiplicity spectrum",
+        "own occupancy frequency counts covariance",
+        "own singleton doubleton stopping time"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic searches returned coupon-reset and generic occupancy results rather than a first-completion transform for exact-r counts.",
+        "The singleton stopping-time source was inspected at its exact joint-distribution section and does not provide the r>=2 transform claimed here."
+      ],
+      "reasoning": "Queries covered doubleton/type-r terminology, exact multiplicity counts, stopping/completion time, joint distribution, covariance, and transform language. The claim was narrowed explicitly to avoid the known singleton joint law.",
+      "searches": [
+        "coupon collector doubletons completion time covariance",
+        "coupon collector type r completion time joint distribution",
+        "coupon collector multiplicity counts stopping time transform",
+        "coupon collector number of doubletons at completion expected",
+        "coupon collector frequency spectrum at completion coupons collected exactly r times"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula matching the derivative transform or the harmonic doubleton covariance was located in published semantic search.",
+        "The result is an all-m symbolic identity, not a recomputation of a finite occupancy table."
+      ],
+      "reasoning": "The transform determines infinitely many mixed moments and its coefficient formula is valid for every m>=2 and every r>=2, so finite numerical agreement is only verification.",
+      "searches": [
+        "coupon collector doubletons completion time covariance",
+        "coupon collector multiplicity counts stopping time transform",
+        "coupon collector occupancy counts at stopping time completion"
+      ]
+    },
+    "rationale": "The closest stopping-time source gives the exact joint law only for singleton count; the closest type-spectrum source treats exact-r counts at prescribed sampling phases; and the complete recent siblings manuscript gives marginal residual-count formulae and mixed moments among residual deficits but not their finite joint transform with the discrete completion time. The new statement therefore starts at r>=2 and claims the extra completion-time axis, not already-known marginal multiplicity expectations.",
+    "residual_risks": [
+      "Older occupancy or coupon-collector literature may encode the same marked-sequence identity in another generating-function notation.",
+      "The transform is elementary once the correct marked stopping-time count is written, so an unindexed classical exercise or monograph identity remains plausible.",
+      "Marginal exact-r expectations at completion are already implied by sibling-deficit formulae and are not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SINGLETON_JOINT_LAW_NOT_R_GE_2_TRANSFORM",
+        "evidence": "The paper explicitly defines and derives the joint distribution of completion time and the number of singletons. The accepted claim excludes r=1 and concerns exact-r multiplicities for every r>=2.",
+        "identifier_or_url": "arXiv:math/0304229",
+        "material_read": "Complete public manuscript, with focused inspection of the section on the number of singletons and its exact joint distribution with successful termination time.",
+        "method": "Public full-text inspection.",
+        "title": "Some new aspects of the coupon-collector's problem",
+        "trigger": "Closest classical source coupling completion time with an occupancy-spectrum coordinate."
+      },
+      {
+        "assessment": "FIXED_PHASE_TYPE_SPECTRUM_NOT_COMPLETION_STOPPING_TIME",
+        "evidence": "The article studies exact-r type counts under deterministic or externally randomized collection phases; targeted full-text searches did not reveal a first-completion stopping rule or the transform claimed here.",
+        "identifier_or_url": "DOI:10.1239/aap/1339878719",
+        "material_read": "Complete article with targeted inspection of definitions, sampling phases, and searches for completion/stopping terminology.",
+        "method": "Public full-text inspection.",
+        "title": "On the Joint Behavior of Types of Coupons in Generalized Coupon Collection",
+        "trigger": "Primary source centered on counts of coupon types appearing exactly r times."
+      },
+      {
+        "assessment": "MARGINAL_COMPLETION_SPECTRUM_NOT_JOINT_WITH_T",
+        "evidence": "The manuscript gives exact residual-count expectations and joint limits among sibling deficits at completion, but does not state a finite transform coupling an exact-r count with the discrete completion time.",
+        "identifier_or_url": "arXiv:2606.29635",
+        "material_read": "Complete 24-page manuscript, including exact Poissonized and harmonic-polynomial formulae, the nested spacing coupling, and joint fixed-index moment limits.",
+        "method": "Authorized full-text inspection after public full-text retrieval was unavailable.",
+        "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+        "trigger": "Most directly relevant modern manuscript on residual multiplicity information at the main completion time."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17d16015-e72e-4d3d-86f7-57bb4003f221",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Completion time is the defining coupon-collector stopping variable, while the exact-r multiplicity spectrum records how unevenly the already-seen types accumulated before the last discovery. The joint transform connects these two classical objects for every r>=2 and yields all mixed completion-time moments. The doubleton corollary gives a sharp finite negative-dependence law and a large-m scale of order m(log m)^2, quantifying how delayed completion shifts mass away from low multiplicities. This is a structural stopped-occupancy identity rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
