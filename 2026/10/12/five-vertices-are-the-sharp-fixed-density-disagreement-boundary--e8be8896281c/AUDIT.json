@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For common order and edge count, Freeman degree centralization depends only on maximum degree, while degree Gini has a common denominator and depends on the total pairwise absolute degree difference. The complete connected-graph census through five vertices proves the lower bound and uniqueness of the first reversal. Exact index values for the two sharp graphs are obtained directly from their degree multisets and replayed by the packaged verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Freeman's paper supplies the normalized network-centralization construction based on differences from the most central vertex.",
+        "Hu and Wang introduce the Gini coefficient as a metric of network structural heterogeneity.",
+        "Badham directly compares centralization and Gini as degree-distribution shape measures and states that Freeman centralization is driven by the highest degree relative to the average, while Gini is sensitive to the broader degree distribution.",
+        "Badham also notes that the feasible range of Freeman centralization depends on mean degree, motivating the present equal-size and equal-order control."
+      ],
+      "reasoning": "These sources cover the measures and their conceptual distinction, but they do not imply the exact first finite connected graph pair or its uniqueness.",
+      "searches": [
+        "Freeman Centrality in social networks conceptual clarification degree centralization",
+        "The Gini coefficient's application to general complex networks Hu Wang",
+        "Badham Measuring the shape of degree distributions centralization Gini",
+        "Freeman centralization Gini coefficient same mean degree network"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0378-8733(78)90021-7",
+      "doi:10.1142/S0219525905000385",
+      "doi:10.1017/nws.2013.10",
+      "MSC2020:91D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Badham's critique explains why disagreement is possible but does not furnish a minimum graph order or the unique first pair.",
+        "Fixing \\(n\\) and \\(m\\) removes the mean-degree variation that Badham identifies as one source of difficulty in comparing Freeman centralization across networks.",
+        "A qualitative statement that one measure uses the maximum while another uses the full distribution does not prove nonreversal through four vertices or uniqueness at five."
+      ],
+      "reasoning": "The accepted claim therefore adds a sharp finite boundary and complete first-layer classification, not merely another observation that the two summaries have different sensitivities.",
+      "searches": [
+        "Badham centralization concerned only highest degree node compared to average Gini transfer principle",
+        "Freeman degree centralization Gini fixed mean comparison",
+        "degree distribution heterogeneity centralization Gini same mean"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published or indexed result stated a smallest connected simple graph for strict reversal between Freeman degree centralization and degree Gini.",
+        "Exact degree-sequence searches did not locate the pair \\((2,2,2,2,4)\\) versus \\((1,2,3,3,3)\\) as a sharp fixed-density reversal.",
+        "Searches covered the equivalent language of fixed mean degree, fixed edge count, network heterogeneity, centralization, Gini inequality, and degree-sequence ranking."
+      ],
+      "reasoning": "At fixed order and size, the theorem is equivalently a smallest graphical-degree-sequence reversal between maximum degree and pairwise absolute degree spread. The searches therefore included both network terminology and degree-sequence terminology.",
+      "searches": [
+        "Freeman degree centralization degree Gini fixed edges ranking reversal smallest connected graph",
+        "social network degree centralization Gini coefficient opposite ranking",
+        "degree sequence max degree Gini network centralization comparison",
+        "degree centralization Gini coefficient butterfly graph five vertices",
+        "degree centralization Gini coefficient degree sequence 2 2 2 2 4 1 2 3 3 3",
+        "Freeman centralization Gini coefficient fixed mean degree degree distribution five nodes six edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulated the five-vertex six-edge degree-sequence pair as a reversal.",
+        "No checked source gave the exact index quadruple \\(2/3,2/15,1/4,1/6\\) for a Freeman-centralization versus degree-Gini comparison.",
+        "The packaged verifier generates the complete lower-order census directly from simple graphs rather than importing a known table."
+      ],
+      "reasoning": "Exact-profile searches test whether the sharp pair already appears as a worked example, benchmark, or tabulated degree-heterogeneity comparison.",
+      "searches": [
+        "\"2,2,2,2,4\" Gini centralization graph",
+        "\"1,2,3,3,3\" degree distribution centralization Gini",
+        "\"butterfly graph\" Gini degree centralization",
+        "\"five vertices\" degree centralization Gini"
+      ]
+    },
+    "rationale": "Prior work defines the two measures and explicitly contrasts their sensitivity. The checked literature and database searches did not state the sharp equal-order equal-size boundary, the five-vertex six-edge witness, or uniqueness of the first reversing isomorphism-class pair.",
+    "residual_risks": [
+      "The original Freeman article was not inspected as a complete lawful full text in the checked route; the centralization formula and interpretation were cross-checked through later open literature.",
+      "An unindexed worked example, software regression test, or lecture note could contain the same five-vertex pair.",
+      "The theorem does not classify all larger reversing graph pairs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct conceptual prior art for the comparison. It motivates the controlled problem but does not state the five-vertex fixed-density reversal or its uniqueness.",
+        "evidence": "The paper recommends Gini for degree-distribution shape and states that Freeman centralization is concerned with the highest-degree node relative to the average and can ignore redistributions that leave the maximum unchanged.",
+        "identifier_or_url": "doi:10.1017/nws.2013.10",
+        "material_read": "Open repository article text covering the abstract, introduction, analysis framework, and the section on Freeman centralization, including the discussion of mean-degree dependence, single-maximum sensitivity, and transfer-principle failure.",
+        "method": "Open-access repository full-text extraction and targeted section retrieval. The repository's PDF renderer redirected through an expired signed object URL, so page-image rendering was unavailable; the article text itself was retrievable and inspected.",
+        "title": "Commentary: Measuring the Shape of Degree Distributions",
+        "trigger": "Closest source directly comparing Freeman centralization and degree Gini as network degree-distribution shape measures."
+      },
+      {
+        "assessment": "Establishes network use of degree Gini but does not compare it with Freeman centralization at the small-graph exact level.",
+        "evidence": "The abstract explicitly introduces Gini into general complex-network analysis as a heterogeneity metric.",
+        "identifier_or_url": "doi:10.1142/S0219525905000385",
+        "material_read": "Publisher abstract, article metadata, keywords, and bibliographic history, including the statement that Gini is introduced as a metric of network structural heterogeneity.",
+        "method": "Publisher article page and bibliographic record inspection.",
+        "title": "The Gini Coefficient's Application to General Complex Networks",
+        "trigger": "Early network-specific application of Gini as a structural heterogeneity measure."
+      },
+      {
+        "assessment": "Establishes the centralization framework. Whole-document noncoverage is not asserted from metadata alone.",
+        "evidence": "The paper is the classical source for graph centralization based on the most central vertex relative to the rest of the network.",
+        "identifier_or_url": "doi:10.1016/0378-8733(78)90021-7",
+        "material_read": "Bibliographic metadata, publisher-indexed summary, and later open full-text exposition of the degree-centralization construction.",
+        "method": "Bibliographic and indexed-summary inspection.",
+        "title": "Centrality in social networks conceptual clarification",
+        "trigger": "Foundational source for Freeman network centralization."
+      },
+      {
+        "assessment": "The finding is a mathematical statement about social-network centralization and degree inequality.",
+        "evidence": "MSC2020 lists 91D30 as Social networks; opinion dynamics.",
+        "identifier_or_url": "MSC2020:91D30",
+        "material_read": "MSC2020 hierarchy entry for 91D30.",
+        "method": "Public classification-page inspection.",
+        "title": "MSC2020 database: 91D30 Social networks; opinion dynamics",
+        "trigger": "Verification of primary subject ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8be8896-281c-4daa-a208-3294a0a89ae3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Both Freeman degree centralization and degree Gini are used to summarize network heterogeneity. The literature identifies their different sensitivities and specifically flags mean degree as a comparison issue. By fixing both order and size, the result isolates the remaining structural disagreement and identifies the exact smallest network order and unique first pair, giving a natural diagnostic benchmark.",
+    "status": "PASS"
+  }
+}
