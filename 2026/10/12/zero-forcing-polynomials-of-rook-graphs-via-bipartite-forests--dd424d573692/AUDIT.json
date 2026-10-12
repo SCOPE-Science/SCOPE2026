@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Directly identify the number of white neighbors of a blue rook cell with the sum of its two bipartite endpoint white degrees. This makes a force exactly a leaf-isolate incidence, while a completely white cycle remains forever unforceable. An initial leaf with opposite isolate permits one force creating isolates on both sides and then inductively peeling any remaining white forest. Two-sort bipartite Prüfer tree counts give exact sizes and leaf-side exclusions, and the labeled exponential formula with inclusion-exclusion gives every coefficient; a two-component extremal forest gives the Stirling minimum-count formula. All boundary cases m,n>=1 were checked in the proof. Standard-library direct simulation agreed for 70,502 board colorings; direct tree census covered 5,140 spanning-tree instances, and 25 larger-parameter comparisons check the extremal closed expression. No step asserts that finite tests prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Montazeri–Soltankhah Theorem 2.1 gives F_k(K_m square K_n)=mn-k(m+n)+k^2+k for m,n>k, hence Z=mn-m-n+2 at k=1.",
+        "Boyer et al. (2018) theorem 1 computes coefficients adjacent to the top degree for arbitrary graphs; section 4 gives other special families."
+      ],
+      "reasoning": "The general extremal coefficients and scalar minimum do not determine the complete polynomial or its smallest coefficient multiplicity. The all-forcing-sets criterion is not contained in the published scalar bound. No known broader all-subset theorem from the inspected primary text dominates this result; other papers are noted as access risks.",
+      "searches": [
+        "zero forcing polynomial K_m square K_n rook graph",
+        "\"zero forcing polynomial\" \"Cartesian product\" \"complete graphs\"",
+        "generalized zero forcing polynomial trees line graphs",
+        "2021 Montazeri Soltankhah k-Forcing number Cartesian product of some graphs Theorem 2.1"
+      ]
+    },
+    "checked_sources": [
+      "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910v1 (2018), sections 3-5, theorem 1 and sections 4-5",
+      "Montazeri and Soltankhah, k-Forcing number for Cartesian product of some graphs, DOI:10.55016/ojs/cdm.v16i1.68557 (2021), Theorem 2.1 and complete 9-page paper",
+      "Montazeri and Soltankhah, On the relationship between the zero forcing number and path cover number for some graphs, DOI:10.1007/s41980-019-00290-8 (2020), abstract and bibliographic metadata only",
+      "Montazeri and Soltankhah, Zero forcing number for Cartesian product of some graphs, DOI:10.22049/cco.2023.28177.1471 (2024), bibliographic metadata only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The specialized 2021 Theorem 2.1 already implies only the scalar minimum Z=mn-m-n+2.",
+        "The 2018 general zero-forcing polynomial paper Theorem 1 determines some extremal coefficients but not this infinite two-parameter enumerator.",
+        "A fort-size polynomial does not determine counts of its hitting sets, and a general-position polynomial counts a different predicate; neither supplies the new forcing-set coefficient enumeration."
+      ],
+      "reasoning": "Current proof supplies a necessary-and-sufficient characterization of all admissible initial subsets, a formal species identity specifying every coefficient, and a Stirling-number formula for the minimum coefficient. These do not follow from knowledge of the minimum cardinality, from a few universal coefficients, or merely from the marginal number of forts by size. Statements about other graph invariants on the same underlying rook graph do not directly yield the new zero-forcing enumerator. This is a statement-level comparison, not a title comparison.",
+      "searches": [
+        "minimum zero forcing sets K_m Cartesian K_n count using bipartite spanning trees and Stirling numbers",
+        "zero forcing polynomial K_m square K_n rook graph",
+        "\"K_m square K_n\" zero forcing polynomial white bipartite forest",
+        "\"rook graph\" \"zero forcing\" \"forest\" minimum sets enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rectangular rook graph is the line graph of a complete bipartite graph and the Cartesian product of two cliques. Searches used all three names.",
+        "Boyer et al., The zero forcing polynomial of a graph, arXiv:1801.08910v1 (2018), sections 3-5, theorem 1 and sections 4-5",
+        "Montazeri and Soltankhah, k-Forcing number for Cartesian product of some graphs, DOI:10.55016/ojs/cdm.v16i1.68557 (2021), Theorem 2.1 and complete 9-page paper"
+      ],
+      "reasoning": "The literature comparisons were performed under rook graphs, Hamming graphs of length two, complete-clique Cartesian products, and line graphs of complete bipartite graphs. The indexed results returned the general zero-forcing framework and the already-known scalar minimum, not an equivalent all-subset bipartite-forest criterion or coefficient formula. A failed semantic search is not a universal novelty proof.",
+      "searches": [
+        "zero forcing sets rook graphs line graphs of complete bipartite graphs characterize white bipartite forests isolated side and leaves",
+        "zero forcing polynomial K_m square K_n rook graph",
+        "line graph of complete bipartite zero forcing bipartite forest",
+        "\"rook graph\" \"zero forcing\" \"forest\" minimum sets enumeration",
+        "\"line graph of complete bipartite\" white forest zero forcing polynomial",
+        "\"rook graph\" \"zero forcing\" \"forest\" minimum sets enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The principal accessible full-text polynomial reference contains no occurrence of rook and does not list rook-graph all-size coefficients.",
+        "The 2021 full text supplies only forcing-number values for the complete-clique Cartesian product."
+      ],
+      "reasoning": "No exact rook forcing-polynomial table or minimum-set multiplicity table was found among the inspected indexed primary materials. This is evidence about searched sources, not evidence of global absence. A specialized non-indexed table remains a possibility.",
+      "searches": [
+        "\"zero forcing polynomial\" \"rook\" -chess",
+        "\"zero forcing sets\" \"rook graph\" characterization",
+        "\"zero forcing polynomial\" \"Cartesian product\" \"complete graphs\"",
+        "minimum zero forcing sets K_m Cartesian K_n count using bipartite spanning trees and Stirling numbers"
+      ]
+    },
+    "rationale": "Accessible primary full text distinguishes the present all-initial-subset rook-graph forest criterion, entire polynomial and extremal multiplicity from the already-known scalar minimum (Montazeri and Soltankhah 2021, Theorem 2.1) and general coefficients (Boyer et al. 2018). The examined indexed mathematical literature contains no statement-level duplicate. However, the 2020 and 2024 closely related papers could not be read in full, and equivalently formulated enumerations could exist; these residual risks are explicit. Search absence alone was not taken as proof of global novelty.",
+    "residual_risks": [
+      "A 2020 rook-related zero-forcing/path-cover paper was accessible as an abstract only; its unstated implications cannot be excluded.",
+      "A 2024 article by the same authors on Cartesian-product zero-forcing numbers could not be obtained in full through permitted noninteractive access; this is the most material overlap risk.",
+      "An equivalent exact bipartite-forest/leaf-accessibility enumeration under a different graph or matrix terminology may be unindexed.",
+      "Semantic searches of indexed mathematical work are not a global uniqueness guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework and universal extremal coefficients present; rook-graph all-size enumerator not found in inspected main results",
+        "evidence": [
+          "Theorem 1 on universal extremal coefficients; section 4 covers paths, cliques, multipartite graphs, cycles, wheels and threshold graphs; no rook text match."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+        "material_read": true,
+        "method": "Inspected full PDF sections 3, 4 and 5, theorem 1, special families and the PDF text for rook/Cartesian terminology; first page visually checked",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Introduces the exact target invariant; possible complete enumeration of relevant graph family"
+      },
+      {
+        "assessment": "Theorem 2.1 gives the known k-forcing number, including the k=1 minimum. It does not give all-subset counts, complete polynomial or tree-component enumeration.",
+        "evidence": [
+          "Theorem 2.1 states F_k(K_n square K_m)=mn-k(m+n)+k^2+k; proof bounds the maximum number of white cells and constructs one minimum configuration."
+        ],
+        "identifier_or_url": "https://cdm.ucalgary.ca/article/download/68557/54771/215214",
+        "material_read": true,
+        "method": "Inspected complete nine-page PDF, theorem 2.1 and its proof; visually inspected the rook forcing checkerboard illustration",
+        "title": "k-Forcing number for Cartesian product of some graphs",
+        "trigger": "Rook graphs explicitly covered by name, so minimum result might subsume claim"
+      },
+      {
+        "assessment": "Cannot judge entire paper for coverage; abstract concerns minimum zero forcing number and path-cover relations, not an explicit all-size polynomial. Residual risk retained.",
+        "evidence": [
+          "Journal bibliographic abstract and indexing under zero-forcing number / path-cover number; full text not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s41980-019-00290-8",
+        "material_read": false,
+        "method": "Searched arXiv and open-access full text; recovered only abstract and bibliographic description",
+        "title": "On the relationship between the zero forcing number and path cover number for some graphs",
+        "trigger": "Author overlap and rook graph metadata; possible stronger characterization"
+      },
+      {
+        "assessment": "Cannot conclude NOT_COVERING; title/bibliography indicate a forcing-number study, with possible uninspected implications. Retained as an explicit residual originality risk.",
+        "evidence": [
+          "2024 journal bibliographic entry, volume 9, pages 635-646; no inspected full-text theorem statements."
+        ],
+        "identifier_or_url": "https://doi.org/10.22049/cco.2023.28177.1471",
+        "material_read": false,
+        "method": "Searched preprint and open-access locations; complete article text remained unavailable",
+        "title": "Zero forcing number for Cartesian product of some graphs",
+        "trigger": "Same author pair and target Cartesian products, strongly relevant potential earlier result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd424d57-3692-4cff-9973-85a1411f8d65",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The established gap is not another forcing-number substitution: it classifies every one of \\(2^{mn}\\) candidate initial sets on a natural two-parameter Cartesian-product family and computes the complete zero-forcing polynomial through a structured bipartite-tree component series. The Stirling expression determines the exact number of minimum sets, a previously unprovided natural multiplicity. The bridge between forcing dynamics, forests, leaves and labeled-tree enumeration is reusable and mathematically motivated; the theorem neither relies on an arbitrary finite slice nor claims a broad result for unrelated products.",
+    "status": "PASS"
+  }
+}
