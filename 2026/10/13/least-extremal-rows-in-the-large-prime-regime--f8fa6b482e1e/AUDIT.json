@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The target row is the first multiple of \\(m\\) above \\(p\\). Every selected index lies strictly between the low digit \\(s\\) and \\(p\\), forcing exactly one Kummer borrow, while every earlier admissible row is below \\(p\\) and has valuation zero. A separate leading-digit case split proves the global upper bound \\(1\\). Exact-integer replay checked 5,250 parameter pairs without contradiction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.01328v1, Theorem 4.3 and Definition 5.1: the maximum is general, but the exact least-row theorem is stated for \\(m=p^a+1\\), \\(a\\ge2\\).",
+        "arXiv:1510.06696v5, Theorem Q: coverage requires \\(p\\equiv1\\pmod m\\).",
+        "arXiv:2609.37754v1: coverage requires \\(p\\equiv-1\\pmod m\\)."
+      ],
+      "reasoning": "The new domain is the full large-prime regime \\(p>m\\), so the congruence-one and congruence-minus-one theorems cover only proper subfamilies. The lead paper's least-row theorem lies in the disjoint regime \\(m>p\\).",
+      "searches": [
+        "restricted binomial GCD least extremal row p greater than m",
+        "T_p(m) p>m least multiple above p binomial gcd",
+        "selected binomial gcd Kummer least extremal row large prime regime",
+        "Fairfax-Ball Sharp p-adic Extrema least extremal rows p>m"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01328v1",
+      "arXiv:1510.06696v5",
+      "arXiv:2609.37754v1",
+      "arXiv:2606.20940v2",
+      "Kummer (1852)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.01328v1 proves \\(v_p(G(mp;m))=1\\) when \\(m<p\\), then separately defines \\(T_p(m)\\); existence of \\(mp\\) does not imply which earlier row is least.",
+        "McTague's theorem can imply the target valuation in the subcase \\(p\\equiv1\\pmod m\\), but its hypothesis excludes general residue classes.",
+        "The minus-one theorem similarly overlaps only \\(p\\equiv-1\\pmod m\\)."
+      ],
+      "reasoning": "The new proof supplies two missing implications uniformly: every earlier admissible row is nonextremal, and the first multiple above \\(p\\) is extremal for every residue class. Those implications are not contained in the inspected unrestricted statements.",
+      "searches": [
+        "arXiv:2610.01328v1 sections 4 5 8 9",
+        "arXiv:1510.06696v5 Theorem Q",
+        "arXiv:2609.37754v1 abstract valuation formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01328v1 defines the same invariant and gives only an attaining row \\(N=mp\\) in the regime \\(m<p\\).",
+        "arXiv:1510.06696v5 gives a digit-sum valuation criterion only under \\(p\\equiv1\\pmod m\\).",
+        "arXiv:2609.37754v1 gives a full valuation formula only under \\(p\\equiv-1\\pmod m\\)."
+      ],
+      "reasoning": "The exact next-multiple formula was searched directly, together with its stronger all-selected-coefficients valuation formulation. The closest statements either give a nonminimal attaining row or impose residue-class conditions.",
+      "searches": [
+        "T_p(m) = m ceil((p+1)/m) for prime p>m least extremal row restricted binomial GCD",
+        "least admissible multiple of m above p is least extremal row selected binomial gcd",
+        "for every prime p>m all selected binomial coefficients at next multiple of m have p-adic valuation one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The lead source gives the example \\(p=5,m=3\\) only to illustrate the attaining row \\(N=15\\), not the least row; the proved formula gives \\(T_5(3)=6\\).",
+        "No inspected table or database stated the all-parameter next-multiple formula."
+      ],
+      "reasoning": "The claim is an infinite theorem with a proof, not a finite-table extrapolation. Exact examples were used only as consistency checks.",
+      "searches": [
+        "least extremal row restricted binomial GCD table",
+        "restricted binomial gcd T_p(m) examples p>m"
+      ]
+    },
+    "rationale": "The inspected lead source constructs an attaining row \\(mp\\) in this regime but does not determine the least row; its least-row theorem addresses a disjoint higher-valuation family. Older congruence-one and recent congruence-minus-one theorems cover only proper residue-class subfamilies. Direct statement and implication searches found no all-residue equivalent.",
+    "residual_risks": [
+      "A historically equivalent formula could exist under different notation despite negative direct searches.",
+      "A 2026 paper on non-coprime lower indices uses a different selection rule; full theorem-level equivalence was not established from the inspected public description."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the all-residue least-row formula when \\(p>m\\). It proves the sharp maximum and supplies \\(N=mp\\) as an equality row, then determines \\(T_p(m)\\) only for \\(m=p^a+1\\), \\(a\\ge2\\).",
+        "evidence": "Theorem 4.3 gives \\(N=mp\\) when \\(r_p(m)=1\\); Definition 5.1 introduces \\(T_p(m)\\); Theorem 7.2 treats \\(m=p^a+1\\), \\(a\\ge2\\).",
+        "identifier_or_url": "arXiv:2610.01328v1",
+        "material_read": "Abstract; Sections 1–5; examples and boundary cases; related-work section.",
+        "method": "Open full-text HTML inspection of theorem statements, proofs, definition of \\(T_p(m)\\), examples, and literature-position discussion.",
+        "title": "Sharp \\(p\\)-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+        "trigger": "Same objects and invariant; direct parent source."
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP only. The theorem requires \\(p\\equiv1\\pmod m\\) and so covers one residue-class subfamily, not arbitrary \\(p>m\\).",
+        "evidence": "Theorem Q explicitly assumes the valuation prime is congruent to \\(1\\) modulo the restriction parameter.",
+        "identifier_or_url": "arXiv:1510.06696v5",
+        "material_read": "Full-text HTML, especially Theorem Q and its remarks and proof.",
+        "method": "Statement-and-implication comparison.",
+        "title": "On the Greatest Common Divisor of Binomial Coefficients \\(\\binom{n}{q},\\binom{n}{2q},\\binom{n}{3q},\\dots\\)",
+        "trigger": "Lead source identifies it as prior art for the same multiple-index restriction."
+      },
+      {
+        "assessment": "PARTIAL_OVERLAP only. It gives a complete valuation formula under \\(p\\equiv-1\\pmod m\\), not an unrestricted all-residue least-row theorem.",
+        "evidence": "The stated domain requires \\(p\\equiv-1\\pmod m\\); the mixed two-digit case yields valuation one when \\(m<p\\).",
+        "identifier_or_url": "arXiv:2609.37754v1",
+        "material_read": "Abstract theorem statement and literature-position description.",
+        "method": "Domain and implication comparison.",
+        "title": "Restricted Binomial GCDs at Primes Congruent to \\(-1\\)",
+        "trigger": "Same GCD family and large-prime regime under the opposite distinguished residue class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f8fa6b48-2e1e-46ff-9810-601e7b39e3cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least extremal row is a named natural invariant introduced by the lead source. The result gives a complete exact classification of the entire first-valuation layer \\(r_p(m)=1\\), improves the known generic equality row from \\(mp\\) to a row less than \\(p+m\\), and identifies the exact valuation of every selected coefficient at the optimum. This is a structural infinite-family theorem rather than a routine finite computation.",
+    "status": "PASS"
+  }
+}
