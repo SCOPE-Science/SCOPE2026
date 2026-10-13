@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For an out-arborescence, only the target of a newly added link changes indegree. Descendant levels shift uniformly, so exactly two trophic differences can deviate from one and their deviations sum to zero. Solving the target equation for source outside versus inside the target subtree gives the two formulas. The zero-cost count follows by enumerating same-consecutive-depth potential edges excluding the existing parent. A standalone exact Gaussian-elimination solver independently confirmed 40,322 modifications; the general result follows from the proof, not finite testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson et al. (2014) derive coherence/stability findings and a layered-network analysis but no rooted-tree one-extra-arc formula was found in the inspected main text and supporting theoretical material.",
+        "Johnson and Jones (2015/2017) develop coherence-ensemble approximations for cycles, paths and spectral moments rather than exact per-edge perturbations of arbitrary rooted trees.",
+        "MacKay, Johnson, and Sansom (2020) introduce levels solving a symmetric graph-Laplacian equation and a different minimized residual F0, not the original non-symmetric mean-prey q."
+      ],
+      "reasoning": "The earlier papers motivate trophic coherence, define or generalize it, and study loops in statistical graph ensembles. Generic definitions do not directly provide the exact branch-independent all-tree addition law and complete zero-cost count; the 2020 improved functional is not the functional claimed here.",
+      "searches": [
+        "arXiv:1505.07332",
+        "arXiv:1404.7728",
+        "doi:10.1098/rsos.201138",
+        "arXiv:1603.03767",
+        "\"trophic coherence\" \"single link\" \"tree\" \"cycle\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.7728",
+      "doi:10.1073/pnas.1409077111",
+      "arXiv:1505.07332",
+      "doi:10.1073/pnas.1613786114",
+      "doi:10.1098/rsos.201138",
+      "arXiv:1603.03767",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 classical definition and 2017 generic q² identity are used directly as premises and are not represented as original.",
+        "The 2017 coherence ensemble discusses probability of cycles in random networks and explicitly distinguishes general acyclicity from coherence, not one-edge rooted-tree exact costs.",
+        "The 2020 alternative metric has a distinct defining optimization; its graph-Laplacian formulas cannot be equated to the classical q used here."
+      ],
+      "reasoning": "Generic trophic-level linear equations imply that the target system can be solved in principle, but do not state the exact universal simplification for one-edge augmented rooted trees, its two sharp bounds, or the depth-profile zero-cost count. The result is not an immediate numeric special case of any identified stronger theorem.",
+      "searches": [
+        "arXiv:1404.7728",
+        "arXiv:1505.07332",
+        "doi:10.1098/rsos.201138",
+        "trophic coherence feedforward shortcut feedback arc rooted path exact trophic levels variance dependence chord span"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In Johnson et al. (2014), the original metric is the standard deviation of incoming predator-minus-prey trophic differences and species levels are one plus mean prey level.",
+        "Johnson and Jones (2015/2017) state q² as the mean squared edge difference minus one, the same metric as in the current theorem.",
+        "Our direct formulas concern the special class of adding one absent arc to a rooted arborescence, including the cycle/noncycle dichotomy and depth-only dependence."
+      ],
+      "reasoning": "Equivalent wording was checked under food-web trophic level, graph hierarchy, feedforward shortcut, rooted directed tree, arborescence, edge insertion, and trophic variance. Exact normalization is the classical prey-averaging q, not the later minimization-based directedness index.",
+      "searches": [
+        "\"trophic incoherence\" \"arborescence\" \"extra edge\"",
+        "\"trophic coherence\" \"rooted tree\" \"additional edge\" formula",
+        "\"trophic levels\" \"add an edge\" root tree",
+        "trophic coherence feedforward shortcut feedback arc rooted path exact trophic levels variance dependence chord span",
+        "arXiv:1404.7728",
+        "arXiv:1505.07332"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching table of rooted-tree one-arc trophic-incoherence values or zero-cost-link counts was located in checked search results.",
+        "The packaged verifier derives every value from independently solved rational linear systems, rather than reading an external table.",
+        "MSC2020 92D40 is Ecology; the primary source studies ecological food webs."
+      ],
+      "reasoning": "Searches targeted exact small motif examples as well as classification of all possible additions. The failure to find such a table is supporting search evidence, not by itself proof of originality.",
+      "searches": [
+        "\"trophic incoherence\" \"single cycle\" exact",
+        "\"trophic coherence\" \"rooted tree\" \"additional edge\" formula",
+        "\"trophic incoherence\" \"single link\" \"tree\" \"cycle\"",
+        "trophic incoherence shortest directed cycle versus shortcut quantitative single-edge perturbation",
+        "site:msc2020.org 92D40 ecology"
+      ]
+    },
+    "rationale": "The closest inspected primary literature gives the trophic-incoherence definition, ensemble relations to loops, and an alternative symmetric-Laplacian metric; none of these directly states the exact one-arc rooted-tree response, sharp feedback separation, or complete zero-cost-link count. Targeted literature, exact-expression, mathematical-record, and prior-claim comparisons found no covering assertion.",
+    "residual_risks": [
+      "A pedagogical example or unindexed supplementary calculation may already derive the two formulas; semantic searches are not an exhaustive originality certificate.",
+      "The 2016 intervality/coherence source was assessed from its abstract, not full article text; it is judged tangential to the claimed one-edge exact problem.",
+      "Only classical binary unweighted trophic incoherence is covered, not the later symmetric-Laplacian directedness index or dynamical stability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the classical metric and relevant ecological motivation; inspected sections do not state the exact single-added-arc arborescence formulas.",
+        "evidence": "Methods define each trophic level as one plus the mean prey level and q as the standard deviation of trophic differences; supplementary analysis studies perfectly coherent layered networks and an assembly model.",
+        "identifier_or_url": "arXiv:1404.7728; doi:10.1073/pnas.1409077111; https://arxiv.org/html/1404.7728v3",
+        "material_read": "First-public arXiv date and version history; Warwick accepted manuscript PDF text at the overview, trophic-level and coherence definitions, Methods and supporting-information theoretical sections; arXiv HTML supporting information on model, loops, and maximally coherent networks.",
+        "method": "Author manuscript PDF text/HTML and arXiv full-text supporting material; no complete page-by-page visual inspection.",
+        "title": "Trophic coherence determines food-web stability",
+        "trigger": "Original ecological definition of the precise index and possible stronger direct statements about trophic stability and links"
+      },
+      {
+        "assessment": "Contains ensemble/approximate loop and spectral laws, not the exact one-edge formulas for deterministic augmented rooted trees.",
+        "evidence": "Its equations (4)–(5) give the original mean-prey levels and q²; its equations (16)–(20) concern cycle probabilities in a statistical coherence ensemble.",
+        "identifier_or_url": "arXiv:1505.07332; doi:10.1073/pnas.1613786114; https://arxiv.org/html/1505.07332v3",
+        "material_read": "Full HTML main sections: definitions and mean-one normalization, coherence-ensemble loop-count predictions, directed-acyclic-graph subsection, discussion, and stated limitations.",
+        "method": "Author arXiv full HTML inspected in multiple line ranges.",
+        "title": "Looplessness in networks is linked to trophic coherence",
+        "trigger": "Strongest known trophic-coherence/cycle study; could subsume the feedback case"
+      },
+      {
+        "assessment": "Uses a different symmetric-Laplacian residual minimization rather than the specific classical predator-prey-averaged q; no same one-edge theorem in inspected relevant material.",
+        "evidence": "Its equations (2.6)–(2.8) define a graph-Laplacian level and optimized F0, contrasted explicitly with the prior trophic-level convention.",
+        "identifier_or_url": "doi:10.1098/rsos.201138; https://pmc.ncbi.nlm.nih.gov/articles/PMC7540772/",
+        "material_read": "Open full article Introduction, Section 2 improved level equations and minimized incoherence, ecological applications and comparison to old definitions.",
+        "method": "Open-access publisher-hosted article mirrored in full-text HTML at PMC.",
+        "title": "How directed is a directed network?",
+        "trigger": "Later mathematical treatment of edge-direction and trophic incoherence that might dominate the claim"
+      },
+      {
+        "assessment": "Emphasizes intervality and niche ordering rather than deterministic single-link coherence calculation. Full text not materially inspected; limited risk remains.",
+        "evidence": "The abstract concerns prey/predator intervality, structural food-web modeling, and connection to coherence.",
+        "identifier_or_url": "arXiv:1603.03767; doi:10.1063/1.4953163",
+        "material_read": "Public arXiv bibliographic abstract and published abstract identifying model, intervality and coherence scope.",
+        "method": "Bibliographic abstract-level assessment, not a full-article noncoverage assertion.",
+        "title": "Intervality and coherence in complex networks",
+        "trigger": "Ecological food-web structural model with trophic coherence in title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c0868dc-ed78-4924-a39b-88c82b7fe3ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adding a single predation link to a basal feeding hierarchy is a motivated food-web assembly operation, and classical trophic incoherence is used as a structural indicator in established ecological research. The formula gives a complete deterministic local-response calculus independent of otherwise arbitrary branching: precise depth-only acyclic costs, a sharp cycle-length feedback penalty, and an exact count of additions that maintain perfect coherence. It provides usable analytic benchmarks for networks and assembly models without claiming universal ecological stability.",
+    "status": "PASS"
+  }
+}
