@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "All connected labeled graphs through \\(5\\) vertices are enumerated. Independent connectivity tests agree; independent synchronous and queue-based strict-majority closures agree for every two-seed set; and complete relabeling canonicalization proves that the \\(60\\) first failures are exactly the orbit of the house graph. The representative's high-degree pair has spread \\(3\\), while four explicitly listed pairs have spread \\(5\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kempe, Kleinberg, and Tardos define influence maximization for fixed-size seed sets and explicitly describe the high-degree heuristic as selecting vertices in decreasing degree order.",
+        "Their experiments show the high-degree heuristic can underperform diffusion-aware selection, but on large collaboration networks and under their stochastic diffusion models.",
+        "Khoshkhah, Soltani, and Zaker define the progressive irreversible process with strict-majority threshold \\(\\lceil(\\deg(v)+1)/2\rceil\\) and study dynamic-monopoly size bounds.",
+        "Neither inspected source gives the smallest graph order for a two-seed high-degree failure or a complete five-vertex census."
+      ],
+      "reasoning": "The broader literature decisively covers the ingredients and qualitative possibility of degree-based heuristics being imperfect, so originality cannot rest on that qualitative message. It rests only on the exact sharp finite boundary and complete first obstruction layer.",
+      "searches": [
+        "doi:10.1145/956750.956769 high-degree heuristic linear threshold influence maximization",
+        "arXiv:1202.1146 strict majority dynamic monopoly",
+        "strict majority threshold model social networks progressive irreversible majority dynamics seed set influence maximization",
+        "high-degree linear threshold deterministic influence maximization"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1145/956750.956769",
+      "arXiv:1202.1146",
+      "doi:10.1016/j.disopt.2012.02.001",
+      "doi:10.1137/120868864"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A large-network empirical gap between greedy influence maximization and high-degree seeding proves neither the smallest possible counterexample order nor the first obstruction type.",
+        "Bounds on minimum strict-majority dynamic monopolies do not compare the high-degree pair with all other two-vertex seed sets.",
+        "A checked published result on minimum conversion sets for complete multipartite graphs has a different domain; the house graph is not complete multipartite.",
+        "A checked published result on strict-majority bootstrap behavior on high-dimensional tori studies layer advance rather than finite-graph two-seed heuristic optimality."
+      ],
+      "reasoning": "The accepted theorem needs a universal lower bound through four vertices plus a complete quotient census at five. Neither general influence-maximization results, dynamic-monopoly size bounds, nor special-family threshold results imply those finite facts.",
+      "searches": [
+        "Kempe Kleinberg Tardos high-degree heuristic network effects degree centrality",
+        "Khoshkhah Soltani Zaker strict majority dynamic monopoly degree",
+        "minimum k-conversion sets complete multipartite strict majority",
+        "strict-majority bootstrap high-dimensional tori"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked result states that the house graph is the first connected graph on which an unambiguous top-two-degree seed set is suboptimal under strict-majority progressive diffusion.",
+        "Searches using the standard graph name, strict-majority and dynamic-monopoly terminology, high-degree and degree-centrality terminology, and the two-seed influence objective did not locate an equivalent theorem.",
+        "The nearest threshold-diffusion results concern minimum target sets, special graph families, or different propagation processes rather than the ranking of two-seed sets by spread."
+      ],
+      "reasoning": "The accepted statement is invariant under relabeling and can be phrased either as failure of the decreasing-degree two-seed heuristic or as a mismatch between the unique maximum degree-sum pair and a maximum-spread pair. The searches cover both formulations plus the unique obstruction graph.",
+      "searches": [
+        "house graph strict majority high-degree heuristic two seeds",
+        "five vertex house graph influence maximization strict majority",
+        "two highest degree vertices strict majority diffusion house graph",
+        "\"house graph\" \"strict majority\" dynamic monopoly",
+        "\"house graph\" \"target set selection\" majority",
+        "\"degree\" \"strict majority threshold\" \"influence maximization\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the count \\(60\\) among \\(728\\) connected labeled five-vertex graphs.",
+        "No checked source supplied the count \\(290\\) of five-vertex graphs with an unambiguous high-degree pair or the conditional fraction \\(6/29\\).",
+        "No checked source supplied the statement that all first failures form the single house-graph orbit.",
+        "The packaged verifier derives these quantities directly from the complete labeled domain."
+      ],
+      "reasoning": "Exact-size, exact-graph-name, and exact-model searches directly target prior tabulation of the finite census. Known small-graph catalogs identify the house graph but do not attach this strict-majority influence property to it.",
+      "searches": [
+        "\"five vertices\" \"strict majority\" dynamic monopoly",
+        "\"5 vertices\" \"strict majority\" influence graph",
+        "\"house graph\" high degree heuristic influence",
+        "five vertices strict majority target set high degree pair",
+        "high-degree heuristic first failure strict majority diffusion"
+      ]
+    },
+    "rationale": "The literature owns the diffusion model and the high-degree heuristic, but the inspected sources do not imply or report the sharp finite boundary, the exact \\(60\\)-graph first layer, or its collapse to the house graph.",
+    "residual_risks": [
+      "An unindexed small-graph table, thesis appendix, software test corpus, or classroom example could contain the same five-vertex observation.",
+      "The literature already establishes that high-degree heuristics can underperform; the originality claim is restricted to the sharp strict-majority two-seed boundary and its complete first obstruction layer.",
+      "No statement is made for seed budgets other than two, graphs with more than five vertices, or non-strict-majority dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the influence objective and high-degree heuristic and qualitatively documents heuristic underperformance, but does not study deterministic strict-majority two-seed small-graph minimality or the house-graph census.",
+        "evidence": "The paper defines influence as eventual active-set size for a fixed seed set, defines the high-degree heuristic by decreasing vertex degree, and reports that diffusion-aware selection outperforms it on collaboration-network experiments.",
+        "identifier_or_url": "doi:10.1145/956750.956769",
+        "material_read": "Open ten-page author PDF: abstract and introduction; linear-threshold definition and influence-maximization definition; experimental-method section defining the high-degree heuristic; and the results discussion explaining why degree can fail to reflect network influence.",
+        "method": "Open full-PDF text inspection with rendered-page checks.",
+        "title": "Maximizing the Spread of Influence through a Social Network",
+        "trigger": "Foundational primary source for fixed-budget influence maximization and the high-degree heuristic."
+      },
+      {
+        "assessment": "Matches the graph class and threshold dynamics, but studies existence and size of dynamic monopolies rather than whether the unique top-two-degree pair maximizes two-seed spread.",
+        "evidence": "The paper defines strict majority as \\(\\lceil(\\deg(v)+1)/2\rceil\\), explicitly models irreversible influence spread, and assigns MSC \\(91D30\\).",
+        "identifier_or_url": "arXiv:1202.1146",
+        "material_read": "Open fourteen-page arXiv PDF: abstract and introduction defining progressive activation; the exact strict-majority threshold; and the strict-majority section including the general dynamic-monopoly bound.",
+        "method": "Open full-PDF text inspection with rendered-page checks.",
+        "title": "On dynamic monopolies of graphs: the average and strict majority thresholds",
+        "trigger": "Primary full text using the exact strict-majority progressive process in the accepted claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "830ac9d8-58f9-469b-a38d-00461cd0ead6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The comparison joins a canonical influence heuristic to a canonical complex-contagion threshold. Two seeds are the first nondegenerate budget because one active neighbor can never satisfy the strict-majority threshold of a vertex of degree at least \\(2\\). The exact smallest failure therefore has a direct modeling interpretation, and the entire first obstruction layer collapsing to the house graph makes the result a reusable structural benchmark rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
