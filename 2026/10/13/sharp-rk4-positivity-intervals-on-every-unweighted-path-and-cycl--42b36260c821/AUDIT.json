@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The proof identifies R(-hL), reconstructs Taylor-remainder positivity of every diagonal, and exhausts relevant graph walks through length four. The seven distance-one cubics and five distance-two quadratics have strictly positive Bernstein coefficients on [0,2/3]; exact distance-three witnesses force all large-graph sharp cutoffs with strict negativity above. Exceptional low orders are controlled by four strictly decreasing cubics, with remaining off-diagonal quadratics strictly positive. This reconstructs both iff directions and excludes later positivity recovery. The packaged stdlib checker independently recomputes short-distance polynomials and 245752 exact-rational entry tests; finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published backwards-Euler-filtered Crank–Nicolson lattice positivity uses a rational time-step function unlike RK4.",
+        "Published [2/2] Padé positivity counterexamples use a fourth-order rational rather than explicit polynomial map.",
+        "General strong-stability-preservation radius bounds are sufficient guarantees, not exact necessary and sufficient restrictions on these path/cycle graphs."
+      ],
+      "reasoning": "A stronger general positivity theorem would have to provide the same polynomial on all unweighted paths and cycles with sharp necessity. The compared higher-order rational schemes and universal SSP/absolute-monotonicity conditions do not dominate those statements.",
+      "searches": [
+        "positive transition matrix stability polynomial order four ring diffusion cycle grid",
+        "Runge Kutta positivity unweighted path and cycle Laplacian all timestep sizes",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "doi:10.1137/S003614450036757X"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1610.00228, Section 6.2 (primary)",
+      "doi:10.1016/j.asej.2015.05.018 (primary text)",
+      "doi:10.1016/S0168-9274(98)00050-6, Sections 3–5 and Example 1 (primary full text)",
+      "doi:10.1016/j.apnum.2004.08.026, full text especially pp.350–353 and Table 1",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac (published statement)",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (published statement)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General RK positivity radius zero admits restricted linear systems with a positive end-step map and therefore does not negate or imply the positive path/cycle endpoints.",
+        "The 2005 Dirichlet heat experiments and cone invariance neither quantify all nonnegative inputs for RK4 nor yield any of the exact four cubic roots or universal half-step bound.",
+        "Pure-birth RK4 has a nilpotent unilateral chain, different coefficient polynomial and threshold from undirected paths; neither is a corollary of the other."
+      ],
+      "reasoning": "Prior statements are strictly different in method, generator and/or quantifiers. A claim on all Metzler generators with optimal restrictions would dominate, but the cited literature gives zero universal RK4 guarantee, not these sharp symmetric restricted-family iff conditions.",
+      "searches": [
+        "doi:10.1016/S0168-9274(98)00050-6 Example 1 RK4 zero positivity radius",
+        "doi:10.1016/j.apnum.2004.08.026 Section 4 heat discretization",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horváth (1998), Example 1: classical RK4 general RK positivity radius zero; this does not decide autonomous end-step positivity for a restricted graph family.",
+        "Horváth (2005), Section 4: Dirichlet diffusion and positive-cone invariance; the actual examined methods in Table 1 are theta, Lobatto IIIC, and Radau IIA.",
+        "Fekete–Ketcheson–Lóczi, Section 6.2: explicit two-stage semidiscrete periodic heat schemes rather than the RK4 all-size end-step classification."
+      ],
+      "reasoning": "Compared finished RK4 linear map, the orthant preservation quantifiers, and all path/cycle sizes, not titles. General RK method positivity radii address all positive ODEs or stage-dependent conditions and do not supply iff cutoffs for this restricted heat family.",
+      "searches": [
+        "classical fourth-order Runge-Kutta periodic nearest-neighbor heat cycle C_n sharp entrywise nonnegativity timestep 1/2 n 6 7 8",
+        "RK4 Fourier circulant heat semigroup exact positivity CFL n=3 n=4 n=5 n>=6",
+        "classical fourth order Runge Kutta positivity preservation semidiscrete heat equation periodic grid threshold",
+        "arxiv:1610.00228",
+        "doi:10.1016/j.apnum.2004.08.026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fekete–Ketcheson–Lóczi inspect Section 6.2: two-stage periodic discretization results, no RK4 cycle-by-cycle table.",
+        "Horváth (2005) Table 1 reports discrete positivity experiments for other schemes and Dirichlet heat initial data; not these RK4 graph-size bounds.",
+        "Known previously recorded RK4 sharp table concerns absorbing one-way pure-birth generators, not symmetric graph Laplacians."
+      ],
+      "reasoning": "Searched for an exact table or equivalent algebraic cutoffs (including small-graph parameter values and end-step kernels), not just for word overlaps. No identical table or stronger covering table was encountered in inspected material.",
+      "searches": [
+        "RK4 periodic heat cycle 3 4 5 6 7 8 positivity threshold table",
+        "fourth order classical Runge Kutta path graph heat equation exact nonnegative matrix coefficients",
+        "arxiv:1610.00228 Section 6.2",
+        "doi:10.1016/j.apnum.2004.08.026 Table 1"
+      ]
+    },
+    "rationale": "The complete sharp all-size positivity interval for completed classical RK4 on connected unweighted paths and cycles was compared against published results for general RK positivity, second-order heat schemes, other rational end-step maps, and RK4 on different generators. Inspection of closest primary full texts found no equivalent statement or dominating theorem. Residual historical-priority risk remains.",
+    "residual_risks": [
+      "A historically earlier paper might give the identical all-size RK4 unweighted path/cycle classification in different graph/PDE notation; no exhaustive historical-priority certification is asserted.",
+      "The closest SSP reference was not read in full; comparison relies on its standard sufficient-general-framework role rather than a whole-text noncoverage assertion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; studies two-stage methods with spatially variable diffusion, not the explicit fourth-order completed RK polynomial on all paths and cycles.",
+        "evidence": "Section 6.2 treats the heat stencil via its two-stage explicit construction; no RK4 path/cycle size root table.",
+        "identifier_or_url": "arxiv:1610.00228",
+        "material_read": "Section 6.2 periodic heat example, its explicit two-stage formulas, context and discussion; arXiv version initial-submission date.",
+        "method": "arXiv lawful open-access PDF and primary-text reading",
+        "title": "Positivity for convective semi-discretizations",
+        "trigger": "Periodic semidiscrete heat scheme and explicit Runge–Kutta positivity could contain the claimed cutoff."
+      },
+      {
+        "assessment": "NOT_COVERING; considered advection/flux-limited semidiscrete examples and conditions, not complete path/cycle heat end-step intervals.",
+        "evidence": "RK4 positivity discussion concerns different semidiscretizations and does not state values or all-size graph classification.",
+        "identifier_or_url": "doi:10.1016/j.asej.2015.05.018",
+        "material_read": "Accessible full-text methodology and application examples involving explicit fourth-order Runge–Kutta and positivity.",
+        "method": "lawful available primary full-text reading",
+        "title": "Positivity of an explicit Runge–Kutta method",
+        "trigger": "Classical fourth-order explicit RK positivity is central to its title and text."
+      },
+      {
+        "assessment": "NOT_COVERING; explicitly asserts zero general classical-RK4 positivity radius, but no sharp autonomous unit-path or unit-cycle end-step thresholds.",
+        "evidence": "Example 1 says classical fourth-order RK has general positivity radius zero due to a missing positive tableau entry.",
+        "identifier_or_url": "doi:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Pages 1–3 and 10–18 of 18, especially Section 5, Theorem 5 and Example 1 on page 322, and the heat-equation reference in bibliography.",
+        "method": "full primary paper text and page-specific reading",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Foundational general RK positivity theorem potentially stronger than restricted graph statement."
+      },
+      {
+        "assessment": "NOT_COVERING; uses Dirichlet heat grids and different schemes (theta, two-stage Lobatto IIIC, two-stage Radau IIA), no RK4 graph-size end-step classification.",
+        "evidence": "Table 1 (printed page 351) methods are theta=0.6, Lobatto IIIC s=2, Radau IIA s=2; Theorem 17 concerns positive invariant cones for spectral initial data.",
+        "identifier_or_url": "doi:10.1016/j.apnum.2004.08.026",
+        "material_read": "Full sixteen-page paper, with close comparison of pages 10–13: Section 4.1 heat stencil and Table 1, Sections 4.2–4.4 invariant cones.",
+        "method": "institutionally authorized full primary text; initial arXiv and open-access attempts preceded institutional retrieval",
+        "title": "On the positivity step size threshold of Runge-Kutta methods",
+        "trigger": "Its Section 4 analyzes semidiscrete one-dimensional heat equations and might subsume exact end-step thresholds."
+      },
+      {
+        "assessment": "REFERENCE_CONTEXT_ONLY; no whole-document noncoverage claim.",
+        "evidence": "SSP method class concerns monotonicity guarantees under general forward-Euler hypotheses; exact end-step family thresholds not established from this contextual evidence.",
+        "identifier_or_url": "doi:10.1137/S003614450036757X",
+        "material_read": "Located bibliographic and structural general-framework statements; the complete original article was not inspected in this comparison.",
+        "method": "published bibliographic/contextual comparison only",
+        "title": "Strong stability-preserving high-order time discretization methods",
+        "trigger": "SSP framework may imply positive-step bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42b36260-c821-468c-be08-9b2487453b91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical symmetric finite-difference heat generator on every path and cycle is a meaningful sharp-step test for classical RK4: general positivity radii alone cannot tell whether its full end-step stays nonnegative for this restricted family. This theorem gives exact necessary and sufficient values for every dimension, identifies a universal large-size half-step frontier, and exposes two strict nonmonotonic cycle-size effects. This is an infinite structural classification with potential numerical-method design use, not an arbitrary table recomputation.",
+    "status": "PASS"
+  }
+}
