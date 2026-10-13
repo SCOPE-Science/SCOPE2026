@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The scalar quadratic normalized gradient equals the sign of the iterate, reducing SNGM to an exact piecewise-affine recurrence. For every sign word, the momentum and displacement are explicit integer polynomials in the momentum parameter. A full-state return requires two polynomial equations. Exact exhaustive reduction through length six leaves no admissible root below period six and exactly the two stated period-six roots. The open initial intervals satisfy every sign inequality, and direct package replay verifies the return and average-gradient identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining SNGM theorem bounds average stationarity for any constant learning rate and leaves a residual term proportional to the learning rate.",
+        "The SDC literature proves convergence for algorithms with different restart and direction-correction rules.",
+        "Published sign-based momentum theory studies Signum rather than the SNGM placement of normalization."
+      ],
+      "reasoning": "Generic normalized-gradient or sign-momentum convergence results do not dominate an exact finite-period classification for this different recurrence. The resonance cycles additionally show that an order-\\(\\eta\\) fixed-step residual can be realized by genuine recurrent dynamics.",
+      "searches": [
+        "normalized gradient descent momentum periodic orbit scalar quadratic",
+        "normalized gradient momentum limit cycle optimization",
+        "sign gradient momentum limit cycle optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.13985v1",
+      "DOI:10.1007/s11432-022-3892-8",
+      "arXiv:1905.06507v1",
+      "arXiv:1802.04434v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The SNGM source initializes \\(u_0=0\\), uses constant \\(\\eta\\) in Algorithm 1, and proves an average-gradient upper bound with a term proportional to \\(L\\eta\\).",
+        "SDC/FISC uses an extra raw-gradient term and restart criterion.",
+        "Signum uses \\(m_{k+1}=\beta m_k+(1-\beta)g_k\\) followed by a signed parameter step."
+      ],
+      "reasoning": "The source upper bound does not imply existence, minimal period, or algebraic location of exact recurrent states. The two neighboring momentum methods cannot imply the SNGM cycles because their update maps differ before the scalar reduction.",
+      "searches": [
+        "arXiv:2007.13985v1 Algorithm 1 constant learning rate theorem",
+        "arXiv:1905.06507v1 normalized gradient inertia restart",
+        "arXiv:1802.04434v1 Signum Algorithm 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SNGM Algorithm 1 accumulates normalized gradients and then updates by the full momentum vector.",
+        "Search-direction correction combines normalized-gradient information with a different velocity equation and explicit restarting.",
+        "Signum accumulates raw gradients and applies a sign only after momentum formation."
+      ],
+      "reasoning": "The three superficially related methods have different scalar state maps. Equivalent coverage of the accepted claim would need to imply the two exact SNGM return polynomials and their source-initialized sign-feasibility intervals.",
+      "searches": [
+        "arXiv:2007.13985v1",
+        "arXiv:1905.06507v1",
+        "arXiv:1802.04434v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed optimization records concerned other scalar adaptive methods, heavy-ball root geometry, and stochastic sign methods.",
+        "No checked indexed record stated an SNGM period-six return or the two golden-ratio momentum values."
+      ],
+      "reasoning": "Database absence is supporting evidence only. The primary originality comparison comes from the defining SNGM full text and the closest published normalized-gradient and sign-momentum methods.",
+      "searches": [
+        "SNGM normalized gradient momentum scalar quadratic period cycle",
+        "stochastic normalized gradient descent momentum exact periodic orbit scalar",
+        "normalized gradient momentum limit cycle golden ratio beta",
+        "sign gradient momentum scalar quadratic periodic orbit"
+      ]
+    },
+    "rationale": "The defining SNGM paper gives the normalized-gradient momentum recurrence and a constant-step average-stationarity bound, but the inspected full text does not classify exact periodic states. Search-direction-correction methods use a different inertial rule and restart mechanism. Signum averages raw gradients before taking their sign, so its scalar recurrence is not the SNGM recurrence. Focused literature and indexed searches did not identify the period-six resonance classification.",
+    "residual_risks": [
+      "An unindexed dynamical-systems note may have analyzed the same relay recurrence without SNGM terminology.",
+      "A previous exact result for Signum studies periodic behavior of a different momentum/sign ordering; it does not imply the SNGM return-polynomial classification.",
+      "The result does not classify periods longer than six."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_EXACT_PERIODIC_RESONANCES.",
+        "evidence": "The source states the normalized-gradient momentum update and average-stationarity bound but does not classify scalar periodic orbits or golden-ratio return parameters in the inspected material.",
+        "identifier_or_url": "arXiv:2007.13985v1",
+        "material_read": "Open full text covering Algorithm 1, the equivalent two-step recurrence, the auxiliary-variable lemma, and the smooth-objective convergence theorem with its constant-learning-rate residual term.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Stochastic Normalized Gradient Descent with Momentum for Large-Batch Training",
+        "trigger": "Defining source for SNGM, source initialization, normalized-gradient momentum, and constant-step stationarity theory."
+      },
+      {
+        "assessment": "DIFFERENT_INERTIAL_NORMALIZED_GRADIENT_RULE_NOT_COVERING_SNGM_RETURN_POLYNOMIALS.",
+        "evidence": "SDC includes a raw-gradient term and a restart condition absent from SNGM, so its convergence theory does not imply the accepted scalar recurrence.",
+        "identifier_or_url": "arXiv:1905.06507v1",
+        "material_read": "Open full text covering the SDC velocity update, normalized-gradient correction term, restart rule, heavy-ball comparison, and convex convergence discussion.",
+        "method": "Open-access full-text inspection.",
+        "title": "The Search direction Correction makes first-order methods faster",
+        "trigger": "Closest published inertial method combining normalized-gradient information with a velocity state."
+      },
+      {
+        "assessment": "SIGNUM_USES_SIGN_AFTER_RAW_GRADIENT_MOMENTUM_AND_IS_NOT_SNGM.",
+        "evidence": "Signum forms momentum from raw gradients and then signs the momentum, whereas SNGM places normalized gradients inside the momentum and uses the resulting vector directly.",
+        "identifier_or_url": "arXiv:1802.04434v1",
+        "material_read": "Open full text covering Algorithms 1 and 2 and the Signum convergence discussion.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "signSGD: Compressed Optimisation for Non-Convex Problems",
+        "trigger": "Closest published sign-based momentum method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "619240b9-eb20-49ab-a6c3-120473caf42d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining SNGM theory deliberately permits constant learning rates and consequently retains an order-\\(\\eta\\) stationarity term. The accepted result shows that this floor corresponds to exact recurrent dynamics on the simplest strongly convex objective, rather than merely proof slack. Classifying the shortest source-initialized returns completely, including the two algebraic momentum resonances and continuum initial intervals, gives a natural structural benchmark for normalized-gradient momentum methods.",
+    "status": "PASS"
+  }
+}
