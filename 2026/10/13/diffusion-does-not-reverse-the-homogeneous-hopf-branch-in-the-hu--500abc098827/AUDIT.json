@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Spatially constant functions form an exact invariant subspace under Neumann diffusion, and the restricted PDE is the source ODE, so diffusion coefficients cannot alter the side of the homogeneous Hopf branch. At sigma=1 and a0=4, symbolic normal-form reconstruction gives crossing speed 1/16 and first Lyapunov coefficient -5 sqrt(2). The exact H1 witness d1=10, d2=1/5 gives r1=2 and D1=-12/5, proving transverse instability without reversing branch direction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu and Zhao study Hopf and Turing behavior of the same model family but the located record does not state the Miao-He direction correction.",
+        "Ryu and Ko analyze Hopf behavior in a related hunting-cooperation diffusion system and cite standard parabolic Hopf theory, but do not state that the Miao-He H1 branch is supercritical but transversely unstable."
+      ],
+      "reasoning": "Broader literature establishes the model family and diffusion-driven stability changes. It does not subsume the exact source-specific conflict between homogeneous branch direction and transverse stability.",
+      "searches": [
+        "\"Qualitative analysis for a diffusive predator-prey model with hunting cooperative\" Hopf direction",
+        "\"10.3934/dcdsb.2022015\" Hopf hunting cooperation homogeneous periodic",
+        "spatially homogeneous Hopf branch diffusion direction transverse instability predator prey"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1515/math-2022-0474",
+      "doi:10.1016/j.physa.2018.09.176",
+      "doi:10.3934/dcdsb.2022015"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed correction was found.",
+        "The invariant homogeneous subspace forces the PDE branch to coincide pointwise with the ODE branch for every diffusion pair.",
+        "The H1 witness changes a nonzero spatial eigenvalue while leaving the homogeneous normal form unchanged."
+      ],
+      "reasoning": "Prior model-family analyses can imply that diffusion changes stability, but that does not imply a reversal of the parameter side of an invariant homogeneous branch. The source-specific separation of direction from transverse stability is not covered by the located literature.",
+      "searches": [
+        "\"10.1515/math-2022-0474\" subcritical supercritical erratum",
+        "\"Theorem 3.2\" \"hunting cooperation\" predator prey",
+        "\"10.1515/math-2022-0474\" first Lyapunov correction",
+        "diffusive predator prey homogeneous Hopf transverse instability cooperative hunting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states the ODE Hopf is supercritical and later calls the spatially homogeneous PDE Hopf subcritical under H1.",
+        "The same article explicitly identifies the homogeneous PDE Hopf with the ODE dynamics.",
+        "No exact-source or correction search located an erratum resolving the direction conflict."
+      ],
+      "reasoning": "The claim was searched as a direction reversal, a subcritical-versus-supercritical contradiction, an H1 correction, and a homogeneous-invariant-subspace issue.",
+      "searches": [
+        "\"10.1515/math-2022-0474\" Hopf supercritical subcritical diffusion",
+        "\"Hopf bifurcation and Turing instability in a diffusive predator-prey model with hunting cooperation\" correction",
+        "Miao He 2022 Theorem 3.2 subcritical H1",
+        "hunting cooperation predator prey H1 subcritical Hopf a0 d1 d2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher full HTML was inspected at equations (1.4)-(1.5), Theorem 2.1, modal formulas (3.5)-(3.6), Theorem 3.1 conditions H1-H3, Theorem 3.2, and Figures 5-8.",
+        "Publisher metadata gives online publication on 12 September 2022 and lists 92D25 first among the MSC codes.",
+        "At the exact Hopf value for the source numerical diffusion pair, direct substitution into its own formulas yields r1=2 and D1=-12/5."
+      ],
+      "reasoning": "The accepted claim is tied to exact displayed formulas and theorem statements, not inferred from an abstract.",
+      "searches": [
+        "doi:10.1515/math-2022-0474 Theorem 2.1",
+        "doi:10.1515/math-2022-0474 Theorem 3.2 H1",
+        "doi:10.1515/math-2022-0474 D_j(a0) H1",
+        "doi:10.1515/math-2022-0474 sigma=1 d1=10 d2=0.2"
+      ]
+    },
+    "rationale": "The general invariant-subspace principle and Hopf theory are standard. The original content is the source-specific correction: Theorem 3.2(i) changes the direction of a branch that the same paper identifies with its ODE branch, and an exact H1 parameter point simultaneously falsifies the nearby claim that all nonzero modal determinants are positive at a0. No checked source or indexed finding states this correction.",
+    "residual_risks": [
+      "A non-indexed author correction could exist outside the checked records.",
+      "The transverse-instability statement is local near the homogeneous Hopf branch.",
+      "The finding does not classify genuinely spatially inhomogeneous periodic branches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "HOMOGENEOUS_HOPF_DIRECTION_CANNOT_FLIP_UNDER_H1",
+        "evidence": "The paper itself says the homogeneous PDE Hopf is the ODE dynamics, yet Theorem 2.1 calls it supercritical and Theorem 3.2(i) calls it subcritical under H1.",
+        "identifier_or_url": "doi:10.1515/math-2022-0474",
+        "material_read": "Open publisher full HTML covering equations (1.4)-(1.5), the positive equilibrium and Jacobian, Theorem 2.1, modal linearization and formulas (3.5)-(3.6), H1-H3, Theorem 3.2 and Remark 3.1, and numerical examples including d1=10,d2=0.2.",
+        "method": "Compared the invariant homogeneous restriction with the claimed PDE direction, evaluated H1 and the first modal determinant exactly at a0, and independently reconstructed the planar first Lyapunov coefficient.",
+        "title": "Hopf bifurcation and Turing instability in a diffusive predator-prey model with hunting cooperation",
+        "trigger": "Primary source containing the conflicting planar and PDE Hopf statements."
+      },
+      {
+        "assessment": "SAME_MODEL_FAMILY_CONTEXT",
+        "evidence": "The located record confirms prior Hopf/Turing analysis but does not state the source-specific direction correction.",
+        "identifier_or_url": "doi:10.1016/j.physa.2018.09.176",
+        "material_read": "Published abstract and bibliographic record describing equilibrium stability, Hopf bifurcation, and Turing instability.",
+        "method": "Used as model-family context, not as a whole-document non-coverage certificate.",
+        "title": "Qualitative analysis for a diffusive predator-prey model with hunting cooperative",
+        "trigger": "Earlier analysis of the same diffusive hunting-cooperation model."
+      },
+      {
+        "assessment": "RELATED_HOPF_DIFFUSION_CONTEXT_NOT_SOURCE_CORRECTION",
+        "evidence": "The work studies Hopf and stationary patterns in a related system but does not identify the Miao-He Theorem 3.2 direction conflict.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2022015",
+        "material_read": "Open publisher abstract, metadata, and reference framework for Hopf bifurcation and spatial patterns.",
+        "method": "Used to test broader coverage of the relation between homogeneous oscillation and spatial instability.",
+        "title": "On dynamics and stationary pattern formations of a diffusive predator-prey system with hunting cooperation",
+        "trigger": "Open related primary literature on Hopf dynamics in a hunting-cooperation reaction-diffusion system."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "500abc09-8827-4483-b5ae-6818c3f25b25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The article presents the direction and stability of the PDE Hopf bifurcation as a principal extension beyond earlier work. The correction separates two mathematically different conclusions: diffusion can destabilize the homogeneous cycle transversely, but it cannot move that invariant cycle branch from the supercritical side to the subcritical side. The exact H1 witness shows the distinction occurs in the paper’s own parameter regime.",
+    "status": "PASS"
+  }
+}
