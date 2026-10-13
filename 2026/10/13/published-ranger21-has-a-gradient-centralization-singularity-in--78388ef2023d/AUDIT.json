@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For the stated quadratic family, Adaptive Gradient Clipping is locally inactive by a strict source-threshold inequality and Gradient Centralization leaves exactly \\(\\delta q\\). Zero moment initialization then gives \\(\\widehat v_1=\\delta^2(q\\odot q)\\), so the published stable-decay scale is exactly proportional to \\(1/|\\delta|\\). The adaptive update remains bounded because its denominator includes \\(\\epsilon>0\\). The package replay checks the concrete source-default clipping witness and the inverse-distance law.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original Stable Weight Decay algorithm uses a positive epsilon in its adaptive decay denominator.",
+        "Norm Loss derives the radial unit-norm restoring factor used in Ranger21.",
+        "A later first-party Flax Ranger21 implementation applies a nonzero-denominator helper to the stable norm-loss denominator."
+      ],
+      "reasoning": "These broader sources explain the ingredients and a practical safeguard, but do not dominate the claim about the published composition. The epsilon-protected variants are specifically inapplicable to the zero-denominator formula printed in Algorithm 4.",
+      "searches": [
+        "arXiv:2011.11152v1",
+        "arXiv:2103.06583v1",
+        "Ranger21 component incompatibility gradient centralization stable weight decay"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.13731v1",
+      "arXiv:2011.11152v1",
+      "arXiv:2103.06583v1",
+      "github.com/nestordemeure/flaxOptimizers/blob/main/flaxOptimizers/ranger21.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ranger21 claims the selected optimizer components are composable and presents their full order in Algorithm 4.",
+        "Stable Weight Decay's source algorithm includes an epsilon in the gradient-norm-aware decay denominator.",
+        "Norm Loss's source gradient is proportional to \\((1-1/\\|w\\|_2)w\\)."
+      ],
+      "reasoning": "The component papers cannot imply the published-composition singularity because the Stable Weight Decay source itself includes the safeguard that prevents it. The failure arises only after combining Ranger21's centralization order with its displayed unsafeguarded decay denominator.",
+      "searches": [
+        "arXiv:2106.13731v1 Algorithm 4 gradient centralization stable weight decay norm loss",
+        "arXiv:2011.11152v1 AdamS epsilon stable weight decay denominator",
+        "arXiv:2103.06583v1 norm loss gradient unit norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published Ranger21 algorithm subtracts the gradient mean before its adaptive moments and divides the combined stable-decay/norm-loss term by the square root of the mean bias-corrected second moment.",
+        "The paper's adaptive update has an epsilon safeguard, whereas the displayed stable-decay denominator does not.",
+        "No inspected published source states the same strongly convex family or inverse-distance law."
+      ],
+      "reasoning": "Equivalent coverage would need to connect centralization-induced moment collapse to the stable-norm-loss denominator and prove either undefinedness or the \\(1/|\\delta|\\) nearby scaling. The checked component descriptions do not imply that conclusion without the cross-component calculation.",
+      "searches": [
+        "arXiv:2106.13731v1",
+        "Ranger21 gradient centralization stable weight decay zero denominator undefined strongly convex quadratic",
+        "Ranger21 zero gradient second moment stable norm loss division by zero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed optimization results concern other normalization or adaptive-step singularities and do not involve Ranger21.",
+        "No checked indexed record returned the Ranger21 source together with this denominator-collapse mechanism."
+      ],
+      "reasoning": "Search absence is supporting evidence only. Originality rests primarily on direct statement-and-implication comparison with the defining paper, the two component papers, and the later safeguarded implementation.",
+      "searches": [
+        "Ranger21 optimizer exact quadratic dynamics stable weight decay norm loss",
+        "Ranger21 optimizer scalar quadratic stability",
+        "Ranger21 gradient centralization norm loss exact",
+        "Ranger21 published algorithm undefined zero variance"
+      ]
+    },
+    "rationale": "The Ranger21 source states the component formulas and their intended compatibility but does not analyze the zero-second-moment interaction created by Gradient Centralization. The original Stable Weight Decay source retains an epsilon safeguard, and later first-party code also protects this denominator, but neither inspected source states the strongly convex singular family or the exact inverse-distance blow-up. Focused indexed and web searches found no implication-equivalent published analysis.",
+    "residual_risks": [
+      "An unindexed issue or implementation discussion may have noticed the missing published safeguard without giving the same mathematical family.",
+      "The later implementation has already repaired the exact denominator singularity, so the claim is intentionally scoped to the published Algorithm 4.",
+      "The obstruction is a local well-definedness and robustness result, not an empirical claim about typical neural-network gradients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FORMULA_CONTAINS_THE_UNSAFE_CROSS_COMPONENT_DENOMINATOR.",
+        "evidence": "Algorithm 4 initializes second moments at zero, centralizes gradients before moment accumulation, and divides the stable norm-loss term by the square root of the mean corrected second moment without the epsilon used in the ordinary adaptive denominator.",
+        "identifier_or_url": "arXiv:2106.13731v1",
+        "material_read": "Open-access full PDF covering Adaptive Gradient Clipping, Gradient Centralization, Positive-Negative Momentum, Norm Loss, Stable Weight Decay, and Algorithm 4; the Norm-Loss/Stable-Weight-Decay page and full Algorithm 4 page were visually inspected.",
+        "method": "Open-access PDF text and page-image inspection.",
+        "title": "Ranger21: a synergistic deep learning optimizer",
+        "trigger": "Defining source for the component order and complete published update."
+      },
+      {
+        "assessment": "ORIGINAL_STABLE_WEIGHT_DECAY_HAS_A_POSITIVE_DENOMINATOR_SAFEGUARD.",
+        "evidence": "The displayed AdamS update includes epsilon in the gradient-norm-aware weight-decay denominator.",
+        "identifier_or_url": "arXiv:2011.11152v1",
+        "material_read": "Open-access full PDF material covering AdamS/Scheduled Weight Decay and its displayed algorithm; the algorithm page was visually inspected.",
+        "method": "Open-access PDF text and page-image inspection.",
+        "title": "On the Overlooked Pitfalls of Weight Decay and How to Mitigate Them: A Gradient-Norm Perspective",
+        "trigger": "Underlying Stable Weight Decay source cited by Ranger21."
+      },
+      {
+        "assessment": "SUPPLIES_THE_NONZERO_RADIAL_FACTOR_USED_IN_THE_OBSTRUCTION.",
+        "evidence": "The source derives the norm-loss gradient proportional to \\((1-1/\\|w\\|_2)w\\).",
+        "identifier_or_url": "arXiv:2103.06583v1",
+        "material_read": "Open-access full PDF material covering the unit-norm penalty, its gradient, and the resulting update rule.",
+        "method": "Open-access full-text inspection.",
+        "title": "Norm Loss: An efficient yet effective regularization method for deep neural networks",
+        "trigger": "Underlying Norm Loss source cited by Ranger21."
+      },
+      {
+        "assessment": "LATER_IMPLEMENTATION_EXPLICITLY_SAFEGUARDS_THE_DENOMINATOR.",
+        "evidence": "The stable norm-loss denominator is wrapped in a helper that adds epsilon or applies a softplus; the file notes that the implementation follows code updated since publication.",
+        "identifier_or_url": "github.com/nestordemeure/flaxOptimizers/blob/main/flaxOptimizers/ranger21.py",
+        "material_read": "The complete optimizer update around moment correction, stable norm-loss decay, and the nonzero-denominator helper.",
+        "method": "Public source-code inspection.",
+        "title": "First-party Flax Ranger21 implementation",
+        "trigger": "Check whether the published singular denominator persisted in a later implementation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78388ef2-023d-4769-afa0-e9609e161057",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ranger21 is explicitly motivated by composing individually useful optimizer modules, so cross-component well-definedness is structurally central rather than cosmetic. The obstruction occurs on a smooth strongly convex quadratic and extends from an exact undefined state to an unbounded \\(1/|\\delta|\\) neighborhood. It also identifies why a safeguard present in the original Stable Weight Decay rule and later implementation is mathematically necessary in the published composition.",
+    "status": "PASS"
+  }
+}
