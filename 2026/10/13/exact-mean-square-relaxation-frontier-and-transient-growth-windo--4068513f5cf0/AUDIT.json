@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "The exact sampling law gives mean-zero sign and variance 1/q, closing the diagonal covariance at T_q. Strictly positive Perron overlap for any nonzero initial error makes lambda_max(T_q) the exact mean-square exponential factor and handles critical nondecay. The explicitly factored det(I-T_q) and diagonal principal minor prove if-and-only-if stability for every alpha>0. The exact one-step matrix gives alpha_one and rational witness. Strict positivity of the Perron eigenvalue second derivative proves unique optimum in (1,2), and the rescaled delta=1-c expansion and stationary equation give stated constants. The embedded stdlib checker passed 1,220 exact/numerical diagnostic tests; numerical tests are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2002.04126v1 (Theorem 2 optimizes a convergence rate guarantee)",
+        "https://arxiv.org/pdf/1706.01108 (general sketch-and-project convergence bound)",
+        "https://link.springer.com/article/10.1007/s11075-022-01473-x (Corollary 4.14 optimizes a bound for sparse algorithm; Remark 4.16)",
+        "https://doi.org/10.1016/j.laa.2018.05.009 (classical one-row RK exact MSE)"
+      ],
+      "reasoning": "The source one-step bound implies contraction only up to alpha_one, whereas the new Perron analysis yields a strict alpha_one<alpha_ms interval for every q>1 and c>0. Thus the source bound cannot imply the new convergence regime, though its algebra supplies a known one-step piece. Sparse Bregman updates and classical single projection moments do not dominate this simultaneous-averaging statement.",
+      "searches": [
+        "stochastic numerical linear algebra stochastic iterative methods random sketch convergence divergence exact spectral stability",
+        "\"randomized Kaczmarz with averaging\" optimal relaxation theorem",
+        "\"Faster randomized block sparse Kaczmarz by averaging\" overrelaxation",
+        "\"Stochastic Reformulations of Linear Systems\" averaged sketch and project"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2002.04126v1",
+      "https://arxiv.org/pdf/1706.01108",
+      "https://link.springer.com/article/10.1007/s11075-022-01473-x",
+      "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+      "https://doi.org/10.1016/j.laa.2018.05.009",
+      "https://link.springer.com/article/10.1007/s11075-024-01945-2",
+      "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+      "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2002.04126v1 (Eq. (3), Corollary 1, Theorem 2, §§4--5)",
+        "https://link.springer.com/article/10.1007/s11075-022-01473-x (Corollary 4.14 and Remark 4.16)",
+        "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b (abstract specifies standard unaveraged RK)"
+      ],
+      "reasoning": "For q>1 the exact new alpha_ms exceeds the source-derived one-step threshold alpha_one. A single-step upper bound with factor above one cannot establish multi-step contraction. The exact witness at q=2,c=3/5,alpha=9/4 grows by 209/200 initially but decays geometrically. Optimizing a one-step upper-bound factor cannot imply an optimizer of the different infinite-horizon Perron eigenvalue.",
+      "searches": [
+        "two-row randomized relaxed Kaczmarz exact annealed mean-square spectral radius optimum over-relaxation parameter cubic normalized row correlation asymptotic optimal step",
+        "https://arxiv.org/html/2002.04126v1",
+        "https://link.springer.com/article/10.1007/s11075-022-01473-x",
+        "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2002.04126v1 (uniform weights, two-row specialization of Corollary 1)",
+        "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b (2014 abstract on classical unaveraged exact MSE)",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f (different greedy row-selection rule)"
+      ],
+      "reasoning": "An explicit error covariance recurrence for simultaneous q-row averaged corrections is required. Classical exact MSE for one row and original one-step upper bounds do not calculate this closed two-dimensional diagonally projected second-moment operator, nor its sharp long-horizon Perron boundary.",
+      "searches": [
+        "two-row randomized relaxed Kaczmarz exact annealed mean-square spectral radius optimum over-relaxation parameter cubic normalized row correlation asymptotic optimal step",
+        "averaged randomized Kaczmarz independent minibatch two correlated rows exact mean-square stability overrelaxation threshold spectral radius",
+        "\"randomized Kaczmarz\" \"averaging\" \"spectral radius\"",
+        "\"exact MSE analysis\" \"optimal sampling probabilities\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f (maximal-distance residual coherence)",
+        "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881 (cyclic underrelaxation bias)",
+        "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac (stale-read Gauss-Seidel)",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b (Euclidean Gauss-Seidel transient)",
+        "https://link.springer.com/article/10.1007/s11075-024-01945-2 (survey of randomized row-action methods)"
+      ],
+      "reasoning": "The indexed named results and survey cover distinct Kaczmarz variants, biases and Gauss-Seidel dynamics, not the same q-row independent averaging moment operator or a tabulated threshold depending jointly on q and row correlation c. Search absence is not a proof against all prior literature.",
+      "searches": [
+        "Randomized Kaczmarz with averaging two rows negative dependence without replacement optimal coupling uniform sampling minimax convergence",
+        "averaged randomized Kaczmarz independent minibatch two correlated rows exact mean-square stability overrelaxation threshold spectral radius",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+        "2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac",
+        "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b"
+      ]
+    },
+    "rationale": "The original averaged-Kaczmarz paper (2020, §§1,3--5 and appendix) bounds one-step squared error and optimizes a guaranteed rate, but does not derive an exact two-row long-time moment spectral radius, sharp beyond-one-step relaxation boundary, or a provably transiently amplifying convergent interval. The broader sketch-and-project and sparse averaging texts concern bound optimization or different updates; classical exact MSE pertains to one-row projection. Indexed close results concern different state maps. A plausible equivalent unindexed computation remains a priority risk.",
+    "residual_risks": [
+      "An equivalent covariance calculation or sharp threshold could appear in unindexed numerical-analysis literature, unpublished material or an uninspected appendix.",
+      "The 2014 Agaskar--Wang--Lu full PDF was not materially read due to retrieval failure; its accessible abstract is insufficient for a whole-document noncoverage judgment.",
+      "The survey and related-paper searches are not an exhaustive global priority proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the primitive and its contraction guarantee; no statement of the long-horizon exact two-row relaxation window",
+        "evidence": "Algorithm 1 Eq.(3); Corollary 1 on the expected squared-error bound; Theorem 2 estimates the fastest guaranteed rate.",
+        "identifier_or_url": "https://arxiv.org/html/2002.04126v1",
+        "material_read": "Primary full-text HTML including Algorithm 1, Corollary 1, Theorem 2, sections 1, 3--5, related work, appendix C and the covariance/error-bound derivation in appendix B",
+        "method": "Read HTML equations and arguments for one-step and bound-optimized relaxation; compared operators and quantifiers",
+        "title": "Randomized Kaczmarz with Averaging",
+        "trigger": "Defines exactly the sampled-with-replacement simultaneous averaged-row update and relaxation analysis"
+      },
+      {
+        "assessment": "Broad convergence theory and guaranteed-rate optimization but no identified exact two-row Perron second-moment frontier",
+        "evidence": "Preprint identifies relaxation tuned to convergence rate guarantees, distinct from exact model moment growth.",
+        "identifier_or_url": "https://arxiv.org/pdf/1706.01108",
+        "material_read": "PDF mathematical setup and averaged-iteration convergence/relaxation sections; inspected displayed formulas and convergence conditions",
+        "method": "Read accessible primary preprint including inspected PDF page images and compare bound objective",
+        "title": "Stochastic Reformulations of Linear Systems: Algorithms and Convergence Theory",
+        "trigger": "Broad sketch-and-project with averaging can dominate special statements"
+      },
+      {
+        "assessment": "Different regularized sparse update and rate bound; does not cover stated exact q-row ordinary RK covariance frontier",
+        "evidence": "Corollary 4.14 and Remark 4.16 optimize an expected convergence guarantee, without exact long-time two-row covariance spectral formula.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-022-01473-x",
+        "material_read": "Full open-access HTML including definitions, Corollary 4.14, Remarks 4.16--4.19, §§5.2 and conclusion",
+        "method": "Compared Bregman sparse update, relaxation constraints and theorem scope to simultaneous ordinary RK averaging",
+        "title": "Faster randomized block sparse Kaczmarz by averaging",
+        "trigger": "Closely related averaged Kaczmarz and explicit relaxation optimization"
+      },
+      {
+        "assessment": "Abstract addresses classical unaveraged Kaczmarz exact MSE; full-text noncoverage is not certified",
+        "evidence": "Abstract specifies the randomized Kaczmarz algorithm and optimization over row-selection probabilities, not minibatch averaged relaxation. Full PDF access failed.",
+        "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "material_read": "Institutional abstract, bibliographic detail and PDF availability metadata; full-text download not accessible",
+        "method": "Compared described single-row update and sampling-probability objective with q-row simultaneous averaging",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Title directly suggests an exact mean-square convergence exponent that might subsume the result"
+      },
+      {
+        "assessment": "Classical single-projection method; does not identify averaged q-row transient-growth window",
+        "evidence": "Article abstract states exact mean-squared error for standard randomized Kaczmarz and bounds for its convergence rate.",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.009",
+        "material_read": "Accessible primary article overview and introduction with exact-MSE description",
+        "method": "Checked algorithm type and parameters against claim",
+        "title": "On convergence rate of the randomized Kaczmarz method",
+        "trigger": "Exact closed-form mean-square errors for basic RK"
+      },
+      {
+        "assessment": "Discusses existing averaging solver and bounds without reporting exact present 2-row covariance threshold",
+        "evidence": "Survey discusses averaged randomized Kaczmarz rate, parallelization and convergence horizon as known results.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-024-01945-2",
+        "material_read": "Accessible survey description of classical randomized Kaczmarz and averaged Kaczmarz, with surrounding comparison and references",
+        "method": "Checked summary of averaging against sharp two-row long-horizon relaxation statement",
+        "title": "Survey of a class of iterative row-action methods: The Kaczmarz method",
+        "trigger": "Potentially summarizes broader later coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4068513f-5cf0-443c-89fa-f4c8b2457bbb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question is motivated by a published parallel Kaczmarz averaging solver whose prescribed relaxations optimize one-step rate bounds. The exact sharp long-horizon stability frontier identifies a nonempty, mathematically counterintuitive zone of transient expected-error growth with eventual geometric convergence, and the exact optimizer quantifies an algorithmically natural tuning limit. The finite-dimensional family is minimal for row correlation and has a robust full interval, not a single arbitrary parameter example.",
+    "status": "PASS"
+  }
+}
