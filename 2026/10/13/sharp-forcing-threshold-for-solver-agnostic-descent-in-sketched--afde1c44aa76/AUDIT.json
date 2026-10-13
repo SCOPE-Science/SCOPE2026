@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For a fixed nonzero \\(g\\), maximizing \\(g^{\\mathsf T}H^{-1}(-g+\\rho)\\) over \\(\\|\\rho\\|\\le\\eta\\|g\\|\\) gives exactly \\(-g^{\\mathsf T}H^{-1}g+\\eta\\|g\\|\\|H^{-1}g\\|\\). The required uniform threshold is therefore the minimum cosine between \\(g\\) and \\(H^{-1}g\\) on the positive spectral subspace. A self-contained spectral inequality gives the exact minimum \\(2\\sqrt{ab}/(a+b)\\), and a two-eigenvalue vector attains equality. The source compatibility \\(g\\in\\operatorname{range}(B)\\) follows from \\(\\operatorname{range}(A^{\\mathsf T}A)=\\operatorname{range}(A^{\\mathsf T})\\) with \\(A=JM^{\\mathsf T}\\). The LSMR exception follows by multiplying the regularized normal equation by the step and using the source's exact Krylov orthogonality \\(s^{\\mathsf T}\\rho=0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023/2024 Bellavia--Malaspina--Morini predecessor proves nonascent from Krylov residual orthogonality, not from a condition-number threshold on arbitrary residual vectors.",
+        "LSMR is characterized as a minimum-residual Krylov method for normal equations; this supports the solver-specific orthogonality mechanism but does not state the new frontier.",
+        "Eisenstat--Walker studies forcing-term choices below one for inexact Newton convergence and efficiency, not the sharp descent-preservation constant for a regularized SPD normal equation with arbitrary residual orientation."
+      ],
+      "reasoning": "Broader inexact-Newton and Krylov literature explains why forcing terms and residual geometry matter, but the inspected results do not dominate the exact if-and-only-if frontier or its source-specific interpretation.",
+      "searches": [
+        "arXiv:2310.05501v3 full text, Sections 2.1--2.2 on inexact Krylov Gauss-Newton steps and residual tests",
+        "DOI:10.1137/10079687X abstract and method description",
+        "DOI:10.1137/0917003 abstract and forcing-term formulation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.03965v1",
+      "DOI:10.1137/25M175980X",
+      "arXiv:2310.05501v3",
+      "DOI:10.1137/10079687X",
+      "DOI:10.1137/0917003"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary lemma uses \\(s^{\\mathsf T}\rho=0\\), a property of the adopted LSMR Krylov iterate, before concluding descent.",
+        "The earlier paper likewise derives nonascent by residual orthogonality in a Krylov subspace.",
+        "Neither source asserts that the norm stopping test alone guarantees descent for an arbitrary inner solver."
+      ],
+      "reasoning": "The new theorem is not implied by the source descent lemma: it removes the solver-specific orthogonality and exactly characterizes the stronger forcing tolerance then required. Conversely, the source LSMR lemma is not contradicted; it occupies a structured subclass that can safely use \\(\\eta<1\\).",
+      "searches": [
+        "arXiv:2506.03965v1 full text, Algorithm 2.1, equations (16)--(17), Lemma 1, and its LSMR proof",
+        "arXiv:2310.05501v3 full text, Algorithms 2.2--2.3 and Lemma 2.1",
+        "Web searches for inexact Levenberg-Marquardt residual descent forcing thresholds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest indexed findings concern other condition-number frontiers, Krylov residual phenomena, or Gauss-Newton basis conditioning, not this regularized-normal-equation residual frontier.",
+        "Web results identify classical inexact Newton forcing terms and the generic Kantorovich inequality, but not the exact application to arbitrary residuals in the primary paper's sketched Levenberg-Marquardt system."
+      ],
+      "reasoning": "The final claim was compared under equivalent forms: positivity of the directional derivative, minimum angle between \\(g\\) and \\(H^{-1}g\\), residual-ball robustness of an SPD linear solve, and a forcing-term bound expressed through the effective condition number.",
+      "searches": [
+        "Published-research database: inexact Gauss Newton residual forcing descent sharp condition Kantorovich angle",
+        "Published-research database: Levenberg Marquardt residual tolerance descent direction condition number sharp threshold",
+        "Web: inexact Gauss-Newton descent direction residual forcing term condition number",
+        "Web: Kantorovich inequality angle H inverse residual descent optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed record matched the primary source together with the residual-only descent frontier.",
+        "The result is an analytic extremal theorem and not a recomputation of a known numerical table."
+      ],
+      "reasoning": "The closest database records concern unrelated optimization stability thresholds; none contains the constant \\(2\\sqrt{\\kappa}/(\\kappa+1)\\) for this inner-solve problem.",
+      "searches": [
+        "Published-research database: random subspace Gauss Newton LSMR orthogonality residual descent",
+        "Published-research database: A variable dimension sketching strategy nonlinear least squares residual descent LSMR"
+      ]
+    },
+    "rationale": "The primary full text and the authors' earlier inexact Gauss-Newton full text were inspected at their inner-solve, residual-stopping, and descent arguments. Both rely on Krylov orthogonality rather than a solver-agnostic residual-only threshold. Classical forcing-term and LSMR sources were checked for broader coverage. Published-research database searches and public web searches under residual, forcing-term, condition-number, descent-angle, LSMR, and Kantorovich aliases did not locate the exact source-specific frontier or its two-eigenvalue sharpness statement.",
+    "residual_risks": [
+      "An older matrix-analysis or inexact-Newton source may contain the same minimum-angle constant in a different application; no source-specific solver-portability result was located.",
+      "The theorem is about arbitrary residual orientation. Inner solvers with additional orthogonality, Galerkin, or energy-minimization structure may safely exceed the frontier.",
+      "The result does not quantify the cost of estimating the effective positive-spectrum condition number during an actual sketched solve."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The residual tolerance is paired with an LSMR construction. The descent proof uses the stronger relation \\(s^{\\mathsf T}\rho=0\\), so the paper does not establish a residual-only guarantee for arbitrary solvers.",
+        "evidence": "In Lemma 1, the source explicitly derives \\(s^{\\mathsf T}\rho=0\\) from the LSMR Krylov minimization property and then obtains the negative directional derivative.",
+        "identifier_or_url": "arXiv:2506.03965v1 / DOI:10.1137/25M175980X",
+        "material_read": "Full public preprint text covering the reduced and regularized models, equations (16)--(17), Algorithm 2.1, Lemma 1 and its proof, residual measures, spectral notation, and the variable-dimension strategy.",
+        "method": "Public arXiv HTML full-text inspection, cross-checked against the journal metadata page.",
+        "title": "A variable dimension sketching strategy for nonlinear least-squares",
+        "trigger": "Primary recent source defining the variable-dimension sketched Levenberg-Marquardt inner solve."
+      },
+      {
+        "assessment": "The predecessor also obtains nonascent from orthogonality of the Krylov residual to the trial step, not from the residual norm criterion alone.",
+        "evidence": "Lemma 2.1 states \\(s_k^{\\mathsf T}g_k\\le0\\) and proves it from \\(s_k^{\\mathsf T}\\widetilde J_k^{\\mathsf T}r_k=0\\).",
+        "identifier_or_url": "arXiv:2310.05501v3",
+        "material_read": "Full public preprint text covering Algorithms 2.1--2.3, the Krylov minimization property, the forcing-term residual test, and Lemma 2.1.",
+        "method": "Public arXiv HTML full-text inspection.",
+        "title": "Inexact Gauss-Newton methods with matrix approximation by sampling for nonlinear least-squares and systems",
+        "trigger": "Closest predecessor by the same authors using inexact Krylov Gauss-Newton solves."
+      },
+      {
+        "assessment": "Explains the structured Krylov residual behavior but does not state the solver-agnostic forcing threshold.",
+        "evidence": "The abstract identifies monotone minimization of normal-equation residuals and the MINRES equivalence.",
+        "identifier_or_url": "DOI:10.1137/10079687X",
+        "material_read": "Published abstract and method summary describing LSMR as a Golub--Kahan/MINRES-equivalent minimum-residual method.",
+        "method": "Public journal metadata and abstract inspection.",
+        "title": "LSMR: An Iterative Algorithm for Sparse Least-Squares Problems",
+        "trigger": "Solver-specific literature underlying the primary descent proof."
+      },
+      {
+        "assessment": "Studies forcing-term selection below one for inexact Newton efficiency and convergence, but not the sharp descent-angle frontier for a regularized normal equation.",
+        "evidence": "The abstract formulates the standard residual test with forcing terms in \\([0,1)\\).",
+        "identifier_or_url": "DOI:10.1137/0917003",
+        "material_read": "Published abstract and problem formulation.",
+        "method": "Public journal metadata and abstract inspection.",
+        "title": "Choosing the Forcing Terms in an Inexact Newton Method",
+        "trigger": "Canonical forcing-term literature for residual-controlled inexact linear solves."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afde1c44-aa76-40d3-a2b2-aebb142992c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding isolates the exact mathematical role of the primary paper's solver choice. A residual tolerance below one is commonly portable across inexact Newton formulations, but here descent of the optimization direction depends on residual orientation unless the Krylov solver supplies orthogonality. The sharp frontier \\(2\\sqrt{\\kappa}/(\\kappa+1)\\) quantifies how much an arbitrary replacement solver must tighten its stopping rule and shows a strong \\(2/\\sqrt{\\kappa}\\) deterioration in ill-conditioned reduced models. This is directly useful for safe solver substitution, implementation design, and interpretation of the paper's inexactness condition.",
+    "status": "PASS"
+  }
+}
