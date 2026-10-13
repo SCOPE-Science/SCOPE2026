@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every deterministic periodic binary-delay word with a fresh step, matrices T0=v e1^T and T1 define the recurrence exactly. Every period monodromy has eigenvalues 0 and product of p_L for its cyclic runs. Floquet stability is strict modulus below one; Cayley–Hamilton yields at most two-period annihilation when product zero. The run recurrence matches the determinant of a path adjacency pencil, giving positive simple cosine roots and the parity-dependent quadratic growth of the largest root. For the period-three word, the two exact inequalities give precisely (0,1) union (2,3). The supplied checker verifies 502 period words, nine path determinants/root formulas and exact golden-ratio nilpotence; none replaces the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Duman et al. (2016), Section 1 and Section 3.3, analyzes arbitrary periodic coefficient systems using generic monodromy stability and sensitivity.",
+        "McMahan–Streeter NeurIPS 2014, full article pp. 1–9, proves regret guarantees for delayed online learning with adaptive revising of learning rates, rather than fixed-stepsize exact scalar stability regions.",
+        "Čermák–Jánský (2014) abstract concerns autonomous x_{n+1}=alpha x_n+beta x_{n-k} with a single fixed lag, unlike periodic d_k∈{0,1}."
+      ],
+      "reasoning": "An arbitrary-period Floquet test applies to the recurrence but requires evaluating a product whose trace is not given. The new claim evaluates every binary word by its run lengths and classifies nilpotence and an unbounded family of exact cancellation rates. The constant-lag stability-switch results vary the fixed lag, not the time-varying binary schedule. No inspected stronger specialized result dominates this closed classification.",
+      "searches": [
+        "Duman Kizilkan Aydin 2016 Sensitivity of Schur stability of systems of linear difference equations with periodic coefficients monodromy and delay recurrence",
+        "Mitliagkas Zhang Hadjis Ré 2016 Asynchrony begets Momentum temporally delayed gradient stochastic gradient descent",
+        "Cermak Jansky Stability switches in linear delay difference equations 2014 constant lag parameter",
+        "periodic switching delayed gradient descent 0 1 delay step size stability intervals reentrant",
+        "linear difference equation periodic delay 0 1 x(n+1) x(n) - a x(n-d(n)) Schur stability",
+        "published-finding corpus: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1605.09774",
+      "https://arxiv.org/pdf/1605.09774",
+      "https://dergipark.org.tr/en/download/article-file/636264",
+      "https://papers.nips.cc/paper_files/paper/2014/file/0f41d814a243c98c672bdbfabaa40f5e-Paper.pdf",
+      "https://www.sciencedirect.com/science/article/abs/pii/S0096300314009084",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duman et al., general eigenvalue-inside-unit-disk iff stable criterion for periodic linear recurrences.",
+        "Mitliagkas et al. random staleness yields mean updates resembling momentum, not deterministic matrices T0,T1.",
+        "McMahan–Streeter learns adaptive rates with regret bounds, not all-initial-data linear stability or nilpotence.",
+        "Current self-contained proof computes the rank-one product and recovers the cosine roots."
+      ],
+      "reasoning": "Floquet stability is a necessary general premise but not an explicit run-length or nilpotent-step conclusion. Neither the random-delay expectation equation nor fixed-lag characteristic polynomial implies the exact deterministic word-by-word scalar criterion without an additional substantial specialization; the full specialization and unbounded cancellation construction are supplied. The 2014 fixed-lag results do not cover periodic switching via a direct hypothesis match.",
+      "searches": [
+        "Duman Kizilkan Aydin 2016 Sensitivity of Schur stability of systems of linear difference equations with periodic coefficients monodromy and delay recurrence",
+        "Mitliagkas Zhang Hadjis Ré 2016 Asynchrony begets Momentum temporally delayed gradient stochastic gradient descent",
+        "Cermak Jansky Stability switches in linear delay difference equations 2014 constant lag parameter",
+        "Arbitrarily large stable learning rates via periodic gradient staleness reset and nilpotent monodromy path spectrum",
+        "published-finding corpus: 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full Duman et al. (2016), https://dergipark.org.tr/en/download/article-file/636264, pp. 160–169 gives monodromy definitions and perturbation stability without an explicit binary-delay trace factorization.",
+        "Full Mitliagkas et al. arXiv:1605.09774, pp. 2–4 uses iid delay distribution and expected-update momentum.",
+        "502 exact monodromy checks and analytic rank-one proof support the direct equivalence to the specified polynomial product."
+      ],
+      "reasoning": "Search covered terminology stale gradient, periodically switching lag, monodromy, matching polynomial, path determinant, nilpotent period map, and finite termination. The identified primary sources give generic Floquet tools or random-delay momentum, not the exact all-word binary-delay equivalence. Generic spectral-radius statements are premises and not the claimed explicit solution; absence of exact equivalence remains uncertain in unindexed literature.",
+      "searches": [
+        "Binary zero-one periodic delay scalar quadratic x_{k+1}=x_k-t x_{k-d_k} monodromy determinant Chebyshev matching polynomial roots",
+        "Arbitrarily large stable learning rates via periodic gradient staleness reset and nilpotent monodromy path spectrum",
+        "\"periodic delay\" \"gradient descent\" \"quadratic\" stability",
+        "\"one step delay\" \"no delay\" periodic schedule stability gradient descent",
+        "published-finding corpus: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search returned near-text polynomial root items and stochastic delay laws rather than this run-length sequence or stability intervals.",
+        "Path-adjacency eigenvalues 2 cos(j pi/(n+1)) are classical and explicitly not claimed as new."
+      ],
+      "reasoning": "No exact published table matching p_L(t)=det(I-sqrt(t) A_path), binary-delay monodromy trace products, and the reentrant t∈(0,1) union (2,3) period-three criterion was located. The cosine spectrum itself is old; novelty resides in the application/complete delay-pattern synthesis, and a hidden table remains a residual risk.",
+      "searches": [
+        "Binary zero-one periodic delay scalar quadratic x_{k+1}=x_k-t x_{k-d_k} monodromy determinant Chebyshev matching polynomial roots",
+        "Arbitrarily large stable learning rates via periodic gradient staleness reset and nilpotent monodromy path spectrum",
+        "published-finding corpus: 2026/9/19/SCOPE-cayley-root-geometry-chebyshev-like-polynomials--ada22ea47e72",
+        "\"periodically varying delay\" \"difference equation\" stability one-step delay"
+      ]
+    },
+    "rationale": "Compared the precise all-pattern product criterion and arbitrarily large finite termination against the explicit periodic-system monodromy literature, delayed stochastic/online gradient methods, fixed-lag stability-switch work, published published-finding corpus neighbors, and older own ledgers. Generic Floquet eigenvalue checks and path eigenvalues are credited premises. Sources inspected do not present the same evaluated binary-word trace or large-step nilpotence construction; specialized historical coverage remains possible.",
+    "residual_risks": [
+      "Publisher full text of Čermák–Jánský 2014 constant-lag stability-switch paper was not obtained; the reported fixed-lag model is different, but a historical specialization could be hidden.",
+      "Some older published or unpublished switching-difference studies may state the same trace product under different terminology; no search alone certifies uniqueness.",
+      "Original arXiv v1 public timestamp was verified, but available material inspected is v2; avoid attributing specific unverified v1 findings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General Schur stability, perturbation sensitivity and generic high-order companion formulation. No specialized alternating fresh/stale gradient multipliers or cosine-root construction in the inspected material.",
+        "evidence": "2016 online publication 18 April; pp. 160–161 monodromy spectrum; p.169 Section 3.3 companion systems; p.172–173 conclusion.",
+        "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/636264",
+        "material_read": "15-page PDF, Sections 1, 2.3, 3.1–3.3, conclusions and references; visually inspected pp. 160 and 169",
+        "method": "Open-access full text read in web PDF renderer with page inspection",
+        "title": "Sensitivity of Schur stability of systems of linear difference equations with periodic coefficients",
+        "trigger": "Direct periodic linear difference equation stability and monodromy method"
+      },
+      {
+        "assessment": "Equation (6) models random independent delays and theorems analyze implicit momentum in expectation, not deterministic periodic binary delay and Schur-zero multipliers. Available PDF is revision v2 dated 2016-11-25; original v1 submitted 2016-05-31, no invented v1-specific theorem claim.",
+        "evidence": "arXiv metadata original public date 2016-05-31; PDF pp.1–3 Equations (4)–(8) and Theorems 2–5.",
+        "identifier_or_url": "https://arxiv.org/pdf/1605.09774",
+        "material_read": "10-page available open-access full PDF, particularly pp. 1–4 model/theorems plus remaining sections, figures and appendices; visually inspected p.2",
+        "method": "arXiv full-text reading, manuscript sections and keyword checks; first-public-date obtained from arXiv version history",
+        "title": "Asynchrony begets Momentum, with an Application to Deep Learning",
+        "trigger": "Direct asynchronous gradient update model and source dating"
+      },
+      {
+        "assessment": "Delay-aware online regret bounds and adaptive updates, not a constant-step quadratic deterministic binary-period Floquet computation. Conference year 2014 known, exact earliest online calendar day not asserted.",
+        "evidence": "NeurIPS 2014 Proceedings vol.27, pp.2915–2923; full PDF §1 and pp.4–8 algorithm/regret proofs.",
+        "identifier_or_url": "https://papers.nips.cc/paper_files/paper/2014/file/0f41d814a243c98c672bdbfabaa40f5e-Paper.pdf",
+        "material_read": "9-page full proceedings article including introduction, learning-rate algorithms, experiments and conclusions; inspected title page and p.5 directly",
+        "method": "Open-access proceedings PDF read and page inspected",
+        "title": "Delay-Tolerant Algorithms for Asynchronous Distributed Online Learning",
+        "trigger": "Earliest asynchronous delayed-gradient optimization research comparator"
+      },
+      {
+        "assessment": "Abstract describes constant-in-time lag k and complex alpha,beta in an autonomous delay recursion, allowing stability switches as the fixed lag changes; no confirmed exact overlap with periodic zero/one lag. Incomplete access is a residual risk.",
+        "evidence": "Abstract excerpt says y(n+1)=alpha y(n)+beta y(n-k) for a fixed positive integer k.",
+        "identifier_or_url": "https://www.sciencedirect.com/science/article/abs/pii/S0096300314009084",
+        "material_read": "Publisher abstract plus complementary bibliographic synopsis; complete full text not accessible in checked OA route",
+        "method": "Publisher abstract and searchable secondary abstract; not used as full-text noncoverage proof",
+        "title": "Stability switches in linear delay difference equations",
+        "trigger": "Plausibly dominating title about multiple stability switches"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5af13acf-436e-479c-8e17-276a6dfa6382",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Controlled binary staleness is a natural benchmark for asynchronous quadratic descent. The exact all-period classification is an algorithmic design invariant computable from run lengths; the shortest nontrivial word already has a disconnected admissible stepsize set, and lengthened stale runs exhibit unbounded but precisely tuned finite-time cancellation. These distinguish temporally scheduled delays from a monotone conservative stepsize bound. The statement does not infer practical robustness; its boundary phenomenon and complete natural classification are substantive beyond an isolated numerical example.",
+    "status": "PASS"
+  }
+}
