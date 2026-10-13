@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The printed Algorithm 5 gives the one-sided score \\(s_i=[f(w+h\\xi_i)-f(w)]/h\\), winner selection, and unconditional fixed-radius update. On \\(f(w)=w^2/2\\) this reduces exactly to \\(w\\xi_i+h/2\\); hence the transition probabilities are exact and independent of \\(h\\). Constant increments prove pathwise nonconvergence. The \\(q=1\\) random-walk identities are standard. For \\(q\\ge2\\), detailed balance, normalization, and the exact geometric second moment establish the invariant law and positive recurrence, while the Markov ergodic theorem gives the stated Cesaro objective limit. The included exact-rational verifier checks the finite algebraic identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roberts--Royer accept a trial only under sufficient decrease; otherwise the iterate stays fixed and the step size shrinks.",
+        "Gratton--Royer--Vicente--Zhang prove convergence for probabilistic-descent direct search, not for an unconditional fixed-radius always-move chain."
+      ],
+      "reasoning": "Those frameworks alter the state whenever a poll fails and drive the step size down. Their convergence theorems therefore do not cover or dominate the fixed-step unconditional update analyzed here.",
+      "searches": [
+        "Full text: arXiv:2204.01275v2, Algorithm 1 and Section 2",
+        "DOI:10.1137/140961602 abstract and randomized-direct-search framework",
+        "Published-finding query: fixed-step always-move rank-one search strongly convex quadratic error floor candidate count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.17759v1",
+      "arXiv:2204.01275v2",
+      "DOI:10.1137/22M1488569",
+      "DOI:10.1137/140961602"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source warning establishes possible non-descent but does not imply persistent stochastic behavior or the exact floor.",
+        "The randomized direct-search predecessor has rejection and step decay.",
+        "The foundational probabilistic-descent framework proves convergence under a different direct-search mechanism and does not imply the fixed-radius invariant law."
+      ],
+      "reasoning": "None of the inspected published statements implies the new conjunction: exact source-specific transition law, the \\(q=1\\) random-walk boundary, the \\(q\\ge2\\) invariant birth--death law, and the limiting candidate-count floor.",
+      "searches": [
+        "arXiv:2609.17759v1, Section 2.4 Algorithm 5 and Sections 3.4, 3.8, 4",
+        "arXiv:2204.01275v2, Algorithm 1",
+        "DOI:10.1137/140961602, randomized probabilistic-descent framework"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned record states an invariant law or birth--death reduction for Algorithm 5 of arXiv:2609.17759v1.",
+        "The exact source text says only that the always-move rule may fail descent and that acceptance or line search would enforce decrease."
+      ],
+      "reasoning": "Searches covered the algorithm name and its natural aliases: always-move direct search, Rademacher rank-one candidates, birth--death chain, stationary/invariant law, and fixed-step error floor. No equivalent formulation was located.",
+      "searches": [
+        "Published-finding query: direct structured derivative-free update search always-move Rademacher quadratic invariant distribution birth-death",
+        "Published-finding query: Bernoulli birth-death direct search quadratic invariant law fixed step",
+        "Source identifier and Algorithm 5 search: arXiv:2609.17759v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed result gives the formula \\(\\eta^2/[4(1-2^{1-q})^2]\\) or an Algorithm-5 candidate-count table from which it follows.",
+        "The primary source reports empirical poor performance but no exact scalar table or Markov computation matching the theorem."
+      ],
+      "reasoning": "The finding is an analytic transition and invariant-law calculation, not a recomputation of a known benchmark table.",
+      "searches": [
+        "Published-finding query: arXiv 2609.17759 Algorithm 5 convergence acceptance error floor",
+        "Published-finding query: direct structured derivative-free update search always-move Rademacher quadratic invariant distribution birth-death"
+      ]
+    },
+    "rationale": "The source states only the qualitative fact that the always-move rule need not decrease and suggests acceptance or line search. It does not state the exact birth--death reduction, invariant law, random-walk boundary, or candidate-count floor. Published-result searches and statement-level comparison with randomized direct-search predecessors found no stronger result implying this source-specific theorem.",
+    "residual_risks": [
+      "The source leaves its candidate-vector sampling law open; the theorem fixes a valid iid Rademacher scalar specialization and does not claim universality over other samplers.",
+      "A mathematically equivalent fixed-step winner-selection Markov analysis could exist under unrelated terminology, although targeted source, direct-search, birth--death, stationary-law, and error-floor searches did not locate one.",
+      "The chain is periodic from the stated start, so only the invariant law and Cesaro ergodic objective limit are claimed; no pointwise distributional convergence is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the score, argmin selection, and unconditional fixed-radius update used here. It warns qualitatively about non-descent but contains no exact scalar Markov analysis or invariant-law formula.",
+        "evidence": "Algorithm 5 selects the minimum one-sided finite-difference score and always sets \\(W_{t+1}=W_t+\\eta H_t\\); the following paragraph says an acceptance test or line search would be needed to enforce decrease. The conclusion again reports poor performance under the fixed-step always-move rule.",
+        "identifier_or_url": "arXiv:2609.17759v1",
+        "material_read": "Abstract and MSC/date header; Section 2.4 including Algorithm 5 and the symmetric-variant note; matrix-regression discussion of direct search; scope/reproducibility limitations; conclusion.",
+        "method": "Full-text arXiv PDF inspection.",
+        "title": "Derivative-Free Structured Updates for Muon",
+        "trigger": "Primary source defining the direct structured search and explicitly discussing its always-move limitation."
+      },
+      {
+        "assessment": "Not covering: its algorithm accepts only sufficient-decrease steps and shrinks the step after failure, so it does not realize the unconditional fixed-radius transition chain.",
+        "evidence": "Algorithm 1 leaves the current point unchanged after an unsuccessful poll and multiplies the step size by a factor below one; the text states that this adaptive behavior is instrumental for global convergence.",
+        "identifier_or_url": "arXiv:2204.01275v2; DOI:10.1137/22M1488569",
+        "material_read": "Abstract; introduction; Section 2 and Algorithm 1 with sufficient-decrease condition and step-size adaptation.",
+        "method": "Full-text arXiv PDF inspection.",
+        "title": "Direct search based on probabilistic descent in reduced spaces",
+        "trigger": "Closest randomized direct-search predecessor with explicit convergence framework."
+      },
+      {
+        "assessment": "No implication of the new result: it studies probabilistic-descent direct search with convergence guarantees rather than the source-specific unconditional fixed-step chain.",
+        "evidence": "The abstract states almost-sure global convergence for a probabilistic-descent direct-search framework and discusses polling-direction counts; it does not state the Algorithm-5 invariant law or floor.",
+        "identifier_or_url": "DOI:10.1137/140961602",
+        "material_read": "Journal abstract, metadata, MSC codes, and relation described in the full-text 2023 successor.",
+        "method": "Journal-page inspection plus successor-paper cross-reference.",
+        "title": "Direct Search Based on Probabilistic Descent",
+        "trigger": "Foundational randomized polling predecessor cited by later direct-search work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac7b084f-1951-44bc-852e-dbe3581fc541",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source itself identifies the fixed-step always-move mechanism as a limitation but gives no asymptotic quantification. The exact scalar theorem separates candidate quality from acceptance/step-size control: increasing \\(q\\) strengthens the inward drift yet leaves a nonzero \\(\\eta^2/4\\) limiting floor as \\(q\\to\\infty\\). Because the countermechanism persists with exact function values and a strongly convex quadratic, it gives a direct design reason for acceptance, zero moves, or step decay rather than merely another numerical failure case.",
+    "status": "PASS"
+  }
+}
