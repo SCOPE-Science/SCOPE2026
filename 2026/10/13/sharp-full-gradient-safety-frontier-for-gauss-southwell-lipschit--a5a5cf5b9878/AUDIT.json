@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For a selected first coordinate, exact minimization maps the full gradient to (0,g2-(c/a)g1). GSL admissibility is exactly |g2/g1|<=sqrt(b/a), so universal full-gradient nonexpansion for that coordinate is equivalent to q^2+2qs<=1 with q=|c|/a and s=sqrt(b/a). Scaling a=1 reduces the condition-number spread to delta^2=((1-s^2)^2+4q^2)/(1+s^2)^2. Minimizing delta over the unsafe region gives u=q^2=(4-sqrt(13))/3 and delta_*^2=(97-26sqrt(13))/27; converting delta=(kappa-1)/(kappa+1) yields the claimed quartic and numerical frontier. A monotone one-parameter sharpness path covers every larger condition number, and the rational kappa=3 witness gives strict amplification 196/181 in squared norm.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nutini et al. explicitly define GSL as maximizing |partial_i f|/sqrt(L_i) and state that for quadratics it is the optimal myopic coordinate update when paired with exact coordinate optimization.",
+        "Nesterov analyzes coordinate descent and greedy maximum-gradient coordinate selection and supplies objective-progress bounds.",
+        "Neither inspected source supplies a one-step Euclidean full-gradient safety threshold."
+      ],
+      "reasoning": "These broader convergence results optimize or bound objective progress. Objective decrease does not dominate the norm of the complete gradient after a coordinate update; the kappa=3 witness separates the two diagnostics exactly.",
+      "searches": [
+        "Coordinate Descent Converges Faster with the Gauss-Southwell Rule Than Random Selection",
+        "Efficiency of coordinate descent methods on huge-scale optimization problems",
+        "Gauss-Southwell coordinate descent exact coordinate optimization quadratic"
+      ]
+    },
+    "checked_sources": [
+      "optimization-online:2527",
+      "doi:10.1137/100802001",
+      "arxiv:1506.00552v1",
+      "pmlr:v37:nutini15",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published theorem studies Euclidean solution-error amplification after a full prescribed two-coordinate Gauss-Seidel sweep, not full-gradient change after a single greedy coordinate.",
+        "The inverse-positive coordinate-sampling result optimizes expected A-energy contraction under randomized sampling, a different metric and selection mechanism.",
+        "Nutini et al.'s myopic optimality guarantees largest immediate objective decrease; the explicit kappa=3 witness shows this does not imply full-gradient norm decrease."
+      ],
+      "reasoning": "The prior statements do not imply the new claim because they monitor different quantities, use different update horizons, or randomize coordinate choice. The GSL admissible-gradient cone and the constrained spectral-spread minimization are both needed.",
+      "searches": [
+        "two-coordinate Gauss-Seidel Euclidean transient threshold",
+        "inverse-positive optimal coordinate sampling",
+        "Gauss-Southwell-Lipschitz objective decrease exact optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published result states the fixed-matrix condition q^2+2qs<=1 or the sharp GSL condition-number frontier.",
+        "Exact literature searches for Gauss-Southwell-Lipschitz together with gradient norm returned no relevant pre-2017 theorem.",
+        "The full GSL paper contains the selection rule and myopic objective-optimality statement but no located full-gradient norm classification."
+      ],
+      "reasoning": "An equivalent result must concern one exact GSL coordinate update, the complete Euclidean gradient after the update, and a uniform two-dimensional SPD condition-number threshold. Complete Gauss-Seidel sweeps, objective contraction, expected coordinate sampling, and solution-error transients are not implication-equivalent.",
+      "searches": [
+        "Gauss-Southwell-Lipschitz exact coordinate minimization gradient norm monotonicity condition number",
+        "GSL coordinate descent full gradient norm increase SPD quadratic",
+        "myopic coordinate update gradient norm condition number two dimensional",
+        "coordinate with largest objective decrease gradient norm can increase quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant, quartic, or fixed-matrix formula match was located in the searched literature.",
+        "The threshold comes from an analytic minimization over all two-by-two SPD matrices, not from a numerical table."
+      ],
+      "reasoning": "The claimed object is a closed-form universal frontier with an explicit algebraic constant and sharp witness family.",
+      "searches": [
+        "\"2.063944561\" coordinate descent",
+        "\"9 kappa^4\" Gauss-Southwell coordinate",
+        "\"q^2+2qs\" coordinate descent gradient"
+      ]
+    },
+    "rationale": "The full Nutini et al. source introduces GSL and identifies it as the optimal myopic coordinate update for quadratics, but the inspected exact-optimization and GSL sections do not state a full-gradient monotonicity or condition-number frontier, and targeted full-text searches found no relevant 'gradient norm', 'condition number', or 'monotone' statement. Nesterov supplies the foundational coordinate-descent framework and primary MSC 90C25. Published-record semantic searches found nearby Gauss-Seidel transient and coordinate-sampling results but no implication-equivalent one-coordinate GSL theorem or the constant 2.0639445610....",
+    "residual_risks": [
+      "Older coordinate-relaxation literature is extensive, and the two-dimensional full-gradient calculation may have appeared under terminology such as maximum-improvement relaxation or greedy relaxation.",
+      "The theorem is only two-dimensional; higher-dimensional coupling can produce a different robust threshold.",
+      "The exact threshold depends on Euclidean full-gradient norm and GSL's exact coordinate-Lipschitz normalization; other stationarity norms or approximate rules need separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: defines exactly the selection mechanism and objective-decrease motivation used here, but no located statement classifies the Euclidean norm of the complete gradient after one update.",
+        "evidence": "Section 6.2 gives i_k=argmax_i |partial_i f|/sqrt(L_i), calls this GSL, and states that for quadratic functions it is the optimal myopic coordinate update when combined with exact coordinate optimization. No matching gradient-norm or condition-number theorem was found in the inspected full text.",
+        "identifier_or_url": "arxiv:1506.00552v1 / PMLR 37:1632-1641",
+        "material_read": "The complete ten-page PMLR PDF was inspected at the abstract, coordinate-descent setup, exact coordinate optimization section, Section 6.2 defining GSL, the convergence statement, and the paragraph identifying GSL as the optimal myopic coordinate update for quadratics. Targeted full-text searches were made for gradient-norm, condition-number, and monotonicity terminology.",
+        "method": "Lawful full-text PDF inspection with rendered-page verification and targeted full-text searches.",
+        "title": "Coordinate Descent Converges Faster with the Gauss-Southwell Rule Than Random Selection",
+        "trigger": "Primary full source introducing the GSL rule and its myopic optimality for quadratic exact coordinate optimization."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: establishes coordinate-descent progress theory and primary MSC 90C25 but not the GSL full-gradient frontier.",
+        "evidence": "The publisher record lists MSC 90C25 first. The full discussion paper gives coordinate-wise gradient updates and objective-decrease analysis, not the complete-gradient monotonicity classification.",
+        "identifier_or_url": "optimization-online:2527 / doi:10.1137/100802001",
+        "material_read": "The Optimization Online full PDF was inspected through the abstract and introduction, including the maximum-gradient coordinate rule, coordinate-wise Lipschitz assumption, and objective-progress bound. The publisher record was inspected for MSC classification and publication history.",
+        "method": "Lawful full-text PDF plus publisher-record inspection.",
+        "title": "Efficiency of coordinate descent methods on huge-scale optimization problems",
+        "trigger": "Foundational coordinate-descent source and verified primary MSC ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5a5cf5b-9878-4538-988b-105720a2a529",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "GSL is explicitly motivated as the coordinate producing the largest immediate objective decrease, while full-gradient norm is a standard stationarity diagnostic. The theorem gives a complete and sharp two-dimensional conditioning law showing exactly when those objectives are compatible and where they first conflict. The kappa=3 rational example demonstrates that the mismatch is genuine rather than an asymptotic or numerical artifact, and the all-larger-condition-number construction makes the frontier structurally informative.",
+    "status": "PASS"
+  }
+}
