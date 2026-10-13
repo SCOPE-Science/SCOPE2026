@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The partial transpose decomposes into two positive singleton entries and three explicit 2-by-2 blocks. Exact eigenvalue formulas reduce negativity to a three-variable expression. For fixed y, strict convexity forces x=z; the reduced one-variable function decreases on [0,1/3] and increases on [1/3,1], giving the unique uniform minimizer, exact value (sqrt(5)-1)/6, and inertia (5,1,2).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rana proves at most (m-1)(n-1) negative eigenvalues.",
+        "Johnston proves the same number is attainable and constructs maximal NPT subspaces.",
+        "Later inertia work classifies attainable inertia patterns rather than minimizing negativity on this simplex."
+      ],
+      "reasoning": "These broader results control counts or support geometry, not the trace norm of the negative part. They therefore do not dominate the claimed exact minimum.",
+      "searches": [
+        "arXiv:1304.6775 full-text: arbitrary bipartite negative-eigenvalue bound",
+        "arXiv:1305.0257 full-text: maximal NPT subspaces",
+        "arXiv:2007.13041 inertia of entanglement witnesses"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0709.4238",
+      "MaRDI:Q3528211",
+      "arXiv:1210.0111",
+      "arXiv:1304.6775",
+      "arXiv:1305.0257",
+      "arXiv:2007.13041",
+      "arXiv:2609.06617",
+      "semantic mathematical-literature index (candidate-specific claim queries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen--Đoković prescribe negative-eigenvalue counts in a parameterized family; they do not minimize their magnitudes.",
+        "Rana bounds only the number of negative eigenvalues.",
+        "Johnston gives a qualitative NPT-support guarantee and maximal count construction.",
+        "Walgate--Scott concern completely entangled subspaces and local distinguishability."
+      ],
+      "reasoning": "None of these statements logically yields the minimum of negativity on the affine simplex. The new proof needs convexity/strict-convexity and a one-variable global minimization beyond the prior count/support statements.",
+      "searches": [
+        "Chen--Đoković Example 29 statement and blocks",
+        "Rana Theorem 1 bound",
+        "Johnston Theorem 2 and canonical subspace construction",
+        "Walgate--Scott maximal completely entangled subspace literature"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen--Đoković Example 29 decomposes a different 2-by-N family into orthogonal blocks to control the number of negative partial-transpose eigenvalues.",
+        "Johnston constructs maximal NPT subspaces but formulates existence through subspace geometry/semidefinite construction, not this negativity minimax."
+      ],
+      "reasoning": "The candidate is a trace-norm extremal statement with a unique optimizer and exact value. Prescribed inertia and existence of NPT states do not imply a lower bound on the sum of negative eigenvalue magnitudes.",
+      "searches": [
+        "Semantic literature query: canonical NPT subspace 2 x 4 minimum negativity uniform mixture sqrt5",
+        "Semantic literature query: Johnston NPT subspace minimum negativity diagonal simplex 2x4",
+        "Semantic literature query: mixture three adjacent Bell singlets negativity minimum sqrt5",
+        "Semantic literature query: robust NPT subspace negativity gap 2 by 4",
+        "Web: \"minimum negativity\" \"NPT subspace\" qubit qudit",
+        "Web: \"sqrt(5)\" negativity \"2 x 4\" quantum state",
+        "arXiv:1210.0111 Example 29 full-text inspection",
+        "arXiv:1305.0257 full-text and construction inspection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The semantic index returned unrelated optimization, frame, and operator-theory records rather than quantum partial-transpose minimization.",
+        "Exact web searches returned no relevant formula or table."
+      ],
+      "reasoning": "No exact database/table entry located the value, optimizer, or inertia boundary claimed here.",
+      "searches": [
+        "Semantic-index exact phrase/minimum queries listed above",
+        "Web exact-expression searches for minimum negativity and sqrt(5) in 2-by-4 NPT settings"
+      ]
+    },
+    "rationale": "The inspected prior work proves maximal completely entangled/NPT subspace dimensions, negative-eigenvalue count bounds, and explicit count-realizing constructions, but not the trace-norm minimization on this full diagonal 2-by-4 simplex. Focused semantic and exact-expression searches returned no implication-equivalent result.",
+    "residual_risks": [
+      "An obscure or poorly indexed note may have minimized negativity on exactly this three-generator simplex.",
+      "The theorem is intentionally confined to diagonal mixtures; it does not establish the least negativity over all coherent states supported in the same NPT subspace."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Establishes/gives context for large completely entangled subspaces; no negativity minimax statement.",
+        "identifier_or_url": "arXiv:0709.4238; DOI:10.1088/1751-8113/41/37/375305",
+        "material_read": "ArXiv abstract/submission history and MaRDI bibliographic/MSC record.",
+        "method": "Direct bibliographic and source inspection.",
+        "title": "Generic local distinguishability and completely entangled subspaces",
+        "trigger": "Verified 81P68 anchor and background on maximal completely entangled subspaces."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Example 29 uses orthogonal 2-by-2 blocks to realize prescribed numbers of negative eigenvalues, but gives no trace-norm minimization or unique uniform optimizer.",
+        "identifier_or_url": "arXiv:1210.0111; DOI:10.1103/PhysRevA.86.062332",
+        "material_read": "Full HTML, especially Example 29 and equations 69--73.",
+        "method": "Statement and implication comparison.",
+        "title": "Qubit-qudit states with positive partial transpose",
+        "trigger": "Closest early explicit 2-by-N construction controlling partial-transpose negative counts."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Bounds the number of negative eigenvalues by (m-1)(n-1), not their total magnitude.",
+        "identifier_or_url": "arXiv:1304.6775; DOI:10.1103/PhysRevA.87.054301",
+        "material_read": "Full arXiv theorem/abstract and low-dimensional tightness discussion.",
+        "method": "Broader-coverage comparison.",
+        "title": "Negative eigenvalues of partial transposition of arbitrary bipartite states",
+        "trigger": "Universal bound on negative partial-transpose eigenvalue count."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Proves every supported state can be forced NPT and maximal negative count is attainable; does not solve the diagonal-simplex negativity minimum.",
+        "identifier_or_url": "arXiv:1305.0257; DOI:10.1103/PhysRevA.87.064302",
+        "material_read": "Full text and construction sections; PDF pages inspected.",
+        "method": "Source construction and theorem implication comparison.",
+        "title": "Non-positive-partial-transpose subspaces can be as large as any entangled subspace",
+        "trigger": "Defines the canonical maximal NPT-subspace setting used by the candidate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77535fb0-1b15-47d9-8601-c5ecfeec6272",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimum quantifies a robustness floor inside a natural NPT-subspace simplex, rather than merely restating NPT existence. The unique minimizer occurs exactly on an inertia-transition boundary, showing that minimizing negativity magnitude and maximizing negative-eigenvalue count are structurally different. The 2-by-4 three-generator case is the first nontrivial diagonal simplex where this phenomenon can be stated as a complete exact minimization.",
+    "status": "PASS"
+  }
+}
