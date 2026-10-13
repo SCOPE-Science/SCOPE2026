@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Nonnegative shadow prices in the explicit 18-orbit table satisfy all 715 cover inequalities with denominator 420 and sum 62165. Pairwise disjoint shadows yield |C|<=floor(62165/420)=148. The 143-word residue construction is disjoint, all checked exactly by the embedded standard-library program.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.05636: q=5 exact results shown through n=8; general upper bounds are weaker for n=9.",
+        "arXiv:2603.18322 addresses general polynomial constructions and deletion-ball bounds."
+      ],
+      "reasoning": "A general one-deletion upper formula would subsume the claim only if specialized value at (q,n,t)=(5,9,1) is at most 148; the inspected starting-source bounds did not meet this threshold.",
+      "searches": [
+        "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results arXiv:2601.05636 n=9 q=5",
+        "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes 2603.18322"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.05636 (full paper relevant sections)",
+      "arXiv:2603.18322 (abstract-level)",
+      "doi:10.1007/s10801-015-0633-y (abstract-level)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.05636 reports exact values n<=8, proposes conjectured 143 for n>=5, and includes weaker general upper estimates.",
+        "arXiv:2603.18322 concerns generalized deletion-ball geometry; no exact q=5,n=9 upper 148 in material inspected."
+      ],
+      "reasoning": "A conjecture for 143 does not prove upper 148; the source shadow-counting upper bound 195 or more does not imply 148. The explicit 18-weight dual feasible certificate and its integer objective strictly strengthen the published general constraints.",
+      "searches": [
+        "quinary multiset one deletion optimal capacity n=9 143 first unresolved",
+        "exact q5 n9 multiset single deletion code maximum size simplex lattice graph",
+        "arXiv 2601.05636 bounds theorem multiset deletion size",
+        "simplicial rook graph independence q 5 n 9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.05636 defines the multiset deletion model; simplicial rook graphs give an independence reformulation.",
+        "doi:10.1007/s10801-015-0633-y studies related rook graph properties and an independence result for a different alphabet-size regime."
+      ],
+      "reasoning": "A word is a nonnegative 5-composition of 9 and two words conflict exactly when they share a nonnegative 5-composition of 8 by one deletion. Searches considered the graph independence equivalence, but the inspected material did not contain an upper bound 148 for these parameters.",
+      "searches": [
+        "five-symbol length nine multiset deletion correcting independence 715 143",
+        "exact q5 n9 multiset single deletion code maximum size simplex lattice graph",
+        "insertion deletion codes 2026 Levenshtein error corrected exact extremal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2601.05636 q=5 exact results table through n=8.",
+        "A published quinary ordered-string deletion result is ordered-string length four, not an exact multiset table."
+      ],
+      "reasoning": "The target is the length-nine five-letter multiset problem, not the quinary length-four string-deletion entry, so known rows do not explicitly tabulate its 148 upper certificate.",
+      "searches": [
+        "\"S_5(9,1)\" multiset 148",
+        "\"multiset\" \"9\" \"5\" \"single deletion\" 143",
+        "quinary multiset one deletion optimal capacity n=9 143 first unresolved"
+      ]
+    },
+    "rationale": "The full 2026 originating arXiv paper reports quinary exact values through length eight and conjectures 143 beyond. Its published generic upper bounds do not imply the explicit new length-nine upper 148. The named published-finding corpus neighbors are ordered-word deletion or other overlap models. Possible unindexed simplicial-rook LP results remain a stated risk, not claimed absent.",
+    "residual_risks": [
+      "An inaccessible part of the simplicial rook graph literature may give an equivalent or stronger independence bound.",
+      "An unindexed finite LP/table computation might already establish the 148 upper bound.",
+      "The optimum could be strictly below 148; no exact optimum is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No length-nine specific upper bound 148 identified; lower benchmark conjecture 143 and exact cases end at eight.",
+        "evidence": [
+          "arXiv:2601.05636, initial public version 2026-01-09; full-text sections on bounds and exact quinary results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.05636",
+        "material_read": "Introduction, definitions, exact q=5 n<=8 computations, conjecture and generic upper-bounds sections of the complete PDF.",
+        "method": "Primary full-text PDF examination, with comparisons of code model, parameters and inequalities.",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Exact same coding model and first open quinary length."
+      },
+      {
+        "assessment": "Potential older equivalent independence estimate remains unexcluded.",
+        "evidence": [
+          "Springer DOI 10.1007/s10801-015-0633-y; material available was limited."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10801-015-0633-y",
+        "material_read": "Available abstract and search excerpts on independence properties, not the full article.",
+        "method": "Abstract and result-summary comparison.",
+        "title": "Notes on simplicial rook graphs",
+        "trigger": "Equivalent graph independence formulation may subsume new finite upper bound."
+      },
+      {
+        "assessment": "No verified implication proving 148 or stronger; unresolved risk explicitly retained.",
+        "evidence": [
+          "arXiv:2603.18322 abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+        "material_read": "Accessible abstract and synopsis, no complete full text checked.",
+        "method": "Abstract-level object and parameter comparison.",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Subsequent general multiset deletion bound that might dominate the target."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5f55355-697b-4e9c-9283-ac92da1e9ea9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the first quinary multiset length beyond the source paper exact census, the new finite rational dual reduces a large generic upper bound (at least 195) to 148 against a 143 construction. The gap of five is a motivated finite coding-theoretic threshold; no exact-maximality assertion is made.",
+    "status": "PASS"
+  }
+}
