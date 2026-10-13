@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "For n>=5, each of the n length-one and n length-two edges is distinct. Rayleigh-Ritz concavity makes the cyclic average of any feasible rate allocation at least as good. For class-constant a,b, Fourier diagonalization yields λ_k=a x_k+b x_k(4-x_k), x_k=4 sin²(pi k/n). Since b>=0, concavity in x puts the nonzero spectral minimum at x=mu or x=nu. The budget makes the two candidates affine in b; their slopes and unique intersection a=eta b give all three price regions, the entire equality families, and sharp endpoint formulas. eta=mu-r>0, 0<=r<q, so all cases exhaust t>0. Parity uses whether addition by two generates Z/n, and limits follow from sine asymptotics. The standalone checker, executed from the actual working path, reported VERIFY_OK with 23,760 uniform comparison tests, 972 nonuniform Jacobi spectral tests, 54 boundary tests, and 9 parity tests. Finite tests are corroboration only; no unproved infinite enumeration or algorithmic certification is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gerencser 2014 assumes a sublinear number n^gamma, gamma<1, of random long-range edges (Definition 12); this is not n deterministic two-hop edges of fixed length 2.",
+        "Apers and Sarlette 2015 optimize a second-order polynomial filter for discrete-time consensus, explicitly distinct from a continuous-time smallest positive Laplacian eigenvalue.",
+        "Boyd et al. 2007 gives a semidefinite formulation and edge-orbit symmetry methodology but its displayed cycle result is for the ordinary nearest-neighbor cycle, not a priced two-hop square.",
+        "Saha and Das 2025 Theorem 3.4 gives an unweighted Laplacian eigenvalue formula, but their stated goals and main results are spectrum, spanning trees, energy and coloring, not a two-price maximal gap."
+      ],
+      "reasoning": "General-purpose algorithms and broad bounds do not constitute a statement whose known conclusion mathematically implies the precise all-n, all-price piecewise value and endpoint optimizer faces. This was checked against their actual hypotheses and objectives, not merely their titles.",
+      "searches": [
+        "cycle nearest neighbor next nearest neighbor consensus optimal rates cost 2-hop jumps spectral gap phase transition",
+        "2015 spectral gap Markov chains on cycles two-hop edge budget",
+        "Shakeri Albin Sahneh Poggi Corradini Scoglio 2015 maximizing algebraic connectivity two layer networks weighted square of cycle shortcut two orbits budget phase",
+        "Boyd Diaconis Parrilo Xiao fastest mixing Markov chains symmetries C_n squared distance-two edge probability price continuous-time",
+        "Apers Sarlette spectral clustering polynomial filters cycle next nearest neighbor fixed budget",
+        "Gerencser 2014 mixing times cycle long range connections n gamma less than 1 uniform nearest next nearest spectral gap",
+        "arxiv:1401.1692 Sections 1, 3, 5",
+        "arxiv:1503.01269 Sections 1-3",
+        "Saha Das 2025 square graph C_n^2 Laplacian spectrum weighted length one and two costs optimal algebraic connectivity phase transition"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955 (Boyd, Diaconis, Parrilo, Xiao, public 2007-09-06)",
+      "arxiv:1510.06785 (Shakeri et al., public 2015-10-22)",
+      "arxiv:1401.1692 (Gerencser, public 2014-01-08)",
+      "arxiv:1503.01269 (Apers, Sarlette, public 2015-03-04)",
+      "Gerencser, Hendrickx, Van Dooren (2015), Spectral Gap of Markov Chains on a Cycle, full OA PDF",
+      "published finite circulant expander survey entry 2026/9/8/SCOPE031 (different degree and objective)",
+      "Saha and Das 2025, The Square Graph of a Cycle Graph, DOI:10.26713/cma.v16i4.3246, full open-access PDF (same graph but unweighted spectrum only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2007 Boyd et al. optimizes max{lambda_2(P),-lambda_n(P)} with stochastic P; the current optimum is lambda_2(L) for L a continuous-time rate matrix without a stochasticity cap.",
+        "2015 Shakeri et al. studies fixed intra-layer graphs coupled by an optimized matching, not variable one-hop plus two-hop rates in one cyclic graph.",
+        "2014 Gerencser considers mixing-time scaling for randomly added sublinear-count edges and does not evaluate the current exact n-dependent cost minimax.",
+        "2015 Apers and Sarlette uses polynomial-filter eigenvalue clustering, not maximizing the minimum positive eigenvalue under the stated rate budget.",
+        "An unweighted Laplacian eigenvalue theorem for C_n squared determines eigenvalues only at one fixed conductance allocation; the present minimax asks for the best rate at arbitrary two-orbit prices over independently nonuniform weights. No stated result of Saha and Das evaluates this optimum."
+      ],
+      "reasoning": "Neither exact same-object coverage nor a simple special-case implication is established by the inspected theorems. Shared symmetry averaging and variational/SDP methods are explicitly acknowledged as prior; the evaluated two-Fourier-mode phase diagram is the assessed claim. Residual unindexed literature is acknowledged rather than silently ruled out.",
+      "searches": [
+        "exact budget optimal continuous-time spectral gap on a cycle with nearest and second-nearest neighbor jump edges, relative prices, odd even parity",
+        "Shakeri Albin Sahneh Poggi Corradini Scoglio 2015 maximizing algebraic connectivity two layer networks weighted square of cycle shortcut two orbits budget phase",
+        "Boyd Diaconis Parrilo Xiao fastest mixing Markov chains symmetries C_n squared distance-two edge probability price continuous-time",
+        "Apers Sarlette spectral clustering polynomial filters cycle next nearest neighbor fixed budget",
+        "Gerencser 2014 mixing times cycle long range connections n gamma less than 1 uniform nearest next nearest spectral gap",
+        "arxiv:0709.0955",
+        "arxiv:1401.1692",
+        "arxiv:1503.01269",
+        "arxiv:1510.06785",
+        "DOI:10.26713/cma.v16i4.3246 Theorem 3.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "On a cyclic Cayley graph the two-hop length classes have Fourier symbols x and x(4-x); this exact continuous-time normalization is not the discrete-time SLEM norm minimized in Boyd et al. 2007.",
+        "Shakeri et al. 2015 fixes its two within-layer Laplacians and optimizes only one-to-one interlayer edges; the two freely priced edge-distance orbits of C_n squared cannot be identified with that feasible set.",
+        "Saha and Das 2025 (Theorem 3.4) gives the unweighted Laplacian eigenvalues for precisely C_n squared, but neither the separately weighted two-orbit spectrum nor a cost-constrained optimum and switching-price classification."
+      ],
+      "reasoning": "The standard variational or SDP formulation is equivalent as an optimization framework, but the known formulations do not themselves evaluate this specific two-orbit cycle problem or imply its price thresholds. No equation-equivalent objective-and-graph claim was located in the inspected texts. The same-graph unweighted Fourier formula is acknowledged as published prior art, not claimed as a novel result by itself.",
+      "searches": [
+        "exact budget optimal continuous-time spectral gap on a cycle with nearest and second-nearest neighbor jump edges, relative prices, odd even parity",
+        "circular graph square C_n(1,2) maximize algebraic connectivity with two separately priced edge orbits and arbitrary conductances",
+        "continuous-time fastest mixing circulant jump lengths 1 2 min Fourier modes cosine concavity parity price threshold",
+        "weighted square of cycle two edge classes phase diagram positive conductances Laplacian λ2",
+        "arxiv:0709.0955 Sections 2.2 and 3.1.1",
+        "arxiv:1510.06785 Sections I-II",
+        "DOI:10.26713/cma.v16i4.3246 Theorem 3.4 and Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest surfaced finite circulant calculation, published identifier 2026/9/8/SCOPE031, concerns an unweighted six-regular circulant family on 29 vertices and tabulates expander statistics rather than a continuous two-price optimization for C_n squared.",
+        "The ordinary-cycle analytic formula in Boyd et al. 2007 allows only nearest-neighbor edges; the current graph has two distinct edge orbits and 2n edges.",
+        "The same-graph Laplacian spectrum at unit conductances is already explicitly tabulated symbolically by Saha and Das 2025; this covers an input specialization of the Fourier formula, but not the optimization over an arbitrary positive class price, the optimum value, or its phase thresholds."
+      ],
+      "reasoning": "No inspected source provides an exact numerical or symbolic table which already evaluates the asserted invariant at the same domain and parameters, nor a tabulation covering all n and t. This is an evidence-limited conclusion, not an exhaustive catalog guarantee. The unit-rate spectrum is prior art and is deliberately not isolated as the new claim.",
+      "searches": [
+        "circular graph square C_n(1,2) maximize algebraic connectivity with two separately priced edge orbits and arbitrary conductances",
+        "weighted square of cycle two edge classes phase diagram positive conductances Laplacian λ2",
+        "optimize spectral gap square cycle C_n squared graph uniform distance-one distance-two edges",
+        "weighted circulant graph second neighbors optimum algebraic connectivity weighted Cn squared optimal rates spectrum cycle graph price",
+        "2026/9/8/SCOPE031",
+        "arxiv:0709.0955 Section 3.1.1",
+        "DOI:10.26713/cma.v16i4.3246 Section 3 and Theorem 3.4"
+      ]
+    },
+    "rationale": "Claim-level comparison, rather than title comparison, against the full available primary texts distinguishes the exact undirected continuous-time two-hop priced Laplacian-gap classification from discrete-time SLEM optimization, one-to-one interlayer budgets with fixed within-layer weights, sublinear random shortcuts, polynomial-filtered consensus, and the 2025 unweighted spectrum of the **same** cycle-square graph. The 2007 symmetry result supplies the group-averaging principle but neither the two-endpoint formula nor the global three-price-phase law. No inspected theorem, table, or published claim supplies the exact formulas or implies them by a stated reduction. Search omissions and unindexed same-graph specializations remain real historical risks; this PASS is the supported literature-level judgment, not independently certified priority.",
+    "residual_risks": [
+      "An unindexed specialized theorem on weighted circulants or Cayley graphs might contain an equivalent two-price all-size spectral-gap phase diagram.",
+      "Broad semidefinite programming frameworks solve individual instances and their unstated example reductions may need further human historical comparison; no exhaustive novelty certification is asserted.",
+      "The candidate makes no claim of global edgewise optimizer uniqueness beyond the edge-class-uniform face.",
+      "The underlying Fourier eigenvalues at equal edge weights are explicitly known, so only the exact two-price unrestricted budget phase law and optimizer faces are assessed as potentially original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_exact_claim: optimizes discrete-time SLEM with stochastic transition constraints; ordinary-cycle model not a two-priced cycle square",
+        "evidence": "arXiv:0709.0955v1, Section 1.1 equations (1)-(2), Section 2.2, Section 3.1.1",
+        "identifier_or_url": "https://arxiv.org/html/0709.0955v1",
+        "material_read": true,
+        "method": "Full open-access HTML: Sections 1, 2.2, 3.1.1, theorem model and graph examples",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Cyclic graph automorphism symmetry and fastest-mixing objective"
+      },
+      {
+        "assessment": "NOT_COVERING_exact_claim: fixed two layer Laplacians with variable one-to-one interlayer matching; no cyclic distance-one and distance-two two-orbit budget",
+        "evidence": "arXiv:1510.06785v1, Introduction, Section of Laplacian block definition and Theorems 1-2",
+        "identifier_or_url": "https://arxiv.org/html/1510.06785v1",
+        "material_read": true,
+        "method": "Full open-access HTML: setup, equations (1)-(4), Theorems 1-2 and relevant assumptions",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Same λ2 optimization and budget objective"
+      },
+      {
+        "assessment": "NOT_COVERING_exact_claim: sparse random n^gamma long-range edges with gamma<1, not deterministic full set of n distance-two shortcuts and finite exact optimization",
+        "evidence": "arXiv:1401.1692v3, Introduction, Definition 12, Theorems 10-14",
+        "identifier_or_url": "https://arxiv.org/html/1401.1692v3",
+        "material_read": true,
+        "method": "Full open-access HTML Sections 1-3 and overview of main theorems and conductance estimates",
+        "title": "Mixing Times of Markov Chains on a Cycle with Additional Long Range Connections",
+        "trigger": "Cycle with additional shortcuts plausible domination"
+      },
+      {
+        "assessment": "NOT_COVERING_exact_claim: optimized second-order discrete-time filter, different objective and no two-hop cycle price formula",
+        "evidence": "arXiv:1503.01269v1, Sections 1-3 and Theorem 1",
+        "identifier_or_url": "https://arxiv.org/html/1503.01269v1",
+        "material_read": true,
+        "method": "Full open-access HTML introduction, setup equations (1)-(7), optimization sections",
+        "title": "Accelerating Consensus by Spectral Clustering and Polynomial Filters",
+        "trigger": "Weighted graph consensus acceleration plausible covering result"
+      },
+      {
+        "assessment": "NOT_COVERING_exact_claim: nearest-neighbor discrete-time cycle Markov chains, not extra distance-two edges with freely priced continuous rates",
+        "evidence": "Gerencser, Hendrickx, Van Dooren, 2015, abstract, model, main results, conclusion",
+        "identifier_or_url": "https://real.mtak.hu/173919/1/cycle_spectral_gap.pdf",
+        "material_read": true,
+        "method": "Five-page lawful open-access PDF inspected, including problem definition, theorem and conclusion",
+        "title": "Spectral Gap of Markov Chains on a Cycle",
+        "trigger": "Closest cycle-specific fastest-mixing optimization"
+      },
+      {
+        "assessment": "SAME_GRAPH_PARTIAL_COVERAGE: unweighted Fourier eigenvalues for C_n squared are known; no priced conductance optimization, phase thresholds or global budget formula are given",
+        "evidence": "Saha and Das 2025, Theorem 3.2 adjacency spectrum and Theorem 3.4 unweighted Laplacian spectrum; Section 4 tree count/energy",
+        "identifier_or_url": "https://www.rgnpublications.com/journals/index.php/cma/article/download/3246/1927/13255",
+        "material_read": true,
+        "method": "Full lawful open-access eleven-page PDF located and original results inspected, including pages 3-6 and Theorems 3.2, 3.4; page images visually inspected",
+        "title": "The Square Graph of a Cycle Graph",
+        "trigger": "Exactly the same underlying square-of-cycle graph and Laplacian spectrum, plausible prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6dcff9aa-a971-4ab5-a02e-fabdb19dd42c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The priced square of a cycle is a natural communication architecture with competing nearest-neighbor and two-hop links; an explicit optimal continuous-time consensus rate is a motivated invariant. The theorem completely solves this all-n, all-positive-price design problem and all symmetric optimizer faces, rather than an arbitrary small instance or a rephrasing of a previously computed table. Exact thresholds r and q, an odd-only physically connected two-hop phase, and an asymptotically sharp gain 4/t directly answer which links should receive budget. The proof isolates a useful two-endpoint Fourier obstruction and avoids solving general SDPs. Reproducible computations alone are not treated as evidence of value. Limitations include nonuniform optimizer nonclassification and separate discrete-time objectives.",
+    "status": "PASS"
+  }
+}
