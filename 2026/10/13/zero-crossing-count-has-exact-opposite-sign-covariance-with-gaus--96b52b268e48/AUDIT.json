@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For a correlated standard-normal adjacent pair, direct integration gives \\(\\mathbb E[Z_0^2\\mathbf 1\\{Z_0Z_1<0\\}]=\\mathbb P(Z_0Z_1<0)-\\rho\\sqrt{1-\\rho^2}/\\pi\\). Restoring scale gives the local endpoint covariance. The stationary Gaussian AR(1) Markov property propagates centered squares geometrically away from either endpoint, so every edge-to-site covariance is the displayed local factor times \\((\\rho^2)^d\\). Summing this finite kernel proves the closed formula and its opposite-sign law. The packaged checker performs 7 numerical integral checks, 632 closed-form versus unsimplified edge-sum checks, and 731 sign/independence checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sinn–Keller define the same crossing indicator and AR(1) autocorrelation, but their stated program is evaluation of crossing-crossing covariance and empirical crossing-rate variance.",
+        "Finch defines the same finite sign-change count and states that the paper focuses on its variance; the body develops orthant probabilities and count moments.",
+        "Nyberg–Lizana–Ambjörnsson study higher zero-crossing cumulants and moments, not a mixed amplitude-energy functional."
+      ],
+      "reasoning": "These sources cover the same crossing process more broadly in count-distribution directions, but those marginal/count moments do not determine a mixed moment with the Gaussian amplitudes. No inspected broader nonlinear-Gaussian theorem was found that directly yields the present kernel.",
+      "searches": [
+        "Sinn Keller Covariances of Zero Crossings in Gaussian Processes full text AR(1)",
+        "Number of Sign Changes Segment of AR(1) Finch",
+        "Zero-crossing statistics for non-Markovian time series higher moments"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0040585X97984991",
+      "mathnet:tvp4241",
+      "arXiv:1909.02556",
+      "doi:10.1103/PhysRevE.97.032114",
+      "MaRDI record for DOI 10.1137/S0040585X97984991"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The iid sign-blind-runs result states independence from every magnitude-only statistic, including uncentered mean square; its nonzero covariance arises only after random centering.",
+        "At \\(\\rho=0\\) the present theorem gives exactly zero covariance with uncentered energy, agreeing with that independence boundary; nonzero \\(\\rho\\) creates the new coupling through serial dependence."
+      ],
+      "reasoning": "The earlier iid theorem cannot imply the AR(1) formula because its independence argument requires independent signs conditional on magnitudes and contains no serial parameter or geometric propagation. The present claim is therefore not a routine parameter specialization of that prior result.",
+      "searches": [
+        "Own prior finding 44317224-c161-4fe6-94b9-642555e9557f: sign-blind runs and sample variance",
+        "Own prior Gaussian covariance findings involving sample variance and homogeneous quadratic statistics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic research-database searches returned no record with the same zero-crossing-count/energy objects or the edge-to-site mixed covariance.",
+        "General web searches for squared amplitude, sum of squares, energy, and zero-crossing covariance did not return an equivalent formula.",
+        "The inspected Sinn–Keller full text contains no matches for energy, square, amplitude, or quadratic and frames its covariances as crossing-crossing covariances."
+      ],
+      "reasoning": "The total-energy covariance is equivalently a sum of edge-to-site covariances, so both aggregate and local aliases were searched. A prior local mixed-moment formula would imply the aggregate result and was treated as potentially covering.",
+      "searches": [
+        "Gaussian AR(1) zero crossing count total energy covariance sign changes sum squares",
+        "zero crossing indicator covariance squared amplitude Gaussian AR(1)",
+        "sign change count quadratic energy stationary Gaussian covariance",
+        "zero crossing squared amplitude Gaussian covariance",
+        "sign change sum of squares Gaussian AR(1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic hits concerned AR(1) transforms or unrelated Gaussian magnitude dependence; none tabulated the requested mixed moment."
+      ],
+      "reasoning": "The claim is an all-n symbolic identity with a local spatial kernel, not a finite database/table lookup.",
+      "searches": [
+        "Gaussian AR(1) zero crossing count total energy covariance sign changes sum squares",
+        "zero crossing indicator covariance squared amplitude Gaussian AR(1)",
+        "sign change count quadratic energy stationary Gaussian covariance"
+      ]
+    },
+    "rationale": "The checked literature on Gaussian zero crossings covers crossing probabilities, crossing-crossing covariances, empirical crossing-rate variance, and finite sign-change count moments. No inspected source or database hit states the mixed covariance with squared amplitude or total energy, nor a stronger theorem that implies the finite AR(1) kernel. The closest own prior result is an iid sign-runs/sample-variance identity and explicitly has independence from uncentered magnitude energy, so it does not subsume the dependent AR(1) statement.",
+    "residual_risks": [
+      "Older signal-processing or Gaussian nonlinear-functional literature may contain the local sign/squared-amplitude moment under another notation.",
+      "The exact finite AR(1) aggregate formula may be derivable from a general Hermite- or Price-theorem calculation not surfaced by the checked searches. These are residual search risks, not evidence of coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_MIXED_ENERGY_COVARIANCE",
+        "evidence": "The paper defines \\(C_k\\) as the same sign-change indicator, studies \\(\\gamma_k=\\operatorname{Cov}(C_0,C_k)\\), empirical crossing-rate variance, and AR(1) crossing variance. It does not state a covariance with \\(X_j^2\\) or \\(\\sum_j X_j^2\\); target terms were absent.",
+        "identifier_or_url": "doi:10.1137/S0040585X97984991; MathNet tvp4241",
+        "material_read": "Lawful MathNet full text: introduction and result map, Section 2 definitions/formulas, Section 7.1 AR(1) application, plus full-text target searches for energy, square, amplitude, and quadratic.",
+        "method": "Full-text PDF text inspection and targeted scientific term searches.",
+        "title": "Covariances of Zero Crossings in Gaussian Processes",
+        "trigger": "Closest exact primary source: same Gaussian zero-crossing indicator and an explicit AR(1) application."
+      },
+      {
+        "assessment": "NOT_COVERING_AMPLITUDE_ENERGY",
+        "evidence": "The abstract and body explicitly focus on the mean, variance, and higher moments of the sign-change count; no amplitude-square or total-energy mixed moment is developed.",
+        "identifier_or_url": "arXiv:1909.02556",
+        "material_read": "Complete arXiv HTML text, including definition, finite-n variance discussion, independent-interval approximation section, and appendix.",
+        "method": "Full-text HTML inspection.",
+        "title": "Number of Sign Changes: Segment of AR(1)",
+        "trigger": "Same finite AR(1) segment and exactly the same sign-change count object."
+      },
+      {
+        "assessment": "NOT_COVERING_MIXED_ENERGY_IN_AVAILABLE_MATERIAL",
+        "evidence": "The described results concern zero-crossing cumulants and moments via the independent interval approximation, not joint moments with quadratic amplitude energy.",
+        "identifier_or_url": "doi:10.1103/PhysRevE.97.032114",
+        "material_read": "Publisher abstract and bibliographic record.",
+        "method": "Publisher record inspection.",
+        "title": "Zero-crossing statistics for non-Markovian time series",
+        "trigger": "Higher-order zero-crossing-moment work cited by the closest AR(1) finite-segment paper."
+      },
+      {
+        "assessment": "CLASSIFICATION_SOURCE",
+        "evidence": "The record lists Gaussian processes (60G15) and time series (62M10); the probability classification 60G15 is used as primary ownership here.",
+        "identifier_or_url": "MaRDI record for DOI 10.1137/S0040585X97984991",
+        "material_read": "Bibliographic and zbMATH classification record.",
+        "method": "Metadata inspection.",
+        "title": "Covariances of Zero Crossings in Gaussian Processes classification record",
+        "trigger": "Verification of primary subject classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96b52b26-8e48-4ff9-978a-8047134d04fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Zero-crossing count and total quadratic energy are canonical complementary summaries of a Gaussian time series. The result gives an exact finite-sample dependence law and a geometric local mechanism: positive serial correlation makes a crossing negatively associated with squared amplitude at every site, negative serial correlation reverses the association, and independence is the exact zero boundary. This is structurally stronger than a one-number computation and directly contrasts with the even-in-\\(\\rho\\) zero-crossing variance documented in the closest AR(1) source.",
+    "status": "PASS"
+  }
+}
