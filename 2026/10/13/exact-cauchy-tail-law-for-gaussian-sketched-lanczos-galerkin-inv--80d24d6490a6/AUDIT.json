@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exact Lanczos residual AV=VT+beta v_{k+1}e_k^T, independent Gaussian sketches, and Schur elimination give T+t e_k^T, terminal coefficient c/(1+a^Tt), and scaled Student-t with nu=s-k+1. Irreducible SPD tridiagonal cofactor gives c != 0. The Student density at -1 is strictly positive, giving sharp 1/R tail and all p>=1 divergent error moments; beta=0 gives exact invariance. The packaged standard-library checker passed 1767 exact-rational reduced matrix identities and 12 local density integrations; these corroborate but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grigori–Kressner–Shao–Simunec 2026 Section 4 restores ordinary Arnoldi through a different similarity-corrected method; that statement does not cover the untreated sketch projection.",
+        "Palitta–Schweitzer–Simoncini 2025 Sections 5–7 analyze rank-one modifications and effects of outlying Ritz values, but not unconditional Gaussian inverse-error moments."
+      ],
+      "reasoning": "High-probability/quasi-optimal bounds conditioned on good embeddings do not imply or contradict unconditional moment finiteness. The earlier scalar one-vector denominator mechanism is a genuine overlap but does not state all k>=2, degree s-k+1, explicit tail constant, and invariant/no-breakdown dichotomy. The similarity-restored variant is a different algorithm.",
+      "searches": [
+        "sketched Krylov matrix functions non-harmonic Arnoldi divergent expectations inverse Ritz pole",
+        "Sketch-and-Restart Randomized Sketching in Quadrature-Based Restarting for Matrix Functions sketched Arnoldi Stieltjes",
+        "arxiv:2601.10248v1 section 4",
+        "doi:10.1002/nla.2596 sections 2.3, 5, 6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.10354v1",
+      "arxiv:2302.07466v3",
+      "doi:10.1002/nla.2596",
+      "arxiv:2601.10248v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source (2026) equation (9) assumes a successful embedding; equation (11) is the unguarded formula. Its full-text Sections 4–5 do not give the unconditional distribution or moment cutoff.",
+        "Timsit et al. 2023 Theorem 3.1 controls projection error by distortion factors; Section 5.1 shows spikes and suggests links with small spurious Ritz values. Theorem does not entail the exact divergence.",
+        "Earlier one-vector shifted-Student analysis establishes a scalar mechanism but not the n-by-n Lanczos Jacobi coefficient formula or the s-k+1 row-loss law."
+      ],
+      "reasoning": "The analytic result covers all k>=2 with irreducible SPD Jacobi compression and arbitrary finite s>=k, proving a new universal sharp tail coefficient and exact invariant/noninvariant dichotomy. One-dimensional and conditional published results neither logically entail that parameter-complete classification nor give its quantitative constants. Residual risk of a differently phrased older formula remains.",
+      "searches": [
+        "Sketch-and-Restart Randomized Sketching in Quadrature-Based Restarting for Matrix Functions sketched Arnoldi Stieltjes",
+        "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers stochastic spike Ritz poles",
+        "sketched Arnoldi Krylov positive definite inverse action inverse-moment divergence Cauchy tails any number sketch rows",
+        "arxiv:2302.07466v3 theorem 3.1 and section 5",
+        "arxiv:2607.10354v1 equation (9), (11) and algorithm 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Güttel–Liu–Nyman 2026 equation (11) defines the sketched Galerkin matrix, but Sections 4–5 analyze its practical generation and conditional convergence rather than this unconditional distribution.",
+        "Timsit–Grigori–Balabanov 2023 Section 5.1 documents spikes but gives no exact Gaussian Student law."
+      ],
+      "reasoning": "Basis changes preserve the sketched Galerkin solution, so rank-one Arnoldi residual and sketched FOM are equivalent formulations of the studied algorithm. These papers do not state the s-k+1 Student law, its exact pole density, or the moment dichotomy. Classic Student-t regression is an ingredient, not a source theorem about non-invariant Lanczos inverses.",
+      "searches": [
+        "Gaussian sketched Lanczos k-step FOM inverse solution all absolute moments infinite positive definite irreducible Jacobi Student t degrees s-k+1",
+        "sketched Arnoldi Krylov positive definite inverse action inverse-moment divergence Cauchy tails any number sketch rows",
+        "\"sketched Arnoldi\" \"infinite\" \"moment\" inverse Gaussian",
+        "arxiv:2607.10354v1 equation (11)",
+        "arxiv:2302.07466v3 section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-finding search returned closest results on multistage randomized pivoting and other Krylov phenomena, not this exact higher-step Student denominator.",
+        "Primary literature comparisons concerned analytic theorems rather than a finite enumeration or tabulated invariant."
+      ],
+      "reasoning": "No exact database or table supplies the continuum-of-sketch-width tail coefficient. Negative search results are not by themselves evidence of uniqueness; source-statement comparisons are the principal novelty basis.",
+      "searches": [
+        "Gaussian sketched Lanczos k-step FOM inverse solution all absolute moments infinite positive definite irreducible Jacobi Student t degrees s-k+1",
+        "Gaussian sketch reduced Galerkin matrix rank one residual determinant Student t inverse tail degree s-k+1",
+        "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers stochastic spike Ritz poles"
+      ]
+    },
+    "rationale": "Four materially inspected primary sources address sketched Krylov projection, conditional quasi-optimality, rank-one matrix-function corrections, and similarity restoration, but their statements do not cover this full k>=2 Gaussian inverse moment dichotomy and sharp pole constant. Earlier k=1 scalar law is credited and excluded from claimed novelty; classical regression formula used as a lemma. Residual synonym/older-literature risk is explicit.",
+    "residual_risks": [
+      "An equivalent higher-dimensional Gaussian-regression consequence may exist in older or unindexed Petrov–Galerkin literature.",
+      "The proof is not an independent certification and not an exhaustive survey of all Krylov implementations.",
+      "The earlier one-vector scalar law is a shared mechanism; the new result claims only higher-step classification and exact constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_NOT_COVERING_UNCONDITIONAL_TAIL",
+        "evidence": [
+          "Equation (11) gives the same sketched Petrov–Galerkin matrix under basis equivalence.",
+          "Equation (9) supplies a conditioned subspace-embedding hypothesis; Section 5 analyzes sketched harmonic convergence rather than Gaussian inverse moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.10354v1",
+        "material_read": "Sections 1, 2.2 (equations 9–14), 4.1 (Algorithms 2–3), 5 (conditional analysis), and 6 (choice of sparse sketch), with abstract and references",
+        "method": "Opened full primary open-access HTML and compared mathematical hypotheses and formulas",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Exact same sketched Arnoldi inverse formulation and recent motivation"
+      },
+      {
+        "assessment": "SPIKE_AND_CONDITIONAL_ERROR_ANALYSIS_NOT_EXACT_MOMENT_THEOREM",
+        "evidence": [
+          "The authors describe sporadic spikes and negative/complex outlying projected Ritz values in Section 5.1.",
+          "Section 3.1 gives quasi-optimality bounds rather than exact unconditional Gaussian tail distributions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.07466v3",
+        "material_read": "Introduction, Section 3.1 theory, Section 5.1 spike and Ritz-value discussion, conclusions",
+        "method": "Opened full primary open-access HTML and matched projected system/error quantities",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Earlier randomized FOM, error bounds, and observed inverse spikes"
+      },
+      {
+        "assessment": "RELATED_RANK_ONE_ANALYSIS_NOT_GAUSSIAN_INVERSE_MOMENTS",
+        "evidence": [
+          "The paper represents sketched functions through rank-one Hessenberg modifications and studies effects of spurious Ritz values.",
+          "It does not establish the s-k+1 Gaussian regression law or all-step inverse moment cutoff."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.2596",
+        "material_read": "Sections 2.3, 5–7 and conclusions of the lawful full-text HTML",
+        "method": "Opened primary public full-text HTML and compared formulas (9), (31)–(36) and stated conclusions",
+        "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+        "trigger": "Plausible stronger rank-one modified Krylov function theory"
+      },
+      {
+        "assessment": "DIFFERENT_ALGORITHM_SIMILARITY_RESTORATION",
+        "evidence": [
+          "Section 4 constructs a corrected projected matrix yielding exactly standard Arnoldi functions.",
+          "The uncorrected randomized Galerkin algorithm retains possible outlying Ritz values and is not the same output."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.10248v1",
+        "material_read": "Introduction, Section 4.1 equations (4.1)–(4.4), and conclusions",
+        "method": "Opened primary open-access HTML and contrasted actual projection and corrected method",
+        "title": "Restoring similarity in randomized Krylov methods with applications to eigenvalue problems and matrix functions",
+        "trigger": "Method potentially providing a dominating robustness result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80d24d64-90a6-4a76-85de-f7fe64165bd3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unconditional expected sketched FOM inverse errors are infinite even with very large but finite Gaussian oversampling and for explicit condition-number-below-three positive-definite systems. The complete invariant/noninvariant classification and exact polynomial tail coefficient explain a concrete rare-event stability barrier not addressed by conditional embedding guarantees. This motivates explicit conditioning or safeguarding in stochastic-error interpretations without claiming such a safeguard was proved here.",
+    "status": "PASS"
+  }
+}
