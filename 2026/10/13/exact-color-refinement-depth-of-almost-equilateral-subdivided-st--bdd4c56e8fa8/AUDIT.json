@@ -1,0 +1,88 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the established equivalence between color-refinement rounds and truncated rooted universal covers on trees, then derives an exact clipped-distance descriptor. The lower and upper bounds meet in both the equilateral and one-exceptional-arm cases. A direct checker confirmed 4,860 depth cases and 10,650 intermediate-partition comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krebs--Verbitsky prove general relationships and asymptotic worst-case bounds, not a formula for this family.",
+        "Their introduction notes paths as simple linear-depth examples but does not cover the branching threshold proved here."
+      ],
+      "reasoning": "General tree and universal-cover results explain why a local truncation analysis works, but they do not by themselves imply the parameter-specific stopping round without the new branch-length analysis.",
+      "searches": [
+        "\"color refinement\" trees stabilization rounds exact",
+        "\"Weisfeiler Leman\" trees stabilization rounds",
+        "Universal Covers, Color Refinement, and Two-Variable Counting Logic arXiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1407.3175",
+      "DOI:10.1109/LICS.2015.69",
+      "Targeted web searches for subdivided-star/spider color refinement",
+      "Semantic database searches for the exact family and invariant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 2.6 identifies round colors with truncated universal covers.",
+        "Existing own-ledger path and cycle findings concern different graph families and/or different WL dimension."
+      ],
+      "reasoning": "The new formula is not a restatement of the general lemma: the exceptional-arm term \\(\\max\\{a+1,\\lceil c/2\\rceil\\}\\) comes from a specific interaction of branch symmetry and propagation that must be proved for this family.",
+      "searches": [
+        "arXiv:1407.3175 full text, Sections 1 and 2.3",
+        "own current ledger claims on paths, cycles, and 2-WL stabilization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1407.3175, Section 2.3 and Lemma 2.6",
+        "No claim-matching semantic-database hit among the inspected top results."
+      ],
+      "reasoning": "The natural aliases are subdivided star, spider tree, color refinement, 1-WL, and equitable partition. The inspected source establishes the local-view equivalence but not the exact closed form.",
+      "searches": [
+        "subdivided star spider color refinement stabilization rounds Weisfeiler Leman exact",
+        "almost equilateral spider color refinement one long arm exact rounds",
+        "\"subdivided star\" \"color refinement\" Weisfeiler",
+        "\"spider trees\" \"color refinement\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No own-ledger finding uses spider or subdivided-star objects.",
+        "The closest semantic result on spider trees studies curvature distortion rather than color refinement."
+      ],
+      "reasoning": "No exact table or prior stored formula matching the claimed invariant and family was found.",
+      "searches": [
+        "1-WL subdivided star iteration number",
+        "two-variable counting logic subdivided star quantifier depth",
+        "own ledger aliases: spider; subdivided star; color refinement; stabilization"
+      ]
+    },
+    "rationale": "The directly relevant archive source gives the universal-cover/color-refinement mechanism and general worst-case bounds but does not state this spider-family formula. Targeted semantic and web searches found no equivalent exact statement; the closest spider result located concerned another invariant.",
+    "residual_risks": [
+      "A specialized source in tree canonization, distributed views, or chemical graph refinement may encode the same formula under terminology not surfaced by the searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The paper defines the iteration parameter and proves the truncated-universal-cover characterization, while its stated exact/asymptotic results concern general worst cases and other constructions rather than almost-equilateral subdivided stars.",
+        "identifier_or_url": "arXiv:1407.3175",
+        "material_read": "Abstract, Introduction, Sections 2.1-2.3, including the definition of Stab(G) and Lemma 2.6 with proof.",
+        "method": "Open-access full-text inspection.",
+        "title": "Universal covers, color refinement, and two-variable counting logic: Lower bounds for the depth",
+        "trigger": "Most directly relevant archive paper connecting color refinement, stabilization depth, rooted tree truncations, and two-variable counting logic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bdd4c56e-8fa8-431a-84b0-ee42885a0de6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Subdivided stars are the canonical one-branching extension of paths, and stabilization depth is a standard logical and graph-isomorphism complexity measure. The exact formula separates two mechanisms and shows a sharp discontinuity from the equilateral case to a single exceptional arm, while the all-round descriptor is reusable.",
+    "status": "PASS"
+  }
+}
