@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The normalized density follows by differentiating the CDF. The exact identity \\(2[x(1-x)]^2\\frac{d^2}{dx^2}\\log f=(\\tau\\tanh(\\tau s-a)-\\tanh s)^2-(\\tau^2-1)\\) is checked symbolically. Evaluating at the midpoint yields the necessary condition \\(|a|\\le\\operatorname{arcosh}\\tau\\). Sufficiency holds for every real \\(s\\): the auxiliary inverse-hyperbolic function comparing the extreme biases \\(a=\\pm\\operatorname{arcosh}\\tau\\) has derivative with the sign of \\(\\tanh s\\), hence a global minimum at zero. The argument covers all boundaries and \\(0<\\tau<1\\) strictly log-convex, plus the uniform case. Exact derivatives and 76 finite rational signs were reproduced; no finite test is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maddison et al. 2016 establish only the temperature <= 1 log-convexity property.",
+        "Beck et al. 2021 give an unqualified high-temperature concavity statement, which fails on alpha=100,tau=2, so it cannot serve as a valid covering proof."
+      ],
+      "reasoning": "Neither a sufficient log-convexity statement nor a false blanket high-temperature claim implies a correct if-and-only-if sharp bias-temperature classification. The high-temperature sufficiency here is proved independently over the entire support.",
+      "searches": [
+        "Concrete relaxed Bernoulli log concavity distribution mode temperatures",
+        "Exact necessary and sufficient log-concavity condition for binary Concrete (relaxed Bernoulli, Gumbel-softmax) density: temperature tau >1, logit alpha bounded by log(alpha+alpha^{-1} <=4 tau^2 -2), otherwise not log concave.",
+        "Sharp log concavity classification binary Concrete Gumbel sigmoid logistic noise temperature asymmetry alpha alpha^-1 inequality",
+        "arxiv:1611.00712 Proposition 2(d)",
+        "arxiv:2102.12756 Section II-B Figure 1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1611.00712 (Appendix B full relevant passage)",
+      "arxiv:2102.12756 (Section II-B, Figure 1 caption)",
+      "doi:10.1590/0101-7438.2018.038.03.0555 (accessible full article)",
+      "doi:10.1093/biomet/69.2.461 (abstract only)",
+      "Mathematical-record searches for binary Concrete, unit logistic, logit-logistic, alpha-temperature sharp log-concavity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At alpha=100,tau=2, midpoint log-density curvature is 68808/10201>0, contradicting a temperature-only concavity rule.",
+        "The 2018 paper supplies an exact alternative density representation but no concavity theorem.",
+        "The 2016 positive assertion goes in the opposite log-convex direction and is confined to low temperatures."
+      ],
+      "reasoning": "The theorem makes a sharp iff statement for every real parameter. Earlier definitions, qualitative shape observations and low-temperature convexity cannot imply it. The historically relevant inaccessible 1982 full text is retained as an explicit originality risk, not asserted NOT_COVERING.",
+      "searches": [
+        "Exact necessary and sufficient log-concavity condition for binary Concrete (relaxed Bernoulli, Gumbel-softmax) density: temperature tau >1, logit alpha bounded by log(alpha+alpha^{-1} <=4 tau^2 -2), otherwise not log concave.",
+        "Unit logistic L_B system Tadikamalla Johnson logistic transformed bounded density log concavity exact parameter condition beta gamma",
+        "Sharp log concavity classification binary Concrete Gumbel sigmoid logistic noise temperature asymmetry alpha alpha^-1 inequality",
+        "arxiv:2102.12756 Figure 1 caption",
+        "arxiv:1611.00712 Appendix B Proposition 2(d)",
+        "doi:10.1590/0101-7438.2018.038.03.0555 Eq.(4)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 unit-logistic PDF in median/shape parameters has the exact binary Concrete density when beta=tau and alpha=(mu/(1-mu))^tau.",
+        "Its 1982 cited predecessor calls this equivalent law the L_B logistic-transformation family.",
+        "The accessible 2018 article describes modes and estimation but contains no global log-concavity theorem."
+      ],
+      "reasoning": "Equivalent distributions are treated as the same mathematical object, not as distinct because of terminology; comparison is to all-parameter sharp log-concavity rather than to distribution names.",
+      "searches": [
+        "Logit logistic random variable inverse sigmoid logistic density sharp log concavity criterion location scale parameters.",
+        "Unit logistic L_B system Tadikamalla Johnson logistic transformed bounded density log concavity exact parameter condition beta gamma",
+        "Two parameter unit-logistic logconcave density shape and median admissible parameter region",
+        "web: \"unit-logistic\" \"log-concavity\" density",
+        "web: \"log concave\" \"logit logistic\" probability density bounded",
+        "doi:10.1590/0101-7438.2018.038.03.0555"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ranked mathematical-record hits nearest by embedding concerned unrelated exponentially convex functions, gamma monotonicity, Bernoulli tensor bounds and Gumbel MIMO extremes.",
+        "No inspected database hit or table gave a binary Concrete/unit-logistic alpha-tau concavity region."
+      ],
+      "reasoning": "Search non-detection alone is not proof of novelty; overlap inspection of the closest actual mathematical records did not give a matching parameter domain or conclusion.",
+      "searches": [
+        "binary Concrete distribution density unimodality bimodality temperature exact phase transition mode",
+        "Concrete relaxed Bernoulli log concavity distribution mode temperatures",
+        "Exact necessary and sufficient log-concavity condition for binary Concrete (relaxed Bernoulli, Gumbel-softmax) density: temperature tau >1, logit alpha bounded by log(alpha+alpha^{-1} <=4 tau^2 -2), otherwise not log concave.",
+        "Unit logistic L_B system Tadikamalla Johnson logistic transformed bounded density log concavity exact parameter condition beta gamma",
+        "Sharp log concavity classification binary Concrete Gumbel sigmoid logistic noise temperature asymmetry alpha alpha^-1 inequality",
+        "Two parameter unit-logistic logconcave density shape and median admissible parameter region"
+      ]
+    },
+    "rationale": "The examined foundational 2016 source proves log-convexity for low temperatures and not the complementary exact iff region. A 2021 Figure 1 blanket high-temperature log-concavity statement fails for \\(\\alpha=100,\\tau=2\\). The exact equivalent unit-logistic formulation in a 2018 open-access account does not state the full sharp classification. No covering claim was identified in actual targeted database/literature searches. The original 1982 L_B source is a genuine uninspected plausible historical risk; originality is self-review only.",
+    "residual_risks": [
+      "The original 1982 logistic-transformation article was not available in full; an equivalent earlier classification under L_B vocabulary cannot be excluded.",
+      "The literature and mathematical-record searches are not exhaustive and do not establish independent priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves log-convexity when temperature is at most one; does not state sharp high-temperature log-concavity region.",
+        "evidence": [
+          "Appendix B Proposition 2(d): if temperature <= 1, the binary Concrete density is log-convex.",
+          "Main Proposition 1(d) gives only a sufficient low-temperature log-convexity condition."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1611.00712v3",
+        "material_read": "Proposition 1(d), Appendix B Definition 2 and Proposition 2(d), and nearby main-text discussion of temperature and shape.",
+        "method": "Full-text HTML, relevant theorem and appendix paragraphs.",
+        "title": "The Concrete Distribution: A Continuous Relaxation of Discrete Random Variables",
+        "trigger": "Defines the precise binary Concrete density and existing convexity theorem."
+      },
+      {
+        "assessment": "Unqualified high-temperature log-concavity assertion is false for strongly unequal weights; the current theorem gives a corrected sharp condition.",
+        "evidence": [
+          "Section II-B, Figure 1 caption: log-convex at \\(\\tau\\le(M-1)^{-1}\\), log-concave otherwise.",
+          "For M=2, tau=2 and alpha=100 the exact midpoint log-curvature is 68808/10201 > 0.",
+          "The cited practical experiments use the low-temperature side, which is not challenged."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2102.12756v3",
+        "material_read": "Section II-B binary model and Figure 1 caption, following optimization discussion and Section IV temperature choice.",
+        "method": "Full-text HTML, inspected the precise asserted shape property in its context.",
+        "title": "CMDNet: Learning a Probabilistic Relaxation of Discrete Variables for Soft Detection with Low Complexity",
+        "trigger": "Figure 1 caption states binary Concrete density log-concave above the low-temperature log-convexity cutoff."
+      },
+      {
+        "assessment": "Identical density under beta=tau and alpha=(mu/(1-mu))^beta; discusses unimodality and estimation, not sharp log-concavity boundary.",
+        "evidence": [
+          "Equation (4) gives the density in median/shape coordinates.",
+          "First section states uni-modal, uni-antimodal, monotone or flat shape depending on parameters.",
+          "No log-concavity condition was found in the article text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1590/0101-7438.2018.038.03.0555",
+        "material_read": "Complete accessible HTML, particularly Introduction Eq. (3)-(6), distribution-shape discussion, estimation sections, and references.",
+        "method": "Open-access publisher HTML, exact formula comparison; searched text for concavity terminology.",
+        "title": "The Unit-Logistic Distribution: Different Methods of Estimation",
+        "trigger": "Potential covering statement for an exactly equivalent established distribution."
+      },
+      {
+        "assessment": "Potentially relevant historical shape classification; cannot decide whether it already contains the precise log-concavity threshold.",
+        "evidence": [
+          "1982 abstract describes shape properties of the transformed logistic frequency curves.",
+          "2018 paper cites this work for introduction of the equivalent L_B family."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/69.2.461",
+        "material_read": "Public abstract; bibliographic context and formulation reproduced by the 2018 unit-logistic paper. Original full text not available for inspection.",
+        "method": "Bibliographic/abstract review and comparison with later accessible restatement, without attributing unavailable theorems to the source.",
+        "title": "Systems of frequency curves generated by transformations of logistic variables",
+        "trigger": "Original 1982 description of equivalent L_B distribution; possible priority risk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9dddc106-7ae1-4f97-a33e-3bc005340864",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact necessary-and-sufficient alpha-temperature boundary is a substantive density-shape classification, not simply a counterexample or renaming of an old distribution. It resolves a real imprecision in a published high-temperature statement, quantifies how the minimum log-concavity temperature blows up as Bernoulli class probability approaches zero or one, and supplies a global sufficiency argument for all x. This naturally informs when a Concrete relaxation can be used in log-concave density computations, without claiming guarantees for multivariate relaxations.",
+    "status": "PASS"
+  }
+}
