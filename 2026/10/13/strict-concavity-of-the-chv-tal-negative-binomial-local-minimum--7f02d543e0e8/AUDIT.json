@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The claim follows from an exact increment factorization reconstructed from the source beta-integral identity and Lemma 2.2. The factor \\(P_{r,N}\\) decreases by an explicit ratio bounded using the two strict logarithm inequalities, while \\(H_{r,N}\\) is positive and decreases because its integrand \\(R_{r,N}(t)\\) lies in \\(0,1\\) and increases strictly with \\(N\\). All quantifiers \\(r>0\\), \\(N\\ge1\\), and the endpoint \\(t=0\\) are handled; no finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finner-Roters 1997 gives broad log-concavity results for distribution functions with a fixed argument and an ordinary concavity statement only in restricted fixed-argument beta regimes.",
+        "Karp arXiv:1509.05120 proves and refines fixed-argument parameter log-concavity.",
+        "The 2023 negative-binomial source proves strict increase of the exact sequence, not decreasing increments."
+      ],
+      "reasoning": "The strongest nearby parameter-curvature literature does not dominate the claim because its fixed distribution-function argument does not remain fixed under the beta representation used here, while log-concavity does not in general imply the required ordinary discrete concavity.",
+      "searches": [
+        "Finner Roters log-concavity F Beta parameters",
+        "Karp normalized incomplete beta log-concavity parameters",
+        "F distribution CDF at one concave denominator degrees freedom",
+        "standard F distribution CDF at one denominator degrees of freedom strict concavity negative binomial Chvatal local minima"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.06877v1",
+      "Statistica Sinica 7 (1997), 771-787",
+      "arXiv:1509.05120",
+      "published-finding corpus semantic index queries listed in the four originality checks",
+      "Current and prior private ledgers for this probability-statistics slot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's \\(\\Delta_N>0\\) does not imply \\(\\Delta_{N+1}<\\Delta_N\\).",
+        "Fixed-argument log-concavity of \\(I_x(a,b)\\) cannot be substituted directly because \\(x=r/(r+N)\\) moves with \\(N\\), and log-concavity alone is not the desired ordinary concavity.",
+        "The closest own prior F-distribution finding concerns a uniform half-mass gap above the mean, not curvature of \\(\\Pr(F_{2r,2N}\\le1)\\) in \\(N\\)."
+      ],
+      "reasoning": "No inspected prior statement logically implies the new second-difference inequality; the proof needs a new exact increment factorization and two monotonicity arguments.",
+      "searches": [
+        "arXiv:2311.06877v1 equations (2.20)-(2.25)",
+        "Finner-Roters 1997 parameter curvature",
+        "arXiv:1509.05120 Theorem 1",
+        "standard F distribution CDF at one denominator degrees of freedom strict concavity negative binomial Chvatal local minima"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.06877v1 defines the same sequence as a moving-cutoff regularized incomplete beta value and proves only positivity of its first difference.",
+        "The identity \\(a_r(N-1)=\\Pr(F_{2r,2N}\\le1)\\) gives the normalized-F alias used in searches.",
+        "Finner-Roters and Karp study fixed-argument parameter log-concavity; their inspected statements do not compare the moving cutoff \\(r/(r+N)\\) by ordinary second differences."
+      ],
+      "reasoning": "Negative-binomial, incomplete-beta, and normalized-F formulations were searched explicitly. None of the retrieved statements is equivalent to strict ordinary concavity of this moving-cutoff sequence.",
+      "searches": [
+        "negative binomial Chvatal a_r(n) concave sequence incomplete beta",
+        "F distribution CDF at one concave denominator degrees freedom",
+        "I_{r/(n+r+1)}(r,n+1) second difference",
+        "standard F distribution CDF at one denominator degrees of freedom strict concavity negative binomial Chvatal local minima",
+        "arXiv:2311.06877v1 Section 2",
+        "Finner-Roters 1997 Theorem 4.3 and Corollary 4.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Candidate-specific published-finding corpus searches returned no entry asserting this second-difference sign or the factorization \\(\\Delta_N=P_{r,N}H_{r,N}\\).",
+        "The current ledger contains no negative-binomial, Chvátal, or incomplete-beta finding. The prior ledger contains related negative-binomial and F-distribution results but no same sequence-concavity claim."
+      ],
+      "reasoning": "Exact object, formula, and alias searches found no database/table entry that records the claimed all-parameter second-difference inequality.",
+      "searches": [
+        "negative binomial mean-tail Gamma limit first-order correction a_r(n) incomplete beta r^r e^{-r}/(2n)",
+        "negative binomial Chvatal a_r(n) concave sequence incomplete beta",
+        "I_{r/(n+r+1)}(r,n+1) second difference",
+        "standard F distribution CDF at one denominator degrees of freedom strict concavity negative binomial Chvatal local minima",
+        "current ledger exact searches: negative binomial; Chvatal; incomplete beta; a_r(n)",
+        "prior ledger exact searches: negative binomial; Chvatal; incomplete beta; F distribution"
+      ]
+    },
+    "rationale": "The lead paper proves strict monotonicity of the exact sequence, while the new claim is a strict second-difference sign with a new factorization. published-finding corpus, current/prior ledgers, and the closest fixed-argument beta/F curvature literature were checked under equivalent formulations; no inspected statement implies the claim.",
+    "residual_risks": [
+      "An equivalent elementary diminishing-increments result may exist under older normalized-F power-function terminology not surfaced by the targeted searches.",
+      "The broad classical literature contains many parameter log-concavity results, so terminology mismatch remains the principal originality risk; no decisive unresolved comparison was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new curvature claim: it establishes \\(a_r(n+1)-a_r(n)>0\\) but does not compare consecutive increments.",
+        "evidence": "The source explicitly labels equation (2.21) as the stronger result needed for its theorem and completes the proof after showing only that first-difference positivity.",
+        "identifier_or_url": "arXiv:2311.06877v1",
+        "material_read": "Full arXiv HTML, Introduction, Theorem 1.1, Lemmas 2.1-2.2, and the proof through equations (2.20)-(2.25).",
+        "method": "Statement and proof comparison, including the beta-integral identity and the transformed integral used for the positive first difference.",
+        "title": "A study on the negative binomial distribution motivated by Chvátal's theorem",
+        "trigger": "This paper defines the exact local-minimum sequence and proves its strict increase."
+      },
+      {
+        "assessment": "NOT_COVERING: the relevant results hold at fixed unnormalized-F or beta argument; the candidate follows a moving beta cutoff and asks for ordinary discrete concavity.",
+        "evidence": "Corollary 4.6 gives fixed-argument beta-CDF log-concavity in a shape parameter, with ordinary concavity only in a restricted fixed-argument regime; Theorem 4.3 likewise fixes the F-distribution argument.",
+        "identifier_or_url": "Statistica Sinica 7 (1997), 771-787",
+        "material_read": "Abstract and the parameter-concavity results in Theorems 4.3 and 4.5 and Corollary 4.6.",
+        "method": "Compared which distribution-function argument is held fixed and whether the conclusion is log-concavity or ordinary concavity.",
+        "title": "Log-concavity and inequalities for Chi-square, F and Beta distributions with applications in multiple comparisons",
+        "trigger": "Broad classical parameter-curvature results could potentially subsume a normalized-F reformulation."
+      },
+      {
+        "assessment": "NOT_COVERING: the theorem fixes \\(x\\), while here \\(x=r/(r+N)\\) changes with \\(N\\); moreover the new conclusion is ordinary discrete concavity.",
+        "evidence": "The paper describes log-concavity of the normalized incomplete beta function in parameters for fixed function argument and related Turán determinants.",
+        "identifier_or_url": "arXiv:1509.05120",
+        "material_read": "Abstract and the stated fixed-argument parameter log-concavity result.",
+        "method": "Implication comparison against the moving-cutoff sequence.",
+        "title": "Normalized incomplete beta function: log-concavity in parameters and other properties",
+        "trigger": "The candidate is a regularized incomplete beta value with one varying parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f02d543-e0e8-4f7e-93bc-dfe4da20694a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sequence \\(a_r(n)\\) is not an arbitrary slice: it is the canonical sequence of local cell minima on which the source's sharp negative-binomial mean-tail theorem rests. Strict concavity adds a structural diminishing-returns law for every positive shape parameter and explains the source monotonicity through an exact product of two decreasing positive mechanisms. This is a natural strengthening of the central sequence rather than a routine numerical refinement.",
+    "status": "PASS"
+  }
+}
