@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "The exact tail obeys E_t = beta_t(1+E_{t+1}) with E_T=0. Substituting the DEMON schedule gives the closed form by backward induction. The frozen proxy and uniform correction factor follow by direct algebra. Exact-rational package checks replay the defining product sums across many horizons and momenta.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source includes a convex convergence theorem for a different decreasing-momentum sequence and a norm-growth identity containing products of time-varying momentum coefficients.",
+        "General heavy-ball and momentum analyses returned by indexed search address stability or convergence rather than summing the DEMON schedule products."
+      ],
+      "reasoning": "A general convergence guarantee or a displayed product term does not imply the exact closed-form finite-horizon sum or its constant-ratio relation to the design proxy.",
+      "searches": [
+        "arXiv:1910.04952v4 convergence analysis",
+        "DEMON momentum decay convergence analysis beta_t schedule optimization",
+        "time varying momentum finite horizon product optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.04952v1",
+      "arXiv:1910.04952v4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 3 derives the schedule by imposing linear decay on beta/(1-beta) under a fixed-beta geometric-series argument.",
+        "The paper later retains products beta_i beta_{i+1} ... beta_{t-1} in its norm-growth expression.",
+        "No inspected passage collapses those products or gives a t-independent correction between the proxy and the true finite-horizon tail."
+      ],
+      "reasoning": "The prior equations supply the ingredients but not the conclusion. Summing the schedule-specific products is an additional exact result, and it strengthens the paper's heuristic by proving exact shape preservation.",
+      "searches": [
+        "arXiv:1910.04952v4 Section 3 DEMON decaying momentum algorithm",
+        "arXiv:1910.04952v4 Lemma 1 time-varying beta products",
+        "DEMON optimizer theoretical analysis momentum decay schedule",
+        "DEMON decaying momentum exact analysis gradient contribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source schedule is beta_t = b(1-t/T)/[(1-b)+b(1-t/T)].",
+        "The source motivates the schedule through the frozen geometric tail beta_t/(1-beta_t).",
+        "The source explicitly says that beta changes in subsequent iterations and calls the frozen-product replacement a close approximation."
+      ],
+      "reasoning": "The accepted statement evaluates the actual finite sequence of varying products. The source proxy and the exact tail are not equal, so the result is not a restatement; the new identity proves their time dependence is nevertheless identical up to one constant factor.",
+      "searches": [
+        "arXiv:1910.04952v4",
+        "DEMON momentum exact finite horizon contribution beta schedule future gradient energy",
+        "DEMON beta_t exact cumulative momentum linear remaining iterations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed result stated the formula E_t = b(T-t)/[T(1-b)+b] or an equivalent uniform correction factor for DEMON.",
+        "The closest indexed records concerned heavy-ball stability, adaptive gradient methods, or unrelated finite-horizon recurrences."
+      ],
+      "reasoning": "Search absence is supporting evidence only. Originality is anchored in the direct implication comparison with the defining full text, which labels the relevant replacement an approximation rather than giving the exact sum.",
+      "searches": [
+        "DEMON momentum exact finite horizon contribution beta schedule future gradient energy",
+        "DEMON beta_t exact cumulative momentum linear remaining iterations",
+        "decaying momentum DEMON schedule finite horizon product exact"
+      ]
+    },
+    "rationale": "The defining paper derives the schedule from a frozen-momentum geometric-series proxy and explicitly says that later changing momentum makes this a close approximation. Its full text displays time-varying momentum products but does not sum them. The exact finite-horizon sum, uniform normalization factor, and one-step-shifted gradient tail were not found in focused searches or the checked indexed records.",
+    "residual_risks": [
+      "An unindexed note or code discussion could have noticed the same telescoping backward recurrence.",
+      "The result sharpens the motivation of one schedule; it does not establish optimizer-level performance or convergence.",
+      "The source pseudocode uses a horizon endpoint with beta_T=0, so gradient-tail indexing must distinguish a state already in v_t from a newly injected g_t."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_PROXY_AND_PRODUCTS_NOT_COVERING_THE_EXACT_FINITE_HORIZON_SUM.",
+        "evidence": "The paper states that the frozen geometric-series argument is a close approximation when beta subsequently changes; it does not state the exact linear varying-product tail or its constant normalization factor.",
+        "identifier_or_url": "arXiv:1910.04952v4",
+        "material_read": "Full-text sections containing Algorithm 1, Section 3 derivation of the schedule, the discussion of future gradient contribution, the explicit approximation statement for changing momentum, Lemma 1 with varying beta products, and the convergence-analysis opening.",
+        "method": "Open-access full-text PDF inspection with page-image verification of the algorithm and Section 3 derivation.",
+        "title": "Demon: Improved Neural Network Training with Momentum Decay",
+        "trigger": "Defining source for the DEMON schedule, SGDM recurrence, future-gradient-energy motivation, and the claim that changing momentum makes the frozen geometric argument approximate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f67df9d-72ab-48ed-984e-714d5676f5a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper's central design motivation is linear decay of the future influence of momentum, but it presents the time-varying replacement only as an approximation. Showing that the actual finite-horizon tail is exactly linear, with a uniform and explicit normalization error, validates and quantitatively calibrates the design principle rather than merely recomputing a schedule value. The one-step-shifted gradient formula also resolves the finite-horizon indexing precisely.",
+    "status": "PASS"
+  }
+}
