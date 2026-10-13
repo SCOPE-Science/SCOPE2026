@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Each private leaf has only its support vertex as a neighbor, so domination forces at least one selected vertex from every disjoint support-leaf pair and therefore at least n selected vertices. Semipaired sets are even, giving the least-even-at-least-n lower bound. For every spanning tree, a longest-path reduction pairs either two sibling leaves at distance two or a unique leaf with its support at distance one, deletes the pair, and preserves a tree; induction yields floor(n/2) disjoint distance-at-most-two pairs. These pairs remain distance at most two in the base graph. All original vertices therefore attain the lower bound for even n, while adding the private leaf of the sole unmatched original vertex attains it for odd n. Exhaustive optimum checks on all connected labeled base graphs through order five confirm the formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019 paper presents a linear-time algorithm for trees but no exact corona specialization.",
+        "The 2020/2021 paper gives a linear-time block-graph algorithm and a GP4 exact construction, but no corona operation result.",
+        "The 2021 semitotal graph-operations paper studies corona products for semitotal domination rather than semipaired domination."
+      ],
+      "reasoning": "General algorithms can compute individual instances but do not imply the universal closed form. Semitotal domination requires only a nearby selected companion for each selected vertex and does not provide a partition into distance-two pairs.",
+      "searches": [
+        "arXiv:1904.00964v1 full text: semipaired domination complexity interval graphs trees approximation",
+        "arXiv:2008.13491v3 full text: split graphs block graphs bounded degree semipaired domination",
+        "semitotal domination corona graph operations 2021"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1904.00964v1",
+      "arXiv:2008.13491v3",
+      "DOI:10.46298/dmtcs.6782",
+      "DOI:10.1002/num.22746",
+      "semantic literature searches under corona, leaf-corona, pendant-leaf, and tree-square matching formulations",
+      "current and prior internal scientific records searched for claim overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general inequality gamma(G) <= gamma_pr2(G) <= gamma_pr(G) does not determine the corona value because neither endpoint is fixed at the required parity-correct value for arbitrary bases.",
+        "The tree algorithm is an instance algorithm and does not supply the closed formula for coronas of arbitrary connected graphs, which need not be trees.",
+        "The GP4 construction attaches paths of length four to base vertices, not one private leaf.",
+        "Semitotal corona results do not imply a partition of the selected set into distance-at-most-two pairs."
+      ],
+      "reasoning": "The new proof needs two ingredients absent from the compared statements: the one-per-private-pair lower bound and the near-perfect matching lemma for every spanning-tree square. Together they establish exact equality for all connected bases.",
+      "searches": [
+        "arXiv:1904.00964v1 Observation 1.1 and tree algorithm",
+        "arXiv:2008.13491v3 Theorem 2.1 GP4 graphs and block-graph section",
+        "Semitotal domination number of some graph operations corona join modular lexicographic product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved semipaired record states the leaf-corona formula or an equivalent least-even-order theorem.",
+        "The 2019 full text contains no occurrence of corona or product.",
+        "The 2020/2021 full text contains no occurrence of corona, product, or pendant."
+      ],
+      "reasoning": "The searches used both operation terminology and the structural reformulation through private leaves and distance-two matchings. No same-predicate result covering arbitrary connected bases was recovered.",
+      "searches": [
+        "semipaired domination corona graph G corona K1",
+        "semipaired domination corona product connected graph pendant leaf each vertex",
+        "semipaired domination leaf corona arbitrary connected graph",
+        "semipaired domination pendant leaves all vertices",
+        "semipaired domination corona square perfect matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed same-invariant result found for this scientific record is a semipaired-domination polynomial for crown graphs, not a corona graph.",
+        "A separate paired-domination record mentions a star corona, but paired domination requires distance-one matching and does not imply semipaired domination on arbitrary leaf coronas.",
+        "No checked exact table or database record supplied the claimed universal corona value."
+      ],
+      "reasoning": "The object and predicate both differ in the closest results. Neither a crown-graph semipaired formula nor paired-domination results logically cover the leaf-corona theorem.",
+      "searches": [
+        "semipaired domination G corona K1 least even order",
+        "semipaired domination generalized corona leaves",
+        "semipaired domination corona product",
+        "prior scientific record: semipaired domination corona leaf",
+        "prior scientific record: semipaired domination pendant corona"
+      ]
+    },
+    "rationale": "The inspected same-invariant primary full texts cover general inequalities, complexity, interval graphs, trees, split graphs, block graphs, and bounded-degree hardness but do not state a corona-product theorem. Targeted semantic searches using corona, leaf-corona, pendant-leaf, and square-matching formulations found no equivalent semipaired result. The closest graph-operation paper concerns semitotal domination, a weaker nonpairing predicate.",
+    "residual_risks": [
+      "The 2018 introducing journal article predates the verified exact-day arXiv sources; no day-resolved public preprint for that article was found in the checked sources.",
+      "A differently phrased or non-indexed leaf-corona theorem may exist.",
+      "The theorem does not classify every minimum set; it determines the exact minimum cardinality and gives a constructive minimum set for every connected base graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact semipaired predicate and gives algorithms for interval graphs and trees, but no corona or graph-product theorem.",
+        "evidence": [
+          "First public arXiv version dated 1 April 2019.",
+          "The paper defines semipaired domination as domination plus a partition into pairs at distance one or two.",
+          "Its tree result is a linear-time algorithm rather than a closed corona formula.",
+          "Targeted full-text search found no corona or product occurrence."
+        ],
+        "identifier_or_url": "arXiv:1904.00964v1",
+        "material_read": "Full accessible HTML: introduction and definition, scope summary, interval-graph algorithm, complete tree-algorithm section, approximation section, conclusion, and references; targeted full-text searches for corona and product.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Complexity and Algorithms for Semipaired Domination in Graphs",
+        "trigger": "Accessible same-invariant primary full text covering general algorithms and trees, making it a strong possible source of broader coverage."
+      },
+      {
+        "assessment": "Treats split graphs, block graphs, GP4 constructions, and bounded-degree complexity; it does not cover leaf coronas.",
+        "evidence": [
+          "First public arXiv version dated 31 August 2020.",
+          "Published record explicitly lists MSC 05C69.",
+          "Full-text searches found no corona, product, or pendant occurrence.",
+          "The GP4 theorem attaches a path of length four to each base vertex, not a private leaf."
+        ],
+        "identifier_or_url": "arXiv:2008.13491v1; DOI:10.46298/dmtcs.6782",
+        "material_read": "Accessible full HTML: introduction and definition, GP4 exact theorem, split-graph and block-graph scope, conclusion; targeted searches for corona, product, and pendant.",
+        "method": "Full-text object and implication comparison plus classification verification.",
+        "title": "Semipaired Domination in Some Subclasses of Chordal Graphs",
+        "trigger": "Later same-invariant full text with explicit MSC 05C69 and exact structural subclasses."
+      },
+      {
+        "assessment": "Relevant by operation but not by invariant: semitotal domination requires a nearby selected vertex for each selected vertex, without a global pairing partition.",
+        "evidence": [
+          "First published online 20 January 2021.",
+          "The abstract explicitly states that corona operations are studied.",
+          "The stated semitotal predicate is weaker than semipaired domination."
+        ],
+        "identifier_or_url": "DOI:10.1002/num.22746",
+        "material_read": "Publisher abstract and operation scope, including the semitotal definition and listed corona, join, modular-product, and lexicographic-product targets.",
+        "method": "Predicate and implication comparison.",
+        "title": "Semitotal domination number of some graph operations",
+        "trigger": "Direct graph-operation comparison because its abstract explicitly includes corona products."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e0679ff-ab14-47f7-b85a-d691b3dbae83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result covers the leaf corona of every connected graph with one uniform exact formula, rather than a narrow named family. The private-leaf lower bound alone does not solve semipaired domination because parity and pairability remain; the tree-square matching lemma supplies exactly the missing global structure. The theorem therefore converts a nontrivial domination-and-pairing optimization problem into a closed form on a standard graph operation and provides an explicit construction.",
+    "status": "PASS"
+  }
+}
