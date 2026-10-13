@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The smoothing coefficient follows by differentiating the squared residual along the affine line, yielding the idempotent projection P=I-d(d^T A^2)/(d^T A^2 d). The Euclidean norm of this codimension-one oblique projection is ||d|| ||A^2 d||/(d^T A^2 d). A sharp endpoint secant inequality for B=A^2 reduces the global maximization to one scalar moment and gives (kappa^2+1)/(2kappa). Endpoint spectral support attains equality, and the explicit diagonal 2x2 family realizes the top singular direction. The exact checker replays the identities and kappa=3 witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou-Walker Algorithm 2.1 chooses eta over the real line to minimize the Euclidean residual and states that the resulting smoothed residual norms decrease monotonically.",
+        "Weiss's publisher abstract states that residuals can decrease while errors increase and motivates error-minimizing Krylov methods.",
+        "Neither inspected accessible statement supplies the exact local MRS amplification envelope or its 2x2 equality family."
+      ],
+      "reasoning": "The broader literature establishes the algorithm and the qualitative metric mismatch. The new statement solves the exact extremal geometry of one MRS step.",
+      "searches": [
+        "Residual Smoothing Techniques for Iterative Methods Zhou Walker",
+        "Error-Minimizing Krylov Subspace Methods Weiss",
+        "minimal residual smoothing residual norms monotone"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0915021",
+      "doi:10.1137/0915034",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published-result record on symmetric GMRES(1) concerns a residual-direction Krylov step and has a different sharp constant 2/sqrt(3), so it does not imply the arbitrary-line MRS projection law.",
+        "Weiss's abstract gives only the qualitative possibility of residual decrease with error increase.",
+        "Zhou-Walker prove residual monotonicity but do not control solution error in the inspected full text."
+      ],
+      "reasoning": "The new implication requires recognizing MRS as an A^2-orthogonal projection and maximizing the Euclidean norm of that oblique projection over the entire condition-number class.",
+      "searches": [
+        "minimal residual smoothing error condition number",
+        "error-minimizing Krylov residual decreases error increases",
+        "symmetric GMRES1 Euclidean error barrier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-result searches returned nearby residual/error transient results but no minimal-residual-smoothing theorem with factor (kappa^2+1)/(2kappa).",
+        "The full Zhou-Walker text defines the same smoothing step and proves monotone residual norms; targeted full-text searches found no 'condition number' or 'solution error' occurrence.",
+        "General web searches for the exact factor together with smoothing, oblique projection, and A^2 geometry found no matching result."
+      ],
+      "reasoning": "Equivalent coverage would have to analyze the same affine residual-minimizing step, ordinary Euclidean solution error, SPD condition number, and unrestricted local direction. Generic residual-versus-error warnings or different minimal-residual Krylov spaces do not state this local sharp projection norm.",
+      "searches": [
+        "minimal residual smoothing solution error amplification condition number oblique projection",
+        "residual smoothing Euclidean error can increase sharp factor",
+        "minimal residual smoothing SPD error norm two dimensional",
+        "residual smoothing monotone residual error increase condition number",
+        "\"minimal residual smoothing\" \"error norm\" condition number",
+        "\"residual smoothing\" \"solution error\" 2-norm",
+        "\"minimal residual smoothing\" \"Kantorovich\" condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant match tied to residual smoothing was located.",
+        "The factor is derived analytically from the oblique-projection norm and the endpoint secant inequality, not from a table or numerical benchmark."
+      ],
+      "reasoning": "The claimed quantity is a closed-form universal envelope with an explicit equality construction.",
+      "searches": [
+        "\"kappa^2+1\" \"2 kappa\" residual error projection SPD",
+        "\"(κ^2+1)/(2κ)\" residual smoothing",
+        "\"minimal residual smoothing\" \"Kantorovich\" condition number"
+      ]
+    },
+    "rationale": "Classical minimal residual smoothing and monotone residual norms are prior work, and Weiss's general warning that residual decrease may accompany error increase is also prior. The inspected full smoothing paper does not discuss solution-error or condition-number amplification and contains no matching condition-number statement. Targeted semantic and web searches found no implication-equivalent sharp local factor or equality family. The inaccessible full body of Weiss's closely related error-minimization paper is retained as a specific residual risk rather than treated as noncovering.",
+    "residual_risks": [
+      "The full body of Weiss's 1994 error-minimizing Krylov paper was not accessible through the inspected route, so a differently phrased sharp oblique-projection bound there cannot be excluded.",
+      "Older projection or antieigenvalue literature may contain the abstract matrix inequality without applying it to minimal residual smoothing.",
+      "Specific primary iterative methods can constrain the incoming candidate direction and therefore have a smaller sharp amplification factor than the unrestricted local MRS envelope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: supplies exactly the MRS update and monotone residual property but no located Euclidean solution-error amplification theorem.",
+        "evidence": "Algorithm 2.1 chooses the scalar over all real values to minimize the Euclidean residual along the affine line. The text states that the smoothed residual norms are monotone decreasing. The only 'error' hits in the full text concern numerical/rounding error; no 'condition number' or 'solution error' match was found.",
+        "identifier_or_url": "doi:10.1137/0915021",
+        "material_read": "The complete 16-page author-hosted PDF was opened. The abstract, introduction, Algorithm 2.1, the exact minimizing coefficient, the statement of monotone residual norms, Algorithm 2.2, and the concluding discussion were inspected; the algorithm page was visually rendered. Full-text searches were also made for 'error', 'condition number', and 'solution error'.",
+        "method": "Lawful full-text PDF inspection with rendered-page verification and targeted full-text searches.",
+        "title": "Residual Smoothing Techniques for Iterative Methods",
+        "trigger": "Primary full source defining minimal residual smoothing and its residual-monotonicity guarantee."
+      },
+      {
+        "assessment": "PLAUSIBLE_BROADER_SOURCE_WITH_BODY_UNAVAILABLE: its abstract covers the qualitative residual/error mismatch, so the inaccessible body is retained as an originality risk rather than used as evidence of noncoverage.",
+        "evidence": "The abstract explicitly states that for ill-conditioned systems residuals can decrease while errors increase and proposes error-minimizing Krylov methods.",
+        "identifier_or_url": "doi:10.1137/0915034",
+        "material_read": "Publisher abstract, bibliographic record, MSC classification, and references were inspected. The full article body was not available through the inspected lawful route.",
+        "method": "Publisher-record inspection.",
+        "title": "Error-Minimizing Krylov Subspace Methods",
+        "trigger": "Closest broader source explicitly warning that residual decrease can coexist with solution-error increase."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6d8513f-8926-43e1-9f36-30e56c38fa33",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Residual smoothing is designed specifically to make a monitored residual behave better. The theorem quantifies the exact worst mismatch with the actual Euclidean solution error: the monitored quantity can decrease while the solution error grows by about kappa/2 in one step. The result is sharp, dimension-minimal, and supplies a simple equality family, so it gives a concrete conditioning-aware warning for residual-based stopping and smoothing rather than a generic norm-equivalence estimate.",
+    "status": "PASS"
+  }
+}
