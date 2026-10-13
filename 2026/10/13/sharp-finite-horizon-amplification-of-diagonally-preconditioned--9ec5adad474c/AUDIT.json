@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The normalized erased state factor is idempotent with exact token annihilation. In an orthonormal plane adapted to the key and scaled key its nontrivial block is [[0,-tau/mu],[0,1]], so its Euclidean norm is ||Dk||/mu for every dimension at least two. The endpoint polynomial inequality d_i^2 <= (kappa+1)d_i-kappa gives a sharp upper bound C_kappa=(kappa+1)/(2 sqrt(kappa)) on each factor, hence on every N-product by submultiplicativity. Unit keys (1,t)/sqrt(1+t^2) and (t,1)/sqrt(1+t^2) with switched endpoint diagonals give P1=C a b^T, P2=P1^T=C b a^T, and exact alternating products C^N a a^T or C^N a b^T; their norms match the bound for every N. Orthogonal direct-sum padding proves the statement for all d>=2 and kappa=1 is handled. The original standalone verifier was actually executed, including 630 exact-rational identities and 48000 finite random comparisons; the computations supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Censor–Elfving (Abstract and Applied Analysis 2003), Theorem 3.3 and identity (3.10), assume a block-iterative weighted aggregation with diagonal weights summing to the identity; this is absent for sequential individually chosen right-preconditioned erasures.",
+        "Censor–Elfving (SIAM J. Matrix Anal. Appl. 24, 2002) abstract concerns CAV, BICAV and SART constrained feasibility schemes; full paper was not accessible.",
+        "Kopecká (J. London Math. Soc. 2020) studies orthogonal projections; each such factor has Euclidean norm one, unlike the present switched oblique factors."
+      ],
+      "reasoning": "Convergence theorems under partitioned weight aggregation or Euclidean orthogonality do not dominate an exact worst-case norm for arbitrary products in varying metrics. An older unconstrained oblique-projector bound could entail parts of the argument, but the specific condition-ratio saturation and memory interpretation were not established there on inspected material.",
+      "searches": [
+        "Web: \"Block-Iterative Algorithms with Diagonally Scaled Oblique Projections\" pdf Censor Elfving",
+        "Web: alternating oblique projections spectral radius two idempotents norm product instability",
+        "Web: products of nonorthogonal projections diverge alternating oblique projection instability convergence",
+        "published-finding corpus: sharp finite horizon all products diagonal scaled oblique hyperplane projections kappa condition ratio exponential memory state"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2605.13473 (full original primary preprint, May 13, 2026)",
+      "https://doi.org/10.1007/s11075-006-9046-2 (Szyld 2006, full text)",
+      "https://doi.org/10.1155/S108533750321201X (Censor and Elfving 2003, full text)",
+      "https://doi.org/10.1112/jlms.12322 (Kopecká 2020, OA article introductory material)",
+      "https://doi.org/10.1137/S089547980138705X (Censor and Elfving 2002, abstract only)",
+      "published-finding corpus published records: compact recurrent words and projection products; stagewise safe Richardson; reverse-order cyclic Kaczmarz; two-coordinate Gauss–Seidel transient bound (titles and summaries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhou et al. arXiv:2605.13473v1 Section 4.3 displays the asymmetric memory factor \\(I-\\beta k(Dk)^{\\mathsf T}\\), and Theorem 5.2 bounds products of ratios of the current token-local regression losses.",
+        "The same paper explicitly distinguishes token-local ratio control from a sequence-level global objective guarantee in Section 7 (limitations).",
+        "In the presented two-token witness every current token-local loss becomes zero, yet the norm of the persistent homogeneous memory grows geometrically, proving lack of implication from their ratio theorem to the new global norm statement.",
+        "Szyld 2006 provides the norm identity for one projector, not the exact finite-length switching product envelope."
+      ],
+      "reasoning": "The main prior result is mathematically compatible with, not stronger than, the accepted result: token-local residual ratios can all vanish without global memory contraction. The single-factor Kantorovich estimate supplies only an upper bound and is insufficient to assert equality for every product length. Exact transpose extremizers supply that missing global step.",
+      "searches": [
+        "Web: OSDN Improving Delta Rule with Provable Online Preconditioning in Linear Attention arxiv 2605.13473 2026",
+        "Web: \"delta rule\" \"preconditioner\" \"instability\" \"forgetting\"",
+        "published-finding corpus: \"OSDN\" \"DeltaNet\" right preconditioning instability",
+        "published-finding corpus: \"oblique projection\" \"preconditioner\" \"joint spectral radius\" alternating memory update"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Szyld (Numerical Algorithms 42, 2006), Theorem 2.1, proves the classical single-projector identity between projection and complement norms; its reviewed proofs address one projector, not unrestricted products.",
+        "Kantorovich reverse-angle inequality yields the single-factor constant, while the equality of every finite-length product requires both an attainable bound and a pair of permissible transposes.",
+        "Published record Compact recurrent words upgrade weak projection products to strong convergence concerns weak/strong convergence of recurrent orthogonal projection words under compactness hypotheses, not the sharp diagonal oblique family."
+      ],
+      "reasoning": "Equivalent angle, metric-projection and transpose-product formulations were considered. The first-factor estimate is explicitly credited; the new statement is the sharp all-length product law and growing two-periodic memory orbit. No inspected result gives that conclusion for the stated family.",
+      "searches": [
+        "published-finding corpus: \"oblique projection\" \"preconditioner\" \"joint spectral radius\" alternating memory update",
+        "published-finding corpus: \"Kantorovich\" \"oblique projector\" \"norm\" \"two-step\"",
+        "Web: \"joint spectral radius\" \"oblique projections\" \"condition number\" diagonal",
+        "Web: \"Kantorovich\" \"oblique projections\" \"joint spectral radius\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The theorem classifies a continuous family of arbitrary-length operator products rather than evaluating a finite parameter entry from an existing table.",
+        "The closest indexed numerical stability records concern Richardson steps, two-coordinate Gauss–Seidel, and weighted projection convergence, not this switching family."
+      ],
+      "reasoning": "No exact numerical database or table purports to give the claimed continuous condition-ratio law. This check is inapplicable as a finite census; the exact formula was nevertheless searched via its natural aliases.",
+      "searches": [
+        "published-finding corpus: \"diagonal preconditioned delta rule\" \"switching\" \"exponential\"",
+        "published-finding corpus: OSDN delta rule token local exact contraction does not control global memory norm products",
+        "Web: \"joint spectral radius\" \"oblique projections\" \"condition number\" diagonal"
+      ]
+    },
+    "rationale": "The main motivating full text defines diagonal write-side key scaling and establishes a token-local residual-ratio theorem, not worst-case growth of products of homogeneous state transitions. Classical oblique-projector norm identities and Kantorovich inequalities give individual-factor control, but not the attained finite-horizon rate for every N in this particular bounded diagonal switching family. Inspected full-text weighted projection literature imposes block-iteration weighting constraints and does not imply the arbitrary-product statement. No equivalent published-finding corpus claim or published source was located by the specified actual searches; this is qualified by the residual risks.",
+    "residual_risks": [
+      "An older angle-inequality or product-of-oblique-projections paper could already contain an equivalent sharp arbitrary-length formula; searching is not a proof of uniqueness.",
+      "The full text of Censor–Elfving (2002) was not accessible, so its complete possible implications could not be inspected. Its accessible abstract and the full 2003 related paper do not resolve that risk decisively.",
+      "The conclusion assumes unconstrained arbitrary admissible switching, whereas any particular online hypergradient rule generates a smaller correlated family; the result cannot by itself predict practical instability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the model update and token-local residual ratio theorem. Does not state all-length joint spectral radius or a periodic growing zero-target memory orbit.",
+        "evidence": [
+          "Equation (5), p.5, is the asymmetric state-transition factor.",
+          "Theorem 5.2, p.6, bounds token-local loss ratios.",
+          "Discussion p.9 expressly restricts generalizing token-local contraction to global loss."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.13473",
+        "material_read": "Primary 44-page PDF, examined Sections 3–5, discussion and stated limitations, Appendix A diagonal box and descent guarantees, and source formulae and theorem statements; not merely the abstract.",
+        "method": "Read directly accessible arXiv PDF page and theorem text; visually inspected pages showing equations (2), (3), and (5).",
+        "title": "OSDN: Improving Delta Rule with Provable Online Preconditioning in Linear Attention",
+        "trigger": "Same asymmetric diagonal preconditioned rank-one state write; plausible existing global bound."
+      },
+      {
+        "assessment": "Single-projector norm and complementary projection identity are prior art, credited. No condition-ratio-constrained all-length switched product equality.",
+        "evidence": [
+          "Theorem 2.1 asserts \\(\\|P\\|=\\|I-P\\|\\) for a nontrivial projector.",
+          "The article reviews older proofs and uses a Hilbert-space norm setup."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-006-9046-2",
+        "material_read": "Full author-provided article text, introduction and Section 2 including Theorem 2.1 and proofs.",
+        "method": "Read lawfully available author full text on ResearchGate.",
+        "title": "The many proofs of an identity on the norm of oblique projections",
+        "trigger": "Classical exact operator norm of one rank-one oblique erasure."
+      },
+      {
+        "assessment": "The iteration uses weight-normalized block aggregation and identity partition; not arbitrary sequential products of the investigated erasures.",
+        "evidence": [
+          "Theorem 3.3 assumes a fair sequence of diagonal weight vectors for block iteration.",
+          "Equation (3.10) uses the identity \\(\\sum_i G_i^k=I\\), which our per-token pair does not satisfy."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/S108533750321201X",
+        "material_read": "Full CC-licensed article text, introduction, Sections 2–3, Algorithm 3.2 and Theorem 3.3 assumptions and proof.",
+        "method": "Read author-provided full text and inspected equation (3.10) and convergence assumptions.",
+        "title": "Iterative algorithms with seminorm-induced oblique projections",
+        "trigger": "Older diagonally weighted oblique projector products and possible dominating convergence theorem."
+      },
+      {
+        "assessment": "Its operators are orthogonal projections of norm one, so not the same family and no bound greater than one on products is implied.",
+        "evidence": [
+          "Abstract and introduction specify orthogonal projections onto closed subspaces."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/jlms.12322",
+        "material_read": "Open-access article abstract and introduction describing cyclic and random products of orthogonal subspace projections.",
+        "method": "Read publisher-hosted full open-access page and introduction.",
+        "title": "When products of projections diverge",
+        "trigger": "General products of projections with possible divergence."
+      },
+      {
+        "assessment": "Plausible residual source risk; abstract describes special CAV/BICAV/SART schemes, while a closely related 2003 full paper with actual aggregation hypotheses was inspected. Not marked as whole-document noncoverage.",
+        "evidence": [
+          "Abstract states weighted oblique schemes for specific reconstruction methods.",
+          "No full-text mathematical implication comparison was possible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S089547980138705X",
+        "material_read": "Publisher abstract and reference list only; the full paper could not be accessed.",
+        "method": "Looked for an open preprint at Optimization Online (record dated 2001-12-18), consulted publisher abstract and author bibliographic record. No full document was available.",
+        "title": "Block-Iterative Algorithms with Diagonally Scaled Oblique Projections for the Linear Feasibility Problem",
+        "trigger": "Same diagonal/oblique terminology and possible stronger feasibility theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ec5adad-474c-43da-b70c-2d2f5b99e035",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem completely determines the sharp worst-case finite-horizon stability envelope for a motivated online preconditioned memory update under an interpretable diagonal condition ratio. It exposes a structural gap between perfect token-local least-squares correction and sequence-level control: even with unit keys, two positive diagonal weights bounded by 2, and admissible gate 3/4, an exact two-token word multiplies a persistent state by 9/8. This is a natural complete classification and explicit boundary, not a numerical benchmark or an arbitrary parameter slice. The theorem identifies a reason to consider shared-metric or sequence-level safeguards while avoiding unsupported claims about the source paper’s actual learned controller.",
+    "status": "PASS"
+  }
+}
