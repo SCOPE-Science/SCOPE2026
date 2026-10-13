@@ -1,0 +1,105 @@
+{
+  "claim": "For the prevalence-driven SIRCm system of Ramírez-Gutiérrez, Lóczi, Muñoz-Moncayo, and Ketcheson (arXiv:2610.01111v1), restrict to diagonal feedback \\(\\varepsilon_1=\\varepsilon_2=\\varepsilon\\ge 0\\), positive rates \\(\\mu,\\beta,\\alpha,\\delta,\\gamma>0\\), \\(\\sigma\\in[0,1]\\), and \\(\\mathcal R_0=\\beta/(\\mu+\\alpha)>1\\). Then for every \\(\\varepsilon\\ge0\\) there is exactly one endemic equilibrium, and its endemic prevalence \\(I^*(\\varepsilon)\\) is strictly increasing in \\(\\varepsilon\\). This claim concerns equilibrium existence, uniqueness, and prevalence monotonicity only; it does not assert local or global stability.",
+  "correctness": {
+    "rationale": "The equilibrium equations reduce exactly to one scalar level equation. Its derivative is \\(1+\\alpha(A_0+2tB_1+t^2B_2)/\\Delta^2>1\\) with termwise-positive coefficients for \\(0\\le\\sigma\\le1\\); endpoint signs give exactly one root. Reconstructed compartment formulas are positive and satisfy all balances. The exact identity \\(\\partial_hH=-\\alpha\\delta Q/\\Delta^2<0\\) then proves strict prevalence increase with feedback. The bundled checker verifies the critical symbolic identities; the proof states the physical-domain and boundary arguments explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Casagrandi et al. (2006), DOI 10.1016/j.mbs.2005.12.029, treats the baseline SIRC model without prevalence-dependent feedback.",
+        "The closest published-finding corpus mutation/feedback record was 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd, concerning a reversible-mutation chemostat rather than SIRCm immune-escape feedback."
+      ],
+      "reasoning": "Neither the baseline SIRC literature inspected nor the closest cross-model published-finding corpus result has hypotheses or conclusions that dominate the state-dependent diagonal SIRCm claim.",
+      "searches": [
+        "SIRCm prevalence-driven diagonal feedback unique endemic equilibrium all epsilon monotone prevalence immune escape 2610.01111",
+        "infection-driven immune escape prevalence-driven SIRCm monotonic endemic prevalence uniqueness",
+        "SIRC endemic equilibrium mutation feedback prevalence-driven unique equilibrium monotonic",
+        "prevalence-driven SIRCm all-feedback uniqueness monotone endemic prevalence 2610.01111",
+        "Casagrandi SIRC model influenza A endemic equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01111v1",
+      "DOI:10.1016/j.mbs.2005.12.029",
+      "published-finding corpus 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd",
+      "own current ledger 2026-10_week1 generation 12",
+      "own prior ledger 2026-09_week4 generation 63"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.01111v1 proves weak- and strong-feedback uniqueness separately and reports numerical behavior at intermediate strengths.",
+        "The source does not state that the two asymptotic regimes cover every finite feedback value, nor that endemic prevalence is strictly increasing on the entire diagonal."
+      ],
+      "reasoning": "The new claim fills the intermediate-feedback interval and adds a global parameter monotonicity result; it is not a corollary of existence plus asymptotic uniqueness.",
+      "searches": [
+        "SIRCm prevalence-driven diagonal feedback unique endemic equilibrium all epsilon monotone prevalence immune escape 2610.01111",
+        "infection-driven immune escape prevalence-driven SIRCm monotonic endemic prevalence uniqueness",
+        "SIRC endemic equilibrium mutation feedback prevalence-driven unique equilibrium monotonic",
+        "prevalence-driven SIRCm all-feedback uniqueness monotone endemic prevalence 2610.01111",
+        "Ramirez-Gutierrez Loczi Munoz-Moncayo Ketcheson prevalence-driven strong feedback uniqueness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01111v1 Remark 4.4 reduces prevalence-driven equilibria to a cubic and gives epsilon <= 1 as a sufficient uniqueness condition.",
+        "published-finding corpus searches returned no SIRCm result equivalent to an all-feedback diagonal uniqueness theorem."
+      ],
+      "reasoning": "The new scalar equation \\(I[1+H(I,1+\\varepsilon I)]=1-\\mathcal R_0^{-1}\\) is equivalent to the diagonal endemic equilibrium equations, but the source does not establish its strict monotonicity for every feedback strength.",
+      "searches": [
+        "SIRCm prevalence-driven diagonal feedback unique endemic equilibrium all epsilon monotone prevalence immune escape 2610.01111",
+        "infection-driven immune escape prevalence-driven SIRCm monotonic endemic prevalence uniqueness",
+        "SIRC endemic equilibrium mutation feedback prevalence-driven unique equilibrium monotonic",
+        "prevalence-driven SIRCm all-feedback uniqueness monotone endemic prevalence 2610.01111",
+        "arXiv:2610.01111v1, Remark 4.4; prevalence-driven equilibrium cubic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source's exact algebraic comparison point is the cubic in Remark 4.4; its stated coefficient-sign argument yields only a sufficient uniqueness region.",
+        "No exact table/database entry located by published-finding corpus records the all-feedback uniqueness and monotonicity statement."
+      ],
+      "reasoning": "This is not a tabulated invariant claim. The exact source object to compare is the equilibrium cubic and its stated uniqueness range; the new theorem strictly extends that range on the diagonal.",
+      "searches": [
+        "arXiv:2610.01111v1 Remark 4.4 cubic prevalence-driven feedback",
+        "published-finding corpus query: prevalence-driven SIRCm all-feedback uniqueness monotone endemic prevalence 2610.01111"
+      ]
+    },
+    "rationale": "The motivating paper proves endemic existence for all feedback strengths and uniqueness only in weak/strong regimes; its prevalence-driven Remark 4.4 supplies the sufficient condition \\(\\varepsilon\\le1\\), not all-feedback uniqueness or strict monotonicity of \\(I^*(\\varepsilon)\\). Full-text comparison, baseline comparison, published-finding corpus searches, and own-ledger searches found no stronger statement implying the claim.",
+    "residual_risks": [
+      "The motivating source is very recent and may later be revised.",
+      "An unindexed closely related theorem could exist; the exact-source, baseline-literature, published-finding corpus, alias, and own-ledger comparisons located no decisive covering result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper does not prove all-feedback diagonal uniqueness or strict prevalence monotonicity.",
+        "evidence": "Remark 4.4 gives epsilon <= 1 as a sufficient uniqueness condition; elsewhere the paper treats weak and strong regimes and numerical continuation.",
+        "identifier_or_url": "arXiv:2610.01111v1",
+        "material_read": "Model equations, Theorem 3.1, Lemma 3.14, Section 4, Remark 4.4, and the equilibrium/stability discussion.",
+        "method": "Full-text HTML inspection and statement-level comparison.",
+        "title": "Compartmental epidemiological models with infection-driven immune escape",
+        "trigger": "Motivating source with primary MSC 92D30 and prevalence-driven feedback."
+      },
+      {
+        "assessment": "NOT_COVERING: zero-feedback baseline does not contain the prevalence-driven all-feedback statement.",
+        "evidence": "The 2006 paper studies the SIRC influenza model without the state-dependent immune-escape feedback used here.",
+        "identifier_or_url": "DOI:10.1016/j.mbs.2005.12.029",
+        "material_read": "Bibliographic record and abstract-level model scope.",
+        "method": "Primary-literature metadata/abstract comparison.",
+        "title": "The SIRC model and influenza A",
+        "trigger": "Baseline SIRC model cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9802eb6c-f816-44f5-a3fe-2cd5e0732ccf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly leaves a parameter gap between its sufficient prevalence-driven uniqueness condition and its all-feedback numerical branch. The result removes that gap on the natural equal-feedback diagonal and turns the observed prevalence response into a strict theorem. This is structurally useful because the source cubic's coefficient-sign argument is not uniform at large feedback, whereas the scalar monotonicity argument is.",
+    "status": "PASS"
+  }
+}
