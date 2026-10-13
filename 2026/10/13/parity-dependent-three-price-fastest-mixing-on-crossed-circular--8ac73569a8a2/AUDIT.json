@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=5, use the concave Rayleigh variational expression to average any feasible edge assignment over price-preserving automorphisms. Exact Fourier/layer-parity diagonalization gives the full spectrum sigma_k(a+c) and sigma_k a+(4-sigma_k)c+2b; the spectral gap is the minimum of mu(a+c),4c+2b,beta a+delta c+2b. The cost-minimization polyhedron for gap>=1 has only four feasible vertices for even n and five for odd n: the all-positive three-plane intersection requires b=(1-2U)/2<0, while separate zero-coordinate sections give the listed points. A positive homogeneous rescaling therefore yields 1/(n J_min), and every invariant minimizer is a convex combination of the minimum-cost vertices. Price thresholds arise by explicit affine-cost comparison. The independent checker ran successfully: 45 vertex matches, 850 price comparisons, 130 direct full spectra, 430 irregular budget cases, 640 phase checks. All experiments are finite and supplemental; the analytic proof covers arbitrary n and positive prices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al., SIAM Review 48 (2006), pp. 681-683, state a concave optimization of lambda_2 under arbitrary positive linear edge prices; their examples at pp. 695-697 treat paths and cycles, not a crossed strong-prism with three cost classes.",
+        "Tavasoli et al., Network Science 12 (2024), sec. 3 eq. (1), set all intralayer edges to fixed unit Laplacians and optimize only the interlayer weights, whereas the present optimization prices and varies every intralayer cycle edge as well as both types of interlayer edges."
+      ],
+      "reasoning": "The general semidefinite model includes this constrained problem at the formulation level, but not the explicit solution. A fixed-intralayer interconnection theorem does not imply a joint allocation with two independently priced interlayer orbits and all cycle edges variable. The solution obtained here requires the particular exact spectrum and polyhedral vertex comparison.",
+      "searches": [
+        "multiplex cycle two-layer rung diagonal link cost threshold Laplacian spectral gap optimized",
+        "price dependent algebraic connectivity optimization strong graph product two cycle layers parity",
+        "\"The art of interconnections\" \"cycle\" \"diagonal\"",
+        "continuous time fastest mixing Markov chain edge conductance budget semidefinite optimization Sun Boyd Xiao Diaconis 2006",
+        "The fastest mixing Markov process on a graph Sun Boyd Xiao Diaconis 2006 full text"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. 2006 DOI:10.1137/S0036144504443821, original PDF; earliest verified public electronic date 2006-11-02",
+      "Sayama 2015 arXiv:1507.03030v2, primary preprint",
+      "Pan and Li 2019 arXiv:1906.04339v1, primary preprint, identical underlying strong-product graph",
+      "Tavasoli et al. 2024 DOI:10.1017/nws.2024.9, open full text",
+      "Published semantic-search results for exact three-price and equivalence queries, without a matching claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pan and Li Theorem 3.1 computes the unweighted spectrum as {2*sigma_k} plus n copies of 6 and then computes resistance/spanning-tree quantities; no arbitrary positive relative prices or global spectral-gap conductance optimization appear in its stated theorems.",
+        "Sun et al. give a general SDP allowing numerical solution, not this exact multiple-threshold optimum.",
+        "Tavasoli et al. consider fixed intralayer edge strengths and varying interlayer assignments under a budget; unlike the present feasible set, their formulation excludes reallocation from intralayer edges."
+      ],
+      "reasoning": "Knowing the unit-weight eigenvalues is insufficient to infer optimal allocation when three edge types can be independently priced and independently weighted. The general SDP subsumes optimization as a task, not the claimed closed-form mathematical outcome. The separate-price source model and its parity-dependent extreme points are therefore not direct corollaries of the compared prior statements.",
+      "searches": [
+        "strong product prism C_n boxtimes K_2 two interlayer diagonal edges optimal mixing edge conductances cost",
+        "continuous time algebraic connectivity optimum weighted strong prism P2 box Cn all three edge types unit budget price",
+        "arXiv:1906.04339 theorem 3.1 weighted strong prism spectrum resistance",
+        "The art of interconnections network science 2024 fixed intralayer Laplacians spectral optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pan and Li, arXiv:1906.04339v1, pp. 2-5, identify the same graph as the strong product of P2 and Cn, with 5n edges and the unit-weight symmetric/antisymmetric block spectrum; unit weights give 2*sigma_k and 6, agreeing with the present formulas at a=b=c=1.",
+        "Sayama, arXiv:1507.03030v2, pp. 1-3, gives the strong product adjacency construction and treats general product Laplacian spectra heuristically, without optimization."
+      ],
+      "reasoning": "The names crossed circular ladder, strong circular prism, C_n boxtimes K_2, and two-layer cyclic multiplex refer here to the same explicitly defined graph. The inspected identical-topology work calculates unweighted resistance and spanning-tree invariants; it does not state equivalent three-class price optimization or classify its convex optimal faces.",
+      "searches": [
+        "strong product prism C_n boxtimes K_2 two interlayer diagonal edges optimal mixing edge conductances cost",
+        "three orbit strong graph product cycle C_n K2 fastest mixing price thresholds parity",
+        "\"C_n\" \"K_2\" \"strong product\" \"Laplacian\" eigenvalues",
+        "\"circular ladder\" \"diagonals\" \"optimal\" \"mixing\"",
+        "arXiv:1906.04339"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pan and Li, arXiv:1906.04339v1, sec. 3 and Table 1, tabulate the Kirchhoff index and number of spanning trees for selected unweighted strong-prism orders; their tabulated invariants are neither three-price minimax costs nor spectral-gap allocations.",
+        "The published semantic-search hits most proximate in terminology concerned fixed circulant eigenvalue tables (2026/9/8/SCOPE031) or unrelated block-diagonal graph objectives (2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038); their stated summaries do not provide the present price-dependent formulas."
+      ],
+      "reasoning": "The same-graph table describes different invariants, and no identified table indexed by both independent prices and ring parity contains or determines the optimum. This is not an assertion of exhaustive database coverage.",
+      "searches": [
+        "continuous time algebraic connectivity optimum weighted strong prism P2 box Cn all three edge types unit budget price",
+        "weighted cross circular ladder rung cycle diagonal spectral gap maximization exact",
+        "\"Resistance distance-based graph invariants\" \"strong product\" P2 Cn arxiv",
+        "\"strong product\" \"algebraic connectivity\" \"optimal weights\" cycle"
+      ]
+    },
+    "rationale": "The principal specialization is an exact three-independent-price maximization of the continuous-time second Laplacian eigenvalue on the strong circular prism, with a parity-sensitive four/five-vertex optimum and full orbit-symmetric optimizer face. The general SDP formulation, unweighted strong-product spectral decomposition, resistance/spanning-tree tables and multilayer interlink-only optimization do not supply or logically entail this exact price classification without additional analysis. Search results revealed no matching published theorem; this is supportive but not absolute novelty proof. Residual risks are recorded.",
+    "residual_risks": [
+      "Historical specialized exact spectral optimization for crossed cyclic ladders could exist under other terminology or in an unindexed source.",
+      "The unit-weight block spectral proof in Pan and Li readily motivates, but does not itself prove, the independently priced optimality classification.",
+      "Generality of the Sun et al. convex program should not be confused with an explicit solution for this graph.",
+      "Only class-symmetric optimal designs are classified; possible further nonsymmetric equality cases are outside the claim.",
+      "The finite checker is supportive, not an independent proof or independent external audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_SPECIALIZATION",
+        "evidence": "The problem (1) is the general maximization of lambda_2 subject to an arbitrary positive linear rate budget; the examples include cycles but do not derive the crossed two-layer three-price parity diagram.",
+        "identifier_or_url": "DOI:10.1137/S0036144504443821; https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "PDF title/abstract pp. 681-683; graph and edge-cost definitions; examples and cycle discussion pp. 695-697",
+        "method": "Primary full-text page reading and PDF page inspection",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same continuous-time edge-priced spectral-gap optimization formulation and priority baseline"
+      },
+      {
+        "assessment": "DIFFERENT_ESTIMATION_OBJECTIVE",
+        "evidence": "Provides strong-product adjacency formula and proposes approximate Laplacian spectrum calculations, not conductance-price global optimization.",
+        "identifier_or_url": "arXiv:1507.03030v2; https://arxiv.org/pdf/1507.03030",
+        "material_read": "PDF abstract and Sections 1-3, definitions and adjacency formulas; Sections 4-5 on heuristic spectra and limitations",
+        "method": "Primary preprint full-text sections and PDF page inspection",
+        "title": "Estimation of Laplacian spectra of direct and strong product graphs",
+        "trigger": "Strong-product terminology, spectrum equivalence and potential broader coverage"
+      },
+      {
+        "assessment": "SAME_GRAPH_DIFFERENT_INVARIANT_NOT_COVERING_PRICE_OPTIMUM",
+        "evidence": "Its unit-weight spectrum is 2*sigma_k and 6; main outputs are Kirchhoff indices and spanning-tree counts, including deletion of vertical edges. It does not optimize lambda_2 across the three priced orbits.",
+        "identifier_or_url": "arXiv:1906.04339v1; https://arxiv.org/pdf/1906.04339",
+        "material_read": "PDF introduction/definitions, unweighted spectral decomposition in Sec. 3, Theorems 3.1-3.2, spanning-tree and Kirchhoff Table 1, sec. 4 deletion results and conclusions",
+        "method": "Primary preprint full-text targeted theorem/section reading and PDF page inspection",
+        "title": "Resistance distance-based graph invariants and spanning trees of graphs derived from the strong product of P2 and Cn",
+        "trigger": "Exact same 5n-edge graph and potentially decisive prior spectral theorem"
+      },
+      {
+        "assessment": "FIXED_INTRALAYER_MODEL_NOT_FULL_THREE_PRICE_DESIGN",
+        "evidence": "The expression L(w)=sum_{intralayer}B_ij+sum_{interlayer}w_ij B_ij fixes all intralayer rates; no arbitrary independent price and budget for all three classes as in this claim.",
+        "identifier_or_url": "DOI:10.1017/nws.2024.9; https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+        "material_read": "Open full-text HTML mathematical model in Sec. 3 eqs. (1)-(4), optimization and regularity theorems, interlink restrictions in Sec. 5, conclusions and Appendix A context",
+        "method": "Primary open HTML full text and theorem/formulation comparison",
+        "title": "The art of interconnections: Achieving maximum algebraic connectivity in multilayer networks",
+        "trigger": "Strong alternative multilayer algebraic-connectivity allocation framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ac73569-a8a2-471a-bf02-c4a0a1899104",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question is a natural resource-allocation design problem in a two-layer ring with three distinct connection types. Four or five exact class-symmetric unit-gap designs exhaust all possible price optima, producing a sharp explicit three-parameter phase diagram for arbitrary order. The odd/even topology leads to a meaningful qualitative design distinction: crossed diagonals alone become a connected optimizer only for odd n, with a calculable cost threshold and nontrivial degenerate tie faces. These are structural global design facts, not merely numerical table recomputations; the precise invariant and price model are motivated by mixing and resource tradeoffs. No broader graph-product theorem is asserted.",
+    "status": "PASS"
+  }
+}

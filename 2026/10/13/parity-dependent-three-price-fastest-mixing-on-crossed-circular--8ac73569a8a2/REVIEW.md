@@ -1,0 +1,23 @@
+# Scientific review: parity-dependent three-price fastest mixing on crossed circular ladders
+
+## Correctness — PASS
+
+The claim maximizes the second-smallest **ordinary** weighted-Laplacian eigenvalue on the explicitly defined \(2n\)-vertex, \(5n\)-edge undirected graph for every integer \(n\ge5\) and all strictly positive conductance prices \(s,t\), subject to unit expenditure and arbitrary independent nonnegative edge rates. The proof does not assume symmetry for the global bound: group averaging preserves costs, and the Rayleigh characterization makes the gap concave in all edge rates. Fourier decomposition for orbit-uniform allocations gives every eigenvalue and the three exact active constraints. Rescaling to unit spectral gap gives a three-dimensional linear program. Its vertices are exhaustively derived from nonnegative-coordinate cases; the positive-coordinate three-constraint candidate is infeasible since \(U>1/2\). Comparing the four or five vertices yields the claimed exact global value and class-symmetric optimizer face, including all equality boundaries. The proof makes no unsupported uniqueness claim about nonuniform global optimizers.
+
+The accompanying standalone checker independently reconstructs the feasible vertices, computes full Laplacian eigenspectra, tests irregular allocations and stress-tests all price regions. It passed 45 vertex matches, 850 separate price comparisons, 130 full spectral tests, 430 irregular-feasible comparisons and 640 price-region tests. These numerical tests corroborate, but do not replace, the universal analytic proof.
+
+## Originality — PASS, subject to historical uncertainty
+
+The closest literature was examined at the level of mathematics and implications rather than title similarity. Sun et al. (2006) provide the broad continuous-time fastest-mixing semidefinite problem with linear edge budgets; this general framework includes the optimization formulation but supplies no specialized four/five-vertex solution or parity-dependent three-price face. Sayama (2015) gives heuristic estimation for strong-product Laplacian spectra rather than exact conductance optimization. Pan and Li (2019), arXiv:1906.04339, study exactly the same unweighted strong-prism topology: their block decomposition and unit-weight spectrum are compatible with the present derivation, but their results optimize neither the independent edge classes nor the spectral gap and instead determine Kirchhoff and spanning-tree invariants. Tavasoli et al. (2024) optimize interlayer weights while taking intralayer Laplacians fixed, so their results do not imply a simultaneous price-optimal design of rails, rungs and diagonals. These differences are mathematical limitations of the prior statements, not simply differing names.
+
+The principal residual risk is that the elementary-looking symmetric Fourier/LP reduction could have been carried out in unindexed specialized network-design literature. Search failure alone would not establish novelty, and this review does not purport to certify global historical priority.
+
+## Value — PASS
+
+The problem models a natural two-layer circular network with three physically distinct connection mechanisms and a single linear resource budget. The exact classification gives a genuine multi-regime design rule and a graph-topological phenomenon: crossed diagonals alone can form a fastest-mixing connected network at sufficiently favorable prices when the ring size is odd, while they necessarily disconnect the even-sized network. The thresholds include a nontrivial three-way meeting point and complete tie-face descriptions, rather than only a numeric optimum or a routine relabeling of a one-parameter network. These results are meaningful even without a theorem for arbitrary graph products.
+
+## Scope, evidence and remaining risks
+
+The claim concerns continuous-time symmetric Laplacian mixing, not discrete-time SLEM or general nonlinear/irreversible processes. It determines all globally optimal **values** and all orbit-symmetric optimal assignments; nonsymmetric global optimizer classification remains open. The numerical program checks finite samples and is not an infinite-dimensional or independent verification. The four principal sources are Sun et al. (2006), DOI 10.1137/S0036144504443821; Sayama (2015), arXiv:1507.03030; Pan and Li (2019), arXiv:1906.04339; and Tavasoli et al. (2024), DOI 10.1017/nws.2024.9. The latter sources are close on topology or mathematical objective but do not state the assessed arbitrary-price classification.
+
+Self-review: passed. Independent audit: not yet performed.
