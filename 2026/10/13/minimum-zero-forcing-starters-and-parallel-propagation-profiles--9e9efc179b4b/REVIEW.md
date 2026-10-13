@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The first-force degree argument is an exact necessity criterion for all minimum starters. In path powers, minimum degree occurs only at the endpoints and forces the two disjoint starter families. In cycle powers, regularity forces every minimum set to arise as a punctured closed neighborhood; cyclic-interval intersection multiplicities give the exact number without overcounting, and the two-front propagation lemma gives both exponents. Complete and antipodal graph boundaries are treated separately. The directly executed `verify.py` performs 115832 independent initial-set checks across 97 power-graph profiles and 180 interval-representation profiles. Finite replay corroborates, but is not the proof of, the all-parameter theorem.
+
+**Originality — PASS, subject to literature risk.** Abiad et al. (arXiv:2610.03892v1), Propositions 7 and 8, give minimum *cardinalities* only, not minimum-set enumerators or time distributions. The universal next-to-leading coefficient theorem of Boyer et al. (arXiv:1801.08910v1) subsumes the \(n=2k+2\) cycle count and \(n=k+2\) path count, and Ferrero et al. (arXiv:2511.16335), Example 3.1, covers ordinary cycles; these overlaps are explicitly credited. Searches using closed-neighborhood, consecutive-circulant, zero-forcing-polynomial, and synchronous-propagation descriptions yielded no proof that covers the principal higher-cycle-power \(k\ge2\), \(n\ge2k+3\) bivariate refinement. Undiscovered equivalent treatments in circulating graph, minimum-forcing-set, or propagation-time literature are a residual risk; no claim of certified global novelty is made.
+
+**Value — PASS.** A new two-parameter all-optimum classification answers not only how many sources are needed, but precisely how many optimal locations exist and how rapidly each propagates. The sharp parity distinction between fast and slow equally minimum-sized placements is invisible in the known scalar graph-power forcing numbers. This is a natural structural/census refinement, not a routine restatement of the minimum value.
+
+The proof is limited to standard synchronous zero forcing on powers of labeled paths and cycles, not arbitrary graphs or probabilistic variants. Independent external validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
