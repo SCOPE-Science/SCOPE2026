@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every lambda>0, M and A are (S∓|D|)/2. The symmetric Skellam pmf plus k I_k(z)=z(I_{k-1}-I_{k+1})/2 telescopes to d(lambda)=E|D|=2 lambda q_lambda. Differentiating the joint Poisson series gives Cov(S,f(D))=lambda d/dlambda E f(D); applying this to |D| and the Bessel derivative identities yields d'=2 r_lambda. Together with Var(S)=2 lambda and E D^2=2 lambda this gives the exact variances. Standard fixed-order Bessel asymptotics then give the stated Fano expansions. The checker independently reproduces the formulas from truncated joint sums; finite checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Badiella-del Castillo-Puig (2023) prove all Poisson order statistics are underdispersed via ultra log-concavity.",
+        "That theorem establishes only Var<mean; it does not determine the deficit, exact first two moments, or asymptotic Fano constant."
+      ],
+      "reasoning": "Qualitative underdispersion is broader in sample size but weaker in quantitative content. It neither implies the exact Bessel identities nor the universal constant 1-1/pi for the two-sample extremes.",
+      "searches": [
+        "Poisson order statistics underdispersion variance mean",
+        "ultra log-concavity Poisson order statistics underdispersion",
+        "Poisson min max moments order statistics"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1708.04018",
+      "DOI:10.1016/j.spl.2023.109900",
+      "Manca-D'Uggento-Girone 2015 repository abstract",
+      "NIST DLMF §10.40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gan-Kolaczyk's approximation theorems concern distances to a Skellam law and Stein factors; they do not imply moments of Poisson extremes.",
+        "Badiella-del Castillo-Puig's ultra-log-concavity theorem implies the sign Var<mean but not the exact value or asymptotic constant."
+      ],
+      "reasoning": "Neither closest primary result dominates the final statement. Conversely, the two-sample formulas do not replace their general approximation or preservation theorems.",
+      "searches": [
+        "Skellam approximation minimum maximum moments",
+        "Poisson order statistics exact moments underdispersion",
+        "1 minus 1 over pi Fano Poisson extremes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1708.04018 gives the Skellam pmf but contains no minimum, maximum, order-statistic, absolute-moment, or moment analysis in the inspected full text.",
+        "DOI:10.1016/j.spl.2023.109900 proves qualitative underdispersion of Poisson order statistics but does not state Bessel moment formulas or a 1-1/pi Fano limit.",
+        "Targeted exact-phrase and alias searches returned no source stating the paired variance formulas or the opposite first-order Fano corrections."
+      ],
+      "reasoning": "Writing the extremes through S=X+Y and |D| with D=X-Y is an equivalent formulation, so searches covered Skellam absolute moments and covariance as well as order-statistic terminology. The sources found either provide the difference law or qualitative underdispersion, not the claimed exact second moments and asymptotic dispersion profile.",
+      "searches": [
+        "two iid Poisson minimum maximum exact mean variance Bessel Fano factor",
+        "Poisson order statistic two samples exact Fano factor 1 minus 1 over pi",
+        "Skellam absolute difference derivative covariance Poisson min max variance",
+        "underdispersion Poisson minimum maximum asymptotic variance mean",
+        "Poisson extremes min max Bessel I0 I1 moments",
+        "minimum of two Poisson expectation variance Bessel",
+        "maximum of two Poisson expectation variance Bessel",
+        "variance of maximum of two Poisson random variables Skellam",
+        "Fano factor Poisson minimum maximum order statistic",
+        "1-1/pi Poisson maximum minimum variance",
+        "Poisson distribution Gini mean difference Bessel",
+        "mean absolute difference Poisson distribution Bessel"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2015 Manca-D'Uggento-Girone abstract explicitly says it gives Gini mean differences for Poisson and other discrete laws; its full text was not publicly accessible in the inspection.",
+        "No located table or database source gave the variance of min/max or the Fano expansions."
+      ],
+      "reasoning": "A known formula for E|X-Y| can subsume the mean part after M=(S-|D|)/2 and A=(S+|D|)/2. The final claim materially includes the covariance/variance identities and asymptotic dispersion split, which were not found in the accessible table/formula literature.",
+      "searches": [
+        "Poisson Gini mean difference formula",
+        "Poisson absolute difference Bessel I0 I1",
+        "Poisson order statistic variance table"
+      ]
+    },
+    "rationale": "The closest full-text sources either provide the Skellam difference law or qualitative underdispersion of Poisson order statistics. Searches across order-statistic, Skellam, Gini/absolute-difference, Bessel, and Fano formulations located no source stating the exact paired variances or the common 1-1/pi limit with opposite first-order corrections. A 2015 Poisson Gini-mean-difference paper may cover the intermediate mean formula and is retained as a residual risk rather than ignored.",
+    "residual_risks": [
+      "An equivalent elementary moment calculation may be hidden in older reliability, queueing, Gini-dispersion, or special-function literature under different terminology.",
+      "The inaccessible 2015 Gini-mean-difference full text may contain the exact E|X-Y| formula; the final claim does not rely on originality of that intermediate identity alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states the Skellam pmf and develops Stein approximation; the inspected text contains no extrema or their moment/Fano analysis.",
+        "identifier_or_url": "arXiv:1708.04018",
+        "material_read": "ArXiv abstract/metadata and full-text introduction and Skellam/Stein setup, including the pmf and classification.",
+        "method": "Direct full-text inspection and in-document searches for minimum, maximum, absolute, moment, and order statistic.",
+        "title": "Approximation of the difference of two Poisson-like counts by Skellam",
+        "trigger": "Primary source for the symmetric Skellam law used in the derivation and verified slot ownership."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It proves preservation of ultra log-concavity and concludes Poisson order statistics are underdispersed, but gives no exact Bessel moment pair or high-intensity Fano constant.",
+        "identifier_or_url": "DOI:10.1016/j.spl.2023.109900",
+        "material_read": "Open full article, especially Theorem 2 and Corollary 1.",
+        "method": "Direct full-text inspection of the publisher/open article text.",
+        "title": "Ultra log-concavity of discrete order statistics",
+        "trigger": "Most directly relevant literature on Poisson order-statistic dispersion."
+      },
+      {
+        "assessment": "PARTIAL_RISK",
+        "evidence": "The abstract says Poisson Gini mean difference formulas are included, so the intermediate d(lambda) formula may be known. It does not expose any claim about extrema variances or Fano asymptotics.",
+        "identifier_or_url": "2015 institutional repository record",
+        "material_read": "Public abstract only; full text was marked unavailable/private in the repository record.",
+        "method": "Repository abstract inspection and exact-formula searches.",
+        "title": "The mean difference of discrete distribution models",
+        "trigger": "Potential coverage of E|X-Y| for Poisson variables."
+      },
+      {
+        "assessment": "SUPPORTING",
+        "evidence": "Provides the standard asymptotic expansion used for I_0(2 lambda) and I_1(2 lambda).",
+        "identifier_or_url": "DLMF 10.40",
+        "material_read": "Large-argument asymptotic statement for I_nu.",
+        "method": "Direct reference inspection.",
+        "title": "NIST Digital Library of Mathematical Functions, §10.40",
+        "trigger": "Verification of the fixed-order large-argument modified-Bessel expansion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "918e94e7-8ac2-46bc-9c15-9affea9130b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Poisson order statistics are used for replicated count extrema, and prior work highlights their underdispersion without quantifying its size. The two-sample case is the first nontrivial order-statistic setting; exact finite-intensity moments and the universal 1-1/pi dispersion limit identify the magnitude of the variance reduction and reveal an asymmetric approach of min and max that qualitative ultra-log-concavity cannot see. This is a natural structural refinement, not an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
