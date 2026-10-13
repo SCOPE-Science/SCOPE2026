@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The proof covers every integer n>=3 and 2<=k<=n-1 by a monotone inverse-image domination lemma on cyclic intervals, including the terminal-point boundary case. Initial singleton k is optimal, successive k-length B expansions and A rotations exhaust all cases of (n-1) mod k; their reversed word is an actual reset witness. The standard-library verifier cross-checks 105 exact forward subset-BFS instances, 53,130 inverse cyclic intervals and 1,606 large witnesses. Exhaustion for finite n alone is not used to infer the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhu arXiv:2407.08135 Theorem 1.4: rt(A)<=2n^2-7n+7 for the transitive-permutation/rank-at-least-(n-1) class.",
+        "Grech–Kisielewicz arXiv:1207.2556 Corollary 4.1: Černý upper bound for strongly connected oriented automata; Don (2016) Proposition 15: another upper-bound criterion for circular rank-(n-1) letters.",
+        "Rystsov–Szykuła arXiv:2307.01302 Theorem 25 addresses existence of reset words."
+      ],
+      "reasoning": "The candidate belongs to a class with general upper bounds, but an upper bound does not imply equality, witness optimality, or the remainder correction. The inspected theorems do not provide a parameter-sensitive dominating statement; Eppstein-style generic shortest-word algorithms also do not state the proposed closed formula.",
+      "searches": [
+        "synchronizing automata cyclic permutation plus a rank n-1 map having transient path 0->1->...->k fixed exact threshold n ceil((n-1)/k)-n+k",
+        "circular automata chain contraction letter b=(1,2,...,k,k,k+1,...,n-1) synchronizing word length",
+        "web: synchronizing automata circular permutation cyclic shift non permutation monotonic map exact reset threshold rank n-1 chain 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.01302 (primary PDF; governing sections inspected)",
+      "arXiv:2407.08135 (primary PDF; governing sections inspected)",
+      "arXiv:1207.2556 (primary PDF; governing sections inspected)",
+      "Don, Electronic Journal of Combinatorics 23(3), 2016, P3.12 (primary PDF; Proposition 15 inspected)",
+      "published finding 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "published finding 2026/9/7/SCOPE007",
+      "published finding 2026/9/9/SCOPE010",
+      "Related scientific finding IDs 967ac6af-616f-40f0-931b-1116162acaf5 and 910c2de3-8d8d-431e-8463-aface6cc6c1d (claim comparisons)",
+      "Prior related finite automata scientific finding IDs c176f0fc-06e0-4567-a388-0802d76adec3 and add2e909-18b8-4298-8b3e-7da75c05e314 (claim comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Černý k-avoiding thresholds concern avoiding specified sets in the classical one-merge Černý automaton, not full-state reset thresholds of a k-step-chain map.",
+        "Scientific finding ID 967ac6af-616f-40f0-931b-1116162acaf5 collapses n-k..n-1 directly to 0; this has b rank n-k, whereas this b has rank n-1.",
+        "Scientific finding ID 910c2de3-8d8d-431e-8463-aface6cc6c1d merges alternating even states into successors; b generally has rank about n/2, not n-1."
+      ],
+      "reasoning": "Different symbols called k encode different objects. Restricting Zhu or Grech-Kisielewicz to this class yields only an inequality, and applying existence criteria gives only synchronizability. The new equality is therefore not a corollary of the inspected exact statements. Subsumed Černý endpoint k=1 is explicitly excluded.",
+      "searches": [
+        "Exact reset threshold R(n,k)=n(ceil((n-1)/k)-1)+k for an n-state cyclic shift and nilpotent successor chain of length k, b(i)=i+1 for i<k, b(i)=i otherwise",
+        "Cyclic one-defect automaton binary generators a=(0 1 2 ... n-1), b=partial shift on [0,k-1] fixes other states: explicit shortest reset word b^r a^(n-r) (b^k a^(n-k))^(q-1) b^k",
+        "Chained successor collapse versus semiconstant or Černý automata, reset threshold, inverse interval greedy dominance and exact arithmetic formula",
+        "published finding 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rystsov–Szykuła arXiv:2307.01302 §4 defines semiconstant transformations as idempotent and gives a synchronizability theorem, unlike our b for k>=2.",
+        "Zhu arXiv:2407.08135 Theorem 1.4 does not assert a fixed family equality.",
+        "Grech–Kisielewicz arXiv:1207.2556 §4 treats oriented automata under an upper bound; Don (2016) Proposition 15 also gives only the \\((n-1)^2\\) bound for a circular class."
+      ],
+      "reasoning": "Reindexing and swapping letter labels preserve rank and functional-digraph shape. The new b has one transient chain 0→1→...→k and rank n-1; it is not the idempotent Černý map, the many-to-one block-collapse construction from another mathematical result, nor the alternating merger. None of the inspected statements gives its exact two-parameter threshold, including via these equivalent descriptions.",
+      "searches": [
+        "Exact reset threshold R(n,k)=n(ceil((n-1)/k)-1)+k for an n-state cyclic shift and nilpotent successor chain of length k, b(i)=i+1 for i<k, b(i)=i otherwise",
+        "Cyclic one-defect automaton binary generators a=(0 1 2 ... n-1), b=partial shift on [0,k-1] fixes other states: explicit shortest reset word b^r a^(n-r) (b^k a^(n-k))^(q-1) b^k",
+        "Chained successor collapse versus semiconstant or Černý automata, reset threshold, inverse interval greedy dominance and exact arithmetic formula",
+        "web: \"binary automaton cycle and consecutive successor map rank n-1 reset threshold explicit\"",
+        "Cyclic permutation a:i->i+1 mod n and monotone rank n-1 b:i->i+1 if i<k else i, shortest synchronizing reset word exact R(n,k)=n(ceil((n-1)/k)-1)+k, inverse interval domination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "SCOPE007 performs an 8-state one-cluster census with different maps and a finite maximal 34.",
+        "SCOPE010 concerns careful synchronization of one-hole Černý mutants with 7 states.",
+        "Related scientific records with opaque IDs describe unitary letters, simultaneous mergers, end-block collapse, and alternating merger, but not the transient k-step successor chain."
+      ],
+      "reasoning": "No compared table or database entry fixes this explicit n,k family for all parameters. Finite small-state enumeration can compute isolated values but does not include an infinite proof of the family-specific arithmetic formula.",
+      "searches": [
+        "Exact reset threshold R(n,k)=n(ceil((n-1)/k)-1)+k for an n-state cyclic shift and nilpotent successor chain of length k, b(i)=i+1 for i<k, b(i)=i otherwise",
+        "exact reset threshold automaton cycle a(i)=i+1 modulo n b(i)=i+1 for i<k and b(i)=i for i>=k, a cyclic conveyor push chain",
+        "published finding 2026/9/7/SCOPE007",
+        "published finding 2026/9/9/SCOPE010"
+      ]
+    },
+    "rationale": "Exact implication comparisons show no coverage by the inspected primary articles: Zhu 2024 proves only a general upper bound, Grech-Kisielewicz 2012 only the Černý upper bound for orientation-preserving automata, and Rystsov-Szykuła 2023 studies synchronizability without this nonidempotent family threshold. Published records about Černý k-avoiding thresholds concern a different objective, not the two-parameter chain-collapse reset threshold. Related existing scientific claims were compared for matching transformation maps, objectives, and parameters. Targeted searches cannot establish absolute novelty; unindexed derivations remain a residual risk.",
+    "residual_risks": [
+      "Older or unindexed literature on orientable automata and transient chains may contain an equivalent closed formula despite the inspected primary sources.",
+      "The generic oriented-automata shortest-word algorithm can compute individual examples, even though no inspected source gives this two-parameter symbolic result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: provides a synchronization criterion and Černý upper bound rather than an exact shortest-word threshold for successor-chain maps",
+        "evidence": [
+          "Proposition 15 bounds the shortest reset word by (n-1)^2 when an excluded-to-contracting-state distance is coprime to n; no equality is asserted."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i3p12/pdf/",
+        "material_read": "§§2–4 including Theorems 10 and 12 and Proposition 15",
+        "method": "Journal primary full-text PDF inspection of circular-automaton statements and proofs",
+        "title": "The Černý conjecture and 1-contracting automata",
+        "trigger": "Potential stronger result for circular rank-(n-1) letters and 1-contracting automata"
+      },
+      {
+        "assessment": "NOT_COVERING: proves synchronizability of primitive semiconstant automata, not exact reset thresholds for nonidempotent successor-chain letters",
+        "evidence": [
+          "§4 pp.6–10 defines a semiconstant map and Theorem 25; b in the present family is nonidempotent for k>=2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.01302",
+        "material_read": "Abstract, §§2–4 including Theorems 23 and 25 and semiconstant definitions",
+        "method": "Primary arXiv full-text page inspection, with the definitions and corresponding theorem statements compared",
+        "title": "Primitive Automata that are Synchronizing",
+        "trigger": "Permutation-plus-singular-letter automata; possible equivalent semiconstant reduction"
+      },
+      {
+        "assessment": "NOT_COVERING: provides a general non-sharp upper bound but not an exact formula for this successor-chain family",
+        "evidence": [
+          "Theorem 1.4 states rt<=2n²-7n+7, not equality; Theorem 2.7 is another upper-bound theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08135",
+        "material_read": "Introduction, Theorems 1.2–1.4 and 2.7, §3 proof and conclusion",
+        "method": "Primary arXiv full-text mathematical statement/implication comparison",
+        "title": "A Quadratic Upper Bound on the Reset Thresholds of Synchronizing Automata Containing a Transitive Permutation Group",
+        "trigger": "The same rank-(n-1) and transitive permutation hypotheses"
+      },
+      {
+        "assessment": "NOT_COVERING: obtains a Černý upper bound for orientable automata but does not classify shortest reset words or give a family-specific exact equality",
+        "evidence": [
+          "§4 Corollary 4.1 and discussion of directed-cycle oriented automata; only general Černý upper bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1207.2556",
+        "material_read": "Definition of graph intervals, §3 main Theorem 3.2, §4 applications and Corollary 4.1",
+        "method": "Primary arXiv full-text theorem and application inspection",
+        "title": "The Černý conjecture for automata respecting intervals of a directed graph",
+        "trigger": "Our inverse sets are cyclic intervals, raising possible coverage by oriented-automaton results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50b2a9fd-667c-4182-b2e9-e436f408fddd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural nonidempotent successor-chain deformation of the Černý cyclic family is fully solved in two integer parameters, not a cherry-picked slice. A sharp reset threshold with explicit shortest words and a proved globally greedy inverse-interval mechanism identifies a quadratic-to-linear complexity crossover as the successor-chain length scales with n. Generic upper bounds and existence criteria cannot provide that exact classification; the specific invariant is the canonical reset threshold.",
+    "status": "PASS"
+  }
+}
