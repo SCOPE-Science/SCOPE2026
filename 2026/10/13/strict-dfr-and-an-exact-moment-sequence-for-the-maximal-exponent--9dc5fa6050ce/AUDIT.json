@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "Cheliotis--Papadatos give the exact quantile \\(Q(u)=-\\log(1-u)/u\\). Substituting \\(U=1-e^{-E}\\) with \\(E\\sim\\operatorname{Exp}(1)\\) gives the representation exactly. Writing survival \\(q\\) gives \\(x=-\\log q/(1-q)\\); differentiation yields the displayed hazard. Its sign derivative reduces to φ(L)=L-2+e^{-L}(L+2), whose derivative is \\(1-e^{-L}(L+1)>0\\) for \\(L>0\\). Thus the hazard is strictly decreasing on the whole support, with endpoint limits 2 and 1. The integer moments follow by the nonnegative expansion of \\((1-e^{-t})^{-m}\\), so monotone convergence justifies all termwise integrations. The packaged checker reproduces the formulas numerically but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper proves the full distribution, which is broader raw information but does not state or analyze hazard monotonicity or the moment hierarchy.",
+        "Closest published hazard records concern proportional-hazard identification and renewal models, not this maximal-average distribution."
+      ],
+      "reasoning": "A known CDF can in principle imply many corollaries, so coverage was assessed at statement/implication level. The source's theorem implies the new result only after the new derivative-sign and moment-summation arguments; no broader theorem found states those structural consequences.",
+      "searches": [
+        "supremum running exponential averages transformed exponential distribution",
+        "\"sequential maxima\" \"decreasing failure rate\" exponential sample means",
+        "\"supremum of sample means\" exponential hazard"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1906.09377v1",
+      "indexed searches for the source identifier with hazard/moment/zeta terms",
+      "indexed searches for transformed-exponential and DFR aliases",
+      "candidate-specific published-finding searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 states \\(F^{-1}(u)=-\\log(1-u)/u\\); Remark 1 discusses Lambert W, affine rescaling, percentiles, and later-start maxima, but not hazard or moments.",
+        "No prior published-result record found in the checked corpus states the maximal-average hazard/moment claim."
+      ],
+      "reasoning": "The new theorem is a nontrivial structural extraction from the exact quantile rather than a restatement: strict DFR needs a global derivative sign proof, and the all-order moments need a justified infinite expansion. Prior own work on other exponential order/range statistics does not imply this distribution.",
+      "searches": [
+        "arXiv:1906.09377v1 Theorem 1 inverse CDF and Remark 1",
+        "Cheliotis Papadatos 1906.09377 moments zeta",
+        "1906.09377 sequential maxima exponential sample means prior-result search"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1906.09377v1 gives only the inverse CDF and distributional series for this object.",
+        "Exact-phrase and alias searches returned the primary paper or unrelated exponential-distribution material, not the claimed hazard/moment characterization."
+      ],
+      "reasoning": "The natural aliases are maximal average, supremum of running sample means, transformed exponential, DFR/decreasing failure rate, and zeta-valued moments. No retrieved statement matched the combined representation, strict hazard classification, or all-order moment series.",
+      "searches": [
+        "maximal average exponential sample means pi squared over six moment hazard",
+        "sequential maxima exponential sample means decreasing failure rate",
+        "Cheliotis Papadatos 1906.09377 moments zeta",
+        "F inverse -log(1-u)/u moment zeta hazard",
+        "\"E/(1-e^{-E})\" probability distribution",
+        "\"maximal average\" exponential \"zeta(2)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF has no matches for 'hazard', 'moment', or 'zeta'.",
+        "No indexed exact-value table returned π²/6 as the mean of this maximal-average law or the displayed variance."
+      ],
+      "reasoning": "The concrete numerical invariants and source identifier were searched directly because an older table could cover the moment part even without the DFR terminology. None was located.",
+      "searches": [
+        "\"1906.09377\" zeta moment maximum average exponential",
+        "\"1906.09377\" hazard",
+        "\"maximal average\" exponential \"pi^2/6\""
+      ]
+    },
+    "rationale": "The primary full text was inspected at the theorem, remarks, percentile application, and distribution proof. It states the inverse CDF and its percentile use but contains no occurrences of 'hazard', 'moment', or 'zeta', and no transformed-exponential or DFR classification. Candidate-specific published-record and indexed-literature searches using source-id, maximal-average, transformed-exponential, hazard, DFR, moment, and zeta aliases found no covering statement. The main residual risk is an unindexed equivalent consequence in older reliability or special-function literature.",
+    "residual_risks": [
+      "An older reliability or queueing source could contain the same transformed-exponential hazard calculation under different terminology.",
+      "The moment formulas are short consequences of the exact quantile, so an unindexed note or table may have recorded some low-order moments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Theorem 1 gives the CDF and inverse CDF. Remark 1 gives Lambert-W form, affine extension, percentiles, and later-start maxima. The full text has no matches for 'hazard', 'moment', or 'zeta' and does not state the strict DFR or moment-sequence results.",
+        "identifier_or_url": "arXiv:1906.09377v1",
+        "material_read": "Full eight-page public arXiv paper, with focused inspection of Theorem 1, Remark 1, the percentile/quality-control application, Theorem 2, and the proof of Theorem 1. Targeted full-text searches were also run for 'hazard', 'moment', and 'zeta'.",
+        "method": "Public arXiv full-text and rendered-page inspection; statement and implication comparison.",
+        "title": "On sequential maxima of exponential sample means, with an application to ruin probability",
+        "trigger": "Primary source giving the exact law and inverse CDF of the same maximal running average."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9dc5fa60-50ce-4aa5-a6b9-903c57681cfb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses the maximal-average law for ruin probability and for alarm thresholds, so its hazard structure is directly meaningful rather than an arbitrary post-processing. Strict DFR gives a global qualitative classification of the entire law, showing that conditional exceedance intensity falls monotonically from 2 to the exponential-tail level 1. The complete integer-moment sequence supplies exact quantitative summaries, with the mean and variance collapsing to classical zeta constants. Together these form a natural structural characterization of the exact distribution, not a one-off numerical evaluation.",
+    "status": "PASS"
+  }
+}
