@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For selected extreme indices q=max A and p=min B, complete shortest-path description reduces visibility to three exhaustive order cases. Counting each by unrestricted-index choices and inclusion-exclusion gives the displayed all-cardinality formula, with no overcount because extrema are unique. Two geometric-arithmetic sums give (4^(n+1)+24n-13)/9 exactly. Direct BFS on all 87,360 subsets for n=3..8 agrees with boundary-test and all coefficients, with further algebraic checks through n=50. Finite checks are supplementary; proof covers every n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.10661 gives linear-time computation of maximum mutual visibility in distance-hereditary graphs.",
+        "arXiv:2105.02722 gives maximum results for complete bipartite graphs; arXiv:2412.03066 and arXiv:2507.01851 give visibility polynomials for complete bipartite graphs."
+      ],
+      "reasoning": "An optimization algorithm does not determine the distribution of all valid subsets; the complete bipartite polynomial has a different graph input. No explicit general chain-graph weighted enumerator was found in examined works.",
+      "searches": [
+        "Mutual visibility polynomials distance hereditary graphs all subsets",
+        "mutual visibility number chain graphs Ferrers graph algorithm",
+        "Mutual visibility number of chain graphs or bipartite permutation graphs and unique maximum size n-2; convexity geodesics"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2105.02722",
+      "arxiv:2307.10661",
+      "arxiv:2412.03066",
+      "arxiv:2507.01851",
+      "arxiv:2509.22571",
+      "Published mathematical research records for chain graph enumerators and mutual visibility (semantic searches)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously established for the same half graphs: maximum mutual visibility size 2n-2 and unique maximum set omitting a_1,b_n. This special fact is not asserted as new.",
+        "arXiv:2307.10661 algorithm outputs only the maximum size, while the new polynomial has 2n+1 coefficients and a total-count evaluation.",
+        "The complete bipartite formulas do not carry over to strict nested neighborhoods: unlike K_{n,n}, a_i and b_j may be distance three."
+      ],
+      "reasoning": "An all-cardinality formula implies a scalar maximum, but a scalar maximum cannot imply individual coefficients or total number of valid sets. A fixed graph-specific polynomial for K_{n,n} does not imply that of the proper spanning half graph, because geodesics differ.",
+      "searches": [
+        "arxiv:2105.02722 mutual visibility complete bipartite graphs Theorem 4.9",
+        "arxiv:2307.10661 distance hereditary linear time maximum",
+        "arxiv:2412.03066 visibility polynomial complete bipartite Proposition 3.2",
+        "Mutual visibility number of chain graphs or bipartite permutation graphs and unique maximum size n-2; convexity geodesics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No half-graph mutual-visibility enumerator among closest semantic database records; arXiv:2412.03066 defines the generating invariant and computes complete bipartite cases but not half graphs.",
+        "The full text of arXiv:2507.01851 and 2509.22571 was text-searched for half graph/chain graph with no matching treatment."
+      ],
+      "reasoning": "Pairwise existential shortest-path visibility in a half graph is the same mathematical object sought under chain/Ferrers terminology. Different visibility notions (total, outer, general position) have different constraints and are not equivalent.",
+      "searches": [
+        "Mutual-visibility sets and visibility polynomial of connected half graphs H_n with bipartition a_i,b_j, edges i<=j, chain graphs; exact enumeration",
+        "Visibility polynomial of chain graph Ferrers graph nested neighborhoods exact all-cardinality counting",
+        "\"visibility polynomial\" \"half graph\"",
+        "\"mutual visibility\" \"chain graphs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boundary-polynomial first total counts obtained independently are 35,123,467,1835,7299; targeted web sequence searches did not establish a corresponding earlier visibility table.",
+        "Closest published research records are about other half-graph parameters, not all-cardinality visibility counts."
+      ],
+      "reasoning": "A coincidence of short integers alone cannot identify an equivalent table; no exact half-graph coefficient table was identified. Residual database indexing limits are acknowledged.",
+      "searches": [
+        "Mutual-visibility sets and visibility polynomial of connected half graphs H_n with bipartition a_i,b_j, edges i<=j, chain graphs; exact enumeration",
+        "Visibility polynomial of chain graph Ferrers graph nested neighborhoods exact all-cardinality counting",
+        "OEIS sequence 35 123 467 1835 7299 mutual visibility half graphs"
+      ]
+    },
+    "rationale": "The claimed new object is the entire cardinality enumerator and its closed total count, not the already-known half-graph maximum. Closest primary papers treat complete bipartite visibility, optimization, or other visibility graph families, and do not imply the boundary-index polynomial on half graphs. Published research records for half graphs and chain graphs address metric bases, domination, connected mutual-visibility extrema or other variants; previous related scientific claims give the scalar half-graph maximum but no full enumeration. This supports originality subject to standard unindexed-derivation risk.",
+    "residual_risks": [
+      "An earlier equivalent half-graph enumerator may exist under another name, in an unindexed source, or implicitly in a more general dynamic programming formula.",
+      "Searchable-text keyword checks cannot rule out every relevant appendix or alternative indexing.",
+      "The already-known scalar optimum and maximum-set uniqueness must not be credited to this enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines visibility and provides scalar/comparative graph-family results, not half-graph polynomial",
+        "evidence": [
+          "arXiv:2105.02722, §4.4, Theorem 4.9"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.02722",
+        "material_read": "Introduction, main definitions, and Section 4.4 including Theorem 4.9 on complete bipartite graphs",
+        "method": "Open-access PDF full text and page image inspection",
+        "title": "Mutual Visibility in Graphs",
+        "trigger": "Foundational definition and closest complete bipartite result"
+      },
+      {
+        "assessment": "Maximum-set algorithm rather than all-cardinality enumerator",
+        "evidence": [
+          "arXiv:2307.10661, principal algorithmic theorem and introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.10661",
+        "material_read": "Introduction and theorem statements; complete searchable PDF checked for half graph and chain graph",
+        "method": "Open-access PDF text search and page-image inspection",
+        "title": "Mutual-visibility in distance-hereditary graphs: a linear-time algorithm",
+        "trigger": "Half graphs are distance-hereditary; plausible broader coverage"
+      },
+      {
+        "assessment": "Does not state a half-graph coefficient enumerator",
+        "evidence": [
+          "arXiv:2412.03066, §3 Proposition 3.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.03066",
+        "material_read": "Definition of polynomial and Section 3 including complete-bipartite Proposition 3.2; checked full-text occurrence of half graph and chain graph",
+        "method": "Open-access PDF text and screenshot inspection",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Foundational polynomial paper and potential dominant formula"
+      },
+      {
+        "assessment": "Addresses other families, not this half-graph formula",
+        "evidence": [
+          "arXiv:2507.01851, main complete-bipartite theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.01851",
+        "material_read": "Definitions and complete-bipartite theorem section; all searchable text checked for half and chain graph",
+        "method": "Open-access PDF full-text search, theorem passage and screenshot inspection",
+        "title": "On the Visibility Polynomial of Graphs",
+        "trigger": "Potential exact table/formula for visibility polynomials"
+      },
+      {
+        "assessment": "No stated half-graph enumerator in material inspected",
+        "evidence": [
+          "arXiv:2509.22571, main graph-family sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.22571",
+        "material_read": "Theorem passages for studied graph families and operations; searched complete text for half graph and chain graph",
+        "method": "Open-access PDF full-text search and screenshot inspection",
+        "title": "Visibility Polynomial of Some Graph Classes",
+        "trigger": "Potential broad polynomial coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac5be602-5f34-4226-9957-239ea4ba4a3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new infinite-family invariant enumerates all feasible sensor/visibility configurations rather than only the known maximum. The polynomial yields exact counts at every cardinality, exact 4^n-scale total, and an explicit structural transition at the extreme selected indices. Its all-subsets enumeration resolves a natural question left open by graph-family scalar studies and complete-bipartite enumerators.",
+    "status": "PASS"
+  }
+}
