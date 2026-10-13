@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof first derives an exact domination criterion in terms of the selected index sets P and Q, then performs an exhaustive symbolic minimality split: empty side, singleton side, and both sides of size at least two. The only surviving cases are the two full sides, n matched nonedge pairs, and disjoint-index 2+2 sets. Counting those families gives the stated polynomial. A separate brute-force checker agrees for every n from 3 through 9; this computation is supportive and is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1609.01510 gives general upper-domination theory and complexity but no crown occurrence in the inspected text. arXiv:0905.2251 introduces the domination polynomial for all dominating sets, not a minimal-dominating-set profile. The 2015 crown paper proves existence of a minimal dominating set of cardinality n, not a classification."
+      ],
+      "reasoning": "These broader sources do not imply which smaller inclusion-minimal dominating sets occur or how many occur at each cardinality.",
+      "searches": [
+        "arXiv:1609.01510 full-text inspection for crown and upper domination",
+        "arXiv:0905.2251 full-text inspection for crown and domination polynomial",
+        "2015 same-object crown PDF relevant section"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0905.2251v1",
+      "arXiv:1609.01510v1",
+      "R. Mary Jeya Jothi (2015), A Discussion on SSP Structure of Pan, Helm and Crown Graphs",
+      "OEIS A289121",
+      "OEIS A384123",
+      "Graph::Maker::Crown documentation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 proposition supplies only one family, the full sides. A single total count cannot determine the size distribution or membership characterization. A definition/complexity theorem for upper domination does not determine the crown extremals."
+      ],
+      "reasoning": "The new classification implies the known aggregate count and the known existence of size-n minimal sets, but the converse implications fail: neither an aggregate count nor existence of one extremal family identifies every minimal dominating set. The retained claim is therefore not a corollary of the located prior statements.",
+      "searches": [
+        "Comparison with 2015 crown proposition on size-n minimal dominating sets",
+        "Comparison with OEIS A289121 aggregate total",
+        "Comparison with generic upper-domination definition in arXiv:1609.01510"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit matched ordinary minimal-domination on crowns. The closest crown hit is restrained domination, a different predicate. Exact-name web searches exposed the same-object 2015 source and aggregate database records but no size profile."
+      ],
+      "reasoning": "The retained statement is invariant under the standard crown aliases because it is expressed directly in the deleted-perfect-matching model. No located equivalent formulation supplies the same three-family classification.",
+      "searches": [
+        "published-finding corpus: minimal dominating sets crown graph K_n,n minus perfect matching complete classification",
+        "published-finding corpus: crown graph S_n^0 K_n,n-M bipartite double cover minimal dominating sets size distribution upper domination",
+        "Web exact/alias searches for crown graph, K_{n,n}-M, minimal dominating sets, upper domination, and domination polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A289121 gives the aggregate crown sequence and formula. Graph::Maker::Crown identifies A289121 as the number of minimal dominating sets. OEIS A384123 identifies column 2 with A289121."
+      ],
+      "reasoning": "The aggregate total is therefore prior-covered and excluded from the novelty claim. The retained polynomial is strictly finer: evaluating it at 1 recovers the known total, while its coefficients separately identify sizes 2, 4, and n.",
+      "searches": [
+        "OEIS A289121",
+        "Graph::Maker::Crown OEIS cross-reference",
+        "OEIS A384123 rook-complement minimal dominating sets, column 2 cross-reference"
+      ]
+    },
+    "rationale": "Direct published-finding corpus searches under crown, K_{n,n}-M, upper-domination, minimal-dominating-set, size-distribution, and alias terminology did not return the retained structural profile. The decisive prior comparisons show known scalar/existence information and a known aggregate total, but not the cardinality decomposition or three-family classification. The novelty claim is deliberately limited to that structural refinement.",
+    "residual_risks": [
+      "A specialized or poorly indexed source could contain the same size profile despite the exact-name, alias, published-finding corpus, and database searches.",
+      "The relevant 2015 PDF section was available as parsed text, but page-image retrieval was unsuccessful; the comparison is limited to the recoverable text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the retained minimal-dominating-set profile.",
+        "evidence": "Introduces the polynomial counting all dominating sets by size; no crown-specific minimal-dominating-set classification was located.",
+        "identifier_or_url": "arXiv:0905.2251v1",
+        "material_read": "Abstract, metadata, and full searchable text relevant to definitions and named graph families.",
+        "method": "Lawful open arXiv HTML/text inspection.",
+        "title": "Introduction to Domination Polynomial of a Graph",
+        "trigger": "Provides the cardinality-counting framework and an archive-date/MSC anchor."
+      },
+      {
+        "assessment": "NOT_COVERING for crown classification.",
+        "evidence": "Defines upper domination and develops generic complexity/structural tools; the inspected text contains no crown occurrence.",
+        "identifier_or_url": "arXiv:1609.01510v1",
+        "material_read": "Abstract, definitions, relevant structural lemmas, and full-text name search.",
+        "method": "Lawful open arXiv HTML/text inspection.",
+        "title": "Upper Domination: towards a dichotomy through boundary properties",
+        "trigger": "Directly concerns maximum-cardinality inclusion-minimal dominating sets."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE only.",
+        "evidence": "The relevant proposition proves that every crown graph has a minimal dominating set of cardinality n; it does not classify all minimal dominating sets or give their size profile.",
+        "identifier_or_url": "https://www.arpnjournals.com/jeas/research_papers/rp_2015/jeas_0515_2061.pdf",
+        "material_read": "Parsed text of the crown definition, example, proposition, and proof.",
+        "method": "Lawful public PDF text inspection; a page-image retrieval attempt was unsuccessful.",
+        "title": "A Discussion on SSP Structure of Pan, Helm and Crown Graphs",
+        "trigger": "Same-object crown paper with a proposition about minimal dominating sets."
+      },
+      {
+        "assessment": "COVERS the aggregate total but not the retained profile.",
+        "evidence": "Records the crown sequence with formula (8-2n+11n^2-6n^3+n^4)/4, equal to n+2+6 binomial(n,4).",
+        "identifier_or_url": "OEIS:A289121",
+        "material_read": "Sequence definition, formula, comments, and cross-references.",
+        "method": "Public database record inspection.",
+        "title": "OEIS A289121",
+        "trigger": "Exact database/table check for crown minimal-dominating-set totals."
+      },
+      {
+        "assessment": "COVERS the aggregate attribution only.",
+        "evidence": "The OEIS section labels A289121 as the number of minimal dominating sets for crown graphs.",
+        "identifier_or_url": "MetaCPAN:Graph::Maker::Crown",
+        "material_read": "Crown definition and OEIS section.",
+        "method": "Public documentation inspection.",
+        "title": "Graph::Maker::Crown",
+        "trigger": "Independent identification of the OEIS sequence with minimal dominating sets of crowns."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "798a8575-9c22-4f35-ae91-098755c9e9ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The crown graph is a standard highly symmetric bipartite family, and inclusion-minimal domination is the object underlying upper domination. The result is a natural complete classification rather than an arbitrary finite slice: it explains the previously tabulated aggregate count, resolves the full cardinality profile, and identifies all upper-dominating extremals, including the n=4 tie. This structural refinement is mathematically reusable even though it does not claim a general theorem for broader graph classes.",
+    "status": "PASS"
+  }
+}
