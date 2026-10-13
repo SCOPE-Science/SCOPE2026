@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "At the first step the printed Fisher bias correction is exactly zero, giving the corrected Fisher state equal to the squared current gradient. On the scalar quadratic, the adaptive epsilon branch is proportional to the same absolute gradient, so the denominator is exactly \\((1+\\epsilon_2)|\theta_0|\\). Both preconditioned terms reduce to a signed constant, clipping is inactive, and the complete step and objective ratio follow exactly. The singular point and punctured-neighborhood amplification are analytic, not inferred from numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The cited Adam theorem treats smooth lower-bounded objectives with bounded stochastic gradients, but its iteration includes a fixed positive numerical stabilizer.",
+        "The FAdam paper claims its convergence analysis follows that proof while separately introducing adaptive epsilon."
+      ],
+      "reasoning": "A convergence theorem for a fixed-positive-stabilizer map does not imply well-definedness or local continuity of the different adaptive-zero-floor map. It therefore does not dominate the accepted first-step statement.",
+      "searches": [
+        "arXiv:2003.02395v3",
+        "FAdam convergence adaptive epsilon fixed epsilon Adam proof"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.12807v11",
+      "arXiv:2003.02395v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The FAdam source makes the first bias-correction coefficient zero and says the initial Fisher value is ignored by that correction.",
+        "Its adaptive epsilon is proportional to gradient RMS below the fixed cap.",
+        "The cited Adam setup places a fixed strictly positive stabilizer in the denominator."
+      ],
+      "reasoning": "Combining the first two FAdam equations yields a local degree-zero normalized direction; this implication is not present in the source discussion. The fixed-epsilon Adam proof has no route to the same singularity because its denominator remains positive at zero gradient.",
+      "searches": [
+        "arXiv:2405.12807v11 Algorithm 1 adaptive epsilon",
+        "arXiv:2405.12807v11 Appendix B.3 clipping and epsilon",
+        "arXiv:2003.02395v3 adaptive methods fixed epsilon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "FAdam Algorithm 1 uses an adaptive epsilon equal to the minimum of a fixed cap and a gradient-RMS multiple.",
+        "Appendix B.3 states that epsilon is used to prevent division by zero before clipping.",
+        "The cited Adam convergence analysis uses a fixed positive numerical stabilizer in its denominator."
+      ],
+      "reasoning": "Equivalent coverage would have to show that the adaptive stabilizer vanishes together with the first corrected Fisher state, yielding an undefined stationary point and a nonvanishing punctured-neighborhood update. The inspected sources do not state those consequences.",
+      "searches": [
+        "arXiv:2405.12807v11",
+        "arXiv:2003.02395v3",
+        "FAdam adaptive epsilon zero gradient division by zero stationary point"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical-optimization results concern other adaptive methods, one-step monotonicity frontiers, or spectral persistence; no checked result concerned FAdam adaptive epsilon."
+      ],
+      "reasoning": "Search absence is supporting evidence only. Originality rests primarily on direct statement-and-implication comparison with the defining FAdam paper and its cited convergence source.",
+      "searches": [
+        "FAdam optimizer scalar quadratic natural gradient diagonal Fisher exact dynamics",
+        "FAdam adaptive epsilon zero gradient division by zero stationary point",
+        "Fisher Adam adaptive epsilon min epsilon RMS gradient singularity",
+        "FAdam scalar quadratic first step constant jump near stationary point",
+        "FAdam exact minimizer undefined adaptive epsilon"
+      ]
+    },
+    "rationale": "The defining FAdam source presents adaptive epsilon as a stabilizing correction and says epsilon prevents division by zero, but the inspected algorithm and appendix do not identify that the adaptive rule itself vanishes with the gradient. The cited Adam convergence source uses a fixed strictly positive stabilizer and therefore has a different local map. Focused literature and indexed searches found no implication-equivalent analysis of the paper-form zero-gradient singularity plus the fixed-jump neighborhood.",
+    "residual_risks": [
+      "A later or external software implementation may special-case zero or impose a hidden positive floor; the claim is scoped to the printed mathematical update.",
+      "An unindexed implementation discussion may have noticed the same issue without a formal local objective analysis.",
+      "The paper has multiple revisions; the current inspected revision is v11, while the metadata date records the paper’s earliest public appearance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FORMULA_NOT_COVERING_ZERO_GRADIENT_SINGULARITY_OR_FIXED_LOCAL_JUMP.",
+        "evidence": "Algorithm 1 uses the adaptive epsilon rule and first-step Fisher bias correction; Appendix B.3 motivates epsilon as preventing division by zero, while the inspected text does not discuss the zero-gradient case.",
+        "identifier_or_url": "arXiv:2405.12807v11",
+        "material_read": "Full open-access paper sections covering Algorithm 1, Section 3.4.5, Appendix B.3, and Appendix B.6; the algorithm and epsilon appendix pages were visually inspected.",
+        "method": "Open-access PDF text and page-image inspection.",
+        "title": "FAdam: Adam is a natural gradient optimizer using diagonal empirical Fisher information",
+        "trigger": "Defining source for Algorithm 1, adaptive epsilon, clipping, Fisher bias correction, and the claimed convergence connection."
+      },
+      {
+        "assessment": "FIXED_POSITIVE_STABILIZER_THEORY_NOT_COVERING_FADAM_ZERO_FLOOR.",
+        "evidence": "The analyzed Adam iteration divides by a denominator containing a fixed positive numerical stabilizer, so it remains defined at zero gradient.",
+        "identifier_or_url": "arXiv:2003.02395v3",
+        "material_read": "Open-access full text covering the adaptive-method setup, positive numerical stabilizer, assumptions, and Adam convergence theorems; the setup page was visually inspected.",
+        "method": "Open-access PDF text and page-image inspection.",
+        "title": "A Simple Convergence Proof of Adam and Adagrad",
+        "trigger": "Primary convergence result explicitly cited by the FAdam paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82a18e55-3d9d-418f-8539-dddb1d618c49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The issue is not merely an isolated zero-over-zero evaluation. The exact singular state is approached through an open punctured neighborhood on which the source defaults produce a nonvanishing fixed-size step and unbounded one-step objective-gap amplification on a smooth strongly convex quadratic. This directly tests the purpose of the adaptive epsilon, which the source motivates as a division-by-zero safeguard, and clarifies why the fixed-positive-epsilon convergence proof it cites does not automatically transfer. A precise positive-floor repair is immediate.",
+    "status": "PASS"
+  }
+}
