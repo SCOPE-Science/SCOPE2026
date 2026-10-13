@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact finite graph on 28 Fano-noncollinear triples and 42 edges. Enumerated all 84 matchings via exhaustive least-free-vertex recursion. Python tests all 2^14 subsets of every matching against the necessary-and-sufficient difference-mask forcing criterion; separate C++ residual extension DP agrees on all polynomial coefficients. Backtracking enumerates all 336 automorphisms independently of the 336 explicit geometric symmetries and shows transitivity; 51 minimum-quartet orbit reps exhaust 16632 sets. Symmetric differences enumerate all 74 alternating cycles; all 10-cycles meet the unique 8-cycle, ruling out triple disjoint cycles, while a disjoint pair is exhibited. All statements are finite, and full standalone source/certificates are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Afshani–Hatami–Mahmoodian (2009), Theorem C, equality for planar bipartite graphs",
+        "MathWorld Coxeter Graph: Coxeter graph is nonplanar (orientable genus three)",
+        "Symmetry 17(1):133 (2025): 84 perfect matchings, an aggregate matching-polynomial coefficient"
+      ],
+      "reasoning": "The minimax equality is confined to planar bipartite graphs and is inapplicable. Aggregate matching polynomial coefficients do not count forcing subsets or group orbits; no stronger theorem subsumes these Coxeter-specific numbers.",
+      "searches": [
+        "Coxeter graph perfect matchings 2 factor cycle structure nonhamiltonian graph 28 vertices",
+        "Coxeter graph matching forcing number and symmetry orbits",
+        "\"Coxeter graph\" \"alternating cycles\" \"forcing number\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/0903.2578v1",
+      "https://mathworld.wolfram.com/CoxeterGraph.html",
+      "https://www.mdpi.com/2073-8994/17/1/133 (indexed material)",
+      "https://www.mdpi.com/2073-8994/17/2/247 (indexed material)",
+      "published-finding corpus searches recorded in prior_checks",
+      "Own available prior-week and current-week research ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0903.2578v1 §3, theorem C assumes planar and bipartite",
+        "Symmetry 17(1):133 (2025) establishes the already-known matching count 84",
+        "Coxeter graph has orientable genus three and odd cycles (MathWorld), outside planar-bipartite theorem hypotheses",
+        "Nearest historical own-ledger results concern local forcing in the Heawood and crown graphs, with different graph families and no Coxeter specialization"
+      ],
+      "reasoning": "Neither the planar-bipartite equality nor the list of 84 matchings determines the claimed forcing polynomial: an additional exhaustive unique-extension test or classification is required. Own prior Heawood results involve another graph. The gap 4 versus 2 does not contradict earlier planar results.",
+      "searches": [
+        "Coxeter graph 28 vertex 2 factor perfect matching forced edges unique extension",
+        "Coxeter graph local perfect matching forcing number four vs packing alternating cycles two",
+        "Coxeter graph matching forcing number and symmetry orbits"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Afshani et al., arXiv:0903.2578v1, §§1-3: local forcing-set definition and alternating-cycle language",
+        "published-finding corpus searches including Coxeter graph forcing polynomial, F028A, matching transversals and 51 quartets"
+      ],
+      "reasoning": "The usual forcing spectrum is the set of minimum forcing numbers over matchings, which here would be a singleton; it does not imply the polynomial counting all forcing edge subsets of each matching. An alternating-cycle transversal is equivalent to the forcing condition by flip cycles; no covered Coxeter-specific classification was found.",
+      "searches": [
+        "\"Coxeter graph\" \"forcing\" \"matching\" -zero",
+        "\"Coxeter graph\" \"forcing number\" matching cycles",
+        "Coxeter graph F028A 84 perfect matchings local forcing number forcing spectrum cardinality configurations",
+        "Coxeter graph alternating cycle transversal packing gap two, 51 symmetry classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Symmetry 17(1):133 matching polynomial reports 84 perfect matchings, but not local forced-edge-subset coefficients",
+        "MathWorld F028A identifies the graph, but its displayed graph invariants are not local forcing polynomial or forced-fourset orbit census"
+      ],
+      "reasoning": "Graph databases and matching polynomial tables provide graph identification and total perfect matching counts. They do not encode all conditional unique-extension counts or the 51 quartet orbits; exact table overlap was not located.",
+      "searches": [
+        "\"Coxeter graph\" \"forcing polynomial\" \"matchings\"",
+        "\"F028A\" \"forcing number\"",
+        "\"Coxeter graph\" \"forcing number\" 4",
+        "Coxeter graph F028A 84 perfect matchings local forcing number forcing spectrum cardinality configurations"
+      ]
+    },
+    "rationale": "The complete 2009 source discusses forced-matching spectra, grids, products and the planar-bipartite alternating-cycle equality, not the Coxeter graph. A 2025 matching-polynomial source already counts the Coxeter graph’s 84 perfect matchings; it does not make the 2^14 forcing-subset classification or alternating-cycle packing an immediate deduction. Exact alias and related-work searches in mathematical literature, checked research records and the relevant historical deduplication ledgers revealed no stronger coverage. Residual unindexed or inaccessible work remains a priority risk; this status is limited to evidence reviewed, not a universal novelty certificate.",
+    "residual_risks": [
+      "An unindexed earlier Coxeter-specific forcing or alternating-cycle census may exist.",
+      "The 2025 matching- and spectral-polynomial papers were accessible chiefly through indexed sections; their complete full texts were not inspected.",
+      "This review establishes no independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definitions and theorem C are directly related; no Coxeter polynomial, quartet orbit census or strict gap reported; theorem C is planar bipartite only",
+        "evidence": [
+          "arXiv:0903.2578v1, lines 27–58 and 184–189; no Coxeter example in the inspected paper"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0903.2578v1",
+        "material_read": "Full HTML source including abstract, definitions, theorem statements, §§1–4 and references; searched for Coxeter-specific material",
+        "method": "Read the accessible original arXiv full text and inspect its graph family hypotheses, exact conclusions and examples",
+        "title": "On the spectrum of the forced matching number of graphs",
+        "trigger": "Foundational primary literature on forcing number and alternating cycles"
+      },
+      {
+        "assessment": "Background graph identification and genus; not the local forcing classification",
+        "evidence": [
+          "MathWorld: 28 vertices, 42 edges, orientable genus three; Foster F(028)A"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/CoxeterGraph.html",
+        "material_read": "Entire accessible encyclopedia entry including 28 vertices, 42 edges, nonplanarity and Foster label",
+        "method": "Read page and check its references and stated invariants",
+        "title": "Coxeter Graph",
+        "trigger": "Identify precise named graph and its structural invariants"
+      },
+      {
+        "assessment": "The 84 perfect matchings are covered prior work; finer forcing subset / orbit claim not established by available text, but unchecked full content remains priority risk",
+        "evidence": [
+          "Symmetry 17(1):133 (2025), §3: 84 Coxeter perfect matchings; complete text not inspected"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/17/1/133",
+        "material_read": "Search-indexed article text on Coxeter section and matching polynomial; original website full HTML blocked on direct open",
+        "method": "Read indexed section containing Coxeter and Tutte–Coxeter matching polynomial descriptions, attempted full page",
+        "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+        "trigger": "Most plausible existing exact table for Coxeter matchings"
+      },
+      {
+        "assessment": "Known aggregate spectral counts not sufficient to imply forcing-subset polynomial; full-text priority risk preserved",
+        "evidence": [
+          "Symmetry 17(2):247 (2025), Coxeter graph section reports 84 perfect matchings"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/17/2/247",
+        "material_read": "Indexed Coxeter graph spectral polynomial discussion, not its complete full article",
+        "method": "Read accessible indexed passage and its discussion of 84 perfect matchings and cycle counts",
+        "title": "Spectral Polynomials and Spectra of Graphs Beyond Cubic and Icosahedral Symmetries",
+        "trigger": "Coxeter cycles and matching counts as potential stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1838aa2-4afe-41d4-9d33-5b74bdf21944",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Matching forcing is a natural identification problem. On a classical symmetric 28-vertex nonhamiltonian cubic graph, all 84 matchings share a nontrivial 11-term local forcing-subset polynomial; the classification of 16632 optimal quartets into 51 group orbits resolves more than an aggregate size. The strict 4-versus-2 transversal/packing gap provides a meaningful explicit boundary case beyond planar bipartite minimax and has mathematical value independent of its small order. No unsupported asymptotic or new-forcing-number-definition claim is made.",
+    "status": "PASS"
+  }
+}
