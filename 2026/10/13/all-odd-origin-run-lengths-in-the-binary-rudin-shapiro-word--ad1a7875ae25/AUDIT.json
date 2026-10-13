@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Sobolewski Theorem 1.4 guarantees first-change finiteness for d>=3, and r(3)=r(6)=1 handles d=1,2; direct bit-pair counting shows r(2n)=r(n), excluding even first-change indices. The duplicated-L-bit identity is an exact parity identity. For each odd k>=3 the maximal odd a<=Q/(k-1) satisfies (k-2)a<Q<=ka<2Q, forcing r(jd)=0 for j<k and r(kd)=1. All quantifiers are explicit; k=1 and infinite witnesses covered. The smallest Q gives d<32k^3. The supplied standalone Python checker independently recomputes finite consequences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sobolewski Theorem 1.4: A_r(0,d) <= (d+3)/2 with classifications for its near-maximal values; Proposition 5.4: asymptotic lengths for d_L=(2^L+1)m with fixed odd m.",
+        "Joshi–Rust Section 3.3 analyzes A_r(d) and i_r(d), the longest run over all starting positions and where that longest run begins."
+      ],
+      "reasoning": "Upper bounds, special families for d, and fixed-m asymptotics do not imply that every positive odd k is an exact first-change value. The full-start supremum is a different function, not a stronger statement from which this first-origin range follows.",
+      "searches": [
+        "monochromatic arithmetic progressions Rudin Shapiro Sobolewski 2022 Problem 8 value set 1 3 5 7",
+        "arXiv:2204.05287 Theorems 1.4 1.7 Proposition 5.4",
+        "arXiv:2501.05830 Sections 1 and 3.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.05287v2, Sections 1, 5, 6",
+      "arXiv:2501.05830v2, Sections 1, 3.3",
+      "OEIS A364995",
+      "OEIS A380593",
+      "published-finding corpus published findings search, named queries in prior_checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The crucial duplication of a binary word is present in the earlier Proposition 5.4 proof at arXiv:2204.05287v2, lines 938-965; the author still asks the exact spectrum question in Problem 8 at lines 1177-1181.",
+        "This construction varies an odd multiplier a with k and bounds both k*a and (k-2)*a around the high bit Q, yielding the exact first mismatch.",
+        "Closest published-finding corpus match about a Shapiro Fourier doubling constant works in finite cyclic harmonic analysis and does not concern the Rudin–Shapiro word."
+      ],
+      "reasoning": "The proposed claim is not a new binary-duplication identity; it is the uniform exact range theorem with explicit witnesses, filling the gap between the prior asymptotic fixed-m calculation and the published open question. Unindexed derivation remains possible.",
+      "searches": [
+        "arXiv:2204.05287 Proposition 5.4 proof and Problem 8",
+        "Rudin Shapiro arithmetic progression first changed color r(0)=r(d)=...=r((k-1)d), r(kd)=1, prescribed odd k, construct d",
+        "Rudin-Shapiro progression length origins and difference witnesses bounded polynomial",
+        "published-finding corpus arithmetic progression Rudin Shapiro sequence A_r(0,d) attainable values odd every positive odd integer explicit constructive length spectrum origin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sobolewski Problem 8 explicitly asks for attained values of A_v(0,d); the paper does not give all odd values for v=11.",
+        "Sobolewski Proposition 5.4 uses fixed-multiplier doubled binary blocks but states asymptotic first-change lengths, not a prescribed-value range.",
+        "No equivalent origin-run spectrum emerged from the published-finding corpus returned titles and summaries."
+      ],
+      "reasoning": "A_r(0,d)=k is the first-j index at which the binary 11-parity changes from its value at zero; this is equivalent to a monochromatic arithmetic progression of exactly k terms beginning at zero. The theorem fixes each prescribed k, unlike bounds on A_r(0,d) for each d or a supremum over starts.",
+      "searches": [
+        "arithmetic progression Rudin Shapiro sequence A_r(0,d) attainable values odd every positive odd integer explicit constructive length spectrum origin",
+        "binary adjacent pair parity 11 automaton monochromatic progression prescribed odd length starting 0 doubling concatenation",
+        "Rudin-Shapiro parity of adjacent 11 bits e11(m): exact range of A_r(0,d) maximal zero-color monochromatic arithmetic progressions starting at zero, every positive odd value",
+        "arXiv:2204.05287 Section 6 Problem 8",
+        "arXiv:2501.05830 Section 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A364995 describes d -> A_r(d), the maximal length among all starting positions.",
+        "OEIS A380593 describes the first starting index of a progression attaining A_r(d).",
+        "The source paper offers finite experimentation motivating Problem 8 rather than an infinite proof of the complete origin spectrum."
+      ],
+      "reasoning": "Neither OEIS table records d -> A_r(0,d), let alone a proof of its infinite range. A finite enumeration cannot certify attainment of every positive odd length.",
+      "searches": [
+        "OEIS A364995 Rudin Shapiro maximal progression length by difference",
+        "OEIS A380593 first occurrence longest Rudin Shapiro progression",
+        "arithmetic progression Rudin Shapiro sequence A_r(0,d) attainable values odd every positive odd integer explicit constructive length spectrum origin"
+      ]
+    },
+    "rationale": "The inspected 2022 source explicitly poses the all-odd origin-spectrum as an open question; its previously known fixed-m duplication method and difference bounds are credited. The current variable-m construction supplies a complete exact range with cubic witnesses, neither covered by the 2025 later all-start extremal results nor by the OEIS maximum-run tables. Targeted published-finding corpus checks found no covering published item; unindexed equivalent deductions remain a real residual risk.",
+    "residual_risks": [
+      "The doubled-block observation already appears in Sobolewski Proposition 5.4, so an unindexed argument may have derived the range from it.",
+      "A new literature search may uncover a later full-range classification; negative search alone is not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains relevant doubled-word technique, length bounds, and the explicit unsolved range problem; no exact all-odd theorem stated",
+        "evidence": [
+          "Theorem 1.4 gives A_r(0,d) <= (d+3)/2, Section 1",
+          "Proposition 5.4 gives fixed-m asymptotic for d_L=(2^L+1)m and demonstrates duplicated blocks, Section 5",
+          "Problem 8 asks for attained lengths and conjectures all odd values, Section 6"
+        ],
+        "identifier_or_url": "arXiv:2204.05287v2, https://arxiv.org/html/2204.05287v2",
+        "material_read": "Introduction, Theorems 1.4–1.7, Section 5 Proposition 5.4 and proof, Section 6 Problems 5–10",
+        "method": "Full open-access arXiv HTML, theorem and proof passages inspected",
+        "title": "On monochromatic arithmetic progressions in binary words associated with pattern sequences",
+        "trigger": "Defines exactly A_r(0,d) and poses Problem 8"
+      },
+      {
+        "assessment": "Studies the maximum progression lengths over all starting positions and first maximizing positions, not the fixed-origin range",
+        "evidence": [
+          "Section 3.3 says it studies A(d) and i(d) for Rudin–Shapiro and establishes special differences",
+          "No fixed-origin exact all-odd value-spectrum theorem in examined relevant section"
+        ],
+        "identifier_or_url": "arXiv:2501.05830v2, https://arxiv.org/html/2501.05830v2",
+        "material_read": "Abstract, Section 1 and Section 3.3 through Proposition 3.9 and its Walnut arguments; definitions distinguishing A(d) from A(n,d)",
+        "method": "Full open-access arXiv HTML inspected at relevant sections",
+        "title": "Monochromatic arithmetic progressions in the Fibonacci, Thue–Morse, and Rudin–Shapiro words",
+        "trigger": "Later primary literature directly discussing Rudin–Shapiro progressions"
+      },
+      {
+        "assessment": "A364995 counts longest runs for a difference anywhere; A380593 records their first starting positions. Neither is A_r(0,d).",
+        "evidence": [
+          "A364995 title: longest monochromatic arithmetic progression length with difference n",
+          "A380593 title: starting position of first longest monochromatic progression"
+        ],
+        "identifier_or_url": "https://oeis.org/A364995 and https://oeis.org/A380593",
+        "material_read": "Entry titles, descriptions, comments, and referenced tables",
+        "method": "Web entries compared by definitions",
+        "title": "OEIS A364995 and A380593",
+        "trigger": "Exact tables for potentially equivalent progression parameters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad1a7875-ae25-4c89-a8fa-e8e5d78a23ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This settles the explicitly conjectured Rudin–Shapiro v=11 origin-spectrum in Problem 8 of Sobolewski (arXiv:2204.05287, Section 6): every positive odd length occurs and no even length does. It is a natural complete invariant classification, and the polynomial witness bound adds effective constructive content. This is not a known-table transcription nor an arbitrary special case.",
+    "status": "PASS"
+  }
+}
