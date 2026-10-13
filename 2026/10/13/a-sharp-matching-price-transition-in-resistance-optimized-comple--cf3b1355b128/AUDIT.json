@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The full-weight objective is strictly convex because the Laplacian-plus-constant projector is positive definite on connected allocations and trace of its inverse is strictly convex along every nonzero symmetric matrix direction. Individual edge weights map injectively to Laplacian off-diagonals. This forces a unique optimizer respecting both edge orbits. The two positive eigenvalue families have respective multiplicities \\(m\\) and \\(m-1\\), reducing the budgeted objective to \\(C+A_0y+B_0/y\\) on \\(y\\ge N-2\\). Derivative signs handle \\(0<t<2\\), equality, and \\(t\\ge2\\). Algebra gives the exact weights, optimum, deletion benefit, and all limiting regimes. The standalone rational checker confirms matrix inverses, edge budgets, spectral formulas, competing feasible points, and threshold equalities for 66 cases, without substituting for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh--Boyd--Saberi, doi:10.1137/050645452, full-text Sections 1, 4--6 and 8, proves general convexity, KKT/dual methods and specific equal-cost graph families, including the complete graph.",
+        "Their general framework can solve individual priced graphs implicitly but does not state the two-orbit price threshold, all-size conductances, or finite-size window."
+      ],
+      "reasoning": "Generic numerical/convex optimization covers existence and computability but does not provide the exact closed classification. This work does not claim a new general convexity method. A future broader explicit formula for arbitrary cost vectors would subsume the statement, but none was identified in inspected relevant sources.",
+      "searches": [
+        "resource allocation minimize total effective resistance in complete graph with a matching class of edge costs",
+        "optimal total effective resistance complete graph perfect matching expensive edges conductance costs",
+        "Price-sensitive electrical network conductance optimization on complete graphs with distinguished 1-factor; critical price and phase transition."
+      ]
+    },
+    "checked_sources": [
+      "Ghosh--Boyd--Saberi, SIAM Review 50 (2008), doi:10.1137/050645452, author-hosted full PDF.",
+      "Bapat--Karimi--Liu, arXiv:1611.09457, primary open full text.",
+      "Gervacio, Resistance distance in complete n-partite graphs, 2012 abstract and 2016 publisher record.",
+      "Public mathematical records concerning complete graph resistance, cocktail-party/Kirchhoff formulas, and priced conductance allocation; scientific search terms recorded above."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh--Boyd--Saberi, Section 6, identifies the uniformly optimized complete-graph value \\(N(N-1)^2/2\\), recovered here exactly at \\(t=1\\).",
+        "Bapat--Karimi--Liu, Section 3, describes the deleted-matching complete multipartite case with unit weights; its scaling gives an endpoint check, not a price threshold.",
+        "A previously recorded weighted complete-graph two-clique spectral-gap classification uses a different edge-price orbit and optimizes algebraic connectivity rather than the resistance sum; weighted wheel and tree shortcut thresholds similarly concern different graph families."
+      ],
+      "reasoning": "The fixed equal-price result is one parameter value, and the cocktail-party result is the deleted-matching boundary. Neither implies the unique all-price optimal allocations, \\(t_N^{\\mathrm{crit}}\\), or the critical window. A general convex solver is not an explicit implication of these formulas.",
+      "searches": [
+        "Minimizing Effective Resistance of a Graph Ghosh Boyd Saberi 2008 PDF",
+        "\"total effective resistance\" \"matching\" conductance allocation edge price",
+        "\"Kirchhoff index\" \"weighted cocktail party\" \"t\" parameter edge weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bapat--Karimi--Liu, arXiv:1611.09457, Sections 3 and 5, computes resistance and Kirchhoff quantities for unweighted complete multipartite graphs, including the complement of a perfect matching.",
+        "The present spectrum has two independently variable orbit weights, not just the zero-matching endpoint."
+      ],
+      "reasoning": "The complement of a perfect matching is a cocktail-party (complete multipartite) graph; the proposed network includes an adjustable matching orbit absent from that graph. Endpoint formulas cannot imply a relative-price optimizer or the transition at positive matching conductance.",
+      "searches": [
+        "Weighted cocktail-party graph K_(2,...,2) with a tunable conductance on the missing matching, optimizing effective graph resistance and spectral inverse sum.",
+        "weighted cocktail party graph Kirchhoff index two weights perfect matching",
+        "Kirchhoff index complete graph minus perfect matching weighted conductance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bapat--Karimi--Liu Section 3 gives a fixed-conductance complete multipartite Kirchhoff formula; Example 5.4 concerns the degree-Kirchhoff index of cocktail-party graphs.",
+        "Published catalogue records encountered for perfect-matching/cocktail-party graphs concern fixed topology or unrelated matching invariants, not this budgeted two-price optimum."
+      ],
+      "reasoning": "The available exact formula for the unweighted deleted-matching graph is an endpoint and provides a cross-check, but not the optimal value for arbitrary matching price. No matching table with the price threshold or scaling law was identified; a negative search is not a novelty proof.",
+      "searches": [
+        "\"Kirchhoff index\" \"perfect matching\" \"weighted\" \"complete graph\" optimization",
+        "\"cocktail party graph\" \"Kirchhoff index\" effective resistance",
+        "Kirchhoff index and degree Kirchhoff index of complete multipartite graphs",
+        "Optimal total effective resistance, Kirchhoff index, of complete graph on even 2m vertices with edges of perfect matching price t and every other edge price 1; exact edge-conductance budget deletion threshold."
+      ]
+    },
+    "rationale": "The 2008 primary optimization paper presents the general unpriced convex network-design problem and equal-price complete-graph solution, but its inspected analytical examples and extensions do not give a perfect-matching price-orbit threshold. The 2016 complete-multipartite primary paper gives fixed unit-conductance Kirchhoff values, including the cocktail-party deletion endpoint, without optimizing the reinstated matching orbit under a relative price. The claim is restricted to the explicit two-price matching classification and its critical scaling; general spectral methods are acknowledged. Search results do not establish absolute novelty, and specialized earlier literature remains a residual risk.",
+    "residual_risks": [
+      "A historical theorem may encode the same two-orbit weighted complete graph under an equivalent experimental-design, resolvent-trace, or resistance vocabulary.",
+      "The 2012 Gervacio primary article was inspected only to abstract level because the full PDF did not load; its fixed-unit-resistance stated scope makes direct coverage unlikely but not logically excluded.",
+      "The claim is an exact special-family classification, not a claim about arbitrary nonuniform edge-price vectors or arbitrary graph topologies."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general convexity and equal-price examples including the complete graph, but not the two-price perfect-matching allocation theorem in material examined.",
+        "evidence": [
+          "DOI 10.1137/050645452; Section 1, formula (2), uniform budget; Section 5 examples trees/wheels/barbells; Section 6 uniform complete graph; Section 8 other resistance objectives."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Primary 30-page PDF, abstract and introduction, the scope and optimization formulation; relevant full-text passages concerning strict convexity, explicit graph families, complete graphs in Section 6, and extensions in Section 8; PDF page 25 visually inspected.",
+        "method": "Lawful author-hosted PDF, full-text navigation and pertinent sections read; visual inspection of the complete-graph passage.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational exact-objective paper and potentially dominating general design theorem"
+      },
+      {
+        "assessment": "Treats fixed unit-conductance multipartite graph Kirchhoff indices and resistance distances; does not optimize two conductance-price orbits.",
+        "evidence": [
+          "arXiv:1611.09457, Section 3 fixed-topology Kirchhoff formula, Example 5.4 cocktail-party degree index."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1611.09457v1",
+        "material_read": "Full open HTML article, in particular Sections 2--5, Proposition 3.3, Corollaries 3.4--3.5 and Example 5.4 and proof passages.",
+        "method": "ArXiv author preprint HTML, primary text read.",
+        "title": "Kirchhoff index and degree Kirchhof index of complete multipartite graphs",
+        "trigger": "The zero-matching optimum is a cocktail-party complete multipartite graph; needed check for a published exact endpoint formula"
+      },
+      {
+        "assessment": "The described scope explicitly replaces every graph edge by a unit resistor and computes fixed-network pair resistances. It is not used to assert full-text exclusion of a weighted extension.",
+        "evidence": [
+          "Mindanawan Journal of Mathematics, Vol. 3 No. 1 (2012), abstract and publication metadata."
+        ],
+        "identifier_or_url": "https://journals.msuiit.edu.ph/tmjm/article/view/26",
+        "material_read": "Article abstract, source information and 2012 publication record; linked full PDF could not be retrieved successfully.",
+        "method": "Publisher abstract and bibliographic page; PDF retrieval attempted, no full text obtained.",
+        "title": "Resistance distance in complete n-partite graphs",
+        "trigger": "Original resistance-distance formula for multipartite graph endpoint referenced by the second primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf3b1355-b128-4432-8ffe-f2ef76836de4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete graph with distinguished paired links is a natural two-class reliability/network-pricing model. The exact price at which an entire sparse matching orbit should be pruned is a meaningful structural design cutoff; it is not a single ad hoc instance. The critical price approaches unity at rate inverse network size, producing an explicit nontrivial boundary layer in the optimizer and the resistance gain, and the macroscopic value has a second-derivative transition at unit price. These relations distinguish near-equal price design from fixed-price asymptotics, while not claiming a general-network theorem.",
+    "status": "PASS"
+  }
+}
