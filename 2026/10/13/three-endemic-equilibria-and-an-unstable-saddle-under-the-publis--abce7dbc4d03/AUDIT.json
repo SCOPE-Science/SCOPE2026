@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The chosen incidence function is continuously differentiable, strictly increasing, vanishes at zero, and obeys the exact source bound h(I)<=h'(0)I. Exact elimination factors the endemic-equilibrium equation into three positive roots while the source reproduction number is 16/5. At the middle equilibrium the exact Jacobian has one positive eigenvalue. The source proof's missing inequality is directly falsified at I=2, where h(2)/2=1/3<h'(2)=5/9.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhang, Ma, and Din explicitly assume a non-increasing incidence ratio and f(I)>I f'(I), a condition stronger than the motivating source's printed upper bound.",
+        "Ruan and Wang document multiple equilibria and bifurcation behavior in a different nonlinear-incidence epidemic model.",
+        "These broader results establish the mechanism's plausibility but do not imply the exact three-root SVI counterexample."
+      ],
+      "reasoning": "Broader nonlinear-incidence theory shows that weak incidence hypotheses can permit richer equilibrium geometry. The source-specific exact witness and proof-gap diagnosis remain separate from those general phenomena.",
+      "searches": [
+        "nonlinear incidence epidemic multiple endemic equilibria backward bifurcation",
+        "\"Stationary distribution and extinction of a stochastic SEIQ epidemic model\" f(I) I f'(I)",
+        "\"Dynamical behavior of an epidemic model with a nonlinear incidence rate\" endemic equilibria bifurcation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023148",
+      "doi:10.3934/math.2021715",
+      "doi:10.1016/S0022-0396(02)00089-X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed correction of Theorem 2.1 was located.",
+        "A prior source-specific finding on the same article concerns the later stochastic Lévy stationary-density theorem, not deterministic equilibrium multiplicity or Theorem 2.1.",
+        "The stronger incidence assumptions in related epidemic literature do not imply that the motivating paper actually assumed them."
+      ],
+      "reasoning": "The accepted statement is not covered by a prior density correction or by general nonlinear-incidence bifurcation theory. It independently falsifies the deterministic theorem under the exact hypotheses printed in the source.",
+      "searches": [
+        "\"10.3934/math.2023148\" correction erratum endemic equilibrium",
+        "\"10.3934/math.2023148\" Theorem 2.1 correction",
+        "\"Global dynamics and density function in a class of stochastic SVI epidemic models\" correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating theorem states uniqueness and local asymptotic stability of an endemic equilibrium for reproduction number above one.",
+        "The exact admissible incidence function produces three positive endemic roots and an unstable middle root.",
+        "Published-finding searches returned generic nonlinear-stability corrections in other models but no source-specific SVI correction."
+      ],
+      "reasoning": "The claim was searched as failure of endemic uniqueness, endemic instability, a missing incidence-ratio hypothesis, and a source-specific correction to the deterministic SVI theorem. These formulations all target the same implication.",
+      "searches": [
+        "\"10.3934/math.2023148\" endemic equilibrium local stability counterexample nonlinear incidence",
+        "\"Global dynamics and density function in a class of stochastic SVI epidemic models\" endemic equilibrium unstable",
+        "\"f(I) ≤ f'(0) I\" endemic equilibrium local stability SVI",
+        "vaccination nonlinear incidence endemic equilibrium instability f(I) I f'(I)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text was inspected at model (1.1), Table 3, the reproduction number, the endemic-equilibrium equation, and Theorem 2.1.",
+        "The theorem proof was inspected at the Jacobian definitions and the displayed sign argument for the l33 quantity.",
+        "Publisher metadata verifies first publication on 10 November 2022 and primary MSC 92D25."
+      ],
+      "reasoning": "The counterexample is checked against the exact printed assumptions and proof step rather than a secondary paraphrase.",
+      "searches": [
+        "doi:10.3934/math.2023148 Table 3 incidence assumptions",
+        "doi:10.3934/math.2023148 Theorem 2.1 endemic equilibrium",
+        "doi:10.3934/math.2023148 Jacobian l33 f(I)/I f'(I)"
+      ]
+    },
+    "rationale": "Multiple endemic equilibria under nonlinear incidence are established prior phenomena and are not claimed as new. The original content is the exact counterexample to the motivating paper's deterministic Theorem 2.1 under its own printed incidence hypotheses, including an exact three-root factorization, an unstable endemic saddle, and the identification of the unassumed ratio inequality used in the proof. No checked source supplied or implied this exact correction.",
+    "residual_risks": [
+      "A non-indexed correction to Theorem 2.1 could exist outside the checked records.",
+      "The stability types of the two outer endemic equilibria are not part of the accepted claim.",
+      "The broader Ruan-Wang comparison was used for context from its bibliographic record and abstract, not for exhaustive non-coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "THREE_ENDEMIC_EQUILIBRIA_AND_UNSTABLE_SADDLE_UNDER_PRINTED_HYPOTHESES",
+        "evidence": "The exact equilibrium equation has three positive roots for reproduction number 16/5, and the middle equilibrium has eigenvalue (7+sqrt(454))/15>0.",
+        "identifier_or_url": "doi:10.3934/math.2023148",
+        "material_read": "Publisher full text at deterministic model (1.1), Table 3 assumptions, invariant region, reproduction number, endemic-equilibrium derivation, Theorem 2.1, and the complete local-stability Jacobian argument.",
+        "method": "Constructed an incidence function satisfying every printed hypothesis but with a non-monotone incidence ratio, eliminated susceptible and vaccinated coordinates exactly, and reconstructed the Jacobian at a closed-form endemic root.",
+        "title": "Global dynamics and density function in a class of stochastic SVI epidemic models with Lévy jumps and nonlinear incidence",
+        "trigger": "Primary source containing the target deterministic equilibrium theorem and incidence assumptions."
+      },
+      {
+        "assessment": "STRONGER_RATIO_ASSUMPTION_IS_STANDARD_AND_NOT_PRESENT_IN_TARGET_SOURCE",
+        "evidence": "The related paper assumes that f(I)/I is non-increasing and f(I)>I f'(I), then notes that this implies f(I)<I f'(0).",
+        "identifier_or_url": "doi:10.3934/math.2021715",
+        "material_read": "Open full text at assumptions (A1)-(A2) on the incidence function and the stated consequence of those assumptions.",
+        "method": "Compared logical implications between the two incidence-hypothesis sets.",
+        "title": "Stationary distribution and extinction of a stochastic SEIQ epidemic model with a general incidence function and temporary immunity",
+        "trigger": "Closely related epidemic work using the stronger incidence-ratio property needed by the motivating proof."
+      },
+      {
+        "assessment": "BROADER_NONLINEAR_INCIDENCE_COMPLEXITY_DIFFERENT_MODEL",
+        "evidence": "The paper establishes rich nonlinear-incidence dynamics in a different epidemic system, supporting the relevance of controlling the incidence-ratio geometry.",
+        "identifier_or_url": "doi:10.1016/S0022-0396(02)00089-X",
+        "material_read": "Bibliographic record and abstract describing persistence, saddle-node, Hopf, and homoclinic bifurcations.",
+        "method": "Used as broader context, not as a whole-document non-coverage certificate.",
+        "title": "Dynamical behavior of an epidemic model with a nonlinear incidence rate",
+        "trigger": "Broader primary literature on nonlinear-incidence equilibrium and bifurcation complexity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abce7dbc-4d03-43be-9e22-b6ecfd3df0fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The deterministic threshold theorem is the foundation for the article's later stochastic analysis and explicitly states that equilibrium behavior is determined by the reproduction number. An exact admissible example with three endemic equilibria and an unstable one shows that the published hypothesis set is insufficient in a structural, not numerical, way. The proof-gap diagnosis points directly to the additional incidence-ratio control needed for repair.",
+    "status": "PASS"
+  }
+}
