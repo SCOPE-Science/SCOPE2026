@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The fixed-good-edge count 2^{r(S)}(n-|S|)! follows by monotone consecutive-integer blocks, including exact orientation and interval-allocation multiplicities. Boolean-lattice Möbius inversion enforces precisely no adjacent missing good edges. The three-state transfer yields the stated rational polynomial generating function and exact all-length coefficient formula, checked symbolically. Direct exhaustive permutation counts through n=10, a separate mask DP through n=14, literal Möbius enumeration through m=9, and transfer state computations through m=59 all reproduce it; no finite test substitutes for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buzaglo–Yaakobi 2016 Lemma 14 and Theorems 13,15 provide size upper bound and asymptotic C(1)=1/2; neither determines coefficients of the exact recurrence.",
+        "Reilly–Tanny 1979 abstract counts permutations with exactly k increasing successions, without location of ±1 successions or exclusion of adjacent bad edges."
+      ],
+      "reasoning": "Capacity estimates, lower-bound construction sizes and the univariate count by number of increasing successions do not imply the positional no-consecutive-bad-edge all-length exact count. Full 1979 text was not accessible, so a stronger multivariate refinement that subsumes the finding remains an explicit residual risk.",
+      "searches": [
+        "Published-research-index query: rational bivariate generating function for one-step two-neighbor constrained permutation cardinality",
+        "Web: Reilly Tanny Counting Successions in Permutations 1979 open access pdf arxiv",
+        "DOI:10.1002/sapm197961173"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.4484v1, Buzaglo–Yaakobi, 2014 preprint, primary full text",
+      "DOI:10.1109/TIT.2016.2519400, Buzaglo–Yaakobi, 2016, 18-page primary full text",
+      "DOI:10.1002/sapm197961173, Reilly–Tanny 1979, abstract only",
+      "Published finding on Av(1324,1342) active-site enumeration, a different permutation class",
+      "Published finding on 2-intersecting permutation extremal families, different claim",
+      "Published finding on exact enumeration of mappings between finite weak orders, different objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary 2016 Lemma 12 computes the cardinality of Construction 11, a proper code subset; Lemma 14 bounds the entire constrained alphabet; Theorems 13 and 15 deduce capacity, rather than exact counts.",
+        "The full recurrence enumerates admissible permutations outside any one construction and gives all finite lengths; this stronger information is not an implication of capacity 1/2 or the previously supplied inequalities."
+      ],
+      "reasoning": "Compared logical statements and parameter domains: same An,1, but the prior results constrain its growth or bound its size, whereas this finding determines the exact integer for each n with a new polynomial recurrence. It neither treats the earlier bounds as new nor assumes distinct wording proves noncoverage.",
+      "searches": [
+        "arXiv:1401.4484v1",
+        "DOI:10.1109/TIT.2016.2519400",
+        "Published-research-index query: permutation no two consecutive nonconsecutive-value adjacencies signed succession patterns polynomial transfer generating function 1+(3u-2u^2)z"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Buzaglo–Yaakobi 2016 Definition 2, PDF pp. 2–4, is the same symmetric adjacent-rank condition; their Section III contains size bounds, not this recurrence.",
+        "A publicly indexed result concerns Av(1324,1342) active insertion sites, a different permutation class."
+      ],
+      "reasoning": "The condition is not a new renaming of a distinct constraint: it is exactly the archive model at k=1. The asserted contribution is its hitherto unlocated complete finite enumeration. In published-index and primary comparisons, no equivalent rational bivariate generating function or factorial-weighted formula was observed.",
+      "searches": [
+        "Published-research-index query: permutations adjacent differences at most one on at least one side of every internal position two-neighbor 1 constraint exact enumeration generating function",
+        "Published-research-index query: rank modulation two-neighbor k constraint k=1 exact enumeration permutations",
+        "Web: two neighbor constrained permutations k=1 exact cardinality enumeration Buzaglo Yaakobi generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Target sequence begins 2,6,18,52,170,550,1972,6998,27106 (derived from exact recurrence and independently counted).",
+        "The exact queried sequence and model produced no matching table in returned public results; nearest published-index titles enumerate different combinatorial families."
+      ],
+      "reasoning": "A known exact table or a stronger tabulation could cover the value even without the same proof or title; no such table was located in the actual queries. This is limited search evidence, not a claim of exhaustive database coverage.",
+      "searches": [
+        "Web: \"2, 6, 18, 52, 170, 550\" permutations",
+        "Published-research-index query: Exact enumeration of two-neighbor 1-constrained permutations rank modulation counts 2 6 18 52 170 550",
+        "Published-research-index query: two-neighbor constrained permutation rank modulation k one factorial weighted coefficient recurrence"
+      ]
+    },
+    "rationale": "The 2014 and expanded 2016 Buzaglo–Yaakobi primary texts define exactly the same admissibility model; their contribution is asymptotic capacity, bounds and constructions of subsets, not a complete finite-length enumerator. Search and theorem-implication comparisons did not identify the recurrence or the all-n cardinalities as prior results. A historical succession-enumeration article was inspectable only at abstract level, so coverage remains a documented non-decisive bibliographic risk. No independence or exhaustive world novelty certificate is claimed.",
+    "residual_risks": [
+      "Full Reilly–Tanny (1979) text unavailable; a sophisticated multivariate positional succession theorem, if present, could subsume the exact count.",
+      "Unindexed succession-polynomial or rank-modulation enumeration tables may exist; database absence does not prove uniqueness.",
+      "No independent external review has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_BUT_NOT_EXACT_ENUMERATOR",
+        "evidence": [
+          "First posted 2014-01-17; two-neighbor k-constraint matches k=1. Capacity and construction results do not state the displayed recurrence."
+        ],
+        "identifier_or_url": "arXiv:1401.4484v1; https://arxiv.org/abs/1401.4484",
+        "material_read": "Five-page publicly available preprint including statements and construction",
+        "method": "Read primary preprint PDF and its formal model and results",
+        "title": "Constrained Codes for Rank Modulation",
+        "trigger": "Original archive-era source defining the exact two-neighbor k-constraint"
+      },
+      {
+        "assessment": "SAME_OBJECT_BUT_PRIOR_BOUND_AND_CAPACITY_NOT_FINITE_ENUMERATION",
+        "evidence": [
+          "Definition 2 exactly defines An,k; Lemma 12 gives size of a constructed code subset; Lemma 14 gives global upper bound; Theorems 13 and 15 establish asymptotic capacity. No claimed finite-length count or all-n recurrence in inspected primary text."
+        ],
+        "identifier_or_url": "DOI:10.1109/TIT.2016.2519400; https://yaakobi.net.technion.ac.il/files/2016/04/20_RM_Capacity_IT16.pdf",
+        "material_read": "Full 18-page extracted text, especially formal Definition 2 (p.2) and Section III (pp.3–4), with PDF page-image check for Theorem 13 and Lemma 14",
+        "method": "Primary open-access full text and page-image inspection; comparison of Construction 11, Lemma 12, Theorems 13 and 15, Lemma 14",
+        "title": "On the Capacity of Constrained Permutation Codes for Rank Modulation",
+        "trigger": "Expanded, highly relevant 18-page primary result, potentially subsuming the conference paper"
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON_RESIDUAL_RISK",
+        "evidence": [
+          "Abstract defines succession by +1 and counts exactly k such pairs; present condition uses signed ±1 positional pattern. Cannot make whole-document noncoverage judgment without full text."
+        ],
+        "identifier_or_url": "DOI:10.1002/sapm197961173; https://onlinelibrary.wiley.com/doi/abs/10.1002/sapm197961173",
+        "material_read": "Published abstract and bibliographic details only; complete article not accessible",
+        "method": "Publisher abstract and open-access/preprint search; institutional full-text request unavailable",
+        "title": "Counting Successions in Permutations",
+        "trigger": "Historically plausible generalized permutation-succession enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5fa9e4df-7354-497d-91fb-f356376c540b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter k=1 is the smallest natural tolerance in a flash-memory rank-modulation constraint, not a chosen artificial subcase. Exact finite-length alphabet sizes quantify the space available for finite-block encoding whereas the known asymptotic capacity C(1)=1/2 does not. The transfer-state proof and O(n^2) integer-arithmetic recurrence determine a natural infinite family of exact cardinalities and permit reusable parameter-free computation beyond brute factorial enumeration; no external performance claim is needed.",
+    "status": "PASS"
+  }
+}
