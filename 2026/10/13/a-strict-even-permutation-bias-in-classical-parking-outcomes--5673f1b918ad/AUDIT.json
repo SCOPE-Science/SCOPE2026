@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the last car at each occupied position gives a bijection into two independent smaller parking functions, a subset of earlier labels, and the admissible final preferences. The parity decomposition multiplies the internal signs by the sign of cross-block inversions and the inversions contributed by the largest label. The signed subset sum is a Gaussian binomial at minus one, yielding an exact all-size recurrence. Separating even and odd indices gives the formal differential identities stated in the proof. Their coefficient induction is triangular and strictly positive, with the odd values then given by a positive convolution. Every boundary, including the empty object and empty blocks, is explicit. The standalone checker `verify.py` executed and passed 209 exact assertions, including direct parking simulation for sizes at most seven and independent outcome-weight enumeration at most eight. Finite checks do not prove the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pinsky arxiv:2404.11529 Theorem 1 solves individual atom probabilities but does not explicitly sum by sign or deduce positivity; Corollary 4 gives a single maximum and minimum.",
+        "Paguyo–Yin arxiv:2502.07110 Section 1 identifies cycles of a mapping on labels, structurally distinct from the parking outcome permutation."
+      ],
+      "reasoning": "A complete atom distribution trivially determines any finite expectation as an unevaluated sum, but neither positivity for every n nor a polynomial-time convolution in size follows as a stated corollary. The proposed general weighted-word inversion result concerns a different statistic. No stronger theorem with signed-outcome sign determination was found.",
+      "searches": [
+        "published-finding corpus: sign imbalance parity of parking outcome permutations for uniformly random parking functions signed enumeration Gaussian q-binomial minus one",
+        "Web: parking functions permutation sign positive even parking spaces",
+        "arxiv:2404.11529 Theorems 1-3, Corollaries 1-4 and proofs in sections 2-4",
+        "arxiv:2502.07110 abstract, model and main cycle theorems"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.11529 (Pinsky; first publicly posted 2024-04-17)",
+      "arxiv:2502.07110 (Paguyo and Yin; first publicly posted 2025-02-10; MSC 60C05)",
+      "arxiv:2508.11587 (Celano et al.; first publicly posted 2025-08-15)",
+      "FindStat Parking Functions collection",
+      "Published mathematical-record semantic searches for parity of parking outcome permutations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pinsky counts any fixed outcome sigma by product of local backward-record lengths, but this does not directly evaluate the sign-weighted sum over sigma.",
+        "Celano et al. invert preference words and obtain a q-exponential formula for those words; outcome permutations are defined, but their signs are not the enumerated observable."
+      ],
+      "reasoning": "The exact logical increment is a closed signed convolution and strict positivity for every size, not the preexisting fact that an individual atom has a calculable weight. The full sign sum is nontrivial because alternating contributions cancel; positivity follows from a new formal differential representation.",
+      "searches": [
+        "arxiv:2404.11529 Theorem 1 and proof, conditional output weights",
+        "arxiv:2508.11587 Theorem 1.1 and definition of inv(alpha)",
+        "published-finding corpus: classical parking preference word inversion versus occupied-space outcome parity",
+        "published-finding corpus: explicit formal differential equation E prime E cube 8z E squared E prime 4 z squared E squared E double prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2404.11529 Theorem 1: atom weight L_n(sigma)/(n+1)^(n-1), with no signed-sum statement among stated theorems.",
+        "arxiv:2508.11587 Introduction and Theorem 1.1: inv(alpha) counts inversions of preference word alpha, not inv(pi(alpha))."
+      ],
+      "reasoning": "The map from preferences to the final occupied-space permutation is not the preference word itself. Inversion sign of that permutation involves dependent arrival displacements; the standard symmetric-function inversion enumerator for preference words cannot be substituted. No explicit equivalent signed-sum identity was found.",
+      "searches": [
+        "published-finding corpus: classical random parking function induced permutation even odd outcome bias; exact signed difference positive for all n; recurrence with Gaussian binomial at q=-1",
+        "published-finding corpus: induced parking permutation Pinsky product weights sign imbalance count even versus odd parking outcomes",
+        "Web: \"permutation induced\" \"parking function\" \"parity\"",
+        "Web: \"parking functions\" \"inversions\" \"parking order\" parity",
+        "arxiv:2404.11529 full-text keyword searches: sign, parity, inversion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct checks yield signed counts 1,1,1,4,11,72,335,2944,19449,... rather than the classical unrefined count (n+1)^(n-1).",
+        "The identified FindStat collection defines parking functions by preference words and does not supply the claimed outcome-parity recurrence in the inspected material."
+      ],
+      "reasoning": "The initial sequence and the signed-output formula were searched explicitly; no identical published table or database row was identified. This negative search does not establish absolute novelty.",
+      "searches": [
+        "Web: \"1, 1, 1, 4, 11, 72, 335, 2944\" parking",
+        "Web: \"11,72,335,2944,19449\" sign parking",
+        "Web: parking functions outcome permutation sign imbalance",
+        "FindStat Parking Functions collection: statistics and object description",
+        "published-finding corpus: parking function parity q=-1 Gaussian binomial signed outcome sequence"
+      ]
+    },
+    "rationale": "Pinsky gives individual outcome-permutation weights but not the signed all-permutation sum, the positive all-size sign, or the Gaussian-binomial differential system. Paguyo–Yin address cycles of the preference mapping; Celano et al. address inversions of preference words, a different statistic. Results from source-text inspections, public searching, and the published mathematical record exposed no implication covering the universal positive signed outcome count. A general weighted-probability formula permits an unevaluated signed sum, but proving its strict sign requires the new positivity mechanism. Remaining priority risks are expressly recorded.",
+    "residual_risks": [
+      "Pinsky’s fully explicit atom law might have an unrecorded previously published sign-summed corollary; none identified in inspected results.",
+      "An unindexed identity for signed parking outcomes or a symmetric-function formulation with different terminology might cover the claim.",
+      "Public database/search coverage cannot establish universal priority; no independent mathematical referee review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_ATOM_LAW_NOT_EXPLICITLY_COVERING_SIGN",
+        "evidence": "Theorem 1, equation (1.5): P^park_n(sigma)=L_n(sigma)/(n+1)^(n-1); Section 2 proves the product. No sign/parity theorem found in inspected statements or full-text searches.",
+        "identifier_or_url": "https://arxiv.org/pdf/2404.11529",
+        "material_read": "PDF Introduction pp.1-4, Theorem 1 and its proof pp.9-10, theorem and corollary statements through p.8, sections 2-4 on fixed output and late arrivals; full-document searchable-text queries for sign, parity and inversion.",
+        "method": "Read PDF rendered pages and searchable text; compare atom-probability statement to signed-sum positivity.",
+        "title": "The distribution on permutations induced by a random parking function",
+        "trigger": "Direct same-object primary predecessor; atom law could dominate the proposed signed result."
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE",
+        "evidence": "The paper constructs the directed graph of the preference mapping and studies cyclic points and cycle counts, not the permutation of parked car labels.",
+        "identifier_or_url": "https://arxiv.org/pdf/2502.07110",
+        "material_read": "Abstract and Section 1 definitions/literature pp.1-2, main cycle count theorem in Section 4, source date/MSC metadata.",
+        "method": "Read PDF text and rendered front page; compare underlying maps and observables.",
+        "title": "Limit distributions for cycles of random parking functions",
+        "trigger": "Qualifying recent primary probability literature on statistics of uniform classical parking functions."
+      },
+      {
+        "assessment": "NOT_COVERING_OUTPUT_SIGN",
+        "evidence": "Definition on p.1: inv(alpha) counts i<j with alpha_i>alpha_j for preference word alpha; p.1 separately defines outcome pi(alpha), which is not the q-enumerated word.",
+        "identifier_or_url": "https://arxiv.org/pdf/2508.11587",
+        "material_read": "Abstract and Introduction pp.1-2, Theorem 1.1 and setup, Section 2 forest interpretation, Section 3 generating-function formulas; full-text searches for outcome permutation.",
+        "method": "Read PDF text and rendered page; compare inverse statistics exactly.",
+        "title": "Inversions in parking functions",
+        "trigger": "Close title/keyword match: inversion enumerators and parity at q=-1."
+      },
+      {
+        "assessment": "NO_MATCH_IDENTIFIED_IN_INSPECTED_MATERIAL",
+        "evidence": "The collection defines parking preference words; no identified output-permutation sign enumerator or matching 1,1,1,4,11,72,335 sequence.",
+        "identifier_or_url": "https://www.findstat.org/CollectionsDatabase/ParkingFunctions/",
+        "material_read": "Collection definition and initial examples; related search results for the signed sequence.",
+        "method": "Public database-page examination and targeted sequence searches.",
+        "title": "Parking Functions collection",
+        "trigger": "Potential preexisting recorded statistic or table for the signed sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5673f1b9-18ad-40f8-9f26-f36f11fe2d0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The signed parity character is a canonical coarse observable of the permutation distribution induced by uniform classical parking; uniform random permutations are exactly parity balanced for n≥2. Existing results provide individual parking-outcome weights and separate preference-word inversion laws, but no global sign. The all-size strict bias and positivity-preserving formal differential identity resolve the natural cancellation question across an infinite family. It is not a renaming of the ordinary parking count, a finite table recomputation, or a trivial special case; the distinction between two permutations/words supplies substantive motivation. A normalized-bias asymptotic is intentionally not asserted.",
+    "status": "PASS"
+  }
+}
