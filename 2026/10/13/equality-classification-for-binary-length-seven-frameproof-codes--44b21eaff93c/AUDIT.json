@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The claim is reduced exactly to forbidding three binary words when one lies on a Hamming geodesic between the other two. Translation normalizes an arbitrary nonempty code to contain the zero word. The bundled depth-first search is exhaustive by an induction on its candidate mask: it removes exactly those future vertices that would create a forbidden triple with two already selected vertices. It finds 7,560 normalized nine-word codes and zero normalized ten-word codes. A direct replay of the defining triple condition is applied to every maximum. The 107,520 labeled count follows from a free translation action on an odd nine-set, and the two full isometry orbits are reconstructed explicitly from all translations and all \\(7!\\) coordinate permutations.",
+    "risks": [
+      "The classification is finite and computer-assisted; a coding error is the principal correctness risk. It is mitigated by deriving forbidden triples directly from the defining geodesic condition, separately rerunning the defining condition on every maximum, checking target size ten exhaustively, and rebuilding the symmetry orbits from generators without relying on stored orbit labels."
+    ],
+    "sources": [
+      "artifacts/verify_q7_frameproof.py",
+      "artifacts/verification_output.txt",
+      "doi:10.1007/s00009-023-02416-z"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korže--Vesel state that exact hypercube general-position numbers are certified through dimension seven. The published-finding corpus dimension-eight result proves only the maximum size in dimension eight and supplies no theorem covering equality structures in dimension seven."
+      ],
+      "reasoning": "A theorem determining only a maximum cardinality does not imply the number of maximizers, their equivalence classes, stabilizers, or distance profiles. No inspected broader theorem supplied those stronger equality data.",
+      "searches": [
+        "binary (2,1)-separating systems length 7 maximum equality cases",
+        "gp(Q7)=9 maximum sets orbit stabilizer",
+        "source: 2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0895480196304246",
+      "arxiv:1010.5764",
+      "doi:10.1007/s00009-023-02416-z",
+      "oeis:A089676",
+      "published-finding corpus:2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published-finding corpus ID is 2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0 and concerns the distinct length-eight maximum-size theorem. Exact searches containing the new labeled count, the orbit sizes, stabilizers, and a canonical representative did not retrieve a covering dimension-seven classification."
+      ],
+      "reasoning": "Knowing that the optimum equals 9, or even possessing one optimum, leaves many possible equality structures. The new statement proves a complete partition of all 107,520 labeled maxima into two natural isometry classes, so it is not a corollary of the prior cardinality statements.",
+      "searches": [
+        "Q7 general position maximum sets 107520 two orbits classification",
+        "binary length seven 2-frameproof codes 107520 two equivalence classes",
+        "binary length seven 2-frameproof code exactly 107520 maximum codes 80640 26880",
+        "Q7 general position maximum sets two orbits stabilizers 8 24",
+        "0000000 0000011 0001101 0110001 2-frameproof",
+        "length 7 (2,1)-separating systems equality classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Randriambololona identifies binary no-between sets with (2,1)-separating systems. Korže--Vesel identify hypercube general-position sets with the same coding-theory object. The inspected published-finding corpus dimension-eight result explicitly states the equivalence among binary 2-frameproof codes, (2,1)-separating systems, and hypercube general-position sets."
+      ],
+      "reasoning": "These aliases were searched and compared at the statement level. The new claim is not a renamed version of a result under another terminology: it classifies all dimension-seven equality cases, whereas the inspected alias sources give asymptotic statements, exact cardinalities, or the dimension-eight value.",
+      "searches": [
+        "binary (2,1)-separating systems length 7 size 9",
+        "source: arxiv:1010.5764",
+        "source: doi:10.1007/s00009-023-02416-z",
+        "source: published-finding corpus:2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A089676 records the dimension-seven value 9 and gives a Bevan witness. Korže--Vesel report exact general-position values through dimension seven. Neither inspected presentation supplies 107,520 labeled maxima or a two-orbit classification."
+      ],
+      "reasoning": "The database/table information covers the extremal number and example, not the equality census. Therefore the new count and orbit structure are not table recomputations of a listed quantity.",
+      "searches": [
+        "OEIS A089676 dimension 7 9 Bevan",
+        "Q7 general position exact value table Korze Vesel 2023"
+      ]
+    },
+    "rationale": "The inspected literature and database sources establish the object, its equivalent formulations, and the already-known exact cardinality in dimension seven, but no inspected source gives the complete labeled equality census or the two Hamming-isometry classes. The closest published-finding corpus record is the exact dimension-eight theorem; its full text explicitly treats dimension eight as the first dimension beyond the previously exact range and does not classify dimension-seven maxima. Exact-count, representative, orbit-size, stabilizer, and alias searches returned no implication-equivalent result.",
+    "residual_risks": [
+      "An unindexed equality-case enumeration may exist, most plausibly in the unavailable exact Bevan source behind the OEIS witness; no inspected source or published-finding corpus hit implied such a classification."
+    ],
+    "risks": [
+      "The exact Bevan source cited by OEIS for the small-dimensional optimum was not located as a primary full text. An obscure or unindexed historical equality-case census could therefore exist, although the inspected later article and database presentation discuss the exact value/witness rather than a complete equality classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and studies frameproof codes combinatorially; inspected material does not provide the binary length-seven equality census.",
+        "evidence": "Publisher metadata lists MSC 94A60; the abstract describes combinatorial formulations and constructions of frameproof codes.",
+        "identifier_or_url": "doi:10.1137/S0895480196304246",
+        "material_read": "Publisher abstract, bibliographic information, MSC metadata, and independent bibliographic date metadata.",
+        "method": "Publisher HTML and bibliographic metadata inspection.",
+        "title": "Combinatorial Properties and Constructions of Traceability Schemes and Frameproof Codes",
+        "trigger": "Primary frameproof-code source and MSC ownership check."
+      },
+      {
+        "assessment": "Provides the equivalent object and asymptotic context, not a finite dimension-seven equality classification.",
+        "evidence": "The preprint formulates the binary Hamming-space no-between problem and its (2,1)-separating code form.",
+        "identifier_or_url": "arxiv:1010.5764",
+        "material_read": "Primary preprint introduction and definitions describing the no-between and (2,1)-separating formulations.",
+        "method": "Open-access full-text inspection.",
+        "title": "(2,1)-Separating systems beyond the probabilistic bound",
+        "trigger": "Alias/equivalence check for binary separating systems."
+      },
+      {
+        "assessment": "Establishes/records exact hypercube cardinalities through dimension seven via SAT, but the inspected text does not enumerate or classify all maximum sets.",
+        "evidence": "The hypercube section states equivalence with (2,1)-separating systems and says the values through dimension seven are exact.",
+        "identifier_or_url": "doi:10.1007/s00009-023-02416-z",
+        "material_read": "Open-access full article, especially the hypercube section and its statement that dimensions at most seven have exact values.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "General Position Sets in Two Families of Cartesian Product Graphs",
+        "trigger": "Direct finite hypercube exact-value comparison."
+      },
+      {
+        "assessment": "Determines the length-eight value 10 and identifies it as the first dimension beyond the prior exact range; it does not classify dimension-seven equality cases.",
+        "evidence": "The record states that dimension eight is beyond the previously known exact range through dimension seven and proves the size-10 upper bound.",
+        "identifier_or_url": "published-finding corpus:2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0",
+        "material_read": "Complete RESULT.md plus metadata/review of the related record.",
+        "method": "Repository file inspection after published-finding corpus discovery.",
+        "title": "Exact size of binary (2,1)-separating systems of length eight",
+        "trigger": "Closest published-finding corpus hit for exact binary separating/frameproof parameters."
+      },
+      {
+        "assessment": "Records the known optimum and an example but not a complete equality census or Hamming-isometry orbit decomposition.",
+        "evidence": "The entry gives a(7)=9 and a concrete nine-word set.",
+        "identifier_or_url": "oeis:A089676",
+        "material_read": "Sequence comments and examples, including the dimension-seven value and Bevan witness.",
+        "method": "Database entry inspection.",
+        "title": "OEIS A089676",
+        "trigger": "Exact small-parameter database/table check."
+      }
+    ],
+    "sources": [
+      "doi:10.1137/S0895480196304246",
+      "arxiv:1010.5764",
+      "doi:10.1007/s00009-023-02416-z",
+      "oeis:A089676",
+      "published-finding corpus:2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44b21eaf-f93c-4fe0-a546-78fe737ce15b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dimension-seven optimum is a natural benchmark: it is the last hypercube dimension whose exact cardinality was known before the recently closed dimension-eight case. A complete equality classification supplies substantially more structure than the known number 9: it counts every labeled optimum, proves there are exactly two natural geometries, gives their stabilizers, and separates them by simple intrinsic distance and coordinate profiles. Such equality information is useful for understanding extremal constructions and for testing structural conjectures in separating/frameproof code theory.",
+    "risks": [
+      "The result is a finite classification and does not itself yield a new asymptotic bound or higher-dimensional construction; its value rests on being a complete structural refinement of a standard exact benchmark rather than on downstream generality."
+    ],
+    "sources": [
+      "doi:10.1007/s00009-023-02416-z",
+      "published-finding corpus:2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0",
+      "oeis:A089676"
+    ],
+    "status": "PASS"
+  }
+}
