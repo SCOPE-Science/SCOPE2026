@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Every graph vertex has degree N minus its part size. The unique smallest part is forced into every strongly dominating set; two repeated minimum parts allow a two-vertex solution. The resulting exact gamma formula is applied to all vertex-deletion cases, including the empty and one-part boundaries. All minimum witness classes and counts are exhaustive. The standalone direct verifier checks 183 complete multipartite profiles through order eleven and explicit twelve-vertex examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary source gives join claims as well as balanced-multipartite results.",
+        "A complete multipartite graph is an iterated join of edgeless graphs, but the printed two-vertex assertion for nonuniversal joins does not respect the degree requirement for a uniquely smallest part: the graph with part sizes (3,4,4) has strong domination number three."
+      ],
+      "reasoning": "The general join statement, even if interpreted as covering this graph class, does not soundly imply the exact theorem because its asserted cardinality is contradicted by direct neighborhood and degree comparisons. No independently verified stronger result was found.",
+      "searches": [
+        "\"strong domination\" \"complete multipartite\" \"stability\" gamma",
+        "\"strong domination\" \"join\" \"stability\"",
+        "arXiv:2601.03891v2 Section 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.03891v1, Sections 1 and 2.1",
+      "arXiv:2601.03891v2, Sections 1, 2.1, and 4.1",
+      "Public literature searches for exact stability of complete multipartite and complete bipartite graphs",
+      "Related exact multipartite domination results concern different predicates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the cited versions, the balanced size-three cases and the general balanced-case lower bounds are discussed.",
+        "Deleting one vertex from a minimum part of K_{4,4,4} yields K_{3,4,4}; its unique smallest part must be fully selected in any strong dominating set, so the parameter rises from two to three.",
+        "For K_{3,3,3}, a deletion of two vertices in one part produces a singleton universal vertex; no one-vertex deletion changes the minimum from two."
+      ],
+      "reasoning": "These contradictions are checked at the level of the mathematical predicates, not paper titles. The prior propositions are neither a valid stronger coverage of this theorem nor ignored: they are treated explicitly as overlapping but inconsistent claims, and the final proof does not depend on them.",
+      "searches": [
+        "arXiv:2601.03891v2 Proposition 2.8 and Propositions 2.10–2.12",
+        "arXiv:2601.03891v1 Propositions 2.8–2.11 and Theorem 2.12",
+        "\"Stability of the Strong Domination Number of Graphs\" \"balanced\" \"complete\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source defines stability as the minimum vertex deletion changing degree-qualified strong domination.",
+        "The same-parameter balanced-subclass assertions are inspected in both versions.",
+        "For minimum part size three repeated, two vertices from one minimum part create a universal vertex; for size four repeated, one deletion creates a unique smallest part of size three."
+      ],
+      "reasoning": "This is the same invariant as the primary source, not an innocuous reinterpretation. A statement about exact stability for arbitrary part sizes and all optimal deletion sets cannot be inferred from the primary source; its assertions for selected balanced profiles conflict with directly reconstructed cases.",
+      "searches": [
+        "\"strong domination number\" \"complete multipartite\" \"stability\"",
+        "\"strong domination stability\" \"multipartite\" \"p,p,p\"",
+        "arXiv:2601.03891v1 Sections 1, 2.1",
+        "arXiv:2601.03891v2 Sections 1, 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact table or database record supplies the all-profile deletion-witness count.",
+        "Direct exhaustive code checks all 183 complete multipartite profiles through order eleven, but those finite entries do not prove uniqueness in the literature."
+      ],
+      "reasoning": "The cited primary source has some overlapping special-profile statements but not the precise consistent full classification of every minimum deletion set. Search absence is treated as limited evidence rather than as a proof of novelty.",
+      "searches": [
+        "\"strong domination stability\" \"K_{3,3,3}\" OR \"K_{4,4,4}\"",
+        "\"strong domination\" \"complete multipartite\" minimum part",
+        "\"strong domination vertex-critical sets complete multipartite graph minimum destabilizing vertex subsets count\""
+      ]
+    },
+    "rationale": "The 7 January 2026 source introduces exactly this stability parameter and treats complete bipartite and balanced multipartite subclasses. Both inspected versions have overlap, but their printed special-profile formulas do not soundly imply the exact all-profile stability or optimal deletion counts, and explicit cases differ. Searches of equivalent phrases, joins, tables, and closely related domination variants did not identify covering true statements. Later corrections and alternate indexing remain risks.",
+    "residual_risks": [
+      "An unlocated correction of the motivating preprint, an unpublished overlap, or an equivalently worded older result could alter novelty assessment.",
+      "The result is elementary within this graph family; value rests on full stability/witness classification and resolving genuinely discordant special cases, not on proof difficulty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct overlap for balanced subclasses; the printed claims do not establish the full-profile result and conflict with explicit degree calculations on balanced examples.",
+        "evidence": [
+          "Strong domination definition uses neighbor of no smaller degree.",
+          "The printed balanced r-partite bounds assert stability at least two for minimum class sizes at least three and r at least three.",
+          "Directly, (4,4,4) changes from strong domination two to three on one deletion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.03891v2",
+        "material_read": "Introduction and formal definitions; Section 2.1 with proofs of balanced-multipartite assertions; Section 4.1 join statements; conclusions and references.",
+        "method": "Full HTML primary text, cross-checked against PDF page images of pages 5–7.",
+        "title": "Stability of the Strong Domination Number of Graphs, version 2",
+        "trigger": "Identical parameter and plausible complete multipartite coverage"
+      },
+      {
+        "assessment": "The first version is publicly dated 7 January 2026; its balanced subclass assertions similarly do not imply the final all-profile theorem.",
+        "evidence": [
+          "arXiv v1 7 January 2026.",
+          "Theorem 2.12 states a balanced tripartite formula inconsistent with direct calculations for (3,3,3)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.03891v1",
+        "material_read": "Submission header and first-public date; formal definition; complete-bipartite and balanced complete r-partite propositions and theorem, including local proofs.",
+        "method": "Inspected primary HTML full relevant sections, rather than relying on abstracts or snippets.",
+        "title": "Stability of the Strong Domination Number of Graphs, initial version",
+        "trigger": "Earliest version and possibility of different or broader statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5f67293-05cb-43ed-9f1d-c438c4b10318",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The vertex-deletion robustness of a natural domination invariant is determined for every multipartite size profile, with all minimum repair/disruption choices explicitly classified and counted. The sharp repeated-three anomaly and singleton-multiplicity threshold identify structural robustness regimes invisible from the original domination number. The result gives a concrete complete answer rather than a parameter substitution or a single small case.",
+    "status": "PASS"
+  }
+}
