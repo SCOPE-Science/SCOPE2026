@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The exact Walsh-average representation reduces the mixed moment to diagonal and off-diagonal shared-index contributions. Symmetry gives E[X 1{X>0}]=E|X|/2 and E[(X+Y)1{X+Y>0}]=E|X+Y|/2=E|X-Y|/2. Counting n diagonal and n(n-1)/2 off-diagonal pairs proves the covariance for every n. Conditioning on absolute ranks gives the exact null variance. The finite checker independently verifies the combinatorial representation, null moments, and the uniform-parent covariance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hodges and Lehmann is identified in the signed-rank literature as a Pitman-efficiency comparison with the one-sample t-test.",
+        "Klotz is identified as a small-sample power and efficiency study of the one-sample Wilcoxon test.",
+        "A modern full signed-rank chapter derives asymptotic power, the normal ARE 3/pi, and the Walsh-average location estimator without stating the finite covariance with the sample mean.",
+        "Randles's reference map separately identifies Pitman 1948 for local asymptotic efficiency relative to the sample mean."
+      ],
+      "reasoning": "Power and efficiency comparisons are broader inferential questions but do not determine the joint null covariance of the two statistics at the same sample size. The accepted identity is therefore not an immediate corollary of the cited efficiency results.",
+      "searches": [
+        "DOI:10.1214/aoms/1177728261",
+        "DOI:10.1214/aoms/1177704175",
+        "DOI:10.1002/9781118445112.stat02791",
+        "signed-rank Wilcoxon asymptotic power ARE normal 3/pi Walsh averages"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.2307/3001968",
+      "DOI:10.1214/aoms/1177728261",
+      "DOI:10.1214/aoms/1177704175",
+      "DOI:10.1002/9781118445112.stat02791",
+      "https://minerva.it.manchester.ac.uk/~saralees/statbook2.pdf",
+      "https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/nonparametrics/how-to/1-sample-wilcoxon/methods-and-formulas/methods-and-formulas/",
+      "2026/9/20/SCOPE-pure-n-way-dependence-student-t-size-iid-gaussian-marginals--06f336863f9d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No current or prior owned finding mentions Wilcoxon signed ranks or Walsh averages.",
+        "Prior owned item 80a210c3-d4ea-4815-b5a1-4a97a9915ff4 studies sample mean versus sample range for a three-point law; it neither contains a rank statistic nor implies the present covariance.",
+        "Published comparison record 2026/9/20/SCOPE-pure-n-way-dependence-student-t-size-iid-gaussian-marginals--06f336863f9d concerns test size under non-iid higher-order dependence and does not imply a signed-rank/sample-mean joint moment."
+      ],
+      "reasoning": "A covariance between the sample mean and a range statistic cannot imply the covariance with the signed-rank statistic. Likewise, a result about Student-t size under altered dependence does not determine the iid symmetric-null covariance here.",
+      "searches": [
+        "own current ledger Wilcoxon signed rank Walsh sample mean",
+        "own prior ledger Wilcoxon signed rank Walsh sample mean",
+        "own prior sample mean range covariance",
+        "published Student t Wilcoxon signed rank covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact signed-rank statistic has the equivalent Walsh-average formulation as the number of pairwise averages above the hypothesized center.",
+        "Targeted searches using signed rank, Walsh averages, sample mean, covariance, correlation, and Gini mean difference did not locate the accepted formula.",
+        "The closest semantic result in the published comparison database concerns Student-t size under pure higher-order dependence, not same-sample signed-rank/mean dependence."
+      ],
+      "reasoning": "Searching both the rank-sum definition and the Walsh-pair definition covers the principal equivalent formulations. The Gini form was searched separately because the off-diagonal mixed moment simplifies to E|X-X'|.",
+      "searches": [
+        "Wilcoxon signed-rank statistic sample mean exact covariance symmetric distribution",
+        "correlation Student t Wilcoxon signed rank finite sample covariance",
+        "Wilcoxon signed rank Walsh averages sample mean correlation",
+        "signed rank statistic covariance sample mean normal exact",
+        "Pitman efficiency correlation Wilcoxon t statistic finite n",
+        "\"sample mean\" \"signed rank\" covariance Wilcoxon",
+        "\"covariance\" \"Wilcoxon signed-rank\" sample mean",
+        "\"correlation\" \"Wilcoxon signed-rank\" \"sample mean\"",
+        "\"Gini mean difference\" \"Wilcoxon signed rank\" sample mean",
+        "\"Walsh averages\" covariance sample mean signed rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact signed-rank null tables and variance formulas were found, but no exact cross-moment table or formula for the sample mean and W+ was located.",
+        "The classical 3/pi value is documented as an asymptotic relative efficiency, not as a finite correlation formula."
+      ],
+      "reasoning": "The new statement is an exact symbolic mixed moment for arbitrary sample size and arbitrary atomless symmetric parent law, not a recomputation of the signed-rank null distribution.",
+      "searches": [
+        "\"sample mean\" \"Wilcoxon signed rank statistic\" exact covariance symmetric",
+        "\"correlation\" \"signed rank statistic\" \"sample mean\" symmetric",
+        "\"Gini mean difference\" \"signed rank statistic\" covariance",
+        "\"3/pi\" \"Wilcoxon signed-rank\" normal ARE"
+      ]
+    },
+    "rationale": "No located source states the finite sample-mean/signed-rank covariance or its Gini-mean-difference representation. The closest literature treats signed-rank definition, Walsh averages, asymptotic efficiency, or finite-sample power, none of which implies the accepted mixed moment. Historical full-text access was imperfect and is recorded as residual risk rather than treated as proof of absence.",
+    "residual_risks": [
+      "The substantive pages of the historical Hodges–Lehmann 1956 and Klotz 1963 scans were not machine-readable, so an equivalent identity hidden in those scans cannot be excluded.",
+      "General joint-asymptotic theory for linear rank statistics may imply the limiting correlation after additional work, even if it does not state the finite-n covariance.",
+      "Alternative signed-rank normalizations or centered versions could disguise the same formula in older literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ASYMPTOTIC_POWER_EFFICIENCY_AND_WALSH_ESTIMATION_WITHOUT_ACCEPTED_FINITE_COVARIANCE",
+        "evidence": "The chapter gives ARE(W,t)=3/pi for normal sampling and identifies the Hodges–Lehmann estimator as the median of Walsh averages; the inspected material does not state Cov(mean,W+) or its Gini representation.",
+        "identifier_or_url": "https://minerva.it.manchester.ac.uk/~saralees/statbook2.pdf",
+        "material_read": "The signed-rank chapter pages covering the asymptotic power lemma, ARE relative to the t-test based on the sample mean, the normal value 3/pi, and the Walsh-average Hodges–Lehmann representation.",
+        "method": "Compared the chapter's stated finite and asymptotic formulas with the accepted same-sample mixed moment and searched the relevant chapter text for covariance/correlation formulations.",
+        "title": "Nonparametric and Robust Statistics, Section 10.3 Signed-Rank Wilcoxon",
+        "trigger": "Full modern treatment containing the signed-rank asymptotic power calculation, normal-theory efficiency, and Walsh-average estimator."
+      },
+      {
+        "assessment": "EXACT_WALSH_REPRESENTATION_WITHOUT_SAMPLE_MEAN_CROSS_MOMENT",
+        "evidence": "The page states that the Wilcoxon statistic is the number of pairwise Walsh averages above the hypothesized median and also the sum of positive ranks.",
+        "identifier_or_url": "https://support.minitab.com/en-us/minitab/help-and-how-to/statistics/nonparametrics/how-to/1-sample-wilcoxon/methods-and-formulas/methods-and-formulas/",
+        "material_read": "Complete methods page sections on pairwise averages, Wilcoxon statistic, and the equivalence with the sum of positive ranks.",
+        "method": "Used the page to verify the exact pair-count formulation used as the starting identity of the proof.",
+        "title": "Methods and formulas for 1-Sample Wilcoxon",
+        "trigger": "Direct exact formulation of the signed-rank statistic in terms of Walsh averages."
+      },
+      {
+        "assessment": "LITERATURE_MAP_IDENTIFIES_POWER_AND_EFFICIENCY_SOURCES_WITHOUT_CROSS_COVARIANCE_ENTRY",
+        "evidence": "The reference map describes Hodges–Lehmann as Pitman efficiency, Klotz as small-sample power and efficiency, Pitman as local asymptotic efficiency relative to the sample mean, and Wilcoxon as the test's introduction.",
+        "identifier_or_url": "DOI:10.1002/9781118445112.stat02791",
+        "material_read": "Available reference section and annotations covering Wilcoxon 1945, Hodges–Lehmann 1956, Klotz 1963, Pitman 1948, and related signed-rank work.",
+        "method": "Compared the annotated scope of the closest classical sources with the accepted finite covariance question.",
+        "title": "Wilcoxon Signed Rank Test",
+        "trigger": "Reference treatment mapping the historical signed-rank literature by topic."
+      },
+      {
+        "assessment": "PLAUSIBLE_HISTORICAL_SOURCE_TEXT_NOT_MACHINE_READABLE_RESIDUAL_RISK",
+        "evidence": "Available descriptions identify the paper as an asymptotic efficiency study. No accessible material supplied the finite mixed-moment formula, but the unreadable scan prevents a whole-document negative assertion.",
+        "identifier_or_url": "DOI:10.1214/aoms/1177728261",
+        "material_read": "A 12-page historical scan was obtained; its text layer exposed the digitization cover but not the substantive scanned pages. Bibliographic and abstract-level material was inspected separately.",
+        "method": "Attempted full-document retrieval after open-access searches; compared available scope descriptions with the finite covariance claim.",
+        "title": "The Efficiency of Some Nonparametric Competitors of the t-Test",
+        "trigger": "Closest classical source comparing the signed-rank family with the one-sample t-test."
+      },
+      {
+        "assessment": "PLAUSIBLE_SMALL_SAMPLE_SOURCE_TEXT_NOT_MACHINE_READABLE_RESIDUAL_RISK",
+        "evidence": "The accessible literature map characterizes the work as small-sample power and efficiency. The scan limitation leaves residual risk that an equivalent mixed-moment identity appears inside.",
+        "identifier_or_url": "DOI:10.1214/aoms/1177704175",
+        "material_read": "A 9-page historical scan was obtained; its text layer exposed the digitization cover but not the substantive scanned pages. Reference descriptions identify its subject as small-sample power and efficiency.",
+        "method": "Attempted full-document retrieval after open-access searches; compared the documented subject with the accepted joint-null covariance.",
+        "title": "Small Sample Power and Efficiency for the One Sample Wilcoxon and Normal Scores Tests",
+        "trigger": "Most plausible historical finite-sample comparison source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4340a875-fde4-482f-815b-260adb7c0344",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sample mean and Wilcoxon signed-rank statistic are canonical competing location summaries. Their exact dependence is therefore a natural statistical quantity. The theorem compresses that dependence to E|X| and the Gini mean difference, revealing an unexpected bridge between rank testing and a classical dispersion functional. The normal specialization makes the classical 3/pi efficiency constant appear as a squared limiting correlation, while the uniform specialization gives asymptotic perfect correlation.",
+    "status": "PASS"
+  }
+}
