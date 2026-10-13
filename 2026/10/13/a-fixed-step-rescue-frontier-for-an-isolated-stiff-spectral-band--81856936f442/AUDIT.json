@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Complete algebraic proof establishes strict monotone envelope crossing, its exact interior-vertex versus endpoint branches, uniqueness for all 2<x<y, continuous-interval normalization, the precise stability threshold and width asymptotic, and slow SPD nonexpansion. Supplementary code independently tests exact rational endpoint identities and many intervals but is not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eriksson–Johnson–Logg 2003 §3.1 covers Chebyshev semi-iterative stabilization with multiple selected steps, a broader algorithm class but not this constrained fixed-first-factor optimizer.",
+        "Classical Chebyshev minimax over unrestricted degree-two polynomials is not equivalent to minimax with a fixed first zero at 1/K."
+      ],
+      "reasoning": "General polynomial stabilization can dominate achievable values when all factors are free, but does not give the unique minimizer conditional on a prescribed unstable first factor; a stronger objective or family alone does not logically entail this constrained formula.",
+      "searches": [
+        "two-stage Euler stabilization one fixed large step one small optimal minimax interval [a,b] Chebyshev",
+        "two-step Richardson polynomial with one parameter fixed unstable minimax exact interval",
+        "Eriksson Johnson Logg explicit time stepping stiff ODE stabilizing step K k optimal band"
+      ]
+    },
+    "checked_sources": [
+      "Eriksson–Johnson–Logg (2003), DOI 10.1137/S1064827502409626, full open-access PDF",
+      "van Leer–Tai–Powell (1989), NASA 19890014641, public full text",
+      "Published stagewise-safe Richardson frontier (2026), full RESULT.md",
+      "Multiple published-finding corpus semantic searches on constrained polynomial, fixed root, stabilizing microstep, stagewise safety, and parameter aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eriksson et al. use (1-kλ)^m(1-Kλ); fixing m=1 defines the object but does not solve its minimax over an entire continuous interval.",
+        "Published safe two-step Richardson result requires τ1,τ2∈[0,2/L], hence cannot admit prescribed K α>2, making its theorem inapplicable.",
+        "Van Leer et al. §2–§2.2 optimize the smoothing of complex Fourier upwind Euler-symbol spectra using freely selected multistage polynomial coefficients."
+      ],
+      "reasoning": "An individual-frequency correction (e.g. h=1/λ) does not control all z∈[Kα,Kβ]. The exact two-case minimax formula and the sharp width asymptotic are additional nontrivial statements; the apparently closest safe factor theorem excludes the setting. No claim of global priority or independence is made.",
+      "searches": [
+        "doi:10.1137/S1064827502409626 §§2–4",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 RESULT.md",
+        "van Leer Tai Powell 1989 optimally smoothing multi-stage Euler equations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eriksson–Johnson–Logg §2 formula (1-k lambda)^m(1-K lambda) for scalar stiff λ, §§3–4 broad spectra.",
+        "Published stagewise-safe Richardson note 2026/9/20, RESULT.md, has polynomial (1-τ1λ)(1-τ2λ) but requires both τi≤2/L; first factor here has K α>2."
+      ],
+      "reasoning": "Product-factor and fixed-root aliases were searched. The closest stiff-ODE source uses a fixed large step and stabilizing corrections but gives count estimates for individual modes or polynomial sequences, not the exact one-correction real-band minimax classifier; the other close result allows both steps to vary but forbids the prescribed unstable factor.",
+      "searches": [
+        "fixed-root minimax polynomial (1-z)(1-theta z) on isolated real spectral interval optimal microstep 4+2sqrt(2)",
+        "optimal one stabilizing explicit Euler step following a fixed oversized Euler step broad stiff band Chebyshev transition",
+        "two-step Richardson polynomial with one parameter fixed unstable minimax exact interval",
+        "Eriksson Johnson Logg explicit time stepping stiff ODE stabilizing step K k optimal band",
+        "doi:10.1137/S1064827502409626"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search returned no direct exact fixed-root high-band formula; highest relevant published IDs include 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 and 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0.",
+        "The inspected 2003 primary paper does not tabulate the two-branch x-critical / y-critical minimax values."
+      ],
+      "reasoning": "No matching numerical table or catalogue was found. Absence in a search index is not a proof of novelty; the scientifically substantive coverage comparison instead relies on definitions, admissible steps and implications in the inspected articles.",
+      "searches": [
+        "fixed-root minimax polynomial (1-z)(1-theta z) on isolated real spectral interval optimal microstep 4+2sqrt(2)",
+        "optimal one stabilizing explicit Euler step following a fixed oversized Euler step broad stiff band Chebyshev transition"
+      ]
+    },
+    "rationale": "The primary published stiff-ODE stabilization paper supplies a concrete starting mechanism, but its inspected §2–§4 do not determine the all-real-band, one-free-rescue-step minimax solution. The fully inspected published safe-Richardson result instead requires all factors contractive, a condition directly contradicted by the fixed first step in this theorem. The main two-regime sharp boundary and high-frequency normalized-bandwidth law are not implied by the identified published statement. Remaining historical fixed-root Chebyshev specializations are explicitly a residual risk.",
+    "residual_risks": [
+      "A historical fixed-root or constrained Chebyshev approximation monograph may state an equivalent theorem under a different formulation.",
+      "Certain 1961 foundational multistage papers were not materially inspected in full during this run; unrestricted polynomial theories provide context but lack a shown implication to this fixed-step classifier.",
+      "Indexing and semantic search cannot establish global novelty, nor can partitioned public records rule out unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "Section 2 analyzes (1-kλ)^m(1-Kλ) and scalar damping estimates; §§3–4 treat multistage spectral choices rather than the unique one-rescue continuous-band minimax classifier.",
+        "identifier_or_url": "https://doi.org/10.1137/S1064827502409626 (full PDF; arXiv:1205.2751)",
+        "material_read": "Sections 2–4, including scalar stabilization polynomial, multi-step strategies, Chebyshev and stiff spectral separation; first-page electronic publication date.",
+        "method": "Full open-access PDF inspected by text and page screenshot",
+        "title": "Explicit Time-Stepping for Stiff ODEs",
+        "trigger": "Closest primary paper on stabilizing Euler steps after an initially unstable long step"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING",
+        "evidence": "The paper formulates complex Fourier-spectrum upwind smoothing and adjustable multistage parameters, not a fixed unstable first Euler factor and one remaining positive correction optimized on a separated real interval.",
+        "identifier_or_url": "https://ntrs.nasa.gov/citations/19890014641",
+        "material_read": "Full publicly extracted text, especially Sections 2–2.2 on Fourier stability/smoothing and stage coefficient optimization",
+        "method": "Accessible full-text PDF text inspection",
+        "title": "Design of Optimally Smoothing Multi-Stage Schemes for the Euler Equations",
+        "trigger": "Historical primary multistage polynomial smoothing work plausibly stronger than interval damping"
+      },
+      {
+        "assessment": "INAPPLICABLE_CONSTRAINT",
+        "evidence": "Both step lengths are required to be in [0,2/L]; current first step is fixed at K with Kα>2 and thus K>2/β, violating the essential stagewise-safety hypothesis.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "material_read": "Complete RESULT.md theorem, assumptions, proofs and limitations",
+        "method": "Read-only published source retrieval",
+        "title": "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier",
+        "trigger": "Closest published exact two-step real spectral interval minimax result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81856936-f442-4221-a151-8d4011d3e3a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Motivated by the published stiff-ODE long-step-plus-stabilizer mechanism, it provides the complete unique optimal one-step rescue for an uncertainty continuum, identifies an unexpected lower-edge-invariant branch and an exact high-band stability ceiling, and quantitatively characterizes the effective rescue bandwidth of arbitrarily high-frequency clusters. It does not rely on arbitrary finite test instances or a purely cosmetic parameter re-labeling.",
+    "status": "PASS"
+  }
+}
