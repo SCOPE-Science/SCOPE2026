@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The all-subsets zeta formula follows by counting site subsets within each species' occupancy set. The general curvature identity follows by exact conditional binomial weighting and an algebraic variance expansion. The sharp two-species result reduces all nonzero successive differences to the signs of a fully specified positive-denominator-cleared integer polynomial. The exhaustive checker covers 3,654 occupancy pairs through 28 sites and all 406 pairs at 29 sites; it verifies that precisely the pair with occupancies \((22,26)\) has two changes. Equal occupancies are monotone. Direct subset enumeration of 146,595 subsets and rational checks supplement, rather than replace, the analytical derivation.
+
+**Originality — PASS, with residual risk.** The closest primary sources give the zeta definitions, retention-ratio interpretation, broad curve archetypes, and algorithms for calculating zeta diversity. They do not in the inspected relevant full-text sections give the exact two-species 29-site minimality and uniqueness theorem or the general occupancy-variance retention sign identity. Searches considered alternate phrases involving binomial ratios, hypergeometric sampling, shape changes, and occupancy mixtures; absence of a discovered hit is not proof of priority. An unindexed enumeration or a stronger combinatorial binomial-transform theorem remains a risk. This finding is not a disproof of the 2019 descriptive archetypes.
+
+**Value — PASS.** Retention-rate curve shape is a published ecological descriptor of multisite compositional change. The result gives a sharp and nontrivial boundary for when a minimum and later maximum can occur even with only two species, and explicitly separates occupancy heterogeneity from finite-site depletion in an all-species sign test. The tiny magnitude of the witness's turns and the absence of measurement-noise guarantees limit immediate empirical application; this is a structural benchmark for interpreting such curves rather than a new field estimator.
+
+Closest literature: Hui and McGeoch (2014, DOI 10.1086/678125); Latombe et al. (2018, preprint DOI 10.1101/324897); McGeoch et al. (2019, DOI 10.1002/ecy.2832). Scientific verification and novelty comparisons remain same-model only.
+
+Self-review: passed. Independent audit: not yet performed.
