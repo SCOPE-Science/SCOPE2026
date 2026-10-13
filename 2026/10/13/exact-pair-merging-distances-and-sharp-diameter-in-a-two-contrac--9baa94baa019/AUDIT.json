@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The descending-gap recursion explicitly handles the two simultaneous exceptional sources and its forbidden-channel cases, and the induction determines \\(u_d,v_d\\) for all \\(n\\ge5\\). The monotonicity lemma and generator-by-generator Bellman inequality exclude all gap-increasing shortcuts, so the formula is the true pair distance. Four critical \\(x\\) phases reduce the global diameter to four exact residue substitutions; the parity table gives the sharp maximum. Independent reverse pair-BFS checked 287,970 pair distances for \\(5\\le n\\le120\\), including boundary \\(n=5\\) and both parities. Finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rystsov–Szykuła arXiv:2309.08321 Proposition 1 gives qualitative pairwise compressibility; main theorems address reset thresholds for one-point contractions",
+        "Rystsov–Szykuła arXiv:2307.01302 studies primitivity criteria and semiconstant letters"
+      ],
+      "reasoning": "A qualitative existence theorem for pair compression gives no exact shortest length; the monoid generator restriction is kernel type (k,1,...,1), but b has two independent kernel pairs (2,2,1,...,1).",
+      "searches": [
+        "Exact subset synchronization thresholds for deterministic finite automata with permutation cycle and low-rank map, shortest reset words and indistinguishable states",
+        "Slowest pair in binary automata with cyclic permutation and two idempotent contractions at adjacent states, pair merger diameter",
+        "arXiv:2309.08321 monoidal reset bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.01302",
+      "arXiv:2309.08321",
+      "Ananichev-Volkov-Zaks-2007-TCS376-30-41",
+      "arXiv:1807.07048"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ananichev–Volkov–Zaks 2007 proves full-set reset lengths for different bactrian and dromedary examples",
+        "Rystsov–Szykuła 2023 identifies pair compression as a sufficient and necessary property for synchronization"
+      ],
+      "reasoning": "The independent source concerns synchronizing automata but not an exact labeled pair-merger metric of the common two-contraction map. The one-point contraction (single nontrivial kernel class), the Ananichev-Volkov-Zaks displacement-two two-merger, and the separate-choice two-letter contractions differ in either semigroup generators or kernel geometry. In particular, full-set reset bounds do not determine shortest words for all labeled state pairs.",
+      "searches": [
+        "Pair synchronization times for a cyclic automaton with one rank n minus two letter merging 0 to 1 and 2 to 3 simultaneously, exact formulas n even odd",
+        "Exact shortest pair merging word length in cyclic binary deterministic automaton with permutation a(i)=i+1 and idempotent b(0)=1, b(2)=3, all other states fixed; maximum pair compression time parity",
+        "arXiv:2309.08321 Section 2 and Proposition 1",
+        "Ananichev–Volkov–Zaks 2007 Section 2 and Theorems 1.1–1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.01302 §§1–3 focuses primitivity versus synchronizability, with one-point semiconstant maps",
+        "Ananichev–Volkov–Zaks 2007 §2 has a(0)=-2, a(1)=-1, other states fixed, with rotation m→m−1"
+      ],
+      "reasoning": "The historical cyclic deficiency-two family has contraction source difference one and displacement two; the new generator has source difference two and displacement one. Rotations and reversal preserve cyclic source spacing. Its full-reset theorem does not imply a labeled pair-distance formula.",
+      "searches": [
+        "Pair synchronization times for a cyclic automaton with one rank n minus two letter merging 0 to 1 and 2 to 3 simultaneously, exact formulas n even odd",
+        "Exact shortest pair merging word length in cyclic binary deterministic automaton with permutation a(i)=i+1 and idempotent b(0)=1, b(2)=3, all other states fixed; maximum pair compression time parity",
+        "arXiv:2307.01302: pair compression and semiconstant maps",
+        "Ananichev–Volkov–Zaks 2007: Section 2 B_n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed published-claim search surfaced a general 8-state synchronization census and a Černý k-avoiding formula, but not this n-parameter all-pair table",
+        "Available older/local mathematical claim collections searched for the same explicit maps and equivalent reduction"
+      ],
+      "reasoning": "The exact finite 8-state automata census concerns a different one-cluster construction and resets complete state sets; the Černý avoiding threshold and rank-\\(n-1\\) pair metric do not give this rank-\\(n-2\\) all-pair metric.",
+      "searches": [
+        "Shortest word merging two states in synchronizing automata with two contracting positions, cyclic reset pair compression",
+        "Exact shortest pair merging word length in cyclic binary deterministic automaton with permutation a(i)=i+1 and idempotent b(0)=1, b(2)=3, all other states fixed; maximum pair compression time parity"
+      ]
+    },
+    "rationale": "The rank-\\(n-2\\) idempotent has two disjoint size-two kernel classes, unlike one-point-contraction theorems. The 2007 full text describes an adjacent-source, distance-two merger rather than the nonadjacent-source, distance-one map. Neither paper specifies the exact metric on every pair or the sharp worst-pair diameter. Indexed published-claim comparisons and historical local claims did not show coverage. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "An older or unindexed equivalent all-pair analysis of this exact common two-merger cyclic map could remain undiscovered.",
+      "The 2018 Volkov lower-rank idempotent paper was compared from abstract and related work only; its full text was not used to claim NOT_COVERING.",
+      "The available 2023 monoid paper PDF has a 2025 revision; the first-public date is independently verified from arXiv version history."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: qualitative primitivity and synchronization results; no exact pair distance for common two-merger rank-\\(n-2\\) letter.",
+        "evidence": [
+          "arXiv:2307.01302 pp.1–3, Section 1.1 contribution focuses primitivity criteria and semiconstant letters"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.01302",
+        "material_read": "Full-text PDF consulted: abstract, introduction, contribution section, definitions and semiconstant-letter conditions, related result statements",
+        "method": "Read publicly available arXiv full text and inspect PDF page image",
+        "title": "Primitive Automata that are Synchronizing",
+        "trigger": "permutation plus nonpermutation automata, qualifying 2023 source"
+      },
+      {
+        "assessment": "NOT_COVERING: pair-compression existence and monoidal reset bounds, not all labeled pairs in the specified rank-\\(n-2\\) binary family.",
+        "evidence": [
+          "arXiv:2309.08321 p.2 kernel type (k,1,...,1), p.3 Proposition 1 qualitative compressibility"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.08321",
+        "material_read": "Seventeen-page PDF consulted: introduction, Section 2 main contributions, Section 3 definitions and Proposition 1, and relevant theorem statements; available PDF is metadata-revised",
+        "method": "Read lawful arXiv full text and inspected PDF page of section 2",
+        "title": "Reset Thresholds of Transformation Monoids",
+        "trigger": "pair compression and reset bounds, qualifying 2023 source"
+      },
+      {
+        "assessment": "NOT_COVERING: other two-contraction geometry and full-set reset threshold, not exact pair-merger distances.",
+        "evidence": [
+          "TCS 376 (2007) 30–41, §2 B_n generator sends 0→−2 and 1→−1, companion letter global −1 cycle; Theorem 1.1 reset length (n−1)(n−2)"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/225656016_Synchronizing_Automata_with_a_Letter_of_Deficiency_2",
+        "material_read": "Primary-paper full-text transcription consulted: abstract, §1 theorem statements, §2 explicit maps and lower-bound construction, §3 family and references",
+        "method": "Read substantial relevant portions of a publicly displayed transcription of the primary 2007 journal paper",
+        "title": "Synchronizing automata with a letter of deficiency 2",
+        "trigger": "Highly relevant older two-merge automaton with cyclic permutation"
+      },
+      {
+        "assessment": "Residual related source: three-letter idempotents rank n/2, exact pair metric for the present binary two-merger family not established by material read",
+        "evidence": [
+          "arXiv:1807.07048 abstract specifies 3-letter automata with idempotent generators and full-set reset threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1807.07048",
+        "material_read": "Abstract, construction description, cited conclusions; no full text claimed",
+        "method": "Public abstract/search record, not full-document inspection",
+        "title": "Slowly Synchronizing Automata with Idempotent Letters of Low Rank",
+        "trigger": "potentially dominating low-rank idempotent construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9baa94ba-a019-4aaf-8645-91635da97adb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pair synchronizing length is the minimal word needed to eliminate uncertainty between two states, a standard invariant distinct from a full reset threshold. Every labeled pair distance is classified in O(1) symbolic time across infinitely many n for a rank-\\(n-2\\) idempotent driven by one common input; the sharp worst-pair quadratic constant and parity split are non-obvious. This is neither a parameter renaming of one-merge Černý nor a finite enumeration slice, because both independent contractions operate simultaneously.",
+    "status": "PASS"
+  }
+}
