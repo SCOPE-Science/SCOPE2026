@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Both source hazards have the common form x^(alpha-1)R0(x)/m_alpha(x). Half-normal and Maxwell survivals have Gaussian tails with polynomial powers -1 and +1 respectively. L'Hospital's rule applied to m_alpha(x) and beta^2 x^(alpha-2) R0(x) gives their ratio tending to one, hence h_alpha(x)~x/beta^2. The lower-endpoint formula follows from the tail-integral identity for the alpha-th baseline moment. The packaged checker independently evaluates the exact integral formulas and the numerical examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard Gaussian-tail and incomplete-gamma asymptotics imply the baseline hazards grow like x/beta^2.",
+        "General weighted-distribution literature does not, in the checked material, state the transformed IHSBHN/IHSBM exclusion of a globally decreasing hazard.",
+        "The model-specific conclusion requires combining the source's transformed hazard integral with the two baseline tail asymptotics."
+      ],
+      "reasoning": "Known baseline tail asymptotics supply ingredients but do not by themselves state the new transformed-family classification.",
+      "searches": [
+        "inverse-hazard size-biased half-normal Maxwell hazard asymptotic x beta",
+        "inverse-hazard size-biased Gaussian tail hazard",
+        "Gaussian tail weighted distribution hazard asymptotics"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026464",
+      "url:https://dlmf.nist.gov/8.11"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest search results concerned unrelated median, endpoint-localization, and hazard-identification problems.",
+        "No previous checked result involved the target DOI, IHSBHN, or IHSBM.",
+        "No checked statement implied the universal x/beta^2 transformed-hazard tail or the exclusion of global decrease."
+      ],
+      "reasoning": "The accepted statement is specific to the two Gaussian-tail baselines under the inverse-hazard size-bias transform and is not a corollary of the unrelated closest results.",
+      "searches": [
+        "inverse-hazard size-biased regular variation tail exponent alpha",
+        "IHSB heavy tail regular variation moment index",
+        "10.3934/math.2026464 tail asymptotics correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article states that IHSBHN and IHSBM hazards include decreasing, increasing, and bathtub-shaped behaviors.",
+        "No searched published-result record stated that global decrease is impossible in either model.",
+        "Exact source searches located the original article but no corrigendum addressing the hazard-shape statement."
+      ],
+      "reasoning": "The queries cover the exact source, both model acronyms, the claimed shape class, and correction terminology. The accepted theorem rules out a whole qualitative class uniformly over the positive parameter space.",
+      "searches": [
+        "10.3934/math.2026464 IHSBHN IHSBM decreasing hazard correction",
+        "IHSBHN hazard bathtub decreasing increasing",
+        "IHSBM hazard bathtub decreasing increasing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 2.7.1 gives the IHSBHN hazard as 2 x^(alpha-1)[1-Phi(x/beta)] divided by its tail integral and states that decreasing behavior is among the possibilities.",
+        "Section 2.7.2 gives the analogous Maxwell incomplete-gamma hazard and repeats the same qualitative hazard-shape claim.",
+        "The small-shape curves shown in Figures 1 and 3 visibly turn upward, consistent with the endpoint theorem."
+      ],
+      "reasoning": "The exact displayed formulas are sufficient to settle the global shape exclusion; finite plotting windows are not used as proof.",
+      "searches": [
+        "doi:10.3934/math.2026464 Section 2.7.1 hazard Figure 1",
+        "doi:10.3934/math.2026464 Section 2.7.2 hazard Figure 3",
+        "doi:10.3934/math.2026464 decreasing hazard IHSBHN IHSBM"
+      ]
+    },
+    "rationale": "The primary article explicitly states that each of its two new models includes decreasing hazard behavior, but the exact hazards force right-tail divergence. Five target-specific published-result searches, exact source/correction searches, and previous-result comparison found no covering model-specific theorem or correction.",
+    "residual_risks": [
+      "A recent unindexed author correction may exist.",
+      "The theorem does not determine uniqueness or the full number of interior hazard turning points.",
+      "The qualitative word 'decreasing' in the source could have been intended only for a finite displayed interval rather than the usual global hazard class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING THE ENDPOINT THEOREM AND INCOMPATIBLE WITH ITS CONSEQUENCE. The source asserts a decreasing hazard class, while its own formulas force h(x) to diverge like x/beta^2.",
+        "evidence": "Sections 2.7.1–2.7.2, the displayed hazard formulas, and the text accompanying Figures 1 and 3.",
+        "identifier_or_url": "doi:10.3934/math.2026464",
+        "material_read": "Open full PDF at the general hazard identity, Sections 2.7.1 and 2.7.2, exact half-normal and Maxwell survival/hazard formulas, and Figures 1 and 3 with their accompanying hazard-shape statements.",
+        "method": "Direct parsed-text and rendered-page inspection of the publisher PDF.",
+        "title": "Families of weighted distributions with inverse-hazard size bias: theory and applications",
+        "trigger": "Primary source introducing IHSBHN and IHSBM and asserting decreasing hazard flexibility."
+      },
+      {
+        "assessment": "SUPPORTING REFERENCE. It supplies a standard asymptotic ingredient, not the IHSB model-specific theorem.",
+        "evidence": "The leading large-z behavior of the upper incomplete gamma function.",
+        "identifier_or_url": "url:https://dlmf.nist.gov/8.11",
+        "material_read": "Large-argument incomplete-gamma asymptotic formulas.",
+        "method": "Direct reference-page inspection.",
+        "title": "NIST Digital Library of Mathematical Functions, §8.11",
+        "trigger": "Reference asymptotics for the upper incomplete gamma function used by the Maxwell baseline."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d08c71c3-4b32-4a15-849f-5c838a2a8da7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hazard-shape flexibility is presented as a reliability feature of both newly introduced special cases. The theorem removes the globally decreasing class for the entire positive parameter space and proves an unavoidable interior minimum whenever alpha is below one. This changes the structural reliability interpretation of both models and explains why a finite-window decline cannot be extrapolated to the whole support.",
+    "status": "PASS"
+  }
+}
