@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For odd special \\(d>1\\), write \\(d=A^2+B^2\\) with \\(\\gcd(A,B)=1\\) and opposite parity, choose \\(Au+Bv=1\\), and set \\(c=(m-u^2-v^2)/2\\), \\(a=Ac+u\\), \\(b=Bc+v\\) after a parity-preserving Bezout shift. The identity is exact, and a common divisor of \\(a,b,c\\) divides \\(u,v\\) and therefore \\(1\\). For even special \\(d=C^2+D^2\\) with odd coprime \\(C,D\\), the same construction with right side \\(1\\) handles odd \\(m\\); right side \\(2\\) with odd \\(u,v\\) handles \\(m\\equiv2\\pmod4\\); and right side \\(2\\) with even \\(u,v\\) gives odd \\(c\\) and handles \\(m\\equiv0\\pmod8\\). In each case any common divisor is forced to divide \\(1\\) or \\(2\\), with parity excluding \\(2\\). For \\(m\\equiv4\\pmod8\\), odd \\(c\\) would require a sum of two squares congruent to \\(6\\pmod8\\), while even \\(c\\) forces \\(a,b,c\\) all even. The special case \\(d=1\\) has the direct primitive identity in `RESULT.md`. Parametric shifts make \\(|c|\\) unbounded, so finitely many zero-coordinate exceptions can be discarded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lam 2015 proves ordinary specialness and uses Bezout-parametrized identities, but does not classify primitive coordinate triples.",
+        "Dung--Thang 2021 proves ordinary specialness and supplies the coprime sum-of-two-squares parameterization; its even proof constructs all congruence classes without a gcd conclusion.",
+        "The 1994 spinor-genus paper gives general criteria in a different setting and does not state the special-family residue dichotomy."
+      ],
+      "reasoning": "The strongest directly relevant published theorem is ordinary universality. It does not imply the new even-parameter negative statement, because ordinary representations of \\(m\\equiv4\\pmod8\\) exist but are necessarily imprimitive.",
+      "searches": [
+        "JIS:15.8.6, Theorem 3 and proof",
+        "JIS:21.9.3, Theorem 1, Theorem 5, and proof",
+        "Earnest--Hsia--Hung 1994, Primitive Representations by Spinor Genera of Ternary Quadratic Forms"
+      ]
+    },
+    "checked_sources": [
+      "Nguyen Viet Dung and Luu Ba Thang, JIS 24 (2021), Article 21.9.3, full text",
+      "Peter Cho-Ho Lam, JIS 18 (2015), Article 15.8.6, full text",
+      "A. G. Earnest, J. S. Hsia, D. C. Hung, JLMS 50 (1994), abstract",
+      "Targeted semantic-index searches for the exact form, primitive gcd condition, and residue obstruction",
+      "Targeted web searches for primitively universal ternary forms and the exact form"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior identities immediately become primitive in some parity branches once their common divisor is tracked, but the papers do not make that deduction.",
+        "For the even branch and \\(m\\equiv4\\pmod8\\), the new congruence argument proves that no primitive triple can exist, even though ordinary specialness guarantees a nonzero triple.",
+        "Hence the prior ordinary-universality theorem neither states nor logically entails primitive universality for even \\(d\\); the exact primitive value set requires an additional local obstruction."
+      ],
+      "reasoning": "The surviving claim is a refinement of the closest construction, not a restatement: it distinguishes primitive from imprimitive representations and gives a necessary-and-sufficient residue criterion for every even special parameter.",
+      "searches": [
+        "JIS:15.8.6 lines corresponding to Theorem 3 and equations (1)--(4)",
+        "JIS:21.9.3 Theorem 5 and the even-case constructions for integers congruent to 0 or 2 modulo 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed finding surfaced an exact primitive-value classification for this special family.",
+        "The directly relevant 2015 and 2021 full texts define specialness using nonzero coordinates only, without a primitive gcd requirement.",
+        "General primitive-ternary search results concern genus, spinor genus, or positive-definite forms rather than this indefinite family."
+      ],
+      "reasoning": "The claim was searched both in the source literature's terminology (“special number”) and in the standard quadratic-form terminology (“primitive representation” and “primitively universal”).",
+      "searches": [
+        "semantic-index query: special number primitive representation a^2+b^2-dc^2 gcd(a,b,c)=1",
+        "semantic-index query: primitive representations x^2+y^2-d z^2 every integer",
+        "web query: \"primitively universal\" ternary quadratic form \"x^2+y^2-dz^2\"",
+        "web query: \"primitive representation\" \"x^2+y^2-dz^2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or table was located for primitive value sets of this parameterized indefinite ternary family.",
+        "The relevant source papers present symbolic representation theorems rather than a database of primitive values."
+      ],
+      "reasoning": "The claim is an infinite symbolic residue-class classification, so the relevant exact comparison is theorem coverage rather than matching finite table entries.",
+      "searches": [
+        "semantic-index query: a^2+b^2-dc^2 primitive representation mod 8",
+        "web query: \"m ≡ 4 (mod 8)\" \"x^2+y^2-dz^2\""
+      ]
+    },
+    "rationale": "The closest papers classify ordinary nonzero universality, not primitive universality. Lam's 2015 construction and Dung--Thang's 2021 construction provide the identities, but neither theorem requires \\(\\gcd(a,b,c)=1\\) or states the exact primitive value set. The new comparison is sharp: for even special \\(d\\), the published ordinary universality includes the residue \\(4\\pmod8\\), whereas every representation there is necessarily imprimitive. Targeted semantic-index and web searches for the primitive refinement, exact form, and residue obstruction found no implication-equivalent statement.",
+    "residual_risks": [
+      "A broader classical theorem on primitive representations of indefinite ternary quadratic forms may imply the same family after specialization.",
+      "The constructive positive half is close to the identities in Lam 2015 and Dung--Thang 2021; the originality claimed here is the exact primitive refinement and its sharp modulo-8 obstruction, not the underlying ordinary representation identity.",
+      "No exhaustive citation graph of all papers citing the 2015 and 2021 articles was available in the checked sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers ordinary nonzero representations and supplies the core Bezout identities, but does not impose gcd(a,b,c)=1 or state a primitive value set.",
+        "evidence": "The paper defines specialness only by nonzero coordinates and concludes every integer is represented; the proof explicitly separates the even residues modulo 4 without a primitive-gcd conclusion.",
+        "identifier_or_url": "JIS:15.8.6",
+        "material_read": "Full open-access PDF, including Definition 1, Theorem 3, Lemma 4, and the complete odd/even proof with equations (1)--(4).",
+        "method": "Full-text and page-image inspection.",
+        "title": "Representation of Integers Using a^2+b^2-dc^2",
+        "trigger": "Closest earlier proof of the converse characterization of special numbers."
+      },
+      {
+        "assessment": "Proves ordinary specialness and the coprime two-square representation of the parameter; it does not state the primitive-coordinate classification. Its even construction visibly has a parity branch that becomes imprimitive for one modulo-8 class.",
+        "evidence": "Theorem 5 gives coprime coordinates for d=C^2+D^2. The even proof uses Cg+Dh=2 and handles n congruent to 0 and 2 modulo 4; the paper states no gcd(a,b,c)=1 condition. The article lists primary MSC 11E25 and publication date October 1, 2021.",
+        "identifier_or_url": "JIS:21.9.3",
+        "material_read": "Full open-access PDF, including Theorem 1, Theorem 5, the odd/even constructions, publication metadata, and primary classification.",
+        "method": "Full-text and page-image inspection.",
+        "title": "The Number a^2+b^2-dc^2 Revisited",
+        "trigger": "Middle-cohort primary source revisiting the same open special-number problem."
+      },
+      {
+        "assessment": "General spinor-genus criteria, with examples for positive-definite ternary forms; no statement matching the indefinite special-family residue classification was exposed.",
+        "evidence": "The abstract describes local spinor-genus groups and positive-definite examples rather than the family Q_d=a^2+b^2-dc^2.",
+        "identifier_or_url": "DOI:10.1112/jlms/50.2.222",
+        "material_read": "Abstract and bibliographic description.",
+        "method": "Publisher abstract inspection.",
+        "title": "Primitive Representations by Spinor Genera of Ternary Quadratic Forms",
+        "trigger": "Broader terminology search for classical primitive-representation coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c47fa3f-a4ef-4d04-8675-9d658f796b19",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primitive restriction is a natural strengthening of the source problem rather than an arbitrary slice: primitive representations are the standard way to remove common scaling in quadratic-form arithmetic. The result gives a complete dichotomy across the entire classified special family. Odd special forms retain universality even under primitivity, while every even special form loses exactly one modulo-\\(8\\) class. This identifies the precise local obstruction hidden by the existing ordinary-universality constructions and supplies infinitely many primitive witnesses in every allowed class.",
+    "status": "PASS"
+  }
+}
