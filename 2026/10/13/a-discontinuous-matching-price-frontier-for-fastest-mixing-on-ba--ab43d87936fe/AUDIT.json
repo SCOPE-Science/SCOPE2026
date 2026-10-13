@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All n≥3,t>0 and all individually nonnegative edge weights under an exact one-unit priced budget are covered. Averaging Rayleigh quotients on the two (n−1)-dimensional orthogonal zero-sum modes yields valid trace upper bounds for arbitrary nonsymmetric weights. Their lower envelope is maximized at the stated total matching weight (or critical interval). The displayed four-summand full spectrum for orbit-constant rates attains the upper bound. Saturation of the antisymmetric trace bound forces the entire antisymmetric zero-sum space into the λ2 eigenspace; its two block equations force all offmatching rates equal by connectedness of the index incidence graph for n≥3 and then all matching rates equal. This proves complete optimizer classification and uniqueness off the threshold. The exact-rational checker tested 693 eigenvector equations, 126 projector identities, 1260 feasible-allocation inequalities, and 28 critical spectra. These finite checks supplement rather than establish universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1137/S0036144504443821 gives a general semidefinite program and geometric dual for weighted continuous-time processes.",
+        "DOI 10.1137/070689413 supplies an orbit-reduction technique but for discrete-time stochastic matrices; its unpriced K_{m,n} result is not a solution to distinct matching-price continuous-time rate optimization."
+      ],
+      "reasoning": "The general SDP encompasses the instances computationally, but generic existence, duality, or symmetry averaging do not imply the closed two-regime value, discontinuous unique rate allocations, precise equality optimal face, or rigidity without symmetry assumed. No inspected stronger theorem supplies these explicit claims.",
+      "searches": [
+        "\"fastest mixing Markov process\" price constraints complete bipartite",
+        "\"fastest mixing Markov chain on graphs with symmetries\" complete bipartite",
+        "maximize algebraic connectivity weighted crown graph complete bipartite matching edges under linear budget spectral gap exact optimizer"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://journal.uny.ac.id/index.php/pythagoras/article/download/60818/pdf",
+      "DOI 10.1137/S0036144504443821",
+      "DOI 10.1137/070689413",
+      "DOI 10.21831/pythagoras.v19i1.60818"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. optimization framework implies the finite case is algorithmically SDP-solvable, not the present explicit thresholds or rates.",
+        "Boyd et al. discrete-time SLEM contains holding probabilities and a distinct eigenvalue objective; its K_{m,n} example is unpriced.",
+        "The related previously recorded Kirchhoff-index matching-price network minimizes a sum of inverse nonzero Laplacian eigenvalues; its n=3 deletion threshold is 99/35, unlike the present spectral-gap frontier 4.",
+        "The crown fixed-spectrum source supplies a special-case spectrum of the graph reached beyond the optimum deletion threshold."
+      ],
+      "reasoning": "A general optimization method does not state every optimizing rate or a sharp nonsymmetric equality characterization. Spectral gap maximization and inverse-eigenvalue-sum minimization select different allocations already at n=3,t=3 (gap optimizer keeps matching, Kirchhoff optimizer deletes), so the related resistance result does not imply this one. Inaccessible or unknown historical specializations remain a residual risk.",
+      "searches": [
+        "\"perfect matching\" \"price\" \"algebraic connectivity\"",
+        "\"continuous-time\" \"fastest mixing\" \"complete bipartite\"",
+        "\"discrete-time\" \"complete bipartite\" \"fastest mixing\"",
+        "\"crown graph\" \"Kirchhoff index\" matching price"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.1137/S0036144504443821 §§1–5 treats the general continuous-time fastest mixing SDP, not an explicit balanced-biclique matching-price optimal face.",
+        "DOI 10.1137/070689413 §5.4.2 includes complete bipartite examples for a discrete-time SLEM objective.",
+        "DOI 10.21831/pythagoras.v19i1.60818 derives the spectrum of the unweighted crown graph without conductance-budget optimization."
+      ],
+      "reasoning": "The natural aliases are algebraic-connectivity maximization, fastest mixing Markov process, priced crown graph, matching-deleted complete bipartite network, and Laplacian spectral-gap resource allocation. None of the materially inspected statements equates the two independent projector traces to derive this price frontier, nor characterizes nonsymmetric optimizers.",
+      "searches": [
+        "\"crown graph\" \"fastest mixing\"",
+        "\"perfect matching\" \"price\" \"algebraic connectivity\"",
+        "weighted Laplacian crown graph",
+        "\"fastest mixing\" \"complete bipartite\" \"matching\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DOI 10.21831/pythagoras.v19i1.60818 states eigenvalues 0, n−2, n, and 2n−2 with multiplicities on the unit-weight crown graph.",
+        "The optimization formula at high prices reduces to a budget-rescaled crown-graph Laplacian, but the other price regime and entire critical face require varying edge rates."
+      ],
+      "reasoning": "An exact fixed-weight eigenvalue table covers only the deletion endpoint and neither the pricing threshold nor the global optimal-face classification. The result is not claimed as a new fixed-weight spectrum.",
+      "searches": [
+        "\"crown graph\" Laplacian spectrum (n-2) n 2n-2",
+        "spectral gap optimal conductance perfect matching deleted K n n",
+        "\"Spektrum Laplace Graf Mahkota\" 2024"
+      ]
+    },
+    "rationale": "The named general convex semidefinite treatment [Sun et al., DOI 10.1137/S0036144504443821] provides an optimization framework and dual, but inspected sections and examples do not formulate this two-price matching optimum or classify the entire nonsymmetric optimal set. Symmetry study [Boyd et al., DOI 10.1137/070689413] concerns discrete-time second-largest-eigenvalue-modulus minimization, even where it treats complete bipartite graphs. A published crown-graph Laplacian spectrum [DOI 10.21831/pythagoras.v19i1.60818] is the unweighted deleted-matching boundary, not a price-parametric optimization. The four projector-based equality and uniqueness conclusions are not directly implied by these references. Semantic searches and the published research registry found no explicit exact equivalent; this does not prove absolute historical novelty.",
+    "residual_risks": [
+      "Historical source not retrieved or a less obvious equivalent formulation may cover the exact result; literature noncoverage is not mathematically provable by finite search.",
+      "The earlier optimization framework computationally subsumes this application, although it does not state its sharp threshold or optimizer face.",
+      "Independent scientific validation is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General rate-budget SDP and duality; no explicit two-price balanced-biclique matching frontier or full optimal face in inspected material",
+        "evidence": "DOI 10.1137/S0036144504443821; title and electronic publication 2006-11-02, sections 1–5",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Public paper full-text sections 1.1–1.2, 4 and 5, including graph examples and their optimization formulation",
+        "method": "Original public full PDF: text and inspected rendered pages",
+        "title": "J. Sun, S. Boyd, L. Xiao, P. Diaconis, The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Direct general ancestor of the continuous-time priced spectral-gap optimization"
+      },
+      {
+        "assessment": "Discrete-time SLEM, not priced continuous-time spectral-gap objective; includes unpriced complete-bipartite example",
+        "evidence": "DOI 10.1137/070689413 §5.4.2",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Original public full text introduction and §§2–3, §5.4.2 complete-bipartite discussion",
+        "method": "Original public full PDF and rendered page inspection",
+        "title": "S. Boyd, P. Diaconis, P. Parrilo, L. Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetry reduction and complete bipartite fastest-mixing examples are plausible stronger coverage"
+      },
+      {
+        "assessment": "Computes fixed-weight Laplacian spectrum; not price-dependent resource allocation",
+        "evidence": "DOI 10.21831/pythagoras.v19i1.60818, crown graph spectrum theorem",
+        "identifier_or_url": "https://journal.uny.ac.id/index.php/pythagoras/article/download/60818/pdf",
+        "material_read": "Full freely accessible source including spectrum theorem and supporting derivation",
+        "method": "Original journal full PDF text and rendered page inspection",
+        "title": "Triyani, R. Oktriyansa, S. R. Nurshiami, Spektrum Laplace Graf Mahkota dan Graf Benteng",
+        "trigger": "Exact crown-graph Laplacian spectrum could directly cover deletion regime"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab43d879-36fe-4148-9fa9-45abce3bb5c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed priced perfect matching in balanced complete bipartite networks models retaining or replacing paired cross-class links under a common rate budget. The work resolves the natural decision exactly for arbitrary network size, with an all-allocations theorem rather than only orbit-optimal rates. The first-order conductance jump at a strictly finite premium, continuous spectral gap, critical full face and eigenvalue multiplicity transition reveal non-obvious structure; neither a simple fixed-weight spectrum nor a cosmetic SDP substitution establishes those properties. The result yields explicit designs without solving a numerical SDP.",
+    "status": "PASS"
+  }
+}
