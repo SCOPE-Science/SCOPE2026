@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For every fixed \\(k\\ge2\\), parity and coprime factorization of \\(P=2m(m+n)\\) force \\(m=2^{k-1}u^k\\) and \\(m+n=v^k\\), with \\(v\\) odd and \\(\\gcd(u,v)=1\\), and yield the exact parameter wedge. The scaled real region has area \\(Y\\log(2)/(2k)\\) for \\(Y=X^{1/k}/2\\). The odd-coordinate lattice discrepancy is \\(O_k(\\sqrt Y)\\), and the odd-gcd Möbius sieve has factor \\(8/\\pi^2\\) and error \\(O_k(\\sqrt Y\\log(2Y))\\); substitution proves the coefficient and error. The final embedded exact verifier independently matches Euclid and new-parameter sets for \\(m\\le2200\\) and \\(2\\le k\\le5\\). Finite checks corroborate the mapping; they are not the proof of the unbounded asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lambek–Moser (1955), Section 4 Case 2, counts all primitive triangles with perimeter at most \\(X\\) as \\((\\log2/\\pi^2)X+O(\\sqrt X\\log X)\\), without a perfect-power condition.",
+        "The fixed-support 2026 result counts each prescribed odd-prime support separately, with a logarithmic rather than power-law growth."
+      ],
+      "reasoning": "The total count cannot be restricted to the sparse perfect-power subclass merely by substituting \\(X^{1/k}\\); that would count all triangles below another bound. Nor can fixed-prime-support estimates be summed when the set of permitted primes grows with the perimeter bound. General planar lattice-discrepancy lemmas are acknowledged as existing methods, not as already stated coverage of this arithmetic subclass.",
+      "searches": [
+        "Number of primitive Pythagorean triples with perfect k-th-power perimeter up to X asymptotic (log 2)/(k pi^2) X^(1/k), power-saving error, Euclid parametrization",
+        "Lehmer Lambek Moser square perimeter kth perfect power primitive Pythagorean triangles asymptotic",
+        "Lambek and Moser 1955 unrestricted perimeter asymptotic",
+        "published-finding corpus:2026/9/21/SCOPE-pythagorean-square-perimeter-fixed-prime-support--1c78d6da7690"
+      ]
+    },
+    "checked_sources": [
+      "https://msp.org/pjm/1955/5-1/pjm-v5-n1-p07-s.pdf",
+      "https://web.bogazici.edu.tr/topcu/RecreationalMathematics.pdf",
+      "https://oeis.org/A077177",
+      "https://oeis.org/A120089",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-pythagorean-square-perimeter-fixed-prime-support--1c78d6da7690"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-text checked the Lambek–Moser general perimeter asymptotic, Yiu square perimeter normal form, and the 2026 exact-support paper.",
+        "The counting proof introduces coprime kth-power factors in \\(2m(m+n)\\), an exponent-dependent wedge, and a parity-sensitive Möbius factor. The inspected sources do not combine these ingredients into the all-support counting statement."
+      ],
+      "reasoning": "Although the analytic counting techniques are classical and the k=2 parametrization is known, the all-support perfect-kth-power count and sharp leading constant are not direct implications of the inspected earlier statements. Genuine risk remains from unindexed equivalent work.",
+      "searches": [
+        "Number of primitive Pythagorean triples with perfect k-th-power perimeter up to X asymptotic (log 2)/(k pi^2) X^(1/k), power-saving error, Euclid parametrization",
+        "Primitive Pythagorean square perimeter triangles unrestricted prime support count asymptotic sqrt X, exact leading constant log2/(2 pi squared)",
+        "Cube perimeter primitive Pythagorean triangles complete parametrization and counting constant, lattice point density",
+        "Lehmer Lambek Moser square perimeter kth perfect power primitive Pythagorean triangles asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A077177 gives an exact odd-unitary-divisor interval for a prescribed semiperimeter, but no summation over all kth-power semiperimeters.",
+        "Yiu section 6.2 gives the square case, including an exact parameter map, not the all-k counting law."
+      ],
+      "reasoning": "The candidate can be expressed as coprime odd-coordinate lattice points in a bounded wedge or as a sum of fixed-perimeter divisor counts. Neither exact formulation in the inspected sources evaluates that aggregate, its leading coefficient, or error.",
+      "searches": [
+        "Primitive Pythagorean triples with cube perimeters, asymptotic number by perimeter X",
+        "perfect cube perimeter Pythagorean triples Euclid parametrization 2m(m+n)",
+        "density of perfect k-th power perimeters of primitive right triangles",
+        "OEIS:A077177 general fixed-semiperimeter unitary divisor interval"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A120089 and Yiu give concrete square-perimeter sequences and the classical k=2 normal form.",
+        "OEIS A077177 counts at each fixed semiperimeter but provides no asymptotic for perfect-power perimeters."
+      ],
+      "reasoning": "The finding is not a recomputation of a finite table: it proves an asymptotic for every fixed \\(k\\ge2\\), with an error estimate and no perimeter bound. Existing tables provide independent sample checks.",
+      "searches": [
+        "OEIS A120089 square perimeter primitive Pythagorean triangles",
+        "OEIS A077177 number with fixed primitive-triangle perimeter",
+        "Primitive Pythagorean square perimeter triangles unrestricted prime support count asymptotic sqrt X, exact leading constant log2/(2 pi squared)"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and primary-source searches for perfect-square, cube, arbitrary-k, unitary-divisor, and lattice-counting equivalences found no theorem evaluating the unrestricted prime-support kth-power-perimeter count. Yiu gives the k=2 parametrization, OEIS records fixed values, Lambek–Moser counts all perimeters, and a 2026 study counts only prescribed finite odd-prime support; none states or implies the displayed unrestricted asymptotic and error. The counting method is classical, and an earlier unindexed derivation remains a residual risk.",
+    "residual_risks": [
+      "Unindexed older recreational-number-theory sources may contain an equivalent full asymptotic.",
+      "The classic generic lattice-point discrepancy principle makes this an application of established techniques; methods are not claimed as original.",
+      "Publication priority has not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes a count of all primitive triangles with bounded perimeter, not the subset with kth-power perimeter.",
+        "evidence": [
+          "Section 1 gives the unrestricted leading coefficient \\(\\log 2/\\pi^2\\); Section 4 considers hypotenuse, perimeter, and area, not perfect-power perimeters."
+        ],
+        "identifier_or_url": "https://msp.org/pjm/1955/5-1/pjm-v5-n1-p07-s.pdf",
+        "material_read": "Full 1955 paper, including its introduction, the three geometric cases and its lattice-counting lemmas (pages 73–83).",
+        "method": "Opened full primary PDF, examined the classical perimeter estimate and the region-counting proof.",
+        "title": "On the distribution of Pythagorean triangles",
+        "trigger": "Closest broad asymptotic theorem, including a power-saving perimeter error term"
+      },
+      {
+        "assessment": "Covers the k=2 parametrization and examples, which are explicitly acknowledged; does not give the unrestricted counting asymptotic or every fixed k.",
+        "evidence": [
+          "The source explicitly states \\(m=2q^2\\), \\(m+n=p^2\\), \\(P=(2pq)^2\\) and lists initial examples, without a counting theorem."
+        ],
+        "identifier_or_url": "https://web.bogazici.edu.tr/topcu/RecreationalMathematics.pdf",
+        "material_read": "Section 6.2, printed page 211, inspected directly as PDF page image.",
+        "method": "Read exact square-perimeter parametrization and complete worked list on the relevant page.",
+        "title": "Recreational Mathematics, section 6.2",
+        "trigger": "Plausibly covering exact parametrization for power perimeters"
+      },
+      {
+        "assessment": "An exact fixed-perimeter characterization, but no asymptotic over all perfect-power perimeters.",
+        "evidence": [
+          "Comment: fixed even perimeter 2s corresponds to odd unitary divisors of s in a square-root interval. Authored Nov 29, 2002."
+        ],
+        "identifier_or_url": "https://oeis.org/A077177",
+        "material_read": "The complete comments, formula, references, examples, and authorship date Nov 29 2002 on the sequence page.",
+        "method": "Compared the odd unitary-divisor interval for a prescribed semiperimeter against the varying-perfect-power perimeter aggregate.",
+        "title": "OEIS A077177 — primitive Pythagorean triangles at a fixed primorial perimeter",
+        "trigger": "Exact fixed-perimeter divisor formula might cover the counted set indirectly"
+      },
+      {
+        "assessment": "Not covering; controls one fixed finite prime support and proves a logarithmic law, whereas the finding sums the unrestricted prime-support union and treats every fixed k.",
+        "evidence": [
+          "For each prescribed odd-prime set \\(S\\), the paper counts fixed-support triangles by a logarithmic-power law. This does not supply the unrestricted all-support \\(X^{1/k}\\) theorem."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/21/SCOPE-pythagorean-square-perimeter-fixed-prime-support--1c78d6da7690",
+        "material_read": "Complete RESULT.md including statement, proof, examples, verification, and novelty boundary.",
+        "method": "Read full published result, inspected exact support restriction and logarithmic fixed-support asymptotic.",
+        "title": "Fixed prime support in square-perimeter primitive Pythagorean triangles",
+        "trigger": "Closest published-finding corpus scientific result for an overlapping square-perimeter family"
+      },
+      {
+        "assessment": "Tabulates square-perimeter values and points to Yiu; does not supply the all-support count or an error estimate.",
+        "evidence": [
+          "OEIS A120089 gives square-perimeter examples, with initial contributor date Jun 07, 2006."
+        ],
+        "identifier_or_url": "https://oeis.org/A120089",
+        "material_read": "Sequence title, examples, formulas and authorship context through indexed OEIS record.",
+        "method": "Checked whether the sequence states a counting asymptotic rather than examples.",
+        "title": "OEIS A120089 — square perimeters of primitive Pythagorean triangles",
+        "trigger": "Possible exact database or table documenting the k=2 invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54809e3c-25d2-460e-a2c9-2dab219aab42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The counting function concerns a naturally defined sparse arithmetic subclass of primitive Pythagorean triangles, for which total-perimeter density and square-perimeter examples do not answer the frequency question. It yields the order of growth, exact positive leading constant, a power-saving error, and infinitely many examples for each fixed integer exponent, while clarifying the inverse-k dependence and distinguishing triangles from distinct perimeters. This is a complete natural counting theorem rather than an arbitrary finite slice or known-table recomputation.",
+    "status": "PASS"
+  }
+}
