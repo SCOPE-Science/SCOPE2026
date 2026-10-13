@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Derived the exact symmetric 2x2 quadratic form and proved uniform lower eigenvalue C=1-1/(4xi) using its principal minors under the true secant guard. Constructed positive-definite saturating matrices with eigenvalue limit C, proved fixed-input strict descent at xi=1/4, and exact positive-line-search obstruction for a reachable SPD affine input. Reconstructed and replayed independent exact-rational witness checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical sufficient-descent results and Tang et al. (2025) involve different direction formulas; no inspected stronger theorem simultaneously supplies exact secant guarded coefficient and first-projection line-search obstruction."
+      ],
+      "reasoning": "A general matrix descent result would need a nontrivial calculation linking secant guard to matrix eigenvalues; that calculation and sharp extremizers are not implicit in predecessor claims.",
+      "searches": [
+        "2026 nonlinear conjugate gradient exact line search secant conjugacy finite termination counterexample",
+        "three-term subspace conjugate gradient metric B secant y=symmetric positive definite ascent sufficient descent condition",
+        "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+        "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/axioms15050351",
+      "doi:10.1051/ro/2025106",
+      "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+      "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe",
+      "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary article alleges a positive coefficient for all 0<xi<1; its stated conclusion is contradicted at xi=0.01 by the exact constructed trajectory. Tang et al.'s different subspace direction does not imply this particular sharp coefficient."
+      ],
+      "reasoning": "The new theorem is not a mere special case of an established correct source bound; the source bound conflicts with the attained negative coefficient below the threshold, and the sharp classification includes the boundary and all parameters.",
+      "searches": [
+        "doi:10.3390/axioms15050351",
+        "doi:10.1051/ro/2025106",
+        "three-term subspace conjugate gradient metric B secant y=symmetric positive definite ascent sufficient descent condition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al. (2026) equation (6) specifies exactly the tested secant correction; published-finding corpus ranked hits have different operators or step strategies."
+      ],
+      "reasoning": "Reduction of the direction to a 2x2 symmetric quadratic form identifies the sharp coefficient. Closest hits lack equivalent universal bound for this same operator. Search absence is not proof of global novelty.",
+      "searches": [
+        "SDCG subspace derivative-free conjugate gradient Liu 2026 Axioms 15 351 sufficient descent safeguard fails secant metric",
+        "three-term subspace conjugate gradient metric B secant y=symmetric positive definite ascent sufficient descent condition",
+        "subspace minimizing quadratic model -F plus old step directions safeguard s^T y >= xi ||y||^2 direction need not descend",
+        "doi:10.3390/axioms15050351"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "This is an analytic two-dimensional optimal coefficient and explicit rational iteration, not a catalogued finite enumeration or tabulated benchmark."
+      ],
+      "reasoning": "No exact database or table covers the continuous sharp safeguard threshold and its reachable descent obstruction.",
+      "searches": [
+        "SDCG subspace derivative-free conjugate gradient Liu 2026 Axioms 15 351 sufficient descent safeguard fails secant metric",
+        "subspace minimizing quadratic model -F plus old step directions safeguard s^T y >= xi ||y||^2 direction need not descend",
+        "2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+      ]
+    },
+    "rationale": "Primary 2026 Case-I formula and its claimed full-range descent do not state a correct sharp threshold; the found scalar guard threshold and reachable counterexample go beyond a title or parameter match. Inspected complete original method/proof sections and original references, and compared predecessor available full-text mathematics and closest published published-finding corpus summaries; no known result inspected implies the complete sharp coefficient and trajectory.",
+    "residual_risks": [
+      "Not every historical subspace-CG publication could be read in full; the closest 2025 predecessor's rendered formulas have extraction limitations.",
+      "published-finding corpus index coverage does not establish uniqueness or rule out unpublished equivalent work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source states descent for all positive safeguards but its Case-I argument does not account for the sharp cross-term. Explicit affine witness refutes the claimed universal condition while independently satisfying the Case-I secant premise and guard.",
+        "evidence": [
+          "Equations (6), (10), (11), Lemma 1 on pages 3–6; numerical safeguards on page 9; DOI publication metadata page 1."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/axioms15050351",
+        "material_read": "Extracted original article pages 1–10 and 14–17 of 17 pages, covering complete method and proof sections, initial numerics and references; numerical comparison tables on pages 11–13 were not read.",
+        "method": "Full extracted article text, checked formulas (6), (10), (11), Lemma 1, initial projection/line search, primary MSC and publication date.",
+        "title": "A Subspace Derivative-Free Conjugate Gradient Method for Solving Nonlinear Monotone Equations with Convex Constraints",
+        "trigger": "Exact same algorithm, Case-I formula, guard and claimed descent lemma."
+      },
+      {
+        "assessment": "Distinct multi-term formula and sufficient-descent setup; no observed source-equivalent sharp Case-I coefficient or accepted line-search obstruction.",
+        "evidence": [
+          "Tang et al. (2025), subspace construction and Lemma 2.1; the displayed formula is not eq. (6) of Li et al. (2026)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1051/ro/2025106",
+        "material_read": "Public full-text rendering covering direction and descent-lemma sections; some symbolic formulas imperfectly rendered.",
+        "method": "Read available full-text sections discussing search directions, descent and projection, and compared formula structures.",
+        "title": "A subspace minimization conjugate gradient method for nonlinear monotone equations with convex constraints",
+        "trigger": "Cited by primary article as closest subspace-minimization predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f0205ba-0947-40a4-bdd9-dd71686bdf8f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The safeguard is load-bearing for existence of the paper's monotone line search and global convergence. A sharp exactly characterized threshold is a structural parameter classification; the explicit feasible first projection leading to ascent shows the failure occurs in executable method dynamics, rather than only an arbitrary algebraic configuration. At that point no positive line-search step exists on an SPD affine monotone map.",
+    "status": "PASS"
+  }
+}
