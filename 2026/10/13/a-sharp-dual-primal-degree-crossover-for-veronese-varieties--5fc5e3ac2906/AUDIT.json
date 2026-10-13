@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The primal degree is exactly e^n and Boole's formula gives the dual degree (n+1)(e-1)^n. Their ratio is strictly increasing in e, so solving the real equality gives the unique crossover threshold. Integral equality forces (e-1)^n to divide e^n; coprimality gives e=2, and n+1=2^n then forces n=1. The asymptotic expansion is the standard Bernoulli expansion of 1/(1-exp(-x)) with x=log(n+1)/n. The bundled checker verifies the exact finite sign pattern but is not used for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaji studies degrees of higher Gauss-map images and recovers Boole's ordinary-dual formula, but the inspected metadata and paper description do not state a primal-versus-dual crossover.",
+        "A nearby smooth-toric-surface result compares primal and dual degree in dimension two via genus and polygon vertices, but it does not contain the all-dimensional Veronese threshold.",
+        "A nearby Veronese result gives the gcd of all coisotropic degrees, a different arithmetic invariant."
+      ],
+      "reasoning": "Potentially stronger nearby sources were compared by implication: higher-Gauss and coisotropic formulas do not state the requested two-degree sign classification, while the toric-surface result covers only dimension two.",
+      "searches": [
+        "Veronese variety projective degree dual degree comparison equality threshold",
+        "Veronese dual discriminant degree versus degree ratio",
+        "Veronese discriminant degree divisibility projective degree",
+        "higher Gauss maps Veronese Boole degree bounds"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.0704",
+      "doi:10.5802/aif.2720",
+      "arXiv:1509.04935",
+      "published finding on common prime divisors of Veronese coisotropic degrees",
+      "published finding on dual-degree defect factorizations for Segre--Veronese surfaces",
+      "published finding on dual-degree excess of smooth toric surfaces",
+      "targeted literature searches for Veronese primal/dual degree crossover and equality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Benoist states the discriminant degree (n+1)(e-1)^n.",
+        "Kaji explicitly identifies Boole's formula with the degree of dual varieties of Veronese varieties.",
+        "The closest Veronese arithmetic finding concerns common prime divisors of a full coisotropic sequence.",
+        "The toric-surface comparison gives a dimension-two excess formula, not the dimension-and-order crossover."
+      ],
+      "reasoning": "The final theorem is a new statement-level consequence of classical formulas: it identifies the exact sign boundary in the two-parameter family, proves uniqueness of equality, and gives its asymptotic location.",
+      "searches": [
+        "Benoist 1009.0704 Boole formula singular hypersurfaces degree",
+        "Kaji 1509.04935 Boole dual Veronese formula",
+        "common prime divisors Veronese coisotropic degrees",
+        "smooth toric surface dual degree primal degree Veronese"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located source states the exact threshold 1/(1-(n+1)^(-1/n)).",
+        "No located source states that the conic is the unique integral equality case between primal and dual degree.",
+        "The primary sources state the dual formula itself, not this comparison."
+      ],
+      "reasoning": "The searches cover the ratio formula, inequality language, equality language, and Boole/Veronese terminology.",
+      "searches": [
+        "Veronese primal degree dual degree crossover (n+1)(d-1)^n d^n",
+        "Veronese variety dual degree exceeds projective degree threshold",
+        "Veronese conic unique equal primal dual degree",
+        "Boole formula Veronese dual degree compare degree d^n",
+        "\"Veronese\" dual degree projective degree crossover",
+        "\"Veronese\" \"dual degree\" \"projective degree\" equality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located table or database gives the all-parameter crossover threshold.",
+        "The finite checker is explicitly regression evidence rather than a source of the theorem."
+      ],
+      "reasoning": "The classification follows from a monotone closed ratio and an exact Diophantine equality argument, not from finite interpolation.",
+      "searches": [
+        "Veronese dual degree projective degree table",
+        "Veronese discriminant degree table Boole",
+        "Veronese degree crossover table"
+      ]
+    },
+    "rationale": "The inspected primary sources state the classical dual-degree formula and its Veronese interpretation, but do not state the dual-versus-primal crossover threshold or the unique equality classification. Targeted semantic and web searches for exact crossover, equality, and ratio formulations did not locate an equivalent statement. The closest indexed findings concern Veronese coisotropic-degree divisibility, Segre--Veronese surface dual-degree envelopes, or smooth toric-surface dual-degree excess; none contains the all-dimensional threshold.",
+    "residual_risks": [
+      "Because the comparison is short once Boole's formula and the elementary primal degree are juxtaposed, an older or unindexed source may contain the same threshold.",
+      "The smooth-toric-surface literature contains dimension-two primal/dual comparisons, so the dimension-two specialization is less isolated than the general all-dimensional statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_DUAL_DEGREE_FORMULA_NOT_CROSSOVER",
+        "evidence": "The source states that singular degree-e hypersurfaces in P^n form a divisor of degree (n+1)(e-1)^n and lists MSC 14M10, 14N05, 14M25. The inspected text does not compare this with the primal Veronese degree e^n.",
+        "identifier_or_url": "arXiv:1009.0704",
+        "material_read": "ArXiv metadata and full-text introduction; the hypersurface discriminant statement; the c=1 specialization recovering Boole's formula; the displayed MSC classification and submission history.",
+        "method": "Full-text HTML inspection.",
+        "title": "Degrés d'homogénéité de l'ensemble des intersections complètes singulières",
+        "trigger": "Archival primary algebraic-geometry source recording Boole's discriminant degree."
+      },
+      {
+        "assessment": "SUPPORTS_VERONESE_DUAL_INTERPRETATION_NOT_CROSSOVER",
+        "evidence": "The source is math.AG with MSC 14N05 and explicitly identifies Boole's formula as the ordinary-dual Veronese degree formula. Its stated degree bounds concern higher Gauss-map images rather than the primal-versus-dual sign threshold.",
+        "identifier_or_url": "arXiv:1509.04935",
+        "material_read": "ArXiv metadata and paper description, including the statement that the main formula generalizes Boole's formula for the degree of dual varieties of Veronese varieties; MSC 14N05 and submission history.",
+        "method": "ArXiv full-text/metadata inspection.",
+        "title": "Higher Gauss Maps of Veronese Varieties---a generalization of Boole's formula and degree bounds for higher Gauss map images---",
+        "trigger": "Primary source explicitly identifying Boole's formula with the degree of dual Veronese varieties."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5fc5e3ac-2906-4b2b-aa6d-9aff0b27c24a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Primal projective degree and projective-dual degree are two fundamental enumerative invariants of the same embedded variety: one counts generic complementary linear intersections and the other measures the tangent-hyperplane discriminant. The theorem gives a complete sign classification over the entire two-parameter Veronese family, identifies the unique self-equality case, and reveals the non-obvious n/log n scale at which tangent-discriminant complexity overtakes primal intersection complexity. This is a natural comparison of canonical invariants rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
