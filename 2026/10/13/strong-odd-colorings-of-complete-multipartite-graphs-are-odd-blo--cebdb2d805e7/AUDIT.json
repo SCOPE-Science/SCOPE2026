@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Properness confines each color class to one part. Any vertex in another nonempty part sees the entire class, forcing its size odd; conversely odd class sizes make every visible neighborhood multiplicity odd. The minimum follows from the minimum number of positive odd summands of each part size. The all-palette count follows by allocating disjoint color sets to parts and using \\(A(n,k)=n![z^n](\\sinh z)^k\\). The optimal-count corollary is algebraically consistent and independently brute-forced on small graphs.",
+    "risks": [
+      "The finite checker is not an infinite proof; correctness of the general theorem relies on the displayed structural argument."
+    ],
+    "sources": [
+      "arxiv:2602.03259v1 for the strong-odd definition and the analogous odd-class observation in a join family",
+      "verify.py replay for finite cross-checks"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caro et al. record only the uniform complete-bipartite bound \\(\\chi_{\\mathrm{so}}(K_{m,n})\\le4\\).",
+        "Manattu et al. determine joins C_n with an empty graph and use an odd-class observation on the cycle side; they do not state a complete bipartite or complete multipartite theorem.",
+        "Pradhan et al. again use complete bipartite graphs as an example with \\(\\chi_{\\mathrm{so}}\\le4\\) while focusing on complexity."
+      ],
+      "reasoning": "The inspected stronger-looking graph-class and complexity papers provide bounds or different join families, not a theorem whose statement specializes to the complete-multipartite structural classification and all-q count here.",
+      "searches": [
+        "arXiv:2401.11653 full text and metadata",
+        "arXiv:2410.02336 / DOI 10.1016/j.disc.2025.114601 full text",
+        "arXiv:2602.03259v1 full text",
+        "arXiv:2610.01441v1 full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.03259v1",
+      "arxiv:2410.02336 / doi:10.1016/j.disc.2025.114601",
+      "arxiv:2610.01441v1",
+      "arxiv:2401.11653",
+      "published-finding corpus published records returned by the listed semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published ordinary-odd complete-multipartite theorem has a different invariant and formula, so it does not imply the strong-odd result.",
+        "The inspected strong-odd literature gives \\(\\chi_{\\mathrm{so}}(K_{m,n})\\le4\\) and exact values for different join families, but not the present complete-multipartite classification or enumeration."
+      ],
+      "reasoning": "The closest published implications were compared at statement level. The ordinary-odd theorem concerns a weaker condition, while the strong-odd join results concern graphs with internal cycle edges. Neither statement specializes to or dominates the present theorem.",
+      "searches": [
+        "published complete-multipartite ordinary-odd published-finding corpus record 2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2",
+        "arXiv:2410.02336 complete-bipartite comparison",
+        "arXiv:2602.03259v1 join-with-empty-graph theorems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states the strong-odd complete-multipartite characterization, the formula \\(r+e\\), or the full labeled-palette count.",
+        "The closest semantic hit is 2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2, which concerns ordinary odd coloring rather than strong odd coloring."
+      ],
+      "reasoning": "Strong odd coloring requires every color visible in every neighborhood to have odd multiplicity, whereas ordinary odd coloring requires only the existence of an odd-occurring color. The nearby ordinary-odd theorem therefore does not imply the present classwise-odd characterization or enumeration.",
+      "searches": [
+        "strong odd chromatic number complete multipartite graphs exact",
+        "strong odd coloring complete bipartite graphs bicliques",
+        "strong odd coloring complete graphs paths cycles exact",
+        "strong odd coloring crown graphs complete multipartite",
+        "strong odd chromatic number complete bipartite K_mn",
+        "\"strong odd\" complete multipartite color classes odd size",
+        "\"strong odd coloring\" multipartite",
+        "\"strong odd chromatic\" biclique",
+        "strong odd coloring complete multipartite every color class odd",
+        "strong odd chromatic number r plus number of even parts",
+        "optimal strong odd colorings complete multipartite count",
+        "complete bipartite strong odd chromatic number parity 2 3 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus ID: 2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2.",
+        "Other recurrent nearby IDs were 2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105 and 2026/9/17/SCOPE005; neither concerns strong odd complete-multipartite colorings."
+      ],
+      "reasoning": "The exact database comparison was performed at the claim, alias, parity-formula, biclique, multipartite, and counting levels rather than by title alone.",
+      "searches": [
+        "strong odd chromatic number complete multipartite graphs exact",
+        "strong odd coloring complete bipartite graphs bicliques",
+        "strong odd coloring complete graphs paths cycles exact",
+        "strong odd coloring crown graphs complete multipartite",
+        "strong odd chromatic number complete bipartite K_mn",
+        "\"strong odd\" complete multipartite color classes odd size",
+        "\"strong odd coloring\" multipartite",
+        "\"strong odd chromatic\" biclique",
+        "strong odd coloring complete multipartite every color class odd",
+        "strong odd chromatic number r plus number of even parts",
+        "optimal strong odd colorings complete multipartite count",
+        "complete bipartite strong odd chromatic number parity 2 3 4"
+      ]
+    },
+    "rationale": "Claim-level published-finding corpus and primary-full-text comparisons found the known biclique upper bound and a related ordinary-odd complete-multipartite theorem, but no statement equivalent to the strong-odd odd-class characterization, \\(r+e\\) formula, full labeled-palette count, or optimal-count formula.",
+    "residual_risks": [
+      "An elementary equivalent observation may exist under terminology not indexed by the searched databases.",
+      "The all-q enumerator is a natural consequence of the structural characterization, so an unindexed paper on parity-constrained set partitions could contain an equivalent counting identity without graph-specific wording."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the accepted theorem. The paper proves results for C_n joined with an empty graph; it does not state a complete bipartite or complete multipartite classification or a coloring-count formula.",
+        "evidence": "The paper states primary AMS 05C15, says exact values are known for few classes, and Theorem 2 treats C_n joined with an empty graph. Searches of the full text for complete bipartite and complete multipartite returned no matching statement.",
+        "identifier_or_url": "arxiv:2602.03259v1",
+        "material_read": "Abstract, introduction, Section 2 including Observations 1-2 and Theorems 1-2, and concluding remarks.",
+        "method": "Lawful public full-text inspection.",
+        "title": "On a conjecture about the strong odd chromatic number of planar graphs",
+        "trigger": "Recent primary-MSC literature explicitly seeking exact strong odd chromatic numbers and studying joins with empty graphs."
+      },
+      {
+        "assessment": "NOT_COVERING. It explicitly records \\(\\chi_{\\mathrm{so}}(K_{m,n})\\le4\\) but not the exact shore-parity cases, the multipartite extension, or any all-palette enumeration.",
+        "evidence": "Its introduction contrasts \\(\\chi(G^2)=m+n\\) with \\(\\chi_{\\mathrm{so}}(K_{m,n})\\le4\\).",
+        "identifier_or_url": "arxiv:2410.02336 / doi:10.1016/j.disc.2025.114601",
+        "material_read": "Open-access abstract, introduction, complete-bipartite comparison, and relevant class/product discussion.",
+        "method": "Open-access full-text web inspection.",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Highly relevant general strong-odd paper repeatedly cited for the complete-bipartite example."
+      },
+      {
+        "assessment": "NOT_COVERING. The paper studies complexity and again uses complete bipartite graphs only through the known upper-bound example.",
+        "evidence": "The preprint notes \\(\\chi(G^2)=m+n\\) while \\(\\chi_{\\mathrm{so}}(K_{m,n})\\le4\\), without giving the exact parity formula.",
+        "identifier_or_url": "arxiv:2610.01441v1",
+        "material_read": "Abstract, introduction, and the complete-bipartite comparison in the public preprint.",
+        "method": "Public arXiv PDF/full-text inspection.",
+        "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+        "trigger": "Newest strong-odd paper and directly about bipartite graphs and optimal coloring."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY. It introduces the invariant and sparse-graph bounds; no complete-multipartite exact theorem was identified.",
+        "evidence": "arXiv lists MSC 05C15 and the paper focuses on maximum-average-degree bounds.",
+        "identifier_or_url": "arxiv:2401.11653",
+        "material_read": "Public arXiv metadata, abstract, classification, and definition-level material.",
+        "method": "Public arXiv inspection.",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "Original definition and baseline source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cebdb2d8-05e7-4320-9cbd-98cfed76f3fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a natural complete classification and complete coloring enumerator for a canonical dense graph class under a recent invariant. It sharpens the literature’s uniform biclique bound into an exact parity law, extends it to every complete multipartite graph, and distinguishes strong odd coloring sharply from the nearby ordinary odd invariant; the optimal-coloring count adds structural information beyond the minimum number.",
+    "risks": [
+      "The core characterization is short once the correct multipartite viewpoint is recognized; value rests on the completeness, canonical family, exact all-q count, and sharp separation from known bounds rather than proof length."
+    ],
+    "sources": [
+      "arxiv:2602.03259v1 explicitly motivates exact values for graph classes as an active problem",
+      "arxiv:2610.01441v1 shows current algorithmic/complexity interest in the same invariant"
+    ],
+    "status": "PASS"
+  }
+}
