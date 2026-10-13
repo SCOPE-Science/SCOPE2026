@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Adding the two printed infected equations yields the exact all-parameter recurrence H+=H-h(µE+dI). A concrete h bound simultaneously proves positivity of every coordinate, so H decays geometrically. Independently, the exact positive endemic steady state was checked by substituting into all six intended equations; the true DFE infected eigenvalues are 1 and -6 while the printed block has negative trace -17 and positive determinant 18. Exact rational code verifies the substantive finite identities and the proof handles the infinite iteration and arbitrary parameters. The claim explicitly excludes nonzero-noise dynamics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Farhan et al. 2024, DOI 10.1140/epjp/s13360-024-05838-0, Section 2 and Sections 4–5: deterministic ODE and PINN/RK4, not a Lévy Milstein map.",
+        "Khan–Din 2023, DOI 10.3934/math.2023952, abstract and figures describe a stochastic measles-vaccination setting but do not document the 2026 numerical recursion."
+      ],
+      "reasoning": "General numerical-consistency and epidemic-threshold theorems do not, without the source-specific extra negative incidence, imply the claimed β-uniform cancellation; a related model or shared biological parameters is not sufficient coverage.",
+      "searches": [
+        "\"Stochastic analysis for measles transmission with Lévy noise\" \"Milstein\" 2023",
+        "\"10.1140/epjp/s13360-024-05838-0\" measles Milstein numerical",
+        "SEIR Milstein scheme extra infection loss term spurious disease free equilibrium reproduction number"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026761",
+      "doi:10.1140/epjp/s13360-024-05838-0",
+      "doi:10.3934/math.2023952",
+      "published two-patch SEIR bracketing theorem (September 2026) (distinct two-patch epidemic-model theorem)",
+      "published eight-state Padé positivity theorem (September 2026) (distinct Markov integrator stability)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Din 2026 states extinction/persistence criteria for stochastic system (2.2) and reports numerical simulations, but prints a distinct equation in Section 6.1.",
+        "Farhan et al. 2024 treats continuous-time equilibrium stability and neural approximations.",
+        "Previously examined deterministic normalization discrepancies address the true six-class next-generation matrix, not the separate infected-coordinate drift in Din 2026 Section 6.1."
+      ],
+      "reasoning": "Results about stability of the intended ODE neither assert nor imply the opposite qualitative behavior of the misprinted discrete map. Indeed the exact positive equilibrium in the present proof is not stationary for the printed scheme.",
+      "searches": [
+        "\"10.3934/math.2026761\" \"I\" \"Milstein\" numerical scheme",
+        "\"10.1140/epjp/s13360-024-05838-0\" measles Milstein numerical",
+        "\"Stochastic analysis for measles transmission with Lévy noise\" \"Milstein\" 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Din 2026 equations (2.1),(2.2): infectious drift is progression minus removal; its Section 6.1 includes an additional negative incidence.",
+        "The same consequence can be expressed as strict non-consistency, geometric decay of E+I, or absence of endemic equilibria in the printed deterministic skeleton."
+      ],
+      "reasoning": "All three statements are equivalent manifestations of the identified extra incidence sink in the discrete infectious equation; none is implied by the continuous model because the continuous E+I balance contains a positive incidence term.",
+      "searches": [
+        "Stochastic analysis and ANN-based approximation of measles transmission dynamics under Lévy noise infected Milstein scheme extra infection incidence term reproduction number",
+        "Din 2026 measles Lévy noise numerical discretization inconsistent infected drift minus beta S I over N deterministic limit",
+        "\"10.3934/math.2026761\" \"I\" \"Milstein\" numerical scheme"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned database record: published two-patch SEIR bracketing theorem (September 2026), a two-patch SEIR reproduction-number-bracketing counterexample, not this specific 2026 six-class recurrence.",
+        "Other closest matches addressed dengue switching, serial bioreactor stability, Markov positivity of a Padé map, and threshold dynamics of age-structured systems."
+      ],
+      "reasoning": "Database matches were examined by mathematical claim and model, not title alone: none supplies the infected step of Din 2026 or a general theorem implying this particular cancellation. The returned search is nonexhaustive.",
+      "searches": [
+        "Stochastic analysis and ANN-based approximation of measles transmission dynamics under Lévy noise infected Milstein scheme extra infection incidence term reproduction number",
+        "Din 2026 measles Lévy noise numerical discretization inconsistent infected drift minus beta S I over N deterministic limit",
+        "six-compartment measles Milstein scheme spurious infection loss local reproduction threshold stabilization",
+        "\"10.3934/math.2026761\" \"I\" \"Milstein\" numerical scheme"
+      ]
+    },
+    "rationale": "The exact all-parameter infection-mass cancellation and noise-free geometric extinction belong to the printed 2026 six-class stochastic numerical recurrence, not to its underlying continuous ODE, the 2024 deterministic neural-network method, the 2023 Lévy case study, or a generic reproduction-number criterion. The source itself prints both inconsistent formulas but does not prove this consequence. Three targeted published mathematical-database searches returned distinct epidemic threshold and numerical integrator results but no matching recurrence or stronger covering theorem; this is finite evidence, not a proof of universal novelty. An earlier mathematical note on this deterministic system treated normalization of its next-generation threshold rather than the separate numerical scheme.",
+    "residual_risks": [
+      "The 2023 Khan–Din full text was not retrievable here; an analogous numerical issue could be discussed in an inaccessible passage.",
+      "Literature and mathematical-database searches are not exhaustive, and the publication may have code or later corrections not found in accessible records.",
+      "No independent review or implementation-code comparison has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Critical additional negative infection-incidence term appears only in the printed infectious numerical step; the paper does not develop its uniform all-transmission extinction consequence",
+        "evidence": [
+          "Equation (2.2), infectious drift: positive φE minus (µ+γ+φ1)I; no incidence subtraction.",
+          "Section 6.1, infectious recurrence: same drift plus negative βSI/N.",
+          "Section 6.1, exposed recurrence: positive βSI/N."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/408217752_Stochastic_analysis_and_ANN-based_approximation_of_measles_transmission_dynamics_under_Levy_noise",
+        "material_read": "Full article rendering, in particular equations (2.1) and (2.2), Section 6.1 complete six-coordinate Milstein update, and Section 6.2 simulation discussion",
+        "method": "Read publicly accessible complete rendered manuscript text, matching the infected, exposed and susceptible expressions",
+        "title": "Stochastic analysis and ANN-based approximation of measles transmission dynamics under Lévy noise",
+        "trigger": "Direct comparison of continuous equations and the numerical recurrence in the same paper"
+      },
+      {
+        "assessment": "Addresses deterministic double-dose measles equilibria and neural ODE solvers; not the 2026 Lévy Milstein numerical recurrence",
+        "evidence": [
+          "Section 2 six-compartment deterministic model.",
+          "Section 4 and conclusions: neural and RK4 deterministic comparison, not Lévy Milstein recursion."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/386394129_A_novel_physics-informed_neural_network_approach_to_assess_the_impact_of_double-dose_vaccination_on_measles_transmission",
+        "material_read": "Full rendered manuscript introduction, Section 2 formulation, Section 4 numerical network and Section 5 conclusions",
+        "method": "Read publicly accessible complete rendered manuscript text, including its method summaries",
+        "title": "A novel physics-informed neural network approach to assess the impact of double-dose vaccination on measles transmission",
+        "trigger": "2024 deterministic source explicitly cited for reproduction number and model"
+      },
+      {
+        "assessment": "Earlier related stochastic measles model is not confirmed to cover the numerical error; access insufficiency is retained as a risk",
+        "evidence": [
+          "2023 paper describes stochastic measles with vaccination and Lévy noise; its figure descriptions discuss extinction and persistence rather than the 2026 scheme."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.2023952",
+        "material_read": "Journal abstract, keywords, bibliographic information and descriptions of figures (full text could not be retrieved)",
+        "method": "Read official publisher abstract and accessible index; separately attempted public full-text access",
+        "title": "Stochastic analysis for measles transmission with Lévy noise: a case study",
+        "trigger": "Same author and same disease with Lévy perturbations"
+      },
+      {
+        "assessment": "Verified public publication date 2026-06-25 and primary MSC 92D30",
+        "evidence": [
+          "Published: 25 June 2026; MSC: 92D30, 60H10, 60G51, 68T07, 65C30."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.2026761",
+        "material_read": "Publisher article metadata including title, publication date, DOI, and ordered MSC codes",
+        "method": "Direct official article landing page",
+        "title": "Din 2026 official article metadata",
+        "trigger": "Verify earliest visible public date and MSC ownership"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81c5e8ad-7715-410a-a522-eadb063e6e66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper uses its printed stochastic numerical scheme to illustrate infection persistence versus extinction and generate trajectories for a neural predictor. The source-specific double loss of incidence is not a harmless label or parameter normalization: for every β it enforces artificial extinction even where the intended model is provably invasible and has a positive equilibrium. A uniform geometric bound, exact endemic counterexample, and specific necessary drift correction make the finding biologically and computationally meaningful without asserting correctness of the entire stochastic integrator.",
+    "status": "PASS"
+  }
+}
