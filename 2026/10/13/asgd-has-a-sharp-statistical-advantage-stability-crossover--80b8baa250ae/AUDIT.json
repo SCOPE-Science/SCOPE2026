@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The practical source update produces an explicit two-by-two matrix on a scalar quadratic. All three Jury expressions are computed exactly; the first two are positive throughout the stated domain and the third yields the displayed if-and-only-if ceiling. The boundary is a minus-one root, the SGD crossover follows by direct subtraction, and the global infimum follows from the source constraint xi squared no larger than kappa.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 ASGD source gives a four-parameter accelerated stochastic recurrence and a sharp stochastic least-squares convergence analysis.",
+        "The 2018 source identifies its practical deterministic slice with Nesterov acceleration.",
+        "Classical accelerated-gradient stability can cover that endpoint but does not determine the full statistical-advantage interpolation."
+      ],
+      "reasoning": "The accepted claim does not assert novelty for deterministic Nesterov stability. Its additional content is the exact stability frontier as the statistical parameter moves away from that endpoint, plus the sharp source-domain lower envelope.",
+      "searches": [
+        "Accelerating stochastic gradient descent least squares Jain ASGD stochastic process stability",
+        "Nesterov scalar quadratic stability momentum",
+        "accelerated stochastic gradient deterministic equivalent NAG"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1704.08227v1",
+      "arXiv:1803.05591v1",
+      "ICLR2018:Kidambi-Netrapalli-Jain-Kakade"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 paper states the practical update and explains the intended roles of the short step, long-step parameter, and statistical-advantage parameter.",
+        "It states that the deterministic case uses statistical advantage equal to the square root of the condition parameter and is equivalent to Nesterov acceleration.",
+        "The 2017 source proves stochastic least-squares guarantees for an equivalent accelerated method but does not state the practical recurrence's full free-parameter Schur frontier."
+      ],
+      "reasoning": "Prior convergence theorems certify selected source tunings and statistical rates; they do not imply an if-and-only-if scalar stability condition for every admissible parameter triple. The final result requires reducing the practical recurrence to a modal matrix and solving all Jury inequalities.",
+      "searches": [
+        "arXiv:1803.05591 Algorithm 3 short step long step statistical advantage",
+        "arXiv:1803.05591 deterministic xi sqrt kappa equivalent NAG",
+        "arXiv:1704.08227 Algorithm 1 ASGD parameter choices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 source gives the exact practical ASGD recurrence with constant 0.7, short step, long-step parameter, and statistical-advantage parameter.",
+        "The source states the deterministic parameter slice is equivalent to Nesterov acceleration.",
+        "No inspected source states the exact statistical-advantage-dependent Schur ceiling or the crossover at xi equal to ten sevenths."
+      ],
+      "reasoning": "Equivalent coverage would need to classify the same two-state recurrence across the statistical-advantage parameter, not merely analyze Nesterov at the deterministic endpoint or prove stochastic risk bounds at one prescribed parameter choice.",
+      "searches": [
+        "ASGD Kidambi short step long step statistical advantage exact Schur stability scalar quadratic",
+        "Accelerated Stochastic Gradient Descent ASGD statistical advantage parameter xi stability boundary",
+        "ASGD 0.7 long step scalar quadratic condition number stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concern fixed heavy-ball barriers, Nesterov objective spikes, stochastic feedback stability, reflected-gradient thresholds, and stagewise Richardson frontiers.",
+        "No returned indexed finding names the Kidambi practical ASGD recurrence or states its statistical-advantage-dependent scalar stability ceiling."
+      ],
+      "reasoning": "The closest indexed results use different recurrences or only deterministic acceleration endpoints and therefore do not imply the two-state ASGD crossover formula.",
+      "searches": [
+        "AccSGD scalar quadratic exact stability accelerated stochastic gradient",
+        "AccSGD optimizer characteristic polynomial quadratic",
+        "On the Insufficiency of Existing Momentum Schemes AccSGD stability",
+        "ASGD Kidambi short step long step statistical advantage exact Schur stability scalar quadratic",
+        "Accelerated Stochastic Gradient Descent ASGD statistical advantage parameter xi stability boundary",
+        "ASGD 0.7 long step scalar quadratic condition number stability"
+      ]
+    },
+    "rationale": "The 2017 ASGD paper proves stochastic least-squares acceleration and the 2018 source gives the simplified short-step/long-step parameterization and deterministic Nesterov equivalence. Neither inspected source states the full scalar Schur region as a function of the statistical-advantage parameter. Focused indexed searches did not locate the exact crossover or uniform lower envelope. The deterministic Nesterov slice is explicitly treated as prior context.",
+    "residual_risks": [
+      "A control-theoretic analysis may contain an algebraically equivalent two-state stability calculation without ASGD terminology.",
+      "The deterministic statistical-advantage endpoint is related to classical Nesterov stability and is not claimed as independently new.",
+      "The theorem is deterministic modal stability and does not classify mean-square stability under stochastic gradients."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_PRACTICAL_RECURRENCE_NOT_COVERING_FREE_PARAMETER_SCALAR_STABILITY_FRONTIER.",
+        "evidence": "The source specifies every coefficient used in the modal reduction and explains the statistical parameter, but no exact scalar Schur boundary, statistical crossover, or global lower envelope was found.",
+        "identifier_or_url": "arXiv:1803.05591v1",
+        "material_read": "Full open-access text covering Algorithm 3, its 0.7 constant, the short-step and long-step updates, the statistical-advantage parameter, the deterministic Nesterov equivalence, and the surrounding algorithm explanation.",
+        "method": "Full-text open-access inspection.",
+        "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+        "trigger": "Defining source for the practical short-step/long-step ASGD parameterization."
+      },
+      {
+        "assessment": "BROADER_STOCHASTIC_ASGD_THEORY_NOT_COVERING_PRACTICAL_STATISTICAL_PARAMETER_SCHUR_FRONTIER.",
+        "evidence": "The paper establishes accelerated least-squares risk bounds at prescribed parameters but does not state the accepted practical two-state free-parameter stability classification.",
+        "identifier_or_url": "arXiv:1704.08227v1",
+        "material_read": "Full open-access text covering Algorithm 1, Theorem 1, parameter choices, the stochastic-process formulation, and the noiseless-bias discussion.",
+        "method": "Full-text open-access inspection.",
+        "title": "Accelerating Stochastic Gradient Descent For Least Squares Regression",
+        "trigger": "Earlier primary ASGD source and strongest plausible broader coverage of the same accelerated method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80b8baa2-50ae-40f6-89df-19821dec815d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The short step, long step, and statistical-advantage parameter are the defining tuning coordinates of the practical ASGD design. The theorem shows exactly how the statistical parameter changes the permissible short-step margin: it can either enlarge or shrink the ordinary SGD interval, with a sharp transition at ten sevenths. The uniform lower envelope also explains why the source curvature-scaled short-step regime remains stable even though the long step can be individually expansive.",
+    "status": "PASS"
+  }
+}
