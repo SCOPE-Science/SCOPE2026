@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the uniform maximum yields an exact scaled order-statistic sample. The resulting conditional first and second sums give the displayed quadratic regression; beta moments give the covariance. The exact Cramér–von Mises variance is reconstructed from a degenerate empirical-process kernel with direct polynomial integrals. The packaged checker replays 1,501 conditional identities, 79 covariance identities, 79 kernel-variance identities, and 199 mean identities using exact rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The exact-distribution sources are framed around the marginal law of the statistic.",
+        "The accessible full-text overview defines the integrated statistic and its uses but contains no endpoint-order-statistic joint theorem."
+      ],
+      "reasoning": "A marginal exact distribution does not determine a mixed moment with the sample endpoint. No inspected broader theorem was found that would imply the conditional regression.",
+      "searches": [
+        "Knott 1974 small-sample Cramér–von Mises distribution record",
+        "Csörgő–Faraway 1996 exact/asymptotic Cramér–von Mises distribution record",
+        "Arnold–Emerson 2011 full Cramér–von Mises overview"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.32614/RJ-2011-016",
+      "doi:10.1111/j.2517-6161.1974.tb01017.x",
+      "doi:10.1111/j.2517-6161.1996.tb02077.x",
+      "doi:10.1080/03610920903140148"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Watson and Anderson–Darling findings involve pairs of global EDF functionals and do not determine an endpoint order statistic.",
+        "The uniform order-statistic profile concerns sample variance rather than empirical-CDF integrated discrepancy."
+      ],
+      "reasoning": "The present conditional regression uses a rescaling law given the maximum. None of the checked prior statements contains that conditioning relation or a theorem from which it follows.",
+      "searches": [
+        "Prior finding identifier 5b761aa7-91ae-4ed1-9826-f2a72f268b44: Cramér–von Mises/Watson covariance",
+        "Prior finding identifier 2814be50-ba91-4eb9-8d40-7c9a18f78c25: Cramér–von Mises/Anderson–Darling covariance",
+        "Prior finding identifier 59495db5-5ed7-4ca4-a0e0-1ef380d641d9: uniform order-statistic/sample-variance coupling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus semantic searches returned no finding with the same objects and implication.",
+        "Published-record searches under maximum order statistic, sample maximum, endpoint gap, boundary gap, covariance, and conditional regression produced no equivalent formula."
+      ],
+      "reasoning": "The covariance with \\(B_n\\) is equivalent to the negative covariance with \\(M_n\\); both aliases were searched. The stronger conditional quadratic was also searched because any prior statement of it would dominate the covariance.",
+      "searches": [
+        "Cramer von Mises sample maximum covariance uniform exact",
+        "Cramér von Mises maximum order statistic joint covariance",
+        "uniform sample maximum integrated empirical squared discrepancy covariance",
+        "conditional Cramer von Mises given maximum order statistic",
+        "Cramer-von Mises sample maximum covariance uniform",
+        "Cramér-von Mises maximum order statistic covariance",
+        "Cramer von Mises statistic joint distribution sample maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or table result supplied the mixed moment or conditional regression."
+      ],
+      "reasoning": "The claim is symbolic for every \\(n\\ge2\\) and every boundary-gap value, not a finite table lookup.",
+      "searches": [
+        "published-finding corpus semantic search: Cramer von Mises sample maximum covariance uniform exact",
+        "Published-record searches for Cramér–von Mises and maximum order statistic"
+      ]
+    },
+    "rationale": "No checked published or published-finding corpus record states the exact conditional regression of the one-sample Cramér–von Mises statistic on the uniform sample maximum/boundary gap, the covariance, or its correlation. Exact-distribution predecessors focus on the marginal statistic. Prior local Cramér–von Mises findings compare it with other integrated EDF statistics, not an endpoint order statistic.",
+    "residual_risks": [
+      "The complete bodies of Knott (1974) and Csörgő–Faraway (1996) were not available in the checked lawful access path; an endpoint mixed moment hidden there would affect originality.",
+      "Older order-statistic/empirical-process literature may encode the same conditional moment under different notation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_ENDPOINT_COUPLING",
+        "evidence": "The article defines and implements the statistic but does not state a joint law, covariance, or conditional regression with the maximum order statistic or boundary gap.",
+        "identifier_or_url": "doi:10.32614/RJ-2011-016",
+        "material_read": "Full HTML article, especially the overview defining the Cramér–von Mises criterion and discussion contrasting integrated and supremum discrepancies.",
+        "method": "Full-text HTML inspection and targeted searches for order-statistic/maximum terminology.",
+        "title": "Nonparametric Goodness-of-Fit Tests for Discrete Null Distributions",
+        "trigger": "Accessible full-text modern account of Cramér–von Mises definitions and goodness-of-fit interpretation."
+      },
+      {
+        "assessment": "PLAUSIBLE_SOURCE_ACCESS_LIMITED",
+        "evidence": "Available material identifies the work as a marginal small-sample distribution study. The inaccessible body is retained as an originality risk rather than treated as negative evidence.",
+        "identifier_or_url": "doi:10.1111/j.2517-6161.1974.tb01017.x",
+        "material_read": "Journal record, first-page preview, title/keywords, and bibliography visible through the journal interface.",
+        "method": "Journal-page inspection; complete article body was not available in the checked access path.",
+        "title": "The Distribution of the Cramér–Von Mises Statistic for Small Sample Sizes",
+        "trigger": "Highly plausible exact finite-sample predecessor."
+      },
+      {
+        "assessment": "PLAUSIBLE_SOURCE_ACCESS_LIMITED",
+        "evidence": "The accessible summary concerns accurate approximation of the marginal distribution and Watson analogue. No endpoint-order-statistic coupling is exposed; the inaccessible body remains a residual risk.",
+        "identifier_or_url": "doi:10.1111/j.2517-6161.1996.tb02077.x",
+        "material_read": "Journal summary and extensive visible reference/bibliographic section describing exact and asymptotic marginal distribution approximations.",
+        "method": "Journal-page inspection; complete article body was not available in the checked access path.",
+        "title": "The Exact and Asymptotic Distributions of Cramér–Von Mises Statistics",
+        "trigger": "Exact-distribution paper with plausible ability to contain finite mixed calculations."
+      },
+      {
+        "assessment": "CLASSIFICATION_AND_SCOPE_SOURCE_NOT_COVERING_CLAIM",
+        "evidence": "The source treats distribution models for Cramér–von Mises-type tests under composite hypotheses and lists MSC 62G10; it does not state the uniform endpoint-gap covariance.",
+        "identifier_or_url": "doi:10.1080/03610920903140148",
+        "material_read": "Publisher record, abstract, keywords, classification, received/accepted/online dates.",
+        "method": "Publisher full record inspection.",
+        "title": "Statistic Distribution Models for Some Nonparametric Goodness-of-Fit Tests in Testing Composite Hypotheses",
+        "trigger": "Archive-era source with explicit primary classification and exact online date for the relevant goodness-of-fit class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d96a248-b345-4cd5-beed-2c77b00f171a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The upper boundary gap is a canonical local coverage diagnostic and the Cramér–von Mises statistic is a canonical global goodness-of-fit criterion. The exact convex conditional profile and strictly positive mixed covariance quantify how a local endpoint omission contributes to global integrated discrepancy. The result is not a marginal-table recomputation and exposes a finite structural relation useful for interpreting endpoint-sensitive alternatives.",
+    "status": "PASS"
+  }
+}
