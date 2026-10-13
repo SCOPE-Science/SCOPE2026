@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The published density is a degree-six polynomial tilt of the logistic kernel when \\(\\alpha\\ne0\\), and a degree-four tilt when \\(\\alpha=0\\). The logistic kernel is asymptotic to \\(e^{-x}\\) on the right and \\(e^x\\) on the left. The identical leading polynomial coefficient on both sides yields balanced survival asymptotics, MGF convergence exactly for \\(-1<t<1\\), and hazard limits equal to one. The packaged checker independently verifies the asymptotic ratios and quadrature.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 flexible alpha skew-logistic paper studies a related polynomial-logistic family and derives an MGF, but does not state the TASL tail-balance theorem or its exact strip.",
+        "General heavy-tail literature distinguishes heavy tails from exponential asymptotic decay."
+      ],
+      "reasoning": "The related skew-logistic literature supplies nearby constructions but does not dominate the claim, because the accepted result computes the 2026 TASL asymptotics, exact MGF domain, and reliability limits for its specific polynomial.",
+      "searches": [
+        "alpha skew logistic tail rate MGF finite interval",
+        "flexible alpha skew logistic moment generating function tail",
+        "polynomial tilt logistic exponential tail"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026305",
+      "doi:10.17713/ajs.v54i2.1902",
+      "doi:10.1029/2021WR030506"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source says alpha uniquely determines tail behavior in its location-scale extension.",
+        "The 2025 related paper derives an MGF for a different flexible alpha skew-logistic construction but does not give the TASL result.",
+        "Open heavy-tail review literature treats exponential asymptotic behavior as light-tailed."
+      ],
+      "reasoning": "Neither the related skew-logistic MGF calculation nor the general definition supplies the source-specific conclusion that both TASL tails share the same leading constant and exponential rate. The new implication follows by analyzing the actual 2026 density.",
+      "searches": [
+        "10.3934/math.2026305 alpha controls tail behavior location scale",
+        "10.17713/ajs.v54i2.1902 MGF flexible alpha skew logistic",
+        "heavy tail exponential asymptotic distribution definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published-result record identified the target DOI or an exact TASL light-tail correction.",
+        "Exact DOI searches located the original 2026 paper but no corrigendum or erratum.",
+        "The primary source calls the family heavy-tailed and derives an MGF without giving the exact convergence strip."
+      ],
+      "reasoning": "The searches covered the exact source, model acronym and full name, heavy/light-tail terminology, MGF-domain language, and hazard-limit aliases. No equivalent source-specific statement was located.",
+      "searches": [
+        "10.3934/math.2026305 TASL heavy-tailed logistic correction MGF domain",
+        "tri-modal alpha-skew logistic exponential tail moment generating function domain",
+        "tri-modal skew logistic light-tailed hazard limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary density is Eq. (2.1), a polynomial times the standard logistic density.",
+        "The source's Table 1 discussion explicitly calls small absolute alpha heavy-tailed based on kurtosis.",
+        "Section 3.2 defines and evaluates the MGF integral but gives no explicit domain.",
+        "No correction record was located."
+      ],
+      "reasoning": "The exact density and MGF integral are sufficient to determine the asymptotic class and convergence strip without extrapolating from numerical plots.",
+      "searches": [
+        "10.3934/math.2026305 moment generating function",
+        "10.3934/math.2026305 heavy tails kurtosis",
+        "10.3934/math.2026305 corrigendum erratum"
+      ]
+    },
+    "rationale": "The primary source explicitly describes the TASL family as heavy-tailed and assigns tail behavior to \\(\\alpha\\), while its density forces a fixed exponential rate. The article derives an MGF but does not state its exact convergence strip. Five target-specific published-result searches, exact DOI correction searches, and related logistic-family comparisons found no published TASL correction or equivalent tail theorem.",
+    "residual_risks": [
+      "The word heavy-tailed is sometimes used informally to mean high finite-sample kurtosis; the accepted correction concerns the standard asymptotic exponential-moment meaning.",
+      "A very recent unindexed correction could exist.",
+      "The result does not classify all finite-range hazard shapes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY CONTRADICTED as an asymptotic heavy-tail claim. The density has a fixed logistic exponential factor, and its polynomial multiplier cannot remove the exponential MGF neighborhood.",
+        "evidence": "Eq. (2.1), the heavy-tail statements in the abstract and Table 1 discussion, Section 3.2, and the location-scale parameter interpretation.",
+        "identifier_or_url": "doi:10.3934/math.2026305",
+        "material_read": "Public full PDF at the abstract, introduction tail interpretation, Eq. (2.1), moment/kurtosis discussion, Section 3.2 MGF derivation, reliability section, and location-scale extension.",
+        "method": "Direct parsed-text and rendered-page inspection of the publisher PDF.",
+        "title": "A novel one-parameter tri-modal alpha-skew logistic distribution: mathematical and reliability theory with applications to distant astronomical galaxies and biomedical data",
+        "trigger": "Primary 2026 source making the tail claims and defining the TASL density."
+      },
+      {
+        "assessment": "RELATED BUT NOT COVERING. It does not state the TASL tail balance or exact TASL MGF strip.",
+        "evidence": "Its density construction and MGF lemma.",
+        "identifier_or_url": "doi:10.17713/ajs.v54i2.1902",
+        "material_read": "Public article sections defining the related density and deriving its MGF.",
+        "method": "Direct publisher full-text inspection; page-image retrieval was unavailable, so the parsed publisher text was used.",
+        "title": "On the Flexible Alpha Skew-logistic Distribution: Properties and Applications",
+        "trigger": "Closest related polynomial skew-logistic construction cited by the primary source."
+      },
+      {
+        "assessment": "DEFINITIONAL CONTEXT ONLY; it does not discuss TASL.",
+        "evidence": "The review contrasts heavy-tail behavior with distributions having exponential asymptotic behavior.",
+        "identifier_or_url": "doi:10.1029/2021WR030506",
+        "material_read": "Open full-text abstract, introduction, and tail-class discussion.",
+        "method": "Direct open publisher full-text inspection.",
+        "title": "Understanding Heavy Tails of Flood Peak Distributions",
+        "trigger": "Definition-level comparison between heavy tails and exponential asymptotic behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82b71c5b-fffe-4ca5-a55b-d8fe4d05e073",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Tail flexibility is an advertised motivation of the model and is repeatedly attributed to the single shape parameter. The exact result shows instead that the far-tail exponential rate, MGF boundary, tail balance, and limiting reliability rates are invariant in \\(\\alpha\\). This materially changes interpretation for extreme-risk and reliability use, while still allowing the source's finite-range skewness and modality effects.",
+    "status": "PASS"
+  }
+}
