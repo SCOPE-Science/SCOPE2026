@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each fixed number e of singleton-to-singleton maximal edges, every remaining maximal path has two endpoints in one part and a center in another. Three independent upper bounds on the triple count are proved jointly sufficient by the pair-allocation lower bounds L_i=max(0,a_i-(Q-2t)) and Hall's theorem on remaining centers. The proof handles all part sizes, integer floors, zero and complete-graph boundaries. The standalone adjacency-based brute-force verifier checked all 359 integer partitions of orders 2..13 (116315 dynamic-programming states), 990 larger constructive witnesses, and six boundary inputs. Finite computations corroborate; infinite validity rests on the Hall argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manuel–Brešar–Klavžar (arXiv:2210.15325), Section 2 gives gpack(K_n)=floor(n/2) and gpack(K_{n,n})=floor(2n/3), and Sections 3–4 handle trees and strong path products.",
+        "Boats–Kikas (Congressus Numerantium 233, 2019), definition on page 22 makes pansophy an expected number of disjoint routes under random terminal-pair assignments, with recursions in later sections.",
+        "Hartvigsen–Hell–Szabó (2006), DOI 10.1002/jgt.20161, treats maximum vertex coverage by degree-2 connected pieces, allowing noninduced paths and not imposing maximal-shortest-path constraints; its abstract gives an algorithm and generic min-max theorem but no specialized exact complete multipartite formula."
+      ],
+      "reasoning": "The unrestricted multipartite mixed-geodesic criterion strictly contains the cited graph special cases. The earlier complete graph and balanced biclique values are explicitly disclaimed. Pansophy's expectation over assigned pairs is not a stronger statement about packing vertex-disjoint maximal shortest paths.",
+      "searches": [
+        "geodesic packing complete multipartite graphs exact number",
+        "geodesic packing number complete multipartite graphs",
+        "Complete Multipartite Graphs are Pansophical 2019 full paper",
+        "https://arxiv.org/pdf/2210.15325",
+        "https://combinatorialpress.com/article/cn/Volume%20233/vol-233-paper%203.pdf",
+        "The induced path number of a complete multipartite graph Broere Jonck Voigt 1996 full text",
+        "The k-piece packing problem Hartvigsen Hell Szabo 2006"
+      ]
+    },
+    "checked_sources": [
+      "Manuel, Brešar, Klavžar, Geodesic packing in graphs, arXiv:2210.15325 (2022-10-27)",
+      "Manuel, Brešar, Klavžar, The geodesic-transversal problem, arXiv:2101.08042 (2021-01-20)",
+      "Boats and Kikas, Complete Multipartite Graphs are Pansophical, Congressus Numerantium 233 (2019)",
+      "The path partition problem and related problems in bipartite graphs (2007), cited as induced P3 packing complexity rather than an exact multipartite enumeration",
+      "Broere–Jonck–Voigt, The induced path number of a complete multipartite graph, Tatra Mountains Math. Publ. 9 (1996) 83–88; journal abstract checked, full text unavailable",
+      "Hartvigsen–Hell–Szabó, The k-piece packing problem, J. Graph Theory 52 (2006) 267–293; abstract definition and references checked"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2210.15325 Lemma 2.4 establishes gpack(G) <= gt(G), not a general equality; Section 2 shows gt(K_{n,n})=n while gpack(K_{n,n})=floor(2n/3).",
+        "A complete-multipartite geodesic-transversal formula gives an upper bound through the hitting/packing inequality but not an exact optimal packing value or Hall feasible pair counts.",
+        "The explicit boundary K_{2,1,1,1,1,1} has two maximal singleton edges plus one three-vertex maximal geodesic, a tradeoff absent from balanced biclique specialization."
+      ],
+      "reasoning": "Exact transversal enumerations and special-case geodesic-packing values do not imply the mixed edge/triple feasibility theorem. Inequality is strict even in a major prior special case, so this is not a corollary of the hitting parameter. The Hall lemma resolves additional combinatorial constraints.",
+      "searches": [
+        "geodesic packing complete multipartite graph exact number",
+        "geodesic transversal complete multipartite graph full solution",
+        "https://arxiv.org/pdf/2101.08042",
+        "geodesic packing versus geodesic transversal inequality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2210.15325 Sections 1–2 explicitly connect maximal-geodesic packing to induced P3 packing in diameter-two constructions; no general complete-multipartite exact optimization is stated in that work.",
+        "No searched candidate produced an exact all-part-size induced-P3 packing or mixed K2/P3 capacity theorem.",
+        "Broere, Jonck, Voigt (Tatra Mountains Math. Publ. 9, 1996, 83–88) calculate the minimum number of induced paths partitioning all vertices, not the maximum count of disjoint maximal geodesics. Publisher bibliographic abstract retrieved at https://www.sav.sk/?doc=journal-list&journal_article_no=1259&lang=en&part=article_response_page; full paper not retrieved."
+      ],
+      "reasoning": "A complete multipartite geodesic packing is equivalently a vertex-disjoint induced P3 packing together with singleton-class edges, so these terms were searched rather than checking titles alone. General induced-path complexity theorems and generic packing language neither give exact heterogeneous values nor the mixed-type feasibility criterion. Failure to locate one is not a proof of global novelty. The 1996 induced-path partition number is not a dominating scalar: K_{2,1,1,1,1,1} and K_{3,3,1} each have seven vertices and induced-path partition number three, but their geodesic packing numbers are respectively three and two (direct explicit witnesses and capacity upper bound).",
+      "searches": [
+        "vertex disjoint induced P3 packing complete multipartite graphs maximum three vertex paths endpoint pair",
+        "induced P3 packing complete multipartite graphs formula",
+        "maximum induced path packing complete multipartite",
+        "geodesic packing complete multipartite graphs with singleton partite classes mixed maximal two vertex geodesics three vertex paths exact packing",
+        "\"The induced path number of a complete multipartite graph\" Broere Jonck Voigt 1996 theorem",
+        "Broere Jonck Voigt induced path number complete multipartite Tatra 9 83-88 PDF"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary geodesic-packing paper's exact listed multipartite cases are complete graphs and balanced bicliques; neither determines the general (e,t)-feasibility region.",
+        "No exact table or catalog entry covering the unrestricted part-size tuple appeared in the targeted searches."
+      ],
+      "reasoning": "The claim is a parametric structural classification and exact formula rather than a finite numerical-table lookup; the relevant numerical special cases are already credited. No evidence for an exhaustive preexisting table or dominating parametrized database result was found.",
+      "searches": [
+        "geodesic packing K_{a,b}, K_{1,1,2,2}, cocktail party graph multipartite",
+        "geodesic packing formula complete multipartite graph",
+        "P3 packing complete multipartite graph tables"
+      ]
+    },
+    "rationale": "The 2022 originating geodesic-packing paper supplies only the complete-graph and balanced-complete-bipartite special cases among complete multipartite graphs. An earlier geodesic-transversal result treats hitting, not packing. A 2019 paper on multipartite pansophy concerns expected routing of randomly assigned terminal pairs, not maximal shortest-path packings. Published-research and literature searches did not find an equivalent heterogeneous three-capacity packing criterion. Residual risk remains for older equivalent induced-path tilings under alternate terms.",
+    "residual_risks": [
+      "Older induced-three-vertex-path factor or path-tiling literature may contain an equivalent result not indexed under geodesic-packing terminology.",
+      "The visually accessible 2019 scans were inspected at substantive pages but not independently transcribed end-to-end; the established alternate objective nonetheless differs structurally.",
+      "The 1996 Broere–Jonck–Voigt source is closely related but optimizes a minimum induced-path partition, not maximal geodesic packing. Its complete full text could not be retrieved from the accessible author-upload link; overlap through an ancillary theorem in its uninspected text remains a bounded risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes NP-completeness, special values for complete and balanced complete bipartite graphs, tree algorithm and strong path products; no exact arbitrary-complete-multipartite matching formula in inspected text.",
+        "evidence": "Section 2 discussion immediately after Lemma 2.4 and Section 3 Trees and Section 4 Diagonal grids; source first public 2022-10-27.",
+        "identifier_or_url": "https://arxiv.org/pdf/2210.15325",
+        "material_read": "Entire available 13-page preprint through arXiv HTML text, with PDF text and rendered page 4 checked, especially Sections 1, 2, 3, 4 and references",
+        "method": "OA arXiv version full-text inspection and rendered-page cross-check",
+        "title": "Geodesic packing in graphs",
+        "trigger": "Direct invariant and complete-graph/balanced-biclique overlap"
+      },
+      {
+        "assessment": "Studies minimum hitting sets and algorithms for trees/cacti, not the maximum disjoint maximal-geodesic family in general complete multipartite graphs.",
+        "evidence": "Sections 1–3 definitions of the transversal and its distinct optimization direction; 2021-01-20 first preprint date.",
+        "identifier_or_url": "https://arxiv.org/pdf/2101.08042",
+        "material_read": "Available 18-page OA preprint text, with introduction, definition, Section 3 and Sections 4–5 structure plus rendered page 4",
+        "method": "Full-text keyword/topic inspection and rendered page",
+        "title": "The geodesic-transversal problem",
+        "trigger": "Possible domination through dual transversal parameters"
+      },
+      {
+        "assessment": "Objective is expected simultaneous routability for randomly assigned terminal pairs, not geodesic maximality or maximum number of freely selected disjoint geodesics; no implication supporting the present exact theorem identified in inspected material.",
+        "evidence": "Printed page 22 defines pansophy as an expected value; printed pages 26 and 28 generalize its routing recurrence.",
+        "identifier_or_url": "https://combinatorialpress.com/article/cn/Volume%20233/vol-233-paper%203.pdf",
+        "material_read": "Rendered PDF pages 21, 22, 24, 26, 28, and page 30 of the ten-page article; in particular definition, bipartite algorithm, and multipartite extension",
+        "method": "Direct visual reading of scanned OA journal PDF rather than snippet-only judgment",
+        "title": "Complete Multipartite Graphs are Pansophical",
+        "trigger": "Exact same host class and disjoint-path construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "483fcd9c-fba1-410f-9db0-1c6c31127a74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a natural NP-hard graph invariant in polynomial time over every connected complete multipartite graph. The exact (e,t)-feasibility region and Hall construction are structural, not just a renamed bound; both singleton-to-singleton maximal edges and three-vertex paths are indispensable (e.g. K_{2,1,1,1,1,1}). The result unifies and extends the known complete graph and balanced-biclique examples without claiming those as novel; it gives reusable capacity criteria for disjoint-geodesic resource allocation.",
+    "status": "PASS"
+  }
+}
