@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For known continuous F0, PIT yields iid uniform sample. Symmetric Watson kernel is degenerate with constant diagonal 1/12, killing diagonal covariance; an exactly integrated centered Brownian-bridge cross kernel 1/72 and count of 2n(n−1) matched ordered offdiagonal index pairs prove Cov=(n−1)/(36n) for every n≥1. Analytic beta-log moments give Var AD=[4−π²/3+2(n−1)(π²/3−3)]/n, and Watson quadratic polynomial gives Var U=(n−1)/(360n), yielding monotonic correlation and finite limit for n≥2. Embedded stand-alone verifier reproduces exact polynomial coefficients and test-value simulations; simulations are not used for the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hwang–Kuriki 2024 generalized each statistic and found marginal process KL expansions but their inspected statements did not supply a joint cross-statistic theorem",
+        "Stephens 1974 component orthogonality and null cumulants are internal to their separate expansions"
+      ],
+      "reasoning": "More general generalized empirical-distribution statistics were inspected for a theorem implying the mixed moment. The inspected broader results lack a cross-covariance evaluation. Durbin–Knott full text was inaccessible, so strong undiscovered coverage there remains a risk rather than an assumed exclusion.",
+      "searches": [
+        "arxiv:2404.06040 integrated empirical measures generalized Anderson Darling Watson covariance kernel",
+        "Components of goodness-of-fit statistics Stephens 1974",
+        "durbin knott 1972 components Cramer von Mises statistics I Watson Anderson Darling"
+      ]
+    },
+    "checked_sources": [
+      "M.A. Stephens (1974), full OA article https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf",
+      "Hwang–Kuriki, arXiv:2404.06040 full text",
+      "Puig–Stephens (2000), DOI 10.1080/00401706.2000.10485715 accessible research-copy article",
+      "Lemeshko–Lemeshko–Postovalov (2010), DOI 10.1080/03610920903140148 publisher abstract and MSC",
+      "Durbin–Knott (1972), JRSS B 34, 290–307, publisher abstract plus historical Stephens discussion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing any exact pairwise covariances between Watson and Cramér–von Mises, and between Cramér–von Mises and Anderson–Darling, does not determine the remaining off-diagonal covariance matrix entry.",
+        "The present new contraction E[h(V1,V2)a(V1,V2)]=1/72 is not determined by either of those entries",
+        "Stephens 1974 and Hwang–Kuriki 2024 supply individual-kernel facts but not their weighted cross integral"
+      ],
+      "reasoning": "Knowing two different pair covariances and three marginal variances cannot algebraically fix the third off-diagonal covariance; PSD constraints give bounds, not a unique value. Neither separate spectral result nor power comparison is a statement implying this exact finite-n mixed value. The proof uses a distinct cross-kernel contraction.",
+      "searches": [
+        "one-sample Cramer von Mises Watson covariance finite n under uniform null",
+        "one-sample Cramer von Mises Anderson Darling covariance finite n exact",
+        "Watson Anderson Darling finite null covariance diagonal centered kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact target mixed entry is (n−1)/(36n), equivalently a centered-bridge weighted cross-kernel contraction 1/72",
+        "Stephens 1974 full-text components concern marginal spectra and asymptotic powers; Hwang–Kuriki 2024 full-text generalized families present own-process kernels"
+      ],
+      "reasoning": "Equivalent Brownian-bridge, rank/PIT, Fourier, and joint-covariance forms were considered. A formula for only the separate marginal kernels is not the specified mixed-integral value; no equivalent explicit theorem appeared in inspected relevant primary results or search matches.",
+      "searches": [
+        "\"Watson\" \"Anderson-Darling\" \"covariance\" goodness of fit empirical",
+        "\"Watson\" \"Anderson-Darling\" \"0.692\" correlation",
+        "Watson U2 Anderson Darling A2 covariance trace projected Brownian bridge 1/72"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Publisher abstract for Lemeshko et al. 2010 says tables of percentage points and distribution models with fitted parameters, not joint two-statistic covariance",
+        "Classical Stephens paper power tables compare rejection probabilities under alternatives, not mixed null moments"
+      ],
+      "reasoning": "No located exact database cell, cross-correlation table or standard tabulated combination contains the all-n formula. This absence is not proof of uniqueness; in particular the unavailable historical full article is explicitly named.",
+      "searches": [
+        "\"Watson\" \"Anderson Darling\" \"correlation\" tests under null",
+        "\"Watson\" \"Anderson-Darling\" \"covariance\" \"n\" empirical distribution functions",
+        "2010 Lemeshko Anderson Darling Cramer von Mises statistics distribution tables"
+      ]
+    },
+    "rationale": "The new exact Watson–Anderson–Darling finite-n mixed covariance and its strictly monotone correlation require a genuinely new cross-kernel contraction. Inspected Stephens 1974 full text has individual spectral components, separate moments and power comparisons, while inspected Hwang–Kuriki 2024 full text gives generalized individual process covariance kernels; neither inspected set of results states or implies the exact mixed moment without additional calculation. A published composite-null tabulation and the historical Durbin–Knott components paper were treated as different/uncertain, respectively. Pairwise covariances of both tests with Cramér–von Mises would constrain, but cannot algebraically determine, the independent Watson–Anderson–Darling covariance entry. This PASS is an evidence-based no-coverage judgment, not uniqueness certification.",
+    "residual_risks": [
+      "Historical Durbin–Knott 1972 primary article plausible for same objects, but full text cannot be inspected without human verification; no negative conclusion about its entire contents.",
+      "Other unindexed historic cross-statistic generating functions, component covariances or alternative normalizations may subsume the explicit formula.",
+      "Semantic searches and ledger partition do not demonstrate global originality or reveal unpublished results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stated exact finite-sample cross moment: treats each statistic’s component and marginal/asymptotic behavior; comparison concerns power rather than the pair covariance.",
+        "evidence": [
+          "1974 article introduction pages 2–4 separates Watson and Anderson–Darling components",
+          "section 6 reports null Watson marginal variance and asymptotic power; sections 11–14 discuss Anderson–Darling separate expansions and power"
+        ],
+        "identifier_or_url": "https://www.numdam.org/article/AIHPB_1974__10_1_37_0.pdf",
+        "material_read": "Abstract, definitions and components, sections 2–14 on moments, power and comparisons, final discussion and references in 19-page open PDF",
+        "method": "Full article text, sections and equations examined",
+        "title": "Components of goodness-of-fit statistics",
+        "trigger": "Names and decomposes both tested statistics and compares their behavior"
+      },
+      {
+        "assessment": "NOT_COVERING the finite-sample cross moment in its inspected statements; derives each generalized family’s own process kernel and marginal KL law, not Watson–Anderson–Darling covariance. Its Watson kernel supports one input but the weighted cross calculation remains separate.",
+        "evidence": [
+          "arXiv 2404.06040 section 1.1 equations for the three classical tests",
+          "section 3.2, page 40 gives centered Watson kernel 1/12−|x−y|/2+(x−y)^2/2",
+          "table of contents organizes separate generalized Anderson–Darling and Watson classes"
+        ],
+        "identifier_or_url": "arxiv:2404.06040",
+        "material_read": "Abstract, introduction with all three classical statistic definitions, section headings, Watson section 3.2 kernel and section 3.3 statistic formulas, analogous named-section overview for Anderson–Darling, appendix headings, and targeted cross-moment searches across parsed full-text PDF; not a page-by-page appendix review",
+        "method": "arXiv open full PDF textual sections, source equations and keyword checks",
+        "title": "Integrated empirical measures and generalizations of classical goodness-of-fit statistics",
+        "trigger": "Directly generalizes both named statistics and computes their process covariance kernels"
+      },
+      {
+        "assessment": "NOT_COVERING in material inspected: comparisons and fitted-null power, not a closed simple-null mixed covariance formula.",
+        "evidence": [
+          "2000 Technometrics article organizes Watson/AD as separate statistics and power studies"
+        ],
+        "identifier_or_url": "doi:10.1080/00401706.2000.10485715",
+        "material_read": "Accessible research-copy HTML introduction and named goodness-of-fit test sections, comparative power discussion, references",
+        "method": "Readable public article text and publisher bibliographic page",
+        "title": "Tests of fit for the Laplace distribution, with applications",
+        "trigger": "Applies and compares the two tests in the same null-setting discussion"
+      },
+      {
+        "assessment": "DISTINCT MODEL: focuses marginal critical-point distributions with fitted parameters; no claim that an unread body has been searched exhaustively.",
+        "evidence": [
+          "publisher online date 2010-01-06 and MSC 62G10",
+          "abstract names Kolmogorov, Cramér–von Mises–Smirnov and Anderson–Darling composite-null tests"
+        ],
+        "identifier_or_url": "doi:10.1080/03610920903140148",
+        "material_read": "Publisher complete metadata, classification and abstract (full article unavailable)",
+        "method": "Publisher article landing page",
+        "title": "Statistic distribution models for some nonparametric goodness-of-fit tests in testing composite hypotheses",
+        "trigger": "Old exact-day-verifiable primary-MSC 62G10 anchor in the same goodness-of-fit family"
+      },
+      {
+        "assessment": "UNCERTAIN: cannot assert noncoverage from an abstract. It remains a named risk, though the stated program of decompositions/asymptotic power does not exhibit the present finite-n cross formula.",
+        "evidence": [
+          "Stephens 1974 introduction explicitly attributes individual-component expansions/power analysis to Durbin–Knott",
+          "JRSS B 34(2), 290–307, 1972 title and publisher abstract"
+        ],
+        "identifier_or_url": "https://academic.oup.com/jrsssb/article/34/2/290/7027179",
+        "material_read": "Publisher abstract and Stephens (1974) detailed discussion and references; primary full text not accessible",
+        "method": "Checked preprint and lawful open-access alternatives without recoverable same-paper full text; authorized institutional retrieval required uncompleted human verification",
+        "title": "Components of Cramér–von Mises statistics I",
+        "trigger": "Classic components and asymptotic power work invoked by Stephens; a plausible predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e915b81-5835-49a5-95ad-813daced9e75",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Watson removes an empirical circular-shift mode while Anderson–Darling emphasizes distribution tails. These are canonical competing checks of a known simple null. Their exact cross-null covariance is a natural missing structural dependence parameter for interpreting both checks; it is not determined by their individual variances or respective covariances with a third test. The sign, closed all-n value and strict sample-size monotonicity ending at a nonzero universal correlation quantify this relationship. No claim is made about constructing new combined-test critical values.",
+    "status": "PASS"
+  }
+}
