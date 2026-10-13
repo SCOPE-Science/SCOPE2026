@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The comparison identity is a direct exact rearrangement of the source's own threshold formula: subtracting the equal-mean uniform threshold leaves minus the weighted covariance divided by the positive denominator. The two-degree witness satisfies every stated structural assumption: positive degree probabilities, phi(k)<=k, positive demographic rates, and infection-rate functions with f(0)=0, f>0 for positive pressure, f'>0, and f''<0. Exact arithmetic gives R0=5/4, equal-budget R_U=15/16, R_T=9/8, and covariance -3/40. Thus the source's strict comparison fails while both threshold calculations stay inside its stated model class.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fu et al. 2008 analyze a restricted piecewise-linear degree infectivity and obtain favorable targeted-versus-proportional comparison in that setting.",
+        "Zhou et al. 2018 prove large-degree targeting is optimal for a standard random-network SIS framework, a setting in which epidemic contribution is structurally tied to degree.",
+        "Neither broader result permits arbitrary cross-degree values of phi(k) f_k'(0) while retaining unconditional degree-targeting optimality."
+      ],
+      "reasoning": "Broader literature establishes degree targeting under more structured threshold weights. It does not dominate the counterexample because the motivating model explicitly generalizes the infection-rate functions across degree classes.",
+      "searches": [
+        "targeted immunization can be worse than uniform same vaccination budget covariance degree epidemic threshold",
+        "\"Epidemic dynamics on scale-free networks with piecewise linear infectivity and immunization\" targeted covariance",
+        "\"Analytical connection between thresholds and immunization strategies of SIS model in random networks\" targeted large-degree"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2018226",
+      "doi:10.1103/PhysRevE.77.036113",
+      "doi:10.1063/1.5030908"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source itself contains the covariance formula but assumes a favorable sign without deriving it from H1-H3; therefore it does not imply the corrected if-and-only-if comparison under its full stated class.",
+        "Fu et al. use a piecewise-linear infectivity tied to degree and their positive-covariance conclusion is restricted to that model.",
+        "The exact witness gives opposite threshold sides at equal coverage, so any prior statement that truly implied unconditional targeted superiority in the motivating model would contradict a direct substitution into the published formulas."
+      ],
+      "reasoning": "The accepted claim is not a corollary of prior degree-targeting results because it concerns the extra heterogeneity allowed by the later general model. The counterexample is decisive against unconditional implication.",
+      "searches": [
+        "\"10.3934/dcdsb.2018226\" \"targeted immunization\" correction",
+        "\"Epidemic dynamics on scale-free networks with piecewise linear infectivity and immunization\" same average immunization rate",
+        "\"Analytical connection between thresholds and immunization strategies of SIS model in random networks\" targeted large-degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text defines w_k implicitly as phi(k) f_k'(0), writes <sigma w>=sigma<w>+cov(sigma,w), and then claims the covariance is positive for an appropriate degree cutoff before stating the equal-average targeted superiority result.",
+        "The same source states only within-degree positivity, monotonicity, and concavity of f_k together with phi(k)<=k; no assumption orders w_k across degrees.",
+        "Exact DOI/title and correction/erratum searches returned the article and bibliographic records but no published correction of Theorem 4.2(3)."
+      ],
+      "reasoning": "The defect can be phrased as a missing cross-degree monotonicity assumption, a covariance-sign failure, or an equal-budget threshold reversal. The searches covered all three formulations.",
+      "searches": [
+        "10.3934/dcdsb.2018226 targeted immunization uniform covariance general infection rate",
+        "\"Epidemic dynamics on complex networks with general infection rate and immune strategies\" erratum",
+        "\"targeted immunization\" \"same average immunization rate\" \"general infection rate\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-finding searches returned no record matching the source DOI, title, Theorem 4.2, or the covariance-sign correction.",
+        "The closest mathematical-biology record was the unrelated coupled-SEIR reproduction-number bracketing counterexample 2026/9/14/SCOPE021.",
+        "Other close records concerned different threshold, switching, or age-structured population models and do not imply the present covariance criterion."
+      ],
+      "reasoning": "No indexed finding located by source, theorem, or implication-level queries covers the source-specific equal-budget reversal.",
+      "searches": [
+        "10.3934/dcdsb.2018226 targeted immunization uniform covariance general infection rate",
+        "Huang Jiang 2018 epidemic dynamics complex networks targeted immunization theorem 4.2",
+        "targeted immunization can be worse than uniform same vaccination budget covariance degree epidemic threshold"
+      ]
+    },
+    "rationale": "The covariance decomposition itself is foreshadowed in the source and is not claimed as a new probabilistic identity. The source-specific new result is the exact if-and-only-if correction to Theorem 4.2(3), the observation that its hypotheses do not imply positive covariance, and an admissible parameter witness that reverses the disease-control verdict at equal average coverage. Exact-source, alias, covariance, and correction searches found no indexed repair. The earlier Fu et al. result works in a restricted model whose degree weights have the required ordering and therefore does not imply the general claim.",
+    "residual_risks": [
+      "A non-indexed author note could have acknowledged the missing covariance hypothesis.",
+      "The two-degree witness is deliberately structural rather than empirically calibrated.",
+      "The result does not reassess the source's specific numerical examples, which may satisfy positive covariance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "TARGETED_SUPERIORITY_REQUIRES_A_COVARIANCE_SIGN_NOT_IMPLIED_BY_THE_STATED_GENERAL_ASSUMPTIONS",
+        "evidence": "The source states <sigma w>=sigma<w>+cov(sigma,w) and infers positive covariance from degree targeting, but H1-H3 are only pointwise in degree. The witness has negative covariance and flips the threshold verdict.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2018226",
+        "material_read": "Public full text at the model and infection-pressure definitions; assumptions H1-H3; the untreated epidemic threshold; Section 4.1 uniform immunization; Section 4.2 targeted immunization including the covariance calculation and Theorem 4.2; and the numerical same-average comparison in Section 5. Publisher metadata was checked for early-access date and MSC classification.",
+        "method": "Rewrote the source threshold in terms of w_k=phi(k)f_k'(0), compared it exactly with uniform coverage of the same mean, checked which source hypotheses control the covariance sign, and constructed a two-degree rational witness.",
+        "title": "Epidemic dynamics on complex networks with general infection rate and immune strategies",
+        "trigger": "Primary source containing the general infection-rate assumptions and the equal-budget targeted-versus-uniform comparison."
+      },
+      {
+        "assessment": "RESTRICTED_MODEL_SUPPORTS_TARGETING_BUT_DOES_NOT_JUSTIFY_THE_GENERALIZED_COVARIANCE_SIGN",
+        "evidence": "The earlier paper studies a degree-tied piecewise-linear infectivity and obtains targeted superiority in that structured setting; it does not establish positive covariance for arbitrary degree-specific f_k'(0).",
+        "identifier_or_url": "doi:10.1103/PhysRevE.77.036113",
+        "material_read": "Public full text at the piecewise-linear infectivity definition, targeted-immunization section, covariance argument, equal-average comparison, and numerical comparison.",
+        "method": "Compared the restricted degree-dependent threshold weight in the earlier model with the arbitrary cross-degree epidemic weights allowed by the motivating source.",
+        "title": "Epidemic dynamics on scale-free networks with piecewise linear infectivity and immunization",
+        "trigger": "Earlier source explicitly cited for the targeted-immunization covariance argument."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "494d1d2c-7683-4061-b173-70206c2ad5aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The disputed statement is a policy comparison under equal vaccination coverage, not a cosmetic inequality. The witness yields R_U<1<R_T, so the missing covariance condition changes whether the same vaccine budget eradicates the infection. The corrected criterion is exact, model-internal, and directly identifies what information beyond degree is required for targeted vaccination to be guaranteed superior.",
+    "status": "PASS"
+  }
+}
