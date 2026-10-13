@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The Pauli-channel representation, exact Q(sqrt(6)) decomposition, stabilizer local-commutation separability lemma, and local-noise monotonic extension together prove the stated sufficient interval. The package checker replays the algebra and all fifteen cut certificates exactly.",
+    "risks": [
+      "The theorem is only a sufficient endpoint and interval, not a proof of the globally minimal bi-entangling threshold.",
+      "The stabilizer signs are immaterial to local commutation but the support/eigenvalue mapping must be correct; verify.py reconstructs that mapping from the stated generators."
+    ],
+    "sources": [
+      "arXiv:quant-ph/0408076v2, Eqs. (1)-(2), (6)-(13), (17)-(23)",
+      "decomposition.json",
+      "verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0802.1464 reports 29.3% for a CNOT-only circuit model but explicitly calls its bounds incomparable because the circuit/noise model differs.",
+        "arXiv:2001.08373 concerns CT-ECS circuits with end-of-computation local depolarization, not gatewise conversion of a CNOT into the bi-entangling convex set."
+      ],
+      "reasoning": "Numerically lower classical-simulation or uselessness thresholds do not imply membership of the individual noisy CNOT channel in the Virmani bi-entangling set under the same gate-level noise model.",
+      "searches": [
+        "Web: \"Upper bounds on the noise threshold for fault-tolerant quantum computing\" CNOT depolarizing 67 bi-entangling",
+        "Web: \"Classically simulating quantum circuits with local depolarizing noise\" CNOT threshold",
+        "Web: \"bi-entangling\" CNOT depolarizing threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0408076v2",
+      "DOI:10.1103/PhysRevA.71.042328",
+      "arXiv:0802.1464",
+      "arXiv:2001.08373",
+      "arXiv:2609.09467v1",
+      "MaRDI:Q3102424",
+      "published-finding corpus published corpus via the listed semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:quant-ph/0408076v2 proves only p>=2/3 by a particular sufficient decomposition and states that the calculation is not a full optimization and may be improved.",
+        "arXiv:0802.1464 uses a different large-depth circuit criterion and explicitly says the bounds are incomparable.",
+        "arXiv:2609.09467v1 concerns fermionic matchgate plus non-Gaussian resource computation and convex Gaussianity."
+      ],
+      "reasoning": "None of the inspected prior statements implies membership of the same noisy CNOT channel in the bi-entangling convex hull at p=0.620204...; the new implication depends on the explicit fifteen-term decomposition.",
+      "searches": [
+        "published-finding corpus final-claim query: For the Virmani-Huelga-Plenio CNOT with independent replacement depolarization on each output qubit, an explicit bi-entangling Choi decomposition exists at p=(8-2 sqrt(6))/5, improving their sufficient 2/3 noise bound; all larger p are also bi-entangling.",
+        "Primary source inspection: arXiv:quant-ph/0408076v2, Eqs. (17)-(23) and following paragraph",
+        "Comparison source: arXiv:0802.1464 abstract/model statement",
+        "Comparison source: arXiv:2609.09467v1 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved published-finding corpus record states a CNOT bi-entangling decomposition at the claimed value; the leading records concern PEPS filters, unrelated thresholds, or other resource theories.",
+        "The exact-constant web searches returned the 2026 fermionic threshold but not a CNOT bi-entangling result."
+      ],
+      "reasoning": "The searched aliases cover the source terminology, gate, noise model, exact radical, and decimal value. The only exact-radical collision found is attached to a different fermionic convex-Gaussian problem.",
+      "searches": [
+        "published-finding corpus: Virmani Huelga Plenio CNOT depolarizing bi-entangling 67 percent improved threshold",
+        "published-finding corpus: CNOT independent local depolarizing bi-entangling threshold 0.620204",
+        "published-finding corpus: (8-2 sqrt(6))/5 CNOT depolarizing classical simulability",
+        "Web: \"0.620204\" CNOT depolarizing bi-entangling",
+        "Web: \"62%\" CNOT \"bi-entangling\" depolarizing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor source tabulates/derives the 2/3 sufficient value and explicitly leaves full optimization open; no retrieved table or database record supplied the 0.620204 CNOT value.",
+        "MaRDI identifies the anchor under MSC 81P68 and links the arXiv full text; it does not contain an improved threshold."
+      ],
+      "reasoning": "The claimed number is not a recomputation of a located table entry. It arises from the explicit convex decomposition supplied here.",
+      "searches": [
+        "published-finding corpus: CNOT independent local depolarizing bi-entangling threshold 0.620204",
+        "Web: \"(8-2 sqrt(6))/5\" quantum noise CNOT",
+        "Web: \"Classical simulability, entanglement breaking\" improved 67% CNOT"
+      ]
+    },
+    "rationale": "The anchor explicitly leaves improvement of its 2/3 sufficient bound open. Targeted published-finding corpus and primary-literature comparisons found no implication-equivalent CNOT bi-entangling certificate at the exact radical. Numerically stronger results found use different simulation criteria or resource theories.",
+    "residual_risks": [
+      "An equivalent decomposition may exist under terminology not captured by the targeted searches.",
+      "The 2026 fermionic result shares the exact radical but does not imply the present channel-polytope statement; future cross-resource structural work could explain the coincidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper proves p>=2/3 with a restricted inner/outer decomposition and explicitly states that a full bi-entangling optimization may improve it.",
+        "identifier_or_url": "arXiv:quant-ph/0408076v2; DOI:10.1103/PhysRevA.71.042328",
+        "material_read": "Full-text sections defining the Choi representation and bi-entangling convex hull, CNOT stabilizer twirl, and the depolarizing calculation through Eqs. (17)-(23), including the paragraph that says the calculation is not a full optimization.",
+        "method": "arXiv full-text inspection; PDF page inspection was attempted through the source viewer, with text extraction used for the equations and surrounding argument.",
+        "title": "Classical simulatability, entanglement breaking, and quantum computation thresholds",
+        "trigger": "Same CNOT, same independent replacement-depolarizing parameter, and the prior 67% bi-entangling bound."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_MODEL",
+        "evidence": "The authors explicitly describe their bounds as incomparable because their circuit model differs; the result is not a gatewise bi-entangling-membership theorem.",
+        "identifier_or_url": "arXiv:0802.1464",
+        "material_read": "Abstract and model statement sufficient to resolve the implication comparison.",
+        "method": "arXiv/web primary record inspection.",
+        "title": "Upper Bounds on the Noise Threshold for Fault-tolerant Quantum Computing",
+        "trigger": "Later CNOT-specific depolarizing bound with a smaller numerical percentage."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_OBJECT",
+        "evidence": "The paper studies fermionic matchgates plus a non-Gaussian resource gate and convex Gaussianity, not CNOT bi-entangling Choi decompositions.",
+        "identifier_or_url": "arXiv:2609.09467v1",
+        "material_read": "Primary arXiv abstract and model description; direct PDF retrieval was unavailable in the source viewer.",
+        "method": "arXiv primary abstract inspection plus comparison of resource class and gate model.",
+        "title": "Noise Limits on Fault-Tolerant Fermionic Quantum Computing",
+        "trigger": "Exact same radical constant (8-2 sqrt(6))/5 appeared in targeted searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "beb7854a-9e9c-4d23-8ef0-d5d10e5890ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result directly improves the source's same-model CNOT classical-simulability certificate from 2/3 to about 0.620204, resolving part of an improvement direction explicitly identified by the source. The exact decomposition is reusable for channel-polytope and threshold comparisons and changes the benchmark by about 4.65 percentage points.",
+    "risks": [
+      "Because global optimality is not proved, the value is an improved upper bound rather than a final threshold."
+    ],
+    "sources": [
+      "arXiv:quant-ph/0408076v2, Eq. (23) and following paragraph",
+      "decomposition.json"
+    ],
+    "status": "PASS"
+  }
+}
