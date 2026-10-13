@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Dias--Koenig Theorems 5.4 and 5.6 reduce every positive-parity four-mode pure state, up to Gaussian unitary, to the vacuum/full-occupancy family with parameter equal to fermionic Gaussian fidelity. Substitution into Hoshino--Matsuda--Ashida Eq. (S90) at four modes gives the claimed polynomial exactly. The one-variable derivative is strictly negative on the allowed invariant interval, giving the unique fidelity value for equality. A direct two-copy Majorana implementation independently reproduces the polynomial at representative parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2409.08180v2, four-qubit numerical examples",
+        "arXiv:1406.1577v1, four-mode Gaussian geometry"
+      ],
+      "reasoning": "Broader fermionic non-Gaussianity and Gaussian-simulation literature was checked for a theorem dominating the four-mode statement. The located sources discuss convolution measures, Gaussian geometry, or other monotones, but do not provide a stronger theorem that implies the exact fidelity polynomial and global order-two optimum.",
+      "searches": [
+        "fermionic non-Gaussianity four modes Gaussian fidelity convolution Renyi entropy",
+        "four-mode fermionic Gaussian fidelity magic monotone",
+        "fermionic Gaussian testing four qubit non-Gaussian Renyi entropy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02075v1",
+      "arXiv:2307.12912",
+      "arXiv:2409.08180v2",
+      "arXiv:1406.1577v1",
+      "arXiv:2606.05066"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.02075v1 explicitly leaves finite-\\(N\\) tightness open.",
+        "arXiv:2307.12912 proves the Gaussian-fidelity normal form but contains no convolution Renyi entropy.",
+        "arXiv:2409.08180v2 introduces convolution Renyi measures but does not identify the four-mode global maximum."
+      ],
+      "reasoning": "The recent universal upper bound does not imply the exact finite-size value because it is strictly larger at \\(N=8\\). The cat calculation alone does not prove global optimality. The normal form alone does not determine the later convolution functional. Combining the independently published ingredients and optimizing the resulting invariant supplies a statement not implied by either source separately.",
+      "searches": [
+        "arXiv:2610.02075 finite N tightness fermionic magic Renyi entropy universal bound N=8",
+        "arXiv:2307.12912 Gaussian fidelity four modes canonical decomposition",
+        "arXiv:2409.08180 four qubit Renyi non-Gaussianity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02075v1, Theorem 1 and Supplement SIV",
+        "arXiv:2307.12912, Theorems 5.4 and 5.6"
+      ],
+      "reasoning": "The natural aliases are magic Renyi entropy, fermionic convolution purity, Gaussian fidelity, four-mode canonical form, and Spin(8)/Majorana language. The two closest sources provide complementary ingredients but neither states their exact combination.",
+      "searches": [
+        "four-mode fermionic magic Renyi entropy Gaussian fidelity exact formula ln 32/11",
+        "fermionic convolution purity four modes Gaussian fidelity exact maximum",
+        "Majorana magic Renyi entropy finite-size maximum pure spinor Spin(8)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.02075v1 gives the cat-state purity \\(11/32\\) as a special-family value, not an exhaustive four-mode table or global theorem."
+      ],
+      "reasoning": "The exact constant \\(11/32\\), its reciprocal entropy \\(\\ln(32/11)\\), and the four-mode parameterization were searched explicitly. No exact database, table, or prior finite-size classification covering the claim was located.",
+      "searches": [
+        "N=8 Majorana magic Renyi entropy maximum 11/32 convolution purity",
+        "four mode fermionic convolution purity 11/32",
+        "cat state fermionic magic Renyi 11/32"
+      ]
+    },
+    "rationale": "The closest recent source states finite-size tightness as open and evaluates the cat family, while the older four-mode normal-form source identifies Gaussian fidelity but predates the convolution entropy. The inspected convolution paper studies a four-qubit family numerically without a global four-mode optimum or fidelity formula. Targeted searches found no statement implying the exact global formula or maximum.",
+    "residual_risks": [
+      "A very recent or differently indexed source could independently combine the four-mode Gaussian-fidelity normal form with the 2026 convolution formula. Targeted exact-constant, alias, and implication searches did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives the universal bound and special-family purity, but no global four-mode optimum or exact Gaussian-fidelity formula.",
+        "evidence": "Theorem 1 states the universal bound and the text says finite-\\(N\\) tightness remains open; Eq. (S90) gives the special-family purity.",
+        "identifier_or_url": "arXiv:2610.02075v1",
+        "material_read": "Theorem 1, finite-size-tightness discussion, and Supplement SIV including Eqs. (S88)--(S91).",
+        "method": "Read public arXiv article text and supplementary equations.",
+        "title": "Universal Bound and Phase Transition in Many-Body Fermionic Non-Gaussianity",
+        "trigger": "Primary recent source poses finite-size tightness and supplies the exact vacuum/full-occupancy convolution formula."
+      },
+      {
+        "assessment": "NOT_COVERING: proves the canonical invariant and identifies it with Gaussian fidelity, but predates and does not state the convolution-purity formula or MRE optimum.",
+        "evidence": "Theorem 5.4 gives the two-Gaussian canonical decomposition; Theorem 5.6 identifies its coefficient with Gaussian fidelity.",
+        "identifier_or_url": "arXiv:2307.12912",
+        "material_read": "Section 5.1, Theorems 5.4 and 5.6, and the particle-hole/Gaussian-unitary commutation used in the reduction.",
+        "method": "Read the public arXiv PDF theorem statements and surrounding proof material.",
+        "title": "Classical simulation of non-Gaussian fermionic circuits",
+        "trigger": "Provides the complete four-mode pure-state normal form and Gaussian fidelity."
+      },
+      {
+        "assessment": "NOT_COVERING: studies a particular four-qubit family numerically and does not state a global four-mode maximum or a Gaussian-fidelity identity.",
+        "evidence": "The paper introduces the convolution measure and plots a phase-parametrized four-qubit family without an exhaustive four-mode theorem.",
+        "identifier_or_url": "arXiv:2409.08180v2",
+        "material_read": "Definitions of convolution non-Gaussian measures and the four-qubit numerical-example discussion.",
+        "method": "Read the public arXiv PDF sections surrounding the definitions and numerical examples.",
+        "title": "Fermionic Gaussian Testing and Non-Gaussian Measures via Convolution",
+        "trigger": "Foundational convolution/Renyi source with a four-qubit numerical family."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes four modes as the first nontrivial case and develops Gaussian geometry, but predates fermionic convolution MRE.",
+        "evidence": "The paper notes that lower-mode even pure states are Gaussian while four modes admit non-Gaussian pure states.",
+        "identifier_or_url": "arXiv:1406.1577v1",
+        "material_read": "Four-mode pure-state Gaussianity discussion and generalized-concurrence section.",
+        "method": "Read the public arXiv PDF section on four-mode states.",
+        "title": "Classical simulation of fermionic linear optics augmented with noisy ancillas",
+        "trigger": "Historical source for the first nontrivial four-mode Gaussian geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c5091bd-52c2-4e60-ada2-7f6ae0484612",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Four modes are the first nontrivial even-parity pure-state setting, and the primary 2026 paper explicitly leaves finite-size tightness open. The result gives the exact answer at this first size, a complete equality characterization, and an exact structural relation between two established non-Gaussianity quantities. This is a motivated finite-size theorem rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
