@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The source's density, Table 1, Table 5, and conclusion establish three fitted distributional parameters beta, lambda, and k. For Q=-2 log L, AIC-Q=2p and BIC-Q=p log n by definition. Dataset 1 has both printed AIC and BIC below Q; dataset 2 has BIC below Q and an AIC gap 0.94 incompatible with any integer parameter count. Direct substitution gives the stated corrected values for p=3, and p=2 also fails to reproduce the table. The packaged checker replays every arithmetic identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Akaike's criterion uses the maximized likelihood plus a 2p penalty.",
+        "Schwarz's criterion adds p log n to -2 log likelihood.",
+        "Hurvich and Tsai provide the standard corrected-AIC framework but do not discuss WLBRL."
+      ],
+      "reasoning": "General model-selection theory fixes the identities used in the proof; it does not cover the source-specific arithmetic defect or parameter-count inconsistency.",
+      "searches": [
+        "WLBRL model three parameters beta lambda k",
+        "weighted length-biased Ramos Louzada information criteria",
+        "Akaike Schwarz information criteria likelihood parameter penalty"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026280",
+      "doi:10.1007/978-1-4612-0919-5_38",
+      "doi:10.1214/aos/1176344136",
+      "doi:10.1093/biomet/76.2.297"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The checked current record contains no finding with DOI 10.3934/math.2026280 or WLBRL.",
+        "The checked immediately preceding weekly record contains no exact DOI, WLBRL, or Ramos match for this source.",
+        "The closest returned published-result records concern unrelated parameter-count or information-theoretic problems rather than this survival model."
+      ],
+      "reasoning": "No checked prior statement implies the source-specific AIC/BIC arithmetic contradiction or the exact corrected values.",
+      "searches": [
+        "10.3934/math.2026280 WLBRL AIC BIC AICc parameter count",
+        "weighted Ramos Louzada AIC BIC correction",
+        "WLBRL Table 6 two distributional parameters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary table reports -2logL, AIC, and BIC side by side, so the claim is equivalently a failure of the defining penalty differences.",
+        "The same source estimates beta, lambda, and k but later calls WLBRL a two-parameter model.",
+        "No searched published-result record stated a correction of these information-criterion values."
+      ],
+      "reasoning": "The searches cover the source DOI, model acronym/name, the three information-criterion labels, parameter-count language, and the exact table context rather than relying on title similarity.",
+      "searches": [
+        "10.3934/math.2026280 WLBRL AIC BIC AICc parameter count",
+        "weighted Ramos Louzada AIC BIC correction",
+        "Physics-informed weighted Ramos Louzada AIC BIC table 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 5 dataset 1 reports Q=549.37, AIC=537.65, BIC=528.92.",
+        "Table 5 dataset 2 reports Q=410.34, AIC=411.28, BIC=399.20.",
+        "Table 6 labels WLBRL as having two distributional parameters, while Table 1 and the conclusion identify three."
+      ],
+      "reasoning": "The contradictions are exact numerical statements about the source table and remain under both p=2 and p=3.",
+      "searches": [
+        "10.3934/math.2026280 equidispersed overdispersed",
+        "10.3934/math.2026280 WLBRL Table 5 AIC BIC",
+        "WLBRL Table 6 two distributional parameters"
+      ]
+    },
+    "rationale": "The inconsistency is internal to the 2026 source and no source-specific correction was located. Six targeted published-result searches using the DOI, WLBRL name, AIC/BIC/AICc, parameter-count, Table 5, and equivalent arithmetic wording returned no covering result. General information-criterion literature supplies the definitions but does not identify this source table's contradictions.",
+    "residual_risks": [
+      "The source may have mislabeled the -2logL column rather than miscomputed every information criterion; either possibility still prevents the printed table from being interpreted as stated.",
+      "A recent unindexed correction could exist.",
+      "A full ranking correction requires consistent recomputation of every competing model, which is outside the accepted claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT AS PRINTED. Table 5 AIC/BIC values violate their defining relation to the table's own -2logL values, and Table 6's two-parameter count conflicts with the three-parameter model.",
+        "evidence": "WLBRL density in Section 2; Table 1; real-life application text; Tables 5–6; conclusion.",
+        "identifier_or_url": "doi:10.3934/math.2026280",
+        "material_read": "Open full HTML and publisher table/PDF extract at the WLBRL density, Table 1, real-data sample-size description, Table 5, Table 6 parameter note, and conclusion.",
+        "method": "Direct publisher full-text and table inspection.",
+        "title": "Physics-informed weighted Ramos–Louzada model: integrating statistical and physical constraints for survival analysis",
+        "trigger": "Primary source defining WLBRL and using information criteria to support real-data superiority."
+      },
+      {
+        "assessment": "GENERAL DEFINITION ONLY; it does not discuss WLBRL.",
+        "evidence": "Schwarz's 1978 model-dimension criterion underlies BIC.",
+        "identifier_or_url": "doi:10.1214/aos/1176344136",
+        "material_read": "Bibliographic record and abstract describing the model-dimension penalty criterion.",
+        "method": "Published-record inspection.",
+        "title": "Estimating the Dimension of a Model",
+        "trigger": "Primary source for the Schwarz information criterion."
+      },
+      {
+        "assessment": "GENERAL BACKGROUND ONLY; the accepted claim does not depend on its model-specific correction.",
+        "evidence": "Hurvich and Tsai derive a small-sample corrected AIC.",
+        "identifier_or_url": "doi:10.1093/biomet/76.2.297",
+        "material_read": "Publisher abstract describing the AIC bias correction.",
+        "method": "Publisher-record inspection.",
+        "title": "Regression and time series model selection in small samples",
+        "trigger": "Primary source for the corrected-AIC framework used only as a secondary consistency check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ba691ae-0d0a-41dd-90ae-ef9aba872d69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "AIC and BIC are explicit evaluation objectives in the paper and are invoked in the real-data discussion and conclusion as evidence that WLBRL is superior. The defect is not a rounding issue: several reported criteria have the wrong sign of penalty relative to -2logL, and the source also miscounts the model dimension. The finding therefore identifies a concrete failure in the evidence used for model selection and supplies exact recomputation targets for the WLBRL rows.",
+    "status": "PASS"
+  }
+}
