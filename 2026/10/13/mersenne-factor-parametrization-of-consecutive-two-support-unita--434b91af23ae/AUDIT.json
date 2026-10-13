@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the exact multiplicative formula phi*(XY)=(X-1)(Y-1) for two distinct prime-power blocks. In the even-left orientation, equality plus consecutiveness gives a difference of squares equal to 4(A-1); in the even-right orientation the reversed difference of squares equals 4(A-1). The parity and sign cases yield exactly the three stated branches, and multiplying the branch formulas verifies both consecutiveness and the unitary-totient equality. The Omega<=3 corollary exhausts A=2 and A=4. A fresh exact checker corroborates both the parametrization and the corollary below one million.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tóth’s full article defines the unitary Euler function, states multiplicativity and phi*(p^nu)=p^nu-1, and develops combinatorial formulas and average-order results.",
+        "Targeted full-text searches of that article for “consecutive” and “collision” returned no matching statement.",
+        "A047994 gives the same prime-power product formula and references the classical unitary-divisor literature."
+      ],
+      "reasoning": "The broad primary literature supplies the exact algebraic normalization used in the proof, but its results do not imply a classification of equality at consecutive arguments. The new theorem uses the special interaction of that normalization with the equation n+1.",
+      "searches": [
+        "On the Bi-Unitary Analogues of Euler arithmetical function Toth unitary totient",
+        "unitary totient function prime power multiplicative",
+        "unitary totient consecutive values"
+      ]
+    },
+    "checked_sources": [
+      "JIS:12:09.5.2",
+      "OEIS:A287055",
+      "OEIS:A047994"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest indexed results on low-support arithmetic functions concern different functions, including sigma and Jordan totients.",
+        "The primary formula phi*(p^e)=p^e-1 alone does not state the classification; the difference-of-squares reduction and sign split are required.",
+        "No checked source states that the full two-support collision set is parameterized by factor pairs of 2^a-1."
+      ],
+      "reasoning": "Known multiplicativity supplies the starting equation, but not the solved collision geometry. The new implication is the exact reduction of every admissible consecutive pair to one of three factor-pair branches and the converse reconstruction.",
+      "searches": [
+        "unitary totient collision prime powers consecutive",
+        "unitary totient two prime support Mersenne number",
+        "consecutive unitary phi semiprime prime powers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic research-record hit stated a unitary-totient two-support consecutive-collision parametrization; the highest-ranked hits concerned Jordan totients or other totient variants.",
+        "Direct web searches for the unitary-totient collision equation with prime-factor qualifiers returned the exact sequence and general unitary-totient material, not a theorem equivalent to the three branches.",
+        "A287055 records the collision equation and examples including 20, 35, 143, 208, 2623, and 5183, but gives no factor-pair classification."
+      ],
+      "reasoning": "The theorem was searched under the names unitary totient, unitary phi, and uphi; under consecutive collision/equal-value language; and under the decisive two-support and Mersenne-factor structure. The located material contains definitions and data but no equivalent iff statement.",
+      "searches": [
+        "unitary totient consecutive collisions two prime supports exact parametrization",
+        "uphi(n)=uphi(n+1) two distinct prime factors Mersenne divisors",
+        "unitary totient two-support consecutive collisions 20 21 35 36 143 144",
+        "unitary totient consecutive equal values Omega at most two",
+        "phi star n equals phi star n+1 unitary totient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A287055 defines exactly the sequence of n with uphi(n)=uphi(n+1), begins 1,20,35,143,194,208,..., and explicitly verifies uphi(20)=uphi(21)=12.",
+        "A047994 states the product formula uphi(n)=Product(p_i^e_i-1).",
+        "The packaged exact scan finds the two-support starts below one million to be 20, 35, 143, 208, 2623, and 5183, all explained by the theorem."
+      ],
+      "reasoning": "The databases verify the collision object, formula, and special cases. A list of starts does not imply the theorem’s exhaustive two-support parametrization or the Omega<=3 uniqueness corollary.",
+      "searches": [
+        "OEIS A287055 uphi n uphi n+1",
+        "OEIS A047994 unitary totient"
+      ]
+    },
+    "rationale": "The primary unitary-totient article provides the function theory but not consecutive collision structure. The exact collision database supplies examples but no two-support parametrization. Targeted semantic and web searches found no equivalent Mersenne-factor theorem.",
+    "residual_risks": [
+      "An equivalent elementary parametrization may occur in unindexed computational or recreational notes.",
+      "A287055 postdates the archival primary source and is used as supporting collision data rather than to set the archival date.",
+      "The theorem does not classify collisions in which either member has three or more distinct prime factors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING. It supplies the exact function theory used here but does not discuss consecutive collisions.",
+        "evidence": "The article states that phi* is multiplicative and phi*(p^nu)=p^nu-1; its primary MSC is 11A25 and it was published 23 June 2009. Searches for “consecutive” and “collision” returned no match.",
+        "identifier_or_url": "JIS:12:09.5.2",
+        "material_read": "Complete ten-page article was available; the title/abstract, introduction, unitary Euler definition and formulas, combinatorial-formula section, asymptotic sections, references, classification line, and publication metadata were inspected. Targeted whole-text searches for consecutive and collision terminology were performed.",
+        "method": "Direct full-PDF text inspection with page-image inspection of the definition page.",
+        "title": "On the Bi-Unitary Analogues of Euler’s Arithmetical Function and the Gcd-Sum Function",
+        "trigger": "Primary archival source defining the unitary Euler function and giving its prime-power normalization."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE. It supplies exact collision data but no two-support factor-pair theorem.",
+        "evidence": "The entry begins 1,20,35,143,194,208,... and gives uphi(20)=uphi(21)=12 as its example.",
+        "identifier_or_url": "OEIS:A287055",
+        "material_read": "Definition, initial terms, comment, example, programs, cross-references, and author/date metadata.",
+        "method": "Direct database-page inspection.",
+        "title": "A287055: Numbers n such that uphi(n)=uphi(n+1)",
+        "trigger": "Exact database for the same consecutive collision equation."
+      },
+      {
+        "assessment": "BACKGROUND. It provides the function formula but no consecutive collision classification.",
+        "evidence": "The entry states uphi(n)=Product(p_i^e_i-1) and links Tóth 2009 and earlier unitary-divisor literature.",
+        "identifier_or_url": "OEIS:A047994",
+        "material_read": "Definition, multiplicativity comment, product formula, examples, bibliography and cross-references.",
+        "method": "Direct database-page inspection.",
+        "title": "A047994: Unitary totient function",
+        "trigger": "Exact reference for the unitary-totient product formula and classical bibliography."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "434b91af-23ae-4d08-a789-ea2d59e854ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Consecutive unitary-totient equality is explicitly tracked by an exact database, and the two-distinct-prime-support layer is the first setting where both sides have nontrivial multiplicative block structure. The theorem turns scattered database entries into a complete, bound-free parametrization controlled by factor pairs of 2^a-1, and the Omega<=3 corollary gives a sharp natural low-complexity boundary.",
+    "status": "PASS"
+  }
+}
