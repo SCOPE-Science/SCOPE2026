@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The de Bruijn relation gives H(b_n)=b_n^p L(b_n^p) ~ n and n/b_n^2 -> 0. For p<2 Potter bounds control the truncated variance by nA^2/b_n^2 plus a constant times the Cesàro weighted tail U(A); independent Doob L2 yields a vanishing centered truncated maximal p-moment. Eventual almost increase gives a uniform comparison L(b_n^p)<=K L(|X|^p) above the truncation, so the normalized total tail p-moment vanishes; von Bahr--Esseen and Doob Lp (or the L1 triangle bound) handle the tails. Conversely, failure of quasi-increase selects u_m<v_m with L(u_m)/L(v_m)>=m^3, and regular variation yields n_m~u_m L(u_m), b_{n_m}^p~u_m, and n_m/(m v_m L(v_m))=O(1/m). Symmetric independent rare-spike rows have Cesàro weighted mass exactly 1/m and vanishing occurrence probability, but their normalized maximal p-moments are at least (1+o(1))L(u_m)/(mL(v_m))>= (1+o(1))m^2. The explicit L>=1 example is slowly varying because its logarithm has derivative O(t^-1/2) in t=log(e+x), and peak/trough ratios diverge.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The later primary paper Theorem 3.1 supplies sufficient and necessary per-array tail criteria, but does not determine for which L the original Cesàro moment condition automatically forces those criteria across every independent array.",
+        "Theorem 4.1 in that paper assumes L increasing and L >= 1; Example 4.2 concerns L(x)=1/log x tending to zero.",
+        "Cao (2013) develops weighted-integrability conditions and mean convergence but does not state a slow-weight universal iff boundary in the inspected abstract, definitions, and theorem descriptions."
+      ],
+      "reasoning": "Known per-array conditions and monotone-L sufficient theorems partially cover the positive mechanism, not the all-function necessity. The construction for arbitrary non-almost-increasing L and especially weights L >= 1 is not implied by a single decreasing-weight example. Broad earlier Orlicz or regular variation criteria remain a residual risk.",
+      "searches": [
+        "Sharp sufficient conditions for mean convergence of the maximal partial sums of dependent random variables with general norming sequences Theorem 3.1 Theorem 4.1 Example 4.2",
+        "Mean convergence theorems for weighted sums of random variables under a condition of weighted integrability Cao 2013",
+        "\"mean convergence\" \"slowly varying\" \"not increasing\" \"de Bruijn\" necessity",
+        "\"slowly varying\" \"almost increasing\" \"Cesaro\" \"mean convergence\" triangular"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.06715v1",
+      "DOI:10.1007/s13398-023-01540-5",
+      "DOI:10.1186/1029-242X-2013-558",
+      "arXiv:2207.11487",
+      "targeted published-record searches for quasi-increasing, monotone-envelope, de Bruijn, uniform Cesàro and maximal p-mean aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 Corollary 4.10 proves convergence in probability, which does not imply convergence in p-mean.",
+        "The 2024 Theorem 4.1 explicitly answers the old question for increasing L >= 1, so a mere positive answer to that old question is already covered and is not the final claim.",
+        "The 2024 Example 4.2 shows failure for L tending to zero and with infinite individual p-moment; the final theorem produces failure for every non-almost-increasing L using finite-support variables, including an explicit L >= 1.",
+        "The earlier per-array necessity condition concerns normalized large-jump p moments, not an iff classification of all slowly varying L ensuring that Cesàro UI always enforces it."
+      ],
+      "reasoning": "The final theorem is a strict quantified refinement: it identifies precisely which slow weights allow universal mean convergence. Existing results give the monotone positive side and one decreasing negative example, but neither implies the complete quasi-monotone threshold without the new truncation and sparse-row construction.",
+      "searches": [
+        "arXiv:2207.06715 Corollary 4.10 Section 5 mean convergence open problem",
+        "DOI:10.1007/s13398-023-01540-5 Theorem 4.1 Example 4.2 L increasing L >= 1",
+        "DOI:10.1007/s13398-023-01540-5 Theorem 3.1 mean convergence tail condition necessity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 source states the weak law and asks for a maximal p-mean upgrade in Section 5.",
+        "The 2023 published follow-up gives a positive theorem only under increasing L >= 1 and an individual decreasing-weight failure; no if-and-only-if for all slowly varying weights is stated in its inspected Sections 3 and 4.",
+        "Candidate-specific database searches returned unrelated Cesàro operator results and logarithmic function-space results, but no matching function-class criterion."
+      ],
+      "reasoning": "The candidate was checked under quasi-increasing, almost increasing, monotone-envelope, slow-weight regularity, and Cesàro-Orlicz aliases. The uniform quantified statement about all rowwise independent arrays is stronger than one positive theorem for increasing weights or one negative example for decreasing weights.",
+      "searches": [
+        "Cesàro uniform integrability p-th mean convergence independent triangular arrays with slowly varying norming and de Bruijn conjugate, exact almost increasing slowly varying condition",
+        "slowly varying L, mean convergence maximal partial sums arrays, weighted p moments, rare jump counterexample near normalizing scale",
+        "slowly varying almost increasing L complete characterization Cesaro uniform integrability Lp maximal convergence triangular independent arrays",
+        "Almost-increasing slow variation is the exact Cesaro Lp upgrade boundary. For all independent triangular arrays, uniform Cesaro integrability of |X|^p L(|X|^p) implies maximal normalized p-mean convergence iff L is eventually almost increasing.",
+        "de Bruijn conjugate norming Cesaro uniform integrability maximal partial sums exact quasi-increasing L characterization mean p convergence",
+        "\"almost increasing\" \"Cesaro uniform integrability\" \"mean convergence\"",
+        "\"slowly varying\" \"almost increasing\" \"L^p\" \"sums\" independent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-phrase or semantic lookup returned the claimed necessary-and-sufficient characterization.",
+        "The object is a universal function-class implication rather than a finite numerical invariant; no standard numerical table is relevant."
+      ],
+      "reasoning": "Exact-expression lookup addressed the natural indexed aliases for the criterion and obstruction; a failed lookup is not itself a proof of originality.",
+      "searches": [
+        "\"slowly varying\" \"almost increasing\" \"Cesaro\" \"mean convergence\"",
+        "\"almost increasing\" \"Cesaro uniform integrability\" \"mean convergence\"",
+        "mean convergence under nonmonotone slowly varying L tail oscillations sparse spike counterexamples"
+      ]
+    },
+    "rationale": "The 2022 source leaves the p-mean upgrade open; the author answered its monotone-weight case in a 2023-online paper. The final claim is not that covered positive answer, but an exact universal function-class characterization for all positive locally regular slowly varying weights. The primary follow-up Theorem 4.1 only assumes increasing L >= 1, Theorem 3.1 gives per-array tail conditions, and Example 4.2 only disproves removal of the hypotheses through a weight decreasing to zero. The new necessity mechanism works for every non-almost-increasing L, even for L >= 1 and finite-support row variables. Targeted searches of equivalences, broader conditions, and exact aliases found no dominating theorem; monotone-envelope/Orlicz literature remains a material residual risk.",
+    "residual_risks": [
+      "The positive direction can be recovered from general tail-sufficiency theorems after verifying their hypotheses, so only the complete function-class iff and its all-non-quasi-monotone counterexample mechanism are claimed as an advance.",
+      "An equivalent universal iff theorem could exist in older, differently indexed Orlicz or monotone-envelope probability literature.",
+      "The theorem concerns rowwise independent arrays; dependence extensions are not proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "WEAK_LAW_AND_ORIGINAL_QUESTION_ONLY.",
+        "evidence": "Corollary 4.10 states a maximal weak law under weighted Cesàro uniform integrability, and Section 5 asks whether the maximal convergence is also in p-mean.",
+        "identifier_or_url": "arXiv:2207.06715v1",
+        "material_read": "Full open manuscript: introduction; Section 4 Corollary 4.10 and its normalization; Section 5 final open problem; definitions of slow variation and Cesàro uniform integrability.",
+        "method": "Lawful open-access arXiv full-text HTML and PDF inspection.",
+        "title": "On a new concept of stochastic domination and the laws of large numbers",
+        "trigger": "Direct literature source defining Cesàro weighted integrability, de Bruijn norming, and the original open mean-convergence question."
+      },
+      {
+        "assessment": "COVERS_MONOTONE_WEIGHT_UPGRADE_NOT_ALL_WEIGHT_IFF.",
+        "evidence": "Theorem 4.1 requires L increasing and L>=1; Example 4.2 uses L(x)=1/log x ->0 to show possible failure when monotonicity is removed; neither states an iff for every slowly varying weight.",
+        "identifier_or_url": "DOI:10.1007/s13398-023-01540-5",
+        "material_read": "Full scholarly article Sections 1, 3, and 4, including Theorem 3.1, its tail conditions, Theorem 4.1, Example 4.2, and Remark 4.3; publication and references.",
+        "method": "Lawful full-article text inspection.",
+        "title": "Sharp sufficient conditions for mean convergence of the maximal partial sums of dependent random variables with general norming sequences",
+        "trigger": "Same author explicitly answers the original open question and potentially dominates new work."
+      },
+      {
+        "assessment": "RELATED_WEIGHTED_INTEGRABILITY_SCOPE_NOT_DECISIVE_FOR_SLOW_WEIGHT_CLASSIFICATION.",
+        "evidence": "The accessible inspected material discusses per-array weighted-integrability conditions and mean convergence, not a function-class iff classification of slow weights with de Bruijn normalization.",
+        "identifier_or_url": "DOI:10.1186/1029-242X-2013-558",
+        "material_read": "Open published abstract, introductory definitions of Cesàro and weighted integrability, and descriptions of the mean-convergence results.",
+        "method": "Lawful open-access journal HTML inspection.",
+        "title": "Mean convergence theorems for weighted sums of random variables under a condition of weighted integrability",
+        "trigger": "Older broad work on weighted uniform integrability and mean convergence, a potential dominating sufficient theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "482e2016-6e0d-4882-9974-66b0c23038a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original source posed the weighted Cesàro weak-law to p-mean upgrade, and the author’s follow-up proved the monotone-weight positive case while exhibiting one decreasing-weight obstruction. The new statement gives the exact sharp boundary on the weight itself: eventual almost increase is sufficient for every independent triangular array and is necessary through a systematic symmetric finite-support construction for every weight outside the class. It also finds a nonmonotone weight bounded below by one where the upgrade fails, clarifying precisely why the published monotonicity condition can be weakened but not discarded. This is a natural complete structural classification, not an arbitrary numeric slice or merely another sufficient condition.",
+    "status": "PASS"
+  }
+}
