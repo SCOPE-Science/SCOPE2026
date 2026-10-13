@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The HSS error matrix was reconstructed from the two splitting steps. In real dimension two every skew-symmetric matrix satisfies S^2=-s^2 I, so the two skew factors become orthogonal left/right multipliers around D=(alpha I-H)(alpha I+H)^(-1), proving the exact Euclidean norm identity. For H=diag(1,2,4), alpha=2, and the explicit three-dimensional skew family, direct multiplication gives M_t e2=(-t/6,0,t/6) and the characteristic polynomial lambda(lambda^2+(t^2-2)/(9(t^2+2))). Thus the spectral radius stays at most 1/3 while the Euclidean one-step amplification diverges. Exact package replay verifies representative matrices and characteristic coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The foundational paper proves rho(M(alpha)) <= max |(alpha-lambda)/(alpha+lambda)| and introduces a norm induced by alpha I+S in which the same factor is a contraction bound.",
+        "The foundational paper derives alpha=sqrt(gamma_min gamma_max) by minimizing the Hermitian-spectrum upper bound and explicitly notes that this need not minimize the actual spectral radius.",
+        "Later parameter-selection work continues to focus on spectral-radius bounds and estimates rather than ordinary Euclidean transient amplification."
+      ],
+      "reasoning": "The prior theory broadly controls asymptotic convergence and a specially weighted norm. The new result isolates the gap between those controls and Euclidean stepwise behavior, then solves the low-dimensional boundary exactly.",
+      "searches": [
+        "Hermitian and Skew-Hermitian Splitting Methods for Non-Hermitian Positive Definite Linear Systems",
+        "HSS convergence factor alpha sqrt gamma min gamma max",
+        "HSS parameter estimation spectral radius Hermitian part"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0895479801395458",
+      "2026/9/9/SCOPE008",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+      "2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical spectral-radius bound guarantees asymptotic convergence but cannot bound a Euclidean operator norm for a nonnormal iteration matrix.",
+        "The source's contraction norm contains alpha I+S, whose norm-equivalence constants can deteriorate as the skew part grows; it therefore does not imply Euclidean contraction.",
+        "Generic nonnormal-transient theory shows that stable matrices may exhibit norm growth, but it does not establish two-dimensional impossibility or the HSS-specific fixed-H three-dimensional construction."
+      ],
+      "reasoning": "The prior statements leave both directions of the sharp boundary unresolved. The new two-dimensional factorization proves immunity, while the three-dimensional construction shows the first possible failure and keeps exactly the data entering the classical HSS rate bound fixed.",
+      "searches": [
+        "HSS spectral radius convergence weighted norm",
+        "nonnormal transient growth stable iteration matrix",
+        "HSS optimal parameter upper bound not actual spectral radius"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published record states that every real 2x2 HSS iteration has Euclidean operator norm exactly equal to the classical Hermitian spectral factor.",
+        "No searched record gives a three-dimensional HSS family with fixed H=diag(1,2,4), fixed alpha=2, spectral radius bounded by 1/3, and unbounded one-step Euclidean amplification.",
+        "The closest returned transient-growth results concern other algorithms or generic nonnormal dynamics rather than the HSS factorization."
+      ],
+      "reasoning": "Equivalent coverage would need the HSS error matrix itself, ordinary Euclidean solution error, the dimension-two universal singular-value identity, and the dimension-three minimal obstruction. Spectral-radius convergence, transformed-norm contraction, and generic nonnormal transient growth do not imply these statements.",
+      "searches": [
+        "Hermitian skew-Hermitian splitting HSS transient Euclidean norm one step nonnormal amplification",
+        "HSS iteration optimal parameter 2-norm transient growth skew-Hermitian part dimension three",
+        "Hermitian and skew-Hermitian splitting iteration matrix norm spectral radius transient",
+        "Bai Golub Ng HSS iteration nonnormal transient amplification",
+        "HSS three dimensions minimal unbounded Euclidean error amplification fixed Hermitian condition number",
+        "Hermitian skew-Hermitian splitting 2x2 Euclidean contraction exact norm",
+        "HSS optimal parameter nonnormal transient growth dimension 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula match for the 2x2 operator-norm identity was located.",
+        "No exact matrix family matching the displayed fixed-H three-dimensional obstruction was located."
+      ],
+      "reasoning": "The claim is an analytic structural classification derived from the HSS factorization, not a recomputation of a numerical table.",
+      "searches": [
+        "\"HSS\" \"Euclidean\" transient amplification",
+        "\"Hermitian/skew-Hermitian splitting\" \"2x2\" norm",
+        "\"HSS\" \"dimension three\" transient"
+      ]
+    },
+    "rationale": "The foundational HSS paper proves unconditional convergence, the Hermitian-spectrum spectral-radius upper bound, a transformed-norm contraction, and the standard bound-optimal parameter. Those results are treated as prior work. The inspected primary text does not state an ordinary Euclidean two-dimensional norm identity or a minimal-dimension transient theorem. Targeted published-record and literature searches found generic nonnormal transients and unrelated iterative-method safety boundaries but no implication-equivalent HSS result.",
+    "residual_risks": [
+      "Older stationary-iteration literature may contain the same two-dimensional HSS singular-value observation under different terminology.",
+      "Generic nonnormal matrix theory contains many transient-growth constructions, although none located supplies the HSS-specific minimal-dimension statement with fixed Hermitian data.",
+      "The complex 2x2 HSS case is deliberately excluded and may behave differently because a general skew-Hermitian 2x2 matrix is not a scalar multiple of the real rotation generator."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: supplies the iteration matrix, spectral-radius bound, transformed-norm contraction, and optimal upper-bound parameter, but not the ordinary Euclidean low-dimensional transient classification.",
+        "evidence": "Theorem 2.2 gives the HSS matrix and skew-independent spectral-radius bound. The proof identifies a unitary Cayley factor, then the paper introduces the norm ||(alpha I+S)x||_2 to obtain a contraction statement. Corollary 2.3 gives alpha=sqrt(gamma_min gamma_max).",
+        "identifier_or_url": "doi:10.1137/S0895479801395458",
+        "material_read": "The full primary paper was inspected through the HSS definition, Theorem 2.2, its proof, the induced transformed norm, and Corollary 2.3 on the bound-optimal parameter.",
+        "method": "Full primary PDF inspection.",
+        "title": "Hermitian and Skew-Hermitian Splitting Methods for Non-Hermitian Positive Definite Linear Systems",
+        "trigger": "Foundational primary source defining HSS and proving its convergence and parameter bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8e3229f-d8c7-4b4a-8830-d792822a863a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A central attraction of HSS is that its classical convergence-factor bound depends only on the Hermitian part and is independent of the skew part. The finding identifies an important limit of that robustness: in the ordinary Euclidean error monitored by many users, the same fixed Hermitian data can hide arbitrarily large one-step amplification. The exact dimension-two immunity and dimension-three minimal obstruction make the distinction structural rather than a generic warning about nonnormality.",
+    "status": "PASS"
+  }
+}
