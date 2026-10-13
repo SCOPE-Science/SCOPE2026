@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The hypergeometric formula for \\(R_m\\) is derived from species-absence probabilities. Two independent complete generators agree on every positive abundance multiset through \\(N=10\\), and all same-\\((N,S)\\) unordered pairs are compared at every interior \\(m\\) using exact rational arithmetic. The exhaustive check gives no strict crossing for \\(N\\le9\\), exactly one at \\(N=10\\), and reproduces all stated witness fractions and endpoint identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Thompson and Withers state that species-accumulation curves can cross when one abundance distribution has both a high rare-species fraction and a few abundant species compared with a more even distribution.",
+        "Chao and Jost explicitly discuss crossing sample-size-based richness curves and prove a correspondence in crossing behavior with coverage-based curves.",
+        "Locey and White study the feasible set of abundance distributions at common species richness and total abundance.",
+        "Chao and coauthors provide a unified sampling framework for individual-based abundance rarefaction and species richness."
+      ],
+      "reasoning": "These sources establish the phenomenon, the sampling framework, and the natural fixed-\\((N,S)\\) domain. They do not imply that every positive integer profile is noncrossing through total nine or that the total-ten first layer has one pair.",
+      "searches": [
+        "\"Effect of species richness and relative abundance on the shape of the species accumulation curve\"",
+        "\"Coverage-based rarefaction and extrapolation\" crossing curves",
+        "\"How species richness and total abundance constrain the distribution of abundance\"",
+        "\"Rarefaction and extrapolation with Hill numbers\" species richness sample size"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1046/j.1442-9993.2003.01294.x",
+      "doi:10.1890/11-1952.1",
+      "doi:10.1890/13-0133.1",
+      "doi:10.1111/ele.12154",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Generic curve crossing does not imply a lower bound on the census required for crossing.",
+        "A previously checked fixed-\\((N,S)\\) result at \\(N=9\\) concerns a tie in finite-sample Simpson concentration and separation by \\(R_3\\); it has no strict sign reversal across sample sizes.",
+        "The endpoint identities show why the new witness joins two distinct abundance summaries rather than merely resolving a tie."
+      ],
+      "reasoning": "The accepted theorem adds two logically independent finite statements not supplied by generic crossing literature: universal noncrossing through total nine and uniqueness of the first strict crossing at total ten.",
+      "searches": [
+        "rarefaction curves cross relative abundance evenness rare species",
+        "species accumulation curve crossing ranking diversity sample size",
+        "finite-sample Simpson concentration Hurlbert rarefied richness",
+        "fixed richness total abundance rarefaction crossing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Individual-based rarefaction is the expected species count after hypergeometric subsampling without replacement.",
+        "Species-accumulation and sample-size-based richness curves are the principal equivalent ecological formulations checked.",
+        "The accepted claim fixes both total abundance and observed richness and asks only for a strict ordering reversal between interior sample sizes."
+      ],
+      "reasoning": "Searching rarefaction, expected richness, species-accumulation crossings, and fixed-richness/equal-census language covers the standard names for the same finite comparison problem.",
+      "searches": [
+        "individual-based rarefaction curves crossing fixed richness equal census smallest abundance profiles",
+        "Hurlbert rarefaction expected richness rank reversal sample size 3 4",
+        "rarefied richness ranking changes with subsample size fixed species richness",
+        "species accumulation curve crossing fixed total abundance fixed richness"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-witness search located the pair \\((6,2,2)\\) and \\((5,4,1)\\) as a rarefaction-crossing example.",
+        "No checked source supplied a table excluding all same-richness crossings through census nine.",
+        "The packaged verifier derives the complete first layer from the full finite abundance-profile census rather than importing a published table."
+      ],
+      "reasoning": "Exact tuple searches test whether the tiny witness already appears in papers, teaching examples, tables, or software fixtures, while the smallest-boundary search tests for a published minimality statement.",
+      "searches": [
+        "\"6,2,2\" \"5,4,1\" rarefaction",
+        "\"6 2 2\" \"5 4 1\" species accumulation",
+        "\"rarefaction curves\" \"6,2,2\"",
+        "\"species accumulation curves\" \"(6,2,2)\"",
+        "smallest rarefaction curve crossing abundance profile"
+      ]
+    },
+    "rationale": "Generic species-accumulation and rarefaction crossings are established prior context. The originality claim is restricted to the exact positive-integer, fixed-census, fixed-richness minimum and complete first crossing layer. The checked literature, exact-witness searches, semantic database searches, and own-ledger comparisons did not state or imply that sharp boundary.",
+    "residual_risks": [
+      "The closest 2003 crossing paper was inspected through publisher metadata, abstract, and references rather than its full article body.",
+      "An unindexed worked example or software unit test could contain the ten-individual pair without establishing the finite minimality and uniqueness theorem.",
+      "Older generic literature on intersecting accumulation curves exists; no checked material implied the exact fixed-\\((N,S)\\) boundary claimed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong prior coverage of generic crossings and their ecological mechanism. The inspected material does not state the finite fixed-richness minimum or the ten-individual pair.",
+        "evidence": "The source states that curve shape depends on richness, relative abundance, and diversity, and that curves cross when a community combines many rare and a few abundant species compared with a more even distribution.",
+        "identifier_or_url": "doi:10.1046/j.1442-9993.2003.01294.x",
+        "material_read": "Publisher bibliographic record, publication history, abstract, and displayed reference list. The abstract's statements on curve shape, initial slope, abundance evenness, and crossing conditions were inspected.",
+        "method": "Publisher metadata and abstract inspection.",
+        "title": "Effect of species richness and relative abundance on the shape of the species accumulation curve",
+        "trigger": "Closest archival source explicitly describing species-accumulation curve crossings as an abundance-shape phenomenon."
+      },
+      {
+        "assessment": "Establishes that sample-size-based rarefaction curves can cross and that such crossings matter for biodiversity comparison. It does not give a smallest finite positive-integer fixed-richness crossing.",
+        "evidence": "The source states that if crossing occurs, size-based and coverage-based sampling curves have the same number of crossing points, and supplies a large-community abundance example.",
+        "identifier_or_url": "doi:10.1890/11-1952.1",
+        "material_read": "Publisher full-text material on comparison of multiple samples, including the discussion of curve crossings and the worked contrasting-community example.",
+        "method": "Publisher HTML full-text inspection.",
+        "title": "Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size",
+        "trigger": "Primary rarefaction source explicitly treating crossings of sample-size-based richness curves."
+      },
+      {
+        "assessment": "Supports the standard rarefaction framework and ecological use. It does not state the finite crossing boundary.",
+        "evidence": "The source describes theoretical formulas for individual-based abundance rarefaction and sample-size standardization of species richness.",
+        "identifier_or_url": "doi:10.1890/13-0133.1",
+        "material_read": "Publisher article metadata, abstract, publication history, and displayed sampling-framework description.",
+        "method": "Publisher article inspection.",
+        "title": "Rarefaction and extrapolation with Hill numbers: a framework for sampling and estimation in species diversity studies",
+        "trigger": "Sampling-theory source for individual-based abundance rarefaction and species-richness comparison."
+      },
+      {
+        "assessment": "Supports the fixed-\\((N,S)\\) feasible-set domain, but does not analyze rarefaction-crossing minima.",
+        "evidence": "The source explicitly examines all possible abundance distributions having the same richness and total abundance.",
+        "identifier_or_url": "doi:10.1111/ele.12154",
+        "material_read": "Publisher bibliographic record and abstract describing the feasible set at fixed richness and total abundance.",
+        "method": "Publisher metadata and abstract inspection.",
+        "title": "How species richness and total abundance constrain the distribution of abundance",
+        "trigger": "Naturalness of fixing total abundance and richness while varying the abundance distribution."
+      },
+      {
+        "assessment": "The theorem concerns ecological abundance distributions and species-richness rarefaction.",
+        "evidence": "MSC2020 lists 92D40 as Ecology.",
+        "identifier_or_url": "MSC2020:92D40",
+        "material_read": "Official MSC2020 hierarchy entry naming 92D40.",
+        "method": "Official classification database inspection.",
+        "title": "MSC2020 database: 92D40 Ecology",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d8e8efa-ca3b-4c5a-a655-f11f4a2cc548",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Individual-based rarefaction is used specifically to compare richness at standardized sampling effort, and crossing curves make such comparisons sample-size dependent. Fixing both total abundance and observed richness isolates this effect within a natural ecological feasible set. The theorem gives the smallest possible exact reversal and a transparent mechanism: finite-sample pair concentration controls the early curve, whereas singleton count controls the near-census endpoint.",
+    "status": "PASS"
+  }
+}

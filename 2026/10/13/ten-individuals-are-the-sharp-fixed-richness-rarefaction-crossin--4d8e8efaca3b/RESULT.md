@@ -1,0 +1,313 @@
+# Ten individuals are the sharp fixed-richness rarefaction-crossing boundary
+## Finding
+Let
+\[
+n=(n_1,\ldots,n_S)
+\]
+be a strictly positive integer species-abundance profile, considered up to permutation, with
+\[
+\sum_{i=1}^{S}n_i=N.
+\]
+
+For a uniform sample without replacement of size
+\[
+m,
+\]
+define individual-based rarefied expected richness by
+\[
+R_m(n)
+=
+\sum_{i=1}^{S}
+\left[
+1-
+\frac{\binom{N-n_i}{m}}{\binom{N}{m}}
+\right].
+\]
+
+Only communities with the same census
+\[
+N
+\]
+and the same observed richness
+\[
+S
+\]
+are compared.
+
+There is no pair whose strict ordering under \(R_m\) reverses between two interior sample sizes for
+\[
+N\le9.
+\]
+
+At
+\[
+N=10,
+\]
+there is exactly one unordered crossing pair up to species permutation:
+\[
+A=(6,2,2),
+\qquad
+B=(5,4,1).
+\]
+
+The pair necessarily has
+\[
+S=3.
+\]
+
+At small rarefaction sizes,
+\[
+R_2(A)=\frac{73}{45}
+<
+\frac{74}{45}
+=
+R_2(B),
+\]
+and
+\[
+R_3(A)=\frac{61}{30}
+<
+\frac{41}{20}
+=
+R_3(B).
+\]
+
+The ordering then reverses:
+\[
+R_4(A)=\frac{163}{70}
+>
+\frac{242}{105}
+=
+R_4(B).
+\]
+
+In fact,
+\[
+R_m(A)>R_m(B)
+\]
+for every
+\[
+4\le m\le9.
+\]
+
+The two curves agree at the unavoidable endpoints:
+\[
+R_1(A)=R_1(B)=1,
+\qquad
+R_{10}(A)=R_{10}(B)=3.
+\]
+
+Thus ten individuals is the smallest fixed-richness census at which the sample size chosen for individual-based rarefaction can reverse the expected-richness ranking of two communities.
+
+## Assumptions and scope
+Abundances are positive integers, so every listed species is present in the finite census.
+
+Species labels are irrelevant; only the abundance multiset matters.
+
+Rarefaction is individual based: the subsample is drawn uniformly without replacement from the \(N\) censused individuals.
+
+A crossing means a strict sign reversal. A tie resolved differently at another sample size is not counted as a strict crossing.
+
+The comparison fixes both total abundance \(N\) and species richness \(S\), isolating the effect of the abundance distribution rather than unequal census size or unequal observed richness.
+
+The result is finite and exact. It concerns expected richness under subsampling, not confidence intervals, extrapolation beyond the census, or inference about an unobserved superpopulation.
+
+## Proof
+For species \(i\), the probability that a sample of size \(m\) misses all \(n_i\) individuals is
+\[
+\frac{\binom{N-n_i}{m}}{\binom{N}{m}},
+\]
+with the numerator interpreted as zero when
+\[
+m>N-n_i.
+\]
+
+Therefore the expected number of represented species is
+\[
+R_m(n)
+=
+\sum_{i=1}^{S}
+\left[
+1-
+\frac{\binom{N-n_i}{m}}{\binom{N}{m}}
+\right].
+\]
+
+For the small-sample endpoint,
+\[
+R_2
+=
+2-
+\frac{\sum_i n_i(n_i-1)}{N(N-1)}.
+\]
+Hence \(R_2\) is completely controlled by finite-sample Simpson concentration.
+
+For the near-census endpoint, let
+\[
+f_1
+\]
+be the number of singleton species. A sample of size \(N-1\) misses a species exactly when the omitted individual is that species' sole individual, so
+\[
+R_{N-1}
+=
+S-\frac{f_1}{N}.
+\]
+
+For
+\[
+A=(6,2,2),
+\]
+the same-species ordered-pair numerator is
+\[
+6\cdot5+2\cdot1+2\cdot1=34,
+\]
+and there are no singletons.
+
+For
+\[
+B=(5,4,1),
+\]
+the same-species ordered-pair numerator is
+\[
+5\cdot4+4\cdot3=32,
+\]
+and there is one singleton.
+
+Thus \(B\) must beat \(A\) at \(m=2\), while \(A\) must beat \(B\) at \(m=9\).
+
+Direct exact evaluation gives
+\[
+\begin{array}{c|cccccccccc}
+m&1&2&3&4&5&6&7&8&9&10\\
+\hline
+R_m(A)&
+1&
+\frac{73}{45}&
+\frac{61}{30}&
+\frac{163}{70}&
+\frac{23}{9}&
+\frac{41}{15}&
+\frac{43}{15}&
+\frac{133}{45}&
+3&
+3\\
+R_m(B)&
+1&
+\frac{74}{45}&
+\frac{41}{20}&
+\frac{242}{105}&
+\frac{89}{36}&
+\frac{109}{42}&
+\frac{27}{10}&
+\frac{14}{5}&
+\frac{29}{10}&
+3
+\end{array}
+\]
+
+The exact differences
+\[
+R_m(A)-R_m(B)
+\]
+for
+\[
+m=2,\ldots,9
+\]
+are
+\[
+-\frac1{45},
+\quad
+-\frac1{60},
+\quad
+\frac1{42},
+\quad
+\frac1{12},
+\quad
+\frac{29}{210},
+\quad
+\frac16,
+\quad
+\frac7{45},
+\quad
+\frac1{10}.
+\]
+
+So the sign changes exactly between sample sizes three and four.
+
+To prove minimality and uniqueness, enumerate every positive integer partition of \(N\) separately at each richness \(S\), and compare every unordered pair within a common \((N,S)\) layer over all interior sample sizes.
+
+There are respectively
+\[
+2,3,5,7,11,15,22,30,42
+\]
+unlabeled positive abundance profiles for
+\[
+N=2,\ldots,10.
+\]
+
+The numbers of same-richness unordered pairs are
+\[
+0,0,1,2,7,13,30,56,109.
+\]
+
+Exact enumeration finds no crossing through total nine and exactly the pair
+\[
+(6,2,2)
+\quad\text{versus}\quad
+(5,4,1)
+\]
+at total ten.
+
+## Verification
+The embedded `verify_rarefaction_crossing_boundary.py` uses only the Python standard library and exact rational arithmetic.
+
+It implements the hypergeometric expectation formula directly.
+
+Completeness of the finite profile census is checked by two independent generators:
+
+1. recursive nonincreasing integer partitions; and
+2. direct multisets generated by combinations with replacement and filtered by total.
+
+The two generators are required to produce exactly the same abundance profiles for every
+\[
+2\le N\le10
+\]
+and every feasible richness.
+
+Every unordered same-\((N,S)\) profile pair is then compared at every interior rarefaction size.
+
+The verifier confirms the complete absence of strict crossings through total nine, the unique total-ten crossing, all exact witness values, and the two endpoint identities.
+
+Run:
+
+`python3 verify_rarefaction_crossing_boundary.py`
+
+The first output line must be `VERIFY_OK`.
+
+## Relationship to prior work
+Species-accumulation and rarefaction literature already establishes that curve shape depends on both richness and relative abundance, and that curves can cross.
+
+Thompson and Withers report that accumulation curves can cross when one abundance distribution combines unusually rare and abundant species while another is more even.
+
+Chao and Jost analyze sample-size-based and coverage-based rarefaction and explicitly discuss crossing sampling curves, including the fact that rankings need not remain fixed as sampling effort changes.
+
+Locey and White study abundance distributions within the feasible set determined by common species richness and total abundance, supporting fixed-\((N,S)\) comparison as an ecologically natural finite domain.
+
+The present result does not claim that rarefaction crossings themselves are new. It identifies the smallest strictly positive integer census at fixed richness where a crossing is possible, proves there are none below it, and classifies the complete first crossing layer.
+
+Targeted searches using rarefaction, species-accumulation crossings, fixed richness, equal census, smallest abundance profile, and the exact pair \((6,2,2)\) versus \((5,4,1)\) did not locate this sharp finite boundary.
+
+## Limitations
+The result concerns the observed finite census and individual-based hypergeometric rarefaction. It does not address sample-based incidence rarefaction, with-replacement sampling, coverage standardization, or extrapolation.
+
+The cutoff uses strictly positive integer abundances and fixes both \(N\) and \(S\). Allowing absent species, unequal censuses, or unequal richness changes the comparison domain.
+
+Crossings are properties of expectations. Sampling variability can obscure or reverse empirical estimates around these exact expectations.
+
+The closest older literature establishes generic crossing mechanisms. An unindexed worked example or software test could contain the ten-individual witness without identifying its minimality or uniqueness.
+
+## References
+1. G. G. Thompson and P. C. Withers, “Effect of species richness and relative abundance on the shape of the species accumulation curve,” *Austral Ecology* 28, 355–360, 2003. DOI: 10.1046/j.1442-9993.2003.01294.x. First published 25 July 2003.
+2. A. Chao and L. Jost, “Coverage-based rarefaction and extrapolation: standardizing samples by completeness rather than size,” *Ecology* 93, 2533–2547, 2012. DOI: 10.1890/11-1952.1.
+3. A. Chao, N. J. Gotelli, T. C. Hsieh, E. L. Sander, K. H. Ma, R. K. Colwell, and A. M. Ellison, “Rarefaction and extrapolation with Hill numbers: a framework for sampling and estimation in species diversity studies,” *Ecological Monographs* 84, 45–67, 2014. DOI: 10.1890/13-0133.1.
+4. K. J. Locey and E. P. White, “How species richness and total abundance constrain the distribution of abundance,” *Ecology Letters* 16, 1177–1185, 2013. DOI: 10.1111/ele.12154.
