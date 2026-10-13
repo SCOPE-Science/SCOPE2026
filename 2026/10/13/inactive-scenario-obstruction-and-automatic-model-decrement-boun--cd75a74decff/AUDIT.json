@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For the affine witness, the two model branches intersect strictly left of \\(v=-1\\); the first branch has its unique minimum at \\(v=-1\\), while the second branch is decreasing up to the intersection and has a strictly larger endpoint value. Thus \\(v=-1\\) and \\(\\theta=-1/2\\) exactly. Only the first scenario is active, giving strict robust descent, whereas the inactive scenario contributes the positive raw-gradient product \\(M\\), contradicting any negative all-scenario bound. For the general replacement, exact subproblem optimality gives \\(-v\\in\\partial\\Psi_x(v)\\); the subgradient inequality against \\(0\\), where \\(\\Psi_x(0)=0\\), yields \\(\\Psi_x(v)\\le-\\|v\\|^2\\), which implies both stated bounds and strict descent for every active scenario.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 predecessor uses the same scenario-offset max-model and defines true robust descent using active scenarios, but does not isolate the inactive-scenario obstruction or prove the two replacement bounds.",
+        "The 2025 follow-up continues to characterize descent through active scenarios and does not state the counterexample.",
+        "The 2026 Newton paper uses its Newton model value in its non-monotone assumptions; it does not imply the steepest max-model inequalities or the affine counterexample."
+      ],
+      "reasoning": "The closest literature separates active-set descent theory from model-value-based Newton conditions. Neither direction subsumes the final claim, which identifies why all-scenario raw gradients are the wrong quantity for the steepest robust max-model and derives the exact intrinsic substitute.",
+      "searches": [
+        "DOI:10.1080/00036811.2024.2426219 full text: robust max-model subproblem, active-set descent definition, and line-search model",
+        "arXiv:2503.06476v1: active-scenario robust descent and global-convergence framework",
+        "DOI:10.1007/s11075-026-02381-0 full text: non-monotone Newton model and its model-value assumptions"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1080/02331934.2026.2692698",
+      "DOI:10.1080/00036811.2024.2426219",
+      "arXiv:2503.06476v1",
+      "DOI:10.1007/s11075-026-02381-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary algorithms require the exact steepest subproblem direction together with an all-scenario gradient inequality; the affine witness supplies the exact direction but makes the left-hand side positive.",
+        "The predecessor's active-set definition of descent is consistent with the witness and therefore does not imply the all-scenario condition.",
+        "The Newton paper's model-value assumptions are on a different quadratic model and do not provide the steepest max-model norm and per-objective decrement bounds."
+      ],
+      "reasoning": "The final claim is neither a corollary nor a special case of the inspected prior statements. It separates active robust descent from a maximum over gradients of inactive as well as active scenarios.",
+      "searches": [
+        "Primary full text: Assumption 4.1, Algorithms 4.1 and 4.2, Lemmas 4.3--4.6, and Theorem 4.1",
+        "Monotone predecessor full text: steepest max-model equations, descent characterization, and continuous approximation",
+        "Related non-monotone Newton full text: Proposition 4.1 and Algorithms 4.1--4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned the primary paper and related robust steepest-descent literature but no publication stating that an inactive scenario can make the all-scenario gradient maximum positive along the exact robust descent direction.",
+        "No located source states the parameterized affine family or the exact automatic bounds on the source continuous model decrement and direction norm."
+      ],
+      "reasoning": "The searches used both source terminology and equivalent convex-analytic aliases: active versus inactive scenarios, pointwise maximum objectives, raw scenario gradients, continuous max-model decrement, and steepest subproblem direction.",
+      "searches": [
+        "10.1080/02331934.2026.2692698 Assumption 4.1 inactive scenario gradient",
+        "non-monotone steepest descent robust counterpart inactive scenarios model decrement",
+        "uncertain multiobjective max objective inactive gradient steepest direction counterexample",
+        "continuous approximation Phi star raw gradient robust steepest descent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed research results concerned unrelated stability, line-search, or multiplier obstructions; none involved the primary article, inactive uncertainty scenarios, or the two exact model bounds.",
+        "The result is a symbolic structural statement rather than a recomputation of a benchmark table."
+      ],
+      "reasoning": "No exact database record or published table was located that contains the affine witness or the automatic model-decrement constants.",
+      "searches": [
+        "inactive scenario gradient obstruction robust multiobjective steepest descent objective-wise maximum subproblem",
+        "max type robust counterpart steepest descent all scenario gradients descent assumption counterexample",
+        "model decrement versus raw gradients robust max objective steepest descent"
+      ]
+    },
+    "rationale": "The primary full text, the monotone predecessor, the global-convergence follow-up, and the related non-monotone Newton paper were compared at the level of their direction models and descent assumptions. None states the affine inactive-scenario obstruction or the exact pair of automatic steepest max-model bounds. Focused source-specific and implication-level searches located no equivalent published correction or counterexample.",
+    "residual_risks": [
+      "A later or poorly indexed correction may discuss the same inactive-scenario issue; none was located in the checked searches.",
+      "The source may have intended Assumption 4.1 purely as a restrictive hypothesis rather than as a property expected from every exact subproblem direction. The final claim is limited to non-automaticity and algorithmic executability on the full base problem class.",
+      "The proposed model-decrement inequalities do not by themselves constitute a complete revised convergence proof for the non-monotone algorithms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The algorithms ask for the exact subproblem direction satisfying an all-scenario raw-gradient bound. The source does not establish that this bound follows from the subproblem, and the affine witness shows it need not.",
+        "evidence": "Assumption 4.1(15) takes the maximum over every objective and uncertainty scenario, whereas the robust directional derivative and active-set characterization depend only on scenarios attaining the current worst-case value.",
+        "identifier_or_url": "DOI:10.1080/02331934.2026.2692698",
+        "material_read": "Full article text covering the robust counterpart definitions, steepest max-model subproblem, Assumption 4.1, Algorithms 4.1 and 4.2, well-definedness lemma, convergence lemmas, and Theorem 4.1.",
+        "method": "Publisher full-text inspection through authorized institutional access after public full-text discovery attempts did not locate an accessible copy.",
+        "title": "Non-monotone steepest descent algorithms for robust counterparts of uncertain multiobjective problems",
+        "trigger": "Primary recent source defining the two non-monotone robust steepest-descent algorithms."
+      },
+      {
+        "assessment": "The paper defines genuine robust descent through active scenarios and uses the same offset max-model. It does not state the inactive-scenario counterexample or the exact model-based repair.",
+        "evidence": "Its robust directional derivative uses active sets, while its auxiliary continuous approximation retains the scenario value offsets that protect the model from inactive-gradient contamination.",
+        "identifier_or_url": "DOI:10.1080/00036811.2024.2426219",
+        "material_read": "Full article text covering the max-model subproblem, KKT representation, critical-point characterization, continuous approximation, line-search construction, and convergence proof.",
+        "method": "Publisher full-text inspection through authorized institutional access after public full-text access failed.",
+        "title": "Steepest descent method for uncertain multiobjective optimization problems under finite uncertainty set",
+        "trigger": "Closest monotone predecessor using the same robust max-model steepest subproblem."
+      },
+      {
+        "assessment": "Uses active scenarios in the definition of descent and does not state the all-scenario obstruction or the replacement inequalities.",
+        "evidence": "The paper characterizes robust descent by negative gradient products for indices in the active set.",
+        "identifier_or_url": "arXiv:2503.06476v1",
+        "material_read": "Public full text covering the robust counterpart, active-set definition, criticality, descent directions, and steepest-descent setup.",
+        "method": "Public preprint full-text inspection.",
+        "title": "Global Convergence and Rate Analysis of the Steepest Descent Method for Uncertain Multiobjective Optimization via a Robust Optimization Approach",
+        "trigger": "Follow-up global-convergence analysis for the same robust steepest-descent framework."
+      },
+      {
+        "assessment": "Its non-monotone assumptions are formulated using the Newton model value rather than a maximum of all raw scenario gradients. It does not cover the present steepest-model obstruction or its exact constants.",
+        "evidence": "The proposition and line-search conditions are expressed through the Newton model optimal value.",
+        "identifier_or_url": "DOI:10.1007/s11075-026-02381-0",
+        "material_read": "Full article text covering the active-set robust directional derivative, Newton max-model subproblem, model-value proposition, and both non-monotone algorithms.",
+        "method": "Publisher full-text inspection through authorized institutional access after public full-text discovery attempts did not locate an accessible copy.",
+        "title": "Hybrid Newton's descent method with nonmonotone line search for robust multiobjective problems",
+        "trigger": "Highly relevant non-monotone robust-counterpart method from the same literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd75a74d-ecff-407c-bb8c-cb2fa1cd3fa2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinction between active and inactive uncertainty scenarios is structural in objective-wise worst-case optimization: inactive branches do not affect the current directional derivative, but their raw gradients can have arbitrary signs. The counterexample shows that an algorithmic assumption can exclude even a one-dimensional affine robust problem for reasons unrelated to descent. The replacement gives exact universal constants directly from the source subproblem, recovers strict descent for every active scenario, and identifies a natural quantity already used by the line search.",
+    "status": "PASS"
+  }
+}
