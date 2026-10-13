@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each petal, forbidding a (-,+) consecutive orientation sign pair exhausts local valid forms: two directed cycles or l-1 source-to-sink orientations. Hub indegree requires at least one cyclic petal. A total dominating set must include the hub, l-3 nonhubs per outward petal and l-2 nonhubs per cyclic petal, plus one cyclic terminal incoming to the hub. The constructive choices show equality. The resulting product weights count each distinct edge orientation once. Finite brute-force subset and orientation enumeration confirms coefficients on eight length tuples, including 4096 orientations for (3,4,5).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anderson et al. give exact upper/lower values for unicyclic graphs and a girth-restricted classification, not a multi-cycle orientation enumerator.",
+        "Blázsik–Nagy characterize graphs with upper number equal to their order minus one; for t=2 the present upper endpoint agrees with that class-wide result."
+      ],
+      "reasoning": "A bouquet with t>=2 independent cycle petals has t cycles, so the unicyclic theorem is inapplicable. The 2024 extremal characterization covers scalar upper values when t=2, but for t>2 the upper endpoint is |V|-t+1 and even in t=2 its theorem does not determine coefficients, lower values, or full orientation multiplicities.",
+      "searches": [
+        "arxiv:2311.16307v1 Proposition 2.3 and Theorem 2.4",
+        "arxiv:2311.16307v1 Conjecture 3.1",
+        "arxiv:2411.04560v1 Theorem 1.3, families F1/F2/F3",
+        "\"orientable total domination\" \"cactus\" cycle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.16307v1, §§1-2 and §3 (2023-11-27); https://arxiv.org/pdf/2311.16307",
+      "arxiv:2411.04560v1, Theorem 1.3 and §4 (2024-11-07); https://arxiv.org/pdf/2411.04560",
+      "Hansen–Lai–Yue 1999, JCMCC 29:159–181; https://combinatorialpress.com/article/jcmcc/Volume%20029/vol-029-paper%2013.pdf",
+      "Scholarly record searches for graph orientation spectra and aliases; closest records concerned different invariants on cycles, graphs, or tournaments."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 article states an intermediate-value conjecture for arbitrary graphs and proves unicyclic cases.",
+        "2024 article proves a |V|-1 upper threshold classification, including consequences for some two-petal graphs.",
+        "1999 work provides general 3 and order bounds and an interval-realization example for fans, a different edge set from vertex-amalgamated cycles."
+      ],
+      "reasoning": "Prior general bounds and a special fan construction cannot determine exact orientation counts for multi-cycle bouquets. The 2024 scalar two-petal upper case is explicitly excluded from novelty in isolation. The polynomial also verifies interval realization for every bouquet by positive coefficients.",
+      "searches": [
+        "arxiv:2311.16307v1 Sections 2, 3, and 5",
+        "arxiv:2411.04560v1 Theorem 1.3 and §4",
+        "Hansen et al. 1999 Theorems 2-3 and fan example pp.165-166"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "1999 paper defines open domination of an orientation as every vertex receiving an arc from the chosen set.",
+        "2023 paper defines directed total domination with the identical all-vertices in-neighborhood requirement."
+      ],
+      "reasoning": "Renaming orientable open/step domination as orientable total domination does not create a distinct parameter. The claim is the distribution of that established invariant over all valid orientations of a graph class; the searched synonyms and definitions are treated as equivalent.",
+      "searches": [
+        "\"orientable open domination\" \"bouquet\"",
+        "\"orientable step domination\" \"friendship\"",
+        "\"orientable total domination\" \"cactus\"",
+        "arxiv:2311.16307v1 introduction",
+        "JCMCC 29 (1999), pages 159-166"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching enumerator was found in the accessed primary research results or semantic literature records. The 2023 paper tabulates other special graph families, while the 1999 source studies fan graphs and complete-graph orientations."
+      ],
+      "reasoning": "The absence of an exact database/table hit is only an overlap-risk assessment and does not prove originality. The finite verifier independently checks examples but is not used as evidence that literature omitted the general formula.",
+      "searches": [
+        "\"orientable total domination\" \"friendship\" graph",
+        "\"open orientable domination\" \"bouquet\"",
+        "\"orientation total domination polynomial\" \"cycles\"",
+        "\"directed total domination\" \"bouquet of cycles\"",
+        "Semantic literature query: Cycle bouquet graph valid orientations positive indegree total domination gamma generating polynomial"
+      ]
+    },
+    "rationale": "Distinct from the 1999 invariant definition, the 2023 unicyclic and grid/complete-bipartite results, and the 2024 characterization restricted to the upper endpoint |V|-1. The present factorized polynomial determines the entire distribution for t>=2 vertex-amalgamated cycles. The later theorem overlaps only the upper scalar case t=2. Source-level search and comparison were performed; unindexed earlier arguments remain a risk.",
+    "residual_risks": [
+      "Semantic and bibliographic searches are not exhaustive; unindexed prior arguments could imply this product.",
+      "The 1999 scanned journal article was only materially inspected at selected pages, not fully searched; 1996 orientable step-domination full text was not inspected.",
+      "The 2024 upper-extremal theorem covers the two-petal scalar upper bound; no independent audit of the enumeration is available."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the complete bouquet orientation-minimum distribution.",
+        "evidence": [
+          "arxiv:2311.16307v1 Proposition 2.3 (unicyclic)",
+          "arxiv:2311.16307v1 Conjecture 3.1 (intermediate values)",
+          "arxiv:2311.16307v1 §§4-5 (grids and extremes)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.16307",
+        "material_read": "ArXiv full-text sections containing definitions (pp.1-4), unicyclic Proposition 2.3 and girth Theorem 2.4 (pp.5-6), intermediate-realization Conjecture 3.1, extreme-value §5, references. Text searched for cactus, bouquet, friendship, and block.",
+        "method": "Lawful arXiv PDF full-text extraction, targeted line inspection, and visual page screenshots.",
+        "title": "Orientable total domination in graphs",
+        "trigger": "Defining paper for the parameter and relevant unicyclic and extremal results"
+      },
+      {
+        "assessment": "Covers upper extremal scalar property for t=2; does not give arbitrary-t spectrum coefficients.",
+        "evidence": [
+          "arxiv:2411.04560v1 Theorem 1.3",
+          "arxiv:2411.04560v1 §4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.04560",
+        "material_read": "Title, abstract, introductory class F1/F2/F3 definitions, Theorem 1.3, extremal proof excerpts, §4 conclusions, and reference list, with selected visual page checks.",
+        "method": "Lawful arXiv PDF full text, targeted searches and screenshots.",
+        "title": "Characterization of graphs with orientable total domination number equal to |V|-1",
+        "trigger": "Potential stronger later characterization covering scalar upper bounds"
+      },
+      {
+        "assessment": "Found the equivalent invariant and general bounds, plus a different fan-graph construction; no matched bouquet polynomial in material read.",
+        "evidence": [
+          "JCMCC 29 (1999) 159-181, Theorems 2-3",
+          "1999 fan-graph G_n=K_1+P_{n-1}, pp.165-166"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20029/vol-029-paper%2013.pdf",
+        "material_read": "Page images pp.159-165,167,169,171,173 including definitions, bounds, fan-graph example, and complete-graph orientation argument. The full 23-page scan was not text-searchable or inspected page-by-page.",
+        "method": "Lawful journal archive PDF, visually inspected scanned page images.",
+        "title": "Orientable Open Domination of Graphs",
+        "trigger": "Original synonym and foundational results may dominate claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb8aee37-824a-41bd-9477-49c16ac2d9e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem computes a full coefficientwise distribution on a natural infinite multicylclic cactus class, not just endpoint bounds. Its factors identify all valid local orientation types and imply every intermediate total-domination value is realized. It fills the nonunicyclic family-level gap left by the 2023 scalar analysis and provides information beyond the t=2 upper-extremal classification.",
+    "status": "PASS"
+  }
+}
