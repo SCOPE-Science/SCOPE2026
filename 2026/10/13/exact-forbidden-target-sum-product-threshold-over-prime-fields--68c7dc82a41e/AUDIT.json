@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact graph matching, alternating path/cycle decomposition with loops, and projective involution conjugation establish the formula for every p>=5 and nonzero a. The parabolic a=4 case is handled explicitly. Independent dynamic-programming and brute-force checks match for 4,178 small parameter pairs; computations supplement rather than replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tang §2 proves the p/2 bound and achieves (p-1)/2 for target 1, not for all targets.",
+        "Shao, arXiv:2604.17117, studies the asymptotically optimal lower bound for max(|A+A|,|AA|) in dense Fp; this aggregate cardinality is not an omission-of-a-specific-common-residue theorem."
+      ],
+      "reasoning": "A global sumset/product-set size theorem does not determine whether a prescribed element is absent from both sets, nor whether the sharp maximum loses one. The specific target-1 theorem is strictly narrower; e.g. p=7 distinguishes targets 1 (maximum 3) and 2 (maximum 2). These are distinct implications, not merely matching terminology.",
+      "searches": [
+        "finite field forbidden target t not in A+A or AA maximal cardinality projective order t(t-4) quadratic residue 2026",
+        "Sarkozy sum-product target arbitrary nonzero x exact extremal subset maximum (p-3)/2 Möbius involution",
+        "sum-product target-dependent forbidden residue alpha finite field primes maximum subset 2026",
+        "arXiv:2604.17117",
+        "https://arxiv.org/abs/2604.17117",
+        "https://arxiv.org/abs/2603.29992"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.29992v1 / v2 full text",
+      "arXiv:2604.17117v1 open-access PDF, main theorem, introduction, proof outline, and targeted text checks",
+      "published-finding corpus search queries recorded in named checks; closest id 2026/10/4/SCOPE-exact-zero-proportion-for-every-two-dimensional-finite-group-orb--26cb02dc2302",
+      "current ledger g000094 (94 claim/ID rows, dedup only)",
+      "previous week ledger g000047 (46 claim/ID rows, dedup only)",
+      "web targeted finite-field, graph, Möbius and sum-product searches recorded in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tang §2 explicit graph decomposition into 6-cycles works because (s i)^3=1 for target 1.",
+        "For target a, s(x)=a-x and i(x)=a/x yield s i(x)=a-a/x with nonconstant projective order; the exceptional root-to-root path appears iff this order is even and a is square.",
+        "The p=7, a=2 example has maximum 2, so extending the target-1 statement naively would be false."
+      ],
+      "reasoning": "The source proves a nonrepresentable residue exists by constructing an avoiding set specifically at residue 1; it does not claim a characterization of maximal sets for each given residue. The published upper bound alone gives (p-1)/2 and cannot rule out the precisely quantified one-unit drop. This exact parity-dependent obstruction is not a special case of the cited results.",
+      "searches": [
+        "arXiv 2603.29992 Tang Sarkozy sum-product finite field independent graph forbidden target 1",
+        "Quanyu Tang forbidden nonzero residue a sumset product set projective transformation PGL2 exact threshold",
+        "finite field forbidden target t not in A+A or AA maximal cardinality projective order t(t-4) quadratic residue 2026",
+        "https://arxiv.org/pdf/2603.29992",
+        "https://arxiv.org/abs/2604.17117"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tang, arXiv:2603.29992, §2 Theorem 2.2, uses s(x)=1-x, i(x)=1/x and proves only omission of target 1.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-exact-zero-proportion-for-every-two-dimensional-finite-group-orb--26cb02dc2302 is about matrix coefficients, not sum/product omissions."
+      ],
+      "reasoning": "The proposed formula treats simultaneous omission of a variable nonzero target a, characterized by square class and projective order of [[a,-a],[1,0]]. Under scaling of the set by lambda, the sum target scales by lambda while the product target scales by lambda squared, so the variable-target problem is not equivalent to Tang's fixed target 1. Dihedral orbit parity is not constant in a. No retrieved equivalent formulation implies the target-dependent one-unit deficit.",
+      "searches": [
+        "arXiv 2603.29992 Tang Sarkozy sum-product finite field independent graph forbidden target 1",
+        "Quanyu Tang forbidden nonzero residue a sumset product set projective transformation PGL2 exact threshold",
+        "target-dependent maximum size avoiding t simultaneously A+A AA Legendre symbol matrix order even",
+        "arXiv:2603.29992 §2",
+        "https://arxiv.org/html/2603.29992",
+        "Sarkozy sum product avoidance general nonzero target t Fp maximum subset 1 2026 Tang extremal 2026",
+        "A+A AA target order PGL2 maximum independent set p t"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 94 current-week and 46 prior-week recoverable claims/IDs were searched for the fixed sum-product target and its projective order criterion; no covering claim was found.",
+        "published-finding corpus searches returned finite-field graph domination and generic sum-product studies, none describing the claimed exact table or parameter dependence."
+      ],
+      "reasoning": "No exact table/source located for the joint Legendre-symbol and PGL2-order classification. The finite verification table in verify.py is new cross-check data only and is not itself used to argue novelty.",
+      "searches": [
+        "target-dependent maximum size avoiding t simultaneously A+A AA Legendre symbol matrix order even",
+        "Sarkozy sharp threshold residue t order of projective transformation matrix t -t 1 0",
+        "finite field sum product avoidance graph prime p target t exact alpha independence order möbius",
+        "Sarkozy \"1 not in A+A\" \"t\" \"AA\" cyclic independent 2026",
+        "sum-product target-dependent forbidden residue alpha finite field primes maximum subset 2026",
+        "own latest current ledger 2026-10_week1__private research ledger__p0001_g000094.jsonl",
+        "own latest prior-week ledger 2026-09_week4__private research ledger__p0001_g000047.jsonl"
+      ]
+    },
+    "rationale": "The relevant complete Tang manuscript addresses only target 1; the present theorem gives all nonzero targets and a square-class/projective-order dichotomy with a genuine one-unit exceptional loss. Fixed target 1 cannot be extended by scaling. No equivalent or dominating statement was found in published-finding corpus, own latest ledgers, or searched primary literature. A possible unindexed graph-theoretic equivalent remains a real risk.",
+    "residual_risks": [
+      "Older or unindexed graph-theoretic descriptions may imply the same target-dependent formula.",
+      "Shao's complete 13-page paper was not read page-by-page, although its primary theorem and proof outline concern a different asymptotic sum-product cardinality question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for variable-target formula; proves existence/sharpness for 1 and constructs six-cycle orbits only for 1.",
+        "evidence": "§2 lines 91–216 and Remark 2.4 lines 226–232; explicit fixed-target involutions s(x)=1-x and t(x)=1/x.",
+        "identifier_or_url": "https://arxiv.org/html/2603.29992",
+        "material_read": "Complete HTML full text, particularly introduction, Theorem 2.2, proof of its graph component decomposition and Remark 2.4; the corresponding arXiv PDF page 4 was visually checked.",
+        "method": "Open-access original manuscript, reading theorem, proof and references.",
+        "title": "A counterexample to a conjecture of Sárközy on sums and products modulo a prime",
+        "trigger": "Same forbidden sum and product problem, theorem at target 1"
+      },
+      {
+        "assessment": "NOT_COVERING for the precise variable-target extremum: Theorem 1.1 gives asymptotic optimal global sum/product cardinality, not a specified missing residue. Uninspected sections could contain unindexed related remarks, but no decisive overlap was identified.",
+        "evidence": "arXiv abstract states a piecewise f(alpha) for sumset/product-set size, not a fixed omitted residue.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.17117",
+        "material_read": "Open-access primary PDF: introduction, Theorem 1.1, proof outline in §2, and targeted searches for omitted-target terminology, with page 2 visually inspected. Not a page-by-page review of all 13 pages.",
+        "method": "Read original arXiv PDF and inspect its main results and definitions; search the full text for target and omission terms.",
+        "title": "The sum-product phenomenon for dense subsets of finite fields",
+        "trigger": "Potentially broader dense finite-field sum-product bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68c7dc82-a41e-4333-842e-1ce5d95ca43b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact value for every nonzero omitted target answers the natural variable-residue question left by the recent target-1 counterexample to the Sárközy covering conjecture. A sharp one-unit obstruction governed by quadratic character and projective order supplies structure invisible to the published upper bound and the target-1 construction. It is an all-parameter natural classification, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
