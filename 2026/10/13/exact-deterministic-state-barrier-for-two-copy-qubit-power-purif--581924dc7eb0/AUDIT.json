@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For the symmetric pair p_±=(1±x)/2, the two-copy input trace distance is exactly x while the normalized-square target distance is exactly 2x/(1+x^2). Triangle inequality plus CPTP contraction forces uniform error at least x(1-x^2)/(2(1+x^2)). Its unique interior maximum occurs at x^2=sqrt(5)-2. Discarding one copy has error |f(p)-p| equal to the same one-variable function, so the lower bound is attained. All quantifiers are analytic; computation is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Virtual-distillation literature covers arbitrary copy number for expectation estimation but does not provide a deterministic state-output channel realizing the normalized power state.",
+        "The arXiv anchor itself allows both physical branches and signed estimator access, but contains no lower bound against all deterministic CPTP maps."
+      ],
+      "reasoning": "A theorem for arbitrary dimensions, powers, and state families with a sharp deterministic approximation radius would dominate this claim. No such covering result was located; the present theorem is deliberately restricted to the smallest natural N=2 commuting-qubit family.",
+      "searches": [
+        "virtual distillation two copies deterministic physical channel approximation nonlinear purification",
+        "rho squared over trace rho squared qubit physical channel approximation exact minimax",
+        "virtual distillation power purification nonlinear map closest quantum channel trace distance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.11568v2",
+      "arXiv:2011.07064",
+      "DOI:10.1103/PhysRevX.11.041036",
+      "https://pith.science/paper/2603.11568",
+      "published-finding corpus semantic searches listed in the four originality checks",
+      "current and immediately prior owned research ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.11568v2 Eq. (12)-(17) separates the unconditional state rho from signed observable access to rho^2.",
+        "Huggins et al. explicitly say virtual distillation estimates observables of rho^M/Tr(rho^M) without explicitly preparing that state.",
+        "The public review of arXiv:2603.11568 raises the qualitative physical-state objection but does not state or imply the exact 0.1501415530... minimax value."
+      ],
+      "reasoning": "Knowing that a nonlinear normalized power map is not itself a channel does not determine how closely all deterministic two-copy channels can approximate it on a restricted family. The new two-point contraction argument and matching discard channel solve that quantitative optimization exactly.",
+      "searches": [
+        "two-copy CPTP power purification minimax trace distance rho squared over trace rho squared",
+        "virtual distillation two copies deterministic physical channel approximation nonlinear purification",
+        "arXiv 2603.11568 physical purification SWAP test no postselection rho^2",
+        "2603.11568 virtual purification deterministic CPTP approximation qubit minimax trace distance",
+        "rho squared over trace rho squared qubit physical channel approximation exact minimax",
+        "virtual distillation power purification nonlinear map closest quantum channel trace distance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.11568v2 derives physical SWAP branch states and signed access to rho^2 but does not optimize deterministic approximation of the normalized square target.",
+        "DOI:10.1103/PhysRevX.11.041036 describes rho^M/Tr(rho^M) as a virtual state whose observables are estimated without explicitly preparing it.",
+        "published-finding corpus searches returned no record stating the sharp constant or an equivalent two-copy CPTP minimax theorem."
+      ],
+      "reasoning": "Equivalent language would include closest physical channel, deterministic simulation of the power map, or trace-distance approximation of virtual distillation. Those aliases were searched. The located sources discuss estimator realization or qualitative nonphysicality, not the exact minimax state-conversion error.",
+      "searches": [
+        "two-copy CPTP power purification minimax trace distance rho squared over trace rho squared",
+        "virtual distillation two copies deterministic physical channel approximation nonlinear purification",
+        "arXiv 2603.11568 physical purification SWAP test no postselection rho^2",
+        "2603.11568 virtual purification deterministic CPTP approximation qubit minimax trace distance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit supplied an exact constant, table, or finite-instance entry for this approximation problem.",
+        "The nearest returned published-finding corpus records concern unrelated trace-distance, optimization, or tensor-network questions."
+      ],
+      "reasoning": "The result is a continuum minimax theorem proved from contractivity, not a recomputation of tabulated channel data.",
+      "searches": [
+        "two-copy CPTP power purification minimax trace distance rho squared over trace rho squared",
+        "arXiv 2603.11568 physical purification SWAP test no postselection rho^2"
+      ]
+    },
+    "rationale": "The qualitative virtual-versus-physical distinction is prior and explicitly not claimed as new. The new statement is the exact minimax deterministic two-copy-to-one CPTP approximation error, including the sharp constant and optimal channel. Targeted source, alias, implication, and channel-approximation searches found no equivalent or stronger result.",
+    "residual_risks": [
+      "An equivalent minimax statement could exist under nonlinear-map simulation, statistical experiment comparison, or channel-deficiency terminology not reached by the targeted searches.",
+      "The exact constant is not claimed beyond the displayed N=2 commuting-qubit family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES the target and physical branch identities but DOES_NOT_COVER the exact deterministic CPTP minimax approximation theorem.",
+        "evidence": "The source states P_+rho_+ + P_-rho_-=rho, P_+rho_+ - P_-rho_-=rho^2, and describes the non-postselected mode as signed access to expectation values of the normalized power state.",
+        "identifier_or_url": "arXiv:2603.11568v2",
+        "material_read": "Full arXiv HTML, especially Introduction, Sections II.2 and III.1, equations (5)-(17), and the discussion distinguishing ordinary and signed branch averages.",
+        "method": "Direct lawful arXiv full-text inspection.",
+        "title": "Hybrid Quantum Error Correction and Mitigation by Purification",
+        "trigger": "Primary source defining the normalized-square target and the no-postselection SWAP construction."
+      },
+      {
+        "assessment": "SUPPLIES the virtual-state interpretation but DOES_NOT_COVER the sharp two-copy deterministic approximation radius.",
+        "evidence": "The source says it estimates expectation values with respect to rho^M/Tr(rho^M) without explicitly preparing that state.",
+        "identifier_or_url": "DOI:10.1103/PhysRevX.11.041036; arXiv:2011.07064",
+        "material_read": "Open abstract and article text describing the M-copy estimator and the fact that the virtual state is not explicitly prepared.",
+        "method": "Direct open-access article inspection.",
+        "title": "Virtual Distillation for Quantum Error Mitigation",
+        "trigger": "Foundational source for the virtual normalized-power target."
+      },
+      {
+        "assessment": "COVERS the qualitative objection but DOES_NOT_COVER the exact minimax CPTP approximation theorem or sharp constant.",
+        "evidence": "The review argues that the no-postselection construction yields an estimator rather than the normalized power state as an unconditional physical output.",
+        "identifier_or_url": "https://pith.science/paper/2603.11568",
+        "material_read": "Public review summary and detailed objection concerning unconditional output versus signed estimator.",
+        "method": "Direct public review inspection.",
+        "title": "Public review of Hybrid Quantum Error Correction and Mitigation by Purification",
+        "trigger": "Potential prior source-specific correction of the physical-state interpretation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "581924dc-7eb0-4bc4-9518-608a49e96b17",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem turns a qualitative virtual-versus-physical distinction into a sharp operational boundary. Even an arbitrary deterministic CPTP process acting jointly on both copies cannot uniformly approximate the normalized square target below 15.014% trace distance, and the minimax-optimal strategy is simply to discard one copy. This is a natural benchmark for the source's one-round no-postselection setting rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
