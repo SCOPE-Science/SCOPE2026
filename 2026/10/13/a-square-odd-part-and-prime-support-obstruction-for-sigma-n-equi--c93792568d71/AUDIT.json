@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For \\(n>5\\), write \\(\\sigma(n)=kn+5\\). Two distinct primes force \\(k\\ge2\\) because \\(1+p+q>5\\). A strict divisor-ratio bound eliminates odd two-prime support. For \\(n=2^a p^b\\), parity forces even \\(b\\), and the exact equation \\((2^{a+1}-p)(1+\\cdots+p^{b-1})=6\\) has no admissible solution. For odd three-prime support, \\(k=2\\) and parity makes \\(n\\) an odd square; the rational bound leaves \\((p,q,r)=(3,5,7),(3,5,11),(3,5,13)\\); reductions modulo \\(5\\) or \\(3\\) eliminate all three, independently of exponents. Even solutions have square odd parts by parity of odd-prime geometric sums. The full domain \\(n>5\\) and the small exception \\(n=2\\) for the pure congruence are explicit. The supplied `verify.py` was executed from its actual path and passed; finite checks do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pomerance, Acta Arithmetica 26 (1975), Theorems 1, 3–5: finiteness for k<=1, generic sparsity, cardinality and primitive-abundancy statements.",
+        "Anavi–Pollack–Pomerance, full author-hosted text, Theorem 1: x^(1/2+o(1)) bound for sporadic solutions."
+      ],
+      "reasoning": "Generic sparsity or \\(k\\le1\\) finiteness neither excludes a hypothetical \\(k=2\\) solution with at most three odd prime factors nor forces square odd parts of even solutions. The stronger global absence of residue \\(5\\) is conjectured, not established.",
+      "searches": [
+        "\"On the congruences\" \"sigma(n)\" \"a\" Pomerance 1975",
+        "\"On congruences of the form sigma(n)\" Anavi Pollack Pomerance",
+        "\"sigma(n) = k n + 5\" two prime divisors impossible, odd three prime factors"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A076495",
+      "DOI:10.4064/aa-26-3-265-272",
+      "DOI:10.1142/S1793042112501266",
+      "Published mathematical note: “Exact 5-divisibility criterion for the sum-of-divisors function”",
+      "Published mathematical note: “A semiprime sieve for the iterated divisor-sum Mersenne equation”"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pomerance 1975 p. 270 states only 1 and 2 then known in S(5).",
+        "Anavi–Pollack–Pomerance §1–3 proves quantitative upper estimates on solution counts, not an omega cutoff.",
+        "The published note “A semiprime sieve for the iterated divisor-sum Mersenne equation” treats \\(\\sigma(\\sigma(n))=2n+1\\), a different equation."
+      ],
+      "reasoning": "The final theorem excludes every \\(n>5\\) with \\(\\omega(n)\\le2\\) and every odd \\(n>5\\) with \\(\\omega(n)\\le3\\), without a size cutoff; it also forces the odd part of every even candidate to be a square. These statements do not follow from density zero, finite OEIS data, divisibility of \\(\\sigma(n)\\) by \\(5\\), or equations with an iterated divisor sum.",
+      "searches": [
+        "\"sigma(n) ≡ 5 (mod n)\" all composite with at least three primes odd four square odd part",
+        "\"2^a p^{2b}\" \"sigma\" \"5\" congruence",
+        "sigma(n) congruent 5 mod n no solutions odd with at most three distinct prime factors",
+        "number theory elementary divisor sums Euler totient congruence novel classification prime factor support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A076495 defines the least positive n with sigma(n) mod n=5 (not mere congruence for n<=5).",
+        "Pomerance 1975 defines S(5) as sigma(n) congruent to 5 modulo n and explicitly notes only 1 and 2 known."
+      ],
+      "reasoning": "For \\(n>5\\), the congruence is equivalent to \\(\\sigma(n)=kn+5\\) with integral \\(k\\ge1\\), and equivalently to actual remainder \\(5\\). Restricting to \\(n>5\\) excludes trivial congruence members \\(1\\) and \\(2\\). Neither equivalent formulation in the inspected sources contains the prime-support exclusions.",
+      "searches": [
+        "\"sigma(n) ≡ 5 (mod n)\" all composite with at least three primes odd four square odd part",
+        "\"sigma(n) = k n + 5\" two prime divisors impossible, odd three prime factors",
+        "\"sigma(n) congruent to 5 modulo n\" \"square\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A076495 original 2002-10-21 entry: a(5)=0 is only conjectural; subsequent finite search lower bound >1.5*10^14 dated 2019-06-02.",
+        "A published note entitled “Exact \\(5\\)-divisibility criterion for the sum-of-divisors function” characterizes \\(5\\mid\\sigma(n)\\), not \\(n\\mid\\sigma(n)-5\\)."
+      ],
+      "reasoning": "The database reports computational absence of remainder-\\(5\\) witnesses, not a proven prime-support exclusion; bounded tables do not imply this infinite theorem. A criterion for \\(5\\mid\\sigma(n)\\) is different from \\(n\\mid\\sigma(n)-5\\), and does not establish the prime-support exclusions.",
+      "searches": [
+        "OEIS A076495 least x sigma(x) mod x = n",
+        "\"sum of divisors\" \"remainder 5\" \"three distinct prime factors\"",
+        "\"sum of divisors\" \"remainder 5\" \"three distinct prime factors\""
+      ]
+    },
+    "rationale": "The exact residue-five question is explicitly conjectural in OEIS A076495, and Pomerance records just 1 and 2 as known congruence solutions. The inspected general papers prove distributional bounds or generic reductions, not an exclusion of all odd three-prime-support cases or the even square-odd-part condition. Published mathematical-record searches returned nearby statements on 5-divisibility of sigma and other divisor-function congruences, none implying the present prime-support obstruction. Negative searches leave a documented risk of an unindexed elementary prior proof.",
+    "residual_risks": [
+      "No query proves exhaustive novelty against unindexed articles, unpublished work or discussions; an equivalent elementary obstruction may have appeared elsewhere.",
+      "Publication date of the 1975 general paper is available by year, not a verified calendar day; the exact target database has an original full date 2002-10-21.",
+      "Absence of a residue-five witness is unproved, and finite computational non-detection cannot strengthen the theorem to global nonexistence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precise target; reports conjectural absence, not the structural theorem",
+        "evidence": "Entry states a(5)=0 only as a conjecture, with searches through 1.5*10^14, and gives original entry date 2002-10-21.",
+        "identifier_or_url": "https://oeis.org/A076495",
+        "material_read": "Definition, terms, comments, links, author/date and references including the 2019 finite bound",
+        "method": "Full public HTML entry inspected",
+        "title": "A076495: smallest x such that sigma(x) mod x = n",
+        "trigger": "Exact residue-five database entry and status of the natural problem"
+      },
+      {
+        "assessment": "Genuine source but no special omega<=3 exclusion or square odd-part necessity for a=5",
+        "evidence": "Page 270 remarks that no members of S(5) besides 1 and 2 were then known; main theorems give general finiteness/density assertions.",
+        "identifier_or_url": "https://math.dartmouth.edu/~carlp/PDF/paper7.pdf",
+        "material_read": "All five PDF pages, including original definitions, Theorems 1–5, residue-five remark on printed page 270, proofs and references",
+        "method": "Author-hosted PDF, five page-image inspections",
+        "title": "On the congruences sigma(n)≡a (mod n) and n≡a (mod phi(n))",
+        "trigger": "Foundational primary full text studying exactly the same congruence, with a=5 explicitly discussed"
+      },
+      {
+        "assessment": "Asymptotic sparseness theorem; does not enumerate or rule out the exact small-prime-support strata",
+        "evidence": "Theorem 1 bounds sporadic solutions by \\(x^{1/2+o(1)}\\) uniformly for fixed \\(a=5\\); no excluded prime-support strata follow.",
+        "identifier_or_url": "https://math.dartmouth.edu/~carlp/sigmacongruence.pdf",
+        "material_read": "Ten-page text including introduction, Theorem 1, definitions, supporting divisor-ratio lemma, proof outline and concluding discussion",
+        "method": "Author-hosted full-text PDF read with mathematical terms inspected and claim implications compared",
+        "title": "On congruences of the form sigma(n)≡a (mod n)",
+        "trigger": "Plausible modern paper stronger than foundational result for same objects and parameters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9379256-8d71-442c-a227-eeb7f34f3e43",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source sequence explicitly singles out remainder 5 as a difficult unresolved value and had only computational lower bounds. A complete exclusion for all odd integers with at most three distinct prime factors, combined with a necessary square odd part and at least three prime supports for all even integers, rules out infinitely many natural candidate strata by a genuinely unbounded argument. The result uses a finite trio of sharp support cases and modular obstructions rather than a numerical table, and supplies testable necessary forms for future work without claiming global resolution.",
+    "status": "PASS"
+  }
+}
