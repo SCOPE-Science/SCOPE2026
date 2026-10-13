@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and quantifiers specified: integers m>=1, 1<=b<=2^m, binary affine truth tables ordered by integer. Least active bit gives pair-block decomposition. Adjacent pair-block zero mergers correspond bijectively to cyclic 1-to-0 transitions of a higher affine sequence. Binary carries yield an exact distribution j=ceil(v/2) with endpoint multiplicity 1 and interior 2, providing every coefficient of the enumerator. The affine coefficient partition is disjoint and exhaustive; constants treated separately. A separate brute-force enumerator verifies coefficient maps for m=1..8 and every b, plus boundary cases and derived pair spectrum. No inference from finite tests to the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2401.04941v1 Thm.7: for binary k=3,b=2 the extended-cyclic minimum is 8-2=6, vs 5 here.",
+        "arxiv:2109.13764v1 Thms.2,5 and conclusion: general transform and certain cyclic code spectra."
+      ],
+      "reasoning": "A stronger theorem would need to encompass this precise coordinate order. Length/dimension equivalence to an extended cyclic code does not imply cyclic-window isometry. Hamming-based broad results likewise do not imply individual b-weight counts.",
+      "searches": [
+        "Reed-Muller symbol-pair lexicographic order",
+        "Reed Muller b symbol weight spectrum lexicographic evaluation",
+        "arxiv:2401.04941 Theorem 7 extended cyclic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2109.13764v1",
+      "arxiv:2401.04941v1",
+      "published scientific-search record: Three binary cyclic symbol-pair codes meeting the b-symbol Griesmer bound outside the two known families (abstract/summary only; different explicit cyclic codes)",
+      "targeted searches of Hadamard/Reed–Muller b-symbol distribution and pair enumeration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2109.13764v1 formula w_b=n-sum_l>=b (l-b+1) Psi(l) is used but does not calculate Psi for these affine truth tables.",
+        "arxiv:2401.04941v1 Theorem7 gives distance six at length8,b2 in a different order; our theorem gives five.",
+        "Classical RM(1,m) Hamming enumerator has only weights 0,N/2,N whereas b=2 has every integer weight N/2+1..N."
+      ],
+      "reasoning": "Neither general run-to-weight identity nor Hamming weight distribution logically implies this specialised coefficient law absent the new binary-carry transition count. The 2024 construction cannot dominate the claim because its b-weight value differs already for a shared length/dimension.",
+      "searches": [
+        "The connections among Hamming metric b-symbol metric r-th generalized Hamming metric theorem 2 zero run",
+        "Griesmer Bound and Constructions of Linear Codes in b-Symbol Metric Theorem 7",
+        "Weight Distribution of the Binary Reed-Muller Code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2109.13764v1 Thm.2 expresses weights via cyclic zero runs, so an equivalent formula would enumerate those run profiles for affine truth tables.",
+        "arxiv:2401.04941v1 states a distinct construction ordered by primitive field powers."
+      ],
+      "reasoning": "The candidate is equivalent to an all-m all-b zero-run profile count. The earlier general transform lacks that affine profile; the field-power ordering of the closest 2024 family changes the answer already at length eight.",
+      "searches": [
+        "first order Reed Muller RM(1,m) b-symbol weight distribution symbol-pair weight enumerator",
+        "Reed-Muller b-symbol weight distribution binary",
+        "Hadamard code b-symbol weight distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching formula in targeted semantic research-index results; closest relevant published indexed result concerns several small binary cyclic code examples rather than arbitrary affine truth tables.",
+        "arxiv:2109.13764v1 Sec.II: finite special cyclic/simplex run distributions, not an all-m affine truth-table table."
+      ],
+      "reasoning": "A few ordinary Hamming-weight databases do not tabulate adjacent-window weights. The exact pair polynomial and whole-b family were not located as entries or tables, but search non-detection is not a uniqueness proof.",
+      "searches": [
+        "first order Reed Muller RM(1,m) b-symbol weight distribution symbol-pair weight enumerator",
+        "affine Boolean functions truth table cyclic run length enumeration b-symbol weight distribution",
+        "Reed-Muller symbol-pair weight enumerator"
+      ]
+    },
+    "rationale": "The open-access 2021 source gives a general run-weight transform, not the specialized RM affine zero-run distribution; the 2024 source studies bounds and a coordinate-different extended-cyclic construction with a demonstrably different pair minimum at (m,b)=(3,2). Classical RM Hamming enumerators do not determine coordinate-order-sensitive b-weight spectra. Independent semantic and lexical searches found no directly equivalent ordered complete enumerator; unindexed prior work remains possible.",
+    "residual_risks": [
+      "Priority cannot be proven by unsuccessful indexing searches; an older coordinate-order-specific run enumeration could be unindexed.",
+      "Other cyclic-code papers may indirectly contain a formula under another coordinate convention; no exhaustive search of all coding literature is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives a generic run formula and certain cyclic/simplex distributions but no affine ordered-RM count",
+        "evidence": [
+          "v1 2021-09-28 p.3 Thm.2 cyclic run formula",
+          "pp.3-4 special cyclic/simplex distributions",
+          "p.14 conclusion says other special linear-code run distributions remain to be determined"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.13764",
+        "material_read": "Open-access 17-page paper: Introduction, definitions, Theorem 2/Remark 4/Theorem 5, Section 3 inequalities/characterizations, concluding research directions, references",
+        "method": "arXiv v1 PDF text plus rendered first page",
+        "title": "The connections among Hamming metric, b-symbol metric, and r-th generalized Hamming metric",
+        "trigger": "Motivating zero-run interpretation and possible complete enumerator for equivalent codes"
+      },
+      {
+        "assessment": "NOT_COVERING: field-power coordinate order produces a different b-metric from increasing integer order",
+        "evidence": [
+          "Theorem 7 at pp.7–8 asserts d_b=2^k-2^(k-b) for a constructed extended cyclic binary code",
+          "At k=3,b=2 that distance is 6, whereas direct evaluation here gives 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2401.04941",
+        "material_read": "Open-access 10-page paper: definitions, summary, Theorems 1–2, Sections III–IV constructions and especially Theorems 6–7, conclusion and references",
+        "method": "arXiv v1 PDF text plus rendered first page",
+        "title": "Griesmer Bound and Constructions of Linear Codes in b-Symbol Metric",
+        "trigger": "Potential coverage by related extended cyclic codes of same length and dimension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ba592bd-b146-45b6-8d74-532bd6476321",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Computes the full weight enumerator of a canonical family of affine/first-order RM codes in a natural physical cyclic-window channel for every block length and every read width; gives every coefficient rather than a routine minimum bound or a single test case. Shi et al. identify special-code b-symbol distributions as a research direction. The surprising uniform fourfold pair spectrum is a concrete structural consequence, and the proof supplies an all-parameter run-classification mechanism. Coordinate-order specificity is intrinsic to the b-symbol metric, not an arbitrary restriction.",
+    "status": "PASS"
+  }
+}
