@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Every maximal geodesic has three vertices because the graph has diameter two and each edge extends to an induced shortest path. Six explicit labelled arrays have correct disjoint L-triples and optimal floor(area/3) counts; the residue decompositions tile all m,n≥2 into compatible bricks. Width-three columns consume all 3m cells, while width-two and width-four remainder counts are floor(2m/3) and floor(4m/3); in every n residue these sum exactly to floor(mn/3), matching the universal vertex upper bound. The actual standalone verifier passed six exact brick dynamic programs, 3481 constructive cases through size 60 by 60, and 14 independent exact maximum checks on small boards. These computations are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A. Kaneko, A. Kelmans, T. Nishimura, On packing 3-vertex paths in a graph, J. Graph Theory 36 (2001), 175–197: theorem for arbitrary non-induced paths on 2-connected claw-free graphs.",
+        "A. K. Kelmans, Optimal packing of induced stars in a graph (1997), publicly available abstract: general packing duality analogues but no rectangular rook specialization.",
+        "Z. Király and J. Szabó, Induced Graph Packing Problems, Graphs Combin. 26 (2010), 243–257: broad structural/minimax framework for factor-critical graphs and propellers."
+      ],
+      "reasoning": "An ordinary three-vertex path is not necessarily induced; in complete graphs ordinary paths may exist although rook-style maximal geodesics do not. Thus the Kaneko–Kelmans–Nishimura theorem cannot alone establish the induced-path formula. General minmax frameworks require problem-specific evaluation; their accessible statements do not directly yield the brick construction. Full-text incompleteness is a residual risk.",
+      "searches": [
+        "\"claw-free graph induced P3 packing covering all but two vertices\"",
+        "\"Optimal packing of induced stars in a graph\" full text Kelmans",
+        "\"claw-free graph\" \"3-vertex paths\" 2001 Kaneko Kelmans Nishimura",
+        "\"Induced Graph Packing Problems\" Kiraly Szabo 2010"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.15325 (original full text)",
+      "J. Graph Theory 36 (2001), 175–197 (abstract)",
+      "Discrete Mathematics 173 (1997), 97–127 (abstract)",
+      "Graphs and Combinatorics 26 (2010), 243–257 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Manuel–Brešar–Klavžar: \\(\\operatorname{gpack}(K_n\\square K_n)\\le n^2/3\\), derived from shortest maximal geodesic size; no equality construction.",
+        "Kaneko–Kelmans–Nishimura: \\(\\lambda(G)=\\lfloor |V(G)|/3\\rfloor\\) for 2-connected claw-free \\(G\\), but \\(\\lambda\\) counts all 3-vertex paths without inducedness."
+      ],
+      "reasoning": "The new theorem implies the earlier numerical upper bound on the square subfamily; the reverse is false without a lower-bound construction. Ordinary P3 packability, even in claw-free graphs, does not imply induced P3 packability: consider a complete graph of order at least three, with ordinary P3s but no induced P3. The present proof supplies the stronger specialized condition by explicit rectangles. Broader general minmax theory may require an as-yet-unchecked specialization.",
+      "searches": [
+        "arxiv:2210.15325 Proposition 2.6 Lemma 2.3 rook graph gpack",
+        "On packing 3-vertex paths in a graph claw-free induced path",
+        "induced star packing rook graph complete bipartite line graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. Manuel, B. Brešar, S. Klavžar, Geodesic packing in graphs, arXiv:2210.15325, §2: maximal geodesics of rook graphs correspond to right-angle triples.",
+        "A. K. Kelmans, Optimal packing of induced stars in a graph, Discrete Math. 173 (1997), 97–127: abstract defines induced-star components as a related invariant."
+      ],
+      "reasoning": "The geodesic problem is equivalent on a two-factor rook graph to maximum vertex-disjoint induced three-vertex paths or maximum disjoint three-corner cells of rectangles; all these formulations were checked. Equivalent broad induced-star language is a potential overlap rather than evidence of coverage. The new explicit rectangular optimum could be expressed in any of these representations, and the known source descriptions do not give it.",
+      "searches": [
+        "\"geodesic packing\" \"rook graphs\" \"floor\" \"3\"",
+        "\"geodesic packing number\" \"K_m\" \"K_n\" rook graph",
+        "\"geodesic packing\" \"rook graph\" induced P3",
+        "\"vertex-disjoint\" \"L-trominoes\" rook graph 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Manuel–Brešar–Klavžar, arXiv:2210.15325, explicit rook example and reference list: no tabulated exact rook packing values beyond the generic bound.",
+        "Published mathematical search returns closest geodesic transversal and general 3-vertex path-packing literature, not a specialized two-parameter table."
+      ],
+      "reasoning": "No explicit list, table, or closed-form rook-graph induced-P3 packing value was identified in the inspected accessible literature. Searches are not an exhaustive proof of absence; the old induced-star sources remain named risks.",
+      "searches": [
+        "\"geodesic packing\" \"rook graphs\" \"floor\" \"3\"",
+        "\"geodesic packing number\" \"K_m\" \"K_n\" rook graph",
+        "\"maximum induced P3 packing\" rook graph Cartesian complete",
+        "\"P3 packing exact rook graph line graph complete bipartite graph\"",
+        "\"induced P3 factor line graphs Cartesian product complete graphs almost perfect packing\""
+      ]
+    },
+    "rationale": "The 2022 original article, read in its 13-page open preprint, gives only a universal three-vertex upper bound for square rook-graph geodesic packing and separately computes the transversal number; its Proposition 2.6 and following paragraph do not construct optimum packings. A rectangular, all-residue optimal six-brick construction is not a rewording of those statements. A 2001 theorem on ordinary three-vertex paths in claw-free graphs counts potentially nongeodesic paths and therefore does not logically imply the present result. Older general induced-star-packing frameworks are sufficiently related to create residual overlap risk, which is expressly recorded; accessible abstracts do not state or directly imply the special exact equality. The search evidence alone is not treated as proof of uniqueness.",
+    "residual_risks": [
+      "A specialization of general induced-star matching/minmax theorems could give the same rook-graph formula without explicit rook terminology; protected older full articles not inspected.",
+      "Search indexes are incomplete and negative searches do not establish uniqueness or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bounds packing of square rook graphs from above, and exactly computes a different transversal invariant. Does not supply an all-dimensions matching lower bound.",
+        "evidence": "§2, Proposition 2.6 (transversal \\(n^2-2n+2\\)); paragraph immediately after it gives \\(\\operatorname{gpack}(K_n\\square K_n)\\le n^2/3\\).",
+        "identifier_or_url": "arxiv:2210.15325; https://arxiv.org/pdf/2210.15325",
+        "material_read": "Open 13-page preprint, text of introduction and §2 including Lemmas 2.3–2.4, Proposition 2.6, its subsequent estimate and its later product results; remaining sections/headings inspected for rook specialization.",
+        "method": "Read full-text page extraction and directly visually inspected the PDF page containing the estimate; searched the PDF text for rook and packing results.",
+        "title": "Geodesic packing in graphs",
+        "trigger": "Exact same invariant and rook-graph product family; the paper introduces the problem."
+      },
+      {
+        "assessment": "Counts ordinary P3s, not required induced maximal geodesics, and hence no direct implication. Residual risk for uninspected special results in full paper.",
+        "evidence": "Abstract calls \\(\\lambda(G)\\) maximum number of disjoint three-vertex paths and proves \\(\\lambda(G)=\\lfloor |V(G)|/3\\rfloor\\) under 2-connectedness and claw-freeness.",
+        "identifier_or_url": "https://doi.org/10.1002/1097-0118(200104)36:4%3C175::AID-JGT1005%3E3.0.CO;2-T",
+        "material_read": "Publisher abstract with exact theorem hypotheses and conclusion; publisher full text not obtained.",
+        "method": "Read journal abstract, bibliographic record and available theorem statement.",
+        "title": "On packing 3-vertex paths in a graph",
+        "trigger": "Theorem of full three-vertex path packings in claw-free graphs might imply optimum."
+      },
+      {
+        "assessment": "Broad minmax and matching extensions are stated, but no explicit rook-family numerical value seen; genuinely relevant possible specialized result remains unverified.",
+        "evidence": "Abstract defines packings of induced n-stars and claims Tutte/Berge/Gallai–Edmonds-type analogues, with no rook graph in accessible text.",
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(96)00121-5",
+        "material_read": "Abstract and bibliographic metadata, not full text; no authorized noninteractive full-text access obtained.",
+        "method": "Read indexed publication abstract and checked for lawful available manuscript; protected publisher path unavailable without user interaction.",
+        "title": "Optimal packing of induced stars in a graph",
+        "trigger": "An induced two-edge star is an induced P3, so its general theory could dominate."
+      },
+      {
+        "assessment": "No explicit rook specialization in accessible abstract; framework may have indirect implications, so priority risk remains.",
+        "evidence": "Abstract describes a Gallai–Edmonds structure and Berge–Tutte minmax for selected induced graph families.",
+        "identifier_or_url": "https://doi.org/10.1007/s00373-010-0906-0",
+        "material_read": "Publisher abstract, introduction-level summary and bibliographic data; not full article.",
+        "method": "Read Springer abstract and identified the precise classes treated (factor-critical graphs and certain propellers).",
+        "title": "Induced Graph Packing Problems",
+        "trigger": "Potentially stronger structural minmax framework for induced P3-packings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d79b7fe-c594-43f9-9c4c-7c0dd8a42394",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2022 article introduced the geodesic-packing problem and used square rook graphs specifically for an asymptotic packing-versus-hitting ratio, proving only the natural three-vertices-per-path upper bound. Establishing that it is attained in every rectangular shape fills a motivated exact-invariant gap for an unrestricted two-parameter infinite family, not an arbitrary finite slice. Six explicit bricks handle divisibility obstructions and yield a constructive linear-output-time optimum. The theorem is restricted to two nontrivial clique factors and does not enumerate optima.",
+    "status": "PASS"
+  }
+}
