@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "PASS. The transfer identity follows by exact rational functional calculus. The Dirichlet resolvent Green function is standard and substituted explicitly. The critical minimum-ratio lemma is proved from strict decrease and log-concavity of h_k=sinh(k theta_s)/sinh(k theta_t), which forces the smallest resolvent ratio to the endpoint diagonal. This makes the endpoint inequality both necessary and sufficient. The semi-infinite constant follows by an exact two-variable algebraic elimination, and the n=2 counterexample is replayed with exact Fractions. Risk: the theorem intentionally stops at u^(2); no inference is made about later steps.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General multistep monotonicity results provide method-class sufficient conditions and boundedness/positivity frameworks.",
+        "Hundsdorfer's earlier BDF2 source gives a sufficient positivity theorem for a broad matrix class, not the exact path-specific first-post-start boundary."
+      ],
+      "reasoning": "A general sufficient theorem does not dominate the present exact if-and-only-if finite-path statement: the latter allows much larger first-post-start steps and determines failure by an endpoint resolvent ratio. No retrieved broader theorem supplied that exact implication.",
+      "searches": [
+        "doi:10.1137/S0036142902406326 monotonicity preserving linear multistep starting procedures",
+        "BDF2 positivity M-matrix backward Euler start",
+        "BDF2 discrete maximum principle finite difference heat exact timestep"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1510.04303",
+      "doi:10.1137/S0036142999364741",
+      "doi:10.1137/S0036142902406326",
+      "doi:10.1137/19M1289157",
+      "published-finding corpus:2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "published-finding corpus:2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1998/2001 Hundsdorfer text explicitly says general positivity results with arbitrary nonnegative starts do not apply directly to BDF schemes and develops starter-dependent sufficient conditions.",
+        "The checked closest published-finding corpus theorem has a different rational function and boundary behavior."
+      ],
+      "reasoning": "Prior sufficient bounds cannot imply sharpness or the endpoint minimizer. Conversely, the new first-post-start theorem does not supersede all-time monotonicity results. The implication directions are therefore distinct.",
+      "searches": [
+        "doi:10.1137/S0036142999364741 positivity implicit Euler starter",
+        "doi:10.1137/S0036142902406326 positivity multistep starting procedure",
+        "published-finding corpus filtered Crank Nicolson lattice full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hundsdorfer's full text writes BDF2 explicitly, notes implicit Euler as a starter, and develops positivity for linear systems; the checked text does not state F_n(s)=4R_n(s)-3R_n(2s/3) as an exact first-post-start positivity criterion.",
+        "The nearest published-finding corpus heat-positivity record uses backward-Euler-filtered Crank--Nicolson rather than BDF2.",
+        "The 2015 TR-BDF2 source treats positivity and discrete maximum principles through absolute monotonicity, but its one-step TR-BDF2 statement is not equivalent to the backward-Euler-started plain BDF2 first-post-start map."
+      ],
+      "reasoning": "Aliases including positivity, monotonicity, discrete maximum principle, implicit BDF2, backward-Euler startup, and resolvent were checked. The candidate is not a renaming of the closest retrieved statements because its object is the first BDF2 transfer matrix after a prescribed starter and its theorem identifies the unique worst matrix-entry location.",
+      "searches": [
+        "BDF2 backward Euler startup positivity heat equation Dirichlet sharp threshold",
+        "second BDF step positivity tridiagonal heat equation resolvent",
+        "BDF2 discrete maximum principle finite difference heat exact timestep",
+        "doi:10.1137/S0036142999364741 full text, sections 1 and 3",
+        "arXiv:1510.04303 full text, monotonicity and positivity framework"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit returned the constant 180-102 sqrt(3), the endpoint-resolvent ratio, or an equivalent first-post-start BDF2 heat-path table.",
+        "The highest-similarity database result was the filtered Crank--Nicolson lattice result, whose full RESULT.md was inspected and is methodologically distinct."
+      ],
+      "reasoning": "The database comparison was statement-level rather than title-only: the closest full published result concerns C_s R_s and its convolution kernel, whereas the present map is 4R_s-3R_{2s/3} on a finite Dirichlet path.",
+      "searches": [
+        "BDF2 second solution value positivity endpoint resolvent ratio 180 102 sqrt 3",
+        "backward-Euler-started BDF2 first post-start step exact positivity threshold Dirichlet heat path",
+        "implicit BDF2 heat equation positivity first step after backward Euler finite path"
+      ]
+    },
+    "rationale": "PASS. Targeted semantic searches, the own-ledger overlap check, and direct inspection of the closest published published-finding corpus heat-positivity result and the main historical BDF2 positivity source did not reveal the endpoint-ratio theorem, the rational map 4R_s-3R_{2s/3} as an exact first-post-start criterion, or the constant 180-102 sqrt(3). The closest older sources provide general sufficient monotonicity/positivity frameworks and starting-procedure theory, not this exact finite-path implication. Residual risk remains from older multistep positivity literature using different terminology or inaccessible theorem text.",
+    "residual_risks": [
+      "Older positivity-preserving multistep literature is extensive and some theorem-level text was not openly accessible.",
+      "The exact finite-path criterion is not claimed for later BDF2 steps or arbitrary M-matrices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FRAMEWORK_NOT_COVERING",
+        "evidence": "The source analyzes TR-BDF2 as a one-step method and its SSP extensions; it does not state the first-post-start plain-BDF2 resolvent difference, endpoint minimum-ratio theorem, or semi-infinite constant.",
+        "identifier_or_url": "arXiv:1510.04303",
+        "material_read": "Full open PDF introduction and monotonicity/positivity framework; first page confirms 14 October 2015 and AMS classifications including 65M20.",
+        "method": "Compared the paper's absolute-monotonicity and discrete-maximum-principle framework with the plain BDF2 plus backward-Euler startup transfer map studied here.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Archive-era positivity/monotonicity source for an implicit second-order BDF-related method."
+      },
+      {
+        "assessment": "CLOSE_NOT_COVERING",
+        "evidence": "The source treats general positivity/monotonicity and starter-dependent sufficient bounds, but no exact first-post-start Dirichlet heat resolvent-difference endpoint test was found.",
+        "identifier_or_url": "doi:10.1137/S0036142999364741",
+        "material_read": "Lawful CWI full-text report version, especially introduction and positivity sections; publisher metadata for exact online date.",
+        "method": "Read full-text passages defining BDF2, the implicit-Euler starter, positivity setup, and Theorem 3.1; compared hypotheses and conclusions.",
+        "title": "Partially Implicit BDF2 Blends for Convection Dominated Flows",
+        "trigger": "Direct BDF2 positivity source with implicit-Euler startup and primary MSC 65M06."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_DECISIVE_COVERAGE",
+        "evidence": "The accessible statement covers monotonicity properties and suitable starting procedures generally, not the endpoint Green-function reduction or semi-infinite constant.",
+        "identifier_or_url": "doi:10.1137/S0036142902406326",
+        "material_read": "Publisher abstract, metadata, keywords, MSC, and references.",
+        "method": "Compared the advertised method-class scope and starting-procedure focus against the fixed heat-path transfer-matrix claim.",
+        "title": "Monotonicity-Preserving Linear Multistep Methods",
+        "trigger": "Broader multistep monotonicity theory with starting procedures."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It studies C_sR_s=2R_s^2-R_s on infinite/periodic lattices and a finite Dirichlet obstruction, not BDF2's 4R_s-3R_{2s/3} or the endpoint ratio theorem.",
+        "identifier_or_url": "published-finding corpus:2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Complete published RESULT.md.",
+        "method": "Compared rational maps, domains, boundary statements, and claimed positivity mechanisms.",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank--Nicolson",
+        "trigger": "Highest-similarity semantic database hit for backward-Euler startup plus heat positivity."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Different nonlinear equation and objective; it supplies practical step restrictions, not the stated exact Dirichlet heat resolvent ratio.",
+        "identifier_or_url": "doi:10.1137/19M1289157",
+        "material_read": "Publisher abstract and metadata.",
+        "method": "Compared nonlinear Allen--Cahn maximum-bound principle and variable-step conditions to the linear heat first-post-start exact matrix criterion.",
+        "title": "On Energy Stable, Maximum-Principle Preserving, Second-Order BDF Scheme with Variable Steps for the Allen--Cahn Equation",
+        "trigger": "Highly relevant BDF2 maximum-principle literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0c38344-2044-4209-929c-1a51c35713f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS. Backward Euler is a standard practical startup for BDF2, and classical positivity theory emphasizes that multistep positivity depends on the starting procedure. The finding identifies the exact first post-start positivity mechanism for the canonical Dirichlet heat matrix, collapses a full matrix sign test to one boundary scalar, supplies a sharp semi-infinite constant, and gives a minimal small-grid rational witness. This is a structural boundary effect rather than a routine recomputation of a known table. Risk: its scope is narrow and does not by itself yield an all-time maximum principle.",
+    "status": "PASS"
+  }
+}
