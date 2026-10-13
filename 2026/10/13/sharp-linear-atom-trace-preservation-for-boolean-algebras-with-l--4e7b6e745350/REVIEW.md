@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness: PASS.** A finite Boolean subalgebra contains the subformula trace and unary outputs. The greedy atom selection starts at a refuting coordinate and strictly refines value-trace equivalence classes, needing at most \(r-1\) atoms. Boolean restriction preserves all Boolean identities; the two unary operators extend pointwise by the absorbed complement/top values, and induction reproduces every subformula. The top-and-coatoms example proves the stated optimality *only for injective homomorphic trace preservation*. The bundled checker exhaustively verifies 108,800 finite formula evaluations and exact trace sharpness examples through nine trace points.
+
+**Originality: PASS.** Coniglio–Mallea (2026) provide finite BALFI filtration and off-trace absorption, but permit exponentially many atoms. Dalmonte–Mazzullo (2023) prove coNP-completeness for fusions including the minimal non-normal bimodal fusion and construct at most quadratic many modal model components. Carnielli–Coniglio–Fuenmayor (2020) embed RmbC in that fusion. **Consequently coNP-completeness of RmbC follows already from the older papers and is not claimed original here.** The subject of this finding is the stronger exact \(r-1\) Boolean-homomorphic, trace-injective projection; inspected sources do not state it. A differently named finite Boolean compression theorem remains a residual risk.
+
+**Value: PASS.** This gives a trace-faithful linear-atom semantic normal form directly in BALFIs, improving the published exponential-atom allowance and preserving the equality pattern of every observable subformula value. The tight trace-separation bound is a natural structural invariant used to represent and compare finite operator semantics; its sharpness is not a claim about minimal witnesses to arbitrary formulas.
+
+Self-review: passed. Independent audit: not yet performed.
