@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The bundled verifier reconstructs the 125-word metric space and independently cross-checks compatibility through radius-one ball disjointness. An exact greedy-color-bounded clique search proves maximum 15; a separate exact enumeration gives 24 maxima through zero. Translation then gives 200 labeled maxima, and explicit natural-isometry action plus direct tallies verifies the one-orbit, stabilizer, coordinate-balance, and pair-distance claims. The proof is finite, deterministic, and contains no extrapolation beyond the enumerated domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alderson--Huntemann treats general Lee codes and proves Singleton/Plotkin-type bounds, but does not give this finite equality census.",
+        "Polak treats unrestricted A_q^L(n,d); the displayed new q=5 bounds begin at n=4.",
+        "Astola--Tabus Table 1 gives the exact linear dimension bound k=1 at q=5,n=3,d=3."
+      ],
+      "reasoning": "The exact linear result is strictly narrower and cannot imply a 15-word nonlinear optimum. The broader unrestricted papers provide general upper-bound machinery but no theorem or table entry that implies the complete claim at q=5,n=3,d=3.",
+      "searches": [
+        "DOI:10.1155/2013/625912 general not necessarily linear Lee codes",
+        "arXiv:1810.05066v1 semidefinite programming Lee codes q=5 tables",
+        "DOI:10.1186/s40064-016-1863-8 q=5 n=3 d=3"
+      ]
+    },
+    "checked_sources": [
+      "URN:NBN:fi:tty-201604123798",
+      "PMC4771693",
+      "DOI:10.1155/2013/625912",
+      "arXiv:1810.05066v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The tight linear bound gives at most 5 words, whereas the verified unrestricted witness has 15.",
+        "Alderson--Huntemann explicitly allows nonlinear codes, but the q=5 special lemma shown concerns integral-dimension regimes; a 15-word code has nonintegral base-5 logarithmic dimension.",
+        "Polak supplies an unrestricted bounding framework without the equality classification claimed here."
+      ],
+      "reasoning": "Neither the linear bound nor the general bound machinery entails the unrestricted optimum and equality structure. Conversely, the new finite claim does not supersede their general theorems; it resolves one natural small nonlinear instance and classifies its equality cases.",
+      "searches": [
+        "linear versus nonlinear Lee code q=5 n=3 d=3",
+        "Alderson q=5 integral dimension distance 3",
+        "Polak unrestricted A_q^L(n,d) q=5 n=3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The verifier checks equivalence between distance-at-least-three codes and packings of disjoint radius-one Lee balls for this metric.",
+        "Alderson--Huntemann DOI:10.1155/2013/625912 defines general nonlinear Lee codes over Z_q.",
+        "Polak arXiv:1810.05066v1 uses the unrestricted parameter A_q^L(n,d)."
+      ],
+      "reasoning": "The metric-code, clique, and radius-one packing formulations were all searched or compared. None of the inspected sources states the exact 15-word optimum with the 200 equality cases, so no alias formulation was found to cover the claim.",
+      "searches": [
+        "\"Z_5^3\" \"minimum Lee distance 3\"",
+        "\"Lee code\" \"length 3\" \"15\" \"Z_5\"",
+        "\"A_5^L(3,3)\"",
+        "nonlinear Lee code Z_5^3 distance 3 optimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Astola--Tabus Table 1: linear dimension k=1 is tight for q=5,n=3,d=3.",
+        "Polak Table 1 lists new unrestricted q=5 bounds starting at n=4,d=3 and does not list q=5,n=3,d=3.",
+        "No exact-parameter published-record search result stated 200 labeled maxima or the single natural-isometry orbit."
+      ],
+      "reasoning": "The only exact same-parameter table located is explicitly linear, while the unrestricted table inspected does not contain this row. Thus no checked table or database entry covers the equality census.",
+      "searches": [
+        "q=5 n=3 d=3 Lee code table",
+        "A_5^L(3,3) Lee code fifteen",
+        "PMC4771693 Table 1 q=5",
+        "arXiv:1810.05066 Table 1 q=5"
+      ]
+    },
+    "rationale": "Published work inspected includes a tight linear table at the exact parameters, general nonlinear Lee-code bounds, and later unrestricted semidefinite bounds. The linear table implies only the linear optimum 5; the general sources do not state or imply the unrestricted 15-word optimum together with its 200 equality cases and one-orbit structure. Exact-parameter and alias searches found no covering statement. A residual unindexed-historical-computation risk remains.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite enumeration could contain the same q=5,n=3,d=3 equality census.",
+      "The declared order-6000 group is the natural coordinate Lee-isometry group; the claim does not require identifying the full abstract automorphism group of the compatibility graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the unrestricted claim: the paper is explicitly about linear codes and gives tight linear dimension 1 at n=3,d=3.",
+        "evidence": "Table 1 lists q=5, n=3, d=3 with tight k=1; the paper states its additional constraints arise from linear-subspace closure.",
+        "identifier_or_url": "DOI:10.1186/s40064-016-1863-8; PMC4771693; URN:NBN:fi:tty-201604123798",
+        "material_read": "HTML full text around the linear-programming formulation and Table 1, plus the public repository record.",
+        "method": "Direct inspection of definitions, scope, and q=5 numerical table.",
+        "title": "On the linear programming bound for linear Lee codes",
+        "trigger": "Exact alphabet, length, and distance appear in the q=5 linear table."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes general nonlinear bounds and special equality restrictions, but not the exact unrestricted cardinality 15 or its 200 equality cases.",
+        "evidence": "The source explicitly says linearity is not assumed unless stated; its q=5 Lemma 12 concerns (k+1,k,3)_5 with integral k and its conclusion section reports general bounds rather than this finite census.",
+        "identifier_or_url": "DOI:10.1155/2013/625912",
+        "material_read": "Full HTML text: definitions, code equivalence, Singleton-type bounds, q=5 lemmas, Plotkin section, conclusion.",
+        "method": "Statement and implication comparison at q=5,n=3,d=3.",
+        "title": "On Maximum Lee Distance Codes",
+        "trigger": "General not-necessarily-linear Lee codes over Z_q and q=5 special bounds."
+      },
+      {
+        "assessment": "NOT_COVERING: the displayed new q=5 table begins with n=4,d=3, and no equality census for q=5,n=3,d=3 is stated.",
+        "evidence": "The source defines A_q^L(n,d) for arbitrary C subset Z_q^n; Table 1 lists q=5 rows starting at n=4.",
+        "identifier_or_url": "arXiv:1810.05066v1",
+        "material_read": "Abstract, introduction/scope, and displayed numerical tables in the accessible full-text rendering.",
+        "method": "Checked the q=5 rows and the parameter definition.",
+        "title": "Semidefinite programming bounds for Lee codes",
+        "trigger": "Same unrestricted parameter A_q^L(n,d) and numerical q=5 upper-bound tables."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2c0891f-7463-4c76-b711-7ee3f806ec5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter is a natural smallest odd-alphabet Lee-metric case where Lee and Hamming differ, and the result exposes a factor-three nonlinear gain over the known linear optimum. The equality structure is rigid and reusable: exactly 200 maxima, one natural-isometry orbit, universal coordinate balance, and a fixed pair-distance distribution. These are meaningful extremal invariants and exact benchmark data rather than a routine recomputation of a known table entry.",
+    "status": "PASS"
+  }
+}
