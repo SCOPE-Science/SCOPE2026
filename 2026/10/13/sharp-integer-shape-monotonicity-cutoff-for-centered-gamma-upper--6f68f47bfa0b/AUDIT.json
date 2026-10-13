@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The Gamma--Poisson identity yields an exact adjacent-increment factorization. For \\(c\\ge0\\) the integral factor is immediately below one. On \\(e-3\\le c\\le0\\) each increment is strictly increasing in \\(c\\). At \\(c=e-3\\), \\(n=1\\) is equality, \\(n=2\\) has the exact positive gap \\((2+2e-e^2)/(e(e-1)^2)\\), and \\(n\\ge3\\) follows uniformly from a bounded-exponential estimate with explicit rational constants. Thus all quantifiers and the unique equality case are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pinelis Theorem 1: increasing in real \\(a\\) for \\(c>0\\), decreasing for \\(c\\le-1/3\\), non-monotonic for \\(-1/3<c<0\\).",
+        "Sun--Hu--Sun: Gamma probabilities at multiples of the mean, including the \\(c=0\\) mean threshold."
+      ],
+      "reasoning": "Pinelis leaves the intermediate real-shape regime non-monotone and proves only eventual positive unit increments there; this does not dominate a global integer-subsequence cutoff. Sun--Hu--Sun cover \\(c=0\\) rather than additive negative shifts.",
+      "searches": [
+        "arXiv:2012.13578v1 full text",
+        "arXiv:2303.17487v1 full text",
+        "Pinelis centered gamma integer shape monotonicity e-3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.13578v1",
+      "arXiv:2303.17487v1",
+      "2026/9/21/SCOPE-sharp-gamma-complete-monotonicity-classification--fa810a835e62",
+      "2026/9/21/SCOPE-gamma-monotonicity-critical-tau-bracket--04bd6407a2a1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Real-shape non-monotonicity on \\((-1/3,0)\\) does not imply monotonicity of the integer restriction and in fact makes the discrete recovery nontrivial.",
+        "The \\(c=0\\) theorem is one endpoint of the new interval, not a statement for \\(c<0\\)."
+      ],
+      "reasoning": "Neither inspected theorem logically implies the iff cutoff \\(c=e-3\\) or its equality classification. The new proof supplies a uniform boundary estimate absent from those sources.",
+      "searches": [
+        "arXiv:2012.13578v1 Theorem 1 and Section 2.3",
+        "arXiv:2303.17487v1 Sections 1-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2012.13578v1: centered-tail formulation \\(\\Gamma(a,a+c)/\\Gamma(a)\\).",
+        "The new integer formulation is equivalently \\(Q(n,n+c)\\), or \\(\\Pr\\{\\operatorname{Pois}(n+c)\\le n-1\\}\\)."
+      ],
+      "reasoning": "The searches explicitly used Gamma, Erlang/integer-shape, regularized incomplete-Gamma, and the exact constant \\(e-3\\) formulations. No returned record stated or implied the iff cutoff.",
+      "searches": [
+        "gamma integer shape centered tail sharp monotonicity cutoff e minus 3",
+        "P(Gamma(n,1)>n+c) increasing in n cutoff c=e-3",
+        "Pinelis centered gamma integer shape monotonicity e-3",
+        "incomplete gamma Q(n,n+c) monotone n exact cutoff"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest research-record IDs included 2026/9/21/SCOPE-sharp-gamma-complete-monotonicity-classification--fa810a835e62 and 2026/9/21/SCOPE-gamma-monotonicity-critical-tau-bracket--04bd6407a2a1; both concern different Gamma-function monotonicity problems."
+      ],
+      "reasoning": "No retrieved research record gives the same statistic, domain, and iff threshold. The closest Gamma record concerns a different monotonicity problem and does not imply additive centered-tail monotonicity.",
+      "searches": [
+        "gamma integer shape centered tail sharp monotonicity cutoff e minus 3",
+        "P(Gamma(n,1)>n+c) increasing in n cutoff c=e-3",
+        "Pinelis centered gamma integer shape monotonicity e-3",
+        "incomplete gamma Q(n,n+c) monotone n exact cutoff"
+      ]
+    },
+    "rationale": "The closest literature classifies the real-shape centered Gamma tail and the \\(c=0\\) mean-tail endpoint, but the inspected statements do not give the sharp monotonicity cutoff for the integer/Erlang shape subsequence. Exact-constant and equivalent incomplete-Gamma searches found no covering statement.",
+    "residual_risks": [
+      "An older Erlang waiting-time or incomplete-Gamma paper may contain the same integer-subsequence cutoff under different terminology; targeted exact-constant and equivalent-form searches did not retrieve one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: real-shape trichotomy and eventual increment positivity are present, but no sharp integer-shape cutoff or \\(e-3\\) boundary theorem is stated.",
+        "evidence": "Theorem 1 states non-monotonicity for every \\(-1/3<c<0\\); Section 2.3 proves \\(p(a+1)>p(a)\\) only for all sufficiently large \\(a\\).",
+        "identifier_or_url": "arXiv:2012.13578v1",
+        "material_read": "Abstract, Theorem 1, proof setup and Section 2.3 including the eventual unit-increment argument, plus references.",
+        "method": "Full public arXiv PDF text and first-page visual inspection.",
+        "title": "Monotonicity properties of the gamma family of distributions",
+        "trigger": "Closest paper for the exact centered Gamma tail \\(\\Pr\\{X_a-a>c\\}\\)."
+      },
+      {
+        "assessment": "NOT_COVERING: it treats probabilities at multiplicative mean thresholds and the \\(c=0\\) mean case, not the additive centered shift cutoff.",
+        "evidence": "The paper defines \\(g_\\kappa(\\alpha,\\beta)=\\Pr\\{X\\le\\kappa\\,\\mathbb E X\\}\\) and its \\(c=0\\) endpoint, with MSC 60E15 listed first.",
+        "identifier_or_url": "arXiv:2303.17487v1",
+        "material_read": "Abstract, MSC line, introduction, Theorem 1.1, and the start of the Gamma mean-tail analysis.",
+        "method": "Full public arXiv PDF text and first-page visual inspection.",
+        "title": "The extreme values of two probability functions for the Gamma distribution",
+        "trigger": "Direct Gamma mean-tail literature with verified first-listed MSC 60E15."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f68f47b-fa0b-48a7-9f51-c6ac918a0c98",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Integer Gamma shapes are the canonical Erlang waiting-time laws. The theorem gives a sharp structural phase boundary, not a numerical slice: it exactly identifies when integer-shape monotonicity survives inside a continuous-shape non-monotonic regime, and it determines the sole equality at the boundary.",
+    "status": "PASS"
+  }
+}
