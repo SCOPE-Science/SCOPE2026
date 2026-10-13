@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For \\(H(x)=\\lambda(x-x^\\star)^2/2\\), the source direction is exactly \\(d=-re\\), with \\(r=\\alpha\\lambda/s\\), and its model quantity is \\(-r\\lambda e^2/2\\). Substitution into the source Armijo inequality reduces it exactly to \\(tr\\le2-\\eta\\). Minimality of the geometric backtracking index yields the accepted band \\(\\beta(2-\\eta)<tr\\le2-\\eta\\) after a rejection. The lower source bounds imply \\(r\\ge r_0\\), giving the endpoint contraction envelope. The minimax formula is proved by a two-case balance at \\(2\\beta/(1+\\beta)\\). A packaged checker replays the algebra and dense numerical stress tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonettini--Loris--Porta--Prato prove convergence and an O(1/k) convex function-value complexity result for a deterministic variable-metric Armijo framework, not the present exact scalar envelope.",
+        "Paquette--Scheinberg prove expected complexity for a stochastic line search under probabilistic accuracy assumptions, not a source-specific exact backtracking law.",
+        "SLiSeS concerns subsampled spectral-gradient line search for finite sums and does not provide the present minimax tuning result."
+      ],
+      "reasoning": "The broader literature confirms that line-search complexity and spectral learning-rate selection are established topics, but none of the inspected results dominates the exact scalar statement or its sharp minimax parameter balance.",
+      "searches": [
+        "DOI:10.1137/15M1019325 abstract and references",
+        "DOI:10.1137/18M1216250 abstract and expected-complexity statement",
+        "DOI:10.1080/10556788.2024.2426620 SLiSeS subsampled spectral line search"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s10589-025-00720-w",
+      "OptimizationOnline:2025-01-23-variable-metric-proximal-stochastic-gradient-methods-with-additional-sampling",
+      "DOI:10.1137/15M1019325",
+      "DOI:10.1137/18M1216250"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper proves that its backtracking terminates and gives qualitative convergence after the full sample is reached, but does not compute the exact quadratic accepted relaxation or a Q-linear factor.",
+        "The deterministic predecessor provides general convergence/rate theory under broader assumptions but does not imply the sharp scalar minimax tuning stated here."
+      ],
+      "reasoning": "The new claim specializes the source algorithm but strengthens the conclusion from qualitative convergence to an exact sharp rate envelope; that stronger conclusion requires the explicit quadratic reduction and is not a restatement of the cited theorems.",
+      "searches": [
+        "Primary full text: Algorithm 1 Steps 1--4, Lemma 2.1, Theorems 2.3--2.4, Section 2.3, and Appendix A line-search proof",
+        "Bonettini et al. deterministic variable-metric line-search abstract and source relationship"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published finding states the accepted effective-step band or the minimax Armijo balance for Prox-SAM.",
+        "Source-specific web searches returned the primary article and general stochastic line-search literature rather than an equivalent theorem."
+      ],
+      "reasoning": "The searches covered equivalent descriptions in terms of scalar quadratic contraction, effective scaled step, Armijo backtracking cells, variable metric, and separate learning-rate versus relaxation parameters.",
+      "searches": [
+        "Published-research database: Prox-SAM variable metric Armijo scalar quadratic exact backtracking contraction",
+        "Published-research database: stochastic Armijo backtracking quadratic exact accepted step beta eta contraction variable metric",
+        "Web: exact source title plus scalar quadratic Armijo exact rate",
+        "Web: Prox-SAM full step quadratic backtracking"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest records concern Polyak, BB, Cauchy trust-region, and other quadratic one-step frontiers rather than Prox-SAM.",
+        "The result is analytic and not a recomputation of a known benchmark table."
+      ],
+      "reasoning": "No exact database record was found for the source, the accepted-step interval, or the balance \\(2\beta/(1+\beta)\\).",
+      "searches": [
+        "Published-research database: variable metric proximal gradient Armijo quadratic exact rate full sample",
+        "Published-research database: Prox-SAM scalar quadratic beta eta"
+      ]
+    },
+    "rationale": "The primary full text, its deterministic variable-metric line-search predecessor, and broader stochastic Armijo literature were compared at the level of accepted-step conditions and rate implications. The inspected sources establish well-definedness, convergence, or complexity, but do not state the scalar Prox-SAM accepted-step band, the sharp source-uniform contraction factor, or the minimax tuning rule. Published-result searches under source-specific and equivalent terms returned only different quadratic stability and step-size frontiers.",
+    "residual_risks": [
+      "The balance \\(2\beta/(1+\beta)\\) may appear in older textbook analyses of scalar Armijo backtracking under different notation; no Prox-SAM-specific statement or implication was located.",
+      "Using the finite upper raw-curvature bound from a particular implementation can sharpen the envelope.",
+      "The result is a scalar deterministic diagnostic and does not constitute a stochastic complexity theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies exactly the algorithmic identities needed for the scalar reduction but does not state the resulting accepted-step interval or minimax contraction.",
+        "evidence": "Algorithm 1 starts the relaxation at one and multiplies it by beta until the Armijo model-decrease inequality holds; the full-sample regime is explicitly identified with deterministic variable-metric proximal gradient.",
+        "identifier_or_url": "DOI:10.1007/s10589-025-00720-w",
+        "material_read": "Full open-access text covering Algorithm 1, the model quantity, line-search condition, Lemma 2.1 and its Appendix proof, full-sample convergence theorems, parameter bounds, BB learning-rate rules, metric strategies, and experimental line-search settings.",
+        "method": "Open-access journal and repository full-text inspection, including rendered PDF pages.",
+        "title": "Variable metric proximal stochastic gradient methods with additional sampling",
+        "trigger": "Primary recent source introducing Prox-SAM and the separate Armijo relaxation."
+      },
+      {
+        "assessment": "Provides general convergence and O(1/k) function-value complexity, but not the exact one-dimensional accepted-step law or parameter minimax.",
+        "evidence": "The abstract states an Armijo-like step rule and an O(1/k) convex function-value rate under Lipschitz gradient assumptions.",
+        "identifier_or_url": "DOI:10.1137/15M1019325",
+        "material_read": "Published abstract, article metadata, and accessible reference material describing the Armijo variable-metric framework and convex rate result.",
+        "method": "Public journal and preprint inspection.",
+        "title": "Variable Metric Inexact Line-Search-Based Methods for Nonsmooth Optimization",
+        "trigger": "Deterministic variable-metric line-search framework cited by the primary source for its full-sample method and line-search well-definedness."
+      },
+      {
+        "assessment": "Its expected-complexity framework uses probabilistically accurate function and gradient information and does not imply the exact Prox-SAM scalar contraction.",
+        "evidence": "The abstract gives expected iteration-complexity results for stochastic Armijo line search rather than a deterministic scalar effective-step characterization.",
+        "identifier_or_url": "DOI:10.1137/18M1216250",
+        "material_read": "Published abstract and problem description.",
+        "method": "Public journal metadata and abstract inspection.",
+        "title": "A Stochastic Line Search Method with Expected Complexity Analysis",
+        "trigger": "Broad stochastic Armijo literature that could subsume a line-search rate statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f2ffca1-6732-43a5-aec7-19e667653437",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source deliberately separates an automatically chosen learning rate from an Armijo relaxation and emphasizes robustness to parameter tuning. The finding quantifies that interaction exactly: it turns the source's qualitative full-sample convergence into a global Q-linear guarantee on the canonical strongly convex scalar mode, identifies the three extremal backtracking mechanisms, and gives a closed-form minimax setting of the Armijo parameter for any reduction factor beta. This directly informs tuning and reveals when the raw learning-rate lower bound, rather than backtracking, is the rate bottleneck.",
+    "status": "PASS"
+  }
+}
