@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs Algorithm 2 with its exact minimizer, coefficient, update, and stopping test. Two rational rectangles are forward invariant; the minimizing vertex is unique on each rectangle; the unclipped coefficient is strictly above \\(9/10\\) throughout, so clipping is active; and the selected stopping value is strictly negative throughout. The two-step affine map has contraction factor \\(81/100\\) and the stated exact fixed point. The verifier rechecks the critical rational identities and inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected predecessor descriptions use Wolfe minimum-norm projections, binary search, or a distinct finite-termination replacement; they do not use Matsuno 2026 Algorithm 2 with the coefficient cap \\(\\alpha\\le 1-\\eta\\).",
+        "The Wolfe-complexity paper proves an exponential lower bound for a different combinatorial minimum-norm algorithm and does not imply nontermination of the 2026 NSA."
+      ],
+      "reasoning": "Broader LP-Newton and minimum-norm results address different iteration maps. Their guarantees or lower bounds do not subsume the explicit clipped-line-search orbit established here.",
+      "searches": [
+        "DOI:10.1007/s11081-008-9067-x (LP-Newton predecessor)",
+        "DOI:10.1007/s00453-018-0436-3 (simple projection LP variant)",
+        "DOI:10.1007/978-3-031-90606-0_7 (finite-termination LP-Newton variant)",
+        "DOI:10.1137/18M1221072 (Wolfe minimum-norm complexity)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026191",
+      "doi:10.1007/s00453-018-0436-3",
+      "doi:10.1007/978-3-031-90606-0_7",
+      "doi:10.1137/18M1221072",
+      "doi:10.1007/s11081-008-9067-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source convergence analysis explicitly adds the assumption that selected vertices satisfy the equality for one fixed supporting normal.",
+        "The counterexample alternates uniquely between two vertices and therefore violates that added premise while still satisfying the base Algorithm 2 assumptions.",
+        "Prior LP-Newton variants cited by the source establish finiteness for different projection/replacement mechanisms, not for this NSA map."
+      ],
+      "reasoning": "The new claim is neither a corollary nor a parameter specialization of the source theorem because it deliberately lies outside the theorem’s extra premise. It identifies a missing implication from the algorithmic rules to that premise.",
+      "searches": [
+        "Matsuno 2026 full text: Algorithm 2, Theorem 3.2, Theorem 3.3",
+        "current/prior ledger claim comparison for LP-Newton and NSA aliases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The NSA update is exactly a conditional-gradient/minimum-norm line step on the segment from the current point to the selected vertex, except that the source clips the old-point coefficient at 1-eta, imposing a nonvanishing move floor.",
+        "No located published-finding entry states the exact three-vertex invariant two-cycle or an implication-equivalent result for Matsuno Algorithm 2."
+      ],
+      "reasoning": "Alias searches covered NSA, LP-Newton, minimum-norm-point, Gilbert/Frank--Wolfe, fixed-step, clipped-line-search, periodic-orbit, and nontermination language. The closest hits concern different algorithms or generic step-size practice rather than this source-specific invariant two-cycle.",
+      "searches": [
+        "Matsuno Naive Separation Algorithm fixed eta two-cycle nontermination convex hull separating hyperplane",
+        "LP-Newton NSA Algorithm 2 cap 1-eta periodic orbit",
+        "Gilbert minimum norm convex hull fixed minimum step size cycle",
+        "Frank-Wolfe constant step minimum norm convex hull periodic orbit",
+        "Matsuno 2026 Naive Separation Algorithm fixed step cap eta triangle attracting two-cycle nontermination separating hyperplane",
+        "Frank-Wolfe minimum move floor clipped exact line search quadratic triangle periodic orbit convex hull minimum norm",
+        "web: \"constant stepsize\" \"conditional gradient\" oscillation",
+        "web: \"Frank-Wolfe\" \"fixed step-size\" does not converge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index hits included 2026/9/18/SCOPE-lab-boundary-attractor-degeneration-rates--2604f6e90e43 and 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0; both concern unrelated dynamical or extragradient objects.",
+        "Current and prior own ledgers contained no LP-Newton, Naive Separation Algorithm, separating-hyperplane, or minimum-norm-point finding matching this claim."
+      ],
+      "reasoning": "No exact table or published-finding record located by the checked aliases contains this triangle, this cap-induced period-two orbit, or a stronger statement implying it.",
+      "searches": [
+        "Matsuno 2026 Naive Separation Algorithm fixed step cap eta triangle attracting two-cycle nontermination separating hyperplane",
+        "Frank-Wolfe minimum move floor clipped exact line search quadratic triangle periodic orbit convex hull minimum norm"
+      ]
+    },
+    "rationale": "The primary paper does not state the counterexample and proves convergence only after adding a fixed-support-face premise. Alias and implication searches across the published-finding index and closely related LP-Newton/minimum-norm literature did not locate a statement covering this exact clipped-line-search two-cycle.",
+    "residual_risks": [
+      "Generic constant-step conditional-gradient literature may contain qualitatively related oscillation examples; the checked searches did not locate one that implies this exact source-specific triangle and invariant cycle.",
+      "The 2025 finite-termination LP-Newton chapter was available only at abstract/bibliographic level in the open sources checked, but its described algorithm is materially distinct from Algorithm 2 of the 2026 paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact map used here and adds a fixed-support-face assumption for the convergence analysis; does not contain the explicit invariant triangle or two-cycle.",
+        "evidence": "Published 2026-02-26; MSC 65K05, 90C05; DOI 10.3934/math.2026191.",
+        "identifier_or_url": "doi:10.3934/math.2026191",
+        "material_read": "Abstract, introduction, Algorithm 2 description, coefficient cap, Theorem 3.2 conditional premise, Theorem 3.3 context, and numerical parameter setting.",
+        "method": "Lawful open-access HTML and PDF; the algorithm/theorem pages were visually inspected in the PDF.",
+        "title": "A numerical LP-Newton method for solving linear programming using separating hyperplanes",
+        "trigger": "Primary source defining the algorithm under study."
+      },
+      {
+        "assessment": "Different projection and binary-search iteration; does not imply the NSA cap-induced cycle.",
+        "evidence": "Algorithmica 81 (2019), 167-178.",
+        "identifier_or_url": "doi:10.1007/s00453-018-0436-3",
+        "material_read": "Bibliographic record and abstract describing the projection/binary-search mechanism and finiteness result.",
+        "method": "Public bibliographic/abstract record.",
+        "title": "A simple projection algorithm for linear programming problems",
+        "trigger": "Close LP-Newton predecessor cited by the primary source."
+      },
+      {
+        "assessment": "Describes a different finite-termination replacement for Wolfe; no material read states or implies the 2026 NSA invariant two-cycle.",
+        "evidence": "Conference chapter published 2025, pages 76-82.",
+        "identifier_or_url": "doi:10.1007/978-3-031-90606-0_7",
+        "material_read": "Public abstract and bibliographic description; full text was not lawfully available through the open sources checked.",
+        "method": "Institutional bibliographic page and public abstract.",
+        "title": "Rethinking linear programming: A new finite-termination LP-Newton approach",
+        "trigger": "Recent predecessor by the same first author claiming a distinct Wolfe-free finite-termination mechanism."
+      },
+      {
+        "assessment": "Complexity lower bound for a different algorithm; it neither states nor dominates the NSA nontermination claim.",
+        "evidence": "SIAM Journal on Computing 49 (2020), 138-169.",
+        "identifier_or_url": "doi:10.1137/18M1221072",
+        "material_read": "Abstract and metadata describing the exponential lower bound for Wolfe’s minimum-norm method.",
+        "method": "Publisher abstract page.",
+        "title": "The minimum Euclidean-norm point in a convex polytope: Wolfe’s combinatorial algorithm is exponential",
+        "trigger": "Primary source behind the 2026 paper’s motivation for replacing Wolfe’s algorithm."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c927a490-ef54-4877-bcc7-b71d46ddadb2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim isolates a substantive boundary in a newly proposed separating subroutine: a fixed minimum move imposed by \\(\\eta\\) can create a stable periodic orbit on a three-vertex polytope that is strictly separated from the origin. The example is exact, minimal in geometric complexity, and directly tests whether the extra premise used in the source convergence theorem follows from the algorithm. It therefore affects the interpretation and safe use of the method rather than merely recomputing a known table or renaming a standard exercise.",
+    "status": "PASS"
+  }
+}
