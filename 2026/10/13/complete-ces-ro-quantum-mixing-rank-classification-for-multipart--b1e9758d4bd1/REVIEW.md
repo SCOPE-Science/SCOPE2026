@@ -1,0 +1,19 @@
+# Scientific review: complete multipartite Cesàro mixing rank
+
+## Correctness — PASS
+
+The claimed nullspace is defined for all connected unweighted multipartite adjacency graphs, including two-part graphs and singleton blocks. A real symmetric spectral decomposition gives \(\widehat M=\sum_\lambda E_\lambda\circ E_\lambda\); each summand is positive semidefinite. The zero-eigenspace is exactly the direct sum of within-part contrasts, whose projector square has contrast eigenvalue \(1-2/n_i\). The \((-1)\)-eigenspace is exactly the contrast subspace on singleton parts when there are at least two of them, whose Schur square has contrast eigenvalue \(1-2/s\). For the one-singleton case a connected Perron eigenvector eliminates its remaining possible kernel direction. All other spectral projectors have equal columns on the identified pairs, so the claimed null vectors survive every summand. These complementary bounds establish the exact kernel, not merely a finite-data conjecture. The independent checker tested \(119\) full adjacency/projector examples and \(86\) exact rational projector examples, without treating enumeration as an infinite proof.
+
+## Originality — PASS, with residual literature risk
+
+Godsil (arXiv:1103.2578) gives the general Schur-square representation, and Coutinho–Godsil–Guo–Zhan (arXiv:1709.03591) analyze ranks and commutants. Neither inspected full text states the complete multipartite all-part-sizes kernel classification; their general formulas still require the present invariant-subspace argument. Baptista–Coutinho–Marques (arXiv:2308.16378v1) study flexible time sampling and complete-bipartite cases, rather than the present ordinary Cesàro rank problem. Selected open problems (arXiv:2404.02236) concerns higher-regularity/primitive distance-regular cases. The balanced-multipartite instantaneous-uniformity literature concerns a distinct property. The established complete-graph answer is an acknowledged special case, not a novelty claim. Published full-text and comparison searches did not identify a stronger covering result. The principal residual risk is implicit equivalent coverage in association-scheme, automorphism, twin-vertex or equitable-partition theory; this is not excluded by negative searches.
+
+## Value — PASS
+
+The result calculates a natural structural invariant for **every** complete multipartite graph, including nonregular graphs with arbitrarily repeated and unequal part sizes. It identifies precisely two qualitatively different obstructions to positive definiteness: two-vertex independent twin classes and a two-vertex singleton-part true-twin class. The exact kernel is stronger than a rank bound and the classification exposes a sharp rank change at block size two and singleton count two. This is a motivated infinite-family classification within the spectral quantum-walk rank problem, not a parameter-slice table or a renaming of a known complete-graph formula. The rank formula is not claimed to solve wider open problems or to certify novelty independent of further publication search.
+
+## Sources and remaining limits
+
+Primary scientific comparisons: Godsil, *Average Mixing of Continuous Quantum Walks* (arXiv:1103.2578); Coutinho–Godsil–Guo–Zhan, *A New Perspective on the Average Mixing Matrix* (arXiv:1709.03591); Baptista–Coutinho–Marques, *Unexpected Averages of Mixing Matrices* (arXiv:2308.16378v1); Coutinho–Guo, *Selected Open Problems in Continuous-Time Quantum Walks* (arXiv:2404.02236); and Lo et al., *Mixing of Quantum Walk on Circulant Bunkbeds* (arXiv:quant-ph/0509059). The 2026 Laplacian-walk work *Laziness of Quantum Walks on Graphs* (arXiv:2608.20739) concerns a different Hamiltonian and objective, but its complete full text was not inspected. The finding concerns only adjacency Cesàro ranks, not the whole mixing spectrum or optimized observation-time laws.
+
+Self-review: passed. Independent audit: not yet performed.
