@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "A proof for all n>=2 uses the exact factor/arc overlap correspondence, the integral-flow decomposition lower bound by each source initial-zero-run length, the bijective zero-append matching of sources to sinks and an Euler tour. The generating function for run-cost gives F_n−1 and the allowed factor count F_{n+2}, including n=2. Standalone stdlib verifier checks all cyclic factors for n=2..12 and exhaustive minimum closed walks for n=2..5. Numerical checks are supplementary to the all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tan–Shallit 2013 (arXiv:1304.3666v1), sec. 4, Proposition 14: global generic upper bound on circular-witness length, not an exact golden-mean specialization.",
+        "Moreno–Matamala 2007 (arXiv:0711.1695v1), sec. 2.1: their WF(n) contains only words whose periodic repetition is allowed and is strictly smaller than the internally admissible factor family here."
+      ],
+      "reasoning": "The general graph, shortest-witness and restricted-language theorems do not identify the minimal extra-edge flow for this different full finite-factor family; no inspected stronger theorem yields the equality by substitution. The established directed-postman framework motivates but does not determine the explicit Fibonacci transportation cost.",
+      "searches": [
+        "golden mean shift shortest closed word containing every admissible n-block cyclic factor exact length Fibonacci F(n)+F(n+2)-1",
+        "shortest periodic binary string avoiding consecutive ones containing all finite no-11 strings length n",
+        "\"golden mean\" \"postman\" \"de Bruijn\""
+      ]
+    },
+    "checked_sources": [
+      "Wang–Shallit 1998, DOI 10.37236/1373",
+      "Tan–Shallit 2013, arXiv:1304.3666v1",
+      "Moreno–Matamala 2007, arXiv:0711.1695v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moreno–Matamala 2007, pp. 1–3 and sec. 3: \"minimum\" is the lexicographically minimum Eulerian word in their *periodically admissible* language, not minimum cycle length when every internally admissible n-word must appear.",
+        "Wang–Shallit 1998, Theorem 4.1 and pp. 1–2: their open-walk result and algorithm are for finite LINEAR words.",
+        "Tan–Shallit 2013, Proposition 14 and sec. 5: generic bounds/finite data for arbitrary sets; no sharp all-order specific closed-walk theorem."
+      ],
+      "reasoning": "For example, binary word 101 belongs to the target n=3 factor family but is not periodically admissible under forbidding 11, so Moreno–Matamala’s Euler tour does not cover our target. Cutting an optimal cycle requires up to n−1 letters to display boundary-crossing factors and does not turn Wang–Shallit’s linear result into this exact minimum. The present claim is a strict all-order extension beyond finite optimizer enumerations; it does not claim novelty for their known finite length values.",
+      "searches": [
+        "Exact shortest circular superstring of all binary words avoiding adjacent 11: period F_{n+2}+F_n-1 = Lucas(n+1)-1 for every n>=2, directed Chinese postman golden-mean de Bruijn graph",
+        "Moreno Matamala restricted de Bruijn Golden Mean lexicographically minimal periodic admissible words versus all internally 11-avoiding n words",
+        "\"no adjacent ones\" \"de Bruijn\" \"shortest\" cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Shallit 1998 (DOI 10.37236/1373), pp. 1–2 and 14–15: exact minimal LINEAR word length F_n+F_{n+2}.",
+        "Tan–Shallit 2013 (arXiv:1304.3666v1), pp. 1–2: shortest circular witness is defined for arbitrary factor sets; section 4 gives generic upper bounds."
+      ],
+      "reasoning": "A minimal cyclic closed walk need not be a minimal linear open walk: linearization can require n−1 extra boundary letters. The linear equality alone does not give the sharp cyclic lower bound. The exact F_{n+2}+F_n−1 cyclic formula was not stated in the inspected equivalent formulations. Searches not finding it do not establish uniqueness.",
+      "searches": [
+        "Exact shortest circular superstring of all binary words avoiding adjacent 11: period F_{n+2}+F_n-1 = Lucas(n+1)-1 for every n>=2, directed Chinese postman golden-mean de Bruijn graph",
+        "Fibonacci language golden mean shortest closed covering walk, Eulerian balancing by initial zero runs, cyclic universal word length Lucas(n+1) minus one",
+        "minimum closed postman walk Fibonacci de Bruijn graph forbidding 11 eulerization Lucas number minus one",
+        "\"Fibonacci\" \"shortest\" \"circular\" \"superstring\" words 11"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang–Shallit 1998, pp. 14–15 lists individual optimal LINEAR words for n=1 through 7, not cyclic shortest lengths for all orders.",
+        "Tan–Shallit 2013, sec. 5 tabulates general witness maxima for n through four (including n=5 partial), not this constrained infinite exact sequence."
+      ],
+      "reasoning": "The prior finite values through order six agree with the all-order formula, so those values are not separately claimed as novel. A finite table cannot logically determine an exact formula for every n. The indexed sources inspected did not supply an exact all-n cyclic-cover table or equivalent theorem; an unindexed earlier table/theorem remains possible.",
+      "searches": [
+        "Exact shortest circular superstring of all binary words avoiding adjacent 11: period F_{n+2}+F_n-1 = Lucas(n+1)-1 for every n>=2, directed Chinese postman golden-mean de Bruijn graph",
+        "golden mean shift shortest closed word containing every admissible n-block cyclic factor exact length Fibonacci F(n)+F(n+2)-1",
+        "\"F_n+F_{n+2}-1\" golden mean universal cycles",
+        "\"Fibonacci\" \"shortest\" \"cyclic\" \"superstring\" no consecutive ones"
+      ]
+    },
+    "rationale": "Full primary text comparison distinguishes Wang–Shallit’s exact LINEAR Fibonacci length, Tan–Shallit’s generic shortest circular witness bounds, and Moreno–Matamala’s lexicographically minimal cyclic language restricted to periodically admissible factors. None implies the claimed all-order minimum for every internally admissible factor, including words such as 101. Earlier finite optimal-length values are acknowledged as already known. The result may still have unindexed anticipation.",
+    "residual_risks": [
+      "An earlier unindexed or differently titled cyclic shortest-superstring formula may exist.",
+      "Not every monograph, survey, or inaccessible conference source on directed postman routes over constrained languages was inspected.",
+      "Searches have limited recall; external independent bibliographic review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LINEAR minimum and algorithm; does not assert or prove minimal circular postman tour for all internally 11-free factors.",
+        "evidence": "Abstract/section 0 pp.1–2: linear length F_n+F_{n+2}; section 4 pp.14–15: open complete walk and examples.",
+        "identifier_or_url": "doi:10.37236/1373",
+        "material_read": "All 16 pages, including definitions, graph lower bound, Theorem 4.1, examples and references",
+        "method": "Read lawful open-access publisher PDF and inspect proofs/linear boundary conditions",
+        "title": "On Minimal Words With Given Subword Complexity",
+        "trigger": "Same Fibonacci factor language, exact nearest linear length formula"
+      },
+      {
+        "assessment": "Generic existence/upper bounds and small numerical data, no exact golden-mean all-order cyclic length or balancing lemma.",
+        "evidence": "Section 2 shortest circular witness definition; sec.4 Prop.14 a generic upper bound, sec.5 finite tables.",
+        "identifier_or_url": "arxiv:1304.3666v1",
+        "material_read": "12-page preprint, from introduction/definitions through sections 3–7 including circular shortest-witness Proposition 14 and tables",
+        "method": "Read open-access arXiv PDF and inspect its general implications/parameters",
+        "title": "Sets Represented as the Length-n Factors of a Word",
+        "trigger": "Directly formalizes shortest circular witnesses and broad coverage of factor sets"
+      },
+      {
+        "assessment": "Its \"minimum\" is lexicographic among length-fixed Eulerian cycles on periodic-word blocks. The family excludes internally admissible n-words whose own periodic repetition violates 11; thus not the same target or minimum length.",
+        "evidence": "Sec.2.1 defines allowed w by periodic w^infinity avoiding forbidden blocks; sec.3 states least lexicographic Eulerian circuit; Figure 1 depicts Golden Mean graph.",
+        "identifier_or_url": "arxiv:0711.1695v1",
+        "material_read": "Full nine-page arXiv preprint, particularly formal WF(n) definition, Figure 1, Theorems 1,3,10 and conclusions",
+        "method": "Read open-access arXiv PDF and compare exact factor-family quantifiers and objective",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Golden Mean restriction `11` explicitly appears; title suggests an apparently dominating minimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b9e4c278-2bc7-4086-8768-52eb0ae81739",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural exact period invariant for covering all factors of the canonical golden-mean shift, settled simultaneously for infinitely many lengths with constructive Eulerian paths. The sharp extra F_n−1 factor repetitions quantify a structural non-Eulerian obstruction, making it more than a routine finite enumeration or relabeling. It is a motivated exact classification of minimal lengths, not an optimizer count or unsupported downstream consequence.",
+    "status": "PASS"
+  }
+}
