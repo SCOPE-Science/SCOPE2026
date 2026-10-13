@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "From the printed model F(x)=log(1+G(x)) exp(beta(G(x)-1))/log(2) and the Eq. (13) Lambert inverse, direct substitution proves F(Qtilde(q))=q log(1+z_q)/z_q<q for all admissible parameters and 0<q<1. The surrogate root tends to z_beta in (log2,1), yielding finite Qtilde and sharp coverage interval. The true high quantile diverges at explicit Fréchet rate by h_beta derivative at one. All needed real-variable inequalities are reconstructed in RESULT.md and the representative computations replayed with verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 GLEP family uses log(1+G^a) exp(G^b) and recommends monotone numerical inversion of its different scalar generator.",
+        "The actual 2025 LAPFr source prints the replacement approximation and describes it as valid at high confidence."
+      ],
+      "reasoning": "A general numerical inverse guarantees a true quantile if solved accurately; it does not supply the exact source-specific miscoverage and sharp 0.759707... ceiling for this particular surrogate. No identified broader prior statement quantitatively dominates the claim.",
+      "searches": [
+        "\"A New G Family\" \"Although the quantile function does not have a closed form\"",
+        "\"log-adjusted polynomial Fréchet\" \"approximation\" tail quantile correction",
+        "\"log-adjusted polynomial\" \"Lambert W\" \"quantile\" risk",
+        "doi:10.3390/math13193097 Section 2.2"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20251187",
+      "doi:10.3390/math13193097",
+      "Published mathematical-result semantic queries on the Lambert-W quantile surrogate and source DOI"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aljadani 2025 pp. 27022–27023 explicitly states the small-G approximation and calls it a useful high-confidence asymptotic formula, while also writing G(x) -> 1 as x -> infinity.",
+        "The proof shows G at the printed surrogate remains below one even as nominal q -> 1, yielding finite VaR and achieved coverage below 0.759708; the exact CDF instead has unbounded Fréchet-type quantiles."
+      ],
+      "reasoning": "The source has a qualitative approximation disclaimer but makes the opposite high-tail applicability assertion. The exact coverage bound and opposite asymptotic are a materially stronger conclusion, not a restatement of the disclaimer. The GLEP numerical-inversion advice is compatible with, but does not imply, the new source-specific miscoverage quantification.",
+      "searches": [
+        "doi:10.3934/math.20251187 Section 3.1 Eq. (13) and adjacent qualification",
+        "doi:10.3390/math13193097 Section 2.2 numerical quantile inversion",
+        "\"log-adjusted polynomial Fréchet\" \"Lambert\" correction VaR"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aljadani 2025 Eq. (13) is a Lambert-W proxy obtained by replacing log(1+G) with G; source p. 27023 says approximation for high confidence.",
+        "AboAlkhair et al. 2025 DOI:10.3390/math13193097 Section 2.2 instead numerically inverts a different generated log-exponential family."
+      ],
+      "reasoning": "The new statement concerns the exact achieved probability F(Qtilde(q)), its finite endpoint as q approaches one, and a sharp universal upper bound across the positive generator parameter. Identifying the functional generator or noting lack of an analytic inverse is not equivalent to these quantitative statements. The earlier approximation disclaimer does not state its incorrect high-tail limit.",
+      "searches": [
+        "\"log-adjusted polynomial Fréchet\" \"Lambert\" correction VaR",
+        "\"LAPFr\" \"Lambert W\" \"log(1+G)\" risk saturation",
+        "\"An innovated G family\" \"log(1+G)\" \"quantile\"",
+        "doi:10.3934/math.20251187 Sections 1, 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed mathematical-result queries found no source-specific LAPFr VaR correction; the nearest quantile-asymptotic studies concern distinct probabilistic objects and parameters.",
+        "Relevant model-specific source sections contain no tabulated exact confidence correction or saturation bound."
+      ],
+      "reasoning": "Neither parameter coincidences nor nearby themes establish implication. Existing indexed and source-specific results checked do not present the calibration identity or uniform limiting range. A negative database search is not a proof of global originality.",
+      "searches": [
+        "log1p Lambert W Frechet quantile surrogate VaR coverage bounded 0.7597",
+        "LAPFr Frechet CDF log(1+G) beta exponential approximate quantile risk undercoverage q 1",
+        "Log-adjusted polynomial Frechet 10.3934/math.20251187 Lambert-W VaR",
+        "\"Aljadani\" \"20251187\" \"quantile\" \"incorrect\""
+      ]
+    },
+    "rationale": "The primary paper explicitly calls its formula approximate but asserts high-confidence applicability; it contains neither the bounded-limit theorem nor the exact and sharp achieved-coverage envelope. The close GLEP generator literature advocates numerical inversion and does not characterize the failure of this printed approximation. Source-specific and implication-oriented comparisons found no covering claim. The possibility of an unindexed correction remains a risk.",
+    "residual_risks": [
+      "Direct full-text access to the analogous GLEP article was rate-limited; an unseen appendix could strengthen the general quantile-inversion comparison.",
+      "An unindexed or unpublished correction might independently establish the same source-specific theorem.",
+      "No inference is made about empirical implementations or independent external verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The printed expression and intended high-tail applicability match the reconstructed formulas; the source gives no exact achieved-coverage limit or sharp bound.",
+        "evidence": [
+          "DOI:10.3934/math.20251187, Eqs. (1)–(3), (13), Section 3.1, pp. 27017–27018 and 27022–27023."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2025/11/PDF/math-10-11-1187.pdf",
+        "material_read": "28-page publisher primary PDF: opening model and classification pp. 27016–27019; full Eq. (13) derivation and explicit caveat pp. 27022–27023; section 3.7 and risk application setup around p. 27025, remaining searchable sections for Eq. (13).",
+        "method": "Publisher PDF parsed full text and page-image inspection of pp. 27017, 27022, 27023",
+        "title": "A new log-adjusted polynomial Fréchet model for heavy-tailed PORT-VaR analysis and one-step-ahead-VaR forecasting in finance and economics",
+        "trigger": "Exact defining model and high-confidence Lambert-W VaR surrogate"
+      },
+      {
+        "assessment": "Related but different generator; numerical inversion advised, no visible model-specific bounded Lambert surrogate. Material not sufficient to exclude every unseen appendix statement.",
+        "evidence": [
+          "DOI:10.3390/math13193097, Section 2.2 accessible indexed text."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math13193097",
+        "material_read": "Indexed article rendering of abstract, generator formula, Section 2.2 on numerical quantile inversion, and conclusion; direct full publisher fetch was rate-limited.",
+        "method": "Full-text indexed search rendering; direct fetch attempt returned HTTP 429",
+        "title": "A New G Family: Properties, Characterizations, Different Estimation Methods and PORT-VaR Analysis for U.K. Insurance Claims and U.S. House Prices Data Sets",
+        "trigger": "Potentially dominating general logarithmic CDF generator and quantile inversion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae5453f2-15d4-4f94-b75b-2efef8f20b2d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite-versus-diverging VaR obstruction invalidates a reported approximation in precisely the high-confidence regime where it is presented as useful. At a valid parameter point a nominal 99% risk threshold delivers only 72.279985% model coverage and is over 33 times smaller than the actual VaR. The result provides a sharp all-parameter coverage envelope and a simple exact numerical remedy; it is not merely a syntax, sign, or insignificant rounding correction.",
+    "status": "PASS"
+  }
+}
