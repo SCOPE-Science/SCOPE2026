@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed exact n=2 model on the invariant unit simplex. The single positive endemic root follows from the quadratic with negative constant term for all 0<gamma<1. The exact 3D Jacobian has characteristic coefficients A,B,C>0. Substituting the strictly monotone gamma=G(x) gives AB-C=Q(x)/(500000(200x+1)). Two exact rational sign changes and Descartes bound prove Q has exactly two simple positive roots. Cubic Routh gives the precise stable windows and exactly two unstable eigenvalues between them; at each root the spectrum factors as (lambda+A)(lambda^2+B). The simple roots and strict G monotonicity prove transversal opposite crossings. The standalone checker was executed successfully from its current package path, checking symbolic identities, exact signs and sample spectral eigenvalues.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Otto et al. DOI 10.1093/evolut/qpae041 Appendix B presents a two-stage immunity example where the resident strain does not infect recovered classes, unlike beta_1=1 here.",
+        "Barbarossa et al. arXiv:1606.03962 studies delay/boosting stability switches in an SIRS system, not the printed autonomous n=2 equations.",
+        "Hethcote et al. DOI 10.1137/0140001 abstract concerns general finite/infinite immune delays; precise model-specific coverage was not established from the abstract."
+      ],
+      "reasoning": "General oscillation and Hopf theory does not automatically imply the number or locations of spectral crossings on this exact two-stage reinfection slice. The most similar two-stage immunity source describes a resident strain with different recovered-class susceptibility. Abstract-only older theory is retained as a residual risk rather than declared fully checked.",
+      "searches": [
+        "\"two-stage\" \"immunity\" \"reinfect\" \"Hopf bifurcation\" model",
+        "\"Hethcote\" \"Stech\" \"van den Driessche\" 1981 stages recovered endemic stability criteria",
+        "\"Otto\" \"waning\" \"SIRn\" \"Hopf\" 2024 stability",
+        "\"Stability switches induced by immune system boosting in an SIRS model with discrete and distributed delays\" arxiv",
+        "three dimensional susceptible infected recovered stages infection reinfection gamma 0.7 multiple stability switches Hopf"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S0956792523000360",
+      "url:https://www.mathstat.dal.ca/~tkolokol/papers/sir-chaos.pdf",
+      "doi:10.1093/evolut/qpae041",
+      "arxiv:1606.03962",
+      "doi:10.1137/0140001",
+      "url:https://www2.cms.math.ca/Events/winter23/res/mms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gai et al. numerical oscillation at gamma=0.7 does not imply a bounded instability interval, its two endpoints or all-gamma stability.",
+        "A related mathematical research record concerns a two-stage birth/survival age-structured population model, not the present reinfection system.",
+        "A related mathematical research record concerns E/I dispersal and reproduction-number bracketing in a two-patch SEIR model, not this autonomous multi-recovery spectral diagram.",
+        "All-math proof here additionally uses the exact Q quartic, two positive roots and reverse-oriented gamma(x), absent in the cited closest sources."
+      ],
+      "reasoning": "The source and broad immune-stage literature establish possible epidemic oscillations, not the exact stability set and unstable dimension for the printed 3D reduced system. This precise implication was checked directly, not inferred from absence of matching titles.",
+      "searches": [
+        "\"multiple recovered classes\" SIR Routh-Hurwitz recovery rates",
+        "\"SIR model\" \"two recovered classes\" \"stability\" \"Hopf\"",
+        "\"two recovered class SIR\" \"0.612133\" \"0.978156\"",
+        "two-stage loss of immunity SIRS recurrent outbreaks Routh Hurwitz quartic exact thresholds at 0.01",
+        "two recovered class SIR endemic stability two distinct Hopf threshold 0.612 0.978 gamma immune stage reinfection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gai et al. DOI 10.1017/S0956792523000360 §6.3 displays only one numerical recovery rate gamma=0.7 and says that fuller analysis is left for future work.",
+        "Author preprint sir-chaos.pdf §6.3, Equation (6.33), Figure 8(a), likewise contains the printed example without spectral thresholds.",
+        "Exact-title and recovery-threshold searches returned the source and related general oscillation studies, but no numerical gamma thresholds or polynomial for this system."
+      ],
+      "reasoning": "Equivalent formulations of the new claim are a reentrant endemic stability interval, two opposite imaginary-axis crossings, exactly two right-half-plane roots on an interval, and a quartic Routh determinant. Each was queried by scientific terms and compared at the equation and parameter level.",
+      "searches": [
+        "\"Recurrent and chaotic outbreaks in SIR model\" \"Hopf\" \"0.01\"",
+        "\"Gai\" \"Kolokolnikov\" \"Schrader\" \"Sharma\" \"two\" \"Hopf\" infection recovered",
+        "\"Recurrent and chaotic outbreaks in SIR model\" two recovered classes Hopf bifurcation threshold",
+        "\"two recovered classes\" \"Hopf\" reinfection rate SIR stage",
+        "two recovered class SIR endemic stability two distinct Hopf threshold 0.612 0.978 gamma immune stage reinfection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published article §6.3 Equation (6.4) and Figure 8(a) give beta_s=beta_1=1, beta_2=0, mu_1=mu_2=0.01 and gamma=0.7, then defer its full analysis.",
+        "The author-hosted open full preprint §6.3 Equation (6.33) and Figure 8(a) gives identical model and parameters.",
+        "The paper records MSC2020 92-xx (Primary) and 92D30 (Secondary), and first online publication 18 January 2024."
+      ],
+      "reasoning": "These comparisons explicitly inspect equations and parameter values, not merely titles or journal topic. No available existing table contains the exact two-parameter spectral endpoints or the derived quartic.",
+      "searches": [
+        "10.1017/S0956792523000360 Section 6.3 Figure 8 two recovered classes stability",
+        "\"sir-chaos.pdf\" two recovered classes (1,1,0) gamma 0.7",
+        "\"Gai\" \"Kolokolnikov\" \"Schrader\" \"Sharma\" arxiv",
+        "Recurrent and chaotic outbreaks in SIR model Gai Kolokolnikov Schrader Sharma 2024 two recovered class beta1 1 beta2 0 mu .01 exact Hopf gamma threshold"
+      ]
+    },
+    "rationale": "The original paper states the numerical n=2 case at gamma=0.7 but explicitly reserves full analysis of the multi-class model for later work. Neither its published full version nor the public author preprint derives the exact recovery-rate stability window or quartic; targeted source/alias/parameter and broader precedent searches disclosed no stronger claim that logically implies these two exact thresholds. The existence of oscillations and general immune-stage stability switches is prior art and not claimed as new.",
+    "residual_risks": [
+      "An equivalent all-gamma spectral partition could exist under different terminology or in unindexed older literature.",
+      "The full text of Hethcote–Stech–van den Driessche (1981) was unavailable; its broad delay-oscillation theorem is not assumed to establish noncoverage.",
+      "The full Barbarossa–Polner–Röst (2016) study was not exhaustively compared, though its abstract describes a different delay/boosting system.",
+      "The model uses recovered-class susceptibility beta_1=1, beta_2=0, a stylized parameter choice exactly taken from the source example.",
+      "Transverse imaginary-axis crossings alone do not prove existence or criticality of nonlinear Hopf periodic orbits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_MODEL_AND_NUMERICAL_OUTBREAK_BUT_NOT_EXACT_ALL_GAMMA_SPECTRAL_PARTITION",
+        "evidence": "Section 6.3 gives gamma=0.7 with sustained oscillations, contrasts n=1, and explicitly leaves full analysis of the multi-class model for future work.",
+        "identifier_or_url": "doi:10.1017/S0956792523000360",
+        "material_read": "Full open publisher HTML and public 13-page article, including §2 seasonal forcing, §3–5 return-map methods, §6.3 Equation (6.4), Figure 8(a) and §7 open problems.",
+        "method": "Reconstructed the n=2 equations, specialized only the parameters printed for Figure 8(a), searched for an analytic two-threshold gamma classification or equivalent cubic Routh calculation.",
+        "title": "Recurrent and chaotic outbreaks in SIR model (published full version)",
+        "trigger": "Exact original model and numerical example whose recovery-rate spectrum is classified."
+      },
+      {
+        "assessment": "SAME_PARAMETER_EXAMPLE_WITHOUT_EXACT_TWO_CROSSING_THEOREM",
+        "evidence": "The author preprint presents gamma=0.7 at n=2, beta_s=beta_1=1, beta_2=0 and equal mu=0.01, with numerics and an explicit open-analysis statement.",
+        "identifier_or_url": "https://www.mathstat.dal.ca/~tkolokol/papers/sir-chaos.pdf",
+        "material_read": "Full author-hosted 12-page preprint, especially §6.3 Equation (6.33), Figure 8(a) and surrounding explanation.",
+        "method": "Compared printed recovered-class ODEs and parameters to the published version and looked for a recovery-rate stability theorem.",
+        "title": "Recurrent and chaotic outbreaks in SIR model (author-hosted full preprint)",
+        "trigger": "Possible earlier or more extensive version of the same paper."
+      },
+      {
+        "assessment": "DIFFERENT_RESIDENT_STRAIN_RECOVERED_CLASS_SUSCEPTIBILITY; NO_MODEL_SPECIFIC_THRESHOLD_FOUND",
+        "evidence": "The paper notes that n=2 examples have damped oscillations and the resident virus cannot infect the second recovered class, unlike the source model with reinfection of R1.",
+        "identifier_or_url": "doi:10.1093/evolut/qpae041",
+        "material_read": "Open full 17-page article, model description and equations and Appendix B on stability/oscillations, including the two-recovered-stage example.",
+        "method": "Compared recovered-class infection mechanism and whether it gives a two-threshold analytic formula.",
+        "title": "Endemic does not mean constant as SARS-CoV-2 continues to evolve",
+        "trigger": "Closely related 2024 multi-stage waning-immunity SIRn literature."
+      },
+      {
+        "assessment": "GENERAL_PRECEDENT; FULL_TEXT_NOT_INSPECTED; RISK_RETAINED",
+        "evidence": "The abstract studies discrete/distributed delays with immune boosting rather than the explicit n=2 source equation; no direct source-specific implication is established from the abstract alone.",
+        "identifier_or_url": "arxiv:1606.03962",
+        "material_read": "Accessible abstract, including stability switches and two distinct instability regions induced by immune boosting.",
+        "method": "Separated the broad known stability-switch phenomenon from the exact recovered-class ODE and polynomial.",
+        "title": "Stability switches induced by immune system boosting in an SIRS model with discrete and distributed delays",
+        "trigger": "Broader published stability-switch precedent that could subsume a generic phenomenon claim."
+      },
+      {
+        "assessment": "GENERAL_PRIOR_PHENOMENON; INACCESSIBLE_FULL_TEXT_RISK_RETAINED",
+        "evidence": "The abstract concerns delayed epidemic integral equations with oscillations and Hopf examples; it does not itself provide the printed Gai n=2 cubic or exact gamma thresholds.",
+        "identifier_or_url": "doi:10.1137/0140001",
+        "material_read": "Publisher abstract, scope and bibliographic reference metadata only; full text required purchase and was not read.",
+        "method": "Identified delay-model scope, documented unresolved possibility of more specific statements.",
+        "title": "Nonlinear Oscillations in Epidemic Models",
+        "trigger": "Classic cited immune-delay oscillations theorem and potential broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf02c9c8-a9ca-4e5b-ad3e-02fe61537146",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper highlights persistent outbreaks at exactly these source parameters but leaves the multi-class system unanalyzed. The exact and exhaustive gamma thresholds quantify the onset and surprising recovery of local endemic stability in the printed biological example, distinguish two unstable dimensions from finite numerical oscillations, and identify recovery-rate ranges suitable for studying recurrent infection. This is a natural complete local stability classification of a source-motivated model slice, not an arbitrary table update or generic Hopf deduction.",
+    "status": "PASS"
+  }
+}
