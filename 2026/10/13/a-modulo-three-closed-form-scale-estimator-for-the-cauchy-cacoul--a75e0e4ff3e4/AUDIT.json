@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The source characteristic function gives \\(\\phi_\\lambda(2\\pi/3)=\\cosh(\\pi\\lambda/3)/\\cosh(\\pi\\lambda)\\). The triple-angle identity reduces this exactly to the reciprocal of \\(4\\cosh^2(\\pi\\lambda/3)-3\\), and \\(\\cos(2\\pi X/3)\\) is exactly a two-valued function of divisibility by three. Strong consistency follows from the strong law and continuity of the inverse. The CLT variance is reconstructed from \\(E[\\cos^2(2\\pi X/3)]=(1+\\phi_\\lambda(4\\pi/3))/2\\), and the inverse delta method yields the displayed closed form. Algebra then gives the exact ratio to the source's parity variance, whose derivative is negative after setting \\(z=\\cosh^2(\\pi\\lambda/3)>1\\). The small-scale efficiencies follow from the source's Fisher information and explicit limits. The bundled checker independently reproduces all identities on a parameter grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Papadatos states that highly efficient characteristic-function estimators may be obtainable by adapting continuous-Cauchy methodology, but leaves such results beyond the scope of the note.",
+        "Koutrouvelis studies continuous Cauchy location/scale estimation and chooses empirical-characteristic-function evaluation points for that different characteristic function.",
+        "The later CCd package documentation exposes maximum-likelihood estimation for the Cauchy–Cacoullos distribution, not this closed-form residue estimator."
+      ],
+      "reasoning": "Generic empirical-characteristic-function methodology is broader as a technique but does not imply the special algebraic inversion or the exact global variance comparison. No inspected broader result supplied those statements.",
+      "searches": [
+        "Papadatos 1809.09443 efficient closed-form estimator",
+        "\"Cauchy-Cacoullos\" Koutrouvelis estimator",
+        "\"discrete Cauchy\" Koutrouvelis",
+        "Koutrouvelis empirical characteristic function Cauchy scale estimator"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1809.09443v1/v2",
+      "DOI:10.1007/s42519-022-00268-6",
+      "DOI:10.1093/biomet/69.1.205",
+      "CRAN:CCd-1.1",
+      "candidate-specific published-finding index searches for modulo-three, \\(2\\pi/3\\), and \\(27/32\\) aliases",
+      "current and prior own research ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source proves the characteristic-function formula and derives only the \\(t=\\pi\\) parity estimator, with asymptotic variance \\(\\cosh^2(\\pi\\lambda)/\\pi^2\\).",
+        "The source explicitly presents more efficient closed-form characteristic-function estimators as a direction beyond its results.",
+        "Koutrouvelis's continuous-Cauchy estimator does not specialize to the Cauchy–Cacoullos characteristic function.",
+        "Own-ledger searches found Cauchy-combination and other estimator findings but no claim implying the modulo-three inversion or uniform variance ratio."
+      ],
+      "reasoning": "The new theorem is not a corollary of the parity result: it uses a different root-of-unity statistic and an exact triple-angle collapse. General ECF methodology suggests the search direction but does not determine this frequency, inversion, or domination constant.",
+      "searches": [
+        "arXiv:1809.09443 Theorem 2 characteristic function parity estimator",
+        "DOI:10.1093/biomet/69.1.205 Cauchy empirical characteristic function",
+        "own ledger Cauchy-Cacoullos estimator modulo 3",
+        "own ledger empirical characteristic function parity estimator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct paper identifies the parity statistic \\((-1)^X\\), but the inspected estimation section does not derive the \\(2\\pi/3\\) transform, the divisibility-by-three count, or its inverse.",
+        "Candidate-specific published-finding index searches returned Fourier and cyclic-group results unrelated to statistical estimation, with no Cauchy–Cacoullos estimator.",
+        "Exact model-and-alias web searches returned the primary paper and later package rather than a modulo-three estimator."
+      ],
+      "reasoning": "Modulo-three count, root-of-unity transform, \\(2\\pi/3\\) characteristic-function evaluation, and discrete-Cauchy/Cauchy–Cacoullos aliases were all checked because they are mathematically equivalent descriptions of the statistic.",
+      "searches": [
+        "published-finding index: Cauchy-Cacoullos modulo 3 estimator divisible by three empirical characteristic function",
+        "published-finding index: Cauchy-Cacoullos 2pi/3 characteristic function estimator",
+        "web: \"Cauchy-Cacoullos\" modulo 3 estimator",
+        "web: \"discrete Cauchy\" \"mod 3\" estimator",
+        "web: \"Cauchy-Cacoullos\" divisible by 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-value search returned the \\(27/32\\) variance-ratio boundary or the \\(8/9\\) small-scale efficiency for this family.",
+        "CCd version 1.1 documents numerical maximum-likelihood estimation and distribution functions rather than a modulo-three closed-form estimator."
+      ],
+      "reasoning": "The exact constants are natural fingerprints of the claimed calculation. Their absence from targeted indexed searches and the package documentation supports, but cannot prove, noncoverage.",
+      "searches": [
+        "published-finding index: Cauchy-Cacoullos 27/32 parity estimator asymptotic variance",
+        "web: \"27/32\" \"Cauchy-Cacoullos\"",
+        "web: \"8/9\" \"Cauchy-Cacoullos\" estimator",
+        "CRAN CCd estimator Cauchy-Cacoullos"
+      ]
+    },
+    "rationale": "The direct source supplies the characteristic function and a parity-based closed-form estimator, then explicitly calls for more efficient closed-form characteristic-function estimators without developing them. Targeted searches for the Cauchy–Cacoullos/discrete-Cauchy model with modulo-three, divisibility, \\(2\\pi/3\\), and the exact \\(27/32\\) ratio found no covering published or indexed finding. Koutrouvelis covers empirical-characteristic-function estimation for the continuous Cauchy family, but not this discrete residue-class inversion or its uniform comparison. Current and prior own ledgers contain no equivalent claim. A residual risk remains that a short equivalent calculation appears in unindexed transform-estimation literature.",
+    "residual_risks": [
+      "A mathematically equivalent root-of-unity or residue-class estimator may occur in older unindexed empirical-transform literature under terminology not retrieved by the searches.",
+      "Generic empirical-characteristic-function theory can motivate the construction, so originality is confined to the explicit Cauchy–Cacoullos modulo-three inversion and the proved variance comparison, not to the general ECF method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING.",
+        "evidence": "The inspected source gives \\(\\phi_\\lambda(t)=\\cosh(\\lambda(t-\\pi))/\\cosh(\\pi\\lambda)\\), derives the \\(t=\\pi\\) parity estimator, and explicitly leaves more efficient closed-form characteristic-function estimators beyond scope; it contains no modulo-three construction or \\(27/32\\) variance ratio.",
+        "identifier_or_url": "arXiv:1809.09443v2",
+        "material_read": "Full-text theorem containing the characteristic function; Fisher-information and MLE theorem; estimation discussion deriving the parity estimator and its asymptotic variance; paragraph identifying more efficient closed-form characteristic-function estimation as future work.",
+        "method": "Public arXiv full-text inspection, including rendered PDF pages for the critical formulas and estimation discussion.",
+        "title": "The Characteristic Function of the Discrete Cauchy Distribution (In Memory of T. Cacoullos)",
+        "trigger": "Direct source defining the family, giving its characteristic function, Fisher information, MLE, and parity estimator."
+      },
+      {
+        "assessment": "METHOD_BACKGROUND_NOT_COVERING.",
+        "evidence": "The paper concerns the continuous Cauchy family and optimized empirical-characteristic-function procedures; it does not state the discrete Cauchy–Cacoullos residue-class estimator.",
+        "identifier_or_url": "DOI:10.1093/biomet/69.1.205",
+        "material_read": "Bibliographic record and abstract describing evaluation-point selection and asymptotic efficiency for continuous-Cauchy location and scale estimation.",
+        "method": "Publisher abstract and indexed bibliographic inspection.",
+        "title": "Estimation of Location and Scale in Cauchy Distributions Using the Empirical Characteristic Function",
+        "trigger": "Methodological predecessor cited by the direct source for characteristic-function-based efficient estimation."
+      },
+      {
+        "assessment": "NOT_COVERING.",
+        "evidence": "Version 1.1 documents maximum-likelihood estimation for the family and does not list a modulo-three closed-form estimator.",
+        "identifier_or_url": "CRAN:CCd-1.1",
+        "material_read": "Package index and reference-manual description of estimation functions.",
+        "method": "CRAN documentation inspection.",
+        "title": "CCd: The Cauchy-Cacoullos (Discrete Cauchy) Distribution",
+        "trigger": "Later public implementation that could have incorporated an additional practical estimator."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a75e0e4f-f3e4-42d1-a2c8-fcf84d83a05e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source explicitly identifies the poor efficiency of its only closed-form estimator and asks for more efficient closed-form characteristic-function alternatives. The new statistic keeps the same one-frequency, explicit-inversion simplicity but improves asymptotic variance uniformly by at least \\(5/32\\) relative to that benchmark and raises the small-scale MLE-relative efficiency from \\(3/4\\) to \\(8/9\\). The divisibility-by-three form also makes the estimator computationally trivial. This directly advances the source's stated estimation gap rather than selecting an arbitrary transform frequency.",
+    "status": "PASS"
+  }
+}
