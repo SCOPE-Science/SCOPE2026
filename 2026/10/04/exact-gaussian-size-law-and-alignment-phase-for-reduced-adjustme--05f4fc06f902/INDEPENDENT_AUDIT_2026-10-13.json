@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T00:36:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py read as text",
+        "Li-Liu arXiv:2203.06496 A49",
+        "Independent chi-density integration on [0,40] with 16000 and 32000 panels"
+      ],
+      "rationale": "Reconstructed Gaussian conditioning with residual variances tau_x^2+beta^T Sigma_perp beta and tau_y^2+theta^T Sigma_perp theta. Positive independent noises imply |rho|<1. Conditional regression gives Rx/sigma_x=rho U+sqrt(1-rho^2)E, with independent standard-normal U,E across observations. Conditional projection E^T U/||U|| has a fixed standard-normal law and is independent of U, so W=rho chi_n+sqrt(1-rho^2)G. The resampling reference is standard normal conditional on observed Ry; its two-sided tail gives the exact rejection integral. The denominator vanishes with probability zero for n>=1. At rho=0 size is exactly alpha; for n=1 the absolute statistic is normal in absolute value for every rho. The chi law of large numbers and bounded conditional variance prove local and divergent regimes; for 0<alpha<1 the normal-tail derivative proves strict local inflation. Conditional covariance and Cauchy-Schwarz prove the alignment formula, with rho=0 whenever either omission is zero or covariance cancels. Independent Simpson reconstructions on two meshes give 0.168815564178773 for n=100,rho=0.1 and 0.170075045753088 for kappa=1; these numerical checks supplement, not replace, the analytic proof.",
+      "residual_risks": [
+        "No finite-Monte-Carlo, learned-nuisance or non-Gaussian extension is established; numerical quadrature is not a rigorous infinite proof certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Maxway Theorems 3-4 bound type-I error using product nuisance magnitudes.",
+          "dCRT/GCM equivalence requires nuisance-rate and variance-consistency conditions."
+        ],
+        "reasoning": "These broader assumptions do not give exact nonnominal finite-n rejection probabilities or retain omitted-direction covariance cancellation.",
+        "searches": [
+          "arXiv:2203.06496 Sections 3.4 and Gaussian example",
+          "arXiv:2211.14698 Theorem 2 and Corollary 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2203.06496",
+        "arXiv:2211.14698",
+        "Resultary records 05f4fc06f902 and 24f98ca6d87c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A49 supplies the p-value reference; A50-A55 control nuisance contributions by magnitudes rather than identify the exact chi mixture.",
+          "Niu's local shift is asymptotic and comes from fitted ridge nuisance bias; its finite-sample comparison uses Monte Carlo."
+        ],
+        "reasoning": "The Gaussian decomposition is classical background. Neither inspected contextual theorem gives the complete exact finite-n size law with exact reduced conditional variances and covariance; no general double-robustness or generic probabilistic originality is claimed.",
+        "searches": [
+          "arXiv:2203.06496 A49-A55",
+          "arXiv:2211.14698 equations 21-22, Theorem 2, Section 6.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A49 gives the same normalized two-sided p-value.",
+          "Niu equations 21-22 give a one-sided asymptotic normal mean shift from shrinkage bias."
+        ],
+        "reasoning": "Credit the exact p-value and shift mechanism to prior work. The assessed contribution is their exact finite-n reduced-adjustment size consequence, not those identities alone.",
+        "searches": [
+          "Resultary: Maxway Gaussian exact size chi normal residual alignment",
+          "arXiv:2203.06496 Appendix A.8 A47-A56",
+          "arXiv:2211.14698 Section 3 equations 20-22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact same original record is indexed as 05f4fc06f902.",
+          "Record 24f98ca6d87c concerns finite-resample one-sided power under correct model-X specification, not misspecified-reduction null size."
+        ],
+        "reasoning": "The self entry is not a new finding or duplicate publication. No search absence is used as a novelty proof; the related power summary describes a distinct inferential quantity.",
+        "searches": [
+          "Resultary: Maxway Gaussian exact size chi normal residual alignment",
+          "Resultary: conditional randomization Gaussian finite resample power marginal covariance exact residual correlation"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS only for the exact finite-n reduced-adjustment size integral and contextual alignment/cancellation diagnostic. Li-Liu A49 already gives the normalized normal-tail p-value; Niu et al. equations 21-22 already give local mean-shift inflation in a ridge-bias example. Gaussian chi-normal decomposition itself and the root-n shift mechanism are not separately novel. The inspected sources give error bounds or asymptotic results rather than this exact finite-n law under a fixed insufficient Gaussian reduction.",
+      "residual_risks": [
+        "Unindexed contextual Gaussian-size calculations could contain an equivalent result. The known Gaussian decomposition, normal-tail p-value and local-shift mechanism are expressly excluded from standalone novelty claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides prior normalized p-value identity and bounds; exact finite-n chi-mixture size is not supplied in inspected sections",
+          "evidence": [
+            "A49 normal-tail p-value",
+            "Theorem 4 bound (30)",
+            "A50-A55 nuisance bounds"
+          ],
+          "identifier_or_url": "arXiv:2203.06496",
+          "material_read": "Sections 1-3.4 including Gaussian example, Appendix A.8 A47-A56",
+          "method": "Lawful full-text HTML and cached text section inspection",
+          "title": "Maxway CRT: Improving the Robustness of the Model-X Inference",
+          "trigger": "Same framework, Gaussian residual statistic and product-error bounds"
+        },
+        {
+          "assessment": "Known shift mechanism and asymptotic equivalence; different exact finite-n setting",
+          "evidence": [
+            "Equations 21-22 ridge-bias shift",
+            "Theorem 2 nuisance and variance assumptions",
+            "Section 6.3 finite Monte Carlo comparisons"
+          ],
+          "identifier_or_url": "arXiv:2211.14698",
+          "material_read": "Introduction, Section 3 equations 20-22, Section 4.1 Theorem 2 and Corollary 3, Section 6.3",
+          "method": "Lawful cached full-text section inspection",
+          "title": "Reconciling model-X and doubly robust approaches to conditional independence testing",
+          "trigger": "Plausible stronger robustness and local-shift coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Li-Liu Gaussian product-error example and Theorem 4",
+        "Frozen RESULT.md exact rejection integral and omitted-direction covariance"
+      ],
+      "rationale": "The exact finite-sample validity diagnostic separates omission magnitude from alignment: two nonzero omitted directions can cancel, while collinearity attains the product-error order. The n=100,rho=0.1 example changes nominal 0.05 size to approximately 0.169. This is a motivated calibration benchmark for reduced-adjustment validity, not arbitrary parameter recomputation; the exact law and sharp correlation boundary provide information lost in magnitude-only bounds.",
+      "residual_risks": [
+        "Applicability is restricted to fixed scalar Gaussian reductions and ideal resampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
