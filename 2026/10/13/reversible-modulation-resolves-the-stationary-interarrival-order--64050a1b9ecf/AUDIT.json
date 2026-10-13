@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Reversibility makes \\(A=-Q+D\\) self-adjoint in \\(L^2(\\pi)\\), and its Dirichlet-form decomposition is strictly positive under irreducibility and positive mean event rate. The spectral theorem therefore represents the time-stationary survival as a positive finite mixture of exponentials. Its hazard derivative is exactly minus the variance of the spectral rates under exponentially tilted weights. The initial hazard is \\(\\lambda_*\\), while self-adjointness gives the exact identity \\(S_\\alpha=-S_\\pi'/\\lambda_*\\). These facts prove \\(S_\\alpha\\le S_\\pi\\). Equality analysis is exact because zero spectral variance means \\(\\mathbf 1\\) is an eigenvector of \\(A\\), equivalently \\(D\\mathbf 1\\) is constant, so all event rates are equal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The motivating paper covers symmetric C matrices, a subclass corresponding in the reversible setting to special unweighted symmetry.",
+        "Finite birth-death generators are reversible but generally nonsymmetric when their stationary distribution is nonuniform, so the theorem covers a natural class outside the source's symmetric-C statement.",
+        "Searches for broader reversible-killed-chain and birth-death MMPP formulations did not return a source stating the same stationary-arrival comparison."
+      ],
+      "reasoning": "General reversible spectral theory supplies the self-adjoint mechanism, but coverage of that mechanism does not by itself imply the MMPP comparison unless the Palm/event-stationary derivative identity and the initial-hazard normalization are assembled. No inspected source was found doing so.",
+      "searches": [
+        "\"reversible Markov-modulated Poisson\" interarrival DFR",
+        "\"reversible Markov chain\" \"MMPP\" interarrival hazard",
+        "\"birth-death\" \"Markov modulated Poisson\" stochastic order interarrival",
+        "reversible killed Markov chain exponential mixture survival"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.01736v1",
+      "DOI:10.1017/S1446181122000013",
+      "DOI:10.1017/jpr.2021.18",
+      "candidate-specific published-record searches over reversible MMPPs, detailed balance, time/event stationary interarrivals, hyperexponential survival, and birth-death modulators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source proves the two-state MMPP case and states that similar techniques handle symmetric C, but leaves higher-order general MMPPs open.",
+        "A reversible generator with nonuniform stationary distribution is self-adjoint only after weighting and may be nonsymmetric as a matrix, so it is not covered by the literal symmetric-C subclass.",
+        "He's later MMPP result supplies a scalar SCV bound in full generality; a variance bound does not imply pointwise stochastic ordering of the two survival functions."
+      ],
+      "reasoning": "The new claim is stronger than a moment inequality and broader than the source's symmetric-C subclass. The necessary bridge is the positive spectral measure of the constant vector in weighted \\(L^2(\\pi)\\), together with the exact Palm derivative relation.",
+      "searches": [
+        "Stationary Markovian Arrival Processes Results and Open Problems Conjecture 3.9 symmetric C",
+        "\"symmetric C\" MMPP stationary interarrival",
+        "Bounds mean squared coefficient variation phase-type distributions MMPP"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source writes the desired order as the survival inequality π exp(Ct)1 >= α exp(Ct)1 and labels it as the stochastic-order property.",
+        "Targeted searches using reversibility, detailed balance, decreasing hazard, and the two stationary initializations did not locate a published reversible-MMPP theorem matching the claim."
+      ],
+      "reasoning": "The searches cover the stochastic-order statement, its survival-function formulation, and its spectral/hazard equivalent under reversibility.",
+      "searches": [
+        "reversible Markov modulated Poisson time stationary event stationary interarrival stochastic order",
+        "reversible MMPP hazard time stationary",
+        "\"reversible MMPP\" \"time-stationary\" \"event-stationary\"",
+        "\"detailed balance\" \"MMPP\" interarrival"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact-formulation search located a reversible MMPP survival mixture or the strict equality criterion.",
+        "The three-state nonsymmetric reversible example in the verification package is generated directly from detailed balance and is not copied from a database."
+      ],
+      "reasoning": "The claim is a structural theorem rather than a tabulated numerical invariant; exact phrase and formula-oriented searches were used to check for a named result or standard special case.",
+      "searches": [
+        "\"time-stationary\" MMPP reversible",
+        "\"reversible MMPP\" hyperexponential",
+        "\"event-stationary\" MMPP reversible decreasing hazard"
+      ]
+    },
+    "rationale": "The motivating paper states the time-stationary versus event-stationary survival inequality as a conjecture for irreducible MMPPs, proves the two-state case, and notes the symmetric-C subclass. Reversibility with nonuniform stationary distribution is strictly broader than ordinary matrix symmetry, and the weighted-space proof is not implied by simply symmetrizing the matrix because the similarity transform generally does not preserve the Markov all-ones structure. Candidate-specific published-record searches and database searches found no statement of the reversible iff/equality refinement or the associated hyperexponential representation. The main residual risk is implicit coverage in older reversible killed-chain or phase-type spectral theory.",
+    "residual_risks": [
+      "The weighted spectral argument may be implicit in older reversible killed-chain, phase-type, or Markov-renewal literature under terminology unrelated to MMPPs.",
+      "The theorem leaves nonreversible modulators unresolved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_POSES_GENERAL_MMPP_ORDER_AND_COVERS_TWO_STATE_AND_SYMMETRIC_C_SPECIAL_CASES.",
+        "evidence": "The source states the desired survival inequality for irreducible MMPPs, proves order two, and notes symmetric C as another tractable subclass, while retaining the higher-order question.",
+        "identifier_or_url": "arXiv:1905.01736v1; DOI:10.1017/S1446181122000013",
+        "material_read": "Open full text: stationary survival formulas, the MMPP specialization and event-stationary initialization, Property IV, Conjecture 3.9, the two-state proof discussion, and the concluding symmetric-C remark.",
+        "method": "Lawful open-access arXiv/publisher full-text inspection.",
+        "title": "Stationary Markovian Arrival Processes, Results and Open Problems",
+        "trigger": "Direct source defining the two stationary interarrival laws, stating the MMPP stochastic-order conjecture, and recording known special cases."
+      },
+      {
+        "assessment": "SCALAR_MOMENT_RESULT_NOT_COVERING_STOCHASTIC_ORDER.",
+        "evidence": "The paper proves an SCV lower bound for MMPP inter-event times; it does not state the reversible time-stationary versus event-stationary survival order.",
+        "identifier_or_url": "DOI:10.1017/jpr.2021.18",
+        "material_read": "Published abstract, theorem description, and MMPP application concerning the squared coefficient of variation.",
+        "method": "Publisher/indexed article inspection.",
+        "title": "Bounds on the mean and squared coefficient of variation of phase-type distributions",
+        "trigger": "Later work cited in searches for progress on the MMPP inter-event variability question."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64050a1b-9ecf-44d6-8116-64f45ea3f16a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly identifies the stochastic order as a central MMPP problem. Reversibility is a major structural class that includes every finite birth-death modulator and many nonsymmetric generators with nonuniform stationary laws. The finding gives the full survival-function order, strictness/equality characterization, and an additional hyperexponential/decreasing-hazard representation, so it is a substantive structural advance beyond a scalar moment bound or a narrow numerical example.",
+    "status": "PASS"
+  }
+}
