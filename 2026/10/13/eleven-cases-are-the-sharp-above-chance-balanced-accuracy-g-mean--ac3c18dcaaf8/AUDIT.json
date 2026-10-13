@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "With sensitivity \\(s\\) and specificity \\(c\\), balanced accuracy is \\(B=(s+c)/2\\), squared G-mean is \\(G^2=sc\\), and \\(G^2=B^2-(s-c)^2/4\\). Exact exhaustive enumeration of every positive-cell, above-chance, fixed-prevalence table through \\(N=11\\) verifies no strict reversal for \\(N\\le10\\) and exactly six at \\(N=11\\), including the stated rational witness values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kubat and Matwin define a geometric-mean criterion from positive- and negative-class accuracies for imbalanced learning.",
+        "Brodersen et al. define balanced accuracy from class-specific accuracies and motivate it for class imbalance.",
+        "de Diego et al. discuss balanced accuracy and geometric mean side by side and show that equal balanced accuracy can mask different geometric-mean behavior."
+      ],
+      "reasoning": "These sources cover definitions, motivation, and generic non-equivalence. They do not provide a smallest above-chance fixed-prevalence integer sample or a complete first strict-reversal layer.",
+      "searches": [
+        "Addressing the Curse of Imbalanced Training Sets One-Sided Selection Kubat Matwin G criterion",
+        "The Balanced Accuracy and Its Posterior Distribution Brodersen",
+        "General Performance Score classification balanced accuracy geometric mean"
+      ]
+    },
+    "checked_sources": [
+      "dblp:conf/icml/KubatM97",
+      "doi:10.1109/ICPR.2010.764",
+      "doi:10.1007/s10489-021-03041-7",
+      "MSC2020:92B15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The arithmetic-mean/geometric-mean inequality gives \\(G\\le B\\) for each classifier but does not imply common ordering across classifiers.",
+        "A published balanced-accuracy tie split by G-mean establishes non-equivalence but does not imply any strict reversal, minimum sample size, or fixed-prevalence lower bound.",
+        "The accepted theorem explicitly excludes generic non-equivalence from its novelty claim and proves the finite minimality independently."
+      ],
+      "reasoning": "Known pointwise inequalities and examples do not subsume the exhaustive statement that every admissible pair with fewer than eleven cases avoids a strict reversal.",
+      "searches": [
+        "balanced accuracy versus geometric mean classifier metrics arithmetic geometric inequality",
+        "general performance score balanced accuracy geometric mean tie example",
+        "Kubat Matwin geometric mean sensitivity specificity imbalanced classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Balanced accuracy is the arithmetic mean of sensitivity and specificity.",
+        "The standard binary G-mean is the geometric mean of the same two class accuracies.",
+        "The claim is equivalently a fixed rational-grid reversal between arithmetic and geometric means under the constraint that the arithmetic mean exceeds one half."
+      ],
+      "reasoning": "Searches covered the metric names, their arithmetic/geometric-mean formulation, fixed prevalence, above-chance restriction, finite confusion matrices, and ranking-reversal terminology.",
+      "searches": [
+        "balanced accuracy G-mean arithmetic geometric mean sensitivity specificity above chance 11 cases",
+        "G-mean balanced accuracy same prevalence exact ranking reversal",
+        "sensitivity specificity arithmetic mean geometric mean classifier comparison",
+        "balanced accuracy geometric mean sensitivity specificity finite confusion matrix reversal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-witness search located the representative total-eleven pair as a minimal reversal.",
+        "No checked source tabulated the six-pair first strict layer.",
+        "The package constructs the complete layer from all admissible tables rather than importing a benchmark table."
+      ],
+      "reasoning": "Exact cell counts and exact score values are strong aliases for a small finite example; their absence from the checked indexed material reduces the risk that the claimed cutoff is a known table entry.",
+      "searches": [
+        "balanced accuracy G-mean smallest confusion matrix rank reversal",
+        "1 1 2 7 2 4 1 4 balanced accuracy G-mean",
+        "29/48 7/12 G-mean classifier",
+        "eleven balanced accuracy G-mean classifier reversal"
+      ]
+    },
+    "rationale": "Generic disagreement between arithmetic-mean balanced accuracy and geometric-mean class accuracy is established prior context. The originality claim is restricted to the sharp above-chance fixed-prevalence positive-cell finite cutoff, its first weak layer, and the complete first strict layer; no checked source covered those statements.",
+    "residual_risks": [
+      "A small witness could appear in unindexed teaching or software material without the fixed-prevalence minimality statement.",
+      "Generic balanced-accuracy versus G-mean non-equivalence is known; originality is restricted to the exact above-chance finite boundary and complete first layers.",
+      "Alternative G-mean conventions involving other rates are outside the searched statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the G-mean definition and motivation, not the finite fixed-prevalence reversal boundary.",
+        "evidence": "The paper introduces a geometric-mean criterion specifically so classifier quality reflects both positive- and negative-class accuracy.",
+        "identifier_or_url": "dblp:conf/icml/KubatM97",
+        "material_read": "Public full-text paper, especially the evaluation-criterion section defining the geometric mean of positive- and negative-class accuracies and motivating balance across classes.",
+        "method": "Full-text PDF inspection with page-level visual verification.",
+        "title": "Addressing the Curse of Imbalanced Training Sets: One-Sided Selection",
+        "trigger": "Foundational imbalanced-learning source for the sensitivity-specificity geometric-mean criterion."
+      },
+      {
+        "assessment": "Defines and motivates balanced accuracy but does not compare it with G-mean at a sharp finite boundary.",
+        "evidence": "The paper replaces ordinary accuracy with the average of class-specific accuracies to avoid optimistic evaluation of biased classifiers on imbalanced data.",
+        "identifier_or_url": "doi:10.1109/ICPR.2010.764",
+        "material_read": "Author-hosted full paper and institutional metadata, including the balanced-accuracy definition and class-imbalance motivation.",
+        "method": "Full-text PDF inspection and institutional publication-record check.",
+        "title": "The Balanced Accuracy and Its Posterior Distribution",
+        "trigger": "Primary balanced-accuracy source."
+      },
+      {
+        "assessment": "Strong direct prior art for generic non-equivalence and tie splitting; it does not state the above-chance fixed-prevalence minimum or complete first strict layer.",
+        "evidence": "The article treats balanced accuracy as an arithmetic class-accuracy aggregation and G-mean as a geometric aggregation, and notes differing behavior on imbalanced examples.",
+        "identifier_or_url": "doi:10.1007/s10489-021-03041-7",
+        "material_read": "Open full-text sections defining the metrics and the comparative confusion-matrix examples.",
+        "method": "Full-text HTML inspection.",
+        "title": "General Performance Score for classification problems",
+        "trigger": "Direct later comparison containing both balanced accuracy and sensitivity-specificity geometric mean."
+      },
+      {
+        "assessment": "Classifier-performance evaluation in biological and medical applications fits general biostatistics.",
+        "evidence": "MSC2020 names 92B15 as General biostatistics.",
+        "identifier_or_url": "MSC2020:92B15",
+        "material_read": "Official MSC2020 hierarchy entry for 92B15.",
+        "method": "Public MSC database inspection.",
+        "title": "MSC2020 database: 92B15 General biostatistics",
+        "trigger": "Primary subject-classification check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac3c18dc-aaf8-4676-9501-aaa61e8bb6d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Balanced accuracy and sensitivity-specificity G-mean are standard summaries for imbalanced binary classification. Fixing both prevalence and test-set size and excluding chance-or-worse and zero-cell cases makes the disagreement scientifically interpretable rather than a trivial degeneracy. The exact minimum and the identity \\(G^2=B^2-\\delta^2\\) quantify when unequal class performance is strong enough to overturn arithmetic-mean ranking.",
+    "status": "PASS"
+  }
+}
