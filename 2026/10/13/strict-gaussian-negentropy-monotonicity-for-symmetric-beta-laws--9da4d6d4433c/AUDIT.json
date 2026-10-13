@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian cross-entropy identity proves exact optimality and the beta logarithmic moments give J(a). Differentiating and applying trigamma duplication yields J’=-1/(2a+1)+(a-1)[psi1(a)-psi1(a+1/2)]. For a<=1 the second term is nonpositive. For a>1 the integral trigamma representation and strict AM-GM bound give the positive term strictly below 2(a-1)/(2a-1/2)^2, which is strictly less than 1/(2a+1) by the exact 9/4 identity. Stirling plus trigamma expansion establish J(a)->0 and J’~ -3/(8a^3), proving J~3/(16a^2). The odd-uniform-median Beta((n+1)/2,(n+1)/2) law yields the unique Gaussian, strict decrease and n^2 K_n->3/4. This is analytic, with high-precision numerical checks as corroboration; the proof claims nothing about other parents or reverse KL.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cardone–Dytso–Rush 2022 preprint, Theorem 1, treats general central order statistics with an asymptotic Gaussian variance and an order-level upper bound, not monotonicity of the exact best-Gaussian divergence across a continuous symmetric beta shape.",
+        "Skorski 2023 revised preprint, Theorems 2.1–2.3, gives sharp beta concentration and a moment recursion rather than relative-entropy ordering."
+      ],
+      "reasoning": "The broad parent-family entropic CLT does not logically imply finite-shape strict monotonicity: convergence or a rate bound permits nonmonotone sequences. A later journal article on the same object mentions entropy monotonicity in its abstract, but its full extension could not be examined; publication-priority risk remains instead of a fabricated noncoverage judgment.",
+      "searches": [
+        "\"Entropic Central Limit Theorem for Order Statistics\" \"monotonicity\" full text",
+        "\"Entropic CLT for Order Statistics\" arXiv:2205.04621v1",
+        "\"Bernstein-Type Bounds for Beta Distribution\" arXiv:2101.02094v5",
+        "\"symmetric beta distribution\" \"Kullback-Leibler\" \"normal\" \"monotonicity\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.04621v1 (full preprint)",
+      "arXiv:2101.02094v5 (full revised preprint)",
+      "DOI:10.1109/TIT.2022.3219344 (abstract only)",
+      "Additional searches for symmetric beta Gaussian negentropy, KL, monotonicity and median approximations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior beta entropy and order-statistic beta identification yield equation (1) directly, and with standard asymptotic manipulation can yield the stated leading coefficient.",
+        "But the strict all-real shape sign is not an immediate implication of an exact entropy expression or a positive rate bound; its proof explicitly compares a trigamma difference to the reciprocal variance slope.",
+        "The 2023 abstract signals related monotonicity discussion, without specifying direction, Gaussian normalization or quantifiers."
+      ],
+      "reasoning": "The separately motivated originality is the global strict ordering, across all real a>0, of the forward divergence to the unique moment-matched Gaussian, with the exact median-rate corollary. No claim of new beta entropy, asymptotic normality, standard information projection, or unsourced novelty of the sharp coefficient alone is made.",
+      "searches": [
+        "arXiv:2205.04621v1 Lemma 2 equations (15)–(17) and Appendix A",
+        "arXiv:2101.02094v5 Theorem 2.3 and Table 1",
+        "\"Entropic Central Limit Theorem for Order Statistics\" IEEE 2023 abstract monotonicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a finite-variance law the best Gaussian forward KL is Gaussian entropy minus differential entropy; the order-statistic source derives beta differential entropy but does not state strict global parameter monotonicity.",
+        "The trigamma integral bound controls the derivative sign for all real positive shapes, including non-integer and U-shaped laws."
+      ],
+      "reasoning": "Equivalent statements include negentropy, Gaussian entropy deficit, Gaussian information projection, and the entropy-power-to-variance ratio. The prior exact entropy formula makes the objective explicit, but the all-shape strict sign additionally needs the nontrivial trigamma comparison; no located source asserts that comparison for this object.",
+      "searches": [
+        "\"symmetric beta distributions\" \"entropy\" normal monotone shape parameter",
+        "\"Beta(a,a)\" \"Gaussian\" \"relative entropy\" monotonically",
+        "\"Beta(a,a)\" \"negentropy\" \"monotone\"",
+        "\"Kullback Leibler divergence\" \"beta normal approximation\" order statistic",
+        "arXiv:2205.04621v1 (full text, Sections II–IV and Appendix A)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected beta table lists central moments, not best-Gaussian KL monotonicity or an entropy-deficit numerical sequence.",
+        "The inspected order-statistic table/formula provides an exact entropy identity but not the claimed continuous parameter inequality."
+      ],
+      "reasoning": "The proposed constant is an asymptotic coefficient rather than a separately novel table entry. No exact database entry containing the global monotonic statement was identified; lookup incompleteness remains a risk.",
+      "searches": [
+        "\"beta(a,a)\" \"negentropy\" normal",
+        "\"entropy convergence standardized beta(m,m)\" \"3/16\"",
+        "\"sample median\" \"relative entropy\" Gaussian \"monotonicity\"",
+        "arXiv:2101.02094v5 Table 1 central beta moments",
+        "arXiv:2205.04621v1 Lemma 2"
+      ]
+    },
+    "rationale": "The specific global strict derivative inequality for the optimal forward-Gaussian KL projection of every symmetric beta shape is not given in the fully read primary beta-concentration or order-statistic entropy preprints. The published order-statistic entropy expansion provides relevant formulas and a faster symmetric entropy rate, so formula (1) alone and the existence of an entropic limit are not claimed new. The inaccessible expanded 2023 journal treatment explicitly mentions monotonicity and is an acknowledged publication-priority risk.",
+    "residual_risks": [
+      "The 2023 expanded journal publication is very close and mentions monotonicity; access to its full text was unavailable, so this is the leading priority risk.",
+      "A classical entropy-deficit or special-function inequality could express the exact monotonic sign under a different name.",
+      "The sharp coefficient follows from published exact beta entropy and standard asymptotic expansions; the claimed contribution rests on strict global monotonicity, not first discovery of the formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies exact uniform order-statistic entropy and an asymptotic entropic CLT; does not state strict all-positive symmetric-beta shape monotonicity of best Gaussian forward divergence.",
+        "evidence": [
+          "Theorem 1 bounds D(X_(np)||G_(n,p)) at an asymptotic-variance Gaussian, equation (7).",
+          "Lemma 2 gives exact entropy and notes enhanced p=1/2 convergence after equation (17).",
+          "Appendix A proves the entropy formula; none of these establishes a continuous shape-derivative sign."
+        ],
+        "identifier_or_url": "arXiv:2205.04621v1; https://arxiv.org/html/2205.04621v1",
+        "material_read": "Complete 11-page preprint, including Theorem 1, Section III-A exact entropy Lemma 2, discussion, Appendix A and remaining appendices.",
+        "method": "Read accessible open full text, check same beta parameters, Gaussian variance convention, quantifiers and whether a monotonicity theorem is present.",
+        "title": "Entropic CLT for Order Statistics",
+        "trigger": "Same central uniform order statistics and forward Gaussian relative entropy; possible direct coverage."
+      },
+      {
+        "assessment": "Sharp Bernstein concentration and a two-step central-moment recursion do not assert monotone Gaussian KL entropy gap.",
+        "evidence": [
+          "Theorems 2.1 and 2.2 bound beta deviations, and Theorem 2.3 gives a moment recurrence.",
+          "Table 1 tabulates beta moments, not entropy deficit or shape-monotonicity."
+        ],
+        "identifier_or_url": "arXiv:2101.02094v5; https://arxiv.org/html/2101.02094v5",
+        "material_read": "Accessible full-text sections and main proofs; concentration theorems 2.1–2.3 and moment table examined.",
+        "method": "Compare concentration bounds and central-moment recurrence against forward KL Gaussian information projection.",
+        "title": "Bernstein-Type Bounds for Beta Distribution",
+        "trigger": "Beta distribution with continuous positive shape parameters; possible Gaussian approximation domination."
+      },
+      {
+        "assessment": "Unresolved priority risk, not asserted to be noncovering or an independently validated novelty claim.",
+        "evidence": [
+          "The published abstract says the paper discusses the rate and monotonicity of relative entropy without displaying the exact objects, normalization or quantified sign."
+        ],
+        "identifier_or_url": "DOI:10.1109/TIT.2022.3219344; IEEE Transactions on Information Theory 69 (2023), 2193–2205",
+        "material_read": "Publisher/host abstract and bibliography only; the 2022 accessible preprint was inspected as the closest available related version.",
+        "method": "Checked published abstract, bibliographic details and preprint version; lawful full journal text remained unavailable.",
+        "title": "Entropic Central Limit Theorem for Order Statistics",
+        "trigger": "Later enlarged journal paper on the exact same family; its abstract explicitly mentions monotonicity of relative entropy."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9da4d6d4-433c-498b-997d-618ab6846073",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For beta shape a>0, the entire U-shaped/uniform/unimodal transition is naturally parameterized and standardization fixes mean and variance. Forward Gaussian negentropy is the canonical information-theoretic measure of shape approximation, so strict ordering for all real parameters is a structural statement not supplied by CLT convergence or second-order entropy rates. The same result yields the exact best-Gaussian finite-sample improvement for every odd uniform-sample median and its sharp asymptotic error. The value is a natural complete one-parameter characterization, not an arbitrary finite slice, and does not depend on proving a downstream general theorem.",
+    "status": "PASS"
+  }
+}
