@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "After normalization and padding, each positive tail sign pattern corresponds exactly to a subset J with subset weight at most tau. The two-case square-norm calculation proves tau is at least min(b3,b1+b2), forcing four admissible subsets. The only candidates for the fourth/fifth boundary beyond the empty set and the first two singletons are b3, b4, and b1+b2; this yields the iff condition u<=tau<v. Symmetry converts four positive patterns among 32 into two-sided probability 1/4. If tau reaches v, a fifth positive pattern enters, giving at least 5/16. The argument handles zero padding and coefficient ties; finite enumeration is used only as a regression check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hollom proves the unrestricted infimum f(1)=7/32 and a full threshold profile; at threshold one the global extremizer uses six equal coefficients, so this dimension-free theorem does not identify the minimizers after restricting support size to at most five.",
+        "Full-text searches in Hollom’s paper found no “at most five” or “five nonzero” formulation, and the displayed 1/4 results concern a different threshold interval rather than the restricted equality set at threshold one.",
+        "Hu-Lan-Sun state the low-dimensional constant values but do not provide the [u,v) minimizer geometry."
+      ],
+      "reasoning": "A stronger unrestricted lower-bound theorem can dominate numerical bounds without determining the equality set of a restricted class. Neither inspected full text contains the coefficient-order criterion proved here.",
+      "searches": [
+        "doi:10.1002/rsa.70024 full publisher HTML: Theorems 1.1-1.3 and text searches for “at most five”, “five nonzero”, “support”, and “1/4”",
+        "arXiv:1910.11312 full author-posted text: introduction and Section 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.11312 (first public 2019-10-24; full author-posted text inspected)",
+      "doi:10.1007/s10255-021-0993-0 (publication corresponding to the primary source; primary MSC 60C05)",
+      "doi:10.1002/rsa.70024 (full publisher HTML inspected)",
+      "Four candidate-specific semantic database searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knowing only that an infimum equals 1/4 does not determine all coefficient vectors attaining it; the new theorem supplies a necessary and sufficient condition for attainment.",
+        "The 2025 unrestricted value 7/32 is strictly below the at-most-five value 1/4 and therefore cannot by itself characterize the restricted minimizers."
+      ],
+      "reasoning": "The new implication is classification-level: it identifies every minimizer and establishes a 5/16 gap for nonminimizers. The cited prior statements provide sharp values or global profiles but not this restricted equality geometry.",
+      "searches": [
+        "arXiv:1910.11312 lines defining G_n and recording G3=G4=G5=1/4",
+        "doi:10.1002/rsa.70024 Theorems 1.1-1.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source defines G_n as the infimum of the one-standard-deviation Rademacher tail and states G3=G4=G5=1/4, providing the exact equivalent extremal problem.",
+        "The new condition is equivalent to saying that exactly four subsets J of the five padded coordinates have weight at most tau; this is an equality-set classification, not a new notation for the value of G5.",
+        "No targeted semantic search returned a statement classifying all G3-G5 minimizers by subset-sum order statistics."
+      ],
+      "reasoning": "Searches covered the named constant, one-standard-deviation tail language, coefficient-support language, equality/minimizer terminology, and the equivalent Boolean subset-sum formulation.",
+      "searches": [
+        "Rademacher Hitczenko Kwapien G5 equality cases exact minimizers probability |sum a_i epsilon_i| >= ||a|| 1/4",
+        "five-coordinate Rademacher tail one standard deviation equality classification 1/4",
+        "at most five nonzero coefficients Rademacher sum exact equality tail 1/4",
+        "Rademacher sign sums four positive sign patterns threshold norm equality geometry",
+        "arXiv:1910.11312: finite-dimensional constants G_n and sign-vector formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result titled “Complete extremizer classification for the four-character extreme set in Z_5” concerns finite Fourier measures, not Rademacher tails.",
+        "The indexed result “Sharp weak-signal profiles for mirror Bernoulli products” concerns first absolute moments in a weak-signal regime, not one-standard-deviation tail minimizers.",
+        "The indexed result on sharp Levy inflation concerns pairwise-independent increments and maximal-to-terminal tails, not independent Rademacher coefficient minimizers."
+      ],
+      "reasoning": "No exact database hit involved the same Rademacher tail functional, support-size restriction, and equality-set question.",
+      "searches": [
+        "Rademacher Hitczenko Kwapien G5 equality cases exact minimizers probability |sum a_i epsilon_i| >= ||a|| 1/4",
+        "five-coordinate Rademacher tail one standard deviation equality classification 1/4",
+        "at most five nonzero coefficients Rademacher sum exact equality tail 1/4",
+        "Rademacher sign sums four positive sign patterns threshold norm equality geometry"
+      ]
+    },
+    "rationale": "The 2019/2021 Hu-Lan-Sun paper explicitly records only the values G3=G4=G5=1/4 and later proves a 7/32 bound through dimension seven; inspection of its full public text found no equality classification for the G3-G5 minimizers. Hollom’s 2025 full theorem gives the unrestricted sharp tail profile and a global 7/32 bound at threshold one, but searches of the full public text found no support-size-at-most-five minimizer classification. Four targeted semantic searches found no covering statement.",
+    "residual_risks": [
+      "An older or unpublished elementary note may classify the same equality set purely as a Boolean subset-sum statement without using Hitczenko–Kwapień terminology.",
+      "The theorem does not classify the distinct strict-tail constants G_n prime, where boundary sign patterns are treated differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source states G3=G4=G5=1/4 and proves the 7/32 lower bound through dimension seven, but does not state a necessary-and-sufficient coefficient condition for equality at G3-G5.",
+        "identifier_or_url": "arXiv:1910.11312 / doi:10.1007/s10255-021-0993-0",
+        "material_read": "Author-posted full text, including abstract/MSC, introduction around the definition of G_n, Section 3 theorem statements, and sign-vector setup.",
+        "method": "Lawful public author-posted full-text HTML extraction.",
+        "title": "Some explorations on two conjectures about Rademacher sequences",
+        "trigger": "Direct primary source defining the finite-dimensional Hitczenko–Kwapień constants and recording the low-dimensional values."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves f(1)=7/32 globally and the full threshold profile. It does not state the at-most-five equality classification or the [u,v) coefficient criterion.",
+        "identifier_or_url": "doi:10.1002/rsa.70024",
+        "material_read": "Full publisher HTML containing Theorems 1.1-1.3, the threshold profile, the threshold-one proof sections, and exact text searches for support-size/equality aliases.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "Tight Anti-Concentration of Rademacher Sums",
+        "trigger": "Later strongest directly related result, giving the unrestricted sharp tail profile."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d776940-4db4-47ce-ac1d-3d1f0db5271d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source already identifies the exact low-dimensional constant but leaves the extremal geometry implicit. A complete equality classification is a natural structural refinement: it tells exactly which low-dimensional Rademacher sums attain the sharp tail probability and reveals a discrete jump to at least 5/16 outside the minimizer region. The condition is scale-, sign-, and permutation-invariant after canonical sorting, and applies to the whole at-most-five class rather than to an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
