@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The Nyström rank-one eigenvalue is the exact Rayleigh quotient proved in RESULT.md. Operator monotonicity of the target matrix power makes the error positive semidefinite and identifies its nuclear norm with a trace difference. The quotient of two squared independent real Gaussian entries has the beta-prime density used in the explicit rescaled integral. The exhibited integrable majorant justifies dominated convergence for every stated real exponent and integer power-pass count; integration by parts evaluates the coefficient using a beta integral. The sharp regimes follow by comparison with the exponent boundary. The exact unit-power identity is an elementary beta-prime resolvent integral, and the coupled almost-sure claim follows from the pointwise expansion. The bundled Python checker reports CHECKS_OK algebra=100 quadrature=16 constants=2. Finite tests supplement the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson–Kressner Theorem 3.9 requires at least two target columns and two oversampling columns, excluding the single-column unsampled-tail regime. Theorem 3.10 imposes still stronger dimensional restrictions.",
+        "Persson–Kressner Lemma 3.11 derives an alignment-dependent deterministic bound, not an integrable sharp single-column Gaussian expectation.",
+        "Gittens–Mahoney Theorem 4 provides a trace tail bound plus a gap-suppressed squared pseudoinverse-sketch term. For a one-dimensional Gaussian leading sketch that term has infinite mean, so the estimate does not determine the present expectation."
+      ],
+      "reasoning": "The broader ambient matrix results do not imply this formula: available expectation results exclude one sketch column with no oversampling, while the relevant deterministic bound has a nonintegrable single-column Gaussian upper term. The fractional-power trace is independently integrated.",
+      "searches": [
+        "power Nyström funNyström q=2 k=1 two eigenvalues high condition number sharp Gaussian trace asymptotics",
+        "Persson Kressner funNystrom power iterations q one column condition number trace nuclear error logarithm 2x2",
+        "Gittens Mahoney revisiting Nystrom method 2016 JMLR full text html power method trace norm gaussian"
+      ]
+    },
+    "checked_sources": [
+      "Persson–Kressner arXiv:2209.11023v3 (open-access full-text mathematical sections and appendices); first submitted 2022-09-22",
+      "Persson–Kressner SIAM J. Matrix Anal. Appl. 44 (2023), DOI:10.1137/22M1523923 (primary MSC 65F60 and publication metadata)",
+      "Gittens–Mahoney JMLR 17 (2016), article 117 (relevant full-text proof sections)",
+      "Publicly searchable mathematical records and primary-literature search phrases listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Persson–Kressner provides the algorithm, Loewner comparison, and an expected nuclear-norm upper bound restricted to at least two target and oversampling columns, not the present sharp one-column expected rate.",
+        "Gittens–Mahoney bounds the trace by an inverse-leading-Gaussian alignment term with infinite mean in the one-column setting; the upper bound cannot imply the finite expected error.",
+        "The one-pass ordinary-matrix-function specialization is elementary prior Gaussian residual behavior and serves as a consistency check, not the priority claim."
+      ],
+      "reasoning": "The additional fact is exact integration of a one-column nonlinear trace estimator, yielding a sharp exponent and a nonuniform-integrability boundary. The named source inequalities do not already imply that integration or its sharp constant.",
+      "searches": [
+        "arXiv:2209.11023v3 formula (3), Theorem 3.9, Lemma 3.11, Section 3.3 and numerical Sections 4–5",
+        "JMLR 17(117), Gittens–Mahoney Theorem 4 and power-method Section 2.3",
+        "\"funNystrom\" \"two\" \"trace\" \"power\" Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Persson–Kressner formula (3) defines the powered Nyström estimator, while Section 3.3 bounds transformed nuclear-norm error without this two-eigenvalue, one-column Gaussian trace equivalent.",
+        "Gittens–Mahoney Section 2.3 and Theorem 4 treat untransformed power Nyström with a trailing-to-leading sketch pseudoinverse factor, not the mean fractional-power transformed trace.",
+        "The previously recorded unpowered two-eigenvalue Gaussian residual specialization is acknowledged, not claimed as original."
+      ],
+      "reasoning": "The transformed risk is the trace difference between the original matrix power and the power of the rank-one approximant, with its nonlinear leading eigenvalue. For at least two power passes it has the sharp explicit expected decay shown in the theorem; that is not logically implied by deterministic untransformed norm control or unpowered one-pass residual moments.",
+      "searches": [
+        "matrix power functions f(Ahat) A^theta Gaussian rank one Nyström funNyström trace error operator monotone",
+        "\"funNyström\" \"Gaussian\" \"rank-one\" \"square-root\"",
+        "\"Nyström\" \"matrix powers\" \"trace error\" exact Gaussian 2x2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible Persson–Kressner Section 4 numerical figures compare empirical relative errors and computational costs, not the two-eigenvalue one-column transformed-trace asymptotic.",
+        "Gittens–Mahoney Section 3 experiments and Section 4 structural bounds do not contain this Beta/Gamma coefficient or the function-exponent crossover."
+      ],
+      "reasoning": "The targeted source and search checks found no exact table or closed-form entry subsuming the all-q, all-theta trace statement. This is a bounded negative search result and not a proof of worldwide novelty.",
+      "searches": [
+        "\"funNyström\" \"single Gaussian\" rank one trace error",
+        "\"power Nyström\" \"trace\" asymptotic two eigenvalues",
+        "\"funNyström\" \"power iteration\" \"trace\" condition number phase"
+      ]
+    },
+    "rationale": "The sharp one-column transformed-trace asymptotic for every fixed positive power-pass count, in particular the two-pass expectation rate and the one-pass matrix-square-root boundary, is not supplied by either inspected defining source. The funNyström paper gives multi-column expectation bounds requiring at least two target and oversampling columns; Gittens–Mahoney gives a deterministic alignment-dependent trace bound whose leading-sketch inverse second moment is infinite for one Gaussian column. Neither dominates this finite nonlinear expected trace law. Prior unpowered rank-one residual behavior is explicitly credited. An unindexed specialized two-dimensional calculation remains a priority risk.",
+    "residual_risks": [
+      "A specialized unindexed two-by-two Gaussian power-Nyström derivation might contain the same coefficient.",
+      "The sharp model is two-dimensional and does not establish high-dimensional stability or comparable behavior under oversampling.",
+      "The ordinary one-pass untransformed residual law is previously understood; the claimed priority is restricted to the combined all-pass and all-matrix-power transformed-trace equivalent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the Nyström matrix function algorithm and bounds but not the one-column sharp trace expectation; k,p>=2 prevents directly applying its expectation theorem.",
+        "evidence": [
+          "arXiv:2209.11023v3, Sections 2, 3.1, 3.3, 4, 5; Theorem 3.9 and Lemma 3.11."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.11023v3",
+        "material_read": "Open-access complete HTML source sections 1–5, especially formula (3), algorithm 1, Section 3.1 projector identity, Section 3.3 Theorems 3.9–3.10, Lemma 3.11 with proof, Sections 4 and 5 comparisons; appendix structural proof.",
+        "method": "Read open-access arXiv HTML mathematical statements, proofs, experimental comparisons and appendix text.",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Defining algorithm and the most direct competing transformed matrix-function trace/nuclear-norm estimates."
+      },
+      {
+        "assessment": "Gives a trace error bound for arbitrary sketches but not a finite one-column Gaussian expectation of the fractional-power transformed estimate.",
+        "evidence": [
+          "JMLR 17 (2016) article 117, Sections 2.3 and 4.1, Theorem 4 p. 48."
+        ],
+        "identifier_or_url": "https://jmlr.csail.mit.edu/papers/volume17/gittens16a/gittens16a.pdf",
+        "material_read": "Primary full-text PDF introduction and relevant sections 2.3, 4.1.2–4.1.4, Theorem 4 on pp. 47–48, its displayed proof and accompanying discussion; pages visually inspected.",
+        "method": "Read page text and rendered page image for Theorem 4 and check source definitions.",
+        "title": "Revisiting the Nyström Method for Improved Large-scale Machine Learning",
+        "trigger": "Earlier strong and potentially dominating trace error theorem for powered SPSD sketches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9bb62c84-8ba0-4d93-bcb2-e869fd77a16d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining algorithm is designed for trace and matrix-function approximation, so the smallest nontrivial sketch size is a motivated stress case. For one power pass the square-root target has a strictly positive limiting expected excess despite almost every coupled realization approaching the rank-one optimum, and larger matrix-power exponents produce diverging mean excess. One additional pass restores asymptotic mean-optimality across the stated full operator-monotone matrix-power range with a sharp rate. This natural sampling-versus-function-smoothness boundary informs what an expected-error guarantee can conceal; it is explicitly restricted to two eigenvalues.",
+    "status": "PASS"
+  }
+}
