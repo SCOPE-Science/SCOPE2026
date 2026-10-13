@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the source ODE and next-generation number directly. At the all-positive parameter vector, exact fractions give R0=102067/117000<1 and a feasible positive equilibrium E1=(20,1,1/4,11/2). Reversible positive-domain elimination factors the remaining scalar equation as -z(4z-1)Q(z)/P(z), P(z)>0. Descartes plus endpoint signs prove Q has exactly one simple positive root. The characteristic polynomials certify local stability at E0 and a positive eigenvalue at E1. Implicit-function reasoning establishes open-parameter persistence; bundled exact-rational standard-library code recomputes the nonstandard algebra.",
+    "risks": [
+      "Computational checks support but do not replace the analytic sign, uniqueness, and implicit-function arguments."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cui–Mu–Wan (2008), DOI 10.1016/j.jtbi.2008.05.015, abstract: subthreshold multiple endemic equilibria and backward bifurcation in a limited-treatment epidemic system.",
+        "van den Driessche–Watmough (2002), DOI 10.1016/S0025-5564(02)00108-6, develops threshold and subthreshold equilibria theory for general compartmental disease models.",
+        "Mohamed (2026) cites nonlinear intervention models but asserts an opposing subthreshold global-stability result for its exact model."
+      ],
+      "reasoning": "Generic results on saturated recovery can explain why backward effects arise but do not give, in the material inspected, the exact USCD parameter vector, its two-positive-root census, or a contradiction to Mohamed Theorem 3.3. Exhaustive domination by the inaccessible 2008 full text is not ruled out.",
+      "searches": [
+        "saturated treatment recovery backward bifurcation multiple equilibria reproduction number below unity",
+        "Cui Mu Wan 2008 Saturation recovery leads to multiple endemic equilibria and backward bifurcation",
+        "van den Driessche Watmough 2002 reproduction numbers sub-threshold endemic equilibria compartmental models",
+        "Hakim Fatmawati 2026 rumor saturated recruitment control forward bifurcation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.65904/3083-1733.2026.2.2 (full primary text)",
+      "doi:10.1016/j.jtbi.2008.05.015 (abstract)",
+      "doi:10.1016/S0025-5564(02)00108-6 (bibliographic/reference-level)",
+      "doi:10.28924/2291-8639-24-2026-308 (different 2026 saturated-incidence rumor model, abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mohamed (2026), Theorem 3.3, claims rumor-free global asymptotic stability whenever R0<1, while the constructed E1=(20,1,1/4,11/2) is a stationary feasible non-rumor-free trajectory at R0=102067/117000.",
+        "Cui–Mu–Wan (2008) proves qualitatively similar multiplicity for a different saturated-treatment epidemic model, so general backward-bifurcation effects are already covered.",
+        "The current exact polynomial elimination proves exactly two positive fixed points at these parameters, a statement stronger than merely exhibiting one counterexample."
+      ],
+      "reasoning": "The explicit positive stationary point directly contradicts the universal attraction statement in the target article, whereas generic epidemic backward-bifurcation theory has no cited formula that computes this exact USCD equilibrium census. This carefully excludes any claim of discovering backward bifurcation generically.",
+      "searches": [
+        "Dynamics and Control of a Social Rumor Spreading Model with Fact-Checking Strategies Mohamed reproduction threshold saturated fact checking",
+        "saturated treatment recovery backward bifurcation multiple equilibria reproduction number below unity",
+        "Mohamed 2026 theorem 3.3 R0<1 rumor-free globally asymptotically stable",
+        "doi:10.65904/3083-1733.2026.2.2",
+        "doi:10.1016/j.jtbi.2008.05.015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source, DOI 10.65904/3083-1733.2026.2.2, equations (1)-(4), (19)-(21) and Theorem 3.3, describes the same USCD model but claims global elimination below threshold.",
+        "Exact parameter identity and equilibrium reduction give two positive states at R0=102067/117000; no matching model-specific theorem or reformulation was found in the inspected material."
+      ],
+      "reasoning": "A backward-bifurcation label is not itself equivalent to the proved statement: this claim counts all equilibria of the four-dimensional model under a fully specified positive parameter vector and proves parameter robustness. The 2008 analogue demonstrates the general possibility in a different epidemic ODE and is not treated as independent novelty.",
+      "searches": [
+        "Dynamics and Control of a Social Rumor Spreading Model with Fact-Checking Strategies Mohamed reproduction threshold saturated fact checking",
+        "four compartment rumor spreader convinced debunked saturated fact checking multiple positive equilibria below reproduction number 1",
+        "positive endemic coexistence equilibria subthreshold rumor propagation saturated fact-checking 2026",
+        "doi:10.65904/3083-1733.2026.2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source article’s numerical simulations and its equilibrium section did not include the specified rational parameter point or the factored sextic equilibrium polynomial.",
+        "The two exact numeric fractions and leading sextic coefficients were checked in literature searches; no matching posted database or calculation was identified."
+      ],
+      "reasoning": "The claim is an exact analytic equilibrium classification and stability comparison, not a catalog entry; absence from search is not proof that unindexed calculations do not exist.",
+      "searches": [
+        "1577/4000 rumor equilibrium 102067/117000",
+        "303168 2586288 8092284 rumor equilibrium",
+        "Mohamed Menad rumor 2026 numerical equilibrium alpha1 sigma1 fact checking"
+      ]
+    },
+    "rationale": "The complete ten-page primary article (Mohamed 2026) was inspected: it states global rumor-free attraction for reproduction number less than one and supplies no subthreshold positive fixed point or complete count. An exact three-equilibrium counterexample with strictly positive rates and all four compartments present is therefore not implied by that article. Earlier saturated-recovery work already establishes the general phenomenon of backward bifurcation, so general novelty is explicitly disclaimed; the result is the robust exact census in this specific four-dimensional rumor model. Full text of the 2008 generic analogue was not available, leaving a documented literature-overlap risk.",
+    "residual_risks": [
+      "Complete 2008 saturated-recovery full text was not obtainable; its broader abstract implications were compared conservatively and no whole-document noncoverage is asserted.",
+      "Other unindexed parameter constructions or model-specialized results could exist.",
+      "A nonzero equilibrium need not attract; bistability is unproved and unclaimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The printed model has distinct saturation terms and residual contact from D. Theorem 3.3 claims global rumor-free stability at R0<1, incompatible with the constructed positive equilibria. The article does not report the exact subthreshold multiplicity.",
+        "evidence": [
+          "Equations (1)–(4) specify the ODE; equation (19) specifies R0; Theorem 3.3 is an unconditional R0<1 global-stability statement.",
+          "Publication timeline lists first public April 13, 2026; the journal lists primary MSC 92D30."
+        ],
+        "identifier_or_url": "https://mscmjournal.com/index.php/mscm/article/download/20/14/207",
+        "material_read": "Full 10-page article (journal pages 11–20), including equations (1)–(4), (17)–(23), Theorems 3.1–3.5, figures, numerical section, and references.",
+        "method": "Page-by-page official open-access full-text and image inspection.",
+        "title": "Dynamics and Control of a Social Rumor Spreading Model with Fact-Checking Strategies",
+        "trigger": "Exact originating 2026 model and claimed R0-subunit global stability."
+      },
+      {
+        "assessment": "Covers generic subthreshold backward-bifurcation possibility in an epidemic treatment model, not demonstrably the particular rumor ODE or its rational three-equilibrium census. Residual risk is explicitly retained.",
+        "evidence": [
+          "DOI 10.1016/j.jtbi.2008.05.015; abstract states multiple endemic equilibria and backward bifurcation when R0<1."
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/18586277/",
+        "material_read": "PubMed and environmental-literature bibliographic entries and full abstract; full article inaccessible.",
+        "method": "Abstract and bibliographic metadata comparison, without extrapolating to uninspected theorems.",
+        "title": "Saturation recovery leads to multiple endemic equilibria and backward bifurcation",
+        "trigger": "Closest established conceptual prior analogue: saturation-driven subthreshold equilibria."
+      },
+      {
+        "assessment": "General threshold formalism does not by itself supply the exact four-dimensional rumor model census or all-positive parameter witness.",
+        "evidence": [
+          "The 2026 primary article cites the 2002 paper for next-generation formulation."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0025-5564(02)00108-6",
+        "material_read": "Bibliographic summary and citations in the complete 2026 primary article; no claim of complete 2002 paper inspection.",
+        "method": "Relevant implication and conceptual comparison.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "General next-generation and subthreshold-equilibrium theory cited by primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "448387d6-6fe7-4e18-83d4-14099f207d56",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Below-threshold elimination is a central policy-relevant interpretation of the published rumor ODE. The full positive equilibrium census (three nonnegative total), robust in parameters, establishes a substantial exact boundary for that conclusion without treating generic backward-bifurcation effects as novel. Strictly positive rates, two saturating interventions, residual contact from the debunked class, and complete root counting make it more than a trivial negative check.",
+    "status": "PASS"
+  }
+}
