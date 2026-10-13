@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exact product q_k(m)=∏_{j<k}d_j follows from the Catalan/Gödel generating-function recurrence and square-root coefficient extraction at r=1/(4m). The squared critical orbit X_j satisfies X_{j+1}=X_j+h/2-h²/(16X_j)+O(h³), uniformly 1/4≤X_j≤3/4. Its first correction is R(s)=-(log(1+2s))/8, with uniform O(h²) remainder by summing O(h³) step defects. The exact factors yield log d_j =h f_0(s_j)+h² f_1(s_j)+O(h³); uniform Euler summation to k≤m-1 and explicit integration give E(t). Endpoint k=m-1 shifts t by h and yields (8+log3)/12. A stdlib Python checker replays all product terms for m up to 2000, compares every cut with the expansion, and separately checks Catalan row-count DP for m=2..6,n≤8; VERIFY_OK. Finite tests supplement but do not replace the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yildiz (2026), Proposition 7 and Theorems 4-6: exact derivative product at any finite m, leading macroscopic limit, and limiting top mass 1/sqrt(3), plus numerical m tables. The inspected full text uses only an O(1/m) orbit bound, not the new explicit first correction or O(m^-2) remainder.",
+        "Yildiz (2020) analyzes the distinct three-valued Kleene operation and cannot subsume variable-chain Gödel semantics."
+      ],
+      "reasoning": "The published finite-m product does determine q_k(m) exactly and is stronger for pointwise computation; this is expressly acknowledged. The present *asymptotic theorem* is about its rate and uniform second-order error across m dependent cuts, which the published leading limit and exact recursion do not state or immediately specialize to. The distinction is quantitative uniformity, not a new exact distribution.",
+      "searches": [
+        "Volkan Yildiz truth table Catalan m chain 2026 finite m error asymptotic (8+log 3)/12",
+        "Godel algebra Catalan bracketings output top asymptotic 1/sqrt 3 refined convergence rate",
+        "arXiv:2602.16135v1 Theorems 4-6; Sections II and III",
+        "arXiv:2010.10303 older Kleene implication counts"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.16135v1, full text (researchgate publication 400930315)",
+      "arXiv:2010.10303 (researchgate publication 344780532)",
+      "Flajolet and Sedgewick, Analytic Combinatorics (2009), standard transfer theorem background",
+      "published-finding corpus search results: 2026/9/30/SCOPE-factorial-over-logarithmic-growth-of-automorphisms-of-free-g-del--44ba36618b26",
+      "published-finding corpus search results: 2026/10/4/SCOPE-a-catalan-ternary-law-for-line-counts-on-critical-hypersurfaces--79df06bdf74c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 motivating work establishes leading convergence and an O(m^-1) approximation to its critical orbit. The new proof needs an explicit order-h orbit correction R(t)=-(log(1+2t))/8 and the order-h Euler endpoint term, producing E(t).",
+        "Own present and preceding ledgers were scanned for Gödel implication, Catalan bracketings, finite chain limit laws, and asymptotic correction; their closest Gödel entries concern modal frame semantics and unrelated chain preconditionals."
+      ],
+      "reasoning": "The claim is an analytic uniform refinement of the published product, not a corollary obtained by substitution into a stated stronger asymptotic theorem. Equivalence to an unindexed numerical-analysis expansion remains a residual overlap risk.",
+      "searches": [
+        "Godel implication Catalan bracketings m valued truth tables asymptotic 1 over sqrt 3 first order finite m correction logarithm 3",
+        "Phi inverse Ψ critical iterates expansion large m p top (m) Euler Maclaurin second order",
+        "truth table entries fully bracketed Gödel implication second-order m asymptotic 2026",
+        "2026 current ledger g000082 claim/title dedup",
+        "2026 September ledger g000059 claim/title dedup"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 primary text gives q_k(m) exactly as a derivative product and its leading (1+2t)^(-1/2) limit (Theorems 4-6), but no uniform first correction E(t).",
+        "Focused published-finding corpus queries returned 2026/9/30/SCOPE-factorial-over-logarithmic-growth-of-automorphisms-of-free-g-del--44ba36618b26 (automorphism growth; not Gödel-implication survival), 2026/10/4/SCOPE-a-catalan-ternary-law-for-line-counts-on-critical-hypersurfaces--79df06bdf74c (unrelated Catalan geometry)."
+      ],
+      "reasoning": "The search explicitly included nested-radical derivatives, first-order Euler corrections, Gödel-chain limit proportions, and the candidate coefficient. No inspected work states the uniform correction. A formal finite-m product alone does not supply the explicit large-m uniform error and coefficient without nontrivial asymptotic analysis.",
+      "searches": [
+        "Godel implication Catalan bracketings m valued truth tables asymptotic 1 over sqrt 3 first order finite m correction logarithm 3",
+        "nested radical derivative iteration Gödel implication limiting true rows convergence correction 1/m",
+        "Phi inverse Ψ critical iterates expansion large m p top (m) Euler Maclaurin second order",
+        "Gödel implication Catalan finite m convergence correction asymptotic",
+        "arXiv:2602.16135v1, Sections II.2 and III"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing numerical tables in Yildiz (2026) include top masses for m=2,3,4,5,10,20,100,200,1000,10000 and a few complete finite-m vectors. None tabulates a first-order correction formula uniform across rank cuts.",
+        "No published-finding corpus ranked result identifies a table of E(t) coefficients or the coefficient (8+log 3)/12."
+      ],
+      "reasoning": "A finite table of exact masses and an exact computable recursion are not an equivalent statement of an analytic expansion with a uniform O(m^-2) remainder. No independent table of this continuum-dependent correction was found.",
+      "searches": [
+        "Volkan Yildiz truth table Catalan m chain 2026 finite m error asymptotic (8+log 3)/12",
+        "Yildiz Gödel Implication first-order correction 2026",
+        "Catalan Gödel logic truth-table limiting survival first order asymptotic uniform cuts m 2026",
+        "Yildiz 2026 Table 3, Table 4, Table 5 and Table 6"
+      ]
+    },
+    "rationale": "An original explicit uniform first-order large-chain correction is derived for all rank cuts, absent from the inspected source that supplies only exact finite-m products and leading large-m laws. The published exact formula is the key input and limits the novelty claim to asymptotic refinement, not to discovering the distribution. Actual published-finding corpus and literature searches, and own current/prior ledger dedup, found no claim giving E(t), though older/unindexed expansions remain possible.",
+    "residual_risks": [
+      "Published exact product already determines every finite-m mass; a reader might regard the uniform asymptotic expansion as an implicit analytic consequence. It is not a verbatim covered theorem in the inspected text.",
+      "An algebraically equivalent higher-order expansion in a paper indexed under Euler discretization or nested-radical iterations may have escaped semantic search.",
+      "Searches cannot prove global uniqueness; no independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes the exact probability product and the leading 1/sqrt(1+2t) law but not the explicit uniform first-order coefficient E(t) or the O(m^-2) corrected remainder.",
+        "evidence": [
+          "Theorems 4-6 and proof: recurrence u, derivative factors, Euler approximation with an O(1/m) orbit bound and o(1) log probability error; Tables 3-4 give uncorrected m trends.",
+          "Manuscript AMS Primary MSC 03B50, 05A15, 05A16, 05A19; first arXiv submission 2026-02-18."
+        ],
+        "identifier_or_url": "arXiv:2602.16135v1; https://www.researchgate.net/publication/400930315_Godel_Implication_on_Finite_Chains_Truth_Tables_and_Catalan-Bracketing_Enumerations",
+        "material_read": "Relevant accessible full-text manuscript sections: front matter and MSC, Sections I-II (recurrences, inverse iteration, asymptotics), Section III (macroscopic cuts, proofs and tables), IV (root split), bibliography and appendices.",
+        "method": "Read accessible author-manuscript HTML-transcribed full text, including formulas/derivations and tables; compared theorems by logical implication and asymptotic order.",
+        "title": "Gödel Implication on Finite Chains: Truth Tables and Catalan-Bracketing Enumerations",
+        "trigger": "Same Gödel-chain truth tables and same survival q_k(m), exact finite-m radical product and macroscopic limit; decisive closest literature."
+      },
+      {
+        "assessment": "Three-valued Kleene implication, not the growing finite Gödel chain nor a uniform finite-chain rank-cut expansion.",
+        "evidence": [
+          "Defines a three-valued Kleene implication table and derives fixed-three-value row counts and n-asymptotics."
+        ],
+        "identifier_or_url": "arXiv:2010.10303; https://www.researchgate.net/publication/344780532_Counting_with_3-valued_truth_tables_of_bracketed_formulae_connected_by_implication",
+        "material_read": "Accessible full text abstract, definitions of the Kleene operation, recurrence/generating functions, first asymptotic theorem, and table sections.",
+        "method": "Read accessible HTML-rendered manuscript sections to identify truth-value semantics and the scope of asymptotic claims.",
+        "title": "Counting with 3-valued truth tables of bracketed formulae connected by implication",
+        "trigger": "Earliest cited precursor on truth-value enumerations for bracketed implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6542473a-6154-44c2-a7a5-106da023debc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating recent work establishes a macroscopic limiting law but provides only coarse finite-chain convergence and numeric tables. The new nonconstant E(t) is an exact finite-resolution bias law across every possible truth-value threshold with one uniform O(m^-2) error, and yields the explicit top-atom rate (8+log3)/(12m). This is needed to approximate finite-valued semantics at controlled accuracy: at m=100, the top mass 0.581721832133 is improved from 0.577350269190 at leading order to 0.581727841068. The parameter range includes endpoints and moving cuts, not an arbitrary small numerical slice; the proof requires nontrivial second-order recurrence and endpoint accounting.",
+    "status": "PASS"
+  }
+}
