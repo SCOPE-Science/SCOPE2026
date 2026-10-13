@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "evidence": [
+      "Detailed derivations in RESULT.md, Sections 1–4",
+      "Independent bottom-up and iterative partition checks in verify.py",
+      "VERIFICATION.md executed results"
+    ],
+    "rationale": "For every finite complete outward-directed q-ary tree, the bottom-up support and multiset descriptors exactly characterize ordinary and counting bisimulation. At q=2 support determines the size-two multiset. In general t_{k+1}=2*C(t_k+q-1,q) gives the universal O_q(N/log N) bound via height-level summation. For q>=3 the constrained coloring family has exactly h+2 ordinary classes and graded-root census g_1=q-1, g_{k+1}=C(g_k+q-1,q). The verified inequality g_2^(q-1)>q! supplies positive exponential-in-q^k type growth, allowing distinct types in Omega(N/log N) disjoint subtrees at residual height O(log h). The quotient-ratio upper and lower bounds therefore match Theta_q(N/(log N)^2); h+1 ordinary types force no graded splitting. The standalone verifier directly exercises 41,116 exhaustive finite colorings and 14 larger structural witnesses. No part of the infinite proof relies on extrapolating enumerations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacobs–Wißmann 2022 preprint arXiv:2204.12368 develops generic algorithms and complexity of minimization, not tight quotient-size ratios for a fixed family.",
+        "The known O(N/log N) compression for balanced labeled trees, and ordinary complete-tree bisimulation bound in the existing record, are upper bounds for a single quotient.",
+        "Relevant original modal papers distinguish expressive power or finite-model logic without this simultaneous asymptotic extremal problem."
+      ],
+      "reasoning": "Generic polynomial-time minimization and single-quotient bounds do not imply a sharp ratio between two behavioral equivalences on the same structure. The construction requiring all height-one parents to exhibit both leaf colors, while recursively maximizing counting diversity above them, is a separate constrained lower-bound argument.",
+      "searches": [
+        "Graded modal logic counting successor multiplicities on uniformly branching finite trees and extremal quotient",
+        "\"bisimulation quotient\" \"graded\" \"exponential\"",
+        "\"Fast Coalgebraic Bisimilarity Minimization\" arxiv 2023 full text pdf",
+        "\"bisimulation\" \"multiset\" \"set\" \"regular trees\" quotient"
+      ]
+    },
+    "checked_sources": [
+      "https://pure.uva.nl/ws/files/178706957/counting-to-infinity-graded-modal-logic-with-an-infinity-diamond.pdf",
+      "https://arxiv.org/abs/1910.00039",
+      "https://www2.mathematik.tu-darmstadt.de/~otto/papers/cml19.pdf",
+      "https://arxiv.org/pdf/2204.12368",
+      "https://www.cambridge.org/core/journals/review-of-symbolic-logic/article/abs/counting-to-infinity-graded-modal-logic-with-an-infinity-diamond/A13190E86D2A6F7179099B91A954F807",
+      "https://doi.org/10.1007/978-3-540-73208-2_23"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Otto 2019 characterizes modal counting type equivalence and contains rooted-tree locality lemmas; no lower bound with ordinary quotient h+2 is stated in inspected sections.",
+        "Bellas Acosta–Venema 2022/2024 proves expressive completeness and models with infinity modalities; these do not assert the regular-tree extremal quotient ratio.",
+        "Jacobs–Wißmann 2023 studies general minimization operation counts rather than exact state savings between powerset and multiset semantics.",
+        "A previously established ordinary-bisimulation result establishes only max ordinary quotient Theta(N/log N), explicitly excluding graded modalities."
+      ],
+      "reasoning": "Even combining a general graded modal characterization with an O(N/log N) cap does not yield the same-coloring lower bound or the minimal ordinary footprint. The new q>=3 recurrence g_1=q-1 and g_{k+1}=C(g_k+q-1,q) under the all-height-one-supports-equal restriction, and its free placement on disjoint subtrees, are the additional non-implied elements. The q=2 coincidence alone is elementary and is not presented as sufficient new value.",
+      "searches": [
+        "Sharp branching arity 2 versus 3 threshold where standard and graded bisimulation agree on complete regular trees and separate exponentially",
+        "Graded modal logic counting successor multiplicities on uniformly branching finite trees and extremal quotient",
+        "\"graded modal\" \"basic modal\" \"regular trees\" size separation bisimulation",
+        "\"counting bisimulation\" \"ordinary bisimulation\" trees exponential gap quotient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Otto 2019, arXiv:1910.00039, Definitions 1.1/characteristic-formula sections, proves counting-bisimulation invariance but not extremal quotient counts.",
+        "Bellas Acosta–Venema 2022 online / 2024 journal, DOI:10.1017/S1755020322000247, Sections 2–3 formulate the logics and counting bisimulations, not the fixed-arity quotient ratio.",
+        "Targeted database searches with the above terms yielded no statement of the binary-versus-higher-arity phase boundary."
+      ],
+      "reasoning": "Set-support versus multiset-counting bisimulation and coalgebraic powerset/bag semantics are treated as exact aliases; the tested novelty is not that those notions differ, but that their maximum quotient-size ratio on the identical two-colored complete q-ary tree has precise order N/(log N)^2 and that the lower-bound family has the smallest extra ordinary type. No equivalent theorem was located among inspected items.",
+      "searches": [
+        "Exponential separation between graded counting bisimulation quotient and ordinary bisimulation quotient of two-colored complete regular q-ary trees",
+        "Sharp branching arity 2 versus 3 threshold where standard and graded bisimulation agree on complete regular trees and separate exponentially",
+        "finite Kripke trees plain bisimulation versus graded counting bisimulation quotient cardinalities state minimization logarithmic sharp",
+        "\"graded bisimulation\" \"binary\" branching bisimulation collapse",
+        "\"graded bisimulation\" \"ordinary bisimulation\" quotient state counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematical results nearest these semantic queries concerned tree irregularity, unrelated finite-space quotient counts, or modal logic on other frames; none recorded the proposed rate.",
+        "No table of full regular-tree quotient ratios, nor extremal colorings simultaneously constrained by ordinary quotient size, appeared in the inspected full-text papers."
+      ],
+      "reasoning": "The theorem is an infinite-parameter asymptotic classification for each fixed arity, not a lookup in a finite census. The enumerated 41,116 colorings are test cases only; they do not encode the general conclusion. Failure to locate a record is not itself a proof of newness.",
+      "searches": [
+        "Exponential separation between graded counting bisimulation quotient and ordinary bisimulation quotient of two-colored complete regular q-ary trees",
+        "Two-color regular trees with smallest possible ordinary bisimulation partition and near maximal counting graded bisimulation state complexity",
+        "finite Kripke trees plain bisimulation versus graded counting bisimulation quotient cardinalities state minimization logarithmic sharp",
+        "regular rooted trees bisimulation classes colored vertices minimal quotient entropy multiset branching",
+        "Graded modal logic on finite regular rooted trees exact bounded-depth type enumeration with counting successor multiplicities and truncation thresholds",
+        "Modal logic with counting modalities exact bisimulation quotient sizes complete rooted trees recoloring",
+        "\"modal\" \"counting\" \"bisimulation\" \"tree\" \"state space\" \"separation\""
+      ]
+    },
+    "rationale": "The proposed contribution is the joint sharp arity threshold and maximal G/B asymptotic quotient ratio for the same binary coloring, attained with the smallest possible nontrivial ordinary quotient. This is not the standard fact that graded modalities distinguish multiplicity; inspected primary papers instead prove bisimulation invariance, expressive completeness and minimization algorithms. The ordinary-only complete-tree Theta(N/log N) bound does not cover graded quotients or a simultaneous separation with B=h+2. Targeted mathematical-result and primary-paper searches did not locate an equivalent theorem, but an unindexed general coalgebraic/tree minimization antecedent remains a priority risk.",
+    "residual_risks": [
+      "The earlier tree-automata and coalgebraic literature is extensive; full priority exclusion cannot be guaranteed by semantic searching.",
+      "The precise same-tree extremal ratio might appear under an unindexed alternative vocabulary such as set-vs-bag state signatures, unordered-tree DAG compression, or rooted-tree multiset minimization.",
+      "The 2007 weighted tree-automaton paper was read only at metadata/abstract level and was not treated as decisive negative full-text evidence.",
+      "An independent specialist mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies graded modal framework; inspected material covers expressiveness, axiomatization, small models and tree game locality, not sharp quotient ratio on complete regular trees.",
+        "evidence": "Definition 2.5 and 2.8 (PDF text pages 5–6); tree model Theorem 3.9 around printed page 19; article introduction and outline printed pages 1–3.",
+        "identifier_or_url": "doi:10.1017/S1755020322000247 | https://pure.uva.nl/ws/files/178706957/counting-to-infinity-graded-modal-logic-with-an-infinity-diamond.pdf",
+        "material_read": "Article introduction and references, definitions and games in Section 2, locality and rooted-tree section of Section 3 (PDF pages 1–6, 18–20); visual check of page 3.",
+        "method": "Full-text PDF reading and targeted find on tree, modalities and graded bisimulation, plus rendered PDF page inspection.",
+        "title": "Counting to infinity: graded modal logic with an infinity diamond",
+        "trigger": "Most recent eligible primary-03B45 full theory of ordinary versus counting modalities and bisimulation."
+      },
+      {
+        "assessment": "Characterizes counted modal formula equivalence and locality, no quantitative same-tree max G/B ratio in inspected material.",
+        "evidence": "Definition 1.1 and characteristic formula analysis in Section 1; tree-like cases and Lemmas 2.3–2.5 in Section 2.",
+        "identifier_or_url": "arxiv:1910.00039 | https://www2.mathematik.tu-darmstadt.de/~otto/papers/cml19.pdf",
+        "material_read": "Definitions of counting bisimulation and grades, characteristic types, and rooted tree-like upgrading argument (PDF pages 1–5 and 7–8).",
+        "method": "Open-access 10-page PDF indexed text and searches for tree, regular and quotient-size discussion.",
+        "title": "Graded modal logic and counting bisimulation",
+        "trigger": "Foundational predecessor explicitly cited by the primary graded-modal source; could dominate structural claims."
+      },
+      {
+        "assessment": "Its general-purpose efficient minimization algorithm does not by itself imply a worst-case tight quotient-size ratio; no matching regular-tree structural rate found.",
+        "evidence": "Abstract and Section 1; Section 2 motivating functor examples; Section 7 discussion around PDF page 23.",
+        "identifier_or_url": "arxiv:2204.12368 | https://arxiv.org/pdf/2204.12368",
+        "material_read": "Full-text introduction, framework and section roadmap (PDF pages 1–4), Section 7 passage and topical searches across all indexed text for binary trees, regular, multiset and exponential.",
+        "method": "Open-access arXiv PDF indexed-text inspection, targeted full-PDF term searches.",
+        "title": "Fast Coalgebraic Bisimilarity Minimization",
+        "trigger": "Potentially broader set-versus-multiset quotient minimization setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "818ec1ee-acfe-4936-b9da-f7ef780113a0",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "RESULT.md, theorem, restricted-family construction, and ratio bound",
+      "Otto 2019 and Bellas Acosta–Venema 2022 establish the relevance of counted bisimulation",
+      "Jacobs–Wißmann 2023 establishes practical significance of bisimulation minimization"
+    ],
+    "rationale": "Ordinary and counting bisimulations are natural minimization equivalences, and the ratio of their quotient state counts on one input quantifies the cost of adding counting observations. The result determines the exact structural arity threshold and a sharp order-of-magnitude separation with only one propositional atom and an ordinary quotient of the minimum possible size that permits separation. It contributes a coherent extremal classification and explicit witness family, not a finite table or routine identity.",
+    "status": "PASS"
+  }
+}
