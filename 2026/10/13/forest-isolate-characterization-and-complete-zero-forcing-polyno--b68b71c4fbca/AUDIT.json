@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For every order at least three and every initial set, a black line-graph vertex has exactly as many white neighbors as the sum of its two endpoint degrees in the remaining white-edge graph. A legal force removes a leaf edge using a white-isolated anchor. Thus no isolate blocks all first moves, and a cycle cannot lose its first edge. Conversely an isolated anchor allows successive deletion of every leaf of any white forest. Cayley tree counts and the labeled exponential formula then prove the complete polynomial and its extremal coefficients. A separately coded brute-force rule agrees with forest tests and a separate recurrence on all 33864 assignments for n=3..6. Unbounded correctness depends on the given proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 3.5 of arXiv:1207.6127 gives the known forcing minimum for the complete-graph line graph, already a precise scalar.",
+        "Fallat–Soltani 2016, Theorem 3.4, has a theorem for many line graphs including L(K_n) but concludes only the minimum number.",
+        "The arXiv:1801.08910 zero-forcing polynomial is defined for all graphs, but a general definition and generic bounds do not evaluate its coefficients for L(K_n)."
+      ],
+      "reasoning": "The earlier broader graph-class theorem covers the extremal scalar and is explicitly acknowledged. It does not imply which initial sets force, the minimum-set coefficient the exact Cayley tree factor for optimal sets, or the full polynomial; the current claim therefore is not a corollary of it.",
+      "searches": [
+        "arXiv:1207.6127 Proposition 3.5",
+        "DOI:10.1007/s10587-016-0290-x Theorem 3.4",
+        "arXiv:1801.08910 graph families"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1207.6127",
+      "DOI:10.1007/s10587-016-0290-x",
+      "arXiv:1508.07357",
+      "arXiv:1801.08910",
+      "DOI:10.1016/j.laa.2007.10.009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: minimal ordinary forcing cardinality the known scalar minimum forcing cardinality. New: S forces iff its white-edge graph is an acyclic graph with an isolate.",
+        "Known: a positive-semidefinite scalar on Johnson J(n,2); its forcing procedure differs and no exact all-set enumeration is stated.",
+        "Known: the general definition of a zero-forcing polynomial; this is not an evaluated polynomial for this graph class."
+      ],
+      "reasoning": "A threshold on the smallest cardinality neither determines membership among equal-cardinality sets nor the coefficients at other degrees. Conversely the newly proved forest-isolate criterion directly entails the scalar and is stronger for this restricted graph family. We claim this strengthening and its enumerative consequences only; a covering earlier all-set theorem would defeat originality if subsequently identified.",
+      "searches": [
+        "arXiv:1207.6127 Proposition 3.5",
+        "DOI:10.1007/s10587-016-0290-x Theorem 3.4",
+        "arXiv:1508.07357 Lemma 8.3",
+        "arXiv:1801.08910 all graph-family sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The triangular graph is also J(n,2) and the line graph L(K_n), all explicitly included as aliases.",
+        "The 2015 article discusses J(n,2) but its parameter is positive-semidefinite zero forcing, not ordinary forcing; its Lemma 8.3 is a scalar statement.",
+        "The full ordinary zero-forcing polynomial paper arXiv:1801.08910 contains no triangular-graph or line-graph instance in the inspected theorem/graph-family sections."
+      ],
+      "reasoning": "Identification of the graph under its three standard names avoids missing a duplicate merely because of naming. None of these inspected formulations classifies all ordinary zero-forcing sets on this family or enumerates every cardinality; opposite color-change variants are not logically equivalent. Alternative unpublished or unindexed formulations remain possible.",
+      "searches": [
+        "\"zero forcing polynomial\" \"triangular graph\"",
+        "\"zero forcing polynomial\" \"Johnson graph\"",
+        "\"zero forcing sets\" \"line graph\" \"forest\" \"isolated\"",
+        "\"zero forcing\" \"triangular graph\" \"spanning forest\"",
+        "zero forcing polynomial line graph of complete graph K_n",
+        "arXiv:1207.6127 Proposition 3.5",
+        "arXiv:1801.08910",
+        "arXiv:1508.07357 Lemma 8.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published arXiv:1801.08910 gives polynomial examples for paths, cycles, threshold graphs and other graphs; none is this polynomial.",
+        "Eroh–Kang–Yi 2012 tabulate zero-forcing numbers of several line graph families, not the cardinality distribution of forcing sets.",
+        "No matching evaluated polynomial/table was identified in queried bibliographic results."
+      ],
+      "reasoning": "Exact table recomputation would be covered, but no direct polynomial or coefficient table for T_n was found. Failed index searches are weak evidence; this check is supported primarily by contrasting the specific contents and mathematical strength of primary literature.",
+      "searches": [
+        "\"zero forcing polynomial\" \"triangular graph\"",
+        "\"zero forcing polynomial\" \"Johnson graph\"",
+        "\"zero forcing sets\" \"line graph\" \"forest\" \"isolated\"",
+        "\"zero forcing\" \"L(K_n)\" \"sets\" spanning trees",
+        "arXiv:1801.08910 graph family polynomial coefficients"
+      ]
+    },
+    "rationale": "The known zero-forcing number of the triangular graph (Eroh–Kang–Yi 2012, Proposition 3.5; earlier AIM 2008; and broader Fallat–Soltani 2016) is explicitly excluded from novelty. The claimed object is the collection of every forcing initial set and its complete size polynomial, reconstructed by a forest-isolate bijection. The published 2018 polynomial framework and 2015 positive-semidefinite Johnson-graph result do not imply this class-specific enumeration in the inspected material. The full 2008 Proposition 4.9 proof was checked; its scalar equality is already credited, but it does not classify all sets. Residual risk of differently indexed equivalence is documented; the search is not a uniqueness certificate.",
+    "residual_risks": [
+      "The foundational 2008 Proposition 4.9 and relevant adjacent sections were inspected and establish only scalar rank/forcing equalities; a distinct pre-2008 enumeration could still have escaped identification.",
+      "Unindexed theses or later enumerations under edge zero-forcing, complement forest, or Johnson-graph terminology could be logically equivalent.",
+      "Bibliographic search absence does not establish absolute priority or novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar Z(L(K_n)) previously known, no class-specific all-set criterion or polynomial in the inspected relevant text.",
+        "evidence": "Proposition 3.5 states the classical scalar forcing-minimum formula and cites an earlier source; pages 5–10 and table cover scalar values.",
+        "identifier_or_url": "https://arxiv.org/pdf/1207.6127",
+        "material_read": "Full-text introduction, section 3 including Proposition 3.5, later tables and discussion",
+        "method": "Inspected OA arXiv PDF with its proposition and graph-family table in context",
+        "title": "Metric Dimension and Zero Forcing Number of Two Families of Line Graphs",
+        "trigger": "Earlier direct scalar result for the same graph and ordinary forcing rule"
+      },
+      {
+        "assessment": "Broader graph-class coverage for scalar minimum, but not an enumeration of zero-forcing initial sets.",
+        "evidence": "Theorem 3.4 gives Z(L(G))=|E(G)|-|V(G)|+2 for a Hamiltonian-path base graph, which yields exactly the previously known scalar for K_n.",
+        "identifier_or_url": "https://dml.cz/handle/10338.dmlcz/145869",
+        "material_read": "Full-text theorem statements and proofs concerning line graphs with Hamiltonian paths, especially Theorem 3.4",
+        "method": "Read lawful public full text and located theorem application to complete graphs",
+        "title": "Line graphs: their maximum nullities and zero forcing numbers",
+        "trigger": "A broader zero-forcing theorem for line graphs of graphs with Hamiltonian paths"
+      },
+      {
+        "assessment": "Not covering the ordinary all-set classification; same graph but different forcing rule and only scalar.",
+        "evidence": "Lemma 8.3 gives positive-semidefinite the positive-semidefinite forcing-number equality for the Johnson graph.",
+        "identifier_or_url": "https://arxiv.org/pdf/1508.07357",
+        "material_read": "Section 8, especially Lemmas 8.2–8.3 and surrounding definitions",
+        "method": "Read complete relevant section in open arXiv PDF, distinguishing positive-semidefinite from ordinary rule",
+        "title": "Compressed Cliques Graphs, Clique Coverings and Positive Zero Forcing",
+        "trigger": "Explicit same Johnson graph J(n,2) and forcing variant"
+      },
+      {
+        "assessment": "Defines and evaluates zero-forcing polynomials for other graph families; no covering evaluated triangular-graph result in inspected material.",
+        "evidence": "arXiv:1801.08910 defines Z(G;z) in its introductory section and develops other classes; exact searches for triangular and line graph returned no relevant occurrences.",
+        "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+        "material_read": "Definition, graph-family evaluation sections, later structural comparison results and bibliography",
+        "method": "Read arXiv full-text material; searched within PDF for line graph, triangular, Johnson and forest",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Foundational paper for the exact polynomial invariant, plausible stronger family enumeration"
+      },
+      {
+        "assessment": "Its Proposition 4.9 gives the minimum-rank/zero-forcing scalar identity using an induced subgraph, not all-set membership or polynomial coefficients.",
+        "evidence": "Pages 1646–1647, Proposition 4.9: mr(L(G))=mz(L(G)) if G has a Hamiltonian path or contains a specified bipartite subgraph; proof uses monotonicity on an induced subgraph, with no forest-isolate classification. The document cover states available online 2007-11-26.",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.10.009",
+        "material_read": "Original full PDF: table of graph families, sections on minimum rank and zero forcing, especially Proposition 4.9 and its proof, plus adjacent Proposition 4.6",
+        "method": "Read full author-hosted public copy at https://draganstevanovic.wordpress.com/wp-content/uploads/2012/09/published-version2.pdf; compared the actual theorem statement and proof",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational source cited directly as the origin of the scalar theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b68b71c4-fbca-4535-99f9-bb732a3af7f6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural full set-system of ordinary zero-forcing initial conditions on a classical line-graph family was not specified by prior scalar invariants. The exact forest criterion gives a compact structural recognition test, all coefficients of the forcing polynomial, the exact Cayley tree factor for optimal sets minimum sets, and an unbounded interval of mixed forcing/nonforcing cardinalities. This solves a whole-family, size-refined counting question rather than recomputing a scalar theorem; the missing source risk is recorded separately.",
+    "status": "PASS"
+  }
+}
