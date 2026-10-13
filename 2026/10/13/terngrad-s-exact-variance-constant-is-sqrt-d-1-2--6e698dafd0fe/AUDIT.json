@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Source-form TernGrad is unbiased and has exact second moment \\(\\mathbb E\\|Q(g)\\|_2^2=\\|g\\|_\\infty\\|g\\|_1\\). After normalizing \\(\\|g\\|_\\infty=1\\), selecting a maximal coordinate, and applying Cauchy--Schwarz to the remaining \\(d-1\\) magnitudes, the problem reduces to maximizing \\((1+S)/(1+S^2/(d-1))\\), whose unique maximizer is \\(S=\\sqrt d-1\\). This gives the exact constant and equality family. Direct finite-distribution replay independently checks the moment and quadratic formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic compressed-gradient complexity results depend on an admissible unbiased-compressor variance parameter.",
+        "The later compression paper's table uses a valid but larger TernGrad parameter.",
+        "The defining TernGrad theorem uses diminishing learning rates and a gradient-bound assumption rather than an exact constant-step isotropic stability analysis."
+      ],
+      "reasoning": "General compressor theory does not dominate the accepted statement because its guarantee is parameterized by an upper bound; the missing mathematical task is to determine the smallest admissible parameter for this particular quantizer. The quadratic corollary then uses the exact directional second moment rather than a generic smoothness bound.",
+      "searches": [
+        "DOI:10.1093/imaiai/iaab006",
+        "arXiv:1705.07878v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1705.07878v1",
+      "DOI:10.48550/arXiv.1705.07878",
+      "arXiv:2002.08958v1",
+      "DOI:10.1093/imaiai/iaab006"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "TernGrad defines \\(Q(g)_i=\\|g\\|_\\infty\\operatorname{sign}(g_i)B_i\\) with Bernoulli mean \\(|g_i|/\\|g\\|_\\infty\\).",
+        "The defining convergence assumption contains \\(\\|g\\|_\\infty\\|g\\|_1\\).",
+        "The later table cites the original TernGrad work and lists variance \\(\\sqrt d-1\\)."
+      ],
+      "reasoning": "Those statements supply all ingredients but do not imply minimality of the displayed variance parameter. The sharp inequality requires jointly optimizing the infinity, one, and two norms; separately saturating standard norm inequalities gives the larger published bound.",
+      "searches": [
+        "arXiv:1705.07878v1 equations 1--3 and gradient-bound assumption",
+        "arXiv:2002.08958v1 unbiased-compressor variance table"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source uses \\(\\|g\\|_\\infty\\|g\\|_1\\) in its convergence assumption and proves unbiasedness.",
+        "The later unbiased-compressor table lists TernGrad ternary quantization with \\(\\omega=\\sqrt d-1\\).",
+        "No inspected source states the maximizer of \\(\\|g\\|_\\infty\\|g\\|_1/\\|g\\|_2^2\\) for this quantizer."
+      ],
+      "reasoning": "An equivalent result would need to imply the minimal uniform compressor constant, not merely provide a valid upper bound. The exact equality family also distinguishes the claim from order-level \\(\\Theta(\\sqrt d)\\) variance statements.",
+      "searches": [
+        "arXiv:1705.07878v1",
+        "arXiv:2002.08958v1",
+        "DOI:10.1093/imaiai/iaab006"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked published table gives \\(\\sqrt d-1\\), not \\((\\sqrt d-1)/2\\).",
+        "The defining paper contains no table of exact worst directional variance ratios."
+      ],
+      "reasoning": "The accepted constant is a strict factor-two sharpening of the named published sufficient value for every dimension above one, rather than a recomputation of that table.",
+      "searches": [
+        "arXiv:1705.07878v1",
+        "DOI:10.1093/imaiai/iaab006"
+      ]
+    },
+    "rationale": "The defining TernGrad source exposes the exact mixed norm quantity but does not optimize it. A later compressor survey/theory paper explicitly associates TernGrad's ternary quantization with the sufficient variance parameter \\(\\sqrt d-1\\), whereas the accepted proof gives the minimal parameter \\((\\sqrt d-1)/2\\). Focused searches found no source stating this sharp half-size constant, equality family, or the resulting exact isotropic-quadratic descent frontier.",
+    "residual_risks": [
+      "An unindexed note may have observed the same sharp three-norm inequality without using TernGrad terminology.",
+      "The published larger variance parameter is a sufficient bound rather than an explicit claim of optimality, so the contribution is a sharpening, not a correction.",
+      "The constant-step quadratic consequence does not represent TernGrad's original diminishing-step training regime."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_MOMENTS_NOT_COVERING_SHARP_UNIFORM_VARIANCE_CONSTANT.",
+        "evidence": "The source explicitly contains the quantity \\(\\max|g_i|\\,\\|g\\|_1\\) but does not optimize its ratio to \\(\\|g\\|_2^2\\).",
+        "identifier_or_url": "arXiv:1705.07878v1",
+        "material_read": "Open full text covering the ternarization equations, Bernoulli probabilities, unbiasedness calculation, gradient-bound assumption, comparison with ordinary squared-gradient bounds, and layer-wise ternarization motivation.",
+        "method": "Open-access full-text inspection.",
+        "title": "TernGrad: Ternary Gradients to Reduce Communication in Distributed Deep Learning",
+        "trigger": "Defining source for the ternary stochastic quantizer and its convergence bound."
+      },
+      {
+        "assessment": "VALID_SUFFICIENT_VARIANCE_BOUND_NOT_SHARP_MINIMAL_CONSTANT.",
+        "evidence": "The table lists ternary quantization as unbiased with \\(\\omega=\\sqrt d-1\\), while the accepted exact computation gives half that value.",
+        "identifier_or_url": "arXiv:2002.08958v1 / DOI:10.1093/imaiai/iaab006",
+        "material_read": "Open full text covering the unbiased-compressor definition, the compression summary table, the TernGrad citation underlying ternary quantization, and the discussion of optimization complexity dependence on compressor variance.",
+        "method": "Open-access full-text inspection.",
+        "title": "Uncertainty Principle for Communication Compression in Distributed and Federated Learning and the Search for an Optimal Compressor",
+        "trigger": "Closest published compressor-class statement assigning a dimension-dependent variance parameter to TernGrad."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e698daf-d0fe-4d41-8cc2-428aee12b64b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "TernGrad is a canonical extreme gradient compressor, and generic compressed-optimization guarantees depend directly on its variance parameter. The result cuts the standard sufficient dimension constant exactly in half, identifies all worst directions, and converts the same sharp constant into a complete expected-descent and minimax-step classification on the canonical isotropic quadratic. This is a structural compressor invariant with immediate use in sharp stepsize and complexity calculations, not an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
