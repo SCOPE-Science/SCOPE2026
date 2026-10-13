@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The alternating input makes the raw second moment constant and gives a closed geometric-series first moment. Substitution into the source finite-sample correction and attenuation factor yields the exact limits. The embedded checker independently replays the source recurrence and the source-default numerical specialization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ordinary exponential momentum has the familiar high-frequency factor \\((1-\beta)/(1+\beta)\\).",
+        "The defining M-SVAG source adds a separate corrected variance estimator and signal-to-noise attenuation.",
+        "Generic momentum frequency response therefore does not determine the additional M-SVAG factor."
+      ],
+      "reasoning": "The momentum-only \\(1/19\\) factor at \\(\beta=0.9\\) is not claimed as new. The surviving claim is the exact extra \\(1/21\\) M-SVAG attenuation and the resulting \\(1/399\\) total response.",
+      "searches": [
+        "M-SVAG stochastic variance adaptation moving average",
+        "momentum alternating gradient frequency response",
+        "adaptive optimizer periodic gradient attenuation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1705.07774v1",
+      "ICML2018:Balles-Hennig",
+      "github:lballes/msvag"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source provides the exact moving-average, finite-sample correction, attenuation, and update formulas used in the proof.",
+        "The source explicitly frames the variance estimate under a local-stationarity approximation.",
+        "The source experiments and reference implementation use the shared-beta practical recurrence."
+      ],
+      "reasoning": "The source equations are premises, but the final result requires solving them on a coherent period-two input and separating momentum attenuation from variance-adaptation attenuation.",
+      "searches": [
+        "arXiv:1705.07774 M-SVAG practical variance rho Algorithm 1",
+        "arXiv:1705.07774 local stationarity noise dominates gradient changes",
+        "lballes msvag beta 0.9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines a corrected moving variance and multiplies the moving gradient by a signal-to-noise attenuation factor.",
+        "The source does not state the deterministic period-two fixed response of those coupled filters.",
+        "Published-record searches returned no M-SVAG result with the same corrected-variance or gain formulas."
+      ],
+      "reasoning": "Equivalent coverage would state that coherent period-two variation produces the positive corrected-variance limit, the attenuation factor \\((1-\beta)/(3-\beta)\\), or the full alternating-to-constant gain. None was located.",
+      "searches": [
+        "M-SVAG alternating gradient exact response variance adaptation",
+        "MSVAG periodic gradient high frequency attenuation",
+        "stochastic variance adapted gradient deterministic alternating signal",
+        "Dissecting Adam M-SVAG alternating gradients variance estimate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results concern matrix-valued adaptive moments, variance allocation, and other stochastic feedback mechanisms.",
+        "No returned indexed finding names M-SVAG or states the accepted period-two law."
+      ],
+      "reasoning": "Those results use different estimators and update maps and do not imply the source M-SVAG variance correction under coherent alternation.",
+      "searches": [
+        "M-SVAG alternating gradient exact response variance adaptation",
+        "MSVAG periodic gradient high frequency attenuation",
+        "stochastic variance adapted gradient deterministic alternating signal",
+        "Dissecting Adam M-SVAG alternating gradients variance estimate"
+      ]
+    },
+    "rationale": "The defining paper supplies the practical variance estimator and explicitly discusses its local-stationarity modeling assumption, but the inspected text does not state a period-two response or exact high-frequency attenuation. Nearby owned results for ACProp, QHAdam, and AngularGrad concern different recurrences. Focused published-record searches found no implication-equivalent M-SVAG frequency-response theorem.",
+    "residual_risks": [
+      "An equivalent short signal-processing calculation may exist in unindexed optimizer notes.",
+      "The theorem is a deliberate model-mismatch diagnostic and not a claim that M-SVAG's variance estimate is incorrect under its intended stochastic assumptions.",
+      "Only the one-coordinate asymptotic period-two response is classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_COHERENT_PERIOD_TWO_RESPONSE.",
+        "evidence": "The source specifies every recurrence used here and notes the stationarity approximation, but no periodic-input variance or exact attenuation law was found.",
+        "identifier_or_url": "arXiv:1705.07774v1 / ICML 2018",
+        "material_read": "Open full text covering the variance-adaptation derivation, practical M-SVAG section, finite-sample correction, Algorithm 1, local-stationarity discussion, and experimental coefficient choice.",
+        "method": "Full-text open-access inspection.",
+        "title": "Dissecting Adam: The Sign, Magnitude and Variance of Stochastic Gradients",
+        "trigger": "Defining source for M-SVAG's practical corrected variance, attenuation factor, and local-stationarity premise."
+      },
+      {
+        "assessment": "IMPLEMENTATION_MATCHES_THE_PRACTICAL_RECURRENCE.",
+        "evidence": "The reference implementation uses the same shared-beta moving statistics and variance-adapted gradient formula analyzed in the theorem.",
+        "identifier_or_url": "github:lballes/msvag",
+        "material_read": "Public repository documentation describing the moving first and second moments, variance estimate, M-SVAG factor, and update.",
+        "method": "Direct public repository documentation inspection.",
+        "title": "Official M-SVAG reference implementation",
+        "trigger": "Confirm the practical shared-beta moving moments and update implemented by the source authors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a1c2f50-d6fc-4f66-ad45-766c256e1328",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Variance adaptation is the defining M-SVAG mechanism, and the source explicitly relies on recent gradients behaving approximately like repeated draws from a common distribution. The theorem quantifies a sharp failure mode of that interpretation: coherent deterministic sign alternation is assigned a large positive corrected variance and, at the source coefficient, receives about four hundred-fold attenuation relative to a constant signal. This is a natural boundary diagnostic separating stochastic uncertainty from structured temporal variation.",
+    "status": "PASS"
+  }
+}
