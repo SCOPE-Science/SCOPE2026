@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The reverse-preimage identity is derived directly from the two transition maps. Monotonicity rigorously allows omission of every nonexpanding inverse b. First useful b creates complement [1,L-1]. Any later useful b follows at least L inverse rotations because shorter shifts leave the missing interval inside the fixed image or crossing zero; every b removes <=k states. This proves universal lower bound 1+ceil((L-1)/k)(L+1). The proposed word shifts the missing interval endpoint forward by exactly k until empty, giving equality for every n>=4,2<=k<=n-2. Independent subset BFS over 78 instances, 2,803,079 finite interval configurations, and 523 larger witness replays passed. Infinite statement depends on symbolic argument, not data extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2309.08321 Section 6 Corollary 10 derives a universal quadratic upper bound (not exact) for a broad one-point class under a connectivity hypothesis.",
+        "arXiv:2407.08135 assumes letter images of size at least n-1, whereas the present nontrivial k>=2 letter has rank n-k <=n-2.",
+        "arXiv:2306.13317 and arXiv:2307.01302 provide broad synchronization criteria rather than shortest-word formulas."
+      ],
+      "reasoning": "A general synchronizability theorem or nonsharp bound does not entail a sharp shortest threshold. Deficiency-one bounds cannot be applied to the simultaneously collapsing k>=2 letter. The searched interval-respecting literature establishes general upper bounds without identifying this exact expression.",
+      "searches": [
+        "circular synchronizing automata multiple consecutive states map to 0 reset threshold",
+        "one-point circular automata rank n-k synchronizing shortest word",
+        "arXiv:2309.08321 Corollary 10 one-point singular transitive group",
+        "arXiv:2407.08135 rank n-1 transitive permutation group reset upper bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.13317",
+      "arXiv:2307.01302",
+      "arXiv:2309.08321",
+      "arXiv:2407.08135",
+      "Don 2016 DOI:10.37236/5616 (abstract only)",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "2026/9/7/SCOPE007",
+      "2026/9/9/SCOPE010"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Volkov proves synchronizability for primitive DFA possessing a semiconstant, a weaker conclusion than a sharp formula.",
+        "Rystsov–Szykuła Theorem 25 establishes synchronization of primitive permutation/semiconstant alphabets; replacing the collapse by separately chosen unitary maps changes word-length optimization.",
+        "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f concerns k-avoiding thresholds for a different letter and observable."
+      ],
+      "reasoning": "The asserted exact lower bound requires proving at least L rotations between every useful reverse expansion, which none of the listed existence, upper-bound, pair-merge, or separately-selectable-letter results entails. The k=1 endpoint is deliberately excluded as known.",
+      "searches": [
+        "arXiv:2306.13317 Theorem 1 Corollary 3 Corollary 5 semiconstant",
+        "arXiv:2307.01302 Theorem 25 semiconstant primitive",
+        "arXiv:2309.08321 Section 6 Corollary 10 quadratic one-point bound",
+        "one-point singular automata cycle contiguous excluded states shortest synchronizing word exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2306.13317 (Volkov Corollary 5): primitive semiconstant automata synchronize, no exact length stated.",
+        "arXiv:2307.01302 (Rystsov–Szykuła Theorem 25): semiconstant construction proves synchronization but not an exact reset threshold.",
+        "The classical Černý case has one moved state and a known (n-1)^2 threshold, whereas k>=2 here collapses several states in one letter."
+      ],
+      "reasoning": "The same automata can be called cyclic semiconstant, one-point singular, interval-collapse, or generalized Černý types. Search and theorem-level comparison produced known synchronizability and k=1 coverage, but no two-parameter exact shortest-word formula. An algorithm for circular automata that computes individual instances does not, without further results, imply this explicit formula.",
+      "searches": [
+        "exact shortest reset length cyclic shift and semiconstant letter collapsing consecutive terminal interval onto zero rank n-k automaton",
+        "one-point singular automata cycle contiguous excluded states shortest synchronizing word exact",
+        "reset threshold b(a^(n-k)b)^floor((n-2)/k) consecutive states cyclic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings: 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f is an avoidance threshold for the single-collapse Černý family, not an all-state reset threshold in this k>=2 family.",
+        "2026/9/7/SCOPE007 is a finite eight-state automata census with a different transition structure.",
+        "2026/9/9/SCOPE010 is about partial one-hole careful synchronization."
+      ],
+      "reasoning": "No inspected explicit table or formula covers all n>=4 and 2<=k<=n-2 under the required single-letter simultaneous collapse. Failed searches alone are not uniqueness proof; finite n listings cannot dominate the unrestricted exact expression.",
+      "searches": [
+        "exact reset threshold n-state cyclic automata one letter maps last k contiguous states to zero fixes other states 1+floor((n-2)/k)*(n-k+1)",
+        "one-point singular automata cycle contiguous excluded states shortest synchronizing word exact",
+        "published historical and own-ledger direct/alias parameter search"
+      ]
+    },
+    "rationale": "Literature and database comparisons examined exact statement and implications, including the classical single-merge case, general semiconstant synchronizability, one-point quadratic bounds, deficiency-one bounds, and earlier separate-contraction and pair-metric results. They do not yield the two-parameter exact threshold for one k-state simultaneous interval collapse, though bibliographic incompleteness remains possible.",
+    "residual_risks": [
+      "Earlier equivalent explicit formula could be unindexed or stated in terminology not captured by searches.",
+      "Published 1-contracting circular work was materially available as abstract only; no full-document exclusion claimed.",
+      "Finite automata databases can contain individual instance values without the all-parameter closed form.",
+      "Primary full text of the closest indexed Černý k-avoiding result was unavailable at attempted GitHub URLs; the index explicitly describes a different observable and automaton, so no direct domination is indicated, but a hidden related corollary cannot be excluded from the index alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES SYNCHRONIZABILITY, NOT SHARP LENGTH",
+        "evidence": [
+          "Theorem 1: every primitive DFA with a unimodal letter synchronizes; Corollary 5: primitive DFA with semiconstant letter synchronizes. No parameter-sensitive shortest reset-word formula in these statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2306.13317v3",
+        "material_read": "Section 2 full theorem statements and proofs around Theorem 1, Lemma 2, Corollaries 3–5; Section 3 context.",
+        "method": "Read primary arXiv full-text HTML and verify arXiv abstract metadata for first-public date and primary MSC.",
+        "title": "Synchronization of Primitive Automata",
+        "trigger": "The semiconstant letter has exactly one nontrivial kernel class; qualifying first-public source dated 2023-06-23."
+      },
+      {
+        "assessment": "COVERS EXISTENCE BUT NOT TWO-PARAMETER OPTIMUM",
+        "evidence": [
+          "Theorem 25 states synchronizing under primitivity; Lemma 24 decomposes a semiconstant letter for existence, not cost-preserving shortest words."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.01302v1",
+        "material_read": "Sections 3–4, in particular Section 4.3, Lemma 24, Theorem 25, and references.",
+        "method": "Read primary arXiv full-text HTML, including statement and mechanism reducing semiconstant to unitary letters.",
+        "title": "Primitive Automata that are Synchronizing",
+        "trigger": "Theorem 25 covers primitive automata with permutational and semiconstant letters, same object class."
+      },
+      {
+        "assessment": "GENERAL QUADRATIC UPPER BOUND, NOT EXACT FORMULA",
+        "evidence": [
+          "Section 6 Corollary 10 rt(A)<=2(n-1)(n-2)+1 under transitive group/strong connectivity. It supplies neither a matching lower bound nor an explicit n,k equality."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.08321",
+        "material_read": "PDF introduction and definitions (pages 1–6); one-point singular Section 6 with Lemma 8, Theorem 9 and Corollary 10 (pages 7–11).",
+        "method": "Read primary open-access PDF text and inspected rendered page 10 for proof premises.",
+        "title": "Reset Thresholds of Transformation Monoids",
+        "trigger": "One-point singular maps have kernel type (k+1,1,...), directly matching the second letter."
+      },
+      {
+        "assessment": "HYPOTHESIS INAPPLICABLE FOR k>=2",
+        "evidence": [
+          "Requires each letter to have image size at least n-1; b here has image size n-k<=n-2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.08135",
+        "material_read": "Abstract and principal hypothesis and theorem statement.",
+        "method": "Read primary arXiv HTML.",
+        "title": "A quadratic upper bound on the reset thresholds of synchronizing automata containing a transitive permutation group",
+        "trigger": "Potential broad quantitative coverage of circular automata with a permutation cycle."
+      },
+      {
+        "assessment": "RESIDUAL LIMITED-MATERIAL RISK; specialization k>=2 outside 1-contracting letters",
+        "evidence": [
+          "Abstract states reachability and upper bounds for aperiodically 1-contracting and circular automata; b in present k>=2 case has defect k and is not 1-contracting."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v23i3p12",
+        "material_read": "Publisher abstract and bibliographic metadata; no complete theorem-by-theorem comparison of PDF.",
+        "method": "Read public publisher abstract.",
+        "title": "The Černý Conjecture and 1-Contracting Automata",
+        "trigger": "Classical circular and 1-contracting bounds might dominate a cyclic collapse theorem."
+      },
+      {
+        "assessment": "DIFFERENT OPTIMIZATION QUANTIFIER ACCORDING TO INDEX; FULL-TEXT COMPARISON RISK NOT ELIMINATED",
+        "evidence": [
+          "Index gives exact k-avoiding threshold kn for the classical Černý automaton with one moved state, versus minimum length to synchronize the full state set when one letter simultaneously moves >=2 states."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "material_read": "Title and detailed search-index scientific summary only; primary RESULT.md inaccessible at attempted links.",
+        "method": "Semantic research-index comparison followed by bounded direct full-text retrieval attempt (access disabled).",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Closest indexed result for cyclic automata; possibility of covering reset thresholds checked."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "967ac6af-616f-40f0-931b-1116162acaf5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pair (n,k) specifies a natural infinite family of strongly connected cyclic automata with exactly one nonpermutation letter, whose single action simultaneously collapses k consecutive states. An exact optimal reset threshold and explicit shortest word for every parameter are mathematically more informative than an upper bound or finite table; the k-dependent formula resolves the quantitative cost of rank deficiency, including quadratic-to-linear scaling. The inverse-interval bottleneck is a structural invariant of these automata. The restriction to consecutive sets is mathematically motivated by its nontrivial interval geometry, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
