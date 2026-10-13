@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The uniform two-line projector dynamics reduce exactly after the first projection to a Bernoulli stay/switch contraction with q=(1+c²)/2. The residual on either perpendicular line is (1-c²)/2 times squared error. The H eigenvalues are (1±c)/2, yielding the exact worst-initial-error envelope. Differentiating its log gives the cubic h_t; its positive-root uniqueness follows by factorization for t=1, strict derivative sign for t=2 and Descartes for t>=3. h_{t+1}-h_t=2c(1-c²) forces increasing roots, and the root equation proves t(1-c_t)->1 and tG_t(c_t)->1/e. The generalized Rayleigh quotient proves the threshold c=sqrt(2)-1. Executed verify.py: 1,491 rational enumerated cases, 783 rational derivative identities, 500 numeric roots and four long-horizon diagnostics. Finite tests supplement, not substitute for, the analytic quantifier-complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agaskar–Wang–Lu (2014), Proposition 1 provides a general fixed-system MSE moment-operator formula.",
+        "Dereziński–Dong, arXiv:2606.29593, Theorem 3.1 proves the general operator bound 3/(T+1).",
+        "Bai–Wu (2018), Theorem 4.1 gives spectral convergence bounds rather than this optimized residual constant."
+      ],
+      "reasoning": "General moment identities cover the procedure for computing particular errors but not the sharp optimization over both angle and initial state or the unique root and asymptotic coefficient. The June theorem covers the order 1/t and so that order is explicitly excluded from novelty; its coefficient 3 is neither the two-row exact 1/e envelope nor a characterization of first-step overshoot. The 2018 article is only partially accessible and remains in residual risks.",
+      "searches": [
+        "\"On convergence rate of the randomized Kaczmarz method\" Bai Wu pdf",
+        "\"Kaczmarz\" \"last iterate\" \"1/t\" \"two\"",
+        "\"How AI settled the complexity of the oldest SGD algorithm\" \"Theorem 3\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.09909v1",
+      "https://arxiv.org/html/2605.17185v1",
+      "https://www.researchgate.net/publication/408237048_How_AI_settled_the_complexity_of_the_oldest_SGD_algorithm",
+      "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+      "https://doi.org/10.1016/j.laa.2018.05.009"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General operator formula: Agaskar–Wang–Lu (2014) equation (5).",
+        "General order theorem: arXiv:2606.29593 Theorem 3.1; this guarantees 3/(t+1), not equality for the present constrained family.",
+        "Exact-arithmetic versus numerical roundoff contrast: arXiv:2605.17185 Theorem 1."
+      ],
+      "reasoning": "Specializing a general moment identity gives a route to the first fixed-geometry recurrence and is expressly credited; the submitted claim adds the exact continuous-geometry supremum, unique moving optimizer, asymptotic sharp coefficient and initial-residual threshold. A generic O(1/t) upper bound logically does not establish these exact values. The converse implication fails because a two-row result says nothing for general row ensembles. Related finite-precision and greedy-selection results have different hypotheses.",
+      "searches": [
+        "\"Kaczmarz\" \"last iterate\" \"1/t\" \"two\"",
+        "\"On convergence rate of the randomized Kaczmarz method\" Bai Wu pdf",
+        "two linear equations random Kaczmarz last iterate optimal coherence finite t minmax eigenvector expected squared residual c polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact MSE moment formulation in Agaskar–Wang–Lu (2014), Proposition 1; exact 2018 MSE as journal abstract.",
+        "Dereziński–Dong, arXiv:2604.09909, stochastic contraction theorem and Kaczmarz application."
+      ],
+      "reasoning": "The 2014 matrix-power identity is algebraically general and may be specialized to two dimensions but does not state the optimized residual observable or solve its geometric minimax. No formula-equivalent finite-horizon cubic or overshoot threshold was identified in the inspected mathematical statements. Failed searches alone are not treated as proof.",
+      "searches": [
+        "uniform two row two dimensional randomized Kaczmarz finite horizon sharp worst expected mean residual energy angle cubic unique root 1/e constant",
+        "two linear equations random Kaczmarz last iterate optimal coherence finite t minmax eigenvector expected squared residual c polynomial",
+        "near-parallel two line Kaczmarz sharp horizon worst-case 1/e t initial residual overshoot sqrt2 minus1",
+        "\"randomized Kaczmarz\" \"two rows\" \"residual\" \"expected\" \"worst\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact finite-horizon table was identified. Agaskar–Wang–Lu (2014) present an operator formula, not a stored angular optimizer table."
+      ],
+      "reasoning": "The invariant is a continuous-angle, all-integer-horizon optimum with a parameterized cubic, not a finite numerical record; the inspected papers and indexed record searches have no covering tabulation. A negative search is only bounded evidence.",
+      "searches": [
+        "uniform two row two dimensional randomized Kaczmarz finite horizon sharp worst expected mean residual energy angle cubic unique root 1/e constant",
+        "two linear equations random Kaczmarz last iterate optimal coherence finite t minmax eigenvector expected squared residual c polynomial",
+        "near-parallel two line Kaczmarz sharp horizon worst-case 1/e t initial residual overshoot sqrt2 minus1",
+        "\"randomized Kaczmarz\" \"angle\" \"1/e\" convergence"
+      ]
+    },
+    "rationale": "The claim is the exact jointly angle-and-initial-error optimized finite-horizon *mean-row residual* and associated cubic/limit/overshoot threshold; it is not the already-known general moment formula or the previously proved general order-1/t Kaczmarz bound. The inspected 2014 general solution-MSE operator representation is an important algebraic precursor, the newer June 2026 result supplies a wider rate theorem, and the May 2026 numerical-stability article studies finite precision rather than this exact-arithmetic residual extremizer. A possible equivalent specialization in other literature remains a residual originality risk.",
+    "residual_risks": [
+      "An equivalent geometry-optimized residual special case may be embedded in older exact MSE or random-projection literature under different terminology.",
+      "The full Bai–Wu (2018) journal article was not entirely accessible in this review, although its abstract and significant sections were available.",
+      "The universal order-1/t guarantee already exists in arXiv:2606.29593; only the stated two-row exact envelope and transient classification are claimed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General last-iterate upper bounds; no exact two-row full-angle finite-horizon envelope, optimizer cubic or one-step overshoot classification in inspected main results.",
+        "evidence": "Definition 1, Theorem 1 and Sections 2.2 and 3: arbitrary stochastic PSD contractions and bounds rather than a sharp two-row residual optimization.",
+        "identifier_or_url": "arXiv:2604.09909; https://arxiv.org/html/2604.09909v1",
+        "material_read": "Full available HTML, abstract and introduction, Section 2 main theorem and Kaczmarz specialization, Section 3 recursive-matrix method and appendix organization.",
+        "method": "Public HTML primary preprint; read mathematical statements and compared their quantifiers/observables.",
+        "title": "Last-Iterate Convergence of Randomized Kaczmarz and SGD with Greedy Step Size",
+        "trigger": "Direct 2026 primary last-iterate and stochastic-contraction analysis of the same iteration and residual objective."
+      },
+      {
+        "assessment": "Its finite-precision and refinement conclusions do not determine the present exact-arithmetic two-row residual envelope.",
+        "evidence": "arXiv v1 dated 16 May 2026; MSC 65F10, Section 1.1, Theorems 1 and 2.",
+        "identifier_or_url": "arXiv:2605.17185; https://arxiv.org/html/2605.17185v1",
+        "material_read": "Full available HTML, abstract, Section 1 contributions and mathematical set-up, Section 2 stability theorem and iterative-refinement statements.",
+        "method": "Public primary preprint full-text HTML; checked underlying update and theorem hypotheses.",
+        "title": "Numerical Instabilities in the Kaczmarz Method and Stabilization by Iterative Refinement",
+        "trigger": "Recent numerical-analysis source with explicit primary MSC 65F10, same normalized randomized Kaczmarz iteration."
+      },
+      {
+        "assessment": "Proves universal operator difference upper bound 3/(T+1), already giving order 1/t; no optimized two-row angular coefficient, cubic, or residual overshoot threshold in inspected theorem or discussion.",
+        "evidence": "Theorem 3.1: operator norm of the difference of consecutive moment maps is <=3/(T+1); the present extremal coefficient is 1/e in a specified two-row family.",
+        "identifier_or_url": "arXiv:2606.29593; https://www.researchgate.net/publication/408237048_How_AI_settled_the_complexity_of_the_oldest_SGD_algorithm",
+        "material_read": "Accessible author-paper text, Section 3 Theorem 3.1, Lemmas 3.4–3.6 and their proof, Section 3.3 and conclusion.",
+        "method": "Read text of primary manuscript reproduced as a public author-copy HTML extract; arXiv endpoint access failed.",
+        "title": "General last-iterate Kaczmarz complexity bound",
+        "trigger": "Potential stronger general coverage: a newer order-one-over-horizon result must be compared."
+      },
+      {
+        "assessment": "Gives a general exact *solution-error* MSE via the moment operator; the new result is a sharp jointly geometry/initial-condition optimized *residual* observable with a unique cubic optimizer and asymptotics. Formula is credited as a general algebraic precursor.",
+        "evidence": "Proposition 1, equation (5), expresses E||e_N||² through a power of the averaged projector Kronecker operator.",
+        "identifier_or_url": "Agaskar–Wang–Lu (2014); https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Lawful open PDF, Sections 2.1–2.2, Proposition 1 and its proof on page 3, remaining optimization discussion and references.",
+        "method": "Read full paper text and inspected page 3 visually, including the exact Kronecker formula.",
+        "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+        "trigger": "Most relevant historical general exact finite-iteration moment formula; possible stronger algebraic coverage."
+      },
+      {
+        "assessment": "General exact squared-solution-error and spectral bounds, not an identified exact optimal residual-energy coherence curve. Full-article noninspection remains a genuine comparison risk.",
+        "evidence": "Abstract and Section 4 Theorem 4.1 treat exact MSE and spectral convergence upper bounds, and explicitly credit the 2014 full-column-rank exact MSE formula.",
+        "identifier_or_url": "DOI:10.1016/j.laa.2018.05.009",
+        "material_read": "Publisher-indexed abstract and extended accessible article excerpts: introduction, Sections 4–6 convergence estimates and conclusions.",
+        "method": "Primary journal landing-page text; open full article redirected to an inaccessible publisher response.",
+        "title": "On convergence rate of the randomized Kaczmarz method",
+        "trigger": "Exact MSE formulas and potentially stronger flat/square-system coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "473f1e74-7dd3-492a-a2be-6fa8844b06d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite-horizon condition-number-free residual envelope of the smallest noncommuting Kaczmarz problem has a natural complete optimization and an exact sharp 1/e leading constant, with unique horizon-dependent geometry. The separate first-step threshold c=sqrt(2)-1 shows a principled distinction between Euclidean-error monotonicity and residual-energy monotonicity; it can guide residual monitoring and stress testing. The result is not presented as a universal rate improvement, a textbook renaming or a numerical table recomputation.",
+    "status": "PASS"
+  }
+}
