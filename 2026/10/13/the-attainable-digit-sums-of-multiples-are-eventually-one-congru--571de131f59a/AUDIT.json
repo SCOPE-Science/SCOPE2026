@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "For every \\(N\\), \\(s_b(N)\\equiv N\\pmod{b-1}\\), giving the necessary divisor \\(g\\). Multiplication by \\(n/g\\) permutes residues modulo \\((b-1)/g\\), so the first \\(q=(b-1)/g\\) multiples supply one digit-sum representative of every admissible residue class. The focal paper’s Theorem 4 fills the upward ray in each residue by steps of \\(b-1\\), proving the tail. Disjoint base-\\(b\\) block concatenation proves additive closure. These arguments cover \\(b=2\\), \\(n=1\\), and all gcd boundary cases without exceptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 4 of arXiv:2002.02731 says that one attained digit sum \\(u\\) generates only the progression \\(u+r(b-1)\\).",
+        "The focal paper explicitly gives a base-3 example where a small digit sum above the minimum is absent, so its statement is not already an interval-tail theorem.",
+        "The new residue-permutation argument supplies every admissible residue class and hence the complete eventual tail."
+      ],
+      "reasoning": "The closest stronger-looking source was inspected in full at the relevant section; its theorem is an input, not an implication-equivalent statement, until the additional residue argument is supplied.",
+      "searches": [
+        "arXiv:2002.02731, Section 2, Theorems 1, 3, 4",
+        "web: \"all sufficiently large\" \"digit sum\" multiples base",
+        "web: \"digit sums of multiples\" numerical semigroup"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.02731",
+      "DOI:10.1016/j.tcs.2022.05.029",
+      "Dartyge–Luca–Stănică (2009), On digit sums of multiples of an integer",
+      "published-finding corpus semantic index",
+      "targeted exact web searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A single progression \\(u+r(b-1)\\) need not cover all residues allowed by \\(\\gcd(n,b-1)\\).",
+        "The new proof uses the invertibility of \\(n/g\\) modulo \\((b-1)/g\\) to choose one seed in every allowed residue and then applies the prior progression theorem.",
+        "Additive block concatenation additionally identifies the normalized whole spectrum as a numerical semigroup."
+      ],
+      "reasoning": "The prior progression theorem is strictly local to one residue. The final claim requires and supplies a global residue-completeness step plus additive closure, so it is not a restatement of Theorem 4.",
+      "searches": [
+        "arXiv:2002.02731 Theorem 4",
+        "arXiv:2002.02731 lines discussing swm_3(13)=3 and nonattainment of 4",
+        "Dartyge–Luca–Stănică (2009), On digit sums of multiples of an integer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit states an eventual exact spectrum for \\(s_b(kn)\\).",
+        "Exact web searches surfaced the sturdy/flimsy literature but no numerical-semigroup or cofinite-spectrum theorem for these values."
+      ],
+      "reasoning": "The claim was searched both as eventual congruence coverage and as the equivalent normalized numerical-semigroup statement.",
+      "searches": [
+        "published-finding corpus: digit sums of multiples numerical semigroup attainable digit sums",
+        "published-finding corpus: all sufficiently large digit sums multiples base gcd n b-1",
+        "published-finding corpus: spectrum S_b(k n) numerical semigroup",
+        "web: \"attainable digit sums\" multiples numerical semigroup base",
+        "web: \"digit sum\" multiples \"cofinite\" base"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The focal paper identifies OEIS A086342 with the minimum digit sum of a multiple and A143069 with a least witness, rather than the full attainable spectrum.",
+        "No indexed published-finding corpus table or database entry returned the normalized semigroup or its conductor."
+      ],
+      "reasoning": "The standard tabulations attached to this literature concern minima and witnesses; they do not tabulate the complete set of attainable digit sums as a semigroup.",
+      "searches": [
+        "arXiv:2002.02731 introduction: OEIS A086342 and A143069",
+        "published-finding corpus: digit sums of multiples numerical semigroup attainable digit sums"
+      ]
+    },
+    "rationale": "The focal full text proves only the one-residue progression from an already attained digit sum and discusses minima; it does not state that the union of all attainable residues is cofinite after the necessary gcd normalization, nor that the normalized spectrum is a numerical semigroup. Targeted published-finding corpus and web searches for the spectrum, cofinite formulation, and numerical-semigroup formulation found no implication-equivalent result.",
+    "residual_risks": [
+      "The conclusion is a short consequence of the focal progression theorem plus a residue argument, so an unindexed note or informal observation may have recorded it.",
+      "The explicit conductor bound is not claimed optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the upward progression from any one attained digit sum and studies minimum digit sums, but does not state eventual coverage of every gcd-admissible residue or the numerical-semigroup structure.",
+        "evidence": "Section 2 states Theorem 4 as \\(u\\mapsto u+r(b-1)\\) and immediately contrasts base 2 with the base-3 example \\(n=13\\), where digit sum 4 is absent.",
+        "identifier_or_url": "arXiv:2002.02731",
+        "material_read": "Full open-access paper, with detailed inspection of Section 2 and Theorems 1, 3, and 4, plus the surrounding discussion of attainable digit sums.",
+        "method": "Full-text inspection of the arXiv version.",
+        "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+        "trigger": "Closest source on which digit sums can occur among multiples of a fixed integer."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "571de131-f59a-46ba-a9af-e5f6e83407cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The focal literature treats minimum digit sums and one-residue progressions. The new statement determines the entire infinite tail of the attainable spectrum for every base and modulus, reducing all remaining uncertainty to finitely many small values. The numerical-semigroup formulation is a natural structural invariant: it supplies finite complement, conductor, and additive closure, and turns an infinite realization problem into a finite exceptional-set problem.",
+    "status": "PASS"
+  }
+}
