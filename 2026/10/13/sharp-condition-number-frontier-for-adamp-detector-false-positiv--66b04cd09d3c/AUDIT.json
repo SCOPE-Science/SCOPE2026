@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "For an SPD quadratic, the detector cosine reduces to \\((w^\\top Hw)/(\\|w\\|\\|Hw\\|)\\). Using \\((\\lambda-\\mu)(L-\\lambda)\\ge0\\) gives a sharp two-moment bound whose minimizer is \\(2\\sqrt{\\mu L}/(\\mu+L)\\); equality is attained by mixing only extremal eigendirections with squared-weight ratio \\(\\mu/L\\). Inverting AdamP's strict cosine threshold then gives the exact if-and-only-if frontier. Randomized checks and explicit equality witnesses replay successfully from the embedded verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining paper analyzes norm growth, projection geometry, and empirical detector accuracy.",
+        "General positive-definite matrix literature recognizes that the angle between a vector and its image depends on conditioning, but the final proof is reconstructed directly and no AdamP-specific covering theorem was located.",
+        "Web searches did not surface a stronger AdamP detector theorem subsuming the stated frontier."
+      ],
+      "reasoning": "The source's empirical accuracy and its convergence discussion do not imply a worst-case detector guarantee over all SPD quadratics. A generic matrix-angle fact does not by itself state the optimizer-specific threshold, dimension dependence, or false-positive interpretation.",
+      "searches": [
+        "AdamP condition number cosine gradient weight quadratic",
+        "AdamP condition number projection cosine",
+        "AdamP quadratic cosine similarity Hessian",
+        "minimum cosine SPD gradient vector condition number AdamP"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2006.08217v1",
+      "ICLR2021:AdamP"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines the exact strict projection test and projection operator.",
+        "The source reports empirical cosine ranges and detector accuracy for scale-variant and scale-invariant neural-network weights.",
+        "The source does not analyze ordinary SPD quadratic curvature as an alternative cause of small cosine."
+      ],
+      "reasoning": "The source architecture is the premise, not the conclusion. The final claim requires solving a separate extremal problem for the weight-gradient angle, proving attainability for every SPD condition number, and inverting the detector threshold.",
+      "searches": [
+        "arXiv:2006.08217v1 AdamP equation 11 cosine delta sqrt dim",
+        "AdamP delta sensitivity scale-variant scale-invariant weights",
+        "AdamP projection automatic scale invariance detector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equation 11 of the full paper activates projection when the absolute weight-gradient cosine is below the dimension-normalized threshold.",
+        "Appendix C studies empirical detector separation and recommends delta equal to 0.1.",
+        "No inspected source states the exact SPD minimum cosine or its inverted AdamP activation frontier."
+      ],
+      "reasoning": "Equivalent formulations include a sharp condition-number threshold for detector activation, a guarantee of no curvature-induced projection, and existence of scale-variant false-positive directions. These formulations are mathematically equivalent after minimizing the SPD weight-gradient cosine and were not found in the inspected AdamP literature.",
+      "searches": [
+        "AdamP cosine detector SPD quadratic minimum angle condition number projection activation threshold",
+        "AdamP automatic scale invariance detection condition number quadratic cosine threshold",
+        "AdamP false positive scale-variant projection detector condition number quadratic gradient angle",
+        "arXiv:2006.08217v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits included a row-coherence initialization obstruction, a scaled-Polyak quadratic frontier, a weak Gauss-Newton conditioning obstruction, and projected-eigenpair false positives.",
+        "No returned record analyzed AdamP's cosine detector or the condition number at which a scale-variant SPD quadratic can cross its threshold."
+      ],
+      "reasoning": "The closest records involve different algorithms, certificates, or conditioning quantities and do not imply the AdamP detector statement. Search absence is supporting evidence only and is combined with full-text comparison.",
+      "searches": [
+        "AdamP optimizer projection scale-invariant weights exact dynamics quadratic",
+        "AdamP optimizer scalar quadratic projection stability",
+        "AdamP cosine detector SPD quadratic minimum angle condition number projection activation threshold",
+        "AdamP automatic scale invariance detection condition number quadratic cosine threshold",
+        "AdamP projection activation Kantorovich cosine gradient weight",
+        "AdamP false positive scale-variant projection detector condition number quadratic gradient angle"
+      ]
+    },
+    "rationale": "The defining AdamP paper gives the automatic cosine detector and empirical scale-variant/scale-invariant separation, but does not state a condition-number frontier for false positives on scale-variant quadratics. Focused published-record searches found no AdamP result applying the exact SPD angle minimum to projection activation. The closest database results concern unrelated conditioning or projection thresholds with different update maps.",
+    "residual_risks": [
+      "An equivalent application of the classical SPD angle bound may exist in unindexed optimizer notes.",
+      "The theorem is worst-case and does not estimate the probability of false activation in real training.",
+      "Implementation grouping changes the relevant detector dimension."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_DETECTOR_NOT_COVERING_SHARP_CURVATURE_FALSE_POSITIVE_FRONTIER.",
+        "evidence": "Equation 11 uses the strict test cos(weight, gradient) below delta divided by the square root of detector dimension; Appendix C reports empirical separation and recommends delta equal to 0.1, but no condition-number guarantee or scale-variant quadratic false-positive family is stated.",
+        "identifier_or_url": "arXiv:2006.08217v1 / ICLR 2021 open-access full paper",
+        "material_read": "Full 27-page open-access conference paper, including the scale-invariance definition, norm-growth analysis, Section 3 projected-update construction, Equation 11, Algorithms 1 and 2, the channel/layer-wise implementation discussion, Appendix C delta-sensitivity experiment, and related discussion.",
+        "method": "Full-text PDF inspection with targeted searches and direct inspection of the detector and sensitivity passages.",
+        "title": "AdamP: Slowing Down the Slowdown for Momentum Optimizers on Scale-invariant Weights",
+        "trigger": "Defining source for AdamP's automatic cosine detector, projection rule, recommended threshold, and detector validation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66b04cd0-9d3c-4a7b-a07e-9adcc8ca8d7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Automatic scale-invariance detection is part of AdamP's core usability claim, and the source explicitly validates it empirically. The theorem identifies a mathematically distinct mechanism that can mimic scale invariance, gives the exact protection frontier, and quantifies how detector dimension and delta trade off against curvature anisotropy. Because the boundary is necessary and sufficient and comes with explicit false-positive directions, it is a substantive diagnostic rather than a routine restatement of the detector.",
+    "status": "PASS"
+  }
+}
