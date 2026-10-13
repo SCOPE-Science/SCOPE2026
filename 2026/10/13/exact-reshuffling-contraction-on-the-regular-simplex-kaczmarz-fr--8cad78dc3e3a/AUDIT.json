@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Permutation symmetry makes the averaged Gram operator scalar on the simplex representation. A fixed-order Hilbert--Schmidt recurrence computes that scalar exactly, the arithmetic-geometric sum gives the closed form, and tight-frame isotropy gives the with-replacement baseline. Exact Fraction enumeration through n=5 replays the formulas but is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han--Xie define the same RRK epoch product and prove a general spectral-norm contraction bound, but do not compute the regular-simplex permutation-averaged MSE scalar.",
+        "Strohmer--Vershynin prove expected exponential convergence for with-replacement randomized Kaczmarz; on this tight frame it gives the exact one-row baseline, not the reshuffled epoch law.",
+        "The 2026 simplex dynamics manuscript uses factors C_i(rho)=1/2[I+rho(uz_i^T+z_i u^T)], not Kaczmarz projectors, and its certified full-reshuffling statements are low-length."
+      ],
+      "reasoning": "The broader sources allow more general systems or different factor families, but their conclusions do not imply the closed form c_n for the specific projector average. General upper bounds cannot imply an exact direction-independent expectation without an additional equality analysis.",
+      "searches": [
+        "Han and Xie arXiv:2410.01140 full text, iteration matrix and convergence theorem",
+        "Strohmer and Vershynin arXiv:math/0702226 full text, randomized row selection and expected contraction",
+        "2026 metric-dependent random-reshuffling dynamics regular-simplex family"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0702226",
+      "arXiv:2410.01140",
+      "doi:10.5281/zenodo.22037371",
+      "Agaskar-Wang-Lu-2014-exact-MSE"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The with-replacement theorem gives a per-step expectation and contains no without-replacement epoch product average.",
+        "Han--Xie bound each epoch using a spectral norm; an exact scalar average of T_pi^T T_pi is strictly stronger and not entailed by that inequality.",
+        "The 2026 simplex factors have rank-two off-diagonal perturbations of I/2 and are not the rank-(n-1) hyperplane projectors P_i=I-v_i v_i^T used here."
+      ],
+      "reasoning": "None of the closest statements logically yields the exact c_n identity or the asymptotic separation c_n=Theta(1/n) versus d_n->e^{-1}. The comparison is by implication, not title similarity.",
+      "searches": [
+        "Strohmer--Vershynin randomized Kaczmarz theorem versus regular-simplex RRK",
+        "Han--Xie RRK Theorem 3.2 versus exact permutation-average MSE",
+        "metric-dependent sampling dynamics simplex factors versus Kaczmarz projectors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered aliases regular simplex, equiangular tight frame, random reshuffling, sampling without replacement, permutation products, and exact mean-square error; no implication-equivalent record was located.",
+        "The closest semantic records concerned maximal-distance Kaczmarz coherence or cyclic underrelaxation, which use different row-selection protocols and claims."
+      ],
+      "reasoning": "The final claim is an exact all-dimensional averaged Gram identity for ordinary hyperplane projections, not merely a convergence bound or a row-ordering heuristic.",
+      "searches": [
+        "regular simplex Kaczmarz random reshuffling exact one epoch mean square error factor all dimensions",
+        "random reshuffling Kaczmarz simplex frame exact MSE with replacement asymptotic",
+        "Kaczmarz equiangular tight frame permutation product expected squared error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or table was located that lists c_n or the all-n closed form.",
+        "The displayed low-dimensional rational values were derived from the theorem and independently replayed rather than copied from a table."
+      ],
+      "reasoning": "The finding is a continuous all-dimensional formula with proof, not a recomputation of a finite benchmark table.",
+      "searches": [
+        "exact MSE randomized Kaczmarz simplex frame table",
+        "regular simplex Kaczmarz permutation average closed form",
+        "without replacement Kaczmarz exact epoch factor"
+      ]
+    },
+    "rationale": "The closest RRK paper gives a general contraction bound for products of Kaczmarz projections but not the exact permutation-averaged regular-simplex MSE channel. The seminal randomized-Kaczmarz paper supplies the with-replacement baseline only. A 2026 regular-simplex reshuffling manuscript uses a different non-projective factor family and explicitly limits its certified full-reshuffling results to low factor counts; its all-length question is not this Kaczmarz projection identity. Statement-level searches did not locate the closed form or its asymptotic comparison.",
+    "residual_risks": [
+      "Older cyclic-projection, projection-method, or finite-frame literature may encode the same regular-simplex product average under different terminology.",
+      "The exact-MSE paper by Agaskar--Wang--Lu was not fully inspectable through the checked public route; an unobserved special-frame corollary remains a source-level risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: establishes with-replacement expected contraction, not random reshuffling or the simplex epoch formula.",
+        "evidence": "The algorithm samples rows proportional to squared norm and Theorem 2 bounds expected squared error geometrically.",
+        "identifier_or_url": "arXiv:math/0702226",
+        "material_read": "Full PDF sections containing Algorithm 1, Theorem 2, and the conditional expectation proof.",
+        "method": "Full-text PDF inspection, including rendered pages containing the algorithm and theorem.",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Foundational randomized-Kaczmarz baseline and earliest archive source."
+      },
+      {
+        "assessment": "BROADER_FRAMEWORK_NOT_COVERING: supplies general RRK linear convergence via spectral-norm bounds, but not the exact regular-simplex averaged MSE factor.",
+        "evidence": "The paper defines T_pi as the ordered product of hyperplane projections and bounds one epoch by ||T_pi A^dagger A||_2.",
+        "identifier_or_url": "arXiv:2410.01140",
+        "material_read": "Full arXiv HTML covering the algorithm, the epoch product T_pi, Lemma 3.1, and Theorem 3.2.",
+        "method": "Full-text HTML inspection.",
+        "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+        "trigger": "Closest direct RRK convergence source."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_FACTORS: studies C_i(rho)=1/2[I+rho(uz_i^T+z_i u^T)], not Kaczmarz hyperplane projectors. It therefore does not imply the projection formula here.",
+        "evidence": "The manuscript explicitly defines its factors and separately states an all-length simplex-positivity question for that factor family.",
+        "identifier_or_url": "doi:10.5281/zenodo.22037371",
+        "material_read": "Public manuscript source sections defining the regular-simplex contraction family, the certified low-length theorem, and the research-agenda all-length question.",
+        "method": "Full manuscript source inspection from the public release repository after the release PDF endpoint was inaccessible.",
+        "title": "Which Sampling Scheme Is Better? Metric-Dependent Rankings in Random Reshuffling Dynamics",
+        "trigger": "Highly relevant 2026 regular-simplex random-reshuffling result discovered by exact-topic search."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_RISK: clearly relevant to exact MSE for randomized Kaczmarz, but available material indicates with-replacement row-sampling probabilities rather than fresh random reshuffling.",
+        "evidence": "The abstract announces exact MSE formulas and optimal sampling probabilities for randomized Kaczmarz.",
+        "identifier_or_url": "Agaskar-Wang-Lu-2014-exact-MSE",
+        "material_read": "Public abstract and metadata only; the full PDF route checked here did not provide inspectable full text.",
+        "method": "Abstract/metadata inspection.",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Potential exact-MSE alias coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8cad78dc-3e3a-4676-911f-540d7b295d4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives an exact all-dimensional benchmark for a canonical maximally symmetric overdetermined system and quantifies a strong protocol separation at identical row-action cost: fresh reshuffling leaves Theta(1/n) mean-square error per pass whereas independent with-replacement sampling leaves a constant asymptotic fraction. This isolates a concrete mechanism by which row dependence can matter beyond generic rate bounds.",
+    "status": "PASS"
+  }
+}
