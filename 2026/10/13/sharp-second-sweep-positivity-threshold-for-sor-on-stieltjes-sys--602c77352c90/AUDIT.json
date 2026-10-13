@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "After positive diagonal scaling, the first two SOR sweeps reduce to \\(Q_2=\\omega[R+(1-\\omega)R^2+\\omega RUR]\\) with \\(R=\\sum_{j=0}^{n-1}\\omega^jL^j\\). The exact identity \\(R^2=\\sum_{j=0}^{n-1}(j+1)\\omega^jL^j\\) makes every coefficient nonnegative exactly through \\(\\omega=(n+1)/n\\). Above that boundary, the explicit SPD tridiagonal chain has endpoint entry \\(\\omega^n\\varepsilon^{n-1}[(n+1)-n\\omega+(n-1)\\omega^2\\varepsilon^2]\\), which is negative for sufficiently small \\(\\varepsilon\\). Exact-rational replay confirms the stated \\(n=3\\) witness. The finite checker is supplementary; the proof covers arbitrary \\(n\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Axelsson, DOI 10.1017/CBO9780511624100.007, covers M-matrices, convergent splittings, and SOR rate acceleration at a broad level.",
+        "James and Riha, DOI 10.1137/0712013, study convergence criteria for L-matrices rather than finite-sweep cone preservation."
+      ],
+      "reasoning": "Broader convergence theory does not imply entrywise nonnegativity of a particular finite iterate when overrelaxation makes the stationary iteration matrix sign-indefinite.",
+      "searches": [
+        "published-finding corpus: SOR successive overrelaxation M-matrix Stieltjes componentwise positivity iterates nonnegative threshold overrelaxation",
+        "web: \"successive over-relaxation\" \"nonnegative\" \"M-matrix\" iteration",
+        "web: SOR positivity M-matrix componentwise iteration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.3327v1",
+      "DOI:10.21136/AM.1977.103683",
+      "DOI:10.1137/0712013",
+      "DOI:10.1017/CBO9780511624100.007",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published-finding 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f is a Jacobi Euclidean-norm statement, not an SOR componentwise result.",
+        "Published-finding 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b controls a two-dimensional Euclidean transient, not finite-sweep cone preservation."
+      ],
+      "reasoning": "The theorem depends on the nilpotent lower-triangular resolvent \\(R=(I-\\omega L)^{-1}\\) and an exact path count in \\(RUR\\). Neither stationary Richardson/Jacobi polynomial arguments nor Gauss-Seidel Euclidean norm bounds imply the dimension-dependent componentwise threshold \\(\\omega=1+1/n\\).",
+      "searches": [
+        "published-finding corpus: weighted Jacobi euclidean damping frontier SOR positivity",
+        "published-finding corpus: Gauss-Seidel euclidean transient threshold SOR",
+        "web: SOR M-matrix convergence positivity finite iterate triangular splitting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest published-finding IDs were 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 and 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b; they concern different algorithms or norms.",
+        "Vigna arXiv:1404.3327v1 treats weighted supremum-norm error contraction for asynchronous SOR on M-matrices, not nonnegativity of the second iterate."
+      ],
+      "reasoning": "Componentwise nonnegativity of the finite SOR inverse approximant \\(Q_2\\) is not equivalent to spectral-radius convergence, error-norm contraction, or Euclidean transient control. The searched aliases did not recover the threshold formula or an equivalent two-sweep matrix inequality.",
+      "searches": [
+        "published-finding corpus: SOR second iterate positivity Stieltjes matrix sharp relaxation dimension (n+1)/n",
+        "published-finding corpus: successive overrelaxation second sweep nonnegative M-matrix sharp omega dimension",
+        "web: \"successive overrelaxation\" componentwise monotone M-matrix positivity iterates relaxation factor",
+        "web: \"SOR\" \"M-matrix\" monotone iteration relaxation factor nonnegative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published-finding record or literature result supplied a table or formula indexed by dimension for second-sweep SOR positivity.",
+        "The inspected 1977 Marek-Zitko full text studies extrapolation and spectral convergence acceleration of SOR."
+      ],
+      "reasoning": "No exact database or table coverage of the invariant \\(\\omega_2(n)=1+1/n\\) was located.",
+      "searches": [
+        "published-finding corpus: SOR componentwise positivity first two sweeps inverse-positive Stieltjes overrelaxation",
+        "web: \"second iterate\" SOR M-matrix positivity"
+      ]
+    },
+    "rationale": "Focused statement-level searches found classical and modern SOR convergence/rate theory, \\(M\\)-matrix splitting theory, and nearby published findings on Richardson, Gauss-Seidel, and Jacobi, but no source implying the exact universal second-sweep componentwise threshold \\(1+1/n\\) or the sharp chain witness. Full text of a classical SOR acceleration paper was inspected; its scope is spectral acceleration rather than finite-sweep cone preservation. The principal residual risk is older monotone-iteration terminology not recovered by the searches.",
+    "residual_risks": [
+      "Older monotone-iteration or regular-splitting literature may contain an equivalent finite-sweep identity under terminology not recovered by the searches.",
+      "The Vigna arXiv PDF was not retrievable; the comparison to that source is restricted to its abstract and metadata. This access limitation is not decisive because the stated result concerns a different error-norm property."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING on the inspected material: it addresses asynchronous error-norm contraction rather than componentwise signs of the second standard SOR sweep.",
+        "evidence": "First public submission 2014-04-12; the abstract states a computable geometric weighted-supremum-norm error reduction for step-asynchronous SOR on M-matrix systems.",
+        "identifier_or_url": "arXiv:1404.3327v1",
+        "material_read": "Title, abstract, submission metadata, and stated weighted-supremum error-contraction result.",
+        "method": "Public abstract and submission metadata were inspected; direct full-text retrieval from that source was unavailable.",
+        "title": "Supremum-Norm Convergence for Step-Asynchronous Successive Overrelaxation on M-matrices",
+        "trigger": "Highly relevant M-matrix SOR source and day-resolved archive anchor."
+      },
+      {
+        "assessment": "NOT_COVERING: the paper studies spectral/extrapolation acceleration, not finite-sweep componentwise positivity or a dimension threshold.",
+        "evidence": "DML-CZ record lists MSC 65F10 and DOI 10.21136/AM.1977.103683; the full-text introduction states the objective as accelerating convergence of SOR.",
+        "identifier_or_url": "DOI:10.21136/AM.1977.103683",
+        "material_read": "Full-text introduction and general-theorem setup, including the paper's description of accelerating a nonoptimal SOR scheme and discussion of SOR iteration matrices.",
+        "method": "Lawful open full-text PDF from DML-CZ; page image and parsed text inspected.",
+        "title": "Ljusternik acceleration and the extrapolated S.O.R. method",
+        "trigger": "Classical SOR source with explicit MSC 65F10 and accessible full text."
+      },
+      {
+        "assessment": "NOT_COVERING on accessible material: necessary/sufficient convergence conditions and diagonal scaling are discussed, not second-iterate nonnegativity.",
+        "evidence": "The abstract explicitly concerns positive-diagonal/nonpositive-off-diagonal matrices and convergence under relaxation.",
+        "identifier_or_url": "DOI:10.1137/0712013",
+        "material_read": "Abstract and bibliographic record.",
+        "method": "Publisher abstract page.",
+        "title": "Convergence Criteria for Successive Overrelaxation",
+        "trigger": "Classical L-matrix relaxation source plausibly relevant to order properties."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "602c7735-2c90-401f-a4d9-ff4cf659a703",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a complete, dimension-explicit finite-horizon safety law for a canonical overrelaxed solver: the amount of universally safe overrelaxation at sweep two is exactly \\(1/n\\). This directly separates asymptotic SOR convergence from order-cone preservation and provides a sharp diagnostic for positivity-sensitive inverse-positive systems. The chain witness shows the boundary is structural, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
