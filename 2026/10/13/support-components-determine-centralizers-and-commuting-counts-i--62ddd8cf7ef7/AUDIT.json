@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Each edge has its own central bracket, so [x,y]=0 if and only if all edge determinants vanish; on support this fixes one ratio per induced connected component, forces neighbor-outside coefficients to zero, and leaves b(S) free. Rank-nullity yields exact rank for all fields, and independent projective-direction counting over F_q gives the commuting-pair Q evaluation. Exhaustive direct edge-equation and Gaussian-elimination checks on all graphs of sizes <=4 over F2/F3 and <=3 over F4, plus wider polynomial and tree tests, returned VERIFY_OK. Finite tests support but do not replace the proof; all boundary cases and characteristics are covered algebraically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shamsaki–Erfanian–Parvizi Lemma 3.2 establishes the general rank-average formula but no graph-support centralizer evaluation.",
+        "Tittmann–Averbouch–Makowsky Theorem 10 establishes Q as a weighted graph partition function but discusses no Lie bracket or adjoint maps.",
+        "The 2026 commutativity-degree article evaluates and bounds selected Lie families, without a graph-Lie specialization."
+      ],
+      "reasoning": "Each general antecedent covers a component of the calculation, but none states or implies an evaluated support-wise adjoint-rank spectrum for every graph. The present polynomial identification is acknowledged to reuse Q and its known combinatorial interpretation.",
+      "searches": [
+        "arxiv:2406.10064v1 Lemma 3.2 image ad_x commutativity degree",
+        "arxiv:0812.4147v2 Theorem 10 weighted Star_y graph homomorphisms",
+        "\"graph Lie\" \"centralizer\" finite field",
+        "Characterizing Lie Algebra Structure via the Commutativity Degree 2026 graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.10572v1",
+      "arxiv:2406.10064v1",
+      "arxiv:0812.4147v2",
+      "arxiv:2308.00272v2",
+      "Gintz 2018 Classifying Graph Lie Algebras (different object)",
+      "Shamsaki et al. 2026 Characterizing Lie Algebra Structure via the Commutativity Degree",
+      "Research papers on non-commuting graphs of finite-dimensional Lie algebras (different graph object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heisenberg (one-edge) follows the general Lie degree formula and is explicitly known.",
+        "Graph Q combinatorics permits counting coloured support assignments without itself identifying them with graph Lie bracket zero-loci.",
+        "Special almost-abelian and filiform results do not include all independent-edge graph Lie algebras."
+      ],
+      "reasoning": "Graph-Lie bracket definition + generic commutativity averaging + pre-existing Q theory suggest a route to the new formula but contain no stated general centralizer dimensions. Conversely, this result specializes to the known one-edge Heisenberg and known graph Q counts: those covered consequences are not claimed independently. No stronger inspected theorem implies the exact arbitrary-support rank formula.",
+      "searches": [
+        "arxiv:2206.10572v1 Theorem 3.5 graph Lie rigidity",
+        "arxiv:2406.10064v1 Example 3.3 Heisenberg commutativity",
+        "arxiv:0812.4147v2 Theorem 10 partition function",
+        "finite-field almost-abelian Lie algebra rank-only commutativity spectra"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2206.10572v1 defines the independent-central-edge 2-step graph Lie bracket but studies rigidity over complex scalars.",
+        "arxiv:2308.00272v2 studies graph ideals and strata-preserving derivations for labelled directed graphs; no centralizer spectrum.",
+        "Gintz 2018 builds a Clifford/graph-algebra commutator Lie structure, not the 2-step independent-edge construction."
+      ],
+      "reasoning": "Names graph Lie algebra and graphical Lie algebra can denote other Lie structures. Their objects and implications were compared. The independent-edge rank \\(n-c(S)-b(S)\\) has not been located in these primary texts; generic statements about graph ideals or different structures do not imply the full result.",
+      "searches": [
+        "\"graph Lie algebra\" \"centralizer\" \"support\" finite field",
+        "\"graph Lie algebras\" \"commutativity degree\"",
+        "arxiv:2206.10572v1 §§2–3",
+        "arxiv:2308.00272v2 §§2–5",
+        "Classifying Graph Lie Algebras Michael Gintz 2018"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Q polynomial and its standard graph-family instances and tree recursion are already published, hence are not new tables.",
+        "Non-commuting graph papers use vertices x outside a Lie center, not the base graph G with independent edge center, and do not provide these all-graph rank multiplicities."
+      ],
+      "reasoning": "A bare table of Q evaluations is prior coverage. The new deliverable is the centralizer-dimension theorem, full Lie adjoint rank spectrum, and explicit identification with Q; no previously known Q sample is offered as independent novelty.",
+      "searches": [
+        "\"graph Lie algebra\" \"commuting pairs\" number finite field",
+        "arxiv:0812.4147v2 induced subgraph polynomial paths cycles trees",
+        "\"subgraph component polynomial\" \"Lie algebra\" commutativity",
+        "non-commuting graph associated to a finite-dimensional Lie algebra 2024"
+      ]
+    },
+    "rationale": "The exact arbitrary-graph support-wise centralizer theorem and its resulting adjoint-rank polynomial are not stated or implied as conclusions in the inspected primary graph-Lie, commutativity-degree, or graph-polynomial papers. The established Q polynomial and weighted graph-colouring interpretation are explicitly treated as prior. The finding combines a new Lie-theoretic centralizer calculation with a precise previously known graph invariant; close prior cases do not cover arbitrary graph supports. Search cannot certify priority universally.",
+    "residual_risks": [
+      "An earlier derivation of the graph-Lie centralizer support formula may exist in other terminology (graphical 2-step nilpotent Lie, graphical p-groups, algebraic statistics). The search is finite and does not establish priority conclusively.",
+      "The subgraph component polynomial Q, its weighted-colouring model, and graph-family/tree recurrences are pre-existing; the novelty must reside in the Lie-theoretic rank/centralizer identification rather than reusing these formulas.",
+      "Statements about associated graphical groups or central quotients could imply some restricted cases; the present all-graphs statement uses the unquotiented independent-edge Lie algebra."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same Lie algebra objects, but rigidity over complex scalars does not calculate finite-field commuting pairs or support-wise centralizers.",
+        "evidence": "§2 gives [v_i,v_j]=z_ij on edges; §3 proves geometric rigidity characterization.",
+        "identifier_or_url": "https://arxiv.org/html/2206.10572v1",
+        "material_read": "Complete five-page open HTML, §§1–3 including Def. in §2 and Theorems 3.4–3.5",
+        "method": "Read the full lawful arXiv text and checked the statements of the rigidity classification against the centralizer/rank result",
+        "title": "Rigid 2-step graph Lie algebras",
+        "trigger": "Exact independent-edge 2-step graph Lie algebra and first-public primary-MSC source"
+      },
+      {
+        "assessment": "General degree identity and Heisenberg instances covered; no arbitrary-graph rank formula or polynomial Q evaluation.",
+        "evidence": "Definition 3.1 and Lemma 3.2 give d(L) via |Im ad_x|; Example 3.3 treats Heisenberg.",
+        "identifier_or_url": "https://arxiv.org/html/2406.10064v1",
+        "material_read": "Complete arXiv HTML, §§1–4; specifically Definition 3.1, Lemma 3.2, Examples 3.3–3.8 and bounds",
+        "method": "Read primary full text and compared its centralizer and adjoint-rank summations to the graph support formula",
+        "title": "On the commutativity degree of a finite-dimensional Lie algebra",
+        "trigger": "Direct generic theory of finite-field Lie commutativity degree and special examples"
+      },
+      {
+        "assessment": "Q and its graph-colouring partition function are fully covered prior art. No Lie-algebraic centralizer-rank identification appears; formula avoids pretending Q is new.",
+        "evidence": "§1.1 defines Q(G;x,y); §4.2 Theorem 10 realizes Q as weighted graph homomorphisms; §5 gives graph recurrences.",
+        "identifier_or_url": "https://arxiv.org/html/0812.4147v2",
+        "material_read": "Full 23-page open HTML, especially §§1, 4.2, 5, including Theorem 10 and graph-family computations",
+        "method": "Inspected original induced-component definition and weighted-star homomorphism theorem; checked for Lie-commutativity statements",
+        "title": "The Enumeration of Vertex Induced Subgraphs with respect to the Number of Components",
+        "trigger": "Pre-existing Q polynomial is precisely the graph polynomial in the proposed expression"
+      },
+      {
+        "assessment": "Covers a broader class of objects but computes ideals and derivations, not the stated all-graph count for injective labels. In general shared labels invalidate the determinant-by-edge proof.",
+        "evidence": "§2 constructs label-dependent graph brackets; §§3–5 treat ideals, small graph classifications, and graded derivations.",
+        "identifier_or_url": "https://arxiv.org/html/2308.00272v2",
+        "material_read": "Full arXiv HTML, §§1–5 including constructions, graph ideals, and K_mn derivations",
+        "method": "Compared shared-label and distinct-label constructions and claims with centralizer equations",
+        "title": "Lie Algebras Associated with Labeled Directed Graphs",
+        "trigger": "Highly relevant extension to shared edge labels and graph derivations"
+      },
+      {
+        "assessment": "The definition uses a Clifford-like graph algebra with e_i squared equal to -1 and commutator bracket, not the independent-central-edge 2-step graph Lie algebra. Not dominating.",
+        "evidence": "§2 Definition 1 defines Lie subalgebra generated inside graph algebra with e_i e_j=-e_j e_i on edges, unlike central-edge truncation.",
+        "identifier_or_url": "https://math.mit.edu/research/highschool/primes/materials/2017/Gintz.pdf",
+        "material_read": "PDF pp. 1–5 (definition and object, including p. 4 image) and result headings",
+        "method": "Inspected publisher-hosted PDF text and page image to compare definitions before inference",
+        "title": "Classifying Graph Lie Algebras",
+        "trigger": "Plausible identical-title full-text source under same term graph Lie algebra"
+      },
+      {
+        "assessment": "Values and asymptotics for selected Lie algebra classes; no graph-Lie calculation located.",
+        "evidence": "The abstract and Section 2 address possible degrees and selected families, not support graphs.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/jom/9921706",
+        "material_read": "Accessible full webpage, abstract and sections on degree values and asymptotic values",
+        "method": "Read accessible full HTML and searched for graph-Lie specialization",
+        "title": "Characterizing Lie Algebra Structure via the Commutativity Degree",
+        "trigger": "Recent potentially stronger general paper on commutativity degree"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "62ddd8cf-7ef7-4e37-adbb-c14395c1b57b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete formula for every element-centralizer dimension in the graph Lie family is a natural algebraic structural classification with arbitrary graph size, not a one-off numerical improvement. It determines the full distribution of adjoint ranks (hence all centralizer sizes) over every finite field and identifies the exact commutativity invariant with an independently established graph polynomial; forests inherit an efficient evaluation. The Lie-theoretic result goes beyond previously established general degree averaging, rigid graph classification, and graph Q computations.",
+    "status": "PASS"
+  }
+}
