@@ -1,17 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source-chain endpoint amplitude is known exactly. Substituting a Gaussian timing offset reduces the mean occupation probability to the expectation of \(\cos^{2m}(X/2)\). The finite Fourier expansion and Gaussian characteristic function give the displayed exact sum. Strict monotonicity follows term by term. The \(s=c/\sqrt m\) limit follows from dominated convergence on the Gaussian integral, while the fixed-\(s\) law follows from central-binomial asymptotics plus dominated convergence of the exponentially weighted coefficient ratios. The target-jitter law follows by monotone inversion of the continuous limiting profile. A standalone checker independently reconstructs small-chain Hamiltonian evolution and replays all asymptotic regimes.
+PASS
 
-## Originality
+Christandl equation (15) verifies the normalization J_n=lambda sqrt(n(N-n))/2 and amplitude [-i sin(lambda t/2)]^(N-1). At t0+Xi, occupation probability is cos^(2m)(lambda Xi/2). Expanding the 2m-th cosine power gives the central binomial Fourier coefficients; the Gaussian characteristic function multiplies coefficient k by exp(-k^2 s^2/2), establishing the exact sum for all m>=1 and s>=0. Positive coefficients imply strict decrease for s>0, with endpoints 1 and 4^-m binom(2m,m). For s=c/sqrt(m), the pointwise log-cosine limit is -c^2 Z^2/4, with bounded integrand; dominated convergence gives (1+c^2/2)^-1/2. For fixed s>0, each central-binomial coefficient ratio tends to one and is bounded by one; the summable Gaussian weights and central-binomial asymptotic give the theta-series constant. Targets eta in (0,1) have a unique finite root only when eta exceeds the plateau; this holds eventually in m. Bracketing the strictly monotone limiting profile gives the stated target threshold without assuming unwarranted uniform convergence. Independent direct Gaussian integration agrees with the finite sum to about 2e-16 at four (m,s) pairs; this is supplemental numerical evidence, not an infinite proof.
 
-**PASS, narrowly scoped.** The direct anchor discusses deterministic timing windows and the analytic chain's timing robustness. The original chain paper gives the exact endpoint amplitude but explicitly does not analyze other error sources. The 2006 timing-error paper and the 2015–2016 sensitivity literature treat deterministic readout offsets, derivatives, or lower bounds. Targeted literature searches did not locate a Gaussian timing-distribution average, the finite binomial-exponential law, the \(s=c/\sqrt m\) stochastic profile, or the fixed-\(s\) theta-series asymptotic for this chain.
+## originality
 
-The \(1/\sqrt N\) scale by itself is not claimed as new; deterministic timing-window work already points to that scale.
+PASS
 
-## Value
+Best-of-knowledge PASS restricted to the complete finite Gaussian average and its two sharp chain-length regimes. The engineered chain and amplitude are known. Kay-Kim-Tamon 2025 explicitly introduces general random readout-time averaging, so stochastic averaging itself is not novel; their full paper optimizes local sensitivity and other chain designs rather than stating the present Gaussian finite sum and theta-profile limits. The known inverse-square-root timing scale is also excluded from standalone novelty.
 
-**PASS.** Readout timing precision is an explicit engineering constraint in the source literature. A stochastic clock specification is naturally stated by a standard deviation rather than a worst-case window. The exact law converts that specification into a mean transfer probability for every finite chain, while the two asymptotic regimes distinguish shrinking high-fidelity jitter from fixed timing noise. The target formula gives a directly usable calibration rule, and the theta-series law explains the contribution of periodic revivals under broad timing uncertainty.
+## value
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Timing precision is explicitly motivated in both the older review and the 2025 stochastic receiver framework. The exact finite-chain occupation law converts a Gaussian standard-deviation specification into a performance quantity. Its shrinking-noise profile gives a target-dependent calibration constant, whereas fixed noise retains periodic-revival contributions through a theta series. Distinguishing these regimes provides information beyond a local curvature or deterministic window and is a natural useful exact fact of an established chain, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-13",
+  "audited_at_utc": "2026-10-13T00:49:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify_gaussian_timing.py read as text",
+        "Christandl arXiv:quant-ph/0309131 equation (15)",
+        "Independent finite-sum/direct Gaussian-integral comparisons"
+      ],
+      "rationale": "Christandl equation (15) verifies the normalization J_n=lambda sqrt(n(N-n))/2 and amplitude [-i sin(lambda t/2)]^(N-1). At t0+Xi, occupation probability is cos^(2m)(lambda Xi/2). Expanding the 2m-th cosine power gives the central binomial Fourier coefficients; the Gaussian characteristic function multiplies coefficient k by exp(-k^2 s^2/2), establishing the exact sum for all m>=1 and s>=0. Positive coefficients imply strict decrease for s>0, with endpoints 1 and 4^-m binom(2m,m). For s=c/sqrt(m), the pointwise log-cosine limit is -c^2 Z^2/4, with bounded integrand; dominated convergence gives (1+c^2/2)^-1/2. For fixed s>0, each central-binomial coefficient ratio tends to one and is bounded by one; the summable Gaussian weights and central-binomial asymptotic give the theta-series constant. Targets eta in (0,1) have a unique finite root only when eta exceeds the plateau; this holds eventually in m. Bracketing the strictly monotone limiting profile gives the stated target threshold without assuming unwarranted uniform convergence. Independent direct Gaussian integration agrees with the finite sum to about 2e-16 at four (m,s) pairs; this is supplemental numerical evidence, not an infinite proof.",
+      "residual_risks": [
+        "Gaussian full-line or wrapped timing model only; not worst-case errors, truncated readout distributions or arbitrary-state channel fidelity. No uploaded verifier was executed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The older timing analyses optimize deterministic offsets and local curvature.",
+          "The 2025 paper studies general receiver distributions via a local second-order expansion and asymptotically optimized T-Rex chains with sin^6 or sin^8 arrival profiles."
+        ],
+        "reasoning": "General expected-fidelity notation does not provide the finite Gaussian binomial sum or the fixed-noise theta-series limit. Optimized different chain families do not dominate the stated exact invariant of the fixed analytic chain.",
+        "searches": [
+          "arXiv:0903.4274 analytic solution and timing section",
+          "arXiv:quant-ph/0509065 Section III.3",
+          "Full arXiv:2507.18872v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:quant-ph/0309131 full paper",
+        "arXiv:0903.4274 pertinent full-text sections",
+        "arXiv:quant-ph/0509065 Section III.3",
+        "arXiv:2507.18872v1 full paper",
+        "Resultary canonical record a2adc1874d32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Equation (15) is exactly the amplitude premise.",
+          "The 2025 general average is followed by a small-time approximation proportional to J1^2, not evaluation over the full Gaussian including periodic revivals.",
+          "The old pointwise lower bound does not specify exact stochastic averages."
+        ],
+        "reasoning": "Fourier expansion and the Gaussian characteristic function are standard ingredients, not independently novel. Their exact occupation-law application plus distinct shrinking-noise and fixed-noise asymptotics is the narrowly assessed remainder. No optimal-chain or general stochastic-robustness claim is made.",
+        "searches": [
+          "Christandl equation (15)",
+          "Kay-Kim-Tamon Sections I-II and VII",
+          "Kay 2006 Section III.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Resultary exact hit is the original a2adc1874d32 record, not an independent duplicate.",
+          "Kay-Kim-Tamon Section I defines expected fidelity by integration against p(t-t0); Section II gives Krawtchouk excitation probability sin^(2(N-1))(Jt)."
+        ],
+        "reasoning": "Random clock averaging and the Krawtchouk amplitude are prior. The claim is the evaluated Gaussian occupation average with finite coefficients and both large-chain regimes, not a new definition of average fidelity.",
+        "searches": [
+          "Resultary: perfect state transfer Gaussian timing jitter Krawtchouk theta",
+          "arXiv search: perfect state transfer timing errors Gaussian",
+          "arXiv:2507.18872v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The canonical original record is indexed under a2adc1874d32.",
+          "The primary sources provide deterministic amplitudes or sensitivity/optimized-chain plots, not this Gaussian average table or its explicit constants."
+        ],
+        "reasoning": "This is an audit of the existing record, not publication of a second finding. The exact expression is analytically derived, and unsuccessful searches are not proof of novelty.",
+        "searches": [
+          "Resultary: perfect state transfer Gaussian timing jitter Krawtchouk theta",
+          "Christandl full paper",
+          "Kay-Kim-Tamon full paper"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS restricted to the complete finite Gaussian average and its two sharp chain-length regimes. The engineered chain and amplitude are known. Kay-Kim-Tamon 2025 explicitly introduces general random readout-time averaging, so stochastic averaging itself is not novel; their full paper optimizes local sensitivity and other chain designs rather than stating the present Gaussian finite sum and theta-profile limits. The known inverse-square-root timing scale is also excluded from standalone novelty.",
+      "residual_risks": [
+        "The 2025 supporting notebook DOI:10.17637/rh.29336069 was referenced in the paper but not inspected; an equivalent exact calculation there or in unindexed literature remains possible.",
+        "The original package mentions a 2012 dissertation Quantum State Transfer in Spin Chains; its full contents were not inspected here. This is a literature risk, not a whole-document noncoverage assertion.",
+        "No novelty is claimed for stochastic averaging, standard Fourier/Gaussian identities, the engineered chain or the inverse-square-root timing scale by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies chain and exact amplitude; expressly excludes other error sources",
+          "evidence": [
+            "Equations (12)-(15)",
+            "Introduction statement excluding other error sources"
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0309131",
+          "material_read": "Complete primary paper through equation (15), conclusions and references",
+          "method": "Lawful cached full-text inspection in two bounded parts",
+          "title": "Perfect state transfer in quantum spin networks",
+          "trigger": "Original engineered-chain amplitude and normalization"
+        },
+        {
+          "assessment": "Prior couplings, transfer time and deterministic curvature/window motivation",
+          "evidence": [
+            "Equation (6) Jx couplings",
+            "Section 5.2 timing-window and second-derivative discussion"
+          ],
+          "identifier_or_url": "arXiv:0903.4274",
+          "material_read": "Full-text introduction, analytic-solution section and timing-error discussion",
+          "method": "Lawful arXiv HTML section inspection",
+          "title": "A Review of Perfect State Transfer and its Application as a Constructive Tool",
+          "trigger": "Analytic solution and timing tolerance"
+        },
+        {
+          "assessment": "Deterministic offset expansion and spectral-spread lower bound, not full Gaussian average",
+          "evidence": [
+            "Section III.3 fidelity at t0+delta t and quadratic lower bound"
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0509065",
+          "material_read": "Complete pertinent Section III.3 and adjacent spectrum/manufacturing discussion",
+          "method": "Lawful cached full-text section inspection",
+          "title": "Perfect State Transfer: Beyond Nearest-Neighbor Couplings",
+          "trigger": "Direct earlier timing-error analysis"
+        },
+        {
+          "assessment": "Prior random readout distribution framework, local sensitivity and optimized different chains; no stated complete Gaussian Krawtchouk finite law or two limits",
+          "evidence": [
+            "Section I expected fidelity integral and local J1^2 expansion",
+            "Section II equation (3) Krawtchouk amplitude squared",
+            "Section III T-Rex sin^6/sin^8 profiles",
+            "Section VII optimized-chain scope"
+          ],
+          "identifier_or_url": "arXiv:2507.18872v1",
+          "material_read": "Entire primary full text in ranges 0-48000 and 48000-end, including Sections I-VII and references",
+          "method": "Lawful arXiv full HTML reading",
+          "title": "Optimising Perfect Quantum State Transfer for Timing Insensitivity",
+          "trigger": "Search located highly relevant stronger stochastic-averaging source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kay 2010 timing section",
+        "Kay-Kim-Tamon 2025 receiver-distribution motivation",
+        "Frozen exact finite law and two analytic regimes"
+      ],
+      "rationale": "Timing precision is explicitly motivated in both the older review and the 2025 stochastic receiver framework. The exact finite-chain occupation law converts a Gaussian standard-deviation specification into a performance quantity. Its shrinking-noise profile gives a target-dependent calibration constant, whereas fixed noise retains periodic-revival contributions through a theta series. Distinguishing these regimes provides information beyond a local curvature or deterministic window and is a natural useful exact fact of an established chain, not an arbitrary finite slice.",
+      "residual_risks": [
+        "The clock model is idealized and later transfer periods must count as equivalent; physical truncation or correlated clock effects require a different law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
