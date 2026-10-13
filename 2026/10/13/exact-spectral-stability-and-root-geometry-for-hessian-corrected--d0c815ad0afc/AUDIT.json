@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The source update is exactly linear on \\(h(x)=\\tfrac12x^\\top Hx\\). Orthogonal diagonalization gives the modal polynomial \\(r^2-(1-\\beta\\lambda+m_\\lambda)r+m_\\lambda\\), \\(m_\\lambda=\\alpha-\\theta\\lambda\\). The three degree-two Jury inequalities reduce exactly to \\(|m_\\lambda|<1\\), \\(\\beta\\lambda>0\\), and \\(\\beta\\lambda<2(1+m_\\lambda)\\). Endpoint monotonicity proves the robust iff statement, and the discriminant plus root sum/product proves every root-geometry branch. The packaged numerical replay is only a consistency check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hadjisavvas--Lara--Marcavillaca--Vuong prove linear convergence on strongly quasiconvex objectives in a sufficient parameter region and report reduced oscillations numerically.",
+        "Lara--Marcavillaca--Vuong 2025 analyzes the uncorrected Heavy Ball scheme recovered when \\(\\theta=0\\).",
+        "The published fixed-parameter real-root barrier studies ordinary Heavy Ball over a spectral interval, not the source correction."
+      ],
+      "reasoning": "The present claim is not a corollary of a stronger nonlinear theorem because the source theorem supplies a conservative sufficient region rather than an exact spectral characterization. Ordinary Heavy Ball literature is recovered only on the slice \\(\\theta=0\\).",
+      "searches": [
+        "arXiv:2506.15632v1 full text Heavy Ball update and Theorem 15",
+        "DOI:10.1007/s10957-025-02728-y Heavy Ball strongly quasiconvex",
+        "fixed-parameter Heavy Ball real-root spectral interval"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.15632v1",
+      "DOI:10.1007/s00245-026-10406-2",
+      "arXiv:2410.03534",
+      "DOI:10.1007/s10957-025-02728-y",
+      "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+      "2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad",
+      "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/19/SCOPE-near-jordan-rate-law-single-loop-minimax-feedback--1495aba8a836"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source assumes, among other conditions, \\(\\alpha<1/\\sqrt2\\) and gives a sufficient nonlinear Lyapunov region; the quadratic example with \\(\\alpha=0.9\\) lies outside it but satisfies the exact spectral conditions.",
+        "The source says \\(\\theta\\) introduces Hessian-driven curvature correction and numerically reduces oscillations, but it does not classify complex, negative, or opposite-sign roots.",
+        "The closest fixed-parameter Heavy Ball result has constant modal momentum and therefore does not imply the affine-in-curvature momentum law."
+      ],
+      "reasoning": "The new iff region is strictly sharper on the quadratic subclass and the root classification answers a different structural question from general Lyapunov convergence or fixed-momentum acceleration barriers.",
+      "searches": [
+        "source Theorem 15 parameter conditions versus exact SPD stability",
+        "source Remark 22 Hessian damping parameter interpretation",
+        "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text defines the Heavy Ball correction as a gradient-difference term with parameters \\(\\alpha,\\theta,\\beta\\) and states only sufficient nonlinear convergence conditions.",
+        "No targeted published-result hit stated the modal recurrence, the two endpoint iff conditions, or the signed-root classification.",
+        "The closest exact Heavy Ball record, 2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158, explicitly concerns fixed-parameter Heavy Ball rather than curvature-dependent momentum."
+      ],
+      "reasoning": "Aliases including Hessian damping, gradient-difference correction, curvature-dependent momentum, Schur/Jury stability, characteristic roots, and oscillation phase were searched. The returned exact Heavy Ball result specializes to constant momentum and therefore cannot imply the \\(\\theta>0\\) formulas.",
+      "searches": [
+        "Hessian corrected heavy ball scalar quadratic exact Schur stability alpha theta beta curvature",
+        "\"Heavy Ball and Nesterov Accelerations with Hessian-driven Damping\" exact quadratic stability",
+        "curvature-dependent momentum alpha minus theta lambda heavy ball oscillation stability",
+        "Hessian correction heavy ball characteristic polynomial quadratic mode oscillation",
+        "\"Heavy Ball and Nesterov Accelerations with Hessian-driven Damping for Nonconvex Optimization\" Hessian correction exact spectral phase diagram quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching table or database entry was found for the two endpoint stability inequalities or the four root-geometry regimes.",
+        "The explicit example in the finding is obtained by substituting parameters into the proved formulas, not by reproducing a source table."
+      ],
+      "reasoning": "The claim is an analytic classification derived from the algorithm, not a recomputation of a known benchmark or tabulated invariant.",
+      "searches": [
+        "Hessian correction Heavy Ball exact quadratic phase diagram",
+        "arXiv:2506.15632 characteristic polynomial roots",
+        "curvature-dependent Heavy Ball Schur stability"
+      ]
+    },
+    "rationale": "The latest primary full text gives the corrected Heavy Ball update and sufficient nonlinear convergence conditions, but not a necessary-and-sufficient quadratic spectral region or signed-root phase diagram. The immediate predecessor has \\(\\theta=0\\). Targeted database searches returned a fixed-parameter Heavy Ball real-root barrier and other spectral stability results, none with curvature-dependent momentum \\(\\alpha-\\theta\\lambda\\) or the exact \\(\\beta+2\\theta\\) budget.",
+    "residual_risks": [
+      "A specialized control-theory or numerical-linear-algebra paper not indexed by the targeted searches could contain an algebraically equivalent curvature-dependent second-order recurrence.",
+      "The classification does not optimize the worst-case spectral radius, so it should not be read as an optimal tuning theorem.",
+      "The source numerical claim concerns nonlinear examples; the present exact oscillation interpretation is proved only mode-by-mode on SPD quadratics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the algorithm analyzed and gives sufficient nonlinear convergence results, but no exact SPD characteristic-root phase diagram.",
+        "evidence": "Equation (40) is the constant-parameter update; Theorem 15 assumes a sufficient region; the conclusion and numerical section state that Hessian damping reduces oscillations; publisher metadata lists 90C26 first.",
+        "identifier_or_url": "arXiv:2506.15632v1 / DOI:10.1007/s00245-026-10406-2",
+        "material_read": "Open full text: introduction, equations (6) and (40), Theorem 15 and its parameter region, Corollary 16, Remark 17, Remark 22, numerical discussion, conclusion, and journal classification metadata.",
+        "method": "Direct open full-text inspection of the publisher article, cross-checked against the arXiv record for earliest public date.",
+        "title": "Heavy Ball and Nesterov Accelerations with Hessian-Driven Damping for Nonconvex Optimization",
+        "trigger": "Primary source defining the gradient-difference Heavy Ball correction and motivating it as oscillation damping."
+      },
+      {
+        "assessment": "Analyzes ordinary Heavy Ball on strongly quasiconvex functions and therefore covers only the \\(\\theta=0\\) slice.",
+        "evidence": "Its second-order discretization recovers classical Heavy Ball and contains no gradient-difference Hessian correction.",
+        "identifier_or_url": "arXiv:2410.03534 / DOI:10.1007/s10957-025-02728-y",
+        "material_read": "Open article abstract, method description, and numerical Heavy Ball section.",
+        "method": "Direct open publisher full-text inspection.",
+        "title": "Characterizations, Dynamical Systems and Gradient Methods for Strongly Quasiconvex Functions",
+        "trigger": "Immediate predecessor identified by the source for the no-Hessian-correction Heavy Ball method."
+      },
+      {
+        "assessment": "Highly relevant spectral comparison but restricted to curvature-independent momentum; it does not cover the source correction.",
+        "evidence": "The record states a real-root acceleration barrier for fixed-parameter Heavy Ball over \\([\\mu,L]\\), with no \\(\\theta\\)-dependent gradient-difference term.",
+        "identifier_or_url": "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158",
+        "material_read": "Published record title and scientific summary describing uniform real-root constraints for fixed-parameter Heavy Ball.",
+        "method": "Published research-record comparison at statement and implication level.",
+        "title": "Uniform real-root barrier for fixed-parameter heavy-ball acceleration",
+        "trigger": "Closest published exact spectral result returned by targeted searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0c815ad-0afc-4d08-942e-31b99739197e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly motivates Hessian correction by stability and oscillation reduction. The exact SPD phase diagram gives a usable parameter law: the correction decreases momentum with curvature, removes complex roots only in a precisely identified region, produces an alternating mode after \\(\\theta\\lambda>\\alpha\\), and reduces the sharp robust step budget via \\(\\beta+2\\theta\\). This distinguishes beneficial damping from overcorrection and quantifies how far the source sufficient nonlinear region is from exact quadratic stability.",
+    "status": "PASS"
+  }
+}
