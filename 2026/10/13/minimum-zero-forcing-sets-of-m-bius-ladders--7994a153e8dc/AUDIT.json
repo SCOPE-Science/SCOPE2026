@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The first-force argument in the cubic graph reduces every candidate four-set to one closed neighborhood plus one extra vertex. A complete modular-neighborhood check gives exactly four allowed positions for that extra vertex; each allowed position creates two consecutive full antipodal rungs and hence a deterministic propagation around the ladder. The rooted cases reduce to five disjoint dihedral orbits, whose stabilizer sizes give total \\(13n\\). The \\(n=3\\) boundary is independently handled as \\(K_{3,3}\\). The packaged exhaustive checker confirms the criterion and orbit census through order \\(24\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1515/spma-2020-0106 studies zero forcing numbers for broad circulant classes and explicitly says the Möbius-ladder zero forcing number was already known to be four.",
+        "arXiv:1801.08910v1 studies the collection of minimum and all zero forcing sets in general and derives formulas for several graph families, but the inspected full text does not include this family."
+      ],
+      "reasoning": "A theorem determining \\(Z(G)\\) for a broader class does not determine the number or structure of minimizers. The checked broad circulant results therefore do not dominate the accepted classification.",
+      "searches": [
+        "maximum nullity zero forcing circulant graphs Möbius ladder",
+        "cubic circulant zero forcing Möbius ladder",
+        "zero forcing polynomial graph minimum zero forcing sets"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.laa.2007.10.009",
+      "arXiv:1801.08910v1",
+      "doi:10.1515/spma-2020-0106",
+      "arXiv:1906.03079"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.9 of doi:10.1016/j.laa.2007.10.009 establishes existence of one four-set and the lower bound, which proves only the minimum cardinality.",
+        "Section 4 of doi:10.1515/spma-2020-0106 uses the Möbius ladder as a torus-product prototype and constructs minimum sets for broader products, but the inspected discussion addresses cardinality rather than an exhaustive minimizer classification.",
+        "arXiv:1801.08910v1 makes the distinction between the scalar zero forcing number and counting all minimum zero forcing sets explicit."
+      ],
+      "reasoning": "Existence plus a sharp lower bound cannot imply how many distinct minimum sets exist. The new local if-and-only-if criterion strictly refines the known scalar result and yields the leading polynomial coefficient.",
+      "searches": [
+        "Möbius ladder zero forcing set Proposition 3.9",
+        "Möbius ladder torus product zero forcing set",
+        "zero forcing polynomial Möbius ladder"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1016/j.laa.2007.10.009, Proposition 3.9: \\(Z(M_{2n})=4\\), with one exhibited forcing set but no all-set classification.",
+        "arXiv:1801.08910v1 defines \\(z(G;k)\\) and the zero forcing polynomial; full-text searches found no Möbius, Mobius, ladder, or circulant occurrence.",
+        "doi:10.1515/spma-2020-0106 identifies the Möbius ladder with the relevant cubic circulant/torus-product specialization and reiterates the scalar zero forcing number."
+      ],
+      "reasoning": "The graph is also describable as the cubic circulant \\(C_{2n}(1,n)\\). Searches used both the named-graph and circulant formulations. None of the inspected statements gives the local condition, five dihedral orbits, or exact minimum-set count.",
+      "searches": [
+        "Möbius ladder minimum zero forcing sets classification count",
+        "Mobius ladder zero forcing polynomial",
+        "Möbius ladder zero forcing bases enumeration",
+        "M_{2n} zero forcing minimum sets",
+        "C_{2n}(1,n) zero forcing sets enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The foundational paper's minimum-rank table records the Möbius-ladder scalar values \\(M(G)=Z(G)=4\\), not a basis count.",
+        "Targeted mathematical-results searches returned no exact-table or database entry for the coefficient \\(z(M_{2n};4)\\)."
+      ],
+      "reasoning": "The located tabular coverage is scalar. No checked table or database supplies the five orbit types or their total \\(13n\\).",
+      "searches": [
+        "Möbius ladder zero forcing 13n",
+        "minimum zero forcing sets Möbius ladder table",
+        "circulant C_{2n}(1,n) zero forcing bases"
+      ]
+    },
+    "rationale": "The known Möbius-ladder results located in the foundational and circulant literature determine the scalar zero forcing number but do not classify all minimum four-sets. The counting-polynomial source establishes the general invariant but does not mention Möbius ladders under the inspected aliases. The retained statement is therefore not implied by the checked sources, subject to the stated residual risk of unindexed coverage.",
+    "residual_risks": [
+      "An unindexed thesis, small-graph catalog, or paper using only the circulant notation could contain an equivalent minimum-set census.",
+      "The search evidence establishes noncoverage of the inspected sources, not global uniqueness of the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS scalar \\(Z(M_{2n})=4\\); DOES NOT COVER the exhaustive minimum-set classification or count.",
+        "evidence": "Proposition 3.9 states \\(M(G)=4=Z(G)\\) for the Möbius ladder and proves it using one exhibited four-set plus a \\(K_{3,3}\\)-minor lower bound.",
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009",
+        "material_read": "Published PDF, table of graph-family values and Proposition 3.9 with its proof and Figure 6.",
+        "method": "Full-text PDF inspection including the proposition page.",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational same-object theorem cited by later circulant literature."
+      },
+      {
+        "assessment": "Provides the counting framework but no located same-family result.",
+        "evidence": "The paper defines \\(z(G;k)\\) and the zero forcing polynomial; none of the four family aliases occurs in the full text.",
+        "identifier_or_url": "arXiv:1801.08910v1",
+        "material_read": "Full 23-page arXiv PDF; abstract, definition and organizational sections inspected, with whole-document exact searches for Möbius, Mobius, ladder, and circulant.",
+        "method": "Public full-text PDF inspection and exact term searches.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Natural source for counting minimum zero forcing sets."
+      },
+      {
+        "assessment": "COVERS the scalar zero forcing number and broader torus-product constructions; no exhaustive Möbius-ladder minimum-set census was located.",
+        "evidence": "Section 4 states that the Möbius-ladder zero forcing number was previously calculated to be four and then develops torus-product zero forcing numbers.",
+        "identifier_or_url": "doi:10.1515/spma-2020-0106 / arXiv:1906.03079",
+        "material_read": "Open full-text material around the Möbius-ladder figure, Section 4 torus-product discussion, and statements about minimum cardinality.",
+        "method": "Public full-text inspection and exact searches for minimum-set counting language.",
+        "title": "Maximum nullity and zero forcing of circulant graphs",
+        "trigger": "Broader circulant source that explicitly revisits Möbius ladders."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7994a153-e8dc-4217-9784-2b92427b5cc3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Möbius ladder is a standard cubic circulant with a long-known scalar zero forcing number. Classifying every optimal initial set is a natural refinement: it gives the leading coefficient of the zero forcing polynomial and a symmetry-resolved description of optimal configurations. This is a complete structural result on an infinite named family, not a routine recomputation of the scalar minimum.",
+    "status": "PASS"
+  }
+}
