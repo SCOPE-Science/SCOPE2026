@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "From the exact RCGLS recurrence for A=I, predecessor orthogonality makes the new search direction the orthogonal projection of an independent Gaussian sketch onto a d−1 hyperplane. Conditional spherical symmetry yields the first Beta((d−1)/2,1/2) factor and later independent Beta((d−2)/2,1/2) factors. Their means and logarithms give the exact expectation and almost-sure exponent. d=1 terminates at step one and d=2 at step two. The actual embedded checker validates 1386 rational identities and 216000 Gaussian steps. Computations do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gower–Richtárik, arXiv:1506.03296, describes IID sketch-and-project families without conditioning a direction on its immediate predecessor.",
+        "Stich–Müller–Gärtner, arXiv:1111.0194v2, §2 and Algorithm 2 sample independent spherical directions, with a different acceleration mechanism.",
+        "The new process samples conditional directions in a random (d−1)-dimensional hyperplane, unlike those IID schemes."
+      ],
+      "reasoning": "Generic spherical one-step beta laws and IID sketch-and-project bounds do not by themselves imply the one-step-memory beta product or exact postinitial factor, because their admissible directions have different conditional distributions. The same elementary spherical lemma is freely reused, not presented as novel. An unidentified earlier orthogonalized-pursuit theorem could dominate and remains a named risk.",
+      "searches": [
+        "Gower Richtarik randomized iterative methods for linear systems arxiv 2015 pdf sketch and project",
+        "Randomized Iterative Methods for Linear Systems (arxiv:1506.03296)",
+        "Optimization of Convex Functions with Random Pursuit arxiv:1111.0194",
+        "randomized orthogonal projected gradient directions consecutive orthogonal stochastic descent exact beta distribution per-step error 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.25034v1 §§2–3",
+      "arxiv:1111.0194v2 §§1–2,6 and PDF",
+      "arxiv:1506.03296 abstract/publisher record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For A=I_d with S a single N(0,I_d) vector, Zeng et al. Eq.(15) gives M=I_d/d; their infimum parameter gamma_k (Eq.(14)) equals 1 because the support includes Gaussian directions orthogonal to the preceding search direction. Hence their Theorem 2.4 provides only factor 1−1/d.",
+        "The analytical conditional sphere proof here gives strictly smaller exact factor (d−2)/(d−1) after step zero (d≥3) and full independent beta factors.",
+        "Stich et al. §2 sample directions independently from the ambient sphere, resulting in factor (d−1)/d for the isotropic quadratic; they do not enforce orthogonality to the immediately preceding direction."
+      ],
+      "reasoning": "The exact path law and strict improved factor do not follow from the published RCGLS numerical upper bound, whose gamma infimum is 1 in the stated Gaussian case. Earlier IID methods cannot be identified with this Markovian direction process. No proof of exclusive worldwide originality is claimed.",
+      "searches": [
+        "Zeng–Cai–Han–Xie arXiv:2605.25034v1 Algorithm 1 Theorem 2.4 §2.3 Remark 2.6",
+        "Stich–Müller–Gärtner arXiv:1111.0194v2 §2 random pursuit and §6 accelerated pursuit",
+        "Gower–Richtárik arXiv:1506.03296 independent-sketch comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zeng et al., arXiv:2605.25034v1, §2.2 equations (7)-(10) and Algorithm 1 define one-predecessor conjugacy; §2.3 gives conditional expected bounds.",
+        "The beta factors are the squared-sine laws of sequential isotropic Gaussian directions conditioned to lie in the predecessor-orthogonal hyperplane."
+      ],
+      "reasoning": "Equivalent statements in the language of orthogonally corrected random pursuit, one-step conjugacy, and beta-product contraction were sought. Classical beta spherical projection is known; no located source applied it to the full RCGLS path with predecessor-only correction and established the independent repeated-factor law. An unseen exact result using a different name remains possible.",
+      "searches": [
+        "RCGLS randomized conjugate gradient least squares Gaussian rank one sketch identity Hessian independent beta contraction ratios (d-2)/(d-1) exact product law",
+        "randomized conjugate gradient exact product beta distribution identity least squares",
+        "random direction descent orthogonalize consecutive directions exact mean squared error (d-2)/(d-1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published spherical-projection moment results concern different randomized updates and do not tabulate the predecessor-orthogonal RCGLS contraction product.",
+        "Zeng et al. arXiv:2605.25034v1 contains numerical tests and upper convergence bounds, not exact beta-factor data for the Gaussian identity specialization."
+      ],
+      "reasoning": "No exact value table or database claiming these whole-path beta factors and exact postinitial mean was found. Database absence alone is not evidence of worldwide mathematical novelty; scientific structural comparisons with primary sources provide the substantive check.",
+      "searches": [
+        "rank one Gaussian sketch RCGLS isotropic quadratic exact mean contraction (dimension minus two)/(dimension minus one)",
+        "RCGLS randomized conjugate gradient least squares Gaussian rank one sketch identity Hessian independent beta contraction ratios (d-2)/(d-1) exact product law"
+      ]
+    },
+    "rationale": "The source paper arXiv:2605.25034v1 gives a generic expected contraction bound, not an exact independent beta product or exact postinitial factor; its uniform gamma bound is 1 in this instance. Prior IID spherical direction and sketch-and-project methods differ in their conditional direction laws. Comparisons with relevant primary literature and published mathematical results did not reveal an equivalent claim; remaining risks are noted.",
+    "residual_risks": [
+      "An older independently derived law for orthogonally corrected random pursuit under different names may exist.",
+      "The Gower–Richtárik primary full text could not be inspected; the publication abstract supports only a partial comparison.",
+      "Exact beta projection calculations are classical; novelty concerns their identification with this specific RCGLS path, not the distributions in isolation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact independent beta-product law and postinitial expected factor; existing theorem gives a weaker uniform bound on the stated specialization",
+        "evidence": [
+          "Equation (8), Algorithm 1, Theorem 2.4, equations (14)-(16), Remark 2.6, Proposition 3.1"
+        ],
+        "identifier_or_url": "arxiv:2605.25034v1; https://arxiv.org/html/2605.25034",
+        "material_read": "Abstract, introduction, §2.1–2.3 including Algorithm 1, Theorem 2.4 and Remarks 2.6–2.7; §3 Algorithm 2 and Proposition 3.1; supplied HTML",
+        "method": "Inspected full-text mathematical algorithm and bound, reconstructed the specialized updates",
+        "title": "Randomized conjugate gradient least squares",
+        "trigger": "Defines the precise algorithm and best matching known error theorem"
+      },
+      {
+        "assessment": "NOT_COVERING predecessor-orthogonalized directions: both standard and accelerated versions draw fresh ambient-sphere directions and use a distinct acceleration mechanism",
+        "evidence": [
+          "§2 independent spherical direction oracle; §6 Algorithm 2, ambient-sphere step"
+        ],
+        "identifier_or_url": "arxiv:1111.0194v2; https://arxiv.org/pdf/1111.0194",
+        "material_read": "Full-paper abstract and introduction, §2 random pursuit definition, §6 accelerated algorithm and experimental descriptions; PDF text plus visual inspection of first PDF page",
+        "method": "Compared choice and conditioning of direction generation and exact line search",
+        "title": "Optimization of Convex Functions with Random Pursuit",
+        "trigger": "Closest generic independent isotropic random-search model and baseline"
+      },
+      {
+        "assessment": "Partial comparison only: source describes IID sketch laws and expectation results, not the particular one-step-memory correction; full-text equivalence remains a residual risk",
+        "evidence": [
+          "Abstract: independently identically distributed sketches at each iteration; expected norm and iterate results"
+        ],
+        "identifier_or_url": "arxiv:1506.03296; https://arxiv.org/abs/1506.03296",
+        "material_read": "Open-access abstract and publisher article description; full primary PDF could not be fetched in this pass",
+        "method": "Compared published high-level algorithmic assumptions and claimed results; not treated as full-document exclusion",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "Potentially broader sketch-and-project theorem and exact mean iteration laws"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab3998df-e73a-44e1-b272-a123776e040a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The joint error law, complete finite-dimensional boundary (finite termination exactly for d≤2), sharp expected factors, and almost-sure exponent quantify a meaningful acceleration mechanism of RCGLS not resolved by its published uniform upper bound. It is a natural exact benchmark on the identity least-squares operator, not an arbitrary isolated parameter computation. Practical speedups and general-Hessian extensions are not asserted.",
+    "status": "PASS"
+  }
+}
