@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "The two-step EMA recurrence is solved exactly. The even sign is fixed by \\(\\beta A-B\\); the odd subsequence has an explicit single transient term. For \\(r<\\beta\\), the odd subsequence decreases from a positive first value to a negative limit and therefore crosses once, with the strict switch index obtained by exact logarithmic inversion. All multiplier statements then follow directly from the source formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source provides transfer experiments and heuristic interpretation rather than a periodic-input analysis.",
+        "Searches for later convergence or theoretical treatments did not return a statement subsuming the exact sign phase diagram."
+      ],
+      "reasoning": "Empirical transferability and the qualitative agreement interpretation do not determine which alternating amplitudes are classified as agreement at every step.",
+      "searches": [
+        "PowerSign optimizer theorem convergence",
+        "AddSign optimizer theorem",
+        "Neural Optimizer Search PowerSign AddSign sign agreement"
+      ]
+    },
+    "checked_sources": [
+      "PMLR:70:bello17a",
+      "arXiv:1709.07417v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source supplies the EMA primitive, default first-moment decay, and the exact base multipliers.",
+        "The source says AddSign with base parameter one only updates coordinates where gradient and moving average agree.",
+        "The source does not analyze how a two-level alternating input drives the EMA sign."
+      ],
+      "reasoning": "The prior work defines the mechanism but does not imply the derived phase boundaries without solving the alternating EMA recurrence and classifying both parities.",
+      "searches": [
+        "PMLR 70 Bello PowerSign AddSign",
+        "arXiv:1709.07417 PowerSign AddSign beta1 0.9",
+        "PowerSign AddSign periodic gradient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper describes the sign product as a binary current-gradient versus moving-average agreement signal.",
+        "No inspected source states the exact all-step agreement interval \\(\beta\\le A/B<1/\beta\\).",
+        "No located source states the finite odd-step agreement-to-disagreement switch below \\(A/B=\beta\\)."
+      ],
+      "reasoning": "Equivalent statements include an amplitude-ratio window in which a Nyquist sign pattern is classified as full agreement, or a winner-take-more phase in which only the larger-amplitude parity remains in agreement. These were not found in the inspected literature.",
+      "searches": [
+        "PowerSign AddSign alternating gradient two level amplitude ratio beta sign momentum phase diagram",
+        "PowerSign AddSign sign agreement EMA alternating amplitudes threshold beta",
+        "PowerSign alternating gradient momentum sign"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records concerned other momentum, polynomial-stability, adaptive-step, and phase-law problems.",
+        "No returned record named PowerSign or AddSign in an implication-equivalent alternating-amplitude theorem."
+      ],
+      "reasoning": "The closest database results use different state recurrences and do not imply the exact PowerSign/AddSign thresholds. Search absence is supporting evidence only.",
+      "searches": [
+        "PowerSign AddSign optimizer alternating gradient exact momentum multiplier",
+        "PowerSign AddSign alternating gradient two level amplitude ratio beta sign momentum phase diagram",
+        "PowerSign AddSign sign agreement EMA alternating amplitudes threshold beta",
+        "PowerSign optimizer periodic gradient two cycle exact"
+      ]
+    },
+    "rationale": "The defining paper introduces the sign-agreement primitive and the two update families but does not state the alternating-amplitude phase diagram or its sharp thresholds. Focused published-record searches returned no PowerSign/AddSign result with the same alternating two-level signal or implication.",
+    "residual_risks": [
+      "An equivalent elementary recurrence calculation may exist in unindexed implementation notes.",
+      "The theorem analyzes the agreement gate rather than an objective-generated trajectory.",
+      "The exact first-public date uses the first day of the conference date range recorded in the PMLR proceedings metadata."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULES_NOT_COVERING_ALTERNATING_AMPLITUDE_PHASE_DIAGRAM.",
+        "evidence": "The source explicitly interprets sign(g) times sign(m) as a binary agreement signal and gives the base multipliers, but no exact alternating two-level sign classification or threshold window was found.",
+        "identifier_or_url": "PMLR 70:459-468; arXiv:1709.07417v2",
+        "material_read": "Open full text covering the optimizer search-space primitives, moving-average definitions, experimental decay parameters, the discovered PowerSign and AddSign formulas, their agreement interpretation, internal-decay variants, and transfer experiments.",
+        "method": "Full-text open-access HTML inspection plus focused searches for alternating, periodic, two-cycle, and agreement-threshold formulations.",
+        "title": "Neural Optimizer Search with Reinforcement Learning",
+        "trigger": "Defining source for PowerSign, AddSign, the gradient-EMA sign agreement primitive, internal decay variants, and the first-moment decay used in experiments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60456132-2840-4270-9b97-9ecc506cef30",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gradient--momentum sign agreement is the defining mechanism of PowerSign and AddSign. The result shows that this binary signal has a non-obvious blind window: even the highest-frequency sign alternation is classified as full agreement whenever the alternating amplitudes are moderately balanced. Outside the window the gate systematically amplifies the larger-amplitude parity and suppresses the smaller one. The thresholds are exact, parameter-transparent, and directly interpretable at the source default.",
+    "status": "PASS"
+  }
+}
