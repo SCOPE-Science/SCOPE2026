@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Distinct signed differences and mixed differences guarantee genuinely unweighted simple edges and exact regular degree. The Laurent adjacency matrix is a Hermitian rank-one update, with a compact Laurent eigenvector. The key nonstandard separation lemma is proved: roots of unity are neutralized by an order multiple, and all other common-power coincidences exclude only finitely many exponents. Compactness then gives a strictly positive spectral gap for every prescribed negative-integer band. For the explicit 15-regular example a full trigonometric nonnegativity identity proves an exact gap of two. The proof addresses all integer \(r\ge3\), while finite tests support but do not establish the general claim.
+
+**Originality — PASS, with remaining indexing risk.** Two-orbit negative-integer flat bands without guaranteed isolation are already constructible and are **not** claimed as original. Sabri–Youssef (arXiv:2304.06465) establish general constraints on two-site unweighted bands, not the every-negative-integer isolated classification or the displayed spectrum. Toikka–Andreanov (arXiv:1810.01076) establish a broader algebraic criterion for tight-binding flat bands but do not derive the unweighted, no-potential, connected two-site all-integer *gap* construction. Generic absence theorems do not cover these specially tuned graphs. Exact source equivalence under alternate formulations remains a risk; title searches alone cannot certify uniqueness.
+
+**Value — PASS.** Spectral isolation is mathematically and physically distinct from merely having a flat eigenvalue at the spectral bottom: it prevents band touching and supplies a defined positive separation from the continuum. The construction settles isolation for every negative integer below \(-2\) in the smallest nontrivial periodic-cell size, with an explicit complete spectral interval and exact gap in a simple low-order case. It makes no claim about stability of exact flatness under arbitrary perturbations or an optimal universal gap.
+
+The primary sources and their limitations are documented in RESULT.md and the accompanying structured review. No external verification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
