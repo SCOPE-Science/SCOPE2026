@@ -1,0 +1,19 @@
+# Scientific assessment of the corona ESI transform
+
+## Correctness — PASS
+
+The domain is every finite simple base graph with at least one vertex and every integer \(m\ge1\). The proof first excludes base vertices from any externally supported independent (ESI) set, then partitions the remaining sets uniquely by the base vertices carrying zero selected leaves. For a base vertex carrying selected leaves, the external-support condition is equivalent to having either an unselected leaf or a base neighbor with zero selected leaves. Those alternatives produce the two exact binomial weights and prove the all-coefficient polynomial identity. For \(m=1\), its zero factor forces a dominating zero-leaf set. For \(m\ge2\), positive leading coefficients yield the weighted differential and exact number of extremizers. The sharp large-leaf threshold follows from the maximum-degree bound and a matching singleton witness. Every boundary case, including isolated base vertices and disconnected bases, is included. The standalone checker independently enumerated 2,576,060 subsets for 278 finite graph/multiplicity profiles. The computation is corroborative, not the infinite proof. The Roman-domination identity invoked is explicitly cited as prior work.
+
+## Originality — PASS, with residual literature risk
+
+The direct predecessor is Božović–Peterin–Roux–Tepeh, arXiv:2606.22972v1. Its support-vertex exclusion is the first proof step here and is not claimed as new. Inspected material includes the definition, Lemma 8/Corollary 9, Theorem 16 for trees, its tree algorithm, and the Roman-domination discussion in the conclusion. The tree high-leaf equality case of Theorem 16 is covered; it is not the novel centerpiece. The predecessor did not present the all-coefficient leaf-corona identity for arbitrary bases or its one-leaf domination-polynomial reversal. The classic domination-polynomial work of Alikhani–Peng studies a different polynomial on coronas, and Bermudo–Fernau–Sigarreta provide the classic differential/Roman equality, not this corona-ESI transfer. Searches for ESI corona polynomials, domination reversal, weighted differential, and possible aliases in a public mathematical finding index and accessible literature found no covering result; lack of a hit is not a uniqueness proof. The principal remaining risk is an unindexed equivalent polynomial formula or an unforeseen implication from other general enumeration work.
+
+## Value — PASS
+
+The polynomial identity gives every ESI cardinality count for a natural graph construction with an arbitrary base, not merely a small parameter substitution. In the one-leaf case it recovers the base graph's entire domination polynomial even though the *ordinary* domination polynomial of the leaf corona is independent of the base edges. In the two-leaf case it transfers the exact classical differential/Roman-domination invariant and counts all optimal witnesses; a sharp maximum-degree transition controls the many-leaf regime. The result therefore connects a newly introduced independence parameter to classical graph invariants and supplies useful structural and enumerative tools without requiring a general polynomial-time algorithm.
+
+## Sources, checks, and limitations
+
+Primary source: Božović et al., arXiv:2606.22972v1, https://arxiv.org/pdf/2606.22972v1, especially pages 1, 8, 12–13 and 18–19. Other context: Alikhani–Peng, arXiv:0905.2251; Bermudo–Fernau–Sigarreta, DOI:10.2298/AADM140210003B. Exact computed verification is reproduced in `corona_esi_verify.py` and `corona_esi_verify_output.txt`; the analytic classification is general, but computational evidence only covers the stated small profiles. The 2014 differential paper was compared via its published abstract and secondary bibliographic context rather than inspected in full. Unindexed equivalent work remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
