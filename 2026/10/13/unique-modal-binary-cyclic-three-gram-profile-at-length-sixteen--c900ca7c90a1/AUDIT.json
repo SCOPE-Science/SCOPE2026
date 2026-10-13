@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "An exact full-coverage proof enumerates the Eulerian frequency vectors by the independent constraints e=b, g=d, f=c+d-b, a+b+2c+3d+h=16. The directed BEST theorem with factorial division applies on each strongly connected support. All 226 full-four-vertex and 45 degenerate profiles are separately enumerated. An independent brute-force implementation evaluates all 65536 indexed words; both produce identical 271-row profiles, unique maximum 1296, unique runner-up 1280, and total 65536. Executed directly from packaged candidate paths; no extrapolation beyond n=16.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tesler, arXiv:1708.03654, §§1–3 and enumeration summary: for every fixed m,q,k gives the number of uniform multi-de Bruijn linearizations.",
+        "Alhakim–Szmidt (2023), definitions and Theorem 1: connectivity of uniformly repeated multi-de Bruijn cycles under cross-joins."
+      ],
+      "reasoning": "Tesler supplies the size 1296 of the uniform fiber, a known part not claimed new; it does not give a global bound across nonuniform profiles. Connectivity of all uniformly repeated cycles likewise does not imply that no nonuniform spectrum has a larger fiber.",
+      "searches": [
+        "binary cyclic words length 16 contiguous triple 3-gram multiplicity profile maximum fiber 1296 uniform each triplet twice",
+        "binary cyclic 3gram composition Eulerian Markov type class largest equivalence class length sixteen",
+        "\"Counting Markov Types\" \"most common\" sequences type"
+      ]
+    },
+    "checked_sources": [
+      "Jacquet–Knessl–Szpankowski, IEEE TIT 2012, DOI:10.1109/TIT.2012.2191476 (author OA PDF)",
+      "Kiah–Puleo–Milenkovic, arXiv:1410.8837 (first public 2014-10-31) and expanded arXiv:1502.00517 (full HTML)",
+      "Tesler, arXiv:1708.03654 (2017, formula for uniform multi-de Bruijn fiber)",
+      "Alhakim–Szmidt, DOI:10.3390/math11051262 (2023, indexed partial text)",
+      "OEIS A290952 (multi-de Bruijn cyclic-necklace count, not cyclic indexed fiber)",
+      "Published cyclic symbol-pair-code result, 2026-09-08 (distance-coding claim, not a fiber maximum)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fixed-profile BEST formula and Tesler uniform formula yield 1296 but do not rule out an alternative multiplicity vector with more words.",
+        "Independent integer-flow census proves the largest competing fiber is 1280; the earlier length-8 example has a nonuniform modal profile, illustrating why uniformity is not a general immediate consequence."
+      ],
+      "reasoning": "An exact formula for F(p) for each p is an algorithmic tool, not the inequality F(p)<=1296 with unique equality. Likewise, counting the number of profiles or enumerating only uniform ones does not imply the all-profile maximization. The exhaustive 271-profile comparison is the additional assertion.",
+      "searches": [
+        "maximal binary 3-gram Markov type class circular sixteen words 1296 1280 complete fiber census",
+        "de Bruijn edge multiplicity Markov type largest class BEST theorem balanced transitions",
+        "\"Counting Markov Types, Balanced Matrices, and Eulerian Graphs\" pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacquet–Knessl–Szpankowski (2012), introduction and §2: cyclic Markov type means an Eulerian frequency matrix; their theorem counts distinct types rather than maximum individual fiber.",
+        "Kiah–Puleo–Milenkovic, arXiv:1502.00517, §2 and §3: gram profile classes are defined and distinct profiles enumerated."
+      ],
+      "reasoning": "A cyclic binary 3-gram type is equivalently an order-two Markov type on binary words or an Eulerian multiplicity vector on the four-state de Bruijn graph. The named sources study these objects, but their cardinality of profile space and coding results do not identify the unique largest fiber at fixed n=16.",
+      "searches": [
+        "maximal binary 3-gram Markov type class circular sixteen words 1296 1280 complete fiber census",
+        "cyclic order-two Markov types on binary two-letter blocks largest type class 16 sixteen",
+        "\"maximum\" \"type class\" Markov de Bruijn sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A290952 counts rotation classes of uniformly repeated multi-de Bruijn cycles, not all profile fibers; the indexed circular word model has a different counting convention.",
+        "Tesler (2017) tabulates uniform multi-de Bruijn sequences; no complete fixed-length maxima across all frequencies were located."
+      ],
+      "reasoning": "Existing uniform-pattern tables recover the uniform type size but have no comparison against all 270 other cyclic length-16 profiles. Direct database-search failure is only evidence of lack of an indexed exact table, not a proof of novelty.",
+      "searches": [
+        "de Bruijn profile ambiguity maximum multiplicities binary 3mers 16 count vector",
+        "\"1296\" \"1280\" \"de Bruijn\" word triple",
+        "\"1296\" \"multi de Bruijn sequences\"",
+        "OEIS maximum size equivalence class kmer spectrum binary cyclic length sixteen"
+      ]
+    },
+    "rationale": "The contribution is the unique global maximum over all 271 cyclic order-two binary Markov profile fibers at length 16 and the exact runner-up. Existing formulae for a fixed Markov type and the uniform multi-de Bruijn fiber already yield its count 1296, but the inspected primary texts count types, construct codes, or count the prescribed uniform class, rather than compare it with every nonuniform frequency vector. Seven actual semantic searches plus literature aliases, mathematical reductions and exact-table lookups found no dominating statement; this is positive but non-definitive evidence, and earlier unpublished or unindexed enumerations remain possible.",
+    "residual_risks": [
+      "An older type-class census, author database or unindexed enumeration could have recorded the same 271-profile comparison.",
+      "The complete 2023 cross-join article was not accessible in rendered full text; its stated theorem is confined to uniform-profile cycles.",
+      "The 1296 uniform-fiber value is already known; scientific originality depends on the *global extremality and unique runner-up*, not that value alone.",
+      "No independent external audit or independent literature sign-off is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts how many cyclic Markov types exist asymptotically, and identifies formulas for individual type classes as background; no all-profile finite modal fiber theorem at binary order two and length sixteen was found.",
+        "evidence": "2012 paper pp. 2–6 defines cyclic frequencies and §1 gives asymptotics for number of types; Whittle already gave individual type class sizes.",
+        "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+        "material_read": "Full author-hosted PDF accessed; definitions of cyclic types and Eulerian walks, introduction, theorem statements, analytic sections and conclusion inspected.",
+        "method": "Author-hosted lawful open-access PDF; inspected text and page 3 visual.",
+        "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+        "trigger": "exact same Markov type and Eulerian graph formalism"
+      },
+      {
+        "assessment": "Analyzes noncyclic gram-profile coding and number of distinct profile vectors, not maximum cyclic three-gram fiber at length sixteen.",
+        "evidence": "§2 defines frequency-vector equivalence, §3–4 derives distinct-profile counts and asymptotic polytope formulas.",
+        "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+        "material_read": "Full accessible HTML document; inspected Sections 1–4, tables, conclusions and references, with particular attention to definition and enumeration of profile space.",
+        "method": "ArXiv HTML and original PDF first page.",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "direct equivalent gram-profile channel and de Bruijn graph"
+      },
+      {
+        "assessment": "The uniform 1296 count is covered, but global uniqueness against all possible nonuniform profiles and the runner-up 1280 are not among the stated results.",
+        "evidence": "Table 2: W(m,q,k)=((mq)!/(m!)^q)^(q^(k-1)); W(2,2,3)=6^4=1296; formula applies to the uniform profile only.",
+        "identifier_or_url": "https://arxiv.org/html/1708.03654v1",
+        "material_read": "Accessible full paper HTML; inspected abstract, Sections 1–3, summary of cyclic and linearized formulas, and stated comparisons to prior enumeration.",
+        "method": "ArXiv HTML primary text.",
+        "title": "Multi de Bruijn Sequences",
+        "trigger": "exact known size of uniform length-sixteen cyclic three-gram class"
+      },
+      {
+        "assessment": "Cross-join reachability of uniformly repeated multi-de Bruijn sequences is covered; residual uncertainty remains for uninspected portions.",
+        "evidence": "Definition 1 restricts to profiles in which each k-mer occurs m times; Theorem 1 states cross-join connectedness of C(m,q,k).",
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/11/5/1262",
+        "material_read": "Indexed open-page abstract, definitions, introduction, method and theorem excerpts were accessible; complete article page was rate-limited.",
+        "method": "Published abstract and web-indexed portions, with full publication page temporarily inaccessible.",
+        "title": "Multi de Bruijn Sequences and the Cross-Join Method",
+        "trigger": "later research on exactly twice-repeated binary k-mers"
+      },
+      {
+        "assessment": "Provides original archive source date; scientific comparisons rely on the inspected expanded 2015 version, not inferred 2014 content.",
+        "evidence": "ArXiv version history confirms 2014-10-31 initial public submission.",
+        "identifier_or_url": "https://arxiv.org/abs/1410.8837",
+        "material_read": "Abstract, full source history and bibliography identification; not full 2014 manuscript.",
+        "method": "ArXiv submission record (first public 2014-10-31) and later expanded arXiv:1502.00517 full text.",
+        "title": "Codes for DNA Storage Channels",
+        "trigger": "day-verified archival public source for the same gram-profile reconstruction setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c900ca7c-90a1-431a-9e82-a6ba7cf3eebc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact worst-case ambiguity of the full cyclic three-gram count observation at the first twice-complete binary coverage length is a motivated information-theoretic reconstruction invariant. It resolves the global mode among 271 realizable Markov types, not merely the previously known count for one uniform class. The small gap 1296 versus 1280 and reversal from nonuniform mode at first coverage length 8 expose a meaningful structural boundary; this finite classification is self-contained and may benchmark cyclic assembly/reconstruction design. Not an unsupported extension to arbitrary lengths.",
+    "status": "PASS"
+  }
+}
