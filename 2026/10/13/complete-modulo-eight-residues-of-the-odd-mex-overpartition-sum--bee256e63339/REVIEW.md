@@ -1,0 +1,12 @@
+# Scientific review: complete modulo-eight odd-mex residues
+
+## Correctness
+PASS. Conditioning on the exact first missing size gives independent forced/unrestricted part-size factors. Modulo eight, only the first two odd minimal-excludant classes contribute. The Jacobi triple product and the inverse of \(1+2\Theta(q)\), truncated exactly modulo eight, convert the complete overpartition product to square- and twice-square-supported theta terms. Coefficient extraction is explicit, including the boundary cases \(n=1,2\); parity evaluation at squares proves the zero criterion, and complete square intervals prove the two nonzero residue densities. An independently implemented direct part-size calculation and ordinary-partition enumeration corroborate the formula through degree 400 and 24, respectively.
+
+## Originality
+PASS with an explicit caveat. The nearest result is Veena V. S. and S. N. Fathima, arXiv:2609.32207v1, Theorems 1.1, 1.4, and 1.7: the paper establishes the exact generating function, square criterion modulo four, and self-convolution congruence modulo eight, but not the explicit residues of the original sum modulo eight or the resulting three-residue distribution. The generating function logically determines these coefficients, but obtaining the stated arithmetic description requires a new coefficientwise reduction and cancellation argument. Sarkar–Thejitha–Fathima arXiv:2609.21649 gives a related mod-four relation, and Aricheta–Donato study a distinct overpartition mex statistic. Targeted searches of published published-finding corpus records and primary literature found no covering identical or stronger arithmetic classification. Those searches cannot rule out an unindexed equivalent result; the full text of arXiv:2609.21649 was not recovered, although its public abstract advertises different, modulo-four statements.
+
+## Value
+PASS. This is a complete residue classification of an intrinsically motivated partition statistic, not a check of an arbitrary short progression. It unexpectedly preserves the exact positive-square support of divisibility when the modulus is doubled from four to eight; it also resolves the two remaining residue classes explicitly and proves their equidistribution. The twice-square correction and the floor-square-root term exhibit structure that the prior modulo-four theorem conceals. The result is self-contained modulo the stated known generating-function and Jacobi identities, and makes no claim at higher powers of two.
+
+Self-review: passed. Independent audit: not yet performed.
