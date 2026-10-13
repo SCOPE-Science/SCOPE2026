@@ -1,0 +1,15 @@
+# Scientific review: optimal planar randomized Kaczmarz sampling
+
+## Correctness: PASS
+
+The scope is a consistent rank-two real linear system, iid sampling with nonnegative freely chosen row probabilities, and the standard orthogonal-projection Kaczmarz step. The proof computes the lifted second-moment operator, identifies its nonzero eigenvalues with the positive-semidefinite projection Gram matrix, and verifies that its spectral radius is the worst-initialization exponential mean-square factor. The key lower bound is the unit-vector Rayleigh quotient \(\Gamma(p)\ge(1+\|\sum_i p_i z_i\|^2)/2\). For origin-containing doubled-angle convex hulls, isotropic weights achieve equality with an exact all-step contraction. Otherwise, the unique nearest hull point is the midpoint of the extreme short-arc endpoints and their half-and-half sampling realizes equality; strict support-line comparison proves uniqueness up to duplicate directions. The all-initialization finite-time formula in the second case follows by conditioning on the last selected line. The actual bundled checker returned `VERIFY_OK 789 exact/geometry checks` with precise rational covariance tests and deterministic geometry tests. The finite tests are corroboration, not a proof of the infinite quantifiers.
+
+## Originality: PASS, narrowly scoped
+
+The classical exponential convergence theory (Strohmer–Vershynin, arXiv:math/0702226v1), the one-step spectral-bound sampling SDP (Dai–Soltanalian–Pelckmans, arXiv:1402.2863v1), and the exact annealed mean-square SDP (Agaskar–Wang–Lu, DOI:10.1109/GlobalSIP.2014.7032145) were explicitly read and treated as prior art. In particular the general minimization over sampling probabilities and its spectral-radius objective are **not new**. The inspected originals state general convex programs, but not the explicit arbitrary-planar-row optimal rate \((1+r^2)/2\), the doubled-angle-hull optimal-support classification, or the surprising coincidence of optimizers for their distinct objective functions. The related inconsistent-system MSE analysis (Wang–Agaskar–Lu, arXiv:1502.00190v1) concerns another regime. Queries for equivalent planar angular and optimal-design formulations yielded no decisive coverage; an unlocated equivalent specialized frame-design result remains possible.
+
+## Value: PASS
+
+A natural numerical-method design question receives a complete sharp all-parameters answer in dimension two: exact optimal decay rate, every optimal distribution, support at most three, explicit two-support finite-time MSE, and a sorting-based geometric construction. The result explains when optimizing the easy one-step bound surprisingly also optimizes the harder exact long-term annealed exponent; when the origin lies outside the directional convex hull the numerical rates differ strictly. This is not a numerical table, a relabeling of the general SDP, or a general-dimensional novelty claim. The result is limited to real planar consistent iid unrelaxed Kaczmarz; no quenched, noisy, or adaptive guarantees are inferred.
+
+Self-review: passed. Independent audit: not yet performed.

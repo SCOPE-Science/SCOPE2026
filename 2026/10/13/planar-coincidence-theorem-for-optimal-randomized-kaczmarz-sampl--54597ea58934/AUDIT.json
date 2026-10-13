@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The full proof defines the normalized row directions, independent finite sampling and the worst-initialization annealed factor with all quantifiers. It constructs the positive self-adjoint exact second-moment operator and its Gram eigenvalue representation, proves its spectral radius equals the worst-initialization exponent, and obtains the Rayleigh lower bound Gamma(p)>=[1+||sum p_i z_i||^2]/2. The closest-point planar circle geometry is proved for zero and positive distance. An isotropic distribution attains the bound exactly for every horizon when r=0; the two extreme directions at equal mass attain it otherwise, with an explicit all-initialization finite-time law and uniqueness. The bundled original script was actually run at its stated path; output VERIFY_OK 789 exact/geometry checks. Rational finite checks are not mistaken for the proof of infinite-horizon claims. The theorem explicitly excludes relaxed, noisy, and adaptively sampled variants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2007 Strohmer–Vershynin theorem fixes probabilities proportional to row squared norms; it provides expected convergence bounds and does not classify optimal planar distributions.",
+        "The 2014 Agaskar–Wang–Lu general-dimensional formulation includes the optimization problem but provides no closed-form result for all planar normalized rows; its displayed experiments use three-dimensional and higher problems.",
+        "The 2014 Dai–Soltanalian–Pelckmans general-dimensional SDP covers the one-step upper bound, not its equality to the exact annealed-rate optimizer in the plane.",
+        "The 2015 Wang–Agaskar–Lu paper extends exact mean-square analysis to inconsistent/noisy problems, without supplying the planar optimal sampling law."
+      ],
+      "reasoning": "A general implicit SDP objectively includes the planar instance and is prior art. It does not disclose the claimed explicit value, support geometry, sharp all-optimal-measure classification and agreement of two distinct criteria. The result is not claimed as a new general-purpose SDP or as an improvement to its existence or computability.",
+      "searches": [
+        "Planar randomized Kaczmarz exact optimal annealed mean square rate equals (1+dist(0,conv doubled-angle row normals)^2)/2 and optimal sampling same as one-step spectral bound",
+        "randomized Kaczmarz optimal row sampling exact mean squared convergence exponent",
+        "two dimensional randomized Kaczmarz optimal probability weights projection spectral radius",
+        "arxiv:math/0702226v1 full text, convergence bounds and §3",
+        "arxiv:1402.2863v1 full text, §§II-IV",
+        "doi:10.1109/GlobalSIP.2014.7032145 full text, §§2-4",
+        "arxiv:1502.00190v1 full text, §§I-III"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0702226v1; complete PDF https://arxiv.org/pdf/math/0702226",
+      "arxiv:1402.2863v1; complete PDF https://arxiv.org/pdf/1402.2863",
+      "doi:10.1109/GlobalSIP.2014.7032145; complete Harvard author-archived PDF https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+      "arxiv:1502.00190v1; complete PDF https://arxiv.org/pdf/1502.00190",
+      "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General lifted-MSE spectral radius is known from Agaskar–Wang–Lu (2014), and optimizing the one-step spectral bound is known from Dai–Soltanalian–Pelckmans (2014).",
+        "Their general formulations do not state that two optimizers coincide in real dimension two; the source explicitly distinguishes optimizing the exact exponent from optimizing a one-step MSE bound.",
+        "The new direct Gram-Rayleigh bound gives Gamma(p) >= [1 + |sum p_i z_i|^2]/2; a two-endpoint or isotropic construction matches it, yielding a closed formula and all minimizers."
+      ],
+      "reasoning": "The paper optimization formulas solve the problem numerically in principle, but the exact angular-hull expression and coincidence theorem require nontrivial additional proof. The claimed new information is not the validity of the known SDPs, the convex-hull geometry alone, or an example extracted numerically. It is the structural equality of the two optimum laws and the analytical all-frame formula.",
+      "searches": [
+        "Planar randomized Kaczmarz exact optimal annealed mean square rate equals (1+dist(0,conv doubled-angle row normals)^2)/2 and optimal sampling same as one-step spectral bound",
+        "randomized Kaczmarz optimal row sampling exact mean squared convergence exponent",
+        "randomized Kaczmarz planar optimal probabilities doubled angle convex hull 2x2",
+        "Agaskar–Wang–Lu 2014 equation (20) min lambda_max of lifted operator",
+        "Dai–Soltanalian–Pelckmans 2014 equations (15)-(16) one-step spectral SDP"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dai–Soltanalian–Pelckmans (2014), arXiv:1402.2863v1, §II Theorem 2 and equation (16), optimizes the one-step bound via a matrix-eigenvalue SDP, not the exact annealed decay rate.",
+        "Agaskar–Wang–Lu (2014), DOI:10.1109/GlobalSIP.2014.7032145, §2 Proposition 1 and §3 equation (20), optimizes the exact annealed exponent via a general semidefinite program, with a numerical 300-by-3 example.",
+        "Published record 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f studies greedy maximal-distance Kaczmarz coherence and one-step residual spikes, rather than iid optimal annealed row selection."
+      ],
+      "reasoning": "Both cited 2014 convex objectives are mathematically relevant; this proof establishes their equality of optimizing distributions in exactly two real dimensions and computes the optimized exact rate. Equality of those argmin sets does not follow formally from equality of the objective functions (the objectives are unequal). No matching closed-form planar equivalence was found in the inspected full texts or published-record searches.",
+      "searches": [
+        "Planar randomized Kaczmarz exact optimal annealed mean square rate equals (1+dist(0,conv doubled-angle row normals)^2)/2 and optimal sampling same as one-step spectral bound",
+        "Two-dimensional randomized Kaczmarz optimal sampling uses two extreme directions or three isotropic directions, minimum expected squared error asymptotic factor",
+        "Optimal Kaczmarz row probabilities two-dimensional angle doubling convex hull E-optimal one-step and annealed exponent coincidence",
+        "randomized Kaczmarz planar optimal probabilities doubled angle convex hull 2x2",
+        "randomized Kaczmarz 2-dimensional optimal sampling annealed spectral radius support two rows",
+        "randomized Kaczmarz 2D exact MSE minimizer optimal probabilities equality one step bound",
+        "arxiv:1402.2863v1 (pp.3-8, primal SDP for one-step bound)",
+        "doi:10.1109/GlobalSIP.2014.7032145 (pp.3-5, lifted MSE and optimum annealed-rate SDP)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified published studies concern optimal coordinate selection for inverse-positive SPD problems, cyclic block-Kaczmarz bias, and greedy Kaczmarz residual spikes; none is a tabulation or an analytic classification of arbitrary planar iid row-selection laws.",
+        "Published related algorithms involving greedy selection, inverse-positive coordinate sampling, and cyclic block projection do not supply an exact all-parameter table or closed-form minimizer for arbitrary planar iid Kaczmarz sampling."
+      ],
+      "reasoning": "The claimed result is a continuous all-parameter classification rather than a finite database entry. Comparisons with specific earlier local results test the same algorithmic objects, not merely similar titles: the earlier versions fix a different sampling regime or optimize a different control variable.",
+      "searches": [
+        "Two-dimensional randomized Kaczmarz optimal sampling uses two extreme directions or three isotropic directions, minimum expected squared error asymptotic factor",
+        "Optimal Kaczmarz row probabilities two-dimensional angle doubling convex hull E-optimal one-step and annealed exponent coincidence",
+        "convex hull of doubled angles and minimum eigenvalue optimal design planar projections",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+      ]
+    },
+    "rationale": "The primary 2014 works establish the one-step eigenvalue-bound sampling SDP and the exact annealed-rate SDP, respectively, and these are excluded from the novelty claim. Reading both full primary texts, including their mathematical optimization statements and their examples, did not uncover the planar doubled-angle distance formula, all-minimizer characterization, or the dimension-two coincidence of argmin sets. The general SDP defines an optimum implicitly but does not state or imply the explicit expression without the new Gram-Rayleigh lower bound and matching geometric construction. The earlier exponential convergence and later inconsistent-system papers do not claim the same specific result. Dedicated semantic and literal searches found no decisively covering publication. This is a self-review subject to the listed residual risk, not a global uniqueness certificate.",
+    "residual_risks": [
+      "The literal and semantic searches cannot prove worldwide uniqueness; an equivalent planar specialization in older optimal-design, frame, or projection-product literature may exist.",
+      "The general 2014 lifted SDP contains the present planar optimization as a mathematical special case, so its formulation must remain acknowledged prior art; the new claim is only its nontrivial explicit solution and coincidence statement.",
+      "The cited prior-result inventory is incomplete with respect to unpublished work; no unpublished priority or independent validation is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original randomized Kaczmarz convergence bounds, no solved arbitrary-planar optimized annealed selection theorem.",
+        "evidence": "arXiv:math/0702226v1 §1-3 defines row-norm weighted iid method and proves exponential expected rate.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0702226",
+        "material_read": "Full public 21-page arXiv text, introduction, statement of convergence rates, sampled row rule and discussion of optimality (§§2-3).",
+        "method": "Examined arXiv full-text PDF and relevant page images, compared assumptions and quantifiers.",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Original randomized projection convergence bounds and verified first-public date 2007-02-08."
+      },
+      {
+        "assessment": "Optimizes one-step spectral upper bound; does not state the exact annealed rate, double-angle distance or all-optimum coincidence.",
+        "evidence": "arXiv:1402.2863v1 eqs. (13)-(16) and §III; explicitly describes optimizing a bound on mean-square convergence.",
+        "identifier_or_url": "https://arxiv.org/pdf/1402.2863",
+        "material_read": "Complete 11-page arXiv preprint, §§I-V, especially §II equations (13)-(17), the SDP and §III approximations; inspected the displayed SDP page.",
+        "method": "Read full arXiv PDF by section and visual page, including original optimization statement and examples.",
+        "title": "On the Randomized Kaczmarz Algorithm",
+        "trigger": "Closest study of optimizing the row-selection distribution, including a two-dimensional schematic."
+      },
+      {
+        "assessment": "Defines and optimizes the same generic annealed objective by semidefinite programming, but supplies no planar geometry, explicit all-row formula or optimizer-coincidence theorem.",
+        "evidence": "DOI:10.1109/GlobalSIP.2014.7032145, eq. (13) for annealed exponent and eq. (20) general convex objective; §3 reports numerical optimization.",
+        "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Full six-page Harvard-author-archived PDF, §§1-4, §2 exact MSE and annealed exponent, §3 equation (20), numerical 300-by-3 instance and conclusions; visual inspection of page five (zero-indexed fourth page).",
+        "method": "Read legally open author-archived full text and compared the precise general SDP to the proposed analytic planar solution.",
+        "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+        "trigger": "Closest primary source on exact annealed exponent and optimum iid sampling probabilities."
+      },
+      {
+        "assessment": "Focuses on inconsistent/noisy measurements, not the finite normalized planar iid optimal sampling closed form.",
+        "evidence": "arXiv:1502.00190v1, submitted 2015-02-01, abstract and sections I-III.",
+        "identifier_or_url": "https://arxiv.org/pdf/1502.00190",
+        "material_read": "Five-page full arXiv PDF, abstract, §§I-III, stated noisy/inconsistent system assumptions and MSE formulas.",
+        "method": "Examined arXiv full text and compared stochastic model and optimization target.",
+        "title": "Randomized Kaczmarz Algorithm for Inconsistent Linear Systems: An Exact MSE Analysis",
+        "trigger": "Same family of lifted MSE analyses, checks whether extensions cover planar optimized consistent sampling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54597ea5-8934-4a12-a042-55dd05bcf493",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The arbitrary finite real planar Kaczmarz design problem is natural in tomographic projection and iterative linear solvers. Its optimal exact annealed convergence rate, all minimizers, and angular two/three-direction sparsity are determined in closed form without the general SDP. The proved equality between exact-rate optimizers and one-step-bound optimizers is a structural bridge between two previously distinct criteria, while their optimal numerical rates differ strictly for intermediate frame geometry. The finite examples demonstrate practical selection of two extreme directions, not an arbitrary unmotivated parameter slice. The claims do not assert a paper-sized or high-dimensional theorem.",
+    "status": "PASS"
+  }
+}
