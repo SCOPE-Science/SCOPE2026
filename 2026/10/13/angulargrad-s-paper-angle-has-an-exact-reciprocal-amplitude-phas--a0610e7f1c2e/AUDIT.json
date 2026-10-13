@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every post-startup transition of \\(g_t=(-1)^{t-1}G\\), the source tangent-difference ratio is exactly \\(2G/|1-G^2|\\). Elementary trigonometry gives the cosine input \\(|1-G^2|/(1+G^2)\\). Reciprocal symmetry and monotonicity follow by differentiation, and equality of the two coefficients reduces to a reciprocal quartic that is solved exactly. The embedded verifier independently replays all formulas and boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining AngularGrad paper proves an online regret bound and studies smoothness of trajectories but not gradient-scale invariance of its angle statistic.",
+        "Later Torque-Aware Momentum explicitly identifies AngularGrad as related angle-aware work but uses normalized cosine similarity between momentum and gradient.",
+        "Normalized cosine similarity is scale invariant and therefore does not subsume the tangent-difference amplitude law."
+      ],
+      "reasoning": "General regret guarantees and qualitative smoothing claims do not determine how the angular multiplier changes under a common positive gradient rescaling. A different normalized angle mechanism cannot imply the unnormalized source formula analyzed here.",
+      "searches": [
+        "AngularGrad scale invariance gradient rescaling",
+        "AngularGrad alternating gradient",
+        "Torque-Aware Momentum AngularGrad angle cosine similarity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.10190v1",
+      "GitHub:mhaut/AngularGrad:myoptims/tanangulargrad.py",
+      "GitHub:mhaut/AngularGrad:myoptims/cosangulargrad.py",
+      "arXiv:2412.18790v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 supplies the exact angle and multiplier formulas used in the proof.",
+        "Lemma 3 bounds the coefficient and discusses cosine behavior near zero and right angles but does not analyze amplitude rescaling.",
+        "The official implementation reproduces the same tangent-difference and cosine/tangent transforms while adding separate state-selection logic."
+      ],
+      "reasoning": "The final claim requires inserting a fixed-direction alternating family, eliminating the angle analytically, proving reciprocal symmetry and monotonicity, and solving the variant equality equation. Those conclusions are not stated or implied by the source qualitative discussion.",
+      "searches": [
+        "arXiv:2105.10190v1 Algorithm 2 angular coefficient",
+        "AngularGrad Lemma 3 cos angle coefficient",
+        "AngularGrad official tanangulargrad cosangulargrad implementation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Algorithm 2 defines the scalar tangent-difference angle and adjacent-angle minimum.",
+        "The source angular multiplier is a monotone transform of either the cosine or tangent of that angle.",
+        "No inspected source states a rescaling counterexample, reciprocal-amplitude law, or exact crossover amplitudes."
+      ],
+      "reasoning": "Equivalent statements include failure of positive-scale invariance on a fixed direction sequence, an amplitude resonance at unit gradient magnitude, and an exact phase diagram for which published variant has the larger multiplier. These formulations were not located.",
+      "searches": [
+        "AngularGrad alternating gradient amplitude dependence cosine tangent coefficient",
+        "AngularGrad positive rescaling gradients angular coefficient",
+        "AngularGrad reciprocal amplitude symmetry sign alternating",
+        "arXiv:2105.10190v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concerned unrelated angle geometry, spectral stability, and adaptive optimization mechanisms rather than AngularGrad.",
+        "No returned record used the AngularGrad tangent-difference statistic or reported the reciprocal-amplitude crossover."
+      ],
+      "reasoning": "The nearest database results have different objects and update maps. Search absence is supporting evidence only and is combined with direct full-text and source-code inspection.",
+      "searches": [
+        "AngularGrad optimizer scale invariance gradient magnitude angle coefficient",
+        "AngularGrad alternating gradient amplitude dependence cosine tangent coefficient",
+        "AngularGrad positive rescaling gradients angular coefficient",
+        "AngularGrad reciprocal amplitude symmetry sign alternating",
+        "AngularGrad tangent cosine angular coefficient alternating scalar gradients",
+        "AngularGrad scale dependence gradient rescaling angle"
+      ]
+    },
+    "rationale": "The defining source presents AngularGrad as exploiting consecutive-gradient direction/angle information and gives the tangent-difference formula, but the inspected full text does not state the scale dependence on a fixed sign-alternating direction sequence, the reciprocal-amplitude symmetry, or the exact cosine-versus-tangent crossover. Focused published-record and web searches found no implication-equivalent result.",
+    "residual_risks": [
+      "An equivalent calculation may exist in unindexed implementation discussions or informal notes.",
+      "The theorem targets the displayed paper recurrence; the official repository has additional state-selection logic.",
+      "The one-dimensional diagnostic isolates the angle primitive and does not characterize arbitrary vector trajectories."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FORMULA_NOT_COVERING_SCALE_DEPENDENCE_OR_RECIPROCAL_AMPLITUDE_PHASE_DIAGRAM.",
+        "evidence": "The source calls the statistic an angle between consecutive gradients and gives the formulas used here, but no positive-rescaling analysis or exact alternating-amplitude phase diagram was found.",
+        "identifier_or_url": "arXiv:2105.10190v1",
+        "material_read": "Author-uploaded full-text material covering Algorithm 2, the angular-coefficient discussion and Lemma 3, the regret theorem, one-dimensional nonconvex experiments, Rosenbrock experiments, image-classification settings, and conclusion.",
+        "method": "Full-text inspection with targeted searches for the algorithm, angle formula, cosine/tangent coefficient, scaling language, and alternating/periodic formulations.",
+        "title": "AngularGrad: A New Optimization Technique for Angular Convergence of Convolutional Neural Networks",
+        "trigger": "Defining source for the tangent-difference angle, adjacent-angle minimum, cosine/tangent variants, regret theorem, and geometric interpretation."
+      },
+      {
+        "assessment": "TRANSFORMS_MATCH_PAPER_SCALE_SENSITIVITY_WITH_ADDITIONAL_STATE_SELECTION_LOGIC.",
+        "evidence": "The code computes the elementwise ratio |(previous_grad-grad)/(1+previous_grad*grad)| and the cosine transform 1/sqrt(1+ratio^2), confirming the scale-sensitive primitive; its stored-minimum logic is not used in the paper-form theorem.",
+        "identifier_or_url": "GitHub:mhaut/AngularGrad:myoptims/tanangulargrad.py and myoptims/cosangulargrad.py",
+        "material_read": "Both optimizer source files, including state initialization, gradient-difference ratio, arctangent angle, cosine construction, angular coefficient, Adam moments, and parameter update.",
+        "method": "Direct source-file inspection from the public repository.",
+        "title": "AngularGrad official reference implementation",
+        "trigger": "Check the concrete tangent-difference and cosine/tangent transforms against the displayed paper formulas."
+      },
+      {
+        "assessment": "RELATED_ANGLE_METHOD_NOT_COVERING_ANGULARGRAD_AMPLITUDE_PHASE_DIAGRAM.",
+        "evidence": "Its angle signal is explicitly normalized by both vector norms, so the mechanism is scale invariant and does not imply the unnormalized tangent-difference law.",
+        "identifier_or_url": "arXiv:2412.18790v1",
+        "material_read": "Open abstract and method summary describing normalized cosine similarity between prior momentum and the current gradient and its comparison to AngularGrad.",
+        "method": "Primary-record and open technical-summary inspection.",
+        "title": "Torque-Aware Momentum",
+        "trigger": "Later angle-aware optimizer literature that explicitly identifies AngularGrad as closely related."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0610e7f-1c2e-485a-b4bb-bb0faecac493",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Angular information is the defining novelty and stated interpretation of AngularGrad, so invariance under positive rescaling is a natural structural expectation for a direction-only signal. The result shows exactly that the published statistic instead mixes direction with amplitude, gives the complete reciprocal-amplitude phase diagram, and reveals opposite unit-amplitude extrema for the two published variants. This is a motivated boundary of the method rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
