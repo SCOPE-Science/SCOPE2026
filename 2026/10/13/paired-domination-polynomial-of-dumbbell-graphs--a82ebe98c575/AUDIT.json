@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For \\(D_{r,s}\\), domination is equivalent to meeting both cliques. Because the bridge is the only cross edge, a perfect matching either matches both selected clique subsets internally (both positive even sizes) or uses the bridge (both odd sizes with both bridge endpoints selected). These cases are necessary, sufficient, disjoint, and yield the displayed product formula. A generic perfect-matching verifier independently agrees for 30,736 subsets across 33 parameter pairs through total order 12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus-record:ea2bc935cbba — paired-domination polynomial of complete multipartite graphs",
+        "published-finding corpus-record:38091feaa528 — paired-domination polynomial of chain graphs",
+        "published-finding corpus-record:07e551af3374 — paired-domination polynomials for finite local total graphs"
+      ],
+      "reasoning": "A clique-bridge dumbbell is not a complete multipartite graph or a chain graph in the stated range, and it is not a finite local total graph family. Their structural classifications therefore do not imply the present formula.",
+      "searches": [
+        "paired domination polynomial dumbbell graph two complete graphs joined by an edge heterogeneous cliques",
+        "paired domination polynomial barbell graph two cliques joined by one edge all paired dominating sets"
+      ]
+    },
+    "checked_sources": [
+      "Haynes and Slater, Paired-domination in graphs, Networks 32 (1998).",
+      "Pious and Joseph, On Equality and Strong Equality of Domination Number and Independent Domination Number in Graphs, Mapana Journal of Sciences 14(3) (2015).",
+      "Puttaswamy, Alwardi, and Nayaka, Introduction to Paired Domination Polynomial of a Graph, ICMAGT 2016 artifact.",
+      "Jiang, Wu, Zhang, and Rao, Upper paired domination in graphs, AIMS Mathematics 7 (2022).",
+      "Semantic-index records for paired-domination polynomials of chain graphs and complete multipartite graphs."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pious–Joseph 2015 proves \\(\\gamma(D_{r,s})=\\gamma_i(D_{r,s})=2\\), not a paired-domination enumeration.",
+        "Haynes–Slater 1998 develops the paired-domination number, bounds, complexity, and relations with other domination parameters.",
+        "The 2016 artifact introduces the paired-domination polynomial but states no dumbbell/barbell formula in the accessible material."
+      ],
+      "reasoning": "Knowing ordinary or independent domination number 2 does not determine which dominating sets induce a perfect matching, and scalar paired-domination bounds do not determine all coefficients. The new bridge-parity classification is therefore not a corollary of the inspected statements.",
+      "searches": [
+        "exact-object comparison: 2015 Mapana dumbbell domination paper",
+        "exact-invariant comparison: 1998 paired-domination foundation",
+        "exact-polynomial comparison: 2016 paired-domination-polynomial conference artifact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Haynes–Slater 1998 defines paired domination as domination plus a perfect matching in the induced selected subgraph.",
+        "Searches used both dumbbell and barbell names and the structural alias “two cliques joined by one edge”.",
+        "The 2015 Mapana paper defines exactly this graph as \\(D_{r,s}\\), two complete graphs joined by one edge."
+      ],
+      "reasoning": "The alternate names and the exact structural description were all searched. No result stated a coefficientwise paired-domination formula for this family.",
+      "searches": [
+        "paired domination polynomial barbell graph two cliques joined by one edge all paired dominating sets",
+        "paired dominating sets dumbbell graph barbell clique bridge perfect matching polynomial",
+        "paired domination barbell graph gamma_p",
+        "paired domination polynomial dumbbell graph two complete graphs joined by an edge heterogeneous cliques",
+        "\"paired domination\" barbell graph",
+        "\"paired domination\" dumbbell graph",
+        "\"paired-domination polynomial\" barbell"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-index records were for chain graphs and complete multipartite graphs; no dumbbell/barbell paired-domination record appeared among the checked closest matches.",
+        "The 2016 public paired-domination-polynomial artifact is a single page; the entire page was read and contains only the definition, broad abstract claims, keywords, and conference metadata."
+      ],
+      "reasoning": "No checked database record or public table supplied the same coefficient sequence or formula. The one-page 2016 item cannot itself imply a family formula that it does not state.",
+      "searches": [
+        "paired domination barbell graph gamma_p",
+        "paired dominating sets dumbbell graph barbell clique bridge perfect matching polynomial",
+        "\"paired-domination polynomial\" barbell"
+      ]
+    },
+    "rationale": "No checked source was found to imply the heterogeneous dumbbell paired-domination polynomial. Exact-object prior work concerns ordinary/independent domination; exact-invariant prior work either gives general bounds or other graph classes. The accessible 2016 polynomial artifact contains no dumbbell formula. Residual risk from unindexed literature is explicitly retained.",
+    "residual_risks": [
+      "An unindexed, inaccessible, or differently named dumbbell-specific paired-domination enumeration may exist.",
+      "The 2016 conference artifact is only one page and does not reveal any formulas that might have appeared solely in an oral presentation.",
+      "The word “dumbbell” is overloaded in graph theory; searches may contain unrelated two-cycle constructions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines paired domination and reports complexity, bounds, and relationships; the inspected statement does not enumerate dumbbell sets.",
+        "evidence": "Publisher record states first publication 1998-12-07 and defines a paired-dominating set as a dominating set whose induced subgraph contains a perfect matching.",
+        "identifier_or_url": "doi:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+        "material_read": "Publisher bibliographic page and abstract.",
+        "method": "Direct publisher-page inspection.",
+        "title": "Paired-domination in graphs",
+        "trigger": "Foundational source for the exact domination variant."
+      },
+      {
+        "assessment": "Defines \\(D_{r,s}\\) as two complete graphs joined by one edge and proves ordinary/independent domination value 2; no paired-domination polynomial is given there.",
+        "evidence": "Section 2.1.1 explicitly defines the two-clique bridge graph and Proposition 1 concerns only ordinary and independent domination.",
+        "identifier_or_url": "Mapana Journal of Sciences 14(3) (2015), 73–82",
+        "material_read": "Abstract, introductory definitions, and Section 2.1.1 including page 76.",
+        "method": "Full-text PDF text and page-image inspection.",
+        "title": "On Equality and Strong Equality of Domination Number and Independent Domination Number in Graphs",
+        "trigger": "Exact graph family under the dumbbell name."
+      },
+      {
+        "assessment": "Defines the polynomial and says some standard families are computed, but the accessible artifact contains no family formulas and no dumbbell/barbell statement.",
+        "evidence": "Conference dates are September 26–27, 2016; the one page contains title, authors, abstract, keywords, and conference metadata only.",
+        "identifier_or_url": "waset:52964",
+        "material_read": "Entire accessible one-page conference PDF, including page image.",
+        "method": "Full one-page PDF inspection.",
+        "title": "Introduction to Paired Domination Polynomial of a Graph",
+        "trigger": "Earliest located source specifically introducing the coefficientwise paired-domination polynomial."
+      },
+      {
+        "assessment": "Uses MSC 05C69 for paired domination and studies the upper paired-domination problem, not the dumbbell polynomial.",
+        "evidence": "Journal metadata lists MSC 05C69 and 68Q15.",
+        "identifier_or_url": "doi:10.3934/math.2022069",
+        "material_read": "Journal landing page and abstract metadata.",
+        "method": "Direct journal-page inspection.",
+        "title": "Upper paired domination in graphs",
+        "trigger": "Independent subject-classification confirmation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a82ebe98-c575-4d8e-93e2-faf9f3b4a6c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives the complete all-cardinality paired-domination polynomial for a natural two-parameter family already used in domination literature. The bridge creates a nontrivial parity coupling: even selected sizes match internally, while odd selected sizes require the bridge endpoints. This refines a scalar minimum into a structural classification, exact total count, and unique-minimum statement, and the heterogeneous \\(r,s\\) form is directly usable in clique-bridge constructions.",
+    "status": "PASS"
+  }
+}
