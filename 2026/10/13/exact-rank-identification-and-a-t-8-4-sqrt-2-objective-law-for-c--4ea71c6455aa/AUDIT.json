@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the source definitions and verifies all hypotheses on the stated domain. B_t=0 follows because B0=f*=0 and every working lower bound is at most f*. The threshold inequality at t=3 is exact, the rank-two region is forward invariant, and the full-rank oracle formula yields the stated scalar multiplier. The exact symbolic package replay returns VERIFY_OK. The asymptotic uses the standard gamma-ratio law after an exact product identity; no finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qi--Wang--Zhang prove only general sublinear convergence and finite rank identification, with a sufficient identification bound depending on L, mu, and the optimal eigenvalue.",
+        "Ding--Fei--Xu--Yang analyze fixed-rank spectral/block FW rather than the adaptive rank mechanism.",
+        "Wang--Qi--Zhang provide the simplex-ball oracle and general convergence theory; text searches found no centered two-coordinate exact trajectory or matching exponent."
+      ],
+      "reasoning": "General convergence, finite eventual identification, and the precursor oracle geometry do not imply the exact iteration of identification or the complete trajectory on this instance. The new proof specializes and solves the source recurrence rather than invoking only a general rate theorem.",
+      "searches": [
+        "Primary full text arXiv:2609.08522v1, Sections 3.2 and 4.1--4.3, equations (14)--(16), Algorithm 1, Theorems 4.3--4.4",
+        "Primary predecessor full text arXiv:2006.01719v4 / PMLR 119:2535--2544",
+        "Primary geometric predecessor full text arXiv:2509.24279v1, simplex-ball and SLMO sections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08522v1",
+      "arXiv:2006.01719v4",
+      "PMLR 119:2535--2544",
+      "arXiv:2509.24279v1",
+      "DOI:10.1007/s40305-026-00695-3",
+      "published-research semantic corpus"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's Theorem 4.4 guarantees eventual identification and specializes to the sufficient bound T0'=290 here, but it does not determine the exact t=3 event or subsequent recurrence.",
+        "The 2020 spectral FW method presupposes a block size and has no efficient-rank sequence to identify.",
+        "The simplex predecessor exposes analogous oracle geometry but does not state the matrix trajectory, its rank sequence, gamma product, or exact-line-search one-step result for this ERSO-FW algorithm."
+      ],
+      "reasoning": "The new theorem is neither a corollary of a stronger exact prior statement nor a renamed rate bound. It resolves the source's algorithm on a concrete invariant family, producing information absent from the general bounds.",
+      "searches": [
+        "arXiv:2609.08522v1: Algorithm 1, Theorem 4.4 and Remark 4.5",
+        "arXiv:2006.01719v4: fixed-rank Spectral Frank-Wolfe and BlockFW guarantees",
+        "arXiv:2509.24279v1: SLMO formula and simple/line-search step rules"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned finding states an ERSO-FW centered-quadratic trajectory, a t=3 efficient-rank identification, or the gamma-product exponent.",
+        "The closest semantic records concern unrelated step-size stability, trust-region, or spectral phenomena."
+      ],
+      "reasoning": "The search set used both the source algorithm name and formulation aliases: spectral oracle, thresholding rank, efficient rank, centered Frobenius quadratic, exact recurrence, and full-rank identification. None supplied an equivalent statement.",
+      "searches": [
+        "Published-research database: ERSO-FW centered 2x2 spectrahedron quadratic exact trajectory efficient rank",
+        "Published-research database: thresholding rank spectral ball centered quadratic explicit recurrence",
+        "Published-research database: Frank-Wolfe spectrahedron identity target exact recurrence rank adaptive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No database result contains the source identifier together with the centered 2x2 trajectory or the exponent 8+4 sqrt(2).",
+        "The claim does not reproduce a numerical table or benchmark value from the source."
+      ],
+      "reasoning": "The statement is an analytic orbit and asymptotic law, so database/table coverage would require a theorem or exact computation that implies those formulas; none was found.",
+      "searches": [
+        "Published-research database: rank-adaptive Frank-Wolfe spectrahedron full-rank optimum exact finite rank identification two by two quadratic",
+        "Published-research database: spectral oracle Frank-Wolfe I over 2 centered Frobenius quadratic fixed step 2/(t+1)"
+      ]
+    },
+    "rationale": "The new statement is an exact source-specific trajectory theorem: rank identification at t=3, a closed gamma-product recurrence and its objective exponent, plus one-step exact-line-search termination. Neither the 2026 source nor the inspected spectral/simplex predecessors state a result that implies this conjunction. Published-finding searches using source-specific and equivalence aliases returned only implication-incomparable results.",
+    "residual_risks": [
+      "A specialized unpublished or differently worded calculation for the two-coordinate simplex analogue could exist; no implication-equivalent published record was located.",
+      "The theorem is intentionally narrow: it establishes a natural exact benchmark, not a general improvement of the source convergence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the algorithm, general rank bounds and eventual identification; DOES NOT STATE the centered 2x2 exact trajectory, t=3 identification, gamma product, or objective exponent.",
+        "evidence": "Algorithm 1 uses eta_t=2/(t+1) or exact line search; Theorem 4.4 provides the general finite identification bound T0 and T0'.",
+        "identifier_or_url": "arXiv:2609.08522v1",
+        "material_read": "Abstract and MSC record; assumptions; spectral-oracle and thresholding-map definitions; efficient-rank rule (14); formulas (15)--(16); Algorithm 1; Theorems 4.3--4.4; Remark 4.5; S-SFW comparison; references.",
+        "method": "Lawful arXiv full-text inspection, including rendered PDF pages containing the oracle, efficient-rank rule, and Algorithm 1.",
+        "title": "Rank-Adaptive and Linearly Convergent Frank--Wolfe Method over Spectrahedron via Nonconvex Oracle",
+        "trigger": "Primary source defining the algorithm and the rank mechanism."
+      },
+      {
+        "assessment": "COVERS fixed-rank spectral/block Frank-Wolfe convergence; DOES NOT COVER adaptive efficient-rank identification or the new exact orbit.",
+        "evidence": "The block method assumes k at least the optimal rank, whereas the 2026 source adapts the number of eigencomponents.",
+        "identifier_or_url": "arXiv:2006.01719v4; PMLR 119:2535--2544",
+        "material_read": "Abstract, problem setup, Frank-Wolfe and generalized BlockFW algorithms, spectral-FW contribution and convergence assumptions/results.",
+        "method": "Open PMLR full-text PDF inspection, including the algorithm page.",
+        "title": "Spectral Frank-Wolfe Algorithm: Strict Complementarity and Linear Convergence",
+        "trigger": "Closest prior spectral Frank-Wolfe method on the same feasible geometry."
+      },
+      {
+        "assessment": "COVERS the precursor simplex geometry and general rates; DOES NOT STATE a matching exact centered two-coordinate trajectory or exponent.",
+        "evidence": "The inspected text develops SLMO and general convergence, while searches for centered/uniform quadratic specializations returned no such theorem.",
+        "identifier_or_url": "arXiv:2509.24279v1; DOI:10.1007/s40305-026-00695-3",
+        "material_read": "Abstract/introduction; simplex-ball definition and intersection formula; SLMO closed form; common simple and line-search step rules; convergence sections searched for centered/uniform/quadratic exact trajectories.",
+        "method": "Open arXiv full-text PDF and open-access journal text inspection, including the simplex-ball page.",
+        "title": "Simplex Frank-Wolfe: Linear Convergence and Its Numerical Efficiency for Convex Optimization over Polytopes",
+        "trigger": "Geometric predecessor explicitly cited by the source for simplex-ball construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ea71c64-55aa-4b70-8a4d-3f3b27e64b50",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves the central adaptive-rank mechanism on a canonical isotropic full-rank spectrahedral quadratic. It gives an exact identification time versus the source's conservative sufficient burn-in, a complete trajectory and sharp objective exponent for the canonical simple steps, and a contrasting one-step exact-line-search behavior. These are structurally informative facts about the new oracle rather than a routine parameter substitution or table recomputation.",
+    "status": "PASS"
+  }
+}
