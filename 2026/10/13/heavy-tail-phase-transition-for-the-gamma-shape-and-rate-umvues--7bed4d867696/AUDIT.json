@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the cited exact density of the ancillary ratio and the exact UMVUE formulas. At the upper endpoint, the estimator is asymptotic to \\(c/(1-y)\\) while the density is asymptotic to \\(K(\\alpha)d_0(1-y)^c\\), which gives tail index \\(p=c+1\\) and the displayed constant. The lower endpoint has local moments of every positive order by extending the source proof that \\(y^{\\beta+1}|G'(y)|\\to0\\) for every \\(\\beta>0\\). For the rate estimator, independence reduces the problem to a product of the shape-estimator tail and an inverse-Gamma tail. The unequal-index cases use the standard one-heavy-factor product-tail lemma; the equal-index case uses the truncated moment law \\(\\mathbb E[B^p;B\\le t]\\sim pC\\log t\\). The specialization \\(q=2\\) exactly reproduces the source variance thresholds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Glaser 1976, DOI:10.1080/01621459.1976.10480373",
+        "Nandi 1980, DOI:10.1080/01621459.1980.10477456",
+        "Papadatos 2022, arXiv:2205.10799v1"
+      ],
+      "reasoning": "The older papers cover distributions of geometric-to-arithmetic mean ratios in Gamma samples, while the 2022 paper constructs the UMVUEs. None of the inspected statements gives a theorem that dominates the exact estimator-tail constants or the three-regime rate-estimator classification.",
+      "searches": [
+        "rate UMVUE product inverse gamma regular variation geometric arithmetic mean",
+        "Gamma shape rate unbiased estimator power-law tail moment spectrum",
+        "Gamma UMVUE heavy tail estimator",
+        "Gamma shape rate unbiased estimator power-law tail moment spectrum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.10799v1",
+      "DOI:10.1080/00031305.2024.2332766",
+      "DOI:10.1080/01621459.1976.10480373",
+      "DOI:10.1080/01621459.1980.10477456"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Papadatos proves finite variance exactly for \\(n\\ge6\\) for the shape estimator and, for \\(n\\ge6\\), finite variance exactly for \\(\\alpha>2/n\\) for the rate estimator.",
+        "Glaser and Nandi concern the ratio distribution used as an ingredient, not the later estimator-tail product."
+      ],
+      "reasoning": "The new result strictly refines one second-moment slice into exact tail equivalences and all positive moments. The generic product-tail lemma is standard and therefore not claimed as original; the application requires combining the source endpoint law, lower-endpoint control, the independent Gamma factor, and a matched-index critical analysis.",
+      "searches": [
+        "arXiv:2205.10799v1 Theorem 2.1 Corollary 2.1",
+        "Glaser geometric arithmetic mean Gamma ratio",
+        "Nandi weighted geometric arithmetic mean Gamma"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Papadatos, arXiv:2205.10799v1, Theorem 2.1 and Corollary 2.1",
+        "DOI:10.1080/00031305.2024.2332766"
+      ],
+      "reasoning": "Searches covered UMVUE, shape/rate estimator, regular-variation, heavy-tail, moment-spectrum, and the explicit threshold terminology. The source gives the estimator formulas and variance thresholds but no all-order or tail-equivalent formulation.",
+      "searches": [
+        "Papadatos Gamma UMVUE regularly varying tail rate estimator phase transition",
+        "Gamma UMVUE rate estimator heavy tail log boundary n alpha (n-1)/2",
+        "shape UMVUE tail index (n-1)/2 Papadatos",
+        "arXiv:2205.10799v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The journal abstract reports only the finite-variance condition; the public preprint contains the full proof and was inspected directly."
+      ],
+      "reasoning": "No exact table, database record, or indexed finding located by these searches states the power-law constants, the full \\(q\\)-moment spectrum, or the critical logarithmic product tail.",
+      "searches": [
+        "Papadatos Gamma UMVUE regularly varying tail rate estimator phase transition",
+        "shape UMVUE tail index (n-1)/2 Papadatos",
+        "Papadatos UMVUE tail"
+      ]
+    },
+    "rationale": "The motivating paper states and proves only existence and second-moment thresholds for these UMVUEs. Targeted searches for the exact estimator, tail index, product mechanism, phase boundary, and logarithmic critical law did not locate a covering result. Earlier geometric-mean/arithmetic-mean papers provide the ratio distribution but do not define the later UMVUEs or imply the product-tail phase classification as a stated result.",
+    "residual_risks": [
+      "The full texts of the 1976 Glaser and 1980 Nandi ratio-distribution papers were not inspected; their public abstracts do not state the later UMVUE problem, but an equivalent endpoint-tail calculation under older notation remains possible.",
+      "An older estimator-tail result may exist under terminology not retrieved by the targeted searches.",
+      "The generic regular-variation product lemma is classical; only the exact estimator-specific phase diagram and constants are assessed for originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stated tail phase diagram: the paper proves existence and variance thresholds but not regular variation, exact tail constants, all-order moment thresholds, or the matched-index logarithmic law.",
+        "evidence": "Equations for f_Y and U_0; Theorem 2.1; the endpoint variance proof; Corollary 2.1 for U_1.",
+        "identifier_or_url": "arXiv:2205.10799v1",
+        "material_read": "Full preprint sections containing the density of Y, Theorem 2.1, the variance proof, and Corollary 2.1.",
+        "method": "Direct full-text and page inspection of the public preprint.",
+        "title": "On point estimators for Gamma and Beta distributions",
+        "trigger": "Same objects and exact estimator formulas."
+      },
+      {
+        "assessment": "PARTIAL_INSPECTION: the public abstract describes the Gamma geometric-mean/arithmetic-mean ratio density and large-sample properties. Full text was not inspected, so an equivalent tail calculation under older notation is retained as a residual risk.",
+        "evidence": "Abstract states derivation of the ratio density and large-sample properties.",
+        "identifier_or_url": "DOI:10.1080/01621459.1976.10480373",
+        "material_read": "Public abstract and bibliographic record.",
+        "method": "Primary-source abstract inspection.",
+        "title": "The Ratio of the Geometric Mean to the Arithmetic Mean for a Random Sample from a Gamma Distribution",
+        "trigger": "Foundational distribution of the ratio entering Y."
+      },
+      {
+        "assessment": "PARTIAL_INSPECTION: the public abstract describes beta-product mixtures, ratio distributions, truncation bounds, and testing applications. Full text was not inspected, so a hidden equivalent endpoint-tail calculation is retained as a residual risk.",
+        "evidence": "Abstract describes beta-product mixtures and ratio distributions.",
+        "identifier_or_url": "DOI:10.1080/01621459.1980.10477456",
+        "material_read": "Public abstract and bibliographic record.",
+        "method": "Primary-source abstract inspection.",
+        "title": "On the Exact Distribution of a Normalized Ratio of the Weighted Geometric Mean to the Unweighted Arithmetic Mean in Samples from Gamma Distributions",
+        "trigger": "Another foundational source for the beta-product representation of Y."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7bed4d86-7696-4073-9662-a2e81f9b9757",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source highlights finite variance as a fundamental existence property of its new UMVUEs. The finding replaces that single binary threshold with the complete positive-moment spectrum and an exact tail law, and it discovers a distinct parameter transition for the rate estimator between two competing heavy-tail mechanisms, including a logarithmic critical case. These facts directly quantify robustness and the range of loss functions for which risk moments exist, so the invariant is naturally tied to the estimator rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}
