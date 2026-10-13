@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the current tree gives exact updates D'=D+X and L'=L+1-Y with E[X|T]=D/(2(n-1)), E[Y|T]=L/(2(n-1)), and E[XY|T]=1{D=1}/(2(n-1)). These identities reconstruct the mixed-moment recurrence. The marginal recurrences solve to the displayed q_n, E D_n, and E L_n, and substitution yields the covariance increment. Every claimed sign follows from that exact increment, and the square-root constant follows from q_n~(pi n)^(-1/2). Exact rational state enumeration through n=9 reproduces all finite identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peköz--Röllin--Ross explicitly identify their one-edge model as the usual Barabási–Albert proportional-attachment tree.",
+        "Hartle--Krapivsky derive the leaf-degree distribution and aggregate finite-size leaf-count fluctuations for preferential-attachment trees.",
+        "Feng--Hu's journal record classifies scale-free-tree probability work under Primary 60C05."
+      ],
+      "reasoning": "The inspected sources provide broader marginal, empirical-count, and scale-free-tree theory. None of their inspected statements dominates the local-global seed-degree/total-leaf recurrence.",
+      "searches": [
+        "arXiv:1402.4686",
+        "arXiv:2602.01021",
+        "DOI:10.1239/jap/1371648958",
+        "plane oriented recursive tree root degree leaves covariance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1402.4686",
+      "arXiv:2602.01021",
+      "DOI:10.1239/jap/1371648958",
+      "own:ab0acf44-833f-4f5e-8046-72a11fec5c8c",
+      "own:728baaf3-901d-4295-ab09-45de24220a79",
+      "own:841548d3-e0e4-45ea-952e-f8eacd8b612d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "own:ab0acf44-833f-4f5e-8046-72a11fec5c8c concerns root outdegree and leaves under uniform attachment, not degree-proportional attachment.",
+        "own:728baaf3-901d-4295-ab09-45de24220a79 concerns age-dependent degree/leaf covariance in a random recursive tree, again under uniform attachment.",
+        "own:841548d3-e0e4-45ea-952e-f8eacd8b612d concerns a static uniform Cayley tree and Prüfer occupancy.",
+        "No own current/prior ledger claim inspected at the claim/ID level states a preferential-attachment seed-degree versus total-leaf covariance."
+      ],
+      "reasoning": "The attachment rule changes the one-step joint law: in preferential attachment the root-selection probability is D/(2(n-1)) and the leaf-selection probability is L/(2(n-1)). Uniform recursive-tree or static Cayley-tree formulas therefore do not imply the accepted recurrence.",
+      "searches": [
+        "own ledger random recursive tree root degree leaves",
+        "own ledger Cayley tree degree leaf count",
+        "own ledger preferential attachment leaves",
+        "published-result search preferential attachment root degree total leaves covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1402.4686 studies joint degree counts and degree order statistics in proportional attachment.",
+        "arXiv:2602.01021 studies leafdegree and aggregate leaf/count fluctuations; full-text search finds aggregate covariances but no 'oldest' occurrence."
+      ],
+      "reasoning": "Queries cover root/oldest/fixed-vertex aliases, leaf/degree-one terminology, covariance, and the Barabási–Albert name. The comparison is statement-level: aggregate count covariances are not equivalent to the covariance of one nonexchangeable seed vertex with the total leaf count.",
+      "searches": [
+        "\"root degree\" \"number of leaves\" preferential attachment tree covariance",
+        "\"oldest vertex\" degree leaves preferential attachment tree covariance",
+        "\"fixed vertex\" degree \"number of leaves\" preferential attachment",
+        "preferential attachment root degree total leaves covariance",
+        "Barabasi Albert tree root degree leaf count covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact record matching the increment formula or the asymptotic constant 2/(3 sqrt(pi)) was located.",
+        "The accepted theorem is proved analytically; finite enumeration is only a replay."
+      ],
+      "reasoning": "There is no reliance on a numerical table. The exact finite formula is a closed recurrence valid for every n in the stated model.",
+      "searches": [
+        "\"root degree\" leaves Barabasi Albert tree",
+        "\"fixed vertex\" degree leaves preferential attachment covariance",
+        "\"oldest hub\" leaf count preferential attachment"
+      ]
+    },
+    "rationale": "The closest inspected literature separates distinguished-old-vertex degree theory from global leaf-count theory. The 2026 full leaf paper derives aggregate leaf/degree-count covariances, but does not state the oldest-vertex/global-leaf covariance. The 2014 full preferential-attachment degree paper treats degree counts and order statistics without a total-leaf statistic. Targeted published-result and web searches found no matching fixed-oldest-vertex leaf covariance formula.",
+    "residual_risks": [
+      "Older preferential-attachment or plane-oriented-recursive-tree literature may encode the same mixed moment implicitly.",
+      "Different seed conventions can produce nearby but not identical formulas, so comparisons must preserve the one-edge seed.",
+      "The originality claim is the explicit seed-degree/total-leaf recurrence, sign law, and square-root constant, not the known marginal root-degree or leaf asymptotics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEGREE_AND_ORDER_STATISTICS_DO_NOT_STATE_GLOBAL_LEAF_COVARIANCE",
+        "evidence": "The paper studies joint degree counts, order statistics, and old-vertex degree limits. Its inspected text does not introduce total leaf count as the second coordinate of a seed-vertex joint law.",
+        "identifier_or_url": "arXiv:1402.4686",
+        "material_read": "ArXiv metadata and full HTML model/results text, including the model definition, identification of the one-edge case with the usual Barabási–Albert tree, theorem scope, and related-work discussion.",
+        "method": "Compared variables and implications for any total-leaf statistic or fixed-vertex/leaf mixed moment.",
+        "title": "Joint degree distributions of preferential attachment random graphs",
+        "trigger": "Archive anchor and closest full source for distinguished old-vertex degree behavior in the standard proportional-attachment model."
+      },
+      {
+        "assessment": "AGGREGATE_LEAF_COVARIANCES_NOT_OLDEST_VERTEX_GLOBAL_LEAF_COVARIANCE",
+        "evidence": "The paper derives aggregate covariances involving N_1 and degree/leafdegree count variables. A full-text search returns no occurrence of 'oldest'; fixed-degree passages concern typical-vertex leafdegree rather than a labeled seed vertex.",
+        "identifier_or_url": "arXiv:2602.01021",
+        "material_read": "Full public HTML through the model, joint degree--leafdegree distribution, finite-size fluctuation sections, aggregate covariance calculations, and appendices; targeted full-text searches for covariance, fixed, and oldest.",
+        "method": "Compared aggregate variables N_1, N_2, and N_{2,1}, and typical-vertex leafdegree, against the degree of a distinguished initial vertex.",
+        "title": "Leaves of preferential attachment trees",
+        "trigger": "Closest full source on the global leaf statistic in preferential attachment."
+      },
+      {
+        "assessment": "PRIMARY_60C05_SLOT_SUPPORT",
+        "evidence": "The publisher lists Primary 05C05 and 60C05 and treats scale-free random trees.",
+        "identifier_or_url": "DOI:10.1239/jap/1371648958",
+        "material_read": "Publisher abstract, classification, bibliographic information, and references.",
+        "method": "Checked the primary MSC and the random scale-free-tree scope.",
+        "title": "Phase Changes in the Topological Indices of Scale-Free Trees",
+        "trigger": "Primary-MSC ownership check for scale-free random-tree probability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3885e62-cb19-4e3a-87a9-1e081a282b0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinguished oldest vertex and the total leaf population are canonical nonexchangeable local/global observables in preferential attachment. Their one-step competition does not make the sign obvious. The exact positive increment law exposes the mechanism and the asymptotic 2 sqrt(n)/(3 sqrt(pi)) quantifies a persistent hub-boundary coupling not captured by aggregate degree-count covariances.",
+    "status": "PASS"
+  }
+}
