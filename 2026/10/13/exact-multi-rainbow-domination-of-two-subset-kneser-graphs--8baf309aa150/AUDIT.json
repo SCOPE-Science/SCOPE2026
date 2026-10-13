@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Proof covers every integer \\(k\\ge3\\), \\(n\\ge k+1\\). Upper bound labels three complementary-edge pairs of \\(K_4\\), each perfect matching hosting one nonempty color block, so every zero-labeled pair sees each block. Lower bound: if total weight below \\(2k\\), any globally absent color makes all \\(\\binom n2\\ge2k\\) vertices nonempty; otherwise a uniquely supported color forces \\(2n-3\\) nonempty edges. \\(n\\ge k+2\\) contradiction directly; \\(n=k+1\\) equality forces all spokes to be singleton-labeled, each other color exactly twice, and a zero pair meeting both bearers defeats rainbow coverage. Finite checker reconstructs adjacency for 78 instances and exhaustively excludes all incidence subsets below 6 for \\(n\\in\\{4,5\\}\\) and \\(k=3\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.15603, Theorems and K(n,2) characterization",
+        "arXiv:2312.15464, Theorem 5: gamma_{t×k} for n≥2(k+r)",
+        "arXiv:2204.05664, introduction and main Roman theorems"
+      ],
+      "reasoning": "None dominates the rainbow claim: even knowing uncolored k-fold domination for the same Kneser graph does not determine multi-label color incidence costs. Roman labels 0/1/2 also do not convert to named-color coverage.",
+      "searches": [
+        "arXiv:2308.15603 full text section 4 K(n,2)",
+        "arXiv:2312.15464 full text Theorems 5 and 7",
+        "Kneser K(n,2) rainbow k-domination number gamma_{rk}, a color class with exactly two 2-set vertices, paired matchings on K4 and 2k rainbow costs",
+        "domination number of the Cartesian product K(n,2) square K_k, k-rainbow domination equivalence, exact 2k"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2308.15603",
+      "https://arxiv.org/pdf/2312.15464",
+      "https://arxiv.org/pdf/2204.05664",
+      "https://arxiv.org/abs/1210.0514",
+      "https://www.mdpi.com/2227-7390/7/12/1153",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1210.0514: gamma_{rk}(G)=gamma(G square K_k), no Kneser product computation",
+        "arXiv:2308.15603: k-tuple dominating set has |N[v]∩D|>=k",
+        "arXiv:2312.15464: k-dominating set has |N(v)∩D|>=k for v outside D"
+      ],
+      "reasoning": "Prior equivalence maps the question exactly to a Cartesian product but does not solve it. Prior k-fold domination optimizes one vertex set with no named colors, so equality of graph family or symbol k does not imply \\(\\gamma_{rk}\\)=\\(2k\\). Prior Roman results are different optimization objectives. No stronger coverage was detected after material comparisons.",
+      "searches": [
+        "arXiv:1210.0514 rainbow Cartesian-equivalence",
+        "arXiv:2308.15603 K(n,2) k-tuple domination",
+        "arXiv:2312.15464 k-domination Kneser",
+        "arXiv:2204.05664 Roman Kneser",
+        "Exact 2-rainbow domination numbers on Kneser graphs KG(n,2), 5 for Petersen KG(5,2) and 6 for n>=6, minimum rainbow dominating functions and edge-support configurations",
+        "Kneser K(n,2) rainbow k-domination number gamma_{rk}, a color class with exactly two 2-set vertices, paired matchings on K4 and 2k rainbow costs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1210.0514, abstract: gamma_{rk}(G)=gamma(G square K_k)",
+        "arXiv:2308.15603, KG(n,2) k-tuple characterization"
+      ],
+      "reasoning": "The equality with ordinary domination of \\(KG(n,2)\\) square \\(K_k\\) is exactly equivalent by general theory, but the searched graph-product and Kneser sources do not give the \\(2k\\) value. K-tuple domination is not equivalent: it counts selected neighbors, not covered distinct colors.",
+      "searches": [
+        "domination number of the Cartesian product K(n,2) square K_k, k-rainbow domination equivalence, exact 2k",
+        "2-rainbow domination number of Petersen graph Kneser K(5,2) equals 5 and for K(n,2) n>=6 equals 6",
+        "Rainbow domination in the lexicographic product of graphs arXiv:1210.0514"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result title \"All 2-rainbow dominating functions of complete multipartite graphs\" (2026/10/4/SCOPE-all-2-rainbow-dominating-functions-of-complete-multipartite-grap--7f7bcd9e9b58)",
+        "arXiv:2308.15603, KG(n,2) numerical k-tuple tables only"
+      ],
+      "reasoning": "Published-result search and Kneser literature yielded no exact table for rainbow \\(\\gamma_{rk}\\) in this two-parameter domain; the closest enumerators concern other graph classes, graph parameters and/or \\(k=2\\). Missing indexed results do not prove novelty.",
+      "searches": [
+        "Exact 2-rainbow domination numbers on Kneser graphs KG(n,2), 5 for Petersen KG(5,2) and 6 for n>=6, minimum rainbow dominating functions and edge-support configurations",
+        "Kneser K(n,2) rainbow k-domination number gamma_{rk}, a color class with exactly two 2-set vertices, paired matchings on K4 and 2k rainbow costs",
+        "\"rainbow domination\" \"KG(n,2)\"",
+        "published-finding corpus: Kneser rainbow domination 2k and Cartesian product"
+      ]
+    },
+    "rationale": "Full original Kneser multiple-domination sources were inspected at the theorem/definition level; none provides multicolor Kneser rainbow domination. The established Cartesian-product equivalence does not supply the claimed value. Published-result similarity search found no statement implying \\(\\gamma_{rk}(KG(n,2))\\)=\\(2k\\) for \\(k\\ge3\\) and \\(n\\ge k+1\\). Historical indexing risk remains.",
+    "residual_risks": [
+      "An exact domination theorem for KG(n,2) square K_k may exist under generic Cartesian-product terminology and may escape text search.",
+      "A later journal article or a poorly indexed family-specific result could imply the same value; no claim of independently certified novelty is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: k-tuple neighbor counts, not color coverage or multicolored vertex costs.",
+        "evidence": [
+          "arXiv:2308.15603v2, introduction and section on K(n,2): gamma_{xk} has closed-neighborhood threshold |N[v]∩D|>=k; keyword search finds no rainbow claim."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.15603",
+        "material_read": "33-page full PDF: definitions and introduction, sections on k-tuple domination and special KG(n,2), main statement, references and appendices inspected; search for rainbow terminology.",
+        "method": "Read primary arXiv PDF (sections and KG(n,2) characterization), examine first page and theorem comparisons.",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Same Kneser graph \\(KG(n,2)\\) and arbitrary parameter k."
+      },
+      {
+        "assessment": "NOT_COVERING: gamma_k and gamma_{t×k} count neighboring selected vertices; no palette assignments.",
+        "evidence": [
+          "arXiv:2312.15464v1, pp. 1–5, Theorems 1, 3, 5, 7, and definitions; none addresses gamma_{rk}."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.15464",
+        "material_read": "15-page full PDF: pages 1–5 definitions and statements, later theorem scopes and references; searched full text for rainbow.",
+        "method": "Inspect arXiv PDF and theorem statements, first-page visual inspection.",
+        "title": "k-Domination invariants on Kneser graphs",
+        "trigger": "Follow-up that treats both open and total k-fold neighborhood counts, potentially stronger coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: labels 0,1,2 and Roman defender condition differ from arbitrary subsets of a k-color palette.",
+        "evidence": [
+          "arXiv:2204.05664v3, abstract and definitions: gamma_R, total Roman gamma_{tR}, signed Roman gamma_{sR}, not gamma_{rk}."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.05664",
+        "material_read": "18-page full PDF: introduction definitions, central inequalities and exact Roman results, related literature; searched full text for rainbow.",
+        "method": "Inspect primary arXiv PDF and first-page visual, compare labeling demands.",
+        "title": "Several Roman domination graph invariants on Kneser graphs",
+        "trigger": "Same \\(KG(n,2)\\) class, Roman/weighted labels potentially equivalent."
+      },
+      {
+        "assessment": "BROAD_FORMULATION_ONLY: supplies an exact equivalence but no exact value for \\(KG(n,2)\\) square \\(K_k\\).",
+        "evidence": [
+          "arXiv:1210.0514 abstract, rainbow/Cartesian equivalence and scope limited to lexicographic product results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1210.0514",
+        "material_read": "Abstract and theorem description stating gamma_{rk}(G)=gamma(G square K_k); lexicographic product focus.",
+        "method": "Read primary preprint landing-page abstract and cited equivalence, compare host graph family.",
+        "title": "Rainbow domination in the lexicographic product of graphs",
+        "trigger": "General equality of k-rainbow domination with domination of a Cartesian product; possible reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8baf309a-a150-4e90-8904-e387ef0cb11b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines an exact natural multicolor domination invariant for every size and arbitrarily large palette k in the two-parameter Kneser family, replacing the naive k-fold labeling of an ordinary 3-vertex dominating set (\\(3k\\)) by a sharp \\(2k\\) construction. The exceptional boundary \\(n=k+1\\) is nontrivial and demands a separate structural lemma. This is not a finite table, parameter relabeling, or routine substitution of existing Kneser k-tuple results.",
+    "status": "PASS"
+  }
+}
