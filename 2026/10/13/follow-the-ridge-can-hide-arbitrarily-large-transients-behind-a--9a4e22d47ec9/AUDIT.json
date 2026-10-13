@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution of the source FR correction gives \\(e_{t+1}=q e_t\\) and \\(x_{t+1}=p x_t-\\eta_x b e_t\\). The exact finite-time solution is a geometric divided difference with repeated-root limit \\(t r^{t-1}\\). At resonance, the explicit state \\(z_0=(0,1)\\) gives a one-step norm formula growing as \\(b^4\\) in squared norm while both eigenvalues remain fixed at \\(r\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic nonnormal linear-systems literature establishes that stable Jordan structures can exhibit transient growth.",
+        "The defining FR work argues that real eigenvalues remove the strong rotational mechanism of gradient descent-ascent.",
+        "HessianFR develops a faster Hessian-based minimax method and restates the FR ridge mechanism."
+      ],
+      "reasoning": "Generic Jordan-block theory is broader as linear algebra but does not identify when the FR correction creates the Jordan block, its exact coefficient in optimizer parameters, or the resonance of the source's canonical minimax example. HessianFR does not state the accepted fixed-spectrum transient law.",
+      "searches": [
+        "stable Jordan block transient amplification discrete time",
+        "HessianFR convergence condition number Follow-the-Ridge",
+        "Follow-the-Ridge real eigenvalues rotation momentum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.07512v1",
+      "ICLR2020:Wang-Zhang-Ba",
+      "arXiv:2205.11030v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 supplies the exact correction used in the proof.",
+        "Theorem 1 supplies the upper-triangular similarity form and diagonal eigenvalue blocks.",
+        "Remark 1 emphasizes that all FR eigenvalues are real as an explanation for removal of rotation.",
+        "The source's displayed quadratic has parameters \\(h=c=2\\), so equal player steps make its two diagonal modal factors identical.",
+        "HessianFR is motivated by faster convergence and Hessian conditioning but does not state a nonnormal FR transient obstruction."
+      ],
+      "reasoning": "The prior triangular similarity determines asymptotic eigenvalues but not Euclidean transient size, because similarity is not norm preserving and the off-diagonal block can become arbitrarily large. Solving the exact ridge-error recursion is necessary to obtain the Jordan term and fixed-spectrum amplification family.",
+      "searches": [
+        "arXiv:1910.07512 Algorithm 1 Follow-the-Ridge correction",
+        "arXiv:1910.07512 Theorem 1 Jacobian similar upper triangular all eigenvalues real",
+        "arXiv:1910.07512 quadratic -3 x squared plus 4xy minus y squared",
+        "arXiv:2205.11030 Follow-the-Ridge HessianFR convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining FR paper states that its Jacobian is similar to an upper block-triangular matrix and that all eigenvalues are real.",
+        "The off-diagonal leader-follower Hessian block remains present in that triangular form.",
+        "No inspected FR source states an exact Jordan-prefactor transient or an unbounded fixed-spectrum Euclidean amplification family."
+      ],
+      "reasoning": "Equivalent coverage would need to characterize the off-diagonal block at repeated leader/follower modal factors or explicitly imply unbounded transients at fixed FR eigenvalues. Real-spectrum and asymptotic-stability statements alone do not imply such a transient classification.",
+      "searches": [
+        "Follow-the-Ridge Jordan transient amplification resonance real eigenvalues",
+        "Follow the Ridge nonnormal transient minimax quadratic",
+        "Follow-the-Ridge equal eigenvalues Jordan block",
+        "Follow the Ridge quadratic exact transient ridge error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result is a generic certified stable-Jordan transient-growth record, alongside unrelated optimization transient and repeated-root records.",
+        "No returned indexed finding names Follow-the-Ridge or gives the ridge-error triangularization and resonance formula."
+      ],
+      "reasoning": "The generic Jordan result establishes a phenomenon for an abstract matrix family, whereas the accepted claim proves that the source FR update realizes it with fixed sequential-game curvatures and identifies the exact optimizer resonance.",
+      "searches": [
+        "Follow-the-Ridge Jordan transient amplification resonance real eigenvalues",
+        "Follow the Ridge nonnormal transient minimax quadratic",
+        "Follow-the-Ridge equal eigenvalues Jordan block",
+        "Follow the Ridge quadratic exact transient ridge error"
+      ]
+    },
+    "rationale": "The defining FR paper derives the same upper-triangular similarity form and emphasizes that all eigenvalues are real, but it does not analyze the off-diagonal block's nonnormal transient, repeated-eigenvalue Jordan behavior, or the resonance of its own displayed quadratic. The later HessianFR paper improves convergence using Hessian information without stating this fixed-spectrum transient obstruction. Focused published-record searches found generic Jordan-transient work but no implication-equivalent FR result.",
+    "residual_risks": [
+      "An equivalent FR transient observation may exist in unindexed lecture notes or code discussions.",
+      "Generic nonnormal/Jordan transient theory contains the linear-algebra mechanism, so originality is restricted to its exact FR realization and parameter law.",
+      "A coupling-dependent norm adapted to the similarity transform can suppress the Euclidean amplification; the accepted claim is explicitly Euclidean."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_REAL_SPECTRUM_AND_LOCAL_STABILITY_NOT_COVERING_NONNORMAL_RESONANT_TRANSIENT.",
+        "evidence": "The source explicitly leaves a cross-Hessian block above the diagonal in the similar Jacobian and emphasizes only its real eigenvalues; no Jordan transient formula or unbounded fixed-spectrum Euclidean amplification statement was found.",
+        "identifier_or_url": "arXiv:1910.07512v1 / ICLR 2020",
+        "material_read": "Full open-access text covering the scalar quadratic illustration, local-minimax conditions, Algorithm 1, Theorem 1's Jacobian similarity transform, Remark 1 on real eigenvalues, and the preconditioning/momentum discussion.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "On Solving Minimax Optimization Locally: A Follow-the-Ridge Approach",
+        "trigger": "Defining FR source and strongest plausible same-method coverage."
+      },
+      {
+        "assessment": "LATER_FASTER_FR_VARIANT_NOT_COVERING_FIXED_SPECTRUM_TRANSIENT_OBSTRUCTION.",
+        "evidence": "The later paper motivates Hessian-based acceleration and restates FR's correction but no exact repeated-eigenvalue transient or arbitrary Euclidean amplification family was found.",
+        "identifier_or_url": "arXiv:2205.11030v1",
+        "material_read": "Full open-access text covering the minimax setup, local-minimax Schur complement, FR ridge correction review, and HessianFR motivation and convergence discussion.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "HessianFR: An Efficient Hessian-based Follow-the-Ridge Algorithm for Minimax Optimization",
+        "trigger": "Later same-method paper focused on accelerating FR and conditioning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a4e22d4-7ec9-4594-904b-2b421f75a2b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining FR paper presents real eigenvalues as the structural reason it avoids rotational instability. The accepted result identifies an orthogonal failure mode of spectral reasoning: even with a fixed strictly stable real spectrum, FR can be arbitrarily nonnormal. The resonance occurs in the paper's own canonical quadratic under equal learning rates, making the exact Jordan prefactor and transient risk directly relevant to interpretation and tuning of the method.",
+    "status": "PASS"
+  }
+}
