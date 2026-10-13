@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For a common overlap run, each interior repair contributes a disjoint pre-checkpoint segment of mass at least L-U inside the first repair tail of mass at most U, proving the upper bound. Explicit constructions attain that bound, give unbounded overlap when L<=U, and attain failure of consecutive separation at every L<=2U. The source specialization and logarithmic counting corollary then follow exactly. The proof does not rely on numerical enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.09152v2, full-text checkpoint construction inspected",
+        "arXiv:2609.04032v2, full-text checkpoint construction inspected",
+        "arXiv:2609.26873v1, full repair-counting section inspected"
+      ],
+      "reasoning": "The two predecessor papers use checkpoint machinery but not the same trigger/tail repair interval abstraction. The primary paper is narrower, fixing the ratio U/L=1/4, so none of these sources supplies broader parameter coverage that would subsume the accepted theorem.",
+      "searches": [
+        "mass-triggered repair overlap interval phase diagram",
+        "Silver Rate Strongly Convex Lemma 5.2 repair counting correction",
+        "checkpoint lower bound repair tail overlap multiplicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.26873v1",
+      "https://pith.science/paper/JUVW4DZL",
+      "arXiv:2609.09152v2",
+      "arXiv:2609.04032v2",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+      "2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source states a twofold-overlap conclusion only at L=S0 and U=S0/4.",
+        "The Pith review explicitly notes the special 3S0/4 versus S0/4 mass comparison, so that special repair is treated as prior art.",
+        "Prior own findings concern the silver splitting slack and long-step mass polarization in a different recursive schedule, not repair-interval overlap."
+      ],
+      "reasoning": "The generalized theorem strictly contains new parameter regimes and exact sharp examples. Neither the special source conclusion nor the public special-case salvage implies the formula for arbitrary L and U or its two phase transitions.",
+      "searches": [
+        "arXiv:2609.26873 Lemma 5.2 S0/4 repair counting",
+        "Pith JUVW4DZL Lemma 5.2 mass salvage",
+        "own prior ledger silver inequality long-step mass polarization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.26873v1, Lemma 5.2 and equation (28)",
+        "Pith paper JUVW4DZL, Lemma 5.2 review discussion",
+        "No exact-formula match among the returned published-finding records; closest optimization records concern different step-safety or overlap mechanisms."
+      ],
+      "reasoning": "The source and its review cover the concrete S0 versus S0/4 instance. They do not state the general multiplicity 2+floor(U/(L-U)), the unbounded L<=U phase, or sharpness for every parameter pair.",
+      "searches": [
+        "\"2+floor(U/(L-U))\" overlap intervals mass tail",
+        "\"U/(L-U)\" repair overlap checkpoints",
+        "\"L-U\" \"tail\" checkpoints overlap multiplicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+        "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+        "2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f"
+      ],
+      "reasoning": "Semantic searches of published finding records returned no exact or stronger interval-mass classification. The closest records involve adaptive-gradient persistence, stagewise Richardson safety, Polyak or Barzilai--Borwein monotonicity, Lanczos convexification, and reflected splitting; their objects and implications differ.",
+      "searches": [
+        "repair counting lemma mass threshold residual tail overlap checkpoints L greater than 2U",
+        "sharp overlap threshold intervals checkpoint tail mass repair Lemma 5.2 Silver Rate strongly convex",
+        "mass monotonicity p j+1 greater than v j residual tail S0/4",
+        "Silver Rate Strongly Convex Lemma 5.2 repair counting correction",
+        "twofold overlap interval mass checkpoint repair log n_j",
+        "\"2+floor(U/(L-U))\" overlap intervals mass tail",
+        "\"U/(L-U)\" repair overlap checkpoints",
+        "\"L-U\" \"tail\" checkpoints overlap multiplicity",
+        "\"mass-triggered\" interval overlap multiplicity",
+        "\"Silver Rate\" \"L>2U\" repair"
+      ]
+    },
+    "rationale": "The source-specific mass salvage is already public and is not claimed as new. The accepted claim is the exact parameterized overlap classification, its phase transitions, and sharp constructions. Targeted searches, own-ledger comparison, and inspection of the primary source plus the closest checkpoint predecessors found no statement that implies that generalized theorem.",
+    "residual_risks": [
+      "The special L=S0, U=S0/4 mass salvage is already public; only the exact generalized phase diagram and sharp constructions are claimed as original.",
+      "Search coverage cannot exclude an uncatalogued equivalent interval-packing lemma in unrelated combinatorics literature.",
+      "This originality assessment concerns the accepted theorem only and does not assess unrelated claims in the primary paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_PREMISE_NOT_GENERAL_CLASSIFICATION",
+        "evidence": "The paper fixes the trigger at S0 and tail cap at S0/4 and seeks twofold overlap. It does not state a general L,U phase diagram or sharp multiplicity formula.",
+        "identifier_or_url": "arXiv:2609.26873v1",
+        "material_read": "Full paper text around Lemma 5.2 and equation (28), including the definitions of u_j, p_j, v_j, n_j, and the written overlap proof; the corresponding PDF pages were visually inspected.",
+        "method": "Full-text and PDF-page inspection.",
+        "title": "Silver Rate Is (Almost) Optimal for Gradient Descent: The Strongly Convex Case",
+        "trigger": "Primary source containing the repair intervals, checkpoint rule, mass trigger, residual-tail cap, and Lemma 5.2 counting claim."
+      },
+      {
+        "assessment": "COVERS_SPECIAL_SALVAGE_NOT_GENERAL_PHASE_DIAGRAM",
+        "evidence": "The review supplies the special-source repair idea. It does not give the exact 2+floor(U/(L-U)) multiplicity, the L<=U unbounded phase, the L>2U iff separation threshold, or sharp constructions.",
+        "identifier_or_url": "https://pith.science/paper/JUVW4DZL",
+        "material_read": "Review discussion identifying the overlap-counting gap and the suggested source-specific mass comparison using 3S0/4 versus S0/4.",
+        "method": "Public scientific review inspection.",
+        "title": "Public review of Silver Rate Is (Almost) Optimal for Gradient Descent: The Strongly Convex Case",
+        "trigger": "Closest public analysis of the exact Lemma 5.2 proof issue."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The checkpoint machinery is structurally different and does not imply the accepted interval-mass classification.",
+        "identifier_or_url": "arXiv:2609.09152v2",
+        "material_read": "Full paper text and targeted searches around checkpoint constructions; no repair/tail-mass lemma matching the accepted abstraction was located.",
+        "method": "Full-text inspection and in-document search.",
+        "title": "Silver Rate Is (Almost) Optimal for Gradient Descent",
+        "trigger": "Closest smooth-convex silver-rate predecessor using checkpoint hard instances."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper uses checkpoint sets and related combinatorics but no inspected theorem states or implies the mass-triggered repair overlap phase diagram.",
+        "identifier_or_url": "arXiv:2609.04032v2",
+        "material_read": "Full paper text and targeted searches for repair, tail, and checkpoint overlap arguments.",
+        "method": "Full-text inspection and in-document search.",
+        "title": "Stronger Lower Bounds for (Non-)Anytime Acceleration of Gradient Descent",
+        "trigger": "Earlier checkpoint lower-bound construction plausibly close to the source mechanism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be06af5e-51d5-4391-b59c-1cc6943323d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates the exact structural condition behind a load-bearing counting step, quantifies the safety margin of the source constants, and classifies all trigger-to-tail ratios with sharp examples. It is a reusable interval-mass lemma rather than a routine recomputation or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
