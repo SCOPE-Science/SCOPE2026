@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 and 1<=s<=n-1, a supercoupon S is unseen exactly when it contains all previously omitted vertices. This proves U_t=choose(n-K_t,s-K_t) for K_t<=s and U_t=0 beyond. The next missing vertex is uniform among n-1 vertices except the current one; from K_t=k, exactly n-k are new, so the distinct-count transition probability is (n-k)/(n-1). Initial K_1=1 matches iid-occupancy count plus one, proving equality of the full scalar process. Strong Markov yields independent geometric waiting times and exact CDF, PGF, mean and variance. Direct Stirling counting confirms the occupancy marginal. For s=floor(alpha n), Riemann sums give the claimed limiting mean and variance, and uniformly bounded third centered moments of geometrics plus positive limiting variance give the normal law via Lyapunov. Exact enumeration of omission paths n=2..6,t=1..6,s=1..n-1 produced 510 passing comparisons; enumeration is corroboration, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Athreya et al., arXiv:2304.01145, Conjecture 2.4: expected stopping time in a fixed-parameter large-universe regime, not a full finite law.",
+        "Athreya et al., Theorem 2.5: r=s Johnson-graph cover-time asymptotics, specialized here only at s=n-1.",
+        "The indexed published record 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed concerns a different nonuniform reset-and-catastrophe process."
+      ],
+      "reasoning": "The existing r=s result covers the endpoint s=n-1 but not interior s<n-1 where each observed set collects many supercoupons. The conjecture describes the fixed-size r,s regime and does not imply exact finite-dimensional stochastic identities for r=n-1. General iid coupon-cover formulas become applicable only once the complement reduction is independently proved.",
+      "searches": [
+        "Temporally dependent coupon collector Athreya Mukherjee 2023 markovian n-1 subset exact hitting times",
+        "Complete-graph random walk distinct vertices covered threshold s+1 equivalent to partial uniform coupon collector finite-dimensional occupancy process",
+        "\"Markovian super-coupon\" \"exact\" n r s distribution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2304.01145",
+      "https://arxiv.org/html/2304.01145v2",
+      "https://doi.org/10.1007/s10959-025-01417-w",
+      "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+      "2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.01145, Conjecture 2.4 and Theorem 2.5, full original text inspected.",
+        "Journal of Theoretical Probability 38 (2025), article 54, Section 2 and Markovian proof section, open full text inspected.",
+        "Generic occupancy birth process is standard after an equivalence is known."
+      ],
+      "reasoning": "Neither an asymptotic r=s cover result nor fixed-r model discussion implies the assertion that *every* uncollected s-subset contains all omitted vertices and hence the full r=n-1 count process has iid occupancy law. At s=n-1 the cover-time specialization is classical and is not asserted novel; for s<n-1 the explicit process identity is different. A reader may derive the identity easily, but it is not a stated covered implication from the inspected prior theorems.",
+      "searches": [
+        "Markovian generalized supercoupon collector r=n-1 all s subsets coupon collection cover time equal partial coupon collector complete graph omitted vertices exact distribution",
+        "Temporally dependent coupon collector Athreya Mukherjee 2023 markovian n-1 subset exact hitting times",
+        "Complete-graph random walk distinct vertices covered threshold s+1 equivalent to partial uniform coupon collector finite-dimensional occupancy process"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.01145, Conjecture 2.4, identifies Johnson-graph subset walk; Section 3 addresses different general parameters.",
+        "Classical iid occupancy has the same birth kernel after collapsing omission histories; the complement identity provides the missing equivalence."
+      ],
+      "reasoning": "An omission sequence cannot be iid because consecutive missing elements differ; nevertheless its distinct-count scalar chain has exactly the iid occupancy transition kernel. The equivalence requires proving that lumping and the pathwise uncollected identity preserve the target event. No inspected source explicitly states this equivalence for all r=n-1, 1<=s<=n-1.",
+      "searches": [
+        "Markovian generalized supercoupon collector r=n-1 all s subsets coupon collection cover time equal partial coupon collector complete graph omitted vertices exact distribution",
+        "Johnson graph walk r=n-1 collect all s-subsets supercoupon time n-1 partial coupon collector geom independent sum",
+        "\"coupon collector\" \"without immediate repeats\" \"number of distinct\" distribution",
+        "\"partial coupon collector\" \"simple random walk\" \"complete graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic queries returned no matching Markovian supercoupon occupancy table; nearest published record 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed is about resetting coupon collectors.",
+        "The published original gives asymptotic statements and no all-time table for this dense endpoint."
+      ],
+      "reasoning": "No matching published database or exact parameter table was located. This is search evidence only, not proof of priority; the classical Stirling table is reused without a novelty claim.",
+      "searches": [
+        "Exact finite law for Markovian supercoupon collector with r=n-1 and 1<=s<=n-1, uncollected s-subsets count binomial n-K s-K; cover time is 1+partial coupon collector on n-1 labels",
+        "Markovian random walk cover all s-subsets of n via complements of (n-1)-sets 2023 conjecture exact distribution",
+        "\"coupon collector\" \"r=n-1\" \"super\" \"Markovian\" exact"
+      ]
+    },
+    "rationale": "The 2023 full arXiv preprint and its open 2025 journal text define this model and discuss a generic Markovian expected-cover-time conjecture and a known r=s boundary. They do not state an r=n-1 pathwise reduction, the resulting full uncollected-count process and full all-s stopping-time law, or the proportional-size normal regime. Standard iid partial-coupon formulas are explicitly recognized as prior results; the new comparison is the model-specific complement-lumping equivalence. Targeted mathematical-index and terminology searches found no equivalent covering report; this does not certify exhaustive global novelty.",
+    "residual_risks": [
+      "An older probability or covering-design paper may state the same complete-graph subset-cover reduction with different terminology, despite targeted searches.",
+      "The last endpoint s=n-1 is not new; the claim of novelty concerns the simultaneous all-s complement identity, process law, and proportional-size consequence.",
+      "No independent bibliographic review has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the process but presents no exact r=n-1 all-s occupancy equivalence or finite collection-time law; r=s boundary is known",
+        "evidence": [
+          "Conjecture 2.4; Theorem 2.5; proof in Section 3, arXiv:2304.01145v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.01145v2",
+        "material_read": "Full 16-page preprint and searchable HTML: model definition, Introduction, Conjecture 2.4, Theorem 2.5, Remark, Section 3 arguments and references",
+        "method": "Accessible arXiv preprint PDF and HTML, inspecting exact mathematical claims and their hypotheses",
+        "title": "On a generalisation of the coupon collector problem",
+        "trigger": "Exact primary model of uniform Markovian substitution of r-subsets and closest general conjecture"
+      },
+      {
+        "assessment": "States generic fixed-parameter conjecture and r=s cover-time estimate; no explicit full dense-endpoint occupancy law found",
+        "evidence": [
+          "Sections 1–3; Conjecture 2.4; Theorem 2.5; primary MSC 60C05"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10959-025-01417-w",
+        "material_read": "Open-access full HTML: abstract, Introduction, Sections 2–3 including Conjecture 2.4 and Theorem 2.5, classification metadata and reference list",
+        "method": "Primary publisher open HTML, comparisons of theorem statements and Markovian section",
+        "title": "On a Generalisation of the Coupon Collector Problem",
+        "trigger": "Possibility updated published text adds exact dense-endpoint theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73ea2d29-5567-4158-8166-997013d65b74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximal nontrivial display size r=n-1 is a canonical boundary of the correlated hypergraph-coverage process proposed in 2023. The exact pathwise identity compresses the full history of binomial(n,s) target objects to a single occupancy count uniformly over n and all 1<=s<=n-1; it yields a whole finite-time distribution, stopping law, and a growing-s Gaussian scaling regime. These outcomes do not follow by merely quoting the fixed-parameter conjecture. It is a motivated natural complete family classification, not a numerically chosen slice or a raw reprint of iid occupancy formulas. The known s=n-1 case is explicitly attributed.",
+    "status": "PASS"
+  }
+}
