@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For n attributes and m distinct records, the C(n,2) attribute pairs demand distinct row-pair witnesses: C(m,2)>=C(n,2), hence m>=n. At equality, all row pairs witness exactly one attribute pair, forcing partition-mask intersections exactly one and row-edge multiplicity two. Enumerating all canonical partitions into at most three groups and all increasing-index families with row-edge multiplicity <=2 is exhaustive. At m=3,5,6 there are 4,40,121 column masks, and zero complete m-element families in both standalone algorithms. Direct verification checks the explicit 4x4,6x5,7x7 witnesses and projected 4x3 and 7x6 tables. The known theorem f(3,3)=7 excludes n>=8. The computation is finite and the reduction, not the terminal log alone, proves exhaustiveness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The general lower bound m>=n is consistent with but weaker than mu(5)>5 and mu(6)>6.",
+        "The known f(3,3)=7 covers impossibility of n>=8 but says nothing about the minimum number of records for n=5 or n=6."
+      ],
+      "reasoning": "Earlier theorems cover the counting floor and terminal maximum-length cutoff, not the two strict finite lower bounds. The present theorem explicitly credits all inherited components.",
+      "searches": [
+        "minimum number of rows ternary Armstrong code with five six seven attributes and every triple minimal key; record-size profile 4 4 6 7 7",
+        "doi:10.1145/2422.322414 Theorem 6.5",
+        "doi:10.2478/s11533-008-0001-4 Theorem 3.2",
+        "doi:10.1109/TIT.2014.2377735 Proposition 6"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1145/2422.322414",
+      "https://combinatorialpress.com/article/ars/Volume%20037/volume-37-paper-19.pdf",
+      "doi:10.2478/s11533-008-0001-4",
+      "doi:10.1109/TIT.2014.2377735",
+      "arxiv:1906.06070",
+      "https://www.researchgate.net/publication/220431370_On_the_Structure_of_Armstrong_Relations_for_Functional_Dependencies",
+      "https://www.researchgate.net/publication/227241543_Codes_that_attain_minimum_distance_in_every_possible_direction",
+      "https://arxiv.org/pdf/1906.06070",
+      "https://combinatorialpress.com/article/ars/Volume%20037/volume-37-paper-19.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier maximal-column results do not determine record minima at intermediate column counts.",
+        "The known Fano-plane ODC yields seven records at n=7 and by projection n=6, furnishing an upper bound but not a proof of strictness versus six records."
+      ],
+      "reasoning": "The two new strict lower bounds are genuine additional facts relative to the compared general bounds and examples. Conversely n>=8 impossibility and upper constructions are prior results, not claimed new.",
+      "searches": [
+        "Armstrong code ternary length seven seven codewords seven attributes exact classification Fano plane partitions 3,3,1 4,1,1",
+        "minimum number of rows ternary Armstrong code with five six seven attributes and every triple minimal key; record-size profile 4 4 6 7 7",
+        "doi:10.2478/s11533-008-0001-4 Theorem 3.2",
+        "arxiv:1906.06070 Proposition 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 6.5 (Beeri et al., 1984) gives bounds in terms of maximal nondetermining sets but does not classify the ternary three-symbol equality-partition incidence cases.",
+        "Chee et al. translate ternary Armstrong codes into partitions/orthogonal double covers and give the 7x7 construction."
+      ],
+      "reasoning": "Any equivalent ternary minimal-key relation or Armstrong-code statement must impose at most three cells per column, pairwise row-agreement at most two, and every column pair witnessed. Neither inspected text enumerates the impossibility of a 5x5 or 6x6 instance under those simultaneous requirements.",
+      "searches": [
+        "Armstrong code ternary length seven seven codewords seven attributes exact classification Fano plane partitions 3,3,1 4,1,1",
+        "minimum number of rows ternary Armstrong code with five six seven attributes and every triple minimal key; record-size profile 4 4 6 7 7",
+        "https://arxiv.org/pdf/1906.06070 Definition 2 and Proposition 6",
+        "https://www.researchgate.net/publication/220431370_On_the_Structure_of_Armstrong_Relations_for_Functional_Dependencies Theorem 6.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full Katona–Sali–Schewe text gives extremal length bounds and a k=3 diagonal counting bound, rather than a table of minimum record counts for n=3,...,7.",
+        "The Chee–Zhang–Zhang example lists an explicit 7x7 table, reproduced with attribution; it does not list 5x5/6x6 nonexistence checks."
+      ],
+      "reasoning": "A direct parameter/profile search and primary paper comparison did not identify a previously published exact 4,4,6,7,7 row-minimum table. Failure to find a table is not itself a novelty proof; the specific statements have been compared.",
+      "searches": [
+        "minimum number of rows ternary Armstrong code with five six seven attributes and every triple minimal key; record-size profile 4 4 6 7 7",
+        "orthogonal double covers K5 K6 by at most three cliques nonexistence database Armstrong tables",
+        "minimum size Armstrong relation ternary 5 6 rows triple candidate keys",
+        "https://www.researchgate.net/publication/227241543_Codes_that_attain_minimum_distance_in_every_possible_direction"
+      ]
+    },
+    "rationale": "The two strict boundary values mu(5)=6 and mu(6)=7 and the resulting complete ternary three-key minimum-row spectrum are not entailed by prior existence of 7x7 codes, by maximal-column bounds f(3,3)=7, nor by the generic m>=n counting inequality. Relevant earlier works were compared at the level of these statements and their implications, including the 1984 treatment of minimum Armstrong relation size. Unindexed computation remains possible.",
+    "residual_risks": [
+      "A specialist unpublished or poorly indexed exhaustive study could independently obtain the n=5 and n=6 record minima.",
+      "The full 1995 orthogonal-double-cover article was not available for a complete comparison; abstract concerns a broader graph class and does not decide this ternary partition problem.",
+      "Only particular sections/pages of the 1994 ODC paper were inspected; unreviewed pages are not asserted to be unrelated.",
+      "The 1984 bibliographic date is journal metadata without a confirmed first public release day; 1994-06-30 is used as the earliest independently verified day-level public-source anchor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General extremal bounds, no matched ternary three-key minimum-row function located.",
+        "evidence": "Theorem 6.5 gives a lower bound from the number of maximal antikeys and bounds for arbitrary dependency families; its equality examples concern other families.",
+        "identifier_or_url": "https://www.researchgate.net/publication/220431370_On_the_Structure_of_Armstrong_Relations_for_Functional_Dependencies",
+        "material_read": "Full publisher text made available on ResearchGate, with particular examination of Sections 4 and 6, Theorems 6.5 and 6.9, Examples 6.6 and 6.7.",
+        "method": "Read source text and compare hypothesis and numerical output.",
+        "title": "On the Structure of Armstrong Relations for Functional Dependencies",
+        "trigger": "Exact minimum number of database tuples might already be treated."
+      },
+      {
+        "assessment": "Constructs generic double covers by short cycles; no three-class equality-partition nonexistence was observed in the examined material. Uninspected pages remain a bibliographic risk.",
+        "evidence": "The theorem on page 7 concerns maximum-degree-two cover graphs rather than disjoint unions of at most three cliques.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20037/volume-37-paper-19.pdf",
+        "material_read": "Publisher abstract and scanned page 1 and page 7 (Theorem 3 and surrounding cyclic-cover material).",
+        "method": "Read rendered publisher PDF pages with definitions and theorem context.",
+        "title": "On Orthogonal Double Covers of K_n",
+        "trigger": "Equivalent graph formulation might subsume diagonal obstructions."
+      },
+      {
+        "assessment": "Gives m>=n for k=3 and maximal-length bounds, not the strict lower bounds for five and six attributes.",
+        "evidence": "Section 3 obtains b_{q,3}^*(m)=m and bound f(q,3)<=3q-1; no equality-case classification for n=5 or n=6.",
+        "identifier_or_url": "https://www.researchgate.net/publication/227241543_Codes_that_attain_minimum_distance_in_every_possible_direction",
+        "material_read": "Publisher full text transcribed on ResearchGate, including definitions, Section 3 row-pair counting and Theorem 3.2.",
+        "method": "Examined original statement and proof, not only abstract.",
+        "title": "Codes that attain minimum distance in every possible direction",
+        "trigger": "Original bounded-domain Armstrong-code formulation and a potential stronger bound."
+      },
+      {
+        "assessment": "Proves f(3,3)=7 and prints a 7x7 example; does not present the exact minimum record counts at n=5 and n=6 in those sections.",
+        "evidence": "Example 1 prints the seven binary-triple partition-based rows. Proposition 6 states f(3,3)=7.",
+        "identifier_or_url": "https://arxiv.org/pdf/1906.06070",
+        "material_read": "Public arXiv PDF original article pages 1-4, Definitions 1 and 2, Example 1, Proposition 6 and exact maximal-length construction sections.",
+        "method": "Read full textual material for sections on q=3, the 7x7 witness, and ODC reductions.",
+        "title": "Complexity of Dependencies in Bounded Domains, Armstrong Codes, and Generalizations",
+        "trigger": "Closest direct construction of ternary length-seven Armstrong relations."
+      },
+      {
+        "assessment": "No decisive implication comparison beyond the stated maximum-degree-two type; inaccessible full content retains originality risk.",
+        "evidence": "Abstract discusses maximum-degree-two graphs and general existence rather than up-to-three-clique equality partitions.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/jcd.3180030308",
+        "material_read": "Publisher abstract and statement of coverage type only.",
+        "method": "Read public abstract; no usable complete primary full text acquired.",
+        "title": "On orthogonal double covers of K_n and a conjecture of Chung and West",
+        "trigger": "Potential specialist covering theorem for order five or six."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4795e8c6-c39c-42f1-b3c8-7e901a03dea3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least number of database tuples needed to realize exactly the triples as minimal keys is a natural quantitative invariant under a fixed small domain size. A complete all-admissible-length profile determines exact storage/test-case minima, with two strict gaps relative to the natural pair-counting floor and explicit witnesses. Neither mere correctness nor code generation is being substituted for this intrinsic motivation. The result is finite but solves the whole q=3,k=3 row-minimum function because the known length bound cuts off at n=7.",
+    "status": "PASS"
+  }
+}
