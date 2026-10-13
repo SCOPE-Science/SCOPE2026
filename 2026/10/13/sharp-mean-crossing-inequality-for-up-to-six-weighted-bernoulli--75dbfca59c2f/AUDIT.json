@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The normalized-weight reduction is exhaustive: dominant coordinate yields the correct iff equality; otherwise all six weights are below p and p>1/6. The interval (1/6,1/5] forces all pairs to win; [1/5,1/4] uses disjoint-losing-edge exclusion, at least ten winning pairs, all winning triples; [1/4,1/3] uses perfect-matching coverage to force >=5 winning pairs, an injection of losing triples into winning-pair triangles, and triangle bound t<=2k-8 for all 6-vertex graphs. Each case yields a strictly positive p-polynomial gap, independently established analytically and by exact rational Bernstein certificates. A standalone Python checker exhausts all 32768 graph masks, not merely samples. Conclusions hold for every real p and real weights in the stated ranges; no claim for m>6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A. Milojević and B. Sudakov, On the Probability a Weighted Bernoulli Sum Exceeds Its Mean, arXiv:2606.30287, first posted 2026-06-29, https://arxiv.org/abs/2606.30287.",
+        "R. Fokkink, L. Meester and C. Pelekis, Optimizing stakes in simultaneous bets, arXiv:2002.06804, https://arxiv.org/abs/2002.06804.",
+        "N. Alon, H. Huang and B. Sudakov, Nonnegative k-sums, fractional covers, and probability of small deviations, arXiv:1104.1753.",
+        "2026/9/17/SCOPE-heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6 addresses worst-case cumulant-generating envelopes for a heterogeneous assignment estimator.",
+        "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda concerns Poisson-binomial cumulants, not this weighted iid sharp event."
+      ],
+      "reasoning": "The unrestricted Milojević–Sudakov conjecture would dominate the theorem but is not proved by its motivating article: its all-m bound is restricted to extremely small p, while reciprocal p=1/r cases cover a discrete subset. The 2012 MMS large-n theorem and upper-tail stake optimization do not imply the full six-summand continuum. Named published-finding corpus probability findings lack the needed implication.",
+      "searches": [
+        "2026 probability stochastic process exact finite sample distribution sharp inequality unresolved conjecture Bernoulli extremal",
+        "Sharp weighted Bernoulli sum exceeds mean six trials matching graph triangles upper lower bound",
+        "Milojevic Sudakov weighted Bernoulli conjecture verified small n",
+        "N. Alon, H. Huang and B. Sudakov, Nonnegative k-sums, fractional covers, and probability of small deviations, arXiv:1104.1753.",
+        "2026/9/17/SCOPE-heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6",
+        "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+      ]
+    },
+    "checked_sources": [
+      "A. Milojević and B. Sudakov, On the Probability a Weighted Bernoulli Sum Exceeds Its Mean, arXiv:2606.30287, first posted 2026-06-29, https://arxiv.org/abs/2606.30287.",
+      "R. Fokkink, L. Meester and C. Pelekis, Optimizing stakes in simultaneous bets, arXiv:2002.06804, https://arxiv.org/abs/2002.06804.",
+      "N. Alon, H. Huang and B. Sudakov, Nonnegative k-sums, fractional covers, and probability of small deviations, arXiv:1104.1753.",
+      "2012 Mathematics StackExchange discussion of weighted Bernoulli at least mean",
+      "2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+      "2026/9/17/SCOPE-heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6",
+      "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+      "2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lead conjecture covers the exact object and desired inequality but proves only isolated or very-small-p subranges.",
+        "Existing optimal-stakes results concern a supremum of upper-tail events rather than the infimum lower bound P(X>=EX).",
+        "Known MMS nonnegative-subset cardinality theorems at much larger n have no implication for arbitrary real six-weight vectors over p in (0,1/3]."
+      ],
+      "reasoning": "The new implication is sharp inequality and iff equality for every normalized vector of at most six nonnegative weights and the entire real continuum 0<p<=1/3. None of the inspected established results implies that conjunction. Conversely this theorem cannot prove the lead all-m conjecture, since it has no seven-or-more-weight statement.",
+      "searches": [
+        "arXiv:2606.30287",
+        "R. Fokkink, L. Meester and C. Pelekis, Optimizing stakes in simultaneous bets, arXiv:2002.06804, https://arxiv.org/abs/2002.06804.",
+        "N. Alon, H. Huang and B. Sudakov, Nonnegative k-sums, fractional covers, and probability of small deviations, arXiv:1104.1753.",
+        "Weighted iid Bernoulli mean-crossing probability p for six weights first finite-support cutoff six equality iff one weight exceeds 1-p",
+        "2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96",
+        "2026/9/17/SCOPE-heterogeneous-bernoulli-exact-chernoff-envelope--40d55355f1a6",
+        "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A. Milojević and B. Sudakov, On the Probability a Weighted Bernoulli Sum Exceeds Its Mean, arXiv:2606.30287, first posted 2026-06-29, https://arxiv.org/abs/2606.30287.",
+        "The original article states the general conjecture in weighted iid Bernoulli language. 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96 treats infinitely extendible exchangeable Bernoulli count tails, not deterministic weighted sums."
+      ],
+      "reasoning": "The same event can be described as the probability of a p-biased random subset having normalized weight at least p, or as a monotone weighted voting game passing its mean-quota. Searches under these aliases and direct lead-paper comparison found no theorem simultaneously covering all real p<=1/3, m<=6, and exact equality. Exchangeable binomial-count bounds with only a mean constraint do not imply the weighted halfspace bound.",
+      "searches": [
+        "On the Probability a Weighted Bernoulli Sum Exceeds Its Mean Milojevic Sudakov sharp conjecture six summands m <= 6",
+        "Weighted iid Bernoulli mean-crossing probability p for six weights first finite-support cutoff six equality iff one weight exceeds 1-p",
+        "p-biased measure weighted voting game quota p at most six voters lower bound p",
+        "weighted Bernoulli sum above expectation six variables",
+        "2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact six-vertex triangle-count sequence 0,0,0,1,1,2,4,4,5,7,10,10,11,13,16,20 is a finite graph fact checked directly, not presented as original research.",
+        "A. Milojević and B. Sudakov, On the Probability a Weighted Bernoulli Sum Exceeds Its Mean, arXiv:2606.30287, first posted 2026-06-29, https://arxiv.org/abs/2606.30287.",
+        "2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b classifies pairwise-independent rare-count weak limits."
+      ],
+      "reasoning": "The published central open problem is over all weight vectors and continuous p, not a known finite table. Although the graph lemma and its table are classical/exhaustively checkable, they are only a supporting tool; the complete weighted Bernoulli probability theorem and its equality statement are not a lookup of the triangle table.",
+      "searches": [
+        "On the Probability a Weighted Bernoulli Sum Exceeds Its Mean Milojevic Sudakov sharp conjecture six summands m <= 6",
+        "Sharp weighted Bernoulli sum exceeds mean six trials matching graph triangles upper lower bound",
+        "Small number of weighted Bernoulli trials probability at least expectation six random variables n<=6",
+        "2026/9/20/SCOPE-rare-pairwise-independent-bernoulli-limit-classification--81d03613e25b"
+      ]
+    },
+    "rationale": "Direct full-text comparison with the 2026 motivating preprint confirms it conjectures this lower bound for all numbers of summands and the full p range but only proves tiny-p general results and reciprocal special parameters. A six-coordinate continuum with sharp equality characterization is not provided there. Separate upper-tail stake, MMS, exchangeable-count and Poisson-binomial cumulant results do not dominate the theorem. published-finding corpus searches and public alternative-name queries reveal no covering theorem; remaining priority risk is unindexed or uninspected work.",
+    "residual_risks": [
+      "No search proves uniqueness: a prior equivalent theorem under weighted voting or subset-sum terminology may not have been indexed.",
+      "The older MMS primary full text was not exhaustively inspected; its published large-n statement does not cover six summands.",
+      "Some scholarly full-text mirrors can display variant article versions; claim comparisons were made to accessible relevant mathematical statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general conjecture is posed but not established for all p<=1/3; no matching six-variable full-interval plus equality theorem located in inspected article.",
+        "evidence": [
+          "A. Milojević and B. Sudakov, On the Probability a Weighted Bernoulli Sum Exceeds Its Mean, arXiv:2606.30287, first posted 2026-06-29, https://arxiv.org/abs/2606.30287.",
+          "Conjecture states the weighted Bernoulli at-least-mean probability for all m, p<=1/3; its proved all-m range is very small p."
+        ],
+        "identifier_or_url": "arXiv:2606.30287; https://arxiv.org/abs/2606.30287",
+        "material_read": "Full mathematical article body on lawful ResearchGate accessible rendering, including conjecture, major theorem and proof scope; arXiv public abstract and initial submission timestamp",
+        "method": "Read full-text rendering and directly compared Conjecture 1 with Theorem 4 and the m<=6 claim",
+        "title": "On the Probability a Weighted Bernoulli Sum Exceeds Its Mean",
+        "trigger": "Same exact probability inequality, first-public eligible source"
+      },
+      {
+        "assessment": "Different extremal direction and stake-optimization objective; does not prove our sharp lower bound.",
+        "evidence": [
+          "R. Fokkink, L. Meester and C. Pelekis, Optimizing stakes in simultaneous bets, arXiv:2002.06804, https://arxiv.org/abs/2002.06804.",
+          "Maximization of upper-tail win probabilities does not imply the conjectured lower minimum at the expectation threshold."
+        ],
+        "identifier_or_url": "arXiv:2002.06804; https://arxiv.org/abs/2002.06804",
+        "material_read": "Full accessible preprint, including its upper-tail optimization setting and main results",
+        "method": "Read primary full text and compared quantifier direction, event and extremum",
+        "title": "Optimizing stakes in simultaneous bets",
+        "trigger": "Potentially dominating weighted Bernoulli extremal optimization"
+      },
+      {
+        "assessment": "Large-n combinatorial nonnegative-sum bound is not a six-variable all-p proof; risk remains concerning uninspected peripheral material.",
+        "evidence": [
+          "N. Alon, H. Huang and B. Sudakov, Nonnegative k-sums, fractional covers, and probability of small deviations, arXiv:1104.1753.",
+          "The lead paper uses the MMS literature only to obtain a restricted small-p result, not the full real-p interval."
+        ],
+        "identifier_or_url": "arXiv:1104.1753; https://arxiv.org/abs/1104.1753",
+        "material_read": "Accessible abstract, theorem summaries and lead-paper discussion; entire original full text not read",
+        "method": "Compared numerical sample-size hypotheses and statement implications",
+        "title": "Nonnegative k-sums, fractional covers, and probability of small deviations",
+        "trigger": "MMS reductions quoted in the lead preprint"
+      },
+      {
+        "assessment": "Discussed conjecture and special p=1/r results, not continuous p for up to six trials.",
+        "evidence": [
+          "A public earlier discussion poses the lower-bound problem, points to integer reciprocals, and identifies failure outside the conjectured p range."
+        ],
+        "identifier_or_url": "Mathematics StackExchange discussion, December 2012",
+        "material_read": "Complete displayed question and responses",
+        "method": "Compared p range, discrete parameter cases and solved statements",
+        "title": "Probability of weighted Bernoulli sums to exceed the mean (mathematical discussion)",
+        "trigger": "Same conjecture and early known reciprocal p cases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75dbfca5-9c2f-482b-baeb-e12e1664e1e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At most six weighted iid Bernoulli trials give a motivated natural cutoff of a 2026 explicit conjecture: all real p in its sharp conjectured range, all normalized real weight configurations, and an exact iff equality classification. The structural graph argument combines perfect-matching and triangle constraints to control the first overlapping subset sizes; it is not a routine substitution, known-table recomputation, or isolated arbitrary numerical slice. The result leaves m>=7 open without claiming downstream results.",
+    "status": "PASS"
+  }
+}
