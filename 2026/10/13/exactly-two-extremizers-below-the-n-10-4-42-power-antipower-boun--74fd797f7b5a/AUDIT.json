@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Avoidance is factorial. A suffix-only generator and an independently implemented whole-word factor-scan generator give identical complete levels through length 42. They yield exactly two length-41 survivors and none at length 42. Direct checks prove the two survivors are complements and both palindromes, and every one-letter extension is forbidden.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The thesis table records N(10,4)=42, while Appendix B specifies lexicographically least longest output rather than complete enumeration.",
+        "The follow-up paper reports the 11<=k<=30 equality run, not a k=10 extremizer census.",
+        "The later algorithmic work counts antipower factors inside an input word, a different task."
+      ],
+      "reasoning": "These broader results determine a scalar threshold or algorithms for antipower factors but do not imply multiplicity or symmetry of all top-level simultaneous avoiders.",
+      "searches": [
+        "Riasat thesis Chapter 1, Chapter 6, Appendix A, Appendix B",
+        "Fleischer-Riasat-Shallit full text N(k,4) discussion",
+        "Efficient representation and counting of antipower factors in words"
+      ]
+    },
+    "checked_sources": [
+      "Waterloo thesis 10012/14974 full PDF",
+      "arXiv:1912.08147v1 full text",
+      "DOI:10.1016/j.ipl.2020.106021 metadata",
+      "OEIS A275061",
+      "DOI:10.1016/j.ic.2021.104779 abstract and introduction",
+      "focused published-finding searches",
+      "current and previous private ledgers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "N(10,4)=42 implies existence of at least one length-41 avoider but not how many.",
+        "A program returning the lexicographically least longest word does not imply that exactly one complementary pair exhausts the top level.",
+        "No matching private-ledger claim was found."
+      ],
+      "reasoning": "The new statement requires a complete top-level enumeration and symmetry check; it is not a corollary of the published threshold or lexicographic witness.",
+      "searches": [
+        "Riasat Appendix B output contract",
+        "Fleischer-Riasat-Shallit N(k,4) computation/conjecture",
+        "private-ledger exact searches for N(10,4) and the first extremizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct sources use both N(k,r) and the equivalent longest-avoiding-word formulation.",
+        "No checked source states a two-word equality layer at k=10,r=4."
+      ],
+      "reasoning": "The searches cover threshold, avoidance, equality-case, and exact-string formulations. Complement symmetry guarantees a mate for any witness but does not imply that one pair exhausts the top level.",
+      "searches": [
+        "complete equality cases N(10,4) longest binary words 10-power 4-antipower",
+        "longest word avoiding 10-powers and 4-antipowers exactly two",
+        "exact searches for the two length-41 words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table A.1 has N(10,4)=42.",
+        "OEIS A275061 counts words avoiding 4-antipowers alone.",
+        "No checked table gives the top-level count two or the complete pair."
+      ],
+      "reasoning": "The new classification refines a known scalar table entry rather than recomputing it.",
+      "searches": [
+        "Riasat thesis Table A.1",
+        "OEIS A275061",
+        "N(10,4)=42 extremizers",
+        "exact length-41 word searches"
+      ]
+    },
+    "rationale": "The thesis explicitly gives N(10,4)=42 and publishes a program specified to output the lexicographically least longest avoider. Neither it nor the follow-up paper states the number of length-41 extremizers, their complete list, their complement-orbit classification, or palindromicity. Focused exact-string, count, equivalent-formulation, and database searches found no covering statement.",
+    "residual_risks": [
+      "Unpublished source-author output from the thesis search may contain the same enumeration.",
+      "An unindexed computation may contain the same two-word classification.",
+      "No claim is made for other parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers N(10,4)=42 and a lexicographically least longest witness mechanism, but not the full equality layer.",
+        "evidence": "Table A.1 has 42 at k=10,r=4; Appendix B says the program outputs the lexicographically least longest avoiding word.",
+        "identifier_or_url": "Waterloo handle 10012/14974",
+        "material_read": "Introduction and N(k,r) definitions; Conjecture 1.1; Chapter 6; Appendix A exact table; Appendix B program and stated output.",
+        "method": "Full-text PDF inspection including rendered Table A.1 and Appendix B pages.",
+        "title": "Powers and Anti-Powers in Binary Words",
+        "trigger": "Direct source containing the exact table and search program."
+      },
+      {
+        "assessment": "Reports the threshold framework and 11<=k<=30 equality run but no k=10 equality-layer census.",
+        "evidence": "The article states the 4k lower bound and says computation gives equality for 11<=k<=30.",
+        "identifier_or_url": "arXiv:1912.08147v1 / DOI:10.1016/j.ipl.2020.106021",
+        "material_read": "Definitions, lower-bound theorem, N(k,4) computational remark, thesis reference.",
+        "method": "Open full-text statement and implication comparison.",
+        "title": "New Bounds on Antipowers in Words",
+        "trigger": "Peer-reviewed follow-up for the same invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74fd797f-7b5a-402f-82fd-6f095c70d843",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter k=10 is forced by the source table: it is immediately before the documented 11<=k<=30 equality run and is exceptional because N(10,4)=42 exceeds the lower bound 40. A complete equality classification at this boundary is natural, and the one complement orbit of palindromes supplies structural information absent from the scalar threshold.",
+    "status": "PASS"
+  }
+}
