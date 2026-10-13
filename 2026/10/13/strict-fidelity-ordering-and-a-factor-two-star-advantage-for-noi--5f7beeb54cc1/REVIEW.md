@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The four parity sectors of a complete-bipartite stabilizer yield the closed formula, including both noiseless and maximally mixed endpoints. The change of variables \(x=u/t\), \(y=r/t\) gives \(x+y=1\); an explicit positive-difference identity and strict inequalities prove every balancing step. Fixed-noise limits follow from exponential decay of \(x^k,y^k\). A stand-alone exact-arithmetic checker independently generates stabilizer supports and returns `VERIFY_OK 3612`. Finite tests corroborate but do not replace the proof.
+
+**Originality — PASS, with priority risk.** Tanizawa et al. (2023) prove the general graph-state stabilizer-fidelity method, and Numajiri et al. (arXiv:2510.00548; 2025) give the fully connected/GHZ special case and discuss noise versus graph geometry. Their general machinery can compute any specific biclique but does not state or imply without the new strict-inequality argument the complete partition ordering and the fixed-noise factor-two limit. Sen, Goodenough, and Towsley (2025) study gate-noisy distribution of **balanced** bicliques, a different stochastic process and no ordering over part sizes. Targeted published-record and related-result searches located no equivalent all-size ordering. Earlier implicit stabilizer enumerator inequalities or unpublished equivalents remain possible.
+
+**Value — PASS.** The exact ordering answers a structural, physically motivated graph-architecture question prompted by the graph-topology dependence in Numajiri et al.: how much does the allocation of vertices between two connectivity classes affect ideal-state survival under the same local noise? The theorem provides an all-size strict hierarchy, uniquely identifies both extremizers, and quantifies a nontrivial factor-two asymptotic advantage. It is not merely the known star/GHZ evaluation or an arbitrary finite numeric comparison.
+
+**Limits.** Restricted to IID post-preparation depolarizing noise and pure-state overlap fidelity for complete-bipartite graphs. This is not a universal ranking of all graphs nor a statement about entanglement thresholds, gate-generation fidelity, or error correction. Independent priority and technical validation remain necessary.
+
+Self-review: passed. Independent audit: not yet performed.
