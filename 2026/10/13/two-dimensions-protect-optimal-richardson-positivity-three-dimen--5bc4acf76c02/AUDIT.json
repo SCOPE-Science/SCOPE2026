@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every 2x2 SPD Stieltjes matrix, the optimal Richardson matrix has the exact form T=[[delta,gamma],[gamma,-delta]] with gamma>=0 and T^2=q^2 I, q<1. Since I+T is entrywise nonnegative, paired power sums give nonnegative even iterates and adding alpha q^(2m)b gives nonnegative odd iterates. The 3x3 rational witness has exact spectrum {1,9,11}, alpha=1/6, spectral radius 5/6, x^(3)_1=-1/108, and A^{-1}b=(1/99,10/99,0)^T. The finite calculations replay from verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "No located source stated a dimension-uniform Richardson positivity theorem that would subsume the 2D protection claim.",
+        "Classical M-matrix iteration references located in search results primarily establish convergence for Jacobi/Gauss-Seidel-type splittings rather than the spectral-optimal Richardson cone property."
+      ],
+      "reasoning": "A stronger covering result would need to imply coordinatewise nonnegativity for the exact spectral-optimal Richardson partial sums in all 2x2 SPD Stieltjes systems; none of the inspected statements did so.",
+      "searches": [
+        "published finding index: dimension positivity Richardson Stieltjes",
+        "web: M-matrix Richardson method monotone iteration nonnegative",
+        "web: Stieltjes matrix Richardson iteration PDF positivity"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1038/082357a0",
+      "doi:10.21136/AM.1985.104140",
+      "doi:10.1137/0725077",
+      "IBM Research record: On functions which preserve the class of Stieltjes matrices",
+      "Published-finding index ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Vajteršic explicitly uses T_R=I-bM and cyclic convergence parameters, but the inspected full text addresses convergence/implementation and not componentwise Stieltjes positivity.",
+        "Reichel's article metadata and abstract concern polynomial/conformal-mapping acceleration for Richardson iteration.",
+        "Micchelli-Willoughby's abstract concerns when f(A) remains a Stieltjes matrix, not when a Richardson inverse-approximation polynomial is entrywise nonnegative."
+      ],
+      "reasoning": "The prior statements provide method and matrix-class context but do not imply the universal 2D paired-power identity or the 3D minimal sign-loss witness.",
+      "searches": [
+        "Vajtersic 1985 full-text Richardson equations (17)-(19), DOI 10.21136/AM.1985.104140",
+        "Reichel 1988 Richardson conformal-mapping article, DOI 10.1137/0725077",
+        "Micchelli-Willoughby 1979 Stieltjes-preserver abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest Published-finding index ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 is about Euclidean stagewise nonexpansion and acceleration, not the nonnegative cone.",
+        "The accessible Micchelli-Willoughby 1979 abstract characterizes scalar functions preserving the Stieltjes matrix class; the present claim concerns entrywise nonnegativity of finite inverse approximants acting on b>=0."
+      ],
+      "reasoning": "Neither the Euclidean nonexpansion statement nor preservation of the Stieltjes sign class is equivalent to nonnegativity of every Richardson iterate for every nonnegative right-hand side.",
+      "searches": [
+        "published finding index: optimal Richardson iteration positivity Stieltjes M-matrix",
+        "published finding index: Richardson nonnegative iterates SPD Stieltjes optimal step",
+        "published finding index: Richardson positivity preserving M-matrix spectral optimal step",
+        "web: Richardson iteration M-matrix nonnegative",
+        "web: Richardson Stieltjes matrix positivity iteration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding-index search returned no exact table or database entry containing the displayed 3x3 witness or the 2D theorem."
+      ],
+      "reasoning": "The finding is derived from an algebraic iteration identity rather than recomputation of a known numerical table or catalogued parameter.",
+      "searches": [
+        "published finding index: second conjugate gradient iterate negative component Stieltjes",
+        "published finding index: optimal Richardson iteration positivity Stieltjes M-matrix",
+        "published finding index: Richardson coordinatewise positivity exact witness"
+      ]
+    },
+    "rationale": "The new statement is the exact minimal-dimension boundary for coordinatewise positivity of the spectrally optimal fixed Richardson iteration on SPD Stieltjes systems. Searches found Richardson convergence/acceleration results and Stieltjes-function preservation results, but no statement whose implications cover the universal 2D theorem plus the 3D counterexample.",
+    "residual_risks": [
+      "Older M-matrix and monotone-iteration literature may phrase finite-iterate order preservation in terminology not surfaced by the searches.",
+      "The Micchelli-Willoughby full article was not inspected in full; the accessible abstract indicates a different preservation property, but it remains a literature-comparison risk.",
+      "No claim of novelty is made for the Richardson method, its optimal spectral parameter, or inverse positivity of Stieltjes matrices themselves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides classical Richardson formulation and convergence context but does not state the coordinatewise Stieltjes positivity/minimal-dimension result.",
+        "evidence": "The Richardson section writes the iteration matrix as I-bM and derives cyclic parameters from spectral endpoints.",
+        "identifier_or_url": "doi:10.21136/AM.1985.104140",
+        "material_read": "Full-text PDF introduction and the Richardson section around equations (17)-(19), including the iteration matrix I-bM and cyclic spectral parameters; page image inspected.",
+        "method": "Lawful open-access DML-CZ full text and page rendering.",
+        "title": "Some iterative Poisson solvers applied to numerical solution of the model fourth-order elliptic problem",
+        "trigger": "Classical full-text Richardson-method comparison under MSC 65F10."
+      },
+      {
+        "assessment": "Addresses polynomial acceleration for Richardson iteration, not nonnegative cones or Stieltjes coordinate signs.",
+        "evidence": "Primary MSC is 65F10; keywords are Richardson iteration, conformal mapping, and polynomial approximation.",
+        "identifier_or_url": "doi:10.1137/0725077",
+        "material_read": "Search-indexed abstract, MSC metadata, references, and publication information.",
+        "method": "SIAM article metadata/abstract.",
+        "title": "Polynomials by Conformal Mapping for the Richardson Iteration Method for Complex Linear Systems",
+        "trigger": "Potential broader Richardson polynomial theory."
+      },
+      {
+        "assessment": "Potentially related but not implication-equivalent: preserving the Stieltjes class means retaining nonpositive off-diagonals and positive definiteness, whereas the present polynomial approximants must be entrywise nonnegative operators.",
+        "evidence": "Abstract states that it characterizes functions preserving the class of Stieltjes matrices.",
+        "identifier_or_url": "IBM Research publication record, 1979",
+        "material_read": "Accessible abstract and publication record.",
+        "method": "IBM Research publication page.",
+        "title": "On functions which preserve the class of Stieltjes matrices",
+        "trigger": "Plausible matrix-function coverage of Stieltjes sign preservation."
+      },
+      {
+        "assessment": "Historical provenance only; not used as novelty evidence for the new theorem.",
+        "evidence": "Published 20 January 1910 and reports Richardson's finite-difference work presented at the Royal Society.",
+        "identifier_or_url": "doi:10.1038/082357a0",
+        "material_read": "Nature notice metadata and the paragraph describing Richardson's presentation.",
+        "method": "Nature public article page.",
+        "title": "Societies and Academies: Royal Society notice describing Richardson's finite-difference work",
+        "trigger": "Earliest day-resolved public-source evidence for Richardson's work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5bc4acf7-6c02-490b-a85b-804846431bcc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result cleanly separates spectral optimality from order preservation for a canonical stationary linear solver on the canonical symmetric inverse-positive matrix class. The exact 2D protection theorem and 3D minimal obstruction identify where transient unphysical negative components can first appear despite convergence, which is relevant when nonnegative discrete states matter.",
+    "status": "PASS"
+  }
+}
