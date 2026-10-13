@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The minimum period for each order is proven by an overlap-graph flow lower bound and constructive matching upper bound. Fully exhaustive labeled enumeration considers exactly every 0/1 word with no 11 and checks every cyclic window. Independently implemented C++ and Python enumerations agree on all five labeled/orbit counts, and on all 42 order-six orbits. Full orbit sizes and multiplicity counts are checked directly, without extending finite data to n>=7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "1998 linear shortest-word length F_n+F_{n+2} is prior and not claimed new.",
+        "2007 restricted de Bruijn exact-once necklaces have a smaller target language.",
+        "Classical enumeration of Euler tours for a fixed balanced digraph cannot by itself enumerate every minimum-cost augmentation and all its resulting circuits."
+      ],
+      "reasoning": "Neither the prior shortest linear bound nor restricted de Bruijn cycle results enumerate the optimum repeated-edge cycles of the full linear-language overlap graph. The completed finite census is an additional classification, not a corollary of a length formula alone.",
+      "searches": [
+        "enumeration count shortest cyclic universal word avoiding adjacent ones optimal cycles Fibonacci",
+        "constrained de Bruijn sequences golden mean shortest common superstring Fibonacci Lucas",
+        "Wang Shallit 1998 introduction enumeration open question",
+        "Moreno 2003 Lyndon golden-mean periodic necklace counts"
+      ]
+    },
+    "checked_sources": [
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r35/pdf/",
+      "https://arxiv.org/pdf/0711.1695",
+      "Moreno (2003) full public text",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol009-stacs2011/LIPIcs.STACS.2011.225/LIPIcs.STACS.2011.225.pdf",
+      "Moreno (2005) accessible abstract",
+      "published-finding corpus published semantic search for same claim/aliases/parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.1 gives at least one shortest open linear word for every n and its length, not number of cyclic optimal words.",
+        "This census exhaustively distinguishes 42 nonisomorphic cycles of length 28 at n6, with all 2352 positionally labeled realizations.",
+        "At n3 101 must appear here although it is not a periodic-admissible target of the Moreno restricted exact-once construction."
+      ],
+      "reasoning": "Existence or minimum length alone does not determine enumeration; the 1998 proof even leaves its own, different linear enumeration unanswered. Periodic-admissible de Bruijn cycles target a strict subset and cannot yield this 21-target length-six census by restricting parameter names. The counted 42 orbits therefore survive these implication checks.",
+      "searches": [
+        "Wang–Shallit 1998 Theorem 4.1 full-text, examples and discussion of enumeration",
+        "Moreno 2003 restricted golden mean periodic factor counts",
+        "Moreno Matamala 2007 lexicographic minimum restricted cycles",
+        "golden mean shift length-six shortest circular universal covers all 21 no 11 factors exactly 2352 42 dihedral classes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Shallit Theorem 4.1 constructs minimum OPEN word walks and discusses their lengths; p.2 asks how many minimal linear words, without giving the answer.",
+        "Moreno–Matamala admissibility imposes period-compatible target blocks; order-three 101 is excluded there but required here.",
+        "A closed cyclic word is counted under all length-L rotations and reversals, unlike a finite linear word."
+      ],
+      "reasoning": "The objects and symmetry equivalence were compared definition by definition: open versus closed words, cyclically admissible versus all linearly admissible target factors, and enumeration versus existence/length. No inspected theorem implies 2352 labeled minimum cycles or 42 dihedral classes.",
+      "searches": [
+        "golden mean shift length-six shortest circular universal covers all 21 no 11 factors exactly 2352 42 dihedral classes",
+        "classification rotation reversal binary length 28 cyclic superstring for all 6 words avoiding 11",
+        "Wang Shallit 1998 On Minimal Words With Given Subword Complexity PDF pp.1–16",
+        "Moreno Matamala 2007 arxiv:0711.1695 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang–Shallit Table n=1..7 lists one optimal LINEAR word per order, not the number of cyclic optimum designs.",
+        "published-finding corpus 2026/10/4/SCOPE-positive-critical-periodic-content-for-the-rho-rho-2-contraction--f867b43e8ea4 discusses golden-mean cycles in a different periodic-content construction.",
+        "Current own ledger f40c1b21-02e9-4b8e-97c2-e7d3c1ac9750 treats forbidden 000/111 covers; 96243f68-39cd-43db-8c9d-473b763f2f6a treats unavoidable sets, neither a census of these covers."
+      ],
+      "reasoning": "No exact published 2352/42 numerical table was found. Lack of a database hit is not independently sufficient evidence of novelty; the statement-level comparisons to closest full-text papers are the substantive test.",
+      "searches": [
+        "golden mean shift length-six shortest circular universal covers all 21 no 11 factors exactly 2352 42 dihedral classes",
+        "classification rotation reversal binary length 28 cyclic superstring for all 6 words avoiding 11",
+        "2352 42 golden mean no adjacent ones cyclic cover",
+        "published-finding corpus restricted de Bruijn golden mean six-word orbit counts"
+      ]
+    },
+    "rationale": "The full 1998 Wang–Shallit paper provides a shortest noncyclic linear word and at least one construction, and explicitly leaves enumeration of minimal linear words open; no complete 2352/42 census of shortest cyclic covers is given. Moreno (2003) and Moreno–Matamala (2007) count or construct exact-once cycles for periodically legal factors rather than all linear target factors; at n=3 their periodic language excludes 101. Two alternative exact enumerations independently establish the new small-order class counts. Relevant semantic and exact-phrase searches did not reveal prior coverage; unindexed enumerations remain a risk.",
+    "residual_risks": [
+      "An earlier unindexed exact enumeration or published table could cover the 2352/42 claim despite searches.",
+      "The full text of Moreno (2005) remained inaccessible; cannot exclude an unreported classification in that paper.",
+      "Wang–Shallit (1998) is close foundational prior, and later enumerative corollaries could exist; the new claim explicitly excludes their known length theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest relevant published result: proves shortest OPEN words/paths and supplies examples, but not counts or classification of minimum cyclic closed covers.",
+        "evidence": [
+          "1998 pp1–2 introduction names enumeration of minimal words as a question and only supplies one algorithm; pp14–15 Thm4.1 and table give one word per n."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v5i1r35/pdf/",
+        "material_read": "Entire 16-page primary full text including Theorem 4.1, enumeration question, algorithm and example table.",
+        "method": "Open legal journal PDF; read mathematical definitions, proof/algorithm and the terminal table.",
+        "title": "On Minimal Words With Given Subword Complexity",
+        "trigger": "Same forbidden-11 Fibonacci language and extremely close length formula; potential dominating 1998 prior."
+      },
+      {
+        "assessment": "Exact-once restricted periodic-factor cycles, not repeated covers of all linear n-blocks.",
+        "evidence": [
+          "Golden mean periodic admissible block counts 4,7,11,18 for n=3..6 vs full linear no11 counts 5,8,13,21."
+        ],
+        "identifier_or_url": "Eduardo Moreno (2003), legal full-text transcription",
+        "material_read": "Complete publicly transcribed primary text with exact periodic-factor definitions and golden-mean example.",
+        "method": "Material full-text reading of definitions, examples, theorems.",
+        "title": "Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type",
+        "trigger": "Golden mean subshift and its periodic de Bruijn universal words."
+      },
+      {
+        "assessment": "Only cyclically admissible target blocks and exact-once/lexicographic constrained cycles, not this 42-class enumeration.",
+        "evidence": [
+          "2007 pp1–3 periodic repeatability definition and lexicographic Euler-tour construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "Complete 9-page arXiv:0711.1695v1 text and crucial page images.",
+        "method": "Read full open manuscript and its periodic-admissibility rule/lexicographic Euler construction.",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Alternative de Bruijn overlap graph universal cycle."
+      },
+      {
+        "assessment": "Cites known linear optimum, not complete cyclic optimizer enumeration.",
+        "evidence": [
+          "2011 p.226 cites Wang–Shallit finite noncyclic length F_n+F_{n+2}."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol009-stacs2011/LIPIcs.STACS.2011.225/LIPIcs.STACS.2011.225.pdf",
+        "material_read": "Relevant first three pages plus bibliography of public 12-page article.",
+        "method": "Read excerpt and page image for the precise prior linear theorem.",
+        "title": "On Minimal Sturmian Partial Words",
+        "trigger": "Explicit citation to 1998 linear Fibonacci word result."
+      },
+      {
+        "assessment": "No whole-paper not-covering assertion; potential residual uncertainty, but abstract does not supply a specific matching cyclic enumeration.",
+        "evidence": [
+          "General-language de Bruijn existence/cycle descriptions in abstract only."
+        ],
+        "identifier_or_url": "Eduardo Moreno (2005), publisher abstract",
+        "material_read": "Abstract and bibliographic metadata only; full text not obtained.",
+        "method": "Public abstract screening following unavailable full OA text.",
+        "title": "De Bruijn Sequences and De Bruijn Graphs for a General Language",
+        "trigger": "Plausible covering result for general constrained languages."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50305dee-27be-43ba-aa41-a8613c3c3fcf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete small-order classification for a natural golden-mean universal cyclic-cover invariant, especially 42 distinct nonreflection-symmetric optimal order-six designs and their complete catalogue. Covers all linearly admissible six-blocks, unlike restricted de Bruijn cycles, and distinguishes multiplicity of designs beyond a known minimum-length/existence theorem. Gives precise all-seven-distinct repetitions in every optimizer; no arbitrary unmotivated slice or unproved asymptotic extrapolation.",
+    "status": "PASS"
+  }
+}
