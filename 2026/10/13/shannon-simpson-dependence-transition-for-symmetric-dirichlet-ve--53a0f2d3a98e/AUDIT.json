@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(m\\ge2\\) and real \\(a>0\\), differentiating the gamma-ratio formula for symmetric Dirichlet moments gives \\(\\mathbb EH\\), \\(\\mathbb EQ\\), and \\(\\mathbb E[HQ]\\); the digamma recurrence leaves \\(\\operatorname{Cov}(H,Q)=-a(m-1)/[(ma+1)^2(ma+2)]\\). Second derivatives and fourth moments give both positive variances. Exact algebraic differences reduce to zero in the standalone checker. The gamma-normalization construction and iid CLT/delta method yield the covariance matrix of the bivariate limit for fixed positive a. The trigamma integral with \\(f(t)=1/(1-e^{-t})-1/t\\) has \\(f'(t)>0\\), proving that \\(g(x)=x[x\\psi_1(x)-1]\\) strictly decreases and the limiting correlation strictly decreases. Taylor expansion of trigamma around 1 gives the fixed-m sparse-shape limit and demonstrates the noncommuting iterated limits. Symbolic identities, twelve Monte Carlo cases, and asymptotic numerical checks were separately implemented and executed. No finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cerquetti, arXiv:1404.3441, Theorems 1–2 and appendix formulas (26)–(30), gives moments of single Tsallis index \\(H_q\\) (including the Shannon limit and \\(q=2\\)) rather than a cross-index \\(\\mathbb E[H_1H_2]\\).",
+        "Wolpert and Wolf, arXiv:comp-gas/9403001, derives entropy moments using the same general Dirichlet integral machinery; such machinery makes an extension computable, but its inspected statements do not provide a monotone a-dependent limit law.",
+        "A prior infinite Poisson–Dirichlet entropy/Gini–Simpson formula applies to ranked countably infinite partitions, not the growing-dimensional Dirichlet(a,...,a) family with fixed positive shape."
+      ],
+      "reasoning": "General single-index moment families and integration recipes do not imply cross-moments for differing orders as a stated corollary. The Poisson–Dirichlet alternative entails a distinct scaling of total concentration, so it does not dominate the fixed-a high-dimensional limit. The proof adds a strict integral-monotonicity property, not a simple renaming of previously recorded formulas.",
+      "searches": [
+        "\"joint\" \"Tsallis\" \"Shannon\" \"Dirichlet\" correlation",
+        "\"Shannon entropy\" \"Simpson index\" \"covariance\" Dirichlet",
+        "Dirichlet symmetric alpha Shannon Simpson joint Gaussian limiting correlation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1008.4059 (Royen, 2010)",
+      "arXiv:comp-gas/9403001 (Wolpert and Wolf, 1994)",
+      "arXiv:comp-gas/9403002 (Wolf and Wolpert, 1994)",
+      "arXiv:1302.0328 (Archer, Park and Pillow, 2013)",
+      "arXiv:1404.3441 (Cerquetti, 2014)",
+      "doi:10.1093/biomet/66.1.81 (Gill and Joanes, abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Royen, arXiv:1008.4059, Theorem 3 covers arbitrary positive gamma shape but only a function of Q; \\(H\\) is not determined by \\(Q\\) in dimensions \\(m\\ge3\\).",
+        "Cerquetti, arXiv:1404.3441, proves moment identities for each single Tsallis order, not a mixed first/second entropy-order covariance.",
+        "The pre-existing Dirichlet(\\(a=1\\)) exact covariance is the \\(a=1\\) instance and hence covered; no novelty is claimed at that point.",
+        "Gill and Joanes (1979), Biometrika 66:81–85, abstract discusses Bayesian Shannon estimators and MacArthur abundances; the PDF was not obtained, so unobserved mixed formulas remain a limited risk."
+      ],
+      "reasoning": "The final theorem contains genuinely different quantifiers (all \\(a>0\\)), a strict function-level monotonicity result in a, and unequal iterated limits. Neither the \\(a=1\\) statement nor the Poisson–Dirichlet infinite-partition limiting formula entails these new quantifiers without additional mathematical work. A stronger unpublished or inaccessible mixed-power-sum identity remains possible; searches are not treated as exhaustive.",
+      "searches": [
+        "sample entropy Simpson concentration under symmetric Dirichlet law exact covariance",
+        "\"Dirichlet\" \"Shannon\" \"Simpson\" \"joint distribution\" covariance",
+        "\"Bayesian estimation of Shannon's index of diversity\" Gill Joanes PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The already established \\(a=1\\) result is \\(\\operatorname{Cov}(H,Q)=-(m-1)/[(m+1)^2(m+2)]\\), a strict specialization of this formula, not the shape-varying correlation theorem.",
+        "The complementary Gini–Simpson statistic is 1-Q, so its covariance with H has the opposite sign but identical dependence information.",
+        "Royen, arXiv:1008.4059, Theorem 3, obtains marginal law of Q for general gamma shape; not joint with H."
+      ],
+      "reasoning": "Checked aliases Shannon/Simpson, Shannon/Greenwood, negative Gini–Simpson sign, and uniform spacing. The shape-one case is covered and not independently valuable; it does not imply strict variation in a for all \\(a>0\\) or the two noncommuting iterated limits.",
+      "searches": [
+        "Dirichlet uniform spacings covariance Shannon entropy Greenwood statistic sum squared spacings",
+        "\"Dirichlet\" \"Shannon\" \"Simpson\" \"covariance\" exact",
+        "uniform spacings entropy Greenwood statistic covariance asymptotic correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Royen, arXiv:1008.4059, pp. 17–19 gives Greenwood-statistic marginal quantiles (and gamma-normalization formulas), no joint Shannon–Simpson correlation table.",
+        "The existing uniform-spacing covariance at \\(a=1\\) is a fixed special point with limiting correlation -0.928687857..., whereas the present claim determines the entire \\(a>0\\) limiting curve and two distinct singular limits."
+      ],
+      "reasoning": "Examined the closest exact marginal tables and previously recorded special-point formulas. A table of \\(Q\\) alone, or the isolated \\(a=1\\) mixed covariance, does not fix the stated a-dependent correlation transition.",
+      "searches": [
+        "\"Greenwood\" \"Shannon\" \"covariance\" spacings",
+        "Shannon Simpson Dirichlet joint covariance limiting constant table",
+        "Dirichlet symmetric entropy Simpson concentration exact negative covariance"
+      ]
+    },
+    "rationale": "The claim under review is the complete positive-shape Dirichlet dependence transition, including a strict limiting-correlation monotonicity proof and noncommuting concentration and dimension limits. The special \\(a=1\\) covariance is already known and excluded from the novelty assertion. Primary full texts on Greenwood (Royen), entropy moments (Wolpert and Wolf), and Tsallis index moments (Cerquetti) provide marginals or single-order moments and do not state or directly dominate the two-index transition. Similar-looking infinite Poisson–Dirichlet laws have a different probability space and parameter asymptotics. Searches found no stronger equivalent; no inference of global novelty follows from a search miss, and a historically plausible inaccessible source remains documented.",
+    "residual_risks": [
+      "Earlier or unindexed joint moments of Shannon and Simpson under symmetric Dirichlet could contain the mixed moment or a stronger parameterized theorem.",
+      "Gill and Joanes (1979) primary full PDF was inaccessible; only its title and abstract were reviewed.",
+      "The full hierarchy of multi-order Tsallis moment identities, if available elsewhere, could imply the displayed formulas by differentiation.",
+      "Prior specializations and infinite-partition analogues must not be represented as newly discovered or independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Q marginal distribution and tables but not mixed covariance with Shannon entropy or the limiting correlation function.",
+        "evidence": [
+          "Theorem 3 displays the normalized Gamma squared-sum distribution for general gamma shape.",
+          "The marginal quantile table is indexed by dimension and \\(Q\\) alone."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.4059",
+        "material_read": "Full primary PDF, including title/abstract, introduction, Theorem 3 and its proof around pp. 14–17, and Greenwood quantile tables around pp. 17–19.",
+        "method": "Read searchable PDF text and rendered pages.",
+        "title": "The Distribution of the Square Sum of Dirichlet Random Variables and a Table with Quantiles of Greenwood's Statistic",
+        "trigger": "Same Dirichlet concentration statistic with gamma normalization and exact marginal law, including shape \\(a>0\\)."
+      },
+      {
+        "assessment": "Supplies Shannon entropy Bayesian moments and general integration methods, but no paired Simpson concentration transition was found in inspected sections.",
+        "evidence": [
+          "The paper describes Bayesian estimation and moments of Shannon entropy under simplex priors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9403001",
+        "material_read": "Full-text PDF abstract, introductory setup, and Dirichlet prior entropy-moment framework.",
+        "method": "Search and inspect primary PDF text and representative pages.",
+        "title": "Estimating Functions of Probability Distributions from a Finite Set of Samples, Part I: Bayes Estimators and the Shannon Entropy",
+        "trigger": "Classical Dirichlet prior entropy moments could dominate parts of the variance calculation."
+      },
+      {
+        "assessment": "The term covariance is a functional of paired observable states, rather than covariance between the Shannon and Simpson *indices*; no stronger exact joint formula for these indices was located.",
+        "evidence": [
+          "The abstract enumerates entropy, mutual information, chi-squared, variance and covariance as individually estimated functionals.",
+          "Section 2d concerns separate first/second posterior moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9403002",
+        "material_read": "Primary PDF abstract, sections 1–2, Theorems 12–16 and 20, and end matter.",
+        "method": "Read PDF text at mathematical-statistic definitions and entropy-moment theorems.",
+        "title": "Estimating Functions of Probability Distributions from a Finite Set of Samples, Part II: Bayes Estimators for Mutual Information, Chi-Squared, Covariance, and Other Statistics",
+        "trigger": "Title contains covariance and develops overlapping Dirichlet integral techniques."
+      },
+      {
+        "assessment": "Studies entropy posterior/prior behavior, not the mixed finite symmetric Dirichlet H–Q transition.",
+        "evidence": [
+          "Defines the Shannon entropy functional and discusses Dirichlet and Pitman–Yor process entropy estimators."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.0328",
+        "material_read": "Primary full-text introduction, entropy definition, moment discussion, and prior model setup.",
+        "method": "Read extracted PDF pages and search index-specific terminology.",
+        "title": "Bayesian Entropy Estimation for Countable Discrete Distributions",
+        "trigger": "Entropy moment and random-discrete-distribution comparison."
+      },
+      {
+        "assessment": "Gives single-order \\(H_q\\) moments and Shannon limit; does not provide the mixed two-order moment \\(\\mathbb E[H_1H_2]\\) or the dimension/shape correlation transition.",
+        "evidence": [
+          "Theorem 1 concerns powers of one index H_m, with common order m.",
+          "Theorem 2 uses m tending to one for Shannon; appendix (26)–(30) gives powers of one S_m."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.3441",
+        "material_read": "Full primary PDF: pp. 1–5 (definitions and Theorems 1–2), pp. 6–10 (model examples), pp. 15–17 (proof appendix).",
+        "method": "Read extracted mathematical statement and proof pages, inspecting rendered formulas.",
+        "title": "Bayesian Nonparametric Estimation of Tsallis Diversity Indices under Gnedin–Pitman Priors",
+        "trigger": "Explicitly treats Shannon order 1 and Simpson order 2 in the same generalized family; plausible dominating joint calculation."
+      },
+      {
+        "assessment": "Abstract concerns Shannon estimator properties, not explicitly Simpson cross moments, but hidden full-text formulas cannot be excluded.",
+        "evidence": [
+          "Biometrika 66 (1979), pp. 81–85; publisher abstract describes Shannon estimators and MacArthur species-abundance models."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/66.1.81",
+        "material_read": "Publisher title and abstract only; primary full PDF inaccessible.",
+        "method": "Checked arXiv and lawful open-access avenues; institutional fetch indicated manual network access was unavailable. No authentication bypass.",
+        "title": "Bayesian estimation of Shannon's index of diversity",
+        "trigger": "Historically early symmetric Dirichlet Bayesian Shannon entropy source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53a0f2d3-a98e-4f16-a372-583ca78c95cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The objects are two independently motivated classical measures of diversity/concentration, with applications to random uniform spacings and Greenwood goodness-of-fit statistics. This theorem gives their exact shape-dependent joint association and a strictly monotone, nontrivial continuum of asymptotic correlations, despite both marginal variances shrinking with dimension. Its singular-limit noncommutation identifies a real structural boundary between sparse component shapes and high-dimensional fixed shapes. These are natural dependence questions not fixed by separate marginal moments. The familiar \\(a=1\\) special case, a routine integration identity in isolation, and an inference claim without data would not meet the value bar; the limiting shape transition and noncommutation are what do.",
+    "status": "PASS"
+  }
+}
