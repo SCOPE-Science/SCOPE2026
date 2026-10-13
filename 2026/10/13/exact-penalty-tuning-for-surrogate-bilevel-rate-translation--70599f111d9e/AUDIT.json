@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "At fixed \\(k\\), substituting the source affine certificates into Proposition 1(iii) gives exactly \\(U(\\rho)=a_0+a_1\\rho+\\ell\\sqrt{2(b_1+b_0/\\rho)}\\) under the explicitly added rho-independent Lipschitz certificate. For \\(b_0>0\\), direct differentiation gives a strictly positive second derivative. With \\(a_1>0\\), the derivative runs from negative infinity to \\(a_1\\), proving a unique global minimizer. Squaring the stationary equation is safe because both sides are positive and yields the stated monotone quartic equation. The minimum-value identity follows by substituting the unsquared stationary relation. The cases \\(a_1=0\\) or \\(b_0=0\\) follow from the derivative without limiting ambiguities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shtern--Taiwo prove the translated bound and describe the penalty trade-off but leave its optimizer implicit.",
+        "Latafat--Themelis--Villa--Patrinos use a related lifted quadratic coupling to recover prox-friendliness, but the inspected remark does not translate or optimize rate certificates in the coupling strength.",
+        "Li--Fang--Lin analyze increasing penalty schedules for linearly constrained convex optimization, a different optimization object from the fixed-horizon source bound."
+      ],
+      "reasoning": "These sources cover the closest broader mechanisms: bilevel lifting, surrogate rate translation, and quadratic penalty scheduling. None provides a stronger theorem whose specialization already yields the unique quartic root and all boundary regimes.",
+      "searches": [
+        "arXiv:2506.16382v2 Proposition 1 and Remark 2",
+        "arXiv:2305.03559v3 Remark 2.1 lifted reformulation",
+        "arXiv:1711.10802 quadratic penalty convergence rate parameter schedules"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.16382v2",
+      "DOI:10.1137/24M1703355",
+      "arXiv:2305.03559v3",
+      "DOI:10.1007/s10957-024-02564-6",
+      "arXiv:1711.10802"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 1(iii) gives the square-root translation term, while Remark 2 supplies affine rho-dependence and says only that a minimizing rho may exist.",
+        "The cited lifting precursor fixes the quadratic coupling in the displayed lifted lower-level objective and does not optimize a translated rate bound."
+      ],
+      "reasoning": "The new statement does not follow verbatim from a stronger prior theorem: strict convexity, existence versus boundary nonattainment, the monotone quartic, the exact minimum-value identity, and the cube-root subcase all require an additional calculation plus the explicit uniform-Lipschitz qualification.",
+      "searches": [
+        "arXiv:2506.16382v2 Proposition 1(iii) and Remark 2",
+        "arXiv:2305.03559v3 Remark 2.1",
+        "On the Convergence Rates of Iterative Regularization Algorithms for Composite Bilevel Optimization penalty rho minimizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating paper states the affine dependence and only says that a finite minimizing rho may exist; it does not state a stationarity equation or phase diagram.",
+        "The closest published-record matches concerned unrelated penalty paths, stepsize frontiers, and proximal convexification rather than this bound."
+      ],
+      "reasoning": "Searches used the paper-specific symbols and equivalent descriptions: surrogate split, quadratic penalty, fixed-horizon translated rate, affine smoothness cost, inverse-penalty consistency cost, unique tuning, and quartic root. No statement-equivalent result was found.",
+      "searches": [
+        "Shtern Taiwo surrogate rho theta omega theta phi optimal rho quartic",
+        "bilevel surrogate penalty parameter affine rate bounds unique optimal rho",
+        "translation bound theta_omega + ell sqrt 2 theta_phi over rho optimal penalty",
+        "iterative regularization surrogate split penalty rho Lipschitz L2 plus 2 rho tuning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-record result returned the source-specific fixed-horizon penalty optimizer, the quartic equation, or the boundary phase diagram."
+      ],
+      "reasoning": "The claim is a symbolic optimization of a published analytic certificate, not a recomputation of a known parameter table. Source-identifier and formula-level searches produced no exact database match.",
+      "searches": [
+        "arXiv 2506.16382 iterative regularization composite bilevel IRE-PG",
+        "10.1137/24M1703355 composite bilevel iterative regularization proximal gradient",
+        "surrogate bilevel penalty rho affine smoothness translation bound optimize rho quartic",
+        "Proposition 1 decomposition surrogate rho Lipschitz bound iterative regularization bilevel"
+      ]
+    },
+    "rationale": "The motivating paper explicitly stops at the qualitative observation that a finite penalty may minimize the translated bound. The inspected lifting precursor supplies a quadratic split but no rate-translation tuning rule, and generic quadratic-penalty work studies penalty schedules for constrained optimization rather than this certificate. Targeted searches using the source identifiers, formula aliases, affine-rate language, and quartic tuning equation found no result that implies the complete optimizer and boundary phase diagram.",
+    "residual_risks": [
+      "The calculus needed after the source bound is elementary, so an equivalent tuning formula could appear in specialized penalty-selection literature under different notation even though no such source was found.",
+      "The uniform-Lipschitz certificate is an additional hypothesis; if the source level-set Lipschitz constant varies with rho, the optimizer can change.",
+      "The bound-optimal parameter is horizon-specific and need not optimize observed objective error."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the translation formula and affine rho-dependence but does not derive the optimizer or characterize when it is finite.",
+        "evidence": "Proposition 1(iii) bounds the original outer gap by the surrogate outer certificate plus a Lipschitz constant times the square root of twice the surrogate inner certificate divided by rho; Remark 2 states that the certificates are affine in rho in the paper analyses and that a finite minimizing rho may exist.",
+        "identifier_or_url": "arXiv:2506.16382v2; DOI:10.1137/24M1703355",
+        "material_read": "Full arXiv text around the surrogate proximal split, Proposition 1 with proof, Remark 2, and the later use of the translated rates; rendered pages containing Proposition 1(iii) and Remark 2 were inspected.",
+        "method": "Open-access arXiv full-text and rendered-page inspection.",
+        "title": "On the Convergence Rates of Iterative Regularization Algorithms for Composite Bi-Level Optimization",
+        "trigger": "Primary recent source introducing the surrogate split and explicitly raising the penalty-tuning trade-off."
+      },
+      {
+        "assessment": "The lifting mechanism is related, but no fixed-horizon penalty-rate optimization or translated certificate is given there.",
+        "evidence": "Remark 2.1 introduces a lifted problem with a quadratic equality-coupling term to preserve separate prox-friendliness and then derives parallel proximal updates.",
+        "identifier_or_url": "arXiv:2305.03559v3; DOI:10.1007/s10957-024-02564-6",
+        "material_read": "Full arXiv text around Remark 2.1 and its lifted reformulation; the rendered page containing the quadratic coupling and separate proximal updates was inspected.",
+        "method": "Open-access arXiv full-text and rendered-page inspection.",
+        "title": "On the Convergence of Proximal Gradient Methods for Convex Simple Bilevel Optimization",
+        "trigger": "The motivating paper cites its lifting remark as a precursor to the surrogate decomposition."
+      },
+      {
+        "assessment": "Studies dynamic penalty schedules for linearly constrained convex optimization, not the source-specific static fixed-horizon translation bound.",
+        "evidence": "The paper chooses special penalty sequences to ensure convergence and rate guarantees for an inexact quadratic-penalty method.",
+        "identifier_or_url": "arXiv:1711.10802",
+        "material_read": "Abstract and result summary describing special increasing penalty schedules and convergence rates.",
+        "method": "Open-access abstract inspection.",
+        "title": "Convergence Rates Analysis of The Quadratic Penalty Method and Its Applications to Decentralized Distributed Optimization",
+        "trigger": "Broader penalty-parameter literature that might dominate a tuning statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "70599f11-1d9e-439d-9659-da3a60139466",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The penalty \\(\\rho\\) is not an arbitrary slice: the source itself identifies it as the parameter controlling the trade-off between surrogate smoothness and split consistency and explicitly notes that a finite best value may exist. The result converts that qualitative design issue into a complete, computable invariant at a chosen horizon: a unique positive root when both competing effects are present, an exact minimum-value identity, and a phase diagram showing when no finite optimizer exists. This is directly useful for selecting a fixed surrogate penalty from published rate coefficients and prevents fruitless finite tuning in the degenerate regimes.",
+    "status": "PASS"
+  }
+}
