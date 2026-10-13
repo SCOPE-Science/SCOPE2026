@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For any \\(1/2<p<1\\), \\(\\alpha\\in[0,1]\\) and \\(N=2m\\ge4\\), each start-positive word is enumerated by odd/even switch run compositions; start-negative paths reflect the occupancy index. Three exact binomial identities give the two central adjacent differences and hence formula (1) without normalization ambiguity. The Laurent coefficient representation C_j=[z^j](1+uz)^n(1+uz^-1)^n ensures \\(C_1>C_2\\ge0\\) by strict symmetric-convolution unimodality; it yields \\(\\theta_m<2u/(1+u)\\) for every finite n. The difference of two iid Binomial(n,u/(1+u)) variables has span one, positive variance and an aperiodic lattice local CLT, so \\(C_2/C_1\\) tends to one and theta_m tends to 2u/(1+u). Together these show the iff uniform boundary and the eventual reverse sign below it. The \\(N=4\\) threshold \\(u\\) and exact \\(N=10\\) example yield the reversal. Standalone checker was run from its actual source path and passed 680 exact-rational Markov-recursion comparisons; these are a finite cross-check, not the proof of universal quantifiers. Endpoints \\(p=1/2\\) or \\(p=1\\) are excluded, no claim of global modal optimality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dekking–Kong Theorem 4.1 provides global shape categories based on endpoint values: https://arxiv.org/html/1102.3613v1",
+        "Pemmasani Proposition 4.2 treats fair-start adjacent-to-endpoint crossings: https://arxiv.org/html/2610.06935v1"
+      ],
+      "reasoning": "Known qualitative shape and exact PMF results cover the model but not the parameter-only threshold for the central adjacent pair at every even length. General multimodality does not determine the order of these particular two bins at all finite lengths. The present proof supplies and controls a previously unstated coefficient ratio.",
+      "searches": [
+        "\"Markov binomial\" \"mode\" \"initial distribution\" symmetric threshold",
+        "\"Markov binomial\" \"initial probability\" asymptotic location",
+        "Markov binomial occupation count nonstationary start probability bias asymptotic center mode exact phase diagram"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.06935v1",
+      "https://arxiv.org/html/1102.3613v1",
+      "https://doi.org/10.2307/3213286",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pemmasani 2026 Theorem 2.1: classical run-count enumeration, fair start: https://arxiv.org/html/2610.06935v1",
+        "Dekking–Kong 2011 Proposition 4.1 and Proposition 4.3: general-start PMF and interior log-concavity: https://arxiv.org/html/1102.3613v1",
+        "Renshaw–Henderson publisher abstract mentions n-step transition probabilities, not all-length modal threshold: https://doi.org/10.2307/3213286"
+      ],
+      "reasoning": "Neither fairness-restricted endpoint-crossing theorems nor interior log-concavity logically fixes the sign of an adjacent-center difference for an arbitrarily biased initial distribution. The general Markov-binomial PMF permits calculation but leaves the specific coefficient-ratio positivity, strict uniform threshold and finite-size reversal unproved in its statements. Unavailable older full text could contain a stronger unrecognized implication; residual risk is disclosed.",
+      "searches": [
+        "symmetric Markov binomial distribution starting probability alpha center adjacent mode odd shift sharp threshold p/(1-p) all even N",
+        "Markov binomial occupation count nonstationary start probability bias asymptotic center mode exact phase diagram",
+        "\"The correlated random walk\" \"Renshaw\" \"Henderson\" 1981 initial direction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pemmasani 2026 §1.2 sets Pr(first +)=1/2: https://arxiv.org/html/2610.06935v1",
+        "Dekking–Kong 2011 §4 permits general initial distribution: https://arxiv.org/html/1102.3613v1"
+      ],
+      "reasoning": "Equivalent phrasing includes Markov-binomial central modal displacement, boundary-field one-dimensional Ising magnetization, and persistent Galton-bin initial asymmetry. The queried results did not state the sharp uniform-in-even-length threshold; the 2011 formulas could be used to derive it but do not themselves assert the implication.",
+      "searches": [
+        "arXiv 2610.06935 Uniform Bessel bounds endpoint crossings persistent random walk arbitrary nonuniform initial probabilities adjacent central bins sharp bias threshold",
+        "symmetric Markov binomial distribution starting probability alpha center adjacent mode odd shift sharp threshold p/(1-p) all even N",
+        "\"persistent random walk\" \"biased initial\" \"mode\" probability occupation",
+        "\"Markov binomial\" \"initial distribution\" \"mode\" \"peak\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published multinomial-mode record concerns independent equiprobable counts, not a two-state persistent Markov chain: https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73",
+        "Pemmasani 2026 includes fair-start endpoint and central-bin tables: https://arxiv.org/html/2610.06935v1"
+      ],
+      "reasoning": "No identified exact published table or database reports the continuous sharp bias half-plane \\(\\alpha+p\\ge3/2\\) with all-even-length quantification. Isolated numerical rows would not subsume the analytical universal result. The inspected published multinomial mode record uses independent trials and is inapplicable to correlated Markov occupation counts.",
+      "searches": [
+        "arXiv 2610.06935 Uniform Bessel bounds endpoint crossings persistent random walk arbitrary nonuniform initial probabilities adjacent central bins sharp bias threshold",
+        "symmetric Markov binomial distribution starting probability alpha center adjacent mode odd shift sharp threshold p/(1-p) all even N",
+        "site:arxiv.org/abs/2610 \"Uniform Bessel bounds\"",
+        "\"Markov binomial\" \"initial\" \"central\" \"mode\" \"threshold\""
+      ]
+    },
+    "rationale": "The result is the exact initial-bias threshold for a strict comparison of two adjacent central occupancy bins simultaneously at every even length, including an explicit short-to-long sign reversal. Pemmasani (2026, full arXiv v1) assumes a fair start and studies central-versus-endpoint crossings, not the nonstationary-start adjacent-center comparison. Dekking and Kong (2011, inspected original arXiv full text, Proposition 4.1/4.3, Theorem 4.1) give a general starting-law probability mass function, interior log-concavity and a qualitative global shape classification; none states the all-even-length boundary \\(\\alpha+p=3/2\\) or parameter-region reversal. Their results do not logically imply the threshold without a new coefficient comparison and a sharp asymptotic analysis. The inaccessible Renshaw-Henderson 1981 full text is an unresolved priority risk. Searches against published mathematical records and existing claims did not identify a covering theorem; this is not proof of exhaustive novelty.",
+    "residual_risks": [
+      "The 1981 Renshaw–Henderson original full article was unavailable; an equivalent uninspected statement remains possible.",
+      "The prior 2011 closed probability mass function could conceal the same boundary in an implicit or later derived form; claim comparisons are to asserted results, not all conceivable consequences.",
+      "External indexing and semantic searches are incomplete; no independent historical priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its start is the fair stationary law and comparisons center to endpoints; it does not provide arbitrary-start all-even-length adjacent-center threshold.",
+        "evidence": [
+          "§1.2 explicitly gives Pr(first +)=1/2; §4.2 describes endpoint-adjacent crossings; arXiv:2610.06935v1, 3 October 2026."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.06935v1",
+        "material_read": "Full open arXiv HTML, notably initial-law definition §1.2, related work §1.4, run-count Theorem 2.1, classical recurrence §2, central and adjacent endpoint crossing statements in §§3–4, and references.",
+        "method": "Read original public full text using indexed arXiv HTML and targeted statements.",
+        "title": "Uniform Bessel bounds for endpoint crossings in the persistent random walk",
+        "trigger": "Same two-state persistent transition law and central count bins; first eligible motivating source."
+      },
+      {
+        "assessment": "Provides stronger model generality but no all-length sharp adjacent-center initial-bias boundary or finite-size reversal statement.",
+        "evidence": [
+          "Proposition 4.1 allows arbitrary initial nu; Theorem 4.1 gives category of unimodal/bimodal/trimodal shapes via endpoint tests; arXiv:1102.3613v1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1102.3613v1",
+        "material_read": "Original full arXiv HTML: §1 model/initial law; §4 Proposition 4.1 general PMF, Proposition 4.3 strict interior log-concavity, Theorem 4.1 shape classification and examples.",
+        "method": "Inspected arXiv HTML original formulae and theorem statements; compared implications.",
+        "title": "Multimodality of the Markov binomial distribution",
+        "trigger": "Direct prior probability mass function with arbitrary start and modal results."
+      },
+      {
+        "assessment": "No equivalent threshold is stated in accessible abstract; full-text comparison remains incomplete, and is not claimed as completed.",
+        "evidence": [
+          "Cambridge publisher abstract: exact n-step transition probabilities and limiting distributions; J. Appl. Probab. 18 (1981), 403–414."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3213286",
+        "material_read": "Publisher abstract and bibliographic details; full 1981 article not accessed.",
+        "method": "Searched arXiv/preprint and lawful open-access sources; original article full text could not be inspected.",
+        "title": "The correlated random walk",
+        "trigger": "Earlier same-model exact-law and limit reference listed by both primary papers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66643b17-8a6f-4d4b-9dcc-56ab7c47f59d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Initial direction bias affects the central shape of correlated-walk occupation laws in a way that changes with trajectory length. Determining the exact half-plane \\(\\alpha+p\\ge3/2\\), valid at every even finite length, and a strict nonempty region of short-to-long reversal is a natural structural modal question, not a routine increment or a lone numerical check. It cleanly separates transient initial-state skew from asymptotic central lattice corrections and complements the fair-initial-state endpoint-crossing problem. The result is a complete two-parameter all-even-length phase boundary for this exact local observable, with sharp necessity and an explicit finite witness. It does not need to imply a higher-dimensional general theorem to be mathematically useful.",
+    "status": "PASS"
+  }
+}
