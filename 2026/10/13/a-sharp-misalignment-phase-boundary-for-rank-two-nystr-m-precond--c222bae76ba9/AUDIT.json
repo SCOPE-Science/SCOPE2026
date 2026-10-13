@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For A=diag(kappa,1,1), exact multiplication gives rank-two Nyström spectrum {kappa/h,1}; the published normalization reduces P to I+sww^T. Its 2×2 generalized polynomial has positive eigenvalues lambda-<b<lambda+, so the complete 3×3 condition ratio is lambda+/lambda-. The trace/product identity gives S²−H²(1+s)=s(kappa−1)G/(bh); positivity factors are independently justified. G(0)>0, G(1)<0 and G′′>0 yield one crossing. The 5,3,3 rational witness has exact positive certificate 1194450/1075369 and normalized condition ratio >3/2. Analytic continuity, not finite trials, gives an open Gaussian event for each kappa,eta; rank-one/full-rank reductions prove smallest dimension. The actual standalone verify.py passed its exact witness and 210 parameter checks; these are auxiliary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Frangella–Tropp–Udell Proposition 5.3 provides deterministic upper/lower bounds and Theorem 5.1 an expected bound when rank tracks effective dimension, not a universal no-worsening result or a sharp three-dimensional orientation classification.",
+        "Carson–Daužickaitė analyzes mixed-precision Nyström preconditioners and empirical conditioning, not this sharp exact-arithmetic phase law.",
+        "Bock–Andersen considers Bregman-based and truncated-SVD low-rank preconditioners; the operator and normalization differ from the one in the claim."
+      ],
+      "reasoning": "A general condition-number perturbation theorem could dominate this result only if its hypotheses, with this specific Nyström P, yield the exact sign at each angle or the minimal-dimensional universal deterioration event. The inspected bounds do not determine that sign. Bregman low-rank results concern a different preconditioner, not a covering theorem.",
+      "searches": [
+        "\"Frangella Tropp Udell randomized Nystrom preconditioner eigenvalue approximation slight misalignment worse condition number\" (published mathematical-record index)",
+        "\"rank two Nyström preconditioner Frangella Tropp Udell 3x3 diagonal spike exact condition number increases for badly aligned sketches angular cubic threshold\" (published mathematical-record index)",
+        "arxiv:2304.12162, sections 2 and 5; DOI:10.1137/22M154079X, sections 3–4"
+      ]
+    },
+    "checked_sources": [
+      "Frangella–Tropp–Udell, Randomized Nyström Preconditioning, arxiv:2110.02820, equations (1.2),(1.3),(5.3); Proposition 5.3; Theorem 5.1; Appendix A.1.1.",
+      "Carson–Daužickaitė, Single-Pass Nyström Approximation in Mixed Precision, DOI:10.1137/22M154079X, sections 3 and 4.",
+      "Bock–Andersen, Preconditioner Design via the Bregman Divergence, arxiv:2304.12162, sections 2 and 5.",
+      "Public mathematical-record semantic comparisons for Nyström preconditioner angle, conditioning deterioration, rank-two examples, and generalized eigenvalues."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 5.3 bounds conditioning through the residual norm, but this leaves open both signs of the strict comparison with the unpreconditioned condition number.",
+        "The 2024 mixed-precision paper discusses why appropriate sketch size matters but does not compute the present exact 3×3 phase boundary.",
+        "The Bregman-optimal preconditioner is a different operator, and its eigenvalue dominance result does not imply this counterexample or its threshold."
+      ],
+      "reasoning": "The new claim supplies a necessary-and-sufficient cubic sign criterion for all contrasts and positive regularizers in a natural sketch family, plus universal Gaussian positive probability and the smallest matrix dimension. The earlier deterministic source bound is a sufficient estimate with an error-norm parameter and cannot be substituted into an iff orientation law. Conversely, this result does not strengthen the source expected large-sketch bound or invalidate it.",
+      "searches": [
+        "arxiv:2110.02820 §1.1 and §5.3, including Proposition 5.3 and Appendix A.1.1",
+        "DOI:10.1137/22M154079X §§3–4 including discussion of sketch rank and conditioning",
+        "arxiv:2304.12162 §§2 and 5 including truncated-SVD versus randomized Nyström preconditioners",
+        "\"Nyström preconditioner condition number misaligned eigenspaces\" (primary literature searches)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frangella–Tropp–Udell (arxiv:2110.02820) uses the same exact Nyström normalization but bounds conditioning by approximation error; a sign classification for the original-versus-preconditioned ratio is not stated.",
+        "The corresponding generalized eigenvalue problem is reduced here to a cubic in one sketch orientation parameter; no equivalent exact threshold was identified in the compared public records."
+      ],
+      "reasoning": "An equivalent formulation could give the trace/determinant inequality, an explicit orientation-dependent condition-number ratio, or a generalized-eigenvalue crossing threshold without mentioning Nyström by name. The checked source statement and the closest record results lack these equivalent statements. A negative search result alone does not establish novelty.",
+      "searches": [
+        "\"Nyström generalized eigenvalues misaligned eigenspace rank two minimal dimension counterexample condition number phase transition\" (published mathematical-record index)",
+        "\"Nyström preconditioner 65F08 smallest eigenvalue normalization sign of condition number change\" (published mathematical-record index)",
+        "arxiv:2110.02820, equations (1.2)–(1.3) and Proposition 5.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact cubic threshold or rational witness was present among the closest published-record results.",
+        "The available earlier two-dimensional Nyström result concerns the Frobenius norm of the approximation residual, not the condition number of a regularized, preconditioned system."
+      ],
+      "reasoning": "This is a continuous, parameterized exact-conditioning fact, not a tabulated finite invariant. Neither the checked exact-record searches nor the source papers provided a table whose entries dominate the three-dimensional statement. The difference from Nyström approximation error is mathematical, not merely numerical.",
+      "searches": [
+        "\"Positive probability Gaussian Nyström PCG preconditioning worsens condition number compared to identity on small SPD matrices\" (published mathematical-record index)",
+        "\"Nyström PCG rank two three-dimensional condition number deterministic non-worsening sketch PSD\" (published mathematical-record index)",
+        "\"two-dimensional Gaussian Nyström Frobenius approximation error law versus preconditioned condition number\" (published mathematical-record index)"
+      ]
+    },
+    "rationale": "Source-definition and full-text comparisons distinguish the exact parametric iff condition-number deterioration from established approximation-error bounds, high-probability large-rank guarantees and different Bregman low-rank preconditioners. Published-record and owned-claim searches found no covering theorem with the same normalized P, complete cubic orientation transition, and robust Gaussian event. Residual search incompleteness is stated.",
+    "residual_risks": [
+      "Semantic and literature search cannot exclude obscure unpublished or unindexed specialized condition-number phase calculations.",
+      "General inexact-eigenvector preconditioner perturbation results may discuss deterioration qualitatively, but the checked results did not imply the cubic iff law; future expert priority review may locate stronger coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OPERATOR_NOT_COVERING_EXACT_ANGLE_LAW",
+        "evidence": "Proposition 5.3 expresses deterministic upper/lower conditioning estimates in terms of the approximation residual; Theorem 5.1 gives an expectation result for effective-dimension sketch ranks. Neither fixes the sign of comparison to the original condition number for the rank-two 3×3 family.",
+        "identifier_or_url": "https://arxiv.org/pdf/2110.02820",
+        "material_read": "Full accessible 37-page PDF; equations (1.2)–(1.3) and (5.3), §§1, 5.3, Proposition 5.3, Theorem 5.1 and Appendix A.1.1.",
+        "method": "Direct section-by-section PDF text inspection plus visual page check.",
+        "title": "Randomized Nyström Preconditioning",
+        "trigger": "Defines exactly the normalized rank-two operator and proves the central condition-number theorems."
+      },
+      {
+        "assessment": "RELATED_BOUNDS_NOT_EXACT_ORIENTATION_CLASSIFICATION",
+        "evidence": "This work extends preconditioned condition-number estimates to floating-point Nyström approximations and reports empirical improvement for appropriate ranks, while discussing possible inaccuracies; it does not state the cubic classification or all-parameter Gaussian deterioration event.",
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/22M154079X",
+        "material_read": "Accessible open full text; abstract, introduction, §3 preconditioner and eigenvalue discussion, §4.2/Figure 4.5, concluding discussion.",
+        "method": "Full HTML section inspection and passage comparison.",
+        "title": "Single-Pass Nyström Approximation in Mixed Precision",
+        "trigger": "Closest later Nyström-based preconditioning study; same general application with condition-number analysis."
+      },
+      {
+        "assessment": "DIFFERENT_OPERATOR_AND_OPTIMALITY_TARGET",
+        "evidence": "The studied operators are regularizing-plus-truncated-SVD or Bregman-optimal preconditioners; Nyström approximates their factors. The minimax spectral comparisons do not analyze Frangella’s smallest-Nyström-eigenvalue normalization for this sketch family.",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.12162",
+        "material_read": "Accessible full 29-page PDF, specifically introduction, §2 spectral analysis, §§4–5 Nyström and randomized approximations.",
+        "method": "Direct PDF text inspection of object definitions and statements.",
+        "title": "Preconditioner Design via the Bregman Divergence",
+        "trigger": "Plausible stronger spectral coverage through optimally designed low-rank preconditioners and Nyström approximations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c222bae7-6ba9-4b73-a829-b6c3250fa2ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nyström preconditioning is intended to improve the spectrum, while source theorems guarantee good expected conditioning only at a sufficiently large effective-dimension rank. The theorem supplies the exact, unique sketch-alignment threshold for every spike contrast and regularization strength, a nonempty open Gaussian failure event, and a minimal-dimensional obstruction. These quantify a practically motivated finite-rank limitation of a published algorithm beyond a single isolated numerical counterexample. It does not claim PCG iteration-count worsening or benefits for all sketches.",
+    "status": "PASS"
+  }
+}
