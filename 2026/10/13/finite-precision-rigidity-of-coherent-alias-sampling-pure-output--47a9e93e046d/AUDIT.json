@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Tracing retained swap-branch tuples (original index, threshold, random, flag=1) makes those contributions mutually orthogonal. The unswapped tuples (alias, threshold, random, flag=0) coincide exactly for matching alias and threshold, yielding the exact positive Gram sum. Strict b-bit storage makes every exchanged-branch coefficient B-t_j positive, enforcing all aliases equal for rank one, and t_j=0 away from the common address. Uniform diagonals give d_i=sum_{j:a_j=i}d_j>0; every label has a preimage, so the alias map is a permutation and deficits/thresholds are constant on its cycles. The resulting reduced state is I/L, whose fidelity, trace distance, and entropy follow from its exact eigenvalues. All quantifiers are proved symbolically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Babbush et al. 2018 Section III.D supplies a generic exact garbage-state formula, so every reduced-state calculation is formally computable from this source, but it does not identify the strict b-bit iff permutation/purity rigidity.",
+        "arXiv:2610.03800v1 Section V retains the original input pair in a new-output-register construction and proves those output fibers orthogonal, then uncomputes them. Its geometry differs from the older controlled swap; it does not give these classifications.",
+        "The 2026 resource-estimation source explicitly states that its sampled marginal is not necessarily a pure prepared state."
+      ],
+      "reasoning": "A general classification of all exact-uniform finite-bit swap tables or a theorem proving that no nonbasis pure address can result would dominate the claim. Neither the three inspected primary sources nor the targeted alias searches revealed such a theorem. The older full-state representation is a strong ingredient and remains the principal residual prior-coverage risk.",
+      "searches": [
+        "coherent alias sampling unused alias table entries uniform target output entropy dependence garbage",
+        "coherent alias sampler mixed address exactly maximally mixed when output sampling probabilities uniform finite precision",
+        "quantum alias QROM compare swap retained flag spectrum reduced address no pure state except basis",
+        "quantum coherent alias state uncomputed ancillas exact Gram matrix class fidelity probability one state fidelity 2^-n",
+        "quantum alias sampling garbage free fiber ranking uncomputing output index 2610.03800",
+        "Babbush 2018 Eq 38 alias sampling garbage quantum state output density"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.18877v1",
+      "DOI:10.1103/PhysRevX.8.041015",
+      "arXiv:2610.03800v1",
+      "Published semantic-index comparisons for recorded exact-source, alias and all-table query strings",
+      "Current cumulative owned ledger and immediately prior week owned ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu et al. arXiv:2605.18877v1 Section 2.3 gives integer keep range 0..2^b-1 and says keep, alias, random, and flag registers are not uncomputed; Section 2.1 gives correct sampled diagonals.",
+        "Babbush et al. PRX 8, 041015, Eq. (38) and Fig. 11 explicitly present the retained garbage and explain its safety for oracle/inverse use; there is no asserted clean output.",
+        "Liu et al. arXiv:2610.03800v1 Section V computes output in a new register and constructs explicit fiber uncomputation; this is a different circuit and cannot establish the old swap-circuit off-diagonal/finiteness classification."
+      ],
+      "reasoning": "The prior articles already imply the qualitative presence of garbage and supply an explicit full-state formula, so novelty is not ascribed to those observations. The new all-table iff results require an exact reduced Gram decomposition plus a finite positive-mass balance lemma: any uniform marginal forces a surjective alias self-map, hence a permutation with cycle-constant thresholds. Those statements and the resulting universal maximal-mixing/exponential fidelity conclusion are absent from the inspected primary texts. This distinction is statement-level, not just wording-level.",
+      "searches": [
+        "2605.18877 coherent alias sampling QROM retained alias register reduced density off diagonal block Gram",
+        "coherent alias sampling unused alias table entries uniform target output entropy dependence garbage",
+        "alias sampling uniform superposition exact density matrix alias keep equal fiber coherence probability state fidelity",
+        "quantum sampling alias table retained ancilla swap address reduced state off-diagonal overlap threshold",
+        "coherent alias sampler mixed address exactly maximally mixed when output sampling probabilities uniform finite precision",
+        "quantum alias QROM compare swap retained flag spectrum reduced address no pure state except basis",
+        "quantum coherent alias state uncomputed ancillas exact Gram matrix class fidelity probability one state fidelity 2^-n",
+        "arXiv 2605.18877 coherent alias sampling b-bit keep thresholds exact uniform marginal I over L pure state fidelity 1/L",
+        "alias sampling finite precision uniform distribution requires permutation alias function keep deficits constant on cycles",
+        "QROM coherent alias swap retained temporary registers exact purity criterion only basis states",
+        "site:arxiv.org/html/2605.18877v1 sampling-based state preparation reduced density matrix pure output",
+        "site:arxiv.org/html/2610.03800v1 alias sampling orthogonal garbage source pairs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.18877v1, Eq. (7) gives diagonal probabilities and Section 2.3 states retained-garbage bit widths, not the full purity/uniformity iff classification.",
+        "DOI:10.1103/PhysRevX.8.041015, Eq. (38) gives the pre-existing garbage-state amplitudes but does not characterize the special class of finite-bit tables with pure or uniform marginals.",
+        "Targeted semantic-index searches yielded no equivalent classification; closest hits concerned unrelated Fourier flatness or classical sampling occupancy."
+      ],
+      "reasoning": "Aliases queried included coherent alias, retained garbage, QROM compare/swap, exact Gram spectrum, strict finite-bit threshold, maximally mixed uniform sample, pure-output criterion, and permutation cycles. The prior garbage-state construction itself is not claimed as novel; the claimed new iff conclusions use a positive-deficit/all-table argument not stated in the sources.",
+      "searches": [
+        "2605.18877 coherent alias sampling QROM retained alias register reduced density off diagonal block Gram",
+        "coherent alias sampling unused alias table entries uniform target output entropy dependence garbage",
+        "alias sampling uniform superposition exact density matrix alias keep equal fiber coherence probability state fidelity",
+        "quantum sampling alias table retained ancilla swap address reduced state off-diagonal overlap threshold",
+        "alias sampling finite precision uniform distribution requires permutation alias function keep deficits constant on cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor reports numerical compilation and fidelity benchmarks; it does not tabulate a complete finite-bit alias-map permutation classification.",
+        "No semantic hit was an exact quantum alias-output table or enumerated all legal tables."
+      ],
+      "reasoning": "The result classifies every integer table for arbitrarily large powers of two, rather than recomputing a known numeric table. Exhaustive small instances are only an independent transcription check.",
+      "searches": [
+        "2605.18877 coherent alias sampling QROM retained alias register reduced density off diagonal block Gram",
+        "arXiv 2605.18877 coherent alias sampling b-bit keep thresholds exact uniform marginal I over L pure state fidelity 1/L",
+        "alias sampling finite precision uniform distribution requires permutation alias function keep deficits constant on cycles"
+      ]
+    },
+    "rationale": "The 2018 source already supplies a full garbage-state amplitude description and the 2026 anchor knows the diagonal marginals and retained garbage, so neither fact is newly claimed. The novel statement is a complete all-tables finite-bit rank-one iff classification and exact-uniform iff-permutation classification, with sharp maximal-mixing and fidelity consequences; none of the checked primary texts or targeted semantic results state or dominate that theorem. A possible unindexed corollary of the full Babbush formula remains an explicitly acknowledged residual risk.",
+    "residual_risks": [
+      "The full 2018 garbage-state equation implies the reduced Gram structure after a partial trace; an old unindexed note might have already extracted the all-table conclusions.",
+      "The exact rigidity relies on storing t_j as a b-bit integer strictly below 2^b. Circuits that encode a full-keep value or clean their ancillas can evade the stated conclusions.",
+      "No claim about the difficulty or optimal cost of garbage cleanup or the fidelity of the full oracle is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES the exact circuit, realized probabilities and retained-register limitations; DOES_NOT_STATE either exact all-table iff classification or the uniform-state maximal-mixing consequence.",
+        "evidence": "Section 2.3 says keep_j in {0,...,2^b-1}, and keep/alias/random/flag remain; Eq. (7) gives the diagonal sampled probabilities.",
+        "identifier_or_url": "arXiv:2605.18877v1",
+        "material_read": "Full arXiv HTML Sections 2.1, 2.3 and 2.4, Eq. (5)–(7), integer keep range and retained garbage statement, and explicit source MSC.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Logical Resource Estimation for Quantum State Preparation with compilation",
+        "trigger": "Primary recent source and exact circuit/strict integer threshold specification."
+      },
+      {
+        "assessment": "COVERS the general retained-state amplitude construction; DOES_NOT_STATE the source-specific strict b-bit all-table purity/uniformity characterization or the exponential fidelity penalty.",
+        "evidence": "Eq. (38) lists the retained alias, keep, random and comparator branches; source explicitly allows entangled junk because PREPARE and inverse are used in an oracle.",
+        "identifier_or_url": "DOI:10.1103/PhysRevX.8.041015",
+        "material_read": "Open full publisher PDF, Section III.D page 14 (zero-index PDF page 13), Fig. 11, Eqs. (34),(37)–(39) including the explicit normalized garbage state and explanation of PREPARE/SELECT compatibility.",
+        "method": "Direct full PDF text plus page-image inspection of the source equations and circuit.",
+        "title": "Encoding Electronic Spectra in Quantum Circuits with Linear T Complexity",
+        "trigger": "Original coherent alias circuit, strongest plausible broader coverage of the garbage-state structure."
+      },
+      {
+        "assessment": "SUPPLIES a distinct fresh-output-register implementation and a cleanup construction; DOES_NOT_COVER the older swap circuit with strict bit-width and its complete permutation/purity rigidity.",
+        "evidence": "Section V says output is computed into a new register while original index and random fragment are retained, making output fibers disjoint and orthogonal before their explicit uncomputation.",
+        "identifier_or_url": "arXiv:2610.03800v1",
+        "material_read": "Full arXiv HTML, Section V equations (59)–(61), discussion of orthogonal garbage fibers and fiber-ranking uncomputation.",
+        "method": "Lawful arXiv HTML full-text inspection.",
+        "title": "Exponentially Compressed and Garbage-Free Alias Sampling for Polynomial State Preparation",
+        "trigger": "Highly relevant newer full source about index-fiber garbage and explicit uncomputation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47a9e93e-046d-43c5-b187-3c251db0bc13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact every-table classification is a natural diagnostic for a circuit family whose source explicitly distinguishes sampled probability fidelity from pure-state fidelity and reports resource benchmarks. It shows not just one example but that absolutely every exact-uniform output under the actual finite-bit compare/swap implementation is maximally mixed and n ebits entangled with retained data, despite perfect sampled probabilities. The exact pure-output classification also identifies all exceptions (basis states) and a sharp role for finite-precision threshold encoding. This is an operationally motivated coherence boundary, not an arbitrary numerical slice or simple normalization check.",
+    "status": "PASS"
+  }
+}
