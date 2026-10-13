@@ -1,0 +1,12 @@
+# Review of Solid-locating-dominating code polynomial of square-page book graphs
+
+## Correctness
+PASS. The proof exhausts all four possibilities for membership of the two spine vertices. When one spine vertex is omitted, trace containment forces the entire opposite page side into the code, and omitting both spine vertices forces every page vertex. When both spine vertices are selected, a completely omitted page yields singleton traces \(\{x\}\) and \(\{y\}\), which force all other pages to be full; without a completely omitted page, every outsider has a two-element trace with a page-specific codeword and one spine codeword, making all outsider traces pairwise incomparable. These cases are disjoint and sufficient. Their ordinary generating functions add to the claimed polynomial. The included checker independently tests every subset for \(1\le m\le8\), totaling \(349{,}520\) subsets, and matches the complete code family and every coefficient.
+
+## Originality
+PASS. The 2018 foundational source defines the same solid-locating-dominating predicate and treats rook graphs and binary Hamming spaces, not square-page books. The 2019 continuation proves general bounds through Sperner families and the Dilworth number and gives results on trees, Cartesian products, ladders, and rook graphs; its inspected full text contains no “book” or “theta” occurrence. Its Dilworth lower bound is a scalar inequality and does not imply either the exact book value or an all-code enumerator. The closest published database record found for all solid codes concerns complete multipartite graphs, which do not include \(B_m\) for \(m\ge2\). Searches under book, theta, solid-location-domination, and polynomial/enumerator aliases did not locate an implication-equivalent theorem.
+
+## Value
+PASS. Square-page books are a canonical generalized-theta family with arbitrarily many pages sharing one edge, so they provide a natural non-product test family for a locating code designed around incomparable sensor traces. The result does more than provide a minimum number: it gives a complete structural classification and a closed polynomial counting every solid-locating-dominating code by size. The exceptional one-empty-page regime explains the \((m+1)z^{2m}\) term, while the exact transition from four minima at \(C_4\) to two rigid minima for all larger books gives a clear structural boundary.
+
+Self-review: passed. Independent audit: not yet performed.
