@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For every vector in the target-safe intersection, spectral support gives the required strict score inequalities against higher-priority competitors and weak inequalities against lower-priority competitors; the fixed tie rule therefore selects the target. Orthogonal projection of the encoded input yields a normalized target-class witness with fidelity exactly \\(\\sqrt{p_k}\\), proving the stated upper bound. All quantifiers and boundary cases are explicit, and no finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dowling, West, Southwell et al. analyze adversarial robustness for quantum classifiers in a binary readout setting.",
+        "The inspected broader article does not formulate a general multiclass known-readout certificate obtained by intersecting priority-adjusted spectral subspaces of all POVM score gaps."
+      ],
+      "reasoning": "Binary targeted robustness does not imply the multiclass all-competitor intersection statement, where third classes and tie priority are precisely the additional obstruction.",
+      "searches": [
+        "known-readout query access targeted robustness certificate class-specific positive eigenspace intersection",
+        "multiclass POVM adversarial target safe subspace M_k-M_j positive spectral subspace",
+        "doi:10.1038/s41534-025-01129-3 targeted quantum-classifier robustness"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.11637v2",
+      "doi:10.1038/s41534-025-01129-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pairwise positivity of \\(M_k-M_t\\) implies only that \\(k\\) beats \\(t\\), not that \\(k\\) beats every \\(j\\).",
+        "The new intersection imposes the missing inequalities for \\(M_k-M_j\\) against every \\(j\\) and therefore guarantees the exact target label.",
+        "The older binary classifier result has no third-class constraint and does not imply the multiclass construction."
+      ],
+      "reasoning": "The new claim is not a corollary of the source's pairwise certificate: its extra all-competitor intersection is logically necessary for exact target-label soundness in the multiclass setting.",
+      "searches": [
+        "arXiv:2609.11637v2 Lemma 4.2 multiclass k need not be predicted label",
+        "quantum classifier targeted adversarial readout POVM gap operators intersection positive eigenspaces fidelity upper bound",
+        "doi:10.1038/s41534-025-01129-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The current source states that a positive spectral subspace of \\(M_k-M_t\\) only guarantees that \\(k\\) strictly outranks \\(t\\); in multiclass settings \\(k\\) need not be the predicted label.",
+        "The source's Theorem 4.7 takes a maximum over pairwise kernel overlaps and states an untargeted universal robustness upper bound."
+      ],
+      "reasoning": "The new statement requires simultaneous inequalities against every competing class, with strictness determined by tie priority. A union or one pairwise positive-gap subspace does not imply this intersection condition.",
+      "searches": [
+        "2609.11637 targeted adversarial kernel intersection positive eigenspaces all classes quantum classifier",
+        "quantum classifier targeted adversarial readout POVM gap operators intersection positive eigenspaces fidelity upper bound",
+        "arXiv:2609.11637v2 Sections 4.1-4.2",
+        "target-safe spectral intersection multiclass known-readout query access exact target label tie priority projector upper bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact source theorem measures projectors onto pairwise adversarial kernel spaces and reports an untargeted radius.",
+        "No source equation or table inspected gives the projector onto the target-safe all-competitor intersection or the resulting target-specific radius."
+      ],
+      "reasoning": "There is no numerical table or database value that subsumes the theorem; the decisive comparison is with the source's exact pairwise theorem and definitions.",
+      "searches": [
+        "arXiv:2609.11637v2 Theorem 4.7",
+        "2609.11637 targeted adversarial kernel intersection positive eigenspaces all classes quantum classifier"
+      ]
+    },
+    "rationale": "The inspected current source explicitly stops at an untargeted pairwise-kernel upper bound after noting that a pairwise winner need not be the predicted multiclass label. Searches for target-safe, all-competitor, spectral-intersection, and equivalent formulations found no prior statement of the class-specific projector certificate. The closest broader robustness paper treats a binary readout and does not imply the multiclass result.",
+    "residual_risks": [
+      "The construction is elementary once the multiclass target-label issue is isolated, so an unindexed independent observation may exist.",
+      "Search cannot establish absolute uniqueness; the claim is limited to the checked source and literature comparisons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source covers pairwise positive-gap kernels and an untargeted upper bound, but does not state the all-competitor target-safe intersection or its class-specific projector bound.",
+        "evidence": "Lemma 4.2 commentary says that in multiclass settings \\(k\\) need not be the predicted label; Theorem 4.7 measures pairwise kernel projectors and reports a universal untargeted robustness upper bound.",
+        "identifier_or_url": "arXiv:2609.11637v2",
+        "material_read": "Threat model; classifier and tie-priority definitions; Sections 4.1 and 4.2 including Definition 4.1, Lemma 4.2, Corollary 4.3, Lemma 4.6, and Theorem 4.7.",
+        "method": "Full public HTML text inspected at the cited sections and theorem statements.",
+        "title": "Certifying Adversarial Robustness of Quantum Classifiers under Known-Readout Query Access",
+        "trigger": "Direct source: the revised paper explicitly identifies the multiclass target-label gap while retaining an untargeted pairwise upper certificate."
+      },
+      {
+        "assessment": "The article treats a binary classifier/readout robustness setting; it does not supply a general multiclass known-readout spectral-intersection certificate.",
+        "evidence": "Its classifier setup is binary, whereas the new claim resolves simultaneous score constraints against all competitors of a multiclass POVM.",
+        "identifier_or_url": "doi:10.1038/s41534-025-01129-3",
+        "material_read": "Classifier setup, robustness results, targeted-attack discussion, methods, and bibliographic record.",
+        "method": "Full open-access article text inspected.",
+        "title": "Adversarial robustness guarantees for quantum classifiers",
+        "trigger": "Broader prior literature on targeted adversarial robustness of quantum classifiers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b04d1a5-559e-43a7-9657-1fa0e6c65a8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source threat model expressly includes targeted misclassification, but its revised pairwise spectral witness is only untargeted in multiclass settings. The target-safe intersection restores a conservative class-specific upper certificate under the same known-readout measurement access, including exact handling of tie priority. It can therefore audit whether a specified target is certifiably reachable within a stated fidelity radius; the result is structurally useful even though the certificate may be vacuous or nonoptimal.",
+    "status": "PASS"
+  }
+}
