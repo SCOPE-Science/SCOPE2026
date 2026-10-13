@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The posterior information matrix is exactly \\(S_h=P^{-1}+r^{-1}hh^{\\mathsf T}\\). Its trace is direction-independent. In two dimensions, at fixed positive trace, spectral condition number is strictly decreasing in determinant. The determinant lemma reduces direction optimization to maximizing \\(h^{\\mathsf T}Ph\\), whose unique maximizers are the two signs of the largest-eigenvalue eigenvector because \\(L>\\mu\\). The resulting posterior eigenvalues are \\(Lr/(L+r)\\) and \\(\\mu\\), yielding the stated closed form, unique isotropy noise, and exact prior-worsening threshold. The packaged rational checker verifies a nontrivial equality and reversal example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Belabbas formulates fixed-norm Kalman sensor design using trace-based estimation error and a Riccati steady-state covariance.",
+        "Tzoumas–Jadbabaie–Pappas optimize MMSE and log-determinant objectives over sensor sets.",
+        "Oshman selects among measurement subsystems according to information supplied along the principal direction of largest current estimation error.",
+        "Wolkowicz studies condition-number-optimal sized symmetric rank-one updates in a quasi-Newton secant framework."
+      ],
+      "reasoning": "These sources cover the sensor-design motivation, a related principal-error-direction rule, and generic rank-one conditioning. The new statement is not that the principal direction matters; it is the exact fixed-noise posterior anisotropy law and the nonmonotone measurement-quality frontier in the one-update Kalman setting.",
+      "searches": [
+        "Geometric methods for optimal sensor design Belabbas",
+        "Sensor Placement for Optimal Kalman Filtering Fundamental Limits Submodularity Algorithms",
+        "Optimal Sensor Selection Strategy for Discrete-Time State Estimators Oshman",
+        "Measures for Symmetric Rank-One Updates Wolkowicz condition number"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1503.05968v1",
+      "arxiv:1509.08146v1",
+      "doi:10.1109/7.272256",
+      "doi:10.1287/moor.19.4.815",
+      "doi:10.1137/080717055",
+      "doi:10.1109/TAC.1974.1100568",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "2026/9/19/SCOPE-complete-line-angular-collapse-sylvester-covariance-metrics--821fc9209308",
+      "ce4fa67e-ac12-4f33-a907-250a98119d59",
+      "0ffcc724-2b3f-4847-a98b-1d21f5944db1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Oshman provides conceptual prior coverage for favoring the largest-error direction but chooses from available measurement subsystems and targets maximal estimation error.",
+        "Belabbas full text defines the sensor objective through \\(\\operatorname{tr}(LK)\\), not posterior condition number.",
+        "Wolkowicz full material is framed by quasi-Newton secant constraints and sized rank-one updates; algebraic overlap remains a named residual risk.",
+        "The older Herring–Melsa measurement-design paper was identified but its full body was not available through the inspected route."
+      ],
+      "reasoning": "The direction component is deliberately not presented as isolated novelty. The accepted claim requires the complete dependence on fixed noise strength, the exact isotropy point, and the reversal threshold. No inspected prior statement implied all three in the scalar Kalman posterior setting, while inaccessible plausible sources are explicitly retained as risks.",
+      "searches": [
+        "Oshman largest current estimation error principal direction sensor selection",
+        "Belabbas trace covariance optimal sensor fixed signal to noise",
+        "Wolkowicz optimally conditioned symmetric rank one updates",
+        "Optimum measurements for estimation Herring Melsa 1974"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic search returned no result stating the complete two-dimensional Kalman posterior condition-number law or the unique isotropy noise.",
+        "The closest semantic hits concerned unrelated covariance geometries, Euclidean iterative transients, and weak-frame conditioning rather than Bayesian/Kalman measurement updates.",
+        "The current and latest prior own ledgers contain no posterior-covariance sensor-direction condition-number finding."
+      ],
+      "reasoning": "Equivalent coverage would have to optimize the posterior covariance condition number over a scalar sensing direction at fixed measurement noise, or imply both the exact envelope and its unique isotropy and overmeasurement thresholds. General covariance conditioning results and largest-error-direction heuristics do not by themselves state those boundaries.",
+      "searches": [
+        "Kalman scalar measurement direction minimize posterior covariance condition number two dimensional",
+        "posterior covariance condition number optimal measurement axis linear Gaussian",
+        "sensor direction covariance isotropy one measurement condition number",
+        "information matrix rank one update condition number optimal sensor direction",
+        "posterior covariance rank one information update condition number measurement noise isotropy",
+        "Kalman measurement update covariance condition number rank one information matrix",
+        "optimal scalar sensor direction largest covariance eigenvector posterior conditioning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-form web searches did not locate the formula \\(r_*=L\\mu/(L-\\mu)\\) as a scalar Kalman posterior-isotropy threshold.",
+        "No located source gave the sharp prior-worsening boundary \\(L\\mu^2/(L^2-\\mu^2)\\) for the condition-optimal scalar measurement."
+      ],
+      "reasoning": "The claimed values are derived symbolically from the posterior eigenvalues and are not inferred from a numerical table or experimental parameter sweep.",
+      "searches": [
+        "posterior covariance condition number sensor Kalman measurement direction",
+        "measurement noise posterior covariance isotropy condition number",
+        "largest eigenvector posterior covariance scalar measurement optimal condition number",
+        "condition number information matrix rank-one update sensor"
+      ]
+    },
+    "rationale": "The largest-error-direction sensor heuristic is explicitly treated as prior work, as are trace/MMSE and log-determinant Kalman sensor design and generic condition-number-aware symmetric rank-one updates. The final claim is narrower and different: a complete fixed-noise two-dimensional posterior condition-number law, its unique exact isotropy noise, and the sharp overmeasurement regime where the condition-optimal posterior becomes more ill-conditioned than the prior. Targeted semantic, alias, and exact-form searches did not locate this complete statement. Plausible older measurement-design and rank-one-update sources are retained as residual risks rather than declared noncovering without evidence.",
+    "residual_risks": [
+      "Herring and Melsa's 1974 “Optimum measurements for estimation” is a plausible older source for an equivalent two-state measurement-direction calculation, but its full body was not available through the inspected route.",
+      "Wolkowicz's generic rank-one conditioning theory may contain an algebraically equivalent fixed-size extremum under quasi-Newton terminology; the inspected material establishes nearby theory but did not resolve the full implication comparison.",
+      "The condition-number objective is less standard in Kalman sensor design than trace, determinant, or maximal-eigenvalue criteria, so equivalent older work may be indexed under ellipsoid eccentricity or information-matrix terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_DIFFERENT_OBJECTIVE: it optimizes trace-based steady-state estimation error, not the one-update posterior spectral condition number.",
+        "evidence": "The paper explicitly defines the sensor-design problem as minimizing trace of the steady-state error covariance, and more generally \\(\\operatorname{tr}(LK)\\), at fixed sensing norm.",
+        "identifier_or_url": "arxiv:1503.05968v1",
+        "material_read": "The full public text was inspected through the introduction, sensor-design formulation, Riccati covariance equation, trace-based objective, actuator duality, and main extremal-subspace results.",
+        "method": "Lawful open full-text arXiv HTML inspection.",
+        "title": "Geometric methods for optimal sensor design",
+        "trigger": "Highly relevant full primary source on continuously variable Kalman sensor direction at fixed sensing strength."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_COVERAGE: establishes a principal-error-direction sensor-selection idea, so that directional intuition is not claimed as new.",
+        "evidence": "The source states that a measurement subsystem is selected for the information it contributes along the principal state-space direction associated with the largest current estimation error.",
+        "identifier_or_url": "doi:10.1109/7.272256",
+        "material_read": "The available article material, including the abstract and rendered opening pages, was inspected for the sensor-selection criterion and its covariance spectral interpretation.",
+        "method": "Publisher record and full-PDF page-image inspection.",
+        "title": "Optimal Sensor Selection Strategy for Discrete-Time State Estimators",
+        "trigger": "Older primary source whose selection rule uses covariance spectral factors and the largest-error direction."
+      },
+      {
+        "assessment": "BROADER_DIFFERENT_OBJECTIVE: optimizes minimum mean-square error and log determinant over sensor sets, not condition number over a continuous scalar direction.",
+        "evidence": "The paper treats MMSE and log determinant of error covariance as design metrics and develops sensor-set algorithms for those objectives.",
+        "identifier_or_url": "arxiv:1509.08146v1",
+        "material_read": "The public full-text record was inspected for its finite-horizon problem statement and covariance objectives.",
+        "method": "Lawful open arXiv full-text inspection.",
+        "title": "Sensor Placement for Optimal Kalman Filtering: Fundamental Limits, Submodularity, and Algorithms",
+        "trigger": "Major Kalman sensor-placement paper using covariance-based design objectives."
+      },
+      {
+        "assessment": "ALGEBRAIC_RISK_NOT_DECISIVE: studies optimally conditioned sized symmetric rank-one updates under quasi-Newton secant structure; it is treated as a residual risk for equivalent matrix algebra rather than declared irrelevant.",
+        "evidence": "The paper explicitly studies the \\(\\ell_2\\) condition number of symmetric rank-one quasi-Newton updates, so generic rank-one conditioning is established prior art.",
+        "identifier_or_url": "doi:10.1287/moor.19.4.815",
+        "material_read": "The abstract and public full PDF were inspected at the introduction, ellipsoid/condition measures, and rank-one/secant derivation pages.",
+        "method": "Public author PDF with rendered-page inspection.",
+        "title": "Measures for Symmetric Rank-One Updates",
+        "trigger": "Potentially dominating generic matrix-analysis source because a Kalman information update is positive rank one and condition number is the objective."
+      },
+      {
+        "assessment": "CLASSIFICATION_CONTEXT: verifies primary MSC 93E11; it addresses filter semistability rather than sensor-direction conditioning.",
+        "evidence": "The publisher lists MSC 93E11 first.",
+        "identifier_or_url": "doi:10.1137/080717055",
+        "material_read": "Publisher abstract, bibliographic history, keywords, and MSC metadata were inspected.",
+        "method": "Publisher-record inspection.",
+        "title": "Characterization of Exponential Divergence of the Kalman Filter for Time-Varying Systems",
+        "trigger": "Verification of primary MSC ownership for Kalman-filter research."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98d70b01-5a2c-4e36-97b3-879ad573e010",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Posterior covariance condition number is a natural scale-free measure of confidence-ellipsoid anisotropy. The theorem gives a complete classification of the smallest nontrivial scalar-measurement design problem and separates anisotropy from total uncertainty: there is a unique noise level giving exact isotropy, and measurements made even more accurate beyond that point eventually make the posterior more ill-conditioned than the prior while continuing to reduce covariance. The exact reversal threshold is a motivated sensor-design boundary rather than an arbitrary two-by-two identity.",
+    "status": "PASS"
+  }
+}
