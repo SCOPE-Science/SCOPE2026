@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The standard first CGS update gives \\(r_1=(I-\\alpha_0A)^2r_0\\) with \\(\\alpha_0=(r_0^{\\mathsf T}r_0)/(r_0^{\\mathsf T}Ar_0)\\). Orthogonal spectral decomposition reduces the squared residual ratio to a normalized fourth central moment. Convexity makes the two spectral endpoints extremal at fixed mean, yielding the exact one-variable envelope. Strict monotonicity in \\(\\kappa\\), Descartes uniqueness for the reciprocal threshold polynomial, and the exact rational witness were reconstructed and checked. The packaged standard-library verifier returns VERIFY_OK from the finalized row.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Freund 1993 explicitly identifies wild residual-norm oscillations as a CGS drawback and proposes TFQMR for smoother convergence, but its inspected abstract contains no sharp SPD first-step bound.",
+        "Aihara 2020 gives the squared residual-polynomial identity and qualitative oscillation statement, not the endpoint moment extremum or threshold.",
+        "General residual-spike findings retrieved from database concern different algorithms and therefore do not dominate this CGS statement."
+      ],
+      "reasoning": "Qualitative irregularity and general product-polynomial structure do not imply the exact worst-case envelope or its sharp conditioning frontier. The new theorem quantifies a narrower but mathematically complete first-step question.",
+      "searches": [
+        "CGS SPD residual norm bound condition number",
+        "conjugate gradients squared SPD residual bound",
+        "CGS positive definite residual norm convergence bound",
+        "CGS condition number residual norm"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0910004",
+      "doi:10.1137/0914029",
+      "doi:10.1002/nla.2298"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sonneveld 1989 introduces CGS as a polynomial Lanczos-type method and lists primary MSC 65F10, but the accessible publisher material does not state this first-step extremum.",
+        "Freund 1993 says CGS typically has wild residual oscillations; that qualitative fact neither bounds nor locates the first spike.",
+        "Aihara 2020 states the exact squared-polynomial identity. Combining it with the first BiCG coefficient is an ingredient, but the sharp endpoint reduction, threshold elimination, and asymptotic maximization are additional arguments."
+      ],
+      "reasoning": "The closest prior statements motivate the question and provide the standard CGS identity. None of the inspected statements logically entails the condition-number-only iff frontier without solving the new spectral moment optimization.",
+      "searches": [
+        "Sonneveld CGS squared polynomial residual",
+        "Freund TFQMR CGS wild oscillations residual norm",
+        "Aihara CGS residual R_k squared larger oscillations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Database searches returned nearby Krylov and stationary-method transient bounds but no CGS first-step SPD residual theorem.",
+        "The full-text product-method source states \\(r_k^{\\mathrm{CGS}}=R_k(A)^2r_0\\) and notes larger residual oscillations, but provides no condition-number threshold.",
+        "Exact-threshold web searches for 3.442815869 together with CGS returned no mathematical match."
+      ],
+      "reasoning": "The claim is invariantly about the Euclidean first residual of standard CGS on the entire SPD spectral interval. Searches covered CGS, conjugate-gradients-squared, squared BiCG polynomial, first residual, residual amplification/spike, SPD/positive-definite, endpoint spectrum, and the threshold number.",
+      "searches": [
+        "CGS conjugate gradient squared positivity nonnegative iterates diagonal positive system first iteration",
+        "CGS componentwise positivity condition number two",
+        "Sonneveld CGS negative components positive diagonal matrix",
+        "conjugate gradient squared positivity preserving M-matrix",
+        "CGS first residual sharp condition number threshold 3.442815869 squared BiCG polynomial",
+        "CGS first-step residual amplification SPD exact worst-case two eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No database or table with the algebraic threshold or the degree-twelve polynomial was located.",
+        "The threshold is derived from the exact extremal problem and stationary equations rather than read from numerical experiments or a table."
+      ],
+      "reasoning": "The numerical constant is backed by an exact reciprocal polynomial and rational isolating interval; it is not a recomputed tabulated constant.",
+      "searches": [
+        "CGS first residual sharp condition number threshold 3.442815869 squared BiCG polynomial",
+        "3.442815 CGS residual",
+        "CGS first-step residual envelope condition number"
+      ]
+    },
+    "rationale": "The foundational CGS literature establishes the squared-polynomial method and later papers explicitly describe wild residual oscillations, but the inspected statements do not give the sharp first-step SPD envelope, the algebraic threshold \\(\\kappa_*=3.442815869257\\ldots\\), the two-eigenvalue extremal reduction, or the \\(\\kappa^{3/2}\\) sharp asymptotic residual growth. Targeted literature and database searches using algorithmic, spectral, condition-number, and numerical-threshold aliases found no implication-equivalent result.",
+    "residual_risks": [
+      "The complete 1989 source text was not publicly accessible in the routes inspected, so an unobserved statement inside that article or another older CGS analysis could contain a related special-case bound.",
+      "Older Krylov-polynomial literature may formulate the same first-step extremum as a fourth-moment or two-point spectral inequality without using CGS residual-spike terminology.",
+      "The theorem is first-step and SPD-specific; it should not be read as a later-iteration or nonsymmetric convergence guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_IN_INSPECTED_MATERIAL: establishes CGS as a polynomial transpose-free Lanczos-type solver but does not state the sharp first-step SPD residual envelope or threshold.",
+        "evidence": "The publisher record identifies Volume 10, Issue 1, January 1989, pages 36–52, DOI 10.1137/0910004, with MSC 65F10 and 65N20; bibliographic metadata records 1989-01-01.",
+        "identifier_or_url": "doi:10.1137/0910004",
+        "material_read": "Publisher abstract, journal issue metadata, MSC codes, keywords, history, and references; independent bibliographic metadata giving the date 1989-01-01.",
+        "method": "Publisher HTML and bibliographic-record inspection. Complete public full text was not available through the lawful public routes located.",
+        "title": "CGS, A Fast Lanczos-Type Solver for Nonsymmetric Linear Systems",
+        "trigger": "Foundational source for CGS, its numerical-linear-algebra classification, and archive-era ownership."
+      },
+      {
+        "assessment": "MOTIVATING_NOT_COVERING: explicitly states irregular convergence with wild residual-norm oscillations but gives no sharp first-step SPD conditioning law in the inspected material.",
+        "evidence": "The abstract directly contrasts CGS wild residual oscillations with the smoother TFQMR construction; primary MSC is 65F10.",
+        "identifier_or_url": "doi:10.1137/0914029",
+        "material_read": "Publisher abstract, MSC code, bibliographic metadata, and references.",
+        "method": "Publisher HTML inspection.",
+        "title": "A Transpose-Free Quasi-Minimal Residual Algorithm for Non-Hermitian Linear Systems",
+        "trigger": "Direct classical statement that CGS residual norms can oscillate wildly."
+      },
+      {
+        "assessment": "CLOSEST_STRUCTURAL_INGREDIENT_NOT_COVERING: supplies the standard polynomial identity used at the first step but no condition-number envelope, threshold, endpoint extremizer, or asymptotic law.",
+        "evidence": "The introduction explicitly defines the CGS residual as the square of the BiCG residual polynomial and states that CGS exhibits larger residual oscillations that can reduce accuracy.",
+        "identifier_or_url": "doi:10.1002/nla.2298",
+        "material_read": "Full-text HTML introduction, especially the equations and discussion defining \\(r_k^{\\mathrm{CGS}}=R_k(A)^2r_0\\) and noting larger residual-norm oscillations.",
+        "method": "Full-text HTML inspection.",
+        "title": "GPBi-CGstab(L): A Lanczos-type product method unifying Bi-CGstab(L) and GPBi-CG",
+        "trigger": "Full-text modern source explicitly stating the CGS squared residual-polynomial identity and oscillation mechanism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c64cdd13-f555-4bca-8c9c-3373e4d1c5f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Wild CGS residual oscillations are a long-recognized practical defect that motivated smoother product Krylov methods. The finding gives the defect a sharp, reusable quantitative boundary in the simplest well-conditioned setting: below \\(\\kappa_*=3.442815869257\\ldots\\) the first residual cannot grow for any SPD problem, above it a two-dimensional diagonal problem already forces growth, and the sharp worst spike scales as \\(\\kappa^{3/2}\\). This identifies exactly when the first CGS squaring step ceases to be norm-safe and quantifies how severe the loss can become.",
+    "status": "PASS"
+  }
+}
