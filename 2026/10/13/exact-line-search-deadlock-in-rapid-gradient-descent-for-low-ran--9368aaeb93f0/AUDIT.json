@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The source formula reduces in the positive scalar case to \\(G_u=u\\sqrt v-\\rho v\\) and \\(G_v=v\\sqrt u-\\rho u\\). At the parameterized witness, exact algebra gives \\(vG_u+uG_v=0\\), \\(R=uv-\\rho<0\\), and \\(C=G_uG_v<0\\). Hence the full residual along the line is \\(R+C\\alpha^2<R<0\\) for every nonzero \\(\\alpha\\), so the squared residual and objective strictly increase. This directly negates the source Step-3 inequality and Lemma-1 existence claim. The exact rational witness and symbolic family were replayed from the packaged verification script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye--Du study exactly the product-factor objective with vanilla true-gradient descent and identify unbalancedness as a smoothness difficulty; their iteration is not the 2026 rapid approximate gradient.",
+        "Ma--Li--Chi study true-gradient matrix sensing under spectral initialization and show factors remain balanced; no approximate-gradient line-search existence statement is present."
+      ],
+      "reasoning": "These are stronger and highly relevant analyses of factor geometry, but neither implies whether the new rapid direction has a nonzero decreasing line-search step. The final claim depends on the specific quarter-power approximation introduced in 2026.",
+      "searches": [
+        "arXiv:2106.14289 full text asymmetric low-rank matrix factorization true gradient unbalancedness",
+        "DOI:10.1109/TSP.2021.3051425 balancing-free gradient descent asymmetric low-rank matrix sensing"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3390/math14020343",
+      "arXiv:2106.14289",
+      "DOI:10.1109/TSP.2021.3051425"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source explicitly acknowledges that the rapid approximation may fail to be a descent direction but nevertheless asserts a nonzero acceptable step always exists.",
+        "The source fallback is conditioned on a previously small step parameter; at the constructed first iterate Step 3 returns no step, so that safeguard cannot be reached.",
+        "The prior factorization papers use the true gradient and therefore do not imply the no-step behavior of the new rapid direction."
+      ],
+      "reasoning": "The accepted claim directly contradicts one source lemma rather than following as a corollary of prior factorization geometry. Its critical second-order line coefficient is specific to the source rapid-gradient formula.",
+      "searches": [
+        "Primary full text: Formula (4), Algorithm 1 Step 3, Remark 1, Lemma 1, Theorem 1",
+        "arXiv:2106.14289 full text objective and trajectory analysis",
+        "DOI:10.1109/TSP.2021.3051425 factor balancing and true-gradient convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed published finding matched the primary article with a zero directional derivative and second-order uphill rapid direction.",
+        "The nearest indexed records concern acceptance-test obstructions or stability frontiers for different algorithms and do not contain the source rapid-gradient formula."
+      ],
+      "reasoning": "The searches covered equivalent descriptions of the phenomenon: no nonzero monotone step, tangential approximate direction, bidirectional line-search failure, and exact low-rank scalar obstruction.",
+      "searches": [
+        "Rapid Gradient Descent low rank matrix recovery approximate gradient line search no nonzero step counterexample",
+        "10.3390/math14020343 Lemma 1 line search rapid gradient counterexample",
+        "low rank rapid gradient orthogonal directional derivative approximate gradient line search failure",
+        "UV factor approximate gradient line search tangential direction objective increases both signs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No source-specific indexed record or public correction was located.",
+        "The result is an exact analytic line restriction, not a recomputation of a benchmark or published numerical table."
+      ],
+      "reasoning": "The exact rational values and parametric family are absent from the searched indexed records, and the source numerical tables do not address line-search nonexistence.",
+      "searches": [
+        "10.3390/math14020343 Lemma 1 line search rapid gradient counterexample",
+        "Rapid Gradient Descent low rank matrix recovery approximate gradient line search no nonzero step counterexample",
+        "UV factor approximate gradient line search tangential direction objective increases both signs"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the objective, rapid-gradient formula, Algorithm 1, Remark 1, Lemma 1, and convergence section. Source-specific published-result searches found no correction or equivalent no-step construction. The closest low-rank-factorization literature analyzes true-gradient trajectories and balancing, not the 2026 rapid direction or its bidirectional line-search deadlock.",
+    "residual_risks": [
+      "A later or poorly indexed note may independently point out the same Step-3 obstruction; none was found in the checked searches.",
+      "The exact family is directionally degenerate and a robustness neighborhood was not classified.",
+      "The immediate true-gradient fallback is proposed only as a well-definedness repair; its full global convergence analysis is not established here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The rapid direction is acknowledged as not necessarily descending, yet Step 3 requires a nonzero monotone step and Lemma 1 states one exists. The source does not treat the zero directional-derivative/positive second-order case exhibited here.",
+        "evidence": "Formula (4) supplies the quarter-power direction; Algorithm 1 Step 3 searches both positive and negative nonzero steps; Lemma 1 claims existence of such a step.",
+        "identifier_or_url": "DOI:10.3390/math14020343",
+        "material_read": "Full public article text covering the factorized objective, exact gradient, rapid gradient Formula (4), Remark 1, Algorithm 1, Assumption 1, Lemma 1 and its proof, Theorem 1, numerical section, and conclusion; the publicly rendered article/PDF text was inspected around the algorithm and lemma.",
+        "method": "Public publisher HTML and lawful open full-text rendering.",
+        "title": "Rapid Gradient Descent Method for Low-Rank Matrix Recovery",
+        "trigger": "Primary recent source defining the rapid direction and asserting line-search step existence."
+      },
+      {
+        "assessment": "Analyzes vanilla true-gradient dynamics and factor balance; it does not use or imply the 2026 rapid approximate direction or the no-step family.",
+        "evidence": "The paper explicitly identifies unbalancedness as a difficulty and develops trajectory analysis for the true-gradient update.",
+        "identifier_or_url": "arXiv:2106.14289",
+        "material_read": "Full public HTML text covering the objective, true-gradient iteration, scale homogeneity, unbalancedness/smoothness discussion, balancing regularization literature, main theorem, and technique overview.",
+        "method": "Public arXiv full-text HTML inspection.",
+        "title": "Global Convergence of Gradient Descent for Asymmetric Low-Rank Matrix Factorization",
+        "trigger": "Highly relevant full-text analysis of the identical factorized least-squares objective."
+      },
+      {
+        "assessment": "Provides broader context for factor geometry but does not cover the rapid-gradient line-search mechanism.",
+        "evidence": "Its convergence statement is for gradient descent under restricted-isometry and spectral-initialization assumptions, with automatic factor balance.",
+        "identifier_or_url": "DOI:10.1109/TSP.2021.3051425",
+        "material_read": "Public arXiv abstract and metadata describing its true-gradient matrix-sensing method, spectral initialization, automatic balancedness, and invertible-transform ambiguity.",
+        "method": "Public arXiv inspection.",
+        "title": "Beyond Procrustes: Balancing-Free Gradient Descent for Asymmetric Low-Rank Matrix Sensing",
+        "trigger": "Relevant factor-balancing literature cited in the modern asymmetric low-rank gradient-descent theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9368aaeb-93f0-4e75-95e5-dc63996a9361",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The line-search existence lemma is the mechanism that is supposed to make the new approximate direction usable and underpins the convergence discussion. The counterexample shows Algorithm 1 can be undefined at its first iteration on the smallest admissible recovery problem, despite the source already recognizing that the rapid direction may be imperfect. Because the obstruction survives both step signs and every nonzero step length, it cannot be fixed by ordinary backtracking; it specifically identifies where the safeguard must be moved. This is a structural algorithm-design boundary, not a routine numerical check.",
+    "status": "PASS"
+  }
+}
