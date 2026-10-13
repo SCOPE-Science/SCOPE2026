@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The exact projected residual dynamics close as a two-state positive matrix for every admissible parameter, allowing Perron–Frobenius and the exact covariance identity; an elementary squared-difference identity gives the sign and a monotonic scalar maximization gives the sharp 1/8 bound. Exact rational trajectory enumeration (7,650 paths), 19,900 spectral grid checks and near-extremal tests executed successfully. Finite checks do not serve as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.04685v1 Theorems 4.1 and 4.3",
+        "arxiv:1503.08235 randomized Gauss-Seidel convergence analysis",
+        "published-finding corpus: 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ],
+      "reasoning": "General stochastic-coordinate contraction bounds and E-optimal one-step probabilities give upper bounds but do not identify the exact asymptotic actual expectation relative to the new restricted-subspace mean nor its global discrepancy. The motivating theorem explicitly assumes nonnegative covariance and thus does not assert coverage of the negative-covariance regime.",
+      "searches": [
+        "published-finding corpus: 2026 numerical optimization randomized projection iterative solvers diagonal coordinate sampling matrix approximation",
+        "published-finding corpus: random coordinate descent two coordinates Markov switching exact spectral mean-square convergence with batch sampling",
+        "published-finding corpus: nonnegative covariance assumption stochastic coordinate descent 2026 restricted subspace",
+        "Web: randomized Gauss Seidel 2x2 expected energy convergence rate spectral radius Markov matrix biased sampling",
+        "Web: biased sampling exact rate two-dimensional Gauss-Seidel"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.04685v1",
+      "https://arxiv.org/abs/1503.08235",
+      "https://arxiv.org/abs/1412.8063",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac/RESULT.md",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.04685v1 eqs. (3.5), (4.4), (4.27)–(4.34) and Remark 4.4",
+        "arxiv:1503.08235, randomized Gauss–Seidel sections",
+        "Full published RESULT.md of the two pertinent published-finding corpus findings (IDs above)"
+      ],
+      "reasoning": "The conditional Xie–Yang result covers only samples with nonnegative curvature–error covariance; the finding establishes eventual strictly negative population covariance outside that hypothesis and sharp quantifies the difference. The other results use different rates, geometries or uniform sampling, so their stated claims do not imply the full sharp statement.",
+      "searches": [
+        "published-finding corpus: randomized batch-sampling coordinate descent least squares two-coordinate exact sampling covariance restricted subspace 2026 Xie Yang",
+        "published-finding corpus: Sharp asymptotic convergence factor for two-column normalized randomized Gauss Seidel least squares lambda=(1+sqrt((2p-1)^2+4p(1-p)r^4))/2",
+        "published-finding corpus: Negative asymptotic covariance between previous sampled coordinate restricted-subspace curvature and current squared residual in biased coordinate descent",
+        "Web: randomized coordinate descent two variables exact expected squared error spectral radius sampling probabilities covariance previous sampled coordinate",
+        "Web: batch coordinate descent 2026 Xie Yang sample covariance nonnegative assumption sharp necessity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.04685v1, Sections 3.3–4.3 (exact restricted curvature and conditional covariance theorem)",
+        "arxiv:1412.8063, arbitrary-sampling ESO framework",
+        "published-finding corpus: 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac, RESULT.md"
+      ],
+      "reasoning": "The equivalent two-state Perron representation, projector-product second moments, and random alternating-projection interpretation were compared, not merely matching names. Earlier uniform asynchronous recurrence concerns a different metric and cannot imply the biased covariance reversal.",
+      "searches": [
+        "published-finding corpus: randomized batch-sampling coordinate descent least squares two-coordinate exact sampling covariance restricted subspace 2026 Xie Yang",
+        "published-finding corpus: random coordinate descent two coordinates Markov switching exact spectral mean-square convergence with batch sampling",
+        "published-finding corpus: Sharp asymptotic convergence factor for two-column normalized randomized Gauss Seidel least squares lambda=(1+sqrt((2p-1)^2+4p(1-p)r^4))/2",
+        "published-finding corpus: Negative asymptotic covariance between previous sampled coordinate restricted-subspace curvature and current squared residual in biased coordinate descent",
+        "Web: randomized coordinate descent exact 2-dimensional quadratic mean square spectral radius p 1-p correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published-mathematics semantic hits for covariance, biased Gauss–Seidel, sharp 1/8 gap and exact two-state formula; no identical result identified",
+        "Published results and known mathematical claims were compared for exact statements and equivalent implications"
+      ],
+      "reasoning": "This is a continuous-parameter analytic theorem, not an entry in a numerical table. Published-result sources were compared for exact formula and special-value coverage; negative search alone is not novelty proof.",
+      "searches": [
+        "published-finding corpus: 2026 randomized numerical linear algebra sketch preconditioner exact stability bounds moment sharp counterexample",
+        "published-finding corpus: randomized batch-sampling coordinate descent least squares two-coordinate exact sampling covariance restricted subspace 2026 Xie Yang",
+        "published-finding corpus: one eighth maximal gap between average curvature predicted contraction and true Perron rate randomized two coordinate least squares"
+      ]
+    },
+    "rationale": "Direct full-text source checks show the 2026 RBSCD Theorem 4.3 assumes nonnegative covariance and does not establish this universal eventual sign reversal for biased two-column sampling or its sharp rate gap. The most relevant published two-dimensional result covers uniformly sampled delayed iterations and a different metric; another optimizes worst-case one-step contraction. Full comparable claim implications rather than titles were evaluated. Older equivalent Markov-product results remain an explicit residual risk.",
+    "residual_risks": [
+      "The derivation uses classical 2x2 Perron theory and projector geometry; exact-equivalence formulations could exist in older alternating-projections or Markov switching literature.",
+      "Independent bibliographic review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of the biased two-state asymptotic covariance sign or global sharp gap within inspected scope; conditional theorem explicitly assumes nonnegative covariance",
+        "evidence": [
+          "arxiv:2610.04685v1 eqs. (3.2),(3.5),(4.4),(4.27)–(4.34), Remark 4.4, initial arXiv date 2026-10-03"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.04685v1",
+        "material_read": "Full HTML mathematical definitions, Sections 2–4 including Lemmas 3.3–3.4, Theorems 4.1 and 4.3, proofs, Remark 4.4 and relevant experiments; PDF page containing Theorem 4.3 visually checked",
+        "method": "open-access arXiv HTML and PDF",
+        "title": "On randomized batch-sampling coordinate descent methods for solving linear least-squares problems",
+        "trigger": "Direct motivating non-worst-case curvature–error covariance estimate"
+      },
+      {
+        "assessment": "Classical contraction bound does not give source-specific restricted covariance nor one-eighth sharp gap",
+        "evidence": [
+          "arxiv:1503.08235 randomized Gauss–Seidel iteration and rate sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.08235",
+        "material_read": "Open-access primary PDF, including algorithm, randomized Gauss–Seidel convergence theorem and its proof/parameter conditions",
+        "method": "arXiv PDF text and selected page inspection",
+        "title": "Convergence properties of randomized extended Gauss-Seidel and Kaczmarz methods",
+        "trigger": "Classical randomized Gauss–Seidel and least-squares special cases"
+      },
+      {
+        "assessment": "ESO general sampling bounds do not give exact biased two-state Perron covariance and 1/8 frontier",
+        "evidence": [
+          "arxiv:1412.8063 arbitrary sampling and ESO statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.8063",
+        "material_read": "Open-access primary HTML introduction, theoretical arbitrary-sampling ESO discussions and references",
+        "method": "arXiv HTML",
+        "title": "Coordinate Descent with Arbitrary Sampling II: Expected Separable Overapproximation",
+        "trigger": "General nonuniform sampling guarantees potentially implying the rate comparison"
+      },
+      {
+        "assessment": "NOT_COVERING: uniform p, delayed reads and diagonally scaled error; biased sampling explicitly excluded",
+        "evidence": [
+          "Uniform draw and delay recurrence in theorem; limitations exclude unequal probabilities and exact A-energy recurrence"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac/RESULT.md",
+        "material_read": "Full RESULT.md including exact recurrence, proof, stated assumptions and limitations",
+        "method": "published full-text mathematical result",
+        "title": "Exact delay-distribution law for two-coordinate randomized Gauss–Seidel",
+        "trigger": "Published two-coordinate exact second-moment law with plausible stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: exact worst-case one-step contraction and optimizer, not long-time expected-error asymptotic covariance comparison",
+        "evidence": [
+          "Main theorem optimizes smallest eigenvalue; limitations explicitly limit to one-step worst-case expectation"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md",
+        "material_read": "Full RESULT.md including one-step theorem, proof and limitations",
+        "method": "published full-text mathematical result",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Optimal fixed sampling probabilities and 2D SPD quadratic results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "594691cd-f511-4bc3-abb4-d00cb7bab4b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem supplies a complete, nontrivial parameter-wide sign characterization of a hypothesis used by a new non-worst-case coordinate-sampling analysis, quantifies its maximum asymptotic optimism by a sharp 1/8, and exhibits the limitation even at condition number tending to one. It does not claim the original conditional theorem is false, or that a two-coordinate model proves general batch behavior.",
+    "status": "PASS"
+  }
+}
