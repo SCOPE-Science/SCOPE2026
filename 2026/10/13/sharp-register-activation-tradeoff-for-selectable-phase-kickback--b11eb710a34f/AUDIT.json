@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For a bank with labels \\(k_i\\), each allowed online choice is a subset and therefore supplies one residue \\(\\sum_{i\\in S}k_i\\pmod{2^n-1}\\). Universality with activation cap \\(h\\) forces the number of eligible subsets to be at least \\(2^n-1\\). The resulting integer inequalities give \\(r\\ge n\\) and, when \\(r=n\\), \\(h\\ge n-1\\). For the source labels \\(a2^i\\), multiplication by the unit \\(a\\) permutes residues, and every representative below \\(2^n-1\\) except the excluded all-ones integer has Hamming weight at most \\(n-1\\), proving sharpness. No finite experiment is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.24982v1 gives a broader \\(O(\\log(1/\\epsilon))\\)-qubit universal-catalyst construction, but uses target-dependent controlled powers.",
+        "arXiv:2305.07720v1 develops general catalytic embeddings, not the fixed-bank on/off subset-count problem."
+      ],
+      "reasoning": "Broader catalytic schemes evade the model by changing the available online operation. They dominate resource scaling globally but do not cover the architecture-specific necessity statement.",
+      "searches": [
+        "arXiv:2512.24982 universal catalyst arbitrary-angle rotation",
+        "arXiv:2305.07720 catalytic embeddings quantum circuits"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.15147v1/v3",
+      "doi:10.22331/q-2026-08-13-2191",
+      "arXiv:2512.24982v1",
+      "arXiv:2305.07720v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kim 2026 proves sufficiency of \\(n\\) selectable eigenstate catalysts and reports \\(n^2\\) catalyst size, without a lower bound over arbitrary bank labels.",
+        "Kim–Laakkonen 2025/2026 replaces the bank by one catalyst and target-dependent \\(U_f^{d'}\\); this demonstrates that the restriction in the new claim is essential."
+      ],
+      "reasoning": "Sufficiency of one explicit bank does not imply minimality among all selectable banks. The later improvement is not a corollary or stronger version of the restricted claim because it exits the one-use fixed-kickback model.",
+      "searches": [
+        "\"Any Clifford+T circuit can be controlled with constant T-depth overhead\" \"2506.15147\"",
+        "Kim 2026 Section 2.2 variable-angle catalyst n copies",
+        "Kim-Laakkonen 2025 Section 5.1 universal catalyst controlled power"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2506.15147v1/v3, Section 2.2: selectable eigenphase kickbacks from a bank indexed by powers of two modulo \\(2^n-1\\).",
+        "arXiv:2512.24982v1, Section 5.1: a single catalyst with target-dependent controlled \\(U_f^{d' }\\), a different architecture."
+      ],
+      "reasoning": "The candidate was searched as selectable phase kickback, subset-sum coverage, binary phase bank, and universal catalyst. No retrieved statement gave the binomial coverage inequality or the sharp \\(r=n, h=n-1\\) boundary.",
+      "searches": [
+        "arXiv:2506.15147 variable-angle catalyst bank subset sums phase kickback",
+        "catalytic z rotations variable angle catalyst state n copies lower bound subset sum",
+        "phase kickback eigenstate catalyst bank covering all 2^n-1 phases subset sum",
+        "constant T-depth variable rotation catalyst O(log^2) T-count lower bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked result database returned no quantum phase-kickback finding matching the source, parameters, or binomial tradeoff; the closest subset-sum hit was a classical divisor-subset-sum result with different objects."
+      ],
+      "reasoning": "There is no natural published finite table whose entries would subsume this theorem; the relevant comparison is to circuit and catalyst constructions. The database search did not expose a covering entry.",
+      "searches": [
+        "\"Catalytic z-rotations in constant T-depth\" \"n copies\" \"selectively applying phase kickback\"",
+        "\"phase kickback\" \"subset sums\" \"2^n-1\" quantum catalyst",
+        "\"universal catalyst\" \"subset sums\" rotation quantum",
+        "\"binary-selectable\" phase kickback catalyst"
+      ]
+    },
+    "rationale": "The primary paper states the selectable power-of-two bank and its quadratic catalyst size but not a necessity theorem. The later single-catalyst paper improves the global resource scaling by changing the online operation to a target-dependent controlled power, so it does not imply or contradict the restricted lower bound. Searches for phase-kickback, subset-sum, universal-catalyst, and binary-selectable formulations found no covering statement.",
+    "residual_risks": [
+      "A recent or differently indexed note may contain the same counting observation under phase-gradient, subset-sum, or catalyst-bank terminology.",
+      "The theorem is intentionally architecture-specific; removing the single-use/on-off restriction invalidates the register lower bound, as the later controlled-power construction demonstrates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_SOURCE_NOT_COVERING",
+        "evidence": "The paper explicitly uses \\(n\\) catalysts \\(|\\psi_{a2^t}\\rangle\\), selective phase kickback, and \\(n^2\\) catalyst size; it does not state the subset-count lower bound.",
+        "identifier_or_url": "arXiv:2506.15147 / DOI:10.22331/q-2026-08-13-2191",
+        "material_read": "Full-text PDF: introduction; Section 2.2 Phase Kickback; Section 2.3 Resource Estimate; Section 3 Discussion.",
+        "method": "Full-text reading of the open-access paper, including the circuit pages for the selectable bank and the discussion of later improvements.",
+        "title": "Catalytic z-rotations in constant T-depth",
+        "trigger": "Primary source and exact construction being sharpened."
+      },
+      {
+        "assessment": "NOT_COVERING_DIFFERENT_ARCHITECTURE",
+        "evidence": "It uses one \\(|\\psi_k\\rangle\\) and a target-dependent controlled \\(U_f^{d'}\\), rather than selecting a subset of fixed controlled-\\(U_f\\) kickbacks.",
+        "identifier_or_url": "arXiv:2512.24982v1",
+        "material_read": "Full-text PDF: Section 5.1 Catalyzing arbitrary-angle rotations and Discussion.",
+        "method": "Full-text reading of the arXiv PDF, including the pages defining the single-catalyst controlled-power construction.",
+        "title": "Any Clifford+T circuit can be controlled with constant T-depth overhead",
+        "trigger": "Highly relevant later work that improves universal-catalyst size and could dominate the candidate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b11eb710-a34f-43fe-9b14-de5581fd8a5f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The bound turns the source paper’s informal need for \\(n\\) selectable catalysts into a sharp architecture theorem and exactly identifies the register/activation frontier at the minimal bank size. This explains why a mere relabeling of the fixed kickback bank cannot obtain the later linear-size universal catalyst: the successful later method changes the online operation to a controlled power. The boundary is natural because it is tied directly to the \\(2^n-1\\) phase grid used by the construction, rather than to an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
