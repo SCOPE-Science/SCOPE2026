@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the two-column Gaussian covariance from the normalized input; eigenvalues of its signed quadratic form are (Delta+kappa²-1)/2 and -(Delta-kappa²+1)/2. Summation across independent rows yields independent chi-square d variates and a beta(d/2,d/2) ratio exactly, including rho=±1 boundary. Differentiating Delta and Gram eigenvalue spread proves strict opposing monotonicities. Endpoint Laplace plus Stirling yields exact prefactor and base. Exact-rational even-d checks and independent Monte Carlo from verify.py replayed successfully; finite checks supplement, do not prove, the quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "CQRRPT: Gaussian sketch and QRCP followed by high-probability rank revealing, not an exact two-column first-pivot law.",
+        "Xiao–Gu–Langou: probabilistic pseudo-diagonal-dominance estimates, not exact angle-dependent probability."
+      ],
+      "reasoning": "Published embedding/rank-revealing inequalities do not logically specify the exact joint norm-order probability or the sign of its derivative with respect to original-column correlation; no known theorem in inspected sources subsumes both.",
+      "searches": [
+        "CholeskyQR with Randomization and Pivoting CQRRPT pivot Gaussian angle correlations rank reveal exact failure probability",
+        "arxiv:2311.08316 Sections 2.1–2.3 and A.2",
+        "arxiv:1804.05138 Section III.C"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.08316 (CQRRPT, full HTML 2.1–2.3 and Appendix A.2)",
+      "arxiv:1509.06820 (Duersch–Gu, full HTML Sections 3–3.3)",
+      "arxiv:1804.05138 (Xiao–Gu–Langou, full HTML Section III)",
+      "arxiv:1505.08115 (Martinsson, full HTML introduction and Section 4)",
+      "published-finding corpus: exact Gaussian sketch column norm misranking probability correlated two columns incomplete beta rank revealing QR pivot",
+      "published-finding corpus: angle dependence probability of wrong first pivot in randomized QR with column pivoting, Gaussian sketch, chi-square ratio",
+      "published-finding corpus: finite sketch dimension tail bound exact Gaussian pivot selection as a function of column correlation",
+      "published-finding corpus: CholeskyQR with Randomization and Pivoting CQRRPT pivot Gaussian angle correlations rank reveal exact failure probability",
+      "published-finding corpus: randomized block Kaczmarz Nyström Cholesky covariance exact sharp phase transition failure examples"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marginal chi-square laws under Gaussian projection fail to specify the cross-column covariance and hence cannot infer the exact wrong-column selection probability.",
+        "Uniform norm-embedding tail bounds provide upper bounds but neither a matching fixed-angle equality nor a conditioning-risk reversal.",
+        "Known published-finding corpus adaptive-pivoting results concern different selection mechanisms and approximation loss."
+      ],
+      "reasoning": "The claim adds an exact joint Gaussian order statistic, a strict angular monotonicity, a contrary condition-number monotonicity, and sharp large-sketch asymptotic. The earlier Gaussian-QRCP paper predates the 2023 motivating CQRRPT source, and shared random-sketching principles are expressly not claimed new.",
+      "searches": [
+        "angle dependence probability of wrong first pivot in randomized QR with column pivoting, Gaussian sketch, chi-square ratio",
+        "CholeskyQR with Randomization and Pivoting CQRRPT pivot Gaussian angle correlations rank reveal exact failure probability",
+        "arxiv:1509.06820 Sections 3–3.3",
+        "arxiv:2311.08316 Appendix A.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Correlated Gaussian squared-norm ranking becomes an indefinite quadratic-form signature (+d,-d) and a ratio of two independent chi-square variables.",
+        "Duersch–Gu give sample-column marginal norm distributions, not the joint correlated ordering law."
+      ],
+      "reasoning": "Equivalent formulations considered include Gaussian quadratic-form sign, correlated chi-square norm comparison, regularized-beta/F distribution tails, and incorrect QRCP pivot probability. The beta identity is standard but the angle-to-risk and conditioning reversal were not located as published QR findings.",
+      "searches": [
+        "exact Gaussian sketch column norm misranking probability correlated two columns incomplete beta rank revealing QR pivot",
+        "angle dependence probability of wrong first pivot in randomized QR with column pivoting, Gaussian sketch, chi-square ratio",
+        "arxiv:1509.06820 Sections 3–3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus searches returned adaptive randomized pivoting and QR-related entries but no equality-law record for two correlated Gaussian-sketched QR columns.",
+        "Exact beta and binomial coefficients follow from standard probability identities, not a tabulated QR error-rate dataset."
+      ],
+      "reasoning": "No exact indexed QRCP angle-risk table located; absence of a hit is not proof of novelty. A general beta table is not itself a previous application of the theorem.",
+      "searches": [
+        "finite sketch dimension tail bound exact Gaussian pivot selection as a function of column correlation",
+        "exact Gaussian sketch column norm misranking probability correlated two columns incomplete beta rank revealing QR pivot",
+        "published-finding corpus search for exact Gaussian sketch column norm misranking probability correlated two columns"
+      ]
+    },
+    "rationale": "Primary full-text comparison covered the 2023 defining CQRRPT procedure and closely relevant 2015 and 2018 Gaussian randomized QRCP papers. The older 2015 paper already contains the Gaussian sketch primitive and marginal chi-square observations; those premises do not imply this exact correlated two-column joint misranking law and conditioning/reliability reversal. No broader covered theorem was identified in published-finding corpus or local ledgers; nonindexed exact Gaussian-norm comparison literature remains a residual priority risk.",
+    "residual_risks": [
+      "Specialized prior Gaussian quadratic-form/two-norm comparison could record the same beta formula outside indexed randomized QR literature.",
+      "The Gaussian sketch and QR pivot primitive was already present in 2015; the 2023 reference is the defining modern algorithm context, not the first appearance of the primitive.",
+      "Full-text materials checked do not exhaust all dissertations, appendices, and subsequent citations; independent literature adjudication has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical first-pivot experiment, but inspected results give embedding and rank-revealing bounds, not exact correlated two-column norm-ordering probability or reversed conditioning comparison.",
+        "evidence": "arxiv:2311.08316v3, Sections 2.1 (CQRRPT sketch and QRCP), 2.3 (Gaussian OSE) and A.2 (rank-revealing bounds); original v1 submitted 2023-11-14.",
+        "identifier_or_url": "arxiv:2311.08316",
+        "material_read": "Full HTML: Sections 1.1 and 2.1–2.3, algorithm statements, Gaussian sketch assumptions, Theorem 7 context, and rank-revealing Appendix A.2.",
+        "method": "Read accessible arXiv full-text HTML, compared Gaussian sketch and pivot stage with the exact beta-law event.",
+        "title": "CholeskyQR with Randomization and Pivoting for Tall Matrices",
+        "trigger": "Defining algorithm has Gaussian sketch followed by norm-pivoted QR; plausible direct coverage of first-pivot reliability."
+      },
+      {
+        "assessment": "The known single-column marginal chi-square law and empirical correlation analysis do not determine the joint misranking event, which depends on the full pair covariance; no exact angular mispivot formula or conditioning reversal located.",
+        "evidence": "arxiv:1509.06820v2, Sections 3–3.3, initial 2015 preprint.",
+        "identifier_or_url": "arxiv:1509.06820",
+        "material_read": "Full HTML Sections 3, 3.1, 3.2, 3.3 including sample-column norm distribution, bias effects, and orthogonal-column experiment.",
+        "method": "Read arXiv full-text HTML and compared marginal chi-square and high-probability claims against exact joint two-column beta expression.",
+        "title": "Randomized QR with Column Pivoting",
+        "trigger": "Earliest related randomized QRCP method uses Gaussian sketches and discusses column correlations."
+      },
+      {
+        "assessment": "Provides oversampling-dependent probabilistic pseudo-diagonal-dominance guarantees, not the exact signed quadratic-form law nor the monotone correlation/conditioning reversal.",
+        "evidence": "arxiv:1804.05138v1, Section III.C.",
+        "identifier_or_url": "arxiv:1804.05138",
+        "material_read": "Full HTML Section III.A algorithm, III.C theorem 2, proof and Johnson–Lindenstrauss tail bounds.",
+        "method": "Read arXiv full-text HTML and compared probability inequalities with exact norm-ranking event.",
+        "title": "Fast Parallel Randomized QR with Column Pivoting Algorithms for Reliable Low-Rank Matrix Approximations",
+        "trigger": "Related randomized QRCP sample bound may imply a sharper two-column risk result."
+      },
+      {
+        "assessment": "No exact regularized-beta law or correlation inversion found in inspected material.",
+        "evidence": "arxiv:1505.08115v1, introduction and Section 4.",
+        "identifier_or_url": "arxiv:1505.08115",
+        "material_read": "Full HTML introduction and randomized QR discussion in Section 4.",
+        "method": "Read arXiv full-text HTML, searched for exact first-two-column ranking distributions.",
+        "title": "Blocked rank-revealing QR factorizations: How randomized sampling can be used to avoid single-vector pivoting",
+        "trigger": "Earlier QR sketching methodology with possible two-column results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "898d2fed-99f2-416b-94cc-4a788c927c6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "First-pivot failures matter for sketch sizing and reliability of column selection in randomized QRCP. The exact risk law gives a directly usable sharp probability and asymptotic sketch-dimension cost, rather than a one-sided embedding bound. The natural norm ratio, correlation, and condition number arise from the original two-column Gram matrix; the counterintuitive strict reversal shows a condition number alone mispredicts which inputs are hardest for the first sketch-pivot decision. The conclusion is deliberately limited to two columns and first pivot, not overclaimed to full factorization or numerical stability.",
+    "status": "PASS"
+  }
+}
