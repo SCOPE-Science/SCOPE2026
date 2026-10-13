@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The sphere-volume bound 81/9=9 excludes lengths at most 8; explicit bitmask census checks all 19683+59049+177147+531441 candidates of lengths 9 to 12, with covering counts 0,0,0,48. An explicit twelve-symbol witness covers all 81 targets. Permutation/rotation orbits of the witness and its reversal have size 24 each, are disjoint, and exhaust precisely the enumerated 48 optimizers. The actual embedded pure-Python checker executes these steps and prints VERIFY_OK; separate C++ full enumeration independently agreed. Exhaustiveness is finite and exact, not statistical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Etzion (arXiv:2607.14840v1), Section IV, Lemma 3/Corollary 1 constructs q-ary Hamming covering-sequence codes with potentially several cycles; the multicycle construction cannot enforce a 12-window minimum for a single cycle.",
+        "Ta--Vu (arXiv:2606.29236v1), main theorem covers sufficiently large spans with a constant-factor upper bound; no exact small-span classification.",
+        "Chee et al. (2025), Sections 3--6 give constructions primarily for binary sequences."
+      ],
+      "reasoning": "The general constructions do not imply either the sharp lower bound 12 or the exact cardinality and dihedral-alphabet orbit of all minimizers; their assumptions/outputs differ.",
+      "searches": [
+        "Published-record query: Etzion 2026 covering sequences code exact small ternary q=3",
+        "arXiv:2607.14840v1",
+        "arXiv:2606.29236v1",
+        "DOI:10.1007/s10623-025-01726-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0310385 (Chung--Cooper, full preprint)",
+      "doi:10.1007/s10623-025-01726-5 (Chee--Etzion--Ta--Vu, full open-access article)",
+      "arXiv:2607.14840v1 (Etzion, full preprint)",
+      "arXiv:2606.29236v1 (Ta--Vu, full preprint)",
+      "Published-record semantic searches on covering sequences, aliases and finite q-ary cyclic codes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The ordinary ternary linear [4,2,3] Hamming code contains nine words covering all ternary 4-words at radius one, but is a set rather than a single cyclic sequence.",
+        "Etzion Section IV Corollary 1 provides a constacyclic multicomponent covering-sequence-code family, not a sharp 12-window single cycle with classified equalities.",
+        "Ta--Vu constant-factor construction is asymptotic; it does not entail the small exact value.",
+        "A published binary cyclic symbol-pair-code bound concerns adjacent coordinate-pair metrics, not Hamming balls of cyclic four-windows."
+      ],
+      "reasoning": "Neither ordinary code cardinality nine, multicycle covering, binary covering tables, nor asymptotic existence determines the length-12 single-cycle optimum or exactly 48 indexed extremizers. Conversely the current finite result does not claim to improve the general bounds.",
+      "searches": [
+        "Published-record query: de Bruijn covering code 3-ary 4 1 optimal cyclic sequence uniqueness enumeration",
+        "Published-record query: shortest q-ary cyclic Hamming covering sequences ternary alphabet length four radius one exact",
+        "arXiv:2607.14840v1, Section IV",
+        "arXiv:2606.29236v1, Main Theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chung--Cooper (arXiv:math/0310385), introduction: q-ary de Bruijn covering code is a single cyclic string with radius-one Hamming window coverage; equivalent to the present object. Its Table 1 addresses q=2 only.",
+        "Chee--Etzion--Ta--Vu (DOI 10.1007/s10623-025-01726-5), Section 1 defines exactly the covering-sequence model."
+      ],
+      "reasoning": "The aliases are mathematically equivalent for the single cyclic word, not merely title matches. Primary full texts lack the exact q=3,n=4,R=1 minimum and optimizer-orbit enumeration.",
+      "searches": [
+        "Published-record query: shortest q-ary cyclic Hamming covering sequences ternary alphabet length four radius one exact",
+        "Published-record query: de Bruijn covering sequences minimum ternary 4-window radius-one length cyclic",
+        "Web query: \"de Bruijn covering\" q 3 n 4 radius 1 minimal",
+        "arXiv:math/0310385",
+        "Published-record query: ternary q=3 cyclic de Bruijn covering sequence span 4 radius 1 minimum length 12 exactly 48 symmetry classes reversal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chung--Cooper, Table 1 is captioned best known bounds for M(n,R,2), not M(n,R,3).",
+        "Chee et al., Table 1 records binary bounds for lengths 9--20 and radii 1--3.",
+        "No ranked published-record match reported this exact ternary finite parameter. The closest cyclic-symbol-pair-code record concerns a distinct metric."
+      ],
+      "reasoning": "An ordinary ternary Hamming covering-code table at (4,1) may show optimal set size nine, but that is not a table of a single cyclic sequence, where overlap constraints matter. The inspected published tables do not contain the new statement. Unindexed tables remain possible.",
+      "searches": [
+        "Published-record query: exact minimum ternary cyclic covering sequence length 4 Hamming radius 1 12 48 equivalence dihedral",
+        "Published-record query: ternary Hamming perfect [4,2,3] covering code cyclic windows minimal sequence",
+        "Web query: \"covering sequences\" \"ternary\" \"4\" \"12\" hamming",
+        "Chung--Cooper Table 1 (arXiv:math/0310385)",
+        "Chee--Etzion--Ta--Vu Table 1 (DOI:10.1007/s10623-025-01726-5)",
+        "Published-record query: L_3(4,1)=12 48 optimal cyclic ternary Hamming covering sequences"
+      ]
+    },
+    "rationale": "The exact single-cycle ternary four-window radius-one minimum, exact 48 indexed optimizers, and full symmetry classification were compared at the level of implication against four full-text primary sources plus published mathematical record searches and comparison with related scientific statements. The 2003 and 2025 small-parameter tables are binary; 2026 constacyclic Hamming constructions use possibly multiple cycles; 2026 asymptotic bounds give no sharp finite value. Residual possibility: unindexed earlier finite computation.",
+    "residual_risks": [
+      "An earlier unindexed thesis, appendix, private enumeration, or table could conceivably establish the same 12 and 48-count result; public searches cannot prove global novelty.",
+      "The result is entirely finite and deliberately does not imply bounds at other parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identical single-cycle Hamming-covering object; the finite table is explicitly binary, and the q-ary bounds are general, not exact for ternary four-windows.",
+        "evidence": [
+          "Section 1 defines M(n,R,q) on cyclic strings; Table 1 is captioned M(n,R,2); Section 4 asks for sharper small-parameter bounds."
+        ],
+        "identifier_or_url": "arXiv:math/0310385; https://people.math.sc.edu/cooper/debruijn.pdf",
+        "material_read": "Full 18-page preprint, introduction, proofs and Table 1 on printed page 16",
+        "method": "Full-text PDF reading with page-image inspection",
+        "title": "De Bruijn Cycles for Covering Codes",
+        "trigger": "Original definition and all known finite covering-sequence tables"
+      },
+      {
+        "assessment": "Single cyclic sequence is defined, but Table 1 and the detailed finite search focus on binary n=9--20, not the ternary n=4 exact optimum.",
+        "evidence": [
+          "Introduction states Section 3 discussion is restricted to binary; Table 1 covers n=9--20, R=1,2,3."
+        ],
+        "identifier_or_url": "doi:10.1007/s10623-025-01726-5",
+        "material_read": "Full open-access HTML article, introduction, Sections 2--6, Table 1 and appendices",
+        "method": "Read primary open-access full article and find finite tables",
+        "title": "Constructions of covering sequences and 2D-sequences",
+        "trigger": "Published small finite covering-sequence constructions and possible exact table"
+      },
+      {
+        "assessment": "For q=3,r=2 its length-four Hamming construction concerns covering-sequence codes of potentially multiple cycles. It does not determine a minimum single cycle of 12 nor all 48 optimal sequences.",
+        "evidence": [
+          "arXiv v1 datestamp 16 Jul 2026; Section IV Corollary 1 constructs (n,(q-1)n,1)_q-CSC using the cycles of the Hamming code."
+        ],
+        "identifier_or_url": "arXiv:2607.14840v1",
+        "material_read": "Full accessible manuscript, especially definitions, Section IV constacyclic construction and Corollary 1, conclusion",
+        "method": "Read full preprint HTML-converted original text",
+        "title": "Covering Sequences and Covering-Sequences Codes",
+        "trigger": "Recent q-ary Hamming construction covers precisely ternary length four"
+      },
+      {
+        "assessment": "Asymptotically constant-factor optimal construction for sufficiently large n, no exact ternary n=4 bound or symmetry classification.",
+        "evidence": [
+          "Main Theorem quantifies as n tends to infinity for fixed q and R; Table 1 compares asymptotic bounds."
+        ],
+        "identifier_or_url": "arXiv:2606.29236v1",
+        "material_read": "Full available preprint, definitions, main theorem, comparison table and construction overview",
+        "method": "Read primary full preprint text via public accessible version",
+        "title": "Near-Optimal Covering Sequences",
+        "trigger": "Potential stronger uniform q-ary covering-sequence bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "828bd40b-f83c-43b0-b8a4-53e0c7ad0942",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The ternary span-four radius-one case is a natural perfect-Hamming-code benchmark: ordinary q=3,n=4,R=1 covering can achieve the sphere-volume minimum of nine codewords, but the requirement that all centres be cyclic windows forces twelve. The 33% cyclic penalty is sharp, and the classification proves there is just one optimal class under relabeling, rotation and reversal. This resolves the first nonbinary Hamming-perfect small-span instance in the single-cycle setting, sharpening structural understanding beyond an isolated codeword example.",
+    "status": "PASS"
+  }
+}
