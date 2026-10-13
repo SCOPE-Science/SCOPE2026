@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The infected coordinates preserve their initial zero/positive support. The compact population simplex and graph Laplacian permit an exact risk-weighted Lyapunov function with negative sum-of-squares derivative. Its zero-dissipation set equals the complete equilibrium set, yielding omega-limit confinement. The finitely many equilibrium components have distinct Lyapunov levels F(r) for r<N/k; positive growth of an initially seeded lower-risk cell excludes convergence to any larger-risk component. This proves the global seed-minimum selection. The endemic Jacobian, ordered by off-risk infection, susceptible, and tied infection, is block triangular; its susceptible block dL-diag(D) is strictly negative definite, the off-risk invasion exponents have explicit signs, and its zero block is semisimple. Conservation removes exactly one zero. The closed DFE global-stability boundary follows from the same Lyapunov function and explicit infection exponents. A standard-library exact-rational checker reconstructs representative Jacobians from the source equations and verifies conservation/dissipation and the claimed spectra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Salako and Wu, DOI 10.1017/S0956792523000359, Section 3.2, equation (3.10) and Theorem 3.11, derive a related dissipation function and selected low-risk support for a single-strain continuum model with immobile infections; its conclusions are not two-strain patch theorems.",
+        "Salako and Wu, arXiv:2311.06437, equations (1.2) and theorem 3.5, treat a single-strain patch model and positive infected movement, including asymptotics as movement tends to zero.",
+        "Salako and Ukandu, DOI 10.1137/25M1732532, study a single-strain patch equilibrium curve as susceptible dispersal varies, rather than this two-strain exactly zero infected-dispersal risk/simplex spectrum."
+      ],
+      "reasoning": "Risk concentration and infection-support dependence have strong one-strain antecedents and are not independently claimed as novel. The accepted mathematical distinction is simultaneous two-strain competition across finite patches, exact risk-tied simplices, the all-data support-stratified selection, and semisimple zero/positive-invasion spectral counts. A generic single-strain result does not directly imply those statements.",
+      "searches": [
+        "multi-patch SIS infection diffusion zero migration equilibrium equal recovery transmission ratios infected immobile",
+        "arxiv 2308.10348 minimum recovery transmission ratio stationary simplices zero infected mobility",
+        "Doumate Issa Salako infected lockdown two strain SIS epidemic patch stability coexistence 2024 2025",
+        "\"Complex Structure in the Endemic Equilibrium Set\" \"Salako\" \"Ukandu\" arxiv",
+        "\"On the dynamics of an epidemic patch model\" Salako Wu arxiv pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.10348v1",
+      "doi:10.3934/dcdsb.2023213",
+      "doi:10.1017/S0956792523000359",
+      "arxiv:2311.06437",
+      "doi:10.1111/sapm.12674",
+      "doi:10.1137/25M1732532"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A coupled-SEIR two-patch counterexample analyzes exposed and infected movement rather than the stationary risk decomposition of the two-strain SIS system with both infected movement rates zero.",
+        "An age-structured population threshold theorem concerns renewal dynamics and does not constrain the finite-graph SIS mass-action infected-lockdown equations.",
+        "A growth-weighted mutation chemostat theorem concerns a distinct washout threshold and has no implication for two-strain SIS risk ties.",
+        "The motivating source assumes positive infected dispersal, and the strongest relevant one-strain degenerate reaction-diffusion source lacks the second competing strain and finite-patch invasion spectrum."
+      ],
+      "reasoning": "The closest records do not contain the same source model, complete stationary risk-stratum classification, seeded-minimum selection, or exact mass-tangent invasion spectrum; their conclusions cannot be specialized to this theorem.",
+      "searches": [
+        "ecological population dynamics exact threshold Allee effect harvesting bistability extinction predator prey 2020 2024",
+        "epidemic network population dynamics counterexample invariant region stability threshold mathematical biology 92D 92B",
+        "complete infected lockdown immobile infected two-strain SIS patches mobile susceptibles classification of stationary states competitive exclusion",
+        "two strain SIS zero migration infected only susceptible move equilibria simplex risk patches"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source equations (1.1) and (2.2) contain positive d1 and d2, while the discussion after Section 2 explicitly says completely restricted infected movement remains to be studied.",
+        "The proposed conclusion is an exact classification of equilibrium simplexes, seeded-risk asymptotic strata, and invasion eigenvalues; searches by the alternative zero-mobility and stationary-set names found no such source-specific statement."
+      ],
+      "reasoning": "The checks treated infected lockdown, zero infected dispersal, a parabolic-ODE boundary, localized endemic supports, neutral tie-simplexes, and patch-level risk minimization as plausible aliases rather than relying on title identity.",
+      "searches": [
+        "Doumate Issa Salako two strain SIS patch infected dispersal zero susceptible dispersal lockdown equilibrium risk ratios",
+        "complete infected lockdown immobile infected two-strain SIS patches mobile susceptibles classification of stationary states competitive exclusion",
+        "two strain SIS patch model complete lockdown infected individuals zero infected dispersal two strain equilibria ratio",
+        "two strain SIS zero migration infected only susceptible move equilibria simplex risk patches"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv submission history verifies first public availability on 20 August 2023 at 19:51:59 UTC, and the publisher identifies 92D30 among Primary MSC2020 classifications.",
+        "Primary source (1.1), (2.2), (2.4) and the discussion of infected total lockdown were inspected in open full text, including the relevant original numerical and theorem context.",
+        "The 2024 degenerate single-strain continuum paper was inspected at its equations, Lyapunov (3.10), and Theorem 3.11; the 2024 one-strain patch preprint at its positive-dispersal model, Theorem 3.5, and small-dispersal limit."
+      ],
+      "reasoning": "The accepted paper and its strongest plausible model analogues were compared by actual governing equations, number of strains, exact positive/zero movement assumptions, type of equilibrium sets, and conclusions. No exact database/table computation overlaps.",
+      "searches": [
+        "arxiv:2308.10348v1",
+        "doi:10.3934/dcdsb.2023213",
+        "doi:10.1017/S0956792523000359",
+        "arxiv:2311.06437",
+        "\"Complex Structure in the Endemic Equilibrium Set of an SIS Epidemic Patch Model\" zero infected dispersal"
+      ]
+    },
+    "rationale": "The motivating two-strain source assumes positive infected dispersal and explicitly identifies complete infected lockdown as an unstudied future problem. The closest single-strain continuum paper already establishes an analogous initial-support/risk-selection phenomenon, so no general novelty is assigned to that principle. Its single-strain PDE does not state the exact finite-patch, two-strain equilibrium components, cross-strain tie constraints, and complete local invasion eigenvalue multiset. Separate one-strain positive-dispersal patch work studies a different regime and also does not dominate the claim. Targeted literature and published-record searches found no same-object result.",
+    "residual_risks": [
+      "Analogous one-strain minimizer selection is established in degenerate continuum epidemic literature. The two-strain proof adapts its dissipation idea and uniqueness is source-specific, not a claim to invent the method.",
+      "An equivalent general multistrain finite-graph zero-mobility theorem might exist under different terminology that source-title and model-alias searches did not retrieve.",
+      "The later single-strain equilibrium-curve article has restricted full-text access; its accessible model and abstract concern a one-strain positive-infected-mobility patch system and do not present the accepted two-strain theorem. Its uninspected details remain a limited comparison risk.",
+      "For several tied seeded risk minima the theorem proves convergence to a simplex face, not convergence of each infection share to a distinct point."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "INFECTED_LOCKDOWN_CASE_EXPRESSLY_UNSTUDIED; EXACT_EQUILIBRIUM_AND_SPECTRAL_CLASSIFICATION_IS_AN_EXTENSION",
+        "evidence": "At d1=d2=0 every infected equation factorizes as I_v beta_v(S_j-r_v); the source does not analyze the resulting risk-tied equilibrium simplexes or their invasion spectrum.",
+        "identifier_or_url": "arxiv:2308.10348; doi:10.3934/dcdsb.2023213",
+        "material_read": "Open full-text passages for model (1.1), symmetry/irreducibility assumption (A1), compact form (2.2), mass invariant (2.3), equilibrium characterization (2.4), reproduction and local-risk quantities, theorem/discussion context, and page 12 discussion expressly leaving total infected lockdown unstudied. The corresponding PDF discussion page was visually inspected.",
+        "method": "Set only the infected movement rates to exactly zero, retain the other source hypotheses, reconstruct the full stationarity equations and risk-squared Lyapunov dissipation, and calculate the complete block Jacobian on the conserved-mass tangent space.",
+        "title": "Competition-exclusion and coexistence in a two-strain SIS epidemic model in patchy environments",
+        "trigger": "Source defining the two-strain SIS patch equations and explicitly proposing complete infected lockdown as an unanswered question."
+      },
+      {
+        "assessment": "GENUINE_SINGLE_STRAIN_RISK_SELECTION_PRIOR; DOES_NOT_STATE_TWO_STRAIN_PATCH_SIMPLEX_AND_INVASION_SPECTRUM",
+        "evidence": "The work proves that immobile infected individuals may concentrate on minimal-risk locations intersecting initial support in a single-strain continuous-space model, a genuine predecessor to the selection principle but with no two-strain risk-cell equilibrium classification.",
+        "identifier_or_url": "doi:10.1017/S0956792523000359",
+        "material_read": "Open full HTML of Introduction, Section 3.2 at its single-strain parabolic-ODE equations, Lyapunov identity (3.10), Remark 3.8, Theorem 3.11, and concentration-by-initial-support conclusions and Discussion.",
+        "method": "Compared number of strains, continuum rather than finite patches, one-dimensional assumptions in the strongest support concentration theorem, and whether cross-strain risk ties and mass-tangent invasion spectra are treated.",
+        "title": "On degenerate reaction-diffusion epidemic models with mass action or standard incidence mechanism",
+        "trigger": "Strongest closely related open-access paper about the exact zero-infected-mobility limit."
+      },
+      {
+        "assessment": "SINGLE_STRAIN_POSITIVE_MOBILITY_AND_SINGULAR_LIMIT_DO_NOT_COVER_EXACT_TWO_STRAIN_LOCKDOWN_DYNAMICS",
+        "evidence": "Equation (1.2) contains only one infected class; the main multiplicity theorem assumes dI>0 and the later section analyzes asymptotic profiles of its positive-dispersal equilibria.",
+        "identifier_or_url": "arxiv:2311.06437; doi:10.1111/sapm.12674",
+        "material_read": "Open full PDF at the single-strain mass-action patch equations (1.2), positive mobility hypotheses, Theorem 3.5, and the Section 4 asymptotic formulas as infected mobility approaches zero.",
+        "method": "Distinguished limit as dI tends to zero through positive values from exact dI=0 global dynamics and the two-strain stationary/spectral classification.",
+        "title": "On the dynamics of an epidemic patch model with mass-action transmission mechanism and asymmetric dispersal patterns",
+        "trigger": "Patch rather than continuum epidemic equilibria with closely related mass-action dispersal structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9597cd7f-c2f0-4cf8-bf7a-1247e18818c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating two-strain paper explicitly leaves a full infected-population lockdown unstudied. The result supplies a complete natural classification, for every positive connected symmetric patch network and any susceptible mobility, of disease-free and endemic risk-indexed equilibrium strata, open versus tied coexistence, which initially seeded risk can persist, and the exact number of unstable directions at every equilibrium. The seed-contingent nature of exclusion distinguishes true lockdown from merely small infected travel and has direct conceptual value for invasion and intervention modeling; the exact Morse indices and neutral tie-simplexes are structural and not just a single simulation or renamed parameter.",
+    "status": "PASS"
+  }
+}
