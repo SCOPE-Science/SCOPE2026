@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The derivative identity follows coefficient-by-coefficient from the entire Mittag-Leffler series. Integrating it gives unit mass for \\(\\lambda x^{\\alpha-1}E_{\\alpha,\\alpha}(-\\lambda x^\\alpha)\\), hence mass \\(\\alpha\\) for the source expression. The source's own survival asymptotic and the nonnegative tail integral give the sharp moment condition \\(r<\\alpha\\). The likelihood correction follows from the exact multiplicative relation \\(f_{\\rm pub}=\\alpha f_*\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Haubold, Mathai, and Saxena (2011) devote Section 19.1 to the Mittag-Leffler statistical distribution obtained by differentiating a distribution function expressed with the Mittag-Leffler function.",
+        "Standard first-type Mittag-Leffler documentation gives density \\(x^{\\alpha-1}E_{\\alpha,\\alpha}[-(x/\\tau)^\\alpha]/\\tau^\\alpha\\), exactly matching the normalized repair at \\(\\tau=\\lambda^{-1/\\alpha}\\).",
+        "The 2026 source itself states the polynomial survival asymptotic used for the moment threshold."
+      ],
+      "reasoning": "Broader literature covers the corrected probability law, which is why the finding does not claim a new distribution. It does not cover the 2026 source-specific extra factor, the resulting likelihood error, or the contradiction between Eqs. (6.17) and (6.20).",
+      "searches": [
+        "Mittag-Leffler statistical distribution density E alpha alpha",
+        "first type Mittag-Leffler distribution survival density scale",
+        "Mittag-Leffler fractional moments heavy tail"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026395",
+      "doi:10.1155/2011/298628"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Termwise differentiation of the defining series gives \\(-S'(x)=\\lambda x^{\\alpha-1}E_{\\alpha,\\alpha}(-\\lambda x^\\alpha)\\), without a factor \\(\\alpha\\).",
+        "The classical literature establishes this normalized Mittag-Leffler distribution long before 2026.",
+        "The source survival asymptotic implies \\(\\mathbb E[X^r]<\\infty\\) exactly for \\(r<\\alpha\\), excluding all positive integer moments when \\(0<\\alpha<1\\)."
+      ],
+      "reasoning": "The prior literature dominates any novelty claim for the repaired family, while the 2026 article states an incompatible normalization and inference formula. The accepted claim is the precise correction and its consequences.",
+      "searches": [
+        "doi:10.3934/math.2026395 derivative Mittag-Leffler survival",
+        "doi:10.1155/2011/298628 Mittag-Leffler statistical distribution",
+        "Mittag-Leffler distribution density x alpha-1 E alpha alpha"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit names DOI 10.3934/math.2026395 or gives the FED normalization correction.",
+        "Exact-source web searches returned the 2026 article and no corrigendum.",
+        "The 2011 Mittag-Leffler review contains the established distribution whose normalized density matches the repaired FED."
+      ],
+      "reasoning": "The claim was searched by exact DOI, FED terminology, the multiplicative alpha normalization, and Mittag-Leffler equivalence. No source-specific correction was located; the repaired family itself is deliberately identified as prior art.",
+      "searches": [
+        "10.3934/math.2026395 fractional exponential density normalization alpha factor",
+        "new generalized differential transform method fractional exponential Mittag-Leffler density correction",
+        "fractional exponential distribution alpha lambda x alpha-1 E alpha alpha normalization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Eq. (6.17) prints the factor \\(\\alpha\\lambda\\), then explicitly asserts unit integral for all \\(0<\\alpha\\le1\\).",
+        "Eq. (6.20) integrates that density but reports \\(E_\\alpha(-\\lambda x^\\alpha)\\), omitting the factor \\(\\alpha\\).",
+        "Eq. (6.19) labels a finite-interval integral as integer moments, and Eq. (6.25) contains \\(n\\log\\alpha\\) from the unnormalized density."
+      ],
+      "reasoning": "The decisive evidence is internal to the primary PDF and is equation-level rather than dependent on a numerical database.",
+      "searches": [
+        "10.3934/math.2026395 Eq 6.17 Eq 6.20",
+        "10.3934/math.2026395 Eq 6.19 moments",
+        "10.3934/math.2026395 Eq 6.25 likelihood"
+      ]
+    },
+    "rationale": "The corrected probability family is explicitly recognized as the classical Mittag-Leffler distribution, so no novelty is claimed for that law. The original contribution is the source-specific diagnosis that the 2026 FED is unnormalized by exactly \\(\\alpha\\), together with the resulting equation-level corrections to survival, moments, and likelihood. Focused published-finding corpus and exact-source searches found no published correction.",
+    "residual_risks": [
+      "A very recent unindexed correction may exist outside the publisher record.",
+      "The source may have intended a different fractional initial-condition normalization, but the printed object is explicitly claimed to be a probability density with the stated survival, making the factor mismatch decisive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT. Eq. (6.17) has an extra factor alpha relative to the derivative of Eq. (6.20), so its asserted unit normalization fails for every 0<alpha<1.",
+        "evidence": "Eqs. (6.17), (6.19), (6.20), (6.22), and (6.25).",
+        "identifier_or_url": "doi:10.3934/math.2026395",
+        "material_read": "Full open-access PDF, especially pages containing Eqs. (6.11)-(6.25), Figure 3, survival asymptotics, moment-existence prose, and likelihood.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "A new generalized differential transform method for fractional ODEs with statistical applications",
+        "trigger": "Primary 2026 source proposing the FED."
+      },
+      {
+        "assessment": "BROADER COVERAGE OF THE REPAIRED FAMILY. It shows the normalized law is established prior art, but it does not discuss the 2026 FED normalization mistake.",
+        "evidence": "Section 19.1 and the later moment discussion in Section 19.2.",
+        "identifier_or_url": "doi:10.1155/2011/298628",
+        "material_read": "Section 19.1 on the Mittag-Leffler statistical distribution and its density/Laplace-transform construction, with surrounding moment discussion.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "Mittag-Leffler Functions and Their Applications",
+        "trigger": "Broader prior art for the normalized repaired distribution."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2e1113d-e291-437e-ae36-04bcd55d9789",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Normalization is foundational: for typical plotted values such as \\(\\alpha=0.5\\), the claimed PDF carries only half of total probability. The same defect propagates to the survival calculation and likelihood, while the heavy tail eliminates every positive integer moment in the genuinely fractional regime. Recognizing the normalized model as a classical Mittag-Leffler law also prevents a new-family interpretation of an already established distribution.",
+    "status": "PASS"
+  }
+}
