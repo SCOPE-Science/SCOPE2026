@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For two clients, the FedSplit reflected point \\(2x-z_j\\) is exactly the other client state. The scalar quadratic proximal map is affine with reflection coefficient \\(r_j=(1-sa_j)/(1+sa_j)\\), giving the exact error matrix \\(\\begin{bmatrix}0&r_1\\\\r_2&0\\end{bmatrix}\\). Its square is \\(r_1r_2I\\), so the spectral radius and the two-round nilpotency at \\(s=1/a_j\\) are exact. Direct package replay checks the formulas and fixed-point average independently.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giselsson--Boyd analyze linear convergence and metric selection for Douglas--Rachford splitting and ADMM in convex programming.",
+        "Ryu--Taylor--Bergeling--Giselsson develop tight contraction-factor and parameter-selection analysis for operator splitting.",
+        "Finite-convergence Douglas--Rachford literature located in the search concerns different feasibility settings rather than this federated strongly convex quadratic map."
+      ],
+      "reasoning": "Broader operator-splitting rate theory controls contraction over classes of problems. It does not by itself give the two-client FedSplit cross-coupling or the exact curvature-matched nilpotent specialization.",
+      "searches": [
+        "Peaceman Rachford two quadratic functions finite termination matched proximal curvature",
+        "Douglas Rachford scalar quadratics reflection coefficient zero finite termination",
+        "operator splitting performance estimation quadratic optimal parameter"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2005.05238v1",
+      "DOI:10.1109/TAC.2016.2564160",
+      "DOI:10.1137/19M1304854"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pathak--Wainwright introduce FedSplit for additive distributed convex minimization and prove that its fixed points map to optima.",
+        "The source characterizes general convergence rates and robustness to inexact proximal computations.",
+        "The inspected source does not state the scalar formula for the exact two-client rate or a finite-termination parameter."
+      ],
+      "reasoning": "A theorem proving generic linear convergence to the correct optimum does not imply that an instance has a nilpotent iteration matrix. The accepted result identifies a strictly stronger instancewise phenomenon with an exact optimizer of the rate over all positive proximal parameters.",
+      "searches": [
+        "FedSplit Pathak Wainwright Algorithm 1 prox update centering correct fixed points",
+        "FedSplit scalar quadratic exact rate",
+        "FedSplit nilpotent proximal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining FedSplit source states correct fixed points and linear convergence under strongly convex smooth conditions but does not state finite termination under one-client curvature matching.",
+        "Focused indexed searches returned reflected-gradient and splitting-rate findings for different recurrences, not FedSplit's two-client cross-reflection map.",
+        "Searches for nilpotent reflected proximal maps and matched quadratic curvature did not surface an implication-equivalent FedSplit result."
+      ],
+      "reasoning": "Equivalent coverage would need to imply that the exact two-client state matrix squares to a scalar multiple of the identity and becomes nilpotent when one proximal reflection coefficient vanishes. General linear-rate bounds do not imply this finite-communication cancellation.",
+      "searches": [
+        "FedSplit finite termination scalar quadratic matched curvature proximal step",
+        "FedSplit two clients scalar quadratic nilpotent reflected proximal",
+        "Douglas Rachford scalar quadratics reflection coefficient zero finite termination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed ID: 2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f.",
+        "Closest indexed ID: 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0.",
+        "Closest indexed ID: 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56.",
+        "Closest indexed ID: 2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4."
+      ],
+      "reasoning": "The closest indexed findings analyze forward-reflected-backward, extragradient, or reflected-gradient recurrences with different state maps. No returned record contains FedSplit or the curvature-matched two-round termination claim. Search absence is supporting evidence only.",
+      "searches": [
+        "FedSplit scalar quadratic exact convergence rate two clients proximal reflection",
+        "FedSplit finite termination scalar quadratic matched curvature proximal step",
+        "FedSplit two clients scalar quadratic nilpotent reflected proximal",
+        "Peaceman Rachford two quadratic functions finite termination matched proximal curvature",
+        "Douglas Rachford scalar quadratics reflection coefficient zero finite termination"
+      ]
+    },
+    "rationale": "The defining FedSplit source supplies the proximal-reflection algorithm, correct-fixed-point theorem, and general convergence-rate theory. The inspected source does not state the exact two-client scalar cross-reflection matrix, its complete instancewise spectral radius, or curvature-matched two-round termination. Focused indexed and literature searches found general splitting-rate and finite-convergence results but no implication-equivalent FedSplit nilpotency statement.",
+    "residual_risks": [
+      "An older Peaceman--Rachford or reflected-proximal note may contain the same two-scalar-quadratic nilpotency calculation under non-federated notation.",
+      "FedSplit is presented in a federated-learning venue rather than an MSC-indexed mathematics journal; the mathematical result is classified here under convex programming.",
+      "The finite-termination mechanism is special to two scalar clients and exact proximal solves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ALGORITHM_AND_GENERAL_RATE_THEORY_NOT_COVERING_TWO_CLIENT_CURVATURE_MATCHED_NILPOTENCY.",
+        "evidence": "The source supplies the exact update specialized in the proof and establishes convergence to correct optima, but no exact two-client scalar nilpotency statement was identified.",
+        "identifier_or_url": "arXiv:2005.05238v1",
+        "material_read": "Open-access source material covering the FedSplit algorithm, exact proximal update, centering step, server averaging, correct-fixed-point statement, and strongly convex smooth rate discussion.",
+        "method": "Open-access full-text and metadata inspection.",
+        "title": "FedSplit: An algorithmic framework for fast federated optimization",
+        "trigger": "Defining source for the exact FedSplit proximal-reflection update and fixed-point claim."
+      },
+      {
+        "assessment": "GENERAL_DRS_LINEAR_RATE_THEORY_NOT_COVERING_THE_FEDERATED_TWO_CLIENT_NILPOTENT_SPECIALIZATION.",
+        "evidence": "The work treats global linear convergence and metric selection for Douglas--Rachford splitting and ADMM; no two-client FedSplit finite-communication statement was identified.",
+        "identifier_or_url": "DOI:10.1109/TAC.2016.2564160",
+        "material_read": "Published metadata and mathematical classification plus abstract-level convergence description.",
+        "method": "Published metadata and abstract inspection.",
+        "title": "Linear Convergence and Metric Selection for Douglas-Rachford Splitting and ADMM",
+        "trigger": "Plausible broader operator-splitting contraction and parameter-selection coverage."
+      },
+      {
+        "assessment": "GENERAL_TIGHT_CONTRACTION_FRAMEWORK_NOT_COVERING_THE_EXACT_FEDSPLIT_CROSS_REFLECTION_NILPOTENCY.",
+        "evidence": "The paper develops performance-estimation tools and tight contraction factors but does not state the accepted two-client curvature-matching finite-termination result.",
+        "identifier_or_url": "DOI:10.1137/19M1304854",
+        "material_read": "Published abstract, keywords, MSC codes, and stated applications to Douglas--Rachford contraction factors and parameter selection.",
+        "method": "Published primary-source page inspection.",
+        "title": "Operator Splitting Performance Estimation: Tight Contraction Factors and Optimal Parameter Selection",
+        "trigger": "Broad tight contraction and parameter-selection theory for splitting methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40c867a8-6120-46f2-963e-cacfb134741a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding gives an exact communication-complexity collapse, not merely a slightly better contraction constant. It shows that heterogeneity can be exploited constructively: matching the proximal parameter to either one client's curvature annihilates one reflection and the two-client cross-coupling annihilates the remaining state one round later. This supplies a sharp instancewise benchmark for federated splitting and clarifies a phenomenon hidden by worst-case condition-number rate bounds.",
+    "status": "PASS"
+  }
+}
