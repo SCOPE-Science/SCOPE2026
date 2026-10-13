@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Brownian covariance matrix is reconstructed from positive branch lengths and a common ultrametric height 55. Every possible four-out-of-five subset is inverted symbolically, with all resulting rational identities checked by an independent checker. A strictly positive denominator and a cubic with one positive root prove the exact switching law. The four-tip obstruction covers all sample sizes and both rooted binary tree shapes; the three-tip GLS coefficients are proved positive for every valid covariance, enabling covariance-decreasing replacement by the root singleton. Calculations are reproducible and limitations on unknown parameters are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ané (2008) §2 chooses taxa by forward/backward searches to maximize root mean effective sample size at fixed Brownian phylogenetic covariance; its methods section treats evolutionary \\(V_{tree}\\) without a separate tunable \\(\\eta I\\) error term.",
+        "Ives et al. (2007) permits measurement-error covariance, but their inspected methods and results address estimation with observed taxa rather than an all-taxon subset optimization over the error parameter.",
+        "Bartoszek (2015) discusses root-mean precision and covariance augmentation; the examined paper focuses effective sample size and model selection, not the stated five-tip threshold."
+      ],
+      "reasoning": "Combining Ané’s optimization criterion with Ives’s additive covariance would define the same objective but does not in itself give the sharp minimum five tips, which requires a universal four-tip comparison and a five-tip construction. Known broader results were compared at statement-and-implication level, not merely by title. A general covariance design result may imply this example and remains a specific risk.",
+      "searches": [
+        "Ané 2008 Analysis of Comparative Data with Hierarchical Autocorrelation choice taxon subset maximize root mean estimate precision sampling design",
+        "\"phylogenetic\" \"measurement error\" \"sampling design\" \"optimal\" brownian ancestral state",
+        "phylogenetic optimal taxon sampling GLS root mean measurement error trade off taxon subset covariance"
+      ]
+    },
+    "checked_sources": [
+      "Felsenstein (1985), DOI 10.1086/284325, source model.",
+      "Ives–Midford–Garland (2007), DOI 10.1080/10635150701313830, original methods and measurement error.",
+      "Ané (2008), arXiv:0804.3166 / DOI 10.1214/08-AOAS173, optimal phylogenetic taxon subsampling and GLS intercept information.",
+      "Bartoszek (2015 preprint), arXiv:1507.07113, mean effective sample size and additive measurement-error covariance."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Felsenstein (1985) provides the model of shared ancestry and Brownian tip correlation, not fixed-cardinality optimal error-dependent sampling.",
+        "Ané (2008) already establishes taxon-selection as the relevant optimization and the GLS-intercept objective; attributing either to this finding would be covered.",
+        "Ives et al. (2007) and Bartoszek (2015 preprint) make the covariance replacement \\(K\\mapsto K+M\\) a prior mechanism.",
+        "The present proof separately establishes a noise-uniform optimal selection for every up-to-four-tip binary ultrametric tree and exhibits an opposite preference among two classes of four-of-five designs at \\(x\u0007pprox29.8018\\)."
+      ],
+      "reasoning": "The existing GLS and covariance-augmentation formulas are mathematical premises used here. No inspected theorem states a parameterwise comparison of all optimal subsets or forces these specific optimal changes or five-tip minimality, so they do not logically supply the claimed sharp result without further argument. If an uninspected universal subset-monotonicity/reversal theorem supplies this as a corollary, originality must be reconsidered.",
+      "searches": [
+        "\"Brownian phylogeny\" optimal subset sampling observation noise",
+        "\"taxon selection\" \"measurement error\" \"ancestral\" \"Brownian\" GLS",
+        "phylogenetic optimal taxon sampling GLS root mean measurement error trade off taxon subset covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ané (2008), arXiv:0804.3166, pp.2 and 5–7, uses the root-intercept GLS variance and maximizes phylogenetic effective sample size over taxon subsets under Brownian correlation.",
+        "Ives, Midford and Garland (2007), DOI 10.1080/10635150701313830, methods p.254, use Brownian covariance combined with independent measurement-error covariance in GLS.",
+        "Bartoszek (2015 preprint), arXiv:1507.07113, pp.4 and 19, reviews mean effective sample size and addition of an error matrix to evolutionary covariance."
+      ],
+      "reasoning": "Maximizing inverse root-mean GLS variance is mathematically equivalent to maximizing the mean effective sample size when shared marginal variance is fixed. The submitted information criterion is consequently prior algebra. The distinct assertion concerns changes in the optimal subset as a common additive diagonal-noise variance varies and the minimal tree order permitting such a change. The examined sources give no identified equivalent threshold or impossibility theorem.",
+      "searches": [
+        "Brownian phylogenetic generalized least squares root ancestral mean precision taxon sampling subset measurement error crossover noise variance five taxa",
+        "Taxon selection optimal ancestral trait precision GLS Brownian correlated errors sample size k of n species",
+        "\"taxon selection\" \"measurement error\" \"ancestral\" \"Brownian\" GLS"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published mathematics-record matches were about tree fitting, phylogenetic rank, species discovery and other unrelated objects, not this Brownian GLS noise-switch threshold.",
+        "Ané (2008) Figure 3 contains numerical optimal-sampling effective-sample-size curves for trees with 25 and 49 species at its baseline covariance, not the five-tip full-noise subset table.",
+        "No identical covariance matrix, five-subset rational table, or \\(2x^3+205x^2-1225x-198500\\) threshold appeared in the inspected sources."
+      ],
+      "reasoning": "The exact algebraic table in the finding is reconstructed directly from the five-by-five covariance. Search nonappearance and absence from known figures are limited evidence, not an exhaustive database uniqueness certificate; published-but-unindexed specialized tables remain possible.",
+      "searches": [
+        "Phylogenetic optimal sampling taxa subset with independent measurement error rank reversal on ultrametric trees sharp minimum five leaves",
+        "Five-taxon ultrametric phylogenetic tree Brownian model optimal sampling design with observation noise variance rank reversal",
+        "\"phylogenetic\" \"taxon sampling\" \"measurement error\" \"optimal design\" comparative"
+      ]
+    },
+    "rationale": "The original part is the sharp five-tip minimum for a noise-induced change in optimal root-mean taxon subset and the explicit unique threshold. The known Brownian covariance, GLS criterion, noise-error covariance augmentation, and tree-based selection objective are excluded from the novelty claim. Source-level mathematical implication comparisons did not identify an established theorem covering the precise sharp threshold, though specialized general Gaussian experimental-design literature remains a residual originality risk.",
+    "residual_risks": [
+      "Specialized Gaussian optimal subset/sensor selection or phylogenetic sampling theorems not located by title, parameter, equivalent mean-precision objective or broader-coverage searches might already imply this sharp threshold.",
+      "Published numerical design tables not indexed in the accessible repositories could incidentally contain equivalent five-tip examples.",
+      "Literature nonappearance does not certify absolute novelty; the result has only the indicated self-review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides modeling background but no noise-dependent taxon-subset threshold.",
+        "evidence": [
+          "Felsenstein (1985), American Naturalist 125:1–15; original Brownian contrasts under known phylogeny."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/284325",
+        "material_read": "Published article/model and Brownian phylogenetic methods passages; official journal bibliographic record dated January 1, 1985.",
+        "method": "Read lawful available full-text scientific passages and original publisher record.",
+        "title": "Phylogenies and the Comparative Method",
+        "trigger": "Earliest foundational Brownian comparative phylogeny and shared ancestry covariance."
+      },
+      {
+        "assessment": "Shares covariance-plus-noise and GLS premise, not an error-dependent optimal-subset classification.",
+        "evidence": [
+          "Ives, Midford and Garland (2007), Systematic Biology 56:252–270, original p.254."
+        ],
+        "identifier_or_url": "https://biology.ucr.edu/people/faculty/Garland/Ives_et_al_2007.pdf",
+        "material_read": "Complete authorized open 19-page primary article opened; analyzed methods on printed p.254, equations (1), (3), (5), and paper-wide searched for optimal and design.",
+        "method": "Read primary PDF text and inspected original page image 3.",
+        "title": "Within-Species Variation and Measurement Error in Phylogenetic Comparative Methods",
+        "trigger": "Exact additive observation-error covariance and GLS root mean model."
+      },
+      {
+        "assessment": "Defines the GLS root mean criterion and optimal taxon subsampling without a varying separate measurement-error variance, and does not present a five-tip sharp switching theorem.",
+        "evidence": [
+          "Ané (2008), original pp.5–7; Figure 3, forward/backward taxon selection."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0804.3166",
+        "material_read": "Full 27-page open preprint accessed; examined pp.2–9 with particular focus on original pp.5–7, figure 3 and numerical optimal sampling discussion, plus paper-wide measurement-error search.",
+        "method": "Read primary full text, methods/results and inspected paper page image for p.5.",
+        "title": "Analysis of comparative data with hierarchical autocorrelation",
+        "trigger": "Closest optimization paper; explicit taxa selection and root-mean precision."
+      },
+      {
+        "assessment": "Explicitly states that measurement-error covariance can be added to the evolutionary matrix but does not state the sharp minimal noise-dependent taxon-subset switch.",
+        "evidence": [
+          "Bartoszek (2015 preprint), arXiv:1507.07113, mean ESS equation (3) and pp.18–19 error covariance discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1507.07113",
+        "material_read": "Accessible 47-page preprint opened; examined mean effective-sample-size formula in p.4 and error covariance augmentation on p.19, searched for optimal sampling.",
+        "method": "Read original primary full-text sections and inspected original p.19 image.",
+        "title": "Phylogenetic effective sample size",
+        "trigger": "Possible stronger effective-sample-size theorem including measurement error."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48ad7034-e925-45f1-8f2a-43f60f6a1031",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ané (2008) explicitly motivates selective taxon sampling to maximize precision of ancestral state inference; Ives et al. (2007) shows measurement uncertainty belongs in the phylogenetic GLS covariance. The new sharp minimum distinguishes models where optimal selected taxa are robust to measurement quality from the smallest case where they are not. The five-tip threshold uses a naturally constrained 4-of-5 selection with strict nonoverlapping optimal families, rather than a contrived index unconnected to a biological question; it is a reproducible counterexample useful for tree-aware experimental design.",
+    "status": "PASS"
+  }
+}
