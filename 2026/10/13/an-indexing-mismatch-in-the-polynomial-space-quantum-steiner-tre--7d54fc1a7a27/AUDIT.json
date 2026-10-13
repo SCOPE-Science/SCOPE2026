@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For dyadic k the reindexing and geometric sum are exact identities. The asymptotic fixed-level formula follows from Stirling, and the growing-level upper bound follows from standard binomial estimates. The claim is deliberately limited to the displayed source cost model, so no unproved algorithmic completeness is assumed. The packaged checker independently replays the exact identities and numerical asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1904.03581v3 analyzes arbitrary recursion depth for the earlier exponential-space quantum algorithm but not the 2025 polynomial-space hybrid cost model.",
+        "DOI:10.1137/17M1140030 gives a polynomial-space classical Steiner-tree algorithm used as a subroutine, not the quantum amplitude-amplification indexing."
+      ],
+      "reasoning": "Broader quantum dynamic-programming analyses do not imply the claim because the issue is the particular level range printed in the newer polynomial-space cost model.",
+      "searches": [
+        "Quantum spacetime trade-off Minimum Steiner Tree amplitude amplification bottom recursion levels",
+        "Steiner tree quantum polynomial space recursion level indexing error",
+        "Minimum Steiner Tree quantum subexponential displayed cost binomial recursion",
+        "Miyamoto Steiner tree recursive Grover top-level binomial product"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.09911v1",
+      "arXiv:1904.03581v3",
+      "DOI:10.1137/17M1140030"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2510.09911v1 prints the bottom-level product and later states the exponential tradeoff.",
+        "arXiv:1904.03581v3 prints a top-level product whose exponent is linear in \\(k\\).",
+        "Fresh web searches for the 2025 identifier together with correction, erratum, amplitude amplification, and subexponential terms returned the source and mirrors but no correction."
+      ],
+      "reasoning": "The predecessor cannot imply this diagnosis because its index range is different. The source itself contains both incompatible steps rather than a statement resolving them. No inspected correction supersedes v1.",
+      "searches": [
+        "arXiv:2510.09911 Theorem 4 amplitude amplification index Dreyfus Wagner l_m l_0",
+        "Quantum spacetime trade-off Minimum Steiner Tree amplitude amplification bottom recursion levels",
+        "Steiner tree quantum polynomial space recursion level indexing error",
+        "Minimum Steiner Tree quantum subexponential displayed cost binomial recursion",
+        "Miyamoto Steiner tree recursive Grover top-level binomial product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.09911v1, Theorem 4 proof, displayed definitions of \\(T_{\\mathrm{aa}}\\) and \\(T(k,\\ell)\\).",
+        "arXiv:1904.03581v3, Appendix A, displayed recursive Grover product."
+      ],
+      "reasoning": "The closest equivalent formulation is the same recursion written with different level indexing. The 2025 formula selects bottom levels; the 2020 formula selects top levels. No inspected source states the exact reindexing contradiction for the 2025 theorem.",
+      "searches": [
+        "arXiv:2510.09911 Theorem 4 amplitude amplification index Dreyfus Wagner l_m l_0",
+        "Quantum spacetime trade-off Minimum Steiner Tree amplitude amplification bottom recursion levels",
+        "Steiner tree quantum polynomial space recursion level indexing error"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an algebraic consequence of the equations printed in arXiv:2510.09911v1 and uses no numerical database.",
+        "The packaged checker recomputes the products directly from exact binomial coefficients."
+      ],
+      "reasoning": "No database or table contains the result; exact source equations are the decisive comparison.",
+      "searches": [
+        "arXiv:2510.09911 Theorem 4 amplitude amplification index Dreyfus Wagner l_m l_0",
+        "Minimum Steiner Tree quantum subexponential displayed cost binomial recursion"
+      ]
+    },
+    "rationale": "The full 2025 source was inspected at the exact product and subsequent simplification. The printed lower index makes the product a bottom-level recursion product, while the next line uses the scaling of a top-level product. Targeted published-finding corpus and web searches found no published correction or implication-equivalent diagnosis. The 2020 predecessor uses the top-level product and therefore supplies a meaningful non-covering comparison.",
+    "residual_risks": [
+      "A correction may appear after the inspected arXiv v1; the current arXiv record showed only v1 at inspection time.",
+      "The algorithm may contain implicit costs not represented in the displayed total-cost expression, so the subexponential consequence applies only to that displayed expression.",
+      "The intended recursion-level convention could differ from the printed convention; this is precisely why the result is stated as an indexing inconsistency rather than as a disproof of the algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING the premises but NOT the new diagnosis: it prints the two mutually incompatible scaling steps and does not flag the mismatch.",
+        "evidence": [
+          "Theorem 4 defines \\(l_m=\\lfloor\\log_2 k\\rfloor\\) and \\(T_{\\mathrm{aa}}\\) with \\(j=l_m-l_0+1,\\ldots,l_m\\).",
+          "The next complexity derivation simplifies the associated sum to a term linear in \\(k\\), and Appendix D uses the full range only when l_0=l_m."
+        ],
+        "identifier_or_url": "arXiv:2510.09911v1",
+        "material_read": "Abstract and full HTML, especially Section 4 Theorems 3-4, equations defining \\(T_{\\mathrm{cla}}\\), \\(T_{\\mathrm{enc}}\\), \\(T_{\\mathrm{aa}}\\), the derivation through g(k,l), and Appendix D.",
+        "method": "Direct full-text inspection and algebraic reconstruction.",
+        "title": "Quantum Algorithms for the Minimum Steiner Tree problem with application to Binary Near-Perfect Phylogenies",
+        "trigger": "Primary source for the claimed polynomial-space quantum spacetime tradeoff."
+      },
+      {
+        "assessment": "NOT_COVERING. Its product begins at the top recursion level and has the expected exponential in \\(k\\) support size; it does not analyze the newer bottom-level formula.",
+        "evidence": [
+          "Appendix A explicitly contains binom(k,k/2) binom(k/2,k/4) ... for the quantum part."
+        ],
+        "identifier_or_url": "arXiv:1904.03581v3",
+        "material_read": "Main complexity statement and Appendix A optimization of the number of recursive Durr-Hoyer levels.",
+        "method": "Direct full-text inspection.",
+        "title": "Quantum Speedup for the Minimum Steiner Tree Problem",
+        "trigger": "Closest quantum Steiner-tree recursion analysis and cited predecessor."
+      },
+      {
+        "assessment": "NOT_COVERING. It supplies classical precomputation complexity, not quantum recursion-level indexing.",
+        "evidence": [
+          "The 2025 source invokes this result only for the classical precomputation constant \\(C\\)."
+        ],
+        "identifier_or_url": "DOI:10.1137/17M1140030",
+        "material_read": "Bibliographic record and theorem as quoted and used by the primary source.",
+        "method": "Comparison with the primary source use of its \\(O(6.751^k)\\) bound.",
+        "title": "Parameterized Single-Exponential Time Polynomial Space Algorithm for Steiner Tree",
+        "trigger": "Classical polynomial-space subroutine cited in the 2025 proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d54fc1a-7a27-441a-b83b-69e3fcdaf82f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The mismatch concerns the exponent of the amplitude-amplification factor in a central polynomial-space quantum spacetime theorem. It separates two materially different repairs and shows that the printed cost model has qualitatively different asymptotics from the claimed simplification, which is a substantive issue for interpreting the theorem rather than a cosmetic algebra correction.",
+    "status": "PASS"
+  }
+}
