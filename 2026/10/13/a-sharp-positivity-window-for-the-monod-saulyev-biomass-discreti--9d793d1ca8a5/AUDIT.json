@@ -1,0 +1,173 @@
+{
+  "correctness": {
+    "rationale": "For the exact printed scheme, a and the Neumann coefficient are nonnegative because D>0 and u>=0. Since mu>=0, b_n>=b_0. The two displayed inequalities are respectively equivalent to c>=0 and b_0>=0. Forward spatial induction followed by time induction proves sufficiency for every nonnegative input. If either inequality fails, select an initial unit mass at node 2 (c<0) or at node 1 (b_0<0), zero boundary, and the node-1 result is negative at the first step. On the source mesh lambda=9 and b_0=-79941/100000; a prescribed finite profile with C_1^0=100, C_2^0=0 and the source inlet yields C_1^1<-54 for all three reported flows. Exact-fraction checks passed; no finite check is substituted for infinite induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pourghanbar et al. (2020) Theorem 3 gives a sufficient time-step condition for a different nonlinear Saulyev-related PDE discretization.",
+        "Chen-Charpentier and Kojouharov (2013) offer a different explicitly positivity-preserving scheme for advection-diffusion-reaction equations, not a claim that the printed Saulyev sweep is always positive.",
+        "Samalerk–Pochai (2020) use a related but distinct parameterized forward method, and do not analyze the extended-Monod source coefficients."
+      ],
+      "reasoning": "A stronger generic theorem guaranteeing unconditional positivity for every finite-difference method is impossible; the available general positivity theory describes methods or coefficient tests, not the 2026 stencil numerical boundary. A previous result implying that all nonnegative linear coefficients preserve nonnegativity does not itself calculate the exact two source-specific inequalities or the source-grid counterexample. Nevertheless, a generalized theorem covering this exact coefficient family might have escaped inspection; this risk is disclosed.",
+      "searches": [
+        "Saulyev explicit asymmetric advection diffusion reaction positivity conditions Peclet barrier time step monotonicity",
+        "Vongkok Chumsri Pochai Monod Saulyev exact positivity if and only if Peclet 2 time step negative biomass",
+        "Monod Saulyev biomass positivity nonnegative solution numerical method necessary sufficient conditions",
+        "Pourghanbar et al. 2020 Section 4.2 Theorem 3",
+        "Samalerk Pochai 2018 full text 2018/1926519",
+        "Samalerk Pochai 2020 full text Thai Journal of Mathematics 18 677–683"
+      ]
+    },
+    "checked_sources": [
+      "https://www.etamaths.com/index.php/ijaa/article/view/4590",
+      "https://etamaths.com/index.php/ijaa/article/download/4590/1601",
+      "https://thaijmath.com/index.php/thaijmath/article/download/1026/1033/1059",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2018/1926519",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2020/9647416",
+      "https://doi.org/10.3390/math10152639",
+      "https://doi.org/10.1016/j.mcm.2011.05.005",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/9/18/SCOPE-sharp-catalyst-basin-dichotomy--9f083a737492"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source recurrence and grid are printed but no universal positivity theorem or negative-data witness is supplied. The source observes numerical trajectories for constant initial concentration, which cannot establish positivity for arbitrary initial data.",
+        "The 2018 paper studies interpolated boundary data for a transport equation; the 2020 nonlinear monotonicity theorem offers a sufficient criterion for a different nonlinear stencil.",
+        "The closest published-finding corpus hits concern unrelated positive convolution filters and CTMC Padé transitions."
+      ],
+      "reasoning": "The new if-and-only-if statement for the printed biomass stencil strictly adds a universal-input classification and an explicit negative first-step witness at the source grid. It neither follows from plotting positive trajectories nor contradicts the sources’ example-specific numerical outcomes. Generic coefficient positivity is background mathematics, not asserted to be invented. No inspected prior has a theorem whose premises and conclusion imply the specific claimed full boundary plus witness.",
+      "searches": [
+        "Vongkok Chumsri Pochai 2026 extended Monod Saulyev advection diffusion biomass positivity monotonicity CFL scheme numerical",
+        "Saulyev explicit asymmetric advection diffusion reaction positivity conditions Peclet barrier time step monotonicity",
+        "Vongkok Chumsri Pochai Monod Saulyev exact positivity if and only if Peclet 2 time step negative biomass",
+        "Saulyev advection diffusion reaction negative biomass grid lambda nine Monod 2026 monotonicity condition",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026 source full article §§2–6",
+        "2018 DOI:10.1155/2018/1926519",
+        "2020 DOI:10.1155/2020/9647416"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the 2026 source the forward update has the new-left/old-center/old-right coefficients a,b_n,c; under mu>=0 its worst old-center sign is at n=0.",
+        "The 2020 Samalerk–Pochai scheme includes a theta-weighted split and pollutant decay; inspection of equations (3.4)–(3.5) and §§4–5 found numerical discussion, not the claimed two-part sharp criterion.",
+        "The 2018 water-quality paper uses another theta-indexed Saulyev formula and interpolated initial/boundary data."
+      ],
+      "reasoning": "The stated result is equivalent to nonnegativity of the exact 2026 sweep coefficients for all n, together with two one-step necessity witnesses. General positivity-of-matrix principles are classical; the scientific claim is restricted to identifying the source-specific sharp barriers and a substantive parameter-grid counterexample. Compared literature supplies related schemes or sufficient restrictions but not the same necessary-and-sufficient statement for this particular source model.",
+      "searches": [
+        "Vongkok Chumsri Pochai 2026 extended Monod Saulyev advection diffusion biomass positivity monotonicity CFL scheme numerical",
+        "Saulyev explicit asymmetric advection diffusion reaction positivity conditions Peclet barrier time step monotonicity",
+        "Vongkok Chumsri Pochai Monod Saulyev exact positivity if and only if Peclet 2 time step negative biomass",
+        "Vongkok–Chumsri–Pochai 2026 full PDF equations 3.3 and 3.6",
+        "Samalerk–Pochai 2020 full PDF equations 3.4 and 3.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned the backward-Euler filtered Crank–Nicolson positivity finding 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac, which is for a different time integrator, and the Padé Markov positivity finding 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab, for finite CTMC transition matrices.",
+        "The motivating paper Table 1 supplies D=0.09, M=0.990, m=0.400; §4 supplies both spacings 0.01 and flows 0.05, 0.35, 0.65."
+      ],
+      "reasoning": "These table entries are previously published parameters, not a table of the claimed nonnegativity classification. Exact substitution yields lambda=9 and b_0=-79941/100000, a new implication not stated in the source. No matching finding was observed among the retrieved ranked published-finding corpus matches, which alone is not proof of uniqueness.",
+      "searches": [
+        "Vongkok Chumsri Pochai 2026 extended Monod Saulyev advection diffusion biomass positivity monotonicity CFL scheme numerical",
+        "Saulyev nutrient biomass numerical methods source equation 3.3 negative concentration 2026 microalgae",
+        "Vongkok Chumsri Pochai Monod Saulyev exact positivity if and only if Peclet 2 time step negative biomass",
+        "Saulyev advection diffusion reaction negative biomass grid lambda nine Monod 2026 monotonicity condition",
+        "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026 primary paper Table 1 and equation 3.3"
+      ]
+    },
+    "rationale": "The accepted claim is the complete sharp universal-data, all-time positivity region for the exact 2026 printed biomass recurrence and an explicit failure witness under its reported mesh and parameters. Full primary text, two same-coauthor transport precursors, a 2020 sufficient monotonicity theorem, and alternative unconditional positivity methods were compared. Prior work supplies general positivity principles and related stencils but no inspected source establishes both sharp barriers plus this source-grid implication. Novelty is not claimed for general nonnegative-matrix theory and unindexed coverage remains a risk.",
+    "residual_risks": [
+      "General textbook coefficient-cone arguments are antecedents; a fully general theorem specialized explicitly to these coefficients could reduce originality.",
+      "Full text of Li–Jackson (2007) on revised high-Péclet Saulyev methods was not obtained; its abstract does not show direct coverage but comparison remains incomplete.",
+      "The 2013 unconditionally positive *different scheme* was assessed from its abstract and later reproductions, not its complete full text.",
+      "Full formula rendering in 2018 HTML was incomplete; method sections and mathematical descriptions were inspected, but every symbolic identity was not visually recovered.",
+      "Ranked published mathematical search is not a proof of no unindexed or unpublished overlap."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the scheme and parameter inputs but not the universal sharp nonnegativity theorem or one-step negative profile. Describes monotonic numerical performance generally and plots particular uniform initial data; those simulations are not denied.",
+        "evidence": [
+          "Source eqs. (2.1), (3.3), (3.6), (4.1)–(4.2) and Table 1; published 2026-02-19; primary MSC 92D25."
+        ],
+        "identifier_or_url": "https://etamaths.com/index.php/ijaa/article/download/4590/1601",
+        "material_read": "Full 18-page openly accessible PDF: title/MSC, §§1–3 especially PDF pp. 5–7 for equation (3.3) and Neumann equation (3.6); p. 8 Table 1 and grid; simulation figures/tables pp. 8–14; discussion, conclusion, references pp. 15–18. Publisher page supplied exact first public date.",
+        "method": "Open-access PDF page text supplemented by visual page renders of equations and parameter table",
+        "title": "Numerical Simulation of Phycoremediation for Nutrient Removal Using the Extended Monod Model with Saulyev Technique",
+        "trigger": "Identical model, printed scheme, reported parameters"
+      },
+      {
+        "assessment": "Related θ-weighted transport method with loss term; does not establish the exact two sharp conditions for the later Monod biomass stencil or the numerical source-grid defect.",
+        "evidence": [
+          "Thai Journal of Mathematics 18 (2020) 677–683, equations (3.4)–(3.5), pp. 680–681."
+        ],
+        "identifier_or_url": "https://thaijmath.com/index.php/thaijmath/article/download/1026/1033/1059",
+        "material_read": "Full seven-page OA PDF, especially §2 equations (2.1)–(2.4), §3 equations (3.1)–(3.5), §§4–5 and references.",
+        "method": "Full PDF text and mathematical coefficients",
+        "title": "A Saulyev Explicit Scheme for an One-Dimensional Advection-Diffusion-Reaction Equation in an Opened Uniform Flow Stream",
+        "trigger": "Highly relevant same-coauthor transport numerical paper and possible stronger Saulyev result"
+      },
+      {
+        "assessment": "Investigates an interpolated-boundary Saulyev variant and error experiments, not the named 2026 model’s sharp all-input positivity domain; mathematical parsing limits remain.",
+        "evidence": [
+          "2018 article 1926519, §3.1 scheme (6), §4 numerical experiments, §6 conclusions."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2018/1926519",
+        "material_read": "Open full HTML text including §§2–6, descriptions of equations (4)–(6), interpolation theorems, numerical tables and discussion. Math formulas were not all parsed into searchable symbols.",
+        "method": "Open-access full article HTML, section-by-section comparison",
+        "title": "Numerical Simulation of a One-Dimensional Water-Quality Model in a Stream Using a Saulyev Technique with Quadratic Interpolated Initial-Boundary Conditions",
+        "trigger": "Same-coauthor precursor and possibility of generic transport positivity theorem"
+      },
+      {
+        "assessment": "A sufficient monotonicity bound for a different nonlinear scheme, not the source-specific necessary-and-sufficient criterion or counterexample.",
+        "evidence": [
+          "2020 article 9647416, §4.2 Theorem 3, §4.3."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2020/9647416",
+        "material_read": "Full open HTML, especially §4.2 monotonicity definition, Theorem 3 and proof; §4.3 stability, §5 experiments.",
+        "method": "Full article section and theorem inspection",
+        "title": "An Efficient Alternating Direction Explicit Method for Solving a Nonlinear Partial Differential Equation",
+        "trigger": "Explicitly discusses monotonicity and a Saulyev numerical restriction"
+      },
+      {
+        "assessment": "Proves or illustrates positivity for another scheme; therefore demonstrates positivity can be engineered but does not imply this Saulyev stencil is positive for all inputs.",
+        "evidence": [
+          "Mathematics 10 (2022), 2639, §2."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math10152639",
+        "material_read": "Open article abstract and introduction and §2 description of its distinct UPFD algorithm and 2013 predecessor",
+        "method": "Full-text HTML sections pertinent to algorithm and comparison",
+        "title": "Enhanced Unconditionally Positive Finite Difference Method for Advection–Diffusion–Reaction Equations",
+        "trigger": "Could dominate general positivity-cone result by an unconditional positivity method"
+      },
+      {
+        "assessment": "Offers a different positivity-preserving discretization; does not by its abstract establish a restriction for the source’s printed Saulyev formula. Full text inaccessible for a complete theorem-by-theorem comparison.",
+        "evidence": [
+          "Mathematical and Computer Modelling 57 (2013) 2177–2185; online first 2011; DOI 10.1016/j.mcm.2011.05.005."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mcm.2011.05.005",
+        "material_read": "Abstract and independently cited bibliographic metadata. Full primary text not acquired.",
+        "method": "Publication metadata and abstract comparison",
+        "title": "An unconditionally positivity preserving scheme for advection–diffusion reaction equations",
+        "trigger": "Classical positive alternative and strongest generic dominance concern"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d793d1c-a8a5-4d06-9f9e-d6d7af769e38",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nonnegative concentration is an essential invariant for biological biomass and meaningful phycoremediation planning; the named source represents modeled biomass this way. The result provides a full and inclusive two-obstruction classification for all nonnegative initial/boundary inputs, not an arbitrary finite numerical case; neither time-step reduction alone can repair a violated mesh-Péclet condition nor nutrient/light tuning alter the negative first-step b_0. The source’s published grid fails by a factor greater than eight and admits an explicit negative concentration, thereby exposing a material numerical-modeling risk. A source-specific sharp boundary is meaningful although the coefficient-sign proof is elementary and classical in general.",
+    "status": "PASS"
+  }
+}
