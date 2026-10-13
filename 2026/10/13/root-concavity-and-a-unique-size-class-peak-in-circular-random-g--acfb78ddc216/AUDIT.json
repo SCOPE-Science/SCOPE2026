@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge3\\), \\(2\\le k<n\\) and \\(0<r<1/2\\), cyclic normalized spacings anchored at a uniformly chosen sampled point are uniform on the \\((n-1)\\)-simplex. Two boundary gaps exceeding \\(r\\) and \\(k-1\\) internal gaps at most \\(r\\) exactly define a proper size-\\(k\\) component. Translating boundaries then applying inclusion-exclusion gives the formula for \\(p_{n,k}\\). Convex Minkowski interpolation of the relevant slices and Brunn–Minkowski prove concavity of \\(p_{n,k}^{1/(n-1)}\\). Endpoint zeros and a Vandermonde non-plateau argument give a unique finite optimizer. For fixed \\(k\\), compact-uniform convergence to \\(e^{-2c}(1-e^{-c})^{k-1}\\) and the bounds \\(p_{n,k}(c/n)\\le c^{k-1}\\) and \\(p_{n,k}(c/n)\\le e^{-c/2}\\) yield the optimal scaled radius \\(c=\\log((k+1)/2)\\). All normalization and boundary hypotheses are checked analytically; finite computations do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huillet (2003), Section 4.1 and Section 4.2, is broader than the present raw gap-count formula.",
+        "Penrose–Yang (2022), Section 1.2, studies fixed-k counts for Euclidean dense/sparse domains, not a finite circular all-radius concavity statement.",
+        "Decreusefond–Ferraz (2010) Section 4.2 derives Poisson total cluster-count law."
+      ],
+      "reasoning": "A joint law of fragments covers the exact expectation as a corollary, and the new theorem does not claim raw joint-law novelty. However those inspected general statements do not itself state or imply a radius-concavity inequality or single global peak without a separate nontrivial convex-slice analysis. The high-dimensional/high-intensity results impose asymptotic regimes outside the parameter region of the finite all-radius optimization.",
+      "searches": [
+        "Web: one-dimensional uniform random geometric graph components exactly k vertices probability as function of radius",
+        "Web: Huillet random covering circle number clusters sizes spacings 2008 exact formulas",
+        "Web: \"Random covering of the circle: the size of the connected components\" pdf Huillet 2003 author"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1008.5140v1",
+      "doi:10.1239/aap/1059486818",
+      "arxiv:2209.14758v1",
+      "doi:10.1155/2011/350382",
+      "doi:10.1017/S000186780001243X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huillet uniform prescribed gap-pattern probability with p large gaps algebraically yields the mean formula by summing over the unspecified gaps.",
+        "The newer claim instead requires affine Minkowski nesting of fixed-gap polytopes, Brunn–Minkowski, an invertible Vandermonde matrix and tightness of maximizers.",
+        "The earlier Poisson total-cluster intensity optimum does not imply unique radius optimality for fixed-\\(n\\) size-\\(k\\) counts."
+      ],
+      "reasoning": "The raw mean identity is a covered special case and is not part of the asserted novelty. The root-concavity, one-mode theorem and peak scale do not follow simply by substituting parameters into the inspected theorems; an additional convex-geometric argument is used. An unidentified general theorem may contain this specialization, so residual historical risk is explicitly retained.",
+      "searches": [
+        "Full Huillet 2003: Section 4.1 Lemma 6 equation 15; Section 4.2 equations 19–24 and component sizes.",
+        "Full Decreusefond–Ferraz 2010: Section 4.2 Theorem 14 plus examples.",
+        "Full Penrose–Yang 2022: Section 1.1, 1.2, 3–6.",
+        "Web: uniform random points on circle components size k radius concavity."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huillet 2003 Lemma 6 gives any prescribed pattern of long gaps, including the two exterior constraints; this is an equivalent description of the mean, not of radius-power concavity.",
+        "No matching global \\((n-1)\\)-root-concavity theorem was found in the inspected primary literature."
+      ],
+      "reasoning": "Uniform circular spacings and undirected geodesic edges reduce proper components to alternating bounded-gap polytope sections. The first-moment finite sum follows from the known joint law, so cannot establish O by itself. Root concavity and the uniqueness/scale of the optimal radius are additional global statements for all n,k,r.",
+      "searches": [
+        "Exact finite binomial random geometric graph circle expected count connected components of prescribed vertex size k is 1/(n-1) concave in connection radius by Brunn-Minkowski, peak near log((k+1)/2)/n",
+        "Dirichlet spacings convex polytope Brunn Minkowski radius root concavity number k-vertex components of circular random geometric graph",
+        "Expected number of k-clusters in one dimensional binomial circular geometric graph unimodal in radius",
+        "Web: \"cluster size\" \"log-concave\" \"random geometric graph\" circle",
+        "Web: \"Brunn-Minkowski\" \"connected components\" geometric graph expected radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-result index returned no substantive match for vertex-size component radius-power concavity; the closest geometric matches concerned unrelated deterministic polygon metrics and other classes of spaces.",
+        "The primary fixed-number circle spacings source gives joint gap events but not this particular power-concavity or optimization result.",
+        "No exact published data table of the maximizing radius for every sample size and component vertex size was identified."
+      ],
+      "reasoning": "Actual mathematical search results were compared by their objects, statistic, quantified radius domain, and implications. The published records inspected did not state all-radius \\((n-1)\\)-root concavity; search absence does not establish publication priority.",
+      "searches": [
+        "Exact finite binomial random geometric graph circle expected count connected components of prescribed vertex size k is 1/(n-1) concave in connection radius by Brunn-Minkowski, peak near log((k+1)/2)/n",
+        "Dirichlet spacings convex polytope Brunn Minkowski radius root concavity number k-vertex components of circular random geometric graph",
+        "Expected number of k-clusters in one dimensional binomial circular geometric graph unimodal in radius",
+        "uniform random points on circle hard random geometric graph expected number components of exactly k vertices finite n as function of radius log-concave unimodal profile unique maximum",
+        "one-dimensional random geometric graph cluster size k expected component count exact inclusion-exclusion Dirichlet circular spacings and critical radius log((k+1)/2)/n",
+        "Web: site:arxiv.org one dimensional circular random geometric graph component vertex-size count concavity radius."
+      ]
+    },
+    "rationale": "The claimed new statement is global \\((n-1)\\)-root concavity for each fixed-\\(n\\) size-\\(k\\) expected component-count profile, uniqueness of its maximizing radius and sharp asymptotic location \\(\\log((k+1)/2)/n\\). The earlier Huillet joint gap identities cover the raw exact mean, which is expressly excluded from novelty. Decreusefond–Ferraz cover total Poisson cluster counts, and Penrose–Yang address different component-count asymptotic regimes. The inspected source statements do not supply the global power-concavity and optimum theorem without additional convex-slice reasoning. Historical implicit coverage remains a genuine risk.",
+    "residual_risks": [
+      "Earlier literature on convex-section profiles may contain an implicit equivalent root-concavity theorem even if the fixed-n circular application is not stated.",
+      "Huillet (2003) has joint circular spacing laws that strictly cover the finite mean identity; this expression must not be treated as historically new.",
+      "Further inaccessible historical circular-arc analyses or monograph appendices could include optimal-size component-radius criteria; independent priority review not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The joint spacing laws imply the exact expected size-\\(k\\) component formula, so that formula is acknowledged prior work. The inspected sections do not give all-radius \\((n-1)\\)-root concavity, a unique finite-\\(n\\) optimal radius for each \\(k\\), or scaled optimum \\(\\log((k+1)/2)\\).",
+        "evidence": [
+          "Lemma 6 equation (15) gives joint probabilities for \\(p\\) specified large-gap indices; equation (18) yields conditional uniform discrete fragment sizes.",
+          "Sections 4.2 and 5 treat joint component lengths and fixed-radius regimes, not the concavity of expected prescribed vertex-size counts."
+        ],
+        "identifier_or_url": "doi:10.1239/aap/1059486818; https://www.researchgate.net/publication/38349613_Random_covering_of_the_circle_the_size_of_the_connected_components",
+        "material_read": "Author-provided searchable full text: introduction, Section 4.1 Lemma 6 (joint specified large-gap locations), Section 4.2 (joint physical component lengths), moderate-arc asymptotics and nearby results.",
+        "method": "Inspected full author-hosted text made public by author; compared event indicators, uniform compositions, and the radius-dependent claims.",
+        "title": "Random covering of the circle: the size of the connected components",
+        "trigger": "Same fixed-n circular arc model and explicit connected-component sizes; potentially dominates mean formula."
+      },
+      {
+        "assessment": "Section 4.2 determines the Poisson circular total-cluster law without conditioning on exact \\(n\\) or classifying fixed-\\(k\\) component abundance throughout the radius domain.",
+        "evidence": [
+          "Theorem 14 gives \\(\\Pr(\\chi(L)=j)\\) for Poisson circular arcs; the examples optimize mean total clusters in a different intensity parameter.",
+          "No \\((n-1)\\)-root-concavity or size-\\(k\\) finite-radius optimum is asserted."
+        ],
+        "identifier_or_url": "arxiv:1008.5140v1; https://arxiv.org/html/1008.5140v1",
+        "material_read": "Full HTML introduction, model, Section 3 results and Section 4.2 Theorem 14 plus examples.",
+        "method": "Read arXiv HTML first version with original submission timestamp 2010-08-30 and primary MSC 60G55.",
+        "title": "On the One dimensional Poisson Random Geometric Graph",
+        "trigger": "Earliest day-dated inspected preprint on one-dimensional Poisson random geometric graph clustering and circular deployments."
+      },
+      {
+        "assessment": "The main regimes have \\(nr^d\\to\\infty\\) or \\(nr^d\\to0\\) in Euclidean bounded domains. The fixed-\\(n\\) circle profile and the thermodynamic limit \\(nr\\to c>0\\) are not the classification asserted there.",
+        "evidence": [
+          "Section 1.2 states mildly dense \\(nr^d\\to\\infty\\) and sparse \\(nr^d\\to0\\) assumptions.",
+          "Section 1.1 defines size-\\(k\\) component counts but does not assert a global finite-sample root-concavity theorem."
+        ],
+        "identifier_or_url": "arxiv:2209.14758v1; https://arxiv.org/html/2209.14758v4",
+        "material_read": "Full arXiv HTML article introduction, model, summary of Theorems 2–6, Section 6 scope, and searches for circle/unimodality/concavity.",
+        "method": "Examined open-access arXiv HTML and model assumptions rather than relying only on title or abstract.",
+        "title": "On k-clusters of high-intensity random geometric graphs",
+        "trigger": "Direct competing theory of k-vertex components in uniform random geometric graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "acfb78dd-c216-45a3-82c5-441b37628aa6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For geometric network models, the expected number of communities with a prescribed nontrivial vertex count first grows then shrinks as connection radius changes; a piecewise alternating formula does not make a single global peak obvious. The theorem proves a complete finite-sample shape classification and identifies the unique optimal communication scale \\(\\log((k+1)/2)/n\\) for each fixed \\(k\\). It supplies a natural, motivated size-dependent optimization law beyond recomputation of classical gap-count distributions.",
+    "status": "PASS"
+  }
+}
