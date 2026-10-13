@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For every \\(d\\ge1\\), \\(1\\le\\ell\\le d\\), iid isotropic orthogonal frame and \\(0<\\alpha\\lambda d/\\ell<2\\), exact quadratic expansion reduces the update to (I-beta R)x-a u. \\(R^2=rR\\), \\(Ru=ru\\), \\(\\|u\\|_2^2=d\\) and \\(\\mathbb E R=I\\) give mean contraction \\(1-\\beta\\) and squared-error contraction \\(\\rho=1-\\beta(2-\\beta r)\\), strictly below one. Solving both recurrences gives the claimed limit, and Cauchy-Schwarz with E PP^T=I gives \\(q\\le\\ell\\). Explicit signed, unsigned and globally biased sign mixtures attain all q. A standalone exact-rational checker replayed 1305 finite conditional transitions, means and squared moments, including both sharp sample cases. These finite checks support but do not substitute the symbolic universal proof. Excluded stability endpoints and nonisotropic curvature are not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus exact-Haar-moments summary gives a stationarity-rate improvement for classical Haar SSD, with no finite-difference affine term.",
+        "Both source theorems bound general methods but do not give the exact stationary-risk law or its sharp frame-law extrema."
+      ],
+      "reasoning": "A general upper bound on function-value convergence with a fixed finite-difference radius does not imply an exact equality for the limit, and a first-order Haar projection contraction cannot dominate the finite-radius forcing term. No reviewed broader theorem was found to imply the stated signed-to-unsigned minimax reversal.",
+      "searches": [
+        "Haar random orthogonal subspace gradient descent quadratic exact mean-square stability stepsize trace Hessian fourth moments",
+        "random subspace descent uniform Haar projector mean square spectral radius exact convergence 1 - 2alpha k/n eigenvalues",
+        "published-finding corpus:2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "arxiv:2107.03941, Theorem 3.7",
+        "arxiv:2206.05124, Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.05124 (Assumption 2, Algorithm 1, Theorem 2, structured-direction appendix)",
+      "arxiv:2107.03941 (Theorem 3.7, Remark 4.2, finite-radius bounds)",
+      "arxiv:2003.02684 (open-access relevant algorithm/convergence)",
+      "arxiv:2205.14737 (abstract only)",
+      "published-finding corpus:2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 (summary only)",
+      "published-finding corpus:2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2107.03941 Remark 4.2: quadratic signed-coordinate bias cancellation is known, but tailored quadratic convergence analysis explicitly left open.",
+        "arxiv:2206.05124 Theorem 2: an expected-objective inequality without an exact stationary limit.",
+        "arxiv:2205.14737 abstract: estimator variance and bias bounds; full text not examined."
+      ],
+      "reasoning": "The prior unbiasedness observation is a necessary ingredient for one endpoint, not the formula for stationary squared distance. The algebraic first- and second-moment closure, its dependence only on the summed-direction mean, and the reversal at \\(\\alpha\\lambda d/\\ell=1\\) do not follow from the reviewed prior statements as given. Abstract-only and summary-only candidate sources remain residual priority risks.",
+      "searches": [
+        "Rando Molinari Villa Rosasco Stochastic Zeroth Order Descent Structured Directions signed coordinate directions",
+        "Stochastic Zeroth order Descent with Structured Directions Molinari Rando Rosasco Villa quadratic exact stability",
+        "arxiv:2206.05124, Assumption 2 and Algorithm 1",
+        "arxiv:2107.03941, Remark 4.2",
+        "arxiv:2205.14737 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Signed-frame unbiasedness for quadratic gradient estimation is in Kozak et al., Remark 4.2; it does not compute the asymptotic second moment or select minimax frame laws.",
+        "Rando et al. Algorithm 1 matches the update, but Theorem 2 contains a PL convergence bound, not the derived equality."
+      ],
+      "reasoning": "Exact unbiased finite-difference gradient for symmetric signed sampling is not equivalent to zero stationary mean-square iterate risk: the random affine perturbation retains a positive variance. The new statement classifies this variance across all admissible frames and exhibits a step-dependent switch of minimizer. Neither equivalence nor direct reduction was located in inspected sections.",
+      "searches": [
+        "exact stationary mean squared error structured stochastic zeroth order descent S-SZD quadratic signed unsigned coordinate first moment fixed h constant alpha",
+        "forward finite difference random sign symmetrization bias versus variance sharp step size crossing one coordinate descent",
+        "arxiv:2107.03941, Remark 4.2",
+        "arxiv:2206.05124, Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus coordinate-sampling summary optimizes gradient coordinate probabilities, not finite-h sign orientations.",
+        "Independent exact-rational checker covers 1305 finite examples, not a pre-existing database."
+      ],
+      "reasoning": "The target is an analytic infinite-parameter family rather than a tabulated invariant. No indexed exact table of its stationary risks was identified in the searches; absence from search alone is not a global novelty certificate.",
+      "searches": [
+        "exact stationary mean squared error structured stochastic zeroth order descent S-SZD quadratic signed unsigned coordinate first moment fixed h constant alpha",
+        "orthogonal direction sampling zero order random coordinate sign finite difference error floor isotropic quadratic",
+        "published-finding corpus:2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "rationale": "Published defining S-SZD and earlier orthogonal finite-difference papers were inspected at the algorithm, frame assumptions, theorem and discussion level. Earlier signed-coordinate quadratic bias cancellation does not determine exact stationary variance or a reversal of frame-law optimality at normalized step one. Available indexed comparisons and arXiv literature searches found no stronger exact statement implying this joint result. Specialized unindexed material and the abstract-only estimator paper remain genuine priority risks; no global uniqueness claim is made.",
+    "residual_risks": [
+      "Specialized prior exact finite-radius stochastic coordinate-descent moment identities may be unindexed and were not exhaustively ruled out.",
+      "The full paper arxiv:2205.14737 could not be materially inspected, so estimator-related implication risk remains.",
+      "The most relevant published-finding corpus records were scientifically compared from titles and summaries, not entire source documents. They are not certified as whole-document noncovering."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the same iteration and structural conditions and general convergence inequalities but not the claimed exact limiting mean-square risk as a function of the mean frame direction, nor the sharp orientation reversal.",
+        "evidence": [
+          "arxiv:2206.05124, PDF pp. 3–4: Assumption 2, finite-difference formula (3), Algorithm 1",
+          "arxiv:2206.05124, PDF p. 9: Theorem 2 gives a bound for PL objectives, not an exact stationary moment identity"
+        ],
+        "identifier_or_url": "arxiv:2206.05124 / https://arxiv.org/pdf/2206.05124",
+        "material_read": "Assumption 2 and equation (3) on PDF pages 3–4; Algorithm 1 on page 4; Theorem 2 and PL discussion on page 9; structured-direction examples in Appendix D.4.",
+        "method": "Examined complete openly accessible arXiv PDF in text and rendered page; compared algorithm, frame hypotheses and exact stationary-risk statement.",
+        "title": "Stochastic Zeroth Order Descent with Structured Directions",
+        "trigger": "Defining source of the exact finite-difference update and admissible orthogonal frames."
+      },
+      {
+        "assessment": "Remark 4.2 identifies bias cancellation for signed coordinate directions on quadratic objectives but explicitly leaves tailored quadratic convergence analysis for future work; available bounds do not imply the limiting risk function or reversal between signed and unsigned frames.",
+        "evidence": [
+          "arxiv:2107.03941, Remark 4.2: cancellation and statement that tailored quadratic convergence analysis is left for future work",
+          "arxiv:2107.03941, Theorem 3.7 and Proposition 4.3: nonexact upper bounds"
+        ],
+        "identifier_or_url": "arxiv:2107.03941 / https://arxiv.org/pdf/2107.03941",
+        "material_read": "Algorithm 1, Theorem 3.7 on PDF pp. 5–7, Remark 4.2 on p. 9, Proposition 4.3 and Corollary 4.5 on p. 10.",
+        "method": "Inspected full-text PDF sections and a rendered page; compared implications of bias cancellation and PL upper bounds.",
+        "title": "Zeroth order optimization with orthogonal random directions",
+        "trigger": "Earlier and potentially stronger results for the same forward-difference orthogonal directions; signed-coordinate bias."
+      },
+      {
+        "assessment": "The earlier subspace-gradient results do not provide the same universal fixed-radius finite-difference stationary-risk expression or step-dependent sign reversal.",
+        "evidence": [
+          "arxiv:2003.02684: stochastic subspace optimization with convergence analysis; different focal object from finite-h fixed-step stationary-risk minimax"
+        ],
+        "identifier_or_url": "arxiv:2003.02684 / https://arxiv.org/abs/2003.02684",
+        "material_read": "Abstract and relevant algorithm and convergence statements available in the arXiv open-access text.",
+        "method": "Compared scope of subspace-gradient algorithm with fixed-radius forward-difference S-SZD and its stationary mean-square target.",
+        "title": "A stochastic subspace approach to gradient-free optimization in high dimensions",
+        "trigger": "Predecessor work on randomized subspace and directional optimization."
+      },
+      {
+        "assessment": "The abstract treats bounds for stochastic gradient/Hessian estimators; overlap with optimizer stationary-risk characterization could not be fully ruled out without body text.",
+        "evidence": [
+          "arxiv:2205.14737, abstract: variance reduction and refined bias bounds for zeroth-order gradient and Hessian estimators"
+        ],
+        "identifier_or_url": "arxiv:2205.14737 / https://arxiv.org/abs/2205.14737",
+        "material_read": "Public arXiv abstract and bibliographic metadata only; full text could not be inspected.",
+        "method": "Compared stated estimator bias/variance objectives to stationary iterates of a constant-step optimizer; did not infer whole-paper noncoverage from abstract.",
+        "title": "Stochastic Zeroth Order Gradient and Hessian Estimators: Variance Reduction and Refined Bias Bounds",
+        "trigger": "Potentially relevant exact variance and bias results for orthogonal zeroth-order finite-difference estimators."
+      },
+      {
+        "assessment": "Summary concerns sharp stationarity rate from Haar second moments for first-order subspace descent, rather than constant-h finite-difference forcing and orientation reversal; whole-document noncoverage is not certified.",
+        "evidence": [
+          "published-finding corpus 2026/9/18 record summary: exact Haar second moments, unrestricted stationarity rate for classical Haar SSD"
+        ],
+        "identifier_or_url": "published-finding corpus:2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "material_read": "Published published-finding corpus title and scientific summary only; full text not inspected.",
+        "method": "Semantic published-finding corpus search and comparison of reported theorem to finite-difference stationary-risk claim.",
+        "title": "Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent",
+        "trigger": "Indexed work with exact Haar moments and stochastic subspace optimization."
+      },
+      {
+        "assessment": "Summary concerns fixed iid coordinate weights maximizing A-energy contraction for gradient steps; it does not imply a sign/unsigned reversal in affine finite-difference forcing.",
+        "evidence": [
+          "published-finding corpus 2026/9/20 record summary: optimal coordinate distribution proportional to C^{-1}1 for inverse-positive SPD quadratics"
+        ],
+        "identifier_or_url": "published-finding corpus:2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Published published-finding corpus title and scientific summary only; full text not inspected.",
+        "method": "Compared first-order sampling optimization and its objective with constant-h directional finite-difference stationary risk.",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Published optimal coordinate-sampling theorem might dominate a sign-based choice."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4bd5a359-b778-411b-8973-5f8772d8ef64",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a natural algorithm-design gap: does symmetry-based cancellation of a forward-difference bias always minimize fixed-step stationary optimization risk? It supplies an exact sharp classification over all isotropic orthogonal-frame laws, not merely a selected test example. The phase reversal at normalized step one cleanly separates noise-induced variance from orientation-induced bias and yields dimension-uniform endpoint formulas and a reproducible rational example. It is a motivated structural boundary for published S-SZD parameter and direction choices, without claiming a general noisy/nonisotropic theorem.",
+    "status": "PASS"
+  }
+}
