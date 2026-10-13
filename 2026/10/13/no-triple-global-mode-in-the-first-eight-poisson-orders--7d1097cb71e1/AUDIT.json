@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The exact coefficient recurrence gives modal localization \\(m\\le\\lambda k(k+1)/2\\), including the endpoint \\(\\lambda=2\\) and the zero mode. Hansen/Johnson–Kontoyiannis–Madiman strict log-concavity applies to the uniform jump distribution for \\(\\lambda>2\\), since the condition on total rate and uniform compounding law reduces to this inequality. For \\(0<\\lambda\\le2\\), exact integer-coefficient polynomial differences reduce modulo the prime \\(1000003\\) with degrees preserved. Exhaustive Euclidean gcds across \\(109943\\) distinct triples find only \\((1,3,4)\\) for orders four through eight, whose exact common nonzero root is \\(\\lambda=-6\\). The Gauss-lemma lifting argument excludes any unobserved characteristic-zero common factor. The standalone standard-library verifier ran successfully; finite computations cover a logically exhaustive region after the analytic modal bound, not a parameter grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson et al., Theorem 5.5/Section 7, proves strict log-concavity only for the large-rate regime λ>2 in this specialization.",
+        "Georghiou et al., Theorem 2.1 bounds each mode; Theorem 2.2 classifies unique modes at positive integer λ for orders 2–5.",
+        "Mane, arXiv:2309.13493v1, Introduction and Conclusion describe numerical evidence rather than a proof of nonexistence of triple joint modes."
+      ],
+      "reasoning": "Known strict log-concavity dominates the new assertion for λ>2 and is explicitly borrowed, not claimed as new. The prior integer-rate theorem covers a strict subset of the low-intensity problem. The exact continuous-parameter λ≤2 exclusion through k=8 is not implied by either result.",
+      "searches": [
+        "Poisson distribution order k Mane triple joint modes 2023 2024 2025 rigorous",
+        "Web: \"Poisson distribution of order k\" \"three or more joint modes\" proof 2024",
+        "Johnson, Kontoyiannis and Madiman, arXiv:0912.0581v2, Theorem 5.5 and Section 7",
+        "Georghiou–Philippou–Saghafi, Fibonacci Quarterly 51 (2013), Theorems 2.1–2.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.13493v1 (full HTML)",
+      "DOI:10.3390/e25040699 (full lawful OA PDF)",
+      "Georghiou–Philippou–Saghafi (2013) full PDF",
+      "arXiv:0912.0581v2 (full relevant sections and PDF page)",
+      "Related published mathematical record search for stuttering Poisson and uniform-jump compound Poisson mode ties"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mane Introduction: global triple-mode nonexistence open, numerical evidence only.",
+        "Johnson et al.: known log-concavity applies at λ≥2, and strict version above 2, not below.",
+        "Georghiou et al.: modal localization m≤λk(k+1)/2 is known and reused."
+      ],
+      "reasoning": "The new result is a finite-order exact confirmation of Mane’s open global tie question, not a modal-location formula or a new large-parameter log-concavity proof. The two prior theorems provide the analytic reduction; neither proves the decisive finite low-rate polynomial noncoincidence.",
+      "searches": [
+        "uniform jumps compound Poisson mass function no three tied global maxima phase transition algebraic resultant",
+        "Mane arXiv:2309.13493v1, global versus local modes, Sections 2, 3 and 6",
+        "Johnson–Kontoyiannis–Madiman arXiv:0912.0581v2, Theorem 5.5 and strict variant",
+        "Georghiou et al. 2013 Theorem 2.1 mode upper bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kwon and Philippou explain the equivalence to the equal-parameter k-stuttering Poisson law (Introduction) and only treat explicit modes for orders 3,4 below λ=1 plus tables for orders 2–4 up to λ=2.",
+        "Mane arXiv:2309.13493v1, Introduction explicitly says three or more joint modes are an open question."
+      ],
+      "reasoning": "The alternate stuttering/compound-Poisson terminology names the same law, so it was included in the comparison. The inspected exact results are about modal locations on smaller subsets, not a theorem excluding three simultaneous global maximizers for all positive intensities at each order through eight.",
+      "searches": [
+        "stuttering Poisson distribution equal intensities one to eight jumps no triple global modes exact proof",
+        "Web: \"stuttering Poisson\" \"at most two\" modes",
+        "Kwon and Philippou (2023), DOI:10.3390/e25040699, Introduction and Sections 2–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kwon and Philippou Table 2 lists approximate numerical transition endpoints only for orders 2,3,4 and λ<2.",
+        "Mane presents numerical maps and simulations, including no detected triple global tie; it does not supply exact polynomial coprimality certificates."
+      ],
+      "reasoning": "An approximate sampled table cannot certify nonexistence of a positive real solution of two polynomial equations. The new complete set of 109943 modular gcd tests covers every possible triple of candidate indices, including nongeneric isolated parameters and λ=2.",
+      "searches": [
+        "Poisson distribution order k Hermite count of global modes three or more joint modes k=2 3 4 5 exactly two threshold",
+        "Web: \"Poisson distribution of order k\" \"at most two modes\" proof",
+        "Kwon and Philippou (2023), Table 2 and Section 3",
+        "Mane (2023), Sections 3.3–3.7 on modal parameter maps"
+      ]
+    },
+    "rationale": "Mane (2023) explicitly leaves existence of three or more global modes open and reports numerical evidence only. Kwon–Philippou (2023) gives partial mode classifications and approximate tables; Georghiou–Philippou–Saghafi (2013) gives mode bounds and uniqueness at integer rates. Known large-rate strict log-concavity is reused and credited. The new exact continuous-parameter low-rate exclusion for \\(2\\le k\\le8\\) is not implied by the inspected primary statements; searches with alternate terminology found no covering theorem. Unidentified earlier equivalent presentations remain a residual priority risk.",
+    "residual_risks": [
+      "An older finite-order multi-modal exclusion may exist under a different title or in specialized actuarial literature.",
+      "The general no-triple-global-mode conjecture for k≥9 remains unresolved here.",
+      "Exact modular enumeration is reproducible but is not a short symbolic parameter-uniform proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents numerical nonexistence evidence only, with no exact no-triple theorem",
+        "evidence": "Introduction after Definition 1.1 and Conclusion report open triple-mode question and numerical evidence; 2020 primary MSC 60E05 and first version date 2023-09-23.",
+        "identifier_or_url": "https://arxiv.org/html/2309.13493v1",
+        "material_read": "Full HTML Introduction/definitions; Sections 3.1–3.7 on peaks and parameter regions; Section 5 mode bounds and Conjecture 5.1; Section 6 Conclusion, including numeric/no-proof caveat",
+        "method": "Full-text arXiv HTML inspection; exact section statements compared",
+        "title": "Structure of the probability mass function of the Poisson distribution of order k",
+        "trigger": "Originating 2023 paper explicitly posing triple global-mode existence as open"
+      },
+      {
+        "assessment": "Exact formulas for limited orders and λ<1; approximate tables for λ<2, not general continuous exclusion through order 8",
+        "evidence": "Abstract; Sections 2–4, especially Table 2 on PDF page 7.",
+        "identifier_or_url": "https://doi.org/10.3390/e25040699",
+        "material_read": "Full nine-page lawful OA PDF: introduction, mode recurrence, lemmas/propositions, Table 2, discussion, references",
+        "method": "Read publisher text and author-published OA PDF scientific content",
+        "title": "The Modes of the Poisson Distribution of Order 3 and 4",
+        "trigger": "Prior exact modes plus computational tables for small orders"
+      },
+      {
+        "assessment": "Mode bound and integer λ uniqueness for k≤5; does not settle all real λ triple exclusions",
+        "evidence": "Theorems 2.1–2.2, pages 45–46.",
+        "identifier_or_url": "https://www.mathstat.dal.ca/FQ/Papers1/51-1/GeorghiouPhilippouSaghafi.pdf",
+        "material_read": "Five-page full PDF; Theorems 2.1, 2.2 and derivation of recurrence and upper bound",
+        "method": "Read lawful OA full text; independently reconstructed bound from recurrence",
+        "title": "On the Modes of the Poisson Distribution of Order k",
+        "trigger": "Earliest published all-order mode bound, possible dominating theorem"
+      },
+      {
+        "assessment": "Covers λ>2 strictly; does not cover λ<2 for uniform jump weights",
+        "evidence": "Theorem 5.5 and Section 7 at PDF lines approximately 1333–1395 and 1547–1555.",
+        "identifier_or_url": "https://arxiv.org/pdf/0912.0581",
+        "material_read": "Thirty-page PDF, Section 5 Theorem 5.5 and induction on PDF page 20, Section 7 strict version, definitions of Q and size-biased Q#",
+        "method": "Read full relevant sections and inspected original PDF page image",
+        "title": "Log-concavity, ultra-log-concavity, and a maximum entropy property of discrete compound Poisson measures",
+        "trigger": "Potential stronger all-intensity log-concavity coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d1097cb-71e1-4922-8166-10edd21fbbde",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The work rigorously closes the first eight orders of an explicitly posed all-parameter global-mode multiplicity problem. It covers the entire continuous intensity range rather than a finite grid, including possible isolated algebraic triple ties, and extends beyond previously rigorously classified low orders. The finite cutoff is motivated by published exploratory plots through order eight and contains \\(109943\\) verified index triples at low intensities; it is substantive partial progress despite not solving arbitrary order.",
+    "status": "PASS"
+  }
+}
