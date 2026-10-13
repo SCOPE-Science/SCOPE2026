@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The claim follows from exact confusion-matrix formulas. Youden depends only on TP+TN, while at fixed TP+TN above chance the diagnostic odds ratio strictly decreases with TP times TN. Exhaustive exact enumeration proves the finite lower bound and first-layer count, and a symbolic inequality proves the family for every m at least 10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Youden's full text derives J from the proportions correctly classified in diseased and control groups and states that it is independent of their relative and absolute sample sizes.",
+        "Glas et al. list Youden's index and the diagnostic odds ratio as distinct single indicators, give the DOR cross-product formula, and note that DOR rises steeply as sensitivity or specificity approaches perfection.",
+        "The later open review treats both as global measures used for comparing diagnostic tests and highlights that equal Youden values can hide very different sensitivity-specificity profiles."
+      ],
+      "reasoning": "This broader literature establishes the scientific motivation and the nonlinear mechanism, but it does not imply a smallest positive-cell balanced integer table at which strict ranking reversal becomes possible.",
+      "searches": [
+        "Index for rating diagnostic tests Youden 1950",
+        "The diagnostic odds ratio a single indicator of test performance Glas 2003",
+        "Measures of Diagnostic Accuracy Basic Definitions Youden diagnostic odds ratio"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/1097-0142(1950)3:1<32::AID-CNCR2820030106>3.0.CO;2-3",
+      "doi:10.1016/S0895-4356(03)00177-X",
+      "PMCID:PMC4975285"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fact that Youden is linear in sensitivity and specificity does not identify when a competing nonlinear summary first reverses its ordering.",
+        "The known steep growth of DOR near perfect sensitivity or specificity explains the witness mechanism but supplies no finite lower bound.",
+        "Examples of equal Youden values with different sensitivity-specificity splits establish tie splitting, not strict reversal between two tests."
+      ],
+      "reasoning": "The accepted result requires exclusion of every admissible table pair through m=9, classification of the first m=10 layer, and an all-m symbolic witness. Those conclusions are not direct corollaries of the prior interpretive statements.",
+      "searches": [
+        "Glas Youden index diagnostic odds ratio sensitivity specificity single indicator",
+        "Youden index same value different sensitivity specificity",
+        "diagnostic odds ratio rises steeply sensitivity specificity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-result record stated a minimum balanced confusion-matrix size for opposite Youden and diagnostic-odds-ratio rankings.",
+        "Web searches found sources that calculate or discuss both measures together, but not the ten-cases-ten-controls boundary.",
+        "The equivalent formulation as opposite ranking by total correct classifications versus a nonlinear product-of-odds statistic was also covered by balanced-sensitivity/specificity searches."
+      ],
+      "reasoning": "Under equal case and control totals, Youden is an affine function of TP+TN, so the theorem can be phrased either in diagnostic-index language or as a finite ordering conflict between total correct count and cross-product odds. The search set covered both formulations.",
+      "searches": [
+        "Youden index diagnostic odds ratio diagnostic test ranking reversal",
+        "Youden J diagnostic odds ratio balanced sensitivity specificity finite confusion matrix",
+        "Web: \"Youden index\" \"diagnostic odds ratio\" relationship",
+        "Web: \"Youden's index\" \"odds ratio\" diagnostic performance",
+        "Web: Youden diagnostic odds ratio ranking competing tests"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the witness tables (3,7,9,1) and (6,4,7,3).",
+        "No checked source supplied the finite reversal counts through m=10.",
+        "The packaged verifier constructs all admissible tables directly and does not import a known diagnostic-performance table."
+      ],
+      "reasoning": "Exact counts and exact score searches directly test whether the proposed benchmark is already present as a worked example, finite table, or software fixture.",
+      "searches": [
+        "Web: Youden DOR confusion matrix 3 7 9 1",
+        "Web: Youden diagnostic odds ratio 27/7 7/2",
+        "Web: ten cases ten controls Youden diagnostic odds ratio",
+        "diagnostic odds ratio Youden index exact comparison sensitivity specificity"
+      ]
+    },
+    "rationale": "The literature owns both diagnostic summaries and their general interpretive differences. The inspected sources and targeted searches did not state the balanced minimum sample threshold, the exact six-pair first layer, or the explicit persistence family.",
+    "residual_risks": [
+      "The diagnostic-performance literature is large, and an unindexed exercise or software regression test could contain the same small-table witness.",
+      "The exact public-date evidence for the 1950 article is bibliographic metadata reporting 1950-01-01; the original issue itself is dated January 1950.",
+      "Unequal case-control totals or continuity corrections can change the first finite boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly establishes the J convention and diagnostic-test motivation. It does not contain the later diagnostic-odds-ratio comparison or the finite reversal result.",
+        "evidence": "The paper derives J from diseased and control correct-classification fractions and states independence from relative and absolute diseased/control group sizes.",
+        "identifier_or_url": "doi:10.1002/1097-0142(1950)3:1<32::AID-CNCR2820030106>3.0.CO;2-3",
+        "material_read": "Full four-page public PDF, especially the first two pages deriving the 2x2 diagnostic table, the formula J=sensitivity+specificity-1, and the listed invariance properties.",
+        "method": "Full-PDF text inspection plus rendered-page verification of the displayed formula and properties.",
+        "title": "Index for rating diagnostic tests",
+        "trigger": "Foundational primary source for the exact Youden index used in the theorem."
+      },
+      {
+        "assessment": "Directly covers both summaries and the nonlinear DOR behavior but does not state a sharp balanced finite-sample ordering reversal threshold.",
+        "evidence": "The paper defines DOR as TP*TN/(FP*FN), lists Youden's index as sensitivity+specificity-1, and presents both as prevalence-independent single indicators for diagnostic performance.",
+        "identifier_or_url": "doi:10.1016/S0895-4356(03)00177-X",
+        "material_read": "Public seven-page article text covering the 2x2 table, Table 2 definitions, the paragraph introducing Youden's index, equations for DOR, interpretation, limitations, and the ovarian-cancer imaging comparison.",
+        "method": "Full-PDF text inspection; rendered-page retrieval was attempted but timed out, so no uninspected visual detail is relied upon.",
+        "title": "The diagnostic odds ratio: a single indicator of test performance",
+        "trigger": "Closest primary source because it explicitly places Youden's index and DOR in the same single-indicator comparison framework."
+      },
+      {
+        "assessment": "Confirms that both measures are used to compare diagnostic tests and that Youden can hide profile differences; it does not supply the accepted sharp boundary.",
+        "evidence": "The review gives DOR=(TP/FN)/(FP/TN), J=sensitivity+specificity-1, and explicitly warns that different sensitivity-specificity pairs can have the same J.",
+        "identifier_or_url": "PMCID:PMC4975285",
+        "material_read": "Open full text, including sections on DOR and Youden's index and the example showing equal Youden values for different sensitivity-specificity profiles.",
+        "method": "Open HTML full-text inspection.",
+        "title": "Measures of Diagnostic Accuracy: Basic Definitions",
+        "trigger": "Open review discussing both global diagnostic measures and their distinct interpretive behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65f21a77-78dc-4e47-a91f-6d370b931b1f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Youden's index and DOR are both established prevalence-independent global measures for comparing diagnostic tests. A smallest balanced positive-cell reversal is a natural interpretive boundary because it removes prevalence imbalance and zero-cell corrections, isolating the aggregation choice itself. The persistent family shows that the conflict is structural rather than a one-off tiny table.",
+    "status": "PASS"
+  }
+}
