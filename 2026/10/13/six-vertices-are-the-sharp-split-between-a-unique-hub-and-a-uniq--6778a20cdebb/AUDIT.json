@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Every connected labeled simple graph through six vertices is generated explicitly. Connectivity, distance matrices, and eccentricities are independently cross-checked; all \\(720\\) six-vertex conflicts are quotient-classified under all relabelings; and the two representative classes are replayed with exact degree, eccentricity, and farness vectors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1312.3182 defines graph center through minimum eccentricity, motivates it by facility location, and surveys structural center results.",
+        "Batool and Niazi analyze degree and eccentricity centrality together across several empirical networks and emphasize that centrality notions need not agree.",
+        "Neither inspected source gives a universal small-order lower bound or a complete six-vertex isomorphism census for the relation between these two measures."
+      ],
+      "reasoning": "Broad centrality theory establishes the importance and non-equivalence of the measures, but it does not logically imply the smallest connected graph with distinct unique selections or the exact first obstruction layer.",
+      "searches": [
+        "On The Center Sets and Center Numbers of Some Graph Classes arXiv 1312.3182",
+        "Towards a Methodology for Validation of Centrality Measures in Complex Networks degree eccentricity",
+        "graph center facility location eccentricity degree centrality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1312.3182",
+      "doi:10.1371/journal.pone.0090283",
+      "MSC2020:91D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The graph-center literature defines and studies minimum-eccentricity vertices but does not imply coincidence with maximum-degree vertices on all small connected graphs.",
+        "Empirical comparisons of degree and eccentricity centrality show that the measures encode different network roles but do not determine a sharp finite obstruction order.",
+        "Class-specific center theorems for trees, block graphs, and other families do not cover every connected graph through six vertices and therefore do not imply the exhaustive census."
+      ],
+      "reasoning": "The accepted statement is a universal lower bound through five vertices together with a complete six-vertex labeled and isomorphism classification. Neither general centrality non-equivalence nor structural center results for selected graph families imply those finite counts or the two-class obstruction structure.",
+      "searches": [
+        "graph center minimum eccentricity maximum degree centrality relation",
+        "degree centrality eccentricity centrality empirical comparison",
+        "smallest connected graph unique center different maximum degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned no published record stating a hub-versus-center sharp order or the exact six-vertex census.",
+        "Web searches located general centrality and graph-center definitions and empirical comparisons, but not the exact \\(720\\)-graph boundary.",
+        "The graph-center paper uses the same minimum-eccentricity definition and separately defines degree, so the comparison was checked under standard terminology rather than an invented variant."
+      ],
+      "reasoning": "The searches cover the graph-theoretic terms center, radius, eccentricity, maximum degree, degree centrality, unique center, and smallest graph. Equivalent normalization of degree cannot change the maximizing vertex.",
+      "searches": [
+        "graph center maximum degree smallest graph unique center different unique maximum-degree vertex",
+        "eccentricity center degree centrality smallest connected graph disagreement",
+        "connected graph unique center unique maximum degree different vertices six vertices",
+        "\"maximum degree\" \"graph center\" smallest connected graph",
+        "\"unique center\" \"unique maximum degree\" graph",
+        "\"degree centrality\" eccentricity centrality smallest graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the count \\(720\\) out of \\(26704\\).",
+        "No inspected source supplied the two six-vertex isomorphism classes or their \\(360\\)-element orbits.",
+        "No inspected source supplied the five-vertex set-level count \\(400\\).",
+        "The packaged computation derives all counts directly from the complete labeled graph domain."
+      ],
+      "reasoning": "Exact-number searches directly test whether the finite census is already tabulated; generic centrality examples do not cover the claim.",
+      "searches": [
+        "web: \"720\" \"graph center\" \"maximum degree\"",
+        "web: \"26704\" eccentricity centrality degree",
+        "web: \"400\" \"728\" graph center maximum degree",
+        "web: \"six vertices\" \"graph center\" maximum degree"
+      ]
+    },
+    "rationale": "The literature establishes graph centers and multiple centrality notions, but the inspected sources do not state the sharp distinct-unique hub-versus-center boundary or its exact \\(720\\)-graph, two-class first layer.",
+    "residual_risks": [
+      "An unindexed graph atlas, thesis appendix, software corpus, or classroom enumeration could contain the same small-order classification.",
+      "The literature contains many examples comparing centrality measures; the originality claim is restricted to the exact sharp distinct-unique boundary and complete first layer.",
+      "No statement is made about directed, weighted, disconnected, or graphs with more than six vertices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact graph-center object and structural context but studies center sets in selected graph classes rather than the smallest order at which a unique center and unique maximum-degree vertex differ.",
+        "evidence": "arXiv:1312.3182v1, submitted 11 December 2013; introduction and definitions inspected in full-text HTML.",
+        "identifier_or_url": "arXiv:1312.3182",
+        "material_read": "Open arXiv HTML full text, especially the introduction and basic definitions: graph centers are the minimum-eccentricity vertices; eccentricity is maximum graph distance; degree is the number of neighbors; the center is motivated by facility location and centrality questions.",
+        "method": "Open arXiv full-text HTML inspection.",
+        "title": "On The Center Sets and Center Numbers of Some Graph Classes",
+        "trigger": "Primary full text on graph centers, their metric definition, facility-location motivation, and basic degree notation."
+      },
+      {
+        "assessment": "Shows that comparing these centrality notions is scientifically meaningful and that different notions need not behave identically, but does not state a small-order extremal theorem or exact graph census.",
+        "evidence": "PLoS ONE 9(4):e90283, 2014, DOI 10.1371/journal.pone.0090283.",
+        "identifier_or_url": "doi:10.1371/journal.pone.0090283",
+        "material_read": "Open full-text material covering the centrality definitions, methodology, empirical network comparisons, and discussion of degree, closeness, eccentricity, betweenness, and eigenvector centralities.",
+        "method": "Open PLoS/PMC full-text inspection.",
+        "title": "Towards a Methodology for Validation of Centrality Measures in Complex Networks",
+        "trigger": "Primary empirical article explicitly analyzing degree and eccentricity centrality together."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6778a20c-debb-40b9-8648-18b3e8db1e13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximum degree captures immediate reach or hub status, while minimum eccentricity is the classical minimax location criterion. The first network size where these two unambiguous choices can conflict is therefore a natural structural benchmark, and the complete two-class first layer plus the closeness tie gives additional explanatory structure rather than a bare counterexample.",
+    "status": "PASS"
+  }
+}
