@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact Type-1 objective-gap condition and strong convexity imply \\(2rQ\\le-\\|u-x\\|^2-\\|p-x\\|^2+\\varepsilon^2\\); the observable criterion then yields \\(Q\\le-(1-\\kappa)\\|u-x\\|^2/r\\). The scalar zero-penalty extremizers saturate each inequality and prove the endpoint barrier. Algorithm 2 nonterminal geometric refinement terminates for all \\(0<\\kappa<1\\). Source Theorem 12 supplies \\(\\kappa_{\\mathrm{fcd}}=(1-\\kappa)\\min\\{1-\\kappa,r_{\\min}\\}/2\\). Source Theorem 10 first clause gives \\(\\liminf\\Psi_k=0\\); \\(\\bar\\Psi_k\\le(1+\\kappa)\\Psi_k\\), its Lemma 2, and Assumption 3.1 yield the remaining limiting-stationarity assertion. Exact-rational checker executed successfully; it is not used as an infinite proof. Terminal handling for \\(p=x\\), outer oracle assumptions and limiting-not-full convergence are stated explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2601.09024v1 defines an inexact weighted proximity operator via delta-Fréchet error, not a relative Type-1 objective gap against the computed step.",
+        "arxiv:2006.06041v3 analyzes general performance-estimation and selected convex proximal schemes; no theorem covering the cited nonconvex trust-region outer stationarity hypotheses was found in relevant sections."
+      ],
+      "reasoning": "A generic worst-case-analysis framework does not by itself supply the algorithm-specific conclusion and sharp witness. The weighted predecessor has a different inexactness criterion, so its descent statements do not subsume the Type-1 assertion.",
+      "searches": [
+        "published-finding corpus: arxiv 2609.26747 Baraldi Kouri Maia exact inexact proximal Cauchy sufficient decrease parameter upper bound one half generalization kappa threshold one",
+        "web: Barré Taylor Bach 2020 Principled Analyses and Design of First-Order Methods with Inexact Proximal Operators relative error descent inequality pdf",
+        "arxiv:2601.09024v1 Sections 3--5",
+        "arxiv:2006.06041v3 Sections 2--3, end-of-paper limitations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.26747v1",
+      "https://arxiv.org/pdf/2601.09024",
+      "https://arxiv.org/pdf/2006.06041",
+      "https://optimization-online.org/wp-content/uploads/2023/11/main.pdf",
+      "https://pureadmin.qub.ac.uk/ws/portalfiles/portal/578097606/Sharper_bounds_for_proximal_gradient_algorithms_with_errors.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary Theorem 10 establishes limit-inferior stationarity under its exact-step precision condition (25); Proposition 11 explicitly sets kappa smaller than one half and derives a weaker coefficient.",
+        "The comparison papers do not assert global convergence of the 2026 Type-1 trust-region variant across all observable kappa smaller than one."
+      ],
+      "reasoning": "The newly proved observable-to-exact norm comparison supplies the missing implication from the source Theorem 10 first clause to its stationarity clause. The enlarged kappa regime lies outside the source Algorithm 2 admissible range, and the coefficient is certified optimal by an extremizer.",
+      "searches": [
+        "arxiv:2609.26747v1 Theorems 10,12 and Proposition 11",
+        "arxiv:2601.09024v1 Section 4",
+        "arxiv:2006.06041v3 Sections 2.3 and 3",
+        "published-finding corpus: Proximal trust region type 1 inexact relative gradient step observable tolerance kappa less than one sharp descent 1-kappa"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.26747v1, Lemma 9 provides coefficient from a different, exact-step relative test, and Algorithm 2 only allows kappa less than one half.",
+        "arxiv:2006.06041v3 Section 2.3 discusses relative inexactness, but not the same Cauchy model quotient and outer convergence implication."
+      ],
+      "reasoning": "The exact-step and computed-step notions are not interchangeable at a fixed error threshold; the new scalar bound quantifies their difference sharply, and its stationarity transfer avoids the exact-step condition.",
+      "searches": [
+        "published-finding corpus: Proximal trust region type 1 inexact relative gradient step observable tolerance kappa less than one sharp descent 1-kappa",
+        "web: inexact proximal approximate minimizer strong convexity relative step error sharp descent 1-kappa trust region",
+        "arxiv:2609.26747v1 Lemma 9, Definition 4 and Algorithm 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned closest published items concerned SPD Cauchy trust-region optimal-decrease ratio (2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe), Lanczos proximal convexification (2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4), and deterministic gradient-mapping accumulation (2026/9/17/SCOPE-automatic-boundedness-for-deterministic-gradient-mapping-accumulation--e3edbe40faf5).",
+        "Own current and immediate prior claim/ID records yielded no source-matched Type-1 trust-region tolerance extension."
+      ],
+      "reasoning": "The named closest results concern other optimization algorithms or certificates. No exact sharp constant table or parameter-level duplication emerged; search absence is recorded as a bounded check rather than a proof of novelty.",
+      "searches": [
+        "published-finding corpus: Inexact prox approximation exact proxy liminf stationarity from epsilon bounded by kappa computed step versus exact step conditional theorem",
+        "published-finding corpus: Sharp relative inexact proximal gradient descent type 1 proximal approximation epsilon <= kappa norm step coefficient 1-kappa, exact relative error",
+        "own 2026-10_week1 current ledger claim/ID comparison",
+        "own 2026-09_week4 prior ledger claim/ID comparison"
+      ]
+    },
+    "rationale": "Direct comparison of the primary full article's Definition 4, Lemma 9, Proposition 11, Theorem 10 and Algorithm 2 finds only \\(0<\\kappa<1/2\\) and a separate exact-step requirement, not this sharp observable-only threshold with global stationarity. The closest weighted predecessor, general inexact proximal performance-analysis work, and proximal subproblem solver work do not imply the combined Type-1 trust-region claim without the new estimates. Available published search and local prior claims showed no same or dominating theorem, but exhaustive originality cannot be certified.",
+    "residual_risks": [
+      "Unindexed or later-updated manuscripts may contain equivalent statements.",
+      "General inexact-proximal theory could contain an unstated special case; no exhaustive survey of all older literature is possible.",
+      "The global limit-inferior assertion uses the primary published outer convergence theorem with its explicit oracle and curvature hypotheses; it is not an independent new outer convergence proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source supplies basic lemmas and convergence theorem but requires kappa below one half for its inner procedure and an exact-step precision condition for stationarity.",
+        "evidence": [
+          "arXiv v1 2026-09-22; Lemma 9 equations (13)--(15); Algorithm 2 lines 485--499; Proposition 11 lines 500--524; Theorems 10,12 lines 419--458 and 525--560."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.26747v1",
+        "material_read": "Full relevant Definition 4, Lemmas 1,2,6,9; Section 3 assumptions; Algorithms 1--2; Theorems 10,12 and proofs, Proposition 11; section and references overview",
+        "method": "Direct open-access full HTML text inspection",
+        "title": "Convergence Analysis of an Inexact Proximal Trust-Region Method",
+        "trigger": "Same proximal Type-1 objects and outer trust-region theorem"
+      },
+      {
+        "assessment": "Uses delta-Fréchet inexactness and weighted proximal norms rather than Type-1 proximal-energy gap with computed-displacement tolerance.",
+        "evidence": [
+          "arxiv:2601.09024v1, pages 1--7, Definition 4.1 and Theorem 4.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.09024",
+        "material_read": "Full article introduction, sections 3--5 including inexact proximity operator and Cauchy point conditions",
+        "method": "Open-access PDF text and first-page visual inspection",
+        "title": "An Inexact Weighted Proximal Trust-Region Method",
+        "trigger": "Same authors and same trust-region family; plausible stronger predecessor"
+      },
+      {
+        "assessment": "Provides general performance-estimation framework and separate algorithms, not the source-specific Cauchy fraction and limiting stationarity conclusion.",
+        "evidence": [
+          "arxiv:2006.06041v3, Section 2.3 relative inaccuracies, Section 3 performance estimation, Section 7 remarks."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.06041",
+        "material_read": "Full PDF available; relevant sections 2.3,3 and end of Section 7, references, appendix examples inspected",
+        "method": "Open-access PDF text and first-page visual inspection",
+        "title": "Principled Analyses and Design of First-Order Methods with Inexact Proximal Operators",
+        "trigger": "General tight worst-case inexact proximal methodology may dominate a sharp scalar result"
+      },
+      {
+        "assessment": "Treats proximal subproblem trial solvers without the particular Type-1 observable accuracy bound and sharp threshold.",
+        "evidence": [
+          "2023 preprint; method descriptions and FCD analysis."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2023/11/main.pdf",
+        "material_read": "Full PDF available; introduction and sections on Cauchy-point solvers and fraction-of-Cauchy decrease",
+        "method": "Open-access PDF text and first-page visual inspection",
+        "title": "Efficient Proximal Subproblem Solvers for a Nonsmooth Trust-Region Method",
+        "trigger": "Source-cited trust-region Cauchy point predecessor"
+      },
+      {
+        "assessment": "Convex finite-dimensional proximal gradient algorithms with accumulated iteration errors; not a source-specific model decrease/FCD-to-stationarity theorem.",
+        "evidence": [
+          "Article main-results section on errors and convergence, not the 2026 nonconvex trust-region inner criterion."
+        ],
+        "identifier_or_url": "https://pureadmin.qub.ac.uk/ws/portalfiles/portal/578097606/Sharper_bounds_for_proximal_gradient_algorithms_with_errors.pdf",
+        "material_read": "Full PDF available; introduction, error definitions and main-results sections",
+        "method": "Open-access PDF text and first-page visual inspection",
+        "title": "Sharper Bounds for Proximal Gradient Algorithms with Errors",
+        "trigger": "Sharp inexact proximal-gradient inequalities could imply the descent bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "97c0f1d1-819d-4be5-befb-d261bf3b04fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary algorithm's tolerance \\(\\kappa<1/2\\) controls computational work, yet its Cauchy model can maintain certified decrease and outer limit-inferior stationarity throughout the larger strict interval \\(0<\\kappa<1\\). The boundary is sharp for the very same Type-1 error observable and an exact scalar example; the derivation also removes dependence on the unknown exact-step precision condition (25), improving implementability. It is a meaningful algorithm-specific parameter and convergence-theory improvement, not an arbitrary slice, numerical table lookup, or mere normalization.",
+    "status": "PASS"
+  }
+}
