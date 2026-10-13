@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Compatibility with the fixed unital algebra is reduced by unit insertions and three radical-basis triples to a unique nine-parameter table, without division by field elements. Six exact associator coefficients force a three-way field-level stratification. On the residual stratum the full associative system is precisely the minors of a \(3\times2\) matrix. Each closure is proved to satisfy every associator, the rank-one cone is geometrically irreducible of dimension four, and explicit intersections give the all-characteristic count and zeta function. The standalone checker reconstructs the mixed equations, verifies the symbolic expansions, exhausts the full nine-parameter lists over \(\mathbf F_2\) and \(\mathbf F_3\), and returns `VERIFY_OK`. The finite enumerations are corroboration, not an infinite-field proof.
+
+## Originality — PASS, with residual uncertainty
+The closest full primary article, Abdelwahab–Kaygorodov–Makhlouf, arXiv:2406.10947 (Theorems 2.10 and 3.8), classifies **two-dimensional** compatible associative pairs, not the reduced fiber for a fixed three-dimensional local algebra. Chtioui–Das–Mabrouk, arXiv:2107.09259 (Definition 2.1, Proposition 2.1), prove the general cohomological criterion but not this determinantal decomposition. Abdurasulov–Adashev–Toshtemirova, arXiv:2603.07362 (Definitions 1–2, Theorem 24), analyze stronger matching conditions on a nonunital nilpotent truncated polynomial algebra; those structures neither cover the unital first algebra nor all ordinary compatible products here. Odesskii–Sokolov's semisimple/matrix scope is different. Semantic searches of published mathematical research records for fixed-first compatible associative products, truncated polynomial local algebras, determinantal components and the exact count found no implication covering this result. The remaining risk is an equivalent calculation elsewhere under another name; unsuccessful search by itself is not a novelty certificate.
+
+## Value — PASS
+A first three-dimensional monogenic local algebra has a compatible-product locus that is not a single deformation family: its geometric components have three different dimensions, and the smaller mutation family does not dominate the space. The complete determinantal description gives its arithmetic over every finite field, including characteristic two, and a rational point-counting zeta function. These distinguish genuinely compatible products from the more restrictive mutation/matching products in a natural example of deformation theory. The statement is neither a restricted parameter slice nor a recalculation of a published classification table.
+
+## Limitations and risk
+The result classifies labeled products with the first product fixed, not abstract isomorphism classes. No reduced-scheme equality for the original possibly nonradical ideal is asserted beyond its geometric support. The literature comparison has a residual synonym/coverage risk. Independent replication and audit are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
