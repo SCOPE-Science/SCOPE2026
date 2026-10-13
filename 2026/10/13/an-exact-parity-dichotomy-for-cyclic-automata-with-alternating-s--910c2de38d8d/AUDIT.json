@@ -1,0 +1,176 @@
+{
+  "correctness": {
+    "rationale": "For every n≥2, parity-invariant rank proves even n≥4 nonsynchronizing, and direct n=2,3 checks handle exceptions. For odd n≥5 an explicit W_k maps Q to singleton and has exactly \\(2k^2-k+1\\) letters. The inverse-image formula for every nonempty cyclic interval and the piecewise potential P prove \\(P(c^{-1}I)\\le P(I)+1\\) for both letters in all parity/wrap/seam/length boundary cases, forcing every reset word to be at least P(Q). Embedded independent subset BFS n=2..19, witness replay odd n≤151, and 347214 potential-edge checks corroborate the proof; finite checks alone are not the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eppstein 1990 develops general monotonic interval techniques, without a parity-specific threshold formula.",
+        "Rystsov–Szykuła arXiv:2309.08321 §2–§4 bounds families admitting a one-point contraction; the present b contracts roughly n/2 distinct adjacent pairs.",
+        "Zhu arXiv:2407.08135 treats a sufficiently high-rank singular-letter hypothesis which the current b does not satisfy for n≥5."
+      ],
+      "reasoning": "These general theorems concern algorithmic bounds or distinct transition hypotheses, rather than an exact closed formula for this family; a general bound does not logically yield equality.",
+      "searches": [
+        "Reset Sequences for Monotonic Automata Eppstein 1990",
+        "Reset thresholds of transformation monoids 2309.08321",
+        "A Quadratic Upper Bound on the Reset Thresholds of Synchronizing Automata Containing a Transitive Permutation Group 2407.08135"
+      ]
+    },
+    "checked_sources": [
+      "Eppstein 1990 author full text",
+      "Gusev 2011/2013 publisher preview and full Volkov technical reconstruction",
+      "Volkov arXiv:1807.07048 original PDF",
+      "Rystsov–Szykuła arXiv:2309.08321 original PDF",
+      "Zhu arXiv:2407.08135 original PDF",
+      "TheoremDB P2560 public statement",
+      "Published indexed results on Černý avoiding thresholds, eight-state one-cluster reset censuses, and partial Černý seven-state automata"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gusev M_n has idempotent a and nonpermutation b, while the present a is invertible and b matches Gusev’s almost-idempotent letter only up to one-indexed labeling. A theorem about M_n is not a theorem about its generator b paired with an n-cycle.",
+        "Present potential is checked for both inverse maps and supplies the missing family-specific lower bound."
+      ],
+      "reasoning": "The inspected earlier threshold formula neither subsumes the present automaton family nor yields its threshold by a stated reduction. The present parity-sensitive nonsynchronization assertion is also not covered by an odd-only Eulerian theorem.",
+      "searches": [
+        "Gusev 2011 Eulerian M_n transitions a b proof exact reset threshold",
+        "Volkov Synchronizing Finite Automata Lecture V Gusev Construction",
+        "arxiv:1807.07048",
+        "arxiv:2309.08321",
+        "Odd cycle automaton a(i)=i+1 mod n, b(i)=i+1 mod n for even i and b(i)=i for odd i, reset threshold 2k^2-k+1 odd n 2k+1; even n non-synchronizing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gusev 2011/2013 exact polynomial \\((n^2-3n+4)/2\\) occurs for two nonpermutation letters; full transition account Volkov Lecture V pp.20–23.",
+        "TheoremDB P2560 assumes an idempotent odd-to-predecessor collapse, whereas for odd n the present b has \\(b(n-1)=0\\) and \\(b^2(n-1)=1\\)."
+      ],
+      "reasoning": "An equal numerical formula is not equivalence of automata or implication. Invertible generator a distinguishes this automaton from Gusev. An idempotency invariant and different tested odd thresholds distinguish the TheoremDB automaton. Neither map comparison yielded a covering equivalence.",
+      "searches": [
+        "Odd cycle automaton a(i)=i+1 mod n, b(i)=i+1 mod n for even i and b(i)=i for odd i, reset threshold 2k^2-k+1 odd n 2k+1; even n non-synchronizing",
+        "Cyclic pair-compression automaton b on all even vertices sends to successor odd vertices; exact threshold n squared -3n+4 divided by two",
+        "Synchronizing automata alternately paired transformations parity cyclic order preserving rank (n+1)/2",
+        "cyclic monotone automata even odd alternating semiconstant letter reset threshold",
+        "arxiv:1807.07048",
+        "TheoremDB P2560",
+        "Gusev Eulerian reset automaton replace idempotent generator by full n-cycle, same reset length (n^2-3n+4)/2, alternating successor map odd n",
+        "n odd cyclic DFA a(i)=i+1 b(i)=i+1 for even i b(i)=i for odd i; n even nonsynchronizing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed Černý k-avoiding result concerns the single-merge Černý automaton, not simultaneous parity collapse.",
+        "The indexed finite one-cluster census concerns a different automaton and fixed eight states.",
+        "TheoremDB P2560 reports computational data for a different idempotent parity map, not this classification.",
+        "Gusev published an identical scalar sequence for a different family; not a table of the present maps."
+      ],
+      "reasoning": "No inspected exact database row or mathematical table addresses the defined pair of generators; coincidence of scalar thresholds is separately and prominently disclosed.",
+      "searches": [
+        "Odd cycle automaton a(i)=i+1 mod n, b(i)=i+1 mod n for even i and b(i)=i for odd i, reset threshold 2k^2-k+1 odd n 2k+1; even n non-synchronizing",
+        "Cyclic pair-compression automaton b on all even vertices sends to successor odd vertices; exact threshold n squared -3n+4 divided by two",
+        "Gusev Lower Bounds for the Length of Reset Words in Eulerian Automata",
+        "Exact k-avoiding thresholds of the Černý automata (publicly indexed source)",
+        "Slow-reset census for binary one-cluster synchronizing automata on eight states (publicly indexed source)",
+        "TheoremDB P2560"
+      ]
+    },
+    "rationale": "The closest known identical polynomial belongs to Gusev’s nonpermutation-letter Eulerian family (2011). This theorem instead concerns a full cycle paired with a nonidempotent alternate successor collapse, which is not conjugate to Gusev’s automaton; the numerical coincidence is disclosed. Public primary full texts on interval algorithms, idempotent low-rank constructions, transformation monoids and permutation-group bounds do not assert the present parity classification. Indexed matches are weaker or structurally different; incomplete access to the original Gusev full text and unindexed priority remain explicit risks.",
+    "residual_risks": [
+      "Gusev’s complete original journal text was unavailable through accessible lawful full-text routes; its transition maps and core proof were read in a complete public technical reproduction.",
+      "Some earlier unindexed cyclic-order automata theorem or equivalent generator reduction may imply this classification and would defeat priority.",
+      "Numerical coincidence with Gusev means the value claim is structural classification rather than a new extremal scalar threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different generator family: neither Gusev letter is a permutation, while present a is a full n-cycle; exact scalar polynomial coincides",
+        "evidence": [
+          "Gusev maps in one-based states: one letter fixes odd and advances even; second advances odd (with seam) and fixes even.",
+          "The present b equals the latter up to relabeling, but the other letter is an n-cycle rather than Gusev’s idempotent map."
+        ],
+        "identifier_or_url": "https://kadm.kmath.ru/files/synchroprint5.pdf",
+        "material_read": "Pages 20–23 containing the full two-letter transition rules and proof via Černý subautomata",
+        "method": "full accessible slide-deck sections with mathematical formulas, plus page-image checks",
+        "title": "Gusev’s Construction in Synchronizing Finite Automata, Lecture V",
+        "trigger": "Gusev has the identical scalar odd threshold; decisive coverage comparison"
+      },
+      {
+        "assessment": "Exact polynomial known since 2011 in a different Eulerian family; full mathematical reconstruction was available independently in the Volkov technical account",
+        "evidence": [
+          "The abstract gives R=\\((n^2-3n+4)/2\\) for odd n≥5.",
+          "The full technical account above reproduces its transition maps; residual full-text access limitation is retained."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129054113400108",
+        "material_read": "Public publisher-preview pages and abstract, not the full article; open full-text copy returned access-denied",
+        "method": "Public publisher preview; a complete lawful full-text copy was unavailable, so the full mathematical comparison uses a separately accessible technical reproduction.",
+        "title": "Lower Bounds for the Length of Reset Words in Eulerian Automata",
+        "trigger": "Identical formula; original primary article required for source comparison"
+      },
+      {
+        "assessment": "Three-letter low-rank idempotent constructions at even state orders do not encompass the present odd-order two-letter cycle construction",
+        "evidence": [
+          "The paper’s even-order three-idempotent-letter hypotheses differ from one cyclic permutation plus a nonidempotent b."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1807.07048",
+        "material_read": "Accessible 2018 preprint, introduction, constructions, proof and concluding sections",
+        "method": "full-text PDF inspection with original article pages",
+        "title": "Slowly Synchronizing Automata with Idempotent Letters of Low Rank",
+        "trigger": "Natural low-rank and near-idempotent comparison and middle-cohort date"
+      },
+      {
+        "assessment": "Its one-point-contraction results and broad monoid bounds do not assert the exact parity-dependent value for this generator pair",
+        "evidence": [
+          "Pages 2–3 define one-point contraction as kernel type (k,1,…,1); present b has multiple nontrivial kernel blocks."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.08321",
+        "material_read": "Full text across sections 1–6 including stated theorems, definitions of simple singulars and proofs",
+        "method": "original OA PDF text and page-image inspection",
+        "title": "Reset Thresholds of Transformation Monoids",
+        "trigger": "Potential broader rank-based coverage"
+      },
+      {
+        "assessment": "Requires high-rank letters or similar sufficient conditions not satisfied by this lower-rank simultaneous-collapse generator",
+        "evidence": [
+          "Present b image rank (n+1)/2 for odd n, rather than n−1; an upper bound cannot establish the exact threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.08135",
+        "material_read": "Introduction, theorem statements, central proof sections and conclusions of complete original PDF",
+        "method": "original OA PDF text and page-image inspection",
+        "title": "A Quadratic Upper Bound on the Reset Thresholds of Synchronizing Automata Containing a Transitive Permutation Group",
+        "trigger": "Broad cyclic-transitive permutation reset bounds"
+      },
+      {
+        "assessment": "Supplies general methods, not the specific closed-form odd/even threshold or optimal word",
+        "evidence": [
+          "General reset-sequence algorithm for monotonic automata is not a parameter-specific formula."
+        ],
+        "identifier_or_url": "https://ics.uci.edu/~eppstein/pubs/Epp-SJC-90.pdf",
+        "material_read": "Original full paper including interval algorithm and reset bound statements",
+        "method": "author-hosted full-text PDF",
+        "title": "Reset Sequences for Monotonic Automata",
+        "trigger": "General exact shortest reset algorithm for order-preserving transition systems"
+      },
+      {
+        "assessment": "Its idempotent odd-to-predecessor b is nonconjugate to present nonidempotent even-to-successor b; proposed threshold differs",
+        "evidence": [
+          "Its conjectured odd threshold n(n−1)/2 differs from present \\((n^2-3n+4)/2\\) for n≥5."
+        ],
+        "identifier_or_url": "https://www.theoremdb.org/statements/cyclic-pair-compression-reset-threshold/",
+        "material_read": "Full public problem statement and computational status; no covering proof published in the viewed record",
+        "method": "public indexed record and linked evidence summary",
+        "title": "Reset threshold of the cyclic pair-compression automaton",
+        "trigger": "Very close cyclic parity map"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "910c2de3-8d8d-431e-8463-aface6cc6c1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit full-cycle permutation and natural alternating adjacent-collapse map yield a sharp even/odd synchronizability boundary (including seam exceptions), and an exact quadratic reset threshold with constructive optimal words for every odd size. A global interval potential reveals why parity and the nonidempotent seam govern the complexity. This closes a complete natural one-parameter family, not an arbitrary parameter slice or a renamed known Eulerian construction.",
+    "status": "PASS"
+  }
+}
