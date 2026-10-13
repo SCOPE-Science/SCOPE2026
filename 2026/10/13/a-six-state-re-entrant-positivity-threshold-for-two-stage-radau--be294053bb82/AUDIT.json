@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact functional calculus reduces the whole matrix sign problem to five rational shift coefficients and five absorbing tails. Their signs are proved on the full step intervals; Descartes' rule proves the sole positive root of the six-state tail polynomial, and the transient diagonal proves failure beyond \\(h=3\\). Exact replay returned VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hairer--Wanner establishes Radau IIA A-stability, stiff accuracy, and the rational stability function.",
+        "Horvath establishes a broad RK positivity-threshold framework for positive IVPs and discusses larger positivity regions for special invariant sets.",
+        "The closest published research-index record concerns the [2/2] Pade/Gauss--Legendre map with an eight-state barrier."
+      ],
+      "reasoning": "General stability and broad positivity-threshold theory do not by themselves determine the exact absorbing-tail signs for this specific rational function on the homogeneous pure-birth hierarchy. The [2/2] Pade record uses a different map and has a different minimal state count.",
+      "searches": [
+        "Published research index query: Radau IIA stability function derivatives pure birth positivity",
+        "Web: On the positivity step size threshold of Runge-Kutta methods Radau IIA",
+        "Web: Stiff differential equations solved by Radau methods Hairer Wanner"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/S0377-0427(99)00134-X",
+      "DOI:10.1016/j.apnum.2004.08.026",
+      "published-record:4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hairer--Wanner supplies the method and stability function but does not state entrywise positivity on finite Markov generators.",
+        "Horvath's accessible abstract establishes broad positivity-threshold theory but does not reveal an exact six-state pure-birth classification; full-text unavailability is retained as risk.",
+        "The published-index [2/2] Pade theorem is for a fourth-order Gauss--Legendre map and an eight-state onset, so neither direction of implication covers the Radau IIA polynomial/tail calculation."
+      ],
+      "reasoning": "The new statement requires the nilpotent-shift coefficients and absorbing-tail identities of the particular Radau IIA rational function. Prior stability or SSP statements are inputs/background, not a logical implication of the exact six-state iff classification.",
+      "searches": [
+        "Primary full article: Hairer--Wanner 1999, sections on Radau IIA stability analysis and collocation",
+        "Horvath 2005 positivity-threshold publication metadata and abstract",
+        "Published record ID: 4aad2a3f58ab"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published research index hit stated the six-state Radau IIA pure-birth classification.",
+        "Hairer--Wanner gives the two-stage order-three Radau IIA stability function and standard stiff-stability properties, but no componentwise Markov classification.",
+        "Horvath's 2005 abstract treats general RK positivity step-size thresholds, but the accessible material does not state this six-state re-entry theorem."
+      ],
+      "reasoning": "Equivalent aliases include endpoint positivity, stochasticity of the rational matrix map, positivity of the first five Taylor-shift coefficients, and a pure-birth absorbing-tail test. Searches under these aliases did not expose an implication-equivalent statement.",
+      "searches": [
+        "Published research index query: two-stage Radau IIA six-state pure-birth positivity re-entrant step size",
+        "Published research index query: Radau IIA Markov chain positivity small step negative six states",
+        "Web: two-stage Radau IIA positivity absolute monotonicity",
+        "Web: Radau IIA positivity Runge Kutta Horvath"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published research-index record or web result gave the polynomial \\(h^5+30h^4+180h^3+360h^2+180h-72\\) or the constant \\(0.253946561637\\ldots\\) as a Radau IIA Markov-positivity boundary.",
+        "Hairer--Wanner's tabulation concerns stability functions and order, not a positivity table by CTMC state count."
+      ],
+      "reasoning": "Because the claim has a distinctive exact polynomial and state count, direct exact-constant/table searches are a strong overlap check. They returned no matching database entry.",
+      "searches": [
+        "Published research index query: Radau IIA positivity threshold homogeneous birth chain",
+        "Published research index query: two-stage Radau IIA six-state pure-birth positivity re-entrant step size",
+        "Web exact phrase: Radau IIA pure birth positivity"
+      ]
+    },
+    "rationale": "Focused published-research-index and primary-literature comparisons found no implication-equivalent Radau IIA pure-birth theorem. The closest published database result is for a different [2/2] Pade map. Hairer--Wanner supplies the method but not the Markov classification. Horvath's broad positivity paper remains a genuine residual risk because only abstract/metadata material was accessible.",
+    "residual_risks": [
+      "Horvath 2005 is highly relevant but only abstract/metadata material was accessible; an equivalent specialization could occur in its inaccessible full text.",
+      "Older positivity-preserving Runge--Kutta literature may encode the same pure-birth tail calculation under absolute-monotonicity or positive-system terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The article gives \\(R(z)=1+zb^T(I-zA)^{-1}1\\) and the order-three Radau IIA stability function, but its analyzed properties are stability, damping, collocation, and convergence rather than finite-state componentwise positivity.",
+        "identifier_or_url": "DOI:10.1016/S0377-0427(99)00134-X",
+        "material_read": "Full accessible article text covering stability-function formula, two-stage order-three Radau IIA, A-stability, collocation, B-stability, and stiff accuracy.",
+        "method": "Full-text web inspection through the publisher open archive.",
+        "title": "Stiff differential equations solved by Radau methods",
+        "trigger": "Primary archive-era Radau IIA source and MSC ownership source."
+      },
+      {
+        "assessment": "PLAUSIBLE_SOURCE_PARTIALLY_INSPECTED",
+        "evidence": "The abstract states general positivity step-size thresholds and special invariant-set enlargements. Because the full statement/proofs were inaccessible, possible equivalent specialization remains a residual risk rather than being claimed absent.",
+        "identifier_or_url": "DOI:10.1016/j.apnum.2004.08.026",
+        "material_read": "Publication metadata and abstract; full text was not available through the lawful routes checked in this run.",
+        "method": "Publisher-index/author-portal abstract inspection and targeted web search.",
+        "title": "On the positivity step size threshold of Runge-Kutta methods",
+        "trigger": "Highly relevant broad RK positivity literature."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It concerns the fourth-order [2/2] Padé / two-stage Gauss--Legendre map and an eight-state pure-birth onset, not the two-stage Radau IIA rational function or six-state threshold.",
+        "identifier_or_url": "published-record:4aad2a3f58ab",
+        "material_read": "Published record title, summary, parameters, and claimed positivity interval.",
+        "method": "Published-index semantic comparison.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest published-index semantic match: rational one-step Markov positivity with re-entry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be294053-bb82-4a7f-a912-3653a098d57e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a complete exact positivity set through the first failing state count for a canonical L-stable stiff integrator on a canonical Markov hierarchy. The six-state small-step hole and exact re-entry root are structurally informative for positivity-sensitive stiff integration and are not a mere numerical witness.",
+    "status": "PASS"
+  }
+}
