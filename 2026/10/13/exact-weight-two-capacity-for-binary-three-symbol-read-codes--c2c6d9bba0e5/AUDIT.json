@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The precise cyclic read-distance condition is equivalent to requiring that every open neighborhood of an edge graph be separated by three cyclic positions. This gives degree at most \\(m=\\lfloor n/3\\rfloor\\). When \\(n=3m\\), any maximum-degree neighborhood is an entire residue class, and maximum-degree vertices in all three classes would force a fixed-point-free involution on three labels. The strict edge bound follows. Explicit circulant, antipodal and matching constructions attain the general degree bound in the other residues; \\(K_{m,m}\\sqcup K_m\\) attains the strict bound. Every length \\(n\\ge6\\) is covered; independent finite read-metric checks reproduce the conclusions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1109/TIT.2016.2522434 §V: the read metric, general comparison inequalities and interleaved code construction.",
+        "arXiv:1609.09236 Theorem 2.4: general Singleton bound \\(M\\le q^{n-d+b}\\), and linear MDS existence for \\(b=3\\), \\(d=6\\).",
+        "arXiv:2504.10088 Definitions §2 and Corollary 4.5: restricted Johnson bound uses constant b-symbol weight; this differs from fixed Hamming weight two."
+      ],
+      "reasoning": "Unrestricted cardinality upper bounds and linear MDS existence can be much weaker or apply to a different class. Neither implies a sharp maximum specifically within the weight-two shell; fixed b-symbol weight is not a fixed Hamming-weight condition.",
+      "searches": [
+        "\"b-symbol\" \"constant weight\" \"Hamming weight\" optimal code",
+        "\"symbol b-read\" codes 2016 Yang Li Feng first arxiv 2016 July",
+        "\"b-symbol\" \"constant weight\" \"minimum distance\" 3-symbol",
+        "Code size constraints in b-symbol read channels A bound analysis 2025 arxiv full text"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.2016.2522434",
+      "arXiv:1607.02677",
+      "arXiv:1609.09236",
+      "arXiv:1606.06370",
+      "arXiv:2504.10088",
+      "Relevant published mathematical-research record searches: exact 3-symbol weight-two distance six; two-token powers of cycles; cyclic neighborhood packing"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1606.06370 Lemma 5.1 gives an upper bound by neighborhood independence, recovering only \\(|E|\\le\\lfloor n\\lfloor n/3\\rfloor/2\\rfloor\\), not the correction at \\(3\\mid n\\).",
+        "arXiv:1609.09236 §§1–4 constructs unrestricted linear MDS three-read codes of distance six, not all-weight-two code families.",
+        "arXiv:2504.10088 §§2–5 optimizes unrestricted cardinalities and cardinalities under prescribed b-symbol weight rather than binary Hamming weight two."
+      ],
+      "reasoning": "Each highly relevant result was compared by its hypotheses and conclusion rather than title alone. Generic upper bounds imply only coarse inequalities, and constructions that do not enforce exactly two ones cannot provide the required lower-bound witnesses. The new strict residue defect and explicit witnesses therefore remain uncovered by those results.",
+      "searches": [
+        "\"independence number\" \"square of cycle\" \"token\"",
+        "\"Maximum Distance Separable Codes for b-Symbol Read Channels\" \"d3=6\"",
+        "\"Constructions and Decoding of Cyclic Codes Over b-Symbol Read Channels\" filetype:pdf Yaakobi",
+        "\"b-symbol\" \"constant weight\" \"Hamming weight\" optimal code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1606.06370, Theorem 1.3: exact independence number for \\(F_2(C_n)\\), not \\(F_2(C_n^2)\\).",
+        "For binary words with two ones, sharing one support position corresponds to moving a token; read distance at least six forbids movement along any edge of \\(C_n^2\\)."
+      ],
+      "reasoning": "The theorem is equivalent to determining \\(\\alpha(F_2(C_n^2))\\). The closest inspected two-token theorem takes base graph \\(C_n\\), rather than its square; its statement does not imply the new coefficient \\(\\lfloor n/3\\rfloor\\) or the divisible-by-three loss.",
+      "searches": [
+        "\"2-token\" \"square of the cycle\" independence",
+        "\"C_n^2\" \"2-token\" independence exact",
+        "\"alpha(F_2(C_n^2))\"",
+        "\"b-symbol\" \"constant Hamming weight\" two \"6\" cyclic 3",
+        "Exact independence number alpha(F_2(C_n^2)) of two-token graph of second power of cycle; n divisible 3 exceptional defect n/2, all n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching all-length table or explicit value sequence was found among the investigated published records and arXiv manuscripts.",
+        "A direct read-distance graph exhaustive search in verify.py checks n=6,...,11 but does not establish novelty."
+      ],
+      "reasoning": "No inspected table computes this exact shell; an unsuccessful search is treated as limited negative evidence, not proof of uniqueness.",
+      "searches": [
+        "\"6,7,8,12,15,16,22,26,28\" code",
+        "\"3m(3m-1)/2\" \"token\" cycle",
+        "\"2-token\" \"powers of cycles\" independence number two tokens",
+        "3-symbol read code weight-two binary distinct support pairs distance 6 3m(3m-1)/2 or floor(n floor(n/3)/2)"
+      ]
+    },
+    "rationale": "The 2016 primary b-read and linear MDS papers address unconstrained or linear code classes; their size bounds do not yield the binary all-weight-two optimum. De Alba et al. prove the ordinary-cycle two-token independence number but not the square-cycle case. The 2025 bounds normalize constant b-symbol weight, not Hamming weight. Direct statement/implication comparisons and alias searches do not reveal equivalent published coverage. Residual risk: an unindexed result under graph-theoretic names.",
+    "residual_risks": [
+      "Equivalent formula or construction may exist in unindexed token-graph, locally constrained graph or b-symbol coding literature.",
+      "Finite verification through n=180 is not a substitute for the all-length proof.",
+      "No independent external audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines b-distance and supplies general bounds and interleaving, but not fixed Hamming-weight-two optimum",
+        "evidence": [
+          "§V Proposition 3 bounds b-weight by Hamming weight",
+          "§V Theorem 4 studies interleaving, not maximum cardinality within weight-two words"
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2016.2522434 | https://yaakobi.net.technion.ac.il/files/2016/04/21_Symbol_Pair_IT16.pdf",
+        "material_read": "Author-posted full article, especially §V pp. 1547–1549, conclusion and references, with rendered-page checks",
+        "method": "Opened lawful author-hosted PDF and inspected substantive §V definitions, Proposition 3, Lemma 4, Theorem 4 and conclusions",
+        "title": "Constructions and Decoding of Cyclic Codes over b-Symbol Read Channels",
+        "trigger": "Foundational introduction of b-symbol read metric including b=3"
+      },
+      {
+        "assessment": "Equi-distance linear constructions and Plotkin-like bound; no weight-two cardinality extremum",
+        "evidence": [
+          "Lemma 1, Plotkin-like bound, p. 2",
+          "Theorem 2, linear cyclic/constacyclic parameters, p. 6"
+        ],
+        "identifier_or_url": "arXiv:1607.02677 | https://arxiv.org/pdf/1607.02677",
+        "material_read": "Full seven-page preprint: abstract, definitions, Plotkin bound, cyclic/constacyclic construction theorems and references",
+        "method": "Lawful arXiv full PDF text and page images",
+        "title": "Construction of Cyclic and Constacyclic Codes for b-symbol Read Channels Meeting the Plotkin-like Bound",
+        "trigger": "Historical coding constructions for arbitrary b including three"
+      },
+      {
+        "assessment": "Existence of unrestricted linear MDS 3-symbol codes with distance six and Singleton bound, not weight-two shell maximum",
+        "evidence": [
+          "Introduction existence family (4) at b=3,d=6, p. 2",
+          "Theorem 2.4, p. 4, unrestricted Singleton bound",
+          "§5 conclusion explains linear MDS focus"
+        ],
+        "identifier_or_url": "arXiv:1609.09236 | https://arxiv.org/pdf/1609.09236",
+        "material_read": "Full-preprint main results, pp. 1–4, and later §§3–5 theorem statements/conclusion and relevance to weight-two restriction",
+        "method": "Lawful arXiv 16-page manuscript; inspected direct PDF text and rendered pages for key theorem regions",
+        "title": "Maximum Distance Separable Codes for b-Symbol Read Channels",
+        "trigger": "Same read length three and minimum distance six in its MDS existence result"
+      },
+      {
+        "assessment": "Theorem 1.3 is F_2(C_n), not F_2(C_n^2); generic upper inequality does not imply sharp divisible-by-three deficit",
+        "evidence": [
+          "Theorem 1.3, §1.2, exact formula for F_2(C_p)",
+          "Lemma 5.1 and §5 proof concern ordinary C_p"
+        ],
+        "identifier_or_url": "arXiv:1606.06370 | https://arxiv.org/html/1606.06370v3",
+        "material_read": "All main theorem statements, §5 proof of Theorem 1.3, main general Lemma 5.1, references",
+        "method": "Read lawful full arXiv HTML text, including main proofs and figures",
+        "title": "Independence and matching numbers of some token graphs",
+        "trigger": "Exact graph-equivalent formulation in two-token graphs"
+      },
+      {
+        "assessment": "Fixed weight in Corollary 4.5 is b-symbol weight; no claimed optimum for binary Hamming weight two",
+        "evidence": [
+          "§2 definition A_b(n,d,w,q) specifies w_b(c)=w",
+          "§4 Corollary 4.5 is a restricted Johnson bound for that different invariant"
+        ],
+        "identifier_or_url": "arXiv:2504.10088 | https://arxiv.org/html/2504.10088v2",
+        "material_read": "Full arXiv HTML, definitions §2, recurrences §3, Theorem 4.1, Corollary 4.5 and LP §5",
+        "method": "Read lawful open-access primary HTML, comparing precise normalization and theorem hypotheses",
+        "title": "Code Size Constraints in b-Symbol Read Channels: A Bound Analysis",
+        "trigger": "Later general size inequalities and fixed b-weight codes could dominate special claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2c6d9bb-a0e5-4a76-9580-4baae420e3ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural constant-Hamming-weight restriction yields a sharp, complete all-length three-symbol read capacity. The modulo-three failure of the naive degree bound is structural and mathematically motivated by cycle-square packing; constructive optimality includes odd-parity lengths. This exact optimal-capacity statement is not implied by general linear MDS construction or constant b-weight inequalities, and it provides definite limits for sparse three-read marker codes.",
+    "status": "PASS"
+  }
+}
