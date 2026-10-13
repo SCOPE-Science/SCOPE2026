@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The complete-intersection prerequisite in Casabella--Sammartano makes the three-row Jacobian criterion exact. Any dependence is a nonzero hollow symmetric matrix \(H\) annihilated by the frame matrix; the determinant \(2abc\) and the three possible nonzero-entry patterns yield exactly the six stated sets. Their projectivizations prove irreducibility, dimension and degrees. Both generic transverse germs are obtained by eliminating two independent equations and exhibiting an explicit nondegenerate quadratic Hessian of rank \(2M-2\). All quantifiers use \(M\ge4\) and complex symmetric forms. The exact checker reproduces representative linear/Hessian calculations for \(M=4,5,6,7\); the infinite-family proof is symbolic.
+
+## Originality — PASS
+Xie's paper on the exact zero-fiber family establishes rational-singularity and log-canonical thresholds, but does not calculate the six irreducible components or transverse Hessian type. Casabella--Sammartano derive prime, normal, factorial and stratification results, including an explicit three-column Jacobian matrix; their Sections 6--7 and special \((4,3)\) discussion do not state the full reduced singular-locus classification, its degree, or a uniform transverse-node formula. Conca--Welker provide the graph-ideal framework; examination of their freely available 27-page preprint, including §§2--3, 7 and a document-wide singular-locus terminology check, found no statement of the six components or transverse germs. Searching orthogonal-three-frame terminology, hollow-Gram Jacobian rank, six-component loci, Segre isotropic cones, projective degree and quadratic normal slices identified no dominating published statement among the inspected sources. Their stratification gives useful input but does not by itself imply the asserted transverse local form. Remaining risk: earlier specialist work may contain an implicit equivalent calculation.
+
+## Value — PASS
+The three-column Gram zero fiber is a natural, recently investigated family whose rational-singularity and factoriality thresholds alone do not determine the singular support or local analytic type. This result gives a complete positive-dimensional singular-locus classification across the full infinite series, its degree \(6M-3\), and a uniform generic transverse node on all six geometrically different components. Such exact support and normal-slice data are natural inputs to intersection-theoretic and resolution questions, rather than arbitrary coefficient slices or small numerical improvements.
+
+## Limitations and nearest literature
+This classifies the reduced singular locus and generic strata only, not the scheme-theoretic Jacobian ideal or more special intersections. Most relevant: Xie, arXiv:2610.02585v1; Casabella--Sammartano, arXiv:2512.25058v1, especially Sections 6--7; Conca--Welker, arXiv:1801.07916v1. An older implicit equivalent argument elsewhere in the specialist literature remains a priority risk; this literature search is not exhaustive.
+
+Self-review: passed. Independent audit: not yet performed.
