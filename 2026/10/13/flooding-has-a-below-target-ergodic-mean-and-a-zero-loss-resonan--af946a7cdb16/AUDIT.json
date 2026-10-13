@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For \\(0<h<1\\), the exact scalar Flooding multipliers are \\(1+h\\) below the flood radius and \\(1-h\\) above it. Their logarithms produce two translations whose invariant interval is \\([-B,A)\\), and shifting by \\(B\\) gives a circle rotation by \\(A\\). Standard rational/irrational rotation theory then yields periodicity or equidistribution. Integrating \\(be^{2u}\\) over the invariant interval gives \\(bh/\\operatorname{artanh}(h)\\), and direct doubling/descent analysis gives the \\(h=1\\) finite-time zero-loss classification. The packaged checker independently replays all critical formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karakida and coauthors prove that two-step Flooding crossings implement a finite-difference gradient-regularization effect.",
+        "Holland and Nakatani provide formal stationarity comparisons and deterministic one-dimensional Flooding experiments.",
+        "Neither inspected analysis gives the global scalar return map or its invariant-measure statistics."
+      ],
+      "reasoning": "Local two-step effective dynamics and stationarity bounds do not dominate a complete orbit classification. In particular they do not identify the systematic bias of the long-run raw loss below \\(b\\) or the exact-solve parameter that sends generic trajectories to zero.",
+      "searches": [
+        "arXiv:2210.02720v1",
+        "arXiv:2310.10006v1",
+        "Do We Need Zero Training Loss flooding gradient descent quadratic cycle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.08709v1",
+      "PMLR:v119:ishida20a",
+      "arXiv:2210.02720v1",
+      "arXiv:2310.10006v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining Flooding objective is \\(|f-b|+b\\) and reverses the gradient below \\(b\\).",
+        "The 2022 analysis identifies a two-step finite-difference regularization effect when Flooding crosses the threshold.",
+        "The SoftAD follow-up shows numerical Flooding behavior on \\(f(x)=x^2/2\\) and derives stationarity guarantees through smoothing arguments.",
+        "The checked Fromage claim classifies a different piecewise multiplicative optimizer and has no raw-loss target parameter."
+      ],
+      "reasoning": "The accepted theorem starts from the published Flooding rule but requires solving its full return dynamics. The prior Fromage circle-rotation mechanism makes the change-of-variables technique non-original, yet it does not imply the Flooding-specific exact mean, above-target occupancy, golden resonance, or \\(h=1\\) zero-loss collapse.",
+      "searches": [
+        "arXiv:2002.08709v1 flooding objective gradient ascent below flood level",
+        "arXiv:2210.02720v1 flooding finite difference gradient regularization",
+        "arXiv:2310.10006v1 flooding one dimensional quadratic",
+        "own item ce35c134-b5fa-48f3-8690-97cbc945bd72"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source says Flooding alternates descent and ascent to keep loss around the flood level and informally calls the motion a random walk.",
+        "The direct SoftAD follow-up numerically studies Flooding on a one-dimensional quadratic but does not state a closed orbit classification.",
+        "The prior Fromage result has a rigid log-rotation for a different optimizer but no flood level, raw-loss time average, or exact-solve zero-loss absorption."
+      ],
+      "reasoning": "Equivalent coverage would need to imply the exact time fraction above the user-specified flood level, the arithmetic mean raw loss, or the \\(h=1\\) absorption law. Those statements depend on Flooding's threshold-relative loss geometry and are not consequences of the prior Fromage theorem or the published local crossing analyses.",
+      "searches": [
+        "Flooding training loss scalar quadratic exact dynamics log rotation flood level",
+        "flooding loss oscillation deterministic periodic cycle scalar quadratic",
+        "arXiv:2002.08709v1",
+        "arXiv:2310.10006v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed search result stated a Flooding rigid rotation, ergodic raw-loss mean, or exact-solve absorption theorem.",
+        "Closest optimization records concerned finite-time stochastic absorption, adaptive-step persistence, Polyak objective monotonicity, and accelerated objective spikes, all with different algorithms and recurrences."
+      ],
+      "reasoning": "The closest indexed findings do not contain Flooding's threshold ascent/descent map. Search absence is supporting evidence only and is not treated as a novelty proof.",
+      "searches": [
+        "Flooding training loss scalar quadratic exact dynamics log rotation flood level",
+        "Do We Need Zero Training Loss flooding gradient descent quadratic cycle",
+        "flooding regularization absolute loss minus b oscillation gradient descent",
+        "flooding finite difference gradient regularization exact quadratic dynamics",
+        "flooding loss oscillation deterministic periodic cycle scalar quadratic",
+        "flooding flood level time average loss gradient descent ascent"
+      ]
+    },
+    "rationale": "The defining Flooding paper gives the ascent/descent threshold rule and an informal floating/random-walk interpretation. Later gradient-regularization theory explains a two-step crossing mechanism, while a direct SoftAD follow-up gives stationarity results and numerical scalar-quadratic illustrations. None of the inspected sources states the rigid-rotation classification, systematic below-target ergodic mean, rational resonance structure, or exact-solve zero-loss collapse. A prior exact Fromage result also uses a log-circle rotation, so the rotation device itself is not treated as new; the surviving claim is the Flooding-specific loss calibration and endpoint pathology.",
+    "residual_risks": [
+      "An unindexed dynamical-systems note may have analyzed the same piecewise multiplicative Flooding map under different terminology.",
+      "The logarithmic circle-rotation device is already present in a checked prior Fromage result; originality rests on the Flooding-specific long-run loss calibration and \\(h=1\\) absorption.",
+      "The deterministic full-batch model omits the minibatch noise central to the defining paper's informal random-walk picture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_NOT_COVERING_EXACT_SCALAR_ORBIT_STATISTICS.",
+        "evidence": "The source motivates loss floating around \\(b\\) but does not state a scalar rigid-rotation reduction, exact time average, rational resonance, or exact-solve zero-loss phenomenon.",
+        "identifier_or_url": "arXiv:2002.08709v1 / PMLR:v119:ishida20a",
+        "material_read": "Open-access full text covering the flooded objective, its gradient rule above and below the threshold, the floating/random-walk interpretation, and experimental motivation.",
+        "method": "Open-access full-text inspection.",
+        "title": "Do We Need Zero Training Loss After Achieving Zero Training Error?",
+        "trigger": "Defining source for Flooding's objective and ascent/descent rule."
+      },
+      {
+        "assessment": "LOCAL_TWO_STEP_EFFECT_NOT_COVERING_GLOBAL_SCALAR_CLASSIFICATION.",
+        "evidence": "The paper explains a local crossing mechanism but does not state the global return map, invariant measure, long-run raw-loss mean, or endpoint absorption law.",
+        "identifier_or_url": "arXiv:2210.02720v1",
+        "material_read": "Open-access full text covering the Flooding update, the theorem identifying a two-step finite-difference gradient-regularization effect, and the discussion distinguishing the dynamics from a purely random walk.",
+        "method": "Open-access full-text inspection.",
+        "title": "Understanding Gradient Regularization in Deep Learning: Efficient Finite-Difference Computation and Implicit Bias",
+        "trigger": "Closest theoretical analysis of the mechanism generated by alternating Flooding ascent and descent."
+      },
+      {
+        "assessment": "NUMERICAL_SCALAR_ILLUSTRATIONS_AND_STATIONARITY_BOUNDS_NOT_COVERING_EXACT_ORBIT_LAW.",
+        "evidence": "The source displays jagged one-dimensional Flooding trajectories and derives stationarity bounds, but does not provide the rotation number, ergodic mean, rational periodicity, or exact-solve collapse.",
+        "identifier_or_url": "arXiv:2310.10006v1",
+        "material_read": "Open-access PDF material covering the formal Flooding objective/update, the explicit sign convention, the one-dimensional quadratic numerical illustrations, and the later stationarity comparison; relevant PDF pages were visually inspected.",
+        "method": "Open-access PDF text and page-image inspection.",
+        "title": "Soft ascent-descent as a stable and flexible alternative to flooding",
+        "trigger": "Direct later work comparing against Flooding, including deterministic scalar-quadratic illustrations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af946a7c-db16-4bf4-b912-d41e538d4fca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Flooding's stated design goal is to prevent zero training loss and make loss float around a user-chosen level. The theorem tests exactly those two design properties on the simplest solvable strongly convex objective. It shows that generic irrational dynamics spend a strict majority of time below the target and have an exact arithmetic mean below it, providing a quantitative calibration law. It also identifies the natural exact-solve step \\(h=1\\) as a sharp resonance that drives almost every nonzero initialization to zero loss in finite time. These are algorithm-specific structural boundaries with direct relevance to threshold and learning-rate selection, not merely another occurrence of a circle rotation.",
+    "status": "PASS"
+  }
+}
