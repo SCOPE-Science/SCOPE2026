@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The two-task source update decomposes into two orthogonal projections. Taking each original task gradient against the aggregate leaves only its own projected component, giving exactly \\(\\|g_i\\|^2(1-\\rho^2)\\). The aggregate-norm identity follows by direct expansion, and the raw-sum window follows from two necessary-and-sufficient scalar inequalities. The exact antiparallel boundary and the \\(\\sin^2\\phi\\) near-boundary law are included explicitly. The embedded verifier replays these identities on randomized and boundary-controlled inputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The defining PCGrad paper identifies gradient conflict and magnitude disparity as distinct ingredients of detrimental interference and proves convergence properties of the projected update.",
+        "RotoGrad explicitly motivates joint treatment of gradient magnitudes and directions.",
+        "Neither inspected primary source states that two-task PCGrad preserves the squared norm ratio of first-order task progress."
+      ],
+      "reasoning": "General common-descent or convergence guarantees do not imply how progress is divided between tasks. Later magnitude-balancing methods motivate the question but do not subsume the exact PCGrad ratio and raw-sum boundary.",
+      "searches": [
+        "Gradient Surgery for Multi-Task Learning theorem two tasks magnitude conflict",
+        "RotoGrad gradient magnitude direction PCGrad",
+        "PCGrad near antiparallel slowdown sin squared angle"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2001.06782v1",
+      "arXiv:2001.06782v4",
+      "arXiv:2103.02631v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The PCGrad source supplies the exact projection architecture and an aggregate two-task formula.",
+        "The source notes slow behavior when the two gradients approach cosine minus one.",
+        "RotoGrad supplies independent motivation for treating magnitude disparities separately from direction conflicts."
+      ],
+      "reasoning": "The prior update formula is a premise, not the final claim. The new statement requires taking each task gradient against the aggregate, proving equal normalized attenuation, comparing taskwise progress ratios, and solving the raw scalarization inequalities exactly.",
+      "searches": [
+        "arXiv:2001.06782v4 PCGrad Algorithm 1",
+        "arXiv:2001.06782v4 Appendix A.1 two-task update",
+        "arXiv:2103.02631v1 gradient magnitude homogenization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the explicit two-task PCGrad aggregate and pairwise orthogonal projection rule.",
+        "The source proof contains aggregate factors involving one minus squared cosine but does not state the taskwise progress-ratio invariant.",
+        "No inspected source states the if-and-only-if raw-sum common-descent window in gradient-norm ratio."
+      ],
+      "reasoning": "Equivalent formulations include equal relative attenuation of both tasks, preservation of squared gradient-norm imbalance in infinitesimal progress, or an exact amplitude-ratio interval in which surgery is unnecessary for common descent. These were not located in the inspected literature.",
+      "searches": [
+        "PCGrad two-task first-order task decrease ratio squared gradient norms sin squared angle",
+        "PCGrad common descent window gradient norm ratio cosine exact",
+        "arXiv:2001.06782v4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-record results concerned unrelated projection, multi-mode optimization, and conditioning phenomena rather than multi-task gradient surgery.",
+        "No returned record supplied a PCGrad theorem equivalent to the taskwise progress identities or norm-ratio window."
+      ],
+      "reasoning": "Database searches used aliases involving common descent, projected conflicting gradients, taskwise directional derivatives, squared gradient norms, and near-antiparallel slowdown. Search absence is supporting evidence only and is combined with full-text comparison of the defining paper.",
+      "searches": [
+        "PCGrad two-task first-order task decrease ratio squared gradient norms sin squared angle",
+        "PCGrad common descent window gradient norm ratio cosine exact",
+        "PCGrad magnitude domination preserved after projection two tasks",
+        "Gradient Surgery Multi-Task Learning exact directional derivative each task projected sum",
+        "PCGrad near antiparallel slowdown sin squared angle",
+        "PCGrad two task exact geometry descent conflict projection",
+        "PCGrad projected conflicting gradients exact condition descent direction"
+      ]
+    },
+    "rationale": "The defining paper gives the projection rule, an aggregate two-task formula, and convergence analysis, but the inspected full text does not state the taskwise equal-relative-attenuation identity, the exact squared gradient-norm progress ratio, or the sharp raw-sum amplitude window. Later RotoGrad work explicitly treats gradient magnitude and direction as distinct sources of negative transfer, but does not derive this PCGrad invariant. Focused published-record searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "Because the identities are elementary consequences of the published two-task formula, an equivalent derivation may exist in unindexed notes, code documentation, or later surveys.",
+      "Recent gradient-surgery variants discuss projection shrinkage; a full implication-equivalent taskwise ratio statement was not found in the inspected primary literature.",
+      "The theorem is two-task and first-order, so it does not classify randomized multi-task projection order for three or more tasks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_UPDATE_AND_CONVERGENCE_NOT_COVERING_TASKWISE_PROGRESS_RATIO_OR_RAW_SUM_WINDOW.",
+        "evidence": "The source gives the projection rule and aggregate analysis and discusses slow behavior near exact opposition, but no statement of equal relative task attenuation, preserved squared norm-ratio progress, or the sharp raw-sum amplitude window was found.",
+        "identifier_or_url": "arXiv:2001.06782v4",
+        "material_read": "Full open-access text covering the detrimental-interference conditions, Algorithm 1, the two-task theoretical discussion, convergence statements, and Appendix A.1--A.2 proofs containing the explicit two-task aggregate.",
+        "method": "Full-text HTML inspection with targeted searches for two-task formulas, magnitude disparity, common descent, and cosine-dependent factors.",
+        "title": "Gradient Surgery for Multi-Task Learning",
+        "trigger": "Defining source for PCGrad, the conflicting-gradient projection, the two-task formula, the tragic-triad motivation, and convergence near antiparallel gradients."
+      },
+      {
+        "assessment": "SUPPORTS_MOTIVATION_NOT_COVERING_EXACT_PCGRAD_INVARIANT.",
+        "evidence": "The paper motivates joint magnitude and direction treatment, but does not derive the two-task PCGrad taskwise progress identities or raw-sum threshold window.",
+        "identifier_or_url": "arXiv:2103.02631v1",
+        "material_read": "Open full text covering the introduction, problem setup, and gradient-magnitude homogenization section, including its separation of magnitude and direction components of negative transfer.",
+        "method": "Full-text HTML inspection focused on magnitude-versus-direction claims and comparison with gradient-surgery methods.",
+        "title": "RotoGrad: Gradient Homogenization in Multitask Learning",
+        "trigger": "Later primary work explicitly distinguishing gradient-magnitude disparities from gradient-direction conflicts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53cc64c6-594e-4797-aee9-f6e183bc1571",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gradient conflict and magnitude disparity are both central to the motivating problem. The result proves that, in the canonical two-task case, PCGrad completely repairs the sign of both first-order task derivatives while leaving their squared magnitude imbalance exactly unchanged. The raw-sum window quantifies precisely when surgery changes feasibility of common descent, and the near-antiparallel law quantifies how that repaired direction can still become arbitrarily weak. This is a structural diagnostic of a widely used multi-objective update rather than a routine numerical example.",
+    "status": "PASS"
+  }
+}
