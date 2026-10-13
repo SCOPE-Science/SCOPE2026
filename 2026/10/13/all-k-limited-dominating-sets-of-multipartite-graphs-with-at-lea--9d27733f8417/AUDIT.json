@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Domination in a complete multipartite graph is equivalent to meeting at least two parts or taking one entire part. For a selected vertex in occupied part i, the neighbors outside the dominating set are exactly all omitted vertices outside that part, giving the stated linear inequality. The enumerator then follows by independent binomial choices of omitted vertices. For a fixed support, the maximum internal omission total Y is bounded by total capacity, the smallest-part capacity, and the sum of the pairwise capacity inequalities; the three bounds are jointly sufficient by allocating from the common lower bound max(0,Y-K). Exhaustive direct checking through order nine agrees with the characterization, all coefficients, and the minimum formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The initiating paper's Proposition 1 treats paths, stars, complete graphs, and complete bipartite graphs; its complete-bipartite proof uses two occupancy variables.",
+        "A full-text search in the initiating article returns no occurrence of complete multipartite.",
+        "The October 2026 follow-up studies complexity and Sierpiński graphs, not arbitrary complete multipartite graphs."
+      ],
+      "reasoning": "The bipartite theorem is genuine prior coverage and is excluded from the novelty scope. Neither it nor the Sierpiński follow-up implies the at-least-three-part support inequalities or enumerator.",
+      "searches": [
+        "full open-access text inspection: Božović--Radić--Kovijanić-Vukićević--Tepeh, DOI 10.1007/s40314-026-03902-2",
+        "full-text term check in the same paper for complete multipartite",
+        "statement inspection: Božović, arXiv:2610.01584v1, complexity and Sierpiński graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.22422v1",
+      "doi:10.1007/s40314-026-03902-2",
+      "arXiv:2610.01584v1",
+      "doi:10.5269/bspm.77312",
+      "published-finding corpus:2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4",
+      "published-finding corpus:2026/10/4/SCOPE-upper-k-tuple-domination-of-complete-multipartite-graphs--ba8c8eb62dc8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 1(iv) supplies only the minimum value for complete bipartite graphs.",
+        "The initiating paper states that existing pitchfork work focuses on j=1,k=2 and says the j=0 case had not been studied in that literature.",
+        "Located pitchfork papers treat join/corona operations or the (1,2) case and do not provide the new (0,k) complete-multipartite all-set formula."
+      ],
+      "reasoning": "The new result does not relabel the known biclique formula: it starts at three parts, permits arbitrary part sizes, classifies every set, and includes a support optimization whose constraints have no two-part-only reduction in general.",
+      "searches": [
+        "Božović et al. Proposition 1(iv) for K_{m,n}",
+        "Božović et al. discussion identifying k-limited domination with (0,k)-pitchfork domination",
+        "pitchfork-domination literature query: complete multipartite and complete bipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published-result record states the support/omission characterization or the cardinality enumerator.",
+        "Exact literature searches returned the initiating k-limited-domination paper and pitchfork papers centered on other parameter regimes, not a complete-multipartite (0,k) theorem."
+      ],
+      "reasoning": "The searches include the invariant's current name, the older equivalent pitchfork language, the complete-multipartite family name, and the all-set/minimum formulations. No equivalent statement was located.",
+      "searches": [
+        "published-result database query: k-limited domination complete multipartite exact all sets",
+        "published-result database query: k-limited domination complete multipartite gamma exact",
+        "published-result database query: limited domination K_{n1,...,nr} complete multipartite",
+        "literature query: \"k-limited domination\" \"complete multipartite\"",
+        "literature query: \"0,k-pitchfork\" domination complete multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest result id 2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4 concerns k-limited packing, not k-limited domination.",
+        "Other close complete-multipartite records concern upper k-tuple domination, liar's domination, outer-connected domination, and unrelated variants."
+      ],
+      "reasoning": "The closest exact-family database result constrains how many packed vertices appear in closed neighborhoods, whereas k-limited domination constrains how many outside vertices are adjacent to each selected vertex. The statements do not imply one another.",
+      "searches": [
+        "published-result database query: k-limited domination complete multipartite exact all sets",
+        "published-result database query: k-limited domination complete multipartite gamma exact",
+        "published-result database query: limited domination complete multipartite polynomial"
+      ]
+    },
+    "rationale": "The initiating k-limited-domination paper gives exact scalar values for complete bipartite graphs but no complete-multipartite result in its searchable full text. The new claim is explicitly restricted to at least three parts and classifies every feasible set, derives every cardinality coefficient, and solves the minimum for each possible support. Searches also covered the equivalent (0,k)-pitchfork terminology. No covering complete-multipartite theorem was found. The closest database item is instead about k-limited packings, a different neighborhood constraint.",
+    "residual_risks": [
+      "Older pitchfork-domination papers use inconsistent terminology and may be poorly indexed; an equivalent (0,k) special case could be difficult to retrieve.",
+      "The initiating invariant is recent and active, so concurrent follow-up work may not yet be indexed.",
+      "Database and literature searches cannot establish absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the biclique scalar minimum but not complete multipartite graphs with at least three parts, all feasible sets, or a cardinality enumerator.",
+        "evidence": "ArXiv first public 2026-06-21. The journal metadata lists MSC 05C69 first and 05C70 second. Proposition 1(iv) gives gamma_k^L(K_{m,n}); the article has no complete-multipartite occurrence.",
+        "identifier_or_url": "arXiv:2606.22422v1; doi:10.1007/s40314-026-03902-2",
+        "material_read": "ArXiv abstract and first-public timestamp; complete open-access journal introduction and preliminaries; Proposition 1 and its complete-bipartite proof; general bounds; article metadata and Mathematics Subject Classification; full-text search for complete multipartite.",
+        "method": "Direct primary-source statement and implication comparison.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Primary source introducing the invariant and containing the closest exact family result."
+      },
+      {
+        "assessment": "Studies stability and criticality for pitchfork domination with j=1 and k=2, not the (0,k) complete-multipartite problem.",
+        "evidence": "The abstract explicitly states the j=1,k=2 specialization.",
+        "identifier_or_url": "doi:10.5269/bspm.77312",
+        "material_read": "Accessible abstract, definition, and parameter regime.",
+        "method": "Definition and scope comparison.",
+        "title": "Stabile and Critical Pitchfork Domination in Graphs",
+        "trigger": "Equivalent-language check because (0,k)-pitchfork domination equals k-limited domination."
+      },
+      {
+        "assessment": "Treats NP-completeness and Sierpiński graphs; no complete-multipartite all-set statement is announced.",
+        "evidence": "First public 2026-10-01; abstract states complexity results and exact values for Sierpiński families.",
+        "identifier_or_url": "arXiv:2610.01584v1",
+        "material_read": "Primary arXiv abstract and stated result scope.",
+        "method": "Statement-level implication comparison.",
+        "title": "On k-limited domination: complexity and Sierpiński graphs",
+        "trigger": "Very recent follow-up on the same invariant that could supersede the initiating family results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d27733f-8417-4774-bd61-98106cfbc617",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result extends a newly introduced capacity-constrained domination invariant from a known biclique scalar formula to a complete all-set theory for every multipartite graph with at least three parts. The support inequalities give a reusable structural description, the enumerator records the entire feasible-set distribution, and the fixed-support optimization exposes how inactive parts consume the capacity budget. This is materially stronger than another isolated minimum-value computation.",
+    "status": "PASS"
+  }
+}
