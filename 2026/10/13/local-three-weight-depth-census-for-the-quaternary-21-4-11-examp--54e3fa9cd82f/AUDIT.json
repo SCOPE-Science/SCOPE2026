@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "The finite proof reconstructs GF(4), all 85 points and 85 planes of PG(3,4), and the exact printed generator. It first reproduces the published plane spectrum, then exhaustively counts incident residue-0 planes at every point. The 16 exceptional planes consist of 12 multiplicity-4 and 4 multiplicity-8 planes; their point-depth histogram is 2,1,16,9,25,23,2,7. The unique depth-one point is (0,0,1,3), the source plane [1,1,0,0] is an incident 8-plane, and the total incidence count 336 equals 16·21. The standalone verifier replays all assertions and prints VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kawamoto–Kato–Maruta, DOI:10.55630/serdica.2026.52.219-248, Definition 2.1 and Example 2.1, pp. 223–225.",
+        "Exact reconstruction from the printed generator gives the source plane spectrum and the complete 85-point exceptional-plane incidence census."
+      ],
+      "reasoning": "The 2026 source supplies general necessary conditions for 1- and 2-locally 3-weight codes, but Example 2.1 only verifies one point. The earlier two-weight work concerns a different local residue condition and does not dominate this three-weight point census.",
+      "searches": [
+        "full-text inspection: DOI:10.55630/serdica.2026.52.219-248, pp. 223–225",
+        "source reference: Kanda–Kato–Maruta, Locally two-weight property for linear codes and its application (2023)"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.55630/serdica.2026.52.219-248",
+      "https://www.codetables.de/BKLC/BKLC.php?n=21&k=4&q=4",
+      "published-findings semantic searches listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source states the global plane spectrum and proves 1-locality at P=(0,0,1,3). It does not state that P is unique or that exactly 16 points are 2-local."
+      ],
+      "reasoning": "The global multiset of plane multiplicities fixes that there are 16 exceptional planes but not their concurrency pattern. The new depth histogram therefore requires additional information from the actual generator matrix and is not a corollary of the source spectrum alone.",
+      "searches": [
+        "primary-article statement comparison: Example 2.1 versus complete 85-point census",
+        "published-findings semantic searches listed under equivalent_formulations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No domain-relevant published-findings hit among the top 20 for any of the four semantic queries. Exact web searches returned the source article but no separate center census."
+      ],
+      "reasoning": "Equivalent formulations include counting incident residue-0 planes, classifying local centers, and determining the point-depth distribution. No located source states any of these complete counts.",
+      "searches": [
+        "Kawamoto Kato Maruta locally three-weight Example 2.1 [21,4,11]_4 local centers",
+        "\"1-locally 3-weight\" [21,4,11]4",
+        "\"2-locally 3-weight\" [21,4,11]4",
+        "locally three-weight mod 4 projective point census",
+        "web: \"1-locally 3-weight\" \"C_2\" \"PG(3,4)\"",
+        "web: \"2-locally 3-weight\" \"PG(3,4)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The CodeTables entry records distance bounds and a [21,4,14] construction; it does not tabulate the specific [21,4,11] generator’s projective local-depth data."
+      ],
+      "reasoning": "A parameter table cannot imply the exceptional-plane incidence histogram of this nonoptimal displayed code.",
+      "searches": [
+        "CodeTables: linear codes [21,4] over GF(4), https://www.codetables.de/BKLC/BKLC.php?n=21&k=4&q=4"
+      ]
+    },
+    "rationale": "The primary article was inspected through the definition, Example 2.1, its proof of one local center, and the subsequent 2-local theory. It exhibits one 1-local center but does not classify all centers. The new finite census is not implied by the published plane spectrum because that spectrum does not encode concurrency of exceptional planes. Exact-phrase web searches, parameter-table comparison, published-findings searches did not locate the same pointwise classification.",
+    "residual_risks": [
+      "An unindexed older computation of the exact displayed projective multiset could contain an equivalent all-point census; no such source was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete center census; it proves existence at one point and develops general necessary conditions.",
+        "evidence": "Example 2.1 prints the [21,4,11]_4 generator and spectrum, chooses P=(0,0,1,3) and H=[1,1,0,0], and concludes 1-local 3-weight at P; no all-point histogram is stated in the inspected material.",
+        "identifier_or_url": "DOI:10.55630/serdica.2026.52.219-248",
+        "material_read": "Definition 2.1, Theorems 2.3–2.5, Example 2.1, generator matrix, plane spectrum, and the source verification at P=(0,0,1,3).",
+        "method": "Full-text inspection of the lawful journal PDF and rendered pages 223–225.",
+        "title": "Locally three-weight property for linear codes and its application",
+        "trigger": "Same object and newly introduced local-weight notion; Example 2.1 is the exact generator used."
+      },
+      {
+        "assessment": "NOT_COVERING the pointwise local-depth invariant.",
+        "evidence": "The entry reports minimum-distance bounds and an optimal [21,4,14] construction, not the Example 2.1 [21,4,11] local-center geometry.",
+        "identifier_or_url": "https://www.codetables.de/BKLC/BKLC.php?n=21&k=4&q=4",
+        "material_read": "[21,4] GF(4) bounds and stored construction information.",
+        "method": "Direct database-entry inspection.",
+        "title": "Tables of Linear Codes and Quantum Codes",
+        "trigger": "Exact ambient length, dimension, and alphabet parameter table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54e3fa9c-d82f-4698-815b-196ff2f53d09",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source introduces a genuinely local invariant and uses a single explicit center as its motivating example. A complete center census is therefore a natural classification of that example: it shows the exhibited 1-local center is rigidly unique while 2-local centers are substantially more numerous. This pointwise geometry is invisible in the global plane spectrum and is directly relevant when testing or applying the paper’s local necessary conditions.",
+    "status": "PASS"
+  }
+}
