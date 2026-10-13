@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The no-carry branch is impossible because cubing makes the digit map scale by 8 under doubling, whereas a two-cycle would require a factor 1/2 between the two mapped values. In the carry branch, 2X<b^2 gives a<b/2 and 2c>=b gives c>=b/2. The first cycle equation then forces b^3/8<=b^2+b-2, impossible for b>=9. The exact remaining domain contains 68 digit pairs in bases 2 through 8; independent replay finds one first-equation survivor (8,3,3,27), which fails the second equation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hargreaves--Siksek prove general upper bounds for periodic points and then specialize their exact fixed-point analysis to exponent 2; the inspected text does not classify exponent-3 ratio-two cycles.",
+        "Wu--Dang--Zhang give a finite census of cubic periodic points in bases 2 through 16, including all two-cycles in those bases.",
+        "A193594 counts cubic attractors by base and cites the older generalized-happy-number literature."
+      ],
+      "reasoning": "General cycle-size bounds do not imply the exact ratio-two exclusion, and a finite census through base 16 does not by itself cover all bases. The new analytic step reducing every hypothetical solution to b<=8 is what turns a finite check into a universal theorem.",
+      "searches": [
+        "\"Cycles and Fixed Points of Happy Functions\" Hargreaves Siksek",
+        "\"Periodic Points Under Iteration of Sum of Squares or Cubes of Digits\"",
+        "\"sum of cubes of digits\" arbitrary base cycle",
+        "generalized happy numbers exponent 3 cycles arbitrary base"
+      ]
+    },
+    "checked_sources": [
+      "JCNT:Hargreaves-Siksek-2010",
+      "OEIS:A193594",
+      "DOI:10.2991/ic3me-15.2015.327",
+      "DOI:10.1007/s44007-025-00157-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 paper reports four cubic two-cycles in base 7 and no cubic two-cycle in base 8, but none of its statements rules out new doubling cycles in larger bases.",
+        "The 2025 square-digit paper gives an infinite two-digit family with Y=2X at exponent 2, which motivates but does not imply the cubic result.",
+        "The general periodic-point bound in Hargreaves--Siksek constrains element size for fixed e and b rather than excluding bases for a prescribed ratio."
+      ],
+      "reasoning": "No inspected prior theorem implies the new claim as a special case. The closest finite table covers the eventual finite verification range but lacks the universal base-reduction lemma; the closest ratio-two construction is for a different exponent.",
+      "searches": [
+        "\"Y=2X\" happy function cube",
+        "\"doubling\" cubic happy numbers",
+        "\"2-circle\" cube digits base",
+        "\"two-cycle\" \"sum of cubes of digits\" base"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No result-database hit matched the cubic digit map with both the two-digit and exact-doubling hypotheses.",
+        "Web searches for cubic happy two-cycles and doubling returned finite-base cycle censuses and general happy-number sources, not this arbitrary-base exclusion.",
+        "The 2015 full-text cubic census lists two-cycles in several bases but contains no ratio-two all-base theorem."
+      ],
+      "reasoning": "The claim can be phrased either as nonexistence of X with S_{3,b}(X)=2X and S_{3,b}(2X)=X or as absence of a two-digit cubic two-cycle whose members have ratio 2. Both formulations were searched directly. No equivalent statement was found.",
+      "searches": [
+        "cube digit happy map two digit doubling two-cycle no solutions",
+        "sum of cubes digits two-cycle Y=2X arbitrary base",
+        "S_3,b(X)=2X S_3,b(2X)=X",
+        "generalized happy exponent 3 doubling cycle",
+        "cubic happy numbers ratio two cycle arbitrary base"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A193594 gives the number of attractors for the cubic digit map by base, not the member ratios inside two-cycles.",
+        "Wu--Dang--Zhang Table II gives the number of cubic two-cycles for bases 2 through 16; the text lists the actual cycles. For bases 2 through 8, none is a doubling pair."
+      ],
+      "reasoning": "The table independently agrees with the finite end of the theorem, but it has bounded base coverage. It therefore does not dominate the arbitrary-base claim without the new analytic cutoff.",
+      "searches": [
+        "OEIS A193594 sum cubes digits base attractors",
+        "cube periodic points bases 2 16 table two-cycles"
+      ]
+    },
+    "rationale": "The inspected archival literature supplies general happy-map bounds and finite cubic cycle tables, not an arbitrary-base exclusion for two-digit doubling two-cycles. The modern square-digit literature highlights ratio-two two-cycles at exponent 2, but does not state the exponent-3 obstruction.",
+    "residual_risks": [
+      "An equivalent short exclusion may exist in unindexed recreational or pedagogical happy-number literature.",
+      "The direct Hargreaves--Siksek PDF endpoint was intermittently inaccessible; accessible indexed manuscript text covered the abstract, general cycle bound, and exponent-2 fixed-point section rather than a complete page-by-page inspection.",
+      "The theorem does not address cubic two-cycles outside the two-digit exact-ratio-two stratum.",
+      "The 2010 publication lacks an exact public calendar day in the inspected evidence, so the metadata date uses the earliest exact public date verified among inspected archival sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE. It completely covers selected bases 2 through 16 and agrees that bases 2 through 8 contain no doubling cubic two-cycle, but it does not state an arbitrary-base exclusion.",
+        "evidence": "Its cubic section lists four 2-cycles in base 7 and none in base 8; Table II records cubic 2-cycle counts for bases 2 through 16 and the conclusion describes the study as covering some positional systems.",
+        "identifier_or_url": "DOI:10.2991/ic3me-15.2015.327",
+        "material_read": "Full seven-page PDF with emphasis on the cubic section, the explicit cycles for bases 2 through 16, Table II, conclusion, and references; page images for the cubic tables were also inspected.",
+        "method": "Direct PDF text inspection plus page-image inspection.",
+        "title": "Periodic Points Under Iteration of Sum of Squares or Cubes of Digits in Some Positional Systems",
+        "trigger": "Directly relevant archival paper enumerating cubic periodic points and two-cycles by base."
+      },
+      {
+        "assessment": "BROADER_CONTEXT_WITH_ACCESS_RISK. It defines S_{e,b}, proves general periodic-point bounds, and has primary MSC 11A63, but the inspected material does not state the cubic ratio-two exclusion.",
+        "evidence": "The abstract states a general upper bound for cycle elements and a detailed exact result only for fixed points of S_{2,b}; the title page lists primary 11A63.",
+        "identifier_or_url": "JCNT:Hargreaves-Siksek-2010",
+        "material_read": "Accessible author-manuscript text including title page, abstract, general cycle-bound argument, and the exponent-2 fixed-point section; exact searches for exponent-3 doubling terminology were also performed.",
+        "method": "Indexed author-manuscript text inspection; the direct PDF endpoint was intermittently inaccessible.",
+        "title": "Cycles and Fixed Points of Happy Functions",
+        "trigger": "Foundational generalized-happy-function source and verification of primary subject classification."
+      },
+      {
+        "assessment": "NOT_COVERING. It counts attractors by base but does not classify ratio-two two-cycles.",
+        "evidence": "The entry is authored 31 July 2011 and cites Grundman--Teeple for generalized cubic happy dynamics.",
+        "identifier_or_url": "OEIS:A193594",
+        "material_read": "Definition, values, comments, cited literature, example, author/date field, and cross-references.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A193594: Number of attractors under iteration of sum of cubes of digits in base b",
+        "trigger": "Exact public database covering the same cubic digit map across bases and supplying exact archival date evidence."
+      },
+      {
+        "assessment": "DIFFERENT_EXPONENT. It establishes the contrasting square-digit family and does not cover exponent 3.",
+        "evidence": "The two-cycle section explicitly notes Y=2X for its exponent-2 parameterized family.",
+        "identifier_or_url": "DOI:10.1007/s44007-025-00157-x",
+        "material_read": "Section on cycles of length two, including the displayed b=5t+3 construction and the statement Y=2X.",
+        "method": "Direct publisher/full-text excerpt inspection.",
+        "title": "A Tree Approach to the Happy Function",
+        "trigger": "Closest ratio-two structural comparison: exponent 2 has a published infinite two-digit doubling family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80c97bdf-cd2e-4e02-8fb1-fe0b1af33cfa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact ratio-two phenomenon is structurally prominent for square-digit two-cycles, where an infinite two-digit family is known. At exponent 3 the same natural stratum is empty. The proof gives a conceptual reason rather than a large census: homogeneity eliminates no-carry doubling, and carry growth forces b<=8, leaving a 68-case exact certificate. This is a sharp exponent boundary on a motivated family of generalized happy cycles.",
+    "status": "PASS"
+  }
+}
