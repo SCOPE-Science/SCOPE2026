@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "The first moment is an exact finite geometric sum. After bias correction its ratio to the current alternating gradient is \\((1-\\beta_1)/(1+\\beta_1)\\) on every even step and approaches the same value from above on odd steps. Because the squared gradient is constant, the bias-corrected second moment is exactly \\(G^2\\) at every step, making the QH second-moment interpolation parameter-free on this input. The sharp attenuation floor follows by monotonicity in \\(\\beta_1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source appendix derives a tight general per-coordinate update bound depending on all four QH/EMA parameters.",
+        "The source explains that lowering the second-moment immediate discount can tighten that worst-case bound.",
+        "Those broader bounds do not imply parameter erasure on the alternating constant-magnitude signal."
+      ],
+      "reasoning": "A worst-case update bound covers arbitrary histories and can depend on parameters that cancel exactly on a special structured input. The final theorem is therefore not a corollary of the source bound without the new input-specific calculation.",
+      "searches": [
+        "Quasi-hyperbolic momentum Adam update bound nu2 beta2",
+        "QHAdam periodic gradient variance reduction",
+        "QHAdam immediate discount stale momentum high frequency"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.06801v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The paper's QHAdam rule is the exact recurrence analyzed here.",
+        "The WMT16 case study uses the displayed four-parameter setting.",
+        "The appendix proves a general update bound but does not specialize to alternating constant magnitude or derive the exact cancellation."
+      ],
+      "reasoning": "The final claim requires solving both bias-corrected moments under the period-two input, identifying an exact parity cancellation in the first moment, and observing exact second-moment erasure. These are not stated implications of the source's general discussion.",
+      "searches": [
+        "arXiv:1810.06801v1 QHAdam update rule nu1 nu2 beta1 beta2",
+        "arXiv:1810.06801v1 QHAdam WMT16 nu1 0.8 beta1 0.95 nu2 0.7 beta2 0.98",
+        "arXiv:1810.06801v1 QHAdam implicit update bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source QHAdam rule quasi-hyperbolically mixes both bias-corrected Adam moments.",
+        "The source interprets the first immediate discount as restoring current-gradient weight lost to stale momentum.",
+        "No inspected source states an exact Nyquist attenuation or an alternating-gradient parity law."
+      ],
+      "reasoning": "Equivalent formulations include the highest-frequency gain of QHAdam, the exact floor imposed by the immediate first-moment term, and complete erasure of the second-moment QH parameters on constant-magnitude alternating input. None was found in the inspected literature.",
+      "searches": [
+        "QHAdam quasi hyperbolic Adam alternating gradient exact response",
+        "QHAdam high frequency periodic gradient beta1 nu1 attenuation",
+        "QHAdam quasi hyperbolic immediate discount alternating sign gradient",
+        "arXiv:1810.06801v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concern unrelated stochastic-feedback thresholds, SPD quadratic frontiers, adaptive-step persistence, and polynomial minimax methods.",
+        "No returned record analyzed QHAdam's immediate discounts under a persistent alternating constant-magnitude gradient."
+      ],
+      "reasoning": "The closest database results use different optimizer states or objectives and do not imply the QHAdam parity law or Nyquist floor. Search absence is supporting evidence only and is combined with primary full-text inspection.",
+      "searches": [
+        "QHAdam quasi hyperbolic Adam alternating gradient exact response",
+        "QHAdam high frequency periodic gradient beta1 nu1 attenuation",
+        "QHAdam quasi hyperbolic immediate discount alternating sign gradient"
+      ]
+    },
+    "rationale": "The defining paper develops the immediate-discount interpretation, update bounds, and parameter sweeps, but the inspected full text does not state the alternating-input parity law or second-moment parameter erasure. Focused published-record searches did not identify a QHAdam result with the same signal or implication. Own prior QHM work concerns scalar fixed-objective rate optimization, not QHAdam's adaptive denominator.",
+    "residual_risks": [
+      "An equivalent short frequency-response calculation may exist in unindexed implementation notes.",
+      "The alternating input is a diagnostic rather than a general stochastic-gradient model.",
+      "The exact erasure relies on bias correction and constant squared magnitude."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_AND_GENERAL_BOUNDS_NOT_COVERING_NYQUIST_ATTENUATION_FLOOR.",
+        "evidence": "The source defines both immediate-discount mixtures and discusses stale momentum and worst-case update bounds, but no constant-magnitude alternating-input solution, parity law, or second-moment parameter erasure was found.",
+        "identifier_or_url": "arXiv:1810.06801v1",
+        "material_read": "Full open-access paper, including the QHM interpretation, Section 5 QHAdam update rule, Section 6 parameter sweeps and case studies, Section 7 practical suggestions, Appendix F implicit update bound, and the WMT16 experiment details.",
+        "method": "Full-text PDF inspection with visual inspection of the QHAdam rule page and targeted searches for periodic, alternating, frequency, and update-bound formulations.",
+        "title": "Quasi-hyperbolic momentum and Adam for deep learning",
+        "trigger": "Defining source for QHAdam's bias-corrected moment recurrences, immediate discounts, practical interpretation, parameter sweeps, and WMT16 setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73116834-68c0-4ed8-8fa3-663430977e4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Immediate discounting is QHAdam's defining architectural modification to Adam. The theorem gives it a sharp high-frequency interpretation: the first discount guarantees a nonzero current-gradient floor, while the second discount is completely powerless on a constant-magnitude Nyquist signal. This directly distinguishes the roles of \\(\nu_1\\) and \\(\nu_2\\), quantifies the source's WMT16 setting, and identifies a structured regime where a parameter that matters in the source's general update bound provably cannot change the response.",
+    "status": "PASS"
+  }
+}
