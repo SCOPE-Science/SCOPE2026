@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The prime-product identities give \\(\\varphi+\\psi\\ge2n\\), while prime-power comparison gives \\(\\sigma\\ge\\psi\\) with equality exactly in the squarefree case. With \\(x=\\psi-n\\) and \\(y=\\sigma-\\psi\\), squarefree composites have \\(x\\ge6,y=0\\), and nonsquarefree composites have \\(x\\ge2,y\\ge1\\). The exact polynomial lower bound \\(G(n,x,y)\\) is strictly increasing in all three variables on the latter domain and has corner value \\(G(4,2,1)=290\\); the squarefree branch is larger. Direct evaluation at \\(n=4\\) attains the bound. The bundled finite replay through 300000 agrees and is not used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sándor–Gryszka 2025, Theorem 8: \\(\\varphi(n)^k+\\psi(n)^k+\\sigma(n)^k\\ge\\varphi(n)^k+2\\psi(n)^k\\ge(n-1)^k+2(n+1)^k\\) for \\(k\\ge2\\)."
+      ],
+      "reasoning": "This is broader in the power parameter and stronger than Dimitrov's baseline, but it does not dominate the new claim. At \\(k=3,n=4\\), its intermediate term yields only a \\(163\\)-unit improvement over the baseline, below the sharp composite gap \\(290\\).",
+      "searches": [
+        "Euler totient Dedekind psi sum-of-divisors cubic inequality composite sharp additive gap Dimitrov"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.19332",
+      "doi:10.7546/nntdm.2024.30.3.547-556",
+      "doi:10.7546/nntdm.2025.31.2.361-369",
+      "arXiv:2606.12484",
+      "semantic research-record queries listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dimitrov 2024 Theorem 1 gives the baseline \\(3n^3+3n^2+9n+1\\).",
+        "Sándor–Gryszka 2025 Theorem 8 gives an all-power refinement but not the sharp composite additive constant.",
+        "Dimitrov 2026 main-results/conjecture section concerns different reciprocal and mixed expressions; accessible full-text search had no occurrence of 291."
+      ],
+      "reasoning": "Neither the focal theorem nor the checked later generalization has a right-hand side strong enough to force the constant \\(291\\) on all composites. The new argument additionally exploits the discrete squarefree/nonsquarefree gap \\(\\sigma-\\psi\\) and proves sharpness at \\(n=4\\).",
+      "searches": [
+        "Dimitrov Theorem 1 cubic lower bound composite sharpening 290"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2404.19332",
+        "doi:10.7546/nntdm.2024.30.3.547-556",
+        "doi:10.7546/nntdm.2025.31.2.361-369",
+        "arXiv:2606.12484"
+      ],
+      "reasoning": "Queries used both the explicit constant \\(291\\) and the equivalent minimum-defect formulation \\(290\\). No checked source stated the same composite-only sharp inequality or the same unique minimizer.",
+      "searches": [
+        "sharp composite refinement phi cubed psi cubed sigma cubed 3 n cubed 3 n squared 9 n 291 equality n=4",
+        "minimum defect phi^3(n)+psi^3(n)+sigma^3(n) minus 3n^3+3n^2+9n+1 composite",
+        "Euler totient Dedekind psi sum of divisors cubic inequality composite equality 4",
+        "Dimitrov Theorem 1 cubic lower bound composite sharpening 290",
+        "Euler totient Dedekind psi sum-of-divisors cubic inequality composite sharp additive gap Dimitrov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-formula web search returned the 2024 source and later related papers, but no table or database entry encoding the claimed composite minimum."
+      ],
+      "reasoning": "The claim is a universal inequality rather than a tabulated sequence value. The finite verifier was used only as regression evidence and not as a novelty database.",
+      "searches": [
+        "3n^3 + 3n^2 + 9n + 291 phi psi sigma",
+        "phi^3(n) psi^3(n) sigma^3(n) composite 291"
+      ]
+    },
+    "rationale": "The focal 2024 theorem gives the cubic baseline. The 2025 all-power generalization strengthens the baseline but does not determine the sharp additional composite defect, and its cubic intermediate bound is not strong enough at the extremal point. A 2026 direct continuation was inspected and concerns different compound expressions. Exact-formula web searches, semantic research-record searches did not reveal an implication-equivalent statement. Residual risk from unindexed literature remains.",
+    "residual_risks": [
+      "An equivalent sharp composite refinement could exist in unindexed literature or under substantially different notation.",
+      "The 2026 continuation was accessible through an author-uploaded full-text rendering rather than a directly fetched arXiv PDF; the main-results and conjecture sections were nevertheless inspectable and exact-text searched."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERED_BASELINE_NOT_SHARP_COMPOSITE",
+        "evidence": "Theorem 1 states the baseline cubic bound; its proof is equality at primes and strict in displayed composite base cases, but no uniform additive composite constant is stated.",
+        "identifier_or_url": "arXiv:2404.19332; doi:10.7546/nntdm.2024.30.3.547-556",
+        "material_read": "Journal full text, especially statement of Theorem 1 and the prime, semiprime, prime-square, and inductive proof cases; arXiv metadata for first-public date.",
+        "method": "Lawful open-access journal PDF plus arXiv metadata.",
+        "title": "Lower bounds on expressions dependent on functions the Euler totient, the Dedekind psi function and the sum-of-divisors function, II",
+        "trigger": "Focal source for the cubic inequality."
+      },
+      {
+        "assessment": "BROADER_PARAMETER_RESULT_NOT_DOMINATING_COMPOSITE_GAP",
+        "evidence": "Theorem 8 gives the all-power chain through \\(\\varphi^k+2\\psi^k\\). Its cubic specialization recovers the focal right-hand side but does not yield the sharp \\(290\\) composite defect.",
+        "identifier_or_url": "doi:10.7546/nntdm.2025.31.2.361-369",
+        "material_read": "Journal full text around Theorems 5–8 and the auxiliary lemmas.",
+        "method": "Lawful open-access journal PDF.",
+        "title": "On certain inequalities for the Euler totient, Dedekind psi, and sum-of-divisors functions and related functions, III",
+        "trigger": "Direct later generalization of the focal inequality."
+      },
+      {
+        "assessment": "NOT_COVERING_CHECKED_SECTIONS",
+        "evidence": "The displayed results concern reciprocal and mixed expressions; exact search found no occurrence of 291 or the composite cubic-gap formulation.",
+        "identifier_or_url": "arXiv:2606.12484",
+        "material_read": "Accessible author-uploaded full-text main-results and conjecture sections, with exact-text searches for the proposed constant/formulation.",
+        "method": "arXiv metadata plus accessible author-uploaded full text.",
+        "title": "Lower bounds on expressions depending on the functions the Euler totient, the Dedekind psi function and the sum-of-divisors function, III",
+        "trigger": "Direct 2026 continuation by the focal author."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71170a28-b3aa-4bc8-af48-1b842e0be528",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Because the published cubic inequality is exactly sharp on primes, the first natural boundary question after excluding primes is the least possible positive defect. The result gives the exact answer \\(290\\), identifies the unique extremal composite \\(4\\), and derives it from the structural squarefree/nonsquarefree split. This is a sharp global refinement, not a routine finite computation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
