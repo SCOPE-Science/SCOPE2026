@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Reparameterizing by \\(\\delta=1/\\gamma\\) cancels all parameter powers in the source likelihood and yields an exact log-derivative. The elementary inequality \\(y/(1+\\delta y)\\ge y/(1+\\delta)\\) proves global boundary monotonicity when the weighted-time statistic is at least the failure count. When the statistic is smaller, the derivative is positive at the boundary, negative asymptotically, and the likelihood tends to zero, proving existence of a finite global maximizer. The checker independently verifies both parameterizations and representative interior/boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Muhammad (2016) introduces the parent bounded-support model and reports numerical MLE simulation but the inspected material contains no exact boundary criterion.",
+        "Jiang (2013) notes that a location MLE can hit a boundary in a different finite-support bathtub model."
+      ],
+      "reasoning": "General awareness that bounded-support models can have boundary estimators does not determine the present parameter or the exact weighted censoring statistic. The accepted theorem is source-specific and gives an if-and-only-if diagnostic.",
+      "searches": [
+        "Muhammad finite support distribution maximum likelihood gamma boundary",
+        "Mustapha distribution maximum likelihood boundary",
+        "finite support lifetime distribution boundary maximum likelihood"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026009",
+      "Muhammad-2016-Applied-Mathematical-Sciences-10-1-12",
+      "doi:10.1016/j.ress.2013.05.019"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target source asserts computation of MLEs by numerical root finding but does not provide a global existence condition.",
+        "The original model paper precedes the UPHCT censoring likelihood.",
+        "The Jiang boundary observation concerns a location endpoint in another family, not \\(\\gamma\\) or this score."
+      ],
+      "reasoning": "None of the inspected prior statements implies the exact threshold theorem. The theorem supplies a new decision rule before numerical optimization and a positive-probability complete-data failure event.",
+      "searches": [
+        "10.3934/math.2026009 Newton Raphson MLE existence",
+        "A new two parameter distribution with a finite support maximum likelihood",
+        "Jiang finite support maximum likelihood boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target article presents Eq. (3.3) as the score solved for the MLE and describes Newton-Raphson as the estimation method.",
+        "No searched published result stated the criterion \\(R^*s^*+\\sum_i(2+R_i)x_i<\\nu\\) or its complete-data form \\(\\bar X<1/2\\)."
+      ],
+      "reasoning": "Queries targeted the exact DOI, the defining CDF, boundary/infinite-parameter terminology, and finite-MLE existence. The returned results were unrelated gamma inequalities, numerical-analysis results, and other reliability problems rather than this likelihood.",
+      "searches": [
+        "10.3934/math.2026009 maximum likelihood boundary gamma infinite",
+        "one parameter lifetime F(x)=(gamma+1)x/(gamma+x) MLE existence",
+        "unit distribution gamma x likelihood no finite MLE"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text gives the parameter-dependent likelihood in Eq. (3.1), log-likelihood in Eq. (3.2), and score in Eq. (3.3).",
+        "The real-data sections call three displayed profile likelihoods single-peaked and use those examples to support well-defined MLEs.",
+        "No correction record covering MLE existence was located."
+      ],
+      "reasoning": "The proof starts from the exact published likelihood rather than reverse-engineering a numerical table; the source-specific comparison is therefore direct.",
+      "searches": [
+        "10.3934/math.2026009 likelihood Eq 3.1 score Eq 3.3",
+        "10.3934/math.2026009 profile likelihood unique MLE",
+        "10.3934/math.2026009 corrigendum erratum"
+      ]
+    },
+    "rationale": "The target source supplies the likelihood and numerical Newton-Raphson procedure but no samplewise existence criterion. The 2016 source introducing the bounded-support distribution also uses numerical MLEs without the exact UPHCT criterion. A broader 2013 paper documents a boundary-MLE phenomenon for a different finite-support location parameter but does not imply this weighted-time theorem. Focused source and literature searches found no equivalent result.",
+    "residual_risks": [
+      "An unindexed correction or unpublished note could discuss the same threshold.",
+      "The theorem does not establish uniqueness of the finite maximizer when the threshold passes.",
+      "Specific progressive-censoring designs may make boundary samples rare, although complete-data boundary samples have strictly positive probability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING THE BOUNDARY CRITERION. The source solves the score numerically and verifies finite maxima in selected data, but gives no global existence condition.",
+        "evidence": "Model Eqs. (2.3)-(2.6), likelihood Eqs. (3.1)-(3.3), and real-data profile-likelihood discussion.",
+        "identifier_or_url": "doi:10.3934/math.2026009",
+        "material_read": "Public full HTML covering the unit model, Eqs. (3.1)-(3.3), optimization description, simulation setup, and profile-likelihood discussion for all three datasets.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "Statistical inference for a one-parameter lifetime model under unified progressive hybrid censoring with binomial random removals",
+        "trigger": "Primary 2026 source whose MLE procedure is being assessed."
+      },
+      {
+        "assessment": "RELATED BUT NOT COVERING. Numerical likelihood estimation is studied, but the UPHCT weighted-time threshold is absent.",
+        "evidence": "Model definition and MLE/simulation sections.",
+        "identifier_or_url": "Muhammad-2016-Applied-Mathematical-Sciences-10-1-12",
+        "material_read": "Publicly available full-text material covering the CDF/PDF, maximum-likelihood section, simulation, and applications.",
+        "method": "Direct public full-text inspection.",
+        "title": "A new two parameter distribution with a finite support",
+        "trigger": "Original bounded-support model adopted by the 2026 source."
+      },
+      {
+        "assessment": "BROADER CONTEXT ONLY. It concerns a different model and a location parameter approaching the largest observation.",
+        "evidence": "The abstract explicitly describes a boundary problem for the location MLE and proposes maximum spacing as a remedy.",
+        "identifier_or_url": "doi:10.1016/j.ress.2013.05.019",
+        "material_read": "Published abstract and bibliographic description.",
+        "method": "Abstract-level comparison.",
+        "title": "A new bathtub curve model with a finite support",
+        "trigger": "Closest broader literature found on boundary MLE behavior in a bounded-support lifetime family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a4434fb-290c-4e63-9f4a-06a6169522fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximum likelihood is one of the paper's two central inferential frameworks, and its simulations, bootstrap procedures, Wald intervals, and real-data comparisons rely on finite numerical estimates. The theorem gives an exact data-level gate that distinguishes samples with a genuine finite MLE from samples whose likelihood is maximized only at the uniform boundary. The failure region has positive probability under the model, so this is not a merely formal endpoint check. The criterion can be applied before Newton-Raphson and prevents interpreting divergent or very large iterates as ordinary finite estimates.",
+    "status": "PASS"
+  }
+}
