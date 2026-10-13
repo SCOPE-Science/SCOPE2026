@@ -1,0 +1,19 @@
+# Scientific review: sharp three-plant variance reversal
+
+## Correctness — PASS
+
+Under independent loss of each pollinator, plant-extinction joint indicators obey \(\mathbb E[I_iI_j]=q^{|N_i\cup N_j|}\). For three plants, the pairwise union-size multiset is exactly \((n-a,n-b,n-c)\) when \(a,b,c\) count pollinators exclusive to each plant. Every connected three-plant graph, up to pollinator labels, is one nonnegative seven-type vector; its plant degrees, pollinator degrees, and connectivity have exact formulas. Complete type-composition enumeration for each \(n\le10\), with all distinct dual-degree-matched union profiles compared, produces 17,017 connected vectors and 1,529 exact comparisons. On every comparison the coefficients of the transformed difference \((1+t)^nF(t/(1+t))\) have one weak sign, ruling out reversal for all \(q\in(0,1)\). The specified eleven-pollinator pair has the asserted common degree multisets and a variance difference \(2q^6(1-q)^2(q^3+q^2-1)\), whose positive interior zero is unique. Exhaustive expansion of all 2,048 extinction masks for each witness reproduces its exact moment polynomials. The code supports the *finite* sharp threshold; it does not establish a larger-size classification or provide external formal certification.
+
+## Originality — PASS (qualified)
+
+The literature develops all-neighbors-lost coextinction (Memmott et al., 2004), nestedness and mean robustness (Burgos et al., 2007), alternative dynamic collapse models (Campbell et al., 2012), Bayesian coextinction (Eklöf et al., 2013), and statistical-block-model variance of robustness (Chabert-Liddell et al., 2021). These established methods do not directly supply the exact first pollinator-guild size at which **three** degree-matched plant populations reverse variance ranking under an identical independent primary hazard, nor the explicit reciprocal-plastic-constant crossing. Published and related specialized results demonstrate that reversal phenomena are already known for other guild sizes; a general discovery of variance reversals is **not** claimed as new. The assessed increment is a structurally different, sharp size threshold under a fixed three-plant restriction. Residual priority risks include specialized reliability-polynomial classifications and unpublished or hard-to-locate ecology work. No independent novelty certification is asserted.
+
+## Value — PASS
+
+The fixed three-plant guild is the smallest nontrivial setting with three distinct pairwise coextinction covariances. Requiring both sides of the network to share degree distributions and the same entire mean coextinction curve controls common structural summaries. The sharp result that *ten or fewer* primary partners prohibit any variance-ranking reversal but *eleven* permit one is a motivated ecological-network size threshold, and the unique algebraic risk crossover provides a reproducible test for topology-sensitive variability beyond mean robustness. Its importance is a finite structural classification, not an empirical statement about specific conservation populations. The model excludes heterogeneous or correlated risks, rewiring, and longer cascades.
+
+## Closest literature and limits
+
+The primary full texts of Memmott et al. (2004), Burgos et al. (2006/2007), Campbell et al. (2012), Eklöf et al. (2013), and Chabert-Liddell et al. (2021) were compared at the level of stochastic object and variance quantifiers. A nearby result for different plant-guild sizes was excluded from the novelty claim. Precise priority in all graph-reliability literature remains unverified. Finite exact computation is proof of the finite enumerated range when the transparent enumeration is correct, not evidence about all larger graphs or real ecological populations.
+
+Self-review: passed. Independent audit: not yet performed.
