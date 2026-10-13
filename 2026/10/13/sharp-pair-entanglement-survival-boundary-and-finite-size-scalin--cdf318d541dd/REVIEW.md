@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The two-site Dicke marginal is derived by binomial counting; local trace preservation reduces independent many-qubit damping to a two-qubit channel. Exact Wootters concurrence, monotonicity and algebraic positivity imply the necessary-and-sufficient threshold and the strict endpoint behavior. The sharp excitation cutoff follows by monotonicity over excitation count and a uniform first-order expansion; both rescaled concurrence limits follow from rationalizing a difference of square roots. A standalone independent matrix-and-Kraus verifier corroborates finite cases. The proof, not finite sampling, establishes all quantifiers.
+
+**Originality — PASS, with residual risk.** The 2014 full-text Dicke-loss study by Barnea et al. solves questions about Bell nonlocality, not this pairwise measure. Xi et al. supply undamped pairwise entanglement; Sohbi et al. analyze symmetric-state Bell nonlocality under damping. Huang and Zhu's general 2007 two-qubit amplitude-damping ESD theorem is acknowledged as the covering principle for the elementary two-site test, which is not claimed novel. The asserted new structural contribution is the sharp Dicke-index cutoff and two distinct large-system scaling functions. Full text of Huang and Zhu was unavailable, and equivalent specializations in later literature remain a genuine priority risk.
+
+**Value — PASS.** Across the entire naturally indexed Dicke family, the theorem sharply separates positive-pair-entanglement survival from sudden death and explains two different loss-tolerance scales. The exact macroscopic-density scaling profile distinguishes small initial pair entanglement from its sharply restricted lifetime. It neither generalizes to multipartite entanglement nor substitutes for Bell-nonlocality thresholds.
+
+Self-review: passed. Independent audit: not yet performed.
