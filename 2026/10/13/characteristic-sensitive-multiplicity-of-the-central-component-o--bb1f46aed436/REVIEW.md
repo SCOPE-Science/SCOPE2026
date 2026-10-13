@@ -1,0 +1,15 @@
+# Scientific review: central-component multiplicities of graph first jets
+
+## Correctness — PASS
+For each graph edge, expanding \((u_i+tv_i)(u_j+tv_j)\) modulo \(t^2\) gives exactly the two jet equations. At the generic constant-zero prime all \(v_i\) are units, and dividing by \(v_iv_j\) yields linear relations \(z_i+z_j\) and quadratic relations \(z_iz_j\). On each connected graph component, paths propagate the sign of one parameter; odd cycles kill it if \(2\) is invertible. Every remaining component contributes the square-zero relation, and disjoint components tensor independently. The exact local ring and its \(2^b\)-dimensional vector-space basis establish minimality, local length, multiplicity, and all characteristic cases. The checker independently tested 2,457 graph/prime instances in characteristics \(2,3,5\); it does not substitute for the general proof.
+
+## Originality — PASS, with specified risk
+The relevant full texts of Goward–Smith (2006), Galetto–Iammarino–Yu (2025), and Xie (2026) were compared by implication and by their treatment of the generic nilpotent local ring. Goward–Smith classify reduced jet components; their characteristic-independent radical result does not determine the characteristic-dependent generic length. Galetto–Iammarino–Yu explicitly ask for primary components and multiplicities in Question 8.2 and give multiplicity one for a different class of lifted components in Corollary 3.4; neither supplies the constant-zero component formula. Xie computes dimensions in Gram-map jet families, not these graph-component lengths. Yuen's available abstract concerns a single normal-crossing hypersurface rather than arbitrary overlapping edge ideals. Targeted mathematical and indexed-research searches identified no covering result; absence from an index is not proof of novelty. A broader, perhaps implicit, unindexed formula and Yuen's uninspected complete text remain risks.
+
+## Value — PASS
+The local scheme structure and generic multiplicity are natural invariants of a distinguished component in first jet schemes of Stanley–Reisner graph varieties. The exact answer resolves one explicitly motivated part of a published open question on jet multiplicities and makes a structural distinction invisible to reduced jet components: an odd cycle causes generic reducedness in characteristic unlike two, while characteristic two retains one dual-number factor per connected component. The result holds for every finite simple graph without isolated vertices and all characteristics, without requiring a classification of every primary component.
+
+## Closest sources and limitations
+Goward–Smith (2006), Galetto–Iammarino–Yu (2025, Question 8.2), and Xie (arXiv:2610.02585v1, 2026) are the closest sources. Yuen (2007) is an additional narrower multiplicity comparison whose complete paper was not inspected. Neither higher-order jets nor multiplicities of noncentral components are claimed, and a future independent bibliographic audit may identify stronger prior coverage.
+
+Self-review: passed. Independent audit: not yet performed.
