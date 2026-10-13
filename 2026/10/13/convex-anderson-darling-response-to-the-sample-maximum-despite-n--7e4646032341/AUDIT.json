@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every n>=1 and 0<t<1 the conditional iid-uniform law gives exact empirical-count squared bias and variance, which integrate to the stated closed form. The distinct beta-order-statistic log representation yields an everywhere positive second derivative and divergent endpoints. Beta log-covariances derived from conditioned order statistics give the exact harmonic mixed moment, including n=1, strict negative sign for n>=2 and harmonic asymptotic. An embedded finite checker passed 100 conditional identities, 500 rational mixed-moment cases and 12 seeded conditional simulation cases; the all-size proof does not depend on finite numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lockhart (2012), Theorems 1–2, studies large-sample conditioning on complete sufficient statistics; Remark 6 explicitly says Anderson–Darling is excluded from the proof because the weight is not square integrable.",
+        "Tolikas–Heravi (2008) conditions neither on the largest uniformized order statistic nor on a fully specified null; it fits unknown parameters and simulates critical values."
+      ],
+      "reasoning": "Neither the asymptotic conditional equivalence for a different conditioning statistic, nor fitted-null quantile approximations imply an all-n exact beta/harmonic covariance or a strictly convex max-conditioned mean.",
+      "searches": [
+        "Conditional limit laws for goodness-of-fit tests T_n maximum original paper",
+        "arxiv:1207.5967 Theorems 1–2 Remark 6",
+        "doi:10.1080/03610920802101571 full text"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/03610920802101571",
+      "numdam:AIHPB_1974__10_1_37_0",
+      "arxiv:1207.5967",
+      "doi:10.1080/01621459.1954.10501232 (abstract and provenance only)",
+      "previously recorded Anderson–Darling/Cramér–von Mises and Anderson–Darling/Watson mathematical mixed-moment statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously checked one-sample results give covariance of Anderson–Darling with Cramér–von Mises or Watson statistics, not with the largest order statistic.",
+        "Stephens (1974) derives power/component decompositions; Lockhart (2012) concerns complete-sufficient-statistic conditioning under parametric families."
+      ],
+      "reasoning": "The sample maximum is neither Watson nor Cramér–von Mises; mixed moments between those statistics do not determine mixed moments with the maximum. The new result is a maximum-specific conditional function on all (0,1) and a new exact mixed moment, not a special case of previously recorded mixed GOF covariances.",
+      "searches": [
+        "Anderson Darling statistic sample maximum logarithmic bias finite sample",
+        "doi:10.1080/03610920802101571",
+        "numdam:AIHPB_1974__10_1_37_0",
+        "arxiv:1207.5967"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tolikas–Heravi (2008), Eq. (2.2), gives the classical ordered-log representation; its Sections 3–6 concern parameter estimation and fitted critical values.",
+        "Stephens (1974), Sec. 11, gives a spectral-component representation of the statistic but no conditional law given the largest observation."
+      ],
+      "reasoning": "The ordered-log and empirical-integral versions refer to the same fully specified null statistic. The new maximum regression requires a joint distribution with the largest order statistic; a marginal expansion into orthogonal components and known critical values alone do not imply it.",
+      "searches": [
+        "Anderson Darling statistic conditional on sample maximum exact conditional expectation uniform",
+        "finite sample covariance Anderson Darling goodness of fit statistic with largest order statistic harmonic number negative",
+        "doi:10.1080/03610920802101571 Eq.(2.2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct searches returned standard descriptions of Anderson–Darling statistics, parameter-fit applications and unrelated extreme-order studies, not a matching joint table.",
+        "The closest semantically retrieved extreme-order study concerns a discrete three-atom correlation bound rather than an empirical-discrepancy mixed moment."
+      ],
+      "reasoning": "A lookup of numerical critical values for the Anderson–Darling marginal statistic cannot determine its covariance with the maximum, and a generic maximum-statistic table is inapplicable without a joint law. Absence of a table in searched resources does not establish universal novelty.",
+      "searches": [
+        "\"Anderson-Darling\" \"largest order statistic\" \"covariance\"",
+        "\"Anderson-Darling\" \"sample maximum\" covariance goodness of fit",
+        "Anderson Darling goodness of fit statistic maximum order statistic covariance",
+        "Anderson Darling statistic largest observation order statistic covariance sample maximum"
+      ]
+    },
+    "rationale": "Primary full-text comparisons found no largest-order-statistic conditional regression or finite-sample mixed covariance; the nearest article on parametric conditional laws explicitly excludes Anderson–Darling. Semantically and algebraically, the new maximum-specific joint moment is not a corollary of the prior marginal AD distribution or of cross-EDF covariances. An unindexed classical joint order-statistic identity remains a genuine residual risk, so no universal historical-uniqueness claim is made.",
+    "residual_risks": [
+      "A classical exact joint distribution of the full Anderson–Darling statistic with an extreme uniform order statistic might encode the same finite-n mixed moment, but was not located.",
+      "The original Anderson–Darling 1954 paper was consulted for historical attribution through its abstract only; no whole-text no-coverage conclusion is drawn from that source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: computes critical values for fitted three-parameter lognormal null via simulation, not a fixed-null conditional mean given sample maximum or covariance.",
+        "evidence": [
+          "Pages 3136–3140 establish estimated-parameter model and Anderson–Darling log formula; pages 3140–3142 report simulated critical-value regressions and fitted-data examples."
+        ],
+        "identifier_or_url": "doi:10.1080/03610920802101571",
+        "material_read": "Entire ten-page published article including formula (2.2), parameter-estimation procedures, conditional application context, empirical tables, conclusion and references.",
+        "method": "Authorized institutional full text after unsuccessful arXiv and lawful OA searches; read all 10 extracted pages.",
+        "title": "The Anderson–Darling Goodness-of-Fit Test Statistic for the Three-Parameter Lognormal Distribution",
+        "trigger": "Same goodness-of-fit statistic with explicit upper/lower bounded fitted models; verified 62G10 primary MSC and first online 2008-08-15."
+      },
+      {
+        "assessment": "NOT_COVERING: component spectral representation, asymptotic power and noncentral cumulants do not identify the maximum-conditioned exact finite-n mean or covariance.",
+        "evidence": [
+          "PDF pp. 1–3 motivation and definitions, pp. 11–13 Anderson–Darling components, pp. 13–17 power analysis."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/AIHPB_1974__10_1_37_0.pdf",
+        "material_read": "Full-text abstract, definitions, Sections 10–14 including Anderson–Darling Section 11, power studies and concluding discussion.",
+        "method": "Lawful open PDF inspected through searchable text and page-image check.",
+        "title": "Components of goodness-of-fit statistics",
+        "trigger": "Canonical full-sample Anderson–Darling theoretical decomposition could subsume the conditional extreme calculation."
+      },
+      {
+        "assessment": "NOT_COVERING: conditional distributions are given sufficient statistics in parametric families and concern large-n equivalence. Remark 6 specifically excludes Anderson–Darling from the main argument.",
+        "evidence": [
+          "PDF pp. 1–3 conditional sufficient-statistic problem; pp. 6–8 Theorems 1–2; p. 17 Remark 6 excludes the Anderson–Darling endpoint weight."
+        ],
+        "identifier_or_url": "arxiv:1207.5967",
+        "material_read": "Open full-text abstract and introduction, formal Theorems 1–2, proof outline and Remarks 5–6.",
+        "method": "ArXiv open PDF text and page image of Remark 6.",
+        "title": "Conditional limit laws for goodness-of-fit tests",
+        "trigger": "Title promises conditional laws for empirical-discrepancy statistics; possible broader theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e464603-2341-4f04-b7b8-f7ebfab3939b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximum is the canonical upper-tail observation, and Anderson–Darling weights empirical discrepancies at both tails. Exact conditional expectation for all interior maxima proves a unique mean-loss minimizer and blowup at both extremes; the exactly negative aggregate covariance distinguishes local nonlinear dependence from its global first moment. This natural calibration-related structural fact is not a parameter renaming, arbitrary slice or known marginal-table recomputation.",
+    "status": "PASS"
+  }
+}
