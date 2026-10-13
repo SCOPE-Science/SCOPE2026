@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The published theorem supplies the universal four-state upper bound 5. A direct ternary witness rejects every word shorter than 5 and accepts abbac. For the binary upper bound, all four direction splits are exhausted. Each input letter has all 5^4 possible partial direction-compatible state maps; all relevant end-marker returns, symmetry types of the initial entrance, and singleton final states are covered. The search intentionally decouples the initial entrance from later left-endmarker behavior, producing a superset of actual automata, so its split maxima 0,3,4,3 prove the true binary upper bound 4. A direct binary witness has shortest word abba, proving sharpness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 source gives the unrestricted exact maximum and defines direction-determinacy, but its construction uses N-1 distinct symbols.",
+        "The 2021 paper explicitly treats fixed alphabet size only through asymptotic lower bounds.",
+        "The 2026 paper repeats the unrestricted exact direction-determinate formula and does not report this four-state fixed-alphabet threshold."
+      ],
+      "reasoning": "The strongest general theorem caps every alphabet at 5 but does not determine whether a binary alphabet attains it. The fixed-alphabet asymptotics do not imply the exact small-state value.",
+      "searches": [
+        "Martynova-Okhotin arXiv:2210.00235 full text, Theorems 1 and 2 and the extremal construction",
+        "Dobronravov-Dobronravov-Okhotin DOI 10.3233/FI-2021-2044 fixed alphabet abstract",
+        "Martynova-Okhotin DOI 10.1016/j.ic.2026.105462 abstract and publication metadata"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.00235v1 full text",
+      "DCFS 2023 publication DOI 10.1007/978-3-031-34326-1_10",
+      "DOI 10.3233/FI-2021-2044 published abstract",
+      "DOI 10.1016/j.ic.2026.105462 published abstract and metadata",
+      "published-finding searches for four-state, binary/ternary, fixed-alphabet, and witness formulations",
+      "exact web searches for abbac and binary/ternary direction-determinate formulations",
+      "current research ledger through generation g000032",
+      "previous-week research ledger generation g000057"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At n=4 the prior theorem implies only the universal upper bound 5 and existence over some finite alphabet.",
+        "The source construction uses five distinct symbols in the extremal four-state split, so it does not imply that three symbols suffice.",
+        "No overlapping current or prior ledger claim was found."
+      ],
+      "reasoning": "The new statement is an alphabet-minimization refinement. Neither unrestricted attainment nor an asymptotic fixed-alphabet lower bound determines the smallest alphabet that realizes the exact n=4 optimum.",
+      "searches": [
+        "source Theorem 1 direction-determinate upper bound binomial n floor n/2 minus 1",
+        "source Theorem 2 construction alphabet Sigma a1 through aN-1",
+        "current research ledger search for direction-determinate, two-way finite, 2210.00235, shortest accepted",
+        "previous research ledger search for direction-determinate two-way finite automata and 2210.00235"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact source formulation is maximum length of the shortest accepted string for direction-determinate 2DFA.",
+        "Fixed-alphabet literature uses the equivalent formulation of fixing alphabet size before maximizing shortest accepted length.",
+        "No retrieved source gives the four-state values 4 and 5 for binary and ternary alphabets."
+      ],
+      "reasoning": "The searches cover 2DFA/two-way terminology, direction-determinate terminology, maximum-shortest-string phrasing, minimum alphabet size, and fixed alphabet size.",
+      "searches": [
+        "four-state direction-determinate 2DFA binary alphabet maximum shortest accepted length 4 ternary alphabet 5",
+        "minimum alphabet size extremal direction-determinate two-way finite automata four states",
+        "2210.00235 fixed alphabet four state direction-determinate",
+        "binary alphabet direction-determinate shortest string",
+        "ternary alphabet direction-determinate shortest string"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact witness-word searches did not locate the ternary automaton or an equality table.",
+        "The published paper's tabulated small-state comparisons concern state-count bounds, not alphabet-specific direction-determinate maxima."
+      ],
+      "reasoning": "The binary split maxima and ternary witness are regenerated from the transition semantics rather than copied from a known table.",
+      "searches": [
+        "four-state direction-determinate automata fixed alphabet exact value",
+        "abbac direction-determinate two-way finite automaton",
+        "abba direction-determinate 2DFA",
+        "four state binary two-way automata shortest accepted string"
+      ]
+    },
+    "rationale": "The direct source proves the unrestricted exact value and its construction uses five symbols in the four-state extremal split. Earlier fixed-alphabet work gives asymptotic lower bounds, and the 2026 refinement repeats the unrestricted direction-determinate exact formula. None of the inspected sources states the exact four-state binary maximum 4, a ternary length-5 witness, or the minimal alphabet size 3. Dedicated published-finding and exact web searches found no covering statement.",
+    "residual_risks": [
+      "An unindexed thesis, source-author computation, or unpublished small-state table may contain the same alphabet-minimality result.",
+      "The exact 2022 conference/preprint record is in formal languages and automata; some bibliographic services do not expose an MSC field for conference papers even though the research line is classified under 68Q45.",
+      "No claim is made for minimum extremal alphabet size beyond four states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the unrestricted exact value and a many-symbol construction, but not the minimum alphabet needed at four states.",
+        "evidence": "The construction explicitly sets Sigma={a1,...,a_{N-1}}. For the extremal four-state split N=6, hence the printed construction uses five input symbols.",
+        "identifier_or_url": "arXiv:2210.00235v1",
+        "material_read": "Definitions of 2DFA and direction-determinate 2DFA; Theorem 1; Theorem 2; Proposition 1; the full extremal construction around equations (1a)-(1d); Corollary 1.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "The maximum length of shortest accepted strings for direction-determinate two-way finite automata",
+        "trigger": "Primary source for the exact unrestricted direction-determinate extremum."
+      },
+      {
+        "assessment": "Shows fixed alphabet size is a recognized separate regime, but supplies asymptotic lower bounds rather than the exact four-state binary/ternary boundary.",
+        "evidence": "The abstract states a lower bound for deterministic automata with each fixed alphabet size m, with no exact n=4 values.",
+        "identifier_or_url": "DOI:10.3233/FI-2021-2044",
+        "material_read": "Published abstract, keywords, and fixed-alphabet lower-bound statement.",
+        "method": "Statement-level implication comparison.",
+        "title": "On the Length of Shortest Strings Accepted by Two-way Finite Automata",
+        "trigger": "Earlier source explicitly treating the fixed-alphabet version."
+      },
+      {
+        "assessment": "Repeats the exact direction-determinate formula while improving general 2DFA bounds; no four-state fixed-alphabet threshold is reported.",
+        "evidence": "The abstract states the direction-determinate maximum is determined precisely but does not specialize by alphabet size.",
+        "identifier_or_url": "DOI:10.1016/j.ic.2026.105462",
+        "material_read": "Published abstract and bibliographic metadata.",
+        "method": "Statement-level comparison.",
+        "title": "Improved bounds on the length of shortest strings accepted by two-way finite automata",
+        "trigger": "Current follow-up on the same shortest-string problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0311a7c-4005-4f48-9274-8c4eccacb71c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source determines the exact unrestricted extremum but its four-state extremal construction spends five distinct input symbols, while earlier work explicitly identifies fixed alphabet size as a separate regime. Determining that binary falls short by one and that ternary already restores the sharp value identifies the exact alphabet-economy boundary at the first nontrivial central-binomial case. This is structural information about the source extremum, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
