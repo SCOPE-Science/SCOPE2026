@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The channel definition is reconstructed directly from the inspected primary full text. The packaged verifier independently generates all allowed grain patterns and all error balls in two ways, builds the 64-vertex compatibility graph, exhaustively enumerates all maximal cliques, independently proves maximum clique size 10 by branch search, independently counts all ten-cliques as 16, and computes the stated common core. The saved replay output is from the packaged verifier path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2013 upper-bound paper develops bounds for all n and t but its numerical table leaves n=6,t=2 between lower 10 and upper 16.",
+        "The 2015 overlapping-grain work explicitly distinguishes overlapping from non-overlapping grains and notes that overlapping errors are a more general model."
+      ],
+      "reasoning": "General upper bounds and constructions do not imply the exact value 10 or the sixteen equality cases for the non-overlapping n=6,t=2 instance.",
+      "searches": [
+        "binary asymmetric Z-channel one-error-correcting code length 5 exact optimum classification",
+        "small deletion correcting codes length 5 6 exact optimal code classification binary",
+        "web: non-overlapping grain-errors binary code Sharov Roth 2011"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1012.1895v1",
+      "Kashyap--Zémor ISIT 2013 full-text PDF and Table I",
+      "published-finding corpus semantic index under the recorded exact/alias queries",
+      "Current and previous own result ledgers for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The foundational source gives the model and general properties.",
+        "The later upper-bound source gives only 10 <= M(6,2) <= 16 through its table."
+      ],
+      "reasoning": "Neither inspected source implies the exact optimum, the count of sixteen labeled optima, or their four-word intersection. The finite exhaustive proof supplies all three.",
+      "searches": [
+        "binary length six two non-overlapping grain-error correcting code maximum 10",
+        "non-overlapping grain code length 6 two grain errors exact maximum classification",
+        "grain correcting codes n=6 t=2 10 codewords",
+        "web: \"two-grain\" \"length 6\" code 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mazumdar--Barg--Kashyap formulate the same predecessor-copy, non-overlapping grain channel.",
+        "Kashyap--Zémor define grain patterns as nonconsecutive subsets and the corresponding error balls, matching the objects reconstructed by the verifier."
+      ],
+      "reasoning": "The accepted claim is compared under the exact channel definition, not by title similarity. No alternative metric or overlapping-grain formulation is treated as equivalent.",
+      "searches": [
+        "binary length six two non-overlapping grain-error correcting code maximum 10",
+        "non-overlapping grain code length 6 two grain errors exact maximum classification",
+        "grain correcting codes n=6 t=2 10 codewords",
+        "web: \"M(6,2)\" \"grain\" code",
+        "web: \"M(6, 2)\" grain-correcting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kashyap--Zémor Table I displays n=6,t=2 upper bound 16 and lower bound 10.",
+        "No published-finding corpus hit returned this exact grain-channel equality claim; closest high-scoring hits concerned unrelated non-overlapping codes, symbol-pair codes, and deletion codes."
+      ],
+      "reasoning": "The inspected exact-parameter table records a gap, not the equality M(6,2)=10. Therefore the new exact value and equality census are not a recomputation of a known table entry.",
+      "searches": [
+        "grain correcting codes n=6 t=2 10 codewords",
+        "web: \"M(6,2)\" \"grain\" code"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches found no statement implying the exact length-six equality classification. The most directly relevant inspected primary full text gives an upper bound 16 at n=6,t=2 while displaying lower bound 10, leaving precisely the finite gap closed here. The foundational 2010 source defines the model but does not state this census.",
+    "residual_risks": [
+      "An obscure or unindexed finite enumeration may exist outside the searched sources.",
+      "The accepted claim concerns the non-overlapping grain model only; it must not be transferred to the overlapping model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the relevant channel family but does not cover the accepted finite equality classification.",
+        "evidence": "The abstract states that a bit can change to the immediately preceding value and that cardinality bounds are studied.",
+        "identifier_or_url": "arXiv:1012.1895v1",
+        "material_read": "Public abstract and bibliographic record identifying the same one-dimensional model; associated records confirm the work was presented in 2010 and the arXiv v1 timestamp is 2010-12-08.",
+        "method": "Web record inspection.",
+        "title": "Coding for High-Density Recording on a 1-D Granular Magnetic Medium",
+        "trigger": "Foundational source for the non-overlapping predecessor-copy channel and earliest exact public date used for cohort placement."
+      },
+      {
+        "assessment": "Same objects and parameters; table leaves lower 10 versus upper 16, so it does not cover the accepted exact value or equality cases.",
+        "evidence": "The paper defines E as a nonconsecutive subset of positions, y_j=x_{j-1} for j in E, and Table I shows for n=6,t=2 the upper-bound entry 16 with lower bound 10 in parentheses.",
+        "identifier_or_url": "https://ece.iisc.ac.in/~nkashyap/Papers/isit2013_grains_paper.final.pdf",
+        "material_read": "Definitions on pages 1-2 and numerical Table I on page 5; the page image was inspected.",
+        "method": "Parsed PDF text plus page screenshot inspection.",
+        "title": "Upper Bounds on the Size of Grain-Correcting Codes",
+        "trigger": "Most direct primary full text for finite non-overlapping grain-code bounds and the exact parameter n=6,t=2."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b603a44-ba02-4fe4-975c-d5a80b0ceb8c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This closes a concrete published finite gap: the inspected table gives lower bound 10 and upper bound 16 for n=6,t=2. Determining the exact optimum and all equality cases is therefore a natural finite completion of a classical granular-channel parameter, and the four-word common core adds structural information beyond the cardinality.",
+    "status": "PASS"
+  }
+}
