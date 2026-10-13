@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The theorem is confined to the explicitly written normalized four-equation ODE. The proof handles the domain \(\alpha>\mu t_1\), \(0\leq t_1+t_2\leq1\), and all strictly positive remaining rates; it establishes \(H>0\) and obtains every endemic equilibrium by forced elimination. The sharp infection threshold, the strictly larger feasibility cutoff when \(a<0\), and all endpoint cases follow from exact sign calculations. Tangent-cone boundary checks establish precisely when the normalized cat simplex is invariant. The exact-rational verifier checks the four equilibrium residuals at three representative values and returned `VERIFY_OK`. These computations support, but do not replace, the all-parameter algebraic proof.
+
+## Originality — PASS, with limits
+The main source, Ouyadri, El Koufi and Belhdid (2026), equations (2), Theorem 2 and Section 3.4, gives a one-sided reproduction-number existence criterion and states simplex invariance without the additional congenital-recruitment restriction. The new result is the exact two-threshold **physical-feasibility** classification, including a regime where no nonnegative recovered/vaccinated fraction is possible despite reproduction number above one. Arenas et al. (2010) consider earlier cat vaccination with environmental oocysts; Khan et al. (2024) consider a different harmonic-incidence human–cat model. Neither inspected source states or logically subsumes the precise joint vertical-recruitment/transmission window for the target equations. Relevant published mathematical records and public literature were searched under the source names, parameter inequalities, feasible equilibria, aliases and threshold forms. Unindexed corrections and the abstract-only availability of one earlier paper remain risks, not proofs of uniqueness.
+
+## Value — PASS
+The cat-simplex requirement is essential for interpreting normalized infection models biologically. Here a conventional threshold \(\mathcal R_0>1\) is demonstrably insufficient in an admissible vertical-recruitment regime, and an explicit, sharp upper transmission cutoff repairs the meaning of endemic feasibility. This is a natural parameter classification that affects the applicability of a published model's boundedness and equilibrium assertions, not a mere recasting of the reproduction number or a numerical threshold approximation.
+
+## Scientific and literature limitations
+The theorem concerns only the four-variable reduced dynamics; the full unreduced cat bookkeeping is not claimed equivalent. Strictly positive mice-susceptible fractions at endemic equilibrium are impossible in these equations, and the distinction between \(V\geq0\) and \(V>0\) is explicit. None of the claims establishes stability or addresses optimal-control outcomes. The first day-stamped public author posting is March 7, 2026; possible earlier publisher posting without a verified day remains a bibliographic uncertainty. The prior cat/oocyst vaccination paper was inspected at abstract level, not line-by-line in full text.
+
+Self-review: passed. Independent audit: not yet performed.

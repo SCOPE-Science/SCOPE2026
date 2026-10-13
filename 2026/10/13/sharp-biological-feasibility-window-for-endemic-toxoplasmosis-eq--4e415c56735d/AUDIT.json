@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For any positive infected-cat equilibrium, the O and I equations force O=kI/mu0 and S=(alpha-mu*t1)*mu0/(beta*k), the mouse equation forces M=0, and the S equation uniquely forces I. Exact signs of I and V=1-S-I establish the two sharp beta thresholds; the flux on V=0 proves the sharp simplex-invariance condition. Strict inequalities, endpoints, effective removal and H positivity are checked. The included standalone rational verifier runs successfully on actual package content; it is not substituted for the symbolic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arenas, González-Parra and Villanueva Micó (2010), Theoretical Population Biology 77:227–237, DOI 10.1016/j.tpb.2010.03.005, abstract: cat vaccination and oocysts, but no available text showing the dual vertical-cat recruitment parameters of the target equations.",
+        "Khan et al. (2024), Scientific Reports 14:12616, DOI 10.1038/s41598-024-63263-w, publicly readable model description: harmonic-mean human–cat incidence, distinct state model and equilibria."
+      ],
+      "reasoning": "Even a stronger global R0 theorem for a different model would not determine the sign of V=1-S-I for this reduced system. The available older cat-vaccination abstract does not resolve its full formal scope; that source remains an access risk rather than a definitive noncoverage certification. The 2024 harmonic-incidence equations have different compartments and cannot algebraically imply this model-specific beta_max.",
+      "searches": [
+        "\"feasibility window\" \"transmission\" \"vertical\" infected equilibrium compartment model",
+        "\"vaccinated\" \"upper bound\" \"transmission rate\" \"endemic equilibrium\" vertical transmission toxoplasmosis",
+        "Arenas González-Parra Villanueva Micó 2010 Modeling toxoplasmosis spread in cat populations under vaccination",
+        "Khan et al 2024 optimal control toxoplasmosis harmonic mean incidence"
+      ]
+    },
+    "checked_sources": [
+      "Official full paper DOI 10.23939/mmc2026.01.060, equations (1) and (2), Theorem 2, Section 3.4 and simulation regime",
+      "Scientific Reports 2024 DOI 10.1038/s41598-024-63263-w full publisher HTML",
+      "Theoretical Population Biology 2010 DOI 10.1016/j.tpb.2010.03.005 abstract and bibliographic material",
+      "Searches of published related mathematical results for normalized toxoplasmosis ODE biological simplex, recovery-fraction sign, transmission windows, and source corrections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published Section 3.4 asserts feasibility when alpha>mu*t1 and R0>1, but the forced algebra yields V=[a+(gamma-a)S]/H with a=alpha-mu(t1+t2), hence an additional feasibility test.",
+        "Published Theorem 2 posits invariance of a region imposing S+I<=1; direct boundary calculation yields Vdot=gamma*S+a*I and outward flow when a<0."
+      ],
+      "reasoning": "The earlier one-sided existence claim is not a stronger theorem implying the new statement; in the explicitly allowed regime a<0 and beta>beta_max it contradicts physical feasibility. The new exact finite beta window is not an immediate corollary of a valid broader covering theorem in the inspected texts. The result is intentionally scoped to the printed reduced ODE, not the unreduced system.",
+      "searches": [
+        "doi:10.23939/mmc2026.01.060 equation (2) Section 3.4 Theorem 2",
+        "\"Ouyadri El Koufi Belhdid toxoplasmosis cats mice oocyst vertical transmission conserved total population model 2026\"",
+        "\"forward invariant cat simplex S+I<=1 iff recovery alpha >= mu(tv1+tv2) toxoplasmosis 2026\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ouyadri–El Koufi–Belhdid (2026), equation (2) and Section 3.4: only lower reproduction threshold is stated; their published infected equilibrium expression differs from the forced formula with H=alpha+mu(1-t1-t2).",
+        "Their Theorem 2 assumes normalized cat simplex invariance, without the condition alpha>=mu(t1+t2)."
+      ],
+      "reasoning": "A reparameterization into R0, equivalent infection pressure, or recovered fraction yields the same sharp condition beta_c<beta<=beta_max, rather than the source lower bound alone. The paper neither formulates nor proves the upper bound or necessity of the simplex condition. The strongest overlapping claim is its lower-threshold branch, which does not imply the upper feasibility cutoff.",
+      "searches": [
+        "\"Ouyadri\" \"Belhdid\" \"equilibrium\" \"upper\" transmission",
+        "\"toxoplasmosis\" \"beta_max\" \"vaccinated\" infected cats \"simplex\"",
+        "\"endemic equilibrium\" \"negative recovered\" \"vertical transmission\" epidemic model",
+        "doi:10.23939/mmc2026.01.060 Section 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The official publisher full paper contains Table of parameters and formulas for equations (2) and biological feasibility, not a two-threshold table in beta.",
+        "No publicly indexed exact equilibrium-feasibility table/corrigendum resolving beta_max surfaced in the searches; this negative search result is not a proof of inexistence."
+      ],
+      "reasoning": "The classification depends on the sign of the recovered/vaccinated cat fraction for all admissible parameter values and its sharp zero, not merely lookup of a printed parameter table. The source numerical parameter set has alpha>mu(t1+t2), and hence does not sample the new obstructed regime.",
+      "searches": [
+        "\"Mathematical Modeling and Optimal Control Strategies for Toxoplasmosis with Multiple Hosts\" erratum corrigendum correction",
+        "\"10.23939/mmc2026.01.060\" corrigendum retraction correction",
+        "\"Ouyadri\" \"El Koufi\" \"Belhdid\" negative equilibrium simplex recovered vertical"
+      ]
+    },
+    "rationale": "The exact two-sided biological-feasibility classification and necessary-and-sufficient cat-simplex forward-invariance criterion are not in the inspected main publication, which states biological feasibility from R0>1 and alpha>mu*t1, and treats S+I<=1 as invariant. Earlier toxoplasmosis literature studies different susceptible/recovered bookkeeping, incidence, or no joint vertical-recruitment parameter. Published comparisons do not imply the new conditional beta_max cutoff. Unindexed or inaccessible corrections remain an explicit risk.",
+    "residual_risks": [
+      "An unindexed erratum, closely related model preprint, or forthcoming result could cover the precise two-threshold classification.",
+      "2010 related cat–oocyst vaccination paper could not be inspected in complete full text; comparison remains conservative.",
+      "Author-upload date 2026-03-07 is an explicitly verified day-stamped public appearance; source publisher URL appears to include a 2026 February directory but supplies no verified earlier publication day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its lower threshold and unqualified physical feasibility assertion do not cover the upper cutoff or boundary simplex obstruction; its printed infected-equilibrium denominator differs from the unique forced one.",
+        "evidence": [
+          "Equation (2), p. 63",
+          "Theorem 2, pp. 64–65",
+          "Endemic equilibrium and R0, p. 66",
+          "DOI 10.23939/mmc2026.01.060"
+        ],
+        "identifier_or_url": "doi:10.23939/mmc2026.01.060",
+        "material_read": "Full 17-page publisher PDF, including all model definitions on pp. 62–63, Theorems 1–4 and Sections 3.1–3.5 on pp. 64–67, simulation-parameter discussion, and closing sections; equation (2) additionally checked against page image.",
+        "method": "Authorized open publisher PDF read, equation-level transcriptions and explicit implication comparison; no reliance on abstract-only snippets.",
+        "title": "Mathematical Modeling and Optimal Control Strategies for Toxoplasmosis with Multiple Hosts",
+        "trigger": "Identical model and published biological-region/equilibrium claims"
+      },
+      {
+        "assessment": "Different equations; its R0-based statements cannot force the target reduced cat-vaccinated-fraction sign test.",
+        "evidence": [
+          "Scientific Reports 14:12616 (2024)",
+          "https://www.nature.com/articles/s41598-024-63263-w"
+        ],
+        "identifier_or_url": "doi:10.1038/s41598-024-63263-w",
+        "material_read": "Open-access HTML abstract, introduction, model description and equilibrium analyses inspected, with distinct human–cat harmonic incidence.",
+        "method": "Publisher full HTML read, comparison of state types and infection mechanisms.",
+        "title": "Optimal control strategies for toxoplasmosis disease transmission dynamics via harmonic mean-type incident rate",
+        "trigger": "Closely related 2024 toxoplasmosis endemic equilibrium/vaccination analysis"
+      },
+      {
+        "assessment": "Abstract describes an R0 threshold but not an exact 2026 reduced ODE with its pair of vertical cat recruitment fractions. Due to incomplete full text, no whole-document NOT_COVERING conclusion is made.",
+        "evidence": [
+          "Theoretical Population Biology 77 (2010), 227–237",
+          "https://openalex.org/W1984890320"
+        ],
+        "identifier_or_url": "doi:10.1016/j.tpb.2010.03.005",
+        "material_read": "Bibliographic information, abstract and available public descriptions; full primary text was not retrieved.",
+        "method": "OpenAlex, bibliographic and abstract search after attempts to locate open full text; publisher listing indicated restricted full text.",
+        "title": "Modeling toxoplasmosis spread in cat populations under vaccination",
+        "trigger": "Earlier cat-vaccination and environmental-oocyst model cited by source and overlapping the modeling concepts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e415c56-735d-42fd-906b-35353ed4005c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Physical feasibility of epidemiological equilibria requires nonnegative susceptible, infected and vaccinated/recovered fractions. In a naturally motivated congenital-recruitment regime admitted by the model, the conventional one-sided R0 threshold is insufficient and there is a sharp nontrivial upper transmission cutoff distinct from the invasion threshold. The theorem also fully classifies when the normalized cat simplex is a valid dynamical state region. These exact structural conditions alter interpretation of a published existence/well-posedness claim; they are not arbitrary numerical slices, mere renaming, or a minor type check.",
+    "status": "PASS"
+  }
+}
