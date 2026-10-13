@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The proof covers every prefix length, not only substitution endpoints. The identity H_{m+1}=P_m H_m lets the previous greedy set attract both copies away from the new boundary. The occurrence lemma is proved by parity alignment and desubstitution; it yields a unique factor wholly to the right of all previously selected points at the next endpoint. Direct greedy replay through 256 symbols and independent recurrence/occurrence checks agree with the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schaeffer-Shallit Theorem 21 gives only O(A_w log N) for greedy attractors in general and Theorem 3 gives optimum size two for period-doubling prefixes.",
+        "Banbara et al. 2026 completely characterize globally smallest period-doubling attractors, exactly two pairs at high substitution levels, but the inspected full text does not state a greedy sequence."
+      ],
+      "reasoning": "The strongest nearby results bound the greedy size or classify global optima; neither implies which prefix endpoints force the greedy rule to insert.",
+      "searches": [
+        "String Attractors for Automatic Sequences greedy period-doubling",
+        "The Smallest String Attractors of Fibonacci and Period-Doubling Words greedy",
+        "period-doubling all smallest attractors greedy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2012.06840 full primary PDF",
+      "arXiv:2602.16152 full primary PDF",
+      "targeted semantic research-index searches under greedy, period-doubling, dyadic, and exact-position formulations",
+      "exact web searches for the closed form and its initial position sequence",
+      "available current and previous research records for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original paper proves a general O(log N) greedy upper bound but gives no period-doubling lower bound or exact insertion positions.",
+        "The 2026 smallest-attractor pairs are not nested across prefixes and concern a global optimization problem distinct from the greedy process.",
+        "Available research records contain a Thue-Morse all-minimizer attractor census and generalized-pseudostandard attractor thresholds, but no period-doubling greedy claim."
+      ],
+      "reasoning": "The new result requires proving both no insertion throughout each dyadic interval and forced insertion at its endpoint; neither follows from constant optimal size or from the later classification of minimum pairs.",
+      "searches": [
+        "arXiv:2012.06840 Definition 19 Theorem 21 period-doubling",
+        "arXiv:2602.16152 period-doubling smallest attractors",
+        "current research records period-doubling greedy attractor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schaeffer-Shallit Definition 19 gives the exact least-failing-prefix rule used in the claim.",
+        "No checked search returned an exact period-doubling greedy-position formula.",
+        "Searches included both powers-of-two-minus-one and Mersenne-position formulations."
+      ],
+      "reasoning": "The claim was compared under the source terminology, the sequence name, the exact dyadic formula, and the generic greedy-attractor alias rather than by title alone.",
+      "searches": [
+        "greedy string attractor period-doubling powers of two minus one",
+        "greedy string attractor period doubling sequence",
+        "\"greedy string attractor\" \"period-doubling\"",
+        "\"period-doubling\" \"2^n-1\" \"string attractor\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked semantic-index or web result reported the sequence 0,1,3,7,15 as greedy attractor positions for the period-doubling word.",
+        "The closest indexed attractor census concerns Rudin-Shapiro and regular-paperfolding prefixes, not this greedy invariant."
+      ],
+      "reasoning": "An existing exact position table would directly cover the theorem, so both its initial terms and its closed form were searched.",
+      "searches": [
+        "period-doubling greedy string attractor 0 1 3 7 15",
+        "period-doubling string attractor 2^m-1",
+        "greedy attractor Mersenne positions period doubling"
+      ]
+    },
+    "rationale": "The 2020 primary source defines the greedy string attractor and proves only a general logarithmic upper bound, while separately proving optimal period-doubling attractor size two. It does not state the greedy positions for period-doubling. The 2026 full-text classification determines all globally smallest attractors of finite period-doubling words but does not discuss the greedy construction. Targeted exact-formula, alias, source, and parameter searches found no covering statement.",
+    "residual_risks": [
+      "An unindexed note, lecture, or unpublished computation may have observed the same elementary dyadic greedy sequence.",
+      "The theorem should not be extrapolated to other automatic words or to different greedy conventions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper gives optimal period-doubling attractors and a general greedy O(log N) theorem, but no exact greedy set for period-doubling.",
+        "identifier_or_url": "arXiv:2012.06840v1",
+        "material_read": "Full primary PDF sections on the period-doubling sequence and on greedy string attractors, including Theorems 3-4, Definition 19, Lemma 20, and Theorem 21.",
+        "method": "Primary full-text PDF statement and implication comparison.",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "Direct source defining the greedy process and proving period-doubling attractor results."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper classifies globally smallest two-position attractors at substitution levels and cites Schaeffer-Shallit for prefix minima, but does not analyze the least-failing-prefix greedy construction.",
+        "identifier_or_url": "arXiv:2602.16152v1",
+        "material_read": "Full primary PDF introduction, period-doubling characterization, small-order appendix, and open-problem discussion.",
+        "method": "Primary full-text PDF statement and implication comparison.",
+        "title": "The Smallest String Attractors of Fibonacci and Period-Doubling Words",
+        "trigger": "Later full classification of smallest period-doubling attractors could potentially subsume the candidate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8fff37d7-cf16-47df-8a83-db5f3626db69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result exposes a sharp algorithmic/combinatorial separation inside the primary source’s flagship automatic example: every nontrivial period-doubling prefix has an optimal attractor of size two, yet the exact greedy construction introduced in the same paper grows as 1+floor(log_2 N). This makes the paper’s general logarithmic greedy bound tight on a linearly recurrent word with constant optimum and quantifies an unbounded approximation ratio, a structurally meaningful behavior rather than an arbitrary finite statistic.",
+    "status": "PASS"
+  }
+}
