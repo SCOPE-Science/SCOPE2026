@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The initiating source explicitly gives the three moment-polytope summands for the 4-crown closed Richardson variety. The exact certificate exhausts all 22 candidate lattice sums, all eight facets, all ten vertices, eight unimodular cones, and two four-ray unimodular quadrilateral cones. The dual monoid of either non-simplicial cone is the conifold algebra; every no-new-ray smooth subdivision chooses one of two diagonals. The certificate verifies four independent rational support perturbations realizing the four refinements as normal fans of bounded polytopes. Standard toric morphism theory makes the associated maps small and projective; conifold geometry gives the crepant exceptional curves. The Picard and Betti computations follow from smooth complete toric cohomology. The finite certificate is exhaustive for this explicit finite polyhedral input, not for arbitrary Richardson varieties.
+
+## Originality — PASS
+Gorsky--Kim--Sherman-Bennett's Example 5.3 exhibits the polytope and states nonsmoothness, but stops before small-resolution enumeration and global projectivity. Can--Saha and the classical Richardson smoothness/singular-locus results detect singularity and may recover a two-node local basket, but do not supply the independent coherence of both local choices. Classical conifold theory covers each local choice; it does not determine whether all four simultaneous choices are projective for this specific compact threefold. Searches for the exact permutation pair, the 4-crown aliases, small toric resolutions, Q-factorializations, nodal flop squares, and stronger singularity-criterion formulations located no covering statement. This is a comparative originality assessment, not proof of absence from all literature.
+
+## Value — PASS
+Global projectivity of simultaneous small resolutions is not automatic from local conifold equations. The explicit four-model result determines the toric crepant birational chamber structure, its two independent flop directions, and the Picard/topological invariants of every smooth model of a concrete Richardson threefold singled out by recent toricity theory. The claim is a natural complete classification over a fixed new geometric object rather than an arbitrary numerical slice. It makes no assertion about non-toric resolutions.
+
+## Closest literature and limits
+The primary comparison is Gorsky--Kim--Sherman-Bennett (2026), Example 5.3. Can--Saha (2023), Section 6, cites the Schubert/Richardson singularity criterion and proves a smoothness criterion. Cazzaniga--Ricolfi (2022), Section 3, studies affine toric conifold resolution triangulations. None of these gives the four **globally projective** models for the specified 4-crown projective toric variety. Remaining risk: an older equivalent fan-refinement computation under different terminology, not located in the checked sources. Torus equivariance and isomorphism over the fixed target are essential restrictions.
+
+Self-review: passed. Independent audit: not yet performed.
