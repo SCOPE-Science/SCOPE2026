@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Explicit Kraus reconstruction yields a single two-by-two phase-sensitive corner block, with QFI 2n²Q/(1+Q+R). For two coordinates with fixed sum and product t, differentiation of (1+Dt)/(C(1-s+t)) has strictly negative numerator D(1-s)-1 in the open cube, proving smoothing monotonicity and hence Schur-concavity and exact extrema. The two SQL boundaries are elementary strict inequalities; the upper envelope threshold is unique by monotonicity. Analytic logarithm/Taylor expansion gives the asymptotic. Full independent spectral-density calculations on 48 instances, 1200 pair smoothings, 2750 envelope tests, 38 threshold tests, and six large-n expansions all passed. Rank-deficient boundaries follow by continuity; no numerical experiment is treated as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma et al. prove the homogeneous channel formula and show its SQL crossover scales as a logarithm over register size.",
+        "Koczor et al. study variationally optimized quantum probe states under homogeneous amplitude damping and inhomogeneous Pauli errors; the probe family and optimization variable differ."
+      ],
+      "reasoning": "The homogeneous Ma theorem is the equal-allocation specialization and DOES cover the leading asymptotic in this work, which is not separately claimed new. Its fixed equal-probability hypothesis does not order heterogeneous profiles. Koczor optimizes input preparations, not a fixed-sum inhomogeneous damping budget.",
+      "searches": [
+        "Heterogeneous amplitude damping GHZ metrology exact QFI product survival contrast noise concentration; logarithmic total damping SQL threshold",
+        "Exact best and worst inhomogeneous amplitude-damping allocations of GHZ sensor quantum Fisher information and three-phase standard-quantum-limit noise budget",
+        "doi:10.1103/PhysRevA.84.022302 §IV.A",
+        "doi:10.1088/1367-2630/ab965e §5.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.20765",
+      "arxiv:2407.21701",
+      "doi:10.1103/PhysRevA.84.022302",
+      "doi:10.1088/1367-2630/ab965e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 matrix implies the full heterogeneous QFI pointwise after a spectral step.",
+        "The 2011 threshold implies the special-case homogeneous optimal envelope and leading large-size threshold.",
+        "Neither compares QFI values for two unequal probability vectors of the same sum or gives the universal worst-case envelope."
+      ],
+      "reasoning": "The original claim is confined to the strict majorization ordering and three-region characterization. The special homogeneous formula and logarithmic SQL scaling are explicitly identified as previously implied by the cited papers; the fresh implication is a uniform quantifier over every fixed-sum loss vector.",
+      "searches": [
+        "\"inhomogeneous\" \"amplitude damping\" \"GHZ\" \"Fisher\" \"optimal\"",
+        "\"majorization\" \"amplitude damping\" \"GHZ\" \"Fisher\"",
+        "\"fixed total\" \"amplitude damping\" \"GHZ\" \"quantum Fisher\"",
+        "arxiv:2407.21701 Eq. (51)",
+        "doi:10.1103/PhysRevA.84.022302 Eqs. (24)-(27)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bugalho et al. Eq. (51) provides an inhomogeneous two-by-two density block but no Schur concavity or fixed-sum allocation ordering.",
+        "Its QFI spectral prescription gives function values at prescribed profiles, not the global extremum and all/some/none characterization."
+      ],
+      "reasoning": "An exact density/QFI expression implies numeric evaluations and can be differentiated to deduce the new comparisons, but the majorization statement is not equivalent to merely stating the expression. We expressly exclude the latter from the novelty claim.",
+      "searches": [
+        "GHZ-state quantum Fisher information after independent amplitude-damping channels with unequal damping probabilities; optimal allocation of a fixed total damping budget; Schur-concavity majorization",
+        "Sharp Schur-concavity and majorization of GHZ phase Fisher information under site-dependent amplitude damping probabilities with fixed sum of damping strengths",
+        "\"majorization\" \"amplitude damping\" \"GHZ\" \"Fisher\"",
+        "arxiv:2407.21701 §4.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected table or database provides the requested pair of exact total-probability thresholds and extremal allocation families.",
+        "The exact objects are analytic continua, not a finite dataset lookup."
+      ],
+      "reasoning": "Exact function evaluations and the preexisting homogeneous threshold are credited; no covering table classifying the fixed-sum extrema was identified in inspected literature.",
+      "searches": [
+        "Quantum sensing networks GHZ GHZ-diagonal noise local amplitude damping strength allocation quantum Fisher information",
+        "Full phase diagram for quantum advantage of GHZ probes with heterogeneous independent damping; guarantee possible impossible thresholds",
+        "nonuniform local amplitude damping GHZ state quantum sensing Fisher information optimal heterogeneous damping probabilities equal damping",
+        "arxiv:2605.20765 §§II–IV"
+      ]
+    },
+    "rationale": "A recent paper by Farokhi treats distributed GHZ phase sensing but no damping allocation. Bugalho et al. (2024/2025) explicitly give the general inhomogeneous GHZ amplitude-damped matrix and QFI, and Ma et al. (2011) derive homogeneous amplitude-damping precision and the leading SQL threshold: these are acknowledged prior premises, not new results. Koczor et al. (2020) optimize different input probes against fixed channel noise, not allocate fixed aggregate damping over a fixed GHZ state. The compared sources do not assert the fixed-budget strict majorization ordering, complete extremal profiles, and sharp three-region SQL phase partition. Targeted searches did not identify a published equivalent, but the 2024 formula makes a short implicit derivation possible, leaving priority risk.",
+    "residual_risks": [
+      "The 2024 inhomogeneous QFI formula could make equivalent fixed-sum extrema implicit in uninspected passages or other publications.",
+      "Electronic semantic search cannot rule out an unpublished, unindexed or differently titled earlier proof.",
+      "The ideal noiseless product SQL comparison is not a quantum-advantage claim relative to the optimized noisy local sensing protocol."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NO_FIXED_DAMPING_BUDGET",
+        "evidence": "Theorem 1 and Corollary 2 concern phase encoding of pure GHZ probes; amplitude damping and aggregate site-loss allocation are not analyzed.",
+        "identifier_or_url": "https://arxiv.org/html/2605.20765v1",
+        "material_read": "Full HTML sections I–IV including theorem 1 and GHZ corollary",
+        "method": "Read accessible open arXiv HTML primary text",
+        "title": "Precision and Privacy in Distributed Quantum Sensing: A Quantum Fisher Information Duality",
+        "trigger": "2026 source poses directional GHZ distributed-sensing question"
+      },
+      {
+        "assessment": "KNOWN_DENSITY_MATRIX_AND_QFI_NOT_FIXED_SUM_OPTIMA",
+        "evidence": "Eq.(51) explicitly contains products of p_i and 1-p_i; Eq.(50) is the spectral QFI. No all-profile majorization or sharp two-budget threshold conclusion in that section.",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.21701",
+        "material_read": "Section 4.5, equations (48)–(51) and surrounding noise discussion",
+        "method": "Read complete relevant primary PDF section and cross-checked OA full text",
+        "title": "Private and Robust States for Distributed Quantum Sensing",
+        "trigger": "Direct same GHZ, same inhomogeneous site amplitude-damping probabilities"
+      },
+      {
+        "assessment": "KNOWN_HOMOGENEOUS_ASYMPTOTICS",
+        "evidence": "Eq.(24) gives homogeneous Czz and Eq.(26) the large-n critical p ≈1-(1/(2n))^(1/n); no heterogeneous fixed-sum optimization.",
+        "identifier_or_url": "https://site.gscaep.ac.cn/ftp/cpsun/papers/PR/PRA11-6.pdf",
+        "material_read": "Sections II, III.A, IV.A, equations (24)–(27), full primary PDF page containing both latter equations",
+        "method": "Read legally hosted author PDF text and visually inspected formula page",
+        "title": "Quantum Fisher information of the Greenberger-Horne-Zeilinger state in decoherence channels",
+        "trigger": "Classical amplitude-damped GHZ QFI and noise threshold likely to dominate our homogeneous case"
+      },
+      {
+        "assessment": "DIFFERENT_PROBE_OPTIMIZATION",
+        "evidence": "Paper varies probe ansatz and interrogation time with fixed channel noise, uses homogeneous ADC and inhomogeneous Pauli noise; it does not redistribute sitewise ADC strengths at fixed sum for fixed GHZ.",
+        "identifier_or_url": "https://inspirehep.net/files/fbf603cc53b161e46cfc04fe101774b5",
+        "material_read": "Sections 5.3–5.4 and Appendix C on amplitude-damping probe optimization",
+        "method": "Read primary OA PDF and locate optimization assumptions and result",
+        "title": "Variational-state quantum metrology",
+        "trigger": "Physically plausible broader optimality under amplitude damping and nonuniform errors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "89d8d9b0-282b-42cb-901d-feffeef35192",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural aggregate site-decay statistic does not specify spatial heterogeneity. The proof yields exact global best/worst allocations and two distinct design cutoffs. In one regime all allocations beat the ideal separable benchmark; in another only suitable allocation profiles do; in a third none can. The abrupt zero-information option when a single site is fully damped demonstrates that average damping alone is insufficient for performance prediction. This is a structural all-register classification and sharp boundary, not merely another evaluation of the known inhomogeneous QFI expression; model and benchmark limitations are disclosed.",
+    "status": "PASS"
+  }
+}
