@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For all balanced length-four words, disjoint endpoint sets and the exact candidate formula reduce the possibilities to size-20 relevant endpoint types. Two forbidden self-borders exclude 1x3 and 3x1; two self-borders and three disjoint incompatible pairs exclude mixed 2x2; uniform endpoints reduce to a complete directed bipartite rectangle of at most four alternating words. All equality cases require a 2+2 split of four blocks and all four edges, yielding exactly twelve codes and orbit sizes 4,8. Full standalone verify.py independently exhausts all 72 unbordered balanced words as a clique graph and checks the result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn 2013 supplies general q,n cardinality bounds and constructions but no balanced extremizer enumeration.",
+        "Stanovnik et al. 2023/24 enumerate unrestricted maximal and maximum codes at n=4.",
+        "Stanovnik et al. 2024/25 supply a constrained construction/partition and exact small cardinalities but not the identified two labeled orbit types."
+      ],
+      "reasoning": "The unrestricted length-four optimal codes differ from optimal codes after imposing exact two-GC weight. More general partition frameworks describe candidate families but do not supply the equality classification without the endpoint and conflict analysis given in the proof.",
+      "searches": [
+        "arXiv:1303.1026 Non-overlapping codes general upper bounds construction",
+        "arXiv:2307.12593 length-four unconstrained maximum counting",
+        "arXiv:2410.18458 full-text Section 3 general balanced maximality structure"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1303.1026v1",
+      "arXiv:1601.08176v1",
+      "arXiv:2307.12593v1",
+      "arXiv:2410.18458v1",
+      "DOI:10.1007/s10623-023-01344-z",
+      "DOI:10.1007/s40314-024-03055-0",
+      "DOI:10.37236/1726"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2410.18458 Section 3: reports optimization at q=4,n=4, implies maximum cardinality, but gives no proof that all maximizers have uniform endpoint groups or enumerated two-by-two subsets.",
+        "arXiv:2307.12593 Sections 4-5: unconstrained equality counting differs from the exact constrained condition.",
+        "arXiv:1601.08176 Section 4: constructive balanced WMU lower bounds, not tight equality classifications."
+      ],
+      "reasoning": "The claim deliberately isolates a structural theorem strictly stronger than knowing the maximum size. The general prior framework and known value do not entail 12 codebooks or the two-orbit split without new concrete combinatorial case exclusion. The proof independently provides those exclusions.",
+      "searches": [
+        "Stanovnik Moskon Mraz 2024 non-overlapping balanced maximality optimum q=4 n=4",
+        "Stanovnik Moskon Mraz 2023 maximum non-overlapping n=4 count classes",
+        "Yazdi Kiah Milenkovic 2016 GC-balanced WMU construction size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2410.18458v1, Section 3: 0-balanced codes are exactly the GC-balanced restriction and the authors report q=4,n=4 optimal size, with no equality count in their reported findings.",
+        "arXiv:1601.08176v1, Sections 3-4: WMU with parameter k=1 is the non-overlapping condition, with constructions but no finite equality census."
+      ],
+      "reasoning": "Synonyms cross-bifix-free, mutually uncorrelated, 1-weakly mutually uncorrelated and 0-/polarity-balanced describe the same objects here. The closest prior exact cardinality is explicitly acknowledged; the twelve-code equality classification and two symmetry types are distinct statements.",
+      "searches": [
+        "GC-balanced cross-bifix-free length four optimal codebook classification",
+        "polarity-balanced non-overlapping four-letter codes 12 maxima two orbits",
+        "arXiv:2410.18458 Section 3 and Proposition 10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 constrained-codes paper explicitly reports q=4,n=4 maximum size as part of a small-parameter computer search; the text does not report a number of maximizers or symmetry orbits.",
+        "The 2024 unrestricted paper tabulates a different unbalanced model and cannot determine the number of balanced optimal codebooks by literal restriction."
+      ],
+      "reasoning": "The numerical optimum is recorded in prior work. No inspected exact database/table states the new equality census 12 or the orbit counts 4 and 8. Negative retrieval does not prove absence of every unpublished or unindexed table.",
+      "searches": [
+        "\"GC-balanced\" \"cross-bifix-free\" four code count",
+        "\"polarity-balanced\" \"non-overlapping\" \"4\" \"4\" maximum",
+        "\"balanced\" \"cross-bifix-free\" \"12\" quaternary optimal"
+      ]
+    },
+    "rationale": "The small-parameter maximum size 20 is explicitly prior-covered by the 2024/2025 polarity-balanced non-overlapping paper. The accepted final claim is instead the complete enumeration of all twelve equality cases, exact two-block construction and two orbit sizes 4 and 8. Closest primary full texts were inspected at their relevant results; no matching extremizer classification found. A possible unindexed equivalent classification remains a residual originality risk.",
+    "residual_risks": [
+      "The constrained polarity-balanced optimum 20 is known; the interpretation of the present theorem must remain strictly the new equality classification.",
+      "An unindexed earlier specialization or separate catalog of the twelve equality cases could exist.",
+      "The 2003 constant-GC article was inspected at abstract scope only; it treats different constraints and is not cited as full-text NOT_COVERING."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the 12 balanced equality cases; general unbalanced bounds do not imply their count",
+        "evidence": [
+          "arXiv:1303.1026v1 earliest 2013-03-05; the preprint explicitly describes all-length general and n<=3 exact size work."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1303.1026v3",
+        "material_read": "Definitions, early cardinality bounds, construction theorem and short-length discussion (HTML full text)",
+        "method": "Read primary author-hosted arXiv HTML, compare parameters n=4 q=4 to balanced restriction",
+        "title": "Non-overlapping codes",
+        "trigger": "Definition, upper bounds and possible stronger general length-four theorem"
+      },
+      {
+        "assessment": "Same constrained coding setting but construction/asymptotic claims only; no n=4 codebook enumeration",
+        "evidence": [
+          "arXiv:1601.08176v1, dated 2016-01-29, Section 4 Construction 6 and Lemma 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1601.08176v1",
+        "material_read": "Definitions and Section 4 Balanced WMU Codes, Construction 6, Lemma 3, Section 5 GC-balanced examples",
+        "method": "Read primary arXiv HTML, compare k=1 restriction and finite equality assertions",
+        "title": "Weakly Mutually Uncorrelated Codes",
+        "trigger": "GC-balanced mutually uncorrelated codes could be equivalent to the claimed objects"
+      },
+      {
+        "assessment": "Exact q-ary unrestricted codebook counts, not the GC-balanced equality cases; cannot infer this census by intersection",
+        "evidence": [
+          "DOI:10.1007/s10623-023-01344-z, Theorems 16-20 and unrestricted setting."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01344-z",
+        "material_read": "Section 5, length-four exact numerical and counting theorems; definitions and constructions in the complete open-access HTML",
+        "method": "Read public journal full text and checked arXiv version metadata",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Potential exact q=4 n=4 counting theorem that could subsume constrained count"
+      },
+      {
+        "assessment": "Does cover maximum code size, not the 12 labeled equality cases nor orbit distribution; strongest related source",
+        "evidence": [
+          "arXiv:2410.18458v1, Section 3 after Proposition 9 explicitly reports q=4 n=4 optimized cardinality.",
+          "DOI:10.1007/s40314-024-03055-0 is a later publication of same research."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.18458v1",
+        "material_read": "Sections 2-3 including definitions, Constructions 1 and 4, Propositions 4-10 and the complete small-parameter optimality passage",
+        "method": "Read primary open-access arXiv full text and publisher full-text counterpart",
+        "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+        "trigger": "Most relevant source: reports exact polarity-balanced q=4 n=4 optimum"
+      },
+      {
+        "assessment": "Addresses Hamming/reverse-complement distances, not non-overlapping prefix/suffix coding; not used to claim whole-document noncoverage",
+        "evidence": [
+          "O. D. King, 2003, DOI:10.37236/1726, abstract."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v10i1r33",
+        "material_read": "Open journal abstract and specified parameter scope",
+        "method": "Inspected abstract only; compared distance constraints",
+        "title": "Bounds for DNA Codes with Constant GC-Content",
+        "trigger": "Earlier constant-GC coding theory source that might dominate the constrained result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54463ddb-1a46-40c5-8559-952361554e86",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural first nonbinary small DNA synchronization model with exact physically meaningful GC balance. Complete enumeration and the two inequivalent maximizing block geometries characterize actual design diversity, not just re-proving the existing numeric limit. The endpoint exclusion argument and block-grid factorization expose which optimizers can be used or ruled out when adding extra code-design constraints. Finite parameter scope is explicit and does not claim larger implications.",
+    "status": "PASS"
+  }
+}
