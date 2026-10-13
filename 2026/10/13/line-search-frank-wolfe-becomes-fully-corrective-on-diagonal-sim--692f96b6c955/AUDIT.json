@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every nonempty face, strict convexity and the KKT equations give the unique inverse-curvature minimizer. Its active gradient coordinates are equal and its inactive gradients vanish, so a standard simplex vertex oracle chooses an unseen vertex. The segment objective is an explicit strictly convex quadratic whose exact minimizer has weight a_j^{-1}/(Z_S+a_j^{-1}); substituting that value gives exactly the enlarged-face minimizer. Induction proves the finite-termination count. Exact-rational replay checks a representative chain and a finite stress family, while the all-dimensional claim rests on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jaggi explicitly separates best-on-segment line search from re-optimization over all prior atoms.",
+        "Clarkson describes line search and current-face optimization separately rather than proving automatic equality on positive diagonal quadratics.",
+        "Lan--Zhou gives broad conditional-gradient context but not the claimed face-minimizer invariant."
+      ],
+      "reasoning": "The inspected broader algorithms contain the operations used in the proof, but their stated guarantees do not dominate the exact weighted diagonal theorem. The new statement identifies a special geometry where two normally distinct updates coincide.",
+      "searches": [
+        "PMLR:v28:jaggi13, Algorithms 3 and 4 and the unit-simplex squared-norm example",
+        "DOI:10.1145/1824777.1824783, simplex greedy line search and current-face re-optimization discussion",
+        "OptimizationOnline:4605, conditional-gradient exact-line-search subroutine and subject classification"
+      ]
+    },
+    "checked_sources": [
+      "PMLR:v28:jaggi13",
+      "DOI:10.1145/1824777.1824783",
+      "OptimizationOnline:4605"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general fully corrective update minimizes over the convex hull of all prior atoms, whereas ordinary line search minimizes only on one segment; neither operation implies equality without additional structure.",
+        "The unweighted squared-norm simplex benchmark is the equal-curvature special case and does not state the arbitrary positive-diagonal trajectory or tie-order independence.",
+        "The present proof uses the equal-active-gradient identity of the exact weighted face minimizer, which is the extra structural premise establishing implication in this family."
+      ],
+      "reasoning": "The final claim is not a corollary of generic Frank–Wolfe convergence or the mere definition of full correction. The exact equality of two different optimization subproblems is proved from the positive diagonal geometry.",
+      "searches": [
+        "PMLR:v28:jaggi13",
+        "DOI:10.1145/1824777.1824783",
+        "OptimizationOnline:4605",
+        "Frank Wolfe finite termination positive diagonal Hessian probability simplex",
+        "\"fully corrective\" \"weighted\" simplex Frank-Wolfe"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "PMLR:v28:jaggi13 presents exact line search and fully corrective re-optimization as separate algorithmic variants.",
+        "DOI:10.1145/1824777.1824783 presents simplex greedy line search and a harder-working current-face optimization as separate mechanisms in the inspected material.",
+        "OptimizationOnline:4605 uses exact line search in conditional-gradient methodology but does not state the diagonal-simplex trajectory identity."
+      ],
+      "reasoning": "The comparison was made at the level of update maps and implications. A general line-search convergence theorem or an unweighted simplex benchmark does not imply that each weighted diagonal line-search step solves the entire enlarged-face problem.",
+      "searches": [
+        "Frank Wolfe exact line search diagonal quadratic simplex finite termination inverse curvature weights",
+        "Frank Wolfe line search equals fully corrective diagonal quadratic simplex",
+        "conditional gradient facewise minimizer inverse diagonal weights simplex",
+        "\"Frank-Wolfe\" \"diagonal quadratic\" simplex exact line search fully corrective",
+        "\"conditional gradient\" \"diagonal quadratic\" simplex finite termination"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-result searches returned nearby quadratic optimization records but no record stating the diagonal-simplex line-search/fully-corrective equivalence.",
+        "The result is derived symbolically for arbitrary positive diagonal entries and dimension rather than read from or recomputed from a finite benchmark table."
+      ],
+      "reasoning": "No exact database or tabulation was found that contains the claimed trajectory, weights, finite-termination count, or duality-gap identity. Finite computation in the package is verification only.",
+      "searches": [
+        "Frank Wolfe weighted simplex quadratic finite steps exact solution",
+        "Frank Wolfe finite termination positive diagonal Hessian probability simplex",
+        "conditional gradient separable quadratic simplex exact line search finite termination"
+      ]
+    },
+    "rationale": "Exact line search, fully corrective Frank–Wolfe, simplex sparsity, and general convergence theory are prior work. The accepted content is the exact equivalence of line-search and fully corrective trajectories for every positive diagonal simplex quadratic from face minimizers, together with inverse-curvature weights, exact objectives/gaps, and finite termination. Targeted statement-level searches and full-text inspections did not locate an implication-equivalent theorem.",
+    "residual_risks": [
+      "Older resource-allocation, optimal-design, or separable-quadratic literature may encode the same face-minimizer identity without Frank–Wolfe terminology.",
+      "The searched literature was targeted rather than exhaustive across all historical names for conditional-gradient methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source treats line search and fully corrective re-optimization as distinct variants. The inspected simplex benchmark concerns the unweighted squared norm and does not state the arbitrary positive-diagonal face trajectory or finite-termination equivalence.",
+        "identifier_or_url": "PMLR:v28:jaggi13",
+        "material_read": "Method section containing the line-search and fully corrective algorithms, together with the unit-simplex squared-norm example.",
+        "method": "Full-text inspection of the open PMLR paper.",
+        "title": "Revisiting Frank-Wolfe: Projection-Free Sparse Convex Optimization",
+        "trigger": "Closest standard source explicitly presenting exact line-search and fully corrective Frank–Wolfe variants and a simplex squared-norm benchmark."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected text distinguishes the cheaper greedy line step from a harder-working face optimization and does not state their automatic equality for arbitrary positive diagonal quadratics.",
+        "identifier_or_url": "DOI:10.1145/1824777.1824783",
+        "material_read": "Author manuscript introduction, greedy line-search algorithm, current-face optimization discussion, and targeted searches for diagonal and separable formulations.",
+        "method": "Full-text inspection of a lawful author manuscript.",
+        "title": "Coresets, Sparse Greedy Approximation, and the Frank-Wolfe Algorithm",
+        "trigger": "Earlier simplex Frank–Wolfe treatment with greedy line search and current-face optimization."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source supplies broad method context and exact line search, not an exact finite-termination theorem for positive diagonal simplex quadratics.",
+        "identifier_or_url": "OptimizationOnline:4605",
+        "material_read": "Opening classification/context and the conditional-gradient subroutine using exact line search.",
+        "method": "Full-text inspection of the open Optimization Online manuscript.",
+        "title": "Conditional Gradient Sliding for Convex Optimization",
+        "trigger": "Conditional-gradient source with exact line search and verified convex-programming subject classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "692f96b6-c955-4772-9bc7-ab6f1764c3bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positive diagonal quadratics over a probability simplex are natural weighted allocation models. Fully corrective Frank–Wolfe normally requires solving a growing active-set problem; on this whole family an ordinary exact segment line search performs that correction automatically. The resulting inverse-curvature active-set law, explicit gap/objective values, tie-order independence, and exact finite termination provide a reusable structural simplification rather than a routine numerical instance.",
+    "status": "PASS"
+  }
+}
