@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the beta denominator gives an exact one-dimensional survival integral. A single substitution reduces it to a small-lower-limit integral whose behavior changes at q=2. The three regimes follow from elementary integration by parts and local expansion of 1-exp(-t). The moment cutoff follows independently from the product representation and the exact inverse-Rayleigh and beta inverse moments. The standalone checker verifies the exact formulas numerically but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rivera et al. prove an r<q moment cutoff for a different Rayleigh-based scale mixture whose parent has all positive moments.",
+        "The SIR target itself notes that the inverse-Rayleigh parent lacks second and higher integer moments, creating a competing parent-tail mechanism absent from the Rayleigh model.",
+        "No inspected broader slash-model source states the critical competition min(q,2) for the inverse-Rayleigh quotient."
+      ],
+      "reasoning": "Generic product-tail theory could reproduce the off-critical cases, but the model-specific theorem also identifies the exact constants and the q=2 logarithmic boundary. The closest slashed-Rayleigh model cannot dominate this result because its parent tail is qualitatively different.",
+      "searches": [
+        "inverse Rayleigh slash beta(q,1) tail asymptotic",
+        "Scale Mixture of Rayleigh slash moments q cutoff",
+        "inverse Rayleigh regular variation tail index"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026938",
+      "doi:10.3390/math8101842"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For q<2 the incomplete-integral quotient in Proposition 8 tends to one, giving index q.",
+        "For q>2 the same quotient contributes t^{q-2}, changing the final index to 2; at q=2 it contributes a slowly varying logarithmic ratio.",
+        "The source's first-moment condition q>1 agrees with the new full real-moment cutoff when r=1.",
+        "The Rayleigh scale-mixture cutoff r<q lacks the inverse-Rayleigh parent cutoff r<2."
+      ],
+      "reasoning": "The new theorem is a strict sharpening of the target's regular-variation result: it resolves the previously undifferentiated limiting quotient and identifies the exact regime boundary and consequences.",
+      "searches": [
+        "SIR Proposition 8 regular variation t^-q incomplete integral",
+        "SIR Proposition 6 first moment q>1",
+        "Scale Mixture Rayleigh Proposition 4 moment exists iff r<q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target Proposition 8 states regular variation and displays a t^{-q} prefactor times a quotient of incomplete integrals, but does not state the three-regime asymptotic constants.",
+        "published-finding corpus searches for SIR, inverse-Rayleigh slash tails, and the q=2 logarithmic regime returned unrelated endpoint and quantile results.",
+        "Exact source searches found the target article but no corrigendum or separate SIR tail-index theorem."
+      ],
+      "reasoning": "The claim was searched as a regular-variation-index theorem, a critical-logarithm theorem, and a moment-threshold theorem. No equivalent SIR statement was located.",
+      "searches": [
+        "slashed inverse Rayleigh tail index min q 2 regular variation",
+        "SIR distribution inverse Rayleigh beta q moment existence tail",
+        "slashed inverse Rayleigh q=2 logarithmic tail"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The target's full HTML exposes Propositions 6–8, including the first moment and the regular-variation proof.",
+        "No source correction identifying a q=2 logarithmic factor was located.",
+        "The available current and immediately prior owned ledgers contain no target DOI or SIR finding."
+      ],
+      "reasoning": "The result is not a table lookup. It completes a limit left implicit in the source's structural proposition and derives consequences that differ by parameter regime.",
+      "searches": [
+        "10.3934/math.2026938 tail moments regular variation",
+        "10.3934/math.2026938 q=2 tail",
+        "10.3934/math.2026938 correction regular variation"
+      ]
+    },
+    "rationale": "The 2026 target gives regular variation but does not state the exact index or isolate the q=2 logarithmic critical regime. Its proof leaves a quotient of incomplete integrals whose limit has different behavior below, at, and above q=2. Five published-finding corpus queries and focused source searches found no SIR-specific theorem giving the min(q,2) tail index, critical logarithm, hazard constant, and full real-moment cutoff. The closest slashed-Rayleigh literature has a different light-tailed parent and therefore only the slash cutoff r<q.",
+    "residual_risks": [
+      "A general product-regular-variation theorem may subsume the off-critical q<2 and q>2 cases abstractly.",
+      "An unindexed note may already have worked out the q=2 logarithmic boundary for SIR.",
+      "The theorem does not provide second-order constants beyond the leading critical logarithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING. It proves that SIR is regularly varying and heavy-tailed but does not state the exact min(q,2) index, the q=2 logarithmic slowly varying factor, the terminal hazard constant, or the full real positive-moment threshold.",
+        "evidence": "Representation (2.1), density (2.2), first moment (2.6), Definition 1, and Proposition 8.",
+        "identifier_or_url": "doi:10.3934/math.2026938",
+        "material_read": "Full indexed HTML covering the stochastic representation, density and CDF, convergence to inverse Rayleigh, Propositions 6 and 7 on moments, Definition 1 and Proposition 8 on regular variation, the mean regression parameterization, simulations, application, and conclusion.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "EM algorithm in the slashed inverse Rayleigh regression model with an application",
+        "trigger": "Primary 2026 source defining SIR and asserting regular variation."
+      },
+      {
+        "assessment": "NOT_COVERING. Its Rayleigh parent has a different tail mechanism, and its moment cutoff is r<q rather than the competition between q and the inverse-Rayleigh exponent 2.",
+        "evidence": "Lemma 1 and Proposition 4 give the moment condition r<q for the Rayleigh scale mixture.",
+        "identifier_or_url": "doi:10.3390/math8101842",
+        "material_read": "Open full HTML including the model construction and moment propositions.",
+        "method": "Direct full-text HTML inspection.",
+        "title": "Scale Mixture of Rayleigh Distribution",
+        "trigger": "Closest earlier slash/scale-mixture model by overlapping authors, with explicit moment-existence thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e10dc19-d54b-4ca6-b0ca-d064e28f79f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Tail flexibility is an explicit motivation of the SIR construction and of its application to data with large observations. The exact phase theorem shows that q controls the power-law index only below 2, while the inverse-Rayleigh parent caps that index thereafter. The critical logarithm at q=2 is a natural boundary phenomenon, and the same classification immediately settles every positive real moment and the terminal hazard. This materially sharpens interpretation of q, including simulation and regression regimes with q at or above 2.",
+    "status": "PASS"
+  }
+}
