@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The uniformly selected parent has conditional depth P_n/n, leaf indicator L_n/n, and leaf-depth product Q_n/n. Expanding the growth updates cancels the two old-tree mixed covariance terms. A separate recurrence for E Q_n solves in closed harmonic form, leaving a constant covariance decrement -1/4 and deterministic base c_2=0. The exact-rational enumeration through n=10 independently checks the finite formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dobrow--Fill develop total-path-length moment and limit theory for random recursive trees.",
+        "Leckey--Neininger develop both leaf-count and internal-path-length theory in the broader Hoppe-tree family.",
+        "Lundblad--Wagner compare path length with external path length, the sum of leaf depths.",
+        "Zhang develops normal approximation and large deviations for the number of leaves."
+      ],
+      "reasoning": "These sources are broader on individual marginals and on external path length, but the inspected statements do not imply the exact mixed leaf-count/internal-path-length covariance. Separate marginal laws do not determine a mixed moment.",
+      "searches": [
+        "DOI:10.1017/S0963548399003855",
+        "arXiv:1202.2439",
+        "DOI:10.4230/LIPIcs.AofA.2026.2",
+        "DOI:10.1214/14-BJPS252"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/S0963548399003855",
+      "arXiv:1202.2439",
+      "DOI:10.1017/S0963548314000443",
+      "DOI:10.4230/LIPIcs.AofA.2026.2",
+      "DOI:10.1214/14-BJPS252"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Leckey--Neininger manuscript separately analyzes leaves and internal path length; targeted full-text searches returned no covariance or joint statement.",
+        "Dobrow--Fill provide path-length theory but no accessible leaf-count mixed theorem.",
+        "Lundblad--Wagner study internal versus external path length; their stated comparison does not supply the leaf-count covariance."
+      ],
+      "reasoning": "The accepted identity requires the leaf-depth bridge Q_n and the exact growth-step cancellation. Marginal path-length, marginal leaf-count, and internal-versus-external-path results do not imply it.",
+      "searches": [
+        "Leckey Neininger leaves internal path length covariance Hoppe tree",
+        "Dobrow Fill leaves total path length covariance recursive tree",
+        "Lundblad Wagner leaf count internal path length covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted literature/database searches under leaves, terminal vertices, internal path length, total path length, search cost, covariance, and joint-law aliases did not locate the displayed formula.",
+        "The strongest same-model full-text source was then inspected directly rather than treating search absence as novelty proof."
+      ],
+      "reasoning": "The searches cover the standard aliases for both observables and the exact closed form; full-text statement comparison was used for the strongest plausible source.",
+      "searches": [
+        "random recursive tree leaves total path length covariance",
+        "random recursive tree leaf count internal path length covariance",
+        "recursive tree number of leaves path length joint distribution",
+        "random recursive tree leaves depth sum covariance",
+        "recursive tree terminal vertices total path length covariance",
+        "\"-(n-2)/4\" random recursive tree leaves path length",
+        "\"number of leaves\" \"internal path length\" random recursive tree covariance",
+        "\"leaf count\" \"search cost\" recursive tree",
+        "\"terminal vertices\" \"search cost\" recursive tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact literature/database entry matching the covariance -(n-2)/4 or one-step decrement -1/4 was located."
+      ],
+      "reasoning": "The claim is an all-size symbolic identity, not a finite table or recomputation of a marginal sequence.",
+      "searches": [
+        "\"-(n-2)/4\" random recursive tree leaves path length",
+        "\"leaves\" \"total path length\" Hoppe tree covariance",
+        "\"leaf count\" \"search cost\" recursive tree"
+      ]
+    },
+    "rationale": "The closest full inspected source analyzes both leaf count and internal path length for Hoppe trees but treats them separately and contains no covariance or joint-law occurrence in targeted full-text searches. Classical sources separately develop total path length and leaf count; recent external-path-length work concerns a different mixed statistic. Targeted literature/database searches did not locate a matching published statement.",
+    "residual_risks": [
+      "Older recursive-tree literature may state the same covariance using the terms terminal vertices and search cost.",
+      "Recent external-path-length literature is close to the auxiliary Q_n identity, although its stated result is different from the accepted covariance.",
+      "The marginal leaf and path-length formulas are classical; originality is limited to the exact mixed covariance, its constant one-step decrement, and the derived projection consequence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BOTH_MARGINALS_TREATED_SEPARATELY_WITHOUT_ACCEPTED_MIXED_LAW",
+        "evidence": "The manuscript defines the number of leaves and internal path length as separate tree characteristics, proves leaf concentration/variance results, and separately derives internal-path-length moment and limit results. No inspected statement gives the accepted covariance.",
+        "identifier_or_url": "arXiv:1202.2439",
+        "material_read": "Full public arXiv HTML manuscript, including the model definition, the sections on leaves and internal path length, and their proofs.",
+        "method": "Compared theorem statements and proofs for any mixed covariance, joint distribution, or recurrence coupling leaf count to internal path length; targeted full-text searches for covariance and joint returned no occurrences.",
+        "title": "Asymptotic analysis of Hoppe trees",
+        "trigger": "Strongest same-model full-text source because the random recursive tree is the parameter-one case and the paper treats both leaf count and internal path length."
+      },
+      {
+        "assessment": "PATH_LENGTH_MARGINAL_THEORY_NO_VISIBLE_LEAF_MIXED_CLAIM",
+        "evidence": "The source studies total path length and its moments and limiting distribution. The indexed author manuscript lists Primary 05C05 and 60C05. Accessible inspected material does not expose a leaf-count covariance.",
+        "identifier_or_url": "DOI:10.1017/S0963548399003855",
+        "material_read": "Publisher abstract and indexed author-manuscript front matter, including the definition of total path length, moment/limit scope, publication date, and subject classification.",
+        "method": "Compared the stated moment program with leaf-count or terminal-vertex mixed statements.",
+        "title": "Total Path Length for Random Recursive Trees",
+        "trigger": "Classical primary source for the exact random-recursive-tree search-cost statistic."
+      },
+      {
+        "assessment": "EXTERNAL_PATH_COMPARISON_NOT_LEAF_COUNT_COVARIANCE",
+        "evidence": "The abstract compares average depth of a random leaf with average depth of a random vertex in recursive and other increasing trees. The accessible page contains no covariance occurrence and does not state the accepted mixed law.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.AofA.2026.2",
+        "material_read": "Open HTML metadata, abstract, references, and targeted page search for covariance.",
+        "method": "Compared its internal-versus-external path-length result with the leaf-count/internal-path-length covariance.",
+        "title": "Path Length and External Path Length in Random Trees",
+        "trigger": "Closest source to the auxiliary leaf-depth sum Q_n."
+      },
+      {
+        "assessment": "LEAF_MARGINAL_THEORY_WITHOUT_ACCESSIBLE_PATH_LENGTH_MIXED_STATEMENT",
+        "evidence": "The abstract studies asymptotic behavior, normal approximation, an Erdos--Renyi type law, and a large-deviation principle for leaf count. No mixed total-path-length statement is visible in the accessible material.",
+        "identifier_or_url": "DOI:10.1214/14-BJPS252",
+        "material_read": "Publisher/repository abstract and bibliographic material.",
+        "method": "Compared the stated normal-approximation and large-deviation results with a mixed search-cost moment.",
+        "title": "On the number of leaves in a random recursive tree",
+        "trigger": "Direct marginal source for leaf count in the same random recursive tree."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b67cdf22-fe00-48fd-aba6-8663019cd5de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf abundance and total path length are two canonical global observables of recursive trees: fringe size and search cost. Their exact interaction is intrinsically motivated. The result identifies a size-uniform mechanism rather than a small numerical improvement: every insertion contributes exactly -1/4 to the covariance, and the induced least-squares slope tends to -3.",
+    "status": "PASS"
+  }
+}
