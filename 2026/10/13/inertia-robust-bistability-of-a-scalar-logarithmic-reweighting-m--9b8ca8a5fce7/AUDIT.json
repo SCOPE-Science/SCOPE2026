@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "At all a,rho>0, b real, ell>a, beta in [0,1), direct subproblem differentiation yields Phi. Exact stationarity uses H_a with discriminant 4(1-4a). Its fold order proves the complete root count; the Jacobian Schur conditions reduce exactly to F''/D. The exact witness factorizes and has Hessian signs +/−/+, and F(1)>F(4+sqrt(7)) is proved by explicit rational/logarithmic inequalities. All fold degeneracies are stated as unproved for nonlinear stability. Analytic proof plus replayed exact SymPy checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bai–Hu–Wang–Yang, arXiv:2401.09274v5, Sec. 4 and Theorem 4.4/27 concerns damped DIRL2 rather than an inertial two-state GIRL1E update; their saddle map has a distinct domain and stepsize assumption.",
+        "Kang 2026 Theorem 3.1 only proves convergence to critical points."
+      ],
+      "reasoning": "The older strong saddle-avoidance statement for DIRL2 does not imply the stability multiplier polynomial for every fixed beta in [0,1) and ell>a; a saddle result alone does not ensure two distinct attracting *minima* or a demonstrably suboptimal basin under the different 2026 update.",
+      "searches": [
+        "local stability strict saddles iteratively reweighted MM inertia Jacobian Hessian 1/4 threshold",
+        "inertial iteratively reweighted quadratic log penalty stability local maxima saddle node stationary points convergence",
+        "\"IRLS\" \"log(1+x^2)\" \"local stability\" \"inertia\""
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3934/math.2026674",
+      "https://arxiv.org/abs/2003.04798",
+      "https://arxiv.org/abs/2401.09274"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kang 2026, Algorithm 1 + Theorem 3.1 + Sec. 4.1 yields the update and a critical-point guarantee but does not classify which non-global critical points attract.",
+        "Karakus–Mayo–Achim 2020 Theorem 1 already contains the Cauchy convexity-preservation threshold, used as background.",
+        "Bai et al 2024 proves strong saddle-avoidance for other damped reweighted maps, not the stated inertial map."
+      ],
+      "reasoning": "Adding the cited statements does not imply the exact characteristic polynomial, its all-beta sign criterion, the *two* attracting fixed points of GIRL1E in the fold region or the rational-parameter strict non-global attraction example. Those require the new algorithm-specific derivative calculation and objective comparison.",
+      "searches": [
+        "stationary cubic Cauchy log penalty Gaussian inverse problem saddle-node fold discriminant bistability",
+        "\"Avoiding strict saddle points of nonconvex regularized problems\" \"Hessian\" \"IRL2\" Jacobian theorem",
+        "\"inertial\" \"Cauchy penalty\" \"bistability\" fixed points optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karakus–Mayo–Achim 2020, arXiv:2003.04798, equation (11) already supplies the Cauchy stationary cubic and Lemma 2 the convexity boundary; normalization is equivalent after rescaling.",
+        "Kang 2026, DOI:10.3934/math.2026674, Algorithm 1 specifies a different two-state map with inertial extrapolation."
+      ],
+      "reasoning": "The Cauchy proximal minimization and the model objective have identical stationary cubic after scaling, but existing cubic solvers do not calculate the Jacobian, Schur spectrum or beta/ell invariance of Kang’s inertial map. Novelty does not include the cubic itself.",
+      "searches": [
+        "iteratively reweighted l1 log(1+rho x squared) quadratic data fidelity exact stationary point three critical points bifurcation threshold 1/4",
+        "nonconvex log quadratic regularization “log(1+rho x^2)” cubic discriminant saddle node optimization multiple local minima",
+        "proximity operator Cauchy logarithmic penalty log(delta + x squared) cubic stationarity multiple minima thresholds exact phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched record for GIRL1E local spectral bifurcation was returned by targeted semantic searches; closest hits concerned generic nonconvex fixed points and different numerical algorithms.",
+        "Karakus–Mayo–Achim 2020, Algorithm 1, gives a Cardano cubic root prescription rather than the two-state inertial Jacobian classification."
+      ],
+      "reasoning": "The prior exact cubic is acknowledged and cannot by itself verify novelty. The specific table sought was inertia-independent type at all fixed points and an exact suboptimal basin for the prescribed scalar iteration; no matching exact-dynamics table was identified.",
+      "searches": [
+        "\"Kang\" \"GIRL1E\" inertial generalized iteratively reweighted log penalty scalar stability bistability local minima max fixed point bifurcation",
+        "reweighting 1/(1+rho x^2) inertial dynamics two locally attracting fixed points one unstable saddle 1/4 curvature threshold"
+      ]
+    },
+    "rationale": "The full 2026 primary algorithm derives critical-point convergence but not its exact two-state linearization or parameter-independent bistable equilibrium type. Known Cauchy proximal cubic and convexity threshold, and older saddle-instability theorems for *different* damped IRL algorithms, are explicitly treated as prior work. The joint all-admissible-parameters dynamical phase diagram plus a strict suboptimal attracting basin is not implied by their statements. Targeted semantic search yielded no equivalent published record; this is a self-review, not a claim of exhaustively proved priority.",
+    "residual_risks": [
+      "The Cauchy stationary cubic and convexity boundary were already known; they are not the novelty of this finding.",
+      "A generic earlier inertia/majorization-minimization local stability theorem could conceivably imply the specific Jacobian classification, beyond the literature inspected.",
+      "Semantic database searching cannot certify exhaustive novelty or access to unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers definition and convergence to some critical point; does not give the two-state multiplier/fold-stability theorem",
+        "evidence": [
+          "Algorithm 1 uses weight ∇h(g(x_k)), extrapolate x_k+beta(x_k−x_{k−1}), optimize weighted subproblem.",
+          "Equation (4.1) sets log(1+rho x_i squared)/rho plus Gaussian fidelity; Theorem 3.1 concludes convergence to critical point."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/math.2026674",
+        "material_read": "Full-text manuscript: Algorithm 1, Section 3 descent/critical-point theorem, Section 4.1 log-quadratic penalty and Appendix convergence proof",
+        "method": "Read accessible publisher metadata and full-text manuscript material, including theorem and algorithm statements",
+        "title": "An inertial generalized iteratively reweighted ℓ1 algorithm for nonconvex and nonsmooth optimization",
+        "trigger": "Defining algorithm and log penalty; potential same-paper coverage"
+      },
+      {
+        "assessment": "Stationary cubic and convexity boundary are pre-existing; no proof for 2026 inertial GIRL1E Jacobian or its suboptimal basin",
+        "evidence": [
+          "Eq. (11) is the Cauchy cubic and Algorithm 1 gives Cardano roots.",
+          "Theorem 1/Lemma 2 give parameter conditions for convexity of Cauchy regularized objective/proximal model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.04798",
+        "material_read": "Primary full PDF pages 1–8, equations (10)–(11), Algorithm 1, Theorem 1, Lemma 2 and related comparison",
+        "method": "Read primary PDF text and result statements",
+        "title": "Convergence Guarantees for Non-Convex Optimisation with Cauchy-Based Penalties",
+        "trigger": "Older exact cubic and convexity theory could dominate the stationary part"
+      },
+      {
+        "assessment": "Establishes strict-saddle escape for damped DIRL1/DIRL2 with different maps; does not cover arbitrary fixed inertia in the specific 2026 two-state iteration",
+        "evidence": [
+          "The paper defines its own damped DIRL1 and DIRL2 schemes, distinct from Kang Algorithm 1.",
+          "Its Theorem 27 is about DIRL2 initialization avoiding strict saddles, not multiple stable minima of GIRL1E."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.09274",
+        "material_read": "Primary PDF introduction and selected mathematical sections 3–4, saddle escape theorem and map descriptions",
+        "method": "Read PDF, accessible mathematical HTML and theorem statements",
+        "title": "Avoiding strict saddle points of nonconvex regularized problems",
+        "trigger": "Could imply instability of local maxima under iteratively reweighted algorithms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b8ca8a5-fce7-4070-9ad6-b3d8720b26e7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp natural phase classification for a canonical Gaussian-plus-log sparse-recovery model identifies precisely when the actual 2026 inertial reweighting iteration develops two robust stable equilibria, one provably nonoptimal for an exact rational-parameter example. It bears directly on model initialization and the inability of admissible inertia/proximal parameters to remove local-trap structure; it is not merely a log-cubic or table recomputation.",
+    "status": "PASS"
+  }
+}
