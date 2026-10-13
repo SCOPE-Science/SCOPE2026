@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The positive endemic prey Jacobian has strictly negative diagonal entries and opposite-sign off-diagonal entries, so trace<0 and determinant>0. At the predator-free state the delayed linearization is block upper triangular and its predator factor is λ+h−p exp(−λτ). For p<h a modulus estimate excludes all nonnegative-real roots; p=h has one simple zero; p>h has a strictly positive real root for every τ. The only imaginary frequency is sqrt(p²−h²), its phase gives the full delay sequence, and implicit differentiation gives strictly positive crossing velocity. Standard retarded root counting yields the complete unstable dimension ladder; persistent positive real multiplier makes nearby Hopf orbits unstable if they occur. Globally, logistic prey domination gives limsup x≤K, which bounds per-capita delayed predator birth by q_epsilon<h; scalar delayed comparison gives exponential predator decay for every fixed finite delay. Exact symbolic/rational checker confirms the reproducible example. For any periodic orbit sufficiently close to the predator-free state with p>h, the instantaneous delayed predator recruitment factor q exceeds h uniformly. Integrating the predator equation over a full period gives 0=integral (q-h)z; this forbids any nontrivial nonnegative periodic predator abundance, while algebraic Hopf branches can only be sign-changing. Well-posedness is ensured by strictly positive susceptible- and infected-prey histories and nonnegative predator history: y'≥-(ν+n/c)y prevents simultaneous zero denominators at future times; x and y are bounded by logistic/linear comparison and z has at-most-linear delayed growth, so the necessary positive solution exists globally.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier predator-prey delay theory studies global attraction for distinct functional responses (Cao–Freedman 1996).",
+        "Das–Chakraborty discuss disease in predators, not in the prey with the particular source mixed responses.",
+        "The accepted global threshold uses the source-specific logistic susceptible upper bound and simultaneous saturated predator recruitment terms.",
+        "Mortoja–Panja–Mondal (2019) studies a biologically closer delayed infected-prey model, but its two-delay and both-Crowley–Martin construction differs; complete text could not be compared, so this remains a residual risk."
+      ],
+      "reasoning": "Classical scalar delay criteria and comparison principles cover the analytic tools but not the full eco-epidemic classification or the explicit biological parameter thresholds for this exact system. Related different-model broad theorems are not treated as proving novelty by title difference.",
+      "searches": [
+        "delayed predator prey harvesting predator extinct globally if harvest exceeds maximal birth coefficient Halanay",
+        "eco-epidemic predator prey gestation delay predator free global attractivity harvest bound delay",
+        "retarded scalar delay x prime = a x(t-tau)-b x instability root count"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20241356",
+      "doi:10.1016/j.egg.2018.100035",
+      "doi:10.3934/naco.2023018",
+      "doi:10.1017/S0334270000000540"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing background results for the same equations describe the endemic prey equilibrium polynomial and uniqueness, not the delayed predator spectral ladder or the positive-cone periodic-balance obstruction.",
+        "The source original Theorem 1 does not conclude the persistent positive real eigenvalue, periodic offspring instability, or the global sufficient extinction theorem.",
+        "The inspected primary Theorem 1 supplies no all-delay unstable dimension or periodic positive-cone obstruction; the comparator delay literature treats related but different functional-response systems."
+      ],
+      "reasoning": "Endemic equilibrium existence is a premise, not a replacement for local all-delay invasion analysis and nonlocal predator extinction. Scalar characteristic factorization alone does not entail the nonlinear all-data statement.",
+      "searches": [
+        "\"Direction and stability of Hopf bifurcation in an eco-epidemic model\" predator-free equilibrium gestation all delays no stable Hopf offspring unstable root count",
+        "\"10.3934/math.20241356\" predator invasion all delay harvesting extinction threshold Halanay scalar characteristic",
+        "eco-epidemic predator-free gestation delay λ+h-p e^(-λτ) unstable root ladder Hopf branch unstable",
+        "predator free eco epidemic E2 delayed model stable for any gestation harvesting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary Theorem 1 presents A1 and the scalar delay factor, but gives only a zero-delay stability criterion and a potential Hopf statement for A1>h.",
+        "For A1>h, a real positive characteristic root exists for all delays, a stronger property than the source statement.",
+        "The complete repeated imaginary-root sequence and unstable-root count were absent in the inspected primary theorem and numerical discussion.",
+        "The integrated periodic predator balance shows that small nonnegative Hopf offspring are impossible in the invasion regime even though mathematical imaginary roots exist."
+      ],
+      "reasoning": "No-restabilization, delay-independent predator invasion, recurrent destabilizing imaginary crossings, and absence of stable small Hopf offspring are separate implications of the full characteristic root classification, not merely shared terminology. The general scalar delay formula alone is acknowledged as prior method.",
+      "searches": [
+        "\"Direction and stability of Hopf bifurcation in an eco-epidemic model\" predator-free equilibrium gestation all delays no stable Hopf offspring unstable root count",
+        "eco-epidemic predator-free gestation delay λ+h-p e^(-λτ) unstable root ladder Hopf branch unstable",
+        "\"10.3934/math.20241356\" \"Hopf\" \"predator-free\" gestation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The official 2024 full-text PDF gives the original x,y,z delay system in its Eq. (1), and Theorem 1 states A1=e2n+e1mx2/[b(a+x2)].",
+        "The same source provides A2,A3, but the actual prey equilibrium identities make these automatically positive.",
+        "The source treats A1>h by the imaginary-frequency test omega²=A1²−h², not by an exhaustive unstable root count."
+      ],
+      "reasoning": "We compare characteristic factors and exact quantifiers directly; no table or finite numerical sample is taken as proof of an all-delay result.",
+      "searches": [
+        "10.3934/math.20241356 Theorem 1 predator-free A1 h delay",
+        "10.3934/math.20241356 critical gestation delay E2 positive real root",
+        "doi:10.3934/naco.2023018 global stability predator disease"
+      ]
+    },
+    "rationale": "The source states only no-delay conditions and notes a possible imaginary-frequency crossing for the predator-free equilibrium, without recognizing the ever-present positive invasion eigenvalue, quantifying all crossing delays or unstable roots, or giving a global all-data harvest guarantee. The endemic-equilibrium existence criterion is background, not part of the new claim. Generic scalar DDE stability methods are known; novelty is restricted to this source-specific complete instability/periodic-offspring interpretation together with the population-level nonlinear extinction intervention bound. The positive-cone periodic-orbit obstruction adds a nonlinear biological restriction not present in the printed Hopf condition.",
+    "residual_risks": [
+      "An equivalent explicit spectral ladder for the same mixed-response eco-epidemic model may appear under unindexed terminology.",
+      "Full text of closely related older delay papers was not exhaustively compared; no claim of novelty for general scalar retarded root theory is made.",
+      "The global harvesting bound is a sufficient bound, not a sharp necessary threshold; nonlinear center dynamics at p=h and Hopf criticality remain unproved.",
+      "Mortoja–Panja–Mondal (doi:10.1016/j.egg.2018.100035) is a particularly plausible older delayed infected-prey predecessor; full-text verification remained unavailable after ordinary arXiv/open-access and authorized institutional attempts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_FIRST_HOPF_ANALYSIS_DOES_NOT_COVER_ALL_DELAY_ROOT_COUNT_OR_GLOBAL_EXTINCTION",
+        "evidence": "Theorem 1 restricts stability to tau=0 and treats A1>h by a possible imaginary-frequency Hopf, with no permanent unstable real mode or global sufficient harvesting bound. Its potential boundary Hopf discussion does not address the nonnegative state-space obstruction to nearby periodic predator populations.",
+        "identifier_or_url": "doi:10.3934/math.20241356",
+        "material_read": "Official full-text PDF: publication date and MSC on page 1; model Eq. (1), positivity, predator-free E2 definition and Theorem 1 with complete characteristic argument; model local Jacobian; later numerical stability discussion. Page with Theorem 1 was visually inspected.",
+        "method": "Compared its A1,A2,A3 with the genuine equilibrium Jacobian, reconstructed scalar delay spectrum, and independently established nonlinear global comparison.",
+        "title": "Direction and stability of Hopf bifurcation in an eco-epidemic model with disease in prey and predator gestation delay using Crowley-Martin functional response",
+        "trigger": "Exact source and its predator-free equilibrium/hopf calculation."
+      },
+      {
+        "assessment": "DIFFERENT_DISEASE_PLACEMENT_FULL_TEXT_ACCESS_LIMITATION",
+        "evidence": "The abstract explicitly concerns disease in predators, whereas the present system has disease in prey and two mixed predator recruitment terms.",
+        "identifier_or_url": "doi:10.3934/naco.2023018",
+        "material_read": "Publisher abstract, bibliographic details, initial equation/theme descriptions; full HTML was access gated.",
+        "method": "Compared disease placement and bibliographic scope; did not infer exact noncoverage from inaccessible full text.",
+        "title": "A brief discussion about a predator-prey model including disease in predators with the delay effect",
+        "trigger": "Related delayed eco-epidemic full-population stability analysis with disease in a different compartment."
+      },
+      {
+        "assessment": "GENERAL_TECHNIQUE_PRIOR_AND_UNRESOLVED_FULL_TEXT_COMPARISON",
+        "evidence": "The abstract studies broad delay-predator attraction criteria, motivating conservative treatment of novelty in abstract DDE tools.",
+        "identifier_or_url": "doi:10.1017/S0334270000000540",
+        "material_read": "Abstract and bibliographic record; complete original paper not inspected.",
+        "method": "Used as context for established comparison/global-attraction methods, not as a certified not-covering decision.",
+        "title": "Global attractivity in time-delayed predator-prey systems",
+        "trigger": "Foundational general delayed predator–prey attraction framework."
+      },
+      {
+        "assessment": "PLAUSIBLE_CLOSE_PREDECESSOR_FULL_TEXT_COMPARISON_UNRESOLVED",
+        "evidence": "The abstract explicitly reports two delays and Crowley-Martin forms for both prey classes, unlike the one-delay mixed-response model; its own boundary spectral and nonlinear extinction results cannot be excluded without its full text.",
+        "identifier_or_url": "doi:10.1016/j.egg.2018.100035",
+        "material_read": "Open research index bibliographic record and author-supplied abstract; searches for arXiv/open full text did not recover the original complete paper, and authorized institutional retrieval did not supply full text.",
+        "method": "Compared the abstract use of Crowley-Martin for both susceptible and infected prey plus two delays with the present primary source mixed Crowley-Martin/ratio-dependent predation and one gestation delay.",
+        "title": "Dynamics of a predator-prey model with nonlinear incidence rate, Crowley-Martin type functional response and disease in prey population",
+        "trigger": "Closest predecessor cited as reference 33 by the primary source: disease in prey and gestation delay."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78748b70-0bed-401b-b7a1-8cd7dcf6c224",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model motivating theorem presents possible delay-driven Hopf behavior at the predator-free boundary but does not resolve whether predators are already able to invade or whether local periodic offspring could be stable. The exact all-delay invasion threshold, complete growing unstable-dimension ladder, and prohibition of small stable Hopf offspring close that biologically relevant stability gap. The independent global sufficient harvesting formula guarantees nonlinear predator extinction from arbitrary positive initial states and all finite gestation delays, meaningfully distinguishing local invasion resistance from global management intervention. These distinctions are not a mere parameter renaming or an unmotivated numerical slice. The positive-cone balance further shows that the local Hopf mechanism indicated in the source does not yield a biologically feasible small-amplitude periodic predator population, an interpretative distinction beyond linear stability. The scope explicitly addresses the ratio-dependent boundary singularity instead of assuming that every nonnegative history defines a classical solution.",
+    "status": "PASS"
+  }
+}
