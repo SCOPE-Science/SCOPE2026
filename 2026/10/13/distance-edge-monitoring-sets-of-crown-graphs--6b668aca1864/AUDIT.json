@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge4\\), the proof treats every target type relative to a fixed probe and constructs a shortest path avoiding an arbitrary nonincident edge. The only delicate matched target has at least six length-three candidates, or an explicit alternative when the deleted edge is incident with that target. Thus every probe monitors exactly its incident edges and the DEM family is exactly the vertex-cover family. The independent-set classification gives the polynomial and the unique two minimum covers. The standalone verifier recomputes distances after each edge deletion and exhaustively checks all subsets for \\(4\\le n\\le7\\), while confirming the \\(n=3\\) exception.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The foundational full text proves that every vertex cover is a monitoring set and states the incident-edge-only sufficient condition for equality of the set families; its named exact examples are complete bipartite graphs and hypercubes.",
+        "The 2024 bounds paper is described as giving general bounds and a characterization of graphs with monitoring number three.",
+        "The 2024 perturbation paper studies how the minimum changes under edge and vertex deletion and persistence of a fixed monitoring set.",
+        "Product-network and girth papers address different general constructions and bounds; no crown statement appeared in the inspected scope material."
+      ],
+      "reasoning": "The most relevant broad theorem is the incident-edge-only criterion. It reduces the crown problem to a new structural verification rather than solving it automatically. The later general bounds and perturbation statements do not imply the exact all-set classification after deleting an entire perfect matching.",
+      "searches": [
+        "DOI 10.1007/978-3-030-39219-2_3 and DOI 10.1016/j.dam.2021.07.002: vertex-cover section, Observation 13, complete-bipartite corollary",
+        "DOI 10.1016/j.dam.2023.09.012: bounds and small-value characterization",
+        "DOI 10.3233/FI-242176: edge-deletion and vertex-deletion perturbation results",
+        "distance-edge-monitoring product networks join corona cluster graphs",
+        "distance-edge-monitoring given girth crown graph"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/978-3-030-39219-2_3",
+      "DOI:10.1016/j.dam.2021.07.002",
+      "arXiv:2011.00029v1",
+      "arXiv:2211.04920v1",
+      "DOI:10.1016/j.dam.2023.09.012",
+      "DOI:10.3233/FI-242176",
+      "DOI:10.1016/j.jcss.2024.103528",
+      "targeted exact and semantic literature searches for crown, matching-deleted complete bipartite, and DEM formulations",
+      "current and prior claim ledgers for same-object and same-invariant overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete-bipartite corollary establishes distance-edge-monitoring number \\(n\\) for \\(K_{n,n}\\), but does not show the property survives deletion of a perfect matching.",
+        "The incident-edge-only criterion applies only after proving the monitored-edge set of each crown vertex.",
+        "The \\(n=3\\) crown is a counterexample to naive preservation, with monitoring number \\(2\\), so the all-\\(n\\ge4\\) structural proof is essential.",
+        "The checked claim ledgers include multiple crown results for other resolving, domination, position, and metric invariants, plus a complete-split distance-edge-monitoring theorem, but no crown distance-edge-monitoring claim."
+      ],
+      "reasoning": "The new claim is neither a special case of the complete-bipartite theorem nor a consequence of a one-edge perturbation bound. Its decisive content is the proof that every nonincident edge has an avoiding shortest path from every probe when \\(n\\ge4\\), followed by an exact crown vertex-cover enumeration.",
+      "searches": [
+        "Observation 13 and Corollary 14 in DOI 10.1016/j.dam.2021.07.002",
+        "DOI 10.1016/j.dam.2023.09.012 scope and extremal results",
+        "DOI 10.3233/FI-242176 perturbation abstract",
+        "current and prior claim ledgers searched for crown graph and distance-edge-monitoring overlap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved same-parameter source stated a crown-graph theorem.",
+        "The closest crown-specific hits concerned edge metric dimension and restrained domination, which use different predicates.",
+        "The foundational source supplies a general vertex-cover criterion, but not the crown verification needed to apply it."
+      ],
+      "reasoning": "The searches cover the standard family name, the matching-deleted complete-bipartite description, and the common DEM abbreviation. Different metric or domination invariants on crown graphs do not imply whether a probe detects a failed edge by a distance increase.",
+      "searches": [
+        "distance-edge-monitoring crown graph vertex cover",
+        "distance-edge-monitoring K_n,n minus perfect matching",
+        "DEM crown graph exact",
+        "distance edge monitoring deleted perfect matching complete bipartite",
+        "\"distance-edge-monitoring\" \"crown graph\"",
+        "\"distance-edge-monitoring\" \"perfect matching\" bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact crown table, crown scalar formula, basis census, or monitoring-set polynomial was located in the targeted searches.",
+        "The verified small cases were generated from the definition rather than copied from a database."
+      ],
+      "reasoning": "The all-parameter theorem is proved symbolically. The finite computation is used only as an independent check of the proof and the polynomial coefficients.",
+      "searches": [
+        "distance-edge-monitoring crown graph exact",
+        "distance-edge-monitoring crown graph polynomial",
+        "DEM K_n,n minus perfect matching",
+        "distance-edge-monitoring deleted matching bipartite graph"
+      ]
+    },
+    "rationale": "The foundational source gives the general criterion and the complete-bipartite example but does not verify it for crowns. Targeted searches over the family name, deleted-matching formulation, and DEM terminology found no crown theorem. The threshold failure at \\(n=3\\) rules out treating the result as an automatic matching-deletion corollary. Later same-parameter sources checked for broader coverage concern bounds, small values, products, girth, or perturbations rather than the crown all-set classification.",
+    "residual_risks": [
+      "A differently phrased or non-indexed crown distance-edge-monitoring theorem may exist.",
+      "The full text of the 2024 general-bounds paper was not obtained through the checked open route; only its abstract and indexed scope material were inspected.",
+      "The theorem is not claimed for arbitrary matching-deleted complete bipartite graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves that vertex covers are DEM sets and that the set families coincide when every probe monitors only incident edges; gives complete bipartite graphs and hypercubes as examples, but no crown specialization.",
+        "evidence": [
+          "Theorem 12 gives the general vertex-cover upper bound.",
+          "Observation 13 states the incident-edge-only criterion for equality of the complete set families.",
+          "Corollary 14 applies the criterion to complete bipartite graphs and hypercubes.",
+          "Publisher metadata for the CALDAM proceedings gives publication date 25 January 2020 and the conference chapter DOI identifies the foundational source."
+        ],
+        "identifier_or_url": "DOI:10.1007/978-3-030-39219-2_3; DOI:10.1016/j.dam.2021.07.002",
+        "material_read": "Open full text of the expanded journal version at the vertex-cover section, including Theorem 12, Observation 13, and Corollary 14; proceedings metadata and publisher book metadata for the original CALDAM publication.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "Monitoring the Edges of a Graph Using Distances / Monitoring the edges of a graph using distances",
+        "trigger": "Foundational source and the closest general implication for the accepted claim."
+      },
+      {
+        "assessment": "The exposed scope does not state the crown theorem. Because full text was not obtained, this source remains a residual coverage risk rather than being used as whole-document negative evidence.",
+        "evidence": [
+          "The abstract states general upper and lower bounds and a characterization of graphs with monitoring number three.",
+          "The indexed description highlights a linear-time algorithm for the edges monitored by one probe.",
+          "No crown claim appeared in the exposed abstract or targeted exact searches."
+        ],
+        "identifier_or_url": "arXiv:2211.04920v1; DOI:10.1016/j.dam.2023.09.012",
+        "material_read": "Abstract and indexed scope material describing the bounds, monitored-edge-set algorithm, extremal results, and characterization of monitoring number three.",
+        "method": "Scope and implication comparison; full article text was not available through the checked open route.",
+        "title": "On the distance-edge-monitoring numbers of graphs",
+        "trigger": "Broad later same-parameter paper and plausible source of a crown special case."
+      },
+      {
+        "assessment": "Gives one-edge and one-vertex perturbation results and a persistence algorithm, but the exposed results do not imply an exact repeated-deletion crown formula or the all-set polynomial.",
+        "evidence": [
+          "First published online 31 May 2024.",
+          "The abstract states \\(\\operatorname{dem}(G-e)-\\operatorname{dem}(G)\\le2\\) and studies vertex deletion and subgraphs.",
+          "The displayed classification includes MSC 05C12."
+        ],
+        "identifier_or_url": "DOI:10.3233/FI-242176",
+        "material_read": "Published abstract, metadata, and subject classification.",
+        "method": "Primary abstract and implication comparison.",
+        "title": "Perturbation Results for Distance-edge-monitoring Numbers",
+        "trigger": "Deleting a perfect matching makes perturbation theory a plausible route to prior coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b668aca-1864-48f7-87a0-171fe5d1d05b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result answers a natural stability question for a standard dense bipartite perturbation of a foundational exact family. The sharp failure at \\(n=3\\) makes the threshold substantive. For \\(n\\ge4\\), the structural theorem identifies every feasible monitoring set, not only the minimum, and the polynomial isolates exactly how deleting the perfect matching enlarges the set family while leaving the optimum unchanged.",
+    "status": "PASS"
+  }
+}
