@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Permuting leaves reduces each convex feasible region without objective loss to a two-parameter Gram matrix. Its exact Schur-complement eigenvalues imply q <= 2np(1-p)/(n-1), sharp by a regular-simplex Gram construction. Metric triangle inequalities add q<=2p and, for n>=3, q<=2/3. The resulting nondecreasing envelope proves every branch including all endpoints. In the cut polytope, a signed cut corresponds to a subset S with |S|=K, each membership mean <= epsilon, and leaf objective K(n-K). Concave interpolation plus a matching uniform random k/k+1 subset mixture gives its exact optimum. Expanding the interpolation proves the fractional-part defect. A standalone exact-rational test suite returned VERIFY_OK 7804 and independent finite linear programs LP_OK 95; these supplement rather than replace the full analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mallach--Cohadari (2026), Theorem 2 and its PSD proof, prove rank-one propagation when every tree correlation is exactly ±1; their paper studies branching, not a positive-epsilon support optimum.",
+        "Oliveira Filho--Vallentin, arXiv:1808.02346, §§1–2, optimize a general MaxCut approximation ratio as a function of Gram rank, with no fixed hub marginal constraints.",
+        "Makarychev--Pittu--Vakilian, arXiv:2507.12607, Definition 1 and Theorems 4–7, impose deterministic exact cardinalities, not cut-polytope marginal slices or triangle-SDP support values.",
+        "Campos--Misener--Parpas (2022/2023), §§1,4, study numerical partial Lasserre hierarchies for sparse MaxCut rather than this exact star-conditioned family."
+      ],
+      "reasoning": "The present support-function gap does not follow by a specialization of the identified exact-integrality theorem (the positive-epsilon regime remains), of global rank bounds (different parameter), or of deterministic-cardinality approximation (different convex feasible set). A stronger unknown general theorem implying the exact slice could still exist.",
+      "searches": [
+        "semidefinite maxcut approximate spanning tree integrality Gram correlation angle path sharp edge tolerance stability",
+        "sharp star anchored MaxCut semidefinite relaxation triangle inequalities hub leaf correlation tolerance clique integrality gap n epsilon",
+        "exact semidefinite max-cut integrality gap epsilon star edges almost integral fractional cardinality periodic parabola",
+        "equicorrelated star semidefinite cut relaxation fixed marginal probability PSD regular simplex gap",
+        "On Spanning-Tree Integrality and a new Branching Rule for the Maximum Cut Problem Mallach Cohadari",
+        "exact star near integral correlations MaxCut semidefinite relaxation cut polytope metric triangles epsilon 1/n",
+        "max cut clique leaves rooted star PSD Schur complement cut cardinality mixture n epsilon floor fractional part",
+        "elliptope intersection metric polytope moment slice complete graph clique support function gap 1/4",
+        "\"Max-Cut with Multiple Cardinality Constraints\" 2025 arxiv pdf",
+        "\"maxcut\" SDP \"marginal\" \"clique\" \"cardinality\" integrality gap"
+      ]
+    },
+    "checked_sources": [
+      "Mallach--Cohadari 2026-09-17 full PDF https://optimization-online.org/wp-content/uploads/2026/09/ST_Preprint.pdf",
+      "Avis--Devroye--Deza arXiv:2604.16735 full PDF https://arxiv.org/pdf/2604.16735",
+      "de Oliveira Filho--Vallentin arXiv:1808.02346 full PDF https://arxiv.org/pdf/1808.02346",
+      "Campos--Misener--Parpas https://link.springer.com/article/10.1007/s11081-022-09763-y",
+      "Makarychev--Pittu--Vakilian arXiv:2507.12607 full PDF https://arxiv.org/pdf/2507.12607",
+      "Published record 2026/9/12/SCOPE097: SA1 pairwise MAP triangle gap rather than star-conditioned MaxCut SDP",
+      "Additional published-result index queries listed in equivalent_formulations and broader_coverage; no covering result among returned closest records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 of Mallach--Cohadari is a zero-tolerance implication only; setting epsilon=0 here recovers rank-one alignment but determines none of the positive-tolerance phase boundaries.",
+        "The ordinary complete-leaf-clique cut value at exactly k flipped leaves is k(n-k), a familiar elementary count, while this claim also optimizes a cut distribution under separate expected marginals and matches it against two SDP variants.",
+        "The different paper on elliptope/metric/cut volumes does not imply support-function equality on the constrained face merely from ambient volume data."
+      ],
+      "reasoning": "The relevant implication comparison is: exact-tree-correlations imply rank-one feasible matrices, but near-tree-correlations only constrain a Gram Schur complement. The cutoff at 1/n and fractional interpolation defect require further optimization. Conversely cut cardinality interpolation alone does not imply the SDP values. No identified stronger source entails the combined claim.",
+      "searches": [
+        "MaxCut triangle strengthened SDP star anchored correlations close to 1 clique objective sharp gap first 5 vertices",
+        "maximum cut objective leaf clique star branching tolerance epsilon equal hub leaf correlations",
+        "\"maximum cut\" \"approximate\" \"spanning-tree integrality\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The transformed variables d_ij=(1-X_ij)/2 identify the model with a star-anchored slice of the elliptope intersected with the metric polytope, and with the cut polytope under equal one-edge marginals.",
+        "Avis--Devroye--Deza, arXiv:2604.16735, §§1–2, explicitly defines these three bodies and describes volume comparisons, not the present support-function evaluation.",
+        "Published record 2026/9/12/SCOPE097 concerns SA1 binary pairwise MAP triangles, not a complete-graph correlation SDP with n leaf marginals."
+      ],
+      "reasoning": "Equivalently the claimed gap is the discrepancy of two support functions on the diagonal equal-star-marginal slice. Those equivalences are tested, rather than novelty inferred from terminology; available inspected sources do not state the parameterized support values. General metric/cut polytope separation alone does not imply this equality for small eps or the periodic exact defect.",
+      "searches": [
+        "MaxCut triangle strengthened SDP star anchored correlations close to 1 clique objective sharp gap first 5 vertices",
+        "cut polytope metric polytope elliptope regular simplex fixed vertex marginal complete graph finite-size interpolation fractional gap",
+        "uniform star cap conditional leaf cut probability cardinality discrete concave envelope semidefinite exact",
+        "maximum cut objective leaf clique star branching tolerance epsilon equal hub leaf correlations",
+        "On Spanning-Tree Integrality and a new Branching Rule for the Maximum Cut Problem Mallach Cohadari",
+        "exact star near integral correlations MaxCut semidefinite relaxation cut polytope metric triangles epsilon 1/n",
+        "max cut clique leaves rooted star PSD Schur complement cut cardinality mixture n epsilon floor fractional part",
+        "elliptope intersection metric polytope moment slice complete graph clique support function gap 1/4",
+        "\"star\" \"elliptope\" \"cut polytope\" epsilon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Avis--Devroye--Deza, arXiv:2604.16735, Table 1, records equality of metric and cut volumes through four vertices and strict separation at five vertices; it does not tabulate the uniform-star objective across all n and epsilon.",
+        "The searches identified no table assigning the exact one-parameter support discrepancy alpha(1-alpha) for this family.",
+        "The finite reproducibility checker in this package is a new supplemental verification of the explicit analytic formula, not a search claim."
+      ],
+      "reasoning": "The first possible five-vertex separation is not novel as an ambient-polytope fact. The new all-n support function along a uniform hub slice and exact additive profile are more specific; a dimension-only table does not cover them.",
+      "searches": [
+        "\"metric polytope\" \"five vertices\" \"triangle\" cut gap",
+        "cut polytope metric polytope elliptope regular simplex fixed vertex marginal complete graph finite-size interpolation fractional gap",
+        "\"star\" \"elliptope\" \"cut polytope\" epsilon"
+      ]
+    },
+    "rationale": "Full primary-source comparisons distinguish the claimed exact all-n star-conditioned support profile from exact spanning-tree integrality at zero tolerance, volume-based body comparisons, fixed-rank MaxCut approximation gaps, and deterministic cardinality-constraint approximation. A published-record index returned near neighbors but no statement covering the same constrained elliptope/triangle/cut comparison. The first five-vertex metric-versus-cut separation and the integer clique cut profile are explicitly prior, not independently novel. Residual risk includes older cut-polytope monographs and equivalent projected moment formulations.",
+    "residual_risks": [
+      "Deza--Laurent and historical correlation-polytope literature were not exhaustively inspected at full book length; a preexisting symmetric star-marginal support formula or stronger lemma could imply the result.",
+      "Searching titles, abstracts, and indexed records cannot certify global novelty, and the published-record search cannot expose unpublished work.",
+      "The known metric/cut strict separation at five vertices and the elementary integer clique-cut profile are already known; originality is confined to their particular exact constrained SDP/cut phase comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering: proves zero-tolerance rank-one integrality and branching design; does not quantify exact star-clique positive-tolerance support values or cut-polytope moment gaps.",
+        "evidence": "Its Theorem 2 assumes X_ij=±1 for every tree edge; equations (5)–(8) specify triangle inequalities and §4 contrasts exact decided edge values with undecidedness.",
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/09/ST_Preprint.pdf",
+        "material_read": "Full 14-page PDF, especially §§2–4 (pages 2–8), theorem and algebraic proof on printed pages 3–4; numerical section and conclusions inspected for approximate-correlation support claims.",
+        "method": "Full-text rendering, page-level reading, and inspection of the displayed theorem and triangle inequalities.",
+        "title": "On Spanning-Tree Integrality and a new Branching Rule for the Maximum Cut Problem",
+        "trigger": "Exact ±1 correlations on a spanning tree and triangle-enriched semidefinite MaxCut; direct motivating source and strongest immediate overlap risk."
+      },
+      {
+        "assessment": "The first five-vertex separation and general body inclusion are known. Focus is volume ratios and sparse-body volumes; it does not state the claimed star-conditioned support values.",
+        "evidence": "Introduction explicitly defines the purpose as volume comparison; Table 1 shows metric/cut volume equality through four vertices, strict at five; §2 defines the polytopes.",
+        "identifier_or_url": "https://arxiv.org/pdf/2604.16735",
+        "material_read": "Available 20-page PDF; introduction, §§1–2 with definitions and Table 1, relevant §3 and §5 passages, and cut/metric discussion read; exact source terms searched.",
+        "method": "Readable arXiv full-text rendering, in-document searches for star, cardinality, optimization, symmetric, and cited relevant body definitions.",
+        "title": "On the volumes of the elliptope, metric polytope, and cut polytope",
+        "trigger": "Direct 2026 work comparing exactly the three ambient convex bodies; possible dominance of the proposed slice comparison."
+      },
+      {
+        "assessment": "Not covering: rank of Gram representation is the controlling dimension, and the objective is a worst-case ratio over general graph edge weights rather than a fixed constrained clique star.",
+        "evidence": "Definitions SDP_n(A), gamma_n and alpha_n on printed pages 1–2; worst-case rank-n approximation factor formulation.",
+        "identifier_or_url": "https://arxiv.org/pdf/1808.02346",
+        "material_read": "Available 17-page full text; introduction, Theorem 1.1 setup, relevant §§2 and 4.1 passages read; terms triangle and clique searched.",
+        "method": "ArXiv full-text rendering and targeted section/term inspection.",
+        "title": "On the Integrality Gap of the Maximum-Cut Semidefinite Programming Relaxation in Fixed Dimension",
+        "trigger": "Could give a stronger global theorem that implies the new gap."
+      },
+      {
+        "assessment": "Not covering: explores sparse first/second-level Lasserre strengthening numerically; no exact all-n uniform-star cut-polytope moment profile.",
+        "evidence": "Its §1 describes partial second-order constraints and experiments; §4.1.2 lists the standard four triangle constraints.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11081-022-09763-y",
+        "material_read": "Public full-text article, introduction and §4.1.2 triangle comparison, numerical relaxation discussion.",
+        "method": "Publisher open-access HTML full text and section searches.",
+        "title": "Partial Lasserre relaxation for sparse Max-Cut",
+        "trigger": "Potential strengthened-SDP dominance and triangle-relaxation formulas."
+      },
+      {
+        "assessment": "Different feasible objects: each cut has an exact deterministic cardinality, not individual star-edge marginal caps over cut mixtures; no matched SDP/triangle support diagram.",
+        "evidence": "Definition 1 explicitly requires |S∩V_i|=k_i for each chosen cut; Theorems 4–7 are approximation and hardness results.",
+        "identifier_or_url": "https://arxiv.org/pdf/2507.12607",
+        "material_read": "Accessible 21-page arXiv manuscript; Definitions 1–3, Theorems 4–7 and techniques in §§1–2 were read.",
+        "method": "ArXiv full-text reading of formal constrained-cut definitions and main results.",
+        "title": "Max-Cut with Multiple Cardinality Constraints",
+        "trigger": "Identical k(n-k) cut-size term and a plausible stronger result under size constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab6e413b-b471-4a2e-ac7c-7cea980142df",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating exact-spanning-tree integrality theorem creates a quantitative question: what can a near-decided star hide in the strengthened SDP? This natural complete-graph benchmark has a global all-size classification, a sharp phase switch at epsilon=1/n, the first positive gap at five total vertices, and an exact dimension-uniform additive gap at most 1/4. This is a structural constrained support-function benchmark, not a mere small finite calculation; no arbitrary-graph algorithmic improvement or false deterministic interpretation is claimed.",
+    "status": "PASS"
+  }
+}
