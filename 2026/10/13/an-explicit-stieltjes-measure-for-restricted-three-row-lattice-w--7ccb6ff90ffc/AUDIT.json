@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The exact Shankar generating function is correctly specialized to its physical cubic branch. Explicit branch boundary algebra yields the stated h(x), its exact Jacobian yields w(c), and endpoint orders O(x^{-2/3}) and O((27/4-x)^{-1/2}) justify reconstruction by a Cauchy keyhole contour, proving every moment, not only tested coefficients. The polynomial \\(64y^3-112y^2+44y+7\\) has minimum \\(68/27\\) on [1/4,1], so the density is positive; generalized Vandermonde positivity establishes strict positivity for all finite Hankel minors. A standalone symbolic program verified the algebra and independently numerically checked moments 0–14; neither finite integration nor finite minor tests is used to infer the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bostan et al., arXiv:2001.00393, §2 explicitly develops Cauchy/Hankel-contour inversion and gives positive measures for Catalan and Fuss-Catalan sequences.",
+        "The motivating B-sequence is not the ternary Fuss-Catalan coefficient: it equals a nonconstant k-dependent factor times the ternary Fuss-Catalan number; positivity does not follow from a theorem about the unmodified sequence.",
+        "Shankar 2026 derived B as a rational expression in the ternary-tree generating function yet still posed positivity as an open conjecture.",
+        "Górska–Penson, arXiv:1304.6008, proves positive moments for the ordinary d-dimensional Catalan sequence C_d(n), whose d=3 initial values are 1,1,5,42,462 rather than B: 1,1,4,21,121. Its specified even-dimensional extension likewise does not contain this B sequence."
+      ],
+      "reasoning": "An analytic inversion technique and positive measures for the unmodified Fuss-Catalan sequence provide methods, not a stronger theorem including B. We compute the different jump and verify its sign on the complete support, which cannot be inferred merely from algebraicity or from the known Fuss-Catalan moment law.",
+      "searches": [
+        "\"A274969\" Fuss Catalan Stieltjes moment",
+        "Catalan-like numbers and Stieltjes moment sequences Liang Mu Wang 2016",
+        "Bostan Elvey Price Guttmann Maillard Stieltjes moment sequences pattern avoiding permutations Fuss Catalan",
+        "Raney distributions Fuss Catalan positive density Stieltjes moment general sequences",
+        "\"Multidimensional Catalan and related numbers as Hausdorff moments\" \"A274969\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.30002 §§1,6,9",
+      "arXiv:2202.05757, Proposition 1",
+      "arXiv:2604.04900, Proposition 5.6",
+      "arXiv:2001.00393 §§2.1–2.5",
+      "OEIS A274969",
+      "Published mathematical record semantic searches for the exact B sequence, its aliases, Stieltjes positivity, and Conjecture 9.5",
+      "arXiv:1304.6008, introduction and §2 (distinct multidimensional Catalan moment laws)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shankar 2026 Theorems 6.2–6.3 imply the known exact B sequence and algebraic generating series. Conjecture 9.5 expressly asks for moment positivity, establishing that the author did not derive this implication.",
+        "Borie–Falque 2022 Proposition 1 supplies a constrained binary-tree interpretation, not a continuous positive representing measure.",
+        "Bostan et al. 2020 supply a general inversion procedure; their theorems do not assert the sign of the B-sequence density."
+      ],
+      "reasoning": "The new statement strictly strengthens the available enumerative identities: a specific nonnegative measure on [0,27/4] produces all moments, and its positive interior density forces each arbitrary Hankel minor to be strictly positive. Neither the algebraic generating function nor equality with an existing counting sequence logically entails this without the new positivity calculation.",
+      "searches": [
+        "\"Avoiding patterns with three distinct letters\" \"Stieltjes moment\" \"B_k\" 2608.30002",
+        "\"Conjecture 9.5\" \"Shankar\" Stieltjes",
+        "\"Product-Coproduct Prographs and Triangulations of the Sphere\" \"moment\"",
+        "\"Stieltjes moment sequences for pattern-avoiding permutations\" binomial ternary tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A274969 gives identical coefficient sequence, stack-word interpretation and binomial formula; the accessible entry has no representing measure or all-order Hankel-minor theorem.",
+        "Shankar 2026 §9.3 states moment positivity as Conjecture 9.5 and reports finite leading 7-by-7 minor checks."
+      ],
+      "reasoning": "The lattice-word, stack-word, constrained binary-tree and maximal semisymmetric-height interpretations all describe the same moments; exact statement comparison is against a positive representing measure and every infinite Hankel minor, not against renamed object counts. The inspected enumerations do not imply positivity.",
+      "searches": [
+        "\"A274969\" \"Stieltjes\"",
+        "\"1, 1, 4, 21, 121, 728\" \"moment\"",
+        "\"A274969\" \"moment\" \"Hankel\"",
+        "A274969 lattice words pushall stack Stieltjes moment distribution",
+        "arXiv:2608.30002 Theorems 6.2-6.3 Conjecture 9.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A274969 records initial values 1,1,4,21,121,728,4488, an algebraic generating function, a binomial formula and references; the visible entry has no Stieltjes representation.",
+        "Inagaki–Pramatarova, arXiv:2604.04900, Proposition 5.6 recovers the same binomial sequence as a maximal semisymmetric-height count, without a moment or Hankel-positivity statement.",
+        "Shankar §9.3 checked only the finitely many minors of two 7-by-7 matrices; finite tables cannot imply positivity of every minor."
+      ],
+      "reasoning": "The known exact coefficient table, cubic equation and finite minors are correctly credited and not claimed as new. The all-orders positive measure and strict infinite total positivity are the novel mathematical claims.",
+      "searches": [
+        "OEIS A274969",
+        "\"A274969\" \"Hankel\"",
+        "\"A274969\" \"Stieltjes\"",
+        "\"On Semisymmetric Height\" \"A274969\""
+      ]
+    },
+    "rationale": "The 2026 motivating paper labels the Stieltjes moment property of B as an explicit conjecture despite knowing its generating function. Inspection of the same exact sequence under lattice-word, stack-word, binary-tree, semisymmetric-height and OEIS aliases did not disclose an all-order positive representing measure. A general inversion method and existing ternary Fuss-Catalan measures do not imply the positive sign for the distinct B density. Searches cannot exclude unindexed equivalent publications.",
+    "residual_risks": [
+      "Related earlier work on random-matrix/Raney distributions or unindexed equivalent algebraic laws may imply the result in disguised form; no absolute uniqueness claim is made.",
+      "The accessible search index and published sources cannot cover unpublished research."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems 6.2–6.3 supply only the input enumerations; Conjecture 9.5 still asks for Stieltjes positivity of B and Q. No explicit positive B measure is presented.",
+        "evidence": [
+          "Theorem 6.2, equation (6.2), p.16; Theorem 6.3, parametrization (6.8), p.18; Conjecture 9.5, p.25."
+        ],
+        "identifier_or_url": "arXiv:2608.30002v2; https://pdfs.assets.alphaxiv.org/2608.30002v2.pdf",
+        "material_read": "Full text sections 1, 2, 6 and 9, especially pages 1–3, 16–18 and 25; theorem formulas and statement checked in page images.",
+        "method": "Read full-text sections and inspect displayed binomial, ternary-tree and conjecture equations; check earliest preprint date separately.",
+        "title": "Avoiding patterns with three distinct letters in Canon permutations",
+        "trigger": "Exact motivating combinatorial sequence and explicit two-part moment conjecture"
+      },
+      {
+        "assessment": "Covers the same integer sequence but not its Stieltjes moment representation or Hankel positivity.",
+        "evidence": [
+          "Proposition 1 and triangulation/tree-pair results; no Stieltjes or Hankel statement in the paper."
+        ],
+        "identifier_or_url": "arXiv:2202.05757; https://arxiv.org/pdf/2202.05757",
+        "material_read": "Accessible 13-page PDF, its enumeration/Proposition 1 material and the paper-wide extracted text for moment/measure/Hankel claims.",
+        "method": "Inspect primary PDF text and mathematical descriptions of constrained binary-tree pairs and their enumeration; search full extracted text for moment positivity.",
+        "title": "Product-Coproduct Prographs and Triangulations of the Sphere",
+        "trigger": "OEIS and Shankar cite Proposition 1 as an equivalent binary-tree interpretation of B"
+      },
+      {
+        "assessment": "The enumerative identification is prior; there is no positive moment law or Hankel conclusion.",
+        "evidence": [
+          "Proposition 5.6 identifies the same three-binomial combination; the paper studies lattice-path semisymmetric heights and counts."
+        ],
+        "identifier_or_url": "arXiv:2604.04900; https://arxiv.org/pdf/2604.04900",
+        "material_read": "Introduction, the explicit Proposition 5.6 and its proof on pages 29–30, and all-text checks for Stieltjes and moment.",
+        "method": "Read relevant result and its semisymmetric height proof from full-text primary source; compare objective and quantifiers.",
+        "title": "On Semisymmetric Height and a Multidimensional Generalization of Weighted Catalan Numbers",
+        "trigger": "OEIS A274969 links a second paper proving an enumeration of exactly these coefficients"
+      },
+      {
+        "assessment": "Establishes general analytic procedures and some positive Fuss-Catalan measures, but no positivity assertion for this particular non-Fuss B sequence.",
+        "evidence": [
+          "Sections 2.1–2.5, especially coefficient integral (13), Hankel contour derivation and Fuss-Catalan paragraph."
+        ],
+        "identifier_or_url": "arXiv:2001.00393; https://arxiv.org/pdf/2001.00393",
+        "material_read": "Full primary PDF sections 2.1–2.5 and search of entire PDF for exact B-sequence subject/related terms; specific method passages examined.",
+        "method": "Read Theorem 3 and inversion/Hankel contour derivations; compare known Fuss-Catalan examples with exact B sequence.",
+        "title": "Stieltjes moment sequences for pattern-avoiding permutations",
+        "trigger": "Potentially dominating general Stieltjes inversion theorem"
+      },
+      {
+        "assessment": "The binomial formula, generating function, terms and stack-word interpretation are prior; the displayed entry does not contain the proposed probability measure.",
+        "evidence": [
+          "Entry formula lines and references to Borie–Falque and Inagaki–Pramatarova."
+        ],
+        "identifier_or_url": "https://oeis.org/A274969",
+        "material_read": "Visible database entry including terms, comments, cross-references, formulas and linked papers.",
+        "method": "Read entry and follow the most plausible recent paper link for exact implication comparison.",
+        "title": "OEIS A274969 sequence page",
+        "trigger": "Exact sequence aliases and database coverage"
+      },
+      {
+        "assessment": "Its d=3 numbers begin 1,1,5,42 and its even-dimensional extension has different factorial ratios; neither contains the B sequence beginning 1,1,4,21.",
+        "evidence": [
+          "Definition of C_d(n) and the explicit d=3 table, p.1; positive Hausdorff moment representation for C_d, §2."
+        ],
+        "identifier_or_url": "arXiv:1304.6008; https://arxiv.org/pdf/1304.6008",
+        "material_read": "Introduction identifying the exact d-dimensional factorial family and its initial values, section 2 on its positive-density construction, and abstract specifying the only extension.",
+        "method": "Read primary PDF mathematical definitions and compare the coefficient sequence and parameters with the proposed B sequence.",
+        "title": "Multidimensional Catalan and related numbers as Hausdorff moments",
+        "trigger": "Plausibly stronger earlier moment-representation results for three-dimensional Catalan families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ccb6ff9-0ffc-4158-9a2b-70f0ff802610",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shankar 2026 expressly conjectured Stieltjes positivity for this combinatorially natural lattice-word sequence, presenting evidence only for finite 7-by-7 Hankel matrices. The explicit positive measure closes one entire infinite half of that conjecture, determines exact compact support, yields uniqueness of the measure, and strengthens nonnegative Hankel minors to strict positivity of every minor. This is a motivated infinite-family structural fact rather than a routine numerical extension or a reformulation of a preexisting coefficient formula.",
+    "status": "PASS"
+  }
+}
