@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The explicit joint law P(J=j,I=i)=lambda_i U_{ji}²/S gives both marginals and exactly T=E[S-lambda_I|J]; double Jensen proves the sharp convex-order bounds. Orthogonal zero-diagonal induction for traceless H=Lambda²-(M2/S)Lambda constructs a constant-loss conjugate, with diagonal Lambda the opposite extremum. Strict convex equality, exact variance range and continuum via SO(n) follow. The executable verify.py confirms exact rational cases and numerical zero-diagonal constructions without replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.20633v1 §1.1 pivot rule, §1.2 trace mean/tail estimates, §4 Jensen inequality for trace of matrix spectral function",
+        "arXiv:2207.06503v6 §5.1 expectation of residual matrix after one diagonal-weighted pivot",
+        "arXiv:2404.11487v1 §§1–2 mean spectral identities and alternative pivot distributions",
+        "arXiv:2410.03969v3 studies accelerated pivot sampling and approximation accuracy"
+      ],
+      "reasoning": "Broader Nyström/multistep bounds typically concern expected residual matrices, spectral norms or probabilities after several pivots. Epperly (2026) §4 compares E tr f(R) to spectral expressions, whereas the new result compares E phi(tr R) at fixed spectrum. Since tr f(R) is generally not phi(tr R), that lemma does not automatically cover this sharp scalar distribution or the zero-variance orientation.",
+      "searches": [
+        "Nyström one-column sampling trace residual distribution extremal spectral convex order diagonal pivot",
+        "\"randomly pivoted Cholesky\" \"majorization\" trace error first step",
+        "randomized Nyström column subset convex concentration mean trace loss"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.20633v1",
+      "arXiv:2207.06503v6",
+      "arXiv:2404.11487v1",
+      "arXiv:2410.03969v3",
+      "Published result index closest IDs: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee; 2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659; 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.20633v1 §1.1 pivot rule, §1.2 trace mean/tail estimates, §4 Jensen inequality for trace of matrix spectral function",
+        "arXiv:2207.06503v6 §5.1 expectation of residual matrix after one diagonal-weighted pivot",
+        "arXiv:2404.11487v1 §§1–2 mean spectral identities and alternative pivot distributions",
+        "Published index IDs: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee; 2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659; 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80"
+      ],
+      "reasoning": "The 2022 formula E[R]=K-K²/S implies E[T]=S-M2/S but leaves variance/higher convex moments undetermined; 2026 multistep high-probability bounds need not be sharp per given eigenvalues. Jensen for tr f(R) is a different functional. A spectral-orbit pair with spectrum (9,1) realizes respectively variance 0 and 144/25, proving the prior first moment cannot imply a unique trace-loss law. The stronger new conclusion is a sharp full convex-order interval over all rotations.",
+      "searches": [
+        "randomly pivoted Cholesky scalar trace-error convex order conditional Jensen size-biased eigenvalue orthogonal orbit sharp variance zero",
+        "random pivoted Cholesky constant one-step trace loss for arbitrary eigenvalues zero diagonal K squared minus tr K²/tr K K Schur Horn",
+        "\"randomly pivoted Cholesky\" \"convex order\" eigenvalues",
+        "random pivoted Cholesky matrix spectrum basis variance distribution orientation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.20633v1 §1.1 pivot rule, §1.2 trace mean/tail estimates, §4 Jensen inequality for trace of matrix spectral function",
+        "arXiv:2207.06503v6 §5.1 expectation of residual matrix after one diagonal-weighted pivot"
+      ],
+      "reasoning": "Conditioning the size-biased eigenvalue variable on the pivot index yields the scalar loss, so Rao–Blackwellization and convex order are exact equivalent statements for this problem. Neither inspected primary analysis states the coupled random-variable convex-order theorem nor both sharp orbit extremizers; equivalence in classical probability does not alone establish prior coverage of this algorithmic specialization.",
+      "searches": [
+        "randomly pivoted Cholesky scalar trace-error convex order conditional Jensen size-biased eigenvalue orthogonal orbit sharp variance zero",
+        "\"randomly pivoted Cholesky\" \"convex order\" eigenvalues",
+        "\"randomly pivoted Cholesky\" \"conditional expectation\" \"eigenvalues\" variance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-result index closest hits: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee; 2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659; 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+        "No matching exact scalar-variance table in inspected primary works"
+      ],
+      "reasoning": "The theorem is an all-positive-spectra identity and orbit envelope, not a narrow tabulated numeric value. Related indexed results concern column-subset approximation multipliers, ACA residual growth and pivot deflation rather than the claimed diagonal-Cholesky scalar convex-order law.",
+      "searches": [
+        "random pivoted Cholesky constant one-step trace loss for arbitrary eigenvalues zero diagonal K squared minus tr K²/tr K K Schur Horn",
+        "one pivot randomized Cholesky trace variance spectrum extremizer",
+        "\"size biased eigenvalue\" \"Cholesky\" pivot trace \"convex\""
+      ]
+    },
+    "rationale": "The 2026 motivating analysis supplies the pivot algorithm, mean and high-probability multistep trace bounds and spectral-matrix Jensen, but not the scalar convex-order distribution or two orbit extremizers. The 2022 one-pivot mean identity and 2024 pivot analyses imply only the common expectation. Searches for conditional-mean eigenvalue couplings and zero-variance trace error found no identified stronger claim; older statistical rediscoveries remain a risk.",
+    "residual_risks": [
+      "Classical convex-order/Rao–Blackwell literature could contain equivalent size-biased eigenvalue conditional expectations in a different numerical linear algebra terminology.",
+      "A publication or thesis absent from the searched index could have classified one-pivot trace-loss distributions.",
+      "The zero-diagonal-basis construction is classical; originality is not claimed for that lemma alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp all-spectrum scalar convex-order bounds and simultaneous extrema",
+        "evidence": "§1.1 first pivot; §1.2 multi-pivot trace bounds; §4 matrix spectral function Jensen, distinct from convex functions of a scalar trace",
+        "identifier_or_url": "arXiv:2608.20633v1; https://arxiv.org/html/2608.20633v1",
+        "material_read": "Full HTML sections 1.1–1.6, 2–4 including trace probability bounds and spectral-matrix Jensen lemma",
+        "method": "Primary full-text HTML inspection; traced the definitions and contrasted scalar and spectral functionals",
+        "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+        "trigger": "Exact motivating randomized-Cholesky trace-error analysis from 2026"
+      },
+      {
+        "assessment": "MEAN_IDENTITY, not full convex-order extremum",
+        "evidence": "§5.1 states E[R]=K-K²/tr K, determining only E[tr R]",
+        "identifier_or_url": "arXiv:2207.06503v6; https://arxiv.org/html/2207.06503v6",
+        "material_read": "Full HTML §5.1 one-step expectation and searched other sections/appendices for variance or convex order",
+        "method": "Primary full-text HTML inspection and targeted terminology search",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Original RPCholesky algorithm and one-step exact mean"
+      },
+      {
+        "assessment": "Different pivot-selection comparison and mean laws, not fixed-spectrum trace-loss convex order",
+        "evidence": "§1.2 exact mean spectral identity; §2 alternative pivot weighting",
+        "identifier_or_url": "arXiv:2404.11487v1; https://arxiv.org/html/2404.11487v1",
+        "material_read": "Full HTML §§1–2 and relevant mean identities",
+        "method": "Primary full-text HTML inspection",
+        "title": "Randomly Pivoted Partial Cholesky: Random How?",
+        "trigger": "Exact spectral identities under pivot laws"
+      },
+      {
+        "assessment": "No identified scalar one-pivot orbit convex-order classification",
+        "evidence": "Focus on rejection-based accelerated sampling and low-rank quality, unlike spectral-orbit distributional optimization",
+        "identifier_or_url": "arXiv:2410.03969v3; https://arxiv.org/html/2410.03969v3",
+        "material_read": "Full HTML introduction and theoretical approximation sections, with targeted terminology searches",
+        "method": "Primary HTML source inspection",
+        "title": "Embrace Rejection: Kernel Matrix Approximation by Accelerated Randomly Pivoted Cholesky",
+        "trigger": "Potential domination by randomized Cholesky implementation theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96c5731f-0ef5-4fda-ab3e-186aec35157b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single-pivot diagonal-proportional Cholesky is a fundamental kernel/Nyström primitive, and its residual trace is the main algorithmic accuracy variable. Sharp simultaneous convex-order envelopes over every real fixed-spectrum matrix distinguish invariant expected trace error from all convex risk measures. An attainable zero-variance basis for every spectrum and an attained size-biased eigenvalue worst law provide a complete structural boundary, with exact variance maxima and a simple (9,1) contrast. Neither the proof's elementary ingredients nor novelty searches alone establish value: its value is the complete attainable distributional extremum for a natural sampling primitive.",
+    "status": "PASS"
+  }
+}
