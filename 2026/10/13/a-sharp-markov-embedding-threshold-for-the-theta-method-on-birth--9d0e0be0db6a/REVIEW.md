@@ -1,0 +1,19 @@
+# Scientific review: a sharp Markov-embedding threshold for the \(\theta\)-method
+
+## Correctness — PASS
+
+For each finite irreducible birth–death generator, diagonal symmetrization gives simple nonpositive real eigenvalues. The rational \(\theta\)-method map is strictly monotone on those eigenvalues, so its spectrum is simple. This makes its real matrix logarithm unique in the positive-spectrum range, and a simple nonpositive eigenvalue decisively rules out an embedding outside that range. At \(\theta\le\frac12\), the convergent logarithmic series has odd coefficients strictly positive and even coefficients nonpositive; every power of the generator has the parity-controlled sign at two-step off-diagonal entries. One such entry of the unique logarithm is therefore strictly negative for every possible admissible step. At \(\theta>\frac12\), the first nonzero off-diagonal coefficient in that series is strictly positive at every distance, giving an embedding for sufficiently small steps. For \(\theta\ge1\), a Markov-resolvent integral proves positivity of every effective rate at every step. The exact two-state classification and a rational, strictly positive nonembeddable three-state example are separately verified. No computation is substituted for the all-parameter proof.
+
+## Originality — PASS, with residual historical risk
+
+Davies (arXiv:1001.1693, 2010) and Casanellas–Fernández-Sánchez–Roca-Lacostena (arXiv:2005.00818, 2020) give established real-logarithm and Markov-generator criteria. Baake–Baake–Sumner (arXiv:2511.22800, 2025) treat reversible Markov embedding generally, and their Example 3.4 already covers the sparse forward-Euler endpoint by the classical transitivity obstruction. None of these inspected statements gives the full \(\theta\)-method phase distinction for positive dense birth–death steps, the sharp Crank–Nicolson universal nonembedding result, or the unconditional overimplicit embedding formula. Zappavigna and collaborators (2012) analyze positivity and stability of Padé approximations, different from embedding an already-positive stochastic approximation in an autonomous continuous-time chain. Published exact studies of Crank–Nicolson order-cone preservation and Padé positivity also do not imply the logarithm sign needed here. The closest prior mathematical ingredients are fully acknowledged; equivalent older specialized formulations remain possible and the 2012 paper was inspected materially but not exhaustively in every page.
+
+## Value — PASS
+
+The claim classifies when a numerical Markov transition approximation can represent a *homogeneous* underlying Markov process, not merely when it is entrywise positive or spectrally stable. It establishes a sharp method-order boundary, a minimal dimension, an elementary yet strict positive counterexample, and an all-steps regime that reverses the obstruction. The sign-coherent path argument and resolvent construction extend over arbitrary positive adjacent rates and dimensions. It is a usable structural distinction for interpreting discretized jump-process dynamics, not simply recomputing a known matrix table.
+
+## Limitations and nearest literature
+
+The intermediate range \(\frac12<\theta<1\) is classified only locally at small positive steps, not for its entire stepsize interval. The original condition on birth–death generators cannot be dropped for the first two assertions. The inferred effective rate matrix is generally dense, even if the original is tridiagonal. No claims concern time-inhomogeneous embeddings or algorithmic efficiency. The classical general embedding criteria and the sparse forward-Euler nonembedding case are prior work; the novelty assessment is limited to the indicated specialized parametric classification.
+
+Self-review: passed. Independent audit: not yet performed.

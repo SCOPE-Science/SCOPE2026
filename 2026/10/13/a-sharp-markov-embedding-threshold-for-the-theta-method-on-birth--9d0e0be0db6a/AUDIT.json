@@ -1,0 +1,177 @@
+{
+  "correctness": {
+    "rationale": "For all finite irreducible birth–death generators, Jacobi similarity gives distinct real eigenvalues, and the strictly monotone rational multiplier preserves distinctness. With positive spectrum, the real log is unique; with a nonpositive simple eigenvalue, no real log exists. For \\(\\theta\\le\\frac12\\), convergent log coefficients have the opposite parity sign to the tridiagonal length-two power entries, giving a strictly negative effective rate. For \\(\\theta>\\frac12\\), the first positive coefficient at each graph distance proves strict positive offdiagonal logarithmic rates for sufficiently small h. For \\(\\theta\\ge1\\) the exact integral of stochastic-resolvent generators gives unconditional strictly positive rates. The \\(n=2\\) exception and positive \\(3\\times3\\) witness are algebraically complete. Self-contained exact-rational code verified 336 finite identities, but finite checks are not relied on to prove any infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davies (2010), Lemma 2: embeddable Markov matrices cannot have a simple negative or zero eigenvalue; Section 2 treats generic embeddings.",
+        "Baake et al. (2025), Example 3.4: a strictly tridiagonal stochastic matrix with three or more states cannot be embedded, directly covering the forward-Euler sparse special case \\(\\theta=0\\).",
+        "Baake et al. (2025), Theorem 3.16 is a broad iff statement involving the logarithm but gives no theta-method sign profile; the new small-step and overimplicit regimes are substantive extra results.",
+        "Zappavigna et al. (2012), inspected opening abstract and theorem on Padé approximations concerns entrywise positivity and co-positive Lyapunov stability, not the possibility of a homogeneous CTMC logarithm."
+      ],
+      "reasoning": "Existing wider embedding theorems supply necessary/sufficient criteria in terms of a logarithm, but do not decide the sign for this complete numerical integrator family. The forward-Euler \\(\\theta=0\\) endpoint is *not separately claimed as original*; the new material is the sharp positive-dense-step impossibility through theta=1/2 and the complementary positive/full-step embedding construction.",
+      "searches": [
+        "Markov embeddability of Runge Kutta approximate transition matrices and principal logarithm positivity",
+        "Embedding of stochastic numerical time-stepping matrices into continuous time Markov semigroups; matrix logarithm negative off-diagonals for Crank Nicolson Runge Kutta birth-death chains",
+        "\"Crank Nicolson\" \"infinitely divisible\" \"Markov\" matrix",
+        "\"implicit Euler\" \"embeddable\" Markov matrices",
+        "Baake et al. arXiv:2511.22800v1, Section 3.2-3.3",
+        "Davies arXiv:1001.1693v1, Lemma 2 and Corollary 10"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1001.1693v1",
+      "https://arxiv.org/html/2005.00818v2",
+      "https://arxiv.org/html/2511.22800v1",
+      "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "https://doi.org/10.1016/j.laa.2011.12.021",
+      "https://arxiv.org/abs/2301.01066",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nonnegativity/total nonnegativity/stochastic-order preservation studied in finite-step literature are matrix-entry and cone properties. An embeddable Markov matrix is entrywise stochastic but the converse is false, as exhibited by the explicit strictly positive 3-state Crank–Nicolson matrix.",
+        "The sparse forward-Euler case is already ruled out by the transitivity obstruction of Baake et al. (2025), Example 3.4; we do not count it as a new independent result.",
+        "A general log-matrix test does not determine the sign for all paths, every rate and every step; the strict sign-coherent series and positive-resolvent integral are the new implication steps.",
+        "Earlier published overimplicit theta-method sign-variation results concern total nonnegativity, which is *not* required for homogeneous Markov embeddability; θ>1 can be embeddable while failing total nonnegativity.",
+        "Two exact-claim and equivalence searches in the published mathematical records returned the same [2/2] Padé positivity and filtered Crank–Nicolson kernel results as closest relevant statements; no publication returned an implication covering the homogeneous theta-method embedding theorem."
+      ],
+      "reasoning": "The established criteria imply nonembedding only *after* proving the log sign. Neither an A-stability/positivity theorem nor a failure of sign-variation monotonicity provides that sign. The new path-parity and resolvent formulas make the unknown implication explicit for all permitted dimensions, rates and parameter ranges.",
+      "searches": [
+        "Crank Nicolson Cayley transform of finite birth-death continuous time Markov chain not embeddable stochastic matrix logarithm negative second neighbor",
+        "trapezoidal time stepping birth death Markov transition stochastic embedding logarithm negative off-diagonal distance two",
+        "Embedding of stochastic numerical time-stepping matrices into continuous time Markov semigroups; matrix logarithm negative off-diagonals for Crank Nicolson Runge Kutta birth-death chains",
+        "Davies arXiv:1001.1693v1, Sections 1-2",
+        "Baake et al. arXiv:2511.22800v1, Example 3.4 and Theorem 3.16",
+        "doi:10.1016/j.laa.2011.12.021",
+        "published-finding corpus 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Sharp theta-method Markov embedding threshold for irreducible birth-death chains: Crank Nicolson not embeddable even with positive stochastic entries, all theta greater than one-half locally embeddable and theta at least one globally embeddable",
+        "Implicit midpoint Crank Nicolson transition matrix positive birth-death generator negative logarithm nonembedding all steps dimension three; overimplicit theta effective Markov generator integral resolvent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Casanellas et al. (2020), Corollary 2.8: real simple-spectrum Markov matrix is embeddable iff the positive-spectrum principal logarithm is a rate matrix.",
+        "Baake, Baake and Sumner (2025), Fact 2.5: simple positive spectrum has a unique real logarithm; Theorem 3.16 supplies the corresponding reversible embedding criterion.",
+        "The explicit Crank–Nicolson path witness has positive entries and distinct positive eigenvalues, but its (1,3) logarithm entry is \\(\\frac16\\log(125/189)<0\\)."
+      ],
+      "reasoning": "The already-published general principal-logarithm criterion is a tool, not the claimed novelty. The current result proves, for the entire theta family on every irreducible birth–death chain, when the unique logarithm has a negative two-step rate and when it instead has strictly positive all-distance rates. The inspected general treatments neither state this parameter threshold nor a specialization giving it automatically without the new parity and resolvent arguments.",
+      "searches": [
+        "Crank Nicolson Cayley transform of finite birth-death continuous time Markov chain not embeddable stochastic matrix logarithm negative second neighbor",
+        "trapezoidal time stepping birth death Markov transition stochastic embedding logarithm negative off-diagonal distance two",
+        "second neighbor logarithm negative rate for rational semigroup approximant tridiagonal generator",
+        "\"Crank-Nicolson\" \"embeddable\" Markov chain transition",
+        "Baake et al. arXiv:2511.22800v1, Fact 2.5 and Theorem 3.16",
+        "Casanellas et al. arXiv:2005.00818v2, Corollary 2.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac proves positive smoothing kernels of filtered Crank–Nicolson on an infinite/periodic heat lattice; it does not compute Markov generators of logarithms.",
+        "Published 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab establishes an eight-state threshold for small-step loss of *positivity* of a fourth-order Padé map; it does not address homogeneously embeddable theta-method matrices.",
+        "No exact literature table or indexed research statement found with the same pair of sharp thresholds and strong quantifiers; absence of a hit alone is not used as a novelty certificate."
+      ],
+      "reasoning": "The candidate proves a structural all-dimension parameter theorem, not a finite matrix-table lookup. The two most relevant published related records were compared using their result statements and proof mechanisms, and neither covers the logarithm sign and embedding criteria. A finite numerical table cannot imply the uniform theorem.",
+      "searches": [
+        "Crank Nicolson Cayley transform of finite birth-death continuous time Markov chain not embeddable stochastic matrix logarithm negative second neighbor",
+        "second neighbor logarithm negative rate for rational semigroup approximant tridiagonal generator",
+        "Embedding of stochastic numerical time-stepping matrices into continuous time Markov semigroups; matrix logarithm negative off-diagonals for Crank Nicolson Runge Kutta birth-death chains",
+        "Gauss-Legendre collocation [2/2] Pade complete graph positivity threshold and Markov embedding",
+        "published-finding corpus record 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "published-finding corpus record 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "rationale": "The claim is the specialized sharp theta-method boundary, dimension three minimality for positive dense steps, and unconditional overimplicit embedding construction. General Markov logarithm criteria of Davies, Casanellas et al., and Baake et al. are cited as established results. Baake et al. also cover the sparse \\(\\theta=0\\) endpoint, which is expressly not separately claimed as new. Zappavigna et al. and the nearest published numerical positivity/variation results do not imply homogeneous embeddability. Exact statement/implication searches found no dominating primary theorem, subject to residual historical risk.",
+    "residual_risks": [
+      "Equivalent older specialized results in numerical semigroup, Markov embedding or birth–death interpolation literature may exist despite targeted searches.",
+      "The 2012 Padé/positive-systems PDF was inspected materially at its primary theorems but not read end-to-end across every appendix.",
+      "Theorem 3.16 of the 2025 reversible-embedding paper dominates the abstract log test; the claimed new content is the explicit theta-family rate-sign classification, not that criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general necessary and local uniqueness criteria; does not give the theta-method birth–death phase boundary.",
+        "evidence": [
+          "Lemma 2 states zero/simple negative eigenvalues obstruct embedding.",
+          "Corollary 10 explains uniqueness of generators under spectral conditions; the new simple-real-spectrum case is stronger and proved directly."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1001.1693v1",
+        "material_read": "Abstract, Introduction, Lemmas 1–2, Theorem 7, Corollary 10 and their nearby proofs in the HTML source.",
+        "method": "Read section text and compared the spectrum/logarithm requirements and general parameter scope.",
+        "title": "Embeddable Markov Matrices",
+        "trigger": "Classical necessary spectral restrictions and logarithmic embedding uniqueness"
+      },
+      {
+        "assessment": "Corollary 2.8 provides the abstract principal-logarithm test, not the explicit theta-method rate-sign classification.",
+        "evidence": [
+          "Corollary 2.8: simple real-spectrum Markov matrices with nonpositive eigenvalue are unembeddable; otherwise embedding requires the principal log to be a rate matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.00818v2",
+        "material_read": "Definitions and Corollary 2.8 and discussion of simple real spectrum in Sections 2–4.",
+        "method": "Read HTML primary sections and identified the specialized iff that is used, not treated as original.",
+        "title": "The embedding problem for Markov matrices",
+        "trigger": "Exact embedding criterion for positive real simple spectrum"
+      },
+      {
+        "assessment": "Covers general positive-spectrum reversible embeddings and sparse tridiagonal discrete-transition nonembedding; no theta-method sharp positive-dense-step threshold.",
+        "evidence": [
+          "Example 3.4 explicitly rules out embedding of a sparse irreducible tridiagonal transition matrix of dimension at least three.",
+          "Theorem 3.16 gives equivalence of positive-spectrum embeddability to principal-log generator status for reversible Markov matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.22800v1",
+        "material_read": "Abstract, Section 2 Fact 2.5, Example 3.4, Section 3.2 Fact 3.9, Section 3.3 Theorem 3.16 and adjacent arguments.",
+        "method": "Read HTML article at relevant original results and checked named methods for Crank–Nicolson, Padé, implicit and the theta-method.",
+        "title": "Embedding of reversible Markov matrices",
+        "trigger": "Most plausible stronger coverage for reversible birth–death rational steps"
+      },
+      {
+        "assessment": "Addresses positivity and stability, not equivalence to a homogeneous continuous-time Markov rate logarithm. Full end-to-end reading of every page not performed.",
+        "evidence": [
+          "The introduction states preservation of positivity and Lyapunov stability as the objectives.",
+          "Theorem 1 concerns co-positive stability and nonnegative rational factors, not matrix log off-diagonal rates."
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Full-text PDF opening abstract and introduction, Padé discussion and Theorem 1 around page 10; searched document for embedding terminology.",
+        "method": "Examined original PDF pages visually and extracted paper text around results on Padé map positivity and Lyapunov stability.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Padé rational discretization and positivity obstructions plausibly stronger than candidate"
+      },
+      {
+        "assessment": "Establishes positivity and mass conservation of a filtered composite; no homogeneous embedding criterion or parameter threshold.",
+        "evidence": [
+          "Its theorem is on C_sR_s=2R_s²−R_s and positivity of its convolution kernel."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Complete RESULT.md: theorem, proof, prior literature, and limitations.",
+        "method": "Compared operator families: filtered composite on lattice vs raw theta step and logarithm embedding.",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "Nearest published Crank–Nicolson positivity statement"
+      },
+      {
+        "assessment": "Finds minimal dimension 8 for loss of positivity under [2/2] Padé; no claim about theta-method embedding.",
+        "evidence": [
+          "Its main criterion is nonnegativity of the [2/2] Padé map for finite CTMC Q, not existence of a logarithmic rate generator."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Complete RESULT.md: two theorems, proof, context, computations and references.",
+        "method": "Compared fourth-order Padé entrywise positivity with first-order theta-method logarithmic embedding.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest published positivity-vs-Markov-generator distinction for rational integrators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d0e0be0-db6a-4388-a7de-daf46ffb6284",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated exact structural classification of when rational time-stepping matrices admit a time-homogeneous continuous-time Markov interpretation. It separates positivity, spectral stability and embeddability at a sharp numerical-method parameter 1/2, establishes a three-state minimal obstruction with strictly positive stochastic entries, and finds unconditional embedding for \\(\\theta\\ge1\\). The path-sign lemma and positive-resolvent integral are valid for arbitrary positive adjacent rates and dimensions and are not an arbitrary finite-table recomputation.",
+    "status": "PASS"
+  }
+}
