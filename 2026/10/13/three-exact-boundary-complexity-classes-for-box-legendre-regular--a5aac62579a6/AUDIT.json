@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each source box policy the optimizer is scalar and strictly monotone. Solving the exact first-order condition gives the finite-score endpoint floor and its inverse score requirement. Differentiating the same inverse map gives the exact Jacobian. Gaussian perturbation reduces to the normal tail by the one-dimensional linear oracle, and the asymptotic statements follow from the standard Mills ratio. The formulas agree with the source's unit-scale displayed maps after setting \\(\\tau=1\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berthet et al. prove differentiability and nonzero Jacobians for perturbed optimizers and identify a convex-dual regularizer, but do not state the box Gaussian-tail endpoint budget or the three-way comparison.",
+        "The toric-geometry paper compares log-barrier and entropy through central and entropic paths and algebraic structure, not through bounded latent-score approximation or a Gaussian perturbation benchmark.",
+        "Lin--Chen--Wang prove onto-interior smoothness and universal approximation, but their theorem permits unbounded latent scores."
+      ],
+      "reasoning": "The broader sources provide the individual constructions or general regularity theory. None of the inspected implications determines the exact latent-budget floors for all three canonical box maps or their asymptotic ordering.",
+      "searches": [
+        "arXiv:2002.08676 full text, Sections 2 and 3 on perturbed maximizers, smoothness, dual regularization, and derivatives",
+        "DOI:10.1016/j.jsc.2023.102221 article description comparing log-barrier and entropic regularization",
+        "arXiv:2607.24007v1 Sections 2.3--2.5 and box example"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.24007v1",
+      "arXiv:2002.08676",
+      "DOI:10.1016/j.jsc.2023.102221"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary theorem gives an explicit Jacobian and Lipschitz upper bound but no lower or asymptotic boundary conditioning law.",
+        "The source universal-approximation theorem moves a target into the relative interior and then invokes an inverse map; it does not bound the inverse latent magnitude as the interior margin vanishes.",
+        "Berthet et al. imply Gaussian perturbed-map smoothness but not the comparison with the source's explicit log and entropy maps."
+      ],
+      "reasoning": "The new claim is a sharp quantitative refinement of the source's box example and universality mechanism. It is not implied by a single published theorem without carrying out the inverse-map and tail calculations and comparing the three constructions.",
+      "searches": [
+        "arXiv:2607.24007v1 Theorem 1, Proposition 2, and the box formulas for LRP-Log, LRP-Ent, and LRP-Ptb",
+        "arXiv:2002.08676 Proposition 2.2 and Section 3",
+        "Web query: \"log barrier\" \"Gaussian perturbation\" \"entropy\" optimizer map box"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source search resolves to arXiv:2607.24007v1 and secondary reviews of its smoothness and universal-approximation statements, without a bounded-score boundary theorem.",
+        "The closest published-index result concerns approximate Mañé subactions in symbolic dynamics, not optimizer maps.",
+        "Other close index results concern proximal convexification and quadratically regularized transport, with different objects and no implication for the three box maps."
+      ],
+      "reasoning": "The natural equivalent formulations are endpoint approximation under a score budget, inverse score needed for an endpoint tolerance, and Jacobian decay as the optimizer approaches a box face. Searches covered all three phrasings and the three regularizer aliases.",
+      "searches": [
+        "Published-index query: Legendre regularized policy bounded latent score boundary approximation error log barrier entropy Gaussian perturbation Jacobian",
+        "Web query: \"Legendre-regularized policies\" boundary approximation latent score",
+        "Web query: \"perturbed optimizer\" Gaussian box Phi boundary Jacobian entropy log barrier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No source-specific published-index hit states the final formulas.",
+        "Own current and prior ledgers contain no row using arXiv:2607.24007 or an equivalent three-policy boundary-complexity claim."
+      ],
+      "reasoning": "This is an analytic classification rather than a database/table recomputation. Exact source and claim aliases were checked to exclude a stored equivalent result.",
+      "searches": [
+        "Published-index query: Smooth Learning with Hard Constraints Legendre-Regularized Policies optimizer map sharp boundary 2607.24007",
+        "Published-index query: 2607.24007 boundary conditioning latent score log barrier entropic Gaussian",
+        "Own-ledger search: arXiv:2607.24007 and boundary conditioning Legendre regularized policy"
+      ]
+    },
+    "rationale": "The primary source supplies the three maps and qualitative smoothness/surjectivity/universality but does not state a bounded-latent boundary approximation theorem or compare their boundary Jacobian decay. The closest perturbation paper proves general smoothing and derivative formulas; the closest log-versus-entropy paper studies central/entropic paths. Targeted source-specific and equivalence searches found no statement implying the exact three-way finite-budget hierarchy.",
+    "residual_risks": [
+      "The final formulas are elementary consequences of explicit scalar maps, so an equivalent comparison may exist in notes or implementation documentation under different terminology even though no indexed statement was found.",
+      "The toric-geometry comparison was inspected through the publisher article description rather than every page of the paper.",
+      "The hierarchy is exact for separable boxes and does not automatically extend to coupled polyhedral faces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING the canonical maps and qualitative regularity/universality; NOT COVERING the bounded-score endpoint floors or three boundary-complexity classes.",
+        "evidence": "The box example gives the unit-scale log, logistic, and Gaussian-CDF maps, while Theorem 1 and Proposition 2 state smoothness/surjectivity and universal approximation without the final quantitative boundary comparison.",
+        "identifier_or_url": "arXiv:2607.24007v1",
+        "material_read": "Full PDF sections defining log-barrier, entropy, and Gaussian-perturbation regularizers; Theorem 1 with optimizer representation, Jacobian, Lipschitzness and surjectivity; Proposition 2 on universal approximation; and the box formulas/figure. Relevant PDF pages were rendered and visually inspected.",
+        "method": "Public arXiv full-PDF text and page-image inspection.",
+        "title": "Smooth Learning with Hard Constraints via Legendre-Regularized Policies",
+        "trigger": "Primary recent source defining the three canonical box Legendre-regularized policies and the universal-approximation result."
+      },
+      {
+        "assessment": "COVERING general perturbation smoothness and derivative machinery; NOT COVERING the exact box endpoint budget or the log/entropy/Gaussian hierarchy.",
+        "evidence": "Proposition 2.2 gives differentiability, interiority, and smoothness scaling for perturbed optimizers, but no boundary-distance asymptotics for the scalar box comparison.",
+        "identifier_or_url": "arXiv:2002.08676",
+        "material_read": "Full arXiv HTML through the perturbed-maximizer definition, convex-dual representation, Proposition 2.2, temperature scaling, and the start of the derivative section.",
+        "method": "Public arXiv full-text inspection.",
+        "title": "Learning with Differentiable Perturbed Optimizers",
+        "trigger": "Closest primary framework for the Gaussian perturbed-optimizer branch."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_STATEMENT.",
+        "evidence": "It compares the two regularizers through central/entropic paths and algebraic complexity; the inspected material does not state bounded-score endpoint errors, Gaussian perturbation, or the Jacobian hierarchy.",
+        "identifier_or_url": "DOI:10.1016/j.jsc.2023.102221",
+        "material_read": "Published article description covering the log-barrier central path and entropic path, their interiority mechanisms, and algebraic-geometric comparison.",
+        "method": "Publisher article-page inspection.",
+        "title": "Toric geometry of entropic regularization",
+        "trigger": "Closest identified literature directly comparing log-barrier and entropic regularization on polytopes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5aac625-79a6-4b9c-90f8-621c9b71eb43",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's central promise combines hard feasibility, smooth gradients, and universal approximation, and its three canonical box policies are presented as alternatives within one framework. Boundary-valued policies are precisely where surjectivity only to the relative interior forces the latent inverse to diverge. The result quantifies that hidden cost sharply: the score budget needed for error \\(\\varepsilon\\) differs by polynomial, logarithmic, and square-root-logarithmic orders, while the usable gradient differs by corresponding orders. This is a natural design invariant of the source constructions rather than an arbitrary parameter slice, and it directly informs which smoothing mechanism remains trainable when desired decisions nearly saturate hard constraints.",
+    "status": "PASS"
+  }
+}
