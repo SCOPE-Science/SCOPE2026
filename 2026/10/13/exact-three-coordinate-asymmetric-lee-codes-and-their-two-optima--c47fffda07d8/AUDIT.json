@@ -1,0 +1,94 @@
+{
+  "correctness": {
+    "rationale": "Exact graph reduction from the stated local metric. Direct bit-pair Equation (1) and matrix construction agree on all 64 words. Independent exhaustive Bron--Kerbosch and C++ proper-coloring branch bounds prove maximum 19 and count 32; orbits are checked under all 384 transformations, with distinct spectra and exhaustive union.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1506.00740v5, Equation (1) and Tables I and V; https://arxiv.org/html/1506.00740v5",
+        "Gabrys--Kiah--Milenkovic, ITW 2015, author-hosted full text, Tables I-II; https://personal.ntu.edu.sg/hmkiah/docs/papers/ALD_ITW.pdf"
+      ],
+      "reasoning": "The full original treatment gives a lower bound 6 and an upper bound 30 at the present parameters, not a stronger exact theorem. Its long-block constructions and LP bounds do not imply the value 19 or classify optimizers.",
+      "searches": [
+        "\"Gabrys\" \"Kiah\" \"Milenkovic\" \"exact\" \"asymmetric Lee\" code",
+        "\"asymmetric Lee distance\" \"small\" \"optimal\" \"2019\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1506.00740v5, Equation (1) and Tables I and V; https://arxiv.org/html/1506.00740v5",
+      "Gabrys--Kiah--Milenkovic, ITW 2015, author-hosted full text, Tables I-II; https://personal.ntu.edu.sg/hmkiah/docs/papers/ALD_ITW.pdf",
+      "2015-06-02 first arXiv v1 submission on https://arxiv.org/abs/1506.00740"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1506.00740v5, Equation (1) and Tables I and V; https://arxiv.org/html/1506.00740v5",
+        "Gabrys--Kiah--Milenkovic, ITW 2015, author-hosted full text, Tables I-II; https://personal.ntu.edu.sg/hmkiah/docs/papers/ALD_ITW.pdf",
+        "The asserted result gives an exact value, 32 labeled maxima and two orbits, none implied by the prior inequalities \\(6\\le A_1(3,3)\\le30\\)."
+      ],
+      "reasoning": "Prior work defines the metric and establishes non-sharp bounds and constructions. The new finite proof is required to determine both the sharp value and all equality cases; the new statement is neither a special case of a published equality classification nor an immediate numerical corollary of the cited bounds.",
+      "searches": [
+        "asymmetric Lee distance codes exact short lengths 3 4 2015",
+        "\"Gabrys\" \"Kiah\" \"Milenkovic\" \"exact\" \"asymmetric Lee\" code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1506.00740v5, Equation (1) and Tables I and V; https://arxiv.org/html/1506.00740v5",
+        "The distinct 01-to-10 and 00-to-11 transition costs are 1 and 4 at lambda=1; standard Lee treats opposite symbols uniformly."
+      ],
+      "reasoning": "The equivalent bit-pair and quaternary encodings were reconciled directly using Equation (1). A standard Lee-code table cannot silently imply this ALD equality census because the metrics differ. No exact equivalent under channel or encoding aliases was found.",
+      "searches": [
+        "\"asymmetric Lee distance\" \"length three\" cardinality",
+        "ALD metric optimal codes cardinality 19 length three"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1506.00740v5, Equation (1) and Tables I and V; https://arxiv.org/html/1506.00740v5",
+        "Table V of the expanded primary version explicitly leaves the length-three distance-three row as 6--30; the ITW numerical tables concern different distance or bounding schemes."
+      ],
+      "reasoning": "The relevant reported table is a bound interval, not an exact database entry. Targeted exact-value and orbit-count searches did not locate a covering table. Non-discovery alone is not proof of uniqueness.",
+      "searches": [
+        "\"asymmetric Lee distance\" \"19\" \"32\" codebook",
+        "\"asymmetric Lee\" \"19\" \"n=3\" code"
+      ]
+    },
+    "rationale": "The original accessible paper gives only 6--30 at these precise parameters, and the companion ITW full text supplies bounds and constructions rather than a census. Search aliases and exact values found no implication-equivalent result; unknown unindexed literature remains a risk.",
+    "residual_risks": [
+      "A historical, unindexed or unpublished exact computation might coincide with the 19-word maximum or orbit census.",
+      "The order-384 group is explicitly specified; no assertion that it comprises the full metric isometry group."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact value 19 or 32-case orbit classification",
+        "evidence": "Table V lists 6--30 for \\(n=3\\), \\(d=3\\), \\(\\lambda=1\\); equation (1) gives the exact local cost matrix.",
+        "identifier_or_url": "https://arxiv.org/html/1506.00740v5",
+        "material_read": "Definition and comparison to Lee metric (Section II), hypergraph bounds and Tables I-II (Section III), Delsarte bounds (Section IV), constructions (Sections V-VI), and Table V containing n=3,d=3.",
+        "method": "Read lawful arXiv full-text HTML and inspected the numerical bounds and construction statements.",
+        "title": "Asymmetric Lee Distance Codes for DNA-Based Storage",
+        "trigger": "Defining source for ALD and possible exact short-code tables"
+      },
+      {
+        "assessment": "NOT_COVERING length-three distance-three optimum or equality types",
+        "evidence": "The numerical tables give different non-sharp bounds at small parameters and no 19-word exact code census.",
+        "identifier_or_url": "https://personal.ntu.edu.sg/hmkiah/docs/papers/ALD_ITW.pdf",
+        "material_read": "All five PDF pages, including definition, the two numerical tables, complete LP-development sections, and the nonlinear-code constructions.",
+        "method": "Inspected full author-hosted open PDF and its relevant tables and statements.",
+        "title": "Asymmetric Lee Distance Codes: New Bounds and Constructions",
+        "trigger": "Companion original primary paper that might contain a stronger construction or table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c47fffda-07d8-4afa-bc7c-0a940b7b78af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closes the original 6-to-30 short-code uncertainty with an exact optimum and complete geometry of equality cases. This is a natural short-code finite benchmark for the channel metric and shows two genuinely different optimal distance spectra. It is not presented as a length-asymptotic improvement.",
+    "status": "PASS"
+  }
+}
