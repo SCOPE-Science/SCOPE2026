@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The diagonal problem decouples into scalar modes. With the classical optimal parameters, each normalized scalar error obeys a constant-coefficient recurrence with characteristic radius q and admits the exact Chebyshev representation e_k=-q^k(U_k(t)-q U_{k-1}(t)). The elementary bound |U_k(t)|<=k+1 yields |e_k|<=1 for all k>=2 when q<=1/2; x_1 is nonnegative directly. At the L-mode the exact second-iterate ratio is (1+q)^2(1-2q), so q=1/2, equivalently kappa=9, is necessary and sufficient. The embedded exact-rational verifier reproduces the boundary and strict-failure witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghadimi--Feyzmahdavian--Johansson explicitly give the heavy-ball recurrence and summarize the optimal quadratic convergence factor, while their theorems concern convergence and rates.",
+        "Lessard--Recht--Packard analyze heavy-ball stability via integral quadratic constraints and construct a nonquadratic strongly convex failure example; the observable is convergence/stability rather than positive-orthant invariance.",
+        "Danilova--Malinovskiy explicitly motivate averaging by nonmonotone peak behavior of optimally tuned heavy-ball.",
+        "Orvieto develops quadratic heavy-ball Lyapunov/oscillator structure and transient energy oscillation analysis; the inspected full-text sections do not state a componentwise positivity threshold."
+      ],
+      "reasoning": "These sources cover stronger classes in some rate or stability senses, but those conclusions do not dominate a coordinatewise cone-invariance property. A method can converge while crossing the positive orthant, so convergence theorems do not imply the new claim.",
+      "searches": [
+        "Global convergence of the Heavy-ball method for convex optimization full text optimal parameters",
+        "Analysis and Design of Optimization Algorithms via Integral Quadratic Constraints heavy-ball",
+        "Averaged Heavy-Ball Method peak effect quadratic",
+        "An accelerated Lyapunov function for Polyak's Heavy-ball on convex quadratics"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1412.7457",
+      "optimization-online:4707",
+      "arXiv:1408.3595",
+      "doi:10.1137/15M1009597",
+      "arXiv:2111.05430",
+      "doi:10.20537/2076-7633-2022-14-2-277-308",
+      "doi:10.1007/s11590-024-02119-8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 global-convergence paper gives the same method and optimal rate parameter but does not state coordinatewise positivity or a kappa=9 boundary.",
+        "The IQC paper's heavy-ball statements are about stability certification and failure on a nonquadratic strongly convex function; they neither assume diagonal positive data nor conclude orthant invariance.",
+        "The peak-effect literature establishes motivation for transient analysis but does not supply the new iff cone criterion in the material inspected."
+      ],
+      "reasoning": "The prior results do not imply the claim because norm/rate stability and componentwise positivity are logically distinct. The new theorem requires a sign-sensitive Chebyshev bound and a sharp second-iterate endpoint witness.",
+      "searches": [
+        "arXiv:1412.7457 heavy-ball recurrence and optimal quadratic tuning",
+        "arXiv:1408.3595 heavy-ball stability counterexample and IQC analysis",
+        "arXiv:2111.05430 peak effect",
+        "Optimization Letters 2025 Polyak heavy-ball convex quadratics Lyapunov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned record stated the iff condition kappa<=9 for componentwise nonnegativity of every optimally tuned heavy-ball iterate on positive diagonal quadratics.",
+        "The closest heavy-ball semantic record was the uniform real-root acceleration barrier, which concerns characteristic-root reality and interval-robust rates rather than coordinate signs.",
+        "A separate Polyak objective-monotonicity record concerns objective values for a different step construction and does not imply coordinatewise positivity."
+      ],
+      "reasoning": "Aliases involving positivity, orthant invariance, sign change, momentum, optimal tuning, and Chebyshev modal formulas were searched. The closest records concern different observables, so they are not implication-equivalent.",
+      "searches": [
+        "Polyak heavy ball positivity diagonal quadratic nonnegative iterates condition number nine",
+        "optimal heavy-ball nonnegative iterates positive orthant quadratic Chebyshev U polynomial",
+        "heavy-ball second iterate sign change diagonal quadratic condition number 9",
+        "momentum method positivity invariant orthant diagonal strongly convex quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry giving a condition-number-nine positivity frontier was located.",
+        "The theorem is a symbolic all-iteration classification, not a recomputation of a published numerical table."
+      ],
+      "reasoning": "The exact threshold follows from the modal recurrence and Chebyshev bound; no database/table source was found that already records it.",
+      "searches": [
+        "heavy ball condition number 9 positivity",
+        "heavy-ball positive orthant invariant quadratic",
+        "momentum nonnegative iterates diagonal quadratic"
+      ]
+    },
+    "rationale": "The inspected primary literature establishes the heavy-ball recurrence, classical optimal quadratic tuning, stability/rate analyses, and transient oscillation or peak effects, but not a componentwise all-iterate cone-invariance theorem with the sharp diagonal threshold kappa=9. Targeted semantic searches found nearby heavy-ball rate/root and objective-monotonicity results whose statements do not imply orthant invariance.",
+    "residual_risks": [
+      "The Averaged Heavy-Ball journal PDF was not fully readable in this run; only its abstract and landing-page material were inspected, so it remains a limited-access risk rather than evidence of noncoverage.",
+      "Older momentum, stationary two-step iteration, or neural-network learning-rule literature may encode the same sign criterion under terminology not recovered by the targeted searches.",
+      "The Chebyshev modal formula is elementary enough that a stronger published transient theorem might imply the kappa=9 boundary without using positivity terminology; no such implication was found in the inspected primary sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes convergence/rate results and the classical tuning context but does not state an all-iterate componentwise positivity theorem for diagonal quadratics.",
+        "evidence": "The paper states x_{k+1}=x_k-alpha grad f(x_k)+beta(x_k-x_{k-1}) and identifies Polyak's optimal quadratic convergence factor (sqrt(L)-sqrt(mu))/(sqrt(L)+sqrt(mu)); its conclusions concern convergence factors and global convergence.",
+        "identifier_or_url": "arXiv:1412.7457 / Optimization Online 4707",
+        "material_read": "Full PDF introduction and background, including the heavy-ball recurrence, the optimal quadratic convergence factor discussion, the strong-convexity analysis, and the later counterexample discussion; rendered PDF pages containing the method definition were inspected.",
+        "method": "Full-text PDF inspection with page rendering.",
+        "title": "Global convergence of the Heavy-ball method for convex optimization",
+        "trigger": "Direct archive-era source defining heavy-ball, quoting Polyak's optimal quadratic rate, and carrying an allowed primary MSC classification."
+      },
+      {
+        "assessment": "NOT_COVERING: studies rate/stability certification and nonquadratic failure, not coordinatewise positivity on diagonal quadratic trajectories.",
+        "evidence": "The paper explains that its IQC system fails to certify heavy-ball beyond certain condition ratios and constructs a one-dimensional strongly convex nonquadratic failure example; this is a different object and observable.",
+        "identifier_or_url": "arXiv:1408.3595 / doi:10.1137/15M1009597",
+        "material_read": "Full PDF introduction and heavy-ball discussion, including the condition-ratio stability-certification discussion and the stated nonquadratic failure example; a rendered PDF page of the relevant introduction was inspected.",
+        "method": "Full-text PDF inspection with page rendering.",
+        "title": "Analysis and Design of Optimization Algorithms via Integral Quadratic Constraints",
+        "trigger": "Potential broader heavy-ball stability analysis and a plausible source of a dominating quadratic statement."
+      },
+      {
+        "assessment": "MOTIVATING_ONLY: confirms that optimally tuned heavy-ball has nonmonotone peak behavior, but incomplete full-text access leaves residual risk about finer sign statements.",
+        "evidence": "The abstract explicitly says that optimally tuned heavy-ball suffers from a peak effect and motivates averaging to reduce maximal deviation.",
+        "identifier_or_url": "arXiv:2111.05430 / doi:10.20537/2076-7633-2022-14-2-277-308",
+        "material_read": "Abstract and journal landing-page description were read; the journal PDF fetch timed out, so no whole-document noncoverage claim is based on this source.",
+        "method": "ArXiv abstract and journal abstract inspection.",
+        "title": "Averaged Heavy-Ball Method",
+        "trigger": "Highly relevant transient-behavior source because its motivation is the peak effect of optimally tuned heavy-ball."
+      },
+      {
+        "assessment": "NOT_COVERING: analyzes quadratic Lyapunov structure and oscillations but does not state the componentwise positivity frontier in the inspected text.",
+        "evidence": "The paper develops positive-semidefinite Lyapunov matrices and discusses energy oscillations; searching the full text produced no Chebyshev or positive-orthant trajectory theorem.",
+        "identifier_or_url": "doi:10.1007/s11590-024-02119-8",
+        "material_read": "Open full-text HTML sections on quadratic heavy-ball, discrete Lyapunov equations, oscillations, and the quadratic convergence analysis.",
+        "method": "Full-text HTML inspection.",
+        "title": "An accelerated Lyapunov function for Polyak's Heavy-ball on convex quadratics",
+        "trigger": "Recent full-text quadratic heavy-ball analysis that could contain a stronger exact modal result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65172700-34e2-48d4-90a9-a7473c7e9d75",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonnegative orthant is a natural feasibility cone for positive parameter vectors and rates. The theorem gives a complete whole-trajectory answer for the canonical optimally tuned momentum method on the simplest separable strongly convex family: the feasibility boundary is exactly kappa=9, and failure above it occurs immediately at the second iterate. This distinguishes asymptotic acceleration from sign-safe transient behavior and supplies a sharp criterion rather than a generic overshoot example.",
+    "status": "PASS"
+  }
+}
