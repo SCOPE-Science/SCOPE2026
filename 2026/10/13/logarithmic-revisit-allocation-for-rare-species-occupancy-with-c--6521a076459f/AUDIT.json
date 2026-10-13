@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "PASS: Under 0<f<p<1 the exact finite-history mixture likelihood has I_k=(1-R_k)/[psi(1-psi)], with 0<I_k<=1/[psi(1-psi)]. Above the KL threshold a law of large numbers makes R_k vanish. Uniformly below (1-epsilon) log(1/psi)/d, the explicit positive fractional moment of P_k/Q_k bounds 1-R_k by exp(-c log(1/psi)); at all k above (1+epsilon) log(1/psi)/d the complete-data information bound forces loss versus a near-threshold construction. The comparison proves all maximizing k have the unique normalized asymptotic and establishes the sharp maximal-information coefficient. For f=0, any-detection is Bernoulli(psi a_k), yielding I_k=a_k/[psi(1-psi a_k)] and, by strict concavity, unique k=1 at the displayed explicit threshold. A clean stdlib script independently tested 72 exact rational identity cases and 84 f=0 cases, plus four finite diagnostics. It does not substitute computation for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "MacKenzie and Royle (2005), https://doi.org/10.1111/j.1365-2664.2005.01098.x, introduction/allocation and standard-design results: optimum surveys from a Fisher information matrix in the false-positive-free regime, typically with detection probability unknown.",
+        "Clement (2016), https://doi.org/10.1111/2041-210X.12617, main text introduction/methods/Table 1/discussion: numerical tables with p,f among nuisance parameters and additional classification variables.",
+        "published-finding corpus 2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff: signed rare-event Bernoulli total-variation expansion, not per-cost rare-mixture Fisher information."
+      ],
+      "reasoning": "General Chernoff/Stein evidence scaling suggests the log(1/psi)/KL scale, but a statement about testing sample complexity does not by itself assert the maximum of occupancy-fraction Fisher information divided by visit count, the normalized optimum constant, or the f=0 unique one-visit boundary. The relevant published occupancy papers do not supply a dominating analytic result under the exact calibrated-known and homogeneous-allocation assumptions. Residual risk from specialized experimental design theory is recorded.",
+      "searches": [
+        "Rare mixture proportion estimation with repeated Bernoulli tests, optimal group size Fisher information asymptotic sample log inverse prevalence Kullback-Leibler",
+        "Binary mixture proportion efficient experimental design near boundary repeated independent Bernoulli observations, zero contamination versus positive contamination logarithmic optimal block length",
+        "general information-theoretic likelihood ratio Chernoff sequential testing block size Fisher information contamination rare mixture",
+        "MacKenzie and Royle 2005 standard design Fisher information optimal repeat surveys"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/2041-210X.12617",
+      "https://www.uvm.edu/~tdonovan/Occupancy%20Exercises/Exercise12/Royle_Link_2006.pdf",
+      "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+      "2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b",
+      "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+      "2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Royle and Link (2006), https://www.uvm.edu/~tdonovan/Occupancy%20Exercises/Exercise12/Royle_Link_2006.pdf, pp. 835-839 including Eq. (1): supplies P/Q likelihood but does not analyze optimal allocation k as psi approaches zero.",
+        "MacKenzie and Royle (2005), https://doi.org/10.1111/j.1365-2664.2005.01098.x, introduction/allocation and standard-design results: false-positive-free unknown detection parameter, thus different Fisher efficient information and visits constraint.",
+        "Clement (2016), https://doi.org/10.1111/2041-210X.12617, main text introduction/methods/Table 1/discussion: case b=0 models false positives but estimates nuisance p10,p11 and considers finite grid psi=0.2,0.5,0.8.",
+        "published-finding corpus 2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b and 2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff: claims about identifiability and rare Bernoulli total variation."
+      ],
+      "reasoning": "The new formulas are not logical corollaries of the retrieved papers as stated, although their basic likelihood is standard. In particular, when detection rates are estimated, the Schur complement of nuisance Fisher information changes the objective; the new asymptotic applies only to externally known p,f. It neither claims the original mixture nor classical allocation advice as novel. Searches cannot establish absolute priority.",
+      "searches": [
+        "Ecological survey design rare species false positive occupancy probability optimal temporal replications logarithmic in rarity",
+        "Royle Link false positive two-binomial mixture Fisher information rare occupancy replicate count optimizing sites visits",
+        "Binary mixture proportion efficient experimental design near boundary repeated independent Bernoulli observations, zero contamination versus positive contamination logarithmic optimal block length",
+        "Royle and Link (2006), https://www.uvm.edu/~tdonovan/Occupancy%20Exercises/Exercise12/Royle_Link_2006.pdf, pp. 835-839 including Eq. (1) Eq. (1)",
+        "MacKenzie and Royle (2005), https://doi.org/10.1111/j.1365-2664.2005.01098.x, introduction/allocation and standard-design results standard design",
+        "Clement (2016), https://doi.org/10.1111/2041-210X.12617, main text introduction/methods/Table 1/discussion Table 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Royle and Link (2006), https://www.uvm.edu/~tdonovan/Occupancy%20Exercises/Exercise12/Royle_Link_2006.pdf, pp. 835-839 including Eq. (1): the original finite binomial-mixture likelihood for unknown occupancy and detection parameters.",
+        "Clement (2016), https://doi.org/10.1111/2041-210X.12617, main text introduction/methods/Table 1/discussion: b=0 case is explicitly Royle-Link, numerical site-visit optimization only at occupancy levels 0.2, 0.5, 0.8.",
+        "published-finding corpus 2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b: identification of a nonparametric closed N-mixture via two visits, not a calibrated detection repeated-design efficiency theorem."
+      ],
+      "reasoning": "The finite site likelihood is intentionally equivalent to a *known* special case of the published Royle-Link mixture, but the new mathematical claim is a sharp singular-limit optimization over all integer repeat allocations with an exact Bernoulli-KL coefficient. The primary articles do not state the corresponding two asymptotic formulas or the f=0 discontinuity; the database result concerns identification, not this constrained optimization. The model alone does not automatically imply the optimization limit without the three-regime argument.",
+      "searches": [
+        "Optimal number of repeat visits per site for rare species occupancy estimation with false-positive detections under fixed observation budget, Fisher information, logarithmic rarity law",
+        "Calibrated false positive and true positive detection probabilities two binomial site occupancy mixture; sharp optimal number of repeat surveys per site grows like log(1/prevalence) / Bernoulli KL divergence",
+        "Rare occupancy Bernoulli false-positive positive fixed calibration information optimal replicate number asymptotic KL divergence logarithm prevalence per-cost Fisher information",
+        "2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b",
+        "\"optimal surveys\" \"false positive\" \"known\" \"rare occupancy\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Clement (2016), https://doi.org/10.1111/2041-210X.12617, main text introduction/methods/Table 1/discussion: its Table 1 examines finite psi=0.2,0.5,0.8 and discrete p,f settings; no psi down to zero, no KL coefficient.",
+        "published-finding corpus 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac: exact missing-mass covariance for successive species discoveries, not a visit-budget Fisher optimum."
+      ],
+      "reasoning": "Finite tabulations cannot supply the limiting k/log(1/psi) nor psi log(1/psi) Jmax for all fixed 0<f<p<1, and their nuisance-parameter information criterion differs. No table in the inspected sources asserts this exact boundary result. A nonlocated specialized exact table or general theorem remains possible.",
+      "searches": [
+        "Optimal number of repeat visits per site for rare species occupancy estimation with false-positive detections under fixed observation budget, Fisher information, logarithmic rarity law",
+        "Survey budget Fisher information per repeated detection test optimal replication rare species no false positives threshold discontinuity",
+        "Clement (2016), https://doi.org/10.1111/2041-210X.12617, main text introduction/methods/Table 1/discussion Table 1",
+        "2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+      ]
+    },
+    "rationale": "PASS with residual risk: Original ecological mixture (Royle-Link 2006), standard occupancy allocation (MacKenzie-Royle 2005), and a closely matched numerical false-positive design paper (Clement 2016; first online 2016-07-18) were materially inspected. None gives or implies the calibrated-positive-false-positive rare-occupancy optimal-revisit KL coefficient and information limit with the singular exactly-zero-false-positive contrast; models with nuisance detection estimated have different Fisher objectives. Publicly accessible related mathematical research reports concern N-mixture identifiability, species discovery, or distinct Bernoulli divergence questions, and do not establish the stated constrained optimum. General optimal binary-mixture block-design theory may still cover this result and priority is not independently certified.",
+    "residual_risks": [
+      "Unlocated specialized optimal binary-mixture information-per-cost literature could state an equivalent logarithmic threshold or stronger result.",
+      "Clement (2016) is closely related but assumes jointly estimated nuisance detection rates; findings must not be extrapolated to unknown rates.",
+      "Semantic searches cannot prove global novelty, and independent human/third-party audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_MODEL_NOT_ASYMPTOTIC_DESIGN_OPTIMUM",
+        "evidence": [
+          "Eq. (1) identifies the two-binomial mixture with unknown occupancy and detection rates.",
+          "Likelihood based inference and Fisher information matrix mentioned, but rare-psi KL-optimal per-visit allocation not stated in inspected parts."
+        ],
+        "identifier_or_url": "https://www.uvm.edu/~tdonovan/Occupancy%20Exercises/Exercise12/Royle_Link_2006.pdf",
+        "material_read": "Article abstract, model/misclassification and finite-mixture sections, likelihood Eq. (1), simulation discussion, pp. 835-839.",
+        "method": "Direct open-access PDF text and rendered page inspection",
+        "title": "Generalized site occupancy models allowing for false positive and false negative errors",
+        "trigger": "Exact underlying two-Bernoulli ecological-mixture likelihood and possible direct coverage"
+      },
+      {
+        "assessment": "NO_IDENTICAL_FALSE_POSITIVE_CALIBRATED_RARE_LIMIT",
+        "evidence": [
+          "Standard framework presumes absent false positives.",
+          "Detection probability is generally estimated jointly and classical optimal repeats typically increase with occupancy."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+        "material_read": "Accessible complete main-text introduction and allocation-of-survey-effort sections, including standard design and conclusions.",
+        "method": "Public article HTML inspection",
+        "title": "Designing occupancy studies: general advice and allocating survey effort",
+        "trigger": "Established occupancy survey effort optimization and possible stronger generality"
+      },
+      {
+        "assessment": "CLOSE_RELATED_NOT_DIRECT_COVERAGE",
+        "evidence": [
+          "First online 18 July 2016 shown by publisher.",
+          "Table 1 at p11=0.2,0.4,0.6,0.8 and p10=0.01,0.05,0.10 with psi=0.2,0.5,0.8.",
+          "The design estimates detection nuisance parameters; it does not take psi to zero with p11,p10 externally known or prove the KL scale."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/2041-210X.12617",
+        "material_read": "Full accessible main article HTML, including abstract, methods, parameter grids, Tables 1-4, results and discussion.",
+        "method": "Publisher lawful open HTML full-text inspection",
+        "title": "Designing occupancy studies when false-positive detections occur",
+        "trigger": "Most closely matched title: numerical optimal repeat allocation with false-positive observations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6521a076-459f-41bf-8cc8-23a89f504de4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: Rare species with imperfect species-identification face a genuine field-design question: how to divide a unit-cost visit budget between repeated checks on a site and sampling additional sites. The result gives a sharp parameter-sensitive, non-trivial optimal scaling with the Bernoulli relative-entropy constant and exhibits a discontinuous qualitative design change at zero false-positive probability. It distinguishes two biological error mechanisms and clarifies when the conventional survey-more-sites advice does not extrapolate to rare species. It is a theorem for homogeneous known-detection Fisher-optimal design only, not an empirical general conservation recommendation.",
+    "status": "PASS"
+  }
+}
