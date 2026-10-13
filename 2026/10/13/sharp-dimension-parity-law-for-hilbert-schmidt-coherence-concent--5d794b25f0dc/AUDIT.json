@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every d>=2, MIO implies each equatorial qubit Pauli observable has a Hermitian traceless-contraction Heisenberg preimage. The polytope extreme-point proof establishes Tr H^2<=2 floor(d/2), including parity and equality vertices. HS duality gives the global upper bound without postselection. Explicit pair-combining SIO Kraus matrices are CPTP, preserve diagonals, and saturate on rho=I/d+epsilon Z for every 0<epsilon<1/d. Its input eigenvalues are strictly positive and the coherence norm ratio is exactly sqrt(floor(d/2)). Reconstructed formulas and successfully executed standalone verifier corroborate the algebra in dimensions 2..12; finite checks are not used as the all-d proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chitambar–Gour, arXiv:1602.06969, presents the MIO/SIO operation hierarchy; this supplies context but not the dimension-sharp d-to-qubit spectral-contraction estimate.",
+        "Song–Tao, doi:10.1007/s10773-019-04371-6, abstract and first-page preview concern l2 coherence and nonmonotonicity. Complete text unavailable to inspect.",
+        "The proved upper bound exploits an arbitrary traceless Hermitian contraction in the Heisenberg image, so it includes every MIO and all SIO channels into a qubit."
+      ],
+      "reasoning": "A general prior statement giving the exact MIO d-to-qubit induced off-diagonal HS norm would dominate the present result even without parity wording; relevant source material inspected did not supply one. Because the later directly related paper could not be read fully, equivalence is not excluded. This residual risk is explicitly retained.",
+      "searches": [
+        "maximally incoherent operations Schatten norm coherence channel dimension concentration optimal constant",
+        "arXiv:1602.06969 incoherent operation classes",
+        "\"Notes on l2 Norm of Coherence\" Song Tao 2020 abstract preview",
+        "Schatten 2 off diagonal coherence MIO qubit output trace zero bounded observable"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1508.03240, complete primary text",
+      "arXiv:1511.01854, complete primary text",
+      "arXiv:1602.06969, abstract/source context",
+      "doi:10.1007/s10773-019-04371-6, abstract/first-page preview",
+      "Targeted terminology and implication searches for MIO, SIO, Hilbert–Schmidt coherence, ancilla erasure, and qubit-output operator norms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1508.03240 motivates C2 but leaves validity open; it has no global optimal concentration constant.",
+        "arXiv:1511.01854 disproves monotonicity and yields lower-bound examples via mixed-ancilla erasure. For d=2m, such an example forces any universal upper bound to be at least sqrt(m), but it does not give the universal upper nor the odd-dimensional capacity.",
+        "The exact MIO upper bound follows here instead from a zero-diagonal Heisenberg contraction and the maximal trace-zero spectral squared norm."
+      ],
+      "reasoning": "The known lower-bound mechanism is explicitly subsumed and credited; the proposed theorem adds the converse inequality and equality characterization of the supremum across all channels, including odd dimensions. A general theorem not seen in the inspected text might imply this specialization and remains a priority risk.",
+      "searches": [
+        "arXiv:1508.03240 Hilbert-Schmidt coherence monotonicity",
+        "arXiv:1511.01854 Proposition 9 mixed maximally mixed ancilla discard",
+        "\"Notes on l2 Norm of Coherence\" DOI 10.1007/s10773-019-04371-6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rana–Parashar–Lewenstein, arXiv:1511.01854, Sec. IV Proposition 9 (full text): Schatten/entrywise norm coherence does not obey general incoherent-operation monotonicity; mixed-ancilla erasure yields a lower-bound amplification mechanism.",
+        "Cheng–Hall, arXiv:1508.03240 Sec. II C (full text): motivates the Hilbert–Schmidt norm as a candidate monotone, not a sharp qubit-output concentration operator norm."
+      ],
+      "reasoning": "Equivalent language includes squared l2 coherence, HS off-diagonal norm, norm contractivity, mixed-ancilla erasure, and coherence concentration. The existing erasure constructions imply a factor sqrt(m) for even input dimensions but do not alone bound every MIO or determine the exact odd-dimensional case. No matching equivalence was identified in the searched available sources; failure to find one is not an independence guarantee.",
+      "searches": [
+        "\"l2 norm coherence\" \"amplification\" \"incoherent operation\"",
+        "\"Hilbert-Schmidt coherence\" \"maximum increase\" \"incoherent\"",
+        "Hilbert Schmidt coherence exact amplification dimension qubit output",
+        "coherence concentration optimal worst case Hilbert Schmidt off diagonal norm maximally incoherent quantum channel to single qubit parity floor input dimension sharp",
+        "arXiv:1511.01854 Proposition 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-literature search hits concerned numerical linear algebra row coherence and Hilbert-space constants rather than quantum resource-theoretic norm concentration.",
+        "The quantification is an all-dimension sharp operator bound, not an enumeration or known numerical table."
+      ],
+      "reasoning": "No exact database or numeric table was found containing the d-dependent operator norm; absence from indexed results alone does not establish novelty. A comparatively high-ranked search hit about numerical matrix-row statistics concerns a different notion of coherence and neither implies nor contradicts this theorem.",
+      "searches": [
+        "l2 norm coherence fails monotonicity sharp ratio strictly incoherent operations pair merging dimension",
+        "sharp dimension dependent maximal amplification Hilbert-Schmidt l2 coherence under maximally incoherent operations from d dimensions to qubit sqrt floor d/2",
+        "coherence concentration optimal worst case Hilbert Schmidt off diagonal norm maximally incoherent quantum channel to single qubit parity floor input dimension sharp"
+      ]
+    },
+    "rationale": "The published 2015 counterexample establishes failure of Hilbert–Schmidt coherence monotonicity and, by discarding mixed ancillas, already provides the even-dimensional construction. The new claim is not that example: it proves the exact optimal amplification ratio for every MIO channel with qubit output, establishes dimension-parity dependence including the dimension-three boundary, and gives full-rank SIO optimizers. This statement was compared against relevant complete primary sources and targeted equivalent-formulation searches. An inaccessible 2020 coherence article remains a nontrivial priority risk, but its available abstract/first page does not supply a covering theorem.",
+    "residual_risks": [
+      "The complete 2020 Song–Tao article remained inaccessible; its title closely matches the functional and could hide an equivalent global bound.",
+      "A broader quantum-channel norm or coherence-amplification theorem under different terminology could subsume the sharp estimate.",
+      "No exhaustive priority claim about unpublished research or unindexed publications is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATION_NOT_COVERING",
+        "evidence": [
+          "Sec. II C motivates the off-diagonal HS quantity; no all-MIO d-to-qubit sharp induced-norm upper bound was located."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.03240",
+        "material_read": "Full arXiv article; definition and Sec. II C discussion of l2 coherence and proposed behavior",
+        "method": "Direct reading of the lawful arXiv full text",
+        "title": "Complementarity relations for quantum coherence",
+        "trigger": "Earliest motivating proposal of the Hilbert–Schmidt coherence measure"
+      },
+      {
+        "assessment": "KNOWN_LOWER_BOUND_NOT_GLOBAL_OPTIMALITY",
+        "evidence": [
+          "Sec. IV and Proposition 9 disprove norm coherence monotonicity; mixed-ancilla erasure implies the even-dimensional amplification witness, but no all-MIO qubit-output upper bound was located."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.01854",
+        "material_read": "Full arXiv article including Sec. IV Proposition 9 and the discussion of Schatten norm coherence",
+        "method": "Direct reading of the lawful arXiv full text",
+        "title": "Trace-distance measure of coherence",
+        "trigger": "Most relevant known nonmonotonicity and ancilla-erasure construction"
+      },
+      {
+        "assessment": "CONTEXT_ONLY_INCOMPLETE",
+        "evidence": [
+          "Defines and compares physical incoherent-operation classes; no directly displayed spectral parity constant in the examined material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.06969",
+        "material_read": "Accessible abstract and bibliographic description of the operation hierarchy; not the complete derivations",
+        "method": "Open-access source and contextual search",
+        "title": "Critical Examination of Incoherent Operations and a Physically Consistent Resource Theory of Quantum Coherence",
+        "trigger": "MIO and SIO operation classes potentially giving stronger coverage"
+      },
+      {
+        "assessment": "UNCERTAIN_PRIORITY_RISK",
+        "evidence": [
+          "Accessible summary concerns behavior and nonmonotonicity of l2 coherence. It does not display the exact present bound, but this is not a whole-document exclusion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10773-019-04371-6",
+        "material_read": "Abstract and first-page publisher preview only; full primary text not accessible",
+        "method": "Publisher preview; separate open-access and arXiv full-text attempts failed",
+        "title": "Notes on l2 Norm of Coherence",
+        "trigger": "Highly relevant title directly concerning the same coherence functional"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d794b25-f0dc-47b0-85cf-a458a762512e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Hilbert–Schmidt off-diagonal norm is a natural but known-nonmonotone coherence statistic. An exact worst-case amplification invariant over all d-to-qubit MIO has an independent operational role in quantifying how badly it fails to be monotone. The dimension-three no-amplification boundary, unbounded sqrt(d) growth, and full-rank SIO attainment distinguish the complete classification from known easy counterexamples or a normalization exercise. It claims no higher-output result or quantum advantage from the invalid monotone.",
+    "status": "PASS"
+  }
+}
