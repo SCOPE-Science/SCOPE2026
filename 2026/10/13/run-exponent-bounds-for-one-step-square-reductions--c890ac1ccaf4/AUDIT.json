@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For a fixed root length p, equality of two shortened outputs is equivalent to equality W_t=W_{t+p} at every intervening position, so distinct outputs are exactly maximal match intervals of length at least p. Each interval gives a maximal p-periodic factor of length at least 2p. Fine--Wilf forces its minimum period d to divide p, and maximality then holds also for d, so the factor is a standard run. A run R can receive at most floor(|R|/(2d(R)))=floor(e(R)/2) root labels. Summation proves the structural inequality; the published 2.3n and binary 2.2n run-exponent bounds give the numerical constants. The exhaustive checker independently replays the local correspondence on 4094 binary and 3279 ternary words.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grytczuk--Stankiewicz formulate the bound deg_k^+(n)<=n as a conjecture rather than proving an explicit near-1 coefficient.",
+        "Czarkowski proves sum-of-exponents bounds for runs but does not discuss square reductions.",
+        "Brlek--Li bound distinct square factors, a different invariant."
+      ],
+      "reasoning": "None of the broader inspected theorems implies the final claim alone. The new step is the injection of reduction classes into admissible period labels of standard runs.",
+      "searches": [
+        "arXiv:2011.12822 full text: out-degree and Conjecture 3",
+        "DOI:10.4230/LIPIcs.CPM.2026.23 full text: run exponent bounds",
+        "arXiv:2204.10204 full text: distinct square factors"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2011.12822",
+      "arXiv:2204.10204",
+      "DOI:10.5070/C65165014",
+      "DOI:10.4230/LIPIcs.CPM.2026.23",
+      "targeted public-web searches under square-reduction and run terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source leaves the coefficient-1 statement conjectural.",
+        "Distinct-square-factor bounds do not control distinct reduction outputs: the word 00100 has one distinct square factor but two distinct one-step outputs.",
+        "The run-exponent theorem supplies numerical bounds but no bridge from reductions to runs."
+      ],
+      "reasoning": "The final result requires a new statement-level bridge: same-root reductions are quotient classes of maximal match intervals; each interval is a run whose minimum period divides the root length. This implication is absent from the inspected sources.",
+      "searches": [
+        "arXiv:2011.12822: definition of one-step out-degree and Conjecture 3",
+        "arXiv:2204.10204: distinct-squares theorem and Fine--Wilf lemma",
+        "DOI:10.4230/LIPIcs.CPM.2026.23: Theorems giving 2.2n and 2.3n run-exponent bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source defines out-degree as the number of distinct words obtainable by one square reduction and states the coefficient-1 conjecture.",
+        "Searches under run/maximal-repetition and sum-of-exponents terminology did not locate a published statement of the structural run inequality."
+      ],
+      "reasoning": "The searches cover the source terminology (out-degree and square reduction) and the equivalent periodicity terminology used by the proof. No located result states the same implication.",
+      "searches": [
+        "web: \"square reduction\" runs word maximal repetition",
+        "web: \"square reduction\" \"sum of exponents\" word",
+        "web: \"out-degree\" \"Square-free reducts of words\" conjecture"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database entry containing the constants 23/20 or 11/10 for this out-degree was located.",
+        "The bundled finite census is generated from definitions and is not used as a source of the universal constants."
+      ],
+      "reasoning": "The theorem is not a recomputation of a tabulated value; it is a symbolic consequence of a structural charging lemma plus published run-exponent estimates.",
+      "searches": [
+        "web: \"single square reduction\" strings run",
+        "web: \"square reduction\" \"run\" combinatorics on words outdegree",
+        "web: \"square reduction\" 23/20 11/10"
+      ]
+    },
+    "rationale": "The direct paper defines the invariant and leaves the coefficient-1 bound conjectural. The inspected run-exponent paper supplies only the aggregate exponent bounds, while the distinct-square-factor paper controls a genuinely different invariant. Targeted searches under square-reduction, run, maximal-repetition, and out-degree formulations located no theorem implying the structural inequality or the 23/20 and 11/10 consequences.",
+    "residual_risks": [
+      "An unindexed note or thesis may contain the same run reformulation under different terminology.",
+      "Future improvements to the sum-of-run-exponents constants would automatically sharpen the numerical consequences without changing the structural lemma."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the result: it poses deg_k^+(n)<=n as a conjecture and provides no run-exponent charging inequality.",
+        "evidence": "The paper explicitly defines out-degree as the number of words obtainable by a single square reduction and states Conjecture 3 with upper bound n.",
+        "identifier_or_url": "arXiv:2011.12822",
+        "material_read": "Full accessible text around the out-degree definition, Conjecture 3, and its comparison with the distinct-squares problem.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "Square-free reducts of words",
+        "trigger": "Direct source defining the one-step square-reduction out-degree and stating the target coefficient-1 conjecture."
+      },
+      {
+        "assessment": "Supplies the numerical run bounds but does not discuss square reductions or imply the structural charging lemma.",
+        "evidence": "The paper states the 2.2n and 2.3n exponent-sum bounds; searches within the text for square-reduction terminology found no matching discussion.",
+        "identifier_or_url": "DOI:10.4230/LIPIcs.CPM.2026.23",
+        "material_read": "Open full text including the definition of runs/exponents and the theorems giving bounds 2.2n for binary words and 2.3n in general; text search for reduction terminology.",
+        "method": "Open proceedings full-text inspection.",
+        "title": "Improved Bounds on the Sum of Exponents of Runs in a String",
+        "trigger": "Provides the sharpest inspected numerical input for converting the structural run inequality into explicit constants."
+      },
+      {
+        "assessment": "Not covering: it bounds distinct square factors, not distinct shortened words produced by square occurrences.",
+        "evidence": "The invariants differ already for 00100, which has one distinct square factor but two distinct one-step square-reduction outputs.",
+        "identifier_or_url": "arXiv:2204.10204 / DOI:10.5070/C65165014",
+        "material_read": "Open full text covering the distinct-square theorem and the Fine--Wilf periodicity lemma; search for square-reduction terminology.",
+        "method": "Lawful arXiv and open journal full-text inspection.",
+        "title": "On the number of squares in a finite word",
+        "trigger": "Closest theorem on the source paper's stated analogue, the number of distinct square factors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c890ac1c-caf4-4fea-9c7c-e2648d65726e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source singles out deg_k^+(n)<=n as an explicit conjecture. The general coefficient 23/20 is within 15 percent of the conjectured coefficient, and the binary coefficient 11/10 is within 10 percent. More importantly, the structural inequality connects square-reduction branching to the well-developed theory of runs, making future run-exponent improvements immediately transferable. This is an infinite structural theorem aimed directly at a published gap, not a routine finite parameter extension.",
+    "status": "PASS"
+  }
+}
