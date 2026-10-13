@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Exact algebra gives derivative I-L_Z^{-1}L_X; 2Z−X strictly positive makes its spectrum strictly inside the unit disc by a positive-definite operator pencil. For commuting data, simultaneous eigenmodes transform into logistic maps with r in (1,3), yielding positive convergence from u0=1/2. For the 2x2 noncommuting witness, two rational Sylvester solves give det(Y1)=13934861/4521216>0 and det(Y2)=−89099634797531/107317319122944<0, while det(2Z−X)=11/16>0. Embedded stdlib verifier executed and checked exact matrices/certificates. Strict margins prove an open neighborhood. No general noncommuting divergence or floating-point result is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.12430 Theorem 1 controls Frobenius error under the explicit smallness condition ||L_Z^{-1}||(2||Z−X||_F+||Y0−X||_F)<1.",
+        "The strict witness can be outside this sufficient condition, so it is not covered by that theorem.",
+        "Ortega–Rheinboldt Ch. 7 overview defines the general fixed-slope chord iteration and is not a cone-preserving square-root analysis."
+      ],
+      "reasoning": "The source proves conditional local error control; this result proves global positivity within a commuting class and demonstrates noncommuting cone escape despite a separate spectral local-attractivity condition. Neither follows from the cited source guarantee. No stronger full-text coverage was identified in inspected sources.",
+      "searches": [
+        "arXiv:2607.12430 full text Sections 2–4 and Theorem 1",
+        "\"Sylvester\" \"square root\" \"iteration\" \"positive definite\" \"frozen\"",
+        "\"chord method\" matrix square root Sylvester positive definite iterates",
+        "positive definiteness cone loss locally stable chord iteration square root Sylvester Loewner 2Z-X positive commuting case logistic stability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.12430",
+      "https://academ.us/article/2607.12430/",
+      "https://indico.math.vt.edu/event/2/contributions/61/",
+      "https://doi.org/10.1155/2014/267042",
+      "https://doi.org/10.2307/2007992",
+      "https://doi.org/10.1137/1.9780898719468.ch7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original source has iteration Y_{k+1}=Y_k+L_Z^{-1}(A−Y_k^2) and an error norm estimate; it does not state 2Z−X order as global safeguard.",
+        "Li–Shen’s Samanskii variant operates on G(X)=X−AX^{-1}.",
+        "The new witness has exact det(Y2)<0 while 2Z−X and Y1 are positive definite."
+      ],
+      "reasoning": "The new statement is not a restatement of the original local contraction theorem: local linear attractivity of X does not imply positivity of all iterates from seed Z, as proven by the strict exact witness. Classical scalar logistic stability supplies a component, but the matrix noncommutativity obstruction is logically additional.",
+      "searches": [
+        "https://academ.us/article/2607.12430/ sections 2.1 and 3.1",
+        "\"simplified Newton\" \"matrix square root\" \"positive definiteness\" Jacobian",
+        "https://onlinelibrary.wiley.com/doi/10.1155/2014/267042"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gao–Kressner–Shao 2026, eqs. (3) and (7) explicitly define the fixed Jacobian Sylvester recurrence.",
+        "Li–Shen 2014, Section 2: variants solve Newton or Samanskii corrections for G(X)=X−AX^{-1}, not the frozen Jacobian of X^2−A.",
+        "Higham 1986 abstract: discusses rewritings of Newton iteration and their numerical instability, with no inspectable exact second-step frozen-Sylvester cone criterion."
+      ],
+      "reasoning": "A generic chord-method fixed-Jacobian framework contains this map abstractly, but does not itself yield the strict rational witness or commuting/global cone theorem. The 2014 transformed equation is not shown equivalent to the specific fixed correction; a general convergence theorem is not an implication of cone invariance.",
+      "searches": [
+        "frozen Sylvester Newton matrix square root positive definiteness loss second iterate symmetric positive definite initial approximation while Jacobian locally contractive",
+        "quasi Newton matrix square root frozen Jacobian second iterate indefinite noncommuting positive definite matrices",
+        "\"frozen\" \"Sylvester\" \"square root\" \"positive definite\" iterates negative indefinite Newton",
+        "\"matrix square root\" \"Newton\" \"positive definiteness\" \"frozen Jacobian\" quasi",
+        "https://doi.org/10.1155/2014/267042",
+        "https://doi.org/10.2307/2007992"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-result IDs 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705, 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba, 2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4, 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f.",
+        "The identified entries concern Richardson/Jacobi steps, Gauss–Seidel inverse positivity, and Lanczos convexification rather than this matrix-square-root iteration."
+      ],
+      "reasoning": "No matching published result row or exact table was retrieved. The search is a useful overlap check but not proof of novelty and cannot reveal inaccessible unpublished results.",
+      "searches": [
+        "frozen Sylvester Newton matrix square root positive definiteness loss second iterate symmetric positive definite initial approximation while Jacobian locally contractive",
+        "quasi Newton matrix square root frozen Jacobian second iterate indefinite noncommuting positive definite matrices",
+        "exact two by two frozen Jacobian Sylvester square root iteration X=diag(4,1/4) Z=[[25/8,1/2],[1/2,1/2]] second iterate negative determinant",
+        "positive definiteness cone loss locally stable chord iteration square root Sylvester Loewner 2Z-X positive commuting case logistic stability"
+      ]
+    },
+    "rationale": "Full accessible text of Gao–Kressner–Shao arXiv:2607.12430 specifies this fixed-Sylvester map and gives a conditional norm-smallness convergence theorem, but does not state the commuting all-dimensions global positive convergence versus strict noncommuting cone exit under 2Z-X positive definite. Li–Shen 2014 uses a different nonlinear Newton/Samanskii equation. Higham 1986 is a historically plausible but not fully inspected risk. Broad published-result searches found related SPD/contraction claims but no result with the same map, exact rational second-iterate cone loss, and commuting contrast. Database non-return alone is not evidence of uniqueness.",
+    "residual_risks": [
+      "Older chord-method or matrix-square-root literature may contain an equivalent positive-cone counterexample, especially in inaccessible full text.",
+      "The commuting scalar argument relies on classical logistic-map facts, so novelty attaches to the explicit conditional matrix contrast, not that scalar method.",
+      "The conference contribution supplies a date of public presentation, not a verified posting timestamp or the later preprint full technical details."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same fixed-Sylvester map but conditional local norm convergence rather than global cone invariance, commuting proof or exact counterexample.",
+        "evidence": [
+          "Section 2.1 freezes initial X0 in Sylvester correction equation.",
+          "Section 3.1 eq. (7) and Theorem 1 require Frobenius smallness for convergence."
+        ],
+        "identifier_or_url": "arXiv:2607.12430; https://academ.us/article/2607.12430/",
+        "material_read": "The accessible HTML full text was examined at the introduction, algorithm definitions in Sections 2.1–2.3, Section 3.1 including Theorem 1 and proof, and conclusions; sections on roundoff, matrix pth roots and experiments were skimmed or searched, not read line by line.",
+        "method": "Read full accessible HTML article and theorem equation comparisons.",
+        "title": "A mixed precision algorithm for the matrix square root",
+        "trigger": "Exact proposed frozen-Jacobian map and closest possible coverage"
+      },
+      {
+        "assessment": "Different transformed nonlinear equation and Newton/Samanskii structure, no demonstrated implication of the exact frozen-Sylvester positive-cone boundary.",
+        "evidence": [
+          "Section 2 defines G(X)=X−AX^{-1}; Algorithm 3 uses Samanskii steps for G."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2014/267042",
+        "material_read": "Accessible article, especially method definitions, convergence theorem descriptions and conclusions.",
+        "method": "Read article HTML and compared nonlinear equations and correction steps.",
+        "title": "Newton's Method for the Matrix Nonsingular Square Root",
+        "trigger": "Plausible earlier Newton/Samanskii analogue"
+      },
+      {
+        "assessment": "Strong historical proximity and legitimate remaining equivalence risk; abstract does not establish the fixed-Jacobian cone claim.",
+        "evidence": [
+          "Abstract discusses rewritten Newton iterations, mathematical convergence and numerical instability."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/2007992",
+        "material_read": "JSTOR and Manchester repository abstract and bibliographic record only; restricted full text was not read.",
+        "method": "Read abstracts and reference metadata.",
+        "title": "Newton's Method for the Matrix Square Root",
+        "trigger": "Historical potential for dominant earlier result"
+      },
+      {
+        "assessment": "General family includes the update mechanism but no evidence of this matrix-square-root cone boundary.",
+        "evidence": [
+          "Chapter 7.1 gives fixed-Jacobian iteration x_{k+1}=x_k−A^{-1}F(x_k)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1.9780898719468.ch7",
+        "material_read": "Public chapter description, formulas for fixed-slope/chord method and citation metadata; full chapter not read.",
+        "method": "Read chapter publicly accessible overview.",
+        "title": "Iterative Solution of Nonlinear Equations in Several Variables, Chapter 7",
+        "trigger": "Alias: general chord or frozen Jacobian method"
+      },
+      {
+        "assessment": "Presentation dated 2026-05-18 by same authors describes lower-to-working-precision refinement for matrix roots. No exact technical recurrence in abstract.",
+        "evidence": [
+          "Public contribution scheduled 2026-05-18, with same three authors and described refinement framework."
+        ],
+        "identifier_or_url": "https://indico.math.vt.edu/event/2/contributions/61/",
+        "material_read": "Entire public conference-event abstract and contribution description.",
+        "method": "Read contribution with event date and author list.",
+        "title": "A mixed precision algorithm for matrix root functions (conference abstract)",
+        "trigger": "Check earliest public exposure and identity of the motivating work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a936230-7b29-4e3b-b36b-78e9099124ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent frozen-Jacobian square-root refinement has a natural question: whether a strong matrix-order condition guaranteeing local linear attraction also protects intermediate positive-definite factors. The result proves global cone preservation/convergence in every commuting dimension yet gives an open, exact 2x2 noncommutative failure at the second step under the same strict order condition. This is a motivated structural boundary between spectral stability and cone invariance, relevant where intermediate roots feed SPD-sensitive downstream operations; it is not merely a numeric sign test. It does not claim a general practical failure rate.",
+    "status": "PASS"
+  }
+}
