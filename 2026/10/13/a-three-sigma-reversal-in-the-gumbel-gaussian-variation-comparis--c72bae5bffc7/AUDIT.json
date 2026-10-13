@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The standardized Gumbel CDF is exact. Its outside-central probability is bounded below by \\(x/(1+x)\\) with \\(x=\\exp(-\\gamma-ac)\\), while the Gaussian outside-central probability is bounded above by \\(2\\varphi(c)/c\\). The logarithm of the ratio of these bounds has derivative \\(c+1/c-a+a x/(1+x)\\), which is strictly positive for \\(c\\ge3\\). Elementary constant bounds prove the ratio exceeds one at \\(c=3\\). Exact tail expansions then give the displayed divergent ratio. Continuity plus the published \\(c=1\\) ordering gives a crossover in \\((1,3)\\). No finite computation is used for an infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A secondary extreme-value discussion reports a one-sided cumulative comparison at plus three standard deviations, attributed to Gumbel (1958).",
+        "The primary 2023 source frames the empirical one-, two-, and three-standard-deviation question but proves its Gumbel theorem only for the one-standard-deviation functional."
+      ],
+      "reasoning": "A one-sided comparison at one radius is weaker than a symmetric central-mass inequality valid for every radius at least three. Neither source supplies the permanent monotone lower-bound argument or the asymptotic tail ratio.",
+      "searches": [
+        "Gumbel distribution Gaussian tail comparison standardized",
+        "Gumbel three standard deviations normal distribution",
+        "Gumbel variation comparison normal radius"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.11459v1/v2",
+      "Statistical Papers 65 (2024), 4405–4429 bibliographic record",
+      "Pevsner, Bioinformatics and Functional Genomics, 3rd ed., indexed excerpt"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary theorem at radius one has the opposite sign from the new radius-at-least-three conclusion and therefore cannot imply it.",
+        "Related retrieved Gumbel-limit results concern maxima or other random objects rather than the standardized Gumbel distribution itself."
+      ],
+      "reasoning": "The accepted claim identifies a failure of extending the source comparison across radii. Results about Gumbel limits of unrelated statistics, or about a single one-sided three-sigma percentage, do not dominate the symmetric all-radius statement.",
+      "searches": [
+        "Gumbel one standard deviation variation comparison theorem",
+        "Gumbel symmetric central interval three standard deviations",
+        "Gumbel outside central tail Gaussian asymptotic ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun--Hu--Sun, arXiv:2304.11459v1/v2, studies the symmetric interval only at one standard deviation for the Gumbel theorem.",
+        "Searches using central-mass, outside-tail, all-radius and three-sigma language returned no statement of a permanent reversal for every radius at least three."
+      ],
+      "reasoning": "The new theorem can be formulated either as central-mass reversal or outside-tail domination. The source fixed-radius inequality does not imply either formulation away from radius one.",
+      "searches": [
+        "Gumbel standardized central probability Gaussian radius three sigma variation comparison",
+        "Gumbel central mass normal comparison all radii one standard deviation",
+        "Gumbel three sigma central mass Gaussian tail comparison",
+        "standardized Gumbel tail versus Gaussian central interval",
+        "Gumbel variation comparison radius c normal distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard Gumbel tables and distribution references give the CDF, mean and variance but no retrieved table states the all-radius comparison or the tail-ratio equivalent.",
+        "The numerical crossover value is used only as a verification locator and is not part of the accepted theorem."
+      ],
+      "reasoning": "The inputs are standard formulas, but the permanent reversal and asymptotic ratio require a comparison argument and are not a direct lookup of a tabulated probability.",
+      "searches": [
+        "Gumbel 0.723751 three standard deviations Gaussian",
+        "Gumbel 2.055935 central probability",
+        "Gumbel standardized central probability radius 3 normal"
+      ]
+    },
+    "rationale": "The closest primary source proves the Gumbel comparison only at one standard deviation. Candidate-specific searches for all-radius, three-sigma, central-mass and standardized-tail formulations found no covering theorem. A secondary source reports a one-sided three-standard-deviation comparison attributed to Gumbel (1958), but that does not imply the symmetric theorem for every \\(c\\ge3\\) or the tail-ratio asymptotic; the inaccessible original source is retained as a residual risk.",
+    "residual_risks": [
+      "The original Gumbel (1958) source cited by the secondary textbook was not materially inspected; an equivalent stronger statement under older extreme-value terminology therefore cannot be excluded.",
+      "The theorem uses three as a clean permanent-reversal threshold and does not establish the unique or sharp crossover radius."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the accepted all-radius reversal claim.",
+        "evidence": "The source gives the Gumbel mean, variance and CDF and proves the symmetric central probability exceeds the Gaussian benchmark at exactly one standard deviation. It does not state a permanent reversal for radii at least three or the outside-tail asymptotic ratio.",
+        "identifier_or_url": "arXiv:2304.11459v1/v2",
+        "material_read": "Abstract, introduction, MSC metadata, and the Gumbel theorem and proof in Section 2, with rendered PDF pages inspected.",
+        "method": "Lawful public arXiv full-text and rendered-page inspection.",
+        "title": "Variation comparison between infinitely divisible distributions and the normal distribution",
+        "trigger": "Direct primary source for the Gumbel variation comparison and the natural one-standard-deviation benchmark."
+      },
+      {
+        "assessment": "RELATED BUT NOT DECISIVE; no whole-document coverage judgment is made.",
+        "evidence": "The excerpt reports a one-sided cumulative percentage through plus three standard deviations for the extreme-value distribution and the normal distribution. It does not establish a symmetric central interval for every larger radius.",
+        "identifier_or_url": "secondary textbook excerpt citing Gumbel (1958)",
+        "material_read": "Search-index excerpt surrounding the normal-versus-extreme-value three-standard-deviation comparison; the underlying 1958 source was not materially inspected.",
+        "method": "Indexed public excerpt only.",
+        "title": "Bioinformatics and Functional Genomics, 3rd edition",
+        "trigger": "Searches for older Gumbel-versus-normal comparisons at three standard deviations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c72bae5b-ffc7-4d42-9330-7b645fd70e8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source is motivated by the empirical one-, two-, and three-standard-deviation rules, so asking whether its one-sigma Gumbel advantage persists as the standardized radius changes is intrinsic to the problem. The theorem shows a qualitative reversal: by three standard deviations the Gaussian contains strictly more central mass for every larger radius, and the Gumbel outside-tail excess grows by an explicit divergent ratio. This is a structural boundary to the source comparison, not a routine numerical evaluation at c=3.",
+    "status": "PASS"
+  }
+}
