@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Exact symbolic reconstruction confirms the 3×3 moment transfer, determinant as a strictly negative moment-square for any positive nonconstant law, and positive invariant quadratic energy for a fixed step. The real characteristic polynomial consequently has a root above 1. Cone-Perron eigenmatrix on the adjoint must be positive definite because rank one would force a forbidden real eigenvector of an elliptic symplectic-Euler step. This proves exponential mean-square growth uniformly over all deterministic initial vectors, with strict endpoint exclusions verified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Skeel–Gear 1992 bibliographic abstract addresses loss of symplectic invariants under changing step size without describing iid mean-square moments.",
+        "Skeel supplies a broader method-order context but proves an existential instability construction; the random-law quantified moment identity is not stated.",
+        "Abdulle–Garegnani Theorem 6 assumes step-variance scaling, a trajectory-neighborhood hypothesis, and bounds only step-dependent finite integration horizons."
+      ],
+      "reasoning": "Classical random matrix product results can establish qualitative positivity of Lyapunov exponents under irreducibility and noncompactness but do not directly provide the exact distribution-moment equality displayed here or the constructive positive-definite adjoint certificate. Residual possibility of an equivalent specialized theorem remains.",
+      "searches": [
+        "i.i.d. random timesteps symplectic Euler harmonic oscillator mean-square energy growth moment identity",
+        "random product harmonic oscillator elliptic symplectic maps mean squared energy",
+        "Skeel 1993 section proof pp. 173–174",
+        "Skeel–Gear 1992 institutional abstract, DOI:10.1016/0167-2789(92)90247-K",
+        "Abdulle–Garegnani 2020 Theorem 6, full arXiv PDF"
+      ]
+    },
+    "checked_sources": [
+      "Skeel–Gear (1992), DOI:10.1016/0167-2789(92)90247-K, institutional abstract only; full text inaccessible",
+      "Skeel (1993), DOI:10.1007/BF01990352, complete four-page text",
+      "Quinn et al. (1997), arXiv:astro-ph/9710043v1, relevant full-text sections 2 and discussion",
+      "Abdulle and Garegnani (2018/2020), arXiv:1801.01340, open-access PDF, relevant Sections 2 and 7 (Assumptions 1–3, 6; Lemma 5; Theorem 6)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Skeel–Gear 1992 abstract discusses the simple-minded loss of symplectic invariants, not specifically mean-square growth.",
+        "Skeel equation (4) gives trace of carefully selected products, from which some deterministic schedules are unstable.",
+        "Abdulle–Garegnani Section 7.2 studies expected Hamiltonian error on horizons scaling polynomially with decreasing steps, not fixed-law k→infinity."
+      ],
+      "reasoning": "Neither existential deterministic instability nor finite-horizon stochastic near-conservation implies a universal all-nondegenerate-law exponential expected-energy growth bound with the exact determinant factorization. The older source has a different one-step Verlet map; no reduction establishing the new moment identity was found.",
+      "searches": [
+        "Skeel variable step Verlet oscillator stochastic timesteps Lyapunov spectral radius",
+        "doi:10.1007/BF01990352 full text, especially equation (4)",
+        "doi:10.1016/0167-2789(92)90247-K abstract only",
+        "arXiv:1801.01340 Section 7.2 and Theorem 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Skeel 1993 constructs selected products of unequal-step Störmer matrices and proves existence of deterministic unbounded schedules.",
+        "Abdulle–Garegnani 2018/2020 Section 7 preserves samplewise symplecticity and gives finite-time mean-energy estimates, not the all-horizon strict fourth-moment determinant."
+      ],
+      "reasoning": "The independently sampled positive-step model and exact universal fourth-moment criterion are not equivalent to existence of an adversarial varying-step sequence; samplewise symplecticity also does not imply energy preservation for infinite independent products.",
+      "searches": [
+        "iid random step symplectic Euler harmonic oscillator exponential expected energy growth mean-square despite stable constant steps",
+        "product of elliptic symplectic Euler matrices differing timesteps second-moment spectral radius greater than one",
+        "arXiv:1801.01340v1, Section 7",
+        "doi:10.1007/BF01990352, pp. 173–174"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected preprint and paper report integration experiments, deterministic matrix products, and asymptotic error estimates, not an enumeration/table of fourth moments of independently sampled symplectic-Euler steps.",
+        "The inspected published-result query hits did not contain this random-step transfer determinant."
+      ],
+      "reasoning": "The result is an analytic identity for arbitrary positive step laws rather than a finite numerical table. A table with matching parameter points would not imply the distribution-wide strict sign and all-initialization conclusion.",
+      "searches": [
+        "symplectic Euler oscillator random step size determinant second-moment transfer instability",
+        "doi:10.1007/BF01990352 full-text matrix formulas",
+        "arXiv:astro-ph/9710043v1 variable leapfrog"
+      ]
+    },
+    "rationale": "Skeel–Gear 1992 (abstract only) addresses loss of symplectic invariants but is not a resolved full-text comparison. Skeel 1993 proves only existence of deterministic destabilizing varying-step schedules for Störmer/Verlet, not an exact iid-law dichotomy or the fourth-moment determinant. Quinn 1997 studies adaptive leapfrog and Abdulle–Garegnani analyzes finite-time stochastic solver accuracy/energy, not this fixed-distribution asymptotic moment characterization. General random-product theorems may imply qualitative growth but no inspected source supplies the specific moment identity and every-initialization certificate.",
+    "residual_risks": [
+      "Qualitative energy growth may follow from general Furstenberg random-product theory with a separate noncompactness argument; the exact fourth-moment determinant and all-initialization bound are the assessed specific contribution.",
+      "An earlier random symplectic oscillator product treatment not found by targeted searches may contain an equivalent analytic identity; Skeel–Gear 1992 is a specifically named incompletely accessible plausible source.",
+      "The 1992 Skeel–Gear full paper remains inaccessible; the institutional bibliographic abstract and its 1992-11-01 publication date are verifiable. A preprint date prior to that public record has not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Abstract concerns possible destruction of simple-minded symplectic invariants under variable steps, not an explicit iid second-moment identity; full-text equivalence unresolved and documented as residual risk",
+        "evidence": [
+          "Institutional title, abstract and exact published date 1992-11-01",
+          "DOI 10.1016/0167-2789(92)90247-K and journal pages 311–313"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0167-2789(92)90247-K",
+        "material_read": "Princeton institutional bibliographic metadata and full abstract only; original three-page text inaccessible through available lawful full-text channels after arXiv and open-access searches",
+        "method": "Institutional bibliographic abstract read and OA full-text retrieval attempted",
+        "title": "Does variable step size ruin a symplectic integrator?",
+        "trigger": "Earliest day-resolved directly relevant variable-step symplectic invariant paper"
+      },
+      {
+        "assessment": "Covers existence of destabilizing deterministic variable step sequences, not IID exact second-moment characterization",
+        "evidence": [
+          "p.173 one-step elliptic matrix and two-step example",
+          "p.174 product-trace construction with chosen n1,n2",
+          "p.175 references"
+        ],
+        "identifier_or_url": "https://tlakoba.w3.uvm.edu/math6737/paper_Verlet_VariableStepSize.pdf",
+        "material_read": "All four scanned pages, especially equations (2)–(4), the full instability construction, and reference page",
+        "method": "Full-text PDF and page-image inspection",
+        "title": "Variable Step Size Destabilizes the Störmer/Leapfrog/Verlet Method",
+        "trigger": "Closest primary result on variable-step oscillator instability"
+      },
+      {
+        "assessment": "Numerical adaptive integration discussion, no iid oscillator fourth-moment transfer or sharp all-law theorem",
+        "evidence": [
+          "Section 2 pp.2–4: leapfrog operator splitting and failures of naïve variable step selection",
+          "abstract and figures: simulation accuracy concerns"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/astro-ph/9710043",
+        "material_read": "Abstract and Section 2 operator-splitting/adaptive-step discussion (especially pages 2–4), with paper-level conclusion consulted",
+        "method": "arXiv open-access full-text inspection",
+        "title": "Time stepping N-body simulations",
+        "trigger": "Day-resolved early public source for variable-step symplectic integration"
+      },
+      {
+        "assessment": "Proves random-step symplecticity, finite-horizon convergence and approximate energy conservation under assumptions, not a fixed random-law exact infinite-horizon strict instability criterion",
+        "evidence": [
+          "§2 iid H and scaled-variance assumption",
+          "§7.1 Lemma 5 samplewise symplecticity",
+          "§7.2 Theorem 6 step-scaled finite-time energy expectation estimate"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+        "material_read": "Full-text PDF sections 1–2 and 7.1–7.2, with detailed inspection of Assumptions 1–3 and 6, Lemma 5, and Theorem 6; remaining sections accessible but not used for a whole-document negative assertion",
+        "method": "arXiv open-access full-text search and detailed mathematical paragraph inspection",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Plausible closest independent random-time-step symplectic solver framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac393ec2-1636-4cf0-bcf2-6ca25425f9dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated stability question asks whether an i.i.d. randomized scheduler preserves harmonic-oscillator bounded energy when all individual symplectic steps are stable. The exact sharp dichotomy applies to every positive step law without a small-variance assumption, with an explicit fourth-moment negative certificate and a nontrivial zero-step boundary. The resulting universally quantified stability obstruction is significant for long-horizon geometric integration, not an arbitrary numerical parameter calculation.",
+    "status": "PASS"
+  }
+}
