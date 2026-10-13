@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The direct CN component update is obtained by solving three scalar linear equations. The trace-constrained PSD input set is the convex hull of rank-one outer products, so positivity for all inputs is equivalent to positivity for all pure inputs because the update is affine. For a pure input the scaled determinant is exactly \\(F_s(t)=s^2+s[rt+\\ell(1-t)]-E t(1-t)\\), with \\(E=2(x-y)^2(x+y)/(2+x+y)^2>0\\). The explicit \\(s_*=E/(r+\\ell+2\\sqrt{k})\\) makes the quadratic a perfect square \\(E(t-t_*)^2\\), where \\(t_*\\in(0,1)\\). Its derivative in \\(s\\) is positive for every \\(t\\in[0,1]\\), yielding strict failure below and sufficiency above. Equality is witnessed by rank one. Rational witness and \\(h^2\\) asymptotic were independently checked. The rank-one example does not overclaim failure for arbitrary fixed positive-definite inputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dieci–Eirola Theorem 2.3: any ordinary one-step or strictly stable multistep method universally preserving Lyapunov positive definiteness has order at most one, with three-mode counterexamples and zero forcing.",
+        "Gillis–Diehl equations (15)–(18) construct a different, factor-compatible positive-definiteness-preserving covariance discretization and document generic failure under direct collocation."
+      ],
+      "reasoning": "These strong results settle generic impossibility and exhibit other positive schemes, but do not imply an exact sharp minimum of isotropic forcing within a specified direct trapezoidal scheme under fixed total variance. The new claim is restricted to that quantitative boundary, not the covered generic failure.",
+      "searches": [
+        "Positive Definiteness in the Numerical Solution of Riccati Differential Equations",
+        "A positive definiteness preserving discretization method for Lyapunov differential equations",
+        "doi:10.1007/s002110050030"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s002110050030",
+      "doi:10.1109/CDC.2013.6761121",
+      "doi:10.1137/15M1023257",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/9/19/SCOPE-quadratic-anisotropy-slaving-simplex-covariance--c7e9c46d956f",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dieci–Eirola analyze structural non-preservation for direct higher-order methods, using a three-dimensional zero-forcing Lyapunov example; this does not determine the optimal nonzero constant diffusion for every normalized initial covariance.",
+        "Gillis–Diehl provide a PSD-preserving alternative update through covariance factor propagation, which is distinct from modifying the diffusion of an unchanged direct Crank–Nicolson update.",
+        "Here the missing implication is closed explicitly by reducing the two-dimensional trace-one cone to its rank-one extreme points and analyzing the unique double-root diffusion level."
+      ],
+      "reasoning": "The old proofs imply the generic method may fail, which is acknowledged. They do not give the exact rescue threshold for the present fixed drift, step, and trace, nor the \\(h^2\\) coefficient. Their alternative method is not the direct step with isotropic noise.",
+      "searches": [
+        "Dieci Eirola 1994 positivity numerical Riccati equations theorem 2.3 2x2",
+        "doi:10.1109/CDC.2013.6761121",
+        "covariance discretization trapezoidal implicit midpoint positivity threshold additive process noise two-state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mathematical-record searches for direct Lyapunov positivity, covariance noise threshold and rank-one boundary returned numerical positivity, covariance-metric and process-noise results with different operators or objectives; the closest IDs concern backward-Euler-filtered CN heat-lattice positivity and covariance anisotropy dynamics.",
+        "The complete Dieci–Eirola and Gillis–Diehl primary texts do not state a two-mode fixed-trace isotropic-forcing threshold or the associated dimensionless double-root criterion."
+      ],
+      "reasoning": "An equivalent formulation must give the least isotropic additive forcing that makes the *direct* trapezoidal Lyapunov update positive semidefinite on every trace-constrained two-dimensional covariance. General non-preservation theorems, factored positivity-preserving alternatives, and componentwise Markov positivity are not implication-equivalent.",
+      "searches": [
+        "Crank Nicolson trapezoidal step differential Lyapunov equation positive semidefinite covariance rank one two distinct diagonal modes arbitrarily small step",
+        "trapezoidal differential Lyapunov covariance isotropic diffusion threshold restore positive semidefinite preservation",
+        "matrix cone positivity numerical integration Lyapunov differential equation discrete implicit midpoint scalar damping spectral divided difference",
+        "two dimensional Lyapunov matrix differential equation Crank Nicolson positivity positive semidefinite isotropic noise threshold trace one",
+        "Dieci Eirola 1994 positivity numerical Riccati equations theorem 2.3 2x2",
+        "Dieci Eirola positive definiteness numerical Riccati Lyapunov theorem Crank Nicolson order barrier diffusion rescue",
+        "covariance discretization trapezoidal implicit midpoint positivity threshold additive process noise two-state",
+        "\"Crank-Nicolson\" \"Lyapunov differential\" positive definite diffusion noise",
+        "\"noise intensity\" \"trapezoidal\" \"Lyapunov\" positive definite covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located source gives the closed algebraic value \\(E/(r+\\ell+2\\sqrt{k})\\) or the boundary orientation \\(t_*\\).",
+        "The value is the analytic double root of an exactly derived rank-one determinant quadratic, not a finite numerical table."
+      ],
+      "reasoning": "The invariant is a closed-form all-parameter necessary-and-sufficient threshold with an equality input, not a known-tabulated quantity or a recomputation of a published numerical example.",
+      "searches": [
+        "two dimensional Lyapunov matrix differential equation Crank Nicolson positivity positive semidefinite isotropic noise threshold trace one",
+        "Crank Nicolson trapezoidal step differential Lyapunov equation positive semidefinite covariance rank one two distinct diagonal modes arbitrarily small step",
+        "trapezoidal differential Lyapunov covariance isotropic diffusion threshold restore positive semidefinite preservation"
+      ]
+    },
+    "rationale": "Older full primary research already proves generic failure of higher-order direct Lyapunov/Riccati integration to preserve positivity (Dieci–Eirola), and a later full primary paper gives a different PSD-preserving covariance discretization (Gillis–Diehl); both are expressly acknowledged and excluded from the novelty claim. Neither inspected primary gives an exact necessary-and-sufficient isotropic diffusion floor for the *unchanged* direct trapezoidal update on trace-normalized two-mode covariances. Targeted mathematical-record and external alias/parameter searches found no exact or stronger coverage. The novelty is the quantitative all-input threshold with equality orientation and quadratic step-size scaling, not generic positivity loss.",
+    "residual_risks": [
+      "An older matrix-Schur-positivity or covariance-integration reference may implicitly derive the same two-mode fixed-trace isotropic-noise floor under different notation.",
+      "The exact classification is for one direct CN step; it is not a new impossibility theorem for all second-order methods.",
+      "The 2016 numerical-ODE classification article was checked bibliographically rather than in full; it is used as MSC/public-date context, not as evidence of full-text noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERIC_NONPRESERVATION_NOT_QUANTITATIVE_RESCUE: the generic higher-order positivity barrier is explicitly prior art; neither a fixed-trace isotropic-noise frontier nor a two-dimensional one-step double-root classification is stated.",
+        "evidence": "Theorem 2.3 uses diagonal three-by-three drift, zero forcing, and sufficiently many steps to show failure for some strictly positive initial matrices. The manuscript does not define or optimize an isotropic forcing amplitude that restores the unchanged direct trapezoidal update.",
+        "identifier_or_url": "doi:10.1007/s002110050030; https://dieci.math.gatech.edu/preps/LuTiPosDefDRE.pdf",
+        "material_read": "Entire 11-page author-hosted manuscript: setup, exact Lyapunov positivity formula, Definition 2.1, Theorem 2.3 and its three-dimensional negative-determinant proof, and subsequent indirect integrators; pertinent theorem pages also visually inspected.",
+        "method": "Lawful author-hosted full-text PDF inspection and rendered-page verification.",
+        "title": "Positive Definiteness in the Numerical Solution of Riccati Differential Equations",
+        "trigger": "Decisive older primary source on positive-definiteness limitations of direct matrix Lyapunov discretization."
+      },
+      {
+        "assessment": "COVERS_POSITIVITY_FAILURE_AND_ALTERNATIVE_NOT_SHARP_FORCING: describes the covariance cone, direct-collocation failure, and a separate guaranteed PSD discretization but does not derive minimal isotropic noise for a direct Crank–Nicolson step.",
+        "evidence": "Section III replaces ordinary covariance integration with a Jacobian-induced PSD sum and proves nonnegativity by induction. Its positivity restoration changes the integrator, unlike the present fixed integrator with optimized constant isotropic forcing.",
+        "identifier_or_url": "doi:10.1109/CDC.2013.6761121",
+        "material_read": "All six pages of the original conference article, including covariance equation (3), classical direct collocation, equations (15)–(18) of PDPLD and its PSD lemma, illustrative failure example, and conclusion.",
+        "method": "Authorized full-text primary-paper inspection.",
+        "title": "A Positive Definiteness Preserving Discretization Method for Lyapunov Differential Equations",
+        "trigger": "Closest full paper studying covariance positivity in numerical Lyapunov propagation and alternatives to ordinary collocation."
+      },
+      {
+        "assessment": "CLASSIFICATION_CONTEXT_ONLY: verified primary MSC 65L04 and public online date 2016-06-29; a conserved or dissipative scalar Lyapunov function is not identical to matrix-cone covariance positivity.",
+        "evidence": "Publisher lists primary MSC 65L04 and online publication June 29, 2016; abstract concerns exponential/discrete-gradient integrators preserving first integrals or Lyapunov functions.",
+        "identifier_or_url": "doi:10.1137/15M1023257",
+        "material_read": "Publisher abstract, keyword list, primary MSC codes, and dated publication history; the full article was not used to justify noncoverage.",
+        "method": "Publisher bibliographic and abstract inspection.",
+        "title": "Exponential Integrators Preserving First Integrals or Lyapunov Functions for Conservative or Dissipative Systems",
+        "trigger": "Archive-era numerical ODE structure-preservation reference verifying primary MSC classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3087e76-edf6-40bf-bc3a-fa70085ae1ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positive semidefiniteness is indispensable for covariance interpretation, and second-order direct time stepping of differential Lyapunov equations is known to risk violating it. For a trace-bounded two-mode covariance class with positive scalar damping factors, the theorem gives the sharp quantitative minimum isotropic noise that exactly rescues the unchanged integrator, identifies the worst rank-one covariance orientation and proves a concrete \\(h^2\\) forcing-scale law. This is a usable, structurally motivated covariance-stability boundary, not a generic restatement of positivity failure or an arbitrary scalar example.",
+    "status": "PASS"
+  }
+}
