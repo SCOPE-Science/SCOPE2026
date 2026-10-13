@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For a coloring with b bichromatic edges, every color-class boundary is contained in those b edges. If b is below the minimum boundary of a set with both sides of size at least two, every class is singleton or co-singleton; three or more classes are then impossible because the union of two singleton classes already has a nontrivial boundary. This proves the general formula. For crowns, a direct cut calculation gives eta=2n-4, and an adjacent pair attains equality. Exhaustive small-order checks corroborate but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2510.00712 treats trees, cycles, wheels, and general bounds; no crown theorem was found in the inspected full text",
+        "Searches under crown, K_{n,n} minus a perfect matching, and cut-spectrum aliases returned no k-defect theorem"
+      ],
+      "reasoning": "Published general \\(k\\)-defect results inspected do not determine the extended high-defect tail. Crown-specific indexed results concerned unrelated invariants and do not dominate the claim.",
+      "searches": [
+        "k-defect number crown graph high defect gap monochromatic edges",
+        "crown graph restricted edge connectivity second minimum edge cut 2n-4",
+        "K_n,n minus perfect matching edge cut spectrum restricted connectivity",
+        "k-defect number crown graph exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.00712",
+      "doi:10.2989/16073606.2018.1443168",
+      "doi:10.1155/2012/430859",
+      "doi:10.15446/recolma.v56n1.105617"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2510.00712 states that phi_k(G)=0 for |E|-lambda(G)<k<|E|",
+        "The present theorem uses eta(G), the minimum boundary with both sides of size at least two, and permits exactly the degree-coded singleton exceptions"
+      ],
+      "reasoning": "The prior edge-connectivity interval covers only b<lambda(G). When eta(G)>lambda(G), it leaves the band lambda(G)<=b<eta(G) unresolved. The new argument resolves that whole band, so it is not a corollary of the stated prior interval. For crowns, lambda=n-1 whereas eta=2n-4, producing a strictly larger classified range.",
+      "searches": [
+        "\"monochromatic edges\" crown graph vertex coloring",
+        "\"monochromatic edges\" \"complete bipartite graph minus a one-factor\"",
+        "\"bad-colouring polynomial\" \"K_{n,n}-I\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.00712 full text, especially the edge-connectivity observation used in Theorem 4.4 and the general-results section",
+        "doi:10.2989/16073606.2018.1443168 abstract and bibliographic metadata"
+      ],
+      "reasoning": "The closest equivalent language is in terms of bichromatic cut edges. The initiating paper gives the weaker ordinary edge-connectivity gap but not the nontrivial-cut threshold with singleton exceptions.",
+      "searches": [
+        "\"k-defect number\" \"restricted edge connectivity\"",
+        "k-defect number restricted edge connectivity high defect interval",
+        "monochromatic edges second edge connectivity k-defect number",
+        "k-defect number degree sequence edge cuts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.1155/2012/430859 gives bad-coloring/Tutte formulas for complete bipartite graphs K_{m,n}, not for one-factor-deleted crowns",
+        "No crown Tutte or coboundary formula was located by the listed exact-family searches"
+      ],
+      "reasoning": "A complete bipartite bad-coloring formula does not apply unchanged after deleting a perfect matching. No exact crown table or polynomial found in the inspected sources contains the high-tail statement.",
+      "searches": [
+        "\"Tutte polynomial\" \"crown graph\"",
+        "\"Tutte polynomial\" \"K_{n,n}-M\"",
+        "\"bad-colouring polynomial\" crown graph",
+        "\"coboundary polynomial\" crown graph"
+      ]
+    },
+    "rationale": "The 2025 k-defect paper records only the ordinary edge-connectivity zero interval near |E| and exact values for trees, cycles, and wheels. The new theorem extends the high-defect analysis to the larger nontrivial cut threshold and identifies the complete set of singleton-cut exceptions. No inspected source or indexed search result stated or implied this refinement for general graphs or crowns.",
+    "residual_risks": [
+      "An older poorly indexed theorem on nontrivial or restricted edge cuts may combine with general bad-coloring theory to yield an equivalent corollary.",
+      "The 2019 survey full text was not publicly accessible in the checked source; only its abstract and metadata were inspected.",
+      "Search failure is not a proof of novelty; the PASS assessment rests on the explicit implication comparison with the closest inspected literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the final claim. It gives the ordinary edge-connectivity zero interval but not the nontrivial-cut refinement or crown high-tail classification.",
+        "evidence": "Theorem 4.4 uses the known interval |E|-lambda<k<|E|; Section 4 lists trees, cycles, and wheels; the conclusion asks for parameters that create more zeros.",
+        "identifier_or_url": "arXiv:2510.00712",
+        "material_read": "Full text sections defining phi_k, exact families, Theorem 4.4, Theorem 5.5, conclusion, and references.",
+        "method": "Lawful public arXiv full text.",
+        "title": "A note on the k-defect number: Vertex Coloring with a Fixed Number of Monochromatic Edges",
+        "trigger": "Same invariant and recent literature anchor."
+      },
+      {
+        "assessment": "No crown or nontrivial-cut theorem visible in accessible material; residual access risk retained.",
+        "evidence": "Abstract describes general properties and connections with chromatic, Tutte, and coboundary polynomials.",
+        "identifier_or_url": "doi:10.2989/16073606.2018.1443168",
+        "material_read": "Abstract and bibliographic metadata; full text was not publicly accessible in the checked source.",
+        "method": "Publisher/abstract metadata.",
+        "title": "An introduction to the k-defect polynomials",
+        "trigger": "Foundational survey on the same polynomial/invariant framework."
+      },
+      {
+        "assessment": "NOT_COVERING. It gives a bad-coloring/Tutte formula for K_{m,n}, whereas the crown is K_{n,n} with a perfect matching removed.",
+        "evidence": "The complete-bipartite section derives the bad-coloring polynomial from color-class sizes; no one-factor-deleted crown formula is stated.",
+        "identifier_or_url": "doi:10.1155/2012/430859",
+        "material_read": "Accessible section on equivalent polynomials and complete bipartite graphs.",
+        "method": "Publisher full-text HTML.",
+        "title": "The Tutte Polynomial of Some Matroids",
+        "trigger": "Potential broader bad-coloring polynomial coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2de04eb-78b8-4552-b5c7-2113b68271a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem answers the recent paper’s structural question about parameters that force additional zero \\(k\\)-defect values: eta(G) determines the entire high-defect tail except for unavoidable singleton-cut degree values. The crown corollary is sharp and exhibits a long zero band that ordinary edge connectivity alone does not identify.",
+    "status": "PASS"
+  }
+}
