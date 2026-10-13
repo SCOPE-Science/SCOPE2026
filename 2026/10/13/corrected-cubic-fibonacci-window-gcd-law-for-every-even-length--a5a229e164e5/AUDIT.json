@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Cassini gives \\(u^2-uv-v^2=-1\\). The congruences \\(u^3\\equiv v^3\\equiv1\\pmod m\\) yield \\((u-1)^2\\equiv3(u-1)\\equiv0\\pmod m\\); at \\(p\\ne3\\) this forces \\(u\\equiv1\\), and at \\(p=3\\) the lifting and norm expansion do likewise. Consequently \\(m=\\gcd(u-1,3(v-1))\\); writing \\(\\delta=v-1\\) gives \\(3\\delta\\equiv\\delta^2\\equiv0\\pmod m\\). This makes every cubic shift difference vanish modulo \\(m\\), with the first two differences having exact gcd \\(m\\). The first-window identity \\(4S_0=(v-1)^2(v+2)+a(a^2+3)\\) holds by two-step induction. If \\(6\\nmid k\\), \\(m\\) is odd and divides \\(S_0\\). If \\(6\\mid k\\), the Fibonacci matrix modulo \\(8\\) gives \\(\\nu_2(m)=t\\ge2\\) and \\(\\nu_2(S_0)=t-1\\), so the gcd is exactly \\(m/2\\). All quantifiers are proved symbolically; the checker additionally tests \\(k=2,4,\\ldots,600\\) and 7,500 example windows.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guyer–Mbirika classifies first-power window sums.",
+        "Mbirika–Spilker proves squares and raises cubes as an open problem.",
+        "No broader all-exponent theorem implying the displayed cubic formula was identified in inspected material.",
+        "Frontczak Proposition 3.5 gives power-sum identities on even-index arithmetic progressions, not the exact all-window gcd.",
+        "Bilu et al. (2016) concerns divisibility by a chosen Lucas term, not gcd across all cubic differences and an initial window."
+      ],
+      "reasoning": "A theorem for all exponents or generalized Fibonacci cubes could dominate this claim; no such implication appears in the materially read primary sections, but search failure does not prove absence.",
+      "searches": [
+        "valuation of sums of consecutive squares Fibonacci Lucas arbitrary starting index gcd period complete classification",
+        "number theory integer sequences divisibility generalized Fibonacci recurrence exact gcd finite window sums squares",
+        "generalized Fibonacci cubic window sums gcd even window characteristic polynomial proof",
+        "arXiv:2104.12262v2",
+        "arXiv:2204.12626v2",
+        "DOI:10.7546/nntdm.2018.24.2.94-103 Proposition 3.5",
+        "DOI:10.1016/j.jnt.2015.11.011 Theorem 1",
+        "DOI:10.33697/ajur.2020.036"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.12626v2 (full open-access HTML)",
+      "arXiv:2104.12262v2 (full open-access HTML)",
+      "https://nntdm.net/papers/nntdm-24/NNTDM-24-2-094-103.pdf (full text selected sections)",
+      "DOI:10.1007/978-94-011-2058-6_12 (abstract only)",
+      "OEIS A210209 (first-power windows, not cubes)",
+      "DOI:10.33697/ajur.2020.036 (power-sum prime divisibility, text inspected)",
+      "DOI:10.1016/j.jnt.2015.11.011 (Lucas power-difference divisibility, text inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source predicts gcd m when 6|k; at k=6 m=4 while the true gcd is 2.",
+        "Source predicts gcd m/2 when 6 does not divide k; at k=2 m=1 while the true gcd is 1.",
+        "The new proof identifies the exact loss of one factor 2 via Cassini and valuations."
+      ],
+      "reasoning": "The closest published question is false as written; the exact proven correction is therefore not a corollary of the printed statement. Earlier first-power results do not imply cube congruences.",
+      "searches": [
+        "arXiv:2204.12626v2 Question 6.1",
+        "arXiv:2104.12262v2 Theorem 15",
+        "For even window k, gcd over n of sum of k consecutive Fibonacci cubes equals half gcd(F_{k+1}^3-1,F_{k+2}^3-1) if 6 divides k, otherwise full gcd; Mbirika Spilker 2022 Conjecture 6.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A length-k sliding-window gcd equals gcd of its first window and all adjacent-window differences.",
+        "The new exact difference gcd is gcd(F_{k+2}-1,3(F_{k+1}-1)); the two cubic inputs have this identical gcd.",
+        "The printed section 6.1 even-k formula assigns the branches oppositely."
+      ],
+      "reasoning": "Compared third-power sliding windows, equivalent differences, norm reductions and the printed conjecture rather than only keywords. First-power formulas lack the nonlinear congruence needed to deduce cubic gcds.",
+      "searches": [
+        "2022 Mbirika Spilker Question 6.1 cubic Fibonacci Lucas sums k consecutive cubes gcd even k conjecture proof",
+        "gcd of sums k consecutive cubes Fibonacci Lucas numbers even k half gcd first two cube differences",
+        "Fibonacci cubes window gcd modular cubic rigidity identity gcd(F_{k+1}^3-1,F_{k+2}^3-1) = gcd(F_{k+2}-1,3(F_{k+1}-1)) for even k",
+        "arXiv:2204.12626v2 Section 6.1 Question 6.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A210209 concerns first powers, not cubic window sums.",
+        "The primary paper prints a conjectured, not proved, cube table; small even lengths disprove its branch assignment."
+      ],
+      "reasoning": "Tables of first-power gcds and printed conjectural case splits do not supply a correct all-even cubic theorem. Numeric coincidences by themselves are not novelty evidence.",
+      "searches": [
+        "OEIS A210209 fibonacci sliding window gcd",
+        "arXiv:2204.12626v2 Section 6.1 table",
+        "Fibonacci cube window gcd sequence"
+      ]
+    },
+    "rationale": "The nearest primary paper explicitly prints the opposite case split as an open cubic conjecture; the new statement is mathematically incompatible with those branches, and its complete unrestricted modular proof is not supplied there. Other materially inspected primary results treat first powers, even-index cubic power sums, selected two-term power-sum prime factors, or divisibility of Lucas power differences, none of which implies the exact all-starting-index window gcd. Targeted mathematical-record searches yielded unrelated cubic reciprocal sums and Lucas period results, not dominating coverage. Possible unindexed or uninspected implicit equivalents remain a stated risk.",
+    "residual_risks": [
+      "The swapped branches may be an editorial error, and a later corrected formulation could exist outside the sources inspected.",
+      "The Clary–Hemenway 1993 chapter was examined only at abstract level, so an implicit equivalent in its full text cannot be ruled out.",
+      "Indexed mathematical-search coverage is incomplete; priority and novelty need independent bibliographic checking."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Printed conjecture is reversed at both branches; source proves square-window cases, not the corrected cubic formula",
+        "evidence": [
+          "2022 arXiv initial public date https://arxiv.org/abs/2204.12626",
+          "2023 revision Section 6.1 https://arxiv.org/html/2204.12626v2",
+          "For k=2: m=1, actual gcd=1, printed formula 1/2; for k=6: m=4, actual gcd=2, printed formula 4."
+        ],
+        "identifier_or_url": "arXiv:2204.12626v2; https://arxiv.org/html/2204.12626v2",
+        "material_read": "Full open-access HTML text, especially Theorem 3.11, Theorem 5.2 and Section 6.1 Question 6.1 (lines 539-554)",
+        "method": "Read accessible arXiv HTML and compare both displayed case branches with k=2, k=6 and the newly proved modulus reduction",
+        "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+        "trigger": "Primary 11B39 paper explicitly conjecturing even Fibonacci-cube window gcds"
+      },
+      {
+        "assessment": "Theorem applies to first powers, not cubic terms; no covering implication without the new nonlinear lemma",
+        "evidence": [
+          "https://arxiv.org/html/2104.12262v2 (gcd characterization and even-k formulas)"
+        ],
+        "identifier_or_url": "arXiv:2104.12262v2; https://arxiv.org/html/2104.12262v2",
+        "material_read": "Open-access HTML sections on gcd reduction, even window lengths, and applications",
+        "method": "Read paper in arXiv HTML and compare exponent and hypotheses with the cubic window claim",
+        "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+        "trigger": "Precedent first-power all-start window gcd classification cited by the principal source"
+      },
+      {
+        "assessment": "Proposition 3.5 classifies sums of cubes over even-indexed arithmetic progressions, not all consecutive shifted windows and their gcds",
+        "evidence": [
+          "https://nntdm.net/papers/nntdm-24/NNTDM-24-2-094-103.pdf pp. 94–100, especially Proposition 3.5 on p. 100"
+        ],
+        "identifier_or_url": "DOI:10.7546/nntdm.2018.24.2.94-103; https://nntdm.net/papers/nntdm-24/NNTDM-24-2-094-103.pdf",
+        "material_read": "Open-access 10-page PDF; introduction, summation identities and Proposition 3.5 on third-order sums materially inspected by text and page screenshots",
+        "method": "Read the accessible PDF text and inspect page images 1 and 7 (zero-indexed pages 0 and 6) for formula scope",
+        "title": "Sums of powers of Fibonacci and Lucas numbers: A new bottom-up approach",
+        "trigger": "Plausible power-sum identities could implicitly express a cubic window"
+      },
+      {
+        "assessment": "A possible uninspected source of related power-sum formulas; no demonstrated complete all-start gcd criterion",
+        "evidence": [
+          "https://ideas.repec.org/h/spr/sprchp/978-94-011-2058-6_12.html"
+        ],
+        "identifier_or_url": "DOI:10.1007/978-94-011-2058-6_12; https://ideas.repec.org/h/spr/sprchp/978-94-011-2058-6_12.html",
+        "material_read": "Abstract and bibliographic page only; no full text inspected",
+        "method": "Read accessible abstract; did not infer whole-document noncoverage",
+        "title": "On sums of cubes of Fibonacci numbers",
+        "trigger": "Original literature dedicated to sums of Fibonacci cubes"
+      },
+      {
+        "assessment": "Selected prime divisibility of pairs with fixed offset does not imply gcd over all length-k cubic windows",
+        "evidence": [
+          "https://www.researchgate.net/publication/350636633_Prime_Factors_and_Divisibility_of_Sums_of_Powers_of_Fibonacci_and_Lucas_Numbers (L553–L565, L843–L861)"
+        ],
+        "identifier_or_url": "DOI:10.33697/ajur.2020.036",
+        "material_read": "Public accessible full-text displayed in ResearchGate HTML, including stated results on two-term square and cube sums",
+        "method": "Read the text of the paper and inspect lemma hypotheses involving shifted two-term sums",
+        "title": "Prime Factors and Divisibility of Sums of Powers of Fibonacci and Lucas Numbers",
+        "trigger": "Power-sum prime-divisibility alias, possibly stronger than exact consecutive window gcd"
+      },
+      {
+        "assessment": "Bounds and divisibility criteria for U_m dividing U_{n+k}^s-U_n^s do not determine the cubic-shift gcd nor the extra first-window factor",
+        "evidence": [
+          "https://doi.org/10.1016/j.jnt.2015.11.011"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.jnt.2015.11.011",
+        "material_read": "Accessible publisher text, introduction, Theorem 1, preliminary lemmas and concluding comments",
+        "method": "Compared divisibility by a single Lucas term with the exact global gcd of all third-power shifts",
+        "title": "On a divisibility relation for Lucas sequences",
+        "trigger": "General divisibility of Lucas power differences might dominate the cube-difference part"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5a229e1-64e5-4f7d-a9d5-15bb54927c7a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is explicitly motivated by published Question 6.1 about third-power Fibonacci window gcds. A complete corrected all-even classification resolves the natural Fibonacci subproblem, exposes the swapped case conditions with concrete counterexamples and proves a nontrivial norm-based simplification of the gcd; it is not merely a numerical correction or a routine parameter substitution. Further work on Lucas cubes, higher powers and general initial values is naturally motivated.",
+    "status": "PASS"
+  }
+}
