@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact target from Behzadipour's criterion. For \\(p<2^a\\), it gives a valid sum of distinct proper divisors by binary expansion. For \\(p>2^a\\), it exhausts the ranges: the target is negative for \\(p\\ge2^{a+1}+1\\); otherwise it is below \\(p^2\\), and the remaining two divisor layers lead to an impossible even residue modulo \\(p\\). Boundary cases \\(a=1\\) and \\(p=2^a\\) are covered because \\(p\\) is odd. The finite direct subset-sum replay agrees in all 549 tested cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The focal paper has closure theorems for adjoining even prime powers and increasing existing exponents in specific steps.",
+        "Those closures generate sufficient subfamilies from existing examples and give no converse threshold on all parameter pairs \\((a,p)\\).",
+        "Closest semantic-search records treat practical, strong Achilles, Tian, or Egyptian-fraction properties, not two-layeredness."
+      ],
+      "reasoning": "Neither the paper’s closure results nor the returned two-prime-support theorems dominate the exact iff classification of this family.",
+      "searches": [
+        "two-layered numbers 2^a p^2 iff p < 2^a",
+        "two-layered prime-square support exact classification",
+        "first two-prime support layer two-layered 2^a p^2",
+        "Behzadipour two-layered p square dyadic threshold",
+        "arXiv:1812.07233 Theorem 1.7 Theorem 1.8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.07233",
+      "OEIS:A322657"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 1.4 forces even exponents on odd prime factors, making \\(p^2\\) the first admissible odd-prime layer.",
+        "Theorem 1.5 reduces membership to subset sum but does not decide that subset sum uniformly.",
+        "Theorem 1.7 and Theorem 1.8 are one-way closure statements and do not yield the necessity \\(p<2^a\\)."
+      ],
+      "reasoning": "The new statement is not a special case of an already parameter-classified stronger theorem; it is a complete solution of a natural infinite stratum left undecided by the general criterion.",
+      "searches": [
+        "two-layered numbers 2^a p^2 iff p < 2^a",
+        "two-layered prime-square support exact classification",
+        "first two-prime support layer two-layered 2^a p^2",
+        "Behzadipour two-layered p square dyadic threshold",
+        "arXiv:1812.07233 Proposition 1.4 Theorem 1.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behzadipour Theorem 1.5: two-layeredness is equivalent to representability of \\((\\sigma(n)-1)/2-n\\) by distinct proper divisors excluding \\(1\\).",
+        "No searched record states the equivalent threshold \\(p<2^a\\) for \\(n=2^a p^2\\)."
+      ],
+      "reasoning": "The subset-sum formulation is equivalent to membership but leaves the parametric decision unresolved. The binary/modular argument is needed to turn it into the claimed closed form.",
+      "searches": [
+        "two-layered numbers 2^a p^2 iff p < 2^a",
+        "two-layered prime-square support exact classification",
+        "first two-prime support layer two-layered 2^a p^2",
+        "Behzadipour two-layered p square dyadic threshold",
+        "arXiv:1812.07233 Theorem 1.5",
+        "OEIS:A322657"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A322657 is the canonical sequence of two-layered numbers and cites Behzadipour.",
+        "Its listed terms include 36, 72, 144, 200, 392, 400, 784, 1936 and 2704, consistent with the theorem.",
+        "The entry gives a membership algorithm and finite table but no infinite classification of the \\(2^a p^2\\) subfamily."
+      ],
+      "reasoning": "The exact database was checked directly; table membership does not imply the all-parameter iff theorem.",
+      "searches": [
+        "OEIS A322657 two-layered numbers",
+        "two-layered numbers 2^a p^2 iff p < 2^a"
+      ]
+    },
+    "rationale": "Behzadipour's source provides the exact membership criterion but no uniform solution for \\(2^a p^2\\). The new proof solves that infinite subset-sum family and yields the iff threshold \\(p<2^a\\). OEIS A322657 supplies a table and algorithm but no parametric classification. Exact semantic searches found no implication-equivalent theorem; the closest indexed results concern different two-prime-support properties.",
+    "residual_risks": [
+      "An unindexed note or informal observation may contain the same sharp threshold.",
+      "The theorem is limited to odd-prime exponent two; higher even exponents may have different behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines two-layered numbers, supplies necessary parity/abundance conditions and general membership/closure theorems, but no \\(2^a p^2\\) iff classification.",
+        "evidence": "Definition 1.1; Proposition 1.4; Theorem 1.5; Theorems 1.7–1.8.",
+        "identifier_or_url": "arXiv:1812.07233",
+        "material_read": "arXiv metadata; full-paper definition, Example 1.3, Proposition 1.4, Theorem 1.5, and Theorems 1.7–1.8.",
+        "method": "Open-access arXiv full-text and page-image inspection.",
+        "title": "Two-layered numbers",
+        "trigger": "Foundational source defining the object and giving the exact subset-sum criterion."
+      },
+      {
+        "assessment": "Compatible finite table and exact membership algorithm, but no parametric theorem for the prime-square two-support stratum.",
+        "evidence": "Initial terms and comments citing Behzadipour.",
+        "identifier_or_url": "OEIS:A322657",
+        "material_read": "Current sequence definition, initial terms, example, links, and membership algorithms.",
+        "method": "Database-page inspection.",
+        "title": "OEIS A322657",
+        "trigger": "Exact database sequence for two-layered integers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4a70f9cd-1aff-4cfe-9560-ee2708f8226a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Proposition 1.4 makes \\(2^a p^2\\) the first possible two-prime-support stratum, so its complete classification is a natural structural boundary problem. The sharp condition \\(p<2^a\\) converts an infinite subset-sum family into a simple threshold and explains a visible family in OEIS A322657; the result is not a routine restatement of the source criterion.",
+    "status": "PASS"
+  }
+}
