@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For a unit greedy basis vector \\(p\\), the source PSB formula gives exactly \\(R^+=(I-pp^T)R(I-pp^T)\\) for \\(R=G-A\\). Orthogonality makes the coordinate projectors commute, proving the mask formula after any selected set. Positive semidefiniteness of \\(R_0=LI-A\\) makes a zero diagonal deficit equivalent to an already exact basis direction. These facts prove both necessity and sufficiency of exactly \\(s\\) nontrivial updates. On a quadratic, the source Hessian-variation correction has \\(M=0\\), so scheme (36) contributes \\(t+1\\) updates per completed outer iteration and yields the stated ceiling formula. The diagonal example proves sharpness of the subsequent exact-Newton-step count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 projection-operator paper gives a unified sufficient framework for quadratic termination across quasi-Newton families, but does not derive the source-specific invariant coordinate scores or batch cutoff.",
+        "The 2023 greedy-PSB theorem proves finite recovery within n updates using a different greedy criterion based on residual-vector norms.",
+        "The multiple-greedy quasi-Newton precursor motivates repeated updates but does not provide this standard-PSB coordinate masking law."
+      ],
+      "reasoning": "Broader finite-termination theorems imply that suitably chosen directions can identify a quadratic Hessian, but they do not dominate an exact complexity identity for this particular greedy rule and batching architecture.",
+      "searches": [
+        "arXiv:2508.10211v1 full text on generalized PSB quadratic termination",
+        "DOI:10.1007/s10589-023-00495-y full text on greedy PSB quadratic termination",
+        "arXiv:2311.18210v1 multiple greedy quasi-Newton updates"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1080/02331934.2026.2615215",
+      "arXiv:2508.10211v1",
+      "DOI:10.1007/s10589-023-00495-y",
+      "arXiv:2311.18210v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper proves single-update finite recovery and gives multiple nonlinear refinements, but never combines them into an exact batching count.",
+        "The 2023 paper selects a direction by maximizing a residual-vector norm, not the diagonal Rayleigh deficit used by the 2026 paper.",
+        "The 2025 general termination framework supplies sufficient directional conditions but not the fixed-basis greedy ordering or outer-versus-matrix-update complexity identity."
+      ],
+      "reasoning": "The new claim is not a restatement of finite termination: it extracts an exact invariant of the 2026 greedy rule and uses the architecture of scheme (36) to prove a sharp batching law. None of the inspected prior implications supplies both ingredients.",
+      "searches": [
+        "DOI:10.1080/02331934.2026.2615215 full text: equations (2), (3), scheme (9), Lemmas 3.2-3.3, scheme (36), and Theorem 5.1",
+        "DOI:10.1007/s10589-023-00495-y full text: greedy criterion (6), Algorithm 1, and Theorem 4",
+        "arXiv:2508.10211v1 quadratic-termination framework for generalized PSB"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-result hit states an exact outer-iteration batching law for the 2026 multiple greedy PSB scheme.",
+        "The primary source states a single-update quadratic finite-termination result and a separate general nonlinear multiple-update rate, but no combined exact quadratic count.",
+        "The exact score invariance and ordering by initial Rayleigh deficits are absent from the inspected source statements and proofs."
+      ],
+      "reasoning": "The searches used the source algorithm name plus finite termination, batching, exact Hessian recovery, coordinate identification, and the ceiling-count formulation. The new statement is stronger than generic finite termination because it determines the selected order, exact nontrivial-update count, and sharp outer-solve count.",
+      "searches": [
+        "Published-research database: multiple greedy PSB quadratic finite termination t updates exact Hessian coordinate identification",
+        "Published-research database: Powell symmetric Broyden greedy basis update exact Hessian after batched multiple updates quadratic",
+        "Published-research database: multiple greedy PSB finite identification Hessian quadratic ceil n/(t+1)",
+        "Web: exact article title plus quadratic termination multiple updates batching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concerned other optimization stability and finite-identification phenomena rather than PSB batching.",
+        "No indexed result contained the exact count by the number of positive initial Rayleigh deficits."
+      ],
+      "reasoning": "The finding is a symbolic algorithmic complexity law, not a recomputation of a table, benchmark, or stored finite dataset.",
+      "searches": [
+        "Published-research database: greedy PSB update order diagonal entries LI minus A exact formula projection coordinate",
+        "Published-research database: multiple greedy PSB finite identification Hessian quadratic ceil n/(t+1)"
+      ]
+    },
+    "rationale": "The primary 2026 paper, its 2023 greedy-PSB predecessor, a 2025 unified quadratic-termination framework, and the cited multiple-greedy quasi-Newton precursor were compared at the level of statements and mechanisms. The primary source separately proves single-update finite termination and introduces nonlinear multiple updates, but does not state the invariant diagonal-score law, the exact s-update count, the batching cutoff, or total-update invariance. Targeted published-result searches returned no implication-equivalent record.",
+    "residual_risks": [
+      "A mathematically equivalent batching observation may exist in poorly indexed quasi-Newton literature under different terminology; the targeted searches did not locate one.",
+      "The result is deliberately specialized to constant Hessians and the source initialization; it does not claim a finite identification law for the nonlinear experiments.",
+      "Generic quadratic-termination frameworks overlap with the finite-recovery aspect, but the inspected versions do not provide the source-specific exact score ordering or batching count."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source contains the two ingredients separately: finite single-update quadratic recovery and a multi-update nonlinear scheme. It does not state the exact combined batching law.",
+        "evidence": "The quadratic proof uses coordinate-kernel growth; the multiple scheme applies t internal greedy refinements and one final greedy PSB update per outer iteration.",
+        "identifier_or_url": "DOI:10.1080/02331934.2026.2615215",
+        "material_read": "Full article sections containing the PSB formula and greedy rule, the quadratic algorithm, Lemmas 3.2 and 3.3, Theorem 3.1, the multiple greedy update construction, scheme (36), and Theorem 5.1.",
+        "method": "Authorized full-text inspection after public preprint and open-access discovery attempts did not yield the article text.",
+        "title": "The multiple greedy PSB method with faster superlinear convergence rate",
+        "trigger": "Primary recent source defining the diagonal-Rayleigh greedy PSB rule and the multiple-update scheme."
+      },
+      {
+        "assessment": "It proves finite quadratic Hessian recovery, but with a different greedy score and without a multiple-update batching theorem.",
+        "evidence": "Its greedy rule maximizes the normalized squared residual-vector norm, and Theorem 4 proves recovery within n iterations.",
+        "identifier_or_url": "DOI:10.1007/s10589-023-00495-y",
+        "material_read": "Full text through the PSB update, Frobenius-norm greedy rule, quadratic algorithm, explicit rates, and finite-termination Theorem 4.",
+        "method": "Authorized full-text inspection after public full-text discovery did not provide the article.",
+        "title": "Greedy PSB methods with explicit superlinear convergence",
+        "trigger": "Closest earlier greedy-PSB finite-termination theorem."
+      },
+      {
+        "assessment": "Provides a general sufficient directional framework but not the exact coordinate-deficit ordering or multiple-greedy batching count.",
+        "evidence": "The paper characterizes update directions through image/projection operators to ensure quadratic termination across several quasi-Newton families.",
+        "identifier_or_url": "arXiv:2508.10211v1",
+        "material_read": "Open preprint abstract, setup, and the quadratic-termination framework covering generalized PSB and projection operators.",
+        "method": "Open arXiv full-text inspection.",
+        "title": "Improving Quasi-Newton Methods via Image and Projection Operators",
+        "trigger": "Broader recent framework for quadratic termination of generalized PSB updates."
+      },
+      {
+        "assessment": "Motivates multiple matrix refinements but does not state the PSB-specific exact masking and finite batching law.",
+        "evidence": "The method uses multiple greedy updates to control Hessian approximation error and obtain explicit convergence bounds.",
+        "identifier_or_url": "arXiv:2311.18210v1",
+        "material_read": "Open preprint abstract, introduction, and description of multiple greedy quasi-Newton refinements.",
+        "method": "Open arXiv inspection.",
+        "title": "Distributed Adaptive Greedy Quasi-Newton Methods with Explicit Non-asymptotic Convergence Bounds",
+        "trigger": "Multiple-greedy quasi-Newton precursor cited by the primary paper as motivation for repeated updates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8bbc352-26f1-468d-b4ab-4c5e6c9c1242",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's main algorithmic novelty is its multiple greedy PSB refinement, so identifying exactly what those extra refinements buy on the canonical quadratic model is a directly motivated question. The result separates two costs that the asymptotic rate alone does not: batching can reduce outer primal solves by a factor up to \\(t+1\\), yet it cannot reduce the total number \\(s\\) of nontrivial PSB Hessian updates. The sharp cutoff and predetermined ordering provide a reusable finite-complexity interpretation of the method rather than an arbitrary special-case calculation.",
+    "status": "PASS"
+  }
+}
