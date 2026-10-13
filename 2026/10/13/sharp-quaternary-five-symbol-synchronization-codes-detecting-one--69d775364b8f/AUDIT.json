@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The five-coordinate parity-lifted construction has exactly 32 distinct codewords; its two binary group patterns have no proper prefix/suffix match and parity excludes Hamming distance one. For the upper bound, length-one overlap exclusion forces disjoint start/end symbol sets; word reversal reduces every case to a first-symbol alphabet of size 1 or 2. Exhaustive independent regeneration gives exactly 180 and 240 individually unbordered candidate words, respectively. Bundled 32-clique covers in each pairwise-conflict graph cover every candidate; every clique edge and all coverage are checked by both a string-based and an independently implemented base-four integer-based verifier. Thus 32 is a universal bound in the exact finite scope. The single-template upper bound 27 follows from two puncturing injections, with equality from a ternary checksum. All calculations are reproduced from package-relative files; there is no inference from partial searches to a universal conclusion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik–Moškon–Mraz https://doi.org/10.1007/s10623-023-01344-z treats unrestricted maximum non-overlapping cardinality and exact integer programming.",
+        "Published mathematical record https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a establishes unrestricted S(4,5)=81, while no pairwise-distance-two condition is imposed.",
+        "Wang–Fang–Feng https://doi.org/10.1016/j.disc.2024.114236, accessible abstract and section previews, describes restricted-overlap error-correcting code bounds via Gilbert–Varshamov arguments."
+      ],
+      "reasoning": "The unrestricted upper value 81 does not imply the distance-two optimum 32, nor does it imply 32 is attainable. The Levy–Yaakobi broad upper bound by the ordinary distance-two code maximum gives at best floor(256/5)=51 at this parameter (using the displayed generic bound), not 32. The available 2025 publisher material describes nonspecific lower and upper bounds and no exact equality claim; its unavailable complete proof is a residual risk, not declared excluded.",
+      "searches": [
+        "Extremal q-ary length-five non-overlapping codes, Blackburn construction, distance-constrained packing",
+        "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "doi:10.1016/j.disc.2024.114236"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1303.1026",
+      "https://arxiv.org/abs/1804.05371",
+      "https://doi.org/10.1007/s10623-023-01344-z",
+      "https://doi.org/10.1016/j.disc.2024.114236",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+      "MSC2020 94B50: synchronization error-correcting codes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn https://arxiv.org/abs/1303.1026 supplies the single-template baseline and general synchronization bounds, without solving Hamming-constrained cardinality.",
+        "Levy–Yaakobi https://arxiv.org/abs/1804.05371 studies error-detecting MU codes but its cited generic estimates are too broad to force equality at 32.",
+        "2026 unrestricted length-five result https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a proves a cardinality 81 without the detection constraint.",
+        "2025 restricted-overlap publication https://doi.org/10.1016/j.disc.2024.114236 has limited accessible material and hence a precisely named residual comparison risk."
+      ],
+      "reasoning": "A prior construction giving some codewords or an unrestricted optimizer of 81 does not prove the extremal constrained value 32; conversely a general upper bound 51 is not strong enough. The new 32-clique covers check every candidate after symmetry and provide the missing exact upper bound. The strict 27 ceiling applies only to the single Blackburn template and does not assert uniqueness of the new construction.",
+      "searches": [
+        "quaternary 5-letter DNA MU codes, cross-bifix-free with Hamming distance two, cardinality 32",
+        "2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac",
+        "arxiv:1804.05371"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blackburn https://arxiv.org/abs/1303.1026 identifies non-overlapping with cross-bifix-free.",
+        "Levy–Yaakobi https://arxiv.org/abs/1804.05371 defines (d_h,d_m)-mutually uncorrelated codes; its (2,1) condition is the same combination of pairwise distance two and exact exclusion of prefix/suffix equality."
+      ],
+      "reasoning": "The candidate is not novelty by a different name: strong comma-free, cross-bifix-free, non-overlapping, and mutually uncorrelated synchronization are identified as the same prefix/suffix condition. The explicit 2018 combined-distance framework is directly compared; its general statements do not give the sharp (length 5, alphabet 4) cardinality 32.",
+      "searches": [
+        "Exact A_MU(5,4,2,1) simultaneous non-overlapping cross-bifix-free length-five four-symbol single-substitution detection code size 32 using clique-cover upper bound and two binary group patterns; Blackburn I^4J bound 27",
+        "Maximum quaternary length-five cross-bifix-free non-overlapping codes with minimum Hamming distance two detecting one substitution, exact maximum and equality classes",
+        "AMU(5,4,2,1) = 32 four-ary length-five mutually uncorrelated codes Hamming distance 2",
+        "Mutually Uncorrelated Codes for DNA Storage dH=2 dm=1 length 5 quaternary maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published length-five record https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a explicitly states S(4,5)=81 but concerns no Hamming restriction.",
+        "The general combined-distance framework in Levy–Yaakobi (2018) does not tabulate the exact four-symbol length-five maximum.",
+        "Targeted mathematical-record and literature queries returned nearby unrestricted or other-channel results, not a table determining the sharp constrained 32."
+      ],
+      "reasoning": "The publicly found exact length-five tables are for a different constraint. No searched exact database entry supplies the claimed maximum; absence from these searches is treated only as evidence with possible indexing gaps, not as conclusive proof of priority.",
+      "searches": [
+        "quaternary 5-letter DNA MU codes, cross-bifix-free with Hamming distance two, cardinality 32",
+        "AMU(5,4,2,1) = 32 four-ary length-five mutually uncorrelated codes Hamming distance 2",
+        "Maximum quaternary length-five cross-bifix-free non-overlapping codes with minimum Hamming distance two detecting one substitution, exact maximum and equality classes"
+      ]
+    },
+    "rationale": "The claim is the exact simultaneous non-overlap and minimum Hamming-distance-two maximum 32 for four symbols and length five, together with the strict single-template ceiling 27. Earlier work defines the same combined coding constraints and gives general bounds/constructions, while later exact length-five results are unrestricted by Hamming distance. The accessible relevant primary full texts and public mathematical record do not state or imply the sharp exact 32. A relevant 2025 restricted-overlap paper could not be inspected in its complete text, so unindexed duplication remains a genuine documented risk. This is a finite priority judgment, not a proof that no unindexed result exists.",
+    "residual_risks": [
+      "The full Wang–Fang–Feng 2025 paper was unavailable for decisive inspection; an otherwise unstated exact four-symbol case could exist in its appendices.",
+      "Other unindexed exact-code tables or unpublished mathematics could contain an equivalent parameter-specific result.",
+      "The computer-checkable certificate uses exhaustive finite logic, not a short symbolic inequality; users should run both self-contained checkers rather than relying only on logged output."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not an exact Hamming-distance-two four-symbol length-five result.",
+        "evidence": [
+          "arxiv:1303.1026v1, first public 2013-03-05",
+          "Construction of non-overlapping code families; no sharp combined Hamming constraint."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.1026",
+        "material_read": "Primary preprint definition, non-overlapping constructions, short-length bounds and theorem statements, including PDF-page examination.",
+        "method": "Open-access arXiv PDF and primary text inspection.",
+        "title": "Non-Overlapping Codes",
+        "trigger": "Foundational synonym and single-template comparisons."
+      },
+      {
+        "assessment": "Establishes the model and general bounds, but does not yield the exact 32 at (5,4,2,1).",
+        "evidence": [
+          "arxiv:1804.05371v1",
+          "The general distance and overlap bound specializes to a value strictly above 32."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.05371",
+        "material_read": "Definitions of (d_h,d_m)-MU codes, error-detecting extensions and generic bounds, including Theorem 6.1 in the full preprint.",
+        "method": "Open-access arXiv PDF primary full text inspection.",
+        "title": "Mutually Uncorrelated Codes for DNA Storage",
+        "trigger": "Same joint synchronization and Hamming-distance coding objects."
+      },
+      {
+        "assessment": "No Hamming-distance-two exact optimum; unrestricted scope.",
+        "evidence": [
+          "doi:10.1007/s10623-023-01344-z",
+          "Its objective is maximum non-overlapping codes without an additional pairwise minimum distance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Accessible complete HTML text, including definitions and exact combinatorial optimization for unrestricted maximum.",
+        "method": "Open-access publisher full article reading.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Published exact-optimization framework for short non-overlapping codes."
+      },
+      {
+        "assessment": "Shows unrestricted S(4,5)=81 and I^4J optimizer characterization; not the simultaneous distance-two optimum.",
+        "evidence": [
+          "Public result dated 2026-09-20",
+          "Explicit unrestricted S(q,5) formula and equality classification."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "material_read": "Entire public RESULT.md including theorem, construction, proof, numerical values and references.",
+        "method": "Direct read of complete public mathematical result text from its repository.",
+        "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+        "trigger": "Highly relevant later published exact length-five primary result."
+      },
+      {
+        "assessment": "Available material offers construction bounds and does not visibly settle sharp 32; complete full-text comparison remains unresolved.",
+        "evidence": [
+          "doi:10.1016/j.disc.2024.114236",
+          "Section 4 publisher preview states a constrained Gilbert–Varshamov lower bound rather than short-parameter equality."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114236",
+        "material_read": "Publisher article preview, introduction, section previews on error-correcting codes, abstract and conclusions; full paper not accessible.",
+        "method": "Publisher preview and bibliographic OA/preprint availability search; complete full text was not obtained.",
+        "title": "q-ary (1,k)-overlap-free codes with given restrictions",
+        "trigger": "Directly relevant error-correcting overlaps and four-symbol applicability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69d77536-4b8f-4281-93e2-93a1a981bd4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The coding question couples two separately motivated, classical requirements: synchronization across word boundaries and guaranteed single-substitution detection over a natural four-letter alphabet. The exact answer 32 is not a passive recomputation of unrestricted S(4,5)=81. The sharp certificate proves a real nontrivial Hamming-constrained gap, and the 32-word dual-template construction exceeds the best 27-word realization in any single I^4J family by 5. Determining this natural small alphabet/length boundary gives a reusable exact design benchmark, though no claim of a general coding theorem is made.",
+    "status": "PASS"
+  }
+}
