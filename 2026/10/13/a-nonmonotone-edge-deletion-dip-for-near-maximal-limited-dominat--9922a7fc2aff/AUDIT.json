@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "At fixed n>=3, k=n-2 and 0<=t<=n, a two-selected pair is either capacity-invalid or fails domination. A three-selected set must consist of an unmatched singleton on one shore and two matched vertices opposite: proved by an explicit omitted matched-partner obstruction and outside neighbor capacities. Counting these yields 2(n-t)C(t,2), only for 2<=t<n. All two-plus-two selected sets work, and endpoint cases exclude other size-four profiles. Direct independent adjacency enumeration n=3..8 for 39 graph profiles and 757248 subsets matches both exact minima and multiplicities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 1(iv) computes K_{m,n} before deletion.",
+        "Later abstract addresses general bounds and selected equality classes, not this sharp matching deletion sequence.",
+        "Cartesian-product results concern unrelated product families."
+      ],
+      "reasoning": "Known K_{n,n} and full crown endpoint data are a strictly weaker pair of point evaluations; they cannot imply an intermediate dip and full optimizer classification without further structural argument.",
+      "searches": [
+        "arXiv:2606.22422 Proposition 1(iv), Sections 1–6",
+        "arXiv:2610.01442 general extreme bounds",
+        "arXiv:2606.22428 Cartesian products"
+      ]
+    },
+    "checked_sources": [
+      "Božović et al., arXiv:2606.22422, open Springer full text, Proposition 1(iv)",
+      "Radić, arXiv:2610.01442, abstract",
+      "Tepeh, arXiv:2606.22428, abstract",
+      "Searches of crown/partial-matching limited domination and equivalent pitchfork and regular-graph formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The origin paper gives gamma_k^L(K_{n,n})=2n-2k, hence four for k=n-2.",
+        "The crown case is the fully deleted matching, at which gamma=4, whereas every 2<=t<n case in the theorem has gamma=3."
+      ],
+      "reasoning": "Neither endpoint evaluation implies the strict interior improvement. Removing edges simultaneously reduces external capacity loads and can eliminate domination, so no simple monotonic implication spans intermediate graphs.",
+      "searches": [
+        "arXiv:2606.22422 Proposition 1(iv)",
+        "\"total domination\" \"crown graph\"",
+        "\"k-limited domination\" \"partial matching\"",
+        "\"limited domination complete bipartite graph with perfect matching removed\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The origin paper identifies (0,k)-pitchfork domination with the invariant and regular (1,t)-domination equivalence.",
+        "Partial matching deletion for 0<t<n has nonuniform degrees; direct regular-graph conversion is inapplicable."
+      ],
+      "reasoning": "Alias searches include the equivalent definition; the general equivalence on regular endpoints does not determine the irregular intermediate profile.",
+      "searches": [
+        "\"(0,k) pitchfork domination crown graph\"",
+        "\"crown graph\" \"(1,t)-domination\"",
+        "arXiv:2606.22422 Sec.1 relation to (0,k)-pitchfork",
+        "arXiv:2606.22422 Sec.4 regular equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected exact table or database claimed the 0<=t<=n profile at the fixed near-maximal capacity."
+      ],
+      "reasoning": "The statement quantifies over all n and all matching deletion counts. A crown-only table at t=n cannot cover the intermediate nonmonotone cases.",
+      "searches": [
+        "\"k-limited domination\" \"K_{n,n}\" \"matching\"",
+        "\"k-limited domination\" \"crown graph\"",
+        "\"(1,t)-domination\" \"complete bipartite\" \"matching\""
+      ]
+    },
+    "rationale": "The full-text 2026 origin paper gives the intact K_{n,n} minimum and regular-graph equivalence but not the partial matching deletion path. The known fully deleted crown case covers t=n only. All intermediate 2<=t<n configurations and their exact minimizers are neither of those special cases nor logically implied by endpoint values; searches located no covering full-family result. Unindexed equivalence remains possible.",
+    "residual_risks": [
+      "Unindexed equivalent work may exist; keyword and semantic searches cannot prove novelty.",
+      "Full-text access to some recent same-invariant preprints was unavailable; their abstracts cannot rule out all incidental graph examples.",
+      "The intact and full matching endpoints may already have known values. Originality rests on the intermediate nonmonotone phase and exact count of its minimizing configurations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers intact t=0 endpoint but not partial matching deletion profile.",
+        "evidence": [
+          "Proposition 1(iv): formula for gamma_k^L(K_{m,n}).",
+          "Corollary 7: regular graph equivalence, inapplicable to mixed-degree intermediate family."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s40314-026-03902-2; arXiv:2606.22422",
+        "material_read": "Full Springer open-access HTML: introduction, Proposition 1 and proof, bounds, regular graph equivalence, 1-limited analysis, conclusions.",
+        "method": "Read full article in online HTML, including named theorem statements, searched matching and crown terms.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Defines new invariant and proves complete bipartite baseline"
+      },
+      {
+        "assessment": "Abstract claims general bounds, not graph-specific deletion counts; no categorical full-text noncoverage asserted.",
+        "evidence": [
+          "Abstract says general extremes gamma=ceil(N/(k+1)) and gamma=N-k."
+        ],
+        "identifier_or_url": "arXiv:2610.01442",
+        "material_read": "Public abstract, not full text",
+        "method": "Read arXiv record and abstract",
+        "title": "An improved lower and upper bound of the k-limited domination number",
+        "trigger": "Potential later general bound implying the new formula"
+      },
+      {
+        "assessment": "Product graph families mentioned; full text uninspected and thus recorded as residual risk.",
+        "evidence": [
+          "Abstract lists rook graphs, grids, prisms and hypercubes."
+        ],
+        "identifier_or_url": "arXiv:2606.22428",
+        "material_read": "Public abstract, not full text",
+        "method": "Read dated arXiv record",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Same invariant and possible graph-family theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9922a7fc-2aff-404d-8508-b448fe55711e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp nonmonotonic behavior appears in a canonical nested edge-deletion chain for a recently introduced graph invariant at a motivated shared capacity, with structural classification and exact counts of all optimizers. Neither the intact complete bipartite value nor the fully deleted crown endpoint determines the intermediate drop or its causes.",
+    "status": "PASS"
+  }
+}
