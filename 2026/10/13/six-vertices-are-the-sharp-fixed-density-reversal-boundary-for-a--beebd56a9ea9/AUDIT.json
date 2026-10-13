@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The witness characteristic polynomials factor exactly as \\(\\chi_A(x)=x(x-6)(x-4)(x-2)(x-1)^2\\) and \\(\\chi_B(x)=x(x-3)^2(x-2)(x^2-6x+4)\\), so the Fiedler values are \\(1\\) and \\(3-\\sqrt5\\). Exhaustive edge cuts give connectivities \\(1\\) and \\(2\\). All connected graph isomorphism classes through five vertices are enumerated and compared exactly within fixed \\((n,m)\\) layers, with no reversal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fiedler's full paper defines algebraic connectivity and explicitly studies its relation to usual vertex and edge connectivity; Section 4 gives inequalities connecting them.",
+        "The official Sandia record for Feddema–Byrne–Abdallah states that algebraic, node, and edge connectivity are used as robustness measures and that increasing algebraic connectivity can correspond to decreasing combinatorial robustness in studied families.",
+        "Jamakovic–Van Mieghem treat algebraic connectivity as a robustness measure for complex networks and relate it to node and link connectivity."
+      ],
+      "reasoning": "These sources cover the conceptual and inequality framework, but none of the inspected material supplies the finite minimum under equal order and equal edge count.",
+      "searches": [
+        "\"Algebraic connectivity of graphs\" Fiedler 1973 edge connectivity",
+        "\"Algebraic connectivity and graph robustness\" Feddema Byrne Abdallah",
+        "\"On the Robustness of Complex Networks by Using the Algebraic Connectivity\"",
+        "\"algebraic connectivity\" \"network robustness\" edge connectivity"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21136/CMJ.1973.101168",
+      "doi:10.2172/973665",
+      "doi:10.1007/978-3-540-79549-0_16",
+      "MSC2020:91D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fiedler proves bounds such as algebraic connectivity being controlled by classical connectivity, but one-sided inequalities do not force two graph rankings to agree.",
+        "Feddema–Byrne–Abdallah show that monotone correspondence can fail in network families, which makes reversal prior context rather than the new contribution.",
+        "The accepted claim adds the universal nonreversal through five vertices, density control, and a minimum six-vertex witness."
+      ],
+      "reasoning": "Known inequalities and family-level counterexamples do not imply the smallest same-order, same-size reversal. The finite lower bound and exact witness therefore require an independent comparison.",
+      "searches": [
+        "Fiedler algebraic connectivity vertex connectivity edge connectivity inequality",
+        "Feddema algebraic connectivity graph robustness decrease node connectivity",
+        "algebraic connectivity edge connectivity bounds graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claim can be phrased as Fiedler-value versus link-connectivity ordering, or as a spectral-connectivity surrogate preferring a bridge-containing network over a bridgeless network.",
+        "No checked database result identified a six-vertex minimum or the displayed seven-edge pair.",
+        "Exact witness-description searches did not locate the cone-over-\\(P_3\\cup2K_1\\) versus triangle–\\(4\\)-cycle bouquet comparison."
+      ],
+      "reasoning": "The searches cover the principal aliases: algebraic connectivity/Fiedler value and edge connectivity/link connectivity, together with smallest-graph, fixed-density, bridge, and robustness terminology.",
+      "searches": [
+        "algebraic connectivity edge connectivity six vertices seven edges bridge figure eight graph",
+        "Fiedler value edge connectivity strict ranking reversal smallest graph",
+        "network robustness algebraic connectivity link connectivity counterexample bridge",
+        "same order same size algebraic connectivity edge connectivity reversal",
+        "\"algebraic connectivity\" \"edge connectivity\" counterexample graph bridge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulated the witness pair as a robustness-ranking reversal.",
+        "The packaged verifier constructs the full lower-order graph census rather than importing a small-graph table.",
+        "The witness spectra are derived from exact characteristic polynomials in the package."
+      ],
+      "reasoning": "Exact structural and algebraic searches test whether the small witness is already present as a table entry, example, or benchmark.",
+      "searches": [
+        "\"cone over\" \"P3\" algebraic connectivity edge connectivity",
+        "\"triangle\" \"4-cycle\" algebraic connectivity edge connectivity",
+        "\"3-sqrt(5)\" algebraic connectivity edge connectivity",
+        "\"six vertices\" \"algebraic connectivity\" \"edge connectivity\""
+      ]
+    },
+    "rationale": "The literature establishes both metrics, their inequalities, and known failures of monotone robustness interpretation. The checked sources and database searches did not state the sharp six-vertex, seven-edge fixed-density reversal or its bridge-versus-bridgeless witness.",
+    "residual_risks": [
+      "The complete Feddema–Byrne–Abdallah report was not retrievable through the checked open route; its official detailed abstract was inspected.",
+      "The direct Jamakovic–Van Mieghem PDF reopen timed out after an indexed public-PDF extract was available.",
+      "An unindexed small-graph example or software regression test could contain the witness without presenting the fixed-density minimality result.",
+      "The classification as social-network robustness uses the general network-connectivity interpretation; the underlying finite theorem is graph-theoretic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct foundational prior art for the metrics and inequalities. It does not state the six-vertex fixed-density ranking boundary.",
+        "evidence": "Fiedler defines the second-smallest Laplacian eigenvalue as algebraic connectivity, states that the purpose is to relate it to usual vertex and edge connectivities, and proves explicit inequalities in Section 4.",
+        "identifier_or_url": "doi:10.21136/CMJ.1973.101168",
+        "material_read": "Complete lawful full-text PDF, including the introduction, variational setup, monotonicity results, Section 4 on relations among algebraic, edge, and vertex connectivity, and the displayed edge-connectivity bounds.",
+        "method": "Full-text PDF inspection with rendered page verification of the connectivity section.",
+        "title": "Algebraic connectivity of graphs",
+        "trigger": "Foundational source defining algebraic connectivity and relating it directly to vertex and edge connectivity."
+      },
+      {
+        "assessment": "Strong conceptual prior art for non-monotone robustness interpretation. Whole-document noncoverage is not asserted.",
+        "evidence": "The official record states that the report studies algebraic connectivity against combinatorial robustness and gives publication date 1 July 2009.",
+        "identifier_or_url": "doi:10.2172/973665",
+        "material_read": "Official Sandia publication record and detailed abstract, including the statements about node- and edge-connectivity robustness, algebraic-connectivity bounds, and inverse behavior in studied network families.",
+        "method": "Official publication-page inspection; direct full-report retrieval through the linked open repository timed out in the bounded retrieval attempt.",
+        "title": "Algebraic connectivity and graph robustness",
+        "trigger": "Closest application source explicitly comparing algebraic connectivity with node and edge connectivity as robustness measures."
+      },
+      {
+        "assessment": "Confirms the network-robustness interpretation and relation to link connectivity, without establishing the finite minimum claimed here.",
+        "evidence": "The abstract identifies algebraic connectivity as a robustness measure; the extracted conclusion discusses its relation to node and link connectivity.",
+        "identifier_or_url": "doi:10.1007/978-3-540-79549-0_16",
+        "material_read": "Open bibliographic record, abstract, and extracted conclusion from the public conference PDF search result.",
+        "method": "Open-index and public-PDF text inspection; a direct PDF reopen timed out, so no whole-document noncoverage statement is made.",
+        "title": "On the Robustness of Complex Networks by Using the Algebraic Connectivity",
+        "trigger": "Primary complex-network source using algebraic connectivity as a robustness quantity and comparing it with node and link connectivity."
+      },
+      {
+        "assessment": "The finding is framed as a smallest robustness-ranking obstruction for network connectivity measures.",
+        "evidence": "MSC2020 lists 91D30 as Social networks; opinion dynamics.",
+        "identifier_or_url": "MSC2020:91D30",
+        "material_read": "MSC2020 hierarchy entry naming 91D30.",
+        "method": "Public MSC database inspection.",
+        "title": "MSC2020 database: 91D30 Social networks; opinion dynamics",
+        "trigger": "Primary subject classification check for the social-network robustness framing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "beebd56a-9ea9-40dd-a9fc-5af8ba1e1459",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Algebraic connectivity is widely used as a global network-connectivity and robustness surrogate, while edge connectivity has the direct operational meaning of the number of link failures needed for disconnection. Fixing both order and edge count makes their disagreement structurally interpretable rather than a density artifact. The minimum witness is especially informative because the spectrally preferred graph actually contains bridges while the alternative is 2-edge-connected.",
+    "status": "PASS"
+  }
+}
