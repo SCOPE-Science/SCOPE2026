@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For a fixed largest shift c, 3-pseudoperiodicity is exactly the local condition x[0] in {x[a],x[b],x[c]} on every length-(c+1) factor. The published factor complexity p(m)=2m+1 certifies factor-list completeness once the generated prefix contains exactly that many factors. The package verifies this for every m<=504 and exhausts every 1<=a<b<c<504 with an exact mismatch-bitset criterion. A separate direct-string pass rechecks every one of the 9352 stored survivors against the complete relevant factor set, and all reported cumulative counts are recomputed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meleshko et al. prove existence of the single witness (4,6,7) and nonexistence of 2-pseudoperiods, but explicitly leave all 3-pseudoperiods uncharacterized.",
+        "The 2026 Tribonacci-related paper found in the later-literature search studies Kimberling sequences, subword complexity, and critical exponent rather than pseudoperiod triples."
+      ],
+      "reasoning": "A full automaton characterization would dominate the bounded census, but none was found. Later Tribonacci results located by the search concern different invariants and do not imply the list of pseudoperiod triples.",
+      "searches": [
+        "Open Problem 30 pseudoperiodic words Tribonacci finite classification",
+        "Tribonacci sequence pseudoperiod 2025 2026",
+        "Pseudoperiodic Words and a Question of Shevelev Tribonacci Open Problem 30"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.10171v1 full text",
+      "DOI:10.46298/dmtcs.9919 article record and PDF",
+      "DOI:10.1016/j.aam.2019.101947 factor-complexity theorem summary",
+      "targeted literature searches through 2026 for Tribonacci pseudoperiod classifications",
+      "targeted indexed-database searches for cutoff 504, total 9352, Open Problem 30, and early new triples"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 29 implies that (4,6,7) is valid but gives no implication for any other triple.",
+        "The factor-complexity theorem supplies only the number of factors; it enables exhaustive local checking but does not itself imply which triples pass.",
+        "A related result on finite binary words with fixed 2-pseudoperiod (9,12) concerns a different alphabet and property, while an additive-Tribonacci result concerns additive fourth powers; neither implies any 3-pseudoperiod triple classification."
+      ],
+      "reasoning": "Neither the source witness, the generic factor-complexity theorem, nor the existing own results implies the 9352-triple classification. The new statement requires evaluating every triple in the bounded region against the complete factor language.",
+      "searches": [
+        "arXiv 2207.10171 Theorem 29 Open Problem 30 Tribonacci",
+        "Tribonacci factor complexity 2n+1",
+        "Tribonacci 3-pseudoperiod finite classification related results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper defines the same condition as t[i] belonging to {t[i+a],t[i+b],t[i+c]} for every i and states Open Problem 30 in exactly those terms.",
+        "Exact searches for the cutoff, the substitution-scale values, and early new triples returned the source paper or unrelated material, not a bounded census."
+      ],
+      "reasoning": "These searches cover the direct pseudoperiod terminology, the quantified shift-equality formulation, canonical Tribonacci-scale parameters, and concrete first triples, so a covering result would not need to use the same title wording.",
+      "searches": [
+        "Tribonacci 3-pseudoperiods maximum shift 504 exact census",
+        "Tribonacci pseudoperiod 149 274 504",
+        "Tribonacci pseudoperiod 4 7 13 6 7 11",
+        "Characterize all the 3-pseudoperiods of the Tribonacci sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked indexed-database or web result reports 9352 triples, the cumulative sequence 0,2,9,42,172,676,2402,9352, or a table through maximum shift 503.",
+        "The source publication reports (4,6,7) only for the Tribonacci case."
+      ],
+      "reasoning": "An exact finite table is the most direct possible coverage of this claim, so the total count, cutoff, cumulative counts, and earliest non-source triples were queried explicitly.",
+      "searches": [
+        "Tribonacci pseudoperiod 9352 triples",
+        "Tribonacci 3-pseudoperiod 504 table",
+        "Tribonacci pseudoperiod 6 7 11",
+        "Tribonacci pseudoperiod 4 7 13"
+      ]
+    },
+    "rationale": "The direct 2022/2023 source gives only the witness (4,6,7) and explicitly leaves characterization of all Tribonacci 3-pseudoperiods as Open Problem 30 because the intended automaton computation exceeded available resources. Focused searches for bounded classifications, the exact scale 504, the count 9352, and early additional triples found no covering result. Related finite-word and Tribonacci results checked for implication address different invariants.",
+    "residual_risks": [
+      "An unindexed computation, thesis, talk, or unpublished table may contain the same bounded census.",
+      "The source open problem asks for an infinite characterization; this result intentionally settles only the canonical region c<504.",
+      "The factor-complexity theorem is imported rather than reproved in the package."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper supplies one Tribonacci triple and explicitly asks for all triples; it gives no bounded census beyond the witness.",
+        "identifier_or_url": "arXiv:2207.10171v1 / DOI:10.46298/dmtcs.9919",
+        "material_read": "Section 4.5 in the full paper, including Theorem 29, its factor-length-8 verification of (4,6,7), and Open Problem 30 with the stated automaton-computation obstacle.",
+        "method": "Full-text PDF line inspection plus rendered-page inspection.",
+        "title": "Pseudoperiodic Words and a Question of Shevelev",
+        "trigger": "Direct primary source defining Tribonacci 3-pseudoperiodicity and posing its complete characterization as Open Problem 30."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "It certifies the total number of length-n factors but studies binomial complexity rather than pseudoperiod triples.",
+        "identifier_or_url": "DOI:10.1016/j.aam.2019.101947",
+        "material_read": "Abstract and theorem summary stating that the usual Tribonacci factor complexity is p(n)=2n+1.",
+        "method": "Publisher/author-repository abstract and theorem comparison.",
+        "title": "Templates for the k-binomial complexity of the Tribonacci word",
+        "trigger": "Critical supporting premise for exhaustive factor enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "795df726-7243-4dcc-b3ad-28c7fe545c44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies complete Tribonacci 3-pseudoperiod characterization as an open computational problem and says its intended automaton route was beyond available resources. A complete classification through the canonical substitution length |sigma^10(0)|=504 is therefore a mathematically motivated finite boundary, not an arbitrary slice. The census expands the single published witness to 9352 certified triples and supplies a reproducible exact initial region for testing any future automaton or structural conjecture.",
+    "status": "PASS"
+  }
+}
