@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The theorem is proved from the recursive definition of \\(h\\), an inductive least-height lemma, Legendre valuations, and lcm prime powers. For each \\(k\\ge3\\), the power-of-two threshold \\(B=E_{k-1}\\) obeys \\(\\nu_2((B+1)!)=B-1\\) and \\(\\nu_2((B+2)!)=B\\), while each other factorial valuation is at most the binary one. For lcms, \\(\\nu_p(L(N))=\\lfloor\\log_p N\\rfloor\\) gives the exact plateau. At twice its threshold, the odd-height obstruction gives upper \\(k-1\\), and a prime of lcm exponent \\(a=E_{k-2}\\) gives lower \\(k-1\\); the prime is explicit at levels three and four, and guaranteed by Bertrand for all higher levels. The initial levels are handled separately, and finite regression does not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J.-M. De Koninck and W. Verreault, On the tower factorization of integers, arXiv:2308.09149v1 (2023-08-17); author-hosted complete 8-page PDF, especially Section 6 and Section 7.",
+        "J.-M. De Koninck and W. Verreault, Arithmetic functions at factorial arguments, arXiv:2308.09761v1 (2023-08-18), 33-page full HTML edition v2."
+      ],
+      "reasoning": "The source minimum \\(E_k\\) covers unrestricted integer arguments, not behavior on factorial or lcm subsequences. General Legendre and lcm valuations alone do not state the record plateau/drop; realizing the lower bound at the drop needs a prime with the specified exponent (explicit small cases and Bertrand otherwise). The companion factorial study does not define this h or treat its thresholds.",
+      "searches": [
+        "Exact first occurrence heights h(n!) of prime tower factorization factorial, 2 ↑↑ (k−1) + 2",
+        "Tower factorization height h(lcm(1,...,n)) level k plateau from 2 ↑↑ k to 2×2 ↑↑ k and subsequent drop",
+        "Nonmonotone tower factorization height factorial and least common multiple record jumps",
+        "arxiv:2308.09149 full text sections 1-7",
+        "arxiv:2308.09761 HTML full text keyword searches for height and tower factorization"
+      ]
+    },
+    "checked_sources": [
+      "J.-M. De Koninck and W. Verreault, On the tower factorization of integers, arXiv:2308.09149v1 (2023-08-17); author-hosted complete 8-page PDF, especially Section 6 and Section 7.",
+      "J.-M. De Koninck and W. Verreault, Arithmetic functions at factorial arguments, arXiv:2308.09761v1 (2023-08-18), 33-page full HTML edition v2.",
+      "OEIS A288636: height based on gcd of prime exponents, as its Mathematica definition makes explicit; first positions 1,2,4,16,65536.",
+      "arXiv:2308.09149 history confirms 2023-08-17 public source",
+      "2026/10/4/SCOPE-prime-factorial-normal-forms-for-low-support-jordan-p-lya-number--df6c27e827b4",
+      "2026/10/4/SCOPE-linear-window-harmonic-bias-for-factorial-prime-valuations--21df32816f5e",
+      "2026/10/4/SCOPE-double-exponential-lower-growth-for-the-smallest-k-layered-numbe--9dd77dfe67e0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "J.-M. De Koninck and W. Verreault, On the tower factorization of integers, arXiv:2308.09149v1 (2023-08-17); author-hosted complete 8-page PDF, especially Section 6 and Section 7.",
+        "J.-M. De Koninck and W. Verreault, Arithmetic functions at factorial arguments, arXiv:2308.09761v1 (2023-08-18), 33-page full HTML edition v2.",
+        "published-finding corpus published 2026/10/4/SCOPE-prime-factorial-normal-forms-for-low-support-jordan-p-lya-number--df6c27e827b4 concerns Jordan-Pólya factorial products, not h(n!).",
+        "published-finding corpus published 2026/10/4/SCOPE-linear-window-harmonic-bias-for-factorial-prime-valuations--21df32816f5e studies prime-valuation residue bias for n!, not recursive tower height.",
+        "published-finding corpus published 2026/10/4/SCOPE-double-exponential-lower-growth-for-the-smallest-k-layered-numbe--9dd77dfe67e0 concerns k-layered integers (divisor partitions), a different invariant."
+      ],
+      "reasoning": "The stronger-looking existing statements concern either unrestricted smallest tower-h integers, factorial decomposition into other generators, factorial valuation statistics, or layered divisors. They do not logically entail the claimed exact first-hit indices plus lcm plateau reversal without the newly provided cross-sequence valuation and interval-prime argument. A shared tower parameter or factorial word is not implication.",
+      "searches": [
+        "Exact first occurrence heights h(n!) of prime tower factorization factorial, 2 ↑↑ (k−1) + 2",
+        "Tower factorization height h(lcm(1,...,n)) level k plateau from 2 ↑↑ k to 2×2 ↑↑ k and subsequent drop",
+        "Nonmonotone tower factorization height factorial and least common multiple record jumps",
+        "De Koninck Verreault tower factorization factorial thresholds 6 18 65538",
+        "published-finding corpus:2026/10/4/SCOPE-prime-factorial-normal-forms-for-low-support-jordan-p-lya-number--df6c27e827b4",
+        "published-finding corpus:2026/10/4/SCOPE-linear-window-harmonic-bias-for-factorial-prime-valuations--21df32816f5e",
+        "published-finding corpus:2026/10/4/SCOPE-double-exponential-lower-growth-for-the-smallest-k-layered-numbe--9dd77dfe67e0",
+        "arxiv:2308.09149 section 6 minimum towers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J.-M. De Koninck and W. Verreault, On the tower factorization of integers, arXiv:2308.09149v1 (2023-08-17); author-hosted complete 8-page PDF, especially Section 6 and Section 7.",
+        "OEIS A288636: height based on gcd of prime exponents, as its Mathematica definition makes explicit; first positions 1,2,4,16,65536."
+      ],
+      "reasoning": "Compared height as \\(1+\\max h(e)\\) with aliases power tower, prime tower, tower factorization; the OEIS gcd-based definition differs except at some first tower thresholds. No checked source stated the joint \\(F_k/G_k\\) exact first-hit characterization together with the unbounded lcm record plateau and immediate drop.",
+      "searches": [
+        "tower factorization height first occurrence among factorials n! 6! 18! 65538!",
+        "De Koninck Verreault tower height factorial least common multiple lcm first hitting levels tetration",
+        "tower factorization h(lcm 1 to n) h(n!) first thresholds",
+        "web: site:oeis.org \"tower factorization\" factorial height",
+        "web: tower factorization h(n!) factorial lcm(1,2,...,n) h factorial height"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A288636: height based on gcd of prime exponents, as its Mathematica definition makes explicit; first positions 1,2,4,16,65536.",
+        "J.-M. De Koninck and W. Verreault, On the tower factorization of integers, arXiv:2308.09149v1 (2023-08-17); author-hosted complete 8-page PDF, especially Section 6 and Section 7."
+      ],
+      "reasoning": "The consulted OEIS entry tabulates a distinct gcd-based tower height and the minimum first appearances for arbitrary integers; neither factorial indices \\(F_k\\) nor lcm indices \\(G_k\\) and their post-record drops are present. Published tables of ordinary heights are not a database of this theorem.",
+      "searches": [
+        "site:oeis.org \"tower factorization\" factorial height",
+        "site:oeis.org \"tower factorization\" \"least common multiple\"",
+        "site:arxiv.org \"tower factorization\" \"factorial\" \"height\"",
+        "OEIS:A288636 first positions of height classes",
+        "published-finding corpus:De Koninck Verreault tower factorization factorial thresholds 6 18 65538"
+      ]
+    },
+    "rationale": "The 2023 source introduces the maximum-of-exponent tower-height recursion and the least height-k integers \\(E_k\\), but no factorial/lcm first-hit law or exact one-step drop at twice a record. The closely related 2023 factorial paper surveys many other arithmetic functions, not this one. OEIS A288636 uses a different gcd-of-exponents height. Matched scientific statements, not titles, and found no published implication of the complete theorem; the standard minimal \\(E_k\\) lemma is credited rather than claimed new. Residual risk: a non-indexed treatment of canonical-sequence tower-height behavior.",
+    "residual_risks": [
+      "A non-indexed study of h on factorial or initial-lcm subsequences might contain an equivalent theorem.",
+      "The known unrestricted minimum-tower lemma is a prior input; only the exact canonical-sequence laws and record-drop structure are asserted as beyond the checked coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers density, average height, long high-height runs, and minimum \\(E_k\\); does not state either sequence threshold or the exact lcm plateau/drop",
+        "evidence": "PDF page 1 definition, page 6 minimum 2 tetration, pages 7-8 consecutive height construction and open questions.",
+        "identifier_or_url": "https://www.jeanmariedekoninck.mat.ulaval.ca/fileadmin/Documents/Publications/2023_on_the_tower_factorization_of_integers.pdf",
+        "material_read": "Complete 8-page author-posted text: definition and Sections 2-7, including the minimum tower paragraph and final scope/references on pages 6-8",
+        "method": "Full-text PDF reading and page-image verification of pages 1, 6, and 8",
+        "title": "On the tower factorization of integers",
+        "trigger": "Defining same tower-height function and its minimum levels"
+      },
+      {
+        "assessment": "Examines divisor counts, divisor sums and other listed functions, but not tower height h(n!) or its first hits",
+        "evidence": "HTML introduction and function list, sections 2-7; no document occurrences of tower factorization/height.",
+        "identifier_or_url": "https://arxiv.org/html/2308.09761v2",
+        "material_read": "33-page full HTML version: contents, introduction, studied-function definitions, statements, sections indexed; full-document searches for tower factorization and height",
+        "method": "Full HTML view and document-wide term searches; neither defining term occurs",
+        "title": "Arithmetic functions at factorial arguments",
+        "trigger": "Same authors treat functions evaluated at factorial arguments"
+      },
+      {
+        "assessment": "Different invariant: gcd of all prime-power exponents rather than maximum of their individual tower heights; the listed unrestricted first minima coincide but do not cover the current factorial/lcm theorem",
+        "evidence": "Entry gives 1+h(GCD of exponent vector) and records first positions 1,2,4,16,65536.",
+        "identifier_or_url": "https://oeis.org/A288636",
+        "material_read": "Entry definition, Mathematica formula, comments and first-position list",
+        "method": "Read public table and its actual computation definition",
+        "title": "OEIS A288636",
+        "trigger": "Plausibly equivalent height sequence and first-occurrence table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d68447f-dfb7-4a4f-8725-c166c315a2ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The factorials and initial-interval lcms are fundamental arithmetic sequences against which to test prime-tower height; unlike the unrestricted least-height number, their first hitting behavior is not automatic. The all-level \\(F_k/G_k\\) laws contrast two distinct growth scales, and exact lcm-height plateaux of length \\(E_k\\) followed by drops at 2E_k reveal a non-monotone structural phenomenon at arbitrarily high levels. This identifies natural boundaries and a prime-existence mechanism, not a fixed-size example or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
