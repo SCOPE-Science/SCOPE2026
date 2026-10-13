@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For each k the two independent depolarizing maps give four explicit positive-semidefinite components, with partial transpose having k(k-1)/2 mutually orthogonal 2-by-2 blocks. Their negative eigenvalue is exactly [d^2(1-p)(1-q)-d(p(1-q)+q(1-p))-kpq]_+/(kd^2), with all other eigenvalues nonnegative. Summation gives the stated exact negativity for all integer d>=3, k=1..d and p,q in [0,1]. The untruncated rank score is a strictly discretely concave quadratic when pq>0; its adjacent difference is Delta-2kpq. For p=q=t, the substitution x=d(1-t)/t turns each switch into x=1+sqrt(2k+1). Exact boundary cases, all-zero region, and pq=0 are handled separately; representative full-matrix checker confirms the algebra but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lami--Huber Corollary 8 gives the exact all-input entanglement-annihilating surface of local depolarizing product maps and agrees with the rank-two death threshold here.",
+        "Their Theorem 7 proves that the channel becomes entanglement annihilating precisely when PPT inducing; it has no negativity-maximization-over-support-rank claim.",
+        "Filippov--Frizen--Kolobova concern two-qubit unital/noise entanglement survival, where there are no intermediate ranks between 2 and d."
+      ],
+      "reasoning": "The strongest applicable earlier theorem subsumes the endpoint (all output entanglement dies), not the quantitative order of surviving negativity at lesser noise. The accepted theorem credits that endpoint to the earlier source and claims only new intermediate transitions and local-two-rate output formulas for the specified conversion family.",
+      "searches": [
+        "Lami Huber Bipartite depolarizing channels arXiv:1603.02158 Theorem 7 Corollary 8",
+        "entanglement annihilating local qudit depolarizing maximally entangled rank two",
+        "\"ultimate entanglement robustness\" \"local\" \"qubit\" unital channels",
+        "local depolarization maximally entangled rank k negativity phase transition"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.16695v1 (June 15 2026, detailed full-text rendering)",
+      "arXiv:1603.02158v1 (full text, Theorem 7 and Corollary 8)",
+      "arXiv:1708.08208 (abstract and scope comparison)",
+      "arXiv:2606.16695 arXiv record (earliest public date)",
+      "Targeted exact-formula, aliases, and implication searches recorded in the four comparison objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 anchor explicitly distinguishes global depolarization acting on the full d-squared space from product single-qudit depolarization.",
+        "Lami--Huber theorem 7 / corollary 8 include the universal elimination boundary; substituting the present parameter convention reproduces t_death=d/(d+1+sqrt3).",
+        "The present theorem adds nontrivial switches for all k=2,...,d: the first at k=d-1, and subsequent ones at k=d-2 through k=2; these are not consequences of merely knowing when negativity first vanishes."
+      ],
+      "reasoning": "The old universal threshold establishes only a yes/no condition for all input entanglement. It cannot select which positive negativity is greatest below the threshold. The source gives the conversion object and global-noise contrast but lacks this local-product channel calculation; the block spectrum and rank-difference proof provide the missing quantitative implication.",
+      "searches": [
+        "arXiv 2606.16695 independent local qudit depolarizing channel negativity Schmidt support rank optimum",
+        "bipartite depolarizing local tensor product maximally entangled rank k negativity floor optimum threshold d/(d+1+sqrt(2k+1))",
+        "noise induced Schmidt-rank staircase high dimensional coherence entanglement transduction local qudit depolarizing",
+        "partial transpose spectrum local qudit depolarizing maximally entangled support rank k exact negativity and rank switch",
+        "\"High-dimensional coherence to entanglement transduction under canonical noise\" \"global depolarizing\"",
+        "\"Bipartite depolarizing channels\" \"Corollary 8\" local product entanglement annihilation",
+        "\"Schmidt rank\" \"local depolarizing\" \"negativity\" optimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The anchor arXiv:2606.16695v1 studies exactly three different channels: independent phase damping, global depolarization, and independent amplitude damping.",
+        "Searches for optimal Schmidt rank, flat-support states, local depolarization, rank transitions, and the explicit square-root threshold did not recover an exact equivalent classification.",
+        "Relevant indexed results concerned graph states, unrelated Schmidt phenomena, and general qudit channel performance rather than support-rank maximization."
+      ],
+      "reasoning": "The natural alternative names are flat Schmidt-spectrum, truncated maximally entangled state, partial transpose pair blocks, local white noise, local isotropic depolarization, and a rank-dependent negativity threshold. These were compared by formulas and implications, not just title matches.",
+      "searches": [
+        "high-dimensional coherence entanglement transduction local independent depolarizing qudits optimal flat Schmidt support rank negativity phase transitions",
+        "qudit maximally correlated state depolarization optimal Schmidt rank k flat amplitudes entanglement negativity transitions",
+        "depolarizing noise causes entanglement optimal Schmidt rank to decrease stepwise for d dimensional bipartite pure states",
+        "noise threshold local qudit depolarization Schmidt support rank full maximally entangled vs rank two negativity",
+        "\"Schmidt rank\" \"local depolarizing\" \"negativity\" optimum",
+        "\"optimal Schmidt rank\" \"depolarizing\" \"negativity\"",
+        "\"independent local depolarizing\" \"Schmidt rank\" negativity phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor tables summarize the three channels actually treated and no local-product-depolarization k-by-k output-negativity table.",
+        "The prior channel-level classification gives inequalities for entanglement annihilation rather than a finite-state optimization table."
+      ],
+      "reasoning": "The continuous parameter-surface classification and all-rank formula are analytic, not the retrieval or recomputation of a stored table.",
+      "searches": [
+        "arXiv 2606.16695 independent local qudit depolarizing channel negativity Schmidt support rank optimum",
+        "bipartite depolarizing local tensor product maximally entangled rank k negativity floor optimum threshold d/(d+1+sqrt(2k+1))"
+      ]
+    },
+    "rationale": "The 2026 anchor explicitly analyzes global (not independently local) depolarization; the new statement analyzes the different product channel and solves the exact flat-support support-rank optimization. Lami--Huber (2016) proves the universal entanglement-annihilation boundary and the rank-two final witness; this is recognized as prior and the accepted novelty is specifically the full intermediate rank staircase and asymmetric switch surfaces. Targeted literature and semantic record searches found no equivalent ranked-negativity phase diagram; an unindexed equivalent formula remains a risk.",
+    "residual_risks": [
+      "The rank-dependent formula may appear in a differently indexed local-white-noise calculation under non-Schmidt terminology.",
+      "The final all-input entanglement-annihilation endpoint is explicitly known and cannot be attributed to this result.",
+      "No optimization over nonuniform Schmidt coefficients is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the ideal maximally correlated state and **global** depolarization results. It does not state the independent local depolarizing channel or rank-ladder calculation.",
+        "evidence": "Section V.B explicitly states that the global map is not a product of local single-qudit depolarizing channels. The discussion and conclusion list the three studied channels and their exact output negativities.",
+        "identifier_or_url": "arXiv:2606.16695v1",
+        "material_read": "Publicly indexed full-text rendering covering Sections III--VIII, including conversion equations 25--29, partial transpose equations 30--33, global depolarization equations 43--45, Corollary 5, discussion and conclusion.",
+        "method": "Inspected the public full-text manuscript rendering and verified submission metadata against the arXiv record.",
+        "title": "High-dimensional coherence to entanglement transduction under canonical noise",
+        "trigger": "Defines the controlled-shift coherence-to-entanglement conversion and its three post-conversion noise channels."
+      },
+      {
+        "assessment": "DOES_COVER universal entanglement-annihilation and therefore the final death threshold, which are explicitly credited as prior. DOES_NOT_COVER quantitative support-rank negativity maximization or the intermediate transition surfaces.",
+        "evidence": "Theorem 7 characterizes channel entanglement annihilation; Corollary 8 gives (d^2+2d-2)q1q2 <= 2+(d-2)(q1+q2), equivalent at symmetric parameters to the present final death point.",
+        "identifier_or_url": "arXiv:1603.02158v1",
+        "material_read": "Full public text Sections I--VI, Theorem 7 proof and Corollary 8, including the rank-two PPT witness, the symmetric product-depolarizing boundary, discussion and appendices on Schmidt-rank support.",
+        "method": "Direct full-text article rendering with theorem and surrounding arguments inspected.",
+        "title": "Bipartite depolarizing channels",
+        "trigger": "Potential dominating earlier all-dimension result for products of local depolarizing channels."
+      },
+      {
+        "assessment": "Concerns two-qubit robustness and does not resolve the multiple intermediate support ranks possible only when d>=3.",
+        "evidence": "The abstract states a result for two-qubit states and local qubit noises.",
+        "identifier_or_url": "arXiv:1708.08208",
+        "material_read": "Public preprint abstract and methodological overview; full text was not required for the limited two-qubit scope comparison.",
+        "method": "Direct arXiv public record inspection.",
+        "title": "Ultimate entanglement robustness of two-qubit states against general local noises",
+        "trigger": "Alternative statement on optimal entanglement survival under local channels."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7b7abc9-6d94-4bb3-baf1-b834a3192794",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 anchor specifically compares dimensional robustness of entanglement generated from high-dimensional coherence and emphasizes that global depolarization shifts partial-transpose blocks by a uniform floor. Independent local depolarization is a physically natural missing comparison; it qualitatively changes how flat-support coherence should be allocated. The theorem gives exact two-rate quantitative negativities, an all-dimension sequence of genuine interior optimal ranks, and a concrete qutrit separation N_2=1/72>N_3=0 at equal half-depolarization. This supplies a reproducible rank-selection rule in an experimentally motivated state-preparation family, not an arbitrary slice or mere rediscovery of the old entanglement-death endpoint.",
+    "status": "PASS"
+  }
+}
