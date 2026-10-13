@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Complete finite verification constructs the 64-vertex compatibility graph from the definition, proves clique number 8 with a coloring bound, independently enumerates all 32 maximum cliques, checks affine closure after translation, and recomputes the symmetry and distance profiles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1211.1728v1 establishes the Singleton-type framework and MDS constructions.",
+        "No retrieved broader theorem classified all binary length-6 equality cases up to affine or dihedral symmetry."
+      ],
+      "reasoning": "General Singleton and existence theorems imply the optimal cardinality bound but do not imply the census, affine rigidity, orbit structure, or pair-distance profile.",
+      "searches": [
+        "published-finding corpus: symbol-pair distance 5 length 6 binary all optimal codes",
+        "Web: all MDS symbol-pair codes classification binary",
+        "arXiv:1211.1728v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1605.08859v1",
+      "arXiv:1211.1728v1",
+      "DOI:10.1109/ISIT.2010.5513753",
+      "published-finding corpus search: Three binary cyclic symbol-pair codes meeting the b-symbol Griesmer bound outside the two known families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ding et al. explicitly say they consider linear symbol-pair codes and state an existence theorem for linear MDS pair-distance-5 codes.",
+        "Chee et al. establish the Singleton-type bound; Cassuto-Blaum establish the channel and metric framework."
+      ],
+      "reasoning": "These sources imply that size 8 is the MDS target and that linear examples exist, but none of the inspected statements implies that there are exactly 32 maxima, that all are affine, or that they form the stated natural symmetry orbit.",
+      "searches": [
+        "arXiv:1605.08859v1 Sections 1-3",
+        "arXiv:1211.1728v1",
+        "DOI:10.1109/ISIT.2010.5513753"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1605.08859v1 states that its focus is linear MDS symbol-pair codes and proves existence for pair-distance 5 across a length range.",
+        "The bundled verifier treats arbitrary subsets of {0,1}^6 and proves every maximum is affine."
+      ],
+      "reasoning": "Prior linear existence is not equivalent to an unrestricted classification; the new statement quantifies all labeled equality cases and proves that nonlinear equality cases do not occur.",
+      "searches": [
+        "published-finding corpus: binary length 6 symbol-pair code minimum pair-distance 5 all MDS codes classification affine linear",
+        "published-finding corpus: MDS symbol-pair code (6,5)_2 enumeration equality cases nonlinear",
+        "Web: nonlinear MDS symbol-pair code binary length 6",
+        "arXiv:1605.08859v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus hit was “Three binary cyclic symbol-pair codes meeting the b-symbol Griesmer bound outside the two known families”; its stated scope is cyclic codes and different listed parameters.",
+        "Ding et al. Table 1 catalogs known MDS construction families, not all unrestricted binary length-six equality cases."
+      ],
+      "reasoning": "A cyclic-code census or construction table is a strict subclass/existence record and does not enumerate arbitrary codes.",
+      "searches": [
+        "published-finding corpus: binary (6,8,5) symbol-pair code exact classification",
+        "published-finding corpus: binary length 6 MDS symbol-pair code exactly 32 maximum codes all affine four linear translation classes",
+        "published-finding corpus: exactly 32 labeled binary (6,5) symbol-pair MDS codes affine three-dimensional subspaces",
+        "Web: binary symbol-pair length 6 distance 5 code size 8"
+      ]
+    },
+    "rationale": "Inspected primary literature proves the Singleton bound and linear MDS existence but does not imply the unrestricted equality census or affine-rigidity classification. Targeted exact-parameter published-finding corpus and web searches found no implication-equivalent result.",
+    "residual_risks": [
+      "An obscure or unindexed historical finite enumeration may exist.",
+      "Current-result search summaries do not expose every line of every potentially relevant source; no decisive competing statement was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the unrestricted equality classification; the paper explicitly focuses on linear codes and proves existence over a length range.",
+        "evidence": "The paper states that it considers linear symbol-pair codes and gives existence of linear MDS (n,5)_q codes for 5<=n<=q^2+q+1.",
+        "identifier_or_url": "arXiv:1605.08859v1",
+        "material_read": "Full-text introduction, preliminaries, Singleton statement as quoted there, and Section 3 existence setup/theorem.",
+        "method": "arXiv full-text HTML inspection.",
+        "title": "New Constructions of MDS Symbol-Pair Codes",
+        "trigger": "Closest primary source for binary pair-distance-5 MDS existence."
+      },
+      {
+        "assessment": "NOT_COVERING the length-6 equality census.",
+        "evidence": "Provides the MDS framework and constructions, not a labeled classification of all binary length-6 maxima.",
+        "identifier_or_url": "arXiv:1211.1728v1",
+        "material_read": "Abstract and theorem attribution reproduced in the later full-text paper.",
+        "method": "arXiv record plus cross-check in arXiv:1605.08859v1.",
+        "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+        "trigger": "Source of the Singleton-type MDS framework."
+      },
+      {
+        "assessment": "NOT_COVERING the MDS equality classification.",
+        "evidence": "Introduces the channel, correctability, constructions and bounds.",
+        "identifier_or_url": "DOI:10.1109/ISIT.2010.5513753",
+        "material_read": "Conference bibliographic record and abstract.",
+        "method": "IEEE web record.",
+        "title": "Codes for Symbol-Pair Read Channels",
+        "trigger": "Foundational public source defining the channel."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b85d4564-f4fb-447d-91ff-ed0b8fb2ae00",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves unrestricted equality structure at a natural MDS parameter where prior work guarantees linear examples but arbitrary nonlinear codes remain allowed. Affine rigidity, exact multiplicity, one natural symmetry orbit, and the fixed pair-distance profile add structural information not supplied by the optimum alone.",
+    "status": "PASS"
+  }
+}
