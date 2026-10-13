@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For each n, Guo et al. Theorem 1 is used with its correct n=k+1 indexing. The square-root-smooth condition forces an exact prime-power component p^a with a>=2 and a unique dominant component, yielding a disjoint exact prime sum. The PNT partial summation contributes constants 2a/(a+1) and 2a/(a-1), with floor/coprimality errors lower order. A uniform sum over all a>=3 is O(X^(2/3)log X), lower order than the a=2 main term. The standalone verifier checks binomial GCDs and exact counts independently; it is not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source paper Theorem 1 covers membership for every n but presents no distribution, density, or asymptotic result; full-text searches for those words returned none.",
+        "The prime number theorem supplies weighted-prime asymptotics, but without the exact component split it does not give the E_a counting law.",
+        "Indexed research records contain analogous counting results for different arithmetic objects, none with the same binomial GCD."
+      ],
+      "reasoning": "The broad source criterion plus classical PNT are essential inputs. Neither states or evaluates the thin smooth-exception layers; deriving the exact counting identity and the two-range constants is an additional quantitative result. It is explicitly acknowledged as using prior standard methods.",
+      "searches": [
+        "Guo Qiu Cao Feng Gao binomial gcd positive squareful component no prime above sqrt(n) asymptotic",
+        "\"prime power components\" \"asymptotic\" \"sqrt n\"",
+        "\"A080170\" \"density\" \"prime\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.22997v1 complete HTML",
+      "OEIS A080170 entry",
+      "Semantic mathematical-literature searches of source, constants, exponent hierarchy, and equivalent formulations",
+      "Classical prime number theorem and partial summation (methodological background)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al. Lemma 9: p divides D(k) iff the complementary exact prime-power factor b satisfies b<=p^a.",
+        "Guo et al. Theorem 1: D(k)=1 iff n/P>P; no rate of growth or exponent-dependent counting is stated.",
+        "Classical PNT weighted-prime sums require a new exact decomposition at p=X^{1/(2a)} for each layer."
+      ],
+      "reasoning": "The primary theorem logically characterizes the cases and is an indispensable input; the new claim is an analytic consequence of that criterion combined with PNT and a complete disjoint enumeration. It is not presented as an independent new binomial criterion or as an automatic special case of any earlier asymptotic. Residual risk of an unindexed equivalent formulation is acknowledged.",
+      "searches": [
+        "arXiv:2606.22997 Section 2.5 primary criterion",
+        "arXiv:2606.22997 Section 2.6 completion",
+        "A080170 binomial gcd nontrivial without large prime factor count asymptotic X^(3/4) 16/3 prime square",
+        "dominant exact prime power n p^a b b <= p^a p^2 counting asymptotic 16/3 X^(3/4)/log X"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 1 of arXiv:2606.22997v1 gives an exact membership criterion, not a counting function for square-root-smooth exceptions.",
+        "OEIS A080170 lists k for which D(k)=1, but neither the exponent layers nor their 4a^2/(a^2-1) constants.",
+        "Targeted semantic literature searches returned no equivalent layer asymptotic."
+      ],
+      "reasoning": "The claim is an infinite distribution theorem for a thin subpopulation, not the membership equivalence itself. Checked exact aliases and the rational constant/exponent did not identify an equivalent published counting theorem.",
+      "searches": [
+        "A080170 binomial gcd nontrivial without large prime factor count asymptotic X^(3/4) 16/3 prime square",
+        "dominant exact prime power n p^a b b <= p^a p^2 counting asymptotic 16/3 X^(3/4)/log X",
+        "\"binomial\" \"gcd\" \"16/3\" \"3/4\"",
+        "\"largest prime power\" \"square\" \"x^{3/4}\" dominant component"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 describes the complementary zero-GCD sequence and a proof citation dated 2026; the indexed entry offers no asymptotic for square-root-smooth positive-GCD cases.",
+        "Exact-value and constant/exponent searches found no table recording E_a or E(X)."
+      ],
+      "reasoning": "An entry listing individual k for which D(k)=1 is neither an exact table for E_a(X) nor an asymptotic for it. No precomputed exact E_a table was located.",
+      "searches": [
+        "OEIS A080170",
+        "\"A080170\" \"density\" \"prime\" 2026",
+        "\"16/3\" \"x^{3/4}\" prime squares largest prime power component counting"
+      ]
+    },
+    "rationale": "Full-text arXiv and OEIS checks identify a membership theorem but no distribution of the square-root-smooth positive-GCD cases. Searches of the exact constants, exponents, source/alias terms, the indexed mathematical literature found no equivalent or dominating layer asymptotic. The proof transparently uses the source criterion and standard prime-number-theorem sums.",
+    "residual_risks": [
+      "A complete membership criterion existed previously; the claimed contribution is only its quantitative square-root-smooth exponent-layer analysis.",
+      "The prime-number-theorem estimates are standard, and an unindexed source may contain the same layer asymptotic.",
+      "No uniform asymptotic is established as the layer exponent grows with X."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "METHOD_AND_MEMBERSHIP_COVERAGE_ONLY: gives a complete positivity criterion; does not present the prime-power-layer enumeration or fixed-exponent asymptotics.",
+        "evidence": "Theorem 1 at lines 70-75; Lemma 9 at lines 377-438; completion at lines 439-462; no matches for asymptotic/density/counting/distribution.",
+        "identifier_or_url": "arXiv:2606.22997v1; https://arxiv.org/html/2606.22997v1",
+        "material_read": "Full HTML including abstract and Introduction, Sections 2.1-2.6 with Lemma 9 and Theorem 1 proof, and Sections 3-4; the whole text was searched for asymptotic, density, counting, distribution.",
+        "method": "Primary open-access arXiv HTML text and full-document find searches.",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "Identical binomial-GCD object and a direct criterion for its nontriviality."
+      },
+      {
+        "assessment": "NOT_COVERING the prime-power-layer asymptotics; records the complementary set and the Guo et al. criterion.",
+        "evidence": "Definition at lines 14-19, proof comment at lines 27-36, programs at lines 38-53; no layer-count statement.",
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Sequence definition, listed values, comments, references, programs, and cross-references.",
+        "method": "Public database entry inspection.",
+        "title": "OEIS A080170",
+        "trigger": "Exact source database for the original GCD-1 sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb35c4a4-6aeb-4004-b41b-6ef1cbbf69b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 GCD criterion determines only nontriviality, leaving the quantitative prevalence and composition of positive-GCD values on the natural critical barrier P^+(n)<=sqrt(n) unspecified. The new theorem yields one exact all-exponent counting framework and a nontrivial hierarchy of power exponents and rational constants, with the unexpected 3/4 dominant scale. It distinguishes prime-factor-driven positive GCDs from higher-prime-power-driven exceptions, a natural structural/statistical invariant rather than a chosen numerical range. The analytic methods are standard and the result does not claim a deeper independent binomial classification.",
+    "status": "PASS"
+  }
+}
