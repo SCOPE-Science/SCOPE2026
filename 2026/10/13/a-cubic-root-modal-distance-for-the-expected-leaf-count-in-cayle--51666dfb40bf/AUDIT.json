@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For a fixed path, the forest-completion count is the principal Laplacian minor det(nI_r-J_r)=s n^(r-1) (or 1 for r=0); nonpath leaves and path endpoint leaves have separately proved exact deletion probabilities, yielding the conditional expectation without independence assumptions. Algebra determines all consecutive signs including last boundary, and g(k) is strictly increasing. The expansion is uniform at the cubic-root threshold. Prüfer-code enumeration 280392 trees, 35 determinant examples and 11026 exact transition checks passed from actual standalone checker; finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper establishes broad distance-profile limit laws and asymptotic leaf-biased tree equivalence, but not an exact first conditional moment indexed by every finite distance.",
+        "The 2003 paper proves Wiener-index asymptotics and joint limits with internal path length, but not finite distance-conditioned leaf counts."
+      ],
+      "reasoning": "Neither global distance-profile convergence nor mixed Wiener/internal-path moments determine a sharp exact finite-distance regression with a cubic cutoff. A general forest-count identity can be applied to derive this law but was not found already applied to the same assertion; a possibly unindexed broader bivariate enumerator is retained as a risk.",
+      "searches": [
+        "Number of leaves versus distance of two fixed vertices in uniform labeled trees: rooted forest count formula; n^(1/3) turning point",
+        "Random labelled spanning tree conditional leaf count given prescribed path or vertex pair distance and rooted forest determinant",
+        "distance-dependent mean number of leaves uniform labeled random trees"
+      ]
+    },
+    "checked_sources": [
+      "S. Janson, DOI 10.1002/rsa.10074, 2003, full 22-page paper.",
+      "G. Berzunza Ojeda and S. Janson, DOI 10.1017/S0963548321000304, full HTML, especially Sections 8 and 13.",
+      "S. Wagner, DOI 10.1017/S0963548314000443, publisher abstract and accessible introduction.",
+      "S. Wagner, DOI 10.46298/dmtcs.2984, published research record and abstract.",
+      "Published mathematical record semantic search of conditioned leaf count, distance profiles, cubic modal transition and rooted-forest path completions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest prior finite mixed-index result treats the first Zagreb index and the Wiener index on uniform Cayley trees (prior ID b2ba740e-4081-4bd7-b306-789c8636617f).",
+        "A prior random recursive tree study (ID ab0acf44-833f-4f5e-8046-72a11fec5c8c) concerns a different, nonuniform tree model.",
+        "Janson (2003) and Berzunza Ojeda–Janson (2021) were compared in full material."
+      ],
+      "reasoning": "A covariance of sum-of-squared-degrees against sum of pair distances is only one aggregated mixed moment, involving a different degree statistic; it does not determine the vector of conditional global leaf means at each D=k or its nonmonotone mode. A random recursive tree is not the uniform Cayley measure. The present claim is not a relabelled corollary of these statements.",
+      "searches": [
+        "Uniform Cayley tree conditioned on distance k between two distinguished vertices; exact expected leaf count; cubic-root maximizer of leaf regression",
+        "Random labelled spanning tree conditional leaf count given prescribed path or vertex pair distance and rooted forest determinant",
+        "number of leaves Wiener index covariance random labelled Cayley tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-text Janson 2003, DOI 10.1002/rsa.10074, Sections 1-7: Wiener-index and internal-path-length moments without this conditioned leaf-regression formula.",
+        "Full HTML Berzunza Ojeda and Janson 2021, DOI 10.1017/S0963548321000304, Section 8 and Section 13: leaf-size-bias and distance-profile results, not exact finite conditioned global leaf means."
+      ],
+      "reasoning": "Distinguished-pair path conditioning, global leaf-count regression, path-rooted forest enumeration, and modal distance are compared as mathematical statements. The inspected sources concern other mixed moments and asymptotic profiles; their displayed results do not contain the claimed all-k finite formula or the cubic switching threshold. Search nonappearance alone is not proof of novelty.",
+      "searches": [
+        "Uniform Cayley tree conditioned on distance k between two distinguished vertices; exact expected leaf count; cubic-root maximizer of leaf regression",
+        "Exact conditional expected number of leaves in a uniformly random labeled Cayley tree conditioned on graph distance between two fixed labeled vertices equals (n-k+1-2/(k+1))((n-1)/n)^(n-k-2), maximized at k about (2n)^(1/3)",
+        "\"number of leaves\" \"distance between\" \"random labeled trees\"",
+        "Cayley tree expected number of leaves conditioned on distance between two vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results for exactly the same uniform tree/distance/leaf statistic contained no matching closed-form table.",
+        "Classical counts of rooted forests and Prüfer-code tree samples are ingredients, not a table of this conditional mean and its modal threshold."
+      ],
+      "reasoning": "The proposed result covers all n and all positive-probability distances, not an isolated computed sequence. A table of marginal leaf counts or pair-distance distributions does not imply conditional leaf means without the joint count.",
+      "searches": [
+        "Exact conditional expected number of leaves in a uniformly random labeled Cayley tree conditioned on graph distance between two fixed labeled vertices equals (n-k+1-2/(k+1))((n-1)/n)^(n-k-2), maximized at k about (2n)^(1/3)",
+        "Random Cayley tree mixed leaf-distance profile; distance-conditioned leaf regression unimodality threshold (k^2+1)(k+2) versus 2n",
+        "labeled trees prescribed path number leaves expected conditioned on path length"
+      ]
+    },
+    "rationale": "Full text of the closest Wiener-index/mixed-path-moment paper (2003) and of the distance-profile/leaf-bias paper (2021) was compared at the level of exact mathematical implications. Their published results do not specify the conditional global leaf-count regression at each distance or its sharp cubic mode; leaf-count marginal work and earlier Zagreb–Wiener mixed moments likewise do not imply this vector of means. Targeted semantic and open literature searches found no statement-level match; the remaining possible older joint enumerator is explicitly disclosed.",
+    "residual_risks": [
+      "A pre-existing, differently named bivariate degree–distance or rooted-forest generating function might imply the same conditional mean and cubic threshold although no equivalent full statement was located.",
+      "Some older random-tree articles were available only as metadata or partial manuscript text; such material was not used to certify whole-document noncoverage.",
+      "A search of published results and the inspected literature cannot prove global or unpublished uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-k conditional expected number of leaves: paper develops Wiener-index asymptotics and joint moments with internal path length, not the present conditional regression or cubic-mode transition.",
+        "evidence": [
+          "2003 paper p.1 abstract and pp.2–3 setup explicitly state Wiener index and internal path length goals; p.3 includes labelled Cayley trees.",
+          "The later sections derive Wiener-limit moments and distribution, with no conditional global leaf-count result."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.10074",
+        "material_read": "All 22 pages, including introduction, setup with the Cayley/Poisson(1) correspondence, theorem statements, moment proofs and final extension discussion.",
+        "method": "Institutionally authorized full-text PDF pages 1–22 after author-hosted open-PDF request timed out and no corresponding arXiv full-text copy was identified.",
+        "title": "The Wiener Index of Simply Generated Random Trees",
+        "trigger": "Same model includes uniform Cayley trees; global all-pairs distance statistics and mixed moments could dominate a conditional distance/degree claim."
+      },
+      {
+        "assessment": "NOT_COVERING the finite conditional formula: leaf marking yields asymptotic total-variation equivalence, and distance profiles have scaling limits. Neither is an exact statement about expected global leaves given distance k between two fixed labels.",
+        "evidence": [
+          "Section 8, Lemma 8.2: asymptotic equivalence of a leaf-biased unrooted tree to the ordinary unrooted tree.",
+          "Section 13, Theorem 13.1: asymptotic Wiener-index convergence.",
+          "Publisher MSC lists Primary 60C05."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548321000304",
+        "material_read": "Full publicly accessible HTML; introduction, Sections 6–8, distance profile and Section 13 (Wiener index), along with article theorem statements and references.",
+        "method": "Read publisher-hosted open-access article HTML and inspected the explicit leaf-marking construction (Section 8) and Wiener-index limit theorem (Section 13).",
+        "title": "The distance profile of rooted and unrooted simply generated trees",
+        "trigger": "Same random-tree class and distance profile; Section 8 explicitly size-biases by leaf count, a close possible implication."
+      },
+      {
+        "assessment": "The accessible scope is additive-functional CLTs, not a located exact fixed-pair-distance conditional leaf mean; incomplete full-text comparison is retained as a bounded residual risk.",
+        "evidence": [
+          "Publisher description: general central limit theorems for additive tree parameters.",
+          "Author-preprint introduction lists number of leaves as a classical additive example."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548314000443",
+        "material_read": "Publisher abstract, publication/MSC metadata and indexed author-preprint introduction describing number of leaves; full detailed theorems beyond this material were not used for a negative whole-document conclusion.",
+        "method": "Publisher article record and indexed open manuscript opening section.",
+        "title": "Central Limit Theorems for Additive Tree Parameters with Small Toll Functions",
+        "trigger": "Explicitly mentions leaf count as an additive tree parameter and random simply generated trees."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51666dfb-40bf-472f-a30a-7da98d94a63c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf count measures local extremity/branching whereas fixed-pair distance is the elementary tree metric observable. The all-size exact regression has a nonmonotone shape with a cubic-root maximizing distance, a sharp integer threshold and infinitely many exact tie sizes, contrasting with sqrt(n) typical distances. The finite maximal advantage tends to 1/e and exposes a subtle O(1) dependence rather than a marginal or arbitrary slice. Its modest absolute magnitude and restricted model are disclosed.",
+    "status": "PASS"
+  }
+}
