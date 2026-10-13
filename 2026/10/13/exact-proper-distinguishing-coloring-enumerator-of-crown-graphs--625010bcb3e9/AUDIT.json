@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction: the full graph automorphism group is simultaneous S_n and side swap; proper colors shared across both sides occur only as distinct matched diagonal pairs, so a proper coloring is distinguishing exactly when its ordered pairs are distinct and at least one nondiagonal. The finite injection count U follows from the principle of inclusion--exclusion over omitted rows/columns; unique decomposition by shared colors and exclusive palettes proves the polynomial formula. Optimal mixed-color threshold follows from n<=t+floor((k-t)^2/4), the known sharp minimum k, and integer capacity comparison; equality forces t=1 and ab=n-1. Direct brute force applies every automorphism for all q<=5 at n=3,4 and separately verifies n<=23 thresholds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cavers--Seyffarth (2013), inspected introduction and main classification, focuses on graph classes attaining very large distinguishing chromatic number.",
+        "Fisher--Isaak (2006) Theorem 1 determines existence of identity edge colorings of a complete bipartite graph, with row/column symmetries; it does not evaluate proper crown vertex coloring counts.",
+        "Arvind--Cheng--Devanur (2008), available abstract, concerns counting approaches for ordinary distinguishing numbers; detailed full article was not accessible in this comparison."
+      ],
+      "reasoning": "General algorithmic counting of distinguishing labelings is conceptually broader but does not provide a stated evaluated proper chromatic crown family formula; broader parameter theory does not imply the exact evaluation without the new rectangle calculation.",
+      "searches": [
+        "distinguishing number chromatic number crown bipartite graph enumeration",
+        "doi:10.1137/07068686X (algorithmic counting distinguishing numbers)",
+        "doi:10.37236/2407",
+        "arxiv:math/0607465v1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.37236/165",
+      "doi:10.37236/2407",
+      "doi:10.37236/3066",
+      "arxiv:2601.15913v1",
+      "arxiv:math/0607465v1",
+      "doi:10.1137/07068686X (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Laflamme--Seyffarth Section 2 lines describing bad configurations and recoloring, pp. 4-5: existence only.",
+        "The 2026 arXiv manuscript explicitly studies the ordinary distinguishing number with no proper-color requirement."
+      ],
+      "reasoning": "The 2009 theorem implies exactly the minimal palette cardinality and proves structural pair obstructions. It does not evaluate all q, account for all used/unused side-exclusive palettes, enumerate onto injective rectangle assignments, or give the mixed-optimum threshold and count. Those quantities require additional full counting and extremal analysis. Subsequent nonproper distinctions cannot dominate counts under the proper constraint.",
+      "searches": [
+        "doi:10.37236/165 Theorem 1 and Section 2",
+        "arxiv:2601.15913v1 introduction and crown sections",
+        "doi:10.37236/2407 introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.37236/165, Section 2 pages 3-5: bad configuration and recoloring eliminate shared colors for existence but do not count all colorings.",
+        "The inclusion-exclusion formula retains t shared colors and onto row/column constraints absent from the existence argument."
+      ],
+      "reasoning": "Count as injective assignments of labeled indices to cells in a rectangle of exclusive side-colors, with optional distinct diagonal shared-color indices. This matches the mathematical meaning of a proper distinguishing coloring for crowns, but existing pair-injection criteria only decide existence; the new claim is the summed exact palette enumerator and optimum mixed-color distribution.",
+      "searches": [
+        "\"crown graph\" \"distinguishing chromatic number\"",
+        "\"distinguishing chromatic polynomial\" crown",
+        "number of proper distinguishing k colorings crown graph exact colorings",
+        "Laflamme--Seyffarth (2009) Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.37236/165, Figure 1 is a single labeled existence construction, not a census.",
+        "Direct exhaustive counts n=3,4 are supplied as reproducibility checks rather than prior tables."
+      ],
+      "reasoning": "No matching table of P_n(q), shared-color counts, or mixed-optimum exact cardinalities was located among targeted published searches or known article figures. This is a bounded negative search, not a proof of global absence.",
+      "searches": [
+        "proper distinguishing coloring polynomial crown graph",
+        "crown graph distinguishing chromatic number exact count colorings",
+        "graph automorphism color-preserving proper colorings number crown K_n,n minus perfect matching"
+      ]
+    },
+    "rationale": "The known threshold and obstruction are expressly treated as prior. Full-text comparison with Laflamme--Seyffarth (2009), section 2, establishes that the source proves the minimum color number and uses ordered pairs but does not state the full q-coloring enumeration or exact shared-color refinement and mixed-optimal count. Further examined works address global extreme chromatic parameter, or ordinary nonproper distinguishing numbers; no direct evaluation covering this claim was found. Novelty risk of differently indexed earlier enumeration remains.",
+    "residual_risks": [
+      "An older proper symmetry-breaking coloring count may be indexed under an equivalent formulation rather than crown-graph terminology.",
+      "The essential injective-pair obstruction was already developed by Laflamme--Seyffarth, so the original contribution is enumeration and mixed-optimum refinement, not the underlying structural criterion.",
+      "The complete 2008 algorithmic counting article could not be inspected; only its abstract was available, although the proper crown-family evaluated formula was not indicated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 covers optimal number and pair obstruction; does not contain the evaluated complete q-palette count or exact mixed-optimal cardinalities. Strongest closest antecedent.",
+        "evidence": [
+          "Theorem 1: chi_D(K_n,n-M)=ceil(2sqrt n).",
+          "Section 2 pp 4-5: bad configuration repeated ordered pair; recoloring eliminates shared colors for one optimal coloring."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/165",
+        "material_read": "Abstract, Introduction, full Section 2 and related theorem proof through page 5; relevant figures, results, and appendix/conclusion headings examined.",
+        "method": "Open-access full PDF, extracted text and rendered pages 4-5",
+        "title": "Distinguishing Chromatic Numbers of Bipartite Graphs",
+        "trigger": "Closest primary theorem on exactly the crown graph and proper distinguishing coloring"
+      },
+      {
+        "assessment": "Classifies high distinguishing chromatic number of arbitrary graphs; no evaluated proper crown palette count.",
+        "evidence": [
+          "Introductory formulation of threshold classes chi_D(G)=|V(G)|-1, |V(G)|-2."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/2407",
+        "material_read": "Open-access full PDF introduction, primary results and targeted terminology inspection.",
+        "method": "Full PDF reading and targeted search for crown, polynomial and enumeration",
+        "title": "Graphs with Large Distinguishing Chromatic Number",
+        "trigger": "Potential broad dominating theorem for distinguishing chromatic parameter"
+      },
+      {
+        "assessment": "Deals with ordinary distinguishing numbers, not proper q-coloring enumeration.",
+        "evidence": [
+          "The text distinguishes ordinary distinguishing from previously known 2009 proper distinguishing chromatic number."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.15913",
+        "material_read": "Open-access arXiv HTML introduction, relevant crown theorem/discussion and definitions.",
+        "method": "Read open full HTML text and searched proper/chromatic versus ordinary distinguishing terminology",
+        "title": "The distinguishing number of complete bipartite and crown graphs",
+        "trigger": "Same named graph family and symmetry breaking, possible stronger coverage"
+      },
+      {
+        "assessment": "Kneser family, not crown K_n,n minus matching; not a covering enumeration.",
+        "evidence": [
+          "Paper object is Kneser graphs rather than crown graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.37236/3066",
+        "material_read": "Open-access PDF abstract, introduction and main results; targeted crown search.",
+        "method": "Full PDF and target term inspection",
+        "title": "The Distinguishing Chromatic Number of Kneser Graphs",
+        "trigger": "Related exact proper distinguishing parameter of another graph family"
+      },
+      {
+        "assessment": "Treats colorings of edges of K_s,t and row/column-permutation symmetries, largely as existence classification. This is a different counted object from labeled proper vertex colorings of crown K_n,n minus matching; does not state the inclusion-exclusion count or optimum mixed-palette number.",
+        "evidence": [
+          "2006 Theorem 1 characterizes s,t for the existence of an identity c-edge coloring of K_s,t.",
+          "Matrices are t-by-s with entries from c colors; automorphisms permute rows and columns, possibly transpose for s=t."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0607465",
+        "material_read": "Open arXiv HTML abstract, Theorem 1, matrix model, automorphism classification, proofs of core results and end sections.",
+        "method": "Read full arXiv HTML text, including matrix correspondence and main theorem",
+        "title": "Distinguishing colorings of Cartesian products of complete graphs",
+        "trigger": "Potential broader exact matrix-coloring result with closely analogous injective tuples"
+      },
+      {
+        "assessment": "Possible generic method for ordinary distinguishing number, no verified statement evaluating the proper chromatic crown polynomial. Coverage uncertainty retained.",
+        "evidence": [
+          "Available abstract discusses computing ordinary distinguishing numbers by a counting approach."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/07068686X",
+        "material_read": "Accessible journal abstract and bibliographic summary only; complete article not available to inspect.",
+        "method": "Publisher public abstract; no material full-text inspection claimed",
+        "title": "On Computing the Distinguishing Numbers of Planar Graphs and Beyond: A Counting Approach",
+        "trigger": "Closest algorithmic counting treatment that could abstractly subsume symmetry-breaking enumerations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "625010bc-b3e9-4685-a2f8-e82cafc1adc3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Beyond the previously established minimum number of colors, the result enumerates all properly symmetry-breaking labeled palettes for a natural highly symmetric bipartite family. The full distribution by cross-side color sharing detects an unexpected phenomenon at precisely the first order of each palette-size threshold; it gives explicit numbers of those exceptional optimal colorings (e.g. 3600 at n=5 and 604800 at n=7). This is a natural exact enumerative invariant and not a renamed earlier bound, arbitrary slice, or known table reproduction.",
+    "status": "PASS"
+  }
+}
