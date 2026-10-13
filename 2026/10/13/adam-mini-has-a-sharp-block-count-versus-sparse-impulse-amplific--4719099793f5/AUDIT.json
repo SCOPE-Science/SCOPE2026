@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Under a silent block history the bias-corrected first moment is exactly \\(c_1g\\), while Adam-mini's scalar second moment is \\(c_2^2\\lVert g\\rVert_2^2/d\\). This gives the displayed update formula. The coordinatewise ratio is bounded by \\(\\sqrt d\\) using \\(|g_j|\\le\\lVert g\\rVert_2\\), with one-sparse large-amplitude impulses proving sharpness. The \\(B\\)-block minimax frontier then follows from \\(\\max_b d_b\\ge\\lceil N/B\\rceil\\), and balanced integer block sizes attain equality. The embedded verifier replays these formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "SPAM studies harmful gradient spikes and compares memory-efficient optimizers including Adam-mini, but its public abstract centers on reset and clipping rather than a block-state-count lower bound.",
+        "BORA's public abstract describes curvature anisotropy and a rank-one correction to Adam-mini's scalar block preconditioner.",
+        "Neither inspected public statement implies the sparse-support dilution formula or the partition minimax frontier."
+      ],
+      "reasoning": "Spike mitigation and curvature-anisotropy correction are broader practical themes, but they address different state mechanisms. A theorem about gradient clipping or spiked Hessians does not imply the exact ratio caused by replacing coordinatewise squares by their block mean.",
+      "searches": [
+        "Adam-mini gradient spike blockwise optimizer",
+        "block adaptive optimizer memory robustness frontier sparse impulse",
+        "BORA Blockwise Orthogonal Rank-1 Adaptive Optimization Adam-mini"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.16793v1",
+      "arXiv:2406.16793v7",
+      "arXiv:2501.06842 public abstract/summary",
+      "DOI:10.1109/ICASSP55912.2026.11464667 public abstract/excerpt"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first Adam-mini version says embedding rows can be mostly zero, that averaging them over the whole layer absorbs many zeros, and that this produces highly biased learning rates; it handles those blocks specially.",
+        "The later Adam-mini text reports loss spikes for an overly coarse partition and stabilizes training by refining the partition using Hessian structure.",
+        "SPAM's public abstract establishes that gradient spikes can be harmful in large-model training.",
+        "BORA's public abstract identifies a step-size mismatch from spiked curvature in scalar-block preconditioning and adds a rank-one correction."
+      ],
+      "reasoning": "These prior statements motivate why partitioning and spikes matter, but none is a stronger theorem covering the accepted statement. The new result quantifies a different, purely arithmetic consequence of block averaging and optimizes it over every partition with a fixed state budget.",
+      "searches": [
+        "arXiv:2406.16793v1 mean squared gradient block Adam-mini embedding zero rows",
+        "arXiv:2406.16793v7 Adam-mini loss spikes partition instability",
+        "arXiv:2501.06842 Adam-mini gradient spikes",
+        "DOI:10.1109/ICASSP55912.2026.11464667 Adam-mini block scalar preconditioner"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.16793v1 defines the block mean-square recurrence and separately notes that zero embedding rows can bias the averaged learning rate.",
+        "The full defining text contains no sharp block-size coordinate amplification theorem or minimax statement over a fixed number of block states.",
+        "Published-record searches returned unrelated sparse-subspace, block-product, and adaptive-step results rather than an Adam-mini support-size frontier."
+      ],
+      "reasoning": "Equivalent coverage would need to bound the active-coordinate Adam-mini/Adam update ratio by block size and prove sharpness, or give an implication-equivalent lower bound for every \\(B\\)-block partition. The source's qualitative warning about zero dilution does not itself provide the exact \\(\\sqrt{d/k}\\) or \\(\\sqrt{\\lceil N/B\\rceil}\\) law.",
+      "searches": [
+        "Adam-mini memory compression sparse impulse sqrt block size learning rate amplification",
+        "Adam-mini partition size sparse gradient coordinate update bound",
+        "blockwise scalar second moment minimax sparse gradient amplification block size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results included a row-coherence obstruction in diagonal step initialization, exact sparse subspace-descent moments, and generic block-size extremal laws.",
+        "No indexed result named Adam-mini or supplied the same block-count/sparse-impulse update formula."
+      ],
+      "reasoning": "The closest records involve different algorithms and different quantities. Their square-root dimension effects do not imply the Adam-mini recurrence-specific comparator or the exact integer partition minimax law.",
+      "searches": [
+        "Adam-mini blockwise second moment exact within block distortion quadratic",
+        "Adam-mini scalar block stability exact",
+        "Adam-mini block mean second moment curvature heterogeneity",
+        "Adam-mini partition adaptive learning rates exact",
+        "Adam-mini memory compression sparse impulse sqrt block size learning rate amplification",
+        "blockwise scalar second moment minimax sparse gradient amplification block size",
+        "Adam-mini partition size sparse gradient coordinate update bound",
+        "block adaptive optimizer memory robustness frontier sparse impulse"
+      ]
+    },
+    "rationale": "The defining source qualitatively recognizes that averaging many zero embedding rows can bias a block learning rate and that coarse partitions can be unstable, but it does not state a sharp sparse-impulse coordinate bound or a state-count minimax lower bound. Later spike-aware and block-anisotropy work addresses different mechanisms. Focused published-record searches did not identify an implication-equivalent \\(\\sqrt{\\lceil N/B\rceil}\\) frontier.",
+    "residual_risks": [
+      "The defining paper already identifies a qualitative zero-dilution issue for embeddings, so the originality is the exact sharp quantitative frontier rather than the existence of the dilution mechanism.",
+      "A generic block-normalization note outside the indexed literature could contain an algebraically equivalent state-count bound.",
+      "Full text of the later BORA publisher article was not available in the inspected access path; its abstract indicates a different curvature-anisotropy mechanism, but complete comparison is limited.",
+      "The theorem is worst-case and does not assert that Hessian-informed Adam-mini partitions encounter such impulses frequently in practice."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_AND_QUALITATIVE_ZERO_DILUTION_NOT_COVERING_THE_SHARP_STATE_COUNT_FRONTIER.",
+        "evidence": "The source defines the exact recurrence used in the proof and explicitly warns that averaging many zero rows can bias learning rates, but it does not quantify a support-size factor or minimize worst impulse amplification over partitions.",
+        "identifier_or_url": "arXiv:2406.16793v1",
+        "material_read": "Open full HTML covering the method motivation, block-mean formula, Algorithm 1, embedding-block exception, partition principle, reported partition-instability example, and experimental hyperparameter details.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Adam-mini: Use Fewer Learning Rates To Gain More",
+        "trigger": "Defining first public source for the block-mean second-moment rule and its original sparse-embedding exception."
+      },
+      {
+        "assessment": "REFINED_PARTITION_AND_EMPIRICAL_INSTABILITY_NOT_COVERING_THE_MINIMAX_SPARSE_IMPULSE_BOUND.",
+        "evidence": "The later version strengthens the empirical partition motivation but does not state the exact \\(\\sqrt d\\) coordinate supremum or \\(\\sqrt{\\lceil N/B\rceil}\\) memory frontier.",
+        "identifier_or_url": "arXiv:2406.16793v7",
+        "material_read": "Open full HTML covering the abstract, motivation, Algorithm 1, block learning-rate example, Hessian partition principle, loss-spike discussion, and architecture-specific partition details.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Adam-mini: Use Fewer Learning Rates To Gain More",
+        "trigger": "Later full version with refined partition strategy and reported loss spikes under coarse partitioning."
+      },
+      {
+        "assessment": "ABSTRACT_LEVEL_COMPARISON_ONLY; NO_WHOLE_DOCUMENT_NONCOVERAGE_INFERENCE.",
+        "evidence": "The accessible material motivates spike robustness but does not state a block-size or state-count lower bound. Full-text unavailability is retained as a residual access risk.",
+        "identifier_or_url": "arXiv:2501.06842 / ICLR 2025",
+        "material_read": "Public abstract and accessible summary material describing spike prevalence, momentum disruption, reset, clipping, and comparison with Adam-mini.",
+        "method": "Public abstract and summary inspection; a full HTML retrieval attempt was unavailable.",
+        "title": "SPAM: Spike-Aware Adam with Momentum Reset for Stable LLM Training",
+        "trigger": "Highly relevant later work on gradient spikes and memory-efficient optimizer comparisons."
+      },
+      {
+        "assessment": "ABSTRACT_LEVEL_COMPARISON_ONLY; NO_WHOLE_DOCUMENT_NONCOVERAGE_INFERENCE.",
+        "evidence": "The accessible material addresses curvature-direction mismatch and condition equalization rather than sparse-gradient support dilution. Complete publisher text was not relied on for a negative coverage claim.",
+        "identifier_or_url": "DOI:10.1109/ICASSP55912.2026.11464667",
+        "material_read": "Publisher abstract and introduction excerpt describing the scalar-block limitation, spiked-plus-isotropic curvature model, and rank-one anisotropic correction.",
+        "method": "Publisher abstract and accessible excerpt inspection.",
+        "title": "BORA: Blockwise Orthogonal Rank-1 Adaptive Optimization",
+        "trigger": "Highly relevant later paper explicitly extending Adam-mini's scalar block preconditioner."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47190997-93f5-4e28-afc2-a76d07288929",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reducing \\(N\\) coordinatewise learning-rate states to a much smaller number of block states is Adam-mini's defining memory-saving mechanism, and the source explicitly reports that partition choice can control stability. The theorem identifies an unavoidable robustness cost of that compression: with only \\(B\\) equal-weight block states, even the best partition permits a sparse-coordinate response larger than coordinatewise Adam by \\(\\sqrt{\\lceil N/B\\rceil}\\). This is a natural, exact memory-versus-update-safety frontier that can inform block-size choices and motivates why sparse or dormant structures deserve special handling.",
+    "status": "PASS"
+  }
+}
