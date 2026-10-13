@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every m,n, expansion in y=e^(-t)-1 proves m! divides P_m(n), hence terms m>=3r vanish modulo 3^r. The surviving subset exponential sums have a Carmichael period. For the first-third shift, the quotient by 3^(r-1) reduces to a function of each subset sum modulo 9; the factor with odd weight 9 forces cancellation of all m>=5. Exhaustive 2^m elementary terms for m=1..4 give parity totals 2 and 0 modulo 3; these are cross-checked by a standalone verifier. Modulo 3, a(n) alternates for all n>=3, so every eventual period is even, and the nonzero even-index half-shift excludes every proper divisor. The verifier independently calculates 111 coefficients by two exact algorithms and executes 764 congruence assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source gives lambda(3^r)=2*3^(r-1) as a working period; the exact first-third shift supplies an additional nonzero obstruction unavailable from an upper period bound.",
+        "published-finding corpus hits concerned different arithmetic sequences/maps or other prime-power congruences rather than a general theorem forcing sharpness for this particular sequence."
+      ],
+      "reasoning": "The known all-moduli upper-period theorem includes this modulus family but does not dominate the assertion of minimality. A period upper bound, even for every modulus, is compatible with a proper smaller period, as illustrated by the dyadic case.",
+      "searches": [
+        "Kallat arXiv:2609.07238v1, abstract (eventual Carmichael period all moduli)",
+        "published-finding corpus: A158690 sharp Carmichael period odd prime powers 3-adic half-shift congruence",
+        "published-finding corpus: exponential generating function product 1-e^{-(2j-1)t} period mod powers three"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A158690 (full HTML entry)",
+      "arXiv:2609.07238v1 (abstract and 2026-09-07 original submission; full body unavailable)",
+      "MSC2020 entry 11B50 (sequences modulo m)",
+      "published-finding corpus semantic searches and returned identified nearest hits (four claim-targeted queries)",
+      "Own current ledger g000086 and prior week g000047: claims/IDs for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior local A158690 statement concerns modulus powers of two only; 3-adic conclusions cannot be obtained by specialization in that theorem.",
+        "Kallat states upper Carmichael periods, not the new nonzero first-third congruence in the accessible abstract.",
+        "No prior-week claim from the checked 46 statements concerns A158690."
+      ],
+      "reasoning": "Different prime-power towers are not logically subsumed. The new result shows nonvanishing of the smaller shift at all sufficiently large even n, a feature not forced by upper periodicity or an isolated finite table.",
+      "searches": [
+        "Own current-generation ledger g000086: claim exact dyadic eventual periods of A158690, item fd9c5509-1a8e-4ecc-8117-10c63a56a02c",
+        "Own prior-week ledger g000047: 46 claim statements checked for A158690 and related sequences",
+        "Public web: Kallat A158690 exact period least sharp",
+        "published-finding corpus: A158690 sharp Carmichael period odd prime powers 3-adic half-shift congruence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The OEIS page gives the sequence and Bala's conjecture as eventual period dividing Euler phi; its concrete example is mod 16, not a ternary tower.",
+        "Kallat arXiv:2609.07238v1 abstract gives Carmichael lambda as an eventual period for all moduli, with no least-period assertion in the available abstract.",
+        "published-finding corpus semantic searches returned an unrelated exact-period result on shifted Euler cycles, not A158690."
+      ],
+      "reasoning": "Equivalent terms such as ternary 3-adic sharpness, least eventual period, and first-third Carmichael shift were searched. A theorem asserting an eventual period is not logically equivalent to a least-period result. No covering statement was identified in accessible inspected content; inaccessible full text leaves a residual risk.",
+      "searches": [
+        "published-finding corpus: A158690 eventual period modulo 3^r exact least period 2*3^{r-1} Kallat",
+        "published-finding corpus: Bala congruence A158690 modulo 9 27 smallest eventual period Fermat quotient 3",
+        "Public web: A158690 modulo 3^n least eventual period 3-adic arithmetic sequence",
+        "OEIS A158690 comments and formulas: https://oeis.org/A158690"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A158690 provides initial coefficients and an example modulo 16 with observed period 2, and cites Kallat.",
+        "Its finite coefficient table cannot by itself imply the quantified claim for every exponent r>=1."
+      ],
+      "reasoning": "The target is an infinite tower of least eventual periods; a finite OEIS coefficient list or isolated low modulus cannot cover it, even if some initial cycles coincide.",
+      "searches": [
+        "OEIS:A158690 complete entry and its n=0..170 coefficient-table link",
+        "Public web: OEIS A158690 mod 27 mod 9 period",
+        "published-finding corpus: Bala congruence A158690 modulo 9 27 smallest eventual period Fermat quotient 3"
+      ]
+    },
+    "rationale": "Four targeted semantic published-finding corpus searches, OEIS full-entry inspection, targeted public literature searches, and both current/prior claim ledgers found no statement asserting an exact least ternary period or the first-third-shift parity congruence. Kallat's accessible abstract is a logically weaker all-moduli period upper bound. Prior dyadic sharpness does not imply the ternary theorem. The high-priority Kallat full-text comparison remains unresolved due to access and is explicitly recorded as risk; this does not supply affirmative novelty certification.",
+    "residual_risks": [
+      "Kallat arXiv:2609.07238v1 full PDF, including any appendices, was not accessible; the exact sharpness theorem might conceivably occur outside its abstract.",
+      "Unindexed or unpublished equivalent work cannot be ruled out by searchable corpora or partition assignment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact sequence and offers its eventual-period conjecture, but has no assertion of the infinite least ternary period.",
+        "evidence": [
+          "OEIS entry lines 14-19 initial values; 30-41 named conjectures and modulus-16 example; 43-48 source links."
+        ],
+        "identifier_or_url": "https://oeis.org/A158690",
+        "material_read": "Entire accessible HTML sequence entry: definition, initial terms, comments including Bala's 2021 two conjectures and modulus-16 example, formulas, links, references, and metadata.",
+        "method": "Web HTML full entry, lines 14–98",
+        "title": "OEIS A158690, Expansion of the basic hypergeometric series",
+        "trigger": "Exact definition, original conjectures, possible existing period observations"
+      },
+      {
+        "assessment": "The abstract explicitly establishes a general eventual period, but not the least period. Full-text unavailability is material originality risk and prevents a claim of whole-paper NOT_COVERING.",
+        "evidence": [
+          "The visible abstract states: Carmichael function lambda(k) is an eventual period for every positive integer k.",
+          "arXiv first public submission Mon 2026-09-07 08:56:48 UTC."
+        ],
+        "identifier_or_url": "arXiv:2609.07238v1, https://arxiv.org/abs/2609.07238",
+        "material_read": "The full bibliographic abstract and indexed submission date, verified against several academic search/index mirrors. Full PDF and HTML were not accessible; no appendix/body content is claimed read.",
+        "method": "Verified arXiv abstract indexed by academic search, arXiv Troller, Academus, and OEIS citation; attempted arXiv PDF/HTML and an open-access HTML mirror; all full-text avenues attempted here were inaccessible.",
+        "title": "A Proof of Bala's Congruence Conjectures for A158690",
+        "trigger": "Most directly related source proving eventual periods and Gauss congruences for the exact same sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a513a62d-d452-4056-8660-1a38e26538b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least eventual period is the natural sharpness invariant attached to Kallat's Carmichael bound and Bala's periodicity conjecture. An infinite prime-power classification with explicit nonvanishing at every sufficiently large even index goes beyond a routine modulus check and shows the full 3-primary Carmichael exponent is needed, unlike the dyadic behavior. The factor-nine cancellation is a structural explanation, not a table lookup.",
+    "status": "PASS"
+  }
+}
