@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For m,n>=3 the tensor graph has diameter 2, and every edge can be extended to a 2-edge geodesic, so any maximal geodesic uses exactly 3 vertices, bounding the number by floor(mn/3). Each digit in all six full displayed brick arrays occurs at 3 distinct cells inducing exactly 2 graph edges, so gives a maximal geodesic. Every integer >=3 splits into blocks of width 3 with at most one block of width 4 or 5. All blocks touching dimension 3 cover all vertices, and at most one 4/5-by-4/5 block leaves 1 or 2, exactly area modulo 3, proving the lower bound uniformly. Standalone validator checks six certificates, 2304 board instances and independent small-board enumeration; finite checks are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.04020v2 Section 4 establishes bounds for induced matching and edge-open packing in direct products; it explicitly considers K_m×K_n for a different edge-based invariant.",
+        "arXiv:2210.15325v3 Sections 2 and 4 treat general bounds, trees and diagonal grids, not this two-parameter exact value."
+      ],
+      "reasoning": "An EOP family can include a star with more than two edges and counts selected edges; it does not give disjoint maximum families of induced three-vertex paths. General induced-P3 factor results for other graph operations likewise cannot automatically be substituted for this exact complement-of-rook-graph tiling.",
+      "searches": [
+        "geodesic packing of diameter-two direct product complete graphs; induced P3 packing maximum floor vertices over three",
+        "induced P3 packing or geodesic packing exact for complement of rectangular rook graph, categorical product K_m x K_n",
+        "three vertex shortest path partition of tensor product of two complete graphs; tiling cells by bent triples",
+        "\"geodesic packing\" \"direct product\" \"complete graphs\"",
+        "\"geodesic packing number\" \"tensor product\" complete graphs",
+        "\"K_m × K_n\" \"P3-packing\" induced path",
+        "\"P_3-factor\" \"tensor product\" \"complete graphs\"",
+        "arXiv:2406.04020v2 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "P. Manuel, B. Brešar, S. Klavžar, Geodesic packing in graphs, arXiv:2210.15325v3, https://arxiv.org/html/2210.15325v3",
+      "B. Brešar, T. Dravec, J. Hedžet, B. Samadi, Induced matching vs edge open packing: trees and product graphs, arXiv:2406.04020v2, https://arxiv.org/html/2406.04020v2",
+      "P3-Factorization of Triangulated Cartesian Product of Complete Graph of Odd Order, 2017 abstract, https://www.researchgate.net/publication/319138627_P_3-Factorization_of_Triangulated_Cartesian_Product_of_Complete_Graph_of_Odd_Order"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Manuel–Brešar–Klavžar, Lemma 2.3: gpack(G)<=floor(|V(G)|/(d+1)); this yields only the upper inequality when d=2.",
+        "Manuel–Brešar–Klavžar, Proposition 2.6 is a transversal statement for K_n □ K_n; it is not a path tiling of K_m×K_n.",
+        "Brešar–Dravec–Hedžet–Samadi Theorems 4.1 and 4.2 concern induced matching and edge-open packing; neither selects pairwise vertex-disjoint induced P3s.",
+        "A separate Cartesian rook graph geodesic packing formula concerns different adjacency and distinct triples, and does not imply the tensor-product statement."
+      ],
+      "reasoning": "Neither matching parameter, the upper bound, the Cartesian-product rook result, nor an earlier general-position law on the same tensor graph implies the claimed exact geodesic packing. Equality requires six explicit legal near-factor certificates and a dimension decomposition.",
+      "searches": [
+        "arXiv:2210.15325v3 Lemma 2.3, Proposition 2.6 and Conclusions",
+        "arXiv:2406.04020v2 Theorems 4.1 and 4.2",
+        "geodesic packing number of direct (tensor categorical Kronecker) product of complete graphs K_m times K_n exact floor mn/3, tiling disjoint maximal length-two paths",
+        "geodesic packing of diameter-two direct product complete graphs; induced P3 packing maximum floor vertices over three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For m,n>=3 every maximal geodesic of K_m×K_n is an induced P3, so the claim is equivalently an induced-P3 near-factor in the complement of K_m □ K_n.",
+        "arXiv:2210.15325v3 defines geodesic packing and relates it to induced three-vertex path packing in a derived graph; it does not claim the tensor-product result."
+      ],
+      "reasoning": "The induced-P3 formulation and rectangular-rook-complement formulation were both searched. The foundational full text deals with the Cartesian rook graph and strong grids. Its general upper bound implies only the claimed inequality, not the constructive equality.",
+      "searches": [
+        "geodesic packing number of direct (tensor categorical Kronecker) product of complete graphs K_m times K_n exact floor mn/3, tiling disjoint maximal length-two paths",
+        "geodesic packing of diameter-two direct product complete graphs; induced P3 packing maximum floor vertices over three",
+        "induced P3 packing or geodesic packing exact for complement of rectangular rook graph, categorical product K_m x K_n",
+        "\"vertex-disjoint induced P3 packing\" \"direct product\" \"complete\"",
+        "\"complement of rook graph\" \"P3-factor\" \"induced\"",
+        "\"induced P3 factor\" \"complement of rook\"",
+        "arXiv:2210.15325v3 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published mathematical findings retrieved the titles Balanced complete bipartite graphs uniquely maximize geodesic subpaths at diameter two and All k-limited packings of complete multipartite graphs; neither is an exact geodesic packing table for the tensor product.",
+        "Independent finite enumeration confirmed five small tensor products, but that is new computational evidence, not a literature database."
+      ],
+      "reasoning": "The returned published records concern geodesic subpath counts and k-limited vertex packings respectively; their statements neither match nor dominate the near-P3-factor claim. No directly matching published table was identified, which is not a proof none exists.",
+      "searches": [
+        "geodesic packing number of direct (tensor categorical Kronecker) product of complete graphs K_m times K_n exact floor mn/3, tiling disjoint maximal length-two paths",
+        "geodesic packing of diameter-two direct product complete graphs; induced P3 packing maximum floor vertices over three",
+        "induced P3 packing or geodesic packing exact for complement of rectangular rook graph, categorical product K_m x K_n",
+        "three vertex shortest path partition of tensor product of two complete graphs; tiling cells by bent triples",
+        "\"geodesic packing\" \"direct product\" \"complete graphs\"",
+        "\"complement of rook graph\" \"P3-factor\" \"induced\""
+      ]
+    },
+    "rationale": "The assessed contribution is an exact all-dimensions near-perfect induced-P3 geodesic tiling of K_m×K_n for m,n>=3. The fully read foundational geodesic packing source proves a general upper bound and handles Cartesian rook graphs, not the tensor complement. The fully read direct-product EOP source handles induced matchings/edge-open packing, which are different invariants and do not imply a vertex-disjoint P3-tiling. Four targeted published-record queries, extensive public-literature search variants and prior scientific comparisons found no stronger covering statement. Older induced-P3 tiling/factor terminology remains a residual overlap risk, so this assessment is not a universal novelty certification.",
+    "residual_risks": [
+      "Graph-factorization or induced-P3 near-factor literature may express an equivalent result without using geodesic packing nomenclature and may be poorly indexed.",
+      "Search results and accessible full texts cannot establish universal independence from all historic or unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes general upper bound and Cartesian rook related results, not the tensor-product near-P3-factor equality.",
+        "evidence": "Section 2 gives gpack upper bound; Section 2.6 treats K_n □ K_n, and the conclusions propose other graph products as future directions.",
+        "identifier_or_url": "https://arxiv.org/html/2210.15325v3",
+        "material_read": "Full HTML text, especially definition, Section 2, Proposition 2.6, Sections 3-4, conclusions and references.",
+        "method": "Open-access arXiv full HTML inspection and searches within the text.",
+        "title": "Geodesic packing in graphs",
+        "trigger": "The original definition, general packing bound, and plausible treatment of product graphs and rook graphs."
+      },
+      {
+        "assessment": "NOT_COVERING: edge-open packings and induced matchings are different from vertex-disjoint induced-P3 geodesic packings.",
+        "evidence": "Theorems 4.1–4.2 bound ν_I and rho_e^o; complete-graph products are used for sharpness of an EOP bound, not a near-factor of P3s.",
+        "identifier_or_url": "https://arxiv.org/html/2406.04020v2",
+        "material_read": "Full HTML text, introduction, definitions, direct-product Section 4 with Theorems 4.1 and 4.2 and K_m×K_n sharpness example.",
+        "method": "Open-access arXiv full HTML inspection, including the direct-product proof statements.",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Direct products of complete graphs appear explicitly and might carry a stronger induced-subgraph packing theorem."
+      },
+      {
+        "assessment": "Different graph operation and edge-disjoint factorization; no implication to induced vertex-disjoint maximal geodesics established.",
+        "evidence": "The abstract explicitly describes edge-disjoint path-factorization for a triangulated Cartesian product of odd-order complete graphs.",
+        "identifier_or_url": "https://www.researchgate.net/publication/319138627_P_3-Factorization_of_Triangulated_Cartesian_Product_of_Complete_Graph_of_Odd_Order",
+        "material_read": "Abstract and introductory definition identifying edge-disjoint P3-factorization and the triangulated Cartesian operation.",
+        "method": "Publicly accessible abstract and excerpt; no inference from uninspected remainder.",
+        "title": "P3-Factorization of Triangulated Cartesian Product of Complete Graph of Odd Order",
+        "trigger": "A P3-factorization title could superficially match the induced-path-tiling equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42c88242-5d58-4cb9-b361-eae6bdeb36c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Geodesic packing is a natural established graph invariant. The theorem gives a sharp exact formula and a constructive near-perfect induced-path tiling for every member of the unrestricted two-parameter tensor-product family, a distinct graph operation from the rook graph treated in the foundational paper. The six residue bricks solve genuine congruence obstacles, providing a reusable decomposition algorithm rather than a single small-case table. It neither relies on arbitrary artificial slices nor simply recomputes a known graph table.",
+    "status": "PASS"
+  }
+}
