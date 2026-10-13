@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every prime \\(q\\in(c/2,c]\\), Legendre's formula gives \\(v_q(c!)=1\\), so \\(q\\mid s(c!)\\). Exact enumeration handles \\(1\\le c\\le50\\). For \\(c\\ge51\\), two applications of Nagura's theorem to \\(c/2\\) and \\(5c/6\\) produce distinct primes in disjoint subintervals of \\((c/2,c]\\), proving non-primality. The verifier independently reproduces all finite computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broughan proves an asymptotic formula for the logarithm of the squarefree part, not an exact classification of prime values.",
+        "Jakimczuk is indexed as treating general h-th free parts and asymptotic formulas; no checked material states the exact prime-value classification."
+      ],
+      "reasoning": "Asymptotic size results imply eventual largeness but do not identify the exact exceptional indices \\(2,6,10\\). No checked broader theorem was found that specializes to the claimed exact classification.",
+      "searches": [
+        "published-finding corpus: factorial squarefree part prime classification",
+        "published-finding corpus: number of primes dividing squarefree part n! equals one classification",
+        "Broughan 2002 Asymptotic Order of the Square-free Part of N!",
+        "Jakimczuk 2017 On the h-th free part of the factorial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01899v1",
+      "OEIS:A055204",
+      "OEIS:A055460",
+      "Broughan-Integers-2-A10",
+      "DOI:10.12988/imf.2017.7542",
+      "DOI:10.3792/pja/1195570997"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yudin defines \\(\\mathcal{S}=\\{s(c!):c\\ge1\\}\\), uses it in the main term, and observes that every prime in \\((c/2,c]\\) divides \\(s(c!)\\); the inspected paper does not state the prime-element classification.",
+        "The closest same-area published-finding corpus record studies first-order residue-class mass of factorial prime valuations in linear windows, not exact one-prime support of the squarefree kernel."
+      ],
+      "reasoning": "Yudin supplies the object and one ingredient but not the second-prime argument or exact finite boundary. The prior linear-window asymptotic concerns weighted distributions and neither states nor implies the exact exceptional set.",
+      "searches": [
+        "arXiv:2610.01899v1 squarefree part factorial set S prime interval",
+        "published-finding corpus: prime values of squarefree part of n! 2 5 7",
+        "published-finding corpus ID 2026/10/4/SCOPE-linear-window-harmonic-bias-for-factorial-prime-valuations--21df32816f5e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A055460 defines the equivalent statistic as the number of prime divisors of the squarefree part of n! and provides a finite table; its entry does not state the all-index classification.",
+        "published-finding corpus searches returned no equivalent finding. The closest returned records concern Jordan--Polya factorial normal forms and other unrelated prime-support classifications."
+      ],
+      "reasoning": "The claim is equivalent to classifying the indices where the A055460 statistic equals one. The checked database entry supplies data but not an all-integers theorem, and the semantic searches did not return an equivalent statement.",
+      "searches": [
+        "published-finding corpus: omega(core(n!)) equals 1 only n=2,6,10 squarefree part factorial",
+        "published-finding corpus: A055460 value 1 indices 2 6 10",
+        "Web: \"A055204\" prime terms",
+        "OEIS:A055460"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A055204 tabulates the squarefree part through a long finite range and begins 1,2,6,6,30,5,35,70,70,7.",
+        "A055460 tabulates the number of prime factors of these kernels and links a finite table through 100000."
+      ],
+      "reasoning": "Finite tables corroborate the small cases but cannot establish the infinite negative statement. The present proof supplies the missing global argument through two primes in \\((c/2,c]\\).",
+      "searches": [
+        "OEIS:A055204",
+        "OEIS:A055460",
+        "Web: squarefree part of n! prime 2 5 7"
+      ]
+    },
+    "rationale": "The checked recent source, historical full text, OEIS entries, semantic database searches, and web searches do not state or imply the exact all-integer classification. Finite sequence data show the three exceptions but do not prove there are no later ones.",
+    "residual_risks": [
+      "The full Jakimczuk PDF was not retrieved from the indexed publisher link, so an unindexed exact remark there cannot be excluded from the available material.",
+      "Because the final argument is elementary, an equivalent observation may exist in unindexed notes or sequence commentary not returned by the searches. No checked source provided decisive coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the object and proves growth estimates; does not state the prime-element classification.",
+        "evidence": "The paper defines \\(\\mathcal{S}=\\{s(c!):c\\ge1\\}\\) and states that every prime in \\((c/2,c]\\) divides \\(s(c!)\\).",
+        "identifier_or_url": "arXiv:2610.01899v1",
+        "material_read": "Abstract, introduction, Section 3.2 proof passage containing the definition of \\(\\mathcal{S}\\) and the prime-interval divisibility argument.",
+        "method": "Lawful arXiv HTML full text.",
+        "title": "Square products of factorials and a conjecture of Erdős and Graham",
+        "trigger": "Motivating 2026 source defining the exact squarefree-kernel parameter set."
+      },
+      {
+        "assessment": "Gives asymptotic order \\(\\log s(n!)=(\\log2)n+O(\\sqrt n)\\), not exact prime values.",
+        "evidence": "The abstract and introduction explicitly frame the paper around asymptotic size and prime-exponent proportions.",
+        "identifier_or_url": "Broughan, Integers 2 (2002), Paper A10",
+        "material_read": "Full first page and abstract/introductory definition; searchable full-text extraction consulted for theorem scope.",
+        "method": "Author-hosted PDF and bibliographic record.",
+        "title": "Asymptotic Order of the Square-free Part of N!",
+        "trigger": "Most directly relevant historical paper on the same invariant."
+      },
+      {
+        "assessment": "Finite data contain the three prime values; no all-index classification is stated.",
+        "evidence": "Initial terms are \\(1,2,6,6,30,5,35,70,70,7,\\ldots\\); a linked table extends to index 3386.",
+        "identifier_or_url": "OEIS:A055204",
+        "material_read": "Current entry, formulas, initial terms, links and comments.",
+        "method": "OEIS entry.",
+        "title": "A055204: Squarefree part of n!",
+        "trigger": "Exact database table for the claimed sequence."
+      },
+      {
+        "assessment": "Defines the exact equivalent statistic and finite data but gives no theorem that value one occurs only three times.",
+        "evidence": "The entry states \\(a(n)=\\omega(\\operatorname{core}(n!))\\) and links a table through 100000.",
+        "identifier_or_url": "OEIS:A055460",
+        "material_read": "Current entry, comments, formulas, examples and linked finite table description.",
+        "method": "OEIS entry.",
+        "title": "A055460: Number of primes with odd exponents in n!",
+        "trigger": "Equivalent formulation \\(\\omega(s(n!))\\)."
+      },
+      {
+        "assessment": "Available material concerns h-th free-part asymptotics and does not resolve this exact classification; full-text access remained incomplete.",
+        "evidence": "The indexed record identifies the 2017 article and OEIS attributes asymptotic h-free-part formulas to it.",
+        "identifier_or_url": "DOI:10.12988/imf.2017.7542",
+        "material_read": "Publisher metadata page and indexed formula summaries; publisher PDF link did not resolve.",
+        "method": "Publisher landing page and OEIS bibliographic/formula records.",
+        "title": "On the h-th free part of the factorial",
+        "trigger": "Plausible broader historical treatment of power-free factorial parts."
+      },
+      {
+        "assessment": "Provides the needed theorem that a prime exists between \\(x\\) and \\(6x/5\\) for \\(x\\ge25\\).",
+        "evidence": "The first page states the interval theorem explicitly.",
+        "identifier_or_url": "DOI:10.3792/pja/1195570997",
+        "material_read": "First page containing the main interval theorem.",
+        "method": "J-STAGE open-access PDF and article metadata.",
+        "title": "On The Interval Containing At Least One Prime Number",
+        "trigger": "Critical theorem used for the infinite tail."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f6ac6e6-0ece-437a-a687-f362d7eee639",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classification is attached to the central parameter set \\(\\mathcal{S}\\) in a 2026 theorem on products of factorials and identifies its complete atomic one-prime-support layer. It gives an exact global threshold \\(c=11\\) beyond which at least two primes are forced into every squarefree kernel. This is a natural complete classification, not a recomputation of a finite table.",
+    "status": "PASS"
+  }
+}
