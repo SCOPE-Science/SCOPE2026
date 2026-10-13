@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For each transition, subtracting the split-sum equation from the square decomposition gives x^2-y=q(b-1). In a two-cycle modulo prime ell=b-1, the nonzero state satisfies x^3=1; nontriviality excludes x=1 and therefore forces the unique pair of nontrivial cubic roots. The exact condition for a congruent target to be the actual split sum is 0<=q<=target. This condition is automatic in the smaller-to-larger direction and becomes the displayed quadratic inequality in the reverse direction. The packaged checker independently agrees for all primes below 20000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iannucci 2000 defines K(N) by k^2=qN+r and k=q+r, derives k(k-1)=q(N-1), and classifies all fixed points through unitary divisors of N-1.",
+        "The 2000 paper explicitly specializes N=b^n to arbitrary bases.",
+        "Iannucci--Foster 2005 treats the cubic splitting analogue and again organizes the arithmetic modulo N-1."
+      ],
+      "reasoning": "The broader primary theory is fixed-point theory. A fixed-point classification does not imply a classification of prime period two. The new proof uses the composition of two transition congruences, which changes the relevant cyclotomic equation from x(x-1)=0 to x^3=1.",
+      "searches": [
+        "\"The Kaprekar Numbers\" Iannucci",
+        "\"Kaprekar Triples\" Iannucci Foster",
+        "Kaprekar square splitting arbitrary base unitary divisors",
+        "Kaprekar numbers cycles arbitrary base"
+      ]
+    },
+    "checked_sources": [
+      "JIS:3:00.1.2",
+      "JIS:8:05.4.8",
+      "public Kaprekar square-split cycle table"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-point theorem in Iannucci 2000 is an iff statement for T(k)=k and unitary divisors of N-1; it does not constrain T^2(k)=k with T(k)!=k.",
+        "Iannucci--Foster 2005 concerns a cubic splitting fixed-point equation rather than iteration of the quadratic split map.",
+        "No inspected source states that prime b-1 permits at most one one-digit two-cycle or gives the quadratic digit-bound inequality."
+      ],
+      "reasoning": "Neither fixed-point theorem dominates the period-two claim. The period-two congruence composition is logically new relative to the cited statements, and the quotient bound is required because a modular cubic root alone need not realize a split-map transition.",
+      "searches": [
+        "Iannucci Kaprekar N-1 prime cycles",
+        "Kaprekar period two unitary divisors",
+        "nontrivial cube roots unity Kaprekar",
+        "prime b-1 Kaprekar cycle classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic research-record searches returned no indexed Kaprekar period-two theorem with the prime b-1 or cubic-root hypotheses.",
+        "Direct literature searches found the classical fixed-point papers and secondary cycle tables, but no statement reducing prime-modulus one-digit two-cycles to cubic roots of unity.",
+        "The base-8 example 2->4->2 appears in public cycle tables and is recovered by the theorem with ell=7."
+      ],
+      "reasoning": "The theorem can be phrased as a classification of one-digit amicable Kaprekar pairs, as a square-split period-two theorem, or as a cubic-root condition modulo b-1. All three formulations were searched; the located sources provide examples or fixed-point structure rather than the claimed iff criterion.",
+      "searches": [
+        "Kaprekar one-digit two-cycle prime base minus one cubic root",
+        "Kaprekar amicable cycle prime radix cubic roots unity",
+        "square-split Kaprekar map 2-cycle base p+1 prime",
+        "Kaprekar function F_1,b period 2 prime b-1",
+        "\"Kaprekar\" \"cube root\" cycle base",
+        "\"amicable Kaprekar\" base 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A public table of the square-split Kaprekar function lists 2->4->2 in base 8 and lists no nontrivial cycle in base 14.",
+        "The same table lists small-base cycles but is a finite data table rather than an all-prime criterion.",
+        "Direct computation from the packaged verifier reproduces the table entries relevant to the theorem."
+      ],
+      "reasoning": "Finite tables corroborate individual bases but cannot imply the all-prime theorem. The theorem explains the base-8 occurrence, the base-14 failure, and infinitely many possible prime-modulus instances through one exact criterion.",
+      "searches": [
+        "Kaprekar cycles base 8 2 4",
+        "Kaprekar numbers and cycles F p b table",
+        "Kaprekar base 14 cycle base 20"
+      ]
+    },
+    "rationale": "The inspected primary Kaprekar papers classify fixed points or cubic fixed-point analogues, not period-two one-digit dynamics. Public tables document small cycles but do not state the prime-modulus cubic-root classification. Targeted semantic and web searches found no equivalent or stronger theorem.",
+    "residual_risks": [
+      "An equivalent elementary cycle classification may occur in unindexed recreational literature.",
+      "Secondary cycle tables are not proofs of noncoverage and were used only as exact small-base comparison data.",
+      "The theorem does not classify composite b-1 or cycles containing states at least b."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROADER_BUT_NOT_COVERING. It classifies fixed points and establishes the N-1 modulus, but does not state a period-two classification.",
+        "evidence": "Theorem 1 gives the unitary-divisor fixed-point classification; line 113 specializes N=b^n to arbitrary bases; the article was published 13 January 2000.",
+        "identifier_or_url": "JIS:3:00.1.2",
+        "material_read": "Complete HTML article, including the definition of K(N), equations k^2=qN+r and k=q+r, Theorem 1, the unitary-divisor corollaries, the arbitrary-base specialization, applications, references, and publication record.",
+        "method": "Direct full-text HTML inspection and targeted searches for cycle or period terminology.",
+        "title": "The Kaprekar Numbers",
+        "trigger": "Primary source that completely characterizes the same square-split fixed-point construction and its arbitrary-base generalization."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It studies cubic fixed-point splitting rather than period-two iteration of the square-split map.",
+        "evidence": "The paper lists primary MSC 11A63 and cites the 2000 fixed-point paper as the complete characterization of Kaprekar numbers.",
+        "identifier_or_url": "JIS:8:05.4.8",
+        "material_read": "Complete seven-page PDF, including the definition of K(N), the N-1 congruence reduction, the arbitrary-base section, applications, references, MSC line, and publication record.",
+        "method": "Direct PDF text inspection with page-image inspection of the final classification and publication page.",
+        "title": "Kaprekar Triples",
+        "trigger": "Primary follow-up on the same Kaprekar splitting framework and source of the verified primary subject classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d94d343-6f0a-4e08-b378-62afe076588f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Period-two orbits are the first genuinely dynamical extension of the classical fixed-point problem. The modulus b-1 is already fundamental in the primary fixed-point theory, making its prime case a natural structural stratum. The theorem converts a finite-table phenomenon into a complete all-prime classification: at most one candidate pair exists, it is exactly cyclotomic, and one explicit digit-bound inequality decides whether it is realized.",
+    "status": "PASS"
+  }
+}
