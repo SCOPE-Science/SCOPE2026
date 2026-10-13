@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every positive D,d,Sin,m,K,L, positivity and global boundedness follow from total-mass cancellation. The log population ratio has an exact sign-monotone derivative and forbids nonsymmetric periodic orbits. The symmetric equilibrium scalar equation is strictly convex with exact unique minimum; lower-branch determinant is negative. Exchange symmetry gives anti-eigenvalue -xf_x and planar determinant d(2xf_S)-Dxf_x, trace -D-2xf_S+xf_x. For \\(d<=2D\\), a hypothetical nonnegative upper-branch trace contradicts determinant positivity because 0<xf_x<d. For every \\(d>2D\\), explicit parameters with a positive equilibrium yield trace zero, positive determinant, nonzero trace parameter derivative. At the exact tuple (1,5,11,3/5,19,160) the linear eigenvalues are -19/4,±i sqrt(14), and exact cubic normal-form differentiation independently verifies canonical first Lyapunov coefficient -40879/532480, so a stable positive limit cycle is born for \\(K<3/5\\) along m=100(1+K). For \\(d<=D\\) strict Bendixson-Dulac divergence in the positive symmetric plane and the ratio identity exclude periodic orbits, with omega-limit alternatives yielding convergence to equilibrium. SymPy verify.py was executed successfully from the actual new package. The analytic argument, not finite computation, supplies the universal conclusions. Ambiguous dynamic nondegeneracy at the equilibrium fold is not asserted beyond the strict scalar quadratic tangency.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mtar–Fekih-Salem Proposition 11 supplies necessary/sufficient Routh-Hurwitz stability of individual positive equilibria, and Sections 3 and 6 numerically exhibit general Hopf and cycles; none states a sharp common-removal bound or computes the exact first Lyapunov coefficient for identical mutualists.",
+        "El Hajji et al. Theorems/Corollary 2 address coexistence when biomass is removed at the same hydraulic rate.",
+        "Vet–Gelens–Gonze (2020), Methods and Results, uses nutrient-mediated cross-feeding with two substrate concentrations and metabolite exchange, not the single-nutrient saturated cross-growth function f(S,x)."
+      ],
+      "reasoning": "The motivating model is a broad parent ODE, so its generic Jacobian criteria logically cover the local stability facts after algebraic substitution. The NEW claim is not merely those special-case criteria: it quantifies sharply over all positive Monod parameters to determine whether any Hopf crossing can exist at fixed \\(d/D\\), explicitly constructs such crossings for all ratios >2, proves cycle existence via an exact cubic coefficient for one admissible set, and excludes all nonsymmetric periodic orbits. This combined structural statement is not a direct corollary of the cited generic conditions without new arguments. Different nutrient-species dimensions block direct implications from prior cross-feeding papers.",
+      "searches": [
+        "Obligate mutualism chemostat Mtar Fekih-Salem 2026 symmetric growth equal removal global bistability fold threshold",
+        "Cooperative chemostat microbial mutualism mortality necessary removal gap Hopf bifurcation cycle synchronization",
+        "Mtar Fekih-Salem 2603.11002 symmetric Monod mutualists exact first Lyapunov coefficient Hopf",
+        "Exact sharp d greater than two D Hopf bifurcation threshold equal mutualist mortality chemostat Monod 2026 stable limit cycle",
+        "arXiv:2603.11002v1 Proposition 11 and Sections 3,4,6",
+        "doi:10.1080/17513750902915978 Theorems 1-3, Corollary 2",
+        "doi:10.1038/s41598-020-63772-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.11002v1 (complete HTML, 2026-03-11)",
+      "doi:10.1080/17513750902915978 (full HTML, 2009)",
+      "doi:10.1038/s41598-020-63772-4 (accessible full HTML, 2020)",
+      "published-finding corpus: 2026/9/17/SCOPE-no-hopf-serial-am2-distinct-removal--f27e4f47727b",
+      "published-finding corpus: 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-bistability-threshold-in-the-exchange-symmetric-two-gene-c--ad6ece65c154"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source gives a general Routh-Hurwitz stability characterization but explicitly reports it cannot show positivity of the relevant coefficient in the broad asymmetric class and illustrates Hopf numerically.",
+        "The 2009 model assumes organism loss entirely through hydraulic dilution, \\(d=D\\). Its concavity-based coexistence and Dulac material covers a special no-mortality endpoint.",
+        "Direct proof shows upper stable for all \\(d<=2D\\), while the fully explicit d=5D tuple has a rigorously nonzero negative first Lyapunov coefficient and stable periodic cycles for slightly smaller K."
+      ],
+      "reasoning": "An antecedent general local stability theorem can imply that a given Jacobian with trace<0 is stable, and the 2009 theorem subsumes familiar \\(d=D\\) conclusions; both are credited. Neither implies the quantified sharp \\(d/D\\) Hopf barrier without proving it for the full symmetric continuum, and neither produces the exact supercritical equal-removal cycle. The present theorem strictly adds constructive existence and a sharp qualitative boundary, not a numerical refinement of an established threshold.",
+      "searches": [
+        "Obligate mutualism chemostat equal species removal rates mortality synchronization x1/x2 asymptotic elimination periodic orbits",
+        "Obligate mutualism chemostat Mtar Fekih-Salem 2026 symmetric growth equal removal global bistability fold threshold",
+        "symmetric obligate-mutualism chemostat common biomass removal d, dilution D, exact d>2D Hopf threshold and sync",
+        "Exact sharp d greater than two D Hopf bifurcation threshold equal mutualist mortality chemostat Monod 2026 stable limit cycle",
+        "obligate mutualism Monod chemostat synchronous diagonal invariant antisymmetric eigenvalue ratio monotonic nonexistence cycles at d less than D",
+        "arXiv:2603.11002v1 Eq.(17)-Proposition 11, Eq.(21), Sections 3-4",
+        "doi:10.1080/17513750902915978 Remark 3 and Corollary 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The arXiv source Eq.(2) permits positive unequal hydraulic/biomass removal parameters; Eq.(21) supplies two separate saturating cross-growth functions. Section 4 specializes only D1=D2=D, not the present \\(d>2D\\) boundary.",
+        "The 2009 full article studies no species-specific mortality and a common hydraulic rate, and uses mass balance and Dulac methods in that endpoint.",
+        "published-finding corpus chemostat hits 2026/9/17/SCOPE-no-hopf-serial-am2-distinct-removal--f27e4f47727b and 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd describe distinct model equations."
+      ],
+      "reasoning": "Exchange of x1,x2 yields a diagonal/antisymmetric decomposition, but it is not equivalent to the published asymmetric general Hopf examples: those do not instantiate the equal Monod cross-functions and fixed common d, nor classify feasibility by the ratio \\(d/D\\). The 2009 \\(d=D\\) model is a proper parameter subcase of the current regime \\(d<=D\\), not a proof of the \\(d>2D\\) cycle witness. An equivalent future formulation through symmetric representation theory or a 2D subsystem would have to imply the entire sharp iff feasibility and negative cubic witness, not merely repeat a local stability determinant.",
+      "searches": [
+        "Obligate mutualism chemostat equal species removal rates mortality synchronization x1/x2 asymptotic elimination periodic orbits",
+        "Two species symmetric Monod cooperative chemostat equal removal d<=dilution D Bendixson Dulac no cycles global convergence",
+        "symmetric obligate-mutualism chemostat common biomass removal d, dilution D, exact d>2D Hopf threshold and sync",
+        "obligate mutualism Monod chemostat synchronous diagonal invariant antisymmetric eigenvalue ratio monotonic nonexistence cycles at d less than D",
+        "arXiv:2603.11002v1 Eq.(2),(21), Section 4",
+        "doi:10.1080/17513750902915978 Sections 2-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 in the motivating paper is a generic existence and stability summary for D1=D2=D, while Appendix B contains numerical parameter tables for asymmetric illustrative scenarios, not an exact rational Hopf coefficient for equal Monod mutualists.",
+        "The closest published published-finding corpus entries address AM2 reactor structure and reversible growth-weighted mutation, not a common-removal Hopf census."
+      ],
+      "reasoning": "This is an analytic continuum-parameter classification, not a recomputation of a known finite table. The rational numerical tuple is supplied to certify an actual supercritical Hopf event rather than selected as an arbitrary sample from a published parameter table. A database covering this exact parameter family and sharp criterion was not found in the performed searches; absence from a search is not treated as absolute proof of novelty.",
+      "searches": [
+        "Mtar Fekih-Salem 2603.11002 symmetric Monod mutualists exact first Lyapunov coefficient Hopf",
+        "Exact sharp d greater than two D Hopf bifurcation threshold equal mutualist mortality chemostat Monod 2026 stable limit cycle",
+        "symmetrical obligate mutualism chemostat 160 19 3/5 supercritical Hopf first Lyapunov -40879",
+        "arXiv:2603.11002v1 Table 1 and Appendix B parameter Table 9",
+        "published-finding corpus search matched records 2026/9/17/SCOPE-no-hopf-serial-am2-distinct-removal--f27e4f47727b; 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd"
+      ]
+    },
+    "rationale": "The complete arXiv:2603.11002v1 motivating paper establishes the model, generic equilibrium theory/Routh-Hurwitz formulas and numerical Hopf bifurcations with unequal parameters; source Section 4 assumes D1=D2=D. This finding is the exact exchange-symmetric positive Monod equal-biomass-removal subfamily with D1=D2=d not necessarily D. Its new combined claim is a sharp universal local Hopf feasibility criterion \\(d>2D\\), explicit constructive family, rigorously negative cubic Hopf witness with stable synchronized cycles, and a global non-oscillation/convergence subregime \\(d<=D\\). The 2009 El Hajji et al. full text establishes global dynamics and Dulac arguments only for the endpoint \\(d=D\\); none of its conclusions directly implies a \\(d>2D\\) example or rules out an unequal-retention oscillation barrier. Generic local Routh-Hurwitz criteria, fold multiplicity concepts, and \\(d=D\\) no-cycle facts are acknowledged antecedents, not claimed new. Published same-domain research summaries concerned a serial two-reactor AM2 system or mutation-weighted growth, not the same obligate mutualists.",
+    "residual_risks": [
+      "Unindexed or unpublished general symmetric mutualistic-chemostat stability results could prove the same sharp \\(d/D\\) threshold.",
+      "General Routh-Hurwitz characterization in motivating paper covers local Jacobian implications; novelty is confined to quantified sharp classification and the explicit proved supercritical witness.",
+      "Further transfer of older generic chemostat Hopf and Dulac arguments cannot be ruled out without an exhaustive historical search; overlapping \\(d=D\\) endpoint is not asserted new.",
+      "A 2022 mortality-driven predator–prey cycle paper was identified at DOI 10.3934/dcdsb.2022049 but has different interaction equations; only its abstract was available for this comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_OVERLAP_NOT_COVERING_COMBINED_CLAIM",
+        "evidence": [
+          "arXiv:2603.11002v1, Eq.(2) lines 59-70; Eq.(17)-Proposition 11 lines 242-296; Eq.(21) lines 299-315; Eq.(22) and Section 4 lines 316-388. Source provides generic Jacobian criteria and numerical Hopf; \\(d=D\\) special case, not d/D>2 sharp criterion or exact symmetric Hopf coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.11002v1",
+        "material_read": "Complete HTML paper: introduction and model Eq.(2), hypotheses, equilibrium propositions and Routh-Hurwitz (Section 2), Hopf (Section 3), D1=D2=D special case (Section 4), operating/bifurcation sections, Appendix B and conclusions",
+        "method": "Read accessible arXiv full-text HTML and directly compared equations, quantified parameter ranges, stability statements and Hopf numerical evidence",
+        "title": "Global dynamics and bifurcation analysis of a chemostat model with obligate mutualism and mortality",
+        "trigger": "Exact source model, closest likely stronger stability/Hopf coverage"
+      },
+      {
+        "assessment": "ENDPOINT_SUBCASE_COVERED_WITH_PRIOR_ACKNOWLEDGED",
+        "evidence": [
+          "doi:10.1080/17513750902915978, Mathematical model and results and conclusion; the sole common removal is hydraulic dilution, so positive mortality gap \\(d>D\\) and exact Hopf witness are absent."
+        ],
+        "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/17513750902915978",
+        "material_read": "Publisher full text: 2009 model assumption without species mortality, Theorems 1–3, Lemma 1, Corollary 2, equilibrium and Dulac reasoning, numerical examples, conclusions",
+        "method": "Read full available HTML text; checked model scope against \\(d=D\\) versus d not fixed to D",
+        "title": "Association between competition and obligate mutualism in a chemostat",
+        "trigger": "Earlier same ecological interaction model, explicitly cited in source as prior global no-cycle case"
+      },
+      {
+        "assessment": "DIFFERENT_MODEL_NOT_DIRECTLY_COVERING",
+        "evidence": [
+          "doi:10.1038/s41598-020-63772-4 uses mutual cross-fed metabolite concentrations and two substrates with a reduced Allee-effect formulation; it does not state the present three-equation Monod common-removal threshold."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41598-020-63772-4",
+        "material_read": "Full accessible HTML background, mathematical model description, Methods/Results on cross-feeding and bifurcation mechanism, conclusions",
+        "method": "Compared number/type of nutrient variables and functional form of cross-benefit with one-nutrient f(S,x) chemostat",
+        "title": "Mutualistic cross-feeding in microbial systems generates bistability via an Allee effect",
+        "trigger": "Potential broader symmetric mutualism bistability theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53c3a02c-d433-45a8-86c4-0fefff868d47",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 paper attributes oscillatory coexistence to mortality/retention differences in an obligate mutualism reactor. A mathematically and biologically natural simplification asks whether a biomass rate common to both species, but distinct from nutrient dilution, permits cycles. The theorem proves a sharp necessary-and-feasible local Hopf boundary \\(d>2D\\) for the entire symmetric Monod family, gives an explicit valid supercritical cycle, and separates a global \\(d<=D\\) non-oscillation regime. The sharp distinction between species-rate asymmetry and common excess removal is structurally relevant to mechanistic reactor modeling, not a known-table result, arbitrary parameter slice, or textbook corollary. No empirical application or guaranteed cycles for all \\(d>2D\\) is claimed.",
+    "status": "PASS"
+  }
+}
