@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each first letter the proof bounds the three disjoint classes by t, \\(q-t\\) and \\((q-1)^2\\), hence at most \\(q^2-q+1\\) and altogether \\(q^3-q^2+q\\). The idempotent Latin-square code has exactly that cardinality, and disjointness follows from Latin row/column injections plus the diagonal identity. The \\(q=2\\) case is checked by its explicit six-word set. Published Latin-square existence for every order >=3 supplies the only imported fact, supported by explicit finite examples. Python directly checks \\(q=2\\),...,6; independent C++ checks odd \\(q=3,...,11\\). No finite observation is used for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sharov–Roth doi:10.1109/TIT.2014.2301811, §§II–V; explicit bounds in general q, finite equality analysis in §IV for q=2.",
+        "Gabrys–Yaakobi–Dolecek arXiv:1307.7087v2, §III and Table I report binary bounds at n=4, and §IV constructs binary grain codes."
+      ],
+      "reasoning": "A general asymptotic coding-rate bound or binary n=4 equality does not imply a matching q-ary finite optimum for all q. The present projection cap and idempotent-Latin-square attaining family supply the missing tight implication. No stronger source providing that consequence was found.",
+      "searches": [
+        "q-ary four-symbol 1-grain correcting code exact optimum q^3-q^2+q partial latin square idempotent quasigroup",
+        "web: \"Bounds and Constructions for Granular Media Coding\" pdf Sharov Roth 2014",
+        "web: \"grain-error\" \"nonbinary\" length 4 code q"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.2014.2301811",
+      "arXiv:1307.7087v1",
+      "arXiv:1302.6154v4",
+      "doi:10.1002/jcd.21905"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sharov–Roth, full text doi:10.1109/TIT.2014.2301811, Introduction states arbitrary q, §IV treats binary specific lengths, §V constructs q-ary infinite-grain detecting codes.",
+        "Allsop, doi:10.1002/jcd.21905, §6 states prior classical idempotent Latin-square existence."
+      ],
+      "reasoning": "A known channel plus known idempotent Latin squares does not by itself assert or derive the new all-alphabet \\(q^3-q^2+q\\) optimum: the sharp two-projection upper bound and channel-compatible Latin construction are both necessary to make the inference. Neither the classical Latin existence theorem nor the earlier rate bounds dominates the final statement.",
+      "searches": [
+        "ternary length-four single grain error correcting codes q=3 overwrite adjacent previous symbol optimum equality cases",
+        "q-ary four-symbol 1-grain correcting code exact optimum q^3-q^2+q partial latin square idempotent quasigroup",
+        "grain channel length four q-ary maximum q(q^2-q+1) overwrites adjacent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sharov and Roth, doi:10.1109/TIT.2014.2301811, pp. 2010–2011 defines q-ary predecessor smearing and t-confusability.",
+        "Gabrys, Yaakobi and Dolecek, arXiv:1307.7087v1, §II gives equivalent binary one-grain output sets."
+      ],
+      "reasoning": "Length-four predecessor smearing, one-grain confusability, and zero-error disjoint shadows are equivalent descriptions. The same objects occur in the compared channel definitions, but their inspected claims do not provide the all-q length-four exact formula. Error-correcting codes under deletions, Hamming or symbol-pair metrics are not equivalent channels.",
+      "searches": [
+        "ternary length-four single grain error correcting codes q=3 overwrite adjacent previous symbol optimum equality cases",
+        "nonbinary multilevel grain error channel length four exact ternary codes",
+        "web: \"q-ary grain\" \"length four\" \"exact\"",
+        "web: \"grain-correcting\" \"idempotent\" \"Latin\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2013 Gabrys–Yaakobi–Dolecek arXiv paper reports at n=4 a binary size six, not the arbitrary-q values 21, 52, 105, ... .",
+        "A separately published quinary single-deletion-code result concerns deleting symbols, which is a different channel."
+      ],
+      "reasoning": "The binary n=4 optimum is already acknowledged. Searches for the entire q-ary formula and ternary/quaternary small alphabets did not reveal a table or database with the exact same channel and general formula. The closest retrieved finite tables describe the binary channel or distinct deletion channels; absence of an indexed hit is not a proof of novelty.",
+      "searches": [
+        "grain channel length four q-ary maximum q(q^2-q+1) overwrites adjacent",
+        "ternary one-grain code 4 symbols max 21 idempotent Latin squares",
+        "web: \"q^3-q^2+q\" \"grain\"",
+        "web: \"grain-correcting\" \"idempotent\" \"Latin\""
+      ]
+    },
+    "rationale": "Full inspection of Sharov–Roth 2014 confirms an arbitrary-alphabet channel and rate bounds, with finite equality discussion focused on binary codes; it does not state or imply exact M_q(4,1) for every q. Gabrys et al. provide binary grain bounds and constructions, while the pre-existing idempotent Latin-square lemma alone cannot establish the grain-optimality statement. Actual claim/alias searches in mathematical records and web did not find the exact general formula. Residual risk: an earlier unindexed q-ary specialization may exist.",
+    "residual_risks": [
+      "An earlier unindexed specialized q-ary length-four enumeration or a subsidiary result not located by the searches could imply the formula.",
+      "The complete body of the Kashyap–Zémor binary upper-bound paper was not inspected; its stated binary alphabet focus makes direct all-q coverage unlikely.",
+      "The existence of idempotent Latin squares for every q except two is imported from classical design theory; the supplied finite code tests are not a proof of this separate standard existence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_CHANNEL_DEFINED; NOT_COVERING_EXACT_ALL_Q_N4",
+        "evidence": "Section I defines q-ary grain patterns and correction; §IV analyzes optimal and unique codes for binary alphabets; §V concerns arbitrary-q infinity-grain detection, not one-grain correction at length four.",
+        "identifier_or_url": "doi:10.1109/TIT.2014.2301811",
+        "material_read": "Complete 18-page article, including model definition pp. 2010–2011, general bounds §§II–III, finite-code §IV, q-ary §V, and appendices",
+        "method": "Compared the complete article’s theorem statements, parameter domains and finite-block construction sections",
+        "title": "Bounds and Constructions for Granular Media Coding",
+        "trigger": "Defines exactly the q-ary predecessor-overwrite channel and has finite-block constructions"
+      },
+      {
+        "assessment": "BINARY_GRAIN_RESULTS; NOT_COVERING_QARY_CHANNEL_N4",
+        "evidence": "The source explicitly works with binary stored words, although some algebraic constructions use nonbinary constituent codes; length-four binary bound six is recorded.",
+        "identifier_or_url": "arXiv:1307.7087v1",
+        "material_read": "Introduction, formal model §II, upper-bound table and §IV/§VI construction passages in accessible 18-page manuscript",
+        "method": "Examined original publicly dated version and full-text available version; located binary bounds and distinctions involving nonbinary constituent codes",
+        "title": "Correcting Grain-Errors in Magnetic Media",
+        "trigger": "Classical one-grain error correction and binary finite lengths"
+      },
+      {
+        "assessment": "SUPPORTS_STANDARD_LATIN_EXISTENCE; DOES_NOT_COVER_GRAIN_CAPACITY",
+        "evidence": "Section 6 states that idempotent Latin squares exist for every order except two.",
+        "identifier_or_url": "doi:10.1002/jcd.21905",
+        "material_read": "Published §6 explanation explicitly stating existence for all orders other than two",
+        "method": "Read accessible journal article text around the invoked existence lemma",
+        "title": "Cycles of quadratic Latin squares and antiperfect 1-factorisations",
+        "trigger": "Independent published support for the necessary all-order idempotent-Latin-square existence theorem"
+      },
+      {
+        "assessment": "BINARY_MODEL_FOCUS; REMAINDER_NOT_FULLY_INSPECTED",
+        "evidence": "Abstract explicitly bounds binary block codes; related different parameterization and uninspected rest are retained as residual risk.",
+        "identifier_or_url": "arXiv:1302.6154v4",
+        "material_read": "Abstract, introduction and assumptions of the publicly accessible 21-page PDF",
+        "method": "Compared alphabet domain and whether finite q-ary formula was given in the inspected portions",
+        "title": "Upper Bounds on the Size of Grain-Correcting Codes",
+        "trigger": "Potential stronger packing bound in same grain model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "521681f5-04dd-40f7-8c68-cabfc9a8359e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This determines an exact natural coding capacity for every finite alphabet at a first nontrivial overwrite channel length. It couples a sharp symbol-projection counting bound to a universal combinatorial construction, rather than simply recounting a known binary case. The formula reveals an idempotent-Latin-square design principle applicable beyond prime-power alphabets, which is not a mere normalization change or isolated small table.",
+    "status": "PASS"
+  }
+}
