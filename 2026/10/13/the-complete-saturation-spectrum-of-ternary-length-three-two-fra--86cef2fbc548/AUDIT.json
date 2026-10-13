@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Equivalence to forbidden triples is elementary and bidirectional. Every feasible code is visited exactly once in increasing-index recursion; extension tests cover every excluded word. Independent C++ and Python implementations enumerate exactly 14,584 feasible codes, agree on all 1,092 maximal labeled codes byte-for-byte, and directly compute the nine complete group-action orbits. The 108 eight-word cases uniquely extend to the twelve nine-word codes; no extrapolation beyond this finite universe.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee–Zhang arXiv:1206.5863 sections I–V give constructions and extremal/asymptotic bounds.",
+        "Blackburn DOI:10.1137/S0895480101384633 abstract/secondary bibliography discuss cardinality bounds, not a saturation enumerator."
+      ],
+      "reasoning": "An upper bound of nine or a classification of nine-word codes does not determine how many size-three-through-seven codes admit no extension; the new statement classifies all such terminal codes. None of the inspected full-text literature has a broader result implying that classification.",
+      "searches": [
+        "maximal ternary 2-frameproof fingerprinting codes of length 3 complete enumeration nine isometry orbits",
+        "\"frameproof\" \"maximal\" \"ternary\" \"length 3\" code",
+        "maximum versus inclusion maximal saturated 2-frameproof codes in 3^3 descendant three-uniform hypergraph maximal independent sets"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1206.5863v1 (full six-page primary text, 2012-06-26)",
+      "Guo University of Waterloo thesis (relevant sections, 2015)",
+      "Blackburn DOI:10.1137/S0895480101384633 (abstract/citation context only)",
+      "Tô–Safavi-Naini DOI:10.1137/S0895480102400424 (all 23 pages of primary full text, including Theorem 34 and section 7)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee–Zhang arXiv:1206.5863 states frameproof upper bounds and constructions, not every inclusion-maximal code.",
+        "Tô–Safavi-Naini DOI:10.1137/S0895480102400424 addresses the stronger IPP rather than the frameproof saturation profile.",
+        "Tô–Safavi-Naini full text, Theorem 34: F(3)=4 for two-IPP, whereas the ternary length-three two-frameproof maximum is 9."
+      ],
+      "reasoning": "The established maximum size nine and its 12 Latin-square constructions imply only the existence of 12 terminal codes. They neither entail the exact counts at sizes three through seven nor the absence of maximal eight-word codes. Stronger two-IPP bounds do not classify all maximal two-frameproof codes.",
+      "searches": [
+        "ternary length three 2-frameproof code maximum nine Latin squares equality characterization",
+        "short frameproof codes q=3 length 3 Latin square singleton 2-frameproof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chee–Zhang arXiv:1206.5863, section I.B: desc(P)∩C=P is the defining equivalence.",
+        "Tô–Safavi-Naini DOI:10.1137/S0895480102400424 abstract: two-identifiable-parent, not two-frameproof inclusion-maximal.",
+        "Explicit non-equivalence witness: C={012,021,100,200} is two-frameproof, but 000 belongs to descendants of disjoint pairs {012,100} and {021,200}, so it fails two-IPP."
+      ],
+      "reasoning": "A frameproof code is the independent set of a forbidden-triple hypergraph; inclusion-maximal here means maximal independent set. The IPP condition is stronger; those maxima and cardinality algorithms are not a complete census of maximal independent sets for the weaker condition. The four-word explicit counterexample shows these coding properties are not equivalent even for q=3, length3.",
+      "searches": [
+        "inclusion-maximal ternary three-coordinate two-frameproof codes saturation polynomial 27 162 540 27 324 12",
+        "\"frameproof\" \"saturation\" \"minimal maximal\" codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An existing related nine-word equality census covers 12 maximum designs but not all 1,092 inclusion-maximal designs.",
+        "Independent exhaustive algorithms here agree byte-for-byte on a complete 1,092-line catalogue; no prior complete saturation table was identified."
+      ],
+      "reasoning": "Exact optimization tables and exact inclusion-maximality catalogues answer distinct questions. A partial or exact list of optimum size-nine designs cannot imply 27+162+540+27+324 smaller inclusion-maximal designs. Unindexed tables remain a residual risk.",
+      "searches": [
+        "saturation number 2-frameproof codes 3-ary 3-length greedy terminal size 3",
+        "M_{2,3}(3) frameproof code size 9 exactly 12 optimal codes orthogonal arrays",
+        "For ternary 2-frameproof codes of length three, inclusion-maximal labeled code size polynomial 27t^3+162t^4+540t^5+27t^6+324t^7+12t^9, 1092 maximal designs, nine symmetry orbits, 108 eight-word codes each uniquely extend to nine"
+      ]
+    },
+    "rationale": "Prior exact maximum-size results and standard constructions do not imply the complete terminal-size enumerator, all nine isometry orbits or unique extension of every feasible size-eight design. Primary frameproof construction literature and strongest plausible IPP title were compared by implications, with inaccessible text retained as a named residual risk rather than ruled out.",
+    "residual_risks": [
+      "Unindexed prior exhaustive catalogue could already contain this exact saturation spectrum.",
+      "No independent audit; both implementations run on local finite enumeration and must be replayed in the receiving environment.",
+      "Blackburn (2003) was not accessible in full; abstract-only material cannot establish whole-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for full inclusion-maximal ternary-three saturation census; treats constructions and bounds, not maximal-subset enumeration",
+        "evidence": "Section I.B definition desc(P)∩C=P; sections II–IV address recursive constructions, size bounds, orthogonal arrays.",
+        "identifier_or_url": "https://arxiv.org/pdf/1206.5863",
+        "material_read": "Six-page preprint including definition section I.B and constructions in sections II–IV and concluding section V",
+        "method": "Read primary arXiv PDF text and inspected displayed pages",
+        "title": "Improved Constructions of Frameproof Codes",
+        "trigger": "Defines exact same descendant condition and gives closest general frameproof construction context"
+      },
+      {
+        "assessment": "No matching saturation spectrum in inspected relevant sections; did not infer a whole-document negative solely from title search",
+        "evidence": "Definitions and construction material, not complete labeled maximal-subset table at ternary length three.",
+        "identifier_or_url": "https://uwspace.uwaterloo.ca/handle/10012/9260",
+        "material_read": "Table of contents, introduction and relevant definitions/bounds/examples in chapters 1–3",
+        "method": "Examined thesis primary PDF sections and pertinent displayed pages",
+        "title": "Fingerprinting Codes and Related Combinatorial Structures",
+        "trigger": "Thesis covers finite fingerprinting codes and small examples"
+      },
+      {
+        "assessment": "UNRESOLVED_FULLTEXT, plausible bibliographic source; no evidence of exact saturation table in material available",
+        "evidence": "Known work on maximum size and constructions rather than inclusion-maximal enumeration from accessible descriptions.",
+        "identifier_or_url": "https://doi.org/10.1137/S0895480101384633",
+        "material_read": "Abstract and citation context; full publisher and repository text inaccessible",
+        "method": "Examined accessible abstracts and bibliography; lawful repository PDF access failed",
+        "title": "Frameproof Codes",
+        "trigger": "Blackburn's foundational general bounds and extremal constructions"
+      },
+      {
+        "assessment": "NOT_COVERING: a different, strictly stronger two-IPP property and maximum-size F(q), not inclusion-maximal frameproof enumeration; full paper inspected",
+        "evidence": "Theorem 34 establishes F(3)=4 for two-IPP codes, whereas two-frameproof codes of length three can contain nine words; section 7 computes optimal IPP graph size rather than inclusion-maximal frameproof subsets.",
+        "identifier_or_url": "https://doi.org/10.1137/S0895480102400424",
+        "material_read": "All 23 pages of the primary SIAM paper, including definitions, Theorem 34 (page 565) and section 7 maximizing F(q) (page 566 onward)",
+        "method": "Read complete publisher PDF text through authorized institutional access; compared formal definition, q=3 special result and graph optimization",
+        "title": "On the Maximal Codes of Length 3 with the 2-Identifiable Parent Property",
+        "trigger": "Same length and word 'maximal' in title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86cef2fb-c548-4bbf-8f73-172b0af62f36",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact distribution of inclusion-maximal codes is a natural saturation invariant for codeword-by-codeword fingerprint assignment. The minimum terminal size 3 versus optimum 9 quantifies a factor-three greedy shortfall, the absent terminal size 8 and unique eight-to-nine extension characterize a nontrivial boundary, and nine symmetry orbits describe all terminal designs rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
