@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For every n≥3 the unique-predecessor argument fixes the reset target, the Frobenius number supplies sharp minimality, n−1 and n−2 starting-state trajectories force all compulsory a/b positions, and explicitly defined shrinking cyclic intervals show sufficiency at all other positions. The compulsory sets are disjoint and give the exact binomial enumerator. The n=2 boundary is checked. Independently implemented direct enumeration through n=6 and exact subset-image DP through n=12 support the written infinite proof; no finite check is substituted for it.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1403.3992, Theorem 2.2, two-cycle reset thresholds",
+        "arXiv:1302.5793, §4.2, Wielandt-family construction",
+        "Ryzhikov–Szykuła, MFCS 2018, pp. 21:2 and 21:8–9, Wielandt decoder example and reset-length bound"
+      ],
+      "reasoning": "The general two-cycle theorem includes length bounds for the present n and p=n−1 specialization but supplies no all-shortest-strings classification. Its generality in reset threshold is not generality in shortest-language enumeration, so it cannot imply the claimed multiplicities. No stronger theorem asserting arbitrary shortest-string characterization was found in the inspected texts. The complete 2018 primary paper recognizes this family as a prefix-code decoder but uses its quadratic reset length only for an approximation construction; it provides no all-shortest-word enumeration.",
+      "searches": [
+        "\"Wielandt automata\" shortest synchronizing words enumeration",
+        "\"slowly synchronizing\" \"shortest reset words\" \"count\"",
+        "\"Reset thresholds of automata with two cycle lengths\" Wielandt Gusev Pribavkina",
+        "\"Finding Short Synchronizing Words for Prefix Codes\" Wielandt decoder enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.0129, full 2010 original text",
+      "arXiv:1302.5793, full 2013 expanded preprint, §4.2",
+      "arXiv:1403.3992, full generalized two-cycle paper",
+      "Kisielewicz–Kowalski–Szykuła 2013, open article text",
+      "Published study: Slow-reset census for binary one-cluster synchronizing automata on 8 states with a prime 5-cycle",
+      "Published study: Complete certified careful-synchronizability map of the C7 one-hole ball",
+      "Published study: Exact k-avoiding thresholds of the Cerny automata",
+      "Ryzhikov–Szykuła, Finding Short Synchronizing Words for Prefix Codes, MFCS 2018, complete full-text PDF"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ananichev–Gusev–Volkov, 2010 and 2013: L=n²−3n+3, exhibit a reset word",
+        "Gusev–Pribavkina, 2014: generalized two-cycle reset threshold"
+      ],
+      "reasoning": "The prior existence of at least one length-L reset word and nonexistence below L imply neither a unique set of forced letters nor a formula for all length-L words. The new assertion contains stronger necessary and sufficient conditions for every such word, from which the binomial enumerator follows. The proved threshold component is expressly prior art.",
+      "searches": [
+        "arXiv:1005.0129 Wielandt Theorem 2 full text",
+        "arXiv:1302.5793 Theorem 2 proof Wielandt synchronizing coloring",
+        "arXiv:1403.3992 general W(q,q,p) reset threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1005.0129, Wielandt-family Theorem 2 and its single witness",
+        "arXiv:1302.5793, §4.2, Theorem 2, full-text pages 9–10"
+      ],
+      "reasoning": "Compared explicit shortest reset words, shortest synchronized word language, minimal reset-word counts, and counts by input-letter composition. The original and expanded texts prove the threshold and construct at least one word, without the necessary-and-sufficient position sets or enumerator. Different wording alone was not treated as novelty.",
+      "searches": [
+        "\"Wielandt automaton\" \"number of shortest reset words\"",
+        "\"Wielandt\" \"all shortest synchronizing words\" language",
+        "\"Wielandt\" \"shortest reset words\" \"number\"",
+        "\"minimal reset words\" \"Wielandt\" count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kisielewicz–Kowalski–Szykuła, Computing the shortest reset words of synchronizing automata, 2013; algorithms and experiments",
+        "arXiv:1005.0129, threshold tables of slowly synchronizing automata",
+        "Ryzhikov–Szykuła, MFCS 2018, algorithms for finding a shortest synchronizing word, not full enumeration"
+      ],
+      "reasoning": "Known tables address reset lengths or numbers of automata in finite censuses, not the full per-n count or binomial letter-weight polynomial of all shortest labeled words of this particular family. A negative search is not a proof that no unindexed table exists.",
+      "searches": [
+        "\"Wielandt automaton\" \"synchronizing words\" count",
+        "\"Wielandt\" \"reset words\" polynomial number",
+        "\"shortest reset words\" \"Wielandt\" table"
+      ]
+    },
+    "rationale": "The 2010 and 2013 full primary treatments already prove the exact length and exhibit one minimal reset word, which are excluded from the new claim. The general two-cycle 2014 results establish length thresholds, not all minimal words. Neither these statements nor relevant published finite automaton computations logically imply the mandatory-position iff theorem and binomial weight polynomial. Residual risk of an unindexed earlier equivalent enumeration remains.",
+    "residual_risks": [
+      "Searches and inspected published texts do not exhaust all older conference abstracts, theses or unindexed automata enumerations.",
+      "Related published finite automaton censuses concern different systems; unpublished enumerations cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Threshold and one achieving reset word covered; all shortest words and their enumerator not given in inspected text.",
+        "evidence": [
+          "Theorem 2 reset threshold n²−3n+3",
+          "arXiv v1 dated 2010-05-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.0129",
+        "material_read": "Full published preprint text, in particular definition, proof of Theorem 2, figure and shortest-word construction.",
+        "method": "Open full-text version; manually compared theorem, derivation and witness against the all-word iff classification.",
+        "title": "Slowly synchronizing automata and digraphs",
+        "trigger": "Defines the exact Wielandt family and proves its shortest reset threshold."
+      },
+      {
+        "assessment": "The established reset threshold and example are covered. No all-word mandatory-position classification or binomial distribution found.",
+        "evidence": [
+          "§4.2 Wielandt automaton W_n, Theorem 2",
+          "arXiv v1 2013-02-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.5793",
+        "material_read": "Full PDF §4.2 on pages 9–10, including diagrams, Theorem 2 and argument; the remaining contents examined for possible counting theorem.",
+        "method": "Opened original preprint PDF and visually inspected rendered pages, compared its assertions to the new iff theorem.",
+        "title": "Primitive digraphs with large exponents and slowly synchronizing automata",
+        "trigger": "Expanded primary article on exactly the same Wielandt family."
+      },
+      {
+        "assessment": "General threshold is prior art; shortest-word language enumeration not provided or implied.",
+        "evidence": [
+          "Theorem 2.2 reset threshold formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.3992",
+        "material_read": "Full freely available article including Theorem 2.2, automaton definitions, proof and relationship to Wielandt specialization.",
+        "method": "Compared its general reset-threshold statement and proof with the new all-shortest-words condition.",
+        "title": "Reset thresholds of automata with two cycle lengths",
+        "trigger": "Generalizes the shortest reset length of closely related two-cycle families."
+      },
+      {
+        "assessment": "Does not state this family-wide weight-enumerator theorem; algorithmic witness recovery does not imply the claimed classification.",
+        "evidence": [
+          "2013 article description and shortest-word algorithms"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00224-013-9481-5",
+        "material_read": "Open article text, introduction, algorithms, computational discussion and stated targets.",
+        "method": "Compared algorithmic tasks (finding shortest witnesses) with parametrized classification/counting.",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "A direct potential synonym for shortest reset word enumeration."
+      },
+      {
+        "assessment": "Gives automaton identification and relies on the known quadratic reset threshold as an example; contains neither an iff characterization of every shortest word nor a shortest-word count or letter-weight enumerator.",
+        "evidence": [
+          "MFCS 2018, Figure 1 and section 1, code whose minimized decoder is a Wielandt automaton",
+          "MFCS 2018, §5, composition argument uses only a quadratic-length reset word"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2018.21",
+        "material_read": "Entire 14-page freely available primary PDF; inspected figure and description on page 2 and the Wielandt use in the later code-composition argument, with full-document term searches.",
+        "method": "Opened complete PDF, searched both instances of Wielandt and shortest-word terms, and inspected rendered figures and surrounding text.",
+        "title": "Finding Short Synchronizing Words for Prefix Codes",
+        "trigger": "Names the very same Wielandt automata as minimized binary prefix-code decoders; plausible exact coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4d921e0-b523-4dab-ad08-157b8fb3ec24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete parametrization of the entire shortest reset language of a canonical extremal synchronizing family supplies the exact number of minimum-length control strings, their letter-composition distribution, and a constructive description for all n. Prior extremal-length knowledge provides only one statistic and one witness, not these structural and design freedoms. This is not a finite ad hoc slice or a tiny improvement to a known constant.",
+    "status": "PASS"
+  }
+}
