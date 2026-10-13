@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Direct divisibility gives \\(k\\mid n\\). A divisor injection yields \\(A(\\sigma(k)-k-1)\\le r\\). A composite \\(k\\) has a proper divisor \\(h\\ge\\sqrt{k}\\), giving \\(n\\le r^2\\). For prime \\(k=p\\), the exact identity \\((p^{a-1}-1)N+(p^{a+1}-1)(\\sigma(N)-N)=r(p-1)\\) splits into \\(a=1\\), \\(a\\ge2\\) with positive proper-divisor sum, and pure prime power: all non-escape forms satisfy \\(n\\le\\max\\{r^2,(r-1)^3\\}\\). For \\(r\\ge4\\), this is \\((r-1)^3\\). Exhaustive small-offset checking is applied only after a proven bound, and prime cubes \\(p^3\\) with \\(r=p+1\\) attain the cubic threshold at infinitely many offsets. The bundled exact-integer verifier checked \\(n\\le200000\\) and \\(r\\le35\\); computation is not an unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://nntdm.net/papers/nntdm-28/NNTDM-28-2-281-285.pdf, p.284, Theorem 5: finite exceptional solutions and possible forms n=qN without a numerical bound",
+        "https://nntdm.net/papers/nntdm-28/NNTDM-28-3-525-532.pdf, p.525 abstract: related equations instead for Dedekind psi and Euler phi"
+      ],
+      "reasoning": "The original Theorem 5 discusses all positive offsets and is broader in \\(r\\) but weaker in precision: it neither forces \\(r-1\\) to be prime for infinitude nor bounds every non-escape \\(n\\) by \\((r-1)^3\\). The companion studies different arithmetic functions. The new theorem treats every fixed positive \\(r\\) and all prime supports, so neither source subsumes it.",
+      "searches": [
+        "On certain rational perfect numbers Sándor theorem five classification of all infinite solution families prime squares and semiprime",
+        "Sándor On certain rational perfect numbers DOI 10.7546/nntdm.2022.28.2.281-285 equation sigma(n)=(k+1)n/k+r",
+        "rational perfect numbers fixed additive offset sharp cubic cutoff (r-1)^3 for exceptional solutions",
+        "\"rational perfect numbers\" \"III\" Sándor sum divisors"
+      ]
+    },
+    "checked_sources": [
+      "https://nntdm.net/papers/nntdm-28/NNTDM-28-2-281-285.pdf",
+      "https://nntdm.net/papers/nntdm-28/NNTDM-28-3-525-532.pdf",
+      "https://oeis.org/A000203",
+      "published-finding corpus semantic database, queries listed in named originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://nntdm.net/papers/nntdm-28/NNTDM-28-2-281-285.pdf, p.284 proves only a qualitative theorem for r fixed; pp.282-283 treat r=1,2,3",
+        "A prior low-multiplicity classification applies only when Omega(n)<=2; the new bound covers all Omega(n)",
+        "published-finding corpus neighboring hit 2026/10/4/SCOPE-a-semiprime-sieve-for-the-iterated-divisor-sum-mersenne-equation--7f22f0d3984d concerns the different equation sigma(sigma(n))=2n+1"
+      ],
+      "reasoning": "Known low-multiplicity results and Sándor's theorem do entail some elementary individual families (notably \\(n=pq\\) and \\(n=p^2\\)), which are acknowledged as prior. Neither supplies control of all higher prime powers and arbitrary multiprime \\(n\\). The new prime-power identity and minimal-prime composite-\\(k\\) bound jointly force the sharp global polynomial cutoff. Nearby iterative divisor-sum work is on a distinct equation and does not dominate.",
+      "searches": [
+        "Fixed positive r solve sigma(n)=(k+1)n/k+r in positive k,n; infinitude iff r=1 or r-1 prime; prime square and pq exceptional families",
+        "rational perfect numbers fixed additive offset sharp cubic cutoff (r-1)^3 for exceptional solutions",
+        "prime-square solutions sigma(p^2) = (p+1)p + 1 n=p^2",
+        "sum of divisors equation sigma(n)=(1+1/k)n+r prime-square families and p q, fixed r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://nntdm.net/papers/nntdm-28/NNTDM-28-2-281-285.pdf, pp. 283-284, Eq. (17) and Theorem 5: identical equation but qualitative structure",
+        "published-finding corpus semantic search for the exact shifted equation returned no matching universal cutoff theorem"
+      ],
+      "reasoning": "Writing the equation as \\(\\sigma(n)-n-n/k=r\\) or \\(k(\\sigma(n)-n)=n+kr\\) does not change its solution set. The primary full-text theorem is not equivalent to the explicit cubic universal bound, its sharpness, and the exact iff infinitude condition. The low-prime-support semiprime branch alone does not imply the bound for arbitrary prime multiplicity.",
+      "searches": [
+        "Fixed positive r solve sigma(n)=(k+1)n/k+r in positive k,n; infinitude iff r=1 or r-1 prime; prime square and pq exceptional families",
+        "sum of divisors equation sigma(n)=(1+1/k)n+r prime-square families and p q, fixed r",
+        "sum of divisors equation sigma(n) - n(1+1/k)=r fixed r arbitrary, prime semiprime infinite",
+        "\"sigma(n)\" \"(k+1)/k\" \"+r\" \"infinitely\" prime square"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A000203 gives divisor-sum values, not a complete table of k,r solution triples or a universal size bound",
+        "https://nntdm.net/papers/nntdm-28/NNTDM-28-2-281-285.pdf, pp.282-284 lists the small-offset cases but omits (2,8) for r=3 and gives no cubic exception table"
+      ],
+      "reasoning": "A raw table of \\(\\sigma(n)\\) or finite parameter examples cannot imply the unbounded explicit cutoff. No exact triple table or prior certificate of this theorem emerged among the checked sources. Absence in searched tables is not itself a proof of novelty.",
+      "searches": [
+        "\"sigma(n)\" \"k+1\" \"n\" \"r\" Sándor exact solutions 2024",
+        "\"rational perfect numbers\" \"prime squares\" \"r\" \"Sándor\"",
+        "OEIS A000203 sum of divisors"
+      ]
+    },
+    "rationale": "Theorem 5 of Sándor (2022) gives a qualitative finite-exception/prime-family dichotomy for the same equation but supplies neither the exact parameter criterion \\(r-1\\) prime nor any explicit all-support sharp cubic cutoff. Theorem 4 omits the valid \\((k,n)=(2,8)\\) solution for \\(r=3\\). A previously available affine-divisor-sum classification restricted to \\(\\Omega(n)\\le2\\) covers the semiprime behavior but does not imply the unrestricted all-support cutoff. Full-text inspection of focal and follow-up works and targeted semantic searches found no equivalently strong coverage; residual risk is unindexed literature.",
+    "residual_risks": [
+      "An unindexed paper or alternate name for the shifted rational-perfect equation may contain an equivalent or stronger cutoff.",
+      "A finite table not included among checked sources might separately record some small-offset exceptional pairs; finite data alone would not imply the general cutoff.",
+      "The finite exceptional solutions below the cutoff have not been fully classified for every r>=4."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_EQUATION_NOT_COVERING: qualitative exceptional sets, no explicit cubic cutoff or exact infinitude criterion; its printed \\(r=3\\) list misses \\((k,n)=(2,8)\\).",
+        "evidence": [
+          "DOI 10.7546/nntdm.2022.28.2.281-285",
+          "Online First 2022-05-12 and primary MSC 11A25 on p.281",
+          "Theorem 4 p.284 and Theorem 5 p.284"
+        ],
+        "identifier_or_url": "https://nntdm.net/papers/nntdm-28/NNTDM-28-2-281-285.pdf",
+        "material_read": "Complete five-page primary paper, pp.281-285 including Theorems 1-5, proofs and references",
+        "method": "Read selectable full PDF text and directly examined p.284 image of Theorems 4-5",
+        "title": "On certain rational perfect numbers",
+        "trigger": "Exact same equation and fixed-offset Theorem 5; mandatory strongest comparison"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTS: its shifted analogues involve Dedekind psi and Euler phi rather than the original sigma cutoff",
+        "evidence": [
+          "DOI 10.7546/nntdm.2022.28.3.525-532",
+          "p.525 explicitly contrasts sequel ψ and φ equations with earlier σ equations"
+        ],
+        "identifier_or_url": "https://nntdm.net/papers/nntdm-28/NNTDM-28-3-525-532.pdf",
+        "material_read": "Abstract, definitions and theorem sections of eight-page sequel, pp.525-532",
+        "method": "Read full accessible PDF text across relevant theorem sections",
+        "title": "On certain rational perfect numbers, II",
+        "trigger": "Same author and sequel title; possible dominating follow-up"
+      },
+      {
+        "assessment": "ARITHMETIC_DATA_ONLY: does not state a theorem classifying the shifted rational-perfect triple or establishing the all-offset cubic cutoff",
+        "evidence": [
+          "https://oeis.org/A000203 entry for sigma(n)"
+        ],
+        "identifier_or_url": "https://oeis.org/A000203",
+        "material_read": "Entry definition, displayed initial sequence and comments on multiplicativity",
+        "method": "Inspected live sequence entry",
+        "title": "The On-Line Encyclopedia of Integer Sequences: A000203",
+        "trigger": "Exact sigma(n) database/table overlap check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "997f17a1-5100-44f3-8c3b-5c473e6ae624",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An all-prime-support, effective polynomial search cutoff is materially stronger than qualitative finite exceptional-set existence. It yields a complete infinitude criterion for every fixed additive offset while allowing unrestricted prime multiplicity, and has a transparent infinite family of sharp extremizers. These features address a natural parameterized divisor-sum Diophantine problem rather than an arbitrary finite slice or mere recomputation of known semiprime families.",
+    "status": "PASS"
+  }
+}
