@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Forbidden length-one overlaps normalize all nonempty binary codes to 7-bit prefix masks starting zero and 7-bit suffix masks ending one. For n>=14, all middle 2^(n-14) blocks are independent of forbidden overlap checks of lengths <=7. The common-neighbor maps form a Galois connection; closure retains the neighbor set, so maximizing subsets may be taken closed. Exact complete NextClosure traversal of the fully reconstructed 64x64 relation has 1,944 closed prefix sets and maximum |X|*|N(X)|=744. Dual 1,944-concept traversal and published cutoff-five/six baseline tests independently cross-check indexing and the enumeration; direct exhaustive search of 2^16 masks at cutoff five corroborates. P={p_0,...,p_23} has exactly 31 compatible suffixes, achieving 744. verify.py is self-contained and recomputed from its embedded bytes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn et al., Table V: for k=7 lower 744 and upper 1170.3 in units 2^(n-14); exact equality through k=6 only.",
+        "Published result titled Exact size and enumeration of maximum length-five non-overlapping codes treats forbidding every proper overlap, a strictly different constraint."
+      ],
+      "reasoning": "General upper bounds displayed in the motivating source are strictly weaker, and prior exact k<=6 results do not imply k=7. Results for all-overlap-free codes or variable-length codes do not dominate the maximum under only seven forbidden overlap lengths.",
+      "searches": [
+        "maximum size (1,7)-overlap-free binary code C(n,7), restricted-overlap code nonoverlapping prefix suffix length seven Blackburn Esfahani Kreher Stinson 744",
+        "\"restricted overlaps\" \"k=7\" \"optimal\" codes binary",
+        "https://arxiv.org/html/2211.10309v4#S7",
+        "published-finding corpus: length-five non-overlapping code maximum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.10309v1 (first-public metadata dated 2022-11-18)",
+      "arXiv:2211.10309v4 (relevant primary full-text Sections I, IV, V, VII and Tables II, III, V)",
+      "Published result Exact size and enumeration of maximum length-five non-overlapping codes (different restrictedness and parameters)",
+      "MSC2020 classification 94A45 for prefix, variable-length, comma-free codes",
+      "Targeted searches of indexed research records for exact cutoff seven, construction 24*31 and equivalent biclique/closure expressions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorems 7-8 imply C(n,7)=2^(n-14) times a finite maximum, but do not evaluate that maximum.",
+        "Table II settles only k<=6; Table V records a strict gap at k=7.",
+        "The verifier computes all 1,944 maximal compatible boundary concepts and certifies max product 744."
+      ],
+      "reasoning": "The original statements imply C(n,7)>=744*2^(n-14) and a weaker larger upper bound; neither alone entails equality. This claim closes their specific gap. Exact k-seven equality would imply their lower bound but not conversely.",
+      "searches": [
+        "Binary (1,7)-overlap-free codes exact maximum 744 times 2^(n-14); product 24*31 optimal bipartite graph G7 k=7",
+        "Blackburn Nasr Esfahani Kreher Stinson 2022 restricted overlaps construction 14 m-minimum 24 31 744 k=7 proof optimality",
+        "arXiv:2211.10309v4 Theorems 7 and 8 Tables II and V",
+        "published-finding corpus: exact restricted overlap optimum binary length-seven"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2211.10309v4, Section IV Theorems 7-8 provides the same bipartite compatibility reduction, not the exact k-seven maximum.",
+        "arXiv:2211.10309v4, Section V Table III gives the same 744 construction but only as a lower bound."
+      ],
+      "reasoning": "The equality sought is equivalent to maximizing sizes of bicliques in the complement of the original graph at cutoff seven; equivalence of formulations is explicit. The literature supplies the reduction and lower construction but not the exhaustive 744 upper bound. Generic formal concept enumeration techniques are not themselves a result evaluating this particular compatibility relation.",
+      "searches": [
+        "Binary (1,7)-overlap-free codes exact maximum 744 times 2^(n-14); product 24*31 optimal bipartite graph G7 k=7",
+        "Formal concept analysis NextClosure forbidden overlaps compatibility biclique binary 7-bit prefix suffix complete enumeration",
+        "\"744\" \"(1,7)\" overlap-free code optimal 2025 2026",
+        "https://arxiv.org/html/2211.10309v4#S4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original Table II exact values stop at k=6.",
+        "Original Table III lists 24*31=744 for k=7 under a lower-bound column.",
+        "Original Table V has larger k7 upper bound 1170.3, thus does not assert that 744 is optimal."
+      ],
+      "reasoning": "The identical numerical value 744 in prior tables is a lower bound, not an exact database entry. The new finite upper-bound certificate is mathematically additional. No searched indexed table of exact k-seven optima was found.",
+      "searches": [
+        "Blackburn Nasr Esfahani Kreher Stinson 2022 restricted overlaps construction 14 m-minimum 24 31 744 k=7 proof optimality",
+        "\"744\" \"2^{n-14}\" overlap-free",
+        "arXiv:2211.10309v4 Table II Table III Table V"
+      ]
+    },
+    "rationale": "The same-object original arXiv source explicitly presents 744*2^(n-14) only as a lower bound and stops exact optimization at cutoff six. Its Table V leaves a strictly larger upper bound for cutoff seven. The claim newly establishes matching global upper bound, not a new construction or known boundary reduction. Targeted scientific indexes, prior claim ledgers, primary theorem/appendix-adjacent sections and literature comparisons found no statement implying the cutoff-seven equality; priority remains vulnerable to unindexed equivalent work.",
+    "residual_risks": [
+      "Search coverage is not a proof of first discovery; an unindexed exact k-seven computation or equivalent unpublished/otherwise inaccessible enumeration could already exist.",
+      "The full journal version was not independently obtained because the available arXiv revision supplies a directly inspected primary full text; a later uninspected journal amendment could affect priority.",
+      "Finite exhaustive implementation and its proof have only self-review, with no independent external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same boundary model and lower construction, but k-seven upper bound is not closed; exact through k-six only.",
+        "evidence": [
+          "Section IV Theorems 7-8",
+          "Table II cutoff<=6",
+          "Table III row k=7: P=24,S=31,744 lower",
+          "Table V row k=7: lower 744, upper 1170.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.10309v4",
+        "material_read": "Sections I, IV (Lemmas 6 and Theorems 7-8, Table II), V (Construction 14 and Table III), and VII summary Table V were read, with the claims, numerical bounds and reductions compared.",
+        "method": "Accessible original arXiv full-text HTML, inspected relevant theorem statements, construction details, tables, and discussion.",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "Source defines the exact same optimization problem and constructs the 744-point code."
+      },
+      {
+        "assessment": "Different maximum-cardinality problem; excludes all proper overlaps at length five rather than only seven small overlaps at all n>=14.",
+        "evidence": [
+          "Research-result summary: S(q,5) classification, different word length and overlap rule."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a",
+        "material_read": "Published title and scientific result summary describing exact cardinalities for full non-overlapping length-five q-ary codes.",
+        "method": "Published research record abstract/summary; not a full-text inspection.",
+        "title": "Exact size and enumeration of maximum length-five non-overlapping codes",
+        "trigger": "Nearby published finite non-overlapping-code optimum discovered through scientific-index comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8459d1a-bea6-4193-84e5-ea5067511337",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This closes the first fixed cutoff not resolved in the 2022 restricted-overlap code paper: its proof of exact binary maxima ends at k=6 and it explicitly regards k>=7 brute search as infeasible. Establishing the sharp k=7 coefficient 744, not merely reproducing a lower-bound witness, quantifies the attainable cardinality for every block length n>=14. The natural parameter is a published synchronization-code extremal invariant with motivation independent of enumeration.",
+    "status": "PASS"
+  }
+}
