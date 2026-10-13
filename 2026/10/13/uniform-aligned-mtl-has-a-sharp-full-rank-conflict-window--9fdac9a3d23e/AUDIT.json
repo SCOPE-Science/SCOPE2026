@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The directional-derivative vector is a positive scalar multiple of the principal square root of the two-task Gram matrix applied to the all-ones vector. The exact two-by-two square-root identity reduces both signs to elementary expressions in cosine and norm ratio, and the checker replays the source eigendecomposition.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Later primary theory classifies Aligned-MTL as not universally non-conflicting.",
+        "Its displayed witness is singular.",
+        "The same source also proves non-linearity under scaling."
+      ],
+      "reasoning": "Those broader negative properties do not imply the accepted full-rank phase diagram. The new statement remains in the defining linearly independent setting.",
+      "searches": [
+        "Jacobian Descent Aligned-MTL non-conflicting",
+        "Aligned-MTL not non-conflicting",
+        "Aligned-MTL linear under scaling counterexample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.19000v1",
+      "CVPR2023:Independent-Component-Alignment-for-Multi-Task-Learning",
+      "arXiv:2406.16232v1",
+      "TorchJD:AlignedMTL"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper sets fixed uniform task weights, uses the smallest singular value as scale, and gives the closed SVD alignment formula.",
+        "It states that the aligned task gradients become orthogonal and equal in magnitude.",
+        "Later primary theory proves general non-conflict failure with a rank-deficient example."
+      ],
+      "reasoning": "The accepted implication requires pushing the recombined update back against the original tasks, computing the two-by-two Gram square root, and solving the resulting strict sign inequalities.",
+      "searches": [
+        "arXiv:2305.19000 Equation 5 Aligned-MTL sigma min",
+        "arXiv:2305.19000 uniform task weights conflicting gradients",
+        "arXiv:2406.16232 Appendix B.10 Aligned-MTL non-conflicting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source uses uniform task weights and smallest-singular-value alignment.",
+        "Its two-task discussion focuses on the transformed columns becoming orthogonal and equal in norm.",
+        "The later primary non-conflict witness is rank deficient."
+      ],
+      "reasoning": "Equivalent coverage would state a full-rank cosine-versus-norm-ratio boundary or the exact equality with ordinary averaging for equal-norm conflicts. None was located.",
+      "searches": [
+        "Aligned-MTL equal task weights equal gradient norms conflict aggregate unchanged ordinary scalarization",
+        "Aligned-MTL cumulative gradient unchanged conflicting equal norm two tasks sigma min",
+        "Aligned-MTL two task closed form angle equal weights condition number shrink",
+        "Aligned-MTL full rank two task conflict threshold norm ratio cosine uniform weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concern normalization obstructions in other numerical methods and unrelated stochastic-gradient variance effects.",
+        "No returned indexed finding states the Aligned-MTL full-rank cosine/norm-ratio boundary."
+      ],
+      "reasoning": "The nearest indexed results use different operators and do not imply the two-task Gram-square-root sign law. Search absence is supporting evidence only.",
+      "searches": [
+        "RotoGrad multi-task gradient rotation normalization exact scaling invariance equal norm conflict",
+        "multi-task gradient method rotation normalized gradients RotoGrad convergence conflict exact formula",
+        "Aligned-MTL eigenvalue multi task gradient alignment exact two task formula condition number",
+        "Aligned-MTL equal task weights equal gradient norms conflict aggregate unchanged ordinary scalarization",
+        "Aligned-MTL cumulative gradient unchanged conflicting equal norm two tasks sigma min",
+        "Aligned-MTL two task closed form angle equal weights condition number shrink",
+        "Aligned-MTL full rank two task conflict threshold norm ratio cosine uniform weights"
+      ]
+    },
+    "rationale": "The defining paper analyzes conditioning and transformed gradients but not the full-rank original-task descent phase boundary. Later primary theory already establishes general non-conflict failure with a rank-deficient witness; that broader result is prior-covered. The inspected literature does not state the full-rank two-task threshold or unchanged equal-norm conflicting aggregate.",
+    "residual_risks": [
+      "An equivalent two-task calculation may exist in unindexed notes.",
+      "General Aligned-MTL non-conflict failure is prior-covered and is not claimed.",
+      "The result is restricted to uniform task preferences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ALIGNMENT_FORMULA_NOT_COVERING_THE_FULL_RANK_ORIGINAL_TASK_PHASE_DIAGRAM.",
+        "evidence": "The paper orthogonalizes and equalizes transformed task gradients and then recombines them, but does not state the accepted threshold.",
+        "identifier_or_url": "arXiv:2305.19000v1 / CVPR 2023",
+        "material_read": "Open full HTML covering the main uniform objective, conflict/dominance discussion, condition-number section, two-task geometric interpretation, and the Aligned-MTL SVD formula.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "Independent Component Alignment for Multi-Task Learning",
+        "trigger": "Defining source for uniform weights, condition-number motivation, smallest-singular-value scaling, and the alignment formula."
+      },
+      {
+        "assessment": "BROADER_NONCONFLICT_FAILURE_PRIOR; FULL_RANK_TWO_TASK_THRESHOLD_NOT_STATED.",
+        "evidence": "The paper proves general non-conflict failure, but its displayed witness is singular and it gives no full-rank cosine/norm-ratio classification.",
+        "identifier_or_url": "arXiv:2406.16232v1",
+        "material_read": "Open full HTML Appendix B.10, including the Aligned-MTL aggregation formula, rank-deficient non-conflict counterexample, and scaling counterexample.",
+        "method": "Full-text open-access HTML inspection.",
+        "title": "Jacobian Descent for Multi-Objective Optimization",
+        "trigger": "Most relevant later primary analysis of aggregator non-conflict and scaling properties."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fdac9a3-d23e-4048-b569-310d14dfd550",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Conflict removal is a defining motivation of Aligned-MTL. The result identifies exactly when full-rank two-task uniform aggregation remains common descent and when norm imbalance overturns that property. The safe window collapses near antiparallelity, and the equal-norm identity shows that internal orthogonalization can be completely invisible in the actual model update.",
+    "status": "PASS"
+  }
+}
