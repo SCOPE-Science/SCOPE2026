@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The limit follows from a reducing dark subspace for a dissipative finite-dimensional Hamiltonian; every complementary spectral component decays. Plane-wave spectral degeneracies occur only at integer and half-integer flux. Two absorber constraints give exact divisibility, and paired finite trigonometric sums yield the stated probabilities. All boundary cases and strictly positive, unequal sink strengths are included. Independent numerical spectral checks for 825 configurations and seven late-time semigroup checks are consistent with the theorem. Finite tests are not presented as a replacement for the algebraic proof.
+
+**Originality — PASS, with residual priority risk.** Agliari, Mülken, and Blumen [1] already formulate the non-Hermitian trapping model and their zero-flux degenerate-perturbation calculation contains the condition for undamped two-trap modes implicitly. That condition alone is not novel. The assessed contribution is the complete source-resolved all-flux law, including the half-flux parity/greatest-common-divisor classification, three-level even-cycle pattern, and arbitrary-rate independence. Zimborás and collaborators [2] treat other chiral transport observables; the one-target stroboscopic detector of [3] is not a pair of continuous sinks. Direct comparison of statements and indexed published records found no matching full classification, but obscure equivalent specializations may exist and priority has not been independently established.
+
+**Value — PASS.** Absorption survival is a direct quantum-transport observable; the result classifies all finite cycle sizes and trap separations rather than selecting one exceptional instance. The exact resonant flux criterion and inhomogeneous half-flux site pattern show how magnetic interference can suppress or preserve trapping, independent of absorber calibration. No finite-time rate estimate or robustness claim is made.
+
+**Literature compared:** [1] arXiv:0903.3288v1; [2] arXiv:1208.4049; [3] arXiv:2507.10669v3. The zero-flux overlap and possibility of unindexed equivalent work remain scientific limits.
+
+Self-review: passed. Independent audit: not yet performed.
