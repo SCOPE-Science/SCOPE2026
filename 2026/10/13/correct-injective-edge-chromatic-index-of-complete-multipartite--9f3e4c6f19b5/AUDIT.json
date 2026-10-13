@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For each part-pair cut, direct use of the injective-edge definition shows that disjoint cut edges conflict and incident cut edges do not, giving the factor \\(\\overline{L(K_{a,b})}\\). Every two edges from distinct cuts conflict, by a triangle when incident and by a connector edge when disjoint, so the global conflict graph is the join of these factors. Coloring a factor is exactly partitioning \\(K_{a,b}\\) into stars; star centers form a vertex cover, giving the lower bound \\(\\min\\{a,b\\}\\), and all stars on a smaller shore attain it. Minimum vertex covers of a complete bipartite graph give the optimizer count. The standalone verifier independently reconstructs the conflict relation and agrees on all tested profiles. The published value in Proposition 2.7 is directly refuted by \\(K_{2,2,2}\\), where the theorem gives and direct reasoning forces six colors.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tian and Wang prove a general maximum-degree upper bound for injective edge coloring but do not state a complete-multipartite result.",
+        "Bhanupriya C K, Dominic, and Sunitha explicitly state the complete-multipartite value min{t_1,...,t_k} in Proposition 2.7; K_{2,2,2} disproves that statement because the three cut palettes are pairwise disjoint and each K_{2,2} cut needs two colors.",
+        "Cardoso et al. give the exact K_{a,b} value min{a,b}, which is exactly the two-part endpoint of the corrected formula."
+      ],
+      "reasoning": "The only source with nominally broader family coverage is contradicted by a three-part example and hence cannot cover the corrected claim. The general 2026 bound is weaker, while the 2015 biclique result is a strict endpoint.",
+      "searches": [
+        "arXiv:2610.04891v1 full text",
+        "DOI:10.2298/FIL2312963K full text Proposition 2.7",
+        "arXiv:1510.02626v1 complete bipartite Proposition 2.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04891v1",
+      "DOI:10.2298/FIL2312963K",
+      "arXiv:1510.02626v1",
+      "published-finding corpus focused searches for exact invariant/family/formula/correction aliases",
+      "Web exact searches for complete multipartite, K_{2,2,2}, Proposition 2.7, and induced star arboricity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 structural characterization describes permissible color classes but does not perform the complete-multipartite cut optimization or give the all-part formula.",
+        "The 2023 complete-multipartite proposition predicts 2 on K_{2,2,2}; the present theorem proves 6, so the two statements are incompatible rather than one implying the other.",
+        "The 2026 bound only upper-bounds the invariant in terms of maximum degree and does not determine exact complete-multipartite values."
+      ],
+      "reasoning": "No inspected correct prior statement implies the final theorem. The complete-bipartite formula is subsumed as an acknowledged endpoint; novelty resides in the arbitrary multipartite decomposition, corrected formula, and optimizer classification.",
+      "searches": [
+        "2015 injective edge coloring structural star partition characterization",
+        "2023 injective edge coloring join complete multipartite Proposition 2.7",
+        "2026 injective edge coloring maximum degree bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Injective edge coloring is equivalent to coloring the edge-conflict graph and is also known to equal induced star arboricity. On a complete multipartite graph, the new decomposition identifies each cut factor as the complement of a line graph and shows different cuts are joined.",
+        "Web searches under induced-star-arboricity terminology returned general induced-arboricity literature and the known complete-bipartite behavior, but no arbitrary complete-multipartite formula."
+      ],
+      "reasoning": "The standard reformulations do not numerically determine the arbitrary multipartite case without the new cross-cut conflict analysis and factor optimization. They therefore provide consistency checks rather than stronger prior coverage.",
+      "searches": [
+        "injective edge coloring complete multipartite conflict graph complement line graph cuts",
+        "optimal injective edge colorings complete multipartite minimum vertex cover stars",
+        "induced star arboricity complete multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused published-finding corpus searches returned no record for the corrected sum-of-minima formula or a correction of the 2023 proposition.",
+        "Exact web searches for the proposition number, complete k-partite wording, K_{2,2,2}, and the sum-of-minima formulation likewise found the 2023 paper but no erratum or replacement theorem."
+      ],
+      "reasoning": "No exact database/table entry found in the checked sources contains the corrected formula, conflict decomposition, or optimizer enumeration. Failed search is not treated as novelty proof; it is combined with direct inspection of the most relevant same-invariant papers.",
+      "searches": [
+        "Proposition 2.7 injective edge chromatic complete multipartite min part size correction",
+        "K_2,2,2 injective edge chromatic index complete tripartite",
+        "injective edge coloring complete multipartite 2023 Filomat Proposition 2.7",
+        "injective edge chromatic index complete multipartite sum minimum part sizes"
+      ]
+    },
+    "rationale": "The closest published statement on the same family is not a covering theorem but a false one: Proposition 2.7 of Bhanupriya C K, Dominic, and Sunitha gives the minimum part size for every complete multipartite graph. The direct graph K_{2,2,2} already contradicts it, while the proof here gives the exact all-parameter replacement and all optimal partitions. The foundational complete-bipartite formula is recovered only as the r=2 endpoint. The 2026 maximum-degree paper gives a general upper bound and does not imply the exact decomposition or count. Focused published-finding corpus and web searches found no later correction or exact equivalent.",
+    "residual_risks": [
+      "A later correction or equivalent theorem may be poorly indexed or published under induced-star-arboricity terminology not surfaced by the checked searches.",
+      "The 2015 structural characterization makes the corrected formula derivable once the multipartite star-interaction lemma is supplied; the originality claim is therefore the explicit exact family theorem, correction, conflict decomposition, and optimizer classification rather than a new general characterization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives a general maximum-degree upper bound and no complete-multipartite exact theorem.",
+        "evidence": "Version 1 is dated 2026-10-04 UTC; the abstract defines the invariant and proves a general bound. Targeted full-text search found no multipartite theorem.",
+        "identifier_or_url": "arXiv:2610.04891v1",
+        "material_read": "ArXiv abstract page and HTML text, including the definition, main bound, introduction, conflict-graph setup, and targeted full-text search for complete multipartite terminology.",
+        "method": "Primary full-text inspection.",
+        "title": "A note on the injective edge coloring of graphs with bounded maximum degree",
+        "trigger": "Fresh same-invariant paper in the recent source window."
+      },
+      {
+        "assessment": "CONTRADICTED_BY_NEW_PROOF: Proposition 2.7 states the minimum part size for the complete multipartite value, but K_{2,2,2} requires six colors.",
+        "evidence": "The displayed Proposition 2.7 gives min{t_1,...,t_k}. In K_{2,2,2}, every two edges from different part-pair cuts conflict, and each K_{2,2} cut needs two colors, forcing 6.",
+        "identifier_or_url": "DOI:10.2298/FIL2312963K",
+        "material_read": "Full publisher PDF around the join section, especially Proposition 2.7 and the surrounding definition of complete multipartite graphs as joins of empty graphs; conclusion also inspected.",
+        "method": "Primary full-text inspection with page-image confirmation.",
+        "title": "Injective edge coloring of product graphs and some complexity results",
+        "trigger": "Published join paper explicitly mentioning complete multipartite graphs; decisive comparison source."
+      },
+      {
+        "assessment": "PARTIAL_ENDPOINT_ONLY: establishes chi'_inj(K_{a,b})=min{a,b} and a general structural characterization, but not the arbitrary complete-multipartite formula or optimizer count.",
+        "evidence": "The biclique formula agrees with the r=2 specialization of the corrected theorem.",
+        "identifier_or_url": "arXiv:1510.02626v1",
+        "material_read": "Definition, AMS classification, exact-value section including K_{p,q}, and structural star-partition characterization.",
+        "method": "Primary preprint inspection.",
+        "title": "Injective Edge Chromatic Index of a Graph",
+        "trigger": "Foundational source and complete-bipartite endpoint."
+      },
+      {
+        "assessment": "NO_COVERING_CORRECTION_FOUND in the searched material.",
+        "evidence": "Closest published-finding corpus records concern other coloring or multipartite invariants; exact web searches returned the 2023 paper and general injective-edge literature but no correction of Proposition 2.7.",
+        "identifier_or_url": "published-finding corpus/web exact searches",
+        "material_read": "published-finding corpus result summaries and exact web-search returns under proposition number, K_{2,2,2}, complete multipartite, and induced-star-arboricity aliases.",
+        "method": "Database and web comparison.",
+        "title": "Injective edge coloring of product graphs and some complexity results",
+        "trigger": "Check for later correction, equivalent statement, or indexed duplicate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f3e4c6f-19b5-4b17-a09f-a0ab0f1373f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The injective chromatic index is an established edge-coloring parameter with active 2026 work on general bounds. Complete multipartite graphs are a canonical dense family, and a published 2023 proposition gives an incorrect exact formula on this family. The final theorem replaces that statement with an exact all-parameter formula, identifies the full conflict graph, classifies every optimum, and gives the smallest symmetric counterexample \\(K_{2,2,2}\\). Correcting a false published family formula and explaining the structural obstruction is mathematically substantive rather than a routine recomputation.",
+    "status": "PASS"
+  }
+}
