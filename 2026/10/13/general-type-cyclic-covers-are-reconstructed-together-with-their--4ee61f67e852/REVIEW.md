@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness
+PASS. The weighted ambient space has weights \((1^{n+1},m)\), so \(d=rm\) and \(W=n+1+m\). The stated inequality is exactly \(d>W\), while the stated gcd is exactly the coprimality hypothesis of Lin--Zeng--Zhang Theorem 1.7. Smoothness of the branch hypersurface makes \(z^r-F\) quasismooth, and \(r,m\ge2\) excludes a linear cone. The theorem therefore gives a weight-preserving polynomial automorphism. Such an automorphism necessarily has \(x\mapsto Lx\) and \(z\mapsto az+h_m(x)\). The \(z^{r-1}\)-coefficient after substitution is \(ra^{r-1}h_m\), so characteristic zero and \(a\ne0\) force \(h_m=0\). The remaining coefficient comparison gives \(G(Lx)=a^rF(x)\), which is exactly projective equivalence of the branch divisors and an isomorphism of the cyclic covers over the induced base automorphism.
+
+## Originality
+PASS. The initiating full text states the weighted general-type reconstruction theorem but contains no occurrence of “cyclic” and no general-type cover corollary; its only branch-cover corollary is the Fano double-cover case. The closest cyclic-cover paper of Dell--Jacovskis--Rota was inspected in full text around its main categorical Torelli statements: those applications concern prime Fano threefolds and equivariant Kuznetsov components, not full graded matrix-factorization categories of general-type covers. Lin's earlier weighted theorem is explicitly identified by the initiating source as a Fano result. Targeted web and published-finding searches for equivalent formulations, branch reconstruction, and \(z^r-F\) found no implication-equivalent result. Current and prior research ledgers contain no categorical-Torelli, cyclic-cover, or matrix-factorization finding overlapping this claim.
+
+## Value
+PASS. Cyclic covers are a standard geometric family for which the covering morphism and branch divisor carry more structure than the abstract weighted hypersurface. The new general-type theorem reconstructs the weighted equation only up to graded coordinate change; a priori such a change may translate the cover coordinate by an arbitrary degree-\(m\) polynomial. Showing that the cyclic form itself kills this ambiguity is therefore the step that upgrades abstract weighted-hypersurface reconstruction to reconstruction of the branch geometry. The conclusion holds uniformly for every cyclic degree \(r\ge2\) satisfying the explicit arithmetic hypotheses and extends the source's branch-recovery phenomenon from one Fano double-cover family to a natural general-type cyclic-cover family.
+
+## Closest literature and limitations
+The closest same-source statement is Corollary 1.5 for Fano double covers, whose proof uses the \(z\)-coefficient to kill the translation. The closest separate cyclic-cover work is Dell--Jacovskis--Rota, whose Torelli applications are Fano. The result here uses the full graded matrix-factorization category and does not claim that the numerical coprimality condition is necessary. A residual risk is that an unindexed note has already written down this specialization of the new general-type theorem.
+
+Self-review: passed. Independent audit: not yet performed.
