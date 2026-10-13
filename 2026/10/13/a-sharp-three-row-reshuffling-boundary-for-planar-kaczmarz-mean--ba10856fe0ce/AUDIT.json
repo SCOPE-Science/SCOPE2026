@@ -1,0 +1,212 @@
+{
+  "correctness": {
+    "rationale": "For unit row normals (1,0),(1,0),(c,s), the two projection matrices satisfy P^2=P, Q^2=Q, PQP=uP, QPQ=uQ with u=c^2. Enumerating the three possible Q positions gives S=[(u+u^2)P+uQ]/3. The iid adjoint Gram channel L(H)=(2PHP+QHQ)/3 gives T=L^3(I)=[(8+6u+4u^2)P+(1+6u+2u^2)Q]/27. Therefore T-S=(1-u)[(8+5u)P+(1-2u)Q]/27. Positive coefficients and the determinant (1-u)^3(8+5u)(1-2u)/729 prove exactly the all-vector threshold u<=1/2 for u<1. At e=(1,0), the sign is (1-u)^2(1-2u)/27; at u=16/25 the exact risks are 48/625 and 1179/15625. Two-row enumeration yields (1-u)(P+Q)/4 positive semidefinite. A standard-library exact verifier independently enumerated all 6 and 27 paths, 5 rational directions, and distinct-row and two-row witnesses, but finite tests are not used as proof of the real-parameter result. The 3x2 system has full column rank for s>0. Uniform labeled sampling and one epoch are explicit assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lai–Lim arXiv:2006.01510 proves a three-factor bound on the spectral norm of the *mean product*, a weaker/different scalar functional than the full initial-vector Gram order.",
+        "Han-Xie arXiv:2410.01140 Corollary 3.3 provides worst-permutation contraction, and §3.3 compares an RK bound and numerical experiments. Neither implies that the two exact expectation matrices are ordered.",
+        "De Sa NeurIPS 2020 §2 proves matrix-inequality counterexamples at higher factor counts; §3 uses a different parallel-SGD learning task. The 2026 Evidence Press summary explicitly reports metric-specific simplex n=5 or n=6 rather than the projector n=3 classification.",
+        "Liu 2026 compares upper *guarantee rates* and averaged iterates at controlled stepsizes, not exact last-iterate Euclidean Kaczmarz second-moment order at the full projection step.",
+        "Bai–Wu 2018, Theorem 2.1 equations (2.1)–(2.3) yields fixed-vector iid mean-square error after N projections. Theorem 4.1 gives bound, not permutation-vs-iid ordering."
+      ],
+      "reasoning": "The closest more general convergence results do not imply a pointwise-initialization ordering of the exact one-epoch Gram matrices, and the low-length norm results are compatible with their indefinite difference. The inaccessible 2026 dynamics manuscript remains a source-specific priority risk; its visible public theorem summary describes other families and does not decide this identity. A general iid exact-MSE formula does not imply a comparison with the random permutation protocol without the distinct stochastic-product expectation; the threshold and reversal remain new relative to that source.",
+      "searches": [
+        "arxiv:2006.01510 pp1-3 theorem m<=3 of the Recht–Ré spectral norm inequality",
+        "arxiv:1510.04727 Sections 1-3 shuffled/preshuffled SOR bounds",
+        "NeurIPS 2020 De Sa Sections 2-4",
+        "Evidence Press 2026 metric-aware dynamics summary §§2-5",
+        "Zijian Liu 2026 random reshuffling dominates stochastic gradient descent (PMLR 336, arXiv:2606.32005 abstract and description)",
+        "random reshuffling Kaczmarz with replacement mean square one epoch comparison three rows counterexample monotonicity [published-finding corpus query]",
+        "random reshuffling three Kaczmarz projections can have greater finite-epoch mean square error than independent sampling despite low-order Recht Ré norm inequality [published-finding corpus query]",
+        "Bai Wu 2018 On convergence rate of the randomized Kaczmarz method mean squared error theorem",
+        "exact randomized Kaczmarz mean squared error comparison random reshuffling with replacement Gram matrices [published-finding corpus query]",
+        "three-row Kaczmarz 45 degree angle reshuffling worse than with-replacement mean square [published-finding corpus query]"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2410.01140 (Han–Xie, first public 2024-10-02; algorithm, section 3 and examples)",
+      "arxiv:1202.4184 (Recht–Ré, conjecture and Kaczmarz application)",
+      "arxiv:2006.01510 (Lai–Lim, n<=3 spectral-norm theorem)",
+      "NeurIPS 2020 De Sa, paper hash 42299f06ee419aa5d9d07798b56779e2",
+      "arxiv:1510.04727 (Oswald–Zhou, shuffled SOR/Kaczmarz)",
+      "Evidence Press 2026 release summary, first and second dynamics manuscripts named",
+      "Z. Liu, PMLR 336 (2026) abstract and public theorem summary of averaged iterate bounds",
+      "Published search hits 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881, 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f, 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac, 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995, 2026/9/18/SCOPE-rounded-cluster-allocation-variance-reversal--3aa05569afb8",
+      "Agaskar–Wang–Lu IEEE GlobalSIP 2014 exact iid-MSE: repository abstract; PDF inaccessible",
+      "Bai–Wu Linear Algebra Appl. 553 (2018), Theorem 2.1, full indexed HTML exact iid-MSE and Kronecker transfer",
+      "Final semantic search of published results for exact RK/RRK fixed-vector Gram and 45-degree three-row threshold; top hits concerned greedy residual spikes or deterministic cyclic bias, neither implies the claimed two-protocol comparison."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The newly proved D=T-S is indefinite for 1/2<u<1, though established spectral-norm inequalities for three factors can still hold (e.g. ||S||<=||T||); operator-norm ordering does not logically imply D>=0.",
+        "Arxiv:2410.01140 bounds ||B|| for each permutation, which does not compare the average e^T B^T B e with 27 independent products for a specified e.",
+        "De Sa's five-plus-factor constructions do not imply either the minimal three-row counterexample or its sharp all-vector angle threshold.",
+        "For two projector labels the exact gap is (1-u)(P+Q)/4>=0, independently establishing the claimed minimality, consistent with the two-matrix positive results known from Recht–Ré.",
+        "Bai–Wu (2018), theorem for any consistent full-rank system explicitly covers exact iid MSE (including this three-row example). However it contains no shuffled method or spectral Loewner comparison with permutations.",
+        "Final published-finding corpus comparisons: closest SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f treats maximal-distance greedy Kaczmarz total residual (not reshuffling); SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881 treats deterministic cyclic bias (not stochastic one-epoch Euclidean solution risk)."
+      ],
+      "reasoning": "Even where prior results already establish convergence or norm inequalities for broader classes, their conclusions do not dominate the particular fixed-vector Gram comparison (inequality in a non-equivalent matrix order). The exact finite-family classification and robust sign reversal are distinct statements, not renamed corollaries of the cited theorems. Claim carefully compares two protocols; preexisting formula for one cannot establish sign of their difference without an additional second-moment computation.",
+      "searches": [
+        "Han and Xie arxiv:2410.01140 Algorithm 1, Corollary 3.3, Example 3.8",
+        "Recht–Ré arxiv:1202.4184 Conjecture 3.1 pp5-7",
+        "Lai-Lim arxiv:2006.01510 Theorem m=3 pp1-3",
+        "De Sa NeurIPS 2020 Section 2.2 and Section 3",
+        "Oswald-Zhou arxiv:1510.04727 theorem on shuffled/preshuffled SOR",
+        "three planar orthogonal projections Kaczmarz two repeated rows random reshuffling versus independent with replacement fixed initial vector mean square error threshold squared cosine one half [published-finding corpus query]",
+        "random reshuffling three Kaczmarz projections can have greater finite-epoch mean square error than independent sampling despite low-order Recht Ré norm inequality [published-finding corpus query]",
+        "Bai–Wu (2018), Theorem 2.1 full indexed HTML formula (2.1)–(2.3), Sect. 6",
+        "exact randomized Kaczmarz mean squared error comparison random reshuffling with replacement Gram matrices [published-finding corpus query]",
+        "three-row Kaczmarz 45 degree angle reshuffling worse than with-replacement mean square [published-finding corpus query]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present comparison is S=E_perm[B^T B] versus T=E_iid[B^T B] in the Loewner order for B a product of rank-one orthogonal projectors. For the repeated-row family the difference is (1-u)[(8+5u)P+(1-2u)Q]/27.",
+        "Recht–Ré, arXiv:1202.4184 pp5-7, formulates operator-norm comparisons of expected products and their squared-products, not a universally valid Loewner ordering of the Gram expectations; its 3-factor example concerns a distinct symmetrized-product Loewner question.",
+        "Han-Xie arXiv:2410.01140 Algorithm 1 fixes the same Kaczmarz update, while §3.3 compares contraction upper bounds rather than this exact fixed-vector statistic.",
+        "Agaskar–Wang–Lu (2014), public abstract: exact MSE of iid Kaczmarz; Bai–Wu (2018) Theorem 2.1 (full indexed HTML): original Kronecker transfer formula for arbitrary full-column-rank consistent systems."
+      ],
+      "reasoning": "Dual formulations as row-space quadratic risk, Gram-channel order, and second-moment transfer are all equivalent here. Targeted searches for these aliases and exact u=1/2 threshold found closest broad sampling papers but no equal statement or dominating exact formula. The iid half T of the new comparison is covered by this general Kronecker formula; the full result does not follow because it also needs the reshuffled Gram S and an exact comparison/Loewner phase diagram with a minimality statement.",
+      "searches": [
+        "random reshuffling Kaczmarz with replacement mean square one epoch comparison three rows counterexample monotonicity [published-finding corpus query]",
+        "reshuffling Kaczmarz duplicated rows sharp angular threshold 45 degrees one epoch worse iid [published-finding corpus query]",
+        "stochastic projections sampling without replacement can increase mean squared error relative to independent sampling [published-finding corpus query]",
+        "three planar orthogonal projections Kaczmarz two repeated rows random reshuffling versus independent with replacement fixed initial vector mean square error threshold squared cosine one half [published-finding corpus query]",
+        "random reshuffling three Kaczmarz projections can have greater finite-epoch mean square error than independent sampling despite low-order Recht Ré norm inequality [published-finding corpus query]",
+        "two identical Kaczmarz rows third angle exact mean square Loewner ordering phase transition 45 degrees [published-finding corpus query]",
+        "arxiv:2410.01140 Sections 2-3; arxiv:1202.4184 Conjecture 3.1 (3.2)",
+        "Agaskar Wang Lu Randomized Kaczmarz algorithms Exact MSE analysis and optimal sampling probabilities pdf text Theorem 2014",
+        "Bai Wu 2018 On convergence rate of the randomized Kaczmarz method mean squared error theorem",
+        "exact randomized Kaczmarz mean squared error comparison random reshuffling with replacement Gram matrices [published-finding corpus query]",
+        "three-row Kaczmarz 45 degree angle reshuffling worse than with-replacement mean square [published-finding corpus query]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records: 2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881 treats deterministic cyclic order reversal and bias, not iid vs random reshuffled one-epoch MSE.",
+        "Closest published record 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f concerns greedy-row residual spikes and a different coherent-row threshold.",
+        "Closest published record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac concerns stochastic delays in Gauss–Seidel, not finite epoch sampling."
+      ],
+      "reasoning": "No exact table or published finding with these row directions, replacement protocols, Gram-matrix gap, or 45-degree sign boundary appeared in the bounded searches. The reported 2012 simple Loewner counterexample uses different PSD matrices and a different operator polynomial, so it is not the requested table. Distinct mathematical questions in publicly available comparison records were compared at the level of sample protocol, norm, and quantifiers rather than title match.",
+      "searches": [
+        "random reshuffling Kaczmarz with replacement mean square one epoch comparison three rows counterexample monotonicity [published-finding corpus query]",
+        "reshuffling Kaczmarz duplicated rows sharp angular threshold 45 degrees one epoch worse iid [published-finding corpus query]",
+        "three planar orthogonal projections Kaczmarz two repeated rows random reshuffling versus independent with replacement fixed initial vector mean square error threshold squared cosine one half [published-finding corpus query]",
+        "random reshuffling three Kaczmarz projections can have greater finite-epoch mean square error than independent sampling despite low-order Recht Ré norm inequality [published-finding corpus query]",
+        "two identical Kaczmarz rows third angle exact mean square Loewner ordering phase transition 45 degrees [published-finding corpus query]",
+        "exact randomized Kaczmarz mean squared error comparison random reshuffling with replacement Gram matrices [published-finding corpus query]",
+        "three-row Kaczmarz 45 degree angle reshuffling worse than with-replacement mean square [published-finding corpus query]"
+      ]
+    },
+    "rationale": "The comparison is the Loewner ordering of second-moment Gram matrices after one three-step epoch, not the operator norm of a mean noncommutative product or a convergence-rate upper bound. The primary RRK paper arXiv:2410.01140 proves per-permutation contraction and compares bounds/experiments, not a pointwise-initialization mean-square phase boundary. The 2012 Recht–Ré conjecture and 2020 Lai–Lim theorem concern spectral norms and do not entail Loewner domination; De Sa's 2020 higher-length reversal and 2026 metric-aware n>=5 families are distinct constructions, not an implication of this explicit three-row classification. The independently derived u=1/2 sharp threshold, three-factor minimum, and rational distinct-row robustness were not located in targeted claim-, equivalence-, and parameter searches. Negative search evidence alone does not prove novelty; inaccessible later manuscript noted as risk. The exact iid MSE/transfer identity already appears in Agaskar–Wang–Lu (2014) and is restated by Bai–Wu (2018, Theorem 2.1). The present claim is specifically the uniform Gram comparison to reshuffling, its sharp 45-degree threshold, minimal three-row reversal, and robust distinct-row witness, none of which follows from the iid formula alone.",
+    "residual_risks": [
+      "The 2026 Evidence Press secondary dynamics manuscript PDF could not be read fully; available public summary concerns different (5,5), (6,6), and (7,6) families, but an uninspected appendix may contain related identities.",
+      "The literature search is bounded and priority is not independently established; general finite enumeration formulas for arbitrary matrices are known, though they do not state the sharp projective-coherence classification.",
+      "Source arxiv:2410.01140 initial v1 date was verified from version history; algorithm text and primary MSC were checked in available v3, and an undetected substantive historical algorithm revision is theoretically possible.",
+      "Full PDF of 2014 Agaskar–Wang–Lu paper could not be opened; the original abstract plus the 2018 full-text restatement support the iid coverage comparison, but uninspected appendices are residual priority risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the update and worst-permutation contraction bounds; Example 3.8 compares selected upper bounds, not the three-row Gram risk. No direct covering theorem identified in relevant main results or conclusion.",
+        "evidence": [
+          "arxiv:2410.01140 Algorithm 1 p5, Corollary 3.3 pp7-8, Example 3.8 p10, concluding remarks p12",
+          "arXiv version history v1 2024-10-02 00:39:22 UTC",
+          "MSC2020 source list starts 65F10"
+        ],
+        "identifier_or_url": "arxiv:2410.01140, https://arxiv.org/pdf/2410.01140",
+        "material_read": "Available 14-page v3: opening and MSC p1; Algorithm 1 pp4-5; definitions and proofs §§3.1-3.3 pp5-11; conclusion and references pp12-13.",
+        "method": "PDF full-text sectional inspection with algorithm and comparison theorem at equations (3),(5),(9), Example 3.8; first submission date checked against arXiv version history.",
+        "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+        "trigger": "Defines the actual RRK algorithm and is the date/MSC owner of the exact-projection setting."
+      },
+      {
+        "assessment": "Spectral-norm conjectures and a Loewner example for a different polynomial. Neither exact u=1/2 Gram boundary nor three-row planar Kaczmarz counterexample occurs in these inspected sections.",
+        "evidence": [
+          "arxiv:1202.4184 p6 screenshot, equations (3.1),(3.2), p7 two-matrix result and 3-matrix separate Loewner example"
+        ],
+        "identifier_or_url": "arxiv:1202.4184, https://arxiv.org/pdf/1202.4184",
+        "material_read": "Original 25-page PDF inspected at the Kaczmarz model §2, Conjecture 3.1 equations (3.1),(3.2) p6 and Proposition 3.2 plus the three-matrix example p7.",
+        "method": "Read PDF text and screenshot of p6 to distinguish spectral-norm bars from the Loewner order; compared same Gram polynomial.",
+        "title": "Toward a noncommutative arithmetic–geometric mean inequality: conjectures, case-studies, and consequences",
+        "trigger": "Original projection-product motivation and strongest plausible low-length overlap."
+      },
+      {
+        "assessment": "Operator norm inequality for averaged products does not assert Loewner ordering of expected B^T B; not dominating the exact initial-vector claim.",
+        "evidence": [
+          "arxiv:2006.01510 pp1-3, Conjecture 1 and m<=3 result"
+        ],
+        "identifier_or_url": "arxiv:2006.01510, https://arxiv.org/pdf/2006.01510",
+        "material_read": "Full PDF relevant introduction pp1-3, formulation of Conjecture 1 and statements for length two and three.",
+        "method": "Read theorem and the spectral-norm definition and Kaczmarz motivation.",
+        "title": "Recht–Ré Noncommutative Arithmetic-Geometric Mean Conjecture is False",
+        "trigger": "Proves three-factor scalar norm case that could superficially contradict a three-row reversal."
+      },
+      {
+        "assessment": "Demonstrates other reversal mechanisms for larger factor counts and different learning tasks; does not classify normalized rank-one projector two-repeat/one-other three-row mean-square ordering.",
+        "evidence": [
+          "NeurIPS paper pp1-5 inequalities (1)-(3), section 2 n>=5 and section 3 parallel SGD"
+        ],
+        "identifier_or_url": "NeurIPS 2020, https://proceedings.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "11-page paper relevant §1 definitions, §2 higher-length counterexamples, §3 parallel SGD task, and §4 discussion of stepsizes.",
+        "method": "Full-text PDF inspection of inequalities (1)-(3), construction and implementation comparison.",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "Potential earlier exact sampler reversal in a matrix-product model."
+      },
+      {
+        "assessment": "Provides permutation-conditioned energy upper bounds rather than exact relative Gram risk with 27 draws.",
+        "evidence": [
+          "arxiv:1510.04727 pp1-3, Theorem 1 and definitions"
+        ],
+        "identifier_or_url": "arxiv:1510.04727, https://arxiv.org/pdf/1510.04727",
+        "material_read": "12-page preprint abstract and setup pp1-3, one-cycle error bounds and shuffled/preshuffled definitions.",
+        "method": "Full PDF relevant-section inspection of energy-norm contraction bounds and sampling descriptions.",
+        "title": "Random Reordering in SOR-Type Methods",
+        "trigger": "Kaczmarz as randomized SOR with reordered projections."
+      },
+      {
+        "assessment": "Describes exact n=5 and n=6 different sampling dynamics but does not itself establish or imply the present n=3 unit-projector phase boundary. Cannot assert non-coverage of inaccessible manuscript.",
+        "evidence": [
+          "2026 release §§Summary for specialists, Exact dynamics results and limits; external PDF restricted",
+          "The release names full Gram-channel operator and separately identifies n=5/n=6 parameter families"
+        ],
+        "identifier_or_url": "https://evidencepress.org/releases/exact-low-length-recht-re-inequalities/",
+        "material_read": "Public release page complete specialist summary and table; second dynamics manuscript full PDF inaccessible from its release link.",
+        "method": "Read summary including one-epoch Gram comparison, simplex factor counts, statement of limitations; attempted dynamics PDF URL, restricted response.",
+        "title": "Exact Low-Length Recht–Ré Inequalities and Metric-Dependent Rankings in Random Reshuffling Dynamics",
+        "trigger": "Plausible later work with the same mean/Gram operator distinction."
+      },
+      {
+        "assessment": "COVERS general independently sampled Kaczmarz exact MSE, not demonstrated coverage of the random-permutation versus iid Gram Loewner ordering.",
+        "evidence": "Public 2014 abstract says derives exact MSE; Bai–Wu 2018 Theorem 2.1 attributes fixed-initialization Kronecker formula to Agaskar–Wang–Lu.",
+        "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "material_read": "Institutional open repository full abstract and bibliographic record; paper PDF links were inaccessible and not read.",
+        "method": "Read original public repository HTML and compared abstract claims; independently examined 2018 paper which restates its main exact-MSE theorem.",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Original exact iid-MSE predecessor cited in Bai–Wu 2018"
+      },
+      {
+        "assessment": "COVERS iid Kaczmarz MSE for this example; NOT_COVERING sharp shuffled-versus-iid comparison as no without-replacement protocol is studied.",
+        "evidence": "Theorem 2.1: E||x_N−x*||²=vec(I)^* H^N vec(ee^*), with H=sum p_i(overline(H_i) tensor H_i); Section 6 says exact formulas determine iid MSE.",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.05.009",
+        "material_read": "Full indexed HTML text: abstract, introduction, Theorem 2.1 (complete equations 2.1–2.3), Theorems 3.1, 4.1, 4.2, conclusions. Publisher URL direct fetch returned 403; full indexed text was available via search.",
+        "method": "Read displayed article full HTML via indexed web search and compared quantifiers to the two-protocol Gram matrices.",
+        "title": "On convergence rate of the randomized Kaczmarz method",
+        "trigger": "Highly relevant exact second-moment treatment predating Han–Xie"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba10856f-e0ce-43fc-a0a4-953178c6a209",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact complete phase diagram for all starting directions on the smallest 3-labeled-row planar epoch. The coherence cutoff u=1/2 is sharp, its failure occurs for a consistent full-column-rank system and remains under distinct-row perturbations, and two labels are proved incapable of the same reversal. This directly distinguishes an exact target-dependent MSE guarantee from spectral norm and worst-permutation rate bounds, clarifying an important mathematical limit of common reshuffling heuristics. The numerical benefit is only a few percent in the explicit family; importance lies in the minimal structural sign reversal and classification, not a claim of meaningful practical speedup or broad algorithmic superiority.",
+    "status": "PASS"
+  }
+}
