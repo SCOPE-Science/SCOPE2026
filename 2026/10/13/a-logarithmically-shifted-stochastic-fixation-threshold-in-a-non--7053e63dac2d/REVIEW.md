@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The mixed-order payoff reduces exactly to a quadratic with two distinct positive interior roots on the specified open benefit interval. The Fermi chain is well-defined and absorbing. The exact birth–death fixation identity, a quadratic Euler–Maclaurin expansion, a geometric boundary mass and an interior Gaussian lattice-Laplace mass give the three sharp asymptotic regimes. Uniformity near the critical benefit yields the logarithmically shifted logistic crossover. The exact critical derivative and rational examples are algebraically checked, and the provided checker tests the finite sums in the log domain.
+
+**Originality — PASS, with scope and risks.** The 2026 motivating article already gives the deterministic model, bistable interior roots, and numerical quasistationary branches. Traulsen–Nowak–Pacheco (2006) give the exact general Fermi fixation formula. Assaf–Mobilia (2010) supply WKB and prefactor methods for two-player games, and Gokhale–Traulsen (2010) treat multiplayer evolutionary game equilibria and invasion comparisons. Zhu et al. (2024) study a related but different nonlinear-payoff mechanism. The claim is restricted to the new evaluated two-interior-root mean-field-payoff Fermi closure trichotomy, its exact model threshold and finite-size crossover, rather than any of those known general tools. Unindexed broad stochastic asymptotic results remain a risk.
+
+**Mathematical value — PASS.** The nontrivial selection threshold divides one deterministic bistable phase into opposite stochastic absorption outcomes. At equal potential heights, fixation is polynomially suppressed, not equiprobable; the transition with nonzero limiting fixation occurs only after a logarithmic finite-size shift. The result gives a precise limitation on inferring finite-population absorption from deterministic coexistence diagrams, while distinguishing the chosen mean-field closure from the source's microscopic hypergraph process.
+
+**Limitations.** Fixed positive selection strength, parameter-dependent open interval, no degenerate-root endpoint, no absorption-time theorem, no statement for the original finite-hypergraph stochastic kernel. No independent audit or empirical validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
