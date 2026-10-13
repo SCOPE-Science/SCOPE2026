@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For fixed 0<lambda<1, a Bloch rotation composed with dephasing is explicitly block diagonal. Cayley--Hamilton gives r_n and v_n exactly; since det(A^n)=lambda^n>0, the two-by-two singular value sum squared is trace(A^n)^2+(A^n_12-A^n_21)^2. Adding lambda^n and applying Lami--Giovannetti Eq. (7) proves the all-n EB equivalence. Schur stability proves eventual breaking away from θ=0,π. Near θ=0 the slow root is 1-a_lambda θ²+O(θ⁴), the fast root is lambda(1+a_lambda θ²+O(θ⁴)); uniform n~log(1/θ) estimates imply the scaled defect profile and O(1)-sharp index asymptotic. Embedded verifier checks 128 Choi-PPT/SVD cases, 69 exact right-angle cases, 12 high precision boundary-layer cases; finite tests only support analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanson--Rouzé--França give eventual-breaking structure and characteristic-time bounds, not the exact recurrence or coefficient -1 for the loglog term in inspected sections.",
+        "Bhat--Dey--Saha 2026 abstract gives a complete qualitative EEB characterization for unital channels; complete text inaccessible, so its quantitative scope cannot be excluded."
+      ],
+      "reasoning": "The finite-versus-infinite classification can be implied by stronger generic eventual-breaking results, but the complete claimed finding also specifies exact finite n decisions and a sharp rescaled transition. No available broader prior result establishes those stronger specialized quantitative assertions; the inaccessible 2026 full text remains a flagged residual risk.",
+      "searches": [
+        "Repeated unsharp phase damping with small coherent rotation becomes entanglement breaking after logarithmically many uses despite dephasing alone preserving entanglement at every finite iteration",
+        "Near-aligned rotated phase-damping quantum channels become entanglement breaking at index with a negative log-log term, distinct from filtered indices and general eventual-entanglement-breaking bounds",
+        "DOI:10.1007/s00023-020-00906-4",
+        "arXiv:2609.24168"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1411.2517v4, full HTML sections II and III including Eq. (7) and Definition 1; arxiv PDF physical page 3 checked",
+      "arXiv:1707.00161v1, complete HTML sections I--V including phase-damping model and two-use experimental results",
+      "DOI:10.1007/s00023-020-00906-4, accessible full article sections on eventual breaking and characteristic-time bounds",
+      "arXiv:2609.24168 (2026), abstract accessible, HTML/PDF full text unavailable in attempted routes; no whole-document negative assertion",
+      "Searches of the published literature were compared for the exact quantum-channel recurrence and small-angle scaling; unresolved priority risk is retained."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] supplies a necessary-and-sufficient one-step nuclear-norm threshold, mathematically sufficient to certify any explicitly computed matrix power but does not state its near-aligned asymptotics.",
+        "Source [2] treats two-step rotating damping and entanglement recovery with filters; arbitrary iteration and θ→0 loglog law are different quantifiers.",
+        "Source [3] gives eventual-breaking and time bounds; these bounds do not fix the logarithmic coefficient and nonconstant crossover profile."
+      ],
+      "reasoning": "The new result is logically more specific than a generic EB test and more quantitative than eventuality. General qualitative theorems may imply finiteness for misaligned angles, and that overlap is expressly credited. The new aspect is a sharp n-dependent recurrence and a singular perturbation limit with exact constant.",
+      "searches": [
+        "Bloch rotation decoherence slow commutator spectral gap entanglement breaking index logarithmic angle logarithm logarithm",
+        "Exact direct entanglement breaking index for a qubit channel composed of a fixed y-axis rotation and dephasing with Bloch matrix diag(lambda,lambda,1) R_y(theta), and small nonzero angle asymptotic (2 log(1/theta)-log log(1/theta))/abs(log lambda)",
+        "Near-aligned rotated phase-damping quantum channels become entanglement breaking at index with a negative log-log term, distinct from filtered indices and general eventual-entanglement-breaking bounds",
+        "arXiv:1411.2517 §II Eq. (7)",
+        "arXiv:1707.00161 Eqs. (1)--(7)",
+        "DOI:10.1007/s00023-020-00906-4 §2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lami and Giovannetti state EB iff Bloch nuclear norm <=1 and define direct index; no rotated dephasing log-log profile identified in full accessible text.",
+        "Cuevas et al define related rotated phase damping but examine two-use protocols and filters rather than the n~log(1/theta) limit."
+      ],
+      "reasoning": "Exact recurrence is an application of a known general test to a concrete matrix family; this basic implication is credited rather than claimed independently. The quantitative singular-angle profile and -log log term cannot be recovered merely from the stated general inequality without the spectral recurrence and singular perturbation analysis.",
+      "searches": [
+        "qubit phase damping followed by rotation entanglement breaking index logarithmic angle asymptotics log log",
+        "Rotated dephasing qubit channel D_lambda R_y(theta), exact entanglement-breaking index via singular values of (D R)^n and small angle asymptotic 2 log(1/theta)/abs(log lambda) minus log log(1/theta)/abs(log lambda)",
+        "rotated phase damping dephasing qubit channel direct entanglement breaking index n iterations formula",
+        "dephasing rotation entanglement breaking index small angle log log",
+        "arXiv:1411.2517 Eq. (7)",
+        "arXiv:1707.00161 §§I--IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest mathematical index hits concern an arithmetic zeta repeated-root modal recurrence and resolvent Schatten-membership transitions, neither of which is an iterated qubit channel nor implies an EB index.",
+        "No directly matching angle-index table or exact multi-iterate qubit dephasing catalogue was found in inspected sources."
+      ],
+      "reasoning": "No table was located that specifies this direct index for all damping visibilities and rotation angles. A failed search is not a proof of absence; the support is the concrete implication mismatch of closest located entries.",
+      "searches": [
+        "unital qubit quantum channel Bloch matrix D R_y theta entanglement breaking iterates Schatten trace norm threshold",
+        "Exact recurrence trace norm powers of 2x2 matrix diag(lambda,1) rotation and entanglement breaking threshold qubit",
+        "unital qubit channel entanglement breaking order repeated rotation dephasing",
+        "Exact direct entanglement breaking index for a qubit channel composed of a fixed y-axis rotation and dephasing with Bloch matrix diag(lambda,lambda,1) R_y(theta), and small nonzero angle asymptotic (2 log(1/theta)-log log(1/theta))/abs(log lambda)"
+      ]
+    },
+    "rationale": "Distinct from the credited general EB criterion, the new claim exactly solves all direct iterations of a fixed rotated dephasing family and derives a universal -loglog near-alignment delay and nonconstant scaled defect. Accessible full primary texts [1] and [2] do not state this full claim; general eventual-EB bounds [3] cover qualitative eventuality but not the specialized sharp asymptotic. A recent general unital-channel preprint is accessible only by abstract and therefore remains a material priority risk, not falsely excluded.",
+    "residual_risks": [
+      "arXiv:2609.24168 was identified and abstract read; primary full text inaccessible via attempted arXiv HTML/PDF routes. Quantitative implications unresolved.",
+      "A general two-by-two singular-value recurrence or quantum channel characteristic-time theorem could already contain an equivalent specialized asymptotic despite the targeted searches.",
+      "Searches of publicly indexed scientific claims cannot establish priority by absence, and unpublished work cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general characterization ‖M‖_1<=1 and index; no small-angle rotated-dephasing recurrence or log-log boundary layer in the inspected text.",
+        "evidence": [
+          "Eq. (7): unital qubit EB iff nuclear norm <=1.",
+          "Definition 1: direct index is smallest n with channel power EB.",
+          "Section III examples; arXiv v1 dated 2014-11-10."
+        ],
+        "identifier_or_url": "arXiv:1411.2517",
+        "material_read": "Full accessible HTML §§II--III, introduction, full-page PDF view of the two-qubit nuclear-norm criterion and direct-index definition.",
+        "method": "Primary arXiv HTML, supplemented by PDF page image.",
+        "title": "Entanglement-Breaking Indices",
+        "trigger": "Original definition of direct index and unital-qubit EB test for exactly the relevant channel class"
+      },
+      {
+        "assessment": "Analyzes two channel uses and optional intermediate unitary filters for rotated damping; no arbitrary-iteration exact spectral recurrence or asymptotic small-angle index in inspected full text.",
+        "evidence": [
+          "Section II Eqs. (4)--(7) defines rotation and phase-damping experimental model.",
+          "Section IV studies the two-use entanglement-breaking region and filter recovery."
+        ],
+        "identifier_or_url": "arXiv:1707.00161",
+        "material_read": "Full accessible HTML abstract, §§I--V, Eqs. (1)--(10), plotted experimental result discussion.",
+        "method": "Primary arXiv HTML (2017).",
+        "title": "Amending entanglement-breaking channels via intermediate unitary operations",
+        "trigger": "Same physical process: repeated rotated phase damping of single-qubit polarization"
+      },
+      {
+        "assessment": "General eventual-breaking criterion/inequalities; no inspected theorem gives the fixed-channel direct recurrence and exact small-angle log-log correction.",
+        "evidence": [
+          "Theorem 2.1 relates primitivity and eventual entanglement breaking for continuous-time semigroups.",
+          "Section 2.1 develops nonsharp general time bounds; discrete-time discussion is more general."
+        ],
+        "identifier_or_url": "DOI:10.1007/s00023-020-00906-4",
+        "material_read": "Accessible full article sections on discrete/continuous evolution, eventual entanglement breaking, and characteristic-time estimates.",
+        "method": "Primary publisher open full-text article (2020).",
+        "title": "Eventually Entanglement Breaking Markovian Dynamics: Structure and Characteristic Times",
+        "trigger": "Potentially stronger eventual-breaking and finite-time bounds"
+      },
+      {
+        "assessment": "Abstract advertises a general qualitative characterization of whether eventual breaking occurs; its full text might subsume the finite-versus-infinite portion. No accessible evidence it gives the quantitative near-alignment log-log threshold. Decisive risk explicitly retained.",
+        "evidence": [
+          "Abstract equivalences EEB, eventual PPT, mixed twisted dephasing, eigenvector commutation; first posted 2026-09-21.",
+          "No complete primary text obtained, so not assessed as NOT_COVERING."
+        ],
+        "identifier_or_url": "arXiv:2609.24168",
+        "material_read": "Abstract and bibliographic details only; primary full HTML and PDF attempts unavailable.",
+        "method": "arXiv abstract/search indexed record, primary full-text URL attempts.",
+        "title": "A complete characterization of eventually entanglement breaking unital quantum channels",
+        "trigger": "Very recent potentially dominant qualitative theorem about all unital channels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68bc6f4e-7b8c-4cb8-91c6-a3201a5150cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct breaking index is a natural operational invariant because it counts how many identical noisy channel uses destroy all entanglement with an arbitrary ancilla. Pure aligned phase damping never becomes EB at finite n, but arbitrarily small transverse rotation makes it eventually EB. The exact all-n criterion, logarithm with a negative loglog correction, and a sharp rescaled crossover quantify a genuine singular physical boundary rather than a routine isolated numeric calculation. The result deliberately excludes optimized filtering and other noise families.",
+    "status": "PASS"
+  }
+}
