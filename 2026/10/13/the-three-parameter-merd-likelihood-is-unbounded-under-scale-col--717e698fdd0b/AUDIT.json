@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Using the source's exact profile likelihood, the positive residuals give \\(S(\\sigma)=C\\sigma^{-1/2}+O(1)\\), while each minimum observation contributes no logarithmic residual term. Combining the three profile-log-likelihood components gives the exact leading coefficient \\(-k/2\\) on \\(\\log\\sigma\\), so the profile tends to positive infinity. The packaged checker independently matches the direct joint likelihood, verifies the unique- and tied-minimum slopes, and verifies the rate-profile asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General parameter-dependent-support literature documents nonregular likelihood theory but does not derive this MERD profile or its \\(\\sigma^{-k/2}\\) divergence.",
+        "The closest retrieved published-result records concern compact-support Hellinger transitions, endpoint localization in stochastic geometry, and unrelated scale phenomena.",
+        "No broader source found in the searches dominates the MERD-specific statement."
+      ],
+      "reasoning": "Nonregular-support theory is contextual rather than covering: the accepted result needs the specific square-root transform, the source's analytic rate profile, and the multiplicity of the sample minimum.",
+      "searches": [
+        "location-scale MERD maximum likelihood sigma lambda",
+        "parameter dependent support square root exponential location scale likelihood",
+        "parameter-dependent support maximum likelihood nonregular scale collapse location scale"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026987",
+      "doi:10.1111/1468-0262.00451"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current source-and-claim overlap check found no MERD finding in the active ledger.",
+        "The immediately prior weekly ledger contains no target DOI or MERD model-name match.",
+        "The closest published-result records returned by semantic search concern different objects and do not imply a three-parameter MERD likelihood ridge."
+      ],
+      "reasoning": "No checked prior statement specializes to or logically entails the profile asymptotic \\(\\ell_p(\\sigma)=-(k/2)\\log\\sigma+O(1)\\).",
+      "searches": [
+        "current probability statistics MERD modified exponential root location-scale likelihood",
+        "prior probability statistics MERD profile scale collapse",
+        "10.3934/math.2026987 previous finding"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-result record identified the target MERD source with a scale-collapse or unbounded-profile theorem.",
+        "Exact DOI correction/corrigendum searches located the original article but no source-specific correction.",
+        "The primary article's own one-dimensional scale profile is the object used in the accepted proof."
+      ],
+      "reasoning": "The searches cover the exact source, both model names, profile-likelihood and scale-collapse terminology, threshold/sample-minimum language, and MLE nonexistence aliases. No equivalent formulation was located.",
+      "searches": [
+        "10.3934/math.2026987 modified exponential root distribution location scale likelihood unbounded",
+        "MERD profile likelihood sigma sample minimum scale collapse",
+        "modified exponential root distribution threshold MLE sample minimum scale"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source defines \\(X=\\tau+\\sigma\\{(T+1)^2-1\\}\\) and the corresponding density.",
+        "Its threshold proposition sets \\(\\widehat\\tau=x_{(1)}\\) for fixed \\(\\sigma,\\lambda\\).",
+        "It then sets \\(\\widehat\\lambda=n/S(\\widehat\\tau,\\sigma)\\) and displays the one-dimensional profile log-likelihood to be maximized over \\(\\sigma>0\\)."
+      ],
+      "reasoning": "The accepted asymptotic is applied directly to the exact optimization object specified by the source, not to a surrogate likelihood.",
+      "searches": [
+        "10.3934/math.2026987 Section 6 location scale profile likelihood",
+        "10.3934/math.2026987 sample minimum sigma lambda profile",
+        "10.3934/math.2026987 correction corrigendum"
+      ]
+    },
+    "rationale": "The primary source proposes numerical maximization of this profile and does not state its boundary divergence. Five targeted published-result searches, exact correction searches, broader parameter-dependent-support searches, and current/prior source-and-claim overlap checks found no covering source-specific result.",
+    "residual_risks": [
+      "A very recent unindexed correction may exist.",
+      "The result does not classify constrained or penalized variants of the three-parameter fit.",
+      "The all-equal sample is excluded from the stated asymptotic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT COVERING THE BOUNDARY RIDGE. The source supplies the exact profile used in the proof and proposes numerical maximization over positive scale, but does not state that this profile diverges as the scale tends to zero.",
+        "evidence": "Location-scale Section 6, especially the transformation/density and the threshold/rate/scale profiling formulas.",
+        "identifier_or_url": "doi:10.3934/math.2026987",
+        "material_read": "Publisher metadata and open full-text material covering the location-scale transformation and density, identifiability, threshold profiling at the sample minimum, analytic rate profiling, the displayed scale profile likelihood, and the section summary.",
+        "method": "Direct publisher metadata plus open full-text inspection.",
+        "title": "A one-parameter decreasing-hazard lifetime model with exact inference on a bounded-below support",
+        "trigger": "Primary source introducing the three-parameter MERD location-scale extension and its profiling scheme."
+      },
+      {
+        "assessment": "GENERAL CONTEXT ONLY; it does not contain the MERD model, its profile likelihood, or the scale-collapse rate.",
+        "evidence": "The abstract treats parameter-dependent support and the failure of standard regular asymptotic theory.",
+        "identifier_or_url": "doi:10.1111/1468-0262.00451",
+        "material_read": "Bibliographic record and abstract describing nonregular parameter-dependent support and nonstandard maximum-likelihood behavior.",
+        "method": "Direct bibliographic/abstract inspection.",
+        "title": "Asymptotic Efficiency in Parametric Structural Models with Parameter-Dependent Support",
+        "trigger": "Broader theory for nonregular models whose support depends on unknown parameters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "717e698f-dd0b-40f8-8677-076f9d50302c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three-parameter extension is introduced specifically to relax the original model's fixed threshold and scale, and the paper proposes an explicit profiling algorithm for likelihood inference. An unbounded profile means the advertised unconstrained joint MLE does not exist, so ordinary numerical maximization cannot solve the stated inferential problem without regularization. This is a structural limitation of the extension rather than a small numerical discrepancy.",
+    "status": "PASS"
+  }
+}
