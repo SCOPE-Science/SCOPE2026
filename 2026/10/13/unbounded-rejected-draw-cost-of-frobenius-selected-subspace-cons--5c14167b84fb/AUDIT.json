@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact orthogonal projector and Gram calculations establish unique Frobenius minimization on the full real parameter interval; geometric sampling means and accepted-step corrections are algebraic identities. Actual bundled verify.py checked 73 exact rational parameters and all three candidate constraint rows; no finite-test-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun–Qi–Han–Xie 2026 Section 3.2 gives the Frobenius surrogate and Appendix 7.2 proves nonzero conditional selection.",
+        "Lok–Rebrova 2023 Theorem 1.1 gives a projected singular-value accepted-step bound; 2025 SC-RCD paper concerns PSD coordinate descent."
+      ],
+      "reasoning": "The broad theorems give bounds for each *chosen* constrained block, not a uniform regret guarantee over competing singleton choices or a precise raw-draw cost ratio. The construction is therefore not a restatement of a stronger documented selection theorem.",
+      "searches": [
+        "subspace constrained randomized Kaczmarz Frobenius norm row interpolation surrogate optimal convergence factor arbitrarily poor row subset choice",
+        "greedy largest norm constraint row Kaczmarz convergence can be arbitrarily slower than another row choice singular value Frobenius",
+        "subspace constrained randomized Kaczmarz Lok Rebrova 2024 convergence theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.29304v1",
+      "arxiv:2309.04889v2",
+      "arxiv:2506.09394"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 source Algorithm 1 and Remark 3.1 supply policy components; Section 3.2 selects by Frobenius norm.",
+        "2023 SCRK source Algorithm 1 and Theorem 1.1 give sampling probabilities and norm convergence bounds.",
+        "2025 SC-RCD source Sections 1–2 deals with Nyström-constrained coordinate descent."
+      ],
+      "reasoning": "The input papers imply how to compute individual probabilities but do not assert existence of an unbounded cross-selection proposal-cost ratio. The present parameter family yields that result; no claim is made that the underlying probability/geometric or convergence formulas are new.",
+      "searches": [
+        "Sun Qi Han Xie 2026 subspace constrained preconditioning row selection squared Frobenius ratio matrix arbitrarily bad",
+        "\"subspace-constrained\" \"Kaczmarz\" \"row interpolative\" \"condition number\" selection",
+        "Sun Qi Han Xie 2026 SCRIM projected row norm Frobenius subset choice rejection nonzero residual geometric proposal cost"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun–Qi–Han–Xie 2026 Algorithm 1 requires resampling until a nonzero residual; Appendix 7.2 conditions the selected distribution on Q_k.",
+        "Lok–Rebrova 2023 Algorithm 1 samples IID without same mandatory rejection logic."
+      ],
+      "reasoning": "Interpreted alternate formulations as geometric cost until effective projection and zero-step Kaczmarz acceptance. Existing machinery yields 1/q for a fixed selection but does not directly compare globally Frobenius-minimal versus alternate constraints on one family.",
+      "searches": [
+        "Sun Qi Han Xie 2026 SCRIM projected row norm Frobenius subset choice rejection nonzero residual geometric proposal cost",
+        "subspace constrained Kaczmarz Frobenius selection pathological tiny residual row expected rejection waiting time",
+        "randomized Kaczmarz zero residual rejected sampling geometric waiting time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records include 2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a, 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80 and 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee."
+      ],
+      "reasoning": "The closest published findings concern other algorithms and observables rather than the same selection regret. A negative index search is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: Sun Qi Han Xie 2026 SCRIM projected row norm Frobenius subset choice rejection nonzero residual geometric proposal cost",
+        "published-finding corpus: subspace constrained Kaczmarz Frobenius selection pathological tiny residual row expected rejection waiting time",
+        "published-finding corpus: row interpolative decomposition minimizer random Kaczmarz conditioning bound squared singular value gap divergent complexity"
+      ]
+    },
+    "rationale": "Primary Sun–Qi–Han–Xie supplies the algorithm and Frobenius surrogate but no uniform cross-constraint raw-proposal regret theorem or this family. Lok–Rebrova supplies the prior Kaczmarz framework and accepted-iteration bounds, not this selection comparison. The supplied family and infinite overhead ratio require a new combined construction. Risk remains for independently known examples under generic rejection-sampling terminology.",
+    "residual_risks": [
+      "A generic older sampling-acceptance analysis could include an equivalent counterexample under different vocabulary.",
+      "Only described relevant material was read from the older long papers; undiscovered appendices or alternate versions may contain related observations.",
+      "Scientific novelty remains a self-review; independent human audit is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies algorithm and existing accepted-step rate but not the exact competing-fixed-row raw-draw ratio",
+        "evidence": [
+          "arXiv v1 dated 2026-05-28; Alg 1 Step 2 resamples; Remark 3.1 weights projected row norms; Section 3.2 states Frobenius surrogate; Appendix 7.2 defines conditioned acceptance."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.29304",
+        "material_read": "Abstract; Sections 2.3, 3.1–3.2 and 5; Algorithm 1, Remarks 3.1/3.3, Appendix 7.2 and 7.3 passages",
+        "method": "Primary full HTML, inspected algorithm, theorem, selection discussion, appendix and references",
+        "title": "On subspace-constrained preconditioning for randomized iterative methods",
+        "trigger": "Direct source for the precise Frobenius heuristic, rejection rule and projected-row-norm distribution"
+      },
+      {
+        "assessment": "Establishes same projected-row probabilities with IID iteration count but not present Frobenius minimizer raw-draw regret",
+        "evidence": [
+          "Algorithm 1 samples rows proportional to projected norms; Theorem 1.1 states scaled-condition convergence rate."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.04889",
+        "material_read": "Primary PDF pages 1–3 (background, Algorithm 1 and Theorem 1.1); identified earlier work and sampling",
+        "method": "PDF parsed text with page 3 screenshot inspection",
+        "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+        "trigger": "Foundational same projected-row Kaczmarz update and convergence theorem"
+      },
+      {
+        "assessment": "Different coordinate-descent/PSD setting and selected low-rank approximation; no same explicit 3-row Kaczmarz raw-proposal regret result in inspected material",
+        "evidence": [
+          "SC-RCD uses diagonal residual sampling and Nyström pivot sets, not the present row-interpolative Frobenius comparison."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2506.09394",
+        "material_read": "PDF pages 1–4 (SC-RCD, Nyström pivot selection, general framework); screenshot of page 4",
+        "method": "Primary PDF parsed text plus direct page screenshot",
+        "title": "Subspace-constrained randomized coordinate descent for linear systems with good low-rank matrix approximations",
+        "trigger": "Later general subspace-constrained framework with alternate pivot policy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c14167b-84fb-43bd-82ef-1837acf74e7a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source expressly proposes Frobenius row-ID selection as a tractable acceleration surrogate. The constructed globally preferred row choice forces unbounded raw-proposal overhead compared with another fixed row on the SAME nonsingular system and RHS, despite one accepted step for both. This isolates a genuine computational metric outside accepted-step convergence and identifies an immediately usable distinction between conditional sampling and rejection.",
+    "status": "PASS"
+  }
+}
