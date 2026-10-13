@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "An edge-rooted decomposition of each nontrivial tree gives exactly q(q-1) choices for its root edge, then independent local choices counted by (d-1)![z^(d-1)]cosh(z)(1+sinh(z))^(q-2). The unique-parent property proves bijective exhaustive counting. Isolates and q=2 boundaries are explicit. The separate direct-coloring predicate agreed with the closed product on 4516 tree/palette cases; exact rational EGF agreed with 50 local factors and the q=3 formula held for all 18248 labeled trees of orders 2..7. Finite computation does not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 block-graph algorithm in arXiv:2610.01441v1 applies to a class containing trees but optimizes color number, not the number of all colorings.",
+        "arXiv:2410.02336v1 considers trees, unicyclic graphs and products for bounds/minimum values; its statements do not provide a forest counting polynomial."
+      ],
+      "reasoning": "Containing the graph family is insufficient for implication: a chromatic-number algorithm or upper bound is weaker than the exact function SO_F(q) for all q and all forests.",
+      "searches": [
+        "\"strong odd coloring\" \"number of colorings\" tree",
+        "\"strong odd colouring\" \"counting\" trees degree",
+        "Caro Petruševski Škrekovski Tuza Proposition 2.1 tree colorings count chromatic polynomial",
+        "arXiv:2610.01441v1, section on block graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.11653v1, definition and sparse bounds",
+      "arXiv:2410.02336v1, Proposition 2.1 and Section 2 on trees",
+      "arXiv:2610.01441v1, block-graph minimum-coloring algorithm",
+      "Strong Odd Colorings in Graph Classes of Bounded Expansion (2025), abstract on bounded color availability and not enumeration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known theorem states chi_so(T)<=3 and chi_so(T)=2 precisely for all-odd-degree trees.",
+        "The new theorem yields counts for all named palettes q>=2 and degree-multiset invariance, neither follows from existence of any coloring with at most three colors."
+      ],
+      "reasoning": "A minimum-color threshold says only whether SO_T(q) vanishes, not its positive values. The new exact product formula is logically stronger than known scalar conclusions; no inspected theorem supplies the missing coefficients or identities.",
+      "searches": [
+        "strong odd coloring polynomial exact enumeration for all trees | odd neighborhood multiplicities each used color odd",
+        "strong odd coloring number of colorings of a tree chromatic polynomial product degree sequence local parity",
+        "Strong odd chromatic polynomial forest counts by vertex degrees odd multiplicities",
+        "arXiv:2410.02336v1 Proposition 2.1; arXiv:2401.11653v1 introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original condition is that each neighborhood color multiplicity is zero or odd (arXiv:2401.11653v1).",
+        "Proposition 2.1 of arXiv:2410.02336v1 characterizes existence of two and three colors but gives no enumeration of named-palette colorings in its inspected tree proof."
+      ],
+      "reasoning": "The edge-rooted labeled-child parity EGF encodes all allowed multiplicities, whereas earlier tree statements cover feasibility/minimum palette size. Equality of their chromatic-number outcomes cannot imply the forest degree-product identity or its coefficients at q>=4.",
+      "searches": [
+        "\"strong odd chromatic polynomial\" tree degree sequence formula",
+        "\"strong odd coloring\" \"count\" \"tree\" colorings",
+        "\"strong odd\" \"tree\" \"2^{deg\" count colorings",
+        "\"strong odd\" \"degree sequence\" \"number of colorings\" tree",
+        "arXiv:2410.02336v1, Section 2 tree construction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for named-palette strong-odd chromatic polynomial, forest degree-product and exact tables did not identify a matching enumerator. Published degree-based graph-coloring entries returned by the database described different coloring conditions."
+      ],
+      "reasoning": "The queried records concern ordinary/forced/weak-odd coloring or other graph invariants, none a coefficient table for SO_F(q); a negative search result does not establish priority.",
+      "searches": [
+        "\"strong odd chromatic polynomial\" graph",
+        "\"strong odd chromatic polynomial\" tree forest",
+        "degree-sequence-invariant polynomial proper odd coloring forests counting named palette"
+      ]
+    },
+    "rationale": "The closest primary tree proposition (arXiv:2410.02336v1) covers only the least number of colors and an algorithm producing one coloring. The stronger block-graph algorithm similarly finds minima, not a complete palette-counting polynomial. Searches for equivalent counting formulations, broader implications and tables retrieved no claim matching degree-multiset factorization. Remaining unindexed literature risk is acknowledged.",
+    "residual_risks": [
+      "An unindexed or inaccessible strong-odd coloring enumeration may predate this formula; no database search can prove global priority.",
+      "Accessible HTML and selected PDF material were examined, but not all cited papers were exhaustively checked page-by-page for informal unstated consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies precise invariant and sparse-bound context, not a forest counting formula in inspected material.",
+        "evidence": "Defines proper strong-odd neighborhood parity and studies maximum-average-degree bounds; version v1 publicly submitted 2024-01-22, MSC 05C15.",
+        "identifier_or_url": "arXiv:2401.11653v1 | https://arxiv.org/abs/2401.11653",
+        "material_read": "ArXiv version information, initial full-paper PDF sections containing the definition, theorem statements and introduction; full-text searches for tree, counting and polynomial terminology",
+        "method": "Primary arXiv version metadata, PDF text and literal text search",
+        "title": "Strong odd coloring of sparse graphs",
+        "trigger": "Original strong-odd condition, first public date, primary MSC and possible enumeration"
+      },
+      {
+        "assessment": "Proves min-color tree dichotomy and constructive coloring, not full palette enumeration in inspected text.",
+        "evidence": "Proposition 2.1: every tree can be strong-odd 3-colored, with 2 colors exactly for odd-degree trees; linear-time construction.",
+        "identifier_or_url": "arXiv:2410.02336v1 | https://arxiv.org/abs/2410.02336",
+        "material_read": "Full accessible HTML tree section and Proposition 2.1 proof, adjacent discussion and article-wide searches for polynomial/count enumeration",
+        "method": "Open-access complete arXiv HTML primary text, direct examination and literal searches",
+        "title": "On strong odd colorings of graphs",
+        "trigger": "Highly relevant exact tree theorem could cover candidate via stronger counting proposition"
+      },
+      {
+        "assessment": "Covers minimum-color algorithm for block graphs but not the all-coloring generating function.",
+        "evidence": "The algorithmic target is strong-odd chromatic number and computational complexity; no matching exact forest enumeration surfaced.",
+        "identifier_or_url": "arXiv:2610.01441v1 | https://arxiv.org/abs/2610.01441",
+        "material_read": "Open-access HTML statement, block-graph algorithm section and searches for counting and polynomial",
+        "method": "Open-access primary HTML inspection and title/term search",
+        "title": "On the Classical and Parameterized Complexity of Strong Odd Coloring",
+        "trigger": "Later broadly covering block-graph algorithm could subsume tree counting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74528c82-633e-4e89-860b-8640b6fe44ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact counting for every forest and all q>=2 is a natural complete invariant not determined by known two-/three-color existence. The degree-multiset factorization is a non-obvious structural invariance and q=3 counts vary exponentially with degrees; the local factors make arbitrary-degree exact calculation immediate. These are meaningful beyond restating a threshold.",
+    "status": "PASS"
+  }
+}
