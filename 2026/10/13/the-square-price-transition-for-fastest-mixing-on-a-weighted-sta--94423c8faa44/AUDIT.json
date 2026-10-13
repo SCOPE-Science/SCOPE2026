@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For each \\(m\\ge3\\) and \\(t>0\\), compactness and the Courant–Fischer variational representation ensure a symmetric optimizer; the exact star characteristic polynomial reduces its gap to one scalar z and a derivative sign (m-1)[(m+1-2z)^2-t z^2]. The single critical root produces precisely the two branches, and the global uniqueness argument independently rules out symmetry-breaking solutions using a simple gap eigenvector above the threshold and PSD contrast vectors at/below it. Zero-weight boundary is disconnected. The SymPy checker symbolically confirms all nontrivial simplifications and 58 rational checks, but the proof covers the infinite domain. No known logical gap remains after explicit boundary review.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2006 Ghosh–Boyd paper proves concavity and invariant-group averaging generally but studies bounds over graph families, not the concrete weighted-star single-expensive-rate allocation.",
+        "Shakeri et al. arXiv:1510.06785v1 optimize one-to-one interlayer coupling links between two networks under a budget, with a different graph and feasible set.",
+        "Sun et al. explicitly note Fiedler earlier solved absolute algebraic connectivity on trees under equal edge costs, not the present freely weighted one-distinguished-price family."
+      ],
+      "reasoning": "The generic SDP and weighted-tree duality encompass the feasible optimization class algorithmically; they are not an explicit dominating closed-form theorem for the new m,t parameter range. The full weighted-cost branch threshold and uniqueness require the quotient spectrum, derivative sign and asymmetric rigidity arguments given here. The earlier cost-uniform tree case is a special limit (\\(t=1\\)) of the new formula, and no novelty is attributed to that subcase.",
+      "searches": [
+        "published-finding corpus: optimal Laplacian algebraic connectivity under weighted star network edge costs exact optimizer fastest mixing",
+        "published-finding corpus: optimal weighted star Laplacian algebraic connectivity price threshold critical cost m squared",
+        "doi:10.1016/j.laa.2006.03.006 (symmetry method and examples)",
+        "arxiv:1510.06785v1 (interconnected-network layer transition)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144504443821 (full author PDF)",
+      "doi:10.1016/j.laa.2006.03.006 (full author PDF)",
+      "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf (full author PDF)",
+      "arxiv:1510.06785v1 (full HTML)",
+      "published-finding corpus search records for priced star, FMMP, Fiedler and graph Laplacian convex optimization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Sun–Boyd–Xiao–Diaconis SDP gives existence/numerical determination for arbitrary positive costs but does not state the star family formula or uniqueness.",
+        "Ghosh–Boyd gives symmetry existence; it does not imply uniqueness of nonsymmetric optima without the separate zero-contrast argument.",
+        "Shakeri et al. address multiplex interlayer couplings, not one costly pendant edge.",
+        "The cited published-finding corpus Richardson steps concern nonexpansive polynomial iterations on SPD systems and neither imply the network allocation law nor provide the same parameter domain."
+      ],
+      "reasoning": "We distinguish numerical solvability and a general equivalence of optimization problems from an explicit theorem about which rates are optimal for every parameter. Standard concavity proves there exists a symmetric optimizer but not that every optimizer is symmetric, especially at the multiple-eigenvalue transition. The spectral reduction and rigidity close these gaps. No claim of novelty is made for the general SDP, \\(t=1\\) uniform solution, or spectral characterization of mixing.",
+      "searches": [
+        "doi:10.1137/S0036144504443821, §§1.2,3,5.2,5.3",
+        "doi:10.1016/j.laa.2006.03.006, §§2.1–2.2",
+        "arxiv:1510.06785v1, network model and transition",
+        "published-finding corpus: 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006), §§1.2, 3, and 5, give the identical general weighted-edge-rate objective with costs d_ij^2, but their worked explicit examples concern a six-vertex network, paths, and cycles. The paper has no indexed star example.",
+        "Boyd (2006), §3, introduces the same continuous-time Laplacian spectral-gap SDP with unit costs; it does not derive the distinguished-star cost frontier."
+      ],
+      "reasoning": "The star problem is a genuine instance of the earlier fastest-mixing SDP, so formulation-level novelty is not claimed. Equivalent primal SDP, dual maximum-variance unfolding, and Fiedler-vector descriptions were compared with the exact phase threshold and optimizer; in the inspected primary full texts no explicit all-m star price law or individual-weight uniqueness follows without additional calculation.",
+      "searches": [
+        "published-finding corpus: weighted star graph algebraic connectivity one edge has relative price t; threshold (m-1)^2 uniform optimal weights; exact Fiedler optimization",
+        "published-finding corpus: fastest mixing continuous time Markov diffusion star one expensive branch conductance allocation eigenvalue lambda2 spectral gap",
+        "Web: weighted star graph Fiedler eigenvalue maximize resource allocation heterogeneous costs spectral gap",
+        "doi:10.1137/S0036144504443821 (full text)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus hit 2026/9/19/SCOPE-curvature-distortion-spider-trees--7ee8f1c6b217 concerns graph curvature distortion rather than Laplacian gap optimization.",
+        "published-finding corpus hit 2026/9/8/SCOPE031 is an exact spectral census of six-regular circulants, not weighted stars.",
+        "The inspected full primary works contain no all-m cost-parameter table for one distinguished star edge."
+      ],
+      "reasoning": "Searches considered exact spectral tables and weighted-star synonyms. No matching exact output was found. The absence of retrieved tables is limited evidence, not proof of originality.",
+      "searches": [
+        "published-finding corpus: two orbit edge weight star Laplacian Fiedler eigenvalue semidefinite programming symmetry constraint uniqueness",
+        "Web: algebraic connectivity maximization weighted star graph edges budget nonuniform costs explicit optimal",
+        "Web: star graph fastest mixing markov chain optimal edge weights unequal conductances cost"
+      ]
+    },
+    "rationale": "The novelty is the explicit sharp \\(t=(m-1)^2\\) threshold, closed-form optimizer and gap for all \\(m\\ge3\\), and uniqueness under free individual rates. Sun–Boyd–Xiao–Diaconis (2006) formulate the exact general weighted-cost continuous-time FMMP SDP, so the general problem and its dual are prior art; the examined primary full text gives explicit paths and cycles, not the theorem. Ghosh–Boyd give concavity/symmetry, and Shakeri et al. address multiplex interlayer budgets, neither gives the specific branch/uniqueness statement. Results and aliases were compared in published-finding corpus and web searches, with explicit historical residual risk.",
+    "residual_risks": [
+      "The general heterogeneous-cost FMMP semidefinite program (Sun et al., 2006) already contains this instance; novelty is claimed only for the exact all-star-size, one-priced-edge closed forms, phase threshold and uniqueness, not for optimization problem or framework.",
+      "Fiedler (1990, 1993) obtained tree absolute algebraic connectivity for equal costs; a less visible result specializing his or later dual arguments to the present unequal-cost star case may exist and warrants independent historical checking.",
+      "Database and web search are incomplete, so absence of matching exact results is not proof of first publication.",
+      "The analytical proof is directly checkable, but no independent audit or external reproduction was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SDP explicitly covers the instance; path/cycle examples and the cited uniform-cost absolute tree results do not state the claimed priced-star threshold or all-rate uniqueness.",
+        "evidence": "FMMP (1) sums d_{ij}^2 w_{ij}; §§5.2, 5.3 give paths and cycles; reference to Fiedler earlier absolute-connectivity trees occurs near end of §5.2.",
+        "identifier_or_url": "doi:10.1137/S0036144504443821; https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Author full PDF, 19 pages: §§1.2, 3, and 5 and the formulas/examples for paths, cycles, weighted costs and general SDP; text search for star and tree.",
+        "method": "Primary full-text PDF reading, relevant-page inspection and equation comparison",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "The exact same general heterogeneous-cost continuous-time spectral-gap problem"
+      },
+      {
+        "assessment": "It establishes tools reused here but does not include the heterogeneous weighted-star family or nonsymmetric-uniqueness result.",
+        "evidence": "§§2.1–2.2 detail concavity and symmetry; page 1 states Available online 5 May 2006.",
+        "identifier_or_url": "doi:10.1016/j.laa.2006.03.006; https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "Full author PDF, 15 pages; abstract, §2.1 concavity variational formula, §2.2 graph automorphism averaging, later examples; searched full text for star.",
+        "method": "Text and visual inspection of original PDF",
+        "title": "Upper Bounds on Algebraic Connectivity via Convex Optimization",
+        "trigger": "Published concavity-and-symmetry method potentially implying the optimizer"
+      },
+      {
+        "assessment": "Unit-cost generic formulation; no varying-price star classification.",
+        "evidence": "§3 maximizes lambda_2 under w >= 0 and sum w = 1.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+        "material_read": "Full 9-page author PDF, especially §3 on fastest mixing continuous-time process; page 5 visibly inspected.",
+        "method": "Primary full-text inspection of continuum generator and spectral optimization",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "Direct continuum Markov spectral-gap formulation and standard SDP"
+      },
+      {
+        "assessment": "Studies one-to-one interlayer edges between two connected graphs with a coupling budget, not a star with one different edge cost.",
+        "evidence": "Model has two graph layers and a designated one-to-one interconnection edge set; phase boundary is an interlayer budget threshold.",
+        "identifier_or_url": "arxiv:1510.06785v1; https://arxiv.org/html/1510.06785v1",
+        "material_read": "Full open arXiv HTML version: model, principal claims, threshold discussion and source references.",
+        "method": "Primary original text and graph-feasible-set comparison",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Known uniform-to-nonuniform spectral allocation phase transition might dominate the statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94423c8f-aa44-42b8-8c3d-30fa76b807f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The instance is a canonical diffusion network whose sole expensive bridge cannot be removed. The theorem gives a complete rate-allocation law and a sharp, non-obvious threshold at a squared leaf-count price, including uniqueness despite eigenvalue multiplicity at the uniform optimum. It distinguishes when equal edge rates remain optimal in a heterogeneous budget and quantifies a lasting asymptotic gain (m+1)/m without requiring an SDP solve. General techniques are standard but this natural exact design rule and boundary are mathematically informative, not arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
