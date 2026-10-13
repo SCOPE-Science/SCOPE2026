@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on X_(k)=x splits the remaining sample into independent lower Uniform(0,x) and upper Uniform(x,1) groups. Their exact first two raw-sum moments give a quadratic conditional mean of S^2. Integrating x times that quadratic against the first three beta moments yields the displayed covariance. The marginal variances are standard beta and sample-variance formulas and independently reproduce the correlation. Exact Dirichlet-spacing expansion through n=12 and conditional-beta replay through n=1000 agree with every formula and boundary sign.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bekçi (2009) studies exact single and product moments of uniform order statistics.",
+        "Papadatos (arXiv:1405.6884) was inspected in complete HTML form; it reviews L-statistics and order-statistic covariance bounds, but targeted full-text searches found no occurrence of 'sample variance'."
+      ],
+      "reasoning": "Product-moment machinery is broad enough to make an equivalent identity plausible, so the inaccessible complete 2009 text is retained as a specific residual risk. The fully inspected 2014 source is broader in order-statistic optimization but does not imply the same-sample variance profile.",
+      "searches": [
+        "DOI:10.5897/SRE.9000790",
+        "arXiv:1405.6884 order statistics variance covariance",
+        "order statistics product moments uniform distribution",
+        "L-statistics covariance sample variance order statistic"
+      ]
+    },
+    "checked_sources": [
+      "Bekçi (2009), DOI 10.5897/SRE.9000790, publication page and abstract.",
+      "Papadatos, arXiv:1405.6884, complete accessible HTML article.",
+      "Current and prior scientific ledgers for uniform range, order-statistic, and sample-variance overlap.",
+      "Published semantic searches for covariance, conditional variance, rank profile, and exact polynomial aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously checked scientific record db8997d1-2531-42dc-9f93-1256cfbf16ba proves that S^2/R^2 is independent of the sample extrema and gives range-power covariances; it does not state or imply the rank-resolved covariance of X_(k) with S^2 without additional interior-order calculations.",
+        "Previously checked scientific record 09082676-39e9-45bf-959d-4cf6e1af6bfc gives an exact range projection of sample variance, again with range rather than an individual interior order statistic.",
+        "No current-week finding states a covariance profile between every uniform order statistic and same-sample variance."
+      ],
+      "reasoning": "The prior range results compress the two extrema into a range variable and use endpoint-normalized shape. An individual X_(k) contains location and interior-rank information not determined by the range, so those statements do not imply the new all-rank profile.",
+      "searches": [
+        "own uniform sample variance range order statistic covariance",
+        "own range sample variance uniform normalized shape",
+        "own order statistic variance uniform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The located 2009 uniform-order-statistic article advertises single and product order-statistic moment recurrences but its accessible abstract does not state a mixed moment with sample variance.",
+        "No searched published finding stated the factor k(n+1-k)(2k-n-1) or the exact median sign transition."
+      ],
+      "reasoning": "Equivalent formulations include covariance with the quadratic sample dispersion, conditional regression of sample variance on X_(k), and the rank-indexed correlation profile. Searches covered all three forms.",
+      "searches": [
+        "uniform order statistic sample variance covariance exact",
+        "covariance kth order statistic unbiased sample variance uniform",
+        "conditional expectation sample variance given order statistic uniform",
+        "\"order statistic\" \"sample variance\" covariance uniform distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula search returned the accepted covariance or correlation profile.",
+        "The packaged checks generate all finite values from beta and Dirichlet moments rather than from an external numerical table."
+      ],
+      "reasoning": "The claim is symbolic for every sample size and rank. Its finite checks are independent derivations, not table lookups.",
+      "searches": [
+        "\"2k-n-1\" order statistic variance covariance",
+        "\"sample variance\" \"uniform order statistics\" covariance",
+        "\"sample median\" \"sample variance\" uniform covariance"
+      ]
+    },
+    "rationale": "The closest uniform-order-statistic source located concerns recurrences for single and product moments, while the closest fully inspected order-statistic source concerns expectation bounds and covariance among ordered pairs. Neither inspected statement gives the covariance of a single order statistic with the unbiased variance computed from the same sample, its finite sign transition, or the bulk correlation profile. Published-finding searches under direct covariance, conditional-variance, and rank-profile formulations did not locate an equivalent statement.",
+    "residual_risks": [
+      "The complete 2009 uniform-order-statistic moment article was not retrievable; an equivalent mixed-moment formula could be derivable or stated there.",
+      "Classical order-statistic monographs may contain the same covariance under a general product-moment formula not surfaced by targeted searches.",
+      "The proof is elementary after conditioning on X_(k), so historical rediscovery risk is material even though no covering statement was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PLAUSIBLE_MOMENT_BACKGROUND_WITH_FULL_TEXT_ACCESS_RISK",
+        "evidence": "The abstract states recurrence relations for single and product moments of uniform order statistics. It does not expose a statement involving sample variance or the accepted covariance profile.",
+        "identifier_or_url": "DOI:10.5897/SRE.9000790",
+        "material_read": "Open publication page, abstract, keywords, publication metadata, and full-text availability controls; complete article text was not retrievable through the bounded paths used.",
+        "method": "Public publisher-page inspection and exact-title retrieval attempts.",
+        "title": "Recurrence relations for the moments of order statistics from uniform distribution",
+        "trigger": "Most directly matched archive-era title for exact single and product moments of uniform order statistics."
+      },
+      {
+        "assessment": "ORDER_STATISTIC_BOUNDS_NOT_SAME_SAMPLE_VARIANCE_COUPLING",
+        "evidence": "The paper studies expected-range and L-statistic bounds and covariance between ordered pairs. A full-text search found no occurrence of 'sample variance', and no statement gives the rank-resolved same-sample covariance accepted here.",
+        "identifier_or_url": "arXiv:1405.6884",
+        "material_read": "Complete accessible HTML article, including introduction, main theorem sections, final covariance discussion, references, and targeted full-text searches for sample variance, covariance, uniform, and order statistics.",
+        "method": "Public arXiv full-text inspection with within-document searches.",
+        "title": "Maximizing the expected range from dependent observations under mean-variance information",
+        "trigger": "Archive-era primary 62G30 source with a full treatment of order statistics, L-statistics, mean-variance information, and covariance questions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59495db5-5ed7-4ca4-a0e0-1ef380d641d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Order statistics and sample variance are canonical location/rank and dispersion summaries computed from the same sample. The theorem supplies the entire finite dependence profile rather than one isolated moment: a sharp sign transition at the median, reflection symmetry, and a nondegenerate bulk correlation curve with an explicit maximum. This identifies which sample ranks are most coupled to dispersion and quantifies that coupling at finite n and in the quantile-scale limit.",
+    "status": "PASS"
+  }
+}
