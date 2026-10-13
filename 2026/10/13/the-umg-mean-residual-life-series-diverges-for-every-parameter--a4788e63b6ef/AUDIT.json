@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source expands (1+u)^(-2) in a Taylor series restricted to |u|<1 and integrates it over [xi,infinity). More decisively, the absolute kth integrated term is bounded below by a positive multiple of Gamma(k+3,theta*xi)/theta^(k+1), and an elementary unit-interval lower bound proves this tends to infinity. The exact replacement follows from an algebraic partial-fraction decomposition and three elementary/E1 integrals. Direct quadrature agrees with the packaged formula at high precision.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 parent Mgamma paper derives MRL for the untransformed positive variable.",
+        "The parent formula has no (1+u)^(-2) Jacobian factor and therefore does not imply the corrected UMg E1 expression.",
+        "General convergence facts about Taylor series explain why the source interchange is suspect but do not provide the UMg-specific divergence theorem or replacement formula."
+      ],
+      "reasoning": "Broader literature supplies the parent survival and standard MRL definition, but the accepted claim depends on the unit transformation and the exact 2026 Eq. (3.5).",
+      "searches": [
+        "Mgamma mean residual life 2025",
+        "unit transformed Mgamma mean residual life",
+        "mean residual life exponential integral unit distribution"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026762",
+      "doi:10.29020/nybg.ejpam.v18i4.6653"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current owned ledger contains no finding with the target DOI or UMg model name.",
+        "The immediately prior owned weekly ledger contains no target DOI, UMg, MRL, or characteristic expansion match.",
+        "The parent Mgamma article gives an untransformed MRL formula, not the unit-transformed reliability integral."
+      ],
+      "reasoning": "Neither owned work nor the parent distribution's MRL implies divergence of Eq. (3.5) or the exact E1 replacement. The accepted statement is therefore not a corollary or parameter specialization of the checked prior claims.",
+      "searches": [
+        "current ledger 10.3934/math.2026762 unit Mgamma",
+        "prior probability statistics ledger unit Mgamma",
+        "10.29020/nybg.ejpam.v18i4.6653 mean residual life"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus record identifies the target DOI or states divergence of the UMg MRL series.",
+        "Exact web searches located the original article and parent Mgamma paper but no corrigendum or erratum.",
+        "The target full text explicitly uses the local expansion of (1+u)^(-2) on an integral extending to infinity."
+      ],
+      "reasoning": "The searches cover the exact source, model acronym and full name, MRL aliases, incomplete-gamma series, convergence failure, and the characteristic rational factor. No equivalent model-specific correction was located.",
+      "searches": [
+        "10.3934/math.2026762 mean residual life series correction",
+        "unit Mgamma mean residual life incomplete gamma series divergence",
+        "UMg MRL (1+u)^-2 series expansion invalid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 3.4 transforms the MRL numerator to an integral over [xi,infinity).",
+        "The next displayed step invokes the series for (1+u)^(-2) and explicitly states the restriction |u|<1.",
+        "Eq. (3.5) is the resulting incomplete-gamma infinite series and is described as enabling numerical evaluation.",
+        "No correction record was located."
+      ],
+      "reasoning": "The decisive comparison is internal to the displayed derivation: the local expansion is used globally, and the final series independently fails the necessary term test.",
+      "searches": [
+        "10.3934/math.2026762 Eq 3.5 mean residual life",
+        "10.3934/math.2026762 (1+u)^-2 series",
+        "10.3934/math.2026762 corrigendum erratum"
+      ]
+    },
+    "rationale": "The 2026 source presents the divergent Eq. (3.5) as a numerically evaluable MRL formula. Five focused published-finding corpus searches, exact DOI/correction searches, current/prior owned-ledger checks, and inspection of the 2025 parent Mgamma MRL found no UMg-specific correction or equivalent E1 formula.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the records examined.",
+      "The source contains some typographical inconsistencies in intermediate incomplete-gamma notation, but its final Eq. (3.5) still has divergent term magnitudes.",
+      "Other reliability formulas in the article were not reassessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCORRECT. The local Taylor series is integrated over an unbounded interval, and the resulting Eq. (3.5) terms grow without bound.",
+        "evidence": "Section 3.4, Eqs. (3.4)-(3.5), together with the displayed transformation u=t/(1-t).",
+        "identifier_or_url": "doi:10.3934/math.2026762",
+        "material_read": "Open publisher metadata and lawful full-text rendering covering the Mgamma survival, unit transformation, Section 3.4 MRL definition, change of variables, stated |u|<1 series restriction, incomplete-gamma Eq. (3.5), and the claim of numerical evaluability.",
+        "method": "Direct publisher-page and open full-text inspection.",
+        "title": "Modelling bounded data over interval (0, 1) using a novel unit Mgamma (UMg) distribution and its statistical properties",
+        "trigger": "Primary 2026 source deriving the UMg MRL series."
+      },
+      {
+        "assessment": "RELATED BUT NOT COVERING. It treats the untransformed Mgamma MRL and contains no UMg series or E1 correction.",
+        "evidence": "The parent MRL section integrates the Mgamma survival directly on the positive half-line.",
+        "identifier_or_url": "doi:10.29020/nybg.ejpam.v18i4.6653",
+        "material_read": "Open full PDF at the Mgamma survival function and mean-residual-life derivation.",
+        "method": "Direct PDF text and rendered-page inspection.",
+        "title": "The Mgamma Distribution: Statistical Properties and Application to Real-Life Data",
+        "trigger": "Parent distribution and closest same-model reliability source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4788e63-b6ef-4ed5-993a-32ac4ad97f0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mean residual life is a central reliability descriptor explicitly developed as a structural property of the new unit distribution. The published representation is claimed to enable numerical evaluation but diverges for every admissible parameter and threshold, so it is unusable precisely for its stated purpose. The exact E1 formula restores a globally valid and directly computable reliability quantity rather than merely flagging a derivational technicality.",
+    "status": "PASS"
+  }
+}
