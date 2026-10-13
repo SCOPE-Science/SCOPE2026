@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Direct smallest-missing-odd-part counting yields F=G·Theta with G=E(q^4)/E(q). Jacobi and Gauss give F=Psi(-q)R², where R=∏(1+2q^m/(1+q^{2m}))=1+2U. Modulo two U counts odd divisors, so U+U² is the odd-square indicator. This proves the coefficientwise congruence for all nonnegative indices. Inert primes p=5,7 (mod 8) force even p-adic valuations of 8n+1 for any representation; finite CRT densities and divergence of reciprocals of inert primes prove natural density one of eight-divisibility. A separate verifier checked 601 coefficients and direct partitions for n≤22; these finite tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mukherjee’s Section 6 obtains the product identity, while the summary of results in §1 and §7 does not contain residue classifications or density-one divisibility for this statistic.",
+        "The distinct-even partition enumeration is the four-regular partition sequence OEIS A001935; the cited item tabulates unweighted counts, not odd-excludant weighted residues."
+      ],
+      "reasoning": "An exact generating function implicitly determines every coefficient, so the theorem does not assert a new generating function. The stronger explicit arithmetic claims, especially exact modulo-four support, the modulo-eight representation correction, and density one for eight-divisibility, are not given by the known stated theorems or by parameter specialization. The needed two-adic square extraction and inert-prime sieve are substantive additional arguments.",
+      "searches": [
+        "\"Parity of parts and excludant statistics in partitions\" \"congruence\"",
+        "\"sum of odd minimal excludants\" \"triangular\" \"modulo 4\"",
+        "\"even parts distinct\" \"smallest absent odd\" \"triangular\" congruence",
+        "\"odd-mex\" \"even parts distinct\" weighted congruences"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.13915v1, exact statistic and proof of Theorem 1.12",
+      "arXiv:2110.08108v2, Theorems 2.1/2.2 and related conjecture",
+      "OEIS A001935, unweighted four-regular partition sequence",
+      "Published semantic research summaries on modular partitions and quadratic-form obstructions; relevant searches yielded distinct statistics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary Theorem 1.12 proof: the previously known series is G(q)·Theta(q).",
+        "The new identity is G(q)·Theta(q) ≡ Psi(-q)(1+4∑_{s odd>0}q^{s²}) (mod 8), and the additional density-one result uses quadratic nonresidues at primes 5,7 (mod 8).",
+        "The earlier 2022 congruences use unrestricted partitions; they have neither this weighted statistic nor the same generating function."
+      ],
+      "reasoning": "A literal implication from a source’s exact product formula to an explicit modular theorem requires a nontrivial additional analysis; the source does not formulate the result or provide the factor R whose parity-square cancellation gives odd squares. No searched prior theorem has a parameter family whose specialization gives this classification. The theorem is not presented as an independent generating function or as a new formula for the unweighted sequence.",
+      "searches": [
+        "arXiv:2603.13915v1 §6 formula for sigma_ed moex",
+        "arXiv:2110.08108v2 Theorem 2.2 modulo 8 mex",
+        "triangular number plus odd square representation parity partition statistic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mukherjee, arXiv:2603.13915v1, (1.18), Theorem 1.12 and §6: the exact weighted generating function is derived but no sparse modulo-eight triangular–odd-square dissection is stated.",
+        "Baruah–Bhoria–Eyyunni–Maji, arXiv:2110.08108, Theorem 2.2: congruences for odd/even minimal excludants of unrestricted partitions; this is a different weighting domain."
+      ],
+      "reasoning": "The known product generating function is an essential starting identity, not itself the claimed coefficientwise congruence. The proof adds a new square factorization whose half-factor has parity supported on powers of two times odd squares, and the cancellation that retains only odd squares. Those steps are needed to derive the explicit residue law and density-one consequence. Older unrestricted-partition excludant results do not imply the distinct-even statistic.",
+      "searches": [
+        "weighted smallest odd missing part over partitions with distinct even parts sigma ed moex n mod 8 triangular number plus odd-square representation",
+        "\"even parts distinct\" \"moex\" \"mod 8\"",
+        "\"sigma_ed_moex\" congruence triangular",
+        "arXiv:2603.13915v1 Theorem 1.12 Section 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001935 describes numbers of partitions without repeated even parts (four-regular partitions), not the weighted least-missing-odd-part statistic.",
+        "No inspected exact-value table states the triangular–odd-square residue law."
+      ],
+      "reasoning": "The available exact table counts the base partition family; its values alone cannot establish the weighted congruence, and the only finite weighted values independently computed here serve as verification rather than a database result. Search absence is not taken as proof of novelty.",
+      "searches": [
+        "OEIS partitions even parts distinct sum least missing odd part sequence",
+        "OEIS \"smallest odd\" \"even parts\" partitions weighted",
+        "OEIS A001935 partitions no repeated even parts"
+      ]
+    },
+    "rationale": "The full primary literature contains the generating function, but not the new dyadic residue extraction, complete modulo-eight triangular–odd-square law, exact modulo-four parity support, or density-one theorem. The closest earlier mex congruences concern unrestricted partitions. Targeted mathematical searches and prior-claim comparison found no covered theorem; unindexed equivalent work remains possible. A known exact generating function is credited and not claimed as new.",
+    "residual_risks": [
+      "Equivalent congruence dissections may appear in unindexed or inaccessible publications.",
+      "The originating exact generating function implicitly determines every coefficient; the novelty claim rests specifically on the nontrivial explicit modulo-eight dissection and derived density-one statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KNOWN_GENERATING_FUNCTION_NOT_NEW_RESIDUE_CLASSIFICATION",
+        "evidence": "The series G(q)Theta(q) is explicitly obtained in §6. Neither the modulo-eight odd-square correction nor the density-one corollary is established there.",
+        "identifier_or_url": "arXiv:2603.13915v1; https://arxiv.org/html/2603.13915v1",
+        "material_read": "Definition (1.18), Theorem 1.12, complete corresponding derivation in §6, preceding main theorems in §1, and concluding §7.",
+        "method": "Read public full-text HTML, including displayed formulas and proof.",
+        "title": "Parity of parts and excludant statistics in partitions",
+        "trigger": "Identical partition family and identical least missing odd part statistic."
+      },
+      {
+        "assessment": "DIFFERENT_STATISTIC_AND_PARTITION_POPULATION",
+        "evidence": "Its odd/even mex weighted sums are over unrestricted partitions rather than partitions with even parts distinct.",
+        "identifier_or_url": "arXiv:2110.08108v2; https://arxiv.org/abs/2110.08108",
+        "material_read": "Public full-text reproduction of Theorems 2.1 and 2.2, discussion and Conjecture 6.1; arXiv abstract and bibliographic metadata.",
+        "method": "Read publicly available full-text reproduction and original arXiv bibliographic page.",
+        "title": "A refinement of a result of Andrews and Newman on the sum of minimal excludants",
+        "trigger": "Prior congruences modulo four and eight for related minimal excludant sums."
+      },
+      {
+        "assessment": "BASE_COUNTING_SEQUENCE_ONLY",
+        "evidence": "The table gives unweighted partition numbers and not the sum of smallest missing odd parts.",
+        "identifier_or_url": "https://oeis.org/A001935",
+        "material_read": "Definition, initial terms and comments identifying four-regular partitions and alternative partition descriptions.",
+        "method": "Read original sequence entry.",
+        "title": "OEIS A001935: partitions with no repeated even part",
+        "trigger": "Checks whether the base unweighted generating-function or modular profile is already tabulated."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8be3d566-35ac-4e28-af5c-b880604f6831",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recently introduced weighted excludant statistic now has a complete, explicit modulo-eight coefficient classifier with an arithmetic representation interpretation. Exact nondivisibility by four occurs only at triangular integers, and divisibility by eight holds on a natural-density-one set through an inert-prime obstruction. These are motivated structural consequences not equivalent to a small finite table, arbitrary slice, or routine base-case check.",
+    "status": "PASS"
+  }
+}
