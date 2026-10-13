@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For prime \\(p\\ge5\\), evenness of \\(a_{2p-1}\\) restricts \\(b_{2p}\\) to \\(1\\) or \\(p\\). If \\(b_{2p}=1\\), primality of \\(p\\) makes it divide a single factor \\(1+b_k\\); the bound \\(1+b_k\\le2p\\) leaves only \\(b_k=p-1\\) or \\(2p-1\\). Divisibility \\(b_k\\mid k\\), parity of earlier \\(a_n\\), and \\(8\\mid a_n\\) for \\(n\\ge6\\) exclude both possible indices for \\(b_k=p-1\\), forcing \\(k=2p-1\\). The reverse implication follows because \\(1+b_{2p-1}=2p\\). No finite experiment is used in the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2510.18891, Lemma 3.1, proves \\(b_q=q\\) for primes \\(q\\ge5\\).",
+        "arXiv:2510.18891, Proposition 6.10, gives a conditional twin-prime detector for a different \\(K=2\\) recurrence at prime indices."
+      ],
+      "reasoning": "The prime-step lemma gives only the easy forward prime-pair direction here. The \\(K=2\\) theorem changes both the recurrence and the index pattern, so it does not imply the exact \\(K=1\\) equivalence at \\(2p\\).",
+      "searches": [
+        "Cloitre original K=1 recurrence prime pairs p 2p-1 detector",
+        "Primes in LCM recurrences forced-1 twin prime detector K=2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.18891",
+      "arXiv:1504.05041",
+      "OEIS:A135506"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ruiz-Cabello's Proposition 5 gives the prime-step identity and Lemma 7 gives \\(b_n\\mid n\\), but neither inspected statement controls which earlier factor can first introduce \\(p\\) before the index \\(2p\\).",
+        "Cloitre's guaranteed stock contains factors \\(q+1\\) from prime indices, which implies the forward direction when \\(2p-1\\) is prime, but it does not supply the converse."
+      ],
+      "reasoning": "The new content is the exclusion of every alternative way for the factor \\(p\\) to enter before \\(2p\\), except through the maximal preceding increment. That exclusion is not an implication of the cited prime-step or stock statements alone.",
+      "searches": [
+        "On the use of the least common multiple to build a prime-generating recurrence 2p-1",
+        "Primes in LCM recurrences q+1 stock composite index"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The semantic searches returned no record stating the two-index equivalence; their highest-scoring results concerned unrelated prime-support or recurrence phenomena.",
+        "Exact web searches returned Cloitre's recurrence paper and general recurrence references, but no occurrence of the claimed equivalence."
+      ],
+      "reasoning": "Equivalent formulations include saying that a forced one at the even semiprime index \\(2p\\) occurs exactly when the immediately preceding odd index attains its maximal increment. No searched source stated that implication in either direction.",
+      "searches": [
+        "original LCM recurrence b_{2p}=1 iff b_{2p-1}=2p-1 prime p",
+        "LCM recurrence even semiprime indices p 2p forced one preceding maximal increment",
+        "\"a_n=a_{n-1}+lcm(n,a_{n-1})\" \"2p-1\" prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected OEIS A135506 page records that prime steps satisfy the known prime-index behavior and lists initial terms.",
+        "No inspected OEIS comment or cross-reference states the \\(2p\\)-to-\\(2p-1\\) equivalence."
+      ],
+      "reasoning": "The finding is not an extrapolation of a finite table. The table is used only to compare known commentary; the theorem is proved symbolically.",
+      "searches": [
+        "A135504 A135506 p 2p-1 forced 1 increment",
+        "OEIS A135506 LCM recurrence"
+      ]
+    },
+    "rationale": "The retained statement is an exact two-index theorem for the original \\(K=1\\) recurrence. Cloitre's source proves prime-step behavior and a different \\(K=2\\) twin-prime detector; Ruiz-Cabello proves the older prime-step and Linnik-linked framework. The inspected sources and targeted searches did not contain the \\(b_{2p}=1\\Longleftrightarrow b_{2p-1}=2p-1\\) equivalence or its local-conjecture prime-pair corollary.",
+    "residual_risks": [
+      "No literature search proves absolute uniqueness of a short elementary observation; an unindexed note or later OEIS edit could contain the same equivalence. The closest full primary papers and the canonical sequence entry were nevertheless checked, and no stronger coverage was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source proves \\(b_q=q\\) at prime steps and a \\(K=2\\) twin-prime detector, but does not state the \\(K=1\\) equivalence at \\(2p\\).",
+        "identifier_or_url": "arXiv:2510.18891",
+        "material_read": "Current full preprint, especially Introduction, Sections 2--3, and Section 6 on exact twin-prime detection; the relevant PDF pages were inspected directly.",
+        "method": "Full-text statement and proof comparison, including searches for the candidate index pattern and prime-pair aliases.",
+        "title": "Primes in LCM recurrences: a density theorem via companion sieves",
+        "trigger": "Primary recent source for the recurrence, prime-step lemma, guaranteed stock, and the closest prime-pair detector."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It proves divisibility and prime-step results and connects the global conjecture to prime distribution, but no inspected result states or implies the exact \\(2p\\)-to-\\(2p-1\\) equivalence without the new exclusion argument.",
+        "identifier_or_url": "arXiv:1504.05041",
+        "material_read": "Full preprint Introduction and the main auxiliary-results section, including Propositions 4--6 and Lemma 7; relevant PDF material was inspected directly.",
+        "method": "Statement/implication comparison against the exact two-index theorem.",
+        "title": "On the use of the least common multiple to build a prime-generating recurrence",
+        "trigger": "Foundational paper on the same recurrence and a plausible source for structural special cases."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The inspected comments record prime-step behavior but not the doubling equivalence.",
+        "identifier_or_url": "OEIS:A135506",
+        "material_read": "Sequence definition, displayed initial values, comments, and cross-references in the indexed page.",
+        "method": "Direct comparison with the theorem and its prime-pair corollary.",
+        "title": "OEIS A135506",
+        "trigger": "Canonical sequence record for the increments, with comments that could contain a previously noticed pattern."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6fa38522-81c6-4ec6-99a7-2ff5ad791cb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem identifies a natural structural mechanism in the exact recurrence studied by the recent source: forced-one increments on the canonical semiprime slice \\(2p\\) are controlled by one adjacent maximal increment. This both localizes the unresolved conjectural input and shows that the original \\(K=1\\) sequence already has a prime-pair detector, paralleling but not duplicating the source's motivation for introducing \\(K=2\\). The fact is infinite, exact, and explanatory rather than a finite census or a renamed textbook deduction.",
+    "status": "PASS"
+  }
+}
