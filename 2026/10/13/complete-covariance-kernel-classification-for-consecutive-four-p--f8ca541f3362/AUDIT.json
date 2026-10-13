@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "In exact integer arithmetic, the four overlap matrices Q_0..Q_3 are enumerated from 24,120,720,5040 permutations; the 24-by-24 asymptotic covariance has scale L=20160. The leading 18-by-18 integer principal minor has determinant nonzero modulo 1000003 (value 897856), proving rank >=18. Exact multiplication gives a 6-dimensional kernel of endpoint-coboundary vectors, proving rank <=18. The telescoping identity and boundary variance follow for every n, and the Gaussian limit follows by 3-dependence and Cramer–Wold. Bundled checker independently validates every matrix entry, rank, and 2304 finite covariance comparisons for orders 4 through 7. The finite checks alone do not establish the CLT.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson 2021/2022, Theorem 14.1 proves univariate CLTs for constrained pattern counts; Remark 14.2 states the linear-combination degeneracy classification is left open.",
+        "Weiß et al. 2022 abstract describes omnibus serial-dependence tests and standard asymptotic distributions, whereas Bandt 2023 §VII compares two selected length-four contrasts from that work.",
+        "Prior length-three consecutive-pattern result classifies a six-category vector, not the full length-four vector."
+      ],
+      "reasoning": "The general CLT supplies Gaussianity, not the rank and complete classification of vanishing linear combinations. Earlier test procedures could imply covariance facts via unpublished or unstated computations but no inspected theorem covering rank 18 for all 24 components was found; this remains a priority risk.",
+      "searches": [
+        "complete covariance matrix of consecutive permutation patterns of length four joint Gaussian limit",
+        "asymptotic variance zero consecutive permutation patterns four pattern counts linear combination",
+        "arXiv:2106.09401 Remark 14.2",
+        "doi:10.1016/j.csda.2021.107381"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2106.09401 §14, Remark 14.2",
+      "doi:10.1063/5.0132602 §§III,VII,VIII",
+      "arXiv:1509.07941 introduction and occurrence results",
+      "arXiv:1312.3955 main random-permutation pattern-count results",
+      "doi:10.1016/j.csda.2021.107381 abstract and secondary comparison",
+      "doi:10.1111/j.1467-9892.2007.00528.x dated abstract",
+      "research record 2026/9/9/SCOPE043 (mesh avoidance; different estimand)",
+      "research record 2026/9/21/SCOPE-four-way-interaction-sparre-andersen-persistence--a412ed2dcdb6 (different model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson 2021/2022 Remark 14.2: constrained linear-combination degeneracy is left open.",
+        "Bandt 2023 §VIII calls systematic length-four pattern analysis the next step; §VII supplies covariance for only the 1234/4321 pair.",
+        "Crane–DeSalvo 2015, Sections 3 and 5, develops avoidance and occurrence distribution approximations, not full mixed covariance kernel.",
+        "Janson–Nakamura–Zeilberger 2013 deals with the number of nonconsecutive occurrences and a different normalization."
+      ],
+      "reasoning": "Each named prior result permits useful comparisons but none has a premise/conclusion implying the complete nondegenerate 18-dimensional quotient. Known stationary balance/endpoint identities give a six-dimensional upper bound on rank, and the nonzero 18-minor is the decisive new lower bound. The existence of a general covariance enumeration algorithm is not conflated with an explicit existing theorem.",
+      "searches": [
+        "24 consecutive four-letter permutation patterns covariance rank 18 five boundary telescoping contrasts uniform random permutations",
+        "degenerate linear combinations of consecutive ordinal pattern counts length four asymptotic variance coboundary",
+        "\"degenerate\" \"constrained\" \"patterns\" \"variance\" Janson",
+        "Bandt 2023 length 4 contrasts Weiss ordinal patterns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bandt 2023, §III C/D and §VIII, derives and diagonalizes the length-three covariance; concludes full length-four analysis remains a next step.",
+        "Janson 2021/2022, Remark 14.2, explicitly identifies degenerate linear combinations of constrained permutation pattern counts as an open classification question."
+      ],
+      "reasoning": "Recast the claim both as the exact kernel of a 24-by-24 asymptotic ordinal-frequency covariance matrix and as classification of all zero-variance/coboundary weighted length-four consecutive patterns. The 2023 lower-length case does not imply the exact rank-18 positive definite quotient of the 24-category matrix. The overlap-count recipe in prior articles allows recomputation but is not itself the new rank/nonexistence result.",
+      "searches": [
+        "24 consecutive four-letter permutation patterns covariance rank 18 five boundary telescoping contrasts uniform random permutations",
+        "degenerate linear combinations of consecutive ordinal pattern counts length four asymptotic variance coboundary",
+        "ordinal pattern frequency vector singular covariance nullspace pattern overlap de Bruijn graph",
+        "\"ordinal patterns\" \"covariance\"",
+        "\"Elsinger\" \"ordinal patterns\" covariance matrix eigenvalues length 4 rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching 24-by-24 rank-18 spectrum or six-dimensional kernel surfaced in the named published records; the closest observed record 2026/9/9/SCOPE043 concerns 1324 mesh-pattern avoidance counts, not stochastic consecutive-pattern covariances.",
+        "The attached exact matrix has integer entries after scaling by 20160 and a checkable nonzero 18-by-18 modular principal minor."
+      ],
+      "reasoning": "Pattern enumeration and partial covariance formulas are recognized prior ingredients. The new candidate is the complete rank/kernel theorem; a pre-existing table of 24-by-24 covariances together with rank or a dominating nullspace theorem would cover it, but no such documented table was located. Absence from search results is not a proof of priority.",
+      "searches": [
+        "finite exact covariance tables all 24 length-four consecutive permutation patterns",
+        "ordinal pattern count covariance matrix rank deficiency all permutations size 4 iid time series"
+      ]
+    },
+    "rationale": "The complete rank-18/nullity-six kernel for all twenty-four length-four consecutive indicators is distinguished from already known single-pattern CLTs, lower-length contrasts, general overlap formulas, and unconstrained subsequence statistics. The published 2021/2022 constrained-pattern paper explicitly leaves degenerate linear combinations open in Remark 14.2; the 2023 full text computes the length-three system and only two length-four contrasts. Exact search comparisons and incomplete-access risks are recorded. Searches alone are not asserted to prove novelty.",
+    "residual_risks": [
+      "An older ordinal-pattern stationary-distribution theorem may imply the five balance constraints; the new rank-minor and absence of further degeneracies may still be implicit in pre-existing covariance tables.",
+      "Weiß et al. 2022 full text and Bandt–Shiha 2007 full text were not available for complete priority examination.",
+      "Search in published records cannot establish absolute priority or reveal unpublished work; independent mathematical audit remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: individual CLT given; general degenerate linear-combination classification explicitly open",
+        "evidence": [
+          "Remark 14.2: characterization of constrained-pattern linear combinations with zero asymptotic variance is expressly left open.",
+          "Theorem 14.1 covers each single pattern count and does not state the kernel for all twenty-four length-four counts."
+        ],
+        "identifier_or_url": "arXiv:2106.09401",
+        "material_read": "Primary PDF §14, Theorem 14.1, Remark 14.2, and related discussion, pp. 41–43",
+        "method": "Read full-text PDF pages and checked stated theorem against the specific nullspace claim",
+        "title": "Asymptotic normality for m-dependent and constrained U-statistics, with applications to pattern matching in random strings and permutations",
+        "trigger": "Directly plausible stronger constrained-pattern CLT and zero-variance classification"
+      },
+      {
+        "assessment": "NOT_COVERING: six length-three pattern categories treated in full; only two length-four contrasts compared, and full length-four analysis identified as next step",
+        "evidence": [
+          "§VIII: next step is to study length-four patterns.",
+          "§VII contrasts of 1234 and 4321 from Weiß et al.; not complete 24-pattern vector."
+        ],
+        "identifier_or_url": "doi:10.1063/5.0132602",
+        "material_read": "Full author article text, including §III C/D, §§VII–VIII and cited length-four comparison",
+        "method": "Full-text HTML transcription of primary article, section by section",
+        "title": "Statistics and contrasts of order patterns in univariate time series",
+        "trigger": "Highly relevant covariance eigenstructure and length-four pattern contrasts"
+      },
+      {
+        "assessment": "NOT_COVERING: occurrence/avoidance Poisson bounds are not full 24-pattern covariance rank or nullspace",
+        "evidence": [
+          "Abstract and Sections 3 and 5 concern pattern avoidance and occurrence-count approximation; no six-dimensional nullspace assertion."
+        ],
+        "identifier_or_url": "arXiv:1509.07941",
+        "material_read": "Accessible original preprint PDF, introduction and relevant main results/sections on occurrences and avoidance",
+        "method": "Read PDF text and compare estimands and normalization",
+        "title": "Pattern Avoidance for Random Permutations",
+        "trigger": "Consecutive-pattern joint distributions and potential stronger covering probability formulas"
+      },
+      {
+        "assessment": "NOT_COVERING: unrestricted subsequence counts require different combinatorial overlap and normalization",
+        "evidence": [
+          "The object is arbitrary subsequence pattern occurrence, rather than adjacent length-four windows."
+        ],
+        "identifier_or_url": "arXiv:1312.3955",
+        "material_read": "Accessible original PDF, introductory definition and main joint-statistics results",
+        "method": "Reviewed original paper for distinction between ordinary nonconsecutive subsequence occurrences and exactly consecutive windows",
+        "title": "On the Asymptotic Statistics of the Number of Occurrences of Multiple Permutation Patterns",
+        "trigger": "Potential multivariate pattern-count covariance theory"
+      },
+      {
+        "assessment": "UNRESOLVED_PARTIAL_ACCESS: only partial examination, so hidden equivalent remains a live residual risk",
+        "evidence": [
+          "Bandt 2023 §VII reports two selected length-four patterns and their 2-by-2 covariance; full 24-by-24 kernel is not stated there."
+        ],
+        "identifier_or_url": "doi:10.1016/j.csda.2021.107381",
+        "material_read": "Abstract, bibliographic and OA-location information, together with precise account of its selected length-four contrasts in Bandt 2023; complete primary paper not obtained",
+        "method": "Searched both repository handles and publicly indexed article; compared article abstract with primary Bandt 2023 exposition",
+        "title": "Non-parametric analysis of serial dependence in time series using ordinal patterns",
+        "trigger": "Potential direct coverage of length-four pattern covariance ranks"
+      },
+      {
+        "assessment": "PARTIAL_ACCESS: no conclusive exclusion of all implicit covariance identities",
+        "evidence": [
+          "First public publisher date 19 February 2007; abstract studies pattern probabilities for Gaussian and ARMA processes."
+        ],
+        "identifier_or_url": "doi:10.1111/j.1467-9892.2007.00528.x",
+        "material_read": "Publisher bibliographic and abstract text, not full text",
+        "method": "Checked dated original first-public record and scope of probability analysis",
+        "title": "Order Patterns in Time Series",
+        "trigger": "Foundational pre-archive ordinal-pattern distribution framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f8ca541f-3362-4ee0-b920-80c42ca68e3c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification of all asymptotically degenerate linear functionals of the first 24-category local order-pattern histogram: it resolves the dimension, isolates five nontrivial endpoint invariants, and proves there are no hidden cancellations among remaining contrasts. The resulting exact 18-dimensional Gaussian support matters for constructing nonsingular joint null calibration in ordinal-pattern tests. It is motivated by the stated gap for constrained-pattern degeneracy and by direct calls for length-four analysis; not merely a table lookup or a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
