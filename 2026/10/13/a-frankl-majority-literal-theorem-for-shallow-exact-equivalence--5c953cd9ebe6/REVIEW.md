@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness
+**PASS.** Berardi Gili's primary source defines cumulative state descriptions and canonical representations, proves closure equivalence, proves that a canonical state verifies exactly the state description having its representation, and identifies the exact verifiers of a closed normal form with its disjunct representations. From these statements, closure representations are precisely nonempty unions of original disjunct representations. The converse construction from an arbitrary nonempty union-closed family is immediate because every nonempty subset of the finite canonical-representative universe is realized by a conjunction. The representative recurrence was reconstructed with least-degree duplicates removed: \(R_0=2q\), \(R_1=R_0+2(2^{R_0}-1)\), and \(R_{n+1}=R_n+2(2^{R_n}-2^{R_{n-1}})\) for \(n\ge1\). The published Vučković--Živković theorem then supplies the majority element whenever the closure universe has at most \(12\) elements.
+
+## Originality
+**PASS.** The closest primary source, Berardi Gili (2026), contains the closure and canonical-model ingredients but does not state a union-closed-family classification, mention Frankl's conjecture, or derive a majority-literal theorem. The older exact-entailment literature explicitly notes fusion closure, but not this finite canonical-family classification or its Frankl consequence. The Vučković--Živković paper proves the independent \(12\)-element combinatorial theorem and has no modal-truthmaker application. Targeted database and literature searches using exact-equivalence, union-closure, canonical-representation, Frankl, majority-literal, and parameter-boundary formulations returned no result covering the claim. Previously published related findings were compared at the statement and implication level; the closest items concern unrelated union-closure preservation in team semantics and unrelated modal-frame counting.
+
+## Value
+**PASS.** The classification exposes a concrete combinatorial structure hidden in a new modal exact-equivalence completeness proof: exact-equivalence normal forms are controlled by union-closed families. This imports a nontrivial extremal theorem into the logic and yields an explicit structural feature—an abundant canonical literal—through a sharp ambient-size boundary for the small-universe Frankl theorem used here. It also creates a natural route by which future improvements on finite Frankl bounds transfer automatically to larger modal fragments.
+
+## Closest literature and limitations
+The result is deliberately narrower than a general proof of Frankl's conjecture and does not assert failure outside the displayed parameter pairs. The \(12\)-element theorem is computer assisted and was used as a published theorem rather than independently recomputed. Search risk remains because exact-equivalence/truthmaker terminology varies across philosophy and logic, but direct searches for the structural combination and inspection of the primary source and its closest cited exact-entailment framework found no coverage.
+
+Self-review: passed. Independent audit: not yet performed.
