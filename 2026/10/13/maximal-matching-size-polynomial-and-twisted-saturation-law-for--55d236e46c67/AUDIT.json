@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Every maximal matching has a unique admissible nine-state encoding. The rail-twist matrix S produces the exact trace tr(T^n S), and its commuting +/- eigenspace decomposition has exact verified determinants Q+ and Q-. A formal Laurent-to-power-series transformation proves the strict lower bound; explicit Taylor coefficient extraction proves every minimum multiplicity with the n=3 exception. The attached verifier recomputes determinants from actual state definitions and brute-forces all cardinalities for n=3..10; those finite tests supplement the all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golin, Leung and Wang (ISAAC 2004) derive a general transfer framework for counting several circulant graph structures, mentioning Möbius ladders but not an explicit graded inclusion-maximal matching polynomial.",
+        "McSorley (1998) abstract says it counts many structures on the exact family; missing full text prevents excluding stronger coverage.",
+        "Belcastro (JIS 26, 2023), Theorem 6 and discussion, enumerates perfect matchings (all vertices saturated) on the Möbius strip, only the top coefficient here."
+      ],
+      "reasoning": "A general counting algorithm does not by itself establish the explicit determinant and all-order minimum multiplicities. Existing perfect-matching formulas cover a strict endpoint coefficient, not intermediate maximal-match size counts. No inspected full paper gave a dominating all-coefficient result. McSorley is identified as the precise unresolved source risk.",
+      "searches": [
+        "published-finding corpus: Möbius ladder M_n maximal matchings cardinality generating polynomial saturation number exact count minimum maximal matching size",
+        "Web: \"Counting Structures in the Möbius Ladder\" \"matching polynomial\"",
+        "https://www.cse.ust.hk/~golin/pubs/golin_Isaac_04.pdf"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A284710 full HTML record",
+      "MathWorld Möbius Ladder complete entry",
+      "Golin–Leung–Wang ISAAC 2004 PDF relevant sections",
+      "belcastro JIS 2023 PDF Theorem 6",
+      "Jakobson–Rivin arXiv:math/9907050v1 HTML",
+      "McSorley OpenSIUC and Michigan Tech bibliographic records; full article not accessible",
+      "published-finding corpus ranked searches: 3 actual queries, closest published matching and induced-matching results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A284710 already implies the specialization P_n(1); this specialization is explicitly not claimed as new.",
+        "Belcastro Theorem 6 gives the highest-degree perfect-matching count, which is likewise not claimed as new.",
+        "The corresponding graded untwisted cycle-prism enumeration concerns a different labeled graph family: it does not imply twisted-closure traces or their low-degree cancellation without a separate argument."
+      ],
+      "reasoning": "The claim properly refines, but is not implied by, the known total: different coefficient vectors can have the same sum. The exact twisted saturation law and its residue-class counts do not follow from perfect matching enumeration or ordinary matching polynomials by relettering. A distinct boundary condition and minus-eigenspace trace supply the nontrivial comparison; equivalence from an inaccessible older paper remains a residual priority risk.",
+      "searches": [
+        "published-finding corpus: Möbius ladder M_n maximal matchings cardinality generating polynomial saturation number exact count minimum maximal matching size",
+        "published-finding corpus: Moebius ladder cardinality enumerator maximal matchings sizes OEIS A284710",
+        "published-finding corpus: Möbius ladder maximum independent edge sets minimum counts floor(2n/3)+1",
+        "Web: \"Counting Structures in the Möbius Ladder\" \"maximal\" \"matching\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Möbius ladders are 2n-cycle graphs with opposite chords (MathWorld Möbius Ladder); a maximal matching is also a matching that edge-dominates, equivalently one whose unmatched vertices are independent.",
+        "MathWorld presents the ordinary matching polynomial and independence polynomial, but does not state the cardinality distribution of inclusion-maximal matchings.",
+        "Nearby published-finding corpus entries concern generic average maximal matchings, induced matchings or different graphs, not the Möbius-ladder graded distribution."
+      ],
+      "reasoning": "Equivalent terms maximal independent edge set, minimal edge-dominating matching, saturation, twisted ladder were compared at statement level. Ordinary matchings are a strict superset and independent vertex sets are different objects. The graded Möbius formula is not provided by the inspected records; the 1998 McSorley full text remains a possible undisclosed equivalent.",
+      "searches": [
+        "published-finding corpus: Möbius ladder M_n maximal matchings cardinality generating polynomial saturation number exact count minimum maximal matching size",
+        "published-finding corpus: Moebius ladder cardinality enumerator maximal matchings sizes OEIS A284710",
+        "published-finding corpus: Möbius ladder maximum independent edge sets minimum counts floor(2n/3)+1",
+        "Web: \"Moebius ladder\" \"maximal matchings\" \"polynomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A284710 entry (Eric W. Weisstein, 2017) supplies one integer a(n) per graph n, the ungraded total, with scalar recurrence and scalar generating function.",
+        "MathWorld equations (2)-(4) concern ordinary independence and matching polynomials, not maximal-matching cardinality coefficients.",
+        "The new polynomial specializes at z=1 to OEIS A284710, independently checked for n=3..28."
+      ],
+      "reasoning": "A scalar per n does not fix the cardinality profile; for example the new n=4 profile is 16 at size 3 and 7 at size 4, summing to the known 23. Perfect matching tables supply at most the size-n term. No inspected exact graded maximal-matching table was found.",
+      "searches": [
+        "https://oeis.org/A284710",
+        "https://mathworld.wolfram.com/MoebiusLadder.html",
+        "published-finding corpus: Moebius ladder cardinality enumerator maximal matchings sizes OEIS A284710"
+      ]
+    },
+    "rationale": "The full graded distribution and twist-specific extremal multiplicities go beyond the scalar total in OEIS A284710, beyond perfect-matching counts and beyond the ordinary matching polynomial. No published-finding corpus or inspected published source gives a statement implying the full claim. The McSorley full-text priority risk is explicitly retained and has not been silently judged negative.",
+    "residual_risks": [
+      "McSorley, Discrete Mathematics 184 (1998), pp. 137–164, same graph-family counting title: full paper not accessible; cannot exclude earlier graded maximal matching profile.",
+      "The general method is a transfer construction; the priority claim is about the explicit complete distribution and sharp low-degree law, not a new transfer paradigm.",
+      "published-finding corpus search is limited to published indexed records, not all unpublished mathematical work or every possible terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers ungraded total only; does not state cardinality-resolved polynomial or minimum-size multiplicities",
+        "evidence": "The record labels a(n) as number of maximal matchings and provides one recurrence for a(n), starting n=3 with 6,23,43,102.",
+        "identifier_or_url": "https://oeis.org/A284710",
+        "material_read": "Complete displayed record, sequence, formula, recurrence, authorship and date",
+        "method": "Read full OEIS page",
+        "title": "Number of maximal matchings in the n-Moebius ladder",
+        "trigger": "Exactly the same graph and maximal-matchings property"
+      },
+      {
+        "assessment": "Unresolved priority risk; cannot claim this paper does not cover maximal matching profiles",
+        "evidence": "Abstract explicitly says it counts many structures of Möbius ladders but does not identify all counted invariants.",
+        "identifier_or_url": "doi:10.1016/S0012-365X(97)00086-1",
+        "material_read": "University repository abstract, bibliographic record and April 1998 attribution only; full article unavailable",
+        "method": "OpenSIUC and Michigan Tech repository metadata; direct repository PDF request denied 403; separate full-text route required interactive authorization",
+        "title": "Counting Structures in the Möbius Ladder",
+        "trigger": "Exact graph family and broad counting topic; plausible earlier covering theorem"
+      },
+      {
+        "assessment": "Ordinary matching polynomial/independence polynomial are not inclusion-maximal matching enumerators",
+        "evidence": "The matching polynomial formula counts arbitrary matchings; there is no degree-sensitive maximality requirement.",
+        "identifier_or_url": "https://mathworld.wolfram.com/MoebiusLadder.html",
+        "material_read": "Full publicly displayed entry including matching/independence equations and references",
+        "method": "Read complete HTML entry, equations (2)-(4)",
+        "title": "Möbius Ladder",
+        "trigger": "Relevant existing matching polynomial and known structural graph equivalence"
+      },
+      {
+        "assessment": "General recurrence method, not an explicit size-refined enumeration for inclusion-maximal matchings",
+        "evidence": "Abstract explicitly lists spanning trees, Hamiltonian and Eulerian structures; full-text search found no maximal-matching theorem.",
+        "identifier_or_url": "https://www.cse.ust.hk/~golin/pubs/golin_Isaac_04.pdf",
+        "material_read": "Abstract, full indexed PDF keyword search and relevant introduction/examples from 14-page article",
+        "method": "Read PDF text and page 1 image; searched indexed text for maximal, matchings, Möbius",
+        "title": "Counting Spanning Trees and Other Structures in Non-constant-jump Circulant Graphs",
+        "trigger": "General recurrence framework potentially dominating specialized transfer constructions"
+      },
+      {
+        "assessment": "Computes perfect matching counts and does not give the graded maximal-matching distribution",
+        "evidence": "Theorem 6 concerns tiling every cell, equivalently perfect matchings; reference to McSorley for that older endpoint.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Belcastro/belcastro4.pdf",
+        "material_read": "Introduction/background and Section 3.2 including Theorem 6, with 2023 PDF page image",
+        "method": "Read PDF indexed text, sections around Theorem 6 and cited McSorley discussion",
+        "title": "Domino Tilings of 2 by n Grids (or Perfect Matchings of Grid Graphs) on Surfaces",
+        "trigger": "Möbius ladder perfect matchings could account for highest-degree coefficient"
+      },
+      {
+        "assessment": "Concerns graph extremal invariants and spanning trees; not a graded maximal-matching count",
+        "evidence": "ArXiv v1 submitted 1999-07-08, discusses an eight-vertex Möbius ladder with 392 spanning trees.",
+        "identifier_or_url": "arxiv:math/9907050v1",
+        "material_read": "Full public HTML plus section 5 and passages naming the 8-vertex Möbius ladder",
+        "method": "Read arXiv initial submission metadata and HTML",
+        "title": "On some extremal problems in graph theory",
+        "trigger": "Verifiable day-dated archive-era graph-family historical anchor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55d236e4-6c67-4f31-a3f6-84f5e44395d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The saturation number and distribution of inclusion-maximal matchings are natural invariants tied to edge domination and optimization quality; an ungraded total cannot answer either question. This exact all-order result identifies a structural twisted boundary obstruction at n divisible by 3 and gives counts for each achievable size, including residue-class counts of minimizers. This is a meaningful exact classification of an established nonplanar cubic graph family, not an arbitrary finite slice or a mere restatement of a scalar recurrence.",
+    "status": "PASS"
+  }
+}
