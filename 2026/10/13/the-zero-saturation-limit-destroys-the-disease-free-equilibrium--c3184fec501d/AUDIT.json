@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For \\(a>0\\), the treatment \\(T_b(I)=aI/(b+I)\\) has \\(T_b(0)=0\\) for every \\(b>0\\), but at fixed \\(I>0\\) tends to \\(a\\) as \\(b\\downarrow0\\). Substitution into the exact source vector field at \\(S=A/(\\mu_1+\\gamma+\\delta)\\), \\(B=0\\) gives the one-sided limit \\((a,-a,0)\\). Thus no continuous extension agreeing with the positive-\\(I\\) \\(b=0\\) dynamics has the nominal disease-free equilibrium. The source's own equation (3.9) independently gives infected derivative \\((-a,0)\\) at that state. The symbolic verifier replays these identities exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 open full text describes \\(rI/(1+\\sigma I)\\) as a continuous differentiable saturated-treatment law and identifies its small-infection behavior as linear.",
+        "That article cites Zhang and Liu's 2008 paper as an early source for the same regular treatment form.",
+        "General treatment-function literature computes disease-free thresholds from treatment laws with defined local behavior at zero."
+      ],
+      "reasoning": "Prior literature covers the regular treatment family and backward bifurcation generally, so the accepted claim is not about inventing a treatment model. Those sources do not subsume the internal contradiction created by setting \\(b=0\\) in the motivating paper's different parameterization.",
+      "searches": [
+        "\"Backward bifurcation of an epidemic model with saturated treatment function\"",
+        "\"Stability and Bogdanov-Takens Bifurcation of an SIS Epidemic Model with Saturated Treatment Function\"",
+        "saturated treatment rI/(1+alpha I) continuous differentiable epidemic",
+        "general treatment function epidemic disease-free equilibrium treatment g(I)"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023326",
+      "doi:10.1155/2015/745732",
+      "doi:10.1016/j.jmaa.2008.07.042",
+      "doi:10.1007/s42452-021-04189-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or comment correcting the \\(b=0\\) theorem was located.",
+        "Regular saturated-treatment papers show how an unsaturated linear limit can be obtained without a discontinuity, but they do not discuss the motivating article.",
+        "The source's own b=0 comparison equation already yields a nonzero derivative at the nominal disease-free state."
+      ],
+      "reasoning": "The prior treatment literature does not make the final result a mere restatement: the decisive source-specific step is substituting the motivating paper's parameter endpoint into its own vector field and theorem. The exact one-sided vector-field limit and equation-(3.9) contradiction are not implied as published corrections by the checked sources.",
+      "searches": [
+        "\"10.3934/math.2023326\" correction erratum b=0 treatment",
+        "\"Mathematical modeling of the COVID-19 epidemic with fear impact\" \"b = 0\" treatment",
+        "\"R0=0\" b=0 saturated treatment COVID fear",
+        "\"Theorem 3.4\" \"10.3934/math.2023326\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating paper sets \\(b=0\\) in Theorem 3.4 while retaining a positive constant \\(a\\) in its infected comparison equation.",
+        "The original rational treatment is undefined at \\(b=I=0\\), and its positive-\\(I\\) branch tends to \\(a\\), not zero.",
+        "The closest indexed findings concern other epidemic thresholds or nonsmooth systems and do not state this source-specific singularity."
+      ],
+      "reasoning": "The defect can be described equivalently as a discontinuous treatment limit, loss of the disease-free equilibrium, failure of boundary invariance under continuous extension, or invalidity of the smooth linearization at \\(b=0\\). Searches covered all of these formulations.",
+      "searches": [
+        "\"10.3934/math.2023326\" b=0 saturation treatment discontinuity",
+        "\"Mathematical modeling of the COVID-19 epidemic with fear impact\" treatment saturation b zero",
+        "saturated treatment a I/(b+I) b=0 epidemic discontinuity disease free equilibrium",
+        "\"aI/(b+I)\" b=0 COVID fear model treatment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at equation (2.1), where the treatment transfer appears as \\(aI/(b+I)\\) in both susceptible and infected equations.",
+        "The source states that its vector field is continuously differentiable before the later endpoint specialization.",
+        "Equation (3.1) gives a reproduction number proportional to \\(b/[b(\\mu_2+\\mu_I)+a]\\).",
+        "Equation (3.9) and Theorem 3.4 were inspected in full and visually checked on the PDF page; the correction vector contains the constant \\(a\\) after setting \\(b=0\\).",
+        "Publisher metadata gives publication on 4 January 2023 and MSC 92B05 among the article classifications."
+      ],
+      "reasoning": "The claim is anchored to the exact printed equations and theorem rather than inferred from an abstract or a generic saturated-treatment model.",
+      "searches": [
+        "doi:10.3934/math.2023326 equation 2.1 treatment b",
+        "doi:10.3934/math.2023326 equation 3.1 R0",
+        "doi:10.3934/math.2023326 Theorem 3.4 b=0",
+        "doi:10.3934/math.2023326 equation 3.9 M a"
+      ]
+    },
+    "rationale": "Smooth and nonsmooth saturated-treatment laws are established prior art and are not claimed as new. The original content is the source-specific endpoint comparison: the 2023 paper's operation \\(b=0\\) makes its printed treatment singular at disease eradication, so its Theorem 3.4 invokes a disease-free equilibrium that is incompatible with any continuous extension of the positive-infection dynamics. Exact-source and formula searches located no published correction of this theorem.",
+    "residual_risks": [
+      "A non-indexed author correction could exist outside the searched records.",
+      "The full text of the 2008 Zhang-Liu paper was not available in the inspected open sources, so it is used only as bibliographic provenance.",
+      "A separately specified discontinuous or hybrid boundary treatment law could be mathematically meaningful, but that would require a different solution framework from the source's continuously differentiable ODE analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ZERO_SATURATION_ENDPOINT_IS_SINGULAR_AT_DISEASE_FREE_STATE",
+        "evidence": "The original rational term is undefined at \\(b=I=0\\); for \\(I>0\\) it equals \\(a\\) at \\(b=0\\). Equation (3.9) retains a constant \\(a\\), yielding infected derivative \\(-a\\) at the nominal disease-free state.",
+        "identifier_or_url": "doi:10.3934/math.2023326",
+        "material_read": "Open full PDF covering equation (2.1), parameter interpretation, the continuously differentiable vector-field statement, disease-free equilibrium, reproduction number, equilibrium analysis, local stability, backward-bifurcation condition, Section 3.5.1, equation (3.9), Theorem 3.4, and the conclusion. The model page and Theorem 3.4 page were also visually inspected.",
+        "method": "Took the endpoint \\(b=0\\) directly in the printed treatment transfer on the positive-infection branch, computed the one-sided vector-field limit at the nominal disease-free equilibrium, and cross-checked the result against the source's own equation (3.9).",
+        "title": "Mathematical modeling of the COVID-19 epidemic with fear impact",
+        "trigger": "Primary source containing the treatment law and the target b=0 global-stability theorem."
+      },
+      {
+        "assessment": "REGULAR_SMOOTH_TREATMENT_PRIOR",
+        "evidence": "The article describes the saturated law as continuous and differentiable and notes that it behaves linearly for small infection; setting its saturation coefficient to zero gives linear treatment.",
+        "identifier_or_url": "doi:10.1155/2015/745732",
+        "material_read": "Full web text of the introduction, treatment-function discussion, disease-free equilibrium section, and the explicit \\(rI/(1+\\sigma I)\\) treatment formula.",
+        "method": "Compared the local behavior at zero and the no-saturation parameter limit with the motivating source's \\(aI/(b+I)\\) parameterization.",
+        "title": "Stability and Bogdanov-Takens Bifurcation of an SIS Epidemic Model with Saturated Treatment Function",
+        "trigger": "Open full-text treatment literature giving the standard smooth saturated-treatment parameterization."
+      },
+      {
+        "assessment": "PRIMARY_PRIOR_PROVENANCE_FULL_TEXT_UNAVAILABLE",
+        "evidence": "The 2015 open full text attributes the \\(rI/(1+\\sigma I)\\) treatment law and backward-bifurcation analysis to this 2008 paper.",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2008.07.042",
+        "material_read": "Bibliographic metadata, publication record, title, authors, and citation context in the 2015 full-text article.",
+        "method": "Used only for provenance of the regular saturated-treatment family, not for a whole-document non-coverage conclusion.",
+        "title": "Backward bifurcation of an epidemic model with saturated treatment function",
+        "trigger": "Primary paper cited by later treatment literature as an early source of the smooth saturated-treatment law."
+      },
+      {
+        "assessment": "GENERAL_TREATMENT_CONTEXT_DIFFERENT_MODEL",
+        "evidence": "The paper formulates treatment through a defined per-capita function and includes its zero-infection value in the disease-free next-generation matrix.",
+        "identifier_or_url": "doi:10.1007/s42452-021-04189-0",
+        "material_read": "Open article material covering the model, treatment-function assumptions, disease-free next-generation construction, and conclusion.",
+        "method": "Used as broader context for the requirement that treatment behavior at the disease-free state be explicitly defined before linearization.",
+        "title": "Backward bifurcation in a cholera model with a general treatment function",
+        "trigger": "Open full-text general treatment-function literature with an explicit disease-free linearization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3184fec-501d-458f-8ac2-8a2c809f6d0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source makes the \\(b=0\\) case central to its disease-eradication conclusion: it claims that removing treatment saturation eliminates backward bifurcation and makes the disease-free state globally attracting. The exact endpoint calculation shows that this parameter operation destroys the smooth disease-free vector field on which that conclusion depends. The defect is structural and parameter-independent for \\(a>0\\), and the source's own equation (3.9) exposes it directly.",
+    "status": "PASS"
+  }
+}
