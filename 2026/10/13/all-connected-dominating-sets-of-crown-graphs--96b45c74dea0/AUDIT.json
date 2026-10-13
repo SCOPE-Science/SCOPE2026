@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The proof first shows that a connected dominating set must contain at least two vertices from each bipartition side. Those inequalities are also sufficient for domination. The induced selected graph is a complete bipartite graph with only matched diagonal edges removed; a component-separation argument shows that it is disconnected exactly when each side has two selected vertices with the same two indices. Exact counting yields the polynomial. A deletion argument then proves that every inclusion-minimal connected dominating set has size 4. The standalone exhaustive checker independently verifies every subset for n=3 through 9, all 91 polynomial coefficients, the minimum multiplicity, total count, and inclusion-minimal classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Camby--Schaudt arXiv:1303.2868 studies general bounds under forbidden induced paths and cycles, not exact crown-family enumeration.",
+        "Kumar--Pomeroy--Tran use connected domination only to identify the scalar local v-number at the empty cut set for crowns.",
+        "General connected-domination and maximum-leaf equivalences determine neither the full family of connected dominating sets nor their size distribution."
+      ],
+      "reasoning": "The obvious broader theories supply definitions, bounds, algorithms, or a scalar equivalence. None specializes to an implication that would yield the exact selected-index criterion or polynomial.",
+      "searches": [
+        "connected dominating set crown graph K_{n,n} minus perfect matching",
+        "connected domination polynomial bipartite graphs crown",
+        "connected domination spanning trees many leaves crown graph",
+        "connected domination in graphs and v-numbers crown graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1303.2868v1",
+      "arXiv:2507.03889v1",
+      "https://reference.wolfram.com/language/ref/GraphData.html",
+      "https://mathworld.wolfram.com/ConnectedDominationNumber.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 same-object proof establishes existence of one connected dominating 4-set and impossibility below 4; it does not characterize larger connected dominating sets.",
+        "Knowing gamma_c=4 alone does not determine the number of minimum sets, whether larger inclusion-minimal sets exist, or any coefficient above degree 4.",
+        "The present proof derives an iff criterion for every subset and therefore strictly contains the scalar minimum statement as a corollary."
+      ],
+      "reasoning": "Prior scalar information is strictly weaker: many set systems share the same minimum cardinality. The new criterion determines the complete connected-dominating-set family and all enumerative consequences.",
+      "searches": [
+        "arXiv 2507.03889 crown connected domination Lemma 5.1",
+        "crown graph gamma_c 4 connected domination",
+        "minimum connected dominating sets crown graph count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2507.03889 Lemma 5.1 uses the same crown object C_{n,n} and proves gamma_c=4 only.",
+        "The crown graph is the standard K_{n,n} minus a perfect matching; searches included both notations and the C_{n,n} notation used by the same-object paper.",
+        "No located source stated the criterion in terms of the two selected index sets P and Q."
+      ],
+      "reasoning": "Alias searches covered crown graph, C_{n,n}, and K_{n,n} minus a perfect matching. The only same-object connected-domination theorem located is the scalar minimum statement, not an equivalent all-set classification.",
+      "searches": [
+        "connected domination crown graphs all connected dominating sets polynomial",
+        "all connected dominating sets crown graph",
+        "crown graph connected domination number 4 minimum connected dominating sets",
+        "connected domination C_n,n crown",
+        "crown graph ConnectedDominationPolynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram GraphData documentation exposes ConnectedDominationPolynomial and ConnectedDominatingSets for finite named graphs, but the documentation search did not provide a symbolic crown-family formula.",
+        "MathWorld's Connected Domination Number table lists the crown graph value 4, covering the scalar minimum but not multiplicities or all sets.",
+        "No exact table located in the searches supplied the family coefficient formula or the minimal-set classification."
+      ],
+      "reasoning": "Finite-instance databases can reproduce examples and the scalar minimum is tabulated, but those data do not imply the closed all-n theorem. The claimed contribution explicitly excludes novelty of the scalar value 4.",
+      "searches": [
+        "Wolfram GraphData ConnectedDominationPolynomial crown graph",
+        "MathWorld crown graph connected domination number",
+        "connected domination polynomial crown OEIS"
+      ]
+    },
+    "rationale": "The closest same-object source located, Kumar--Pomeroy--Tran arXiv:2507.03889, proves only the scalar connected domination number 4 and explicitly says it could not find a reference for that lemma. Targeted searches for crown aliases, all connected dominating sets, minimum-set counts, and connected-domination polynomials found no source implying the complete criterion or symbolic family polynomial. General GraphData facilities can compute finite named instances but do not state this family theorem.",
+    "residual_risks": [
+      "A paper or thesis not indexed by the searched services may contain the same all-set crown classification under another notation.",
+      "GraphData may internally store finite crown instances beyond what is visible in documentation; such instance data would still not by itself constitute the symbolic all-n proof or classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the scalar minimum value 4, which is not claimed as new; it does not state an all-set classification, connected domination polynomial, minimum-set multiplicity, or inclusion-minimal classification.",
+        "evidence": "Lemma 5.1 explicitly states gamma_c(G)=4 and says the authors could not find a reference, then proves only the minimum-size assertion.",
+        "identifier_or_url": "arXiv:2507.03889v1",
+        "material_read": "The indexed full-text passage containing Section 5.1, Lemma 5.1, its proof that gamma_c(C_{n,n})=4, and the following proposition linking that value to a local v-number.",
+        "method": "Full-text indexed PDF passage and arXiv metadata were inspected.",
+        "title": "Binomial edge ideals of crown graphs",
+        "trigger": "Exact same graph family and an explicit connected-domination lemma."
+      },
+      {
+        "assessment": "Provides the connected-domination framework and verified primary MSC 05C69 but no crown-family exact enumeration.",
+        "evidence": "The full-text excerpt lists MSC 05C69, 05C75, 05C38 and focuses on relations between gamma and gamma_c under forbidden paths and cycles.",
+        "identifier_or_url": "arXiv:1303.2868v1",
+        "material_read": "Title, abstract, introduction definition, first-page MSC line, and statements describing bounds for (P_k,C_k)-free graph classes.",
+        "method": "arXiv metadata plus accessible full-text excerpt.",
+        "title": "A Note on Connected Dominating Set in Graphs Without Long Paths And Cycles",
+        "trigger": "Archive-era primary connected-domination source with day-resolved public date and MSC metadata."
+      },
+      {
+        "assessment": "Confirms finite-instance database functionality but did not expose the symbolic crown-family formula claimed here.",
+        "evidence": "The documentation defines the property and shows example queries for named finite graphs, not an all-n crown theorem.",
+        "identifier_or_url": "https://reference.wolfram.com/language/ref/GraphData.html",
+        "material_read": "Documentation entries for ConnectedDominatingSets, ConnectedDominatingSetCount, ConnectedDominationNumber, and ConnectedDominationPolynomial, including examples on finite named graphs.",
+        "method": "Web documentation search.",
+        "title": "GraphData documentation",
+        "trigger": "Potential exact database coverage of connected domination polynomials."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96b45c74-dea0-4f73-9468-1c15ab924b52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crown graphs are a standard symmetric family, and connected domination is a classical structural parameter with direct links to maximum-leaf spanning trees and, more recently, binomial-edge-ideal v-numbers. The same-object literature had only the scalar minimum value. The all-set theorem is a natural complete classification that simultaneously gives the exact family polynomial, every minimum set, the total count, and the fact that no larger inclusion-minimal connected dominating sets exist. This is structurally stronger than a routine recomputation of gamma_c=4.",
+    "status": "PASS"
+  }
+}
