@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The expected inner state is an exact scalar affine recurrence on each eigendirection. Solving it and the exponential average gives \\(\\phi_K\\); the exact Gaussian mean gives \\(\\phi_\\infty\\). In the nonoscillatory regime, \\(S_K\\) increases with its argument while \\(S_K(z)/z\\) decreases for \\(K\\ge2\\), proving both strict condition-number inequalities. The embedded verifier replays the recurrence and endpoint inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves an ideal-objective smoothness bound under a Hessian spectral-gap assumption.",
+        "Its appendix approximates local-entropy displacement by an inverse shifted Hessian applied to the gradient.",
+        "The later PAC-Bayes paper studies generalization and data-dependent priors rather than finite-inner-loop conditioning."
+      ],
+      "reasoning": "Ideal-objective smoothness does not determine the conditioning of the finite estimator actually used in Algorithm 1, and the PAC-Bayes analysis has a different implication target.",
+      "searches": [
+        "Entropy-SGD Hessian quadratic Gaussian local entropy",
+        "Entropy-SGD condition number inner loop",
+        "Entropy-SGD optimizes the prior of a PAC-Bayes bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.01838v1",
+      "arXiv:1611.01838v5",
+      "PMLR:80:dziugaite18a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation 7 supplies the ideal Gibbs-mean gradient.",
+        "Algorithm 1 supplies the finite inner recurrence, initialization, and exponential averaging.",
+        "Appendix B treats ideal-objective smoothing and a shifted-Hessian saddle-point approximation rather than the finite estimator."
+      ],
+      "reasoning": "The final claim requires solving the finite recurrence and proving two filter monotonicity properties; those implications are not stated in the source.",
+      "searches": [
+        "arXiv:1611.01838v5 local entropy gradient equation 7",
+        "arXiv:1611.01838v5 Algorithm 1 exponential average alpha 0.75",
+        "arXiv:1611.01838v5 Appendix B Hessian gamma inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper initializes the inner position and exponential mean at the outer iterate and estimates the Gibbs mean with finite SGLD.",
+        "The source states ideal local-entropy smoothing but not a finite-horizon modal filter.",
+        "No returned published record states one-step preservation of the raw condition number or the strict raw-to-ideal interpolation."
+      ],
+      "reasoning": "Equivalent forms include a finite-horizon spectral filter, a one-step no-smoothing identity, or strict interpolation between raw and ideal local-entropy conditioning. None was located.",
+      "searches": [
+        "Entropy-SGD quadratic exact local entropy gradient Gaussian inner loop finite steps",
+        "Entropy-SGD finite inner loop quadratic condition number smoothing exact spectral filter",
+        "Entropy-SGD Langevin finite iterations quadratic expected local entropy gradient bias",
+        "arXiv:1611.01838v5 Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record database results included database item 31fff666d705, database item 169a05cdc789, database item 516bd7b79285, and database item 7f8adc00c4c0.",
+        "No returned published-record result named Entropy-SGD in an implication-equivalent finite-inner-loop conditioning result."
+      ],
+      "reasoning": "The closest records use different update maps or sampling quantities and do not imply the Entropy-SGD finite Gibbs-mean filter.",
+      "searches": [
+        "Entropy-SGD quadratic exact local entropy gradient Gaussian inner loop finite steps",
+        "Entropy-SGD finite inner loop quadratic condition number smoothing exact spectral filter",
+        "Entropy-SGD Langevin finite iterations quadratic expected local entropy gradient bias",
+        "Entropy-SGD exponential average inner loop condition number quadratic Hessian",
+        "local entropy finite horizon Gibbs mean estimator quadratic spectral filter"
+      ]
+    },
+    "rationale": "The defining paper analyzes the ideal local-entropy objective and implements a finite inner SGLD estimator, but the inspected full text does not state the finite-inner-loop spectral response or condition-number interpolation. Focused published-record and web searches found no implication-equivalent theorem.",
+    "residual_risks": [
+      "An equivalent quadratic specialization may exist in unindexed notes.",
+      "The theorem concerns estimator expectation rather than thermal-noise variance.",
+      "The strict interpolation assumes nonoscillatory inner modes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_OBJECTIVE_AND_ESTIMATOR_NOT_COVERING_FINITE_HORIZON_CONDITION_NUMBER_INTERPOLATION.",
+        "evidence": "The source states the ideal Gibbs-mean gradient, uses finite SGLD with exponential averaging, reports 5--20 inner steps, and proves ideal-objective smoothing, but no finite-inner-loop quadratic spectral response was found.",
+        "identifier_or_url": "arXiv:1611.01838v5 / ICLR 2017 open-access PDF",
+        "material_read": "Full-text material covering the local-entropy definition, Equation 7, Algorithm 1, implementation details including alpha and inner-loop lengths, scoping, theoretical smoothness discussion, and Appendix B shifted-Hessian argument.",
+        "method": "Open-access full-text and page-image inspection.",
+        "title": "Entropy-SGD: Biasing Gradient Descent Into Wide Valleys",
+        "trigger": "Defining source for local entropy, the finite SGLD estimator, exponential averaging, practical inner-loop lengths, and smoothness analysis."
+      },
+      {
+        "assessment": "GENERALIZATION_INTERPRETATION_NOT_COVERING_FINITE_QUADRATIC_FILTER.",
+        "evidence": "The work studies PAC-Bayes bounds, stationarity, and data-dependent priors rather than finite-horizon quadratic conditioning.",
+        "identifier_or_url": "PMLR:80:dziugaite18a",
+        "material_read": "Proceedings abstract and supplementary implementation discussion of SGLD weighted averaging.",
+        "method": "Open proceedings-page and supplementary-text inspection.",
+        "title": "Entropy-SGD optimizes the prior of a PAC-Bayes bound: Generalization properties of Entropy-SGD and data-dependent priors",
+        "trigger": "Later primary theoretical treatment of Entropy-SGD."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61ec336d-3eaf-4766-a6bc-0571e92d7f54",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Smoothing the landscape is a central mathematical motivation of Entropy-SGD, while the implemented algorithm uses only a short inner estimator. The theorem separates the ideal smoothing from what a finite inner budget represents: one step gives no conditioning benefit, finite loops give partial smoothing, and only resolved inner dynamics approach the ideal condition number.",
+    "status": "PASS"
+  }
+}
