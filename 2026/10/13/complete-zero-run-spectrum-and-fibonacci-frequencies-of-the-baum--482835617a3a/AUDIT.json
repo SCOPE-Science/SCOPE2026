@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "A complete symbolic proof classifies all accepted binary positions as 1(1|00)*, decomposes lexicographic suffix lists into 00L_{j-2} and 1L_{j-1}, computes the interface difference, and counts each distinct gap via Fibonacci composition prefixes. It handles the zero-position and binary-length boundaries separately; the terminating one at each dyadic cutoff removes censoring. The limit weights follow from Binet asymptotics and total mass one. The packaged verify.py run was actually performed and passed 262144 direct terms and dyadic cutoff formulas through K=18. It is corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merta 2018 equation (2) gives a recursion for one positions, from which a nontrivial recursive gap analysis may be undertaken.",
+        "Shallit–Xu 2023 Theorem 1 concerns repetition-factorization bounds and decidability, not maximal monochromatic run frequencies.",
+        "2026/9/8/SCOPE079 concerns string attractors of paperfolding/Rudin–Shapiro, not Baum–Sweet zero runs."
+      ],
+      "reasoning": "The numeric position recursion does not itself list these complete gap exclusions and exact multiscale counts. The related general factorization and string-attractor results have different invariants and do not dominate the new statement.",
+      "searches": [
+        "exact gaps in Baum Sweet indices of ones Merta theorem 2.5 parity Fibonacci Kimberling",
+        "Baum Sweet return time set Fibonacci law zero block distribution automatic words",
+        "arxiv:1803.00292v1",
+        "arxiv:2311.14961v1",
+        "2026/9/8/SCOPE079"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1803.00292v1",
+      "arxiv:2311.14961v2",
+      "https://oeis.org/A060142",
+      "https://oeis.org/A086747",
+      "Kimberling (2000), J. Integer Sequences 3, 00.2.8",
+      "2026/9/8/SCOPE079 (string-attractor comparator)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Merta 2018 Theorem 2.5 concerns parity of accepted one indices, not their gap lengths; Theorem 4.6 explicitly concerns the index sequence u for the formal inverse q, not the Baum–Sweet sequence b.",
+        "The previously recorded Baum–Sweet prefix-universality result computes a subsequence-coverage statistic using the number of ones, not the lengths/frequencies of gaps among those ones."
+      ],
+      "reasoning": "None of these stated conclusions entails the exact exclusion of all other zero-run lengths or gives Fibonacci counts for every dyadic prefix. Existing recurrences are acknowledged as an input, not claimed as newly discovered.",
+      "searches": [
+        "arxiv:1803.00292v1",
+        "OEIS:A060142",
+        "arxiv:2311.14961v1",
+        "2018 Merta theorem 4.6 differences of formal inverse",
+        "own previous Baum-Sweet scattered-subsequence universality finding"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Inter-one spacings and intervening maximal zero lengths differ by one.",
+        "OEIS A060142 lists one positions and a simple closure rule, but no exact spectrum or Fibonacci zero-run frequency law.",
+        "Merta 2018 §2 Theorem 2.1 treats unbounded zero blocks and adjacent ones."
+      ],
+      "reasoning": "The alternative formulation is the full spectrum of differences between consecutive one positions. Searches covered both word-run and number-index vocabulary. Sources state nearby structural facts, but not the exact spectrum or all dyadic multiplicities.",
+      "searches": [
+        "Baum-Sweet automatic word maximal zero run spectrum lengths 1 2 5 8 17 32 frequencies Fibonacci",
+        "Baum-Sweet consecutive ones gaps 1 2 3 6 9 18 dyadic Fibonacci distributions",
+        "\"Baum-Sweet\" \"gaps\" \"Fibonacci\" \"frequency\"",
+        "OEIS:A060142",
+        "arxiv:1803.00292v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A060142 gives 0,1,3,4,7,9,12,15,16,19,25,... and the generators 2x+1,4x.",
+        "OEIS A086747 is the indicator word, with bibliographic comments and recurrence."
+      ],
+      "reasoning": "Neither inspected entry tabulates the full unbounded zero-run spectrum or exact Fibonacci multiplicity formula. The finite prefix table is compatible but not a complete database of the asserted invariant.",
+      "searches": [
+        "OEIS:A060142",
+        "OEIS:A086747",
+        "Baum-Sweet consecutive ones gaps 1 2 3 6 9 18 dyadic Fibonacci distributions",
+        "site:oeis.org \"Baum-Sweet\" \"first differences\""
+      ]
+    },
+    "rationale": "The main comparison is Merta 2018, where an exact accepted-position recursion and a coarse unbounded-zero-run statement are given; no complete run-length spectrum or dyadic Fibonacci frequency formula is supplied. Merta Theorem 4.6 is about a distinct formal-inverse sequence. The OEIS table/generator determines individual positions but does not state a complete run-length/frequency theorem. A nearby general automatic-word paper studies repetition factorizations instead. Targeted semantic searches and prior-claim examination yielded no explicit or dominating theorem; an inaccessible/unindexed equivalent remains a risk.",
+    "residual_risks": [
+      "An unindexed equivalent formula for Baum–Sweet run gaps or an overlooked sequence-database difference entry may exist.",
+      "The result does not prove convergence for arbitrary cutoff lengths, only for dyadic prefix lengths.",
+      "Merta’s accepted-position recursion is essential known background; the present result claims the derived global spectrum and exact multiscale multiplicities, not that recurrence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the classical automaton/recursive set and unbounded-zero-run fact. Its first-difference theorem concerns a different inverse sequence; it does not state the proposed full original-word spectrum or exact dyadic counts.",
+        "evidence": [
+          "arxiv:1803.00292v1, §2 lines 88–181 and §4 lines 331–349 (public HTML)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.00292v1",
+        "material_read": "Full accessible arXiv HTML, especially Introduction, §2 Theorems 2.1/2.5 and equation (2), §4 Theorem 4.6, and §5 generalizations.",
+        "method": "Read primary HTML theorem statements, proofs, and the objects indexed by each symbol.",
+        "title": "Composition inverses of the variations of the Baum–Sweet sequence",
+        "trigger": "Direct study of the exact Baum–Sweet one-position set and differences in nearby sequences."
+      },
+      {
+        "assessment": "General results concern factorizations into repeated substrings, not maximal zero-run lengths or exact Baum–Sweet run frequencies.",
+        "evidence": [
+          "arxiv:2311.14961v2, Theorem 1 and section headings 3–6."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.14961v2",
+        "material_read": "Full accessible primary HTML, Introduction and Sections 2–7 including the Fibonacci, Thue–Morse, paperfolding and Rudin–Shapiro cases.",
+        "method": "Inspect definitions of repetition-factorization width and scope of automatic-sequence theorems.",
+        "title": "Repetition factorization of automatic sequences",
+        "trigger": "Plausibly broader factorization results for automatic words."
+      },
+      {
+        "assessment": "The set generator and sample values predate this result; exact zero-run length and dyadic count classification is not recorded.",
+        "evidence": [
+          "OEIS A060142 definition, entries and comments (including 2024 note on even zero-runs)."
+        ],
+        "identifier_or_url": "https://oeis.org/A060142",
+        "material_read": "Full public OEIS entry, definitions, comments, tables, generators and references.",
+        "method": "Inspect sequence data and cross-references for gap spectra/frequency formulas.",
+        "title": "OEIS A060142",
+        "trigger": "Exact database of the same one-position set."
+      },
+      {
+        "assessment": "Uses 1,2x,4x-1 rather than 0,2x+1,4x, and studies parity ranks; it does not cover the target zero-run spectrum.",
+        "evidence": [
+          "Kimberling (2000), abstract and main theorem."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL3/goldentext.html",
+        "material_read": "Full public 2000 journal HTML, abstract, introduction, main theorem and proof.",
+        "method": "Compare its generator and claimed Beatty/Fibonacci conclusions with the Baum–Sweet indices.",
+        "title": "A Self-Generating Set and the Golden Mean",
+        "trigger": "OEIS links a different Fibonacci self-generating set, a plausible source of stronger gap results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48283561-7a3a-46e0-8e1e-ae47414528bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete unbounded family of allowed maximal zero-run lengths is a structurally motivated combinatorics-on-words invariant, substantially more informative than the known existence of arbitrarily long runs. Exact dyadic Fibonacci multiplicities and a full limiting distribution distinguish common short gaps from a geometric tail, and precisely exclude all other lengths. Binary-power prefixes are natural for a 2-automatic word and all their runs are complete.",
+    "status": "PASS"
+  }
+}
