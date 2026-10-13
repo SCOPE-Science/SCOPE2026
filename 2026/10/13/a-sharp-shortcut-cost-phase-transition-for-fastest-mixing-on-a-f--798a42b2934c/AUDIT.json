@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The four-edge cost budget is exactly the weighted sum of two Rayleigh energies for h=sqrt(t)<=3, giving the universal spectral gap upper bound 4/(h²+2h+5). The displayed feasible rates satisfy both eigenvector equations; the trace identifies the fourth eigenvalue and spectral separation, and equality with two strictly positive multipliers for h<3 yields uniqueness. For t>=9 the fixed vector (3,-3,-1,1) gives the universal bound 1/5-(t-9)q/5. Its equality cases yield the unique high-cost path and the complete critical affine family; exact remaining eigenvalues impose q in [0,1/15]. Exact-rational checker verifies the characteristic polynomials for 12 interior/endpoint parameter values, 41 boundary cases and 5 exterior choices. The infinite-parameter result rests on the analytic inequalities rather than on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. 2006 §5.2, Result 5 is the general optimal path-weight rule; this does not cover a positive shortcut. Section 5.3 explicitly says the arbitrary-cost cycle case is more complicated and offers the two-dimensionality result only.",
+        "Shakeri et al., arXiv:1510.06785, PDF pp. 1–3, hold intralayer graphs fixed and optimize one-to-one interlayer link weights, unlike four freely allocated cycle-edge rates under a single variable cost.",
+        "Ghosh and Boyd, Growing Well-Connected Graphs (IEEE CDC 2006), treat choosing edge additions with a fixed backbone, rather than this explicit all-edge continuous-rate budget."
+      ],
+      "reasoning": "A general SDP can numerically solve the four-cycle instance and yields universal optimality conditions, but neither the objective’s explicit parametric closed form nor the complete set of optimizers for all positive t follows as an immediate stated corollary. The known path solution supplies a boundary test at q=0 but cannot establish the cost at which that boundary becomes optimal. Fixed-backbone interlayer and edge-addition theorems optimize genuinely different feasible sets.",
+      "searches": [
+        "Sun Boyd Xiao Diaconis The Fastest Mixing Markov Process on a Graph 2006 PDF Results 5 and 6",
+        "Maximizing algebraic connectivity in interconnected networks 2015 fixed layers threshold",
+        "Ghosh Boyd Growing Well-Connected Graphs eigenvalue edge additions convex relaxation"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://arxiv.org/pdf/1510.06785",
+      "https://stanford.edu/~boyd/papers/growing_fast_graphs.html",
+      "https://www.web.stanford.edu/~boyd/papers/fmmp.html",
+      "Published research records on weighted four-cycles, heterogeneous cycle prices, algebraic-connectivity SDP and the price-nine threshold"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. Result 6 states the dimension bound for optimal cycle embeddings, which is compatible with our double-eigenvalue branch but does not specify its rates or uniqueness.",
+        "At t=1 our optimizer assigns q=a=r=b=1/4, precisely the normalized equal-cost C4 rate already implied by the earlier equal-cost result; that point is not claimed independently.",
+        "Shakeri et al. allow varying only interlayer weights with fixed layer Laplacians; the fixed terms would eliminate the independent optimization variables a and b."
+      ],
+      "reasoning": "The earlier equal-cost formula covers only one parameter point; the dimension bound restricts eigenvalue multiplicity but leaves the shape of the cost-parametric solution unresolved. The general SDP formulation contains the problem algorithmically but does not itself state the explicit threshold, the strict-support regions, and all optimal multipliers, and the proof here supplies new exact necessary-and-sufficient equality analysis. Nothing in the inspected sources implies the whole parametric result by direct substitution or a stated stronger theorem.",
+      "searches": [
+        "Original primary PDF Sun et al. 2006 §5.2 path versus §5.3 cycle, specifically Results 5 and 6",
+        "Original arXiv PDF arxiv:1510.06785 model equation L(w) with fixed layer blocks",
+        "semidefinite optimization max lambda2 four cycle three unit cost one expensive edge disconnect shortcut"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. 2006, doi:10.1137/S0036144504443821, §1: weighted Laplacian second-eigenvalue budget SDP and duality; §5.3: equal-cost cycle and general two-dimensional optimal embedding.",
+        "The nearest retrieved published records on cover-free parameters of paths/cycles/wheels and Padé positivity for Markov chains address different invariants/questions.",
+        "Our model is a four-variable nonnegative linear-budget spectral optimization; an equivalent MVU embedding would have to give the same threshold and optimizer set."
+      ],
+      "reasoning": "The continuous-time Markov mixing and weighted Laplacian algebraic-connectivity statements are equivalent here, because the symmetric generator is minus the Laplacian. Another equivalent formulation is the corresponding four-vertex SDP/MVU dual. The prior general equivalence is acknowledged, while the exact heterogeneous-cost formula, support change, and critical optimal face require additional problem-specific analysis. None of the inspected source sections states that characterization.",
+      "searches": [
+        "four vertex cycle Laplacian maximum algebraic connectivity under weighted cost budget shortcut edge threshold 9 unique conductances",
+        "continuous time fastest mixing four cycle C4 heterogeneous cost rate optimization full argmax set transition at 9",
+        "\"symmetric four cycle\" \"optimal rates\" \"edge costs\" spectral gap",
+        "fastest mixing Markov process four cycle unequal costs analytic formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual searches returned graph-theory, mixing, and numerical-optimization neighbors but no four-cycle cost-ratio-to-weight table or exact critical optimal interval.",
+        "Sun et al. 2006 §5.3 provide an equal-cost cycle rate formula, not a heterogeneous-cost four-cycle phase table."
+      ],
+      "reasoning": "There is no known relevant curated table against which the closed-form threshold can be declared already listed; this is a limited negative search observation, not a proof of absence. The displayed optimizer family spans infinitely many positive real t and includes a boundary face, so checking isolated tables or numerical examples would not itself establish the entire claim.",
+      "searches": [
+        "sharp threshold 9 shortcut activation fastest mixing four cycle three unit costs one expensive edge optimal algebraic connectivity",
+        "4 cycle weighted conductance spectral gap optimal allocation one costly edge min lambda2 threshold nine continuous family",
+        "\"four cycle\" \"algebraic connectivity\" optimal weights costs"
+      ]
+    },
+    "rationale": "The novel claim assessed is the exact full cost-parametric optimizer set and nine-price transition for a four-cycle, not the previously known SDP formulation or equal-cost cycle case. Primary full text of Sun et al. 2006 (Sections 1, 5.2, 5.3) gives arbitrary-cost paths, equal-cost cycles, and only a two-dimensional embedding statement for general-cost cycles; no cost-ratio-nine optimizer family. Boyd et al. 2004 address discrete-time gossip. The relevant sections of Shakeri et al. define a fixed-layer interlink-only optimization, which is not the same four-free-rate heterogeneous-cost family. Exact scientific-query searches in published research records and scholarly indexes did not return this statement, but cannot establish universal novelty. Residual earlier-special-case risk is recorded.",
+    "residual_risks": [
+      "A narrowly tailored four-cycle spectral optimization example in older or non-indexed specialized literature might already contain an equivalent threshold/optimizer family.",
+      "A general eigenvalue SDP formulation gives the problem in principle, though not the explicit price-parametric solution in the inspected results.",
+      "Search-result absence is not a uniqueness proof and cannot reveal unpublished or non-indexed findings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS general SDP and equal-cost C4 point; NOT COVERING the full heterogeneous-cost four-cycle family in its stated results.",
+        "evidence": "Sections 5.2–5.3, pages 695–697: arbitrary-cost paths are solved; equal-cost cycles and a general two-dimensional embedding bound are given, with arbitrary-cost cycles described as more complicated.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Original open 19-page PDF, substantive text of §1, §5 including §5.2 Result 5 and §5.3 Result 6, and §6; original page 696 rendered and inspected.",
+        "method": "Author-hosted complete PDF, section-by-section text inspection and page-image inspection; compare cost parameters and graph structure.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same exact optimization class: symmetric continuous-time Markov generator, Laplacian eigenvalue, weighted edge budget; plausible stronger coverage."
+      },
+      {
+        "assessment": "Different randomized discrete-time averaging problem, foundational motivation but no continuous-time four-cycle price threshold.",
+        "evidence": "Proceedings first page, December 14–17 2004; gossip matrix and eigenvalue/semidefinite parameterization.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip_opt.pdf",
+        "material_read": "Original 6-page conference PDF, the first-page dated proceedings material and extracted discrete-time gossip optimization formulation.",
+        "method": "Original author-hosted conference PDF text and first-page image.",
+        "title": "Analysis and Optimization of Randomized Gossip Algorithms",
+        "trigger": "Foundational edge-weight optimization and an earlier verified public date."
+      },
+      {
+        "assessment": "Distinct fixed-network-layer interconnection optimization: no full four-variable heterogeneous cycle budget or claimed formula.",
+        "evidence": "arXiv:1510.06785 §problem statement: layers L1,L2 fixed, budget applied to interlayer diagonal W.",
+        "identifier_or_url": "https://arxiv.org/pdf/1510.06785",
+        "material_read": "Lawful arXiv full-text PDF introduction, problem statement, fixed-layer block Laplacian and budget formulation, and transition explanation, primarily pp. 1–3.",
+        "method": "arXiv original available first; read original problem equations and compare independent variable sets and threshold parameter.",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Plausible two-layer C4 representation and reported cost/budget transitions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "798a42b2-934c-41d0-99d0-93379e21e80a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The four-cycle is a small, natural even-cycle topology with a removable shortcut while retaining connected diffusion; the one-price family probes precisely when purchasing that shortcut improves optimal mixing. The theorem gives an exact global edge-allocation policy, a sharp support/deletion threshold at nine, a nonunique critical optimal face, and a change of spectral-gap multiplicity. These data directly resolve a meaningful parametric network-design problem without a numerical SDP solve, and are not simply a known generic solver restatement or an unmotivated isolated numerical example.",
+    "status": "PASS"
+  }
+}
