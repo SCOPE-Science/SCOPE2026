@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Every positive extinction orbit eventually satisfies x_(n+1)<=rho*x_n and y_(n+1)<=rho*x_n for q<rho<1. Therefore x_n,y_n are summable exponentially. C1 regularity implies the weighted series sum (j+1)|log(f(x_j)/q)-a*y_j|<infinity, while the analytic term log((exp(a*y_j)-1)/(a*y_j)) is summable. Exact logarithmic telescoping proves x_n/(Cq^n)->1 and y_n/[D(aC)^n q^{n(n+1)/2}]->1 for positive finite C,D. The Ricker below-Allee region is invariant and geometrically contracting, giving a nonempty unconditional domain. Threshold times follow from logarithm inversion and eventual monotonicity. The actual standalone verify.py was executed and returned VERIFY_OK in three settings; all infinite-time steps rest on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chow–Jang (2014) proves origin extinction basins and a global-extinction parameter condition, and discusses the boundary Jacobian, but its complete 23-page treatment does not supply Gaussian-in-generation parasitoid decay or an orbit-dependent second prefactor.",
+        "Kang–Armbruster–Kuang (2008), doi:10.1080/17513750801956313, studies a growth factor exp[r(1-x)]; at zero biomass this is exp(r)>1, so the contraction q<1 central to the claim is absent.",
+        "AIMS 2023 paper explicitly distinguishes herbivore attack before versus after plant growth; the exact biomass-partition recurrence of the claimed result is not part of the 2014 model."
+      ],
+      "reasoning": "Even a broader theorem that only proves attraction to extinction does not imply the sharp n(n+1)/2 coefficient or a convergent nonzero normalization. The closest preceding strong-Allee discrete-time paper was inspected as a complete work; its different parasitoid update and absence of an exact-rate theorem prevent logical coverage.",
+      "searches": [
+        "published-finding corpus semantic search: Ricker plant herbivore model herbivore decay y_n exp(-r b n^2/2) host parasitoid extinction asymptotic",
+        "published-finding corpus semantic search: discrete Nicholson Bailey host parasitoid model boundary equilibrium extinction herbivore parasitoid logarithmic extinction rate products",
+        "Web search: \"Allee effects in a Ricker-type predator-prey system\" Yunshyong Jang 2014 full text pdf",
+        "Web search: \"Allee effects in a Ricker-type predator–prey system\" \"super-exponential\"",
+        "2014 full paper: doi:10.1080/10236198.2014.918966, pages 1–23, especially §§2.1, 3.1, 3.2 and conclusions",
+        "Web search: \"Nicholson Bailey\" \"superexponential\" parasitoid extinction prey"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdsb.2023108 (journal online date, full author-posted primary text, MSC 92D25)",
+      "doi:10.1080/10236198.2014.918966 (complete 23-page original prior paper)",
+      "doi:10.1080/17513750801956313 (model as reproduced by primary source, bibliographic record)",
+      "doi:10.1142/S0218127423300264 (metadata and abstract only)",
+      "published-finding corpus item 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e (unrelated population model)",
+      "published-finding corpus item 2026/9/20/SCOPE-synchronous-ricker-spectral-floquet-reduction--5261a9c6ad45 (different Ricker competition Floquet theorem)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact Jacobian at the Bešo–Kalabušić–Pilav extinction equilibrium has eigenvalues exp(-rb) and 0. That determines first-order linear stability, not an asymptotically positive prefactor for the zero-multiplier herbivore direction.",
+        "The authors’ proof y_(n+1)<=x_n establishes y_n->0, whereas the new argument requires weighted absolute summability and an exact partition identity to yield the universal -rb/2 coefficient and both C and D.",
+        "The 2014 comparable model uses an unweighted host biomass in the second equation; its qualitative origin basins do not logically determine the present map’s prefactor products."
+      ],
+      "reasoning": "Prior extinction theorems and linearizations are true but strictly weaker: convergence and eigenvalues alone leave room for multiple superlinear decay laws. The new quantified profile follows only after the independent weighted-sum calculation, and its threshold-time corollary is not asserted by those sources.",
+      "searches": [
+        "Bešo–Kalabušić–Pilav doi:10.3934/dcdsb.2023108, Lemmas 3.1–3.4 and full conclusion: extinction versus quantified rate",
+        "Chow–Jang doi:10.1080/10236198.2014.918966, full text pp. 2–23: predator/prey recurrences, extinction and global convergence",
+        "published-finding corpus semantic search: Gaussian-in-generation herbivore extinction on strong Allee collapse basin Ricker plant herbivore x_n ~ C exp(-rb n), y_n ~ D(aC)^n exp(-rb n(n+1)/2)",
+        "Web search: \"Dynamics of a Plant-Herbivore Model Subject to Allee Effects with Logistic Growth of Plant Biomass\" extinction rate superexponential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bešo–Kalabušić–Pilav (doi:10.3934/dcdsb.2023108) give f(x)=exp[r(1-x)(x-b)] and prove extinction regions; their §3.1 characterizes convergence but supplies no positive normalized constants or quadratic logarithmic term.",
+        "Full Chow–Jang (doi:10.1080/10236198.2014.918966), §2 model (2.2) has parasitoid update proportional to x_n(1-exp(-y_n)), instead of the shared post-growth x_n f(x_n)(1-exp(-a y_n)); its extinction propositions do not specify the present exact constant pair.",
+        "Nearest published-finding corpus matches 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e and 2026/9/20/SCOPE-synchronous-ricker-spectral-floquet-reduction--5261a9c6ad45 have different maps and conclusions."
+      ],
+      "reasoning": "The searched source, alias and asymptotic formulations were compared by recurrences and conclusions. The present theorem asserts a positive prefactor after renormalization by a quadratic time exponent; the related source papers establish extinction, stability or spectral/Floquet identities for different objects, and none of those statements entails the two explicit infinite products.",
+      "searches": [
+        "published-finding corpus semantic search: Bešo Kalabušić Pilav 2023 plant herbivore Ricker strong Allee asymptotic extinction superexponential Gaussian in time log herbivore abundance",
+        "published-finding corpus semantic search: Gaussian-in-generation herbivore extinction on strong Allee collapse basin Ricker plant herbivore x_n ~ C exp(-rb n), y_n ~ D(aC)^n exp(-rb n(n+1)/2)",
+        "Web search: \"Dynamics of a plant-herbivore system with Ricker plant growth\" \"superexponential\" extinction",
+        "Web search: \"Dynamics of a plant-herbivore system with Ricker plant growth\" \"rate of extinction\"",
+        "Full primary text: doi:10.3934/dcdsb.2023108, normalized equation (5), Lemmas 3.1–3.4, closing discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claimed objects are infinite-time limits C and D of trajectory-dependent renormalizations, not entries in a finite enumeration or precomputed parameter table.",
+        "The semantic index gave results on Ricker competition Floquet spectra and ecological identifiability rather than the two-species extinction constants."
+      ],
+      "reasoning": "An exact precomputed table is not naturally applicable because the prefactors depend continuously on arbitrary positive initial states and are expressed by absolutely convergent orbit sums. Named database and prior-claim searches were nevertheless performed for possible existing formulas.",
+      "searches": [
+        "published-finding corpus semantic search: superexponential extinction host parasitoid plant herbivore q^{n(n+1)/2} sharp asymptotic positive constants detection threshold sqrt logarithm",
+        "Web search: \"host parasitoid\" \"quadratic\" \"logarithm\" extinction",
+        "Web search: \"parasitoid\" \"superexponential\" deterministic map 2019 2023"
+      ]
+    },
+    "rationale": "The full Bešo–Kalabušić–Pilav (2023) paper establishes which trajectories become extinct but not the two positive renormalized constants or the Gaussian-in-generation herbivore rate. The nearest Chow–Jang (2014) strong-Allee full paper was inspected over all 23 pages: it uses a different parasitoid update and treats basins and stability, not the claimed joint asymptotic. published-finding corpus searches on aliases, coefficients and asymptotic normalizations found no statement implying the exact claim. Remaining risk of unindexed generic smooth-map decay theory is stated.",
+    "residual_risks": [
+      "A generic unindexed theorem for superstable noninvertible ecological maps could encode this asymptotic by abstraction; semantic searches are evidence, not a proof of global uniqueness.",
+      "The same-group logistic-growth 2023 paper was checked only through its abstract, not its full text; a broad model-independent result there cannot be excluded completely.",
+      "The 2008 attack-after-growth source was compared via its equation reproduced in the fully inspected primary paper, not read as a standalone full article."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: gives extinction regions and stability, but no n-quadratic herbivore logarithmic profile or positive constants.",
+        "evidence": "Normalized system (5) is exactly the shared post-growth biomass law; Lemma 3.1 proves qualitative extinction when 0<x_0<b, and the conclusion discusses attractors and bifurcations rather than decay prefactors.",
+        "identifier_or_url": "https://doi.org/10.3934/dcdsb.2023108",
+        "material_read": "Accessible full 39-page article text was searched for matching asymptotic statements; §§1, 2, 3.1 (including Proposition 2.1 and Lemmas 3.1–3.4) and the concluding comparison were materially read.",
+        "method": "Full-text article reading at https://www.researchgate.net/publication/371538305_Dynamics_of_a_plant-herbivore_system_with_Ricker_plant_growth_and_the_strong_Allee_effects_on_plant_population; independent bibliographic and primary MSC date check at the journal record.",
+        "title": "Dynamics of a plant-herbivore system with Ricker plant growth and the strong Allee effects on plant population",
+        "trigger": "Exact normalized model, strong Allee extinction basin, potential previously proved rate."
+      },
+      {
+        "assessment": "NOT_COVERING: related but inequivalent biomass update; no sharp n-quadratic decay constant or two-species asymptotic prefactors.",
+        "evidence": "Normalized host equation x_(n+1)=x_n exp[r(1-x_n)(x_n-a)]exp(-y_n), parasitoid y_(n+1)=beta*x_n*(1-exp(-y_n)); the latter is not the current after-growth form x_n*f(x_n)*(1-exp(-a*y_n)).",
+        "identifier_or_url": "https://doi.org/10.1080/10236198.2014.918966",
+        "material_read": "All 23 pages retrieved and searched for asymptotic decay; substantial reading of §§2–4, including models, Theorems 2.2–2.3, §3.1 extinction, Theorem 3.7, and conclusion.",
+        "method": "Complete 23-page publisher text retrieved and searched; relevant equations, extinction statements, and conclusions materially read.",
+        "title": "Allee effects in a Ricker-type predator–prey system",
+        "trigger": "Closest earlier strong-Allee discrete host–parasitoid source referenced as [33] in the primary paper."
+      },
+      {
+        "assessment": "INAPPLICABLE at extinction: the no-Allee growth factor is greater than one at zero, contrary to q<1.",
+        "evidence": "The original plant update uses f(x)=exp[r(1-x)] and f(0)=exp(r)>1 for r>0; the fixed-point zero regime is therefore not the source of this sharp collapse law.",
+        "identifier_or_url": "https://doi.org/10.1080/17513750801956313",
+        "material_read": "Equation and scientific context as accurately reproduced in primary paper [1] introduction; full standalone 2008 text not read.",
+        "method": "Comparison of the faithfully reproduced equations in the 2023 primary source and external article metadata.",
+        "title": "Dynamics of a plant-herbivore model",
+        "trigger": "Original attack-after-growth biomass-sharing dynamics without strong Allee effects."
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_CONFIDENCE: model is logistic rather than Ricker, but a generic theorem might conceivably apply.",
+        "evidence": "The abstract describes equilibria, local stability and bifurcations, with no reported quadratic extinction profile.",
+        "identifier_or_url": "https://doi.org/10.1142/S0218127423300264",
+        "material_read": "Publication record and abstract only; full text not obtained.",
+        "method": "Comparison of title, abstract and model class with primary and comparable prior works.",
+        "title": "Dynamics of a Plant-Herbivore Model Subject to Allee Effects with Logistic Growth of Plant Biomass",
+        "trigger": "Same research group, strong-Allee plant/herbivore model with a different logistic growth law."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4532f0bf-4789-4ee3-a06a-7dd45a675de9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A source-motivated biological collapse basin has two mathematically distinct first-detection clocks: plant biomass reaches small thresholds after logarithmically many generations but herbivore biomass after square-root-logarithmically many. The universally sharp rb/2 exponent and full nonzero orbit constants distinguish biological timescales invisible to origin eigenvalues and prior qualitative extinction. The result covers every positive extinction trajectory and proves a C1 shared-biomass structural mechanism rather than simply evaluating a numerical example or renaming a known invariant.",
+    "status": "PASS"
+  }
+}
