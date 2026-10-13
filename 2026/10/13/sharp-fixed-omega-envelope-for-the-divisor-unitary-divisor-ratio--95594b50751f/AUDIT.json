@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Unique factorization reduces the problem to maximizing \\(\\prod(a_i+1)/2\\) over integer partitions of \\(m\\). The replacements eliminating \\(1\\) and parts at least \\(6\\), the neutral replacement \\(5\\leftrightarrow(3,2)\\), and the strict comparisons \\((2,2)\\to4\\), \\((2,4)\\to(3,3)\\), and \\((4,4,4)\\to(3,3,3,3)\\) leave only the stated residue-class patterns. In residue two, the two surviving patterns differ by the exact ratio \\(25/24\\). Small cases \\(m=1,2,5\\) are handled separately. An exhaustive exact-rational partition check through \\(m=40\\) agrees with every equality case but is not needed for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Derbal 2012 proves a maximum-order law for \\(\\log D(n)\\) relative to \\(\\log n/\\log\\log n\\) and identifies a global maximizer of a normalized size-dependent function.",
+        "Bouakkaz--Derbal 2023 restates that maximum-order result, then studies mean values in arithmetic progressions."
+      ],
+      "reasoning": "Maximum order under a size variable does not dominate the exact fixed-\\(\\Omega\\) problem: integers with the same \\(\\Omega\\) can have arbitrary prime sizes, and the new theorem classifies the exponent partition rather than the magnitude of \\(n\\).",
+      "searches": [
+        "Ordre maximum d(n)/d*(n) fixed Omega exact maximum exponent partition",
+        "web source: INTEGERS 12 (2012) A44",
+        "full-text source: DOI 10.7546/nntdm.2023.29.3.445-453"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.14573v1",
+      "doi:10.46298/cm.10104",
+      "INTEGERS:12:A44",
+      "doi:10.7546/nntdm.2023.29.3.445-453",
+      "doi:10.1016/j.crma.2016.03.007",
+      "2026/10/4/SCOPE-fixed-multiplier-level-sets-of-the-arithmetic-derivative--c31759e42cf2",
+      "2026/10/4/SCOPE-fixed-prime-factor-layers-of-exponential-perfect-numbers--c6019f5b8954"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karras gives the factorization \\(D_{2,\\omega}(n)=\\prod_{p^a\\parallel n}(a+1)/2\\) and proceeds to mean-value theorems.",
+        "The later arithmetic-progression paper cites the size-based maximum-order theorem and likewise proceeds to an average-order problem."
+      ],
+      "reasoning": "The local factorization does not by itself imply which integer partitions of \\(m\\) maximize the product or which ties occur. The proof requires the strict local replacements and the final residue-two comparison \\(25/24>1\\).",
+      "searches": [
+        "Asymptotic formula for the multiplicative function d(n)/k^omega(n) Karras fixed Omega extremal",
+        "Ordre maximum d(n)/d*(n) fixed Omega exact maximum exponent partition",
+        "tau(n)/2^omega(n) maximum with Omega(n)=m equality cases",
+        "arXiv:2209.14573 full text",
+        "DOI 10.7546/nntdm.2023.29.3.445-453 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karras defines \\(D_{k,\\omega}(n)\\) and gives \\(D_{k,\\omega}(p^a)=(a+1)/k\\), but states that the paper studies mean values.",
+        "The fixed-\\(\\Omega\\) and \\(d(n)/2^{\\omega(n)}\\) searches returned no checked source stating the exact layer maxima or equality patterns."
+      ],
+      "reasoning": "The aliases \\(d(n)/d^*(n)\\), \\(d(n)/2^{\\omega(n)}\\), \\(D_{2,\\omega}(n)\\), fixed \\(\\Omega\\), exponent partition, and equality cases were all compared. The source local-factor formula sets up the optimization but does not solve it.",
+      "searches": [
+        "Asymptotic formula for the multiplicative function d(n)/k^omega(n) Karras fixed Omega extremal",
+        "tau(n)/2^omega(n) maximum with Omega(n)=m equality cases",
+        "web search: \"d(n)/d*(n)\" \"Omega(n)\"",
+        "web search: \"d(n)/2^omega(n)\" \"Omega(n)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned semantic records concern other arithmetic functions or unrelated fixed-parameter extremal problems; no returned database/table record gives this exponent-partition envelope."
+      ],
+      "reasoning": "The result is a symbolic optimization valid for every \\(m\\), not a finite-table extraction. The included finite partition census is only a consistency check.",
+      "searches": [
+        "tau(n)/2^omega(n) maximum with Omega(n)=m equality cases",
+        "maximize tau(n)/2^omega(n) given Omega(n)"
+      ]
+    },
+    "rationale": "The checked literature studies mean values, arithmetic-progressions means, and maximum order as a function of the size of \\(n\\). None of the inspected statements fixes \\(\\Omega(n)\\) and determines the exact maximum of \\(D(n)\\) together with all maximizing exponent multisets. The fixed-multiplicity theorem is not implied by a size-based maximum-order asymptotic.",
+    "residual_risks": [
+      "The 2012 paper could not be directly inspected in full, although its theorem statement was available independently and is quoted by a later full-text paper.",
+      "An equivalent fixed-multiplicity theorem under terminology not recovered by the searches remains a literature-search risk; no checked source supplied one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the stated purpose and theorems concern mean values; no fixed-multiplicity extremal classification appears in the inspected text.",
+        "evidence": "The introduction gives \\(D_{k,\\omega}(p^a)=(a+1)/k\\), identifies \\(k=2\\) with \\(d(n)/d^*(n)\\), and Section 2 begins with mean-value results.",
+        "identifier_or_url": "arXiv:2209.14573v1 / doi:10.46298/cm.10104",
+        "material_read": "Full seven-page public PDF, especially the definition, prime-power factor formula, and main-result section.",
+        "method": "Full-text and page-level inspection.",
+        "title": "Asymptotic formula for the multiplicative function \\(d(n)/k^{\\omega(n)}\\)",
+        "trigger": "Defines the focal function and is the direct middle-window source."
+      },
+      {
+        "assessment": "NOT_COVERING: it quotes the size-based maximum-order theorem and studies means in arithmetic progressions, not exact maxima at fixed \\(\\Omega\\).",
+        "evidence": "The introduction states a maximum order for \\(\\log D(n)\\) and then motivates its arithmetic-progression mean-value theorem.",
+        "identifier_or_url": "doi:10.7546/nntdm.2023.29.3.445-453",
+        "material_read": "Full public PDF introduction and theorem setup, including its summary of known maximum order.",
+        "method": "Full-text and page-level inspection.",
+        "title": "The mean value of the function \\(d(n)/d^*(n)\\) in arithmetic progressions",
+        "trigger": "Same ratio and a later direct paper likely to mention known extremal results."
+      },
+      {
+        "assessment": "NOT_COVERING on the available material: its result is maximum order in the size variable and a normalized global maximum, not a fixed-\\(\\Omega\\) layer classification.",
+        "evidence": "The abstract states \\(\\limsup \\log D(n)\\log\\log n/\\log n=\\log2/3\\) and a global maximum for a normalized function.",
+        "identifier_or_url": "INTEGERS 12 (2012), A44",
+        "material_read": "Indexed abstract/theorem statement; the theorem is also quoted in the inspected 2023 full text. Direct full-PDF retrieval was unavailable.",
+        "method": "Bibliographic abstract comparison plus cross-check against a later full-text citation.",
+        "title": "Ordre Maximum d\\'une Fonction Liée aux Diviseurs d\\'un Nombre Entier",
+        "trigger": "Closest known extremal paper for the identical function."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95594b50-751f-4c69-8f55-3934326eaa41",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "\\(D(n)=d(n)/d^*(n)\\) has an established maximum-order and mean-value literature, while \\(\\Omega(n)\\) is the standard total prime-factor complexity. Fixing \\(\\Omega\\) asks for the sharp local complexity envelope independently of prime sizes. The theorem supplies a complete all-layer classification, including equality patterns and the exact period-three growth law, rather than an arbitrary finite slice or a numerical recomputation.",
+    "status": "PASS"
+  }
+}
