@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "In every fixed-sum four-part partition, specifying three canonical occurrence labels forces the fourth value, giving at most one completion. If a nontrivial 2-intersecting family has a pair meeting in exactly two labels, split it into members containing their common pair (at most 4 using a family member missing that pair), containing exactly one (at most 8 by choosing one label from each disjoint residual pair), or containing none (at most 1). If all pairs meet in >=3 labels, fixing one member bounds family size by 4. Thus nontrivial families have size <=13. The maximum 2-star has floor((n-2)/2) members, >13 for \\(n\\ge30\\). Two distinct exact finite methods establish all 26 remaining \\(4\\le n\\le29\\) maxima: bitset maximum clique with proved coloring bound, and independently implemented full Bron--Kerbosch maximal-clique enumeration with separate ambient generator. Direct subset brute force agrees for \\(n\\le13\\). The only strict exception is \\(n=9\\) with four explicit mutually 2-intersecting partitions. Both programs were executed from their actual embedded file paths and full outputs examined.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borg 2016 Proposition 1.7 covers n<=2k-t+1 (here n<=7); Theorem 1.8 covers n>=3tk^5 (here n>=6144), leaving a genuine intermediate gap. https://www.um.edu.mt/library/oar/bitstream/123456789/75639/1/Intersecting_integer_partitions_2016.pdf",
+        "Person--Schweser 2026 Theorem 1.1 imposes k>=k0(A) and n>=Ak^3; it is not a statement for fixed k=4. Theorem 1.2 treats counterexamples with large k. https://arxiv.org/html/2610.01747v1",
+        "Borg 2016 Lemma 3.1 does imply a nontrivial-family cap at most 13 in this case, but it does not decide the intermediate small-order maxima without further classification. https://www.um.edu.mt/library/oar/bitstream/123456789/75639/1/Intersecting_integer_partitions_2016.pdf"
+      ],
+      "reasoning": "The stronger general Borg intersection lemma covers the auxiliary 13 bound and is specifically acknowledged as prior art, not novel. It only forces the full-star conclusion from n>=30. The original Borg and later Person--Schweser extremal results do not give the values for n=8..29. The new finite exact case analysis bridges this genuine uncovered range; the one already-known n=9 witness is not claimed as discovery.",
+      "searches": [
+        "intersecting integer partitions Person Schweser n 31 k 8 620 618 first counterexample",
+        "for every n four parts 2-intersecting integer partitions optimal family exception n=9 Borg conjecture proof",
+        "integer partitions two intersecting four parts exact maximum 9 4 2 k=t+2",
+        "\"2-intersecting\" \"partitions\" \"four\" \"maximum\" Borg",
+        "Borg Conjecture 1.6 k=4 t=2 all n resolution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01747v1 full text",
+      "P. Borg (2016) full public PDF",
+      "arXiv:1304.6563v1 full text",
+      "SageMath partition reference",
+      "published-finding corpus item 2026/9/15/SCOPE026: different permutation intersection problem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Borg 2016 Theorem 1.8 and Proposition 1.7 supply the star bound only at very small or very large order; its Lemma 3.1 supplies the general auxiliary bound 13. https://www.um.edu.mt/library/oar/bitstream/123456789/75639/1/Intersecting_integer_partitions_2016.pdf",
+        "Person--Schweser 2026 Theorems 1.1 and 1.2 have asymptotic large-part quantifiers, so fixing k=4 is logically not licensed. https://arxiv.org/html/2610.01747v1",
+        "Direct exact enumeration settles the previously unconstrained finite region 8..29, confirming n=9 as the unique strict exception."
+      ],
+      "reasoning": "The asserted new result is the complete all-n exact formula for fixed length 4 and intersection 2, not the already-known exceptional example or auxiliary lemma. Prior theorems plus their immediate arithmetic consequences leave orders 8..29 untreated. The separate finite exact determination is required to fill this logical gap. The proof states the connection and does not claim to resolve larger-k cases that the 2026 paper shows can fail.",
+      "searches": [
+        "intersecting integer partitions four parts k=4 maximum intersecting family n Borg conjecture counterexample exact",
+        "for every n four parts 2-intersecting integer partitions optimal family exception n=9 Borg conjecture proof",
+        "partition intersection graph maximum cliques k=4 t=2 9 exception",
+        "\"intersecting integer partitions\" \"k=4\" \"t=2\" exact",
+        "four-part integer partitions two-intersecting exact maximum floor((n-2)/2) unique exception n=9 all n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Person--Schweser 2026, Section 2 occurrence-label encoding and Section 1, defines exactly the same multiplicity intersection: https://arxiv.org/html/2610.01747v1",
+        "Borg 2016, Conjecture 1.6 and Remark 1.5 formulates the same full-star maximization problem and known exception: https://www.um.edu.mt/library/oar/bitstream/123456789/75639/1/Intersecting_integer_partitions_2016.pdf",
+        "published-finding corpus published item 2026/9/15/SCOPE026 concerns 2-intersecting permutations at diversity four, not integer partitions of prescribed sum."
+      ],
+      "reasoning": "Exact aliases (two-intersecting fixed-sum four-multisets, four-part integer partitions and occurrence-label four-sets) were compared by object and implication. The fixed-sum restriction is essential: standard complete-intersection theorems for unrestricted four-sets or for set partitions do not imply the claimed exact values. The Borg and Person--Schweser papers are the closest same-object sources, but the specified all-order fixed-four-part evaluation is not stated or implied by their proven ranges.",
+      "searches": [
+        "intersecting integer partitions four parts k=4 maximum intersecting family n Borg conjecture counterexample exact",
+        "t-intersecting integer partitions small k 4 exact first star counterexample P_n,4",
+        "for every n four parts 2-intersecting integer partitions optimal family exception n=9 Borg conjecture proof",
+        "4-part partitions 2-intersecting largest family floor((n-2)/2) n equals 9",
+        "\"two-intersecting\" \"four parts\" \"integer partitions\" maximum 9",
+        "\"intersecting integer partitions\" \"k=4\" \"t=2\" exact",
+        "two-intersecting integer partitions P(n,4) exact four-part families maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Borg 2016 Remark 1.5 gives one named 4-element counterexample, not an all-order extremal table. https://www.um.edu.mt/library/oar/bitstream/123456789/75639/1/Intersecting_integer_partitions_2016.pdf",
+        "SageMath combinatorial integer-partition reference gives ambient partition enumeration, not 2-intersecting maximum-clique values: https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/partition.html",
+        "The supplied independent finite programs check every order 4..29 by exact clique methods and do not merely duplicate a known table."
+      ],
+      "reasoning": "Queries for direct integer sequences, tables, exact fixed parameters and the already-known order-nine exception did not identify a database covering the full claimed extremal values. Ambient partition-number tables are different invariants; the n=9 case is explicitly prior art. Search absence is not taken as a uniqueness proof.",
+      "searches": [
+        "4-part partitions 2-intersecting largest family floor((n-2)/2) n equals 9",
+        "2-intersecting fixed-sum 4-multisets 15 nontrivial bound",
+        "\"M_{4,2}(n)\" \"integer partitions\"",
+        "\"intersecting integer partitions\" \"small cases\" \"four parts\""
+      ]
+    },
+    "rationale": "The theorem fixes \\(k=4,t=2\\) for all n and is an exact natural classification absent from the examined same-object primary sources. Borg Conjecture 1.6 and Remark 1.5 explicitly own the known order-nine exception and Lemma 3.1 owns the auxiliary nontrivial-family bound; they do not imply the twenty-two or so unresolved finite intermediate values. Person--Schweser Theorem 1.1 requires sufficiently large k and Theorem 1.2 studies distinct large-k counterexamples; neither specializes to fixed four-part all-order bounds. Full primary material and semantic equivalences compared; possibility of unindexed exact work remains.",
+    "residual_risks": [
+      "No literature search rules out unindexed or not-yet-published equivalent fixed-(4,2) classifications.",
+      "The bounded extremal values use executable finite enumeration, not a short closed-form hand proof for each of the 26 intermediate orders; two independently implemented exact enumeration algorithms and an auxiliary exhaustive subset check limit computational risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING fixed k=4, t=2 all n; k sufficiently large in Theorem 1.1; known k=t+2 tie recognized.",
+        "evidence": [
+          "https://arxiv.org/html/2610.01747v1, lines corresponding to Theorems 1.1, 1.2; Section 2 labels; Section 5 constructions."
+        ],
+        "identifier_or_url": "arXiv:2610.01747v1",
+        "material_read": "Full freely available arXiv HTML, especially Sections 1, 2, 5 and 6 (Theorems 1.1 and 1.2, occurrence-label definitions and constructions)",
+        "method": "Primary paper full-text reading, direct quantifier and parameter comparison",
+        "title": "Intersecting integer partitions: star bounds and counterexamples at every scale",
+        "trigger": "Initiating recent same-object paper, first posted 2026-10-01"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: already-known n=9 exception and 13-bound; small n<=7 and n>=6144 theorem ranges; does not cover full finite n=8..29.",
+        "evidence": [
+          "https://www.um.edu.mt/library/oar/handle/123456789/75639",
+          "https://www.um.edu.mt/library/oar/bitstream/123456789/75639/1/Intersecting_integer_partitions_2016.pdf"
+        ],
+        "identifier_or_url": "Peter Borg, Australasian Journal of Combinatorics 66(2) (2016), 265-275",
+        "material_read": "Full lawful open-access PDF, particularly introduction, Remark 1.5, Conjecture 1.6, Proposition 1.7, Theorem 1.8, Lemma 3.1 and its proof",
+        "method": "Public university-repository primary PDF reading and direct specialized implication calculation",
+        "title": "Intersecting integer partitions",
+        "trigger": "Original precise conjecture and potential stronger coverage/known exception"
+      },
+      {
+        "assessment": "NO_BROADER_COVERAGE than the 2016 final paper for this specific assertion.",
+        "evidence": [
+          "https://arxiv.org/html/1304.6563v1, Introduction and Section 2."
+        ],
+        "identifier_or_url": "arXiv:1304.6563v1",
+        "material_read": "Public full-text HTML, Introduction and Section 2, including statements for fixed-parameter t-intersection",
+        "method": "Primary paper public arXiv HTML reading",
+        "title": "Intersecting integer partitions (earlier preprint)",
+        "trigger": "Earlier version and possible alternative theorem stronger than 2016 publication"
+      },
+      {
+        "assessment": "NOT_COVERING extremal intersection maxima.",
+        "evidence": [
+          "Reference concerns p(n,k) and partition generation, not maximum 2-intersecting families."
+        ],
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/partition.html",
+        "material_read": "Documentation examples and ambient partition counts",
+        "method": "Published documentation inspection, distinguishing ordinary partition counts from intersecting-family extrema",
+        "title": "SageMath integer-partition reference",
+        "trigger": "Possible exact table of partition extrema"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bfef2e1-b634-47d3-93b2-8aa4b5418414",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp complete extremal classification for the natural smallest length above the t+1 degenerate singleton case, with the recognized order-nine exception, settles the fixed-(k,t)=(4,2) instance of the motivating conjecture for every order. The general cap plus two exact finite computations remove a previously unaddressed range and yield the exact large-order equality structure. Its value is the complete natural statement, not the earlier-known exception or the previously implied cap by themselves.",
+    "status": "PASS"
+  }
+}
