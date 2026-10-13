@@ -1,0 +1,15 @@
+# Scientific assessment of the extreme-search/path-length covariance
+
+## Correctness: PASS
+The root-rank coupling matches the uniform insertion model. Conditional independence of the left and right subtrees gives the total-covariance recurrence. Three explicitly stated finite harmonic identities give the mixed root term; solving the scalar recurrence gives \(\operatorname{Cov}(P_n,R_n)=3n+H_n-2(n+1)H_n^{(2)}\). Discrete convexity of the expected total path length and concavity of the harmonic means make the conditional root covariance strictly negative for each \(n\geq3\). Independent exact enumeration and recurrence checks support the calculations but are not substituted for the proof. Marginal variances give the stated correlation limit. The theorem is restricted to uniformly grown ordinary binary search trees.
+
+## Originality: PASS, with residual historical risk
+The inspected weighted-depth BST paper treats label-weighted costs of designated keys and trees, not the unweighted mixed covariance; the Quicksort paper treats marginal path-length expectation and variance; the inspected search-tree limit paper treats path-length limits; the inspected multiway-tree dependence paper couples total path length to space requirements; the inspected record-biased-permutation paper treats records, inversions and other algorithms; the inspected record-biased-tree paper treats height and rightmost-path growth. None of these inspected statements gives the full mixed finite covariance or the exact strict sign. The general record-biased weighting could nevertheless yield this covariance by differentiation if an unpublished or older formula for its weighted total path length exists. Specialized classical generating-function treatments and books not exhaustively read remain potential sources of implicit coverage. No blanket claim of worldwide uniqueness follows from these comparisons.
+
+## Value: PASS
+Total internal path length measures the aggregate cost of constructing and searching a search tree, whereas searching for its largest key follows just one extreme spine. Their covariance has a counterintuitive uniform negative sign, a closed finite expression, linear asymptotic size, and vanishing Pearson correlation. The opposing behavior of balanced versus extreme root splits provides an explanatory structural mechanism. The exact answer resolves a natural joint-cost question that the two separate marginal laws and their variances leave undecided.
+
+## Boundaries and closest literature
+The result does not treat rebalanced trees, nonuniform insertion, a randomly selected search key, or joint independence. Relevant comparisons: arXiv:1006.4063 (marginal Quicksort variance); arXiv:1209.2546 (path-length strong limits); arXiv:1501.05135 (multiway path length versus space); arXiv:1605.02905 (record-biased permutations); Corsini DOI 10.1002/rsa.21110 (rightmost paths and height); Aguech–Amri–Sulzbach DOI 10.1007/s10959-017-0773-1 (weighted depths). The historical priority assessment is literature-limited and has not received an external independent audit.
+
+Self-review: passed. Independent audit: not yet performed.

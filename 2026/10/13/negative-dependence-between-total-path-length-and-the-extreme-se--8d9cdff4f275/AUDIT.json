@@ -1,0 +1,177 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(n\\ge1\\), a uniform-root decomposition gives \\(K_n=n^{-1}\\sum_{j<n}K_j+g_n\\). Conditional mean path length is \\(c_j+c_{n-1-j}\\), while conditional maximum-search visits average \\(H_j\\). The explicit weighted-harmonic-square and harmonic-convolution identities in the proof yield \\(g_n=(n+1)(3/2-H_n^{(2)})-H_n/n\\); telescoping gives \\(K_n=3n+H_n-2(n+1)H_n^{(2)}\\). Opposite reflected monotonicities of the discrete-convex path-length mean and symmetrized harmonic mean establish \\(g_n<0\\) for every \\(n\\ge3\\), and recurrence preserves strict negativity. Harmonic expansions, independent record indicators, and the cited Quicksort variance give the correlation asymptotic. Exact-rational enumeration through eight keys, root-split checks through 120 keys and large-size numeric illustrations passed, but these finite checks do not replace the proof for all sizes. Correlation is defined only where both variances are positive, namely \\(n\\ge3\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grübel, arXiv:1209.2546, §4.1: internal path length and strong limits are addressed, without the extreme-key mixed moment.",
+        "Chern et al., arXiv:1501.05135, §1–§2 and §5.2–§5.3: the primary covariance is between space requirements/partition stages and total key/node path length in other search-tree models.",
+        "Corsini, DOI:10.1002/rsa.21110, §1–§3: height of record-biased trees and the rightmost-path length are treated, but total internal path length is not evaluated jointly.",
+        "Aguech–Amri–Sulzbach, DOI:10.1007/s10959-017-0773-1, §2.1–§3.1: marginal depths of key-labelled nodes and weighted path-length/weighted-depth statistics; no joint covariance between unweighted whole-tree path length and unweighted extreme search visits."
+      ],
+      "reasoning": "The broader models include both marginal building blocks but involve a different second shape functional (space or height), or only convergence of the path-length functional. In an ordinary binary search tree space is deterministically n, so a covariance with space does not imply the claimed covariance with the random rightmost path. Height is not the extreme-key path. A general joint record-biased cost expression, if it exists elsewhere, could imply the claim by differentiation and remains the main residual risk.",
+      "searches": [
+        "binary search tree internal path length rightmost spine length joint distribution covariance dependence",
+        "record-biased binary search tree internal path length number of permutation records covariance negative rightmost spine",
+        "random BST longest key successful search number visited nodes path length total construction cost",
+        "arXiv:1209.2546",
+        "arXiv:1501.05135",
+        "DOI:10.1002/rsa.21110",
+        "DOI:10.1007/s10959-017-0773-1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1006.4063v1",
+      "https://arxiv.org/html/1209.2546v2",
+      "https://arxiv.org/abs/1501.05135",
+      "https://www.math.uni-frankfurt.de/~neiningr/dependence_m_ary.pdf",
+      "https://arxiv.org/html/1605.02905v1",
+      "https://benoitcorsini.com/files/articles/corsini_2021_rbt.pdf",
+      "https://doi.org/10.1017/S096354830999068X",
+      "https://link.springer.com/article/10.1007/s10959-017-0773-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Auger et al., arXiv:1605.02905, §3.3–§4: weighted records, inversions, InsertionSort, and Min/Max costs are computed, not weighted first-pivot Quicksort path length.",
+        "Iliopoulos and Penman, arXiv:1006.4063, Theorem 2.1: variance of total comparison count, no record-conditioned cost.",
+        "Chern et al., arXiv:1501.05135, Introduction and §5.2: comparison count versus number of partition stages, not the rightmost path."
+      ],
+      "reasoning": "The mixed covariance is not determined by separate first and second moments of P or R, nor by covariance of P with a symmetric root-imbalance parameter, a leaf count, or a deterministic tree-size statistic. The mixed covariance equals the derivative at unit record-bias of the mean total path length under record weighting. A previously derived complete record-biased Quicksort-cost mean would dominate this finding; the inspected 2016 record-biased source instead derives InsertionSort and Min/Max results, and no such dominating primary result was identified.",
+      "searches": [
+        "arXiv:1605.02905",
+        "arXiv:1501.05135",
+        "arXiv:1006.4063",
+        "arXiv:1209.2546",
+        "record-biased binary search tree internal path length number of permutation records covariance negative rightmost spine",
+        "negative covariance right spine length and total internal path length random search tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Corsini, The height of record-biased trees, §1.1: upper records of the insertion permutation correspond to the rightmost path; work focuses on height.",
+        "Iliopoulos and Penman, arXiv:1006.4063, §1–§3: total internal path length is first-pivot Quicksort comparisons and the studied statistic is its marginal variance.",
+        "Direct recursion for an ordinary binary search tree identifies the claimed extreme path with the right-subtree record count."
+      ],
+      "reasoning": "The tested aliases are right-spine length, largest-key successful-search visits, strict upper-record count and first-pivot Quicksort comparisons versus total internal path length. Equivalent naming does not yield a pre-existing mixed covariance statement in the inspected materials. No claim of priority follows simply from absence of search hits.",
+      "searches": [
+        "random binary search tree total internal path length maximum key depth right spine number upper records covariance correlation",
+        "quicksort comparison count and records of permutation covariance joint asymptotic correlation",
+        "joint record count and Quicksort comparisons first pivot insertion order binary search tree",
+        "arXiv:1006.4063",
+        "DOI:10.1002/rsa.21110"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact enumeration of all insertion permutations through size eight gives the mixed covariance values -1/18 (size three), -11/72 (size four), and -7/25 (size five), matching the analytic formula.",
+        "The inspected papers provide the marginal moments and separate shape functionals rather than this mixed covariance table."
+      ],
+      "reasoning": "The displayed small values are direct verification, not proof of table novelty. Neither an identified exact published table nor a stronger tabulation of this particular statistic was found in the searches. Matching small table values or failed exact-formula searches cannot establish historical novelty.",
+      "searches": [
+        "3n + harmonic H_n - 2(n+1) second order harmonic H_n^2 covariance binary search tree right spine total internal path length Quicksort",
+        "negative covariance right spine length and total internal path length random search tree",
+        "random BST longest key successful search number visited nodes path length total construction cost",
+        "arXiv:1006.4063"
+      ]
+    },
+    "rationale": "The exact mixed covariance \\(3n+H_n-2(n+1)H_n^{(2)}\\), the strict all-size negative sign, and the asymptotic correlation coefficient are not stated in the inspected primary texts. Classical marginal BST/Quicksort moments, permutation-record distributions, record-biased trees, label-weighted depths, and path-length/space-requirement covariances do not alone imply this joint law. An older implicit generating function could still cover it; this remains a material historical risk.",
+    "residual_risks": [
+      "A classical but unlocated joint generating function for first-pivot Quicksort comparisons and permutation upper records might imply the exact covariance.",
+      "Differentiating an unpublished or less visible expected total path length under a record-biased permutation law at unit bias would recover the covariance; the inspected record-biased articles do not supply this expectation.",
+      "The older paper on random records/cuttings in BSTs was inspected only at abstract level; its described random-cut records differ from insertion-permutation upper records.",
+      "Older books and specialized joint-cost articles were not exhaustively inspected; the outcome is a self-review, not an independent historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal mean and variance supplied; the upper-record/rightmost-path mixed covariance is not stated.",
+        "evidence": [
+          "Theorem 2.1 gives Var(C_n)=7n²+13n−2(n+1)H_n−4(n+1)² H_n^(2); Theorem 2.2 gives the Quicksort root-split generating recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1006.4063v1",
+        "material_read": "Full accessible HTML with introductory theorem, comparison-count recursion, variance proof sections and stated exact formula.",
+        "method": "Read original HTML §1–§3; checked record terminology in the text.",
+        "title": "Variance of the number of Comparisons of Randomized Quicksort",
+        "trigger": "Same total path-length/Quicksort cost and exact variance used to obtain correlation."
+      },
+      {
+        "assessment": "Provides strong limit laws for path length but not its covariance with the extreme right spine.",
+        "evidence": [
+          "§4.1 equations (26)–(33) describe the total internal path length and its limit; §4.2 concerns Wiener index."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1209.2546v2",
+        "material_read": "Full accessible HTML table of contents, Introduction, binary search tree model, §4.1 internal path length, §4.2 Wiener index, references and searched text.",
+        "method": "Read original HTML sections and searched for rightmost, spine, covariance and path length.",
+        "title": "Search trees: Metric aspects and strong limit theorems",
+        "trigger": "Potential broader result for random BST path length and general shape variables."
+      },
+      {
+        "assessment": "Covariances involve space requirements, partition stages, and total path length; not the random extreme search path.",
+        "evidence": [
+          "AMS 2010 classification explicitly lists primary 60F05, 68Q25; §1 and §2.1 define path length and space requirements, and §5.2 concerns comparisons versus partition stages."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1501.05135",
+        "material_read": "Primary 37-page PDF: title/classification page, Introduction, §2.1 shape parameters, §5.2–§5.3 extensions, references; searched full extracted text for rightmost and spine.",
+        "method": "Inspected original author-hosted PDF and its extracted full-text search.",
+        "title": "Dependence and phase changes in random m-ary search trees",
+        "trigger": "Closest probability paper explicitly studying covariances involving path length in search trees."
+      },
+      {
+        "assessment": "Record-biased model introduced but no record-weighted mean first-pivot Quicksort cost or mixed covariance obtained.",
+        "evidence": [
+          "§3.4 evaluates inversions and InsertionSort; §4 evaluates Min/Max mispredictions; neither computes the random BST total path length."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1605.02905v1",
+        "material_read": "Accessible original HTML: Introduction; §2.3 record-weighted law; §3.3 distributional statements; §3.4 inversion/InsertionSort; §4 Min/Max; table of contents and searched text.",
+        "method": "Read HTML sections, including stated algorithm results and recorded dependence parameter.",
+        "title": "Analysis of Algorithms for Permutations Biased by Their Number of Records",
+        "trigger": "Possible dominating formula via differentiation in the record-bias parameter."
+      },
+      {
+        "assessment": "Rightmost path and height results, but no full-tree internal path-length mixed covariance.",
+        "evidence": [
+          "§1.1 identifies permutation records with nodes on the rightmost path; §4 discusses height fluctuations, not aggregate internal path length."
+        ],
+        "identifier_or_url": "https://benoitcorsini.com/files/articles/corsini_2021_rbt.pdf",
+        "material_read": "Original 17-page PDF: Introduction and §1.1, §2.2 rightmost-path law, height arguments, §4 future work, contents, and full-text searches for internal path length and Quicksort.",
+        "method": "Read PDF excerpts and searched its full extracted text for path length and Quicksort.",
+        "title": "The height of record-biased trees",
+        "trigger": "Exact same rightmost-path/record statistic and a broader record-weighted tree model."
+      },
+      {
+        "assessment": "Appears to count random auxiliary marks used for vertex cuttings rather than input-permutation upper records; full-text exclusion is not certified.",
+        "evidence": [
+          "Journal abstract identifies its record number with random cuttings and a weakly 1-stable limit, unlike the logarithmic upper-record count of the present model."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S096354830999068X",
+        "material_read": "Journal abstract and cited descriptions only; original complete paper not accessed.",
+        "method": "Compared journal abstract and references to random-label records/cutting interpretation.",
+        "title": "Random Records and Cuttings in Binary Search Trees",
+        "trigger": "Title could indicate direct overlap under the word records."
+      },
+      {
+        "assessment": "The work studies marginal depths of fixed and extreme keys, label-weighted versions and weighted total path length, rather than the covariance of ordinary total path length with extreme-key search visits. Its theorem statements do not dominate the claim.",
+        "evidence": [
+          "§2.1 equations (3)–(6) give marginal depths/weighted-extreme depths; §2.2 equation (7) gives marginal path length variance; §3.1 Theorems 1–2 give limits for weighted depths, not the mixed path–spine covariance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10959-017-0773-1",
+        "material_read": "Open-access publisher full-text HTML: Abstract, §1 Introduction, §2.1 depths and height, §2.2 total path length and Wiener index, §2.3 weighted definitions, §3.1 Theorems 1 and 2; searched page for covariance, spine, rightmost.",
+        "method": "Read original primary article HTML and compared object definitions and stated moment theorems.",
+        "title": "On Weighted Depths in Random Binary Search Trees",
+        "trigger": "Directly relevant original paper treating extreme-key depths, total path length and weighted analogues in the same random BST model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d9cdff4-f275-410b-be9d-0509432a1ead",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two natural and genuinely different costs of the same random search tree—a global sum over all node depths and the extreme-key successful-search path—have a complete exact negative covariance law not inferable from the known marginal moments. The root-split convexity mechanism explains the sign, the exact closed form characterizes every sample size, and the asymptotic reveals linear covariance with Pearson correlation approaching zero. This structural dependence is motivated by interpreting insertion/search performance jointly, rather than by a fabricated or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
