@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For 12<=c<=49, the embedded exact-integer verifier factors c! and checks s(c!)>c^2. For c>=50, Nagura at (c+1)/2, 2c/3, and 5c/6 supplies three disjoint primes q_i>c/2, each with v_{q_i}(c!)=1, so s(c!)>=q_1q_2q_3>=5c^3/18>c^2. For prime p>=13, if p does not divide s(c!), multiplication by p gives s(pc!)=p s(c!)>=p; if it does, then c>=p and s(pc!)=s(c!)/p>c^2/p>=p. Exact witnesses exclude 2,3,5,7,11. The finite stress test is supplementary and is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Broughan (Integers 2 (2002), A10) proves log s(n!)=n log 2+O(sqrt(n)).",
+        "Yudin proves positive lower density of the full set R, a distributional statement not giving exact membership of every prime."
+      ],
+      "reasoning": "The asymptotic theorem implies eventual growth but contains no explicit error constant that yields the exact threshold 12, and a positive-density result for R does not determine the prime stratum. Neither dominates the exact classification.",
+      "searches": [
+        "square products of factorials set R squarefree a s(a c!) >= a prime a",
+        "squarefree part factorial s(c!) greater than c squared prime classification",
+        "F(n)=6 factorial products prime multiplier a in R Yudin",
+        "squarefree kernel of factorial lower bound c^2",
+        "Broughan asymptotic square-free part factorial log s(n!)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01899v1",
+      "Broughan-2002-Integers-A10",
+      "OEIS:A055204",
+      "doi:10.3792/pja/1195570997",
+      "own:4f6ac6e6-0ece-437a-a687-f362d7eee639"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest own claim says s(c!) is prime exactly for c in {2,6,10}.",
+        "Its large-c argument guarantees multiple prime divisors of s(c!), whereas the new classification needs the quantitative inequality s(c!)>c^2."
+      ],
+      "reasoning": "Having at least two prime divisors is strictly weaker than a quadratic size bound, so the own primality classification does not imply prime membership in R. The lead source’s positive-density result likewise does not imply exact membership of an infinite prescribed subset.",
+      "searches": [
+        "square products of factorials set R squarefree a s(a c!) >= a prime a",
+        "squarefree part factorial s(c!) greater than c squared prime classification",
+        "F(n)=6 factorial products prime multiplier a in R Yudin",
+        "squarefree kernel of factorial lower bound c^2",
+        "prime squarefree kernels of factorials s(c!) prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01899v1 defines the squarefree obstruction set through the inequalities s(a c!)>=a for all c.",
+        "The equivalent prime-parameter question is whether toggling p in s(c!) ever lowers the squarefree part below p; no source inspected states the p>=13 classification."
+      ],
+      "reasoning": "For prime p, failure can occur only when p divides s(c!), in which case the condition is s(c!)/p>=p. This equivalence reduces the problem to a lower bound on s(c!), but it is not a result already stated in the lead source.",
+      "searches": [
+        "square products of factorials set R squarefree a s(a c!) >= a prime a",
+        "squarefree part factorial s(c!) greater than c squared prime classification",
+        "F(n)=6 factorial products prime multiplier a in R Yudin",
+        "squarefree kernel of factorial lower bound c^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A055204 lists s(n!) and gives s(11!)=77 and s(12!)=231 among its initial terms.",
+        "No table entry inspected asserts s(c!)>c^2 for all c>=12 or classifies prime members of Yudin’s R."
+      ],
+      "reasoning": "The table confirms finite values but a finite sequence listing does not establish the infinite tail or the quantified obstruction-set membership theorem.",
+      "searches": [
+        "square products of factorials set R squarefree a s(a c!) >= a prime a",
+        "squarefree part factorial s(c!) greater than c squared prime classification",
+        "F(n)=6 factorial products prime multiplier a in R Yudin",
+        "squarefree kernel of factorial lower bound c^2",
+        "OEIS A055204 factorial squarefree part prime 13"
+      ]
+    },
+    "rationale": "The direct source introduces the obstruction set and establishes positive density but does not classify its prime elements. Broughan gives an asymptotic for log s(n!), not the exact tail threshold. OEIS tabulates values without the theorem. Semantic published-record searches found no equivalent statement, and the closest own factorial-kernel result answers a different primality question that does not imply a quadratic lower bound.",
+    "residual_risks": [
+      "An equivalent exact threshold or prime-stratum observation could exist in an obscure or unindexed source not surfaced by the searches.",
+      "The lead preprint is very recent; later versions may add observations absent from the first public version."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING. The paper defines R and proves positive lower density but does not classify the primes in R or state the exact quadratic tail threshold.",
+        "evidence": "The defining condition and density lemma occur in the section on five- and six-factor representations; no prime-stratum theorem follows there.",
+        "identifier_or_url": "arXiv:2610.01899v1",
+        "material_read": "Abstract; the section defining R and deriving s(ac!)=a s(c!)/gcd(a,s(c!))^2 for squarefree a; the positive-lower-density lemma; and the subsequent six-factor construction.",
+        "method": "Primary full-text inspection of the first public arXiv version, with submission date and classification cross-check.",
+        "title": "Square products of factorials and a conjecture of Erdős and Graham",
+        "trigger": "Direct recent source introducing the obstruction set used for six-factor representations."
+      },
+      {
+        "assessment": "NOT_COVERING. It proves log s(n!)=n log 2+O(sqrt(n)) and prime-exponent asymptotics, not an exact threshold s(c!)>c^2 for every c>=12 and not membership in Yudin’s R.",
+        "evidence": "Theorem 1 is asymptotic with an unspecified big-O constant; the later lemmas concern intervals of primes of fixed factorial valuation.",
+        "identifier_or_url": "Broughan-2002-Integers-A10",
+        "material_read": "Full six-page article, especially Theorem 1 and the section on primes dividing n!.",
+        "method": "Lawful open-access PDF text and page inspection.",
+        "title": "Asymptotic Order of the Square-free Part of N!",
+        "trigger": "Most directly relevant classical size theorem for s(n!)."
+      },
+      {
+        "assessment": "NOT_COVERING. The entry tabulates the sequence and cites Broughan but gives no obstruction-set prime classification.",
+        "evidence": "The table contains the boundary values 77 at n=11 and 231 at n=12; its formulas and comments do not state the quantified tail theorem.",
+        "identifier_or_url": "OEIS:A055204",
+        "material_read": "Definition, initial terms, formulas, references, and example.",
+        "method": "Direct database entry inspection.",
+        "title": "A055204 — Squarefree part of n!",
+        "trigger": "Exact database/table check for the factorial squarefree-part sequence."
+      },
+      {
+        "assessment": "SUPPORTING. It supplies the nonstandard prime-interval lemma used three times; it does not concern factorial squarefree parts or the obstruction set.",
+        "evidence": "Nagura’s theorem guarantees a prime in [x,6x/5) for x>=25, which gives three disjoint intervals after the stated substitutions.",
+        "identifier_or_url": "doi:10.3792/pja/1195570997",
+        "material_read": "Article metadata and theorem statement as independently restated in Panaitopol, Intervals containing prime numbers (2001), with page-image inspection.",
+        "method": "Journal metadata plus open-access secondary full-text verification of the exact Nagura interval [x,6x/5) for x>=25.",
+        "title": "On The Interval Containing At Least One Prime Number",
+        "trigger": "Critical prime-interval input in the infinite part of the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64bc76a7-1550-4805-9dee-386d3ab431d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "R is not an arbitrary parameter set: it is the explicit obstruction set used in the recent positive-density construction for six-factor factorial squares. Its complete prime layer is a natural infinite sub-classification, identifies the first admissible prime, and reduces an all-c condition to a sharp finite boundary via a reusable quadratic tail lemma. The result is therefore structurally tied to the motivating construction rather than a routine recomputation of sequence values.",
+    "status": "PASS"
+  }
+}
