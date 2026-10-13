@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For every b>=2 the aligned length-b blocks contain b distinct residues modulo b+1 and miss exactly a_j-1. The exact digit-carry equality s_b(q)-s_b(q-1)=1-(b-1)nu_b(q) determines first missing-symbol offsets. In even bases each odd q has zero valuation and each pair finishes exactly one greedy arch at its final letter. In odd bases the missing color in an odd-indexed block occurs at offset d=(-2(nu_b(q)+1) mod b+1), always even and within that block, while the succeeding even block cannot complete a second arch; induction gives all positions and arbitrary prefix formula. Bounds and attained extrema follow by explicit residues. A standalone verifier independently checked 91,029 prefixes, 58,000 carry identities and 155 brute-subsequence instances; the infinite proof is symbolic and does not infer from sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2304.11932 §§3 and 5–6 provides general computation of arbitrary finite-word universality, via arch jumps and signatures. It is an algorithmic capability, not an evaluated symbolic closed formula for this automatic family.",
+        "arXiv:2412.18425 main theorems concern eventual periodicity and values of k-binomial complexity for t_m with base and modulus both m, a logically distinct property.",
+        "arXiv:2112.05347 focuses 2-binomial equivalence among finite factors of generalized Thue–Morse words."
+      ],
+      "reasoning": "A generic algorithm computes the invariant for any given finite prefix, but does not imply the explicit formula without the new carry/block argument. The binomial-equivalence results count factor classes or subsequence multiplicities and do not force all possible words to occur within the specified prefixes. Thus no inspected stronger or covering theorem dominates the present family classification.",
+      "searches": [
+        "On arch factorization and subword universality for words and compressed words arxiv:2304.11932",
+        "\"digit-sum\" \"arch factorization\"",
+        "morphic automatic words exact subsequence universality index generalized Thue Morse 2023 2024",
+        "Computing the k-binomial complexity of generalized Thue-Morse words arxiv:2412.18425"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.11932",
+      "arxiv:1104.2476",
+      "arxiv:2112.05347",
+      "arxiv:2412.18425",
+      "Published mathematical finding summaries on automatic-word universality and digit-sum combinatorics",
+      "OEIS-scoped web searches for arch/universality digit sums"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.11932 §2 eq. (1) and Proposition 10 credit gives U equal to number of completed greedy arches (premise used here).",
+        "arXiv:1104.2476 presents generalized Thue–Morse fixed-point structure and palindromic richness rather than the b versus b+1 residue-block phase.",
+        "arXiv:2112.05347 and arXiv:2412.18425 characterize finite-factor binomial equivalence, without claiming the value of the complete-alphabet scattered-subsequence universality index of every prefix."
+      ],
+      "reasoning": "The arch-count theorem logically supplies a computable definition and a route to counting, but a carry analysis is still required to derive the explicit positions b(2i-1)+d_b(2i-1). Factor binomial complexity cannot yield this exact all-prefix index without additional information not in the inspected statements; neither factor counts nor bounded-k multiplicities subsume it.",
+      "searches": [
+        "arxiv:2304.11932 section 2 arch factorization equation iota(u)=number of arches",
+        "arxiv:1104.2476 generalized Thue-Morse words modulo m substitution palindromic richness",
+        "arxiv:2112.05347 2-binomial complexity generalized Thue-Morse words",
+        "arxiv:2412.18425 factor binomial equivalence generalized Thue-Morse words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schnoebelen–Veron arXiv:2304.11932 §§2–3 defines arch count and general algorithms, without identifying this digit-sum-modulo-base-plus-one example.",
+        "Starosta arXiv:1104.2476 treats generalized Thue–Morse digit sums as a classical family, but investigates palindromes and substitution symmetries.",
+        "Search of available mathematical finding summaries found related universality work for Rudin–Shapiro, regular paperfolding, Baum–Sweet and a ternary Thue difference word; these are different infinite sequences and imply no formula for t_b(n)=s_b(n) mod (b+1)."
+      ],
+      "reasoning": "Subsequence universality = greedy arch count is an equivalent formulation of the invariant, but the closed formula for this digit-sum family is not present in the compared sources. Distinguishes full-alphabet m=b+1 from the classical m=b digit-sum fixed-point special case.",
+      "searches": [
+        "\"generalized Thue Morse\" \"universality index\" subsequence",
+        "\"digit sum\" \"subsequence universality\" Thue Morse",
+        "base b digit sum modulo b+1 generalized Thue-Morse subsequence universality exact arches every prefix",
+        "subsequence universality generalized Thue Morse word all prefixes formula automatic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted OEIS and digit-sum universality searches returned no relevant indexed closed-form record.",
+        "Semantic searches of published mathematical finding summaries returned closest unrelated records on arch universality of other automatic words or attractors of Rudin–Shapiro/paperfolding; no all-base b+1 digit-sum table was found."
+      ],
+      "reasoning": "No exact database/table match was retrieved. This is an absence of evidence in the searched indexes, not evidence that no earlier equivalent table exists.",
+      "searches": [
+        "OEIS \"subsequence universality\" \"sum of digits\"",
+        "OEIS \"arches\" \"generalized Thue Morse\" \"universality\"",
+        "generalized Thue Morse word sum of binary digits modulo m scattered subsequence universality index k universal prefixes m ary",
+        "digit sum modular automatic word complete arch factorization subsequence universality density 1/(2b)"
+      ]
+    },
+    "rationale": "Complete direct comparison with the specific generalized Thue–Morse source and with the primary general arch-factorization source finds no equivalent exact all-base, all-prefix universality index or valuation-dependent odd-base arch endpoint classification. The word definition and arch-count equivalence are inherited and explicitly credited. The current claim is a special-family closed formula not stated in the general finite-word algorithms; further work on binomial complexity is about a distinct invariant. Search coverage and access limitations leave residual risk of an unindexed equivalent derivation.",
+    "residual_risks": [
+      "An older or unindexed result may express these arch boundaries using an equivalent combinatorial name or a table rather than the terms searched.",
+      "The search cannot establish novelty against inaccessible manuscripts or unpublished investigations.",
+      "The classification applies to modulus b+1; the substantial body of generalized Thue–Morse work with modulus b has a different object and is not a completeness guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General arch factorization and algorithms; no explicit digit-sum family or odd-base valuation correction. Greedy arch equivalence credited and used as prior.",
+        "evidence": [
+          "arXiv:2304.11932 §2 states universality index equals the number of arches; §3 studies jumps; §§5–6 compute signatures and SLP-compressed universality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.11932v1",
+        "material_read": "Full-text HTML introduction, definitions, arch and jumping-function results, universality signatures, compressed-word algorithms and conclusion",
+        "method": "Scientific reading of arXiv open HTML sections 1–3 and 5–7, checking the nature of universality statements and whether a base-plus-one digit-sum family is treated",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "Exact invariant, arch lemma, possible broader coverage of arbitrary input words"
+      },
+      {
+        "assessment": "Same digit-sum sequence family, different palindromic richness and factor structure questions; no arch endpoint or all-prefix universality formula identified.",
+        "evidence": [
+          "arXiv:1104.2476, generalized Thue–Morse digit sums, symmetry and palindromic richness; primary MSC 68R15."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1104.2476v3",
+        "material_read": "Open HTML introduction, generalized Thue–Morse definition and main structural/palindromic results",
+        "method": "Reading arXiv primary HTML and comparing invariant definitions and theorem scopes",
+        "title": "Generalized Thue-Morse words and palindromic richness",
+        "trigger": "Primary source for the same digit-sum-modulo-m objects and possible overlapping finite-word formulas"
+      },
+      {
+        "assessment": "Counts equivalence classes of factors under subsequence multiplicity; does not determine all-word existence for entire initial prefixes, particularly base b modulo b+1.",
+        "evidence": [
+          "arXiv:2112.05347 studies 2-binomial classes in generalized Thue–Morse factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.05347v1",
+        "material_read": "Open HTML abstract, definitions and principal 2-binomial-complexity results",
+        "method": "Primary arXiv full-text inspection of objects, parameters, and logical implications",
+        "title": "On the 2-binomial complexity of generalized Thue-Morse words",
+        "trigger": "Same infinite word family and subsequence-based invariant might imply complete coverage"
+      },
+      {
+        "assessment": "Classifies k-binomial complexity for same-base same-modulus generalized Thue–Morse; does not evaluate all-prefix scattered-universality for base b and modulus b+1.",
+        "evidence": [
+          "arXiv:2412.18425 §§1–2 and 7 addresses k-binomial equivalence and eventual periodicity for factor classes of t_m; paper first public 2024-12-24."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.18425v1",
+        "material_read": "Full-text HTML abstract, introduction, main results, characterization of factor binomial equivalence and references",
+        "method": "Primary arXiv full-text inspection, comparing definitions and all-prefix versus factor-class results",
+        "title": "Computing the k-binomial complexity of generalized Thue-Morse words",
+        "trigger": "Subsequent high-relevance same-family paper that potentially dominates previous bounded-binomial results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8698c079-959e-430e-8d9b-840d87bb9669",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete all-prefix exact evaluation of a natural scattered-subsequence coverage invariant for an unbounded classical family of automatic sequences, not merely evaluation of a chosen finite slice. The b versus b+1 mismatch creates a nontrivial missing-letter pattern, and the proof uncovers a sharp parity distinction plus carry-valuation-controlled early arch endings, with exact limiting rate and sharp discrepancy. These conclusions are not textbook consequences of automaticity or a general finite-word scanning algorithm and permit exact logarithmic-digit computation of the invariant.",
+    "status": "PASS"
+  }
+}
