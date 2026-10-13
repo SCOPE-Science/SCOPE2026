@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Odd G-Lehmer inputs are squarefree. For three primes, the local Gaussian-Euler factors give Phi(n) >= 64n/125, while n >= 105 gives F(n) <= n+1 < 2 Phi(n); divisibility therefore forces equality. Expansion with signed primes yields xy+xz+yz=x+y+z. The two uniform-sign cases are impossible; each mixed-sign case rearranges to one displayed quadratic factorization, and elementary size bounds force both factors positive. Reversing the algebra proves both converses. The packaged verifier independently agrees with the classification on every three-prime product through 5,000,000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper supplies a Korselt framework for Gaussian Carmichael numbers and a two-prime G-Lehmer classification, but no theorem for three prime factors.",
+        "The closest semantic result was a three-prime Lucas-Carmichael theorem concerning a different shifted-factor divisibility condition."
+      ],
+      "reasoning": "Broader Gaussian Carmichael structure does not force the equality quotient or the two quadratic factorization identities. The new quotient bound and signed-prime equation are additional ingredients.",
+      "searches": [
+        "\"G-Lehmer\"",
+        "\"G-Lehmer's totient problem\"",
+        "\"Gaussian Lehmer numbers\"",
+        "\"all known\" \"G-Lehmer numbers\" 255 385",
+        "Gaussian Lehmer numbers with exactly three prime factors classification Phi(n)=F(n)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.4708v1",
+      "doi:10.1007/s10587-015-0221-2",
+      "DML-CZ:144786",
+      "OEIS:A235864",
+      "OEIS:A182140",
+      "OEIS:A182221",
+      "targeted exact-identity and semantic literature searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 13 of the primary source treats n=pq only and uses the preceding two-prime Gaussian Carmichael classification.",
+        "The source explicitly lists G-Lehmer numbers with more than two factors immediately after Proposition 13 and then asks whether proper divisibility occurs.",
+        "The present proof needs the three-factor lower bound Phi(n)/n >= 64/125 and the signed cubic cancellation; neither is a consequence of Proposition 13."
+      ],
+      "reasoning": "A special case with two factors cannot imply the three-factor statement. The three-prime quotient bound and mixed-sign factorization are logically new premises, and the database tables supply examples rather than implications.",
+      "searches": [
+        "G-Lehmer proper divisor Phi F",
+        "Does the two-prime G-Lehmer theorem imply the three-prime case?",
+        "G-Lehmer three primes (q-p-1)(r-p-1)=p^2+p+1",
+        "Fermat test with gaussian base Gaussian Lehmer numbers three prime factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary Section 5 defines G-Lehmer numbers and gives only the two-prime theorem before listing higher-factor examples.",
+        "No exact-formula search returned a three-prime theorem; the only exact-object matches were the primary paper and sequence databases."
+      ],
+      "reasoning": "The searches used the object name, the three-prime support condition, the equality reformulation, and both quadratic factorization identities. None produced an equivalent classification.",
+      "searches": [
+        "\"G-Lehmer\" \"exactly three\" prime factors",
+        "\"Gaussian Lehmer\" \"three prime factors\"",
+        "\"q-p-1\" \"r-p-1\" Gaussian",
+        "\"t^2+t+1\" \"G-Lehmer\"",
+        "odd G-Lehmer number exactly three prime factors all have Phi(n)=F(n) divisor parametrization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A235864 is the exact G-Lehmer sequence and gives computational formulas and terms.",
+        "OEIS A182140 is the exact equality sequence, authored 14 April 2012; A182221 isolates composite equality cases outside the special semiprime branch."
+      ],
+      "reasoning": "The databases establish examples and exact membership tests but do not prove that every three-prime divisibility case lies on the equality sequence, nor do they give the divisor parametrization.",
+      "searches": [
+        "\"A182221\" classification",
+        "\"A182221\" 255 385 34561",
+        "\"A235864\" G-Lehmer",
+        "OEIS A182140 Phi F equality"
+      ]
+    },
+    "rationale": "The primary source states the G-Lehmer divisibility problem, proves only the two-prime classification, and explicitly moves next to examples with more than two factors and the proper-divisor question. The exact OEIS sequences tabulate divisibility and equality cases but do not classify the three-prime layer. Exact identity, alias, database, and semantic searches found no theorem implying the factor-pair classification or the quotient-one barrier.",
+    "residual_risks": [
+      "An equivalent proof may exist in unindexed notes or correspondence not surfaced by the targeted searches.",
+      "The theorem does not address four-prime or higher-support G-Lehmer numbers.",
+      "The theorem is restricted to odd inputs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_PRIMARY_NOT_COVERING. It proves the two-prime case and poses the broader question, but does not classify three-prime G-Lehmer numbers.",
+        "evidence": "Section 5 states that G-Lehmer means Phi(n) divides F(n), proves the pq case, lists 255, 385, 34561, and further examples as having more than two factors, and asks whether Phi(n) can be a proper divisor of F(n).",
+        "identifier_or_url": "arXiv:1401.4708v1",
+        "material_read": "The preliminaries defining the Gaussian Euler function and its prime-power formula, the odd squarefree Gaussian-Carmichael argument, and the full G-Lehmer section including Definition 4, Proposition 13, the higher-factor examples, Questions 1 and 2, and Proposition 14.",
+        "method": "Direct inspection of the lawful open-access arXiv full text; journal metadata was cross-checked in DML-CZ.",
+        "title": "Fermat test with gaussian base and Gaussian pseudoprimes",
+        "trigger": "Primary source defining G-Lehmer numbers and posing the proper-divisor question."
+      },
+      {
+        "assessment": "DATA_NOT_COVERING. It tabulates G-Lehmer numbers but gives no support-three theorem.",
+        "evidence": "The entry defines composite k with A060968(k) dividing A201629(k) and lists the initial examples; no three-prime structural statement is present.",
+        "identifier_or_url": "OEIS:A235864",
+        "material_read": "Definition, initial terms, computational formula, cross-references, source link, authorship date, and extension history.",
+        "method": "Direct inspection of the exact database entry.",
+        "title": "OEIS A235864: G-Lehmer numbers",
+        "trigger": "Exact database for the divisibility-defined object."
+      },
+      {
+        "assessment": "DATA_NOT_COVERING. They enumerate equality cases but do not classify the three-prime layer or connect every three-prime divisibility case to equality.",
+        "evidence": "A182140 defines the equality A060968(n)=A201629(n) and is dated 14 April 2012; A182221 lists composite equality cases outside the special two-prime sequence, beginning 255, 385, 34561.",
+        "identifier_or_url": "OEIS:A182140; OEIS:A182221",
+        "material_read": "Definitions, initial terms, computational formulas, comments, cross-references, and authorship dates.",
+        "method": "Direct inspection of both exact database entries.",
+        "title": "OEIS A182140 and A182221",
+        "trigger": "Exact equality database and the composite equality sublist that contains the initial three-prime examples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69478c88-5741-40bf-b57c-65f82c030455",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem closes the natural three-prime layer immediately beyond the published semiprime classification, replaces a table of examples by an exact finite divisor parametrization, and proves that the source paper's odd proper-divisor problem cannot have a counterexample before four distinct prime factors. This is a structural restriction on the open problem, not merely a larger computation.",
+    "status": "PASS"
+  }
+}
