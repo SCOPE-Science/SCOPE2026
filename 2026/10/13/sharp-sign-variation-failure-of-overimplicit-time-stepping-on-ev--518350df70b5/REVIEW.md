@@ -1,0 +1,15 @@
+# Scientific review: sharp ordered sign-variation boundary
+
+## Correctness — PASS
+The exact algebra \(P=(1-1/\theta)I+(1/\theta)G\) follows by substituting \(G(I-\theta hQ)=I\). Reversibility of a finite birth-death generator gives strict positive eigenvalues of \(P\), proving the positive principal-minor inequality needed for the sign witness. The one-dimensional Green-column factorization yields the stated exact negative mixed minor. A concrete ratio interval supplies an input with one sign change and three consecutive output signs \(-,+,-\). A positive-pivot tridiagonal \(LDU\) factorization proves TN at \(\theta=1\), and positivity plus positive determinant proves the two-state exception. All hypotheses and both strict boundaries are covered. The `verify.py` rational computations confirm 192 parameter cases, with no role as an infinite proof.
+
+## Originality — PASS, residual historical risk
+Fallat–Tsatsomeros (2002), Theorem 4.5, covers the TN tridiagonal resolvent and a different positive Cayley-factor regime; the backward-Euler subclaim is excluded from novelty. Jin et al. (arXiv:1510.02825) consider entrywise nonnegativity of FE/subdiffusion solution matrices; Higueras–Roldán (arXiv:2301.01066) classify entrywise CN positivity/contractivity. Neither inspected primary treatment states that every overimplicit \(\theta>1\) step on every irreducible birth-death chain has negative adjacent order-two minors and creates an extra sign change. Semantic searches for overimplicit theta sign variation, tridiagonal Green-resolvent diagonal mixtures, and variation-diminishing birth-death methods produced no stronger implication. Older total-positive Green matrix and oscillatory kernel literature could contain an equivalent consequence; this remains a genuine risk, and no exhaustive novelty claim is made.
+
+## Value — PASS
+The question is motivated by the distinction between pointwise positivity, spectral damping, and the discrete Sturm/oscillation sign-variation property for diffusion along a line. Overimplicit steps remain positive and stable for arbitrarily large steps, making it natural to ask whether they also preserve ordered oscillation counts. The answer is a complete, parameter-uniform, dimension-sharp classification; it rules out the apparently plausible strengthening of positivity to variation diminution, even for arbitrarily small steps, and provides an explicit witness. Its value is this qualitative numerical-analysis boundary, not a trivial substitution or a standalone small matrix calculation.
+
+## Closest literature and limits
+The exact historical point is the tridiagonal resolvent/Cayley theory of Fallat–Tsatsomeros (2002), and the closest modern numerical qualitative-property treatments are Jin et al. (2015) and Higueras–Roldán (2023). Stronger statements for non-birth-death systems, theta below one, or eventually positive powers are not proved. The full extent of overlapping older oscillation-matrix literature is not exhaustively resolved.
+
+Self-review: passed. Independent audit: not yet performed.

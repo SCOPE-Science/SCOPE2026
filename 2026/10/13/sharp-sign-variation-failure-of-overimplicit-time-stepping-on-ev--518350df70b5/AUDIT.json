@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and boundaries are proved analytically. P=alpha I+beta G, strict G positivity, exact Green rank-one minor cancellation, SPD principal minors and ratio-witness strict inequalities establish failure for every n>=3, theta>1, h>0. LU tridiagonal pivots and elementary TN factors prove backward Euler TN. The dimension-two determinant completes its exception. 192 exact rational cases and the 3x3 witness independently sanity-check arithmetic; no finite census is mistaken for a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fallat–Tsatsomeros, Theorem 4.5: criterion for (I-A)^-1(I+A) with A Metzler tridiagonal.",
+        "Higueras–Roldán, arXiv:2301.01066, Theorem 1: entrywise Crank–Nicolson positivity and contractivity for heat discretizations.",
+        "Jin et al., arXiv:1510.02825, §§3–4: nonnegativity of FE/subdiffusion propagation matrices."
+      ],
+      "reasoning": "Earlier results imply the backward Euler TN component, and some CN positivity cases, but none entails TN or variation diminution of the overimplicit theta>1 matrix. Entrywise positivity is strictly weaker, as the negative 2x2 minor and explicit three-sign pattern show.",
+      "searches": [
+        "overimplicit theta method theta greater than one tridiagonal birth death Markov total nonnegative variation diminishing every timestep",
+        "theta method variation diminishing property parabolic equations sign changes",
+        "arxiv:2301.01066 Crank Nicolson positivity contractivity",
+        "doi:10.13001/1081-3810.1086"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.13001/1081-3810.1086",
+      "arxiv:1510.02825v1",
+      "arxiv:2301.01066v1",
+      "published-finding corpus record 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "published-finding corpus record 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "published-finding corpus record 2026/9/18/SCOPE-sharp-cnab-allen-cahn-reversal-threshold--d8dfca2d4d98"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2002 result proves resolvent TN, which our theorem reproduces as explicitly classical; its Cayley theorem uses a different numerator sign.",
+        "The 2015 and 2023 numerical papers analyze nonnegative entries and/or max-norm bounds, not ordered-sign-count transformations for theta>1.",
+        "Negative mixed minors occur for every theta>1, every n>=3, and every h>0, even though all entries and principal minors are strictly positive."
+      ],
+      "reasoning": "Neither classical TN resolvent nor positivity/contractivity conditions imply the mixed-minor obstruction for overimplicit steps. The new statement is not merely a special case: its theta>1 regime is disjoint from CN and the resolvent itself; it adds a sharp universal failure result and constructive witness.",
+      "searches": [
+        "theta method theta greater than one birth-death generator total nonnegativity variation diminishing green resolvent strict negative adjacent minors",
+        "overimplicit theta method theta greater than one tridiagonal birth death Markov total nonnegative variation diminishing every timestep",
+        "theta method variation diminishing property parabolic equations sign changes",
+        "theta method positivity and contractivity Crank Nicolson full text arxiv 2301.01066",
+        "arxiv:1510.02825 nonnegativity fully discrete"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fallat–Tsatsomeros (2002), pp. 195–196, Theorem 4.5: tridiagonal M-matrix inverse TN and Cayley product under positive-factor hypotheses.",
+        "Exact identity for the candidate concerns alpha*I + beta*G with alpha>0 and beta>0; its (i,i+1)x(i+1,i+2) minor is -alpha beta G[i,i+2]."
+      ],
+      "reasoning": "The Cayley factorization has a TN tridiagonal numerator when the necessary spectral hypothesis holds; the overimplicit numerator instead has negative offdiagonal entries and is not in that factorization class. A TN resolvent does not imply its positive mixture with I is TN. No inspected text states the mixed-minor law.",
+      "searches": [
+        "theta method theta greater than one birth-death generator total nonnegativity variation diminishing green resolvent strict negative adjacent minors",
+        "backward Euler resolvent convex mixture with identity destroys variation diminishing stochastic matrix",
+        "Fallat Tsatsomeros 2002 Cayley transform theorem 4.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The quantitative claim holds for all integer dimensions n>=3, all positive transition rates, all positive steps and all theta>1; it is a symbolic identity.",
+        "published-finding corpus semantic hits on Padé positivity and backward-Euler-filtered Crank–Nicolson concern different matrix functions and domains."
+      ],
+      "reasoning": "No finite table or exact database entry can exhaust this real-parameter classification. Retrieved published record summaries do not include an exact numerical instance that implies the universal identity or its complement dimension threshold.",
+      "searches": [
+        "tridiagonal Markov generator shifted resolvent plus identity total positivity negative off diagonal second order minors",
+        "Crank Nicolson birth-death Markov chain total nonnegative totally positive transition matrix minors sharp timestep threshold",
+        "birth death total positivity theta method exact 2x2 minors"
+      ]
+    },
+    "rationale": "The universal theta>1 mixed-minor formula and direct extra-sign-change construction are not stated or implied by the inspected published sources. Classical tridiagonal resolvent TN is correctly treated as prior art, not novelty. Full-text reading and semantic searches distinguish entrywise positivity and Crank–Nicolson factorization from the overimplicit sign-variation obstruction. Residual older Green-kernel literature might contain an equivalent statement.",
+    "residual_risks": [
+      "Older oscillation/Green-matrix literature could contain an equivalent specific overimplicit resolvent-mixture minor identity not discoverable by these targeted searches.",
+      "The 2002 publisher web date is inconsistent with that paper’s internal received/accepted dates; the verified first exact public day in this bibliography is the independent 2015 arXiv version, while the 2002 reference is recorded only by month/year.",
+      "Search results and inspected primary texts cannot certify global absence across all published or unpublished literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers classical resolvent TN and CN/Cayley factorization, not overimplicit positive-diagonal resolvent mixture nor universal negative mixed minor.",
+        "evidence": [
+          "https://journals.uwyo.edu/index.php/ela/article/download/173/173",
+          "Theorem 4.5 and pp. 195–196 explicitly say inverse tridiagonal M-matrix is TN; numerator I+A has to be TN."
+        ],
+        "identifier_or_url": "doi:10.13001/1081-3810.1086",
+        "material_read": "Open full seven-page PDF, especially Section 4, Theorems 4.1–4.5 and their proofs on printed pp. 194–196.",
+        "method": "Read scholarly publisher-hosted PDF, compared formula and assumptions to mixed-minor identity.",
+        "title": "On the Cayley transform of positivity classes of matrices",
+        "trigger": "Same tridiagonal inverse M-matrix TN and Cayley map; plausible direct domination"
+      },
+      {
+        "assessment": "Controls entrywise nonnegativity for FE/subdiffusion and lumped mass; not a theorem about theta>1, TN ordered minors, or creation of sign changes.",
+        "evidence": [
+          "https://arxiv.org/pdf/1510.02825",
+          "https://arxiv.org/abs/1510.02825 (v1 submitted 2015-10-09 21:10:33 UTC)",
+          "Section 3 Theorems 3.1–3.3 and Section 4."
+        ],
+        "identifier_or_url": "arxiv:1510.02825v1",
+        "material_read": "Open complete 17-page arXiv PDF; inspected abstract and §§3–4 on semidiscrete and fully discrete positivity thresholds, including Theorems 3.1–3.3.",
+        "method": "Read arXiv first-version PDF and submission history.",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Early day-resolved diffusion-positivity numerical source, with potentially stronger discretization coverage"
+      },
+      {
+        "assessment": "Treats Crank–Nicolson theta=1/2; entrywise positivity and max-norm contractivity, explicitly not total nonnegativity or theta>1 universal sign variation.",
+        "evidence": [
+          "https://arxiv.org/pdf/2301.01066",
+          "Section 3 pp. 6–8 defines positivity as all entries nonnegative, equation (16), Theorem 1."
+        ],
+        "identifier_or_url": "arxiv:2301.01066v1",
+        "material_read": "Open complete 28-page arXiv PDF; inspected equation (16) and Theorem 1 with its positivity definition and scope in pp. 5–8 and introduction.",
+        "method": "Read original arXiv PDF and version history.",
+        "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+        "trigger": "Direct numerical time-step positivity source, plausible comparison with TN and theta stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "518350df-70b5-42df-95a9-8641a7127a8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ordered sign variation is a natural discrete Sturm-oscillation invariant for diffusion along a line. The result exactly separates ordinary pointwise Markov positivity and spectral stability from variation diminution, shows extra oscillations are unavoidable at arbitrarily small time step for all overimplicit parameters, gives a concrete witnessing vector, and sharply establishes three states as minimal. It is a universal qualitative boundary for a standard numerical time-step family rather than a tiny numerical gain.",
+    "status": "PASS"
+  }
+}
