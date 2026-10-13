@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on a designated degree-two vertex partitions triangles into those avoiding it, whose conditional expectation is a three-edge hypergeometric probability, and exactly one candidate through it, whose expectation is (m-2)/B. Subtracting the unconditional triangle mean and multiplying by n Pr(D=2) gives an exact formula for all \\(n\\ge6\\) and all admissible m, including degenerate ranges. The leading coefficient of \\(\\(Q_n\\)\\) is strictly positive; \\(\\(Q_n\\)\\)(3)>0, \\(\\(Q_n\\)\\)(n)<0 and \\(\\(Q_n\\)\\)(B+2)>0 by explicit positive polynomial factorizations, hence two and only two real roots in the claimed intervals. The sparse covariance limit follows from hypergeometric-to-Poisson convergence and coefficient convergence. The bundled checker exhaustively verifies all 34 graph-enumeration cells for n=4,5,6 and a selected 2,136 exact-rational quadratic evaluations; the proof, not the grid, handles the infinite domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stark and Wormald arXiv:1608.05193 Theorems 1.1–1.3 are about subgraph-cluster probabilities and the absence of triangles in \\(\\(G(n,m)\\)\\).",
+        "Goldschmidt, Griffiths, Scott arXiv:1902.06830 Section 7 computes covariance of subgraph-count increments for pairs of fixed graphs; the degree-two count is not a fixed subgraph-count statistic."
+      ],
+      "reasoning": "The cited stronger-looking tools and formulas do not explicitly classify the two changes of sign for the degree-two count against triangles. Their hypotheses and objects are compared at theorem-level rather than by title only. Polynomial inversion is a genuine source of potential implicit coverage, explicitly tracked as a residual risk.",
+      "searches": [
+        "published-finding corpus: motif count degree-k vertex count covariance G(n,m) exact factorial moments general",
+        "published-finding corpus: random graph G(n,m) degree-two triangle count asymptotic covariance 4 c cubed exp minus 2c times quadratic",
+        "arXiv:1608.05193 (full text, Theorems 1.1–1.3)",
+        "arXiv:1902.06830 (full text, Section 7 mixed subgraph-count increments)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.4390v1",
+      "arXiv:1412.0257v1",
+      "arXiv:1608.05193v1",
+      "arXiv:1902.06830v1",
+      "Published published-finding corpus nearest semantic returns, including an unrelated published graph-degree result (scientifically unrelated)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier degree-one fixed-edge/motif covariance excludes triangles containing the conditioned degree-one vertex; here conditioning on degree two creates exactly one possible triangle containing that vertex, adding an essential positive term.",
+        "An earlier independent-edge degree-k/motif mixed-moment theorem formally determines fixed-m mixed moments via Bernstein basis; it does not state the novel two-threshold sign classification.",
+        "The sparse-limit roots 1±1/sqrt(2) arise from new sign polynomial analysis, not a direct substitution of an independent-edge threshold."
+      ],
+      "reasoning": "Prior general moments cover much of the algebraic groundwork. The novelty accepted is limited to the global real-root and integer sign structure and its two asymptotic critical points, not the mere covariance extraction. The degree-one fixed-edge theorem, unlike the degree-two case, has no triangle-through-vertex term and cannot give the positive–negative–positive regime by parameter substitution. Residual historical implicit consequence remains disclosed.",
+      "searches": [
+        "published-finding corpus: triangle degree-two covariance G(n,p) G(n,m) fixed edge count positive negative positive transition",
+        "arXiv:1005.4390 (independent-edge degree statistics)",
+        "arXiv:1412.0257 (independent-edge triangle local limits)",
+        "arXiv:1608.05193 (fixed-edge triangle counting)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The prior \\(\\(G(n,p)\\)\\) identity gives one sign threshold with factor (\\(1-Bp^2\\)), whereas the \\(\\(G(n,m)\\)\\) quadratic \\(\\(Q_n\\)\\) has two distinct real roots and three sign regimes.",
+        "Goldstein arXiv:1005.4390, Theorem 2.1, studies degree-count normal approximation in \\(\\(G(n,p)\\)\\), not fixed-edge covariance with triangles."
+      ],
+      "reasoning": "The binomial graph and uniform fixed-edge graph are distinct probability measures; one scalar covariance in \\(\\(G(n,p)\\)\\) does not equal a fixed-m covariance. However, the complete polynomial identity in p, together with marginal generating functions, algebraically recovers fixed-m mixed moments by Bernstein coefficient inversion. The covariance identity alone is therefore not claimed as a novelty; the new statement is the global sign theorem, which requires additional inequalities.",
+      "searches": [
+        "published-finding corpus: Covariance between the number of degree-2 vertices and the number of triangles in the uniform fixed-edge Erdős-Rényi random graph G(n,m), exact formula double sign transition",
+        "published-finding corpus: Covariance degree-2 vertex count triangle count when conditioning a uniformly chosen vertex to have degree 2",
+        "Web: \"covariance triangles degree 2 vertices G(n,m)\"",
+        "arXiv:1005.4390 (full text and Section 2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published published-finding corpus title/abstract or indexed exact parameter table was returned by these precise queries; returned results concerned unrelated graph invariants, including a published graph-theory result on minimum cycle rank for locally irregular bidegree graphs.",
+        "Direct arXiv-paper search yielded the identified marginal-degree and triangle-count articles, not an exact two-root table."
+      ],
+      "reasoning": "The absence of a database result is not a proof of novelty. The exact sign classification was assessed through stronger-theorem comparisons and inspectable primary source text; an unindexed or differently phrased prior table remains possible.",
+      "searches": [
+        "published-finding corpus: Two sign changes of degree two vertex triangle covariance, roots approximately 0.292893n and 1.707107n, Erdős Rényi graph",
+        "published-finding corpus: fixed edge Erdős Rényi G(n,m) covariance number degree two vertices triangle count two zeros sign reversal sparse edge linear n",
+        "Web: exact covariance number degree 2 vertices triangles fixed edge random graph"
+      ]
+    },
+    "rationale": "The accepted novel content is the two-root classification for the degree-two count against triangle count, including exact root brackets and their distinct sharp sparse-scaling constants. An earlier general \\(\\(G(n,p)\\)\\) mixed degree-count/motif formula and Bernstein inversion can in principle reconstruct the finite-mixed-moment identity; no claim is made that hypergeometric conditioning or inversion itself is original. Those identities do not state the two-root sign theorem; this requires the independently proved strict quadratic convexity and three factored sign evaluations. Inspected primary full texts concern one marginal, mixed subgraph increments, or triangle cluster expansions, not this two-transition classification. General generating-function coverage is acknowledged as residual risk.",
+    "residual_risks": [
+      "The fixed-m moment formula is an extractable coefficient of a full \\(\\(G(n,p)\\)\\) mixed-moment polynomial; a prior source may already have executed the coefficient extraction and discriminant argument.",
+      "Historic combinatorial covariance tables or generating functions indexed under alternate terminology may encode the complete two-threshold sign theorem.",
+      "Only author-accessible and searchable primary texts listed were inspected; absolute priority is not independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses marginal number of fixed-degree vertices in \\(\\(G(n,p)\\)\\) with Berry–Esseen approximation, not an exact fixed-m triangle/degree-two sign classification.",
+        "evidence": [
+          "arXiv:1005.4390, pages 1–12, Theorem 2.1 and its proof; 60F05 listed first on page 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1005.4390",
+        "material_read": "Full text searched; abstract and introduction, Theorem 2.1 and Section 2 model and proof, first-page MSC.",
+        "method": "Author arXiv full-text PDF rendered and extracted; direct theorem comparison.",
+        "title": "A Berry–Esseen bound with applications to vertex degree counts in the Erdős–Rényi random graph",
+        "trigger": "Archival probabilistic degree-count source; primary MSC 60F05 and first public submission 2010-05-24."
+      },
+      {
+        "assessment": "Concerns local limit of triangle count in \\(\\(G(n,p)\\)\\), not covariance with degree-two counts or prescribed-edge sign thresholds.",
+        "evidence": [
+          "arXiv:1412.0257, Abstract, Section 1.4, Theorem 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.0257",
+        "material_read": "Abstract, introduction (including joint subgraph-count discussion), main result and setup; PDF searched for joint degree counts.",
+        "method": "Author arXiv full-text PDF pages 1–4 and relevant parts of later section.",
+        "title": "A local central limit theorem for triangles in a random graph",
+        "trigger": "Potential stronger triangle distribution result."
+      },
+      {
+        "assessment": "Addresses probabilities of subgraph absence and cluster-count expansions in \\(\\(G(n,m)\\)\\); no degree-two/triangle mixed covariance and no double sign classification identified in inspected sections.",
+        "evidence": [
+          "arXiv:1608.05193, Theorems 1.1–1.3 and introduction pages 1–4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.05193",
+        "material_read": "Abstract, theorems 1.1–1.3 and explanation of fixed-edge expectation and subgraph clusters; full text searched for degree two and covariance.",
+        "method": "Author arXiv full-text PDF and targeted theorem/term inspection.",
+        "title": "The probability of nonexistence of a subgraph in a moderately sparse random graph",
+        "trigger": "Fixed-edge random-graph subgraph enumeration and possible dominating mixed-count generating functions."
+      },
+      {
+        "assessment": "Section 7 concerns pairs of increments of fixed subgraph-copy counts (not fixed-degree vertex indicators), and contains no stated two-root degree-two/triangle classification in inspected material.",
+        "evidence": [
+          "arXiv:1902.06830, Section 7, Proposition 7.1; conditional covariances of subgraph-count increments."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1902.06830",
+        "material_read": "Abstract, introduction, Section 4 definitions and Section 7 conditional covariance of subgraph-count increments; targeted full-text degree-count searches.",
+        "method": "Author arXiv full-text PDF and relevant section inspection.",
+        "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+        "trigger": "Potential general covariance theory for subgraph statistics in \\(\\(G(n,m)\\)\\)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "acd4a144-ea47-4005-8a32-6cb98bc94846",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The degree-two population is the first vertex-degree class that can itself participate in a triangle. Its dependence on total triangle abundance under a fixed edge budget is controlled by a local triangle-through-the-vertex effect competing with the conditional depletion of other triangles. This yields the qualitative positive-negative-positive covariance phase and two sharp macroscopic thresholds for every \\(n\\ge6\\). The independent-edge model has at most one transition. The roots and sign regimes are natural structural invariants of a basic random-graph model and not an arbitrary finite slice. The algebraically extractable moment expression is not independently assigned value absent this nontrivial sign classification.",
+    "status": "PASS"
+  }
+}
