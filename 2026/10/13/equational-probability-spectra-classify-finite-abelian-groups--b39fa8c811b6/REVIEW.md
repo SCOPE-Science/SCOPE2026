@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** In an abelian group every equation becomes an integral linear word, and Bézout's identity identifies its image as the common-divisor subgroup. Uniform homomorphism fibers prove the exact probability formula. The prime-primary torsion-count profiles have strict, weakly concave logarithmic increments that are the conjugate partitions of the cyclic exponents. This gives both necessity and constructive sufficiency for the inverse criteria, with the trivial group separately covered. The exact finite enumeration independently corroborates but does not prove the general assertion.
+
+**Originality — PASS, with residual risk.** Cardó's arXiv:2603.19487v1, Proposition 2.4, Remark 2.5, Lemma 4.12 and Theorem 4.13 contain general product inclusions, the cyclic prime-power case, and the minimal-spectrum semigroup classification. The complementary arXiv:2604.08446v1 concerns direct-product inclusions and primality. Neither inspected paper supplies the full primary-profile coupling, the recognition of all realizable probability sets or reconstruction of every finite abelian group. Searches of published mathematical records for word equations, kernel-size spectra and finite-abelian isomorphism rigidity produced semantically different closest claims. Classical subgroup-torsion counting literature might contain an equivalent inverse result under another name.
+
+**Value — PASS.** This is a natural complete inverse classification for an emerging 2026 invariant, not merely a new value in a short table. It both describes all possible spectra and proves that their exact rational values classify every finite abelian group. The contrast with the nonrigid spectrum cardinality and the strictness of naive direct-product spectrum inclusion explains the need for the full conditions. Applications outside finite abelian groups are not asserted.
+
+**Source comparison.** See arXiv:2603.19487v1, Sections 2 and 4, and arXiv:2604.08446v1, Sections 3 and 5. The proof uses the standard finite abelian group classification and a new explicit unlabelled-spectrum inversion; no claim of exhaustive coverage of all earlier literature is made.
+
+Self-review: passed. Independent audit: not yet performed.
