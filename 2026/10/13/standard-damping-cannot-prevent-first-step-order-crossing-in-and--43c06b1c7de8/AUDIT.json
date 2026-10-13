@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The least-squares objective is a strictly convex scalar quadratic. Differentiation gives the unique coefficient exactly; substituting it into the affine prediction and standard mixing step yields an exact coordinate factorization. The weighted-mean argument proves the sign split for all dimensions and all active errors. The two-dimensional witness is exact rational arithmetic, and the accompanying checker independently replays the displayed identities. No finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Potra--Engler provides broad convergence and equivalence results for linear Anderson acceleration, but its stated consequences concern convergence, stagnation, Krylov spaces, and residuals rather than positive-cone or order-interval invariance.",
+        "Pratapa--Suryanarayana--Pask applies Anderson acceleration to Jacobi systems; accessible abstract/metadata discuss acceleration and scaling, not positivity or order crossing."
+      ],
+      "reasoning": "The broad linear convergence theorems supply ingredients but do not dominate the coordinatewise claim: they neither assert order preservation nor its failure, and they do not imply that every standard mixing parameter in \\(0\\le\\omega\\le1\\) preserves the same crossing pattern without the additional diagonal weighted-mean argument.",
+      "searches": [
+        "GMRES one step diagonal M-matrix residual minimization sign change error components",
+        "Potra and Engler linear Anderson GMRES complete characterization",
+        "Pratapa Suryanarayana Pask Anderson Jacobi iterative method"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1102.0796",
+      "doi:10.1137/10078356X",
+      "doi:10.1016/j.jcp.2015.11.018",
+      "published database searches listed in the four named checks",
+      "own ledger g000024 and immediately prior g000023 for claim/ID overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own current and prior ledgers contain no Anderson-acceleration finding; nearby own claims concern Nesterov, Frank--Wolfe, classical stationary iterations, time integrators, and extrapolation.",
+        "Potra--Engler equations give residual-minimizing linear-algebra structure but do not state the fixed-point-side classification. The new proof additionally uses positivity of \\(1-\\omega a_i\\) and the strict weighted-mean location of \\(\\tau\\)."
+      ],
+      "reasoning": "No checked prior statement was found whose conclusion, after direct parameter substitution, yields the complete one-step sign classification plus damping invariance and two-dimensional positivity witness. The result is therefore assessed as not covered, while retaining a risk for older extrapolation/DIIS terminology.",
+      "searches": [
+        "Anderson acceleration depth one diagonal positive contractions first accelerated iterate overshoots fixed point coordinatewise straddles",
+        "Anderson mixing positive contraction nonmonotone coordinate overshoot linear diagonal",
+        "GMRES one step diagonal M-matrix residual minimization sign change error components",
+        "own ledger claims through g000024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Potra--Engler arXiv:1102.0796 gives general linear Anderson/GMRES formulas and no matches for positive, monot, diagonal, or component in the inspected full text.",
+        "Walker--Ni defines the residual least-squares Anderson step but the inspected material does not state a coordinatewise order theorem."
+      ],
+      "reasoning": "The new statement is not merely a renaming of GMRES residual minimization: it identifies the exact weighted gap threshold controlling which coordinates reverse side and proves that the standard post-prediction mixing parameter cannot alter that split. No equivalent formulation was located.",
+      "searches": [
+        "Anderson acceleration depth one diagonal positive contractions first accelerated iterate overshoots fixed point coordinatewise straddles",
+        "AA(1) two eigenvalues monotone fixed point iteration overshoot order interval",
+        "arXiv:1102.0796 full-text terms: positive; monot; diagonal; component"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published database hits were SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc, SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748, SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705, and SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f.",
+        "None of those records states the diagonal Anderson threshold \\(\\tau\\), the damping-invariant sign split, or a positive-map witness that is negative for the entire standard mixing interval."
+      ],
+      "reasoning": "Database overlap is thematic rather than implication-equivalent: the closest results measure norm transients or use different acceleration mechanisms.",
+      "searches": [
+        "Anderson acceleration coefficient weighted mean contraction gaps diagonal affine map",
+        "first Anderson accelerated iterate exact sign reversal fast slow coordinates",
+        "two-rate diagonal contraction Anderson acceleration crosses fixed point",
+        "Anderson Jacobi diagonal system order interval violation"
+      ]
+    },
+    "rationale": "Statement-level searches against published database records, the current/prior own ledger, Walker--Ni, Potra--Engler, and the Anderson--Jacobi application found no implication-equivalent positivity/order theorem. The closest broad source proves linear Anderson/GMRES equivalence and convergence behavior but does not classify coordinate signs or show that standard mixing damping cannot repair the first prediction's crossing.",
+    "residual_risks": [
+      "Older DIIS, Pulay mixing, vector-extrapolation, or electronic-structure literature may encode the same coordinate sign law under terminology not recovered by the searches.",
+      "The Anderson--Jacobi paper was not available here as complete readable full text; accessible metadata/abstract did not resolve every possible appendix-level statement.",
+      "The result is an exact first-step theorem and does not claim novelty for later safeguarded or coefficient-constrained Anderson variants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper gives general residual/Krylov formulas and convergence/stagnation characterization. The inspected text contains no positivity, monotonicity, diagonal-coordinate, or componentwise sign theorem.",
+        "identifier_or_url": "arXiv:1102.0796",
+        "material_read": "Full HTML text of introduction, simple mixing, GMRES/Anderson formulation, first GMRES residual-minimizing step, and linear convergence section through the main equivalence proposition; exact-term searches for positive, monot, diagonal, component.",
+        "method": "Direct full-text inspection and in-document term search.",
+        "title": "A characterization of the behavior of the Anderson acceleration on linear problems",
+        "trigger": "Closest full-text general theorem for linear Anderson acceleration and GMRES equivalence."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The material defines the algorithm and reports linear GMRES equivalence; it does not state the new coordinatewise crossing law. Primary MSC is 65H10.",
+        "identifier_or_url": "doi:10.1137/10078356X",
+        "material_read": "Publisher abstract, metadata, MSC list, and the openly indexed algorithm text from the authors' implementation report describing the constrained residual least-squares coefficients and affine combination update.",
+        "method": "Publisher metadata and openly indexed author-report text; the PDF image representation was unavailable, so the assessment uses only readable text.",
+        "title": "Anderson Acceleration for Fixed-Point Iterations",
+        "trigger": "Canonical standard Anderson formulation and MSC ownership."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_NO_DECISIVE_COVERAGE",
+        "evidence": "Accessible material emphasizes acceleration, scaling, and comparisons with GMRES. No positivity/order statement was visible; incomplete full-text access is retained as a residual risk.",
+        "identifier_or_url": "doi:10.1016/j.jcp.2015.11.018",
+        "material_read": "OSTI metadata and abstract; complete full text was not accessible in readable form.",
+        "method": "Abstract and metadata inspection; no inference is drawn from inaccessible full text.",
+        "title": "Anderson acceleration of the Jacobi iterative method: An efficient alternative to Krylov methods for large, sparse linear systems",
+        "trigger": "Plausible same-object source because diagonal affine contractions are Jacobi/Richardson-type linear fixed-point maps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43c06b1c-7de8-4ca3-8b6c-a9904ede7644",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim isolates a structural failure mode of a widely used acceleration method on the simplest class where the underlying iteration is positive, decoupled, and globally contractive. It gives an exact all-dimensional sign law, proves that the usual scalar mixing parameter cannot cure the mechanism, identifies dimension two as minimal, and supplies a positive-map witness that remains negative for the entire standard damping interval. This directly motivates coefficient constraints or accept/reject safeguards when order or positivity matters, rather than merely documenting a numerical anomaly.",
+    "status": "PASS"
+  }
+}
