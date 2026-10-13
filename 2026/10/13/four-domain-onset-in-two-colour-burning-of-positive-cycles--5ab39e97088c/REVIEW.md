@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The graph, synchronous majority-spread rule, optional all-burned termination, mandatory ignition otherwise, permanence, and boundary statistic match the process in Fallat–Gupta–Khodamoradi–Zilles, arXiv:2610.02506v1, Definition 2.1. The exact finite-state successor relation is both necessary and sufficient for a legal round. Each nonterminal transition burns at least one new vertex, so finite graph exploration is exhaustive, not a sample or timeout-based inference. Two independently encoded search procedures produce identical **complete** terminal-word sets for every positive cycle of order three through ten, and exhaustive Hamming scans give the radius table. Cyclic run-type tests produce four classes of exactly twenty ten-vertex four-boundary words. The infinite-order threshold is supplied by the explicit alternating four-ignition construction and the legal-distance argument, not by extrapolation from the finite census.
+
+## Originality — PASS, subject to the stated risk
+The inspected primary manuscript arXiv:2610.02506v1 establishes the dynamics, general code/switching correspondence, and path results, but its Section 3 is about paths and its conclusions do not give the asserted positive-cycle terminal-code census or first four-boundary threshold. Searches combining signed burning, positive cycles, reachable words, four sign changes, first threshold, exact 172-word code, code equivalences and covering-radius phrasing found no covering published statement in the checked sources. Nearby published database hits concerning cover-free families on cycles and conventional coloring on maximum-degree-two graphs address different invariants and do not imply this result. Unindexed or unpublished equivalent work is a residual risk; absence from search is not claimed to prove novelty.
+
+## Value — PASS
+This is a sharp, motivated structural threshold in a recently introduced competing-fire process, not an arbitrary instance enumeration: two-colour domains cannot fragment into four until ten vertices, and a uniform construction makes fragmentation possible for every later cycle. The result also determines the **entire** canonical cycle terminal code up to that onset, identifies four distinct cyclic four-run types at the threshold, and supplies exact Hamming radii used by the already-motivated plurality invariant. At order ten the cycle radius exceeds the corresponding path radius from the source paper, revealing meaningful graph-structure sensitivity. No general theory beyond these proven scopes is asserted.
+
+## Literature limits
+Closest inspected primary source: Fallat, Gupta, Khodamoradi, and Zilles, *Burning Signed Graphs*, arXiv:2610.02506v1, Sections 1–3 and 5. It proves the general definitions, switching correspondence, and positive-path radius, which are credited; its results do not imply the new cycle-specific cutoff and census. Published semantic-result summaries provided no direct coverage; an unindexed equivalent formula remains possible. No independent external validation was conducted.
+
+Self-review: passed. Independent audit: not yet performed.
