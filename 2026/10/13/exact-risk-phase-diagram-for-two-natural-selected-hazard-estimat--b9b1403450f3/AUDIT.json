@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "After standardization \\(X_i=\\sigma_iY_i\\), the two gamma variables are iid and their sum/proportion factorization yields an independent Gamma-Beta pair. This makes the selected reciprocal \\(E[(\\sigma_JY_J)^{-1}]\\) a pair of beta integrals. Their difference from a complete beta integral is the exact derivative of \\([t(1-t)]^{n-1}\\), giving the displayed closed form. Entropy-risk subtraction then leaves exactly one copy of this expectation minus \\(\\log(n/(n-1))\\). Symmetry and monotonicity of \\(r/(1+r)^2\\), together with rigorous center and extreme signs, prove one and only one crossover.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 selected-hazard paper uses quadratic loss, so its risk ordering does not imply an entropy-loss crossover.",
+        "The later entropy-loss manuscript uses a different selection rule and presents risk simulations and improvements, not the exact hazard-ratio threshold for the 2021 natural-selection problem."
+      ],
+      "reasoning": "A broader estimation-after-selection result would cover the claim only if it preserved both the exact selection rule and entropy loss and supplied the two-estimator implication. The inspected nearby sources change the loss or the selection mechanism.",
+      "searches": [
+        "selected gamma scale entropy loss risk crossover hazard ratio",
+        "exact threshold maximum likelihood best scale equivariant selected hazard rate exponential population",
+        "Improving on Admissible Estimators Under Entropy Loss Function selected hazard rates"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2107.03848v1",
+      "DOI:10.1080/02331888.2021.1954924",
+      "DOI:10.1007/s42519-020-00112-9",
+      "public 2024 manuscript Improving on Admissible Estimators Under Entropy Loss Function",
+      "semantic published-record searches over MLE/BSEE, entropy-loss, hazard-ratio, beta-integral, and selected-exponential aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 source explicitly reports no hierarchy from its simulation study, while its theorem gives only an admissible interval for constants \\(c\\); neither statement implies where the MLE beats \\(\\delta_{\\mathrm{N2}}\\).",
+        "The 2020 precursor compares estimators under quadratic loss, a different decision problem.",
+        "The exact phase boundary requires the additional closed-form evaluation of the parameter-dependent reciprocal expectation."
+      ],
+      "reasoning": "The new conclusion is not a corollary of admissibility or minimaxity: two admissible-class members can cross in risk. The proof identifies the crossing location by evaluating the source's parameter-dependent integral.",
+      "searches": [
+        "Inadmissibility Results for the Selected Hazard Rates delta N2 delta ML hierarchy",
+        "Estimation of Hazard Rate of a Selected Exponential Population quadratic loss",
+        "selected exponential hazard rate entropy loss exact risk comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2107.03848v1 gives \\(\\delta_{\\mathrm{ML}}=n/Y_J\\), \\(\\delta_{\\mathrm{N2}}=(n-1)/Y_J\\), and an incomplete-beta form for \\(E[(\\sigma_JY_J)^{-1}]\\), but does not state the closed-form risk difference or crossover ratio.",
+        "Exact estimator-name and beta-integral searches did not return a published statement matching the one-threshold formula."
+      ],
+      "reasoning": "The searches covered the source notation, the equivalent BSEE terminology, reciprocal-scale language, and the mathematical beta-integral mechanism. The located literature does not imply the exact partition without the new integral simplification.",
+      "searches": [
+        "risk crossing MLE BSEE selected exponential entropy loss hazard ratio",
+        "selected exponential population entropy loss n over Y n-1 over Y exact risk",
+        "two exponential populations selected hazard entropy loss exact beta integral risk crossing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked published-record search returned the threshold sequence or the closed risk difference.",
+        "The numerical thresholds in the package are recomputed from the proved beta-function formula."
+      ],
+      "reasoning": "The claimed invariant is an exact crossover of two risks, not a standard tabulated quantity. No matching database value or table was located.",
+      "searches": [
+        "Beta(n,n) selected exponential population risk n-1 over Y n over Y",
+        "selected hazard rate exact threshold rho MLE BSEE",
+        "4.284376516357 selected hazard estimator"
+      ]
+    },
+    "rationale": "The direct 2021 source defines the same two estimators, derives a beta-integral representation needed for admissibility analysis, and explicitly says its simulations do not yield a hierarchy between the MLE and the BSEE analogue. The new statement evaluates the relevant expectation in closed form and converts the reported non-comparability into an exact one-threshold phase diagram. Candidate-specific published-record searches and comparisons with the 2020 quadratic-loss precursor and a later entropy-loss selection paper did not locate the same formula or threshold.",
+    "residual_risks": [
+      "An equivalent calculation may exist in older estimation-after-selection literature phrased for reciprocal scale rather than hazard rate.",
+      "The later entropy-loss literature is large; the inspected nearby papers and targeted searches reduce but cannot eliminate terminology-based bibliographic risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SOURCE_NOT_COVERING_EXACT_PHASE_DIAGRAM.",
+        "evidence": "The source supplies the ingredients but stops at an incomplete-beta representation and simulation comparison; it explicitly reports that the two estimators are not globally comparable without giving the exact crossover.",
+        "identifier_or_url": "arXiv:2107.03848v1; DOI:10.1080/02331888.2021.1954924",
+        "material_read": "Open-access arXiv full text: model and entropy loss; Section 2 estimator definitions, risk formula and beta-integral derivation; numerical-study conclusions stating the absence of a hierarchy between the two estimators.",
+        "method": "Lawful open-access full-text inspection, including visual inspection of the estimator/risk page and the numerical-conclusion page.",
+        "title": "Inadmissibility Results for the Selected Hazard Rates",
+        "trigger": "Direct source containing the identical selection rule, loss, and two estimators."
+      },
+      {
+        "assessment": "DIFFERENT_LOSS_NOT_COVERING.",
+        "evidence": "The paper studies the selected hazard rate under quadratic loss; that risk comparison does not imply the entropy-loss threshold.",
+        "identifier_or_url": "DOI:10.1007/s42519-020-00112-9",
+        "material_read": "Published abstract and bibliographic/classification record.",
+        "method": "Indexed publication and abstract inspection.",
+        "title": "Estimation of Hazard Rate of a Selected Exponential Population",
+        "trigger": "Immediate precursor by the same authors for the same natural selection rule."
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_SELECTION_RULE_NOT_COVERING.",
+        "evidence": "It uses a different selection rule and reports simulated risk comparisons; no exact counterpart of the 2021 hazard-ratio crossover was found.",
+        "identifier_or_url": "public 2024 manuscript; primary MSC 62F07",
+        "material_read": "Public manuscript abstract, classification, natural-estimator definitions, simulation-comparison material, and references to the 2021 paper.",
+        "method": "Lawful public full-text/indexed-manuscript inspection.",
+        "title": "Improving on Admissible Estimators Under Entropy Loss Function",
+        "trigger": "Later work in the same estimation-after-selection hazard-rate program under entropy loss."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b9b14034-50f3-4ca2-a675-4afc7a200126",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly identifies the practical comparison as unresolved at the hierarchy level: simulations show non-comparability but do not say where each natural estimator is preferable. The finding gives the complete two-population decision map in one closed-form threshold for every \\(n\\ge2\\). It explains the simulation phenomenon, supplies immediately usable estimator-selection guidance as a function of hazard heterogeneity, and is a natural exact completion of a comparison the source itself highlights.",
+    "status": "PASS"
+  }
+}
