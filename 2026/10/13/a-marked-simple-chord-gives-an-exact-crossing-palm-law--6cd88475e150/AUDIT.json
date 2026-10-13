@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A fixed adjacent pair is present with probability 1/(2n-1); conditional on its presence, deleting that simple chord leaves a uniform matching on 2n-2 endpoints and does not alter the crossing count of the remainder. This proves the Palm identity exactly. Deleting the chord containing a distinguished endpoint from an unconditional uniform matching couples X_{n-1} below X_n. The covariance, simple-chord variance, and correlation then follow from exact algebra and the established exact crossing variance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acan studies the random chord diagram, simple chords, chord length, intersection-graph structure, and uniform growth constructions.",
+        "Paguyo proves marginal Gaussian approximation for crossings and marginal Poisson approximation for simple chords and records exact crossing mean and variance.",
+        "Flajolet--Noy gives classical exact crossing moments and asymptotic component/crossing laws."
+      ],
+      "reasoning": "These sources are broader for marginal distribution theory, but the accepted claim is a joint deletion identity. Neither the inspected Acan statements nor the full Paguyo text supplies that mixed law.",
+      "searches": [
+        "arXiv:1501.01489",
+        "arXiv:2104.01134",
+        "DOI:10.1007/978-3-662-04166-6_17",
+        "Analytic combinatorics chord diagrams crossings components"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2104.01134",
+      "arXiv:1501.01489",
+      "DOI:10.1016/j.disc.2016.11.004",
+      "DOI:10.1007/978-3-662-04166-6_17"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Paguyo's separate marginal limit theorems do not determine the mixed covariance; marginal laws alone never determine a joint law.",
+        "Acan's chord-length and intersection-graph results do not state how the total number of simple chords jointly varies with total crossings.",
+        "Flajolet--Noy's component statistic is not identical to the simple-chord count because isolated non-simple chords can occur.",
+        "The checked own ledgers contain no chord-diagram finding."
+      ],
+      "reasoning": "The accepted implication comes from conditioning on one marked simple chord and observing an exact size reduction. That operation is additional joint information not supplied by either marginal theorem.",
+      "searches": [
+        "Paguyo crossings simple chords random chord diagrams",
+        "Acan simple chord length random chord diagram",
+        "Flajolet Noy components crossings chord diagrams",
+        "own ledger chord diagram crossing simple chord"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted searches located marginal crossing and marginal simple-chord limit theorems but no mixed covariance or Palm identity.",
+        "Paguyo's full manuscript contains separate sections for crossings and simple chords; full-text search for covariance finds only technical covariance bounds inside the crossing normal-approximation proof."
+      ],
+      "reasoning": "The searches cover the principal aliases: chord diagram versus perfect matching, simple versus isolated-adjacent chord, covariance versus correlation, and size-bias/Palm language. Originality is not inferred from search failure alone; it is supported by statement-level comparison with the closest full text.",
+      "searches": [
+        "random chord diagram simple chords crossings covariance",
+        "simple chords crossings covariance matching perfect matching",
+        "marked simple chord Palm crossing random chord diagram",
+        "isolated chord crossing number correlation chord diagram",
+        "number of simple chords number of crossings random chord diagram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact literature record matching the covariance -2n(n-1)/(3(2n-1)) or correlation -sqrt(5/(n+3)) was located."
+      ],
+      "reasoning": "The result is an all-n symbolic law derived from a marked-deletion bijection. Exhaustive enumeration is supplementary and not the source of the theorem.",
+      "searches": [
+        "\"simple chords\" covariance crossings chord diagram",
+        "\"simple chord\" covariance crossings matching",
+        "\"Corr\" simple chords crossings chord diagram",
+        "\"Cov\" simple chords crossings chord diagram"
+      ]
+    },
+    "rationale": "The closest full source treats the crossing count and simple-chord count as separate marginal limit-theorem problems. No inspected source states the size-biased deletion identity, its monotone-function covariance consequence, or the exact correlation -sqrt(5/(n+3)). An inaccessible classical generating-function source remains explicitly listed as a residual risk.",
+    "residual_risks": [
+      "The unavailable full Flajolet--Noy text or older generating-function literature may encode the same mixed moment implicitly.",
+      "A simple chord is an isolated vertex of the intersection graph, but the converse fails; results for total components or isolated vertices do not automatically specialize to the exact simple-chord count.",
+      "The novelty claim is the explicit marked-deletion Palm law and its exact mixed consequences, not the known marginal Gaussian or Poisson limits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MARGINAL_CROSSING_AND_SIMPLE_CHORD_RESULTS_NOT_JOINT_PALM_LAW",
+        "evidence": "The manuscript lists 2020 MSC 60C05, 60F05. It states EX_n=n(n-1)/6 and Var(X_n)=n(n-1)(n+3)/45, and proves Poisson approximation for S_n with ES_n=2n/(2n-1). The inspected full text does not state the mixed covariance or exact correlation.",
+        "identifier_or_url": "arXiv:2104.01134",
+        "material_read": "Full 12-page public manuscript, including the first-page subject classification, Sections 1--3, the exact crossing mean/variance lemma, the simple-chord size-bias construction and proof, and final remarks; the first page and simple-chord proof pages were visually inspected.",
+        "method": "Compared theorem statements and proof objects for any joint simple-chord/crossing moment, conditional law, covariance, or correlation.",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Closest source because it studies exactly both the crossing count and the simple-chord count."
+      },
+      {
+        "assessment": "RANDOM_CHORD_AND_SIMPLE_CHORD_STRUCTURE_NOT_TOTAL_MIXED_COVARIANCE",
+        "evidence": "The paper defines a simple chord as joining consecutive endpoints and studies crossing degrees and uniform chord-diagram growth. Its inspected statements do not give the accepted mixed law.",
+        "identifier_or_url": "arXiv:1501.01489 / DOI:10.1016/j.disc.2016.11.004",
+        "material_read": "Accessible full article text covering the introduction, notation, random-chord degree section, monolithic/simple-chord definition, directed intersection graphs, and growth section.",
+        "method": "Checked whether total simple-chord count is paired with total crossing count or whether a marked-deletion identity is stated.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Archive-era source on the exact random object, simple chords, chord lengths, crossings, and uniform growth."
+      },
+      {
+        "assessment": "PLAUSIBLE_CLASSICAL_GENERATING_FUNCTION_SOURCE_FULL_TEXT_UNAVAILABLE",
+        "evidence": "The abstract states exact moments for crossings and components and limit laws for components, largest component, and crossings. It does not expose a simple-chord/crossing joint statement in the accessible material.",
+        "identifier_or_url": "DOI:10.1007/978-3-662-04166-6_17",
+        "material_read": "Bibliographic record and abstract only; a lawful full text was not available in the inspected source.",
+        "method": "Compared the accessible stated scope and retained the unavailable full text as an unresolved risk.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Classical source for exact crossing moments and component asymptotics, potentially capable of stronger generating-function coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6cd88475-e150-44da-b9de-e06be91f2087",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Simple chords and crossings are canonical local and global observables of a random chord diagram and are the two headline statistics of the closest probability treatment. The result gives a finite exact bridge between their Poisson and Gaussian marginal regimes, strengthens the first covariance to all monotone transforms, and produces the unusually clean exact correlation -sqrt(5/(n+3)).",
+    "status": "PASS"
+  }
+}
