@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The statement fixes the uncorrected Gini normalization, all integer domains, the exponential parent law, and the distinction between rank-share covariance and correlation. Exponential order-statistic spacings yield independent exponentials; normalized spacings are a symmetric Dirichlet vector. The derived coefficient arrays give the exact mixed covariance after three elementary finite sums. A finite-difference identity and the harmonic bound prove the global maximum classification, including the possible adjacent tie. A sign-bracketing argument proves the asymptotic maximizing fraction. The standalone exact-rational checker independently compared 11,324 cases with a different coefficient-array calculation and independently checked raw-sample representations; finite checks are not substituted for the proof.
+
+## Originality — PASS, with disclosed risk
+The 1978 Gail–Gastwirth papers address Gini and sample-Lorenz goodness-of-fit procedures; the accessible published abstracts do not assert an exact all-rank mixed covariance or its maximizing rank. The full six-page Martínez-Camblor–Corral 2009 article studies the marginal Gini distribution for uniform, not exponential, samples. The complete Drăgulescu–Yakovenko arXiv paper (four pages) derives a *population* exponential Lorenz curve and Gini index, with no finite-sample joint calculation. Alvaredo's top-share/Gini relation is deterministic rather than the stochastic exponential-sample covariance here. Chandra–Singpurwalla establish a connection to reliability transforms, not the claimed all-rank regression. Normalization, Lorenz-complement, Dirichlet-vector and total-time-on-test reformulations were compared at the level of implication. The full original 1978 Gini/Lorenz papers and Alvaredo's full manuscript were not accessible through the available lawful routes; they remain named risks, not fictitious full-text exclusions. A more general historical joint process law could cover this mixed moment.
+
+## Value — PASS
+The local-to-global dependence question is motivated by jointly reporting the Gini index and ranked top-share summaries from the same exponential sample. The exact all-rank covariance is a finite-sample calibration; its maximizing rank has an unexpected nontrivial limiting fraction, about 20.3%. This is not just a re-expression of a single marginal mean or variance, and it does not claim a distribution-free law or a result about correlation maximization.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, k in 1..n and common rate lambda>0, successive exponential order-statistic gaps multiplied by n-j+1 are iid exponentials. Their normalized weights are Dirichlet(1,...,1), which linearizes both the uncorrected Gini index and the top-k share. Three exact coefficient sums yield the harmonic covariance and a finite-difference sign formula. The difference decreases in the first half of ranks and is nonpositive thereafter, proving the exact first maximizer, uniqueness/tie rule, and all boundary cases. Harmonic convergence, bracketing and the principal Lambert function prove the asymptotic fraction and limiting maximum. Independent direct-rational coefficient verification covered all 11,324 n,k pairs for n<=150 and raw-sample simulations; finite computations are checks rather than proof for all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gail and Gastwirth 1978 Gini paper: published abstract explicitly emphasizes marginal exact/asymptotic distribution theory",
+        "Gail and Gastwirth 1978 sample-Lorenz paper: abstract mentions marginal critical values and limit theorems",
+        "Alvaredo 2010 CEPR DP8071: deterministic top-share/Gini relationship",
+        "Martínez-Camblor and Corral 2009, section 2: exact marginal law for a uniform parent distribution"
+      ],
+      "reasoning": "A complete joint finite-sample law for all Lorenz ordinates would imply the claimed covariance and potentially subsume it, but none was established from the material actually available. A deterministic inequality relation does not supply the expectation of the product under iid exponentials; the uniform-sample marginal distribution is a different probability model.",
+      "searches": [
+        "\"Gini\" \"top share\" covariance finite sample exponential",
+        "sample Gini coefficient top k income share Dirichlet exponential covariance sample exact",
+        "Gini inequality statistic and upper-order share exponential iid all-sample-size covariance harmonic numbers and Lambert W optimal fraction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0008305",
+      "doi:10.1111/j.2517-6161.1978.tb01048.x",
+      "doi:10.1080/01621459.1978.10480100",
+      "doi:10.1287/moor.6.1.113",
+      "https://dialnet.unirioja.es/descarga/articulo/7146156.pdf",
+      "https://cepr.org/publications/dp8071"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:cond-mat/0008305, full text secs. 2–3: exponential population Lorenz curve, Gini 1/2",
+        "doi:10.1287/moor.6.1.113 published abstract: Gini/total-time-on-test equivalence and inequalities",
+        "CEPR DP8071 abstract: deterministic Gini-versus-top-share relation",
+        "https://dialnet.unirioja.es/descarga/articulo/7146156.pdf, secs. 2–3: uniform sample marginal Gini CDF and CLT"
+      ],
+      "reasoning": "Knowing the exponential population Lorenz curve and Gini value does not determine finite-sample covariance. The general deterministic Lorenz area identity lets one express Gini as a linear combination of Lorenz ordinates but requires the finite joint covariance kernel to evaluate its covariance with one ordinate. The present exact Dirichlet calculation supplies that kernel projection and the maximizer analysis. Full access to certain plausible earlier primary works was not secured, and an implicit older joint law is a residual risk.",
+      "searches": [
+        "\"Gini\" \"top share\" covariance finite sample exponential",
+        "Gail Gastwirth Lorenz Gini sample covariance Lorenz curve exact exponential statistic",
+        "Chandra Singpurwalla 1978 \"Gini index\" \"Lorenz curve\" \"total time on test\" pdf",
+        "Gail Gastwirth 1978 scale-free gini exponential goodness of fit pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1080/01621459.1978.10480100 (Lorenz rank ordinate is the complement of the top-k share)",
+        "doi:10.1287/moor.6.1.113 (Gini and total-time-on-test transform relationship)",
+        "doi:10.1111/j.2517-6161.1978.tb01048.x (Gini exponentiality test may use normalization n/(n-1))"
+      ],
+      "reasoning": "Subtracting the bottom-(n-k) Lorenz ordinate from one reverses covariance sign but leaves the all-rank harmonic law as the unproved content. Rescaling the Gini test multiplies, not determines, the mixed moment. The reliability-transform identity reparametrizes observables without yielding a checked exact covariance or maximizing-k statement.",
+      "searches": [
+        "\"Gini\" \"Lorenz\" \"covariance\" \"exponential\" \"sample\" exact",
+        "Gail Gastwirth Lorenz Gini sample covariance Lorenz curve exact exponential statistic",
+        "exponential order spacings Dirichlet linear statistics normalized sample Gini covariance maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.1111/j.2517-6161.1978.tb01048.x: exact critical values concern a one-statistic Gini distribution",
+        "https://dialnet.unirioja.es/descarga/articulo/7146156.pdf: small-n Gini CDF expressions without joint top-k moment tables",
+        "Searches with the numerical candidate optimizer 0.20318787 did not surface a covariance table or source"
+      ],
+      "reasoning": "The claimed object is a two-statistic mixed moment indexed by each rank k. Marginal Gini critical-value tables and population Lorenz graphs cannot fix it; absence from searches is recorded only as limited evidence, not exhaustive novelty proof.",
+      "searches": [
+        "sample Gini coefficient top k income share Dirichlet exponential covariance sample exact",
+        "Gini inequality statistic and upper-order share exponential iid all-sample-size covariance harmonic numbers and Lambert W optimal fraction",
+        "exact covariance Gini index top k share exponential distribution order statistics 0.203"
+      ]
+    },
+    "rationale": "The all-rank finite-sample exponential Gini/top-share covariance and its sharp fractional maximizing rank are distinct from inspected published population Lorenz curves, Gini marginal laws, deterministic top-share identities, and other previously recorded exponential Gini/variance relationships. Search evidence does not prove historical novelty. Full 1978 and 2010 texts remain stated risks, with no representation that abstracts exclude all possible appendices or reductions.",
+    "residual_risks": [
+      "The full 1978 Gini and sample-Lorenz journal papers were inaccessible through tried lawful routes; an old appendix or joint moment identity may cover the claim.",
+      "The full 2010 top-share/Gini manuscript could not be inspected, although available summaries emphasize deterministic relationships.",
+      "An unindexed older generating-function or empirical-Lorenz-process covariance result could imply the harmonic formula; no categorical historical uniqueness is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Population exponential Lorenz/Gini and descriptive data; no sampled top-k/Gini mixed covariance or rank maximizer",
+        "evidence": [
+          "arXiv:cond-mat/0008305 pp.1–3, equation (4) and figure 3"
+        ],
+        "identifier_or_url": "arXiv:cond-mat/0008305 (version 1, 2000-08-21; version 2, 2000-09-24)",
+        "material_read": "Complete four-page lawful arXiv full text, equations (1)–(4), Lorenz/Gini figures and conclusions",
+        "method": "arXiv PDF parsed text and page images",
+        "title": "Evidence for the exponential distribution of income in the USA",
+        "trigger": "Earliest dated source directly treating exponential incomes, the Lorenz curve, and Gini"
+      },
+      {
+        "assessment": "Exact marginal Gini CDF for Uniform(0,1) observations and normal approximation, not exponential-sample Gini/top-share covariance",
+        "evidence": [
+          "Sections 2–3, theorem 2.1 and theorem 3.1, pages 200–203"
+        ],
+        "identifier_or_url": "https://dialnet.unirioja.es/descarga/articulo/7146156.pdf",
+        "material_read": "Complete six-page lawful open-access article, sections 1–4 and references",
+        "method": "PDF page text and visual inspection",
+        "title": "About the exact and asymptotic distribution of the Gini coefficient",
+        "trigger": "Plausible exact Gini-law source and order-statistic transform method"
+      },
+      {
+        "assessment": "Abstract asserts exact/asymptotic marginal Gini theory but does not settle whether an appendix contains joint moments; coverage unresolved in inaccessible full text",
+        "evidence": [
+          "JRSSB 40(3) (1978), 350–357; DOI as given"
+        ],
+        "identifier_or_url": "doi:10.1111/j.2517-6161.1978.tb01048.x",
+        "material_read": "Journal bibliographic page, abstract, and reference list; full article not obtained",
+        "method": "Publisher landing text; lawful arXiv/open-access attempts, followed by institutional-access PDF request, including one retry, returning no verified PDF",
+        "title": "A Scale-Free Goodness-Of-Fit Test for the Exponential Distribution Based on the Gini Statistic",
+        "trigger": "Same exponential Gini statistic and its exact distribution"
+      },
+      {
+        "assessment": "Exact critical values and Lorenz asymptotic theory in abstract; relevant broader joint-process coverage cannot be excluded without full text",
+        "evidence": [
+          "JASA 73(364) (1978), 787–793; abstract hosted on ResearchGate"
+        ],
+        "identifier_or_url": "doi:10.1080/01621459.1978.10480100",
+        "material_read": "Author-hosted bibliographic abstract and listed methods, not verified full paper",
+        "method": "Publisher/author-upload landing records and lawful PDF retrieval attempt",
+        "title": "A Scale-Free Goodness-of-Fit Test for the Exponential Distribution Based on the Lorenz Curve",
+        "trigger": "The empirical Lorenz ordinate is complementary to the top-k share"
+      },
+      {
+        "assessment": "Documented identities across deterministic functionals and marginal goodness-of-fit tests; no checked exact finite mixed moment",
+        "evidence": [
+          "Mathematics of Operations Research 6(1) (1981), 113–121, publisher abstract"
+        ],
+        "identifier_or_url": "doi:10.1287/moor.6.1.113",
+        "material_read": "Publisher abstract and bibliographic page; full article not obtained",
+        "method": "Published abstract/source lookup",
+        "title": "Relationships Between Some Notions Which are Common to Reliability Theory and Economics",
+        "trigger": "Equivalence of Gini and reliability total-time-on-test statistics"
+      },
+      {
+        "assessment": "General deterministic top-share/Gini relationship, with no verified iid-exponential finite covariance; residual potential implicit identity",
+        "evidence": [
+          "CEPR Discussion Paper 8071 first published 2010-10-23; DOI:10.1016/j.econlet.2010.10.008"
+        ],
+        "identifier_or_url": "https://cepr.org/publications/dp8071",
+        "material_read": "CEPR abstract/bibliographic page and available article summary; full manuscript not verified",
+        "method": "CEPR landing page and OA repository attempt; institutional PDF request without verified PDF",
+        "title": "A Note on the Relationship between Top Income Shares and the Gini Coefficient",
+        "trigger": "Directly compares two statistics by name; possible general deterministic implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "873a317e-a0c5-46d4-bea7-d676864d0c6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gini concentration and top-k shares are naturally jointly reported rank functionals of the same positive sample, with practical finite-sample dependence even under a simple exponential reference. The exact positive covariance for every proper upper share, its sharp finite-n maximizing rank, and a nontrivial universal asymptotic optimum of 20.3188% characterize the entire dependence profile; marginal means, a deterministic inequality identity or a single selected k would not supply the maximizing fraction. It is covariance, not correlation, and no distribution-free generalization is claimed.",
+    "status": "PASS"
+  }
+}
