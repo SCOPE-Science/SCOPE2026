@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The claim is finite and completely exhausted. Two independently written predicates agree on every tested six-subset; all 8008 six-subsets were checked, exactly 656 pass, and all 11440 seven-subsets fail in both predicates. Heredity then excludes every larger code. The 384 Hamming isometries were generated explicitly, preservation of three-sum equality follows coordinatewise, and exact orbit partition gives six classes with sizes summing to 656. The finalized standalone verifier was replayed from its packaged path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "D’yachkov–Rykov gives general/asymptotic lower and upper length bounds; Gu reviews asymptotic rates and random coding; Derksen develops group \\(B_h\\)-sequences for Hamming-code constructions."
+      ],
+      "reasoning": "The broader results do not specialize to an exact equality classification at \\(n=4,h=3\\). In particular, asymptotic rate bounds and existence constructions neither rule out seven words at length four nor enumerate all equality cases.",
+      "searches": [
+        "D’yachkov Rykov B_s codes adder channel asymptotic bounds",
+        "Zero-error communication over adder MAC B_h codes rate",
+        "Error correcting codes and B_h-sequences Derksen"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0311385v1",
+      "D’yachkov–Rykov, Problems of Information Transmission 17(2) (1981), 94–104",
+      "arXiv:1809.07364v1",
+      "Literature-index searches listed in the four comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1981 source proves general/asymptotic bounds for \\(N(s,t)\\); the 2018 source explicitly frames \\(B_h\\)-code work in terms of rate and random coding; Derksen’s construction concerns \\(B_h\\)-sequences in abelian groups and derived Hamming codes."
+      ],
+      "reasoning": "None of those statements implies either \\(N(3,6)=4\\) in the binary-column model or the 656-code equality census and six Hamming-isometry classes. The new upper bound is instead supplied by exhaustive rejection of every seven-subset, and the equality structure by a complete orbit partition.",
+      "searches": [
+        "binary B_3 code length four maximum size six 656",
+        "binary Bh code h=3 n=4 maximum 6",
+        "three-user shared-codebook adder channel block length 4 six codewords",
+        "binary B3 codes length 4 Hamming isometry classification",
+        "B_3-code N(3,6)=4 binary adder"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "D’yachkov–Rykov (1981) defines binary-column \\(B_s\\)-codes by distinct sums with repetitions; Gu, arXiv:1809.07364, Definition 2.2 defines binary \\(B_h\\)-codes as subsets of the Boolean cube with unique multiset sums."
+      ],
+      "reasoning": "These are statement-equivalent formulations of the present predicate, so they were treated as direct prior-art checks rather than merely related terminology. Neither inspected source states the length-four exact maximum/count/orbit classification.",
+      "searches": [
+        "binary B_3 code length 4 maximum 6",
+        "B3 code {0,1}^4 size 6 coordinatewise sums",
+        "three-user binary adder B_3 code length four",
+        "B_h code h=3 length 4 binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Derksen’s explicit tables are tables of improved lower bounds for ordinary \\(A(n,d)\\), not Boolean-cube \\(B_h\\)-code maxima. Searches for the D’yachkov notation \\(N(3,6)\\) and for the count 656 did not surface a matching finite table."
+      ],
+      "reasoning": "No checked database/table entry was found that contains the present exact parameter and equality census. This negative search is not by itself a novelty proof; it is combined with full-text comparison of the most relevant general sources.",
+      "searches": [
+        "N(3,6) B code D’yachkov",
+        "N(3, 6) adder code",
+        "N(3,6)=4 coding",
+        "N(3,6) multiple-access adder",
+        "656 B_3 code binary",
+        "656 B3 adder channel"
+      ]
+    },
+    "rationale": "The exact finite statement was compared against the equivalent shared-codebook adder formulation, general binary \\(B_h\\)-code bounds, the original multiple-access formulation, and exact-table/database-style searches. The inspected sources define or bound the general objects but do not imply the block-length-four maximum together with the count of 656 labeled maxima and six Hamming-isometry orbits. The remaining risk is an obscure historical finite enumeration not surfaced by the searches; no decisive unresolved source was found.",
+    "residual_risks": [
+      "An obscure or poorly indexed historical finite tabulation could contain the value of the maximum without being surfaced by the searches.",
+      "The 1981 full text is OCR-derived and partly Russian; the comparison therefore relies on inspected mathematical definitions/theorem statements rather than a polished English full text.",
+      "Even if the maximum size alone existed elsewhere, no checked source was found for the combined labeled count and six-orbit equality classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines \\(B_h\\)-sequences and applies them to ordinary binary error-correcting codes; does not state the finite Boolean-cube \\(B_3\\)-code classification claimed here.",
+        "evidence": "arXiv submission history gives v1 at 2003-11-21 16:44:32 UTC; Definition 1 requires all nondecreasing \\(h\\)-term sums to be distinct; Section 5 tables \\(A(n,d)\\) bounds.",
+        "identifier_or_url": "arXiv:math/0311385v1",
+        "material_read": "Full HTML relevant sections 1–5, especially Definition 1, Proposition 2, construction section, and the table description.",
+        "method": "Direct full-text inspection of the arXiv HTML version.",
+        "title": "Error Correcting Codes and B_h-Sequences",
+        "trigger": "Archive literature lead and exact public-date evidence; same additive uniqueness concept."
+      },
+      {
+        "assessment": "Covers the same general model and derives general/asymptotic length bounds, but the inspected text does not give the length-four exact equality census or Hamming-isometry classification.",
+        "evidence": "The definition requires distinct sums of \\(s\\) columns with repetitions; theorem/remarks concern bounds for \\(N(s,t)\\) as \\(t\\) grows.",
+        "identifier_or_url": "D’yachkov–Rykov, Problems of Information Transmission 17(2) (1981), 94–104; ResearchGate public full text record",
+        "material_read": "Full-text relevant definition/application and theorem passages, including the binary matrix definition of \\(B_s\\)-codes and the asymptotic bound discussion.",
+        "method": "Direct inspection of the public full-text/OCR rendering; mathematical formulas were compared to the modern formulation.",
+        "title": "On a Coding Model for a Multiple-Access Adder Channel",
+        "trigger": "Historical source using the same binary-column multiset-sum model."
+      },
+      {
+        "assessment": "Definition 2.2 matches the present predicate. The paper studies asymptotic rates/random coding and does not provide the finite \\(n=4,h=3\\) maximum or equality classification.",
+        "evidence": "Definition 2.2 defines a \\(B_h\\)-code as a \\(B_h\\)-set in \\(\\{0,1\\}^n\\subseteq\\mathbb Z^n\\); the related-work section states the focus on rate bounds.",
+        "identifier_or_url": "arXiv:1809.07364v1",
+        "material_read": "Full HTML Introduction, Related Work, Definitions, and construction discussion.",
+        "method": "Direct full-text inspection of arXiv HTML.",
+        "title": "Zero-error communication over adder MAC",
+        "trigger": "Modern source giving the exact shared-codebook adder-channel formulation and reviewing prior \\(B_h\\)-code work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "698b12c4-0a9d-41df-bdb5-7d39b08c7466",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a standard higher-order additive uniqueness code with a direct three-user shared-codebook adder interpretation, not an arbitrary slice. The case \\(h=3\\) is the first higher-order setting beyond Sidon/\\(B_2\\) behavior, and a complete finite optimum plus symmetry classification gives a reusable exact benchmark for constructions and search algorithms. The six inequivalent extremal geometries show that the equality layer has genuine structure rather than being a single routine witness.",
+    "status": "PASS"
+  }
+}
