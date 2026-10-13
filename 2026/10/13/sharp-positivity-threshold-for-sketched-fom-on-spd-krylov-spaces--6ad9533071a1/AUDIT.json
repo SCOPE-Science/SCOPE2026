@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The norm embedding yields a restricted Hermitian operator-norm perturbation epsilon on the next Krylov space. The exact SPD turning-angle bound follows by \\(A^2\\preceq(\\mu+L)A-\\mu LI\\) and one-variable minimization. Its combination with the generalized eigenvector Rayleigh quotient establishes the real-part bound, including complex eigenvectors. An actual 2-by-3 sketch has exact distortion epsilon and produces a scalar sketched Ritz value whose numerator changes sign at precisely \\(2\\sqrt\\kappa/(1+\\kappa)\\); the positive denominator is verified. The package verifier passed 25,308 exact rational checks; the infinite-dimensional-parameter statement is analytically proved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Timsit et al. prove quasi-optimality/solution-error properties for randomized projection under stronger conditions; their conclusion is not this exact Ritz-positive iff condition.",
+        "Güttel, Liu, and Nyman give a positivity condition for a harmonic Ritz pencil with a different test space and inverse operator.",
+        "Original sketched FOM numerical-range enclosure notes possibility of negative-real Ritz eigenvalues but supplies no sharp lower condition for SPD spectra."
+      ],
+      "reasoning": "Compared the logical implications: quasi-optimal error bounds and harmonic Ritz positivity do not yield the claimed exact universal threshold for ordinary FOM compression, and the crude sketched-FOM enclosure gives only a weaker sufficient condition. These checked published statements do not subsume the present conclusion.",
+      "searches": [
+        "\"sketch\" \"Rayleigh quotient\" negative SPD threshold",
+        "\"positive real\" \"sketched Galerkin\" \"epsilon\"",
+        "sketched Arnoldi Ritz values 65F60 subspace embedding positivity epsilon threshold conditioning",
+        "arXiv:2302.07466 Proposition 3.1",
+        "arXiv:2607.10354 Section 5.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.11447v1",
+      "arXiv:2212.12758",
+      "arXiv:2302.07466",
+      "arXiv:2607.10354v1",
+      "DOI:10.1137/22M1518062",
+      "DOI:10.1137/22M1543458"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Güttel–Schweitzer: original sFOM formula, indefinite possibility, and a loose numerical-range disk; no exact sharp SPD epsilon condition.",
+        "Cortinovis–Kressner–Nakatsukasa: equivalent sFOM approximation and performance analysis, no identified positivity boundary.",
+        "Timsit–Grigori–Balabanov: quasi-optimal error guarantee, not a Ritz threshold.",
+        "Güttel–Liu–Nyman: a harmonic-sketch criterion from an inverse-weighted inner product, not an ordinary sFOM matrix."
+      ],
+      "reasoning": "The current claim implies spectral positive-realness of the ordinary sketched FOM under \\(\\varepsilon<2\\sqrt\\kappa/(1+\\kappa)\\), and furnishes failure at the exact endpoint; none of these inspected source claims implies the endpoint sharpness or its matching compressive witness. General turning-angle principles are acknowledged as ingredients, not stand-alone contributions.",
+      "searches": [
+        "arXiv:2208.11447 sketched FOM Eq. (9) negative real Ritz values",
+        "arXiv:2212.12758 Section 3.3 equivalent sketch",
+        "arXiv:2302.07466 Proposition 3.1",
+        "arXiv:2607.10354 Section 5.3 sketched harmonic Ritz positivity",
+        "Randomized Petrov-Galerkin sketched Rayleigh quotient can become zero or negative despite epsilon subspace embedding, exact condition 2sqrt(kappa)/(kappa+1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original sketched FOM is the generalized Galerkin pencil \\(V^*S^*SAV-\\lambda V^*S^*SV\\).",
+        "Cortinovis et al. independently describe an equivalent randomized Krylov compression; their open manuscript discusses equivalence and algorithmic performance rather than the exact SPD positivity boundary."
+      ],
+      "reasoning": "Search and mathematical equivalence comparison included sketched Arnoldi, oblique Galerkin, randomized compression, the SPD turning-angle/Kantorovich formulation, and the generalized Rayleigh quotient. The claim is a sharp all-dimensions iff threshold with a compressive equality witness, not merely the general equivalence of projection formulas or classical angle lemma.",
+      "searches": [
+        "sketched FOM Ritz values positive real SPD embedding conditioning epsilon threshold",
+        "\"randomized FOM\" \"positivity\" \"embedding\" \"condition number\" Ritz values",
+        "\"Kantorovich\" \"sketching\" \"Ritz\"",
+        "Kantorovich angle bound SPD matrix sketched Galerkin Ritz numerical range positive stable exact epsilon threshold counterexample 3 dimensions",
+        "arXiv:2208.11447 Section 2.2-2.3",
+        "arXiv:2212.12758 Section 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected original paper has the sketched FOM formula and approximate numerical-range enclosure, not a table or statement of the exact threshold with equality.",
+        "The later harmonic-Ritz analysis has an analytically different pencil and criterion."
+      ],
+      "reasoning": "This is a symbolic universal bound with equality construction, not a finite tabulation. No inspected exact numerical or theorem record lists the claimed criterion as a special case. Unknown unindexed or differently named mathematical literature remains possible.",
+      "searches": [
+        "Güttel Schweitzer randomized sketching Krylov matrix functions sketched FOM positive real eigenvalues sharp epsilon 2 sqrt(mu L)/(mu+L)",
+        "Kantorovich angle bound SPD matrix sketched Galerkin Ritz numerical range positive stable exact epsilon threshold counterexample 3 dimensions",
+        "sketched Arnoldi Ritz values 65F60 subspace embedding positivity epsilon threshold conditioning",
+        "arXiv:2208.11447 Eq. (9) and numerical experiments",
+        "arXiv:2607.10354 Theorem 8 and Section 5.3"
+      ]
+    },
+    "rationale": "The original sketch-FOM source warns of lost positivity but gives no sharp SPD threshold; the independently equivalent compression, randomized projection quasi-optimality theorem, and harmonic Ritz analysis do not imply this exact necessary-and-sufficient ordinary-FOM condition. The classical turning-angle lemma is expressly prior mathematical machinery. Residual risk is an equivalent claim in broad oblique-projection/perturbation literature, with no independent priority certification.",
+    "residual_risks": [
+      "An equivalent general theorem on the numerical range of SPD oblique Galerkin or relative-norm form perturbations may exist under different terminology.",
+      "Only ordinary sketched FOM is classified; harmonic and nonsymmetric statements cannot be inferred.",
+      "Scientific priority requires independent expert review; bibliographic searches alone do not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No sharp uniform SPD threshold or attainment construction identified; includes related spectral displacement warning",
+        "evidence": [
+          "Section 2.1 supplies the sketch-compressed FOM formula.",
+          "Section 2.3 Eq. (9) and following paragraph state negative-real parts may occur despite positivity of the underlying operator."
+        ],
+        "identifier_or_url": "arXiv:2208.11447v1; https://ar5iv.labs.arxiv.org/html/2208.11447",
+        "material_read": "Full available HTML, especially Sections 2.1–2.3, Eq. (9), discussion of numerical experiments and conclusions",
+        "method": "Read equations/definitions and implication-level comparison with claimed SPD epsilon threshold",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Exact originating sFOM definition and the authors' explicit negative-real Ritz warning"
+      },
+      {
+        "assessment": "Equivalent projection method, no identified iff condition for positive-real Ritz values at exact embedding distortion",
+        "evidence": [
+          "Randomized least-squares compression yields the same sketched Galerkin projected matrix in the relevant formulation.",
+          "Numerical quality/performance conclusions do not enforce positive-real projected eigenvalues at the threshold."
+        ],
+        "identifier_or_url": "arXiv:2212.12758; https://arxiv.org/abs/2212.12758",
+        "material_read": "Open manuscript discussion of algorithm and equivalence in Section 3.3, with surrounding numerical treatment",
+        "method": "Compared formula, objects, assumptions, and whether error estimates imply spectral sign",
+        "title": "Speeding up Krylov subspace methods for computing f(A)b via randomization",
+        "trigger": "Mathematically equivalent randomized compression, acknowledged by the original sFOM paper"
+      },
+      {
+        "assessment": "Different bound and conclusion; no exact extremal positivity cutoff identified",
+        "evidence": [
+          "Proposition 3.1 is formulated for solver approximation/error quasi-optimality under a condition involving inverse square-root conditioning.",
+          "A bound on the error of a particular linear solve does not characterize all Ritz eigenvalues."
+        ],
+        "identifier_or_url": "arXiv:2302.07466; https://arxiv.org/abs/2302.07466",
+        "material_read": "Open full-text Section 3, including Proposition 3.1 quasi-optimality bound and assumptions",
+        "method": "Compared controlled approximation norm and spectral positivity of a nonsymmetric generalized compression",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Subspace embedding and condition-number-dependent guarantee for randomized Krylov projections"
+      },
+      {
+        "assessment": "Harmonic variant uses a different generalized pencil and a sufficient epsilon criterion, not the claimed sharp FOM boundary",
+        "evidence": [
+          "Section 5.3 describes the sketched harmonic matrix pencil \\(F=(SAB)^*(SAB)\\) and \\(G=(SAB)^*(SB)\\).",
+          "Its sufficient criterion uses inverse-operator numerical range rather than a sharp ordinary-FOM turning-angle threshold."
+        ],
+        "identifier_or_url": "arXiv:2607.10354v1; https://arxiv.org/html/2607.10354v1",
+        "material_read": "Open full-text Sections 2.2, 5.2, and 5.3, especially the generalized harmonic Ritz pencil and its sufficient condition",
+        "method": "Compared the two matrix pencils and implications for SPD spectra",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Recent analysis explicitly targeting positive-real sketched harmonic Ritz values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ad95330-71a1-469c-a690-68c3903f248b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp threshold answers when a standard sketched FOM matrix-function method retains the positive-real spectrum required for safe evaluation of reciprocal and Stieltjes functions. It improves substantially on the crude \\(\\varepsilon<1/\\kappa\\) spectral enclosure (at \\(\\kappa=9\\), the sharp boundary is \\(\\varepsilon=3/5\\) instead of the crude \\(\\varepsilon=1/9\\)), is attained by a natural minimal Krylov configuration with a truly compressive sketch, and establishes an unavoidable obstruction rather than just a small numerical change. No probabilistic embedding or runtime guarantee is asserted.",
+    "status": "PASS"
+  }
+}
