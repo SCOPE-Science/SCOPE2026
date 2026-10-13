@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For every prime \\(k\\ge3\\), the order of \\(2\\) modulo each \\(q\\mid(2^k-1)\\) is \\(k\\). Hence \\(q\\ge2k+1\\), and the number \\(t\\) of distinct factors is less than \\(k\\). The Euler product gives \\(\\varphi(M_k)/M_k\\ge(k+2)/(2k+1)>1/2\\). The case \\(k=2\\) is checked directly. If \\(12\\mid k\\), then \\(4095\\mid M_k\\) fixes \\(\\varphi(M_k)/M_k\\le192/455<1/2\\). The remaining five composite indices below \\(12\\) are explicitly evaluated. A standalone direct-composition checker passes for \\(2\\le k\\le36\\) but does not substitute for the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golomb (1993) §4 Theorem 5 addresses unrestricted integers, using conditional Mersenne primes for the negative power-of-two example.",
+        "De Koninck–Luca (2007) Theorems 1–5 give maximal/minimal orders, mean order, density and dense range for H(n), without imposing n=\\(2^a\\)."
+      ],
+      "reasoning": "A stronger unrestricted existence or density statement does not imply existence of both signs in a specific zero-density geometric subsequence. The closest publications do not entail the prime-index, divisible-by-twelve, or first-positive claims.",
+      "searches": [
+        "Golomb 1993 conditional Mersenne prime signs unconditional prime exponent subsequence and arithmetic progression",
+        "Equation sigma(phi(n)) equals phi(sigma(n)), Golomb, De Koninck Luca; sharp prime-power and squarefree obstructions",
+        "De Koninck Luca On the composition of the Euler function and the sum of divisors function Theorems 1–5",
+        "https://oeis.org/A006872/a006872_1.pdf",
+        "https://www.impan.pl/shop/en/publication/transaction/download/product/87236"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A006872/a006872_1.pdf",
+      "https://www.impan.pl/shop/en/publication/transaction/download/product/87236",
+      "https://oeis.org/A065395",
+      "https://oeis.org/A116083",
+      "https://www.ams.org/meetings/sectional/1882_progfull.html",
+      "published-finding corpus semantic searches for commutator aliases, prime index, 12-divisibility, Mersenne totient, and first switch"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present negative family includes every prime \\(k\\) even when \\(M_k=2^k-1\\) is composite, eliminating Golomb’s Mersenne-prime infinitude premise on powers of two.",
+        "The present positive family consists exclusively of \\(n=2^{k-1}\\) with \\(12\\mid k\\); neither Golomb’s positive prime construction nor the 2007 unrestricted density results require those indices.",
+        "The exact first switch is determined by five composite exponent checks plus an infinite theorem for prime k."
+      ],
+      "reasoning": "Neither known unrestricted sign oscillation nor a conditional negative subfamily logically implies unconditional oscillation inside powers of two; nor do the tables give the 12-divisibility mechanism. The new claim is therefore not a consequence of the named prior propositions as stated.",
+      "searches": [
+        "Sign of commutator σ∘φ−φ∘σ on powers of two, both signs infinitely often, exponents divisible by 12 and prime",
+        "Golomb 1993 conditional Mersenne prime signs unconditional prime exponent subsequence and arithmetic progression",
+        "φ(2^k−1) > (2^k−1)/2 for prime k; < (2^k−1)/2 for k divisible by 12",
+        "first positive commutator on powers of two at 2048, Mersenne number phi 4095",
+        "https://oeis.org/A006872/a006872_1.pdf",
+        "https://www.impan.pl/shop/en/publication/transaction/download/product/87236"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identity \\(C(2^{k-1})=(2^k-2)/2-\\varphi(2^k-1)\\) converts all sign claims into Mersenne-totient comparisons. Golomb §4 uses the same commutator but only a Mersenne-primality conditional negative construction.",
+        "published-finding corpus closest 2026/10/4/SCOPE-exact-first-three-fibers-of-the-alternating-divisor-totient-gap--5f607fcab7e7 analyzes a different alternating divisor function."
+      ],
+      "reasoning": "Equivalent formulations require inequalities for \\(\\varphi(2^k-1)\\) at prime or twelve-divisible k. Exact-formula and alias searches did not return such a two-sided infinite family; Golomb’s conditional example is not equivalent to the present unconditional index rule.",
+      "searches": [
+        "Sign of commutator σ∘φ−φ∘σ on powers of two, both signs infinitely often, exponents divisible by 12 and prime",
+        "φ(2^k−1) > (2^k−1)/2 for prime k; < (2^k−1)/2 for k divisible by 12",
+        "sign oscillations sigma(phi(2^a)) - phi(sigma(2^a)) prime exponent indices multiples of twelve",
+        "For infinitely many exponents a, σ(φ(2^a)) < φ(σ(2^a)); prime exponent k and Mersenne totient phi(2^k−1)>2^(k-1)−1",
+        "https://oeis.org/A065395"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A065395 defines the exact signed commutator and lists initial values in unrestricted n, with a table through n=1000.",
+        "OEIS A116083 concerns the much narrower equality φ(σ(n))−σ(φ(n))=1, showing some negative instances on powers of two but not both infinite sign families."
+      ],
+      "reasoning": "The recorded terms and special difference-one family do not state or prove either infinite index family or the first positive power of two at \\(n=2048\\). Small tables cannot supply unrestricted coverage.",
+      "searches": [
+        "https://oeis.org/A065395",
+        "https://oeis.org/A116083",
+        "first positive commutator on powers of two at 2048, Mersenne number phi 4095"
+      ]
+    },
+    "rationale": "This is unconditional two-sided sign oscillation on the powers-of-two subsequence, with prescribed infinite index sets; original Golomb and 2007 work concern unrestricted n, Golomb’s power-of-two example assumes infinitely many Mersenne primes, and the searched records do not give the new index rules.",
+    "residual_risks": [
+      "An unindexed elementary Mersenne-totient argument may have independently established this precise prime-index/twelve-index sign result.",
+      "AMS meeting program was available as indexed material, not a retrieved full abstract; its published abstract is corroborated bibliographically in OEIS and De Koninck–Luca."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Negative power-of-two argument is conditional on Mersenne primes; positive construction uses a different prime family, not powers of two; no two-sided unconditional result on powers of two stated.",
+        "evidence": [
+          "Manuscript p.5, Theorem 5 and clauses 1–2",
+          "Manuscript p.6, second update"
+        ],
+        "identifier_or_url": "https://oeis.org/A006872/a006872_1.pdf",
+        "material_read": "Section 4 theorem and two sign constructions on manuscript page 5; dated update on page 6, along with surrounding statements",
+        "method": "Examined original full-page scans",
+        "title": "Equality among number-theoretic functions",
+        "trigger": "Same commutator and powers-of-two sign construction in Theorem 5"
+      },
+      {
+        "assessment": "Theorems give unrestricted order/density/dense-range results with constructions not prescribing the powers-of-two subsequence; no direct coverage of exponent-index sign rule.",
+        "evidence": [
+          "Theorems 1–5 on p.32",
+          "Final proof of Theorem 5 pp.49–50"
+        ],
+        "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/87236",
+        "material_read": "Introduction and all theorem statements on pp. 31–33, relevant final proof of Theorem 5 on pp. 49–50",
+        "method": "Read lawful open PDF text and visually inspected the main/results and proof pages",
+        "title": "On the composition of the Euler function and the sum of divisors function",
+        "trigger": "Known general sign distribution of the exact quotient H(n)"
+      },
+      {
+        "assessment": "Defines same signed function; no proved prime-k and \\(12\\mid k\\) infinite sign family.",
+        "evidence": [
+          "Entry originally dated 5 November 2001",
+          "Bibliography Golomb 1993 and De Koninck–Luca 2007"
+        ],
+        "identifier_or_url": "https://oeis.org/A065395",
+        "material_read": "Definition, initial table, comments, source bibliography, formula, entry date",
+        "method": "Read database record",
+        "title": "OEIS A065395: Commutator of sigma and phi functions",
+        "trigger": "Exact sequence and earliest dated database record"
+      },
+      {
+        "assessment": "Records a special negative difference-one family, not sign oscillation among all powers of two.",
+        "evidence": [
+          "Entry commentary describing Fermat-prime powers-of-two family"
+        ],
+        "identifier_or_url": "https://oeis.org/A116083",
+        "material_read": "Sequence definition, Fermat-prime commentary, initial terms and dated author field",
+        "method": "Read database record",
+        "title": "OEIS A116083: phi(sigma(n))−sigma(phi(n))=1",
+        "trigger": "Potential dominating exact difference-one condition for powers of two"
+      },
+      {
+        "assessment": "Confirms public presentation of original subject on 1993-05-23; meeting program does not give the new prime-index rule.",
+        "evidence": [
+          "1993-05-23 9:00 AM, abstract 882-11-16"
+        ],
+        "identifier_or_url": "https://www.ams.org/meetings/sectional/1882_progfull.html",
+        "material_read": "Sunday 23 May 1993 session timetable with Golomb title and abstract identifier",
+        "method": "Read indexed primary program snippet (direct site access limited)",
+        "title": "1993 AMS Central Spring Meeting program",
+        "trigger": "Verifying first public dating of Golomb’s underlying subject"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93f5adad-4395-46c0-81b8-72bcfc1ff0de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sparse powers-of-two subsequence is a natural stress test of Golomb’s sign problem, not implied by global abundance or density estimates. Explicit arithmetic classes furnish infinitely many signs of both types without the Mersenne-prime infinitude assumption; 2048 is the exact first positive boundary. The result is an unrestricted theorem on a motivated family, not a finite table extrapolation.",
+    "status": "PASS"
+  }
+}
