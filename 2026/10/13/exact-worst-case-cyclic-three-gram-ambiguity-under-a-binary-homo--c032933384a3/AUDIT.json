@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "A cyclic walk in the restricted six-edge de Bruijn graph has uniquely constrained flow p(s,a,b), with n=2s+a+b. Marking any occurrence of vertex 01 yields a bijection with two independently chosen s-position detour subsets. Double counting marks proves exact fiber size n/s binom(s,a)binom(s,b) for every n>=2 including zero detour boundary. Product balancing at fixed s is strict for |a-b|>=2, and checking exactly all feasible s gives the global maximum. Direct complete word enumeration independently verified n=2..18.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General directed Euler-tour methods can enumerate single specified fibers and are acknowledged as prior.",
+        "The new global optimization over every feasible cyclic flow yields a sharp all-length extremal list size, not an isolated known type-class count."
+      ],
+      "reasoning": "The broad enumeration framework is prior and directly covers individual counting instances. An extremal theorem still requires reducing feasible profiles, proving binomial balancing, and optimizing over all s; the inspected primary sources do not assert this extremum.",
+      "searches": [
+        "Codes for DNA Storage Channels arxiv:1410.8837",
+        "Counting Markov Types Jacquet 2010",
+        "Maximum size of cyclic binary homopolymer-free length-n third order Markov type class exact formula n/s binom(s,a) binom(s,b)",
+        "Exact cyclic 3-gram multiplicity fiber size no 000 no 111 restricted DNA profile ambiguity maximization"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1410.8837v1; arxiv:1410.8837v2; https://arxiv.org/html/1410.8837v2",
+      "Counting Markov Types (2010), Jacquet and collaborators, background comparison",
+      "DOI:10.1109/ISIT.2016.7541780 (metadata/abstract scope only)",
+      "Published published-finding corpus searches for fixed maximum fibers, Markov type, cyclic DNA spectrum aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior formulas for the number of feasible profile vectors cannot determine the maximum cardinality of one profile fiber.",
+        "The directed Euler-tour theorem handles fixed flow multiplicities, but the balance inequality and global maximum over n-dependent allowable flows are additional steps."
+      ],
+      "reasoning": "The fixed-flow enumeration formula is classical and not claimed new. The precise claimed advance is the all-n global optimization and balanced equality characterization; neither the known number of types nor an asymptotic exponent supplies that extremum.",
+      "searches": [
+        "arxiv:1410.8837v1 DNA sequence profile counting",
+        "arxiv:1410.8837v2 restricted de Bruijn Eulerian flow formula",
+        "Maximum size of cyclic binary homopolymer-free length-n third order Markov type class exact formula n/s binom(s,a) binom(s,b)",
+        "Exact cyclic 3-gram multiplicity fiber size no 000 no 111 restricted DNA profile ambiguity maximization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Profile equivalence is identical to a directed order-two Markov type for circular strings. The relevant Kiah-Puleo-Milenkovic paper supplies graph/flow methods, not the global largest-type formula.",
+        "All fixed-s profile extrema are balanced binomial pairs."
+      ],
+      "reasoning": "Comparison uses mathematical fibers of full multiplicity maps, not similarity of titles; unrestricted and noncyclic spectra are different domains, and the previously counted number of distinct profiles is not this largest-fiber invariant.",
+      "searches": [
+        "Maximum size of cyclic binary homopolymer-free length-n third order Markov type class exact formula n/s binom(s,a) binom(s,b)",
+        "Exact cyclic 3-gram multiplicity fiber size no 000 no 111 restricted DNA profile ambiguity maximization",
+        "Constrained de Bruijn graph binary cyclic Eulerian profiles exact largest preimage run at most two",
+        "arxiv:1410.8837v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching table of the largest cyclic homopolymer-constrained fibers was identified in searched published-finding corpus records or inspected primary Kiah text.",
+        "Sample values 108,600,1200 reproduced by direct exhaustive verification."
+      ],
+      "reasoning": "A missing search hit is not novelty proof; the conclusion is limited to inspected items, with explicitly retained risk of an unindexed numerical table.",
+      "searches": [
+        "Exact cyclic 3-gram multiplicity fiber size no 000 no 111 restricted DNA profile ambiguity maximization",
+        "Constrained de Bruijn graph binary cyclic Eulerian profiles exact largest preimage run at most two",
+        "binary cyclic 3-gram maximum list size avoid 000 111"
+      ]
+    },
+    "rationale": "The distinct-profile and asymptotic restricted-flow enumeration in Kiah et al. does not determine the largest preimage of one cyclic profile. The claimed new part is the exact all-n optimized maximum and balanced extremizers, rather than the classical graph representation or counts of given flows. The closest literature and uninspected possible sources are distinguished explicitly.",
+    "residual_risks": [
+      "A historical specialized paper/table outside accessible indexes may already contain this extremum.",
+      "The general BEST/Euler-circuit counting theorem subsumes the nonextremal fixed-flow counting step; historical coverage of the exact global maximization is uncertain.",
+      "Complete 2016 Chang et al. ISIT article was not materially available and no NOT_COVERING determination is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework covers counting methods and implies feasibility constraints, not the all-length maximum reconstruction-list claim.",
+        "evidence": "arxiv:1410.8837; published manuscript and HTML v2; six-edge binary order-two restricted graph contextualizes the model.",
+        "identifier_or_url": "https://arxiv.org/html/1410.8837v2",
+        "material_read": "Sections describing sequence profiles, restricted graphs, flow enumeration, and coding bounds; initial source dating checked on arXiv record",
+        "method": "Read accessible full HTML/preprint and compared the invariant counted (number of profiles) against largest cyclic profile fiber",
+        "title": "Codes for DNA Storage Channels / Codes for DNA Sequence Profiles",
+        "trigger": "Exact restricted de Bruijn profile model and potential stronger theorem"
+      },
+      {
+        "assessment": "General enumeration is acknowledged as background; does not verify or tabulate this constrained exact all-length maximum.",
+        "evidence": "Markov type counts are indexed by directed transition frequencies; global optimization under the six-edge constraint is separate.",
+        "identifier_or_url": "2010 work of Jacquet and collaborators; publicly indexed mathematical paper",
+        "material_read": "Abstract/introductory mathematical count statements and background on Markov-type classes",
+        "method": "Compared type count versus largest fiber over all types",
+        "title": "Counting Markov Types",
+        "trigger": "General Markov-type enumeration could subsume single fixed multiplicity class counts"
+      },
+      {
+        "assessment": "Not adjudicated as NOT_COVERING; remains a full-text access and prior-coverage risk.",
+        "evidence": "2016 ISIT, DOI 10.1109/ISIT.2016.7541780; bibliography describes number of profiles.",
+        "identifier_or_url": "https://dblp.org/rec/conf/isit/ChangCEK16",
+        "material_read": "Bibliographic record and available abstract-level descriptions only",
+        "method": "Compared stated rates/profile cardinality scope; complete conference article not available",
+        "title": "On the number of DNA sequence profiles for practical values of read lengths",
+        "trigger": "Related 2016 coding literature possibly containing exact fiber maxima"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0329333-84a3-4ef7-88c4-590bd48e54b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximum list size for full cyclic k-mer observations is a natural worst-case reconstruction ambiguity and determines the exact best possible no-error list-size guarantee. This theorem computes it at every block length by O(n) binomial comparisons, identifies all profile types and shows why balanced detours are extremal; counting only the number of achievable profiles cannot supply this bound.",
+    "status": "PASS"
+  }
+}
