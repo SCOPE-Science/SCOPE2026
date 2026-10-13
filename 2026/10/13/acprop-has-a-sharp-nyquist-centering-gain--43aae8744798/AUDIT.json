@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The alternating-input first moment is an exact geometric sum. The residual equals \\((-1)^{t-1}G[c+a(-\\beta_1)^t]\\), so its square converges geometrically to \\(c^2G^2\\). The centered second moment is a stable EMA of that sequence and therefore converges to the same limit, while the asynchronous one-step delay does not change the limit. The uncentered control has the exact state \\(G^2(1-\\beta_2^t)\\). Fresh replay of the embedded verifier confirms the exact formulas, limits, and gain constants.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves always-convergence properties on one periodic online-convex counterexample and a broader convergence region for centered asynchronous scaling on a sparse periodic example.",
+        "Its sparse example contains long zero-gradient stretches and compares per-period denominator inequalities.",
+        "Those results do not determine the constant-magnitude alternating residual or its exact asymptotic gain."
+      ],
+      "reasoning": "The source's broader convergence results use different input geometry and different conclusions. They do not imply the Nyquist denominator constant, its independence from \\(\beta_2\\), or the exact gain ratio.",
+      "searches": [
+        "Momentum Centering and Asynchronous Update for Adaptive Gradient Methods periodic gradient",
+        "ACProp sparse gradient centered denominator periodic",
+        "ACProp convergence condition centered uncentered"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.05454v1",
+      "GitHub:juntang-zhuang/ACProp-Optimizer:optimizers/ACProp.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining paper classifies ACProp as async-center and writes the analysis preconditioner as the inverse square root of the previous centered state.",
+        "The original repository uses default decays \\(0.9\\) and \\(0.999\\) and offers a raw-gradient numerator in its non-momentum update path.",
+        "Neither source states the alternating-gradient residual floor or gain law."
+      ],
+      "reasoning": "The architecture is prior. The final claim requires independently solving the alternating first-moment transient, propagating its squared residual through the second EMA, and comparing the limiting denominator with the matched uncentered asynchronous state.",
+      "searches": [
+        "arXiv:2110.05454v1 ACProp current gradient numerator previous centered denominator",
+        "ACProp beta1 beta2 default implementation momentum_update",
+        "ACProp alternating gradient prediction error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper states that ACProp uses the current gradient in the numerator and the previous centered second moment in the denominator.",
+        "The source defines the centered innovation as the gradient minus its EMA.",
+        "Focused searches did not locate a Nyquist response, alternating-gradient denominator floor, or exact centered-versus-uncentered gain."
+      ],
+      "reasoning": "Equivalent formulations include a Nyquist-frequency denominator floor, a high-frequency centering gain, and a sharp first-moment-decay dependence of the asynchronous adaptive step. None appears in the inspected ACProp literature.",
+      "searches": [
+        "ACProp alternating gradient centered second moment high frequency gain beta1",
+        "ACProp AdaShift alternating gradient exact update ratio",
+        "asynchronous centered adaptive optimizer Nyquist alternating gradient",
+        "arXiv:2110.05454v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record hits concerned two-mode transient amplification, adaptive-step persistence, normal extragradient minimax polynomials, heavy-ball root geometry, and stochastic feedback stability.",
+        "No returned record used ACProp's raw current-gradient numerator with a delayed centered prediction-error denominator."
+      ],
+      "reasoning": "The closest database results have different optimizer states and do not imply the final ACProp formula. Search absence is supporting evidence only and is combined with direct source and implementation inspection.",
+      "searches": [
+        "ACProp asynchronous centered RMSProp alternating gradient exact response",
+        "ACProp alternating gradient centered second moment high frequency gain beta1",
+        "ACProp AdaShift alternating gradient exact update ratio",
+        "ACProp periodic gradient denominator momentum centering beta1 beta2",
+        "asynchronous centered adaptive optimizer Nyquist alternating gradient",
+        "ACProp optimizer scalar quadratic stability"
+      ]
+    },
+    "rationale": "The defining source introduces asynchronous centering, gives online-convex convergence comparisons, and qualitatively explains centered versus uncentered denominator behavior on a sparse periodic example. It does not state the pure alternating-gradient centered-denominator limit or the sharp gain factor \\((1+\beta_1)/(2\beta_1)\\). Focused published-record and web searches found no implication-equivalent ACProp result.",
+    "residual_risks": [
+      "An equivalent short frequency-response calculation may exist in unindexed implementation notes.",
+      "The source paper also studies optional and practical variants; the theorem deliberately targets the unrectified paper-form recurrence.",
+      "The input is a diagnostic rather than a fixed-objective trajectory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_ARCHITECTURE_AND_PERIODIC_EXAMPLES_NOT_COVERING_NYQUIST_GAIN.",
+        "evidence": "The source explicitly defines ACProp's delayed centered denominator and provides different periodic online examples, but no pure alternating-gradient denominator limit or sharp gain factor was found.",
+        "identifier_or_url": "arXiv:2110.05454v1",
+        "material_read": "Open full-text material covering the optimizer taxonomy, notation for the gradient EMA and centered residual, the ACProp update description, asynchronous-versus-synchronous analysis, centered-versus-uncentered sparse periodic example, and the general preconditioned stochastic analysis.",
+        "method": "Full-text HTML inspection with targeted searches for alternating, oscillatory, periodic, and frequency-response formulations.",
+        "title": "Momentum Centering and Asynchronous Update for Adaptive Gradient Methods",
+        "trigger": "Defining source for ACProp's centered state, asynchronous denominator, current-gradient numerator, and convergence motivation."
+      },
+      {
+        "assessment": "IMPLEMENTATION_CONSISTENT_WITH_STATE_ORDERING_NOT_COVERING_THEOREM.",
+        "evidence": "The implementation computes the denominator before updating the centered residual state and exposes default decays \\(0.9\\) and \\(0.999\\); it does not contain the alternating-input closed form.",
+        "identifier_or_url": "GitHub:juntang-zhuang/ACProp-Optimizer:optimizers/ACProp.py",
+        "material_read": "The optimizer step implementation, including state initialization, first-moment update, previous centered-state denominator construction, raw-gradient versus optional momentum numerator, residual update, and default decay parameters.",
+        "method": "Direct source-file inspection from the public repository.",
+        "title": "ACProp reference implementation",
+        "trigger": "Check the practical state ordering, raw-gradient numerator option, and source-default decay parameters."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43aae874-4798-40ac-a554-becad68a4413",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Momentum centering is one of ACProp's two defining design choices. The theorem identifies a sharp boundary behavior of that mechanism: the first-moment decay, usually viewed as a smoothing parameter, directly controls the highest-frequency adaptive denominator and can make centered scaling substantially more aggressive than uncentered asynchronous scaling. The result quantifies the tradeoff exactly, shows \\(\beta_2\\) cannot repair the asymptotic high-frequency gain, and provides a concrete diagnostic for nonstandard small-\\(\beta_1\\) tuning.",
+    "status": "PASS"
+  }
+}
