@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The two masses A,C normalize and have exact mean np. The binomial probabilities increase through floor(np) and decrease from floor(np)+1 onward, forcing d_j=U(j)-Bin(j) to decrease on its left block and increase on its right. Nonzero zero-mass and zero-first-moment differences of that shape have two positive tails and one negative middle interval. Strictness follows because Bin(n,p) cannot be constant on the requisite block when n>=2. The affine-secant argument proves every convex-order inequality and all interior stop-loss comparisons. Exact-rational script verifies 11020 finite tests; the analytical proof covers all real 0<p<1 and real 0<t<n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cambridge Xia–Lv 2024 Theorem 1.1 gives a general implication of relative log-concavity to convex order.",
+        "At n=17,p=2/5 the binomial-to-bi-uniform ratio is not log-concave at k=6: binomial adjacent-curvature factor 84/66, but bi-uniform jump factor (26/315)/(19/495)>2."
+      ],
+      "reasoning": "The sufficient relative-log-concave coverage cannot simply be invoked for all asymmetric parameters. Earlier symmetric uniform comparisons cover p=1/2 only, not the complete two-level family.",
+      "searches": [
+        "\"unimodal\" \"piecewise uniform\" \"convex order\" same mean",
+        "Jürgen Groß July 2026 binomial-like heavy tails mean-preserving spread convex expectation stop loss",
+        "\"binomial\" \"convex order\" \"uniform\" same mean distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.18083v1",
+      "DOI:10.1017/S0269964823000293",
+      "https://www.wisdom.weizmann.ac.il/~robi/files/ChenAttias-MScThesis-2016_06.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gross original section 3.2 states Var(U)>Var(B); Section 4 states Var(Z_w) is affine in w.",
+        "Variance order by itself does not imply convex order; relative-log-concavity is not generally satisfied at the bi-uniform step."
+      ],
+      "reasoning": "The new claim strictly dominates the original source variance result, not vice versa. The general crossing-order lemma is established prior theory but application requires a new nontrivial comparison of the Gross distribution mass shape and equality constraints.",
+      "searches": [
+        "Gross variance gap heavy tailed binomial 2607.18083",
+        "Xia Lv relative log concavity convex order compound distributions 2024",
+        "Gross bi-uniform distribution binomial convex order stochastic mean preserving spread all convex losses"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gross arXiv:2607.18083 sections 3.0-4.0 defines exact pmf and studies variance, not all convex test functions.",
+        "2024 Xia–Lv article Theorem 1.1 explains general relative-log-concavity/convex-order machinery."
+      ],
+      "reasoning": "Strict stop-loss at all interior thresholds is equivalent to strict convex-order dispersion with common means, except strictly convex test functions need the nonzero two-tail argument. No preexisting source with the same two-level law and this conclusion was located.",
+      "searches": [
+        "Gross bi-uniform distribution binomial convex order stochastic mean preserving spread all convex losses",
+        "binomial biuniform two-level uniform mixture convex-order heavy-tailed 2026",
+        "\"bi-uniform\" \"convex order\" \"binomial\"",
+        "\"binomial\" \"two piece uniform\" \"convex order\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical literature and equivalence searches identified no direct bi-uniform convex-order statement.",
+        "The exact finite checker independently verifies 551 rational parameter pairs, but these finite tables are not a proof for the universal claim."
+      ],
+      "reasoning": "No exact table or published finite classification with the claimed continuum convex-order property was found. The theorem covers all sizes and real parameters so no finite database can exhaust it.",
+      "searches": [
+        "Gross bi-uniform distribution binomial convex order stochastic mean preserving spread all convex losses",
+        "binomial biuniform two-level uniform mixture convex-order heavy-tailed 2026",
+        "biuniform binomial stop-loss order",
+        "\"bi-uniform\" \"stochastic\" \"convex\" distribution"
+      ]
+    },
+    "rationale": "Gross 2026 establishes construction, equal mean, and strictly greater variance, not general convex order, while Xia and Lv 2024 establish standard general order implications under conditions not automatically satisfied here. The equal-mean, nonsymmetric bi-uniform comparison and strict stop-loss and mixture ordering were not found in inspected literature. The general single-crossing technique is classical and credited. Unindexed equivalent statements remain a risk.",
+    "residual_risks": [
+      "An older general peakedness/convex-order theorem might imply this concrete application without naming the bi-uniform law.",
+      "The accessible prior thesis passage was only an excerpt; the comparison claimed is limited to its identified ordinary uniform example."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes construction, moments, variance gap and mixtures, but no convex-order comparison or all-threshold stop-loss theorem.",
+        "evidence": [
+          "2026 preprint Section 3 p1,p2 exact formulas, variance comparison, Section 4 affine mixtures."
+        ],
+        "identifier_or_url": "arXiv:2607.18083v1; https://www.researchgate.net/publication/410635400_A_binomial-like_probability_distribution_with_heavy_tails",
+        "material_read": "Full public text including introduction, Sections 2–5, especially pages 3–5 formulas in Sections 3.0–4.0 and variance proof; checked text for convex order.",
+        "method": "Read legally accessible full-text transcription of the original paper on its research-hosting page after arXiv direct HTML fetch was unavailable.",
+        "title": "A binomial-like probability distribution with heavy tails",
+        "trigger": "Original definition, mixture and closest published dispersion comparison"
+      },
+      {
+        "assessment": "Supplies a general sufficient criterion not automatically satisfied for the nonsymmetric bi-uniform ratio; does not state the specific claim.",
+        "evidence": [
+          "Theorem 1.1 and discussion of relative log-concavity; countercheck at n=17,p=2/5."
+        ],
+        "identifier_or_url": "DOI:10.1017/S0269964823000293; https://doi.org/10.1017/S0269964823000293",
+        "material_read": "Public publisher open-access text introduction and Theorem 1.1 with relative-log-concavity criterion and its applications to compounds.",
+        "method": "Publisher HTML full-text sections inspected.",
+        "title": "Log-concavity and relative log-concave ordering of compound distributions",
+        "trigger": "Possible stronger theorem implying convex order"
+      },
+      {
+        "assessment": "The ordinary uniform–symmetric-binomial convex comparison is a special case; does not establish the asymmetric two-level law.",
+        "evidence": [
+          "Figure 3.5 description and definition of mean-preserving local spread."
+        ],
+        "identifier_or_url": "https://www.wisdom.weizmann.ac.il/~robi/files/ChenAttias-MScThesis-2016_06.pdf",
+        "material_read": "Search-extracted passage around Figure 3.5 and Definition 3.26 on convex order and mean-preserving spreads; other sections not needed for coverage.",
+        "method": "Text excerpt inspected from academic thesis search result, not claimed to be entire document.",
+        "title": "Convex-order comparisons of uniform and binomial laws in stochastic-order background",
+        "trigger": "Known special-case comparison and standard local-spread mechanism"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3b75adb-8e9d-4ac3-9ef1-fc117ddedaa9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full convex-order theorem is a mathematically motivated strict strengthening of the exact heavy-tail/variance comparison in Gross 2026. It gives all convex losses and all interior stop-loss thresholds, globally for n>=2 and every real 0<p<1, and strictly orders all mixing parameters, instead of a special numerical moment or arbitrary small slice. This answers the distributional sense in which the proposed overdispersed model is more spread than its binomial baseline.",
+    "status": "PASS"
+  }
+}
