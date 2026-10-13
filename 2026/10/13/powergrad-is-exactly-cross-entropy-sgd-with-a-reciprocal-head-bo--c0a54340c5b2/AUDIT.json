@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Renormalized powered softmax probabilities satisfy \\(p'(z)=\\operatorname{softmax}(\\alpha z)\\). For \\(V=\\alpha W\\), the PowerGrad head pseudo-gradient is \\(\\nabla_V\\mathcal L(V,\\theta)\\), while its feature pseudo-gradient is \\(\\alpha^{-1}\\nabla_\\theta\\mathcal L(V,\\theta)\\). These are exactly the two block derivatives of \\(\\Psi_\\alpha=\\alpha^{-1}\\mathcal L(\\alpha W,\\theta)\\). Multiplying the head update by \\(\\alpha\\) gives the stated ordinary-CE block learning rates. Independent finite-difference and multi-step trajectory checks from the packaged verifier agree with every identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The PowerGrad source empirically studies deep networks and altered backward gradients but does not give an optimizer-coordinate conjugacy.",
+        "Temperature scaling is a post-hoc or forward-logit calibration transformation rather than a theorem about the full training vector field.",
+        "The implicit-bias theorem covers ordinary cross-entropy trajectories; the PowerGrad connection requires the new exact change of variables."
+      ],
+      "reasoning": "The broader sources cover adjacent ingredients but not their implication for PowerGrad's entire parameter dynamics. The accepted theorem identifies a hidden layerwise optimization effect that is absent from a fixed-logit temperature statement.",
+      "searches": [
+        "arXiv:2111.12495v1",
+        "arXiv:1706.04599v1",
+        "arXiv:1710.10345v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.12495v1",
+      "DOI:10.48550/arXiv.2111.12495",
+      "arXiv:1706.04599v1",
+      "arXiv:1710.10345v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The PowerGrad paper changes the backward probability profile while retaining the original forward computation.",
+        "Positive-temperature softmax rescaling does not by itself specify gradients with respect to both a final head and the feature extractor.",
+        "The max-margin theorem applies after the fixed-feature PowerGrad trajectory has been identified with an ordinary cross-entropy trajectory."
+      ],
+      "reasoning": "The final claim is not a corollary of any one cited statement. Its critical implication is that the body receives the reciprocal factor \\(1/\u0007lpha\\) while the reparameterized head receives \\(\u0007lpha\\), producing the exact relative factor \\(1/\u0007lpha^2\\).",
+      "searches": [
+        "arXiv:2111.12495v1 PowerGrad transform backward softmax",
+        "arXiv:1706.04599v1 temperature scaling softmax",
+        "arXiv:1710.10345v1 multiclass cross-entropy max-margin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining PowerGrad source specifies powered-and-renormalized backward probabilities and a modified cross-entropy logit gradient.",
+        "Temperature-scaling literature establishes positive rescaling of logits as a softmax-temperature operation and preserves the predicted class.",
+        "Classical separable cross-entropy implicit-bias work establishes max-margin directional convergence for the matched ordinary gradient-descent setting."
+      ],
+      "reasoning": "Neither temperature scaling nor fixed-feature implicit bias integrates the PowerGrad backward field through all trainable feature parameters. Equivalent coverage would need to imply the scalar surrogate and the exact block-rate conjugacy.",
+      "searches": [
+        "arXiv:2111.12495v1",
+        "arXiv:1706.04599v1",
+        "arXiv:1710.10345v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused indexed searches for PowerGrad, temperature reparameterization, conservative surrogate gradients, and reciprocal head/body learning rates returned no implication-equivalent result.",
+        "The closest optimization records concerned unrelated adaptive-step or stability mechanisms."
+      ],
+      "reasoning": "Search absence is supporting evidence only. The primary originality comparison rests on the inspected defining source and the adjacent temperature/implicit-bias literature.",
+      "searches": [
+        "arXiv:2111.12495v1",
+        "DOI:10.48550/arXiv.2111.12495"
+      ]
+    },
+    "rationale": "The defining source supplies the PowerGrad probability transform and altered backward rule but presents it as decoupled backward tampering and does not state the explicit conservative surrogate or reciprocal head/body learning-rate conjugacy. Temperature scaling already covers positive logit rescaling and argmax invariance, so that elementary identity is treated as prior. The accepted contribution is the complete parameter-vector-field integration and exact SGD reparameterization, plus its fixed-feature decision-boundary consequence.",
+    "residual_risks": [
+      "An unindexed note may have observed the powered-softmax temperature identity or even the same reparameterization under different terminology.",
+      "The temperature identity itself is elementary and prior; originality rests on integrating the full PowerGrad vector field and deriving the exact block-rate dynamics.",
+      "Momentum and adaptive optimizers require separate state transformations and are not included."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_NOT_COVERING_EXPLICIT_SURROGATE_OR_BLOCK_RATE_CONJUGACY.",
+        "evidence": "The source presents PowerGrad as an altered backward pass and analyzes smoothing and empirical convergence, but the inspected material does not state \\(\u0007lpha^{-1}\\mathcal L(\u0007lpha W,\theta)\\) as the integrated objective or the \\(1/\u0007lpha^2\\) head/body learning-rate effect.",
+        "identifier_or_url": "arXiv:2111.12495v1",
+        "material_read": "Open-access source material covering the powered-and-renormalized softmax transform, the substituted backward cross-entropy gradient, gradient-profile discussion, and reported behavior as the exponent varies.",
+        "method": "Open-access primary-source full-text inspection.",
+        "title": "Altering Backward Pass Gradients improves Convergence",
+        "trigger": "Defining source for PowerGrad and its backward probability transform."
+      },
+      {
+        "assessment": "TEMPERATURE_SCALING_PRIOR_NOT_COVERING_POWERGRAD_TRAINING_VECTOR_FIELD.",
+        "evidence": "The source establishes the calibration transformation but does not analyze PowerGrad or reciprocal block learning rates.",
+        "identifier_or_url": "arXiv:1706.04599v1",
+        "material_read": "Primary abstract and temperature-scaling formulation describing softmax applied to rescaled logits and prediction preservation.",
+        "method": "Open-access primary-source inspection.",
+        "title": "On Calibration of Modern Neural Networks",
+        "trigger": "Closest standard source for the interpretation of scaled logits as temperature scaling."
+      },
+      {
+        "assessment": "ORDINARY_CROSS_ENTROPY_IMPLICIT_BIAS_PRIOR_USED_AFTER_THE_NEW_CONJUGACY.",
+        "evidence": "The source gives max-margin directional behavior for ordinary gradient descent, not the PowerGrad reparameterization.",
+        "identifier_or_url": "arXiv:1710.10345v1",
+        "material_read": "Primary abstract and multiclass/generalization statement for separable cross-entropy gradient descent.",
+        "method": "Open-access primary-source inspection.",
+        "title": "The Implicit Bias of Gradient Descent on Separable Data",
+        "trigger": "Primary source for the fixed-feature separable cross-entropy directional consequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0a54340-c5b2-416d-babe-7aed0daf31c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PowerGrad is motivated as a deliberate decoupling of forward and backward computation. Showing that its full plain-SGD field is actually conservative resolves a basic structural question about what objective the method follows. The exact \\(1/\u0007lpha^2\\) head/body rebalance is large at the exponents used to flatten gradients and supplies a concrete mechanism by which deep representation learning can change even though fixed-feature classification is only a rescaled ordinary-CE trajectory. This is a reusable optimizer interpretation, not a parameter renaming.",
+    "status": "PASS"
+  }
+}
