@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "At fixed \\(N\\), Bray–Curtis ordering is determined by \\(\\sum_i|x_i-y_i|\\), while two-row correspondence-analysis squared chi-square ordering is determined by \\(\\sum_i (x_i-y_i)^2/(x_i+y_i)\\). Exhaustive exact enumeration proves no inversion through \\(N=9\\) and verifies the \\(N=10\\) boundary and witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Greenacre describes row profiles and chi-square distance in ecological correspondence analysis and explicitly compares the framework with Bray–Curtis alternatives.",
+        "Warton, Wright, and Wang distinguish Bray–Curtis pairwise standardization from chi-square column standardization and discuss their different abundance-weighting assumptions.",
+        "These sources establish broad non-equivalence but do not state the smallest positive integer reversal."
+      ],
+      "reasoning": "Qualitative weighting differences do not imply the exact absence of inversion for every smaller census, so the finite lower bound is not a corollary.",
+      "searches": [
+        "\"Correspondence analysis of raw data\" Greenacre Bray-Curtis",
+        "\"Distance-based multivariate analyses confound location and dispersion effects\" Bray-Curtis chi-squared",
+        "ecological dissimilarity Bray-Curtis chi-square column standardisation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1890/09-0239.1",
+      "doi:10.1111/j.2041-210X.2011.00127.x",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Different standardization permits disagreement but does not imply a discrete minimal census.",
+        "Greenacre's equal-sample discussion motivates the fixed-census domain without giving its finite boundary.",
+        "A previously checked historical finding compares Bray–Curtis with Morisita–Horn, whose algebra does not imply the chi-square result."
+      ],
+      "reasoning": "The claim is a sharp finite minimality theorem under explicit domain restrictions, not the known general fact that ecological distance choices can disagree.",
+      "searches": [
+        "Warton Bray-Curtis chi-square different standardisation ecological abundance",
+        "Greenacre correspondence analysis Bray-Curtis alternative equal samples",
+        "Bray-Curtis chi-square contradictory ecological distances"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For equal row totals, Bray–Curtis is a positive multiple of the L1 abundance difference.",
+        "Regular correspondence analysis compares row profiles in a chi-square metric with inverse column-mass weighting.",
+        "For exactly two equal-total rows, substitution of the pooled column masses yields the stated exact rational formula."
+      ],
+      "reasoning": "The searches cover standard names, the percentage-difference alias, correspondence-analysis geometry, and the exact two-row specialization.",
+      "searches": [
+        "Bray Curtis chi-square distance ranking reversal ecological communities finite abundance",
+        "Bray-Curtis versus correspondence analysis chi-square distance same total abundance",
+        "percentage difference chi-square distance ecological ranking reversal",
+        "two-row correspondence analysis chi-square distance Bray-Curtis"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-vector search located the ten-individual witness as a minimal Bray–Curtis versus chi-square reversal.",
+        "No checked source supplied the no-reversal census through nine or the first-layer richness support.",
+        "The packaged verifier constructs the finite table from the definitions rather than importing a published table."
+      ],
+      "reasoning": "Exact abundance-vector searches target worked examples and software fixtures that title-level searches can miss.",
+      "searches": [
+        "\"1,3,6\" \"3,1,6\" Bray-Curtis",
+        "\"1 3 6\" \"3 1 6\" \"chi-square distance\"",
+        "\"1,2,7\" \"2,4,4\" Bray-Curtis chi-square",
+        "\"smallest\" \"Bray-Curtis\" \"chi-square distance\""
+      ]
+    },
+    "rationale": "Prior ecology literature establishes the definitions, contrasting standardizations, and practical non-equivalence of the two distances. The accepted originality claim is restricted to the exact positive equal-census finite boundary and first-layer support.",
+    "residual_risks": [
+      "An unindexed worked example or unit test could contain the same abundance vectors without identifying the sharp boundary.",
+      "A larger background correspondence-analysis table changes column masses and therefore the chi-square geometry.",
+      "Allowing zero counts changes the finite domain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the metric definition and ecological motivation; does not state the finite boundary.",
+        "evidence": "The article explains chi-square distances between ecological site profiles and explicitly discusses a correspondence-analysis distance as an alternative to Bray–Curtis.",
+        "identifier_or_url": "doi:10.1890/09-0239.1",
+        "material_read": "Publisher full-text HTML sections on regular correspondence analysis, row profiles, chi-square distances, equal-sized ecological samples, and discussion of Bray–Curtis alternatives.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "Correspondence analysis of raw data",
+        "trigger": "Direct ecological source for row-profile chi-square geometry and comparison with Bray–Curtis."
+      },
+      {
+        "assessment": "Strong broader coverage of distinct weighting assumptions; no finite equal-census minimality theorem found.",
+        "evidence": "The article identifies Bray–Curtis as pairwise standardized and chi-square distance as column standardized, with materially different mean–variance implications.",
+        "identifier_or_url": "doi:10.1111/j.2041-210X.2011.00127.x",
+        "material_read": "Publisher full-text HTML sections on pairwise standardization, Bray–Curtis, column standardization, chi-square distance, and correspondence analysis.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "Distance-based multivariate analyses confound location and dispersion effects",
+        "trigger": "Closest primary comparison of Bray–Curtis and chi-square standardization."
+      },
+      {
+        "assessment": "The result concerns ecological community-abundance dissimilarity.",
+        "evidence": "MSC2020 lists 92D40 as Ecology.",
+        "identifier_or_url": "MSC2020:92D40",
+        "material_read": "Public classification entry naming 92D40 as Ecology.",
+        "method": "Public classification lookup.",
+        "title": "MSC2020 database: 92D40 Ecology",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aeb9ebbd-a4a6-489f-a390-22fac555fcd6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two distances are standard ecological comparison tools with distinct weighting philosophies. The smallest equal-census reversal is a natural exact diagnostic of when metric choice alone can reverse dissimilarity ordering, and the witness directly exhibits the stronger weighting of low pooled abundance in chi-square distance.",
+    "status": "PASS"
+  }
+}
