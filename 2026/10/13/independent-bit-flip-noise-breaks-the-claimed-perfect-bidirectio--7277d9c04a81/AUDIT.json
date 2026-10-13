@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The source circuit gives six disjoint Bell pairs exactly. Independent local bit flips make each pair a Bell-diagonal mixture with error probability \\(q=2p(1-p)\\), and standard Bell teleportation turns that mixture into a bit-flip channel. The source Eq. (36) family has exact overlap structure yielding \\(F_{\\mathrm{Bi}}=1-2q(1-q)(2a^2-1)^2\\); \\(p=1/2,a=0\\) gives \\(1/2\\). The bundled checker corroborates the algebra with exact rational arithmetic; the proof itself is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bowen and Bose prove that standard teleportation with an arbitrary two-qubit mixed resource acts as a generalized Pauli/depolarizing channel with weights equal to Bell-state components.",
+        "For the independently bit-flipped Bell pair here, those Bell weights are exactly \\(1-q\\) on \\(\\Phi^+\\) and \\(q\\) on \\(\\Psi^+\\)."
+      ],
+      "reasoning": "The broader theorem supplies the channel-reduction premise, but it predates the 2026 source and cannot itself contain the source-specific false robustness statement, its six-Bell-pair factorization, or the Eq. (36) fidelity formula. The accepted originality is therefore the correction, not the general teleportation theorem.",
+      "searches": [
+        "teleportation Bell pair independent bit flip noise effective bit flip channel",
+        "Teleportation as a Depolarizing Quantum Channel Bowen Bose Bell diagonal resource",
+        "standard teleportation arbitrary mixed state resource generalized depolarizing channel Bell basis"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.23820v1 full-text HTML",
+      "arXiv:quant-ph/0107132v2 full-text PDF",
+      "DOI:10.1103/PhysRevLett.87.267901 bibliographic record",
+      "public exact-title and phrase searches",
+      "semantic research index source/alias/equivalence searches",
+      "current and immediately prior owned research ledgers for source and claim aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The anchor's preparation circuit is six disjoint Hadamard-CNOT Bell-pair preparations and its bidirectional protocol uses the matching Bell measurements and Pauli corrections.",
+        "Bowen and Bose imply the effective Pauli channel once the noisy Bell weights are known.",
+        "The remaining source-specific calculation produces a nonunit fidelity on the paper's own one-parameter input family."
+      ],
+      "reasoning": "Prior theory makes the correction short but does not subsume the later contradiction as a published statement. No inspected work implies that the 2026 paper already recognized or corrected its perfect-fidelity claim.",
+      "searches": [
+        "arXiv:quant-ph/0107132 standard teleportation Bell diagonal Pauli channel",
+        "arXiv:2607.23820 Sections 2 3 6 Appendix C bit flip",
+        "six Bell pairs bidirectional teleportation independent bit flip noise exact fidelity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The anchor explicitly claims unit bidirectional fidelity for every input and bit-flip noise strength.",
+        "Public exact-title and identifier searches returned the anchor and bibliographic mirrors, not a mathematical correction.",
+        "The semantic research index returned no source-specific equivalent; its closest hits concerned unrelated flip/noise problems."
+      ],
+      "reasoning": "No inspected source states the same correction, the same counterexample, or the same closed fidelity formula for the 2026 protocol.",
+      "searches": [
+        "arXiv:2607.23820 bit flip noise bidirectional teleportation fidelity",
+        "\"Unified Framework for Bidirectional and Cyclic Teleportation under Noise\"",
+        "2607.23820 perfectly faithful bit-flip correction",
+        "twelve-qubit resource tensor product Bell pairs cyclic teleportation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source presents heat-map fidelity results and states perfect bidirectional bit-flip fidelity, rather than tabulating the corrected expression.",
+        "No inspected bibliographic or semantic result contained the counterexample \\(p=1/2,a=0,F=1/2\\)."
+      ],
+      "reasoning": "The claim is an analytic correction to a continuum fidelity statement, not a recomputation of a known finite table.",
+      "searches": [
+        "2607.23820 fidelity bit flip p=1/2 a=0",
+        "2607.23820 1/2 fidelity bit flip",
+        "Unified Framework bidirectional bit flip fidelity correction"
+      ]
+    },
+    "rationale": "The general Bell-diagonal teleportation channel theorem is acknowledged as prior art. The new claim is the source-specific contradiction and closed fidelity formula for arXiv:2607.23820v1 under its stated independent local bit-flip model. Searches by source identifier, exact title, key robustness phrase, Bell-pair factorization, and implication-equivalent Pauli-channel language found no prior correction.",
+    "residual_risks": [
+      "An unindexed comment or private communication could have independently noticed the same source-specific error.",
+      "The source's Eq. (33) summation notation is ambiguous. The correction therefore states the independent CPTP product-channel interpretation explicitly and separately explains why a literal common-index reading is not trace preserving."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The resource is visibly six Bell pairs, the paper applies noise to resource qubits and writes the standard one-qubit bit-flip Kraus operators, yet it states that bidirectional fidelity remains one for all inputs and noise strengths.",
+        "evidence": [
+          "Hadamards act on qubits 1 through 6 and CNOTs on pairs (1,7) through (6,12).",
+          "The bidirectional allocation places opposite halves of all six pairs with the two parties.",
+          "Section 6 states unit bidirectional bit-flip fidelity for all input states and all noise strengths.",
+          "Appendix C gives \\(K_0=\\sqrt{1-p}I\\) and \\(K_1=\\sqrt p X\\)."
+        ],
+        "identifier_or_url": "arXiv:2607.23820v1",
+        "material_read": "Abstract; resource construction in Sec. 2; bidirectional distribution and Bell-measurement protocol in Sec. 3; fidelity/noise model in Sec. 6; bit-flip Kraus operators in Appendix C; results discussion.",
+        "method": "Public full-text HTML.",
+        "title": "Unified Framework for Bidirectional and Cyclic Teleportation under Noise",
+        "trigger": "Anchor containing the resource circuit, bidirectional protocol, noise model, and perfect-fidelity claim."
+      },
+      {
+        "assessment": "Provides the general Bell-diagonal-resource-to-Pauli-channel reduction used as a premise; it does not contain the 2026 source-specific correction.",
+        "evidence": [
+          "The theorem states that standard teleportation with arbitrary two-qubit mixed resource \\(\\chi\\) acts as \\(\\sum_i\\operatorname{Tr}(E_i\\chi)\\sigma_i\\rho\\sigma_i\\)."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0107132v2; DOI:10.1103/PhysRevLett.87.267901",
+        "material_read": "Full first page and main channel theorem, including Eq. (1) expressing the standard teleportation output as a Pauli channel weighted by Bell-state components.",
+        "method": "Public arXiv PDF, with the theorem page visually inspected.",
+        "title": "Teleportation as a Depolarizing Quantum Channel, Relative Entropy and Classical Capacity",
+        "trigger": "Potential broader theorem covering noisy standard teleportation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7277d9c0-4a81-47e0-afab-10eeb7431f22",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The false statement is highlighted in the abstract and results discussion as a robustness advantage. Under the stated independent local bit-flip model the error is large on the paper's own plotted family: \\(F_{\\mathrm{Bi}}=1/2\\) at \\(p=1/2,a=0\\). The correction distinguishes ordinary local decoherence from a specially correlated global flip, which materially changes the physical interpretation of the claimed immunity.",
+    "status": "PASS"
+  }
+}
