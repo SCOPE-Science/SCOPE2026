@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The exact published hazard was differentiated. In the both-subunit shape quadrant the derivative is negative through the point where the exponential-power derivative changes sign. Beyond that point, the ratio of the positive exponential-power derivative to the magnitude of the negative Weibull derivative has a strictly positive logarithmic derivative on the full domain. The ratio rises from zero to infinity, proving one and only one derivative zero. Endpoint limits make that critical point the unique global minimum. The packaged checker independently confirms the formulas and the source Figure 2(b) scale separation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard exponential-power references document a hazard proportional to a power times an exponential-of-power term and its ability to be bathtub-shaped.",
+        "Generalized and additive Weibull papers establish flexible hazard classes for different models, but their functional forms are not the FEPW competing-risk sum used here.",
+        "The FEPW theorem requires proving that adding a decreasing Weibull component preserves exactly one eventual upturn; that implication is supplied by the new monotone-ratio proof."
+      ],
+      "reasoning": "The classical exponential-power behavior motivates the correction but does not itself imply uniqueness after addition of the Weibull hazard. No broader located theorem dominates the exact four-parameter FEPW statement.",
+      "searches": [
+        "exponential power distribution hazard bathtub eta less than one",
+        "generalized extended exponential-Weibull hazard shapes",
+        "additive modified Weibull unique bathtub hazard"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026481",
+      "NIST/SEMATECH e-Handbook PEXHAZ",
+      "doi:10.1080/00207160.2019.1605062"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Two existing same-source findings concern scale-boundary identifiability and divergence of a raw-moment series.",
+        "Neither prior claim involves the hazard derivative, the both-subunit shape quadrant, or a unique minimum.",
+        "No checked earlier scientific claim supplies the hazard-shape theorem."
+      ],
+      "reasoning": "The accepted theorem is not a corollary of the earlier same-source findings: identifiability concerns equality of parameterized laws and the moment result concerns a double series, whereas the new proof compares two derivative contributions over the full lifetime axis.",
+      "searches": [
+        "10.3934/math.2026481 identifiability zero scale FEPW",
+        "10.3934/math.2026481 moment series absolute convergence",
+        "10.3934/math.2026481 hazard shape unique minimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The targeted published-record searches returned hazard and reliability results for other models but no FEPW theorem classifying the both-subunit quadrant as a unique bathtub.",
+        "Exact web searches for the DOI together with correction, erratum, decreasing-hazard, and bathtub terminology located the original article but no correction notice.",
+        "The primary source explicitly states a decreasing pattern for both shape parameters below one."
+      ],
+      "reasoning": "The searches cover the exact source, model acronym and full name, the parameter quadrant, derivative/critical-point aliases, competing-risk language, and correction terminology. No equivalent source-specific statement was located.",
+      "searches": [
+        "10.3934/math.2026481 flexible exponential power Weibull hazard both shape parameters below one decreasing bathtub",
+        "FEPW hazard decreasing eta phi less than one unique bathtub",
+        "flexible exponential power Weibull hazard derivative critical point eta phi",
+        "exponential power Weibull competing risks hazard shape decreasing bathtub",
+        "10.3934/math.2026481 hazard correction erratum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary full text gives the hazard and derivative in Section 2 and states that the hazard is decreasing when both shape parameters lie below one.",
+        "Figure 2 is explicitly labeled as hazard-rate functions under different parameter configurations.",
+        "The first Figure 2(b) setting uses positive scales and two subunit shapes; the analytic transition point is approximately 3.76 times 10^27 and the unique minimum approximately 1.77 times 10^30."
+      ],
+      "reasoning": "The source's exact statement and plotted parameter setting fall inside the theorem's domain, so the contradiction is direct rather than a terminology mismatch.",
+      "searches": [
+        "10.3934/math.2026481 hazard decreasing pattern eta phi",
+        "10.3934/math.2026481 Figure 2 HRF decreasing",
+        "10.3934/math.2026481 Figure 2(b) tau 0.01 eta 0.05 kappa 0.03 phi 0.4"
+      ]
+    },
+    "rationale": "The primary FEPW article states the opposite global classification in the both-subunit quadrant and illustrates it as decreasing. Five targeted published-record searches, exact DOI correction searches, comparison with exponential-power and generalized Weibull hazard literature, and comparison against existing same-source findings found no covering FEPW theorem. Earlier same-source findings concern identifiability on scale boundaries and a moment-series convergence failure, neither of which implies the hazard-shape result.",
+    "residual_risks": [
+      "A very recent or unindexed author correction may exist.",
+      "An equivalent monotone-ratio argument could appear in older competing-risk literature under different terminology.",
+      "The theorem deliberately does not classify the mixed-shape or unit-shape boundaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTRADICTED in the both-subunit hazard classification. The exact derivative forces one eventual upturn for every positive-scale parameter pair in that quadrant.",
+        "evidence": "Section 2 hazard Eq. (2.4), its derivative and shape discussion, together with Figure 2(b).",
+        "identifier_or_url": "doi:10.3934/math.2026481",
+        "material_read": "Open publisher full text and rendered PDF pages covering the competing-risk construction, survival, hazard, hazard derivative, shape-classification paragraph, and Figure 2 parameter configurations.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "Hamiltonian Monte Carlo–based inference for the flexible exponential power–Weibull distribution with applications in reliability analysis",
+        "trigger": "Primary source defining the FEPW hazard and asserting the decreasing both-subunit regime."
+      },
+      {
+        "assessment": "BACKGROUND ONLY. It supports the component behavior but does not classify the FEPW sum or prove uniqueness of the combined minimum.",
+        "evidence": "The documented hazard is proportional to a power of age times an exponential of a power of age.",
+        "identifier_or_url": "NIST/SEMATECH e-Handbook PEXHAZ",
+        "material_read": "Reference entry giving the exponential-power hazard and noting increasing, decreasing, or bathtub behavior.",
+        "method": "Direct reference-page inspection.",
+        "title": "Exponential Power Hazard Function",
+        "trigger": "Closest standard reference for the exponential-power component appearing additively in the FEPW hazard."
+      },
+      {
+        "assessment": "RELATED BUT NOT COVERING. It studies a different generalized extended exponential–Weibull construction and does not state the FEPW both-subunit uniqueness theorem.",
+        "evidence": "The located source is a distinct model predating the 2026 FEPW competing-risk sum.",
+        "identifier_or_url": "doi:10.1080/00207160.2019.1605062",
+        "material_read": "Bibliographic record and model-level comparison available through indexed search and the primary source's reference context.",
+        "method": "Statement-level comparison of model and hazard family.",
+        "title": "On the generalized extended exponential–Weibull distribution: Properties and different methods of estimation",
+        "trigger": "Highly related exponential–Weibull family cited by the primary source as nearby reliability literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c974c2b-476a-4665-ba2a-af473448a7ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hazard-shape flexibility is a central motivation of the FEPW model and is highlighted in the abstract and dedicated Figure 2. The result replaces an entire advertised decreasing-hazard quadrant by an exact unique-bathtub classification and explains why the source's finite plots nevertheless look decreasing. This is a global structural correction relevant to reliability interpretation, not a narrow numerical discrepancy.",
+    "status": "PASS"
+  }
+}
