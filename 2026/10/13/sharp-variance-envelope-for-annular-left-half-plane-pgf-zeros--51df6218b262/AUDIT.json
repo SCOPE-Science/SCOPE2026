@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The variance root formula follows by twice differentiating \\(\\log f_X(e^t)\\). For a root pair \\(re^{\\pm i\\theta}\\), the per-root real contribution is \\(q(r,c)=r(2r-(r^2+1)c)/(r^2-2rc+1)^2\\), with \\(c=\\cos\\theta\\in[-1,0]\\). The identity \\(q(r,c)=q(r^{-1},c)\\) reduces to \\(r\\ge1\\); the exact radial derivative is nonpositive there, and the angular derivative has at most one zero and can only change from positive to negative. Thus the minimum occurs at \\((r,c)=(R,-1)\\) or \\((R,0)\\). Summing per-root contributions gives the bound, and the two displayed PGFs have nonnegative coefficients, satisfy all hypotheses, and attain the two branches.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2 and Theorem 24 of arXiv:2102.07699 give lower bounds of order \\(R^{-2\\pi/\\delta}n\\), not the claimed exact constant.",
+        "The 2024 Hurwitz-polynomial paper gives cumulant bounds and asymptotic examples rather than a theorem implying this sharp finite-degree envelope."
+      ],
+      "reasoning": "No stronger inspected theorem specializes to the claimed exact envelope. The primary zero-free theorem is quantitatively weaker at \\(\\delta=\\pi/2\\), and the later Hurwitz treatment has a different conclusion.",
+      "searches": [
+        "Michelen Sahasrabudhe anti-concentration zero-free roots variance left half-plane",
+        "probability generating polynomial left half-plane variance roots",
+        "zero-free probability generating function variance roots left half-plane exact sharp constant annulus negative real roots"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.07699",
+      "arXiv:1908.09020",
+      "doi:10.1002/mana.202300109",
+      "doi:10.19086/da.38590"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main source explicitly says closing the gap between its theorem and sharpness examples remains interesting, while its displayed theorem at half-plane angle yields only an absolute-constant multiple of \\(R^{-4}n\\).",
+        "The exact result here has asymptotic constant \\(2R^{-2}\\) per root on its large-annulus branch and gives matching PGFs, so it is not implied by that bound."
+      ],
+      "reasoning": "The new statement is a strict quantitative strengthening in the half-plane regime, not a rewording or corollary of the published sector estimate. The later Hurwitz examples likewise do not imply the global annular minimization.",
+      "searches": [
+        "Anti-concentration of random variables from zero-free regions variance improvement exponent",
+        "Hurwitz polynomial probability generating variance annulus exact",
+        "R over R plus one squared probability generating roots variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Michelen--Sahasrabudhe formulate the variance problem through annular root geometry and give the root-factorization representation, but their stated lower bound remains sector-wide and non-sharp in the exponent.",
+        "Heerten--Sambale--Thäle explicitly define Hurwitz polynomials as having roots in the open left half-plane and study corresponding probability-generating examples, without an exact annular variance minimum."
+      ],
+      "reasoning": "Searches covered the equivalent Hurwitz-stable terminology, direct root-contribution language, left-half-plane geometry, and annular zero constraints. No inspected source stated the two-branch constant or its phase transition.",
+      "searches": [
+        "left half-plane zeros probability generating polynomial variance sharp annulus",
+        "Hurwitz stable probability generating function variance lower bound roots annulus",
+        "variance exact root contribution probability generating function complex zeros left half plane"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concerned Cayley root geometry of positive-coefficient polynomials, Poisson-binomial cumulant hierarchies, block-product small-ball constants, and polynomial root/critical-point moment comparison. None concerns the same PGF variance claim."
+      ],
+      "reasoning": "The indexed results concern other polynomial root invariants, Poisson-binomial cumulants, or unrelated anti-concentration constants. No exact database entry or table covered the theorem.",
+      "searches": [
+        "left half-plane zeros probability generating polynomial variance sharp annulus",
+        "Hurwitz stable probability generating function variance lower bound roots annulus",
+        "Michelen Sahasrabudhe anti-concentration zero-free roots variance left half-plane",
+        "variance exact root contribution probability generating function complex zeros left half plane"
+      ]
+    },
+    "rationale": "The main source proves only a general sector lower bound and explicitly leaves an exponent gap; the exact minimization over annular roots in the closed left half-plane is not stated there. A later full-text treatment of Hurwitz probability-generating polynomials develops cumulant and limit-theorem consequences rather than this sharp variance envelope. Exact and alias searches in the indexed research database returned no covering result.",
+    "residual_risks": [
+      "An equivalent sharp coefficient-moment inequality may exist in older Hurwitz-stability or total-positivity literature under terminology not captured by the targeted searches. No such statement was found in the inspected modern probability literature or indexed research records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes the general sector lower bound and leaves an exponent gap; it does not state the exact closed-left-half-plane annular minimum.",
+        "evidence": "Theorem 2 gives \\(\\operatorname{Var}(X)\\ge cR^{-2\\pi/\\delta}n\\); the sharpness subsection says the exponent gap remains open. The root-factorization variance representation is recorded in the introduction.",
+        "identifier_or_url": "arXiv:2102.07699",
+        "material_read": "Full open arXiv HTML: introduction, Theorem 2, sharpness subsection, Theorem 24 and surrounding proof discussion.",
+        "method": "Direct full-text inspection.",
+        "title": "Anti-concentration of random variables from zero-free regions",
+        "trigger": "Primary paper posing and solving the annular zero-free variance problem up to a non-sharp exponent."
+      },
+      {
+        "assessment": "NOT_COVERING: develops cumulant bounds and asymptotic probabilistic limit theorems for zero-free and Hurwitz polynomials, not an exact annular variance lower envelope.",
+        "evidence": "The Hurwitz subsection defines left-half-plane zeros and gives examples; its results are framed through cumulant bounds and limit theory rather than minimization over an annulus.",
+        "identifier_or_url": "doi:10.1002/mana.202300109",
+        "material_read": "Full accessible HTML: abstract, introduction, Hurwitz-polynomial subsection, conditional-binomial example and variance/cumulant discussion.",
+        "method": "Direct full-text inspection.",
+        "title": "Probabilistic limit theorems induced by the zeros of polynomials",
+        "trigger": "Later paper explicitly treating Hurwitz probability-generating polynomials, the closest terminology to the new hypothesis."
+      },
+      {
+        "assessment": "NOT_COVERING: proves sharp central-limit estimates from root geometry, not the exact annular variance constant.",
+        "evidence": "Published metadata lists Mathematics Subject Classification 2020 60F05 as primary; the theorem concerns Gaussian approximation controlled by root distance or root angle and variance.",
+        "identifier_or_url": "arXiv:1908.09020",
+        "material_read": "Open abstract and published article metadata, including theorem scope and Mathematics Subject Classification.",
+        "method": "Direct source inspection.",
+        "title": "Central limit theorems and the geometry of polynomials",
+        "trigger": "Foundational zero-geometry probability paper and source of the verified primary MSC classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51df6218-b262-4088-aa55-d8db4177d8dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary zero-free variance paper explicitly identifies an exponent gap as an open direction. The closed left half-plane is a standard zero geometry, separately treated as the Hurwitz-stable regime in later probability literature. The result closes that regime exactly: it improves the general half-plane-order lower bound from \\(R^{-4}n\\) to a sharp two-branch constant of order \\(R^{-2}n\\) for large \\(R\\), exhibits extremizers, and identifies the exact transition between real-negative and imaginary-boundary zero configurations.",
+    "status": "PASS"
+  }
+}
