@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Directly exponentiating the two nilpotent shear perturbations gives \\(M_1,M_2\\). Multiplication verifies \\((M_1^TM_1+M_2^TM_2)/2=qI\\) for every shear parameter; conditional expectation and induction establish all-k and all-start second moments. Averaging the matrices gives scalar-times-rotation \\(\\bar M\\) and the stated mean-vector squared-norm law. The full summed generator is damping plus skew-symmetry, so exact deterministic decay holds. The log of q equals \\(z(F(z)-2/\\beta)\\), whose derivative has the sign of \\(g(s)=2s/(1+s)-\\log(1+s)\\) with \\(dg/ds=(1-s)/(1+s)^2\\); this proves the unique maximum and all boundary cases, including the zero-shear case, ratio equality, and exactly two roots. Exact rational enumeration checked all words up to depth 7 across 4 shear strengths and 3 initial vectors (192 identities); the analytical proof, not finite testing, covers all k/h. The example \\(q=3/e>1\\) and \\(m=2/e<1\\) is exact.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[2] general random-matrix-product mean stability characterization and quadratic Lyapunov equivalence; no special all-step damped-rotation diagram.",
+        "[3] stability estimate is for randomized model predictive control with feedback and bounds containing optimization-horizon quantities, not the uncontrolled exact exponential split.",
+        "[4] contains random evolution splitting and finite-time convergence results for evolution operators, notably diffusion and monotone settings; not the shear phase boundary."
+      ],
+      "reasoning": "The broad Lyapunov/spectral theory applies at an abstract level and is expressly recognized as prior; the original evaluated object is the precise set of all stable fixed positive step sizes and its change of topology as shear/damping varies. The feedback method of [3] and discretized PDE method of [4] neither imply an explicit statement about this particular exponential one-generator scheme nor assert a universal impossibility that conflicts with it.",
+      "searches": [
+        "\"randomized splitting\" \"reentrant stability\" matrices",
+        "\"Veldman\" \"Zuazua\" \"stability\" \"splitting\" random",
+        "https://arxiv.org/abs/1409.6032",
+        "https://arxiv.org/abs/2211.05463",
+        "https://arxiv.org/abs/2210.05375"
+      ]
+    },
+    "checked_sources": [
+      "https://link.springer.com/article/10.1007/s00211-022-01290-3",
+      "https://arxiv.org/pdf/1409.6032",
+      "https://arxiv.org/pdf/2211.05463",
+      "https://link.springer.com/article/10.1007/s00211-024-01396-w",
+      "https://arxiv.org/abs/2109.13798",
+      "https://arxiv.org/abs/2210.05375",
+      "https://arxiv.org/abs/2211.05463"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] Assumption 1 requires each generator dissipative, violated for \\(b>2a\\), and Remark 9 provides non-dissipative finite-horizon estimates growing with time.",
+        "[2] gives general equivalent spectral or Lyapunov tests for random products but no explicit sharp dependence on \\(b/a\\) or \\(h\\).",
+        "[3] Theorem 1 proves mean-norm decay of the feedback-controlled RBM-MPC state under a sufficient smallness condition, unlike the present uncontrolled fixed-grid exact exponential experiment."
+      ],
+      "reasoning": "The source [1] is not contradicted: the new instability region has non-dissipative summands, and its finite-horizon consistency for h→0 remains intact. The general theorem in [2] would permit a specialist to derive the scalar condition by computation, so the criterion itself is prior; only the exact evaluated stable/neutral/unstable classification over all positive h and the unique critical ratio are assessed here. None of the inspected statements already quantifies that classification.",
+      "searches": [
+        "\"On the mean stability of a class of switched linear systems\" \"spectral radius\"",
+        "\"A framework for randomized time-splitting\" \"dissipative\"",
+        "\"Stability and Convergence of a Randomized Model Predictive Control Strategy\"",
+        "\"A randomized operator splitting scheme inspired by stochastic optimization methods\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In [1] Example 1, the one-of-two probability correction is 2; no damped-shear or exact global step-size diagram appears in main text or appendices.",
+        "[2] Proposition 2.3 and Proposition 3.4 characterize general even-moment stability or quadratic Lyapunov feasibility, but do not evaluate the probability-corrected pair or give a critical ratio."
+      ],
+      "reasoning": "Equivalent terms include random-batch evolution, randomized exponential switching, Bernoulli generator splitting, nilpotent planar shears and mean-square switched-system growth. The exact identity \\(\\mathbb E M^\\mathsf TM=qI\\) translates these terms, but the inspected works do not state the unique global saddle-node-like tangency and reentrant two-crossing phase. General decision criteria alone do not supply the evaluated numerical constant or unique crossing structure.",
+      "searches": [
+        "\"randomized time splitting\" \"mean-square stability\" \"shear\"",
+        "\"randomized Lie Trotter\" \"damped rotation\" 2x2",
+        "\"random switching\" \"opposite shears\" mean-square",
+        "https://arxiv.org/abs/2109.13798",
+        "https://arxiv.org/abs/1409.6032"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The computed critical constant is the maximum of \\(\\log(1+z^2/2)/z\\), and its defining equation is stated explicitly; the inspected relevant published articles do not include this table, formula, or numerical constant.",
+        "[1] experimental examples concern sparse diffusion/particle-system matrices and finite-time costs; no exact two-dimensional stability table."
+      ],
+      "reasoning": "The search covered numerical threshold, inverse mean-square decay ratios, nilpotent shears, and analytic aliases of the displayed critical expression. No exact published enumeration or table was located; absence from search results is not treated as proof of priority.",
+      "searches": [
+        "\"reentrant mean square stability stochastic switching stable shear matrices\"",
+        "\"exact two-generator random batch method damped rotation with stable shear component matrices\"",
+        "\"randomized time splitting\" \"mean-square stability\" \"shear\""
+      ]
+    },
+    "rationale": "The motivating complete article explicitly defines the exact two-shear-compatible random sampling rule but proves only finite-horizon approximation estimates, with dissipativity hypotheses and a quasi-dissipative extension; neither supplies the exact all-step and all-horizon sharp reentrant phase diagram. General switched-matrix mean-square theory supplies a broad spectral/Lyapunov criterion and is acknowledged; the assessed distinct result is its exact nontrivial evaluation for the probability-corrected damped-rotation split, with a unique transcendental threshold and two unstable-window endpoints. Separate related control and PDE splitting articles concern other algorithms and criteria. Published and historical searches found no equivalent matching result, but indexing is incomplete.",
+    "residual_risks": [
+      "Older switched-systems/control texts or unindexed numerical examples may already evaluate this exact nilpotent-shear distribution and sharp threshold.",
+      "The generic mean-square Lyapunov/spectral theory can be specialized to this model; distinct value and originality lie in the exact, motivated parameter-wise evaluation and reentrant classification, not in the general decision criterion.",
+      "External independent priority review and full-text inspection of every reference in the field have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING this exact sharp infinite-horizon step-size classification; does provide the very same randomized generator-selection rule and general finite-horizon convergence, and confines clean norm bounds to dissipative splits.",
+        "evidence": [
+          "Equation (11) generator A_m/pi_m and Example 1 two choices with pi=1/2; Assumption 1 dissipativity; Remark 9 finite-time quasi-dissipative extension, equations (86)–(88)."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-022-01290-3",
+        "material_read": "Full open-access HTML sections 2.1 (including Example 1, Assumptions 1–2, probability scaling), 3.2 (Theorem 1 surrounding material, Remarks 7–9), examples, and appendix headings/content relevant to pairwise commutation.",
+        "method": "Direct HTML primary text inspection; compared exact propagation matrices with source generator scaling and hypotheses.",
+        "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+        "trigger": "Defining method and plausible dominating stability theorem"
+      },
+      {
+        "assessment": "GENERAL_COVERAGE_OF_METHOD: establishes general p-mean/spectral and Lyapunov criteria but does not state the particular shear-split parameters, sharp transcendental ratio, or reentrant step window.",
+        "evidence": [
+          "Section II Proposition 2.3 and Section III Proposition 3.4 apply to arbitrary iid matrix products; Example 3.6 uses interval-valued positive matrices instead."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1409.6032",
+        "material_read": "6-page arXiv v1 full paper sections I–V, especially Propositions 2.3 and 3.4 and numerical examples; original PDF pages visually inspected.",
+        "method": "Primary arXiv full-text and page-image inspection; compared criteria to explicit normalized mean-square norm identity.",
+        "title": "On the Mean Stability of a Class of Switched Linear Systems",
+        "trigger": "Possible broader mean-square spectral-radius theorem implying the exact result"
+      },
+      {
+        "assessment": "NOT_COVERING: its Theorem 1 uses stabilizing feedback and step-variance smallness in MPC, not exact mean-square growth of independent uncontrolled matrix exponentials.",
+        "evidence": [
+          "Equation (13) quasi-dissipativity; Section IV Theorem 1 equations (51)–(52), for randomized MPC state."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.05463",
+        "material_read": "8-page arXiv paper: introduction, randomized MPC setting, quasi-dissipativity condition (13), Section IV Theorem 1 and surrounding proof/bounds, numerical comparison. PDF pages visually inspected.",
+        "method": "Direct primary arXiv PDF textual and visual reading, comparing algorithm and endpoint stability claim.",
+        "title": "Stability and Convergence of a Randomized Model Predictive Control Strategy",
+        "trigger": "Same authors, explicit stability theorem for randomized finite-dimensional dynamics"
+      },
+      {
+        "assessment": "NOT_COVERING: randomized semidiscrete evolution with convergence bounds for monotone/diffusion operators, not a closed-form global step-size criterion for exact exponential nilpotent shear splitting.",
+        "evidence": [
+          "Section 2 monotonicity-type assumptions, Section 5 Theorem 5.2 finite-time error, Section 6 diffusion tests."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-024-01396-w",
+        "material_read": "Open-access HTML introduction, mathematical setting and assumptions (Sect. 2), main stability/error estimates (Sect. 5), diffusion examples (Sect. 6).",
+        "method": "Full-text open-access HTML inspection of relevant definitions, main theorems and examples.",
+        "title": "A randomized operator splitting scheme inspired by stochastic optimization methods",
+        "trigger": "Potential stronger randomized evolution-splitting result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b467b674-b3e7-4704-b132-c222d6bbdaec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source method is designed to approximate stable dynamics by sparse randomly selected split subsystems; the key practical mathematical gap is whether stable full dynamics and Hurwitz summands suffice for long-time mean-square stability when summands are not dissipative. This complete and sharp two-parameter phase diagram supplies a structural counterexample and benchmark: an explicit unique critical shear/damping ratio, a genuinely reentrant stable–unstable–stable dependence on the grid size, and exact separation of mean-state decay from mean-square explosion. Unlike arbitrary numerical examples or cheap normalization checks, it identifies the natural exact stability boundary of the defining two-generator random time-split model. It does not claim good large-step accuracy or universal control-system performance.",
+    "status": "PASS"
+  }
+}
