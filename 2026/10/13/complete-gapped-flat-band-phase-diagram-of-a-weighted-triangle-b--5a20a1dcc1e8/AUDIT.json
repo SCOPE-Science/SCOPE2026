@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "An all-parameter Laurent determinant calculation forces E=Q_C-qr/p; its coefficient is s(qr-p(Q_C-E)) with p,s>0. The Schur complement of the positive C pivot is [[alpha, sz],[s/z,beta]], so a flat band occurs exactly when alpha beta=s^2. The nonzero AC principal minor g alpha proves fiber rank exactly two. Schur-inertia distinguishes bottom/middle and compactness gives a gap for each fixed real potential/positive hopping tuple. Exact Laurent polynomial kernel and trigonometric-polynomial density give the two-cell translate-spanning result. SymPy verifier replays these identities and selected samples. No finite sample is treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2509.01927v1 Theorem 1.4 asserts generic absence for any connected fixed-weight periodic graph.",
+        "arXiv:2304.06465 §7 proves closed semialgebraicity and gives affine examples; §2 gives general Bloch criteria."
+      ],
+      "reasoning": "Generic absence is a strict consequence of the present quadric description, but it does not imply the exact hypersurface, its nonemptiness, two connected components, or all-phase gap and ordering. The general Bloch criterion is a computational framework and does not evaluate this full parameter family.",
+      "searches": [
+        "Sabri Youssef Flat bands of periodic graphs Problem 2 three vertices per cell no intra-orbit hopping diagonal potentials generic remove flat bands",
+        "Faust Kachkovskiy 2025 generic potentials theorem explicit exceptional locus flat band gapped 3 site triangle",
+        "periodic graphs all three-orbit potential perturbations absent intra-orbit loops flat band variety dimension two"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.06465v1 and v2",
+      "arXiv:2509.01927v1",
+      "arXiv:1208.6113v1",
+      "DOI:10.1007/s44214-023-00026-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Faust–Kachkovskiy Theorem 1.4 contains this graph as a special case for the weaker generic absence claim.",
+        "Sabri–Youssef Theorem 2.7 shows the top band cannot be flat for positive weights but does not identify the other two bands or their gaps.",
+        "Schulze–Bercioux–Urban 2012 uses two sites per cell; the 2023 diamond-necklace uses four sites."
+      ],
+      "reasoning": "The main theorem explicitly retains only the implications not already obtained from general theory: exact flat-band locus, unique energy and compact eigenvector, strict global gap, and the precise bottom-versus-middle dichotomy. It does not claim novelty for generic absence, the positive-weight top-band exclusion, or abstract compact-eigenvector existence.",
+      "searches": [
+        "Faust Kachkovskiy 2025 generic potentials theorem explicit exceptional locus flat band gapped 3 site triangle",
+        "triangular chain decorated graph flat band loop bridge between triangle vertices onsite potential",
+        "diamond chain graph flat bands with on site energies condition Q3 = (Q1+Q2)/2 equal arm energies"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.06465 §§1,7 uses the general Laurent determinant criterion but does not give the three-orbit weighted triangle-bridge quadric.",
+        "arXiv:1208.6113 Eq.(1) uses a 2x2 Bloch matrix, not this 3x3 motif."
+      ],
+      "reasoning": "Both potential-offset differences and Schur-complement definitions were compared. A direct result would need the identical A-B bridge plus A-B-C triangle with the exact product condition or an equivalent full classification; searched published text did not show it.",
+      "searches": [
+        "weighted triangle bridge periodic quantum graph three vertices 1+z Bloch gapped flat band exact onsite hyperbola potential locus",
+        "chain of triangles p q r s hoppings one edge joining successive triangle cells flat band alpha beta equals s squared spectral gap",
+        "triangular loop chains flat band onsite potentials polynomial localization bridges",
+        "triangle chain flat band on-site potentials three-site Bloch matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2509.01927v1 §3.4 gives the Lieb lattice condition Q_2=Q_3, not this quadratic surface.",
+        "arXiv:2304.06465 §7 displays affine potential loci, no matching triangle-bridge table."
+      ],
+      "reasoning": "Checked the specific algebraic equations and the complete three-orbit motif, not merely overlapping flat-band words or two parameters; no table or exact result with the same implications was recovered.",
+      "searches": [
+        "three band Lieb lattice diamond chain potential tune on-site energies flat band exceptional planes generic absence",
+        "three band 3-site triangle bridge flat band onsite hyperbola potential locus",
+        "flat bands sawtooth triangular ladder chain on site potentials exact dispersions"
+      ]
+    },
+    "rationale": "The precise full positive-weight, all-real-potential nonlinear quadric and its bottom/middle isolated-band dichotomy are not stated or implied by the inspected general semialgebraic result of Sabri and Youssef (2023), the generic absence theorem of Faust and Kachkovskiy (2025), the two-orbit triangular chain (2012), or the four-orbit diamond-necklace lattice (2023). Searches of exact equations, aliases and motif descriptions retrieved no implication-equivalent result. There remains an indexing risk for a tight-binding calculation of this identical motif.",
+    "residual_risks": [
+      "A weakly indexed physics calculation may use different unit-cell conventions or hopping notation for the identical triangle-bridge graph.",
+      "The 2012 triangle-lattice full work was compared using the public author-transcription of its model section; its two-site matrix decisively differs.",
+      "No priority claim for generic flat-band absence or general compact eigenstates is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Semialgebraic exceptional sets and affine examples do not give the exact weighted three-site triangle-bridge nonlinear two-component locus.",
+        "evidence": [
+          "Problem 2 and Section 7, arXiv:2304.06465."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.06465v2",
+        "material_read": "Introduction (Problems 1–2 and summary), Sections 2 and 7 (Lemma 7.1, Lemma 7.2, Remark 7.3, Proposition 7.5 and examples); arXiv v1 date and primary MSC checked on abstract page.",
+        "method": "Full text HTML, targeted full-section reading and implication comparison.",
+        "title": "Flat bands of periodic graphs",
+        "trigger": "Primary literature motivates exact exceptional potential set and small-cell flat-band classifications."
+      },
+      {
+        "assessment": "Strictly covers generic absence but not full exceptional variety, explicit band/gap ordering or compact state for this fixed chain.",
+        "evidence": [
+          "Theorem 1.4 and §3.4; Lieb flat locus Q_2=Q_3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.01927v1",
+        "material_read": "Theorem 1.4, Remarks 1.5–1.6, Subsection 1.4 and §3.4 including explicit Lieb and alternative 3x3 examples.",
+        "method": "Open access arXiv full-text HTML.",
+        "title": "Absence of flat bands for discrete periodic graph operators with generic potentials",
+        "trigger": "Strong later general theorem could cover generic potential claim."
+      },
+      {
+        "assessment": "Two orbital matrix and different chain; cannot entail exact three-orbit bridge quadric.",
+        "evidence": [
+          "Two-by-two H(k) Eq.(1), arXiv:1208.6113."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1208.6113",
+        "material_read": "Author-uploaded full-text excerpt containing Section II two-by-two Bloch Hamiltonian Eq.(1), spectra Eq.(2), and gap figure discussion.",
+        "method": "Public author-uploaded article transcription and arXiv bibliographic page.",
+        "title": "Adiabatic pumping in the quasi-one-dimensional triangle lattice",
+        "trigger": "Closest named triangle chain for flat-band and onsite-potential tuning."
+      },
+      {
+        "assessment": "Four-site diamond motif with different flat-band mechanism; no implication for specified triangle bridge chain.",
+        "evidence": [
+          "Four-site per cell and flat E=epsilon; Quantum Frontiers (2023)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s44214-023-00026-0",
+        "material_read": "Open publisher HTML model description and first Bloch Hamiltonian discussion, four sites per cell and its flat band.",
+        "method": "Open publisher full-text HTML.",
+        "title": "Compact localized boundary states in a quasi-1D electronic diamond-necklace chain",
+        "trigger": "Related finite-cell gapped flat bands and compact localized states."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a20a1dc-c1e8-434e-90d5-6ac906153885",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed connected triangle-plus-bridge chain is a motivated minimal three-site model that lies immediately beyond the fully handled two-orbit exceptional-potential case of Sabri and Youssef. The theorem is a complete all-real-potential, all-positive-hopping classification rather than arbitrary point testing: its smooth irreducible quadric has two physical components, with the sign identifying either an isolated lowest or isolated middle flat band, together with a two-cell generator. Exact tuning and gap placement are naturally needed to design/localize flat states. The broad 2025 generic no-flat theorem does not provide this exact model-level information.",
+    "status": "PASS"
+  }
+}
