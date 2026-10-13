@@ -1,0 +1,11 @@
+# Review of the pointed-grid orientation-delay theorem
+
+**Correctness (PASS).** For every \(2\le m<n\), coordinate transposition identifies both rooted quadrant walk unfoldings up to depth \(m-2\), and the finite grid does not truncate those walks. At the next comparison the degree-deficit moment of length \(m-2\) differs by exactly one, contributed by the unique straight walk to the short far side. Each such moment is determined by the following colour-refinement round. The argument also handles \(m=2\); the finite Python check covers 204 instances and is supplementary to the uniform proof.
+
+**Originality (PASS, conditional on the inspected corpus).** The closest primary source is the 2014 Krebs–Verbitsky general equivalence between colour refinement, truncated universal covers and counting logic. Its published lower-bound constructions are not rectangular grids and its inspected material does not calculate the pointed-grid separation time. The 2015 Arvind–Köbler–Rattan–Verbitsky class characterization and the 2020 Kiefer–McKay extremal iteration theorem likewise do not state this instance. Focused literature searches, current and preceding private overlap ledgers, and semantic research-result searches returned no exact formula for the two adjacent-to-corner grid positions. An overlooked equivalent calculation remains possible.
+
+**Value (PASS).** The two directionally different neighbours of a corner are among the simplest nonsymmetric vertices of a non-square grid. Their exact \(m-1\) first-separation time is a parameter-sharp quantitative locality obstruction for counting logic and colour refinement. Unlike generic worst-case graph bounds, it shows that even a highly structured rectangular Cartesian product can require time linear in its shorter side merely to infer the aspect-ratio orientation. This yields a family-wide stabilization lower bound without claiming full grid classification.
+
+**Boundaries.** The result does not determine the final grid partition or total stabilization round exactly, and it assumes uniform initial colouring and no coordinate labels. Scientific novelty is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
