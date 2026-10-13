@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The coordinate updates give an exact two-by-two conditional second-moment matrix. Its semidefinite comparison with the identity factors to the scalar condition \\(p+q+pq\\le1\\). A spectral normalization with \\(\\delta=(\\kappa-1)/(\\kappa+1)\\) reduces all orientations to one scalar \\(t\\in[0,1]\\); for \\(\\delta\\le\\sqrt2-1\\), an explicit nonnegative difference proves the equal-diagonal orientation is the worst case in the needed safe regime. The equal-diagonal family gives failure for every larger \\(\\kappa\\). The exact \\(\\kappa=3\\) witness and fixed-matrix algebra are replayed by the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma, Needell, and Ramdas prove expected linear convergence for RGS and identify it with randomized coordinate descent.",
+        "Their full text gives the exact coordinate-minimization update and probability proportional to squared column norm.",
+        "The cited convergence quantity is the least-squares residual or induced energy norm, so it does not dominate the Euclidean equation-residual statement."
+      ],
+      "reasoning": "Expected asymptotic convergence in an energy-equivalent metric does not imply stepwise Euclidean residual monotonicity. The \\(\\kappa=3\\) example is an explicit separation.",
+      "searches": [
+        "Convergence properties randomized extended Gauss-Seidel Kaczmarz residual",
+        "Rows versus Columns randomized Gauss-Seidel ridge regression convergence",
+        "randomized coordinate descent SPD expected convergence energy norm"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1503.08235",
+      "doi:10.1137/15M1014425",
+      "arxiv:1507.05844",
+      "doi:10.1137/16M1077891"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The deterministic two-coordinate result studies a complete prescribed sweep and Euclidean solution error, not one randomized coordinate and equation residual.",
+        "The delayed randomized-Gauss-Seidel record studies a diagonal-scaled mean-square error recurrence; setting delay to zero does not convert that metric to the Euclidean equation residual.",
+        "The classical RGS expected convergence identity is for \\(X(x-x_*)\\), which equals \\(A^{-1/2}(b-Ax)\\) under the SPD square-root representation and therefore does not imply Euclidean residual monotonicity."
+      ],
+      "reasoning": "The metric mismatch prevents implication by the closest results. The new fixed-matrix semidefinite criterion is required to decide ordinary residual behavior.",
+      "searches": [
+        "two-coordinate Gauss-Seidel Euclidean transient threshold",
+        "randomized Gauss-Seidel delayed mean square error",
+        "randomized coordinate descent least squares residual expectation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published research records concern deterministic two-coordinate Gauss-Seidel solution-error amplification and randomized Gauss-Seidel with stale-read delay; neither states the Euclidean equation-residual criterion.",
+        "The full randomized Gauss-Seidel paper inspected defines the coordinate update and proportional sampling, and its convergence calculation controls \\(\\|X(\\beta_t-\\beta_*)\\|_2\\), not \\(\\|b-Ax_t\\|_2\\) after the SPD square-root identification.",
+        "No searched result returned the exact constant \\(1+\\sqrt2\\) attached to one-step Euclidean residual monotonicity."
+      ],
+      "reasoning": "Equivalent coverage would need the same random coordinate law, ordinary equation residual, all incoming residuals, all two-dimensional SPD orientations at fixed condition number, and the sharp if-and-only-if boundary. The retrieved statements differ in metric, random model, or update horizon.",
+      "searches": [
+        "randomized Gauss-Seidel expected residual norm one coordinate 2x2 SPD condition number",
+        "random coordinate descent expected residual increase condition number two dimensional",
+        "randomized coordinate descent residual monotonicity SPD one step",
+        "Gauss-Seidel expected squared residual one coordinate sharp threshold",
+        "randomized Gauss-Seidel residual norm condition number two dimensional",
+        "coordinate descent Euclidean equation residual can increase expectation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant or fixed-matrix formula match was located.",
+        "The threshold is derived from a factored conditional second-moment matrix and the equal-diagonal extremal family, not from a numerical table."
+      ],
+      "reasoning": "The claimed invariant is an analytic condition-number frontier for a specific residual diagnostic.",
+      "searches": [
+        "\"1+sqrt(2)\" randomized Gauss-Seidel residual",
+        "\"1 + sqrt(2)\" coordinate descent residual norm",
+        "randomized Gauss-Seidel p+q+pq residual"
+      ]
+    },
+    "rationale": "The inspected foundational randomized Gauss-Seidel literature defines the same diagonal-Lipschitz sampling and proves expected convergence in a least-squares or energy metric, not one-step monotonicity of the ordinary Euclidean equation residual. Published nearby results concern deterministic two-coordinate solution-error transients or delayed randomized Gauss-Seidel in a different scaled mean-square metric. Searches did not locate the fixed-matrix criterion or the sharp \\(1+\\sqrt2\\) Euclidean-residual frontier.",
+    "residual_risks": [
+      "Older coordinate-relaxation literature may contain the same two-dimensional second-moment calculation under different terminology.",
+      "The theorem is specific to the Euclidean equation residual and diagonal-proportional sampling; nearby results in energy norms or other samplings should not be conflated with it.",
+      "The published research database contains a delayed randomized-Gauss-Seidel theorem in a different scaled metric, so future comparison should continue to distinguish the monitored quantity explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: defines the same coordinate-minimization mechanism after the SPD square-root reduction, but controls a different residual/energy metric and does not state the new Euclidean-residual frontier.",
+        "evidence": "Section 2.3 identifies RGS with randomized coordinate descent, samples columns proportionally to squared column norm, and exactly minimizes in the selected coordinate. The later convergence display controls \\(\\|X\\beta_t-X\\beta_*\\|_2^2\\).",
+        "identifier_or_url": "arxiv:1503.08235",
+        "material_read": "Full arXiv PDF sections covering the introduction, Section 2.3 randomized Gauss-Seidel update, the proportional column sampling rule, and the expected-convergence derivation in the consistent case; the relevant pages were also visually inspected.",
+        "method": "Lawful open full-text PDF inspection.",
+        "title": "Convergence Properties of the Randomized Extended Gauss-Seidel and Kaczmarz Methods",
+        "trigger": "Primary full-text source defining randomized Gauss-Seidel, its sampling law, and expected convergence framework."
+      },
+      {
+        "assessment": "BACKGROUND_AND_CLASSIFICATION: confirms primary MSC 65K05 and the randomized Gauss-Seidel context.",
+        "evidence": "The publisher lists MSC codes 65K05, 15A06, and 90C25 and describes RGS as a linearly convergent randomized iterative method.",
+        "identifier_or_url": "doi:10.1137/15M1014425",
+        "material_read": "Publisher abstract, history, keywords, references, and MSC listing.",
+        "method": "Publisher-page inspection.",
+        "title": "Convergence Properties of the Randomized Extended Gauss-Seidel and Kaczmarz Methods",
+        "trigger": "Publisher record for subject classification and publication metadata."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING: confirms the algorithmic interpretation but does not state one-step Euclidean equation-residual monotonicity.",
+        "evidence": "The source explicitly identifies randomized Gauss-Seidel with randomized coordinate descent for ridge regression and studies convergence rates.",
+        "identifier_or_url": "arxiv:1507.05844",
+        "material_read": "ArXiv abstract record and publisher abstract/metadata.",
+        "method": "Open arXiv and publisher metadata inspection.",
+        "title": "Rows versus Columns: Randomized Kaczmarz or Gauss-Seidel for Ridge Regression",
+        "trigger": "Independent archive-era source confirming the randomized-column Gauss-Seidel interpretation and proportional sampling in regularized least squares."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73e089db-ed08-4853-b288-151091983aac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Randomized Gauss-Seidel is an exact coordinate-minimization method with classical expected convergence guarantees, while the ordinary equation residual is a common solver diagnostic. The theorem gives a complete two-dimensional fixed-matrix test and a sharp condition-number boundary showing exactly when that diagnostic is guaranteed to improve in conditional expectation. The \\(\\kappa=3\\) witness demonstrates a genuine metric mismatch rather than a small asymptotic effect.",
+    "status": "PASS"
+  }
+}
