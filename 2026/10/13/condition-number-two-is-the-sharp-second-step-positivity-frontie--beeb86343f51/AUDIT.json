@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The second GMRES iterate has the exact form \\(x_2=ab-cAb\\). Orthogonality of the residual to \\(A\\mathcal K_2\\) gives two moment equations. Their exact solution makes \\(c>0\\), while \\(a/c\\) is a positive weighted average of active spectral pair sums. Hence \\(a/c\\ge2\\mu\\), proving componentwise nonnegativity when \\(L/\\mu\\le2\\). For every larger condition number the explicit three-point spectrum and stated right-hand-side bound force \\(a/c<\\kappa\\), so the top-eigenvalue coordinate is negative. Degenerate one- and two-point active spectra are handled separately by exact Krylov termination. The exact verifier replays the moment identities and rational witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goossens--Roose identify harmonic Ritz values as zeros of GMRES residual polynomials and analyze convergence, breakdown, and stagnation, but not solution-coordinate positivity.",
+        "Meurant--Duintjer Tebbens give full residual-norm formulas for normal and diagonalizable matrices; full-text searches found no componentwise, positive, or nonnegative formulation of the new claim.",
+        "Meurant's later coefficient paper gives closed-form early residual-polynomial coefficients and lists primary MSC 65F10, but its stated results do not contain the pair-sum positivity threshold."
+      ],
+      "reasoning": "The classical polynomial machinery is broader in residual representation but does not dominate a coordinatewise sign theorem. The new step is the pair-sum reduction of the solution coefficients and its sharp condition-number consequence.",
+      "searches": [
+        "doi:10.1002/(SICI)1099-1506(199906)6:4<281::AID-NLA158>3.0.CO;2-B",
+        "doi:10.1007/s11075-014-9891-3",
+        "doi:10.1137/15M1053827",
+        "GMRES nonnegative iterates M-matrix componentwise",
+        "GMRES positivity preserving linear systems M-matrix"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1002/(SICI)1099-1506(199906)6:4<281::AID-NLA158>3.0.CO;2-B",
+      "doi:10.1007/s11075-014-9891-3",
+      "doi:10.1137/15M1053827",
+      "doi:10.1002/nla.1680010503"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Harmonic Ritz values being zeros of the residual polynomial does not itself determine signs of \\(x_2\\) coordinates.",
+        "Normal-matrix residual-norm formulas control \\(\\|r_k\\|_2\\), not orthant membership of \\(x_k\\).",
+        "Early-iteration coefficient formulas are compatible ingredients, but the inspected descriptions do not state that \\(a/c\\) is a weighted average of pair sums or derive the sharp \\(\\kappa=2\\) frontier."
+      ],
+      "reasoning": "The prior results supply the residual-polynomial setting but leave an additional implication gap from residual information to coordinatewise solution signs. The new pairwise moment identity closes that gap for the second diagonal-SPD step.",
+      "searches": [
+        "Ritz and harmonic Ritz values and the convergence of FOM and GMRES",
+        "The role eigenvalues play in forming GMRES residual norms with non-normal matrices",
+        "The Coefficients of the FOM and GMRES Residual Polynomials",
+        "GMRES residual polynomial roots harmonic Ritz values positive definite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located result states that condition number two is the exact universal second-step componentwise-positivity frontier.",
+        "Searches using both GMRES and MINRES terminology did not recover an equivalent sign-preservation theorem.",
+        "The closest surfaced GMRES result concerns a one-step Euclidean solution-error bound, which is neither componentwise nor a second-step diagonal-SPD classification."
+      ],
+      "reasoning": "On symmetric problems GMRES and MINRES coincide in exact arithmetic, so both names were searched. Norm bounds, residual contraction, and Ritz-value location do not imply coordinatewise signs.",
+      "searches": [
+        "GMRES diagonal SPD second iterate componentwise positivity condition number 2",
+        "minimal residual diagonal positive definite second iterate nonnegative condition number",
+        "MINRES diagonal SPD positivity second step condition number two",
+        "GMRES second step sign preservation positive diagonal matrix",
+        "GMRES componentwise nonnegative iterate SPD positive diagonal three eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table, catalog, or database result with the threshold \\(2\\) or the stated three-dimensional family was located.",
+        "The exact rational witness is derived from the GMRES normal equations rather than recomputed from a published table."
+      ],
+      "reasoning": "The finding is a symbolic if-and-only-if frontier, not a finite catalog lookup.",
+      "searches": [
+        "\"GMRES\" positivity \"condition number 2\" diagonal",
+        "\"GMRES\" \"condition number\" \"componentwise\" positivity diagonal SPD",
+        "\"GMRES\" second iterate negative component positive solution"
+      ]
+    },
+    "rationale": "The closest published sources develop GMRES residual polynomials, harmonic Ritz values, and residual-norm formulas, not componentwise sign preservation of solution iterates. The closest internal comparisons concern a nonsymmetric inverse-positive GMRES family and a MINRES sign-loss example; neither implies the universal diagonal-SPD condition-number threshold or the all-\\(\\kappa>2\\) three-dimensional sharpness family. Targeted searches found no implication-equivalent positivity frontier.",
+    "residual_risks": [
+      "Classical pseudo-Ritz, kernel-polynomial, or orthogonal-polynomial literature may contain the same pair-sum consequence without using componentwise-positivity terminology.",
+      "Because GMRES and MINRES coincide on symmetric systems, an older MINRES-specific source could encode the threshold under a different method name despite the targeted searches.",
+      "The result is second-step and diagonal; it should not be generalized to arbitrary SPD coordinate representations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_BACKGROUND: establishes residual-polynomial root interpretation but not componentwise iterate positivity or a condition-number frontier.",
+        "evidence": "The abstract explicitly says harmonic Ritz values are zeros of GMRES residual polynomials and focuses on breakdown, stagnation, and convergence.",
+        "identifier_or_url": "doi:10.1002/(SICI)1099-1506(199906)6:4<281::AID-NLA158>3.0.CO;2-B",
+        "material_read": "Publisher abstract, publication history, and reference context.",
+        "method": "Publisher-page inspection.",
+        "title": "Ritz and harmonic Ritz values and the convergence of FOM and GMRES",
+        "trigger": "Foundational source linking GMRES residual-polynomial zeros and harmonic Ritz values."
+      },
+      {
+        "assessment": "NOT_COVERING: gives residual norms and moment formulas, not signs of solution iterates or the threshold \\(\\kappa=2\\).",
+        "evidence": "For normal matrices the paper reduces GMRES residual norms to eigenvalues and right-hand-side components; its stated goal is residual convergence rather than orthant preservation.",
+        "identifier_or_url": "doi:10.1007/s11075-014-9891-3",
+        "material_read": "Author full-text PDF: introduction, normal-matrix minimization formula, diagonalizable-matrix setup, moment-matrix construction, and the first main theorem; rendered pages containing the defining formulas were inspected. Full-text searches for componentwise, positive, and nonnegative returned no matches.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "The role eigenvalues play in forming GMRES residual norms with non-normal matrices",
+        "trigger": "Direct treatment of normal and diagonalizable GMRES with explicit dependence on eigenvalues and right-hand-side components."
+      },
+      {
+        "assessment": "CLOSEST_COEFFICIENT_BACKGROUND: provides closed-form residual-polynomial coefficients and harmonic Ritz formulas, but the inspected statement does not contain the pair-sum positivity classification.",
+        "evidence": "The publisher page lists primary MSC 65F10 and describes coefficient formulas and the minimization problem, without a componentwise positivity result.",
+        "identifier_or_url": "doi:10.1137/15M1053827",
+        "material_read": "Publisher abstract, metadata, MSC codes, publication history, and listed scope.",
+        "method": "Publisher-page inspection.",
+        "title": "The Coefficients of the FOM and GMRES Residual Polynomials",
+        "trigger": "Closest source explicitly deriving early GMRES residual-polynomial coefficients."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "beeb8634-3f51-4ba3-9a7a-3bfefa7ee4f6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A nonnegative exact solution can be important in positive linear models, yet residual minimization alone does not protect the positive orthant. The result gives a natural complete classification for the first nontrivial GMRES step on the simplest SPD class: condition number two is the exact dimension-free safety frontier, and three active modes are minimal for failure. The pair-sum formula also explains the mechanism and yields an explicit counterexample for every larger condition number, making the fact reusable rather than a one-off numerical anomaly.",
+    "status": "PASS"
+  }
+}
