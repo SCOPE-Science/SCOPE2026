@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For all distinct primes \\(q,p\\) with \\(p\\ge5\\) and integers \\(t,r\\ge1\\), the Jacobsthal lemma gives \\(B_j-B_{j-1}\\equiv0\\pmod{p^{3j}}\\); the limit therefore agrees with \\(B_r\\) modulo \\(p^r\\). LTE gives \\(q^{q^tp^r}\\equiv\\omega_p(q)^{q^t}\\pmod{p^r}\\). Legendre gives the exact valuation \\(\\nu_q(\\binom{qn}{n})=s_q((q-1)p^r)/(q-1)\\); the other summand is zero modulo \\(q^t\\). CRT is necessary and sufficient. The endpoint may be zero or infinite, and the limit need not be a unit. For \\(q=31,p=5,t=1\\), the first two binomials both equal \\(251\\) modulo \\(625\\), the Teichmüller root is \\(1\\), and the endpoint is exactly \\(3\\). The verifier independently checked 82 direct grid cases and nine boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1301.0252v1 Lemma (3), (6) and (7) covers arbitrary binomial dilation modulus but no prime-base solution set",
+        "published-finding corpus:a71ec1d0fa28 applies the p-adic distance endpoint only to n=p^r"
+      ],
+      "reasoning": "General Jacobsthal and Davis–Webb lifting is admitted as a proof ingredient, not novel. Its broader congruence coverage lacks the q-adic digit-sum condition and CRT interaction; published t=0 tower lacks positive q-exponent. The final combined classification is not a corollary of either published conclusion alone.",
+      "searches": [
+        "binomial(q n,n) q^n mod n n=q p^2 n=q p^3 non-Wieferich",
+        "Two-prime-supported q^t p^r towers binomial(qn,n)=q^n mod n, non Wieferich prime power cubes p=5 q=31, mixed support and digit-sum filter",
+        "Jacobsthal binomial (ap choose bp) congruence modulo p^3ab(a-b)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.30232v1 (full 7 pages)",
+      "arXiv:1301.0252v1 (key theorem and proof)",
+      "published-finding corpus:a71ec1d0fa28 (complete public RESULT.md)",
+      "Granville 1997 §11 (HTML readable portion)",
+      "published-finding corpus semantic search for aliases, mixed families, q-digit filters, p-adic towers, non-Wieferich witnesses"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guedes–Machado Thm 3.1: fixed r=1; Thm 6.2: t=0 and r=2",
+        "Published published-finding corpus:a71ec1d0fa28: t=0, r>=1; H_{p,q} measures beta at binomial(q p^r,p^r)",
+        "Meštrović 2013: general Jacobsthal modulus, supplies a key lemma"
+      ],
+      "reasoning": "The positive-\\(t\\) and \\(r=1\\) case is covered by the motivating paper and not asserted new. The \\(t=0\\), arbitrary-\\(r\\) p-adic tower belongs to previous published work, not the domain here. No checked published conclusion covers \\(t,r\\ge1\\) jointly; a general binomial lifting lemma can contribute the modular part, but the complete divisibility criterion also needs the independent \\(q^t\\) digital obstruction.",
+      "searches": [
+        "prime-base binomial congruence mixed q^t p^r n two prime factors exact p-adic digit sum higher powers",
+        "For prime-base binomial congruence choose n=q^t p^r with t,r>0; exact criterion s_q((q-1)p^r)/(q-1)>=t and p-adic binomial limit beta_{q,t,p}=omega_p(q)^{q^t} mod p^r; examples 31*5^3 and 23*7^2",
+        "Two-prime-supported q^t p^r towers binomial(qn,n)=q^n mod n, non Wieferich prime power cubes p=5 q=31, mixed support and digit-sum filter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus:a71ec1d0fa28 has t=0 only; arXiv:2606.30232v1 Thm 3.1 has r=1 only",
+        "No exact q^t p^r p-adic distance plus digit-sum intersection located in returned published-finding corpus results"
+      ],
+      "reasoning": "Aliases checked include mixed prime powers, two-prime support, q-adic digit filter, p-adic binomial limit and generalized Wieferich layers. Older one-dimensional slices do not give the two-positive-exponent if-and-only-if without further deductions.",
+      "searches": [
+        "prime-base binomial congruence mixed q^t p^r n two prime factors exact p-adic digit sum higher powers",
+        "mixed prime-power binomial congruence n=q p^r for distinct primes q and p, p-adic binomial limit",
+        "For prime-base binomial congruence choose n=q^t p^r with t,r>0; exact criterion s_q((q-1)p^r)/(q-1)>=t and p-adic binomial limit beta_{q,t,p}=omega_p(q)^{q^t} mod p^r; examples 31*5^3 and 23*7^2",
+        "A080469 A084699 higher p-adic lifting and digit sums q^t p^r mixed prime-power solutions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2606.30232v1 discusses OEIS A080469, A084699, A109760, A109769 and A392484 for other prime bases",
+        "A finite grid and exact modular certificate for n=3875 are freshly computed; no evidence of a database entry with the global mixed-tower claim"
+      ],
+      "reasoning": "Matching a single index or residue in a database would cover that example only, not all q,p,t,r. Database/sequence searches did not identify the general theorem; absence of results is not proof of novelty.",
+      "searches": [
+        "OEIS A080469 A084699 binomial qn n q^n prime base",
+        "published-finding corpus n=31*5^3 mixed prime-power binomial congruence",
+        "binomial 31n n q^n n=3875 q=31 p=5"
+      ]
+    },
+    "rationale": "The motivating primary full text proves only the positive-\\(t\\), \\(r=1\\) case, and \\(n=p^2\\); the closest published p-adic tower covers \\(t=0\\). Neither states the two-positive-exponent classification, its separate digit filter, or the non-Wieferich cubic. The general Jacobsthal lemma is known and credited. Primary full-text comparisons and exact semantic searches were performed; unindexed equivalent work is possible.",
+    "residual_risks": [
+      "General Jacobsthal theory may have been combined with the 2026 r=1 result in unindexed or differently titled work.",
+      "Granville HTML strips formulas and a full text search is not exhaustive for implicit implications.",
+      "The source literature includes independently known computations of individual index solutions; no global novelty is established by negative search alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Thm 3.1 covers n=q^t p only, excludes r>=2. Square theorem covers n=p^2. No mixed q^t p^r tower criterion found.",
+        "evidence": [
+          "arXiv:2606.30232v1 pp.1–3 (Theorem 3.1), §6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.30232",
+        "material_read": "Full 7-page PDF, particularly §2, Theorem 3.1/proof, §6 and references",
+        "method": "PDF extracted text and direct page-image checks on pp.2–3",
+        "title": "Structured Solutions of Prime-Base Binomial Congruences",
+        "trigger": "same binomial congruence, candidate direct coverage"
+      },
+      {
+        "assessment": "Applies to n=p^r (t=0), no digit-sum filter or t>=1; same p-adic technique is known and credited.",
+        "evidence": [
+          "Published entry a71ec1d0fa28, RESULT.md, §§Finding, Proof, Limitations"
+        ],
+        "identifier_or_url": "published-finding corpus:a71ec1d0fa28; https://github.com/published-finding corpus/2026",
+        "material_read": "Complete RESULT.md including definition of beta,H, proof, assumptions, references",
+        "method": "Retrieved and read public repository RESULT.md",
+        "title": "Prime-power towers for the prime-base binomial congruence",
+        "trigger": "closest published p-adic initial-segment claim"
+      },
+      {
+        "assessment": "Supplies exactly the Jacobsthal p^(3j) increment; no prime-base q^t p^r solution classification.",
+        "evidence": [
+          "arXiv:1301.0252v1 p.3–4, congruences (6)–(7)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.0252",
+        "material_read": "Abstract, Theorem and Lemma, proof of congruence (6),(7), pp.1–4",
+        "method": "PDF text extraction inspected equations and assumptions",
+        "title": "Variations of Lucas’ Theorem Modulo Prime Powers",
+        "trigger": "general stronger prime-power binomial congruence could imply proposed limit"
+      },
+      {
+        "assessment": "Covers known p-adic binomial machinery; text extraction inadequate to rule out every formulation but no explicit mixed criterion observed.",
+        "evidence": [
+          "Granville §11, prose referring to Jacobsthal (1.5) and p-adic congruences"
+        ],
+        "identifier_or_url": "https://www.cecm.sfu.ca/organics/papers/granville/paper/binomial/html/node12.html",
+        "material_read": "HTML section Congruences modulo powers of primes and chapter contents; formulas partly omitted by HTML extraction",
+        "method": "Read chapter section as available, cross-checked exact dilation in Meštrović",
+        "title": "Arithmetic Properties of Binomial Coefficients I",
+        "trigger": "broader classical modular binomial theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "88dc2565-21a2-4534-b7ae-f92f1bd35b5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete \\(q^tp^r\\) family is the natural two-prime-support extension of the motivating \\(r=1\\) theorem and known \\(t=0\\) towers. At \\(t=1\\), it gives an exact initial segment and a sharp non-Wieferich cube \\(n=31\\cdot5^3\\). At larger \\(t\\), it gives a separate digit obstruction: \\(q=19,p=7,t=2\\) has a nonempty p-adic two-layer segment completely deleted by the digit test. The result distinguishes genuine structural phenomena rather than an arbitrary slice, while claiming no closed formula for all endpoints.",
+    "status": "PASS"
+  }
+}
