@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Theorem 11, Proposition 18, and Theorem 19 in Baranwal et al. justify replacement of the infinitely forbidden good shift by F-avoidance on periodic points only; the exceptions are nonperiodic. Their local Pansiot encoding maps F to G. On a cyclic G-admissible code every one-run has length two or four, forcing even parity and exactly two cyclic lifts, so P_n=2 tr(A^n). The displayed 10-state adjacency table is complete; exact Newton-identity calculation yields det(I-zA)=1-z-z^4-z^6. The formal identity exp(sum tr(A^n)z^n/n)=1/det(I-zA) yields the claimed square. No least period two/three is possible in G, and c=11 0^(n-2) supplies an exact n-periodic code and lift for every n>=4. Standalone verify.py independently replays both determinant presentations and direct bounded enumerations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 11 and Proposition 18 of arXiv:2209.09223 identify minimal antisquares and an exceptional nonperiodic configuration; Theorem 19 computes Θ(supergolden^n) finite factor growth.",
+        "arXiv:2209.09598 studies complement avoidance and critical exponents rather than the periodic-point zeta of this specific antisquare-good shift.",
+        "The nearest indexed entropy-gap theorem concerns avoidance cylinders in a different shift, not this antisquare-good periodic-point enumerator."
+      ],
+      "reasoning": "A general theorem about finite-type zeta expresses it as a determinant but does not calculate the particular determinant or prove that the infinitely defined good shift has the same periodic points as the finite-type subshift. The new cyclic parity/two-lift proof supplies the missing exact multiplicity.",
+      "searches": [
+        "Closed orbit zeta (1-z-z^4-z^6)^-2 complement avoidance",
+        "Trace transfer matrix good words antisquares G 010 101 11111 01110",
+        "antisquare good binary words periodic point zeta function subshift dynamical",
+        "antisquares critical exponents minimal antisquares polynomial growth good binary words"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.09223v3 full-text Theorem 11, Proposition 18, Theorem 19, and their proofs; arXiv:2209.09223v1 first-public record",
+      "DOI:10.46298/dmtcs.10063 associated journal metadata and subject classification",
+      "arXiv:2209.09598v2 full-text treatment of complement avoidance",
+      "Targeted open-web exact-zeta, exact-sequence, cyclic coding, antisquare periodicity, and OEIS-style alias searches",
+      "Nine targeted semantic research-index queries for antisquare-good cyclic points, zeta, exact polynomial, primitive periods, and Pansiot trace",
+      "Publicly indexed periodic-point, zeta-function, and symbolic-word sources checked under exact formula and alias descriptions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 18 says the presence of 001011 forces a specific aperiodic two-sided word; this is used to exclude exceptions from periodic points.",
+        "Theorem 19 gives F and G and the word count recurrence C_n=C_(n-1)+C_(n-4)+C_(n-6), not tr(A^n).",
+        "The new exact 10-state graph gives det(I-zA)=1-z-z^4-z^6 and even cyclic parity gives P_n=2 tr(A^n); explicit witnesses rule out only periods 2 and 3."
+      ],
+      "reasoning": "Although the proof uses published recurrences and forbidden patterns, their stated consequences stop at growth estimates for all finite words. Periodic-point equality between different shifts, closed-walk trace, parity of cyclic lifts, and exact-period classification are independent additional claims, rigorously derived here.",
+      "searches": [
+        "arXiv:2209.09223 Theorem 11 Proposition 18 Theorem 19 periodic points",
+        "arXiv:2209.09598 complement avoidance periodic zeta",
+        "Exact Artin Mazur zeta function for the shift of binary words avoiding antisquares of order at least two, periodic orbit counts",
+        "Period distribution 1 and all n at least 4 for good binary antisquare words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baranwal et al., arXiv:2209.09223, Theorem 19: finite good-word count has exponential growth from the code recurrence; no periodic-point trace or zeta is stated.",
+        "Targeted semantic research-index queries produced nearest generic shift/zeta and substring results, none concerning antisquare-good periodic points."
+      ],
+      "reasoning": "The normalized object here is a periodic orbit count, not a finite-factor enumeration. Counting arbitrary linear admissible words with a characteristic growth polynomial is not equivalent to traces of closed paths. Equality of the denominator alone is insufficient to imply the square exponent or complete primitive-period set.",
+      "searches": [
+        "Exact Artin Mazur zeta function for the shift of binary words avoiding antisquares of order at least two, periodic orbit counts",
+        "Antisquare-free infinite binary shift periodic points necklace counts Pansiot encoding finite type",
+        "Period distribution 1 and all n at least 4 for good binary antisquare words",
+        "\"antisquares\" \"periodic points\" zeta good words",
+        "\"good words\" antisquares \"periodic points\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked database or exact-constant/sequence search surfaced the periodic-point sequence or zeta.",
+        "The primary article exhibits the polynomial λ^6−λ^5−λ^2−1 and growth ψ but no table of origin-marked periodic-point values."
+      ],
+      "reasoning": "The same characteristic polynomial occurs in the source; this is credited. Its occurrence in finite-word growth does not constitute an exact database table for the period counts P_n, whose first values and doubled trace structure were separately computed.",
+      "searches": [
+        "Closed orbit zeta (1-z-z^4-z^6)^-2 complement avoidance",
+        "Trace transfer matrix good words antisquares G 010 101 11111 01110",
+        "\"1 - z - z^4 - z^6\" antisquare",
+        "\"2, 2, 2, 10, 12, 26, 30, 42, 56\" binary words"
+      ]
+    },
+    "rationale": "The closest full primary text gives F, G, the exceptional heteroclinic word, and the same characteristic polynomial for linear finite-word growth. It never gives the periodic-point sequence, cyclic-lift parity, Artin–Mazur zeta, or set of least periods. Exact-expression, alias, and claim/implication searches in the semantic research index and external primary literature found no covering statement. Residual risk remains an unindexed short note applying traces to the published graph; failed searches alone are not a uniqueness proof.",
+    "residual_risks": [
+      "Because the primary source already gives the forbidden set and characteristic polynomial, an unindexed short calculation may have written the same periodic zeta without being indexed under its natural aliases.",
+      "The periodic-point formula does not describe the exceptional nonperiodic part of the full good shift; conflating these would be a mathematical error, explicitly avoided.",
+      "Search noncoverage cannot establish worldwide novelty, particularly against unpublished mathematical observations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_FOUNDATION_NOT_COVERING",
+        "evidence": "Proposition 18 excludes periodic occurrence of the exceptional factor; Theorem 19 obtains F={0011,1100,0110,1001,010101,101010,001011,110100}, G={010,101,11111,01110}, and a growth recurrence. It does not evaluate tr(A^n), periodic orbits, or their zeta.",
+        "identifier_or_url": "arXiv:2209.09223v3 (full text), arXiv:2209.09223v1 (first-public anchor) / DOI:10.46298/dmtcs.10063",
+        "material_read": "Full HTML text, especially Introduction, Theorem 11 and characterization of minimal antisquares, Proposition 18 with proof, Theorem 19 with Pansiot code forbidden patterns and word-growth recurrence, and later statements.",
+        "method": "Open full-text article and PDF page visual inspection of the relevant enumeration section, followed by direct comparison of theorems, formulas, and quantifiers.",
+        "title": "Antisquares and Critical Exponents",
+        "trigger": "Primary source that classifies antisquares and gives finite-word growth recurrence sharing the zeta denominator."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its avoidance condition excludes occurrence of sufficiently long complementary pairs in the language; it does not enumerate cyclic antisquare-good configurations or establish this zeta.",
+        "identifier_or_url": "arXiv:2209.09598v2",
+        "material_read": "Full open paper examined for its objects, complementary factors, periodicity-related results, and conclusions.",
+        "method": "Lawful open preprint full-text inspection with searches for periodic orbit/zeta and comparison of hypotheses.",
+        "title": "Complement Avoidance in Binary Words",
+        "trigger": "Highly relevant same-period source on binary complement patterns that might imply a broader classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f34dd99-3e68-4064-a3bc-55f169492495",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The class of antisquare-good words has an infinite forbidden definition with exceptional nonperiodic configurations, and its finite-word exponential growth was the focus of the source. Its periodic dynamics is a separate natural invariant: an exact rational Artin–Mazur zeta enumerates all fixed points and primitive closed orbits, distinguishing periodic and nonperiodic sublanguages. The remarkable exact multiplicity-two cyclic lifting and the complete least-period spectrum give structural and reusable information not obtainable from a mere growth-rate bound.",
+    "status": "PASS"
+  }
+}
