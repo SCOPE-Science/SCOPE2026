@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source debiasing coefficients telescope exactly after the single nonzero gradient, giving \\(v_t=(1-\\beta_1)\\beta_1^{t-1}G/(1-\\beta_1^t)\\) and \\(u_t=(1-\\beta_2)\\beta_2^{t-1}G^2/(1-\\beta_2^t)\\). Because every later current gradient is zero, the published RMS detector is exactly zero, including its implementation floor. Optimizing the positive-\\(\\varepsilon\\) update over finite impulse amplitudes yields the exact envelope \\(R_t\\), whose exponential factor is \\((\\beta_1/\\sqrt{\\beta_2})^{t-1}\\), proving the iff boundary. The alternative-detector cap follows from \\(\\sqrt{\\max\\{u,\\varepsilon^2\\}}\\le\\sqrt u+\\varepsilon\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reddi--Kale--Kumar analyze failures of exponential-moving-average adaptive methods and use a bound containing the positive factor β2-β1².",
+        "That prior work concerns Adam/AMSGrad moment coupling and convergence, not StableAdamW's later current-gradient update-clipping gate.",
+        "The defining StableAdamW paper is empirical/mechanistic and supplies no theorem on stale first-moment tails."
+      ],
+      "reasoning": "The classical condition makes the phase boundary mathematically unsurprising in isolation, so novelty is not assigned to the inequality itself. It does not dominate the StableAdamW-specific observation that the new gate contributes exactly no protection after the current gradient vanishes, nor the comparison with the alternative detector considered by the source.",
+      "searches": [
+        "Adam beta1 squared beta2 impulse normalized momentum unbounded",
+        "On the Convergence of Adam beta1 beta2 momentum square root second moment",
+        "StableAdamW theory convergence update clipping"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13013v1",
+      "arXiv:1904.09237v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 defines the bias-corrected first and second moments, current-gradient RMS detector, clipped learning rate, and normalized momentum update used here.",
+        "The implementation appendix replaces the detector denominator by an elementwise maximum with ε² and separately reports that using squared first momentum in the numerator performed worse.",
+        "The Adam convergence paper's proof bounds first momentum by the second moment with a denominator containing β2-β1²."
+      ],
+      "reasoning": "The StableAdamW source equations imply the theorem only after solving their nonstationary debiased impulse recurrence and optimizing over finite amplitudes; the paper does not draw that conclusion. The Adam paper supplies broader moment-ratio context but contains no StableAdamW clipping rule, so it does not imply the clipping bypass or detector comparison.",
+      "searches": [
+        "arXiv:2304.13013 Algorithm 2 StableAdamW RMS current gradient",
+        "arXiv:2304.13013 appendix v_t squared numerator RMS",
+        "arXiv:1904.09237 beta2 beta1 squared Adam proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining StableAdamW source measures current squared gradient relative to the second moment and applies no detector term from stale first momentum.",
+        "Its appendix explicitly says a squared-momentum numerator was tried and performed worse.",
+        "Focused indexed searches returned no StableAdamW impulse-tail or zero-current-gradient clipping theorem."
+      ],
+      "reasoning": "Equivalent coverage would need to imply both that the published gate is identically inactive on a zero-gradient tail and the necessary-and-sufficient uniform amplitude boundary for the remaining normalized momentum. The inspected literature gives neither combined statement.",
+      "searches": [
+        "StableAdamW zero gradient momentum tail clipping beta1 beta2 exact",
+        "StableAdamW update clipping current gradient zero stale momentum",
+        "StableAdamW normalized momentum beta1 squared beta2 impulse response"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed optimization records concern stochastic feedback curvature stability, Barzilai--Borwein objective frontiers, Nesterov objective spikes, and matrix-valued adaptive moments.",
+        "No returned record involves StableAdamW's current-gradient RMS gate or the exact impulse-tail envelope."
+      ],
+      "reasoning": "The closest records use different recurrences and detectors. Search absence is supporting evidence only and is combined with direct inspection of the defining StableAdamW paper and classical Adam theory.",
+      "searches": [
+        "StableAdamW zero gradient momentum tail clipping beta1 beta2 exact",
+        "StableAdamW update clipping current gradient zero stale momentum",
+        "StableAdamW normalized momentum beta1 squared beta2 impulse response",
+        "StableAdamW RMS clipping momentum blind spot",
+        "Adam beta1 squared beta2 impulse normalized momentum unbounded"
+      ]
+    },
+    "rationale": "The defining StableAdamW paper gives the current-gradient RMS detector, motivates it by out-of-date second moments, and reports that a momentum-squared numerator performed worse, but does not state the impulse-tail bypass or its sharp uniform boundary. Classical Adam theory already exposes the combination β2-β1² in moment-control arguments, so that inequality alone is treated as prior knowledge. The surviving contribution is the StableAdamW-specific exact bypass, positive-floor impulse envelope, and exact contrast with the source-discussed momentum detector.",
+    "residual_risks": [
+      "An unindexed StableAdamW implementation note may have observed the same zero-gradient-tail bypass.",
+      "The β1² versus β2 compatibility condition is classical Adam structure; originality rests on the StableAdamW-specific clipping implication and exact impulse envelope.",
+      "The theorem is scalar; per-tensor averaging can create additional cross-coordinate behavior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULE_AND_MOMENTUM_NUMERATOR_ABLATION_NOT_COVERING_EXACT_IMPULSE_TAIL_FRONTIER.",
+        "evidence": "The source states the current-gradient RMS detector and implementation floor, motivates clipping through stale second moments, and says the squared-momentum numerator was tried with worse empirical performance. No exact zero-gradient tail law or β1²=β2 uniform-boundary statement was found.",
+        "identifier_or_url": "arXiv:2304.13013v1 / NeurIPS 2023",
+        "material_read": "Full open-access PDF around Section 3.4, Algorithm 2, the out-of-date-second-moment discussion, Section 3.5, Appendix E.1 Q&A, and Appendix E.2 implementation considerations; Algorithm 2 and Appendix E.2 pages were visually inspected.",
+        "method": "Open-access full-text and page-image inspection.",
+        "title": "Stable and low-precision training for large-scale vision-language models",
+        "trigger": "Defining source for StableAdamW and the current-gradient RMS update-clipping rule."
+      },
+      {
+        "assessment": "BROADER_MOMENT_COUPLING_PRIOR_NOT_COVERING_STABLEADAMW_CURRENT_GRADIENT_CLIP_BYPASS.",
+        "evidence": "The proof explicitly exposes β2-β1² in controlling momentum by the second moment, establishing that the compatibility condition is not novel by itself. The paper predates StableAdamW and cannot imply its current-gradient detector behavior.",
+        "identifier_or_url": "arXiv:1904.09237v1",
+        "material_read": "Open-access PDF adaptive-method setup, Adam recurrence, nonconvergence analysis, and the proof passage bounding first momentum by the second moment through a factor containing β2-β1²; the relevant proof page was visually inspected.",
+        "method": "Open-access full-text and page-image inspection.",
+        "title": "On the Convergence of Adam and Beyond",
+        "trigger": "Broader Adam theory that could subsume the β1² versus β2 moment-ratio boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "836d623c-393d-41c9-b2ce-9ca3a469f5ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "StableAdamW was introduced specifically as a stability intervention for changing gradient statistics, and its defining paper explicitly debates whether the RMS numerator should use the current gradient or first momentum. The theorem quantifies the exact safety tradeoff behind that design choice: current-gradient clipping completely ignores stale momentum once the signal vanishes, while the rejected momentum detector would enforce a scalar update cap. The sharp β1²=β2 boundary also gives a concrete lower limit on how aggressively the second-moment memory can be shortened relative to first-moment memory if one wants uniform impulse-tail amplitude control. The source defaults lie safely on the bounded side, so the result is a design diagnostic rather than an unsupported practical-failure claim.",
+    "status": "PASS"
+  }
+}
