@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Original next-generation matrix reconstructed from the exact source equations. Population-diagonal similarity gives explicit symmetric H(p). Its normalized characteristic polynomial Q is reproduced exactly in the standalone verifier. Q_z>0 on the Perron root, L(0)=1, L′(0)=-r(1-a), and Q_pp=-2r(1-a)(1-b)(L-a)<0 at that root. Therefore every critical point is a strict minimum and two such points are impossible. Endpoint derivative Q_p(1)=(1-a)(3a-2)/4, with positive endpoint curvature when it vanishes, gives sharp alpha=2/3. Exact resultant and substitution determine pstar and the two invasion fractions; the smaller eigenvalue cannot be the 10/11 branch. This is an analytic argument for all claimed parameters. Finite numerical tests are not used as proof. p=1 only a matrix limit; no original-model claim at p=1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2402.00207v2, Theorems 2.1–2.2, Appendix A.1, Appendix C.1, https://arxiv.org/html/2402.00207v2",
+        "arXiv:2211.16137v1, §§2–4, https://arxiv.org/html/2211.16137v1",
+        "Moschen 2023 dissertation, bibliographic/abstract record, https://repositorio.fgv.br/items/f1a36cab-6196-498f-b679-84763dd5d0ce (full text access blocked)"
+      ],
+      "reasoning": "The primary source treats arbitrary K via rank-one bounds and numerically explores two-city mobility, but a bound and a histogram do not imply an at-most-one-critical-point theorem, an exact alpha threshold, or two exact R0=1 crossings. Rapaport–Mimouni addresses commuter-fraction minimization generally as a theme, but its different six-infection-state transmission model does not imply the present alpha-dependent statement. The dissertation is a genuine unresolved full-text risk, not classified as NOT_COVERING.",
+      "searches": [
+        "Optimal vaccination strategies on networks and in metropolitan areas Moschen Aronna commuting two cities reproduction number optimizer",
+        "capital suburbs SIR mixing matrix beta diagonal plus rank one eigenvalue commuting minimization",
+        "Moschen Aronna R0 p21 minimum",
+        "published-finding corpus published-search closest ID: 2026/9/14/SCOPE021"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2402.00207v2 full HTML, Eq. 1/Theorems 2.1-2.2/Appendices A-C",
+      "arxiv:2211.16137v1 full HTML, §§2-5",
+      "2023 Moschen dissertation publication listing + defense abstract (full text inaccessible)",
+      "2021 Lipshtat–Alimi–Ben-Horin Scientific Reports commuter framework",
+      "published-finding corpus published-search ID 2026/9/14/SCOPE021, SEIR E/I movement instead of commuter destination averaging",
+      "2025 Moschen–Aronna arxiv:2503.15154 abstract on vaccination bang-bang control, not a commuter threshold claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2402.00207v2, Theorems 2.1–2.2, Appendix A.1, Appendix C.1, https://arxiv.org/html/2402.00207v2",
+        "arXiv:2211.16137v1, §§2–4, https://arxiv.org/html/2211.16137v1",
+        "Moschen–Aronna [1], Appendix C.1 studies a distribution of R0 under randomized nighttime alpha and commuter p; [2] §4 studies another model with explicit commuter/return rates."
+      ],
+      "reasoning": "One-way P, the exact 2x2 normalized H, Q(z,p), and Q_pp<0 at the Perron eigenvalue jointly force general unimodality, then the limiting Qp gives alpha=2/3. None of the cited prior theorem statements contains that implication for this model. Only the broad possibility of lower R0 due to commuting is covered by [2], and has been excluded from the new claim.",
+      "searches": [
+        "two city alpha commuting rate p reproduction number strictly unimodal unique minimum all population and transmission contrast",
+        "sharp day-night fraction alpha equals two thirds threshold two city metropolitan R0 commuting minimizer",
+        "Optimal vaccination strategies on networks and in metropolitan areas Moschen Aronna commuting two cities reproduction number optimizer",
+        "two patch commuters reproduction number \"single minimum\" \"time\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2211.16137v1, §§2–4, https://arxiv.org/html/2211.16137v1",
+        "arXiv:2402.00207v2, Theorems 2.1–2.2, Appendix A.1, Appendix C.1, https://arxiv.org/html/2402.00207v2",
+        "published-finding corpus 2026/9/14/SCOPE021 concerns two-patch SEIR exposed/infected movement and R0 bracketing, not day-night residence-to-work averaging."
+      ],
+      "reasoning": "The closest commuter SIR paper gives an explicit two-patch threshold for six infection subgroups and separate switching rates, not a pair of residence-city infections governed by a fixed P and convex day/night weighting. Neither its threshold formula nor its minimization result is the present characteristic polynomial and its sharp alpha boundary. Inverse/population similarity of the present F was explicitly considered; it does not identify F with the prior movement generator.",
+      "searches": [
+        "two city alpha commuting rate p reproduction number strictly unimodal unique minimum all population and transmission contrast",
+        "two-city commuter epidemic next-generation spectral radius mobility fraction unique minimum interior optimal commuting",
+        "SIR commuting epidemic \"unimodality\" basic reproduction number",
+        "published-finding corpus published-search closest ID: 2026/9/14/SCOPE021"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2402.00207v2, Theorems 2.1–2.2, Appendix A.1, Appendix C.1, https://arxiv.org/html/2402.00207v2",
+        "published-finding corpus searches returned no known table/record containing the benchmark radicals, quartic elimination, or the 2/3 phase boundary."
+      ],
+      "reasoning": "The primary tables and Appendix C figures concern parameter choices and simulations, not a database of exact minimizing commuting fractions. The radical sqrt(3)-sqrt(2) and threshold (79±sqrt(2281))/220 were compared by actual text/semantic searches, not simply assumed new because their digits differ. A negative search does not establish absolute novelty.",
+      "searches": [
+        "sharp day-night fraction alpha equals two thirds threshold two city metropolitan R0 commuting minimizer",
+        "one way commuter city patch spectral radius optimal commuting fraction sqrt(3) minus sqrt(2)",
+        "two disjoint epidemic invasion commuting transition thresholds roots 79 plus minus sqrt2281 over 220",
+        "two-city commuter epidemic next-generation spectral radius mobility fraction unique minimum interior optimal commuting"
+      ]
+    },
+    "rationale": "The primary source derives bounds and numeric sensitivity but not the exact one-way commuter unimodality and 2/3 switching criterion; related two-patch commuting optimization already proves the qualitative surprising effect in a different switching-rate model, so that phenomenon is excluded. The algebraic optimizer and two crossings are not implied by cited prior statements. A 2023 same-author dissertation is unavailable in full and remains a material novelty risk.",
+    "residual_risks": [
+      "The earlier same-author 2023 dissertation full text could not be read because its repository blocks automated access; its uninspected contents could contain an equivalent commuter minimizer.",
+      "Unindexed commuting epidemiology or spectral matrix-optimization literature may contain the same structural formula; semantic queries cannot rule this out.",
+      "The source paper mixes continuous alpha-derived R0 with periodically switched alpha(t); the present theorem is restricted to constant alpha and no assertion is made for its switched analogue."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact one-way p unimodality, sharp alpha=2/3 phase boundary, or two threshold roots stated",
+        "evidence": "Source equations (1), (12)–(13), Theorems 2.1–2.2 and Figure C.21; all direct scientific statements are checked against the new formula.",
+        "identifier_or_url": "arxiv:2402.00207v2 / https://arxiv.org/html/2402.00207v2",
+        "material_read": "Full accessible arXiv HTML including Eq. (1), §2.2, Theorems 2.1–2.2, proof Appendix B, matrix derivation Appendix A, and Appendix C.1",
+        "method": "Read source sections and compared the exact F and P formulas and claimed inequalities against the new determinant identity and optimizer",
+        "title": "Optimal vaccination strategies on networks and in metropolitan areas",
+        "trigger": "Exact source of the two-city residence-city SIR threshold"
+      },
+      {
+        "assessment": "Qualitative counterintuitive commuter protection covered, but no model-equivalent sharp day/night commuter phase criterion found",
+        "evidence": "Source §2 separates permanent and moving resident groups and uses lambda_i/mu_i commute rates; §4 optimizes their different reproduction number.",
+        "identifier_or_url": "arxiv:2211.16137v1 / https://arxiv.org/html/2211.16137v1",
+        "material_read": "Full accessible arXiv HTML: model equations, §3 threshold, §4 optimization, §5 numerical illustrations",
+        "method": "Compared infected-state dimension, mobility-rate switching, presence/absence of alpha weighting, next-generation operators, and minimization implications",
+        "title": "The role of permanently resident populations in the two-patches SIR model with commuters",
+        "trigger": "Most relevant older competitor explicitly optimizing commuter proportions"
+      },
+      {
+        "assessment": "Unresolved potentially covering source; retained as explicit residual risk",
+        "evidence": "2023 dissertation publicly listed on author publication page, with description emphasizing reproduction-number bounds and optimal vaccination.",
+        "identifier_or_url": "2023 Master dissertation / https://repositorio.fgv.br/items/f1a36cab-6196-498f-b679-84763dd5d0ce",
+        "material_read": "Bibliographic and abstract/defense synopsis available; repository full text access denied by automated gate",
+        "method": "Compared only known abstract scope with present theorem; did not infer absence of theorem from abstract",
+        "title": "Optimal Vaccination Strategies for Epidemics in Metropolitan Areas",
+        "trigger": "Earlier precursor by the same author and potentially overlapping model"
+      },
+      {
+        "assessment": "Focuses on computational spatial commuting mechanisms rather than the same symbolic threshold theorem",
+        "evidence": "Different network-and-mobility intervention objective and no matching p-quadratic spectral optimizer in the inspected portions.",
+        "identifier_or_url": "2021 Scientific Reports / https://www.nature.com/articles/s41598-021-94672-w",
+        "material_read": "Accessible publisher overview and mathematical/methodological descriptions",
+        "method": "Checked its computational commuter network modification against the exact two-city alpha-weighted Perron optimizer",
+        "title": "Commuting in metapopulation epidemic modeling",
+        "trigger": "Nearby published commuter intervention framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "491c7a44-0615-4b77-9b5a-5dfa3755739b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-population-ratio unimodality lemma settles whether more one-way commuting can re-increase invasion risk, a natural unresolved question after the source’s metropolitan R0 bounds and mobility histograms. The exact alpha=2/3 crossover differentiates optimal partial commuting from the unattainable fully commuting limit. With beta1/(gamma+mu)=11/10 and alpha=0, two exact commuting thresholds create a genuine re-entrant disease-invasion classification, motivating targeted mobility policy. This is a structural result and threshold boundary, not a small arbitrary numeric gain or a renaming of a textbook eigenvalue inequality.",
+    "status": "PASS"
+  }
+}
