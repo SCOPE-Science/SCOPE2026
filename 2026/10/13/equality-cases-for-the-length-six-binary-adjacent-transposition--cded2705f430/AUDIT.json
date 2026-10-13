@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The domain contains exactly 64 binary words. Adjacent transpositions preserve Hamming weight, making different layers automatically compatible. For each layer, the verifier exhaustively enumerates every subset at the claimed maximum size and every subset one larger, so the layer maxima and numbers of equality cases are exhaustive. A separately constructed token-graph distance table agrees with direct error-ball intersection on every same-weight pair. All 7056 cross-layer products are then checked against the original channel definition, and the stated four-element symmetry action is evaluated on every maximum.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1711.03682v3 gives an all-length exact formula for the constant-weight-two packing number, but does not enumerate maximizing packing sets.",
+        "DOI:10.3934/math.2024571 studies the three-token path packing problem and reports packing-number results/constructions rather than a full equality-set census at length six."
+      ],
+      "reasoning": "A theorem determining the maximum size in a layer does not imply how many maximizers exist or force their precise members. The new claim depends on exhaustive equality-case structure in all seven layers, so the broader cardinality theorems do not dominate it.",
+      "searches": [
+        "binary length six code correct one adjacent transposition maximum 12 equality cases",
+        "weight 3 adjacent transposition binary code length 6 maximum 6 unique",
+        "DOI:10.3934/math.2024571",
+        "arXiv:1711.03682v3"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A057608",
+      "https://oeis.org/A265032/a265032.html",
+      "arXiv:1711.03682v3",
+      "DOI:10.3934/math.2024571",
+      "binary code correcting one adjacent transposition exact small length maximum classification",
+      "binary length six code correct one adjacent transposition maximum 12 equality cases",
+      "A057608 length 6 transposition code maximum 12 classification",
+      "single transposition correcting code n=6 exact 12 maximum codes",
+      "transposition graph binary code length six independence number 12",
+      "\"7056\" \"single adjacent transposition\" binary code",
+      "\"1tc.64\" maximum independent sets number",
+      "\"A057608\" equality cases length six"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The benchmark sources imply the global optimum 20 and the weight-layer separation.",
+        "For weight two, arXiv:1711.03682v3 implies the maximum layer size 4 at length six through its packing-number formula.",
+        "None of those statements implies that there are 14 weight-two maximizers, a unique weight-three maximizer, 7056 full maximizers, or 1810 orbits under the declared action."
+      ],
+      "reasoning": "The new statement is an equality-case classification. A sharp bound supplies necessary cardinalities but not the multiplicity or structure of the equality cases. The verifier establishes those extra assertions independently.",
+      "searches": [
+        "OEIS:A057608",
+        "https://oeis.org/A265032/a265032.html",
+        "arXiv:1711.03682v3",
+        "DOI:10.3934/math.2024571",
+        "single adjacent transposition equality cases maximum code length 6 7056"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS:A057608 identifies the same channel and maximum-size sequence.",
+        "Sloane's 1tc.64 benchmark identifies the same length-six problem as a 64-vertex independent-set problem and states optimum 20.",
+        "arXiv:1711.03682v3 identifies constant-weight single-adjacent-transposition codes with packing sets of path token graphs."
+      ],
+      "reasoning": "The comparison covered the coding, independent-set, packing-set, and token-graph formulations. Thus a change of vocabulary alone would not distinguish the claim from prior work. The prior sources determine maximum cardinalities, not the number and structure of all equality cases.",
+      "searches": [
+        "binary code correcting one adjacent transposition exact small length maximum classification",
+        "single transposition correcting code n=6 exact 12 maximum codes",
+        "transposition graph binary code length six independence number 12",
+        "A057608 length 6 transposition code maximum 12 classification",
+        "arXiv:1711.03682v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A057608 gives the length-six optimum 20 but no equality-case count.",
+        "Sloane's 1tc.64 page gives one size-20 example and the optimum, not a count of all maximum independent sets.",
+        "Focused searches on the exact census number, benchmark name, sequence identifier, and forced central layer returned no inspected equivalent record."
+      ],
+      "reasoning": "The exact benchmark tables checked record maximum cardinality, not maximum-set multiplicity. Failed search is not itself novelty proof; it is used only together with direct inspection of the most relevant benchmark page and primary papers.",
+      "searches": [
+        "\"7056\" \"single adjacent transposition\" binary code",
+        "\"length six\" \"single adjacent transposition\" code 20 7056",
+        "\"1tc.64\" maximum independent sets number",
+        "\"A057608\" equality cases length six",
+        "\"weight 3\" \"adjacent transposition\" binary code length 6 maximum 6 unique"
+      ]
+    },
+    "rationale": "The known size-20 optimum and weight decomposition are explicitly prior. The inspected primary full text establishes the constant-weight token-graph formulation and cardinality results, and the later three-token paper studies packing numbers, but no inspected source gives the complete length-six equality census or its structural refinements. Focused exact-number, alias, database, and implication searches found no equivalent or stronger published statement.",
+    "residual_risks": [
+      "An obscure or unindexed historical computation of the 1tc.64 benchmark may have enumerated all maxima without appearing in the inspected sources.",
+      "The later weight-three literature was compared at the level of its public article text and stated results; no claim is made that every document ever written about this benchmark was exhaustively searchable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the same channel and states the known length-six optimum 20; does not state the equality-case census.",
+        "evidence": "The record defines the maximum-size sequence, lists the value 20 at length six, links the constant-weight sequence, and dates the record to 2000-10-09.",
+        "identifier_or_url": "OEIS:A057608",
+        "material_read": "Definition, values, references, links, and dated author record.",
+        "method": "Direct public record inspection.",
+        "title": "OEIS A057608",
+        "trigger": "Exact sequence for binary codes correcting one adjacent transposition."
+      },
+      {
+        "assessment": "Same length-six graph and sharp optimum, but no enumeration or classification of all maximum independent sets.",
+        "evidence": "The page states that the graph decomposes by Hamming weight and that 1tc.64 has maximum independent-set size 20.",
+        "identifier_or_url": "https://oeis.org/A265032/a265032.html",
+        "material_read": "The single-transposition section including the weight decomposition, 1tc.64 optimum, and displayed size-20 example.",
+        "method": "Direct public page inspection.",
+        "title": "Challenge Problems: Independent Sets in Graphs",
+        "trigger": "Benchmark page linked from A057608 for the exact graph formulation."
+      },
+      {
+        "assessment": "Establishes the single-adjacent-transposition/token-graph equivalence and exact constant-weight-two maximum cardinalities, but not equality-case multiplicities.",
+        "evidence": "The paper states that a constant-weight code corrects one adjacent transposition exactly when it is a packing set of the corresponding token graph and gives an exact formula for the weight-two packing number.",
+        "identifier_or_url": "arXiv:1711.03682v3",
+        "material_read": "Abstract, introduction, token-graph equivalence, and main exact packing-number theorem; the first page was also visually inspected.",
+        "method": "Lawful open-access full-text inspection.",
+        "title": "The packing number of the double vertex graph of the path graph",
+        "trigger": "Primary full text for the constant-weight formulation and exact weight-two theorem."
+      },
+      {
+        "assessment": "Addresses packing numbers for the weight-three family, not the full equality-case count or the length-six unique maximizing set.",
+        "evidence": "The public article page identifies the constant-weight-three adjacent-transposition problem with packing in the three-token path graph and discusses exact/lower-bound cardinality questions.",
+        "identifier_or_url": "DOI:10.3934/math.2024571",
+        "material_read": "Public abstract/introduction and problem statement describing weight-three packing numbers and constructions.",
+        "method": "Publisher public page inspection.",
+        "title": "On the packing number of \\(k\\)-token graph of the path graph",
+        "trigger": "Later work on the weight-three token-graph problem, directly touching the forced central layer."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cded2705-f430-486e-9542-03ec842c0231",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 1tc.64 instance is a longstanding exact coding/independent-set benchmark. Knowing only that the optimum is 20 leaves the equality structure undetermined. The complete census reveals a natural rigidity/freedom split: the weight-three component is unique, while weights one, two, four, and five supply all multiplicity. The exact labeled count and symmetry-reduced orbit census are therefore motivated finite invariants and provide reproducible reference data for algorithms on adjacent-transposition codes and token-graph packings.",
+    "status": "PASS"
+  }
+}
