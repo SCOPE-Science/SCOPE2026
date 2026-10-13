@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The proof exactly follows the anchor's definitions. For \\(n<d\\), the logical complement has \\(d-n\\ge1\\) local edges. Since \\(p_{\\mathrm{net}}\\ge p_{\\mathrm{gate}}\\), monotonicity gives \\(-\\log p_{\\mathrm{net}}\\le-\\log p_{\\mathrm{gate}}\\), so the packet edge cannot exceed the complement cost. Strictness and the sole tie case are exhaustively characterized. The claim is expressly limited to the two-class comparison and therefore does not infer full MWPM correctness from this inequality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1310.0863v1"
+      ],
+      "reasoning": "Earlier surface-code work studies correlated decoding in general and uses matching-edge likelihood weights, but it predates this packet construction and does not imply the paper-specific comparison between a single network edge and the logical complement of a contiguous MGT packet.",
+      "searches": [
+        "surface code correlated edge packet size d-1 minimum weight matching teleportation",
+        "Optimal complexity correction of correlated errors in the surface code Fowler 2013"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.01342v2",
+      "arXiv:1310.0863v1",
+      "Pith:32W4HHKQ"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.01342v2, lines corresponding to Section III",
+        "Pith record 32W4HHKQ",
+        "arXiv:1310.0863v1"
+      ],
+      "reasoning": "The anchor asserts a correlation-aware maximum at half distance while simultaneously giving the packet edge cost and the complement construction. Extending that exact displayed comparison from the single value \\(n=\\lceil d/2\\rceil\\) to arbitrary \\(n<d\\) yields the new implication. The public review's objection is weaker: it notes lack of proof because third classes may win, not that the pairwise argument has no half-distance threshold.",
+      "searches": [
+        "2607.01342 d-1 packet teleportation",
+        "2607.01342 complement d-n",
+        "Design rules for fault-tolerant multi-gate teleportation correction",
+        "multi-gate teleportation ceil(d/2) correlation-aware"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.01342v2, Section III",
+        "Pith record 32W4HHKQ"
+      ],
+      "reasoning": "Searches included the exact source identifier plus correlation-aware, complement, packet-size, and all-n formulations. The closest source-specific public review says the ceiling is heuristic but does not derive the all-n packet-versus-complement inequality.",
+      "searches": [
+        "2607.01342 correlation-aware packet ceil d/2 local weight complement all n below d",
+        "multi-gate teleportation packet correlated error complement d-n gamma decoder"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No covering semantic-index record among the returned closest matches",
+        "arXiv:2607.01342v2, Eq. (1) and Section III weight comparison"
+      ],
+      "reasoning": "The exact source identifier and the proposed all-n implication were queried in the semantic findings index. Returned records were unrelated to quantum teleportation or surface-code matching. The anchor's own displayed formula is the exact object being compared, not a secondary summary.",
+      "searches": [
+        "2607.01342 correlation-aware packet ceil d/2 local weight complement all n below d",
+        "fault-tolerant multi-gate teleportation local pairwise weight threshold"
+      ]
+    },
+    "rationale": "Targeted semantic searches and source-specific web searches found the paper and a public review criticizing the unproved correlation-aware ceiling, but no source stating the stronger source-specific implication proved here: the paper's own two-class weight comparison favors the packet edge for every packet size strictly below the code distance. The 2013 correlated-surface-code paper supplies broader decoding context but has no multi-gate-teleportation packet/complement parameter or implication.",
+    "residual_risks": [
+      "A full detector-error-model analysis could impose a practical cutoff below \\(d\\); this is outside the claim.",
+      "An unindexed independent comment may have noticed the same all-\\(n\\) consequence of the source weights; targeted source-specific and semantic searches did not surface one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source explicitly labels the correlation-aware comparison heuristic. Its displayed pairwise inequality extends to every packet size below the full logical chain, so it does not support the stated half-distance ceiling.",
+        "evidence": "Section III gives \\(w_{\\mathrm{net}}=-\\log p_{\\mathrm{net}}\\), complement cost as a number of local edges times \\(-\\log p_{\\mathrm{gate}}\\), and \\(p_{\\mathrm{net}}\\ge p_{\\mathrm{gate}}\\) as the favored regime.",
+        "identifier_or_url": "arXiv:2607.01342v2",
+        "material_read": "Full HTML Sections II-III, design rule, conclusion, and limitations, including the packet-edge and complement weights.",
+        "method": "Reconstructed the logical-complement syndrome relation and applied the displayed weights for arbitrary packet size rather than only at the half-distance case.",
+        "title": "Design rules for fault-tolerant multi-gate teleportation",
+        "trigger": "Exact anchor and source of the advertised correlation-aware ceiling."
+      },
+      {
+        "assessment": "It supplies general correlated-decoding context but no multi-gate-teleportation packet, no \\(d-n\\) logical-complement comparison, and no half-distance design rule of this type.",
+        "evidence": "The paper studies generic correlated surface-code error suppression and equal matching-edge weights, predating the 2026 packet architecture.",
+        "identifier_or_url": "arXiv:1310.0863v1",
+        "material_read": "Abstract and opening discussion of equal edge weights and correlation-aware matching.",
+        "method": "Checked whether the older work already contains the MGT packet/complement threshold or an implication dominating it.",
+        "title": "Optimal complexity correction of correlated errors in the surface code",
+        "trigger": "The anchor cites Fowler for correlated surface-code decoding and matching behavior."
+      },
+      {
+        "assessment": "The review says the half-distance extension is heuristic because third matching classes are not excluded. It does not state that the displayed two-class comparison itself favors every \\(n<d\\).",
+        "evidence": "The review asks for a proof or counterexample to the ceiling and focuses on possible third matchings and limited simulations.",
+        "identifier_or_url": "Pith:32W4HHKQ",
+        "material_read": "Desk verdict and major objections concerning the correlation-aware ceiling.",
+        "method": "Compared the objection statement with the new all-parameter implication.",
+        "title": "Pith review of Design rules for fault-tolerant multi-gate teleportation",
+        "trigger": "Closest public source-specific criticism located by exact-title searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fc30ec7-34c2-451c-877f-108e3e4cabcb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper presents \\(n_{\\max}^{\\mathrm{corr}}=\\lceil d/2\\rceil\\) as a central design rule and motivates it by the local packet-versus-complement comparison. Showing that the same comparison actually favors every \\(n<d\\) changes the logical interpretation of that design rule: any genuine upper boundary below \\(d\\) must be justified by global matching alternatives or multi-fault effects. This is a substantive boundary correction, not a notation change or a routine recomputation.",
+    "status": "PASS"
+  }
+}
