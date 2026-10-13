@@ -1,0 +1,84 @@
+{
+  "correctness": {
+    "rationale": "For each incomplete part V_i, an outside vertex has exactly |S|-|S cap V_i| neighbors in S, so 1-fairness is equivalent to |S|-s_i=1 on every incomplete part. Two incomplete parts force |S|<=2; one incomplete part forces all full parts together to have one vertex. These cases give the exact proper-set classification. The partition conclusions then follow directly. Exhaustive checking of all multipartite profiles and all set partitions through order 7 agrees with the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2507.15080 studies paths, cycles, and small cubic graphs; it records K_{3,3} only because it is cubic of order six.",
+        "No searched source stated a theorem covering all complete bipartite or complete multipartite graphs for the fair coalition number."
+      ],
+      "reasoning": "The general theorem here includes every complete graph, every complete bipartite graph, and all multipartite graphs with at least three parts, so the isolated K_{3,3} value is a strict special case.",
+      "searches": [
+        "fair coalition complete bipartite K_m_n",
+        "fair coalition number complete multipartite graph 1-fair dominating sets"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.15080",
+      "Published record: Fair domination polynomial of complete multipartite graphs (statement-level comparison from indexed summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.6 of arXiv:2507.15080 gives only the upper bound C_f(G)<=n-gamma_f(G)+2.",
+        "For K_{3,3}, the paper notes equality with value 6, but the bound does not imply the r>=3 collapse to 2 or the star nonexistence boundary."
+      ],
+      "reasoning": "General bounds and the classification of fair dominating sets do not by themselves prove the maximum partition size; the proof needs the fact that, for r>=3 noncomplete graphs, any coalition union of two non-fair blocks must be all of V(G), forcing exactly two blocks.",
+      "searches": [
+        "fair coalition complete bipartite K_m_n",
+        "1-fair domination complete multipartite coalition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The initiating paper arXiv:2507.15080 defines fair coalition partitions and contains no complete-multipartite theorem; its complete-bipartite occurrence is the isolated K_{3,3} example.",
+        "The closest indexed complete-multipartite result is titled 'Fair domination polynomial of complete multipartite graphs' and concerns fair dominating sets rather than coalition partitions."
+      ],
+      "reasoning": "A formula for fair dominating sets alone does not determine whether a vertex partition can pair its non-fair blocks into fair unions. The new statement classifies those unions and derives both existence and the extremal number of blocks.",
+      "searches": [
+        "fair coalition number complete multipartite graph 1-fair dominating sets",
+        "complete multipartite fair coalition partition",
+        "1-fair domination complete multipartite coalition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The initiating paper's small-cubic tables do not constitute a table for complete multipartite graphs.",
+        "The database searches returned fair-domination and unrelated coalition results but no multipartite fair-coalition table."
+      ],
+      "reasoning": "The claim is not a recomputation of a known table; it is an infinite analytic classification.",
+      "searches": [
+        "complete multipartite fair coalition partition",
+        "star no fair coalition partition"
+      ]
+    },
+    "rationale": "Targeted semantic searches for fair coalition number, complete multipartite graphs, complete bipartite graphs, 1-fair domination, and the star existence boundary found no prior exact multipartite coalition classification. The initiating paper was inspected in full around the definitions, general bound, family sections, and its only complete-bipartite mention: K_{3,3} is an example with value 6, not a general theorem. The closest published mathematical result found classifies fair dominating sets of complete multipartite graphs, not fair-coalition partitions; it does not imply the partition-existence trichotomy without the new coalition argument.",
+    "residual_risks": [
+      "A poorly indexed equivalent coalition-partition theorem under different terminology could have escaped semantic search.",
+      "The closest complete-multipartite fair-domination record could not be opened at its repository URL during this run; comparison therefore uses its indexed mathematical statement, while the primary fair-coalition paper itself was inspected in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and general bounds; gives K_{3,3} as a single example but no complete-multipartite classification.",
+        "evidence": "The PDF lists AMS 05C25,05C60 and first-public arXiv date 2025-07-20. Remark 2.7 records C_f(K_{3,3})=6; full-text search finds no complete-multipartite theorem.",
+        "identifier_or_url": "arXiv:2507.15080",
+        "material_read": "Title page and AMS classification; Definitions 2.1-2.3; Theorems 2.4 and 2.6; Remark 2.7; path/cycle section; cubic-family section; full-text searches for complete bipartite, complete multipartite, star, and relevant notation.",
+        "method": "Full-text PDF inspection plus page-image inspection of the title page.",
+        "title": "Fair coalition in graphs",
+        "trigger": "Defining paper for the invariant and closest primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a51699f3-7bef-44fa-80a9-04791fd04e20",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fair coalition number was introduced recently and its partition behavior is not determined by the scalar fair-domination number. Complete multipartite graphs are a canonical test family, and the result reveals a sharp qualitative boundary: maximal singleton partitions on cliques and non-star bicliques, collapse to two blocks once a third part is present, and complete failure of partition existence exactly for nontrivial stars. The existence obstruction is also useful for clarifying when the newly defined parameter is actually realized.",
+    "status": "PASS"
+  }
+}
