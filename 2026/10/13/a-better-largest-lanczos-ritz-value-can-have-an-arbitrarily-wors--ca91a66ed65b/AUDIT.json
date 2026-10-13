@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For A_epsilon=diag(1,1+epsilon,2) and normalized start proportional to (1,1,epsilon), the first Ritz residual has the exact squared norm epsilon^2(epsilon^2-2epsilon+3)/(epsilon^2+2)^2. A stable basis of K_2 is u_epsilon=(1,1,epsilon)^T and w_epsilon=(-1,0,1-epsilon)^T. Its exact Gram and projected matrices converge to a definite pencil with generalized eigenvalues 1 and 5/3; the simple top Ritz vector converges to (-1,1,2)^T/sqrt(6), whose residual norm is sqrt(2)/3. Hence the residual ratio is asymptotic to 2sqrt(6)/(9epsilon). Rayleigh--Ritz maximality gives theta_epsilon>rho_epsilon, while e_3 is not in K_2, so theta_epsilon<2. In dimensions below three, the second Krylov space is either unchanged or the full space, making a nonzero second Ritz residual impossible.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jia--Stewart show that Ritz-value convergence alone does not ensure Ritz-vector convergence and use a vanishing residual as an additional sufficient diagnostic; they introduce refined Ritz vectors to minimize residuals within the subspace.",
+        "Paige--Panayotov state the exact Hermitian Lanczos recurrence and standard Ritz-pair residual machinery before studying finite-precision Ritz-vector lengths.",
+        "Near-breakdown literature located in search is primarily about nonsymmetric Lanczos or finite-precision stability, not exact-arithmetic residual monotonicity of extremal Ritz extraction."
+      ],
+      "reasoning": "These sources broadly cover why residuals and spectral separation matter, but they do not dominate the present claim because they do not compare the largest Ritz residual at consecutive nested Krylov dimensions under fixed matrix conditioning.",
+      "searches": [
+        "On the Convergence of Ritz Values Ritz Vectors and Refined Ritz Vectors",
+        "Hessenberg Matrix Properties and Ritz Vectors in the Finite-Precision Lanczos Tridiagonalization Process",
+        "Lanczos Ritz residual nonmonotone nested Krylov subspace 3x3",
+        "Ritz residual near breakdown Lanczos"
+      ]
+    },
+    "checked_sources": [
+      "UMIACS-TR-99-08",
+      "doi:10.1137/100796285",
+      "published-record:7f8adc00c4c0",
+      "published-record:3f4cca8affa4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published spectral-filter theorem bounds residual distortion for a prescribed filter by its gain dynamic range; it does not show which data-dependent degree-one filter the largest Rayleigh--Ritz extraction selects near Lanczos breakdown.",
+        "The Lanczos convexification record concerns a Ritz-value threshold used to certify curvature, not residual evolution.",
+        "Jia--Stewart's residual theorem is conditional: a vanishing Ritz residual plus a converging Ritz value implies vector convergence. It does not make the residual monotone as the subspace grows."
+      ],
+      "reasoning": "Deriving the final claim requires solving the singular limit of the adaptive two-step Rayleigh--Ritz problem. The prior statements neither imply the top Ritz residual limit sqrt(2)/3 nor the ratio 2sqrt(6)/(9epsilon), and they do not establish dimension-three minimality.",
+      "searches": [
+        "sharp Rayleigh residual distortion spectral filter normal matrix",
+        "Lanczos proximal convexification Ritz certificate",
+        "Ritz value converges residual Ritz vector Jia Stewart",
+        "Hermitian Lanczos exact recurrence Ritz residual Paige Panayotov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned results on spectral-filter residual distortion, Lanczos convexification certificates, Richardson transients, and other iterative-method diagnostics, but no statement matching the one-to-two-step largest-Ritz residual asymptotic.",
+        "Web searches combining Lanczos, Ritz residual, nested subspaces, near breakdown, and monotonicity found standard convergence and finite-precision literature but no fixed-condition-number three-dimensional construction with the displayed asymptotic.",
+        "The inspected Rayleigh--Ritz report discusses convergence and residual conditions but contains no monotonic-residual statement."
+      ],
+      "reasoning": "Equivalent coverage would need the same extremal Ritz selection on nested Krylov spaces, exact arithmetic, a uniformly conditioned SPD family, and either the divergent residual ratio or a stronger theorem implying it. Qualitative warnings that Ritz vectors can behave erratically do not imply the explicit asymptotic, and a prescribed-filter theorem does not determine the filter chosen adaptively by Rayleigh--Ritz.",
+      "searches": [
+        "two-step Lanczos largest Ritz residual arbitrarily larger than initial Rayleigh residual condition number 2",
+        "Lanczos largest Ritz value improves residual norm increases unbounded 3x3 SPD",
+        "Rayleigh Ritz nested Krylov residual nonmonotonic largest Ritz value condition number two",
+        "near breakdown symmetric Lanczos Ritz residual spike exact arithmetic",
+        "Lanczos K2 Ritz residual clustered eigenvalues fixed condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant or matching 3x3 family was located.",
+        "The asymptotic constant follows from an exact limiting symmetric definite pencil rather than a numerical table."
+      ],
+      "reasoning": "The finding is a symbolic singular-perturbation construction with exact limiting Ritz data and a minimal-dimension proof, not a recomputation of an existing benchmark.",
+      "searches": [
+        "\"Lanczos\" \"condition number 2\" \"Ritz residual\"",
+        "\"largest Ritz\" residual increase Lanczos",
+        "\"2 sqrt(6)\" Lanczos Ritz residual"
+      ]
+    },
+    "rationale": "Classical Rayleigh--Ritz/Lanczos theory, residual-based Ritz-vector diagnostics, near-breakdown terminology, and generic spectral-filter residual distortion are treated as prior work. The full Jia--Stewart report was inspected through its Rayleigh--Ritz definition, Ritz-value and Ritz-vector convergence theorems, residual bounds, refined Ritz construction, and discussion. The Paige--Panayotov source was inspected through its exact Hermitian Lanczos setup and Ritz-residual framework. Neither inspected source states the fixed-condition-number-three-dimensional family, the divergent one-to-two-step largest-Ritz residual ratio, the simultaneous strict Ritz-value improvement, or the dimension-three minimality. Focused published-record searches did not locate an implication-equivalent statement.",
+    "residual_risks": [
+      "Older Lanczos near-breakdown literature is extensive, and an equivalent three-dimensional exact-arithmetic example may exist under different terminology.",
+      "The result compares the extremal Ritz pair selected independently at two nested dimensions; it is not a same-branch eigenvector continuation theorem.",
+      "The nearby prescribed-spectral-filter result is conceptually related, although the adaptive Rayleigh--Ritz selection and the fixed-condition-number minimal family are not supplied by it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: establishes the extraction and residual framework and explicitly separates Ritz-value convergence from Ritz-vector behavior, but no located result compares residual norms at successive nested Krylov dimensions or gives the present family.",
+        "evidence": "The report defines the Rayleigh--Ritz procedure, states that a Ritz value can converge while a Ritz vector behaves erratically, proves a residual-based sufficient bound for vector convergence, and motivates refined Ritz vectors by residual minimization.",
+        "identifier_or_url": "UMIACS-TR-99-08 / CS-TR-3986",
+        "material_read": "The complete 12-page repository PDF was inspected through the Rayleigh--Ritz definition, Ritz-value convergence section, Ritz-vector residual bound, the discussion of Ritz-vector failure, the refined Ritz construction, and the concluding discussion; the title/introduction and residual-bound pages were visually rendered.",
+        "method": "Lawful open full-text PDF inspection with rendered-page verification and targeted searches for residual, Krylov, and monotonicity terminology.",
+        "title": "On the Convergence of Ritz Values, Ritz Vectors, and Refined Ritz Vectors",
+        "trigger": "Closest open full source on Rayleigh--Ritz extraction, Ritz residuals, and the possibility that Ritz values and Ritz vectors have different convergence behavior."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: supplies primary MSC 65F15 and the exact Lanczos/Ritz framework but focuses on finite-precision Ritz-vector lengths rather than exact-arithmetic stepwise residual monotonicity.",
+        "evidence": "The paper lists AMS 65F15 first and writes the theoretical exact recurrence AV_k=V_kT_k+v_{k+1}beta_{k+1}e_k^T before defining Ritz values and vectors. The inspected sections do not state the one-to-two-step residual comparison.",
+        "identifier_or_url": "doi:10.1137/100796285",
+        "material_read": "The first eight pages of the full 16-page article were inspected, including the abstract, AMS classifications, exact Hermitian Lanczos recurrence, theoretical Ritz vector definition, residual estimate discussion, and the beginning of the Hessenberg analysis.",
+        "method": "Authorized full-text PDF inspection after open-access retrieval attempts did not yield the article body.",
+        "title": "Hessenberg Matrix Properties and Ritz Vectors in the Finite-Precision Lanczos Tridiagonalization Process",
+        "trigger": "Primary Lanczos source with verified MSC ownership and explicit exact Hermitian Lanczos/Ritz setup."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ca91a66e-d65b-44cd-8e28-525e9bf4f945",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Largest Ritz values enjoy a variational monotonicity property, while Ritz residuals are standard convergence and stopping diagnostics in Hermitian eigensolvers. The finding shows that these two natural indicators can diverge maximally in relative terms at an exact-arithmetic near-breakdown: the matrix condition number remains two, the largest Ritz value strictly improves, yet the residual ratio is unbounded. The minimal dimension, explicit asymptotic constant, and mechanism through a clustered spectrum make this a motivated boundary phenomenon rather than an arbitrary small example.",
+    "status": "PASS"
+  }
+}
