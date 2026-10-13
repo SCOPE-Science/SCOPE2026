@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For arbitrary Euclidean frames, the cluster lemma identifies a single complete successor cluster beyond every serial root. The two structural inductions reduce all one-variable formulas to exactly twelve observable pointed signatures, all realized and separated by six modal tests. Normality and binary additivity on the five-world witness reduce the admissible signatures to a singleton-union operator; an explicit two-valuation equality forces the only nontrivial coefficient inequality. The matching twelve formulas preserve arbitrary unions, and a dead-end witness separates the final bit. The complete proof is not inferred from experiments. The embedded `verify.py` passed all 354 Euclidean frames of order at most four and counted twelve admissible classes among 4096 Boolean functions of the signatures.
+
+**Originality — PASS, subject to the stated literature risk.** Dvorkin (2026) proves the adjacent classification for \(\mathsf K,\mathsf{GL},\mathsf{Grz},\mathsf{S4},\mathsf{S5}\), including just three normal additive classes in \(\mathsf{S5}\), but not for \(\mathsf{K5}\). Shapirovsky (2018) records the established local tabularity of \(\mathsf{K5}\) but does not specify the exact one-generated cardinality or twelve normal additive operations. Targeted published-record, equivalent-formulation, and primary-literature searches did not locate the same theorem. This is evidence of a noncovered statement, not proof of uniqueness: older algebraic computations of the free one-generator \(\mathsf{K5}\)-algebra may exist.
+
+**Value — PASS.** The exact classification closes a natural gap in a recent systematic program on normal additive modal interpretations. It yields a sharp operator census, identifies every possible parameter-free translation target in \(\mathsf{K5}\), and gives a structural complete-additivity collapse on Euclidean frames. The count of 4096 is a precise natural invariant, not an arbitrary finite slice, and generalizes the established qualitative local-tabularity information.
+
+No result is asserted for formulas with extra parameters or for non-Euclidean frames. Finite-model experiments are supporting reproducibility checks only. A separate human literature assessment and external proof audit would remain useful.
+
+Self-review: passed. Independent audit: not yet performed.
