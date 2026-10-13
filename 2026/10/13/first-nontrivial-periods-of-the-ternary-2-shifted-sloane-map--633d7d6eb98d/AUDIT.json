@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Each asserted orbit is verified directly from its ternary expansion. Minimality is genuinely finite: every start \\(1\\le n<4096\\) is iterated by an exact arithmetic implementation until repetition, and the only starts lying on their resulting cycles are \\(36,64,72,144,288,1152\\). All starts repeat within eight steps and no trajectory in the census exceeds \\(41472\\). The separate direct check proves that \\(4096,10368,4608\\) are distinct and form a 3-cycle.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The focal paper says complete cycle descriptions are obtained for \\(t=1\\), while Theorem 15 only conditionally proves eventual cycling for \\(S_{2,3}\\).",
+        "The same paper describes Wagstaff's original shifted-digit work as the special base-10 case."
+      ],
+      "reasoning": "Neither the focal stabilization theorem nor the earlier base-10 theory implies which periodic points are smallest in \\(S_{2,3}\\), so they do not dominate the finite extremal claim.",
+      "searches": [
+        "arXiv:2009.01114 cycle fixed points t=2 base 3",
+        "Iterating the Product of Shifted Digits Wagstaff base 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2009.01114v1",
+      "JIS:20.10.7",
+      "OEIS:A335808",
+      "OEIS:A335824",
+      "targeted exact-map and exact-cycle web searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source asks what the cycles and fixed points are and states that its precise answer applies to \\(t=1\\).",
+        "Theorem 15, conditional on an equidistribution conjecture, says every \\(S_{2,3}\\)-orbit reaches some cycle or fixed point; it does not determine which cycles occur.",
+        "The new finite census identifies exact least periodic representatives without assuming the equidistribution conjecture."
+      ],
+      "reasoning": "Existence of eventual periodicity, even if assumed, does not imply the identity or minimal representatives of the cycles. The new claim supplies those first exact extremal data by exhaustive finite dynamics.",
+      "searches": [
+        "Bonuccelli Colucci de Faria Question cycles fixed points",
+        "Bonuccelli Colucci de Faria Theorem 15 S2,3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantically matched research record stated the \\(64\\leftrightarrow72\\) or \\(4096\to10368\to4608\\) extremal cycles.",
+        "Exact web searches for the cycle values together with shifted-Sloane terminology did not return a mathematical source stating the claim."
+      ],
+      "reasoning": "The claim was searched both in map notation and in the equivalent language of shifted digit-product persistence, with and without the explicit cycle values.",
+      "searches": [
+        "S_{2,3} shifted Sloane cycles 64 72",
+        "shifted Sloane base 3 t=2 cycles fixed points",
+        "2-shifted Sloane map base 3 periodic points",
+        "multiplicative persistence shifted digits 2 base 3 64 72"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS entries linked by the focal paper concern nonzero multiplicative persistence and the 1-shifted base-10 problem, not \\(S_{2,3}\\).",
+        "No exact database entry for the periodic points of the ternary 2-shifted map was located."
+      ],
+      "reasoning": "The exact database objects cited by the focal paper were checked for a table that could already encode these cycle minima; the relevant listed sequences concern different maps.",
+      "searches": [
+        "site:oeis.org shifted Sloane base 3 2",
+        "site:oeis.org S_{2,3} persistence",
+        "OEIS shifted Sloane 2-shifted"
+      ]
+    },
+    "rationale": "The 2020 focal paper explicitly frames cycle identification as a basic question and says precise cycle classification is obtained for shift \\(t=1\\), not for \\(t=2\\). Its \\(S_{2,3}\\) theorem concerns conditional stabilization, not the periodic-point census. Exact searches for the map and the numerical cycles found no published or database statement of the two least-period thresholds.",
+    "residual_risks": [
+      "Small periodic cycles may have been computed informally or in unindexed code without a citable mathematical statement.",
+      "The claim is intentionally finite and does not address the complete periodic set.",
+      "The focal paper's later revisions could contain minor computational remarks not indexed by exact-value search; the inspected journal full text does not state the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper defines \\(S_{2,3}\\) and conditionally proves eventual stabilization but does not state the periodic set below \\(4096\\), the 64--72 cycle, or the 4096 period-3 minimum.",
+        "evidence": "Section 3 says precise cycle descriptions are obtained for \\(t=1\\); Theorem 15 treats \\(S_{2,3}\\) only via conditional stabilization.",
+        "identifier_or_url": "arXiv:2009.01114 / JIS 20.10.7",
+        "material_read": "Definitions and notation; the four questions in Section 3; Theorem 7 on \\(t=1\\); Theorem 15 and its base-3 proof; final discussion; bibliography and MSC metadata.",
+        "method": "Full-text open-access PDF and arXiv metadata inspection, including visual inspection of the definition/question page and the Theorem 15 page.",
+        "title": "On the Erdős-Sloane and Shifted Sloane Persistence Problems",
+        "trigger": "Primary source for the \\(t\\)-shifted Sloane map and the unresolved cycle-classification question beyond \\(t=1\\)."
+      },
+      {
+        "assessment": "A335808 is nonzero multiplicative persistence and A335824 is 1-shifted base-10 persistence; neither is the ternary 2-shifted map.",
+        "evidence": "Their definitions use different maps and therefore do not table the claimed \\(S_{2,3}\\) cycles.",
+        "identifier_or_url": "OEIS:A335808; OEIS:A335824",
+        "material_read": "Current names, comments, links, and definitions of the two directly searchable entries.",
+        "method": "Database-page inspection.",
+        "title": "OEIS entries cited by the focal paper",
+        "trigger": "Possible exact tables of persistence or cycles associated with the focal paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "633d7d6e-b98d-4db1-826b-6b842cea74a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The focal paper identifies cycle classification as one of the basic dynamical questions and leaves the \\(t=2\\) case without such a description. The least non-fixed cycle and the least period-\\(3\\) cycle are natural exact invariants of this first unresolved shifted ternary map, not arbitrary bounded examples. The result also provides a compact regression benchmark for future unconditional work on \\(S_{2,3}\\): any proposed classification must contain exactly the six periodic points below \\(4096\\) and the displayed first 3-cycle.",
+    "status": "PASS"
+  }
+}
