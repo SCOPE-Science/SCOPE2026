@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The normalized SAG scalar conditional moments follow by averaging the replaced table entry. Direct symbolic expansion proves a positive-definite energy with exact drift (s-2)x² for all n≥2, yielding summability below s=2 and a conserved nonzero expected energy at s=2. For s>2, det(I-T)=-2s(s-2)/n³<0 forces a real eigenvalue above one; four achievable deterministic initial moment vectors span all second moments, so universal mean-square convergence would contradict this eigenvalue. Orthogonal eigendecomposition extends the iff assertion to all SPD H.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmidt–Le Roux–Bach (2013/2016), arXiv:1309.2388, Mathematical Programming DOI:10.1007/s10107-016-1030-6",
+        "Morin–Giselsson (2019/2022), arXiv:1903.09009, Numerical Algorithms DOI:10.1007/s11075-022-01280-4"
+      ],
+      "reasoning": "Generic sufficient bounds for heterogeneous smooth finite sums apply to identical SPD examples only for a smaller stepsize interval; they do not imply convergence up to the exact spectral boundary nor necessity above it. Generic full-gradient descent covers no stochastic memory process.",
+      "searches": [
+        "\"SAG convergence optimal step sizes identical quadratic gradients sharp rate n finite sum\"",
+        "\"SAG mean square stability bound 1/(2L) Morin Giselsson bias cocoercivity\""
+      ]
+    },
+    "checked_sources": [
+      "Le Roux–Schmidt–Bach (2012), arXiv:1202.6258v1, earliest public SAG preprint.",
+      "Schmidt–Le Roux–Bach (2013/2016), arXiv:1309.2388, Mathematical Programming DOI:10.1007/s10107-016-1030-6",
+      "Morin–Giselsson (2019/2022), arXiv:1903.09009, Numerical Algorithms DOI:10.1007/s11075-022-01280-4",
+      "SAGA (Defazio et al., arXiv:1407.0202) is a different unbiased method, not a direct implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schmidt–Le Roux–Bach establish convergence for conservative stepsizes in the general strongly convex finite-sum class, not the necessary-and-sufficient all-initialization interval on identical quadratic components.",
+        "Morin–Giselsson improve general sufficient criteria in a different framework, but their inequalities remain insufficient to prove the present sharp upper endpoint."
+      ],
+      "reasoning": "Neither prior statement has hypotheses and conclusion strong enough to entail the full \\(0<\\eta\\lambda_{max}<2\\) iff result; the exact Lyapunov identity and determinant supply both new required implications. This remains subject to possible undiscovered stronger source coverage.",
+      "searches": [
+        "\"Minimizing Finite Sums with the Stochastic Average Gradient\" theorem step size 1/16 L",
+        "\"Cocoercivity smoothness bias variance reduced stochastic gradient methods\" SAG step size condition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2012 preprint is the earliest identified public SAG source, and its later complete available manuscript retains the refresh-then-average update.",
+        "The original algorithm is the refresh-then-average biased SAG method, not unbiased SAGA; the current proof handles the exact conditional four-moment operator.",
+        "Morin–Giselsson treat biased SVAG/SAG in a cocoercive convergence framework without an equivalent all-initialization exact identical-Hessian criterion in the inspected text."
+      ],
+      "reasoning": "The theorem can also be phrased as asymptotic mean-square stability of a randomly switched augmented linear system. Searched both algorithmic and linear-moment formulations; no inspected source gave this equivalence as a known theorem. The absence of a match is not proof of uniqueness.",
+      "searches": [
+        "\"SAG stochastic average gradient exact mean square stability quadratics identical components 2 step size\"",
+        "\"stochastic average gradient SAG all component functions equal quadratic exact stability boundary alpha L 2 memory table Lyapunov second moments\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The statement is a symbolic result for every integer memory size, every SPD matrix dimension, and a continuum of stepsizes; no finite tabulation constitutes this claim."
+      ],
+      "reasoning": "A table of finite sample-count experiments could not dominate the quantified proof. Searches for an exact table or previously tabulated two-component threshold did not identify one. A prior symbolic classification would cover it if found; none was verified.",
+      "searches": [
+        "\"stochastic average gradient SAG all component functions equal quadratic exact stability boundary\"",
+        "\"SAG finite sum two sample equal curvature quadratic exact second moment cubic characteristic polynomial\""
+      ]
+    },
+    "rationale": "The 2012 original SAG preprint, 2013 extended analysis, and later bias/cocoercivity treatment provide conservative sufficient general stepsize theory, not a matching sharp all-table-length necessary-and-sufficient result in the inspected text. Searches covered SAG aliases, second moments, memory, equivalence to full gradient, and linear switched systems. No dominating claim was established, but an older equivalent linear-system theorem remains a plausible residual risk.",
+    "residual_risks": [
+      "A pre-existing exact mean-square stability result for the same augmented SAG recursion could be expressed under jump-linear system or incremental aggregated gradient terminology.",
+      "Literature search does not certify global uniqueness or unpublished-result independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original SAG algorithm and general sufficient convergence theory, not an all-iterate and arbitrary-memory sharp iff stability characterization on identical SPD quadratics.",
+        "evidence": [
+          "First arXiv public submission is 2012-02-28; later v4 of the same work reproduces the memory update and general sufficient rates.",
+          "Version-specific claim of exact all-n threshold was not found in the inspected complete later text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.6258",
+        "material_read": "ArXiv dated version history, algorithm form as reproduced in subsequent openly available manuscript, convergence proof and step-size discussion in public v4 PDF",
+        "method": "Original arXiv version chronology and open-access later-version full-text PDF with inspected page image",
+        "title": "A Stochastic Gradient Method with an Exponential Convergence Rate for Finite Training Sets",
+        "trigger": "Earliest public SAG algorithm and possible stronger precedent"
+      },
+      {
+        "assessment": "Introduces exactly the refresh-before-average SAG update and supplies general sufficient rates but does not assert all-initialization iff cutoff 2 on identical SPD components.",
+        "evidence": [
+          "Theorem 1 uses stepsize \\(1/(16L)\\) for general convex finite sums.",
+          "Section 4.5 reports empirical use of larger \\(1/L\\) steps and notes lack of theoretical analysis for them."
+        ],
+        "identifier_or_url": "https://www.di.ens.fr/~fbach/sag_mathprog.pdf",
+        "material_read": "Algorithm statement and update ordering, Theorem 1, Section 4.5 large-stepsize discussion, primary MSC header, and relevant appendices context",
+        "method": "Direct author-available complete-paper PDF, page images and text extraction",
+        "title": "Minimizing Finite Sums with the Stochastic Average Gradient",
+        "trigger": "Primary original algorithm, potentially dominating rate theorem"
+      },
+      {
+        "assessment": "Analyzes SVAG/SAG general sufficient conditions; does not imply the exact upper boundary on identical SPD quadratics with arbitrary stored memories.",
+        "evidence": [
+          "The stated conditions are sufficient and use generic smoothness and bias parameters, rather than an all-initialization sharp characterization."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-022-01280-4",
+        "material_read": "Abstract, algorithm descriptions, convergence statements including Theorem 3.8, discussion of gradient versus operator assumptions",
+        "method": "Read open-access publisher article in full-text HTML",
+        "title": "Cocoercivity, smoothness and bias in variance-reduced stochastic gradient methods",
+        "trigger": "Potentially stronger published SAG bound and general bias analysis"
+      },
+      {
+        "assessment": "First public preprint dated 2013-09-10; establishes archive source date, not the claimed theorem.",
+        "evidence": [
+          "arXiv 1309.2388 v1 first submitted 2013-09-10, later updated 2016-05-11."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1309.2388",
+        "material_read": "ArXiv version chronology and title/abstract; compared to author-available full mathematical-programming text for the detailed theorems",
+        "method": "Public first-submission arXiv record and linked lawful author manuscript",
+        "title": "Minimizing Finite Sums with the Stochastic Average Gradient (initial preprint)",
+        "trigger": "Earliest date and original preprint version"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "89238137-66bd-4214-83bf-593264a42af4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp n-independent stability ceiling for a genuinely random stale-table method is not a textbook deterministic gradient descent consequence. The exact quadratic energy supplies non-obvious cancellation of random table effects at all sample counts; the s=2 conservation and s>2 spectral obstruction fix the precise boundary. This is useful as a benchmark for finite-sum step-size proofs and bias analysis, without claiming general heterogeneous extension.",
+    "status": "PASS"
+  }
+}
