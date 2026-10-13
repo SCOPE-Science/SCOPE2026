@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Applying Itô's formula to the source SDE gives a mandatory -sigma^2/2 drift in log x. Linearization about the deterministic equilibrium therefore produces an affine, not centered, Ornstein-Uhlenbeck process. Solving its mean and Lyapunov equations gives the stated Gaussian log-space law. The inverse transformation from log concentrations to concentrations has determinant 1/(Sx), which cannot be absorbed into a normalization constant. The source-parameter specialization and lognormal moment formulas are verified symbolically and numerically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu and Chen use Fokker-Planck methods to obtain a density around an endemic equilibrium in a different stochastic epidemic model.",
+        "The motivating paper itself cites a broad stochastic-chemostat literature on stationary distributions and density functions.",
+        "The standard broader theory establishes the tools but does not state the source-specific corrected density or source-parameter lognormal moments."
+      ],
+      "reasoning": "The general stochastic-calculus and density-function machinery is established prior art. It does not subsume the accepted claim without applying those transformations to this paper's exact SDE and exact Theorem 3.1.",
+      "searches": [
+        "\"Density function analysis for a stochastic SEIS epidemic model with non-degenerate diffusion\"",
+        "stochastic population Fokker Planck density around deterministic equilibrium multiplicative noise",
+        "stochastic chemostat stationary distribution multiplicative noise log transform"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2023090",
+      "doi:10.3934/dcdsb.2020291"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific correction was located.",
+        "The related density-function literature is methodological and concerns different stochastic models.",
+        "The available current and prior ledgers contain no occurrence of the motivating DOI or exact title."
+      ],
+      "reasoning": "A generic statement of Itô's formula does not itself supply the source-specific correction. The accepted implication requires reconstructing the exact log-space drift, solving the affine stationary law, applying the concentration-space Jacobian, and comparing it with Theorem 3.1.",
+      "searches": [
+        "\"10.3934/math.2023090\" correction erratum",
+        "\"10.3934/math.2023090\" Ito correction",
+        "\"10.3934/math.2023090\" Jacobian stationary density",
+        "\"Statistical property analysis for a stochastic chemostat model with degenerate diffusion\" correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source transforms the multiplicative-noise microorganism equation with a logarithm but prints no Itô correction.",
+        "The source derives a density in transformed coordinates and then substitutes logarithms to label it a density in concentration coordinates without a 1/(Sx) factor.",
+        "No checked indexed correction or same-source published finding supplied either repair."
+      ],
+      "reasoning": "Equivalent formulations include a missing Itô drift, an incorrect logarithmic SDE, a missing probability-density Jacobian, and a non-pushforward stationary density. The searches cover these aliases and the exact DOI/title.",
+      "searches": [
+        "10.3934/math.2023090 stochastic chemostat stationary density Ito logarithm Jacobian correction",
+        "\"Statistical property analysis for a stochastic chemostat model with degenerate diffusion\" density Jacobian",
+        "chemostat degenerate diffusion log transform Ito correction stationary density 2023",
+        "stationary density stochastic chemostat missing Jacobian lognormal correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF was inspected at model (2.7), where noise enters as sigma times x times dB.",
+        "The page containing the logarithmic transformation and equations (3.1)-(3.3) was visually inspected.",
+        "The next page was visually inspected and shows the Gaussian density in transformed coordinates followed by the concentration-space formula without a 1/(Sx) factor.",
+        "The same page gives the source numerical parameters S0=4, D=2, m=3, a=1 and sigma=0.15.",
+        "Publisher metadata verifies first publication on 24 October 2022 and primary MSC 92B05."
+      ],
+      "reasoning": "The correction is tied to the exact published stochastic model and exact density derivation, not to a secondary transcription.",
+      "searches": [
+        "doi:10.3934/math.2023090 stochastic model 2.7",
+        "doi:10.3934/math.2023090 equation 3.1 logarithm",
+        "doi:10.3934/math.2023090 equation 3.5 Theorem 3.1",
+        "doi:10.3934/math.2023090 S0 4 D 2 m 3 a 1 sigma 0.15"
+      ]
+    },
+    "rationale": "Itô's formula, Gaussian Ornstein-Uhlenbeck stationary laws, and lognormal change-of-variables formulas are standard and are not claimed as new. The original source-specific contribution is the exact diagnosis and correction of Theorem 3.1 for this chemostat derivation, together with closed-form corrected statistics for the paper's numerical parameter set. Own-ledger, source-identity, transformation-alias, correction, and published-finding searches did not locate an equivalent correction.",
+    "residual_risks": [
+      "An unindexed author correction could exist outside the checked records.",
+      "The related SEIS full text was access-restricted and is used only for methodological context.",
+      "The corrected bivariate lognormal formula is for the affine local approximation and is not asserted to be the exact stationary law of the nonlinear chemostat SDE.",
+      "The source's implementation details are unavailable, so the exact numerical procedure used to draw its density figures cannot be reconstructed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "THEOREM_3_1_IS_NOT_THE_PUSHFORWARD_DENSITY_OF_THE_LINEARIZED_ITO_MODEL",
+        "evidence": "The printed log equation lacks -sigma^2/2 and the printed concentration-space density lacks the nonconstant factor 1/(Sx). For the source parameters the corrected log-microorganism stationary law is N(-sigma^2,19 sigma^2/16).",
+        "identifier_or_url": "doi:10.3934/math.2023090",
+        "material_read": "Publisher full PDF at deterministic model (1.2), stochastic model (2.7), Section 3 logarithmic transformation, linearization coefficients, Fokker-Planck equation, equations (3.3)-(3.5), Theorem 3.1, Remark 3.1, and the numerical parameter set. The two pages carrying the transformation and density theorem were visually inspected.",
+        "method": "Applied Itô's formula directly to the printed multiplicative-noise SDE, solved the corrected affine Ornstein-Uhlenbeck mean and covariance equations, and applied the exact density change-of-variables formula back to concentration coordinates.",
+        "title": "Statistical property analysis for a stochastic chemostat model with degenerate diffusion",
+        "trigger": "Primary source containing the stochastic chemostat, logarithmic transformation, linearized density, and numerical statistics."
+      },
+      {
+        "assessment": "RELATED_DENSITY_FUNCTION_METHOD_DIFFERENT_MODEL",
+        "evidence": "The abstract states that it derives an exact density around the endemic equilibrium of a different stochastic SEIS model using a Fokker-Planck equation.",
+        "identifier_or_url": "doi:10.3934/dcdsb.2020291",
+        "material_read": "Publisher abstract, bibliographic record, and reference context; the publisher full text was access-restricted.",
+        "method": "Used only to establish broader methodological context, not for a whole-document non-coverage conclusion.",
+        "title": "Density function analysis for a stochastic SEIS epidemic model with non-degenerate diffusion",
+        "trigger": "Closely related primary work on local Fokker-Planck density calculations cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad55ae05-d7f5-4079-882f-8aa2c68cb6b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The stationary density is the central object used in the paper to draw joint and marginal distributions and to compute variance and skewness. Both omitted terms change that density: the Itô term shifts the log-space stationary mean and the Jacobian changes the probability measure when returning to concentrations. The correction yields a complete explicit replacement within the paper's own linearized framework and exact source-parameter formulas, while also showing which qualitative noise trends survive.",
+    "status": "PASS"
+  }
+}
