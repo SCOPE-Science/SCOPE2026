@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs the full reduced-Laplacian cokernel by exact generator-and-relation elimination, including the sink-row redundancy, \\(t=1\\), \\(q=1\\) boundaries and \\(\\gcd(C,n)=1\\). The integer Smith checker re-derived the factors for 44 \\( (n,t) \\) pairs through \\(n=10\\); separate exact Smith computations additionally covered 65 pairs through \\(n=12\\). Computations are finite corroboration, not the universal argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacobson–Niedermaier–Reiner (J. Graph Theory 44 (2003), 231–250) applies to complete multipartite graphs including K_{n,n}; deleting any cross-edge makes G_{n,t} non-complete multipartite.",
+        "Dong–Jiang–Guo (arXiv:2409.02654, Definition 2.3) explicitly specify complete bipartite joins between consecutive parts of a multipartite chain, not isolated missing cross-edges.",
+        "General Smith algorithms for an arbitrary integer matrix can in principle evaluate any example, but are not an explicit n,t invariant-factor determination."
+      ],
+      "reasoning": "Neither cited structural family contains G_{n,t} for 1≤t<n. An algorithm to compute SNF from any supplied matrix is not itself an explicit formula for the full parameter family.",
+      "searches": [
+        "critical group sandpile group of complete bipartite graph with k edge matching removed Smith normal form",
+        "critical group of complete bipartite graphs less than perfect matching deleted sandpile invariant factors",
+        "Critical groups for complete multipartite graphs and cartesian products of complete graphs Jacobson Niedermaier Reiner 2003",
+        "arxiv:2409.02654v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1008.5176v1",
+      "https://www-users.cse.umn.edu/~reiner/HonorsTheses/Machacek_thesis.pdf",
+      "arxiv:2409.02654v1",
+      "doi:10.1002/jgt.10139",
+      "published mathematical-record search matches: 2026/9/10/SCOPE046; 2026/10/4/SCOPE-the-two-matching-complex-of-k-3-4-is-a-5-sphere--cb67b6c453ce"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Corrales–Valencia already derive endpoint with \\(t=n\\), which is outside the theorem domain.",
+        "Machacek Theorem 14 independently derives the same \\(t=n\\) endpoint and its line graph; both are regular.",
+        "The new formula for \\(q=1,t=n-1\\) has factors \\((\\mathbb Z/A\\mathbb Z)^{n-3}\\oplus\\mathbb Z/[A(n(n-2)+n-1)]\\mathbb Z\\) differing from published \\(t=n\\) groups, so an endpoint substitution is invalid."
+      ],
+      "reasoning": "The proposed statement is stronger than giving any finite list or the tree count alone: it states all nontrivial invariant factors for unbounded \\(n\\) and all \\(1\\le t<n\\). The earlier cases neither subsume this domain nor imply the parameter dependence without a fresh integer presentation argument.",
+      "searches": [
+        "Smith normal form and sandpile critical group of balanced complete bipartite K n n with deletion of a partial matching t from 1 to n-1",
+        "arxiv:1008.5176v1",
+        "https://www-users.cse.umn.edu/~reiner/HonorsTheses/Machacek_thesis.pdf",
+        "arxiv:2409.02654v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Corrales–Valencia, 2010, Corollary 3.8, balanced complete bipartite graph minus an entire perfect matching; its variables encode uniform removal, not a strictly smaller matching.",
+        "Machacek 2011, §4.1, Theorem 14 and Lemma 15, also require a perfect matching deleted.",
+        "Searches also used aliases sandpile, Jacobian, chip-firing and Smith normal form; returned records concern other graph invariants."
+      ],
+      "reasoning": "Taking \\(t=n\\) in an earlier identity cannot determine all strictly intermediate \\(t\\), since the intermediate graphs are not \\( (n-1) \\)-regular and their Smith factors depend simultaneously on \\(t\\) and \\(n-t\\). No equivalence transformation of the intermediate graph into the cited regular endpoint is asserted or known.",
+      "searches": [
+        "Smith normal form and sandpile critical group of balanced complete bipartite K n n with deletion of a partial matching t from 1 to n-1",
+        "partial crown graph critical group Jacobian invariant factors Z_n Z_n(n-2) torsion",
+        "critical group K_{n,n} deleting a matching of size k Smith normal form",
+        "arxiv:1008.5176v1",
+        "https://www-users.cse.umn.edu/~reiner/HonorsTheses/Machacek_thesis.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest returned item 2026/9/10/SCOPE046 studies Baker–Norine divisor rank on a metric K_{3,3}, not critical groups.",
+        "Nearest 2026/10/4/SCOPE-the-two-matching-complex-of-k-3-4-is-a-5-sphere--cb67b6c453ce determines topology of a matching complex, not integral Laplacian torsion.",
+        "No returned entry provides a Smith invariant-factor table parameterized by strictly intermediate missing matching size."
+      ],
+      "reasoning": "Observed database results do not tabulate or classify the target torsion groups; sparse similarity hits do not imply nonexistence of unpublished or differently indexed formulas.",
+      "searches": [
+        "critical group of K_{n,n} minus independent t edges spanning-tree enumeration and invariant factor decomposition",
+        "chip firing sandpile Smith normal form near complete bipartite K m m delete unmatched edges",
+        "sandpile group complete bipartite graph minus t independent edges critical group",
+        "Smith normal form and sandpile critical group of balanced complete bipartite K n n with deletion of a partial matching t from 1 to n-1"
+      ]
+    },
+    "rationale": "Specific published full matching-deletion and complete-bipartite endpoint theorems were read and compared by implication. Their \\(t=0\\) or \\(t=n\\) statements do not determine the invariant factors of the nonregular intermediate graph family. Another article on multipartite chain graphs has different adjacencies. Searches of published mathematical results and mathematical record matches found no covering classification; unindexed equivalent work remains a risk.",
+    "residual_risks": [
+      "An older differently named family (nearly complete bicliques, partial crown graphs) could have an equivalent unpublished or poorly indexed formula.",
+      "The 2003 complete-multipartite paper was checked by metadata and known hypotheses rather than independently obtaining and reading its entire original full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers uniformly deleted perfect-matching endpoint and its matrix forms; does not explicitly give partial matching deletion t<n.",
+        "evidence": "arXiv:1008.5176v1 p.11 (PDF page index 10), Corollary 3.8 and pp.1–2.",
+        "identifier_or_url": "arxiv:1008.5176v1",
+        "material_read": "Abstract, introductory MSC and definitions, §3 class of complete-bipartite matrices, Corollary 3.8 and later applications.",
+        "method": "Read accessible original arXiv PDF text and page image 11.",
+        "title": "On the critical group of matrices",
+        "trigger": "Same invariant and graph obtained by deleting a perfect matching."
+      },
+      {
+        "assessment": "The theorem assumes all n matched edges are deleted; partial size t<n is not treated.",
+        "evidence": "Machacek, 2011, pp.9–10, Theorem 14 and Lemma 15.",
+        "identifier_or_url": "https://www-users.cse.umn.edu/~reiner/HonorsTheses/Machacek_thesis.pdf",
+        "material_read": "Contents, §2.1 definitions, §3 reductions, §4.1 pages 9–10 and the complete statement of Theorem 14 and Lemma 15.",
+        "method": "Read original openly hosted PDF text and page images 9–10.",
+        "title": "The critical group of a line graph: The bipartite case",
+        "trigger": "Explicitly addresses almost complete balanced bipartite graphs."
+      },
+      {
+        "assessment": "Its incomplete graph is built by complete joins of consecutive multipartite classes, so does not include matching-deleted balanced bicliques.",
+        "evidence": "arXiv:2409.02654v1, Definition 2.3 and equations (1),(13)–(16).",
+        "identifier_or_url": "arxiv:2409.02654v1",
+        "material_read": "Abstract, introduction, Definition 2.3, Laplacian block form (1), Proposition 2.1, k=2 example.",
+        "method": "Read arXiv full HTML manuscript in relevant sections.",
+        "title": "On the critical group of the k-partite graph",
+        "trigger": "Possible general theorem on incomplete multipartite graphs."
+      },
+      {
+        "assessment": "Its complete-multipartite hypothesis excludes removal of proper independent cross-edge matching; lack of full text remains an access/coverage limitation.",
+        "evidence": "Jacobson, Niedermaier and Reiner, J. Graph Theory 44 (2003), 231–250; Dong et al. 2024 introduction, reference [9].",
+        "identifier_or_url": "doi:10.1002/jgt.10139",
+        "material_read": "Title, abstract/publication description and theorem-family scope as cited in later original papers.",
+        "method": "Read publicly visible publication metadata and citations; primary full text not obtained.",
+        "title": "Critical groups for complete multipartite graphs and Cartesian products of complete graphs",
+        "trigger": "Could cover graph as multipartite special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0b1314b-5b8e-4b0d-9f95-608fbeb1cd0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural graph invariant for all intermediate edge deletions, with explicit finite abelian invariant factors and a multiplicative tree-count consequence, bridges known regular endpoints. The torsion-transition pattern distinguishes different deletion counts; neither finite checking nor routine determinant computation gives these integral group structures.",
+    "status": "PASS"
+  }
+}
