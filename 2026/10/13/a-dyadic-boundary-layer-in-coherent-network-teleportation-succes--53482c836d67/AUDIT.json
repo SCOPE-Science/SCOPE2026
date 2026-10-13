@@ -1,0 +1,109 @@
+{
+  "claim": "For the success probability in Eq. (18) of El Allati--Hassouni--Metwally's entangled coherent quantum network, let \\(m\\ge2\\), \\(x=|\\alpha|^2\\ge0\\), and \\(a=2^{m-1}\\). With the continuous value \\(P_m(0)=1/2\\), the formula simplifies exactly to\n\\[\nP_m(x)=\\frac12\\frac{1+e^{-2(2a-1)x}}{1+e^{-2ax}}.\n\\]\nIt has a unique global minimum. Writing \\(q_m=e^{-2x_m}\\), the minimizer is characterized by the unique root \\(q_m\\in(0,1)\\) of\n\\[\n(2a-1)q_m^{a-1}+(a-1)q_m^{2a-1}=a.\n\\]\nAs \\(m\\to\\infty\\), the minimum forms a dyadic low-intensity boundary layer:\n\\[\n2^m x_m\\to\\log(1+\\sqrt2),\\qquad \\min_{x\\ge0}P_m(x)\\to\\sqrt2-1.\n\\]\nMore generally, for every fixed \\(t\\ge0\\),\n\\[\nP_m(t/2^m)\\to \\frac12\\frac{1+e^{-2t}}{1+e^{-t}}.\n\\]\nConsequently \\(P_m(x)\\to1/2\\) for every fixed \\(x\\ge0\\), but the convergence is not uniform on \\([0,\\infty)\\):\n\\[\n\\sup_{x\\ge0}|P_m(x)-1/2|\\to \\frac32-\\sqrt2.\n\\]\nThus the large-network field-intensity independence stated qualitatively in the source is pointwise: a shrinking window of width \\(\\Theta(2^{-m})\\) retains a nonvanishing worst-case deficit.",
+  "correctness": {
+    "rationale": "The source expression is simplified by an exact hyperbolic identity. The derivative reduces to a scalar function \\(F_a\\) with \\(F_a(0)<0\\), \\(F_a(1)>0\\), and \\(F_a'(q)>0\\) for \\(0<q<1\\), yielding a unique global minimum. Rescaling the exact critical equation gives the unique limiting root \\(\\sqrt2-1\\), from which the location, minimum, boundary profile, and nonuniformity follow. The packaged finite checker independently replays the formulas and finite-size roots; it is supplementary rather than the proof of the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 bidirectional coherent-network paper studies a distinct bidirectional scheme and reports parameter dependence at the abstract/figure level.",
+        "General teleportation and PEPS/filtering hits returned by semantic search do not state a theorem implying the exact one-way Eq. (18) asymptotics."
+      ],
+      "reasoning": "No inspected broader theorem was found that dominates this exact success-probability scaling result. The later bidirectional protocol changes the communication architecture, so its parameter dependence does not imply the one-way boundary-layer formula.",
+      "searches": [
+        "entangled coherent quantum network probability nonuniform convergence large participants field intensity",
+        "teleportation coherent network success probability 2^m minimum sqrt 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1011.3915v1",
+      "DOI:10.1088/0031-8949/83/06/065002",
+      "MaRDI:Q3020276",
+      "DOI:10.1364/JOSAB.425157"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source: covers the probability formula and qualitative fixed-intensity behavior but not the sharper scaling/nonuniformity theorem.",
+        "Later bidirectional coherent-network work: different protocol, so its statements do not imply the one-way formula analyzed here.",
+        "Closest prior local teleportation finding: different Bell-basis conclusive-reversal protocol and probability 2(1-x^2), with no implication for Eq. (18)."
+      ],
+      "reasoning": "The accepted statement strictly refines the interpretation of the primary source formula without claiming the source formula itself as new. None of the checked prior statements implies the unique critical equation, dyadic profile, limiting minimum, or exact uniform-defect limit.",
+      "searches": [
+        "Communication via entangled coherent quantum network success probability exact minimum boundary layer sqrt2 minus 1",
+        "arXiv 1011.3915 teleportation probability minimum network size alpha exact",
+        "entangled coherent quantum network probability nonuniform convergence large participants field intensity",
+        "teleportation coherent network success probability 2^m minimum sqrt 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1011.3915v1 Eq. (18) is the exact starting formula; the inspected text does not state the exponential quotient or boundary-layer theorem.",
+        "The nearest local prior teleportation result concerns partially entangled Bell-basis reversal and has a different state family, protocol, and probability law."
+      ],
+      "reasoning": "Searches included the source identifier, exact-probability language, the limiting constant, boundary-layer terminology, and nonuniform convergence. No retrieved statement was algebraically or asymptotically equivalent to the accepted claim.",
+      "searches": [
+        "Communication via entangled coherent quantum network success probability exact minimum boundary layer sqrt2 minus 1",
+        "arXiv 1011.3915 teleportation probability minimum network size alpha exact",
+        "entangled coherent quantum network probability nonuniform convergence large participants field intensity",
+        "teleportation coherent network success probability 2^m minimum sqrt 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic database results returned unrelated findings rather than a tabulation or formula matching the critical equation or constants.",
+        "The primary source itself plots finite-size probability curves but does not tabulate or classify the exact minima proved here."
+      ],
+      "reasoning": "The claim is not a recomputation of a known table: its content is an exact all-m scaling theorem and an asymptotic profile. No matching database/table entry was located.",
+      "searches": [
+        "arXiv 1011.3915 teleportation probability minimum network size alpha exact",
+        "Communication via entangled coherent quantum network success probability exact minimum boundary layer sqrt2 minus 1"
+      ]
+    },
+    "rationale": "The inspected primary source contains Eq. (18), finite plots, and a qualitative statement of large-network intensity independence but not the exact quotient, unique-minimum equation, dyadic boundary-layer profile, limiting minimum \\(\\sqrt2-1\\), or the nonuniform-convergence conclusion. Focused database searches and the prior local ledger did not reveal an implication-equivalent result. The later bidirectional coherent-network paper concerns a different protocol. Residual risk from unindexed or differently phrased follow-up literature remains explicitly recorded.",
+    "residual_risks": [
+      "An unindexed, paywalled, or differently phrased follow-up could contain equivalent algebra or scaling asymptotics.",
+      "The later bidirectional article was only accessible at abstract/figure-metadata level in this review; it is a different protocol, but full-text wording was not checked exhaustively."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING_STARTING_FORMULA_NOT_COVERING_BOUNDARY_LAYER_THEOREM",
+        "evidence": "The source gives the hyperbolic probability formula and discusses approach toward probability \\(1/2\\) as participant number grows. It does not state the exact minimum equation, the \\(t/\\(2^m\\)\\) profile, the \\(\\sqrt2-1\\) minimum limit, or nonuniform convergence.",
+        "identifier_or_url": "arXiv:1011.3915v1",
+        "material_read": "Full-text material around Eq. (18), Figure 3, its discussion, and the conclusion; the page containing Eq. (18) and Figure 3 was also visually inspected.",
+        "method": "Primary preprint full-text inspection and page-image inspection.",
+        "title": "Communication via entangled coherent quantum network",
+        "trigger": "Primary source of Eq. (18) and the large-network intensity-independence statement."
+      },
+      {
+        "assessment": "DIFFERENT_PROTOCOL_NO_DECISIVE_COVERAGE_FOUND",
+        "evidence": "The accessible description concerns a bidirectional protocol and reports dependence on amplitude, decoherence, and user number. This does not establish the one-way Eq. (18) boundary-layer theorem.",
+        "identifier_or_url": "DOI:10.1364/JOSAB.425157",
+        "material_read": "Accessible publisher abstract and figure/metadata-level description; full article text was not materially inspected.",
+        "method": "Publisher landing-page inspection.",
+        "title": "Bidirectional teleportation through an entangled coherent quantum network",
+        "trigger": "Later work with the closest coherent-network teleportation terminology."
+      },
+      {
+        "assessment": "BIBLIOGRAPHIC_SUPPORT",
+        "evidence": "The record lists 81P40 first among the MSC classifications and identifies the same paper.",
+        "identifier_or_url": "MaRDI:Q3020276",
+        "material_read": "Bibliographic metadata including ordered MSC classifications.",
+        "method": "Metadata record inspection.",
+        "title": "MaRDI bibliographic record for Communication via entangled coherent quantum network",
+        "trigger": "Verification of mathematical classification and bibliographic identity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53482c83-6d67-46f9-8e64-4b71c48d2dba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves a natural scalability question in the source formula. Fixed-intensity convergence to one half hides a shrinking low-intensity regime in which the success deficit remains order one. The exact profile identifies both the physical scaling window and the sharp worst-case asymptotic deficit, so the distinction between pointwise and uniform network-size behavior is mathematically and interpretively substantive rather than a routine numerical refinement.",
+    "status": "PASS"
+  }
+}
