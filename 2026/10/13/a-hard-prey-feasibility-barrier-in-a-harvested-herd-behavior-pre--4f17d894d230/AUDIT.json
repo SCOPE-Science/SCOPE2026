@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the exact algebraic constraint \\(e(p\\,x-c)=m\\) with \\(m>0\\). Positive initial effort forces \\(x(0)>c/p\\). Continuity would make any crossing to \\(x\\le c/p\\) pass through \\(x=c/p\\), where the constraint becomes \\(0=m\\), so no finite classical crossing exists. Thus the positive branch keeps both \\(x>c/p\\) and \\(e>0\\). Exact rational arithmetic verifies the source-parameter barrier and initial-data residuals.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meng and Wu analyze singularity-induced bifurcation in a different delayed predator-prey DAE with nonlinear predator harvesting.",
+        "Li, Chen, and Ye study a different bioeconomic predator-prey DAE with nonlinear prey harvesting.",
+        "These sources establish that singular DAE and feasibility-region methods are prior art, so the accepted originality is restricted to the exact source equation and its Figure 6 consequence."
+      ],
+      "reasoning": "The broader literature does not dominate the accepted claim because the algebraic constraints and harvesting laws differ. It supplies methodology but not the source-specific noncrossing statement or the comparison with the motivating Figure 6.",
+      "searches": [
+        "\"Bifurcation analysis in a singular Beddington-DeAngelis predator-prey model with two delays and nonlinear predator harvesting\"",
+        "\"A bioeconomic differential algebraic predator-prey model with nonlinear prey harvesting\"",
+        "bioeconomic differential algebraic predator prey feasibility region singularity induced bifurcation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2021336",
+      "doi:10.3934/mbe.2019133",
+      "doi:10.1016/j.apm.2016.09.029"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 singular predator-prey paper establishes nearby DAE singularity methodology but studies a different harvesting equation.",
+        "The 2017 bioeconomic DAE paper is a related model rather than a statement about the Meng-Meng algebraic branch.",
+        "No inspected source states that the motivating Figure 6 trajectory must hit the singular surface before reaching extinction or finite negative effort."
+      ],
+      "reasoning": "General feasibility theory makes the type of argument natural but does not imply the source-specific comparison without substituting the Meng-Meng closure and inspecting the plotted trajectory. The final claim therefore does not assign novelty to DAE singularity theory itself.",
+      "searches": [
+        "\"10.3934/mbe.2019133\" feasibility region singularity induced bifurcation",
+        "\"10.1016/j.apm.2016.09.029\" bioeconomic differential algebraic predator prey",
+        "\"10.3934/math.2021336\" singularity harvest effort negative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source prints the algebraic equation \\(e(p\\,x-c)=m\\), assumes \\(e(0)>0\\), and presents Figure 6(a) as prey extinction with strongly varying effort.",
+        "The exact algebraic relation is equivalently a branch condition \\(e=m/(p\\,x-c)\\), a noncrossing condition at \\(x=c/p\\), and a consistency condition for initial data.",
+        "No located correction or published finding states this Figure 6 feasibility conflict."
+      ],
+      "reasoning": "The claim was searched under the source identity, equilibrium/effort wording, singular-barrier wording, and correction terminology. These are equivalent statement forms of the same algebraic feasibility geometry rather than merely title matches.",
+      "searches": [
+        "\"10.3934/math.2021336\" positive equilibrium harvest effort discriminant",
+        "\"Bifurcation analysis of a special delayed predator-prey model with herd behavior and prey harvesting\" equilibrium",
+        "bioeconomic predator prey algebraic effort positive equilibrium discriminant",
+        "square root herd behavior harvesting positive equilibrium effort",
+        "\"10.3934/math.2021336\" correction erratum Figure 6 harvest effort"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at system (2.2), including \\(0=e(t)(p\\,x(t)-c)-m\\), and at the initial condition requiring \\(e(0)>0\\).",
+        "The numerical section gives \\(c=0.02\\), \\(p=2500\\), and \\(m=604.33\\).",
+        "Figure 6 and its caption were inspected: the caption describes prey extinction for one initial triple, and the plotted effort enters the negative half-plane."
+      ],
+      "reasoning": "The barrier and numerical diagnostics use the exact printed algebraic equation, the source's own numerical parameters, and the source's Figure 6 rather than a secondary paraphrase.",
+      "searches": [
+        "doi:10.3934/math.2021336 system 2.2 algebraic constraint",
+        "doi:10.3934/math.2021336 numerical parameters c 0.02 p 2500 m 604.33",
+        "doi:10.3934/math.2021336 Figure 6 prey dies out harvest effort"
+      ]
+    },
+    "rationale": "Singular DAE feasibility theory and singularity-induced bifurcation in bioeconomic predator-prey models are established prior methodology. The original content is the source-specific implication of the particular Meng-Meng algebraic closure and the resulting incompatibility of the published Figure 6 extinction/negative-effort trajectory with a finite classical solution. Exact-source, alias, feasibility, and correction searches located no published source-specific correction.",
+    "residual_risks": [
+      "A non-indexed author correction or unpublished implementation note could exist outside the searched literature.",
+      "No simulation source code was available, so the numerical integrator's internal treatment of the algebraic constraint is unknown.",
+      "The 2017 related DAE article was available only at abstract/metadata level for this comparison and is retained as a limited-inspection risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FIGURE_6_CROSSES_A_SINGULAR_FEASIBILITY_BARRIER_OF_THE_PRINTED_DAE",
+        "evidence": "The source assumes positive initial effort and enforces \\(e(p\\,x-c)=m>0\\), yet Figure 6(a) is interpreted as prey extinction while its effort curve becomes finite and negative.",
+        "identifier_or_url": "doi:10.3934/math.2021336",
+        "material_read": "Full primary PDF at the model equations and initial assumptions, positive-equilibrium setup, numerical parameter list, and Figure 6 with its caption and plotted harvest-effort behavior.",
+        "method": "Solved the algebraic constraint for effort, derived the connected finite branch condition, and compared that condition with the source parameter set and Figure 6.",
+        "title": "Bifurcation analysis of a special delayed predator-prey model with herd behavior and prey harvesting",
+        "trigger": "Primary source containing the target DAE and the Figure 6 extinction claim."
+      },
+      {
+        "assessment": "GENERAL_SINGULAR_DAE_METHOD_PRIOR_DIFFERENT_MODEL",
+        "evidence": "The paper demonstrates that singularity-induced bifurcation is established methodology but uses a different predator-harvesting closure and does not state the Meng-Meng Figure 6 barrier.",
+        "identifier_or_url": "doi:10.3934/mbe.2019133",
+        "material_read": "Open primary article material covering the model class, singularity-induced bifurcation focus, and its references to DAE feasibility-region theory.",
+        "method": "Compared the algebraic harvesting structure and the scope of the singularity claims with the motivating model.",
+        "title": "Bifurcation analysis in a singular Beddington-DeAngelis predator-prey model with two delays and nonlinear predator harvesting",
+        "trigger": "Highly relevant prior literature on singular delayed bioeconomic predator-prey DAEs."
+      },
+      {
+        "assessment": "RELATED_DAE_MODEL_FULL_COMPARISON_LIMITED",
+        "evidence": "The accessible material confirms a related bioeconomic DAE with nonlinear prey harvesting but does not provide evidence that the exact Meng-Meng algebraic branch or Figure 6 conflict was previously stated.",
+        "identifier_or_url": "doi:10.1016/j.apm.2016.09.029",
+        "material_read": "Bibliographic and abstract-level material describing a different nonlinear prey-harvesting DAE.",
+        "method": "Used as broader methodological context only; no whole-document non-coverage claim is made.",
+        "title": "A bioeconomic differential algebraic predator-prey model with nonlinear prey harvesting",
+        "trigger": "Earlier primary literature on bioeconomic differential-algebraic predator-prey modeling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f17d894-d230-42a6-adda-4392807ad94a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses Figure 6 to support a qualitative ecological conclusion that a low initial prey level can lead to prey extinction with strongly varying harvest effort. The algebraic closure makes that trajectory impossible as a finite classical solution before a singular barrier is encountered, so the issue changes the mathematical interpretation of a headline numerical example. The result also supplies an exact consistency diagnostic for initial data and a precise condition that any reproducible DAE simulation must enforce.",
+    "status": "PASS"
+  }
+}
