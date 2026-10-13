@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts the two center states. With the center black, nonfull blades self-clear exactly at the relevant local threshold and full blades can only be cleared by the center, reducing the obstruction to fm<=ell. With the center white, the first force criterion is w_i+1<=ell, after which the center-black analysis applies. The polynomial and minimum formulas are direct counts of the resulting exact cases. Independent exhaustive simulation agrees with the criterion and formulas for all 81 triples 2<=r,m<=4 and 1<=ell<=rm.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Amos-Caro-Davila-Pepper prove upper bounds and selected-family results for k-forcing, not an exact windmill profile.",
+        "Row 2012 develops cut-vertex zero-forcing techniques, relevant only to ell=1 scalar information.",
+        "Banot-Baldado 2026 studies singleton propagation thresholds for graph operations including joins; this is weaker than classification of every initial set at each ell."
+      ],
+      "reasoning": "General forcing bounds and scalar/singleton results do not determine the exact set family or its polynomial. The retained theorem contains strictly more information across all thresholds.",
+      "searches": [
+        "k-forcing join graph cliques universal vertex",
+        "k-forcing windmill graph friendship graph",
+        "propagation number windmill graph friendship graph",
+        "cut-vertex zero forcing windmill friendship graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.6206v1",
+      "DOI:10.1016/j.dam.2014.08.029",
+      "DOI:10.1016/j.laa.2011.05.012",
+      "DOI:10.17654/0972087126027",
+      "published-record:21dd3de55bd1",
+      "published-record:f09137092e5f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 foundational paper gives F_k(K_n)=max{n-k,1} and general inequalities, neither of which fixes forcing sets in a clique bouquet.",
+        "Cut-vertex reduction can recover some zero-forcing minima but does not address ell>1 or all forcing sets.",
+        "Singleton propagation thresholds determine when a one-vertex set can force; they do not determine non-singleton forcing sets or polynomial coefficients."
+      ],
+      "reasoning": "No inspected stronger statement subsumes the retained criterion. Specializing the retained theorem to ell=1 or to singleton thresholds meets known terrain, but the full statement remains non-implied by those sources.",
+      "searches": [
+        "Upper bounds on the k-forcing number of a graph windmill friendship join clique",
+        "A technique for computing the zero forcing number of a graph with a cut-vertex windmill",
+        "On the propagation number of some graphs join k-forcing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1401.6206v1 searchable full text contains the k-forcing definition and general bounds but no windmill/friendship/Dutch/cone occurrence.",
+        "Published-record 21dd3de55bd1 concerns complete multipartite graphs, which are structurally different from K_1 join rK_m for r,m>=2.",
+        "Published-record f09137092e5f concerns the general-position polynomial of generalized windmills, not forcing."
+      ],
+      "reasoning": "Aliases and the join notation were searched explicitly. The closest forcing theorem found is on complete multipartite graphs; it does not transfer because windmill blades contain all internal clique edges while different blades are anticomplete.",
+      "searches": [
+        "generalized windmill k-forcing sets exact all-set characterization polynomial",
+        "windmill graph k-forcing number F_k friendship graph",
+        "K1 join rKm k-forcing",
+        "generalized windmill k-forcing",
+        "Dutch windmill k-forcing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result-record search returned no exact windmill k-forcing table or all-set polynomial.",
+        "A same-family result record for generalized windmills concerns general position rather than forcing.",
+        "Searchable literature does contain scalar zero-forcing results for friendship graphs, which are treated as prior special cases rather than as novelty evidence."
+      ],
+      "reasoning": "Known scalar values for special cases do not tabulate or imply the complete all-ell enumerator. The theorem explicitly avoids claiming novelty for the friendship zero-forcing scalar.",
+      "searches": [
+        "friendship graph k-forcing minimum sets",
+        "power domination polynomial generalized windmill graph friendship graph",
+        "windmill graph zero forcing number"
+      ]
+    },
+    "rationale": "The closest identified literature gives general k-forcing bounds, cut-vertex scalar zero-forcing tools, or singleton propagation thresholds. The closest published-result records concern complete multipartite k-forcing or a different invariant on generalized windmills. None of the inspected material states or implies the complete blade-count criterion and full forcing-set enumerator for K_1 join rK_m.",
+    "residual_risks": [
+      "Poorly indexed or unpublished work may contain an equivalent classification.",
+      "The full text of the 2012 cut-vertex paper was not publicly accessible in this review, so only its abstract-level scope was compared.",
+      "The 2026 propagation-number paper was compared from its public abstract-level description; a hidden special-case formula could overlap the singleton threshold, though not evidently the all-set enumerator."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same forcing rule and supplies general bounds but no same-object theorem or all-set enumeration.",
+        "evidence": "First version dated 23 January 2014; the text states the k-forcing rule and F_1=Z, and the searched family aliases returned no occurrence.",
+        "identifier_or_url": "arXiv:1401.6206v1",
+        "material_read": "Searchable full HTML, including definition, basic facts, general bounds, and special-family structure; document-wide alias searches for windmill, friendship, Dutch, cone, clique.",
+        "method": "Direct full-text inspection and in-document searches.",
+        "title": "Upper bounds on the k-forcing number of a graph",
+        "trigger": "Foundational definition and broadest directly relevant archive source."
+      },
+      {
+        "assessment": "Potentially covers or helps derive scalar ell=1 information; does not establish all-threshold/all-set coverage from the accessible material.",
+        "evidence": "Abstract describes techniques for zero forcing numbers of graphs with a cut vertex; MSC metadata lists 05C50.",
+        "identifier_or_url": "DOI:10.1016/j.laa.2011.05.012",
+        "material_read": "Abstract and bibliographic/subject metadata only.",
+        "method": "Public metadata inspection.",
+        "title": "A technique for computing the zero forcing number of a graph with a cut-vertex",
+        "trigger": "Generalized windmills have a cut vertex and ell=1 is zero forcing."
+      },
+      {
+        "assessment": "Studies the least k making a fixed singleton a k-forcing set in several operations, which may overlap the singleton threshold but not the full forcing-set profile.",
+        "evidence": "The abstract defines propagation number as the least k for which {v} is k-forcing and lists joins among studied operations.",
+        "identifier_or_url": "DOI:10.17654/0972087126027",
+        "material_read": "Abstract-level open-access description.",
+        "method": "Public abstract inspection.",
+        "title": "On the propagation number of some graphs",
+        "trigger": "Recent paper on k-forcing singleton thresholds and joins could overlap the one-vertex boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4081d484-9636-4fa8-babe-332715ee5934",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Generalized windmills are a standard repeated-block family with a universal articulation, and k-forcing is a natural propagation invariant. The theorem identifies the exact phase changes at ell=m and at multiples of m, determines every forcing set rather than only the optimum, and gives closed polynomial and basis-count formulas. This is a reusable benchmark for propagation on clique bouquets and is more informative than a routine recomputation of one scalar value.",
+    "status": "PASS"
+  }
+}
