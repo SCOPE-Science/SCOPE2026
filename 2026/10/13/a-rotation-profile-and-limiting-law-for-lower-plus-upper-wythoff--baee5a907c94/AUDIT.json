@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The lower-Wythoff indicator is exactly floor((m+1)/phi)-floor(m/phi), hence is the rotation condition {m/phi}>=phi^-2; complementarity gives the upper indicator. The representation count is therefore an interval count for the golden rotation. Direct interval geometry gives the three pieces of Lambda. A convergent-block proof gives uniform O(log N) interval discrepancy because the continued fraction has bounded partial quotients and every N has a Fibonacci/Ostrowski block decomposition of logarithmic length. Equidistribution gives the weak law, and bounded-variation discrepancy plus Abel summation gives the summatory term. The embedded finite replay checks normalization only and is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit, arXiv:2006.04177v1, Section 11.2, explicitly constructs finite linear representations for lower-plus-upper representation counts, but its displayed theorem concerns a different lower-plus-lower Fibonacci subsequence and the full text contains no asymptotic statement.",
+        "Schaeffer-Shallit-Zorcic, arXiv:2402.08331, proves synchronization and decidability for quadratic Beatty sequences and additive-basis properties, not quantitative representation-count asymptotics."
+      ],
+      "reasoning": "An exact finite linear representation is algorithmically broader at the level of individual values, but it does not itself state the transparent rotation profile or its distributional consequences. Extracting a weak limit and summatory constant requires additional quantitative analysis.",
+      "searches": [
+        "Beatty convolution golden ratio representation function fractional part profile",
+        "representation function Beatty sequences sumsets",
+        "Beatty sequence number of representations sum",
+        "source: arXiv:2006.04177v1; arXiv:2402.08331"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04842v1",
+      "OEIS:A259598",
+      "arXiv:2006.04177v1",
+      "DOI:10.1007/s10998-020-00343-0",
+      "arXiv:2402.08331",
+      "DOI:10.3934/era.2022121"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ashburn explicitly treats r(n)=0,1,2 and cites Shallit's earlier sumset work.",
+        "Shallit's Section 11.2 notes that Walnut can compute exact representation-count linear representations but gives no theorem implying the proposed phase law.",
+        "Kawsumarng et al. classify representability of lower-plus-upper sums; their abstract does not give multiplicity asymptotics."
+      ],
+      "reasoning": "The claim is not a special case of the prior level classifications or representability results. Shallit's exact linear representation contains all values, but the closed phase asymptotic and limiting measure are nontrivial global consequences not stated in that work; no inspected stated theorem was found whose conclusion implies them.",
+      "searches": [
+        "Ashburn 2610.04842 Wythoff sums representation function general formula",
+        "Sumsets of Wythoff sequences Fibonacci representation beyond number of representations",
+        "Wythoff sums representation function r(n) normalized limiting distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ashburn, arXiv:2610.04842v1, Theorem 1, states exactly the r(n)=0,1,2 classifications.",
+        "OEIS A259598 lists the convolution generating function and the three exceptional-level statements, but no normalized asymptotic or phase law."
+      ],
+      "reasoning": "The theorem concerns all n on the linear scale and identifies the phase variable {n/phi}; the exceptional-level classifications and generating-function identity do not state this profile or the weak law.",
+      "searches": [
+        "A259598 r(n) Wythoff sums piecewise fractional-part asymptotic profile",
+        "lower upper Wythoff representation count limiting distribution normalized r(n)/n",
+        "A259598 Wythoff representation asymptotic convolution Beatty",
+        "source: arXiv:2610.04842v1; OEIS:A259598"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A259598 supplies values, a generating function, and the exceptional-level conjectures.",
+        "The embedded verifier reproduces the published initial values only as a regression test."
+      ],
+      "reasoning": "A finite table or coefficient generator cannot establish the uniform O(log n) profile, weak limiting distribution, or summatory asymptotic. The theorem is not a recomputation of a listed invariant.",
+      "searches": [
+        "OEIS A259598 Wythoff representation asymptotic",
+        "A259598 average order summatory representation count",
+        "A259598 lower upper Wythoff representations table"
+      ]
+    },
+    "rationale": "The recent Ashburn paper classifies exactly the levels r=0,1,2. The closest earlier source, Shallit's full-text treatment, constructs a finite Fibonacci linear representation for the lower-plus-upper representation counts, so it algorithmically determines exact values; however the inspected section does not state or derive the fractional-part phase profile, weak limiting law, or summatory coefficient. OEIS gives a generating function and low-level conjectures, while the other inspected Wythoff/Beatty papers concern representability, automaticity, or additive-basis questions. Targeted published-record and literature searches found no equivalent quantitative profile.",
+    "residual_risks": [
+      "Shallit's exact Fibonacci linear representation algorithmically determines every r(n); finer spectral analysis could conceivably yield an equivalent profile, but no such result is stated in the inspected paper.",
+      "The original Kawsumarng et al. paper was not available as an inspected lawful full text; its relevant representability theorem is reproduced in Shallit's full text, and its abstract does not advertise multiplicity asymptotics.",
+      "An obscure specialized treatment of Beatty representation functions not surfaced by the targeted searches could contain an equivalent quantitative result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same r(n) and proves complete classifications for r(n)=0,1,2; no general asymptotic, weak limit, or summatory formula is stated.",
+        "evidence": "Theorem 1 gives only the three low-multiplicity classifications; full-text search found no 'asymptotic' occurrence.",
+        "identifier_or_url": "arXiv:2610.04842v1",
+        "material_read": "Complete five-page paper, including Theorem 1 and references.",
+        "method": "Primary full-text inspection.",
+        "title": "Proofs of some OEIS conjectures on Wythoff sums, Fibonacci and Lucas words",
+        "trigger": "Direct recent source for A259598."
+      },
+      {
+        "assessment": "Section 11.2 constructs finite linear representations, including lower-plus-upper counts. This is exact computational coverage but no phase asymptotic or limiting distribution is stated.",
+        "evidence": "Section 11.2 describes the representation-count linear representations; full-text search returned no 'asymptotic' occurrence.",
+        "identifier_or_url": "arXiv:2006.04177v1",
+        "material_read": "Primary full text through the Wythoff sumset sections and Section 11.2 on representation counts; full-text searches for asymptotic terminology.",
+        "method": "Primary full-text inspection.",
+        "title": "Sumsets of Wythoff Sequences, Fibonacci Representation, and Beyond",
+        "trigger": "Closest earlier source with potentially stronger exact coverage."
+      },
+      {
+        "assessment": "Contains initial values, convolution generating function, and the three exceptional-level statements; no profile, limiting law, or average-order formula appears.",
+        "evidence": "The formula section is the product of the lower and upper Wythoff generating series.",
+        "identifier_or_url": "OEIS:A259598",
+        "material_read": "Entire current entry: definition, comments, formula, programs, and cross-references.",
+        "method": "Database-entry inspection.",
+        "title": "A259598",
+        "trigger": "Exact database entry for the target sequence."
+      },
+      {
+        "assessment": "Establishes the existence criterion and sumset structure, not the multiplicity phase profile.",
+        "evidence": "The abstract states the iff representability criterion; Shallit reproduces the lower-plus-upper complement theorem.",
+        "identifier_or_url": "DOI:10.1007/s10998-020-00343-0",
+        "material_read": "Abstract and bibliographic summary; exact relevant theorem is reproduced in Shallit's inspected full text.",
+        "method": "Published abstract plus independent full-text reproduction in a citing source.",
+        "title": "Sumsets associated with Wythoff sequences and Fibonacci numbers",
+        "trigger": "Original source for lower-plus-upper representability."
+      },
+      {
+        "assessment": "Gives synchronization and first-order decidability and additive-basis questions; no quantitative multiplicity asymptotic was found.",
+        "evidence": "The stated applications concern decidability and specific automatic-sequence problems.",
+        "identifier_or_url": "arXiv:2402.08331",
+        "material_read": "Abstract, publication summary, and application statement.",
+        "method": "Primary abstract and publication-record inspection.",
+        "title": "Beatty Sequences for a Quadratic Irrational: Decidability and Applications",
+        "trigger": "Potential broader automatic/Beatty framework."
+      },
+      {
+        "assessment": "Studies cofinite h-fold sumsets for powers of the golden ratio, not the A259598 multiplicity distribution.",
+        "evidence": "The stated main results concern cofinite thresholds and structures of B(phi^m).",
+        "identifier_or_url": "DOI:10.3934/era.2022121",
+        "material_read": "Published abstract, introduction summary, and stated main results.",
+        "method": "Open-access article-page inspection.",
+        "title": "Combinatorial structure and sumsets associated with Beatty sequences generated by powers of the golden ratio",
+        "trigger": "Broader Wythoff/Beatty sumset literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "baee5a90-7c94-4db4-9f3a-3908fbc8f7e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent paper resolves only the exceptional multiplicities 0, 1, and 2 for a natural Wythoff representation function. The theorem describes the entire representation count on its natural linear scale, explains its oscillations through a one-dimensional rotation phase, and gives an explicit limiting measure with an atom plus a summatory constant. This is a structural global complement, not a routine finite extension or table computation.",
+    "status": "PASS"
+  }
+}
