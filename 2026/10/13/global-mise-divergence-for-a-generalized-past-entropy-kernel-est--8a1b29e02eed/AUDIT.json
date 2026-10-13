@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses used in the counterexample were reconstructed from the estimator definition. IID exponential observations are α-mixing; the Gaussian kernel and \\(b_n=n^{-1/2}\\) satisfy the displayed kernel/bandwidth conditions; and \\(\\beta=1/2\\) is allowed. Exact Gaussian integration gives the deterministic tail benchmark, continuity yields a positive-probability neighborhood with nonzero limiting error, and that nonzero limit forces an infinite Lebesgue-time squared-error integral. No finite computation or asymptotic numerical experiment is used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1016/j.spl.2014.03.012 concerns generalized past-entropy kernel estimation with censored dependent data.",
+        "The accessible abstract of doi:10.1016/j.spl.2014.03.012 states asymptotic properties but does not expose a global-MISE counterexample or theorem covering the present claim."
+      ],
+      "reasoning": "The earlier estimator literature is broader in censoring/dependence but no accessible statement dominates the present counterexample. The unavailable full text is retained as a residual originality risk.",
+      "searches": [
+        "\"generalized past entropy\" kernel estimator MISE",
+        "\"past entropy\" \"kernel estimator\" integrated squared error",
+        "\"Non-parametric estimation of the generalized past entropy function with censored dependent data\" \"MISE\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/S0269964825100132 — full publisher HTML inspected.",
+      "doi:10.1016/j.spl.2014.03.012 — abstract/metadata inspected; full text unavailable in the checked routes.",
+      "Publisher exact-identifier and correction/erratum search results for doi:10.1017/S0269964825100132."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.1017/S0269964825100132 restricts Theorem 3.2 to compact support-interior intervals but Theorem 3.3 integrates squared error over the full positive half-line.",
+        "The direct counterexample proves infinite MISE for every integer sample size, which is logically incompatible with a claim that the same MISE converges to zero."
+      ],
+      "reasoning": "The claim is not a special case already implied by the source; it contradicts the source's global implication while leaving the compact-interval statement untouched.",
+      "searches": [
+        "\"Theorem 3.3\" \"generalized past entropy\" kernel",
+        "\"generalized past entropy\" \"integratedly uniformly consistent\" 2014",
+        "\"kernel entropy estimator\" \"infinite\" tail MISE"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.1017/S0269964825100132, Theorem 3.3 and equation (3.11)",
+        "Searches returned the target article but no equivalent tail-divergence correction."
+      ],
+      "reasoning": "Equivalent terminology around integrated quadratic-mean consistency and MISE was checked. No source found states that the generalized past-entropy kernel estimator has infinite unweighted global MISE because its tail limit can remain sample-dependent.",
+      "searches": [
+        "\"integratedly uniformly consistent\" \"past entropy\"",
+        "\"mean integrated squared error\" \"past entropy function\"",
+        "\"generalized past entropy\" \"MISE\" correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher full text still contains Theorem 3.3 and equation (3.11) in the checked version.",
+        "No correction, erratum, or corrigendum was located in the exact-identifier searches."
+      ],
+      "reasoning": "Exact-identifier checks target the possibility that the theorem has already been corrected. The checked publisher record presents the original theorem without a linked correction.",
+      "searches": [
+        "\"S0269964825100132\" corrigendum OR correction OR erratum",
+        "\"Non-parametric estimation of the generalized past entropy function\" correction",
+        "doi:10.1017/S0269964825100132"
+      ]
+    },
+    "rationale": "Exact-title, DOI, theorem-phrase, MISE, integrated-consistency, and earlier-estimator searches found no published correction or equivalent counterexample. The target full text was inspected at the estimator definition and Theorem 3.3. The closest earlier generalized-past-entropy estimator paper was identified but not available in full text; this is retained as a residual risk rather than treated as evidence of absence.",
+    "residual_risks": [
+      "The full text of doi:10.1016/j.spl.2014.03.012 was not obtained; an equivalent observation hidden there would reduce originality, although its accessible abstract gives no indication of one.",
+      "A non-indexed or later correction to the 2025 online article could exist despite the exact-identifier searches.",
+      "An equivalent general lemma about random tail limits and infinite unweighted integrated risk may exist under different entropy-estimation terminology; no such source was located in the performed searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_TARGET_NOT_COVERING_CORRECTION: the source states the global MISE convergence claim that the counterexample contradicts; no correction is present in the checked text.",
+        "evidence": "Theorem 3.3 defines MISE as the expectation of the integral from zero to infinity of squared estimation error and concludes convergence to zero; equation (3.11) displays the same full-half-line integration.",
+        "identifier_or_url": "doi:10.1017/S0269964825100132",
+        "material_read": "Open-access publisher HTML covering the definition of generalized past entropy, Section 2 kernel assumptions and estimator, Theorems 3.1–3.4, equation (3.11), simulation description, and bibliographic metadata.",
+        "method": "Publisher full-text HTML.",
+        "title": "Non-parametric estimation of the generalized past entropy function under α-mixing sample",
+        "trigger": "Exact source of the estimator and Theorem 3.3."
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK, not decisive coverage: the accessible material establishes related estimator work but contains no visible global-MISE counterexample or correction.",
+        "evidence": "The abstract says that kernel-type estimation under censored dependent data and asymptotic properties are studied; it does not state the present tail-divergence result.",
+        "identifier_or_url": "doi:10.1016/j.spl.2014.03.012",
+        "material_read": "Abstract and bibliographic metadata. Full text was sought via open/preprint routes and authorized institutional retrieval but the requested article text was not obtained.",
+        "method": "Metadata/abstract inspection plus bounded full-text retrieval attempts.",
+        "title": "Non-parametric estimation of the generalized past entropy function with censored dependent data",
+        "trigger": "Same entropy object and nonparametric kernel-estimation theme; plausible prior coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a1b29e0-2eed-4909-a01e-97168dbcb645",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding invalidates a recent global consistency theorem on its stated infinite time domain using a canonical IID exponential model and Gaussian kernel. The failure is structural rather than a tiny numerical exception: a sample-dependent tail level produces infinite integrated risk for every sample size. This isolates the missing finite-domain or integrable-weight requirement while preserving the possibility of valid fixed-time or compact-domain results.",
+    "status": "PASS"
+  }
+}
