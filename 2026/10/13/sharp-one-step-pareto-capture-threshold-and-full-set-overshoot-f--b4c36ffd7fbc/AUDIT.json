@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The minimum-norm convex-hull vector is zero exactly on the symmetric Pareto interval and equals the gradient toward the nearer endpoint outside it. This reduces the first step to an exact scalar formula. Differentiating the crossing depth gives a unique maximizer and the stated sharp width threshold. In the noncrossing branch the accumulator is nondecreasing, every multiplicative factor lies in (0,1), and a divergent lower bound on the cumulative effective steps forces convergence to the nearest endpoint. The bundled checker reproduces representative and randomized finite cases; the proof, not the samples, establishes the quantified result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fliege--Svaiter (2000) establishes a steepest-descent framework for multicriteria optimization and first-order convergence conditions, not this adaptive accumulated-norm recurrence.",
+        "Cocchi--Liuzzi--Lucidi--Sciandrone (2020) analyzes linked sequences generated with line-search/extrapolation to Pareto-stationary limits, not unconditional MO-Adagrad steps.",
+        "The 2026 primary paper proves an average criticality-rate result; such a rate does not determine which point of a nontrivial Pareto set is selected or rule out finite overshoot across it."
+      ],
+      "reasoning": "Broader convergence to Pareto-critical points is compatible with both finite capture and transient full-set overshoot. It therefore does not dominate the exact selection/overshoot statement.",
+      "searches": [
+        "multiobjective steepest descent quadratic Pareto interval finite convergence",
+        "common descent direction multiobjective quadratic exact convergence Pareto set",
+        "On the convergence of steepest descent methods for multiobjective optimization",
+        "Steepest descent methods for multicriteria optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.05893v2",
+      "doi:10.1007/s10589-026-00813-0",
+      "Optimization Online 2026-01-30 AdaGradMultiobje.pdf",
+      "doi:10.1007/s001860000043",
+      "doi:10.1007/s10589-020-00192-0",
+      "2026/9/17/SCOPE-adogd-spectral-persistence-counterexamples--5f12814867fa",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/17/SCOPE-finite-time-osgm-sgd-persistent-noise-quadratics--00bfbf6b7815",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MO-Adagrad Theorem 13 controls an averaged common-descent criticality measure and does not identify the limiting Pareto point.",
+        "The MO-Adagrad conclusion explicitly discusses producing a single Pareto-critical point and future work on sets of nondominated points, without an exact selection map.",
+        "The independent AMG paper gives iteration-complexity guarantees for conservative and flexible variants, not this two-quadratic phase diagram."
+      ],
+      "reasoning": "A convergence or complexity theorem toward the Pareto-critical set does not imply the sharp one-step capture width, the explicit whole-set overshoot, or nearest-endpoint selection on the noncrossing branch. These are trajectory-selection statements beyond the prior implication scope.",
+      "searches": [
+        "arXiv:2602.05893v2 Algorithm 1 Remark 8 Theorem 13",
+        "Optimization Online AdaGradMultiobje Algorithm 1 conservative variant",
+        "MO-Adagrad full Pareto set overshoot"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2602.05893v2, Algorithm 1 and Remark 8: MO-Adagrad uses the minimum-norm convex-hull gradient, cumulative squared norm, and unconditional inverse-weight step.",
+        "Optimization Online 2026-01-30, Algorithm 1: conservative AMG uses the same steepest common direction and cumulative-norm scaling up to explicit initialization and master-step parameters.",
+        "Targeted published-result searches returned nearby single-objective stability thresholds and unrelated multiobjective methods, but no equivalent Pareto-interval capture/overshoot theorem."
+      ],
+      "reasoning": "The proposed statement is invariant under the sign convention between the minimum-norm convex-hull gradient and the multiobjective steepest-descent direction. Comparing recurrences rather than titles shows that the conservative AMG specialization is the closest equivalent algorithmic formulation, but its published results do not state or imply the sharp width threshold.",
+      "searches": [
+        "MO-Adagrad endpoint selection Pareto interval symmetric quadratics",
+        "MO-Adagrad skips entire Pareto set one step",
+        "Adagrad-like multiobjective finite capture Pareto critical interval",
+        "common descent direction two shifted quadratics Pareto interval exact dynamics",
+        "multiobjective AdaGrad nearest Pareto endpoint convergence",
+        "multiobjective adaptive gradient overshoots Pareto set quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published-result record was returned for MO-Adagrad on a symmetric Pareto interval.",
+        "The primary paper reports benchmark tables and classification experiments, not a table of exact scalar-quadratic dynamics."
+      ],
+      "reasoning": "The constants are obtained analytically from the recurrence and a one-variable maximization, not by recomputing a known benchmark table.",
+      "searches": [
+        "MO-Adagrad Pareto interval finite identification quadratic",
+        "multiobjective AdaGrad nearest Pareto endpoint convergence",
+        "multiobjective adaptive gradient overshoots Pareto set quadratic"
+      ]
+    },
+    "rationale": "The primary MO-Adagrad paper and the independent 2026 AMG paper were inspected at their algorithm definitions and convergence claims. Both analyze criticality/convergence complexity rather than the exact two-quadratic selection law. Exact and alias searches for Pareto-interval capture, endpoint selection, and whole-set overshoot returned no statement implying the threshold. Classical multiobjective steepest-descent sources concern line-search/convergence frameworks and do not cover the unconditional accumulated-norm step.",
+    "residual_risks": [
+      "An equivalent elementary calculation may exist in multiobjective-gradient literature under different notation and may not be indexed by the targeted queries.",
+      "The conservative AMG recurrence is extremely close to MO-Adagrad after parameter matching; the scientific novelty asserted here is the exact symmetric-quadratic trajectory classification, not the recurrence itself.",
+      "No claim is made about dynamics after a first step that skips the whole Pareto interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the recurrence used here and gives global criticality-rate results, but no symmetric-quadratic capture-width or whole-Pareto-set overshoot theorem was found.",
+        "evidence": "Algorithm 1 initializes the weight at sqrt(varsigma), accumulates the squared minimum-norm convex-hull gradient, and steps by its negative divided by the updated weight; Remark 8 identifies that vector uniquely.",
+        "identifier_or_url": "arXiv:2602.05893v2",
+        "material_read": "Abstract and arXiv metadata; Algorithm 1 and Remark 8; convergence-rate theorem region; numerical section; conclusion; full-text searches for quadratic and finite statements.",
+        "method": "Direct lawful arXiv full-text inspection with rendered algorithm page.",
+        "title": "Objective-Function Free Multi-Objective Optimization: Rate of Convergence and Performance of an Adagrad-like algorithm",
+        "trigger": "Primary recent source defining MO-Adagrad."
+      },
+      {
+        "assessment": "Closest algorithmic predecessor/equivalent specialization; develops iteration complexity but no exact symmetric two-quadratic capture or overshoot law was found.",
+        "evidence": "Its conservative update accumulates squared steepest-direction norm and takes an inverse-accumulator step; the paper characterizes Pareto criticality via zero steepest direction.",
+        "identifier_or_url": "Optimization Online, 2026-01-30",
+        "material_read": "Abstract; preliminaries defining the multiobjective steepest direction; Algorithm 1 and remarks on conservative/flexible iterations; targeted searches for Pareto interval, quadratic, and finite statements.",
+        "method": "Direct open full-text inspection with rendered algorithm page.",
+        "title": "An adaptive line-search-free multiobjective gradient method and its iteration-complexity analysis",
+        "trigger": "Independent concurrent adaptive multiobjective method with a conservative AdaGrad-Norm-like variant."
+      },
+      {
+        "assessment": "Provides foundational direction/convergence context but not adaptive accumulated-norm dynamics.",
+        "evidence": "The abstract states convergence to first-order necessary conditions and no scalarization; it does not address MO-Adagrad initialization or finite Pareto-set overshoot.",
+        "identifier_or_url": "doi:10.1007/s001860000043",
+        "material_read": "Bibliographic record and abstract describing the descent framework and convergence to first-order Pareto conditions.",
+        "method": "Published bibliographic/abstract inspection; no full-text negative claim relied on.",
+        "title": "Steepest descent methods for multicriteria optimization",
+        "trigger": "Foundational source for the multiobjective steepest descent direction."
+      },
+      {
+        "assessment": "Uses a different safeguarded line-search framework and does not dominate the unconditional MO-Adagrad trajectory statement.",
+        "evidence": "The abstract describes line search with extrapolation and convergence of linked sequences to Pareto-stationary points.",
+        "identifier_or_url": "doi:10.1007/s10589-020-00192-0",
+        "material_read": "Open repository record and abstract describing linked point sequences, line search/extrapolation, and Pareto-stationary limit points.",
+        "method": "Open repository/abstract inspection; no whole-document negative claim relied on.",
+        "title": "On the convergence of steepest descent methods for multiobjective optimization",
+        "trigger": "Broader convergence literature on multiobjective steepest descent."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b4c36ffd-7fbc-4e9e-b550-0161b23fc619",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a concrete selection mechanism that aggregate Pareto-criticality rates do not reveal. It shows exactly when an unconditional line-search-free common-descent step is guaranteed to be captured by a nontrivial Pareto interval and when it can leap over the entire efficient set in one step, despite using the locally common-descent direction. The threshold couples the startup accumulator to Pareto-set geometry and provides a precise diagnostic for initialization or safeguards. The endpoint-convergence branch completes the interpretation rather than presenting only a cheap one-step counterexample.",
+    "status": "PASS"
+  }
+}
