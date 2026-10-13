@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For genuine continuous copulas in the source scheme, the upper endpoint requires lim phi(v)=1. The source interior conditions imply 0<=phi<=1 because (v phi) is monotone from zero. Integrating v phi prime <=1 up to b<1 and sending b to 1 proves phi(v)>=1+log v; this would not be valid without upper-boundary continuity. This yields exact envelope max(0,1+log v), hence the integral upper bound I<=(1-exp(-2))/4. The equality function is continuous but nondifferentiable at exp(-1), proving strict nonattainment. An explicit smooth admissible CDF phi_epsilon satisfies v phi_prime=t/(1+t) in (0,1) and converges pointwise to the envelope; dominated convergence proves optimality. The integral identities rho=-2I and tau=-4I/3 follow by exact copula/density integration with D(0)=D(1)=0 and bounded D prime. Continuity and epsilon-to-infinity limit give the entire interior range, and phi=1 gives independence. The packaged checker symbolically verifies Kendall inner integration and the sharp envelope integral, and numerically checks smooth convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2010 Metrika paper treats general quadratic sections with bounded signed variation, rather than the source-specific tuning-function conditions, and proves rank-measure formulas but not the logarithmic constrained optimum.",
+        "The 2008 Kybernetika paper treats quasi-copulas with quadratic sections in one variable and characterizes their 1-Lipschitz validity, with no sharp Spearman negative threshold for this 2025 subclass.",
+        "The 2011 symmetric semiparametric FGM paper covers ratio ingredients but not the new asymmetric derivative bound.",
+        "The 2025 compendium addresses expressions for concordance of listed copula families, not a sharp variational envelope for Proposition 3.1 of the later source."
+      ],
+      "reasoning": "Broader quadratic-section results encompass the copula form but their permissible generators include functions outside the specific 2025 constraints. The sharp -0.432332... lower boundary is strictly stronger than any generic -1/2 rank-correlation capacity and needs the logarithmic envelope, which no inspected theorem states for this source class.",
+      "searches": [
+        "generalized Farlie Gumbel Morgenstern copula sharp concordance bound Spearman rho Kendall 2/3 relation",
+        "quadratic sections in one variable 2010 copulas concordance Spearman Kendall sharp dependence negative rho bound",
+        "asymmetric copula admissible phi derivative at most 1/v sharp concordance logarithmic envelope",
+        "doi:10.3934/math.2025995",
+        "arxiv:1103.5953"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20251091",
+      "doi:10.1007/s00184-009-0256-1",
+      "arxiv:1103.5953",
+      "doi:10.3934/math.2025995",
+      "https://www.kybernetika.cz/content/2008/6/879/paper.pdf",
+      "https://www.aus.edu/sites/default/files/book_of_abstracts_0.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published mathematical-record hits concern the global Spearman–Gini boundary and FGM block substitution; neither imposes the 2025 phi derivative constraints or gives the sharp logarithmic threshold.",
+        "The primary paper states rho <= tau <=0 generally and an equality ratio for four tabulated models, leaving the full-class exact range open.",
+        "The 2010 Metrika corollary implies rho=(3/2)tau but gives no sharp -0.432332 bound for this constrained class.",
+        "The wider 2010 quadratic-section theorem permits different generator restrictions and does not itself state the 2025 derivative-constrained logarithmic optimum."
+      ],
+      "reasoning": "The ratio-only subclaim is prior knowledge, but prior results do not imply the exact optimized parameter envelope without the new source-specific obstacle argument. The accepted one finding is the sharp full-class attainable negative-dependence segment and explicit smooth extremizing sequence.",
+      "searches": [
+        "asymmetric copula phi C(u,v)=uv[u+(1-u)phi(v)] sharp Spearman rho -(1-e^-2)/2 Kendall tau 2/3 rho",
+        "sharp Spearman rho min -0.432332358 (-1+exp(-2))/2 asymmetric copula uv[u+(1-u)phi(v)] logarithmic admissibility",
+        "quadratic sections in one variable 2010 copulas concordance Spearman Kendall sharp dependence negative rho bound",
+        "10.3934/math.20251091 phi(v)+v phi'(v)>=0 v phi'(v)<=1 best negative Spearman rank association",
+        "asymmetric copula admissible phi derivative at most 1/v sharp concordance logarithmic envelope",
+        "rank-one negative quadrant dependent copula Kendall tau (2/3) Spearman rho smooth extremal log v"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2010 Metrika author-uploaded full text explicitly gives rho=(3/2)tau in Corollary 3 for bivariate margins of copulas quadratic in one coordinate.",
+        "The 2025 source Table 1 remarks tau=(2/3)rho for four specific examples.",
+        "The new sharp attained interval uses the additional v phi prime <=1 and nonnegativity consequences of the exact 2025 assumptions."
+      ],
+      "reasoning": "General rank-one rho–tau proportionality is not new and is not the originality claim. Quadratic-section aliases were checked; the newly asserted exact constrained dependence range and smooth sharpness witness do not follow as stated in the earlier formulas without an additional source-specific optimization.",
+      "searches": [
+        "asymmetric copula phi C(u,v)=uv[u+(1-u)phi(v)] sharp Spearman rho -(1-e^-2)/2 Kendall tau 2/3 rho",
+        "generalized Farlie Gumbel Morgenstern copula sharp concordance bound Spearman rho Kendall 2/3 relation",
+        "copula quadratic one margin rank one perturbation sharp negative dependence logarithmic bound",
+        "rank-one negative quadrant dependent copula Kendall tau (2/3) Spearman rho smooth extremal log v",
+        "doi:10.1007/s00184-009-0256-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary source Proposition 3.1 specifies phi <= 1, phi(1)=1, lim v phi(v)=0, phi+v phi prime >=0, v phi prime <=1.",
+        "The same paper lists twelve valid example families in Proposition 4.2.",
+        "The source Table 2 restricts its four extensively studied families C1, C2, C11, C12 to rho between -1/3 and 0 and tau between -2/9 and 0; it does not claim that range for all twelve or for the full scheme.",
+        "The constructed smooth family lies in the full source scheme and has rho values below -1/3, approaching -(1-exp(-2))/2.",
+        "The primary proposition gives interior differentiability and phi(1)=1 but does not explicitly require left continuity at 1; the final claim is restricted to the genuine continuous copulas, for which that limit necessarily equals 1.",
+        "The authors also publicly disclosed the same source copula formula in the official February 20–22, 2025 conference abstract book, before the October journal article; its accessible abstract does not state the sharp dependence limit."
+      ],
+      "reasoning": "The comparison respects the published table scope: its -1/3 cutoff is for four studied subfamilies, not the entire class. The new result proves the exact full-class negative envelope and provides members outside those four tabulated ranges. The sharpness proof uses the continuous upper boundary as a necessary property of a true copula, not as an unverified implication of interior differentiability alone.",
+      "searches": [
+        "doi:10.3934/math.20251091 asymmetric copula exact sharp Spearman Kendall association range",
+        "nonexchangeable copula negative quadrant dependence differentiable phi v phi prime at most 1 logarithmic envelope",
+        "10.3934/math.20251091 phi(v)+v phi'(v)>=0 v phi'(v)<=1 best negative Spearman rank association",
+        "doi:10.3934/math.20251091 Table 2 concordance negative Spearman range",
+        "\"1-e^{-2}\" Spearman copula rho bound rank correlation"
+      ]
+    },
+    "rationale": "The source establishes the copula, twelve examples and concordance for four studied families, not an optimal full-class rank-correlation capacity. Older quadratic-section work explicitly covers the 2/3 ratio and general validity, so no novelty is claimed for those ingredients. The specific differentiable-source derivative constraint creates a sharp logarithmic obstacle with a new exact -0.432332... negative rank-correlation infimum and an explicit smooth near-extremal family. Directly inspected primary texts and targeted database/source searches did not reveal the sharp source-specific theorem. The final scope explicitly enforces the endpoint continuity necessary for a genuine copula, rather than relying uncritically on the source proposition.",
+    "residual_risks": [
+      "An unindexed recent note or unpublished work may independently derive the exact same variational endpoint.",
+      "The general rho/tau linear relation was known in the larger quadratic-section class and is not attributed as original.",
+      "The sharp cutoff depends essentially on the source-specific differentiability and derivative constraints and does not extend to all asymmetric copulas.",
+      "The source proposition omits an explicit upper-endpoint continuity hypothesis; discontinuous formal functions that satisfy its interior inequalities need not produce copulas, and are excluded by the final theorem.",
+      "The earlier conference abstract is dated by its meeting interval, 20–22 February 2025, not by an independently verified online-upload time or individual presentation day."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL INGREDIENTS, NOT COVERING: proves validity and four-family concordance formulas; states only rho <= tau <= 0 for general scheme, and gives ranges for four examples rather than a sharp full-class cutoff or a soft-maximum approximating family.",
+        "evidence": "Pages 3–5 (conditions (a)–(d)), 6–8 (twelve examples), 14–16 (Tables 1–2, ratio for four models and -1/3 range).",
+        "identifier_or_url": "doi:10.3934/math.20251091",
+        "material_read": "Entire open publisher PDF with particular attention to Proposition 3.1 proof and all requirements, Proposition 4.2 twelve examples, Tables 1–2 and remarks for four studied families, applications, conclusion and references.",
+        "method": "Publisher open PDF parsed text with page-position inspection.",
+        "title": "A new scheme for simple asymmetric bivariate copulas and applications",
+        "trigger": "Defines the exact differentiable asymmetric copula class whose global concordance range is optimized."
+      },
+      {
+        "assessment": "COVERS THE GENERAL SPEARMAN–KENDALL RATIO; DOES NOT COVER THE SHARP SOURCE-SPECIFIC BOUND. No logarithmic obstacle or (1-exp(-2))/2 dependence threshold for the 2025 tuning restrictions.",
+        "evidence": "Corollary 3 gives rho=(3/2)tau; Theorem 6 requires bounded derivative of the general generator, not the 2025 derivative v phi prime <=1.",
+        "identifier_or_url": "doi:10.1007/s00184-009-0256-1",
+        "material_read": "Author-uploaded public full text: copula representation and characterization (Sect. 3, Theorem 1), association expressions (Sect. 4, especially Corollary 3), general function subclass conditions (Sect. 5, Theorem 6), and example constructions (Sect. 6).",
+        "method": "Direct lawful author-uploaded full-text reading on public repository.",
+        "title": "Multivariate copulas with quadratic sections in one variable",
+        "trigger": "Highly plausible covering broader theory of the same quadratic-in-u copula form and rank measures."
+      },
+      {
+        "assessment": "Characterizes general quadratic-section quasi-copulas and copulas. No concordance-optimal logarithmic derivative restriction of the 2025 source.",
+        "evidence": "Page 5 Corollary 5: every bivariate quasi-copula with quadratic sections in one variable is a copula.",
+        "identifier_or_url": "https://www.kybernetika.cz/content/2008/6/879/paper.pdf",
+        "material_read": "Open full 12-page article inspected at definitions, characterizations, Corollary 5 for bivariate quasi-copulas, constructions and conclusion.",
+        "method": "Direct journal open PDF text and rendered page inspection.",
+        "title": "Quasi-copulas with quadratic sections in one variable",
+        "trigger": "Earlier characterization of the same quadratic-section functional form and possible broader dominance."
+      },
+      {
+        "assessment": "GENERAL PRIOR RANK-ONE BACKGROUND. Does not optimize the exact asymmetric derivative-constrained 2025 tuning function class.",
+        "evidence": "Defines symmetric rank-one perturbations of independence and studies their concordance coefficients; asymmetric extension mentioned as distinct direction.",
+        "identifier_or_url": "arxiv:1103.5953",
+        "material_read": "Open 12-page arXiv preprint read at semiparametric representation, dependence coefficient formulas, and discussion of asymmetric extensions.",
+        "method": "Direct open arXiv full-text inspection.",
+        "title": "Symmetry and dependence properties within a semiparametric family of bivariate copulas",
+        "trigger": "Known generalized FGM rank-one family may dominate the rho/tau formula."
+      },
+      {
+        "assessment": "COVERS GENERAL CONCORDANCE FORMULAS BUT NOT THIS SHARP CLASS-SPECIFIC VARIATIONAL MINIMUM.",
+        "evidence": "Dependence-measure compendium sections 2.10–2.11 cover generalized FGM families, not the exact Proposition 3.1 logarithmic bound.",
+        "identifier_or_url": "doi:10.3934/math.2025995",
+        "material_read": "Open full publisher text at FGM/generalized FGM sections and dependence-measure formulas.",
+        "method": "Direct lawful publisher full-text inspection.",
+        "title": "A compendium of expressions for dependence measures of bivariate copulas",
+        "trigger": "Broad formulas for concordance including generalized FGM-like structures."
+      },
+      {
+        "assessment": "EARLIER ABSTRACT DISCLOSURE. It states the same copula form and summarizes association calculations, but the examined abstract does not state the sharp full-class negative concordance cutoff; no judgment is made about all other contents of the book.",
+        "evidence": "Book of Abstracts for February 20–22, 2025, page 227, matching authors and model expression.",
+        "identifier_or_url": "https://www.aus.edu/sites/default/files/book_of_abstracts_0.pdf",
+        "material_read": "The complete paper-specific conference abstract and bibliographic/event header as exposed from the public university-hosted proceedings index. The surrounding full approximately 21-MB book was not read.",
+        "method": "Publicly indexed institutional conference-book excerpt; full-volume download attempted but not accessible.",
+        "title": "Exploring a new theoretical scheme to construct simple asymmetric bivariate copulas: Application to Abu Dhabi climatological data",
+        "trigger": "Earlier public disclosure of the identical source copula model by the same three authors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4dd18c34-2261-4fdb-a285-911dd4470e4b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper presents a flexible full function-based asymmetric copula class but quantifies only four subfamilies, leaving the strongest achievable negative dependence unknown. The theorem gives the complete attainable rho/tau dependence capacity and a smooth one-parameter admissible family reaching strictly stronger negative dependence than all four extensively studied examples. It also supplies a rigorous diagnostic limitation: population rank-correlation pairs outside the line segment are impossible for the whole source scheme, no matter how its tuning function is chosen. This is a natural sharp optimization of a central dependence property, not merely a restatement of the known rho/tau ratio. The diagnostic applies to actual continuous copulas; formal endpoint-discontinuous expressions are not probability models.",
+    "status": "PASS"
+  }
+}
