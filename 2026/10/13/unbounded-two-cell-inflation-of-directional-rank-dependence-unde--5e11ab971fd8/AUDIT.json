@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each k>=1, explicit derivative and |f_prime|<=4k give 1/2<=density<=3/2 and uniform margins, and ∂u F(v|u)=-2 eps f<0 proves SI. The xi integral is exactly 2 eps^2 I_k, with beta I_k=4^(2k)(2k)!^2/(4k+1)!. The four quadrant masses yield ξ(checkerboard)=eps^2/2 via independently integrated conditional CDF, so ratio=1/(4I_k); Gaussian dominated convergence gives I_k~sqrt(pi/(8k)). Direct exact fractions show the first k with I_k<1/4 is 6. Standalone checker reproduces 16 finite cases. Analytic proof, not enumeration, establishes the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rockel Theorem 4.2 bounds ξ(CB)<=ξ(C) for density TP2; constructed inputs are strictly SI but violate density TP2 for k>=2.",
+        "Ansari–Fuchs shows checkerboard continuity for any fixed SI input under grid refinement, not uniform relative error over changing inputs."
+      ],
+      "reasoning": "A stronger smoothness class with a TP2 restriction is not a larger coverage class. Qualitative C_n→C in ξ for fixed C and n→infinity does not imply any common bound across C at n=2. Uniform density bounds alone still allow derivatives of increasing order.",
+      "searches": [
+        "Measures of association for approximating copulas Rockel 2025 checkerboard directional correlation bias",
+        "randomized grid copula discretization Chatterjee directional rank dependence arbitrary amplification inflation unbounded ratio",
+        "generalized FGM polynomial copula increasing stochastic dependence grid cell smoothing amplifies Chatterjee xi without bound",
+        "arxiv:2505.08045v2 Theorem 4.2",
+        "arxiv:2503.11390 Corollary 3.6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2505.08045v2 (complete HTML; Theorem 4.2, Example 4.3, Appendix)",
+      "arxiv:2505.08045v1 (full author-uploaded text; Proposition 3.3, Theorem 4.1)",
+      "arxiv:2503.11390 (author full text; Theorem 3.5, Corollary 3.6, Remark 3.7)",
+      "arxiv:2205.01914 (primary abstract only)",
+      "published-finding corpus relevant records: 2026/9/18/SCOPE-fgm-block-substitution-threshold-entropy-defect--8e6f21783699; 2026/9/19/SCOPE-spearman-gini-quartic-phase-oscillation--9fcf13d0b4cb; 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rockel supplies a checkerboard xi formula, TP2-valid lower inequality, and a single SI counterexample ξ_coarse=2ξ_original.",
+        "Ansari–Fuchs supplies continuity in different quantifiers.",
+        "The derived exact ratio tends to infinity within density-bounded SI, which neither earlier statement entails."
+      ],
+      "reasoning": "Prior formula enables computational evaluation but does not mathematically imply the existence of bounded-density SI instances with unbounded ratios; the construction and asymptotic analysis are nontrivial needed steps. No incompatibility with the TP2 theorem exists.",
+      "searches": [
+        "arxiv:2505.08045v2 Proposition 3.3/Theorem 4.2/Example 4.3/Appendix",
+        "arxiv:2503.11390 Corollary 3.6/Remark 3.7",
+        "checkerboard Chatterjee xi can exceed original copula rank correlation counterexample smooth positive density",
+        "randomized grid copula discretization Chatterjee directional rank dependence arbitrary amplification inflation unbounded ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rockel Example 4.3 demonstrates 2-fold inflation for one checkerboard configuration, equivalent to a finite failure of lower-bound monotonicity.",
+        "The present claim is sup_{smooth SI, 1/2<=density<=3/2} ξ(CB2(C))/ξ(C)=+infinity (for xi>0), strictly stronger than existence of one counterexample."
+      ],
+      "reasoning": "Compared exact direction, classes, quantifiers and granularity, not title. Published sign-failure cannot imply unbounded ratio: its only explicit ratio is 2. The novel sequence has increasingly narrow conditional CDF profile, bounded density via k-dependent perturbation, and fixed coarse grid.",
+      "searches": [
+        "checkerboard copula Chatterjee xi rank correlation convergence rate expansion approximation m n Sobolev derivative",
+        "checkerboard Chatterjee xi can exceed original copula rank correlation counterexample smooth positive density",
+        "Chatterjee xi copula approximation two by two checkerboard quadratic mass counterexample",
+        "2505.08045 Chatterjee checkerboard approximation Rockel rank correlation full support SI counterexample",
+        "arxiv:2505.08045v2 Section 4.1 and Example 4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published records on generalized FGM substitution concern copula validity and entropy, not the directional xi checkerboard multiplier.",
+        "No located exact table of k-dependent Chatterjee ξ values subsumes I_k or its multiplier; the simple k=6 arithmetic is not alone the claim."
+      ],
+      "reasoning": "Searched structural and quantitative formulations; no identified tabulated or database result gives the analytic family and unbounded ratio. Search absence is a residual risk.",
+      "searches": [
+        "Chatterjee xi checkerboard approximation error O(n^-2) anisotropic smooth copula derivatives",
+        "Rockel 2505.08045 lower bound checkerboard counterexample correlation",
+        "rank association checkerboard probability 2x2 high concentration smooth copula unbounded relative approximation",
+        "published-finding corpus:2026/9/18/SCOPE-fgm-block-substitution-threshold-entropy-defect--8e6f21783699",
+        "published-finding corpus:2026/9/19/SCOPE-spearman-gini-quartic-phase-oscillation--9fcf13d0b4cb"
+      ]
+    },
+    "rationale": "The v2 lead preprint already gives a fixed twofold SI checkerboard overestimate; that statement is explicitly prior, not new. It proves a lower bound only for density-TP2 input. In contrast, this theorem rules out any finite multiplicative checkerboard bound even with smooth strictly positive SI density uniformly between 1/2 and 3/2 and a fixed 2x2 grid. The full source and its appendix supply neither the growing ratio nor an implication establishing it, while the continuity literature concerns other quantifiers. Targeted published-finding corpus searches found no dominating published result; absence is not a priority certificate.",
+    "residual_risks": [
+      "The source establishes a twofold SI counterexample already; novelty is restricted to the growing multiplier in the smooth uniformly density-bounded SI family.",
+      "Other equivalently parameterized families with arbitrarily large checkerboard inflation could exist outside the indexed records; originality search cannot certify unique priority.",
+      "The theorem proves relative inflation only, with both statistics vanishing; it does not imply a universal positive absolute error.",
+      "No claim against the established density-TP2 lower inequality or against fixed-copula fine-grid consistency."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING the existence of SI violation and a factor-two example; NOT COVERING uniform density-bounded polynomial SI family with unbounded relative inflation at fixed 2x2 resolution",
+        "evidence": [
+          "Theorem 4.2 assumes density TP2; Example 4.3 exhibits xi=1/16 for a 2x4 SI checkerboard and xi=1/8 after coarsening to 2x2; Appendix confirms direct integral formula for checkerboard xi."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2505.08045v2",
+        "material_read": "Full accessible HTML, especially abstract, Section 3.3 Proposition 3.3, Section 4.1 Theorem 4.2 and Example 4.3, Section 4.2 and Appendix formulas for Chatterjee xi",
+        "method": "Primary arXiv full HTML text; read precise displayed theorem and finite counterexample, appendix integral derivation; compared implication and parameters",
+        "title": "Measures of association for approximating copulas (v2)",
+        "trigger": "Exact same statistic and checkerboard interpolation, TP2/SI assumption boundary"
+      },
+      {
+        "assessment": "Earlier broad lower claim and matrix identity are prior; the scientific novelty is not presented as the finite sign reversal but the unbounded smooth SI multiplier.",
+        "evidence": [
+          "V1 Proposition 3.3 provides matrix xi formula; later v2 revises bound to density TP2 and provides finite SI counterexample."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/391706714_Measures_of_association_for_approximating_copulas",
+        "material_read": "Author-uploaded full v1, especially Proposition 3.3, Theorem 4.1, proof and appendix integral expression",
+        "method": "Author-uploaded original full text; compared original assertion with updated TP2-scoped v2 theorem",
+        "title": "Measures of association for approximating copulas (v1)",
+        "trigger": "Earliest public statement and historical presentation of formula"
+      },
+      {
+        "assessment": "NOT COVERING an across-distribution fixed-grid relative xi bound: continuity under SI and pointwise convergence concerns each convergent approximating sequence",
+        "evidence": [
+          "Corollary 3.6: ξ continuity for pointwise convergent SI copula sequences; Remark 3.7 names checkerboard ∂1 approximation."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/389894365_On_continuity_of_Chatterjee%27s_rank_correlation_and_related_dependence_measures",
+        "material_read": "Accessible complete author full-text, especially Theorem 3.5, Corollary 3.6, Remark 3.7 and proof for SI sequences",
+        "method": "Read full-text substantive theorem and conditional Markov product reasoning",
+        "title": "On continuity of Chatterjee's rank correlation and related dependence measures",
+        "trigger": "Possible stronger approximation guarantee or checkerboard envelope"
+      },
+      {
+        "assessment": "Supports relevant distinction SI versus density total positivity, not a theorem about checkerboard xi multiplier",
+        "evidence": [
+          "Abstract lists stochastic increase, TP2 and density-TP2 as different positive-dependence restrictions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.01914",
+        "material_read": "Full abstract and classification summary only, not full paper",
+        "method": "Verified primary abstract and distinct comparison objects",
+        "title": "Total positivity of copulas from a Markov kernel perspective",
+        "trigger": "Hierarchy of SI versus stronger total positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e11ab97-1fd8-4512-b6a1-a2aa92a118e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise scientific gap is quantitative stability after relaxing a published TP2 density condition to SI. A known SI counterexample with fixed inflation 2 does not determine whether a weaker multiplicative guarantee survives. Proving every finite multiplicative bound fails, even for strictly positive polynomial densities with a uniform 1/2-to-3/2 bound and fixed 2x2 resolution, supplies a structural obstruction important to the interpretation of checkerboard directed-dependence diagnostics. The entire natural k>=1 family has an exact ratio and asymptotics. This is not a tiny numerical refinement, trivial renaming or table entry.",
+    "status": "PASS"
+  }
+}
