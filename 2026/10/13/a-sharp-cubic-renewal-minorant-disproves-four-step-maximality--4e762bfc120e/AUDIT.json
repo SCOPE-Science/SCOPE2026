@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For any four-point probability vector, the renewal recursion has u_0=1, u_1=a, u_2=a²+b, u_3=a³+2ab+c; induction shows that the infinite-time minimum is the minimum of the first three positive masses. Each residual u_j−[a(a+b)(a+b+c)+2abd], j=1,2,3, is an explicitly factored polynomial with nonnegative coefficients or square terms on the entire closed simplex. The cumulative-coordinate restrictions are x, xy and a cubic, proving membership in both source classes. On c=0, u_3−[Q_4+λabd]=ab[b+(2−λ)d], so any λ>2 fails, while λ≤2 works. The actual packaged verify.py reconstructs the three polynomial identities coefficientwise using rational arithmetic and checks additional exact simplex points; the proof is not reliant on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source 2024 paper explicitly leaves its k≥4 conjecture open while proving k=3 only.",
+        "The closest published-research catalogue hits concern power correlation of stationary renewal age and residual life and bias of renewal-marked windows, rather than a pointwise polynomial minorant of renewal masses."
+      ],
+      "reasoning": "Standard renewal recursion and limiting results do not imply a sharp restricted polynomial majorization of Q_4. Nearby renewal-age and renewal-tail results are different functionals under different probability models; their displayed summaries have no implication for the degree-constrained polynomial order here.",
+      "searches": [
+        "Properties and conjectures regarding discrete renewal sequences conjecture maximal element solved 2024 2025 2026",
+        "renewal sequences polynomial envelope conjecture 2025 2026",
+        "Sharp polynomial bound min renewal probability first 3 levels k=4 p1 p2 p4 improvement Q4",
+        "Sharp power-correlation range for stationary renewal age and residual life",
+        "Exact renewal-tail bias and root-n window thresholds for next-token surprise"
+      ]
+    },
+    "checked_sources": [
+      "Nikolov–Savov, arXiv:2307.00545, full 8-page text.",
+      "Nikolov–Savov, Mathematics and Informatics 67 (2024), DOI:10.53656/math2024-2-1-pro, full publisher HTML text.",
+      "Published research: Sharp power-correlation range for stationary renewal age and residual life: title/summary only, different stationary-renewal dependence functional.",
+      "Published research: Exact renewal-tail bias and root-n window thresholds for next-token surprise: title/summary only, different statistical bias functional."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.5 of the source: Q_k is a lower minorant of the minimum renewal mass.",
+        "Conjecture 3.7 of the source: Q_k is maximal in A_k and largest in hat A_k for all k≥3; Proposition 3.8 proves k=3.",
+        "For k=4, the new polynomial exceeds Q_4 by 2abd>0 on the open simplex yet is ≤each of u_1, u_2, u_3, hence ≤every u_n, while retaining all restricted-degree properties."
+      ],
+      "reasoning": "The source statement predicts that no distinct admissible polynomial may dominate Q_4. The exhibited degree-three P is a direct counterexample, and its membership in the smaller restricted class also disproves the largest-element prediction. The source lower bound Q_4≤m_4 is a strict corollary of the constructed stronger bound, not conversely.",
+      "searches": [
+        "Nikolov Savov Properties and conjectures regarding discrete renewal sequences Conjecture 3.7 Proposition 3.5 Proposition 3.8",
+        "arXiv:2307.00545",
+        "DOI:10.53656/math2024-2-1-pro",
+        "Four-step discrete renewal masses cubic polynomial lower bound min p1 p1 squared plus p2 p1 cubed plus 2 p1p2 plus p3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.00545, equations (2.4)–(2.9), Conjecture 3.7, pp. 2–5; the original equivalence is explicitly the polynomial order on the probability simplex.",
+        "Mathematics and Informatics 67 (2024), DOI:10.53656/math2024-2-1-pro, equations (4)–(8) and Conjecture 3.7.",
+        "The cumulative-coordinate form of the new polynomial is xyz+2x(y−x)(1−z), with permitted truncations xy and x."
+      ],
+      "reasoning": "The new claim is not merely a differently worded bound: it gives an admissible polynomial strictly larger than the conjectured maximal element on exactly the source domain. Searches for aliases and the explicit perturbation yielded no scientifically equivalent coverage.",
+      "searches": [
+        "Nikolov Savov conjecture 3.7 renewal Q4 maximal polynomial minorant",
+        "P=Q4+2 p1 p2 p4 cumulative probabilities",
+        "Maximal minorants of lower envelope of renewal sequence, cumulative probabilities degree 3",
+        "Counterexample to Nikolov and Savov conjecture 3.7, polynomial minorant Q4 of discrete renewal masses, support four, k=4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source presents the degree-restricted universal-minorant problem symbolically, not as a numerical list or finite table.",
+        "The new identity concerns a continuum of probability vectors and is certified by three all-parameter polynomial factorizations; a finite list of evaluated renewal masses could not imply its universal admissibility."
+      ],
+      "reasoning": "No exact table or database containing an all-simplex minorant with this perturbation was located. A table of values would not itself dominate the analytic statement; the infinite-domain claim is supported by identities instead of a census.",
+      "searches": [
+        "2307.00545 counterexample",
+        "renewal masses polynomial Q4 table polynomial minorant",
+        "Bernstein positive cubic certificate renewal polynomial minorant conjecture four-point support"
+      ]
+    },
+    "rationale": "Nikolov–Savov arXiv:2307.00545, Conjecture 3.7 (both the preprint and the 2024 publisher-hosted full text), asserts that Q_k is maximal among polynomial lower minorants of degree at most k−1 and largest in a cumulative-degree-restricted subclass for every k≥3. The source proves only k=3 (Proposition 3.8) and establishes the weaker inequality Q_k≤m_k (Proposition 3.5). For k=4, the constructed P=Q_4+2p_1p_2p_4 lies in that same restricted class, is ≤every renewal mass for all probability vectors, and exceeds Q_4 on an open subset. Thus source results do not imply this disproof; the claim contradicts the precise forward conjecture. Searches of the source/aliases/formula and published research records returned no exact covering finding; bibliographic priority remains subject to external checking.",
+    "residual_risks": [
+      "Unindexed publications or papers using alternative envelope terminology could precede this construction; no independent human priority review has occurred.",
+      "The proof is elementary and can plausibly be rediscovered, but no searched exact or broader statement implied the displayed improvement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The same Q_k, A_k and restricted class are defined, with Conjecture 3.7 asserted for k≥3 and proof only for k=3; the exhibited P does not appear.",
+        "evidence": [
+          "Page 1 primary MSC2020 60K05 and abstract.",
+          "Pages 2–3 equations (2.1)–(2.9).",
+          "Page 5 Conjecture 3.7.",
+          "Page 7 proof of Proposition 3.8 for k=3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.00545",
+        "material_read": "Full eight-page manuscript, including page 1 classification and introduction, pages 2–3 definitions, pages 4–5 conjecture, pages 6–7 proofs and page 8 bibliography/affiliations.",
+        "method": "Direct inspection of original PDF pages, equations and theorem statements.",
+        "title": "Properties and conjectures regarding discrete renewal sequences",
+        "trigger": "Direct source proposing the conjecture and giving the exact polynomial classes."
+      },
+      {
+        "assessment": "The published article restates the all-k Conjecture 3.7 and only proves k=3; no k=4 dominating minorant or counterexample is stated.",
+        "evidence": [
+          "Equations (4)–(8) define m_k, Q_k, A_k and hat A_k.",
+          "Proposition 3.5 and Conjecture 3.7, numbered (14) and following.",
+          "Proposition 3.8 and its proof resolve only k=3.",
+          "DOI:10.53656/math2024-2-1-pro."
+        ],
+        "identifier_or_url": "https://journals.azbuki.bg/mathinfo/properties-and-conjectures-regarding-discrete-renewal-sequences/view",
+        "material_read": "Publisher-hosted full article sections 1–4, including the definitions, numbered propositions, conjecture and proof of the special case (article pages 111–118).",
+        "method": "Read complete mathematical text in the publisher-hosted HTML rendering, including the original equations.",
+        "title": "Properties and Conjectures Regarding Discrete Renewal Sequences",
+        "trigger": "Later publisher version, necessary to check whether the conjecture or its scope was modified after the first public preprint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e762bfc-120e-4e72-8a23-5ffa2767acc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated counterexample to both clauses of a specific published conjecture on universal polynomial lower envelopes of discrete renewal minima. It occurs at the first unproved finite support size (k=4 after k=3 was proved), uses an explicit uniform certificate over a three-dimensional probability simplex, and gives a sharp coefficient within a natural cubic perturbation family. It changes the expected extremal structure, rather than merely calculating a value at arbitrary parameters. No claim of complete extremal classification or general k≥5 behavior is made.",
+    "status": "PASS"
+  }
+}
