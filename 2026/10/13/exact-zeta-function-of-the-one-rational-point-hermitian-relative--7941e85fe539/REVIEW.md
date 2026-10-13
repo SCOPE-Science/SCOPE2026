@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The curve is smooth for every prime power \(s=p^f\). Its unique base-field rational point is verified directly. The coordinate shift \(Z\mapsto Z+cY\) with \(c^s+c=-\eta\) has a nonzero \(\mathbb F_{s^2}\)-Frobenius difference \(\delta=\eta-\eta^s\), so it becomes defined over exactly a characteristic-\(p\) extension. The resulting order-\(p\) Hermitian translation has mutually conjugate nonidentity powers. Maximality of the Hermitian curve and the known one-point count give trace \(-s\) on these powers. Cyclic character inversion yields all eigenvalue multiplicities, the exact zeta numerator, and the extension counts. The checker independently enumerates four small-field cases but is not used as a universal proof.
+
+**Originality: PASS, with bibliographic risk.** Homma–Kim's 2026 WCC manuscript (ten pages, Theorem 1.1, entire stated list of results) classifies the one-point family but does not give its full zeta function. Their earlier work, arXiv:2402.14192, Theorem 2.3, uses zeta eigenvalues only for a base-field congruence and does not derive the order-\(p\) spectrum for this family. Searches for L-polynomial, Hasse–Weil zeta, elation-twist, and extension-count formulations did not locate a covering explicit result. The 2026 *Classification of Hermitian-Relative Curves up to Projective Equivalence* chapter was identifiable but full-text comparison was unavailable; implicit overlap cannot be ruled out. A lack of matched searches is not proof of uniqueness.
+
+**Value: PASS.** The natural Hasse–Weil zeta function is an intrinsic arithmetic invariant not determined by a single rational-point count. Its closed uniform determination for all primes, all prime-power \(s\), all admissible \(\eta\), and every extension degree gives substantially stronger information than the prior base-field classification. The structural order-\(p\) descent is the mechanism, not just a numerical table or a small-field example.
+
+**Limitations.** No classification is claimed for other Hermitian relatives, no Jacobian isogeny-type classification is asserted, and the uninspected 2026 chapter remains a specific originality risk. The finite tests do not verify the theorem for infinitely many fields. No independent scientific audit has been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.
