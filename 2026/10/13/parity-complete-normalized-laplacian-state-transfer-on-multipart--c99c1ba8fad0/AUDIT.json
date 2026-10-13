@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The proof computes all spectral subspaces and their dimensions from the graph matrix, uses exact zero-mode comparison and the nonzero supports of pair vertices; it treats the m=2 last-cell pair separately, whose transverse projection vanishes but whose second-plane negative eigenvalue coincides with the transverse eigenvalue to show pair-only transfer, and solves all required eigenphases via odd-integer divisibility. The equality d=m+2r-2 yields iff r odd and m=2 mod 4; U=I-2P_zero gives the complete cell-block unitary. The finite exact rational checker confirms 84 graph matrices, kernel projectors and phase solvability. No infinite statement is inferred from those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2209.04668v1, Theorem 5 (spectral phase and strong cospectrality)",
+        "arXiv:2111.01265v2, Sections 3, 6 (strong cospectrality of twins and joins)",
+        "DOI:10.1016/j.dam.2020.03.041, Theorem 3.1 (general complete-multipartite spectrum)",
+        "arXiv:1409.5840v1, Section 6 (normalized-Laplacian weak products and combinatorial double cones)",
+        "Quantum walks on join graphs (2026): adjacency and ordinary Laplacian join frameworks, a different Hamiltonian from the normalized-Laplacian result."
+      ],
+      "reasoning": "The 2022 general transfer theorem and the 2020 multipartite spectrum are strong prior coverage for necessary machinery, and 2022 twin results cover strong cospectrality. However, a universal phase criterion plus a spectral table does not itself include the computed parity condition, entire time set, and explicit whole-network unitary. No inspected broad theorem was found stating those consequences for all r,m. The earlier regular-double-cone specialization does not cover m>2 because its complement base is nonregular.",
+      "searches": [
+        "normalized adjacency quantum walk perfect state transfer complete multipartite graph multiple twin pairs one enlarged part",
+        "complete multipartite normalized Laplacian quantum walks phase alignment eigenvalues 1 -m/(m+2r-2) -2/(m+2r-2)",
+        "\"normalized Laplacian\" \"twin vertices\" \"perfect state transfer\" 2023",
+        "\"Quantum walks on join graphs\" normalized Laplacian transfer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.04668v1",
+      "arXiv:2111.01265v2",
+      "doi:10.1016/j.dam.2020.03.041",
+      "arXiv:1409.5840v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2209.04668v1, Theorem 5 (spectral phase and strong cospectrality)",
+        "arXiv:2111.01265v2, Sections 3, 6 (strong cospectrality of twins and joins)",
+        "DOI:10.1016/j.dam.2020.03.041, Theorem 3.1 (general complete-multipartite spectrum)",
+        "arXiv:1409.5840v1, Section 6 (normalized-Laplacian weak products and combinatorial double cones)",
+        "Previously reported regular-double-cone apex-transfer theorem: the base is required to be regular; K_{2,2,2,6} has a nonregular base upon removing a twin pair."
+      ],
+      "reasoning": "Coutinho-Baptista determines when a supplied spectral decomposition permits transfer, not the present two-variable arithmetic answer. Monterde determines possible strong cospectrality, not phase synchronization. Sun-Das lists eigenvalues, not the signs of eigenprojections needed for the transfer amplitudes. The present proof supplies those missing implications by explicit invariant subspaces and 2-adic divisibility, and yields a full unitary gate unavailable by simple restatement. The regular m=2 subfamily may be covered by old cocktail-party results and is not asserted separately as novel.",
+      "searches": [
+        "normalized Laplacian perfect state transfer complete multipartite graph K_{2,2,2,m} even part sizes modular condition",
+        "complete multipartite normalized Laplacian quantum walks phase alignment eigenvalues 1 -m/(m+2r-2) -2/(m+2r-2)",
+        "normalized Laplacian perfect state transfer on K_{2,2,...,2,m} r odd m congruent 2 mod 4 simultaneous twin swaps Grover reflection",
+        "normalized Laplacian perfect transfer double cone regular base phase parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2209.04668v1, Theorem 5 (spectral phase and strong cospectrality)",
+        "arXiv:2111.01265v2, Sections 3, 6 (strong cospectrality of twins and joins)",
+        "arXiv:2111.01265v2 Sec. 6 describes complete multipartite graphs as joins of empty twin classes, without this dynamical parity classification."
+      ],
+      "reasoning": "The same result might be described via normalized-adjacency rather than normalized-Laplacian dynamics, via a Grover diffusion reflection, or via twin-class swaps. The spectral phase/sign structure of the claimed global unitary was compared against the primary texts; the published frameworks establish ingredients but do not state its iff congruence and time classification. Absence of exact wording alone is not an originality proof.",
+      "searches": [
+        "normalized Laplacian perfect state transfer complete multipartite graph K_{2,2,2,m} even part sizes modular condition",
+        "normalized Laplacian perfect state transfer on K_{2,2,...,2,m} r odd m congruent 2 mod 4 simultaneous twin swaps Grover reflection",
+        "\"normalized Laplacian\" \"complete multipartite\" \"perfect state transfer\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DOI:10.1016/j.dam.2020.03.041, Theorem 3.1 (general complete-multipartite spectrum)",
+        "DOI:10.1016/j.dam.2020.03.041, Theorem 3.1, a spectral-polynomial rather than state-transfer table"
+      ],
+      "reasoning": "Sun-Das supplies a complete characteristic polynomial for arbitrary multipartite graphs but no transfer-time, phase-projector, or propagator table. Research-record hits searched by parameter, operator, and transfer phenomenon were semantically disjoint (circulant spectra and graph domination). These searches limit but cannot eliminate weakly indexed duplicate results.",
+      "searches": [
+        "normalized Laplacian evolution at pi half degree on complete multipartite independent twin pairs unequal last part size",
+        "\"K_{2,2,2,6}\" \"perfect state transfer\"",
+        "complete multipartite normalized Laplacian spectral theorem Sun Das 2020"
+      ]
+    },
+    "rationale": "The motivating normalized-Laplacian phase criterion, existing strong-cospectral twin theorem, and general multipartite spectrum were inspected and credited. The assessed novel content is the exact joint arithmetic iff, complete transfer time set and global simultaneous-swap-plus-reflection propagator for the full including irregular family; regular m=2 boundary is already substantially covered by other work. Statement implication comparisons and exact searches found no known dominating transfer classification, though equivalent weakly indexed work remains a risk.",
+    "residual_risks": [
+      "An equivalent result may exist under quotient-graph, Grover-reflection, or twin-class terminology and evade indexing.",
+      "The directly linked publisher version of the 2020 complete-multipartite spectral paper was not accessible as an unbroken full document; relevant indexed full-text theorem and sections were read, and there is no positive evidence of a PST claim there.",
+      "General known spectral and phase theorems make the result derivable in principle; novelty concerns the motivated explicit all-parameter classification and whole-network unitary, not those building blocks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General PST characterization already known; no family-specific classification or whole-unitary matrix found",
+        "evidence": [
+          "arXiv:2209.04668v1, Section 3 Theorem 5",
+          "arXiv:2209.04668v1, Section 4 treats tree obstructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.04668v1",
+        "material_read": "Author-provided HTML introduction, Sections 2–5 with the spectral phase theorem and associated results",
+        "method": "Read author-hosted arXiv full text and compare spectral hypotheses and its characterizations with all r,m phase congruences",
+        "title": "Quantum Walks in the Normalized Laplacian",
+        "trigger": "Motivating primary paper, exactly the operator and general PST phase conditions"
+      },
+      {
+        "assessment": "Covers twin strong cospectrality and multipartite join structure, not the normalized-Laplacian complete transfer-time parity law",
+        "evidence": [
+          "arXiv:2111.01265v2, Section 6, Example 6.41, Theorem 6.42",
+          "arXiv:2111.01265v2, Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.01265v2",
+        "material_read": "Author-provided HTML sections on generalized normalized adjacency, twin spectral support, and Section 6 on multipartite joins",
+        "method": "Read arXiv version full text; compare claimed necessary/sufficient conditions for strong cospectrality and joins to needed exact transfer phases",
+        "title": "Strong cospectrality and twin vertices in weighted graphs",
+        "trigger": "Plausible stronger theorem encompassing twin classes and the normalized operator"
+      },
+      {
+        "assessment": "Double-cone classification uses ordinary Laplacian; normalized examples arise from weak products, neither yielding the irregular complete-multipartite parity theorem",
+        "evidence": [
+          "arXiv:1409.5840v1, double-cone section",
+          "arXiv:1409.5840v1, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1409.5840v1",
+        "material_read": "Author-provided HTML abstract, double-cone results and Section 6 normalized weak-product discussion",
+        "method": "Read arXiv full text, distinguish combinatorial double-cone Hamiltonian from normalized weak-product results",
+        "title": "Perfect State Transfer in Laplacian Quantum Walk",
+        "trigger": "Known double-cone and normalized-Laplacian transfer claims plausibly overlap"
+      },
+      {
+        "assessment": "Its general characteristic polynomial covers eigenvalues, but searched material does not give strong-cospectral signs, PST times, or explicit unitary; modest access risk remains",
+        "evidence": [
+          "DOI:10.1016/j.dam.2020.03.041, Theorem 3.1",
+          "DOI:10.1016/j.dam.2020.03.041, Sections 3 and 4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2020.03.041",
+        "material_read": "Indexed full-text sections 1, 3 (Theorem 3.1), and 4; direct publisher link could not be opened in the independent text reader",
+        "method": "Compare searchable primary article theorem and proof portions for eigenvalues, projectors, and transfer time; publisher direct-fetch limited",
+        "title": "Normalized Laplacian spectrum of complete multipartite graphs",
+        "trigger": "Potential general spectral domination of this classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c99c1ba8-fad0-4163-9488-5c034423ac7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete natural two-parameter classification for an exact normalized-Laplacian quantum routing architecture; determines all success/failure cases, pair locations, earliest/all exact times, and a simultaneous multimode swap with a reflection. The 12-vertex irregular witness K_{2,2,2,6} proves that the classification yields behavior outside regular-base double-cone examples. There is genuine normalized-degree dependence and an eigenmode boundary at r=1; the result is neither an arbitrary finite slice nor a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
