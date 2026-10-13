@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For all 0<beta<1 and -1<a<1 the shared-uniform floor coupling has exact expected distance |a||j-k|, giving W1 contraction, unique invariant measure, bounded support and mean beta. The integer inequality j(j-1)>=0 gives the universal variance floor and equality support. Checking the images of 0 and 1 proves both directions of the sharp phase boundary, including equality. Rational balance at beta=1/4 yields the unique three-state law and variance formula; 873 exact checks replayed from verify.py. Model and physical scaling are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xia et al. 2023, arXiv:2301.09511, Theorem 7/Corollary 10 and pp. 12–20 give descent rate/neighborhood bounds with additional roundings and small step assumptions.",
+        "Croci et al. MIMS 2021.17 survey, sections 2 and 6: fixed-point stochastic rounding properties and applications, no scalar steady-state overshoot boundary."
+      ],
+      "reasoning": "Broad low-precision and stochastic-approximation rates typically upper-bound mean error under restricted steps or alter the gradient-noise model. These do not calculate a sharp invariant-law support transition when the exact affine step is rounded once for all |a|<1.",
+      "searches": [
+        "stochastic rounding stationary distribution gradient descent quadratic exact",
+        "low precision stochastic rounding quantized fixed point iterations invariant measure convergence stationary error nearest lattice points",
+        "On Convergence gradient descent stochastic fixed-point rounding errors PL 2301.09511"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/20M1334796",
+      "arxiv:2202.12276",
+      "arxiv:2301.09511",
+      "MIMS:2021.17",
+      "Published mathematical-results searches for exact invariant-law formulas and alternative terminology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Connolly et al. DOI 10.1137/20M1334796 pp. A566–A568 and sections 3–8: stochastic-rounding unbiasedness and error accumulation, not a long-run Markov invariant law.",
+        "Xia et al. arXiv:2202.12276 Sections 2, 4, 5–6: performance of low-precision GD and bias variants; no Markov stationary law.",
+        "Xia et al. arXiv:2301.09511 Sections 1–4 and 6: bounded-domain and descent/neighborhood arguments; no exact inverse invariant for this model."
+      ],
+      "reasoning": "Mean-independent rounding cannot alone imply a particular stationary support or the sharp overshoot breakpoint. The 2022/2023 GD results use different rounding placements or finite-horizon assumptions and do not state a stronger theorem that subsumes the present full contraction-range classification.",
+      "searches": [
+        "Connolly Higham Mary stochastic rounding probabilistic backward error full paper",
+        "arxiv 2202.12276 stochastic rounding low precision GD",
+        "arxiv 2301.09511 fixed point stochastic rounding GD",
+        "stochastic rounding numerical analysis deterministic iterative linear solvers absorbing Markov chain stationary distribution unbiased quantization linear fixed-point"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Connolly–Higham–Mary 2021, pp. A567–A569: definition of unbiased mode-1 rounding, no stationary affine-chain classification.",
+        "Xia–Massei–Hochstenbach 2023 arXiv:2301.09511, pp. 2–6 and 12–20: low-precision GD finite-step convergence and neighborhood bounds, not invariant mass on neighboring grid sites."
+      ],
+      "reasoning": "Uniform-grid stochastic rounding equals randomized floor with a shared uniform dither. This is the relevant equivalent formulation, explicitly compared. It yields a W1 contraction but generic contraction alone does not entail the exact two-point closure inequalities or the post-threshold stationary curve. No equivalent full statement was located.",
+      "searches": [
+        "stochastic rounded affine contraction negative multiplier overshoot stationary variance exact precision floor lattice Markov chain sharp threshold",
+        "fixed-grid stochastic rounding scalar strongly convex quadratic gradient descent exactly stationary Bernoulli nearest two grid points phase transition overrelaxation negative contraction",
+        "stochastic rounding two-point stationary contraction overshooting",
+        "stochastic rounding scalar linear recurrence quantization stationary measure invariant distribution integer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Xia et al. arXiv:2301.09511 studies fixed-point gradient descent under rounding, but its rate and error-neighborhood results do not tabulate invariant distributions.",
+        "Connolly–Higham–Mary DOI 10.1137/20M1334796 proves unbiasedness properties, without an exact stationary-support table for this affine iteration."
+      ],
+      "reasoning": "Searches compared invariant supports, the exact beta-dependent threshold, the three-state distribution, and nonlinear rounding update aliases, not merely matching titles. No exact table/database supplied these formulas.",
+      "searches": [
+        "fixed-grid stochastic rounding scalar strongly convex quadratic gradient descent exactly stationary Bernoulli nearest two grid points phase transition overrelaxation negative contraction",
+        "integer lattice unbiased random rounding affine contraction exact invariant mean-square error beta(1-beta), negative multiplier critical beta/(1-beta), three state stationary",
+        "stochastic fixed point rounding full step size optimal long-run precision floor exact sharp learning rate threshold",
+        "stochastic rounding affine fixed point Markov chain Wasserstein contraction exact stationary two-site support"
+      ]
+    },
+    "rationale": "Targeted published mathematical-results queries, four relevant full-text source inspections, were compared by their mathematical implications. No inspected source contains or entails the stationary minimum-variance iff boundary for a once-rounded uniform-grid affine contraction, nor the exact quarter-grid three-state excess formula. The coupling, elementary integer inequality, and local rounding rule are standard prior tools; equivalent unindexed specializations remain an acknowledged priority risk.",
+    "residual_risks": [
+      "An identical elementary stationary quantized-contraction theorem may appear in older numerical control/dither literature not indexed by target searches.",
+      "Wasserstein contraction and two-point minimum variance are classical ingredients; priority attaches only to their exact combined stationary phase classification.",
+      "Hardware stochastic rounding with multiple rounded operations, nonuniform grids or finite exponents may behave differently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Local rounding and probabilistic kernel error theorems; no stationary affine-recursion precision-floor threshold",
+        "evidence": [
+          "pp. A566–A568 define rounding modes and enumerate contributions about summation, kernels and stagnation; page A567 shows mode-1 two-point rule."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/pdf/10.1137/20M1334796",
+        "material_read": "Publisher PDF abstract and introduction pp. A566–A569, plus relevant later statements on error bounds and numerical kernel behavior",
+        "method": "OA publisher PDF text and rendered p. A567",
+        "title": "Stochastic Rounding and Its Probabilistic Backward Error Analysis",
+        "trigger": "Foundational unbiased rounding and primary MSC 65G50"
+      },
+      {
+        "assessment": "Convergence rates and biased rounding strategies, not scalar integer-grid invariant probabilities",
+        "evidence": [
+          "Definition 1 p. 4 is unbiased local rounding; Theorem 6 is a pre-asymptotic rate statement under restricted small steps."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.12276",
+        "material_read": "32-page PDF, introduction, pp. 3–4 rounding definitions, theorem 6 pp. 14–16, quadratic experiments pp. 25–27, conclusion p. 29",
+        "method": "arXiv full text plus rendered p. 4",
+        "title": "On the influence of stochastic roundoff errors and their bias on convergence of GD",
+        "trigger": "Low-precision gradient-descent model and original motivating study"
+      },
+      {
+        "assessment": "Fixed-point gradient rounding and convergence-neighborhood results, no unconditional exact one-round scalar stationary phase formula",
+        "evidence": [
+          "Introduction pp. 2–6 summarizes finite-step convergence guarantees; §3 assumes bounded iterates and distinguishes component rounding stages."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.09511",
+        "material_read": "47-page PDF, introduction/contributions pp. 1–6, finite-precision assumptions pp. 12–13, convergence material pp. 19–20 and paper conclusion",
+        "method": "arXiv PDF full-text section inspection and rendered p. 3",
+        "title": "On the Convergence of GD with Stochastic Fixed-Point Rounding Errors under the PL Inequality",
+        "trigger": "Closest fixed-point gradient-descent extension"
+      },
+      {
+        "assessment": "Includes fixed-point variants and rounding error techniques, but not the sharp scalar stationary support threshold",
+        "evidence": [
+          "Section 2 gives standard round-up probability and distinguishes fixed-point from floating point; later applications concern error accumulation and practical algorithms."
+        ],
+        "identifier_or_url": "https://eprints.maths.manchester.ac.uk/2836/1/cfhm21.pdf",
+        "material_read": "Survey rounding definitions and history, application overview, and conclusions; relevant text passages inspected",
+        "method": "lawful MIMS open-access PDF text and rendered p. 2",
+        "title": "Stochastic Rounding: Implementation, Error Analysis, and Applications",
+        "trigger": "Broad survey could subsume exact simple special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3b1e4c5-1314-4873-b82b-5a079c3acd55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural engineering question is when stable overrelaxed scalar descent still achieves the information-theoretic stationary quantization floor. The theorem answers it for every target grid phase and all contractive steps, identifies a sharp loss of minimal noise at an explicit point, and computes the first enlarged-support regime without simulation. It separates asymptotic bias, irreducible rounding noise, and support leakage. These facts are not just a restatement of unbiasedness or a generic textbook contraction.",
+    "status": "PASS"
+  }
+}
