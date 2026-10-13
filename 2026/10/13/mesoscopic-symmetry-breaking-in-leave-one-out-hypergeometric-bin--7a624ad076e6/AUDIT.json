@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The exact law has two support points and yields the displayed KL identity directly. Standard Stirling bounds localize global maximizers away from the edges, the exact power series for the central profile gives a unique quartically flat macroscopic maximum at balance, and the 1/N correction forces the O(N^{-1/2}) composition scale. Rescaling gives the limiting quartic profile with unique absolute maximizer |y|=1/2 and value 1/6. No finite enumeration is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 5.1 of arXiv:2002.03002 gives a leading asymptotic in terms of the limiting unsampled fraction; the inspected theorem does not determine the maximizing population composition or its square-root displacement in the leave-one-out endpoint.",
+        "General bounds in the source do not determine which K maximizes the endpoint divergence."
+      ],
+      "reasoning": "The source is broader in n and in multicolor settings but does not dominate the new fine endpoint claim: a global bound or divergent leading term does not determine the mesoscopic maximizing composition or the \\(N^{-2}\\) correction.",
+      "searches": [
+        "leave-one-out hypergeometric binomial information divergence sample size N-1 composition maximizer",
+        "information divergence finite population leave one out mesoscopic imbalance",
+        "Harremoës–Matúš Theorem 5.1 and Sections 3–5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.03002v1",
+      "DOI:10.14736/kyb-2020-6-1111",
+      "arXiv:1905.03009v1",
+      "previously recorded leave-one-out maximal-density-ratio statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own prior leave-one-out result optimizes maximal point-mass ratio and has asymptotic quarter-population extremizers.",
+        "The present KL maximizers satisfy \\(K/N\\to1/2\\) with square-root displacement."
+      ],
+      "reasoning": "The discrepancy functionals aggregate likelihood ratios differently. The prior quarter-population density-ratio theorem gives neither an upper nor a lower implication fixing the optimizer of KL divergence; the incompatible optimizer locations confirm that the statements are not corollaries of one another.",
+      "searches": [
+        "statement-level comparison with the leave-one-out maximal-density-ratio result",
+        "arXiv:1905.03009v1 maximal-density-ratio comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2002.03002v1 uses \\(\\operatorname{Hyp}(N,K,n)\\) versus \\(\\operatorname{Bin}(n,K/N)\\); no \\(n=N-1\\) optimizer or square-root displacement was found in the inspected full text.",
+        "No semantic-database result returned an equivalent entropy/binomial-coefficient formulation."
+      ],
+      "reasoning": "The two-point identity is equivalent to a binomial-at-its-mean surprisal minus binary entropy. Searches covered both the distributional and entropy formulations; no equivalent published statement was located.",
+      "searches": [
+        "KL divergence hyp(N,K,N-1) bin(N-1,K/N) exact formula",
+        "hypergeometric binomial relative entropy \\(n=N-1\\) exact entropy binomial coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic result: 2026/9/18/SCOPE-hypergeometric-gaussian-hellinger-noncontiguity--40af82dd69ac, which concerns a different hypergeometric family and Hellinger/Gaussian approximation.",
+        "No returned record states the leave-one-out KL optimizer or its square-root displacement."
+      ],
+      "reasoning": "Exact-object and alias searches were performed for hypergeometric/binomial relative entropy, leave-one-out sampling, the entropy formula, and square-root imbalance; no covering database record was found.",
+      "searches": [
+        "leave-one-out hypergeometric binomial information divergence sample size N-1 composition maximizer",
+        "KL divergence hyp(N,K,N-1) bin(N-1,K/N) exact formula",
+        "hypergeometric binomial divergence maximized K=N/2 plus sqrt(N)/2",
+        "sampling without replacement relative entropy leave-one-out binomial composition square-root imbalance",
+        "hypergeometric binomial relative entropy \\(n=N-1\\) exact entropy binomial coefficient",
+        "leave-one-out hypergeometric KL divergence mesoscopic symmetry breaking"
+      ]
+    },
+    "rationale": "The closest primary source studies the same divergence but gives general bounds and a leading asymptotic through the unsampled fraction, not the leave-one-out composition optimization at the mesoscopic scale. Targeted semantic searches found no statement of the exact endpoint identity combined with the square-root maximizing displacement or the \\(1/(6N^2)\\) gain. The closest own prior result uses maximal density ratio and has a quarter-population extremizer, so it neither implies nor is implied by this KL result.",
+    "residual_risks": [
+      "An equivalent endpoint calculation may exist in older finite-population or information-divergence literature under different terminology.",
+      "Only the closest information-divergence source was inspected in full; the density-ratio comparison source was used only to rule out implication across discrepancy measures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Highly relevant but not covering: it supplies general bounds and asymptotics, while the leave-one-out endpoint optimization and its mesoscopic displacement are absent from the inspected material.",
+        "evidence": "The paper defines \\(\\operatorname{Hyp}(N,K,n)\\) versus \\(\\operatorname{Bin}(n,K/N)\\), notes that useful upper bounds depend on K, and Theorem 5.1 expresses an asymptotic through the limiting unsampled fraction rather than resolving \\(n=N-1\\) composition maximizers.",
+        "identifier_or_url": "arXiv:2002.03002v1; DOI:10.14736/kyb-2020-6-1111",
+        "material_read": "Full-text introduction; Section 3 binomial approximation; Section 4 bounds; Section 5 asymptotic theorem, including Theorem 5.1.",
+        "method": "Lawful public full-text inspection.",
+        "title": "Bounds on the Information Divergence for Hypergeometric Distributions",
+        "trigger": "Same hypergeometric-to-binomial divergence and same population-composition parameter."
+      },
+      {
+        "assessment": "Not covering: maximal density ratio is not KL divergence, and its leave-one-out optimizer has a different population-composition geometry.",
+        "evidence": "The abstract explicitly identifies maximal density ratio as its error measure and lists hypergeometric-by-binomial approximation among its applications.",
+        "identifier_or_url": "arXiv:1905.03009v1",
+        "material_read": "Public abstract and bibliographic record; the related leave-one-out density-ratio statement was also compared through the current ledger.",
+        "method": "Public abstract inspection plus statement-level comparison.",
+        "title": "Bounding distributional errors via density ratios",
+        "trigger": "Same hypergeometric/binomial approximation but a different discrepancy measure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a624ad0-76e6-4f54-9502-729dcd708a95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The leave-one-out regime is a natural endpoint of finite-population approximation. The result identifies a non-obvious mesoscopic symmetry breaking in the worst KL composition and an explicit second-order gain. It also contrasts structurally with the quarter-population optimizer for maximal density ratio, showing that different approximation criteria select genuinely different worst populations.",
+    "status": "PASS"
+  }
+}
