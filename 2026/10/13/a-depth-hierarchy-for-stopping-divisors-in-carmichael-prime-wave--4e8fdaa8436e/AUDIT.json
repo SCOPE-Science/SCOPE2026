@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For each j>=2, n/p_j retains p_1, so its lambda value is at least p_1-1>p_j; hence n/p_j is stopping. Minimality gives d_min<=n/p_j, while squarefreeness and decreasing primes give d_min>=p_1...p_j>p_j^j. Therefore p_j^(j+1)<n. The quantifiers and j=t boundary are unchanged by the argument. Carmichael oddness supplies the strict gap p_1-1>p_j. The finite checker is explicitly non-probative for the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallue-Webster Theorem 2 gives p_(k+1)<(B/P_k)^(1/(d-k)) for the full ordered factorization of n.",
+        "That theorem uses the total factor count d and partial product P_k, and predates the least stopping divisor representation."
+      ],
+      "reasoning": "The older bound is not broader in the implication sense relevant here: it does not identify the primes of d_min, does not use stopping minimality, and does not yield the depth-only exponent 1/(j+1) for d_min paths.",
+      "searches": [
+        "Advances in tabulating Carmichael numbers DOI 10.1007/s40993-024-00598-3 Theorem 2",
+        "Carmichael ordered prime factor bounds partial product P_k"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.02550v1",
+      "DOI:10.1007/s40993-024-00598-3",
+      "MSC2020 entry 11Y16",
+      "Published-finding semantic searches using the listed claim, alias, and parameter queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves q^3<n for the second-largest prime q of d_min.",
+        "The earlier paper bounds primes of n using B, P_k, and the remaining factor count."
+      ],
+      "reasoning": "The new claim strictly contains the source cutoff as j=2 and supplies a new assertion for every j>=3. The earlier full-factorization bound does not imply these claims because it has no control identifying d_min membership or minimal-stopping comparisons n/p_j>=d_min.",
+      "searches": [
+        "arXiv:2610.02550v1 Section 4.2 second-largest prime cube-root bound",
+        "DOI 10.1007/s40993-024-00598-3 Theorem 2 prime bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02550v1, Sections 3 and 4.2; the source defines d_min and states only the second-largest-prime cube-root bound.",
+        "Published-finding searches returned Carmichael and prime-support results with different objects and implications."
+      ],
+      "reasoning": "The hierarchy can be rephrased as a depth-j alphabet cutoff in the decreasing-prime path, but no searched equivalent formulation supplied p_j^(j+1)<n for every j>=2.",
+      "searches": [
+        "Carmichael stopping divisor d_min j-th largest prime n^(1/(j+1))",
+        "Prime Wavelet Tree stopping divisor largest prime depth bound",
+        "d_min Carmichael second largest prime cube root general depth",
+        "stopping divisor Carmichael lambda(d) prime hierarchy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The direct full text of arXiv:2610.02550v1 was inspected around the definition, value ordering, encoding argument, and pseudocode.",
+        "The encoder/decoder explicitly sieve primes below B^(1/3); no B^(1/4) or subsequent depth hierarchy was located."
+      ],
+      "reasoning": "The exact source section most likely to contain the result stops at the j=2 cutoff. No checked table or database entry provided the all-depth statement.",
+      "searches": [
+        "\"stopping divisor\" Carmichael \"d_min\"",
+        "\"prime wavelet tree\" depth prime bound",
+        "\"prime wavelet tree\" \"B^{1/4}\""
+      ]
+    },
+    "rationale": "The motivating paper proves only the depth-two cube-root cutoff for the least stopping divisor and uses a single B^(1/3) prime bitmap. The inspected earlier tabulation theorem concerns the complete prime factorization and does not imply the least-stopping-divisor hierarchy. Exact-form and alias searches found no statement covering all depths.",
+    "residual_risks": [
+      "The motivating preprint is very recent, so a later or independently posted source could eventually state the same hierarchy.",
+      "No claim is made about unpublished work or uniqueness beyond the checked public record."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the j=2 case but not the all-depth hierarchy.",
+        "evidence": "Section 4.2 states only the largest prime of d_min can exceed n^(1/3) and derives q^3<n for the second-largest prime; pseudocode uses a single B^(1/3) bitmap.",
+        "identifier_or_url": "arXiv:2610.02550v1",
+        "material_read": "Full HTML sections defining lambda, stopping divisors, the tree, value ordering, encoding, the cube-root cutoff, and encoder/decoder pseudocode.",
+        "method": "Direct full-text inspection and exact phrase searches for later-depth analogues.",
+        "title": "The Prime Wavelet Tree: Compressing the Carmichael Numbers",
+        "trigger": "Direct source defining the same stopping divisor and prime-wavelet representation."
+      },
+      {
+        "assessment": "Different full-factorization bound; not covering the stopping-divisor hierarchy.",
+        "evidence": "Theorem 2 bounds p_(k+1) by (B/P_k)^(1/(d-k)); d_min is absent.",
+        "identifier_or_url": "DOI:10.1007/s40993-024-00598-3",
+        "material_read": "Theorem 2 and surrounding definitions of the ordered full factorization and partial products.",
+        "method": "Direct article inspection.",
+        "title": "Advances in tabulating Carmichael numbers",
+        "trigger": "Closest prior algorithmic Carmichael-number work with ordered-prime size bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e8fdaa8-436e-4ec9-99f4-151ee14883ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result turns a one-off cube-root fact used by a new exact compression representation into a structural depth hierarchy. It gives deterministic depth-specific prime universes, including substantially smaller cutoffs from depth three onward, without relying on empirical frequency data. This is a natural property of the representation rather than an arbitrary finite slice. No unmeasured compression gain is claimed.",
+    "status": "PASS"
+  }
+}
