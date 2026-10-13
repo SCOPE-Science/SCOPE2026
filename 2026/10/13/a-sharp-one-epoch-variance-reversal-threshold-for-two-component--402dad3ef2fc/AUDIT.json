@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exactly enumerating four two-step sample sequences yields the rational-polynomial identity for every positive curvature and step. In the equal-curvature case the common initial-state part cancels, leaving an exact difference of the sampling noise variances; the step threshold is sharp with stable equal-curvature witnesses. Included verifier independently checks exact-rational instances. No reliance on finite tests for infinite quantification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Sa (2020), §§1, 4–5, demonstrates nonuniform RR superiority via a noiseless multi-dimensional problem and asymptotic/last-iterate effects; Liu (2026), §3.3, identifies that example as instance-dependent and distinguishes it from worst-case average-rate conclusions.",
+        "The present theorem fixes two noisy-gradient scalar quadratic components and gives a necessary-and-sufficient one-epoch threshold independent of initial state when curvatures coincide."
+      ],
+      "reasoning": "The fact that RR can be worse is explicitly previously known and not claimed original. The cited construction does not imply the minimal two-component, scalar, nonzero-gradient-noise sharp frontier or its all-start exact formula; its different size, assumptions, and horizon must be kept distinct.",
+      "searches": [
+        "\"random reshuffling\" \"worse than\" \"SGD\" learning rate quadratic",
+        "\"random reshuffling\" \"not always better\" SGD",
+        "https://proceedings.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.32005",
+      "https://proceedings.mlr.press/v336/liu26d.html",
+      "https://optimization-online.org/wp-content/uploads/2026/09/Random-Reshuffling-for-Smooth-Convex-Optimization.pdf",
+      "https://proceedings.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+      "https://arxiv.org/pdf/2206.00632"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu (2026) proves worst-case expected average-iterate rate upper and lower bounds over classes of objectives, and explicitly distinguishes such minimax quantities from instance-dependent last-iterate comparisons.",
+        "The present result compares the exact squared last-iterate error after two evaluations for a single parametric class and does not contradict the 2026 theorem."
+      ],
+      "reasoning": "Worst-case asymptotic or average-iterate rate domination neither implies nor rules out a particular two-step last-iterate expectation sign. An earlier general last-iterate finite-horizon comparison theorem with both nonzero component gradients and a sharp high-step cutoff would subsume this result; none was located in the targeted inspected sources.",
+      "searches": [
+        "https://arxiv.org/abs/2606.32005",
+        "https://proceedings.mlr.press/v336/liu26d.html",
+        "random reshuffling expectation worse than SGD at large constant stepsize despite convergence smooth convex quadratic starting optimal point"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Domingo-Enrich (2022), Sections 1–3, uses stationary power-spectral-density covariance for a zero-th-order gradient-noise model, rather than two-step terminal-error differences; for common curvature the affine recursion is related but the specific sharp endpoint comparison was not found among the inspected results.",
+        "The exact new threshold is a finite-horizon identity with start-independent equal-curvature extension."
+      ],
+      "reasoning": "The related stationary-noise setting is structurally close. Its principal theorems concern stationary variance and small-stepsize approximations; their examined statements do not compare the exact four two-step paths or establish the sharp reversal at the step-size-to-curvature product one. This remains a possible residual implication risk if a more general finite-horizon formula occurs elsewhere.",
+      "searches": [
+        "random reshuffling versus stochastic gradient descent two component scalar quadratic worse squared error after one epoch stepsize eta L greater than 1 opposite gradients exact threshold",
+        "\"one epoch\" \"random reshuffling\" \"with replacement\" \"two\" \"quadratic\" variance",
+        "https://arxiv.org/pdf/2206.00632"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu (2026), appendix analysis for two components (Theorem 10, pp. 23–24), constructs a different quadratic-plus-linear objective for a lower bound on averaged-iterate convergence; no exact table of the four final-iterate outcomes for the present two-strictly-convex-component family appeared in the inspected portion."
+      ],
+      "reasoning": "No exact enumerated two-update terminal-risk comparison for this class was found in the inspected paper or semantic searches. Such an elementary identity may nevertheless be recorded in an undiscovered table or unpublished note; absence from search does not prove uniqueness.",
+      "searches": [
+        "without replacement sampling versus with replacement SGD two quadratic one-epoch variance reversal eta(λ1+λ2)>2",
+        "\"random reshuffling\" \"SGD\" \"one epoch\" \"step size\" \"worse\" mean squared",
+        "https://optimization-online.org/wp-content/uploads/2026/09/Random-Reshuffling-for-Smooth-Convex-Optimization.pdf"
+      ]
+    },
+    "rationale": "Focused comparisons distinguish the new minimal one-epoch exact frontier and start-independent equal-curvature threshold from previously known general RR non-dominance, stationary noise variance, and worst-case averaged-iterate rate bounds. General RR non-dominance is explicitly credited. Undiscovered elementary equivalent calculations remain a genuine risk.",
+    "residual_risks": [
+      "An earlier equivalent finite-horizon calculation may exist outside the located terminology.",
+      "A stronger uninspected finite-time theorem for correlated two-step gradient noise could subsume the present formula; available inspected theorems are about different horizons or risk metrics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related setting, different performance quantity and two-component construction; no directly implication of the stated exact one-epoch sign frontier in inspected results.",
+        "evidence": [
+          "Theorem 1 estimates averaged-iterate rates; discussion of De Sa explicitly separates instance-dependent last iterate; Theorem 10 analyzes different lower-bound construction."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/09/Random-Reshuffling-for-Smooth-Convex-Optimization.pdf",
+        "material_read": "Abstract, main contribution and theorem summary, Section 3.3 comparison of worst-case average error with De Sa, appendix Theorem 10 and two-component construction on pages 23–24; rendered pages 1 and 3.",
+        "method": "Open-access primary full-text PDF inspected by text, with rendered title/assumption pages",
+        "title": "Random Reshuffling for Smooth Convex Optimization: Dominates Stochastic Gradient Descent",
+        "trigger": "Most directly related new bounds and two-component lower-bound construction"
+      },
+      {
+        "assessment": "Already establishes possible RR disadvantage in other settings; does not by itself give the two-scalar-quadratic one-epoch exact classification.",
+        "evidence": [
+          "Section 5 concerns an asymptotic construction; earlier counterexamples involve matrix noncommutativity or multi-dimensional common-minimizer structure."
+        ],
+        "identifier_or_url": "https://proceedings.neurips.cc/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "Introduction, theorem/counterexample overview, Section 4 small-stepsize discussion and Section 5 asymptotic SGD setting.",
+        "method": "Open-access primary PDF full-text passages",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "Strong plausible prior claim that RR can underperform IID"
+      },
+      {
+        "assessment": "Analyzes stationary covariance and perturbative linear-noise behavior; does not in inspected material settle the sharp finite two-step, high-stepsize RR/IID reversal.",
+        "evidence": [
+          "Stationary-process assumptions and integrated power-spectral-density variance identity require different horizons; linear recurrence is related background."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.00632",
+        "material_read": "Abstract, introduction, spectral-density Theorem 1 and the stochastic gradient linear-noise-model derivation in Sections 2–3; rendered title page.",
+        "method": "Lawful openly available arXiv full-text PDF passages",
+        "title": "Computing the Variance of Shuffling Stochastic Gradient Algorithms via Power Spectral Density Analysis",
+        "trigger": "Potential generic variance identity that could subsume a one-epoch comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "402dad3e-f2fc-428d-8c7b-cf076eb0a1af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact threshold distinguishes per-step contraction stability (up to twice inverse curvature) from instancewise one-epoch RR expected-error superiority (uniformly only through inverse curvature) in the smallest nontrivial finite sum. Equal curvature yields the same reversal for every initial point, so it is not an accidental initialization artifact. This calibrates interpreting recent worst-case rate guarantees without claiming a new long-run algorithmic rate.",
+    "status": "PASS"
+  }
+}
