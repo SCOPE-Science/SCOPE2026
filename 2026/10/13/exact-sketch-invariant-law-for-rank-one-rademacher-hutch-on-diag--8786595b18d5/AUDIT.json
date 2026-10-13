@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The one-column sketch on diagonal A equals a fixed amplitude vector up to a coordinate sign matrix, which commutes with A; sign conjugation makes the entire residual sign-probe law sketch-independent. Direct rank-one expansion gives the two-weighted-sign-sum law. The exact Rademacher quadratic-form variance identity yields the all-spectrum formula, which is strictly positive by choosing a coordinate of maximum eigenvalue. Isotropic specialization and fourth-moment identity prove the finite distribution and two-point phenomenon; rational exhaustive checks agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gambhir–Stathopoulos–Orginos derive expected variance with Haar/random-unitary spectral SVD deflation and establish that Hermitian deflation can worsen variance.",
+        "Original Hutch++ variance analysis uses Gaussian sketch and general residual Frobenius bounds, not a one-column sign sketch on arbitrary diagonal input.",
+        "The 2021 follow-up discusses adaptive allocation for flat spectra but no exact rank-one sign-distribution law."
+      ],
+      "reasoning": "The earlier random-unitary model concerns a spectral deflation basis independent of the fixed coordinate sign probe, unlike the actual data-dependent rank-one Rademacher Hutch++ subspace. Its Hermitian inequality cannot be specialized into the entire sketch-conditional paired weighted-walk distribution or the arbitrary diagonal exact formula.",
+      "searches": [
+        "arXiv:1603.05988 Theorem 2.6 and §2",
+        "arXiv:2010.09649 §5 Gaussian-Hutch++",
+        "DOI:10.1137/21M1447623",
+        "Hutch++ Rademacher probes Gaussian subspace diagonal matrix Haar projector variance k(n-k) isotropic trace"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.09649",
+      "arXiv:2109.10659",
+      "arXiv:1603.05988",
+      "DOI:10.1137/21M1447623",
+      "https://noahgolmant.com/pytorch-hessian-eigenthings/concepts/trace-estimation/",
+      "https://www.rtealwitter.com/thebook/page/hutch_pp/index.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original source specifies both sketch and residual as sign vectors, but its explicit variance theorem uses a Gaussian sketch and is a bound.",
+        "The 2016 spectral-deflation analysis already gives the principle that deflation may increase variance.",
+        "The practitioner page notes diagonal Hutchinson exactness and that Hutch++ can add overhead, but not the conditional finite-sample law.",
+        "The exact computed weighted Rademacher law makes each sketch sign unobservable at the level of the entire output distribution."
+      ],
+      "reasoning": "The qualitative earlier warning is not the new claim. No inspected result implies the closed-form law for every strictly positive diagonal spectrum under the original one-column Rademacher sketch, including its deterministic conditional variance and the exact two-point minimum-budget distribution.",
+      "searches": [
+        "arXiv:2010.09649 Algorithm 1 and Theorem 10",
+        "arXiv:2109.10659 Algorithm 1",
+        "arXiv:1603.05988 Theorem 2.6",
+        "https://noahgolmant.com/pytorch-hessian-eigenthings/concepts/trace-estimation/",
+        "Hutch++ first sketch column two weighted sign sums exact variance spectral moments",
+        "rank one Hutch++ isotropic identity Rademacher sketch sample budget three error always nonzero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original Hutch++ Algorithm 1 fixes independent sign sketch and sign residual probes and proves generic trace-estimation complexity bounds.",
+        "Improved variants Algorithm 1 permits sign or Gaussian probes; its flat-spectrum discussion addresses query allocation, not sign-conditioned output laws.",
+        "The new conditionally sketch-invariant law is a full finite distribution over arbitrary positive diagonal spectra rather than a qualitative variance comparison."
+      ],
+      "reasoning": "A generic conditional Hutchinson variance identity does not determine the distribution of the random data-dependent sign sketch. The matrix sign-conjugation identity reduces every sketch to a common distribution and yields an explicit paired-weight Rademacher law. Those extra properties are not stated or implied by a bound on Frobenius residual norm.",
+      "searches": [
+        "arXiv:2010.09649 §1 Algorithm 1 and §5",
+        "arXiv:2109.10659 Algorithm 1 and §1.1",
+        "exact distribution one-column sign sketch Hutch++ on diagonal positive matrix weighted Rademacher walks",
+        "Rademacher Hutch++ diagonal matrix one-column sketch trace variance sign invariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic records concern Haar moments in randomized subspace descent, general random-sketch error products, and distributional sign-chaos results, not Hutch++ exact rank-one sign-sketch laws.",
+        "Relevant nearby records include 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 and 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee."
+      ],
+      "reasoning": "No exact table or database hit covers the rank-one sign-sketch law. Search failure is merely corroborative: it does not establish originality without the inspected published sources.",
+      "searches": [
+        "Hutch++ Rademacher probes Gaussian subspace diagonal matrix Haar projector variance k(n-k) isotropic trace",
+        "Hutch++ diagonal matrix Hutchinson exact zero variance randomized low rank deflation positive variance",
+        "Rademacher trace estimation isotropic identity random projector exact variance k(n-k)/(n+2)",
+        "randomized trace estimation variance increase deflation Rademacher diagonal projection Hutch++",
+        "exact distribution one-column sign sketch Hutch++ on diagonal positive matrix weighted Rademacher walks",
+        "Rademacher Hutch++ diagonal matrix one-column sketch trace variance sign invariance",
+        "Hutch++ first sketch column two weighted sign sums exact variance spectral moments",
+        "rank one Hutch++ isotropic identity Rademacher sketch sample budget three error always nonzero"
+      ]
+    },
+    "rationale": "Original Algorithm 1 supplies sign sketch and residual probes, and the 2021 follow-up supplies primary MSC 65C05 and explicit discussion of flat spectra. The 2016 deflation paper establishes that deflation can raise variance under random-unitary spectral models; that phenomenon and diagonal Hutchinson exactness are excluded from claimed novelty. Neither source gives the all-spectrum deterministic conditional law of the data-dependent one-column Rademacher sketch or its bivariate sign-sum distribution; the qualitative modern note similarly does not imply the formula. Indexed searches found no equivalent or dominating result.",
+    "residual_risks": [
+      "The all-diagonal rank-one identity is elementary enough that unindexed lecture notes may independently derive it.",
+      "The result is not a high-query Hutch++ performance bound and does not transfer to general non-diagonal matrices.",
+      "The original algorithm and primary follow-up may have software variants not covered by this exactly specified sign-sketch version."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_ALGORITHM; NO_EXACT_SIGN_SKETCH_DIAGONAL_LAW.",
+        "evidence": "Algorithm 1 uses independent fair-sign matrices for both sketch and residual probes. Section 5 explicitly switches to a Gaussian sketch for an explicit variance upper bound.",
+        "identifier_or_url": "arXiv:2010.09649 (public full manuscript); https://arxiv.org/pdf/2010.09649",
+        "material_read": "Full paper Algorithm 1 and surrounding explanation on pp.2–3; Section 5 Gaussian-Hutch++ variance construction, theorem and proof on pp.9–10; prior-work discussion.",
+        "method": "Public arXiv full-text inspection with original algorithm and variance-section page images.",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Defining original stochastic trace estimator and its exact Rademacher sketch rule."
+      },
+      {
+        "assessment": "SOURCE_CONFIRMS_SIGN_OPTION_AND_65C05; NO_EXACT_CONDITIONAL_DISTRIBUTION.",
+        "evidence": "Algorithm 1 explicitly permits sign or Gaussian choices in both phases; near-equal eigenvalues motivate different work allocation. SIAM lists first MSC 65C05.",
+        "identifier_or_url": "arXiv:2109.10659; DOI:10.1137/21M1447623",
+        "material_read": "Full public ar5iv §1, Algorithm 1, contribution summary and discussion of near-flat spectra; SIAM journal subject classification listing.",
+        "method": "Public primary arXiv HTML manuscript and journal bibliographic metadata.",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Direct contemporary follow-up, same algorithm and verified primary numerical-analysis MSC."
+      },
+      {
+        "assessment": "GENERAL_DEFLATION_VARIANCE_INCREASE_PRIOR; DIFFERENT_RANDOM_UNITARY_SVD_MODEL.",
+        "evidence": "Theorem 2.6 gives expected variance from mean and variance of residual singular values under random-unitary singular-vector assumptions; it does not describe an actual sign-sketch estimator conditional on each sign vector.",
+        "identifier_or_url": "arXiv:1603.05988; DOI:10.1137/16M1066361",
+        "material_read": "Public full-text introduction, variance formula, §2 spectral deflation, Theorem 2.6 and proof, Hermitian variance-increase discussion.",
+        "method": "Public full-paper text and theorem-level page image inspection.",
+        "title": "Deflation as a Method of Variance Reduction for Estimating the Trace of a Matrix Inverse",
+        "trigger": "Potentially dominating variance-increase and random-basis deflation theorem."
+      },
+      {
+        "assessment": "QUALITATIVE_DIAGONAL_WARNING_IS_PRIOR; NO_FINITE_SPECTRAL_LAW.",
+        "evidence": "The page explicitly states sign Hutchinson is exact on diagonal matrices and Hutch++ can add overhead; no single-column sign-sketch distribution or variance formula is supplied.",
+        "identifier_or_url": "https://noahgolmant.com/pytorch-hessian-eigenthings/concepts/trace-estimation/",
+        "material_read": "Hutchinson and Hutch++ comparison sections, including the paragraph explicitly describing diagonal sign-probe exactness.",
+        "method": "Public full web page inspection.",
+        "title": "Trace estimation (hessian-eigenthings documentation)",
+        "trigger": "Plausible prior qualitative diagonal-Rademacher pathology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8786595b-18d5-490d-9c72-5cd34bfd38b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-column sketch is the published algorithm’s smallest full three-matvec run, and the diagonal class is exactly where plain sign-probe trace estimation is noise-free. An exact entire output law for every positive diagonal spectrum, not just a variance example, isolates the effect of sketch-based control variates in this natural low-budget regime. The weighted-Rademacher formula computes finite-sample risk and shows a sharp nonzero deterministic absolute error on a 2x2 isotropic input, and a nondegenerate chi-square absolute-error limit at fixed probe count as dimension grows. This supports quantitative low-budget trace-estimation method selection.",
+    "status": "PASS"
+  }
+}
