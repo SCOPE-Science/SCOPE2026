@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The base-two factorial digit-sum identity is exact. A subset-parity lemma shows a no-carry proper multiple-of-three split exists iff s₂(3n)>=4; weights 2/3 forbid it. For three bits of one parity, an explicit two-plus-two-bit split attains valuation 1. For two bits of opposite parity, every split has at least two bits in each multiple of three and explicit decompositions attain valuation 2, separately treating adjacent exponents. This covers all n>=2 without computational inference. Actual verifier replays exact binomial GCDs for n<=200 and carry minima/witnesses for n<=1000.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fairfax-Ball arXiv:2610.01328v1 Theorem 4.3 gives ν₂(G(N;3))≤r₂(3)=2 and constructive attainment; Remark 8.4 states only the known N=6 example.",
+        "McTague arXiv:1510.06696v5 Theorem Q requires p≡1 mod 3, so p=2 lies outside it.",
+        "Wu arXiv:2606.20940v2 Theorems 1–2 do not treat arbitrary n with m=3 and valuation prime 2."
+      ],
+      "reasoning": "A sharp uniform bound of two does not determine the zero, one, and two rows. The older exact prime criterion excludes this residue class. None of the full texts deduces the row-by-row binary-weight trichotomy.",
+      "searches": [
+        "arXiv:2610.01328v1 Theorem 4.3 and Remark 8.4 (full text https://arxiv.org/html/2610.01328v1)",
+        "\"greatest common divisor of binomial coefficients\" McTague 2017 base p congruence",
+        "\"Computing the Greatest Common Divisor\" Wu \"2\" \"3\" 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.20940v2 full HTML and abstract",
+      "arXiv:1510.06696v5 full HTML and abstract",
+      "arXiv:2610.01328v1 full HTML and abstract",
+      "Chung–Yang–Zhou, Contemporary Mathematics 2025 publisher abstract",
+      "OEIS A265388/A265401 as reported in Wu",
+      "Published mathematical-results index: six semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fairfax-Ball Remark 8.4 acknowledges the exceptional n=2 valuation 2; his result permits ν₂(G_3(n))∈{0,1,2} but does not determine which n realize each value.",
+        "McTague’s explicit n=2 example is a proper special case of the new classification, not an implication for n>2.",
+        "Chung–Yang–Zhou 2025 concerns different lower-index restrictions as distinguished in Fairfax-Ball §9."
+      ],
+      "reasoning": "The present formula strengthens only the special parameter pair (m,p)=(3,2), providing full pointwise behavior. Its cases are not deducible from a general upper bound/attainment, an isolated example, or the p≡1 mod m theorem without the new parity-subset and explicit carry-witness arguments.",
+      "searches": [
+        "arXiv:2610.01328v1 Remark 8.4, keyword T_{2}(3) (full text https://arxiv.org/html/2610.01328v1)",
+        "arXiv:1510.06696v5 Theorem Q and p=2,m=3 remark (full text https://arxiv.org/html/1510.06696v5)",
+        "arXiv:2606.20940v2 Theorems 1–3 (full text https://arxiv.org/html/2606.20940v2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McTague arXiv:1510.06696v5, remark after Theorem Q: explicitly exhibits the two-adic valuation 2 for the n=2, step-three binomial example; does not state a row-by-row formula.",
+        "Wu arXiv:2606.20940v2 §§1–3 defines g(m,n), but its local prime criterion assumes p≡1 (mod m) or p powering m; p=2,m=3 satisfies neither.",
+        "Six targeted claim/alias searches in published research records returned no row-by-row binary-weight trichotomy."
+      ],
+      "reasoning": "Equivalent formulations include minimum binary carry count over proper multiples of three in the row, the divisibility thresholds 2|G and 4|G, and the digit-sum cases. The inspected theorems or examples do not settle these three fibers for all rows.",
+      "searches": [
+        "g(3,n) 2-adic valuation exact formula Hamming weight s2(3n) binomial gcd",
+        "gcd binomial 3n 3k 2 valuation bitcount 3n digit sum",
+        "Chai Wah Wu Computing Greatest Common Divisor binomial mn mk m=3 p=2 binary weight",
+        "\"g(3,n)\" \"ord_2\" McTague",
+        "\"3n\" \"3k\" gcd \"binary\" digit sum binomial coefficients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wu arXiv:2606.20940v2 cites OEIS A265388 and A265401 for m=2, not the step-three two-adic valuation.",
+        "Targeted exact-formula and OEIS searches did not locate a table or database specifying the trichotomy for m=3."
+      ],
+      "reasoning": "The identified OEIS entries record a different index step. The source’s finite m=3 examples are under its restrictive odd-prime-factor hypothesis and do not imply the binary valuation formula for every n. Search absence is evidence of a search limitation, not proof of novelty.",
+      "searches": [
+        "site:oeis.org \"g(3,n)\" gcd binomial coefficients",
+        "site:oeis.org \"gcd\" \"binomial(3*n,3*k)\"",
+        "\"2-adic\" \"gcd\" \"binomial\" \"3n\" \"3k\""
+      ]
+    },
+    "rationale": "Three highly relevant complete primary preprints were compared statement-by-statement. McTague gives a congruence-restricted valuation theorem and only the first exceptional (2,3,6) example; Wu handles distinct prime cases and special m=2; Fairfax-Ball proves the sharp global bound 2 and first equality row but no binary-weight row classification. Six claim-specific searches in publicly available mathematical research records and exact-formulation, parameter, OEIS and broader-coverage searches found no equivalent or stronger theorem. Unindexed results remain a residual risk.",
+    "residual_risks": [
+      "An unindexed earlier exact characterization of the ternary-step, prime-two family could exist; claim-specific web, OEIS, indexed research records and the closest three full primary texts revealed none.",
+      "An additional 2025 related restricted-GCD paper was compared only at abstract level; its advertised index restriction differs and is not a decisive unresolved comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: exact p=2,m=3 valuations for all rows are absent.",
+        "evidence": "Theorems 1–2 cover p powering the step or primes congruent to 1 modulo the step; the g(2,n) formula uses m=2, not m=3.",
+        "identifier_or_url": "https://arxiv.org/html/2606.20940v2",
+        "material_read": "Complete six-page text: §1 definitions, Theorems 1–2, examples/table, §2 full g(2,n) theorem, §3 conclusions and references.",
+        "method": "Read arXiv open HTML full text and confirmed v1 public timestamp and primary MSC from official arXiv abstract.",
+        "title": "Computing the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Identical selected-binomial family g(m,n) and latest same-object number-theory literature."
+      },
+      {
+        "assessment": "Not covering: Theorem Q requires p congruent to 1 modulo the step; explicitly acknowledges the excluded (p,m,N)=(2,3,6) example.",
+        "evidence": "Remark following Theorem Q says the congruence assumption cannot simply be dropped because v₂(binomial(6,3))=2, but gives no classification for other n.",
+        "identifier_or_url": "https://arxiv.org/html/1510.06696v5",
+        "material_read": "Complete preprint including Theorem Q, remarks on the congruence hypothesis, Kummer lemma, proof, and references.",
+        "method": "Read arXiv open HTML full text.",
+        "title": "On the Greatest Common Divisor of Binomial Coefficients",
+        "trigger": "Same step-multiple binomial GCD; potentially dominating classical exact theorem."
+      },
+      {
+        "assessment": "Not covering: ν₂(G(N;3))≤2 and maximum attained, but no per-row trichotomy.",
+        "evidence": "Theorem 4.3 determines the maximum 2; Remark 8.4 explicitly calls N=6 prior art and asserts T₂(3)=6, but no classification by s₂(3n).",
+        "identifier_or_url": "https://arxiv.org/html/2610.01328v1",
+        "material_read": "Definitions; §§3–5 sharp maximal valuation; §8 boundary examples and n=2 acknowledgement; §9 related-work comparison; body and main theorem.",
+        "method": "Read accessible full arXiv HTML, inspecting exact theorem statements and their implications at (p,m)=(2,3).",
+        "title": "Sharp p-adic Extrema and Least Extremal Rows for Restricted Binomial GCDs",
+        "trigger": "Strongest plausible recent theorem on the identical selected-GCD family, including p=2 and m=3."
+      },
+      {
+        "assessment": "Different restriction; not used to assert whole-document noncoverage.",
+        "evidence": "Publisher abstract defines several gcd A₂(n) classes based on σ_p(n) where p|n−1, rather than gcd of all binomial(3n,3k).",
+        "identifier_or_url": "https://ojs.wiserpub.com/index.php/CM/article/view/5017",
+        "material_read": "Publisher abstract describing gcd A₂(n) and parameter conditions p dividing n−1.",
+        "method": "Publisher abstract and theorem-topic comparison; full text not materially read.",
+        "title": "The Greatest Common Divisor of Sets of Binomial Coefficients with Restrictions",
+        "trigger": "Potentially same class of binomial restriction; assessed for exact set overlap."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a5046f5-935e-4555-a3a6-6abc34263a9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The step-three, p=2 case is a mathematically forced first exception to the congruence hypotheses of the classical selected-binomial GCD theorem, explicitly flagged by McTague’s v₂(binomial(6,3))=2 example. The 2026 uniform sharp bound 2 still leaves pointwise values unknown. The new infinite, complete digit-weight classification establishes exactly when the entire family is odd, divisible by 2 but not 4, or divisible by 4, with explicit structural carry witnesses. It closes a natural local valuation gap rather than a one-off tabulation or routine numerical increment.",
+    "status": "PASS"
+  }
+}
