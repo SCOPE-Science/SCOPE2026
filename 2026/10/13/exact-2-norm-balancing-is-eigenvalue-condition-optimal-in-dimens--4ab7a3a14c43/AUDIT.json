@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For a 2x2 irreducible matrix every positive diagonal similarity is parameterized by one scale s. Explicit left/right eigenvectors reduce the squared simple-eigenvalue condition number to a constant denominator times (|b|^2 s^2+|tau|^2)(|c|^2 s^-2+|tau|^2), whose unique minimizer is s^2=|c/b|, exactly the 2-norm balancing condition. The 3x3 family is exactly balanced after the stated similarity, has spectrum {1,2t+1,2t+2}, and explicit left/right eigenvectors give condition-square difference 8t^2/(2t+1)^2>0. The Frobenius-norm decrease is also exact. The packaged checker independently replays representative exact identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Watkins's full 4-page paper states that balancing can degrade eigenvalue condition numbers and demonstrates the phenomenon on large Hessenberg examples; it does not give a low-dimensional classification.",
+        "James-Langou-Lowery define exact 2-norm balancing, state uniqueness for irreducible matrices, and note examples of worsened eigenvalue condition or backward error.",
+        "James-Langou-Lowery explicitly frame balancing as norm reduction rather than a general guarantee on all eigenvalue condition numbers."
+      ],
+      "reasoning": "These sources broadly cover the phenomenon and algorithm, so the novelty claim excludes generic harmful balancing. Their statements do not logically imply the 2x2 simultaneous optimizer or the explicit dimension-three threshold without the new extremal calculation.",
+      "searches": [
+        "A case where balancing is harmful Watkins",
+        "On matrix balancing and eigenvector computation James Langou Lowery",
+        "matrix balancing eigenvalue condition number harmful Hessenberg",
+        "Osborne exact 2-norm balancing unique irreducible matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.5766v1",
+      "ETNA 23 (2006), 1-4",
+      "doi:10.1007/BF02165404"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Watkins proves by numerical examples that harm occurs, but his inspected examples are dimension 800 and do not imply the smallest dimension.",
+        "James-Langou-Lowery state that harmful conditioning examples exist and discuss a special nonnegative Perron guarantee; this does not imply simultaneous optimality of every simple eigenvalue in 2x2.",
+        "Norm minimization under balancing does not imply eigenvalue-condition minimization; the 3x3 family explicitly separates those objectives."
+      ],
+      "reasoning": "The prior literature supplies the algorithm and existence of harm, while the new implication requires solving the full 2x2 diagonal-similarity optimization and constructing an exact 3x3 counterfamily. The explicit Frobenius decrease rules out interpreting the counterexample as a failure to perform balancing's norm-reduction objective.",
+      "searches": [
+        "Watkins balancing harmful eigenvalue condition number full text",
+        "James Langou Lowery balancing Perron eigenvalue condition guarantee",
+        "Osborne balancing minimizes Frobenius norm diagonal similarity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned nearby diagonal-scaling and iterative-method results but no matrix-balancing theorem with the 2x2 simultaneous optimum or 3x3 minimal obstruction.",
+        "General web searches returned classical balancing documentation and harmful examples, but no statement that exact 2-norm balancing minimizes every simple eigenvalue condition number for irreducible 2x2 matrices.",
+        "No searched source returned the explicit 3x3 family or the asymptotic damage factor sqrt(3)."
+      ],
+      "reasoning": "Equivalent coverage would need the same diagonal-similarity orbit, exact Euclidean balancing, simple-eigenvalue absolute condition number, and a dimension-two/all-eigenvalues statement or a dimension-three minimal obstruction. Results about matrix spectral condition number, Jacobi congruence scaling, or eigenvector-matrix conditioning are not equivalent.",
+      "searches": [
+        "exact 2-norm matrix balancing 2x2 eigenvalue condition number optimal diagonal similarity",
+        "dimension three minimal balancing harmful eigenvalue condition number",
+        "Osborne balancing two by two eigenvalue conditioning optimal",
+        "balanced matrix 3x3 exact counterexample eigenvalue condition number sqrt 3",
+        "diagonal similarity eigenvalue condition number 2x2 balancing",
+        "\"matrix balancing\" \"2x2\" eigenvalue condition number",
+        "\"balancing\" \"eigenvalue condition number\" \"2x2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula, small-dimensional table, or matching parametric family was located.",
+        "The formulas are derived directly from eigenvectors and diagonal-similarity algebra, not from numerical tabulation."
+      ],
+      "reasoning": "The finding is an analytic classification and explicit parametric construction, not a recomputation of a known benchmark.",
+      "searches": [
+        "matrix balancing dimension three sqrt 3 eigenvalue condition",
+        "2x2 balancing optimal eigenvalue conditioning diagonal similarity",
+        "balancing harmful 3x3 eigenvalue condition"
+      ]
+    },
+    "rationale": "Harmful eigenvalue conditioning under balancing is classical and is not claimed as new. Watkins supplies full primary evidence for that phenomenon, while James-Langou-Lowery supply the exact 2-norm Osborne framework and discuss harmful balancing. The inspected statements do not give the simultaneous 2x2 eigenvalue-condition optimum, a minimal-dimension theorem, or the displayed 3x3 positive-spectrum family. Targeted published-record and literature searches did not expose an implication-equivalent result.",
+    "residual_risks": [
+      "Older matrix-scaling literature is extensive, and the 2x2 minimization may have appeared as an unstated or differently named exercise or lemma.",
+      "Watkins's harmful examples are not minimal, but another pre-2014 source may contain a smaller explicit counterexample not found by the targeted searches.",
+      "The asymptotic factor sqrt(3) is only for the displayed family; no global dimension-three optimum is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVE_PRIOR_PHENOMENON_NOT_LOW_DIMENSION: establishes harmful balancing and the first-listed AMS classification 65F15, but not the 2x2 optimum, minimal dimension, or the new exact family.",
+        "evidence": "The paper states that balancing can degrade eigenvalue condition numbers, writes the condition number in terms of left and right eigenvectors under diagonal similarity, and reports large Hessenberg examples. It explicitly chooses large examples for dramatic effects rather than classifying minimal dimension.",
+        "identifier_or_url": "ETNA 23 (2006), 1-4",
+        "material_read": "The full four-page PDF was read, including the abstract, balancing definition, eigenvalue-condition discussion, both large numerical examples, and conclusion; the first two pages were also visually inspected.",
+        "method": "Lawful full-text PDF inspection with rendered-page verification.",
+        "title": "A Case Where Balancing Is Harmful",
+        "trigger": "Closest primary source specifically claiming that matrix balancing can worsen eigenvalue conditioning."
+      },
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: supplies the exact balancing framework and prior harmful examples, but no located 2x2 or minimal-dimension theorem.",
+        "evidence": "The paper states that Osborne 2-norm balancing gives a unique balanced matrix for an irreducible input, explains the row/column norm update, and notes that balancing can increase eigenvalue condition numbers. Searches of the accessible text found no 2x2 classification.",
+        "identifier_or_url": "arXiv:1401.5766v1",
+        "material_read": "The full HTML text was inspected through the introduction and balancing algorithm, including the exact definition, irreducibility assumption, uniqueness statement, row/column 2-norm update, and discussion of eigenvalue-conditioning deterioration.",
+        "method": "Lawful open full-text arXiv HTML inspection and targeted in-document searches.",
+        "title": "On Matrix Balancing and Eigenvector Computation",
+        "trigger": "Full primary source for exact Osborne 2-norm balancing, uniqueness, and modern discussion of harmful balancing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ab7a3a1-4c43-4fb5-b006-9a618a79fc29",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Matrix balancing is a standard preprocessing operation for nonsymmetric eigenproblems, and harmful conditioning is a documented practical concern. The theorem identifies the exact first dimension where harm can occur under ideal 2-norm balancing, proves a strong simultaneous optimality result in the safe dimension, and gives an explicit positive-spectrum family where balancing lowers Frobenius norm yet worsens a simple eigenvalue's sensitivity. This cleanly separates the objective balancing optimizes from the eigenvalue diagnostic users care about.",
+    "status": "PASS"
+  }
+}
