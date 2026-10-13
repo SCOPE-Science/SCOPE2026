@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs all quantifiers and boundary cases. The first iterate is a positive scalar multiple of the nonnegative right-hand side in every dimension. In dimensions one and two, exact finite termination plus the explicit nonnegative Stieltjes inverse excludes sign loss. The three-dimensional irreducible witness is checked exactly: Sylvester minors 2, 4, and 46 are positive; the inverse is strictly positive; and the second CG iterate equals \\( (9076,9469,-32)^{\\mathsf T}/3219 \\). No finite experiment is used to prove the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang--Haynes--Huang (2012), DOI 10.1137/100812483, studies persistence of inverse positivity under matrix perturbations, not signs of CG approximants.",
+        "Classical CG sources cover all SPD matrices in norm/error senses but do not dominate a coordinatewise sign theorem."
+      ],
+      "reasoning": "A theorem about inverse positivity of the coefficient matrix does not imply that intermediate Krylov approximants are inverse-positive operators. Norm-minimization results are incomparable to coordinatewise positivity and therefore do not cover the claim.",
+      "searches": [
+        "Krylov iterate leaves positive cone SPD M-matrix",
+        "conjugate gradient monotone matrix nonnegative iterates",
+        "conjugate gradient M-matrix positivity monotonicity Stieltjes"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.6028/jres.049.044",
+      "doi:10.1137/0727091",
+      "doi:10.1137/100812483",
+      "doi:10.1155/2013/986317"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hestenes--Stiefel implies exact solution by the second step in dimension two.",
+        "The explicit two-by-two Stieltjes inverse formula implies that terminal solution is nonnegative.",
+        "Neither source alone nor their standard statements discuss the three-dimensional second-iterate failure or joint minimality."
+      ],
+      "reasoning": "The low-dimensional positive result is a short but nontrivial synthesis of CG finite termination with inverse positivity; the sharpness half requires a separate exact counterexample. No inspected prior result implies both halves of the accepted claim.",
+      "searches": [
+        "CG finite termination two dimensional Stieltjes nonnegative solution",
+        "classical conjugate gradient positive cone preservation",
+        "conjugate gradient nonnegative solution intermediate iterates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hestenes--Stiefel (1952), DOI 10.6028/jres.049.044: finite termination and SPD CG framework.",
+        "Ashby--Manteuffel--Saylor (1990), DOI 10.1137/0727091: Krylov/norm-minimizing characterization; MSC 65F10.",
+        "Li (2013), DOI 10.1155/2013/986317: a different CG-type method modifies directions to enforce nonnegative constraints."
+      ],
+      "reasoning": "Finite termination and energy minimization do not state componentwise cone preservation. The constrained-CG paper addresses a different algorithm whose feasibility mechanism is absent from classical linear CG. No inspected statement is equivalent to the sharp dimension-three/iterate-two boundary.",
+      "searches": [
+        "conjugate gradient Stieltjes matrix positivity intermediate iterates nonnegative cone",
+        "conjugate gradient M-matrix componentwise positivity iterate sign",
+        "conjugate gradient inverse positive matrix negative components iterates",
+        "conjugate gradient componentwise monotonicity SPD"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located table or database entry gives the minimal dimension/iteration boundary or the displayed exact rational witness.",
+        "The original 1952 paper gives the dimension-dependent finite-termination statement used in the proof but not the positive-cone classification."
+      ],
+      "reasoning": "The finite-termination fact supplies one proof ingredient, not the new implication comparing termination with Stieltjes inverse positivity and the sharp three-dimensional obstruction.",
+      "searches": [
+        "dimension three conjugate gradient negative component Stieltjes matrix second iterate",
+        "conjugate gradient exact solution in two steps positivity cone",
+        "second CG iterate negative component M-matrix"
+      ]
+    },
+    "rationale": "The inspected classical CG literature establishes finite termination and norm/Krylov optimality, while M-matrix literature establishes inverse positivity and constrained-CG literature enforces feasibility by changing the method. Focused searches did not locate the sharp statement that classical CG is protected through dimension two but can leave the nonnegative cone at its second iterate in dimension three.",
+    "residual_risks": [
+      "Older iterative-method literature may contain an equivalent componentwise observation under terminology such as monotone iteration, order preservation, or cone invariance that was not recovered.",
+      "Several archival CG sources were available only through indexed text or abstract-level access, so absence of the claim from those sources is not asserted beyond the material actually read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "The paper states that the solution is obtained in n steps and develops the SPD CG method; the inspected material does not state positive-cone preservation or a dimension-three sign counterexample.",
+        "identifier_or_url": "doi:10.6028/jres.049.044",
+        "material_read": "Indexed full-text abstract, introduction, finite-termination statement, and polynomial/Krylov passages.",
+        "method": "Read the accessible full-text text layer and compared its stated finite-termination/norm framework with the componentwise claim.",
+        "title": "Methods of Conjugate Gradients for Solving Linear Systems",
+        "trigger": "Foundational source for classical CG and finite termination; directly needed for the two-dimensional half."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source characterizes CG through HPD inner products and Krylov error minimization and lists MSC 65F10; it does not state the accepted sign boundary.",
+        "identifier_or_url": "doi:10.1137/0727091",
+        "material_read": "Abstract, classification metadata, and stated Krylov/norm-minimization characterization.",
+        "method": "Compared the abstract's minimization statement with coordinatewise cone preservation.",
+        "title": "A Taxonomy for Conjugate Gradient Methods",
+        "trigger": "Highly relevant later characterization of CG and primary MSC ownership."
+      },
+      {
+        "assessment": "INAPPLICABLE_TO_ITERATE_SIGNS",
+        "evidence": "The paper studies when perturbed matrices retain nonnegative inverses; it does not analyze signs of Krylov iterates.",
+        "identifier_or_url": "doi:10.1137/100812483",
+        "material_read": "Abstract, keywords, MSC metadata, and described perturbation results.",
+        "method": "Checked whether matrix monotonicity results constrain intermediate CG approximants.",
+        "title": "Monotonicity of Perturbed Tridiagonal M-Matrices",
+        "trigger": "Close terminology: monotonicity and inverse positivity for M-matrices."
+      },
+      {
+        "assessment": "DIFFERENT_ALGORITHM",
+        "evidence": "The method explicitly constructs feasible descent directions for constrained optimization, so it does not imply that classical linear CG preserves nonnegativity.",
+        "identifier_or_url": "doi:10.1155/2013/986317",
+        "material_read": "Web full-text algorithm section and feasibility lemma.",
+        "method": "Compared its constrained search-direction construction with unmodified linear CG.",
+        "title": "A Conjugate Gradient Type Method for the Nonnegative Constraints Optimization Problems",
+        "trigger": "Close topic: CG-type directions under nonnegative feasibility constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abb69f56-9a0e-481a-a611-f8da5184bdba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonnegative cone is structurally important for inverse-positive discretizations, while CG is selected for its energy/Krylov optimality. The result pinpoints the first place these structures diverge, gives a complete minimal-dimension/minimal-iteration boundary, and supplies a small exact irreducible test case. This is a motivated boundary fact rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
