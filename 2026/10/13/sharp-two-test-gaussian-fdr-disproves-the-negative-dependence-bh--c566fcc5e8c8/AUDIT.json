@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Exact BH event decomposition gives FDR<=3alpha/4 under an exact uniform true-null p-value. The antithetic Gaussian model with mean -Phi^{-1}(alpha/2)-Phi^{-1}(alpha)>0 makes V<=alpha iff U>=alpha/2, obtaining equality at corr -1; almost-sure Gaussian coupling and bounded convergence give sharp supremum for -1<rho<0. For alpha=1/20, rho=-99999999/100000000, Gaussian density<1/2 and Chebyshev give P(threshold disagreement)<29/5000; hence FDR>317/10000. Equation (26) of arXiv:2212.09706v4 with e<3, pi>2 gives tilde s_2(alpha)/2<30307/1088000; exact rational cross multiplication verifies strict violation. Python exact-fraction verifier replays finite rational identities, not continuum proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "BY 2001 arbitrary-dependence BH bound (K0/K) H_K alpha implies 3alpha/4 as a universal K=2 upper bound.",
+        "Chi--Ramdas--Wang Section 3 Simes bounds concern null-uniform vectors; its null-only dependence Theorem 19 does not yield the stronger conjecture for all p-values."
+      ],
+      "reasoning": "The universal half of the sharp theorem is subsumed by BY and is not independently treated as novel. The extra Gaussian subclass attainment and explicit disproof do not follow from a general upper bound or a class with three all-null p-values.",
+      "searches": [
+        "published-finding corpus: Gaussian BH false discovery negative correlation one true hypothesis power sharp upper bound",
+        "web: Benjamini Yekutieli 2001 theorem harmonic sum 1+1/2+ sharp two tests FDR",
+        "Source: arXiv:2212.09706v4 Sections 3 and 5, theorem 19 and concluding BH conjecture"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2212.09706v4 Sections 2,3,5,7",
+      "arXiv:2212.09706v1 date metadata",
+      "DOI:10.1214/aos/1013699998 verified abstract and coverage via source Section 5",
+      "DOI:10.1111/1467-9868.00347 Oxford full HTML",
+      "published-finding corpus 2026/9/20/SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0 title/summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (11) permits Gaussian mean mu and nonpositive off-diagonal covariances, hence the explicit model is in the conjectured domain.",
+        "Equation (26) gives tilde s; at alpha=1/20 the conjectured K0/K weighted RHS is <30307/1088000 while the explicit FDR is >317/10000.",
+        "Theorem 19 of the source assumes only null p-value negative dependence and has a different, much looser bound; no contradiction."
+      ],
+      "reasoning": "The explicit strict inequality is the negation of the exact published conjecture. A generic 3alpha/4 upper bound cannot imply attainability within a specified Gaussian subclass, and null-only Simes estimates cannot imply control when one p-value is nonnull.",
+      "searches": [
+        "Source: arXiv:2212.09706v4 Section 2 equation (11), Section 3 equation (26), Section 7 conclusion",
+        "web: \"negative Gaussian\" \"BH\" \"counterexample\" \"nonnull\"",
+        "published-finding corpus: Two-test Benjamini Hochberg sharp Gaussian negative copula nonnull null FDR 3alpha/4 alpha two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chi--Ramdas--Wang arXiv:2212.09706v4 Section 7 states the negative-Gaussian BH conjecture; Section 2 equation (11) includes shifted Gaussian vectors.",
+        "Benjamini--Yekutieli 2001 proves an arbitrary-dependence correction but not the present Gaussian attainability in the inspected materials."
+      ],
+      "reasoning": "A Gaussian copula of the true-null uniform p-value and the nonnull shifted one-sided p-value is the exact object. The threshold identity at correlation -1 and strict positive-definite near-limit distinguish it from independence and all-null Simes statements. No equivalent exact formulation emerged in targeted searches; absence of a hit is not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Two-test Benjamini Hochberg sharp Gaussian negative copula nonnull null FDR 3alpha/4 alpha two",
+        "published-finding corpus: Countermonotone null alternative p values Benjamini Hochberg FDR 0.75 alpha sharp",
+        "web: \"Benjamini Hochberg\" \"countermonotonic\" \"false discovery\" gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact claimed comparison is against the analytic function in source equation (26), not a numerical table entry.",
+        "Closest published-finding corpus identifier: 2026/9/20/SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0, K=3 uniform nulls, distinct property and dependence."
+      ],
+      "reasoning": "A table of approximate source bounds and Simes sharpness for K=3 cannot establish the positive-definite K=2 Gaussian null/nonnull witness. The exact rational inequality was reconstructed from the actual source formula.",
+      "searches": [
+        "published-finding corpus: Chi Ramdas Wang negatively Gaussian conjectured bound two hypotheses counterexample negative correlation",
+        "published-finding corpus: two hypotheses Benjamini Hochberg negative correlation shifted Gaussian sharp arbitrary dependence extremal false discovery rate",
+        "Source: arXiv:2212.09706v4 Table 1 and equation (26)"
+      ]
+    },
+    "rationale": "The exact conjecture and the negative Gaussian model definition were read in Chi--Ramdas--Wang arXiv:2212.09706v4; the explicit nonsingular negative-correlation normal pair contradicts their conjecture and the sharp Gaussian subclass supremum is not stated there. BY arbitrary-dependence upper bound is recognized as prior and is not claimed new. published-finding corpus and targeted web searches found no direct Gaussian mixed-null equivalence; an earlier alternative formulation remains a residual bibliographic risk.",
+    "residual_risks": [
+      "An unlocated older or later paper may give the same sharp Gaussian mixed-null bound in alternative notation.",
+      "Benjamini--Yekutieli original full paper was not obtained: known general correction is acknowledged, but no whole-document exclusion is inferred.",
+      "Closest Simes published-finding corpus full text not inspected; its indexed complete claim concerns a distinct all-null class, and this remains a minor access-scope risk.",
+      "No independent priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the constructed positive-definite counterexample: it explicitly proposes an upper bound contradicted by the analytic witness; contains no stated sharp Gaussian null/nonnull two-test attainment.",
+        "evidence": [
+          "Section 2 Eq. (11) states nonpositive Gaussian covariances and arbitrary means.",
+          "Section 3 Eq. (26) states proposed tilde s.",
+          "Section 7 calls this BH bound under negative Gaussian dependence an open conjecture."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2212.09706v4",
+        "material_read": "Complete full-text HTML including definitions in Section 2, equations (26) and (11), Sections 3 and 5, and Section 7 open problems; abstract and appendices scanned for relevant matches.",
+        "method": "Read lawful arXiv HTML full text; compare theorem domains, null/non-null quantifiers, stated inequality and its numerical formula directly.",
+        "title": "Multiple testing under negative dependence",
+        "trigger": "Exact same testing and negative-Gaussian object, explicit conjectured inequality"
+      },
+      {
+        "assessment": "PARTIAL COVERAGE: general harmonic FDR upper bound subsumes the universal part, but available material does not establish attainability inside negatively correlated Gaussian null/nonnull pairs.",
+        "evidence": [
+          "2001 abstract confirms positive regression and conservative arbitrary-dependence correction.",
+          "Chi--Ramdas--Wang Section 5 records harmonic correction H_K under arbitrary dependence."
+        ],
+        "identifier_or_url": "DOI:10.1214/aos/1013699998",
+        "material_read": "Accessible author/institutional abstract and exact harmonic-bound statement reviewed in Chi--Ramdas--Wang Section 5; no full 2001 paper claim of Gaussian sharpness inferred from abstract alone.",
+        "method": "Compared verified bibliographic description and secondary primary-literature theorem statement to exact two-test events; full original paper not claimed inspected.",
+        "title": "The control of the false discovery rate in multiple testing under dependency",
+        "trigger": "Potential broader theorem dominating two-test BH bound"
+      },
+      {
+        "assessment": "NOT_IMPLYING: a size result for three uniform nulls does not furnish the two-test Gaussian mixed-null counterexample. Full text not claimed inspected.",
+        "evidence": [
+          "published-finding corpus scientific summary gives piecewise worst-case Simes size for three pairwise independent uniform p-values."
+        ],
+        "identifier_or_url": "2026/9/20/SCOPE-sharp-simes-size-under-pairwise-independence--9fdb218c11c0",
+        "material_read": "published-finding corpus complete title and scientific summary (not full document).",
+        "method": "Compared quantifiers (K=3 versus K=2), null status (three nulls versus one false null), distribution class (pairwise independence versus negative Gaussian dependence), and test statistic (Simes global-null size versus BH false-discovery rate).",
+        "title": "Sharp Simes size under pairwise independence for three uniform p-values",
+        "trigger": "Closest relevant published database item from repeated published-finding corpus searches"
+      },
+      {
+        "assessment": "NOT_COVERING: under independence establishes exact baseline, not negative Gaussian copula sharpness.",
+        "evidence": [
+          "Genovese and Wasserman (2002) introduction gives BH under independence with K0/K factor and uses arbitrary alternative marginal."
+        ],
+        "identifier_or_url": "DOI:10.1111/1467-9868.00347",
+        "material_read": "Full openly accessible Oxford HTML, introduction and procedure definition, scope and main results.",
+        "method": "Compared independent-case FDR=(K0/K)alpha and alternative distribution assumptions to the present correlated bivariate Gaussian construction.",
+        "title": "Operating Characteristics and Extensions of the False Discovery Rate Procedure",
+        "trigger": "Potential classical FDR description and independent BH-domain comparator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c566fcc5-e8c8-4320-a61a-62384109049a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A concrete positively definite bivariate Gaussian null/nonnull model violates a specifically named published conjecture about FDR under negative Gaussian dependence. The sharp supremum over every strictly negative correlation for two one-sided tests identifies why the Gaussian structural assumption cannot improve the general worst-case two-test harmonic factor. This directly informs the mathematically motivated search for dependence-aware multiple-testing corrections, not an arbitrary parameter slice or mere numerical recheck; the general arbitrary-dependence inequality itself is not claimed new.",
+    "status": "PASS"
+  }
+}
