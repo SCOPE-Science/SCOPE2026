@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Starting from the published six-dimensional integer representation, the scale increment is exactly an affine 2-kernel with seven states. The transition table yields two elementary auxiliary recurrences whose summatory errors are bounded linearly in binary length. This proves |3Q(n)-n|<=5(floor(log_2 n)+1), hence the quantitative doubling identity. Iteration gives a uniform dyadic-ray estimate; monotonicity together with the published O(log n) bound on h(n), using bases m asymptotic to log n, converts it to h(n)=2/3 log_2 n+O(log log n). The verifier replays all nonstandard finite algebra and independently checks the source representation against the local-period definition on a finite prefix.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper explicitly says the general regular-sequence theorem is inconclusive for this representation because the available joint-spectral-radius bound equals the dominant eigenvalue.",
+        "Later searches located unrelated complexity notions and the same primary paper, but no stronger periodic-complexity theorem."
+      ],
+      "reasoning": "General q-regular asymptotic machinery is the natural potentially dominating prior result. The primary source itself records why that machinery does not yield the desired period-doubling asymptotic in this case.",
+      "searches": [
+        "Rampersad periodic complexity period-doubling sharper asymptotic",
+        "period-doubling periodic complexity function 2024 2025 2026",
+        "Asymptotic analysis of regular sequences period-doubling local period"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.04416v1 metadata and journal full text, especially pp. 156–158",
+      "ArXiv search metadata confirming MSC 68R15 and first public date 2021-12-08",
+      "arXiv:1810.13178 / Algorithmica regular-sequence asymptotic record",
+      "focused web searches for the exact 2/3 constant, P(2n)-2P(n), h_pd(n), local-period aliases, and later period-doubling literature",
+      "semantic-result searches for the same claim formulations",
+      "current and prior research ledgers searched for periodic complexity, local period, source identifier, and period-doubling overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.1 proves only (1/3 log_2 n-1/18) <= h(n) <= (4/3 log_2 n+3) for arbitrary n.",
+        "The same theorem proves an exact power-of-two formula whose logarithmic coefficient is 2/3, but monotonic interpolation alone gives the weaker 1/3-to-4/3 range.",
+        "The new scale increment controls every dyadic dilation with O(log n) error and is the additional ingredient that forces the global constant."
+      ],
+      "reasoning": "The new conclusion is not a corollary of the published dyadic formula plus monotonicity; the source demonstrates this by obtaining only its wider coefficient bounds. The automatic discrepancy lemma is a genuinely stronger comparison statement.",
+      "searches": [
+        "arXiv:2112.04416 period-doubling Theorem 4.1",
+        "arXiv:2112.04416 joint spectral radius period-doubling",
+        "period-doubling periodic complexity 2/3 log"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2112.04416v1 / Australas. J. Combin. 85(2) is the direct source; it states only coefficient bounds 1/3 and 4/3 for all n and gives coefficient 2/3 exactly on powers of two.",
+        "No indexed result returned a global limit h(n)/log_2 n=2/3 or the O(log log n) remainder."
+      ],
+      "reasoning": "The searches cover the direct invariant, its local-period alias, the exact proposed constant, and the asymptotic formulation. The new statement is not equivalent to the source dyadic formula because it controls all integers.",
+      "searches": [
+        "period-doubling periodic complexity asymptotic constant two thirds logarithm",
+        "period-doubling periodic complexity h(n) ~ (2/3) log_2 n",
+        "period-doubling word local period exact asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published Table 2 gives only the initial local periods; Theorem 4.1 gives the exact dyadic summatory formula and broad all-n inequalities.",
+        "No checked database or exact-table search gave the seven-state scale increment or the global leading constant."
+      ],
+      "reasoning": "Matching the dyadic coefficient 2/3 is insufficient for novelty; the comparison specifically checked whether the proposed two-scale identity or all-n limit already appears in exact tables or formula searches.",
+      "searches": [
+        "period-doubling local periods summatory P(2n) 2P(n)",
+        "Ppd(2n) period-doubling",
+        "hpd(n) period-doubling"
+      ]
+    },
+    "rationale": "The direct 2021/2023 source explicitly states that the standard regular-sequence theorem does not give the desired period-doubling asymptotic, and its final arbitrary-n result retains the coefficient interval from 1/3 to 4/3. It gives 2/3 only on powers of two. Focused exact-constant, doubling-law, local-period, later-literature, and indexed-result searches found no source stating the global 2/3 limit or the seven-state scale increment.",
+    "residual_risks": [
+      "An unindexed note could have extracted the same scale-increment automaton from the published representation.",
+      "The O(log log n) remainder is not claimed optimal; finer automatic summation may produce a smaller second-order term."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper gives the exact matrices and dyadic formula but only 1/3-to-4/3 logarithmic coefficient bounds for arbitrary n; it explicitly notes that the general q-regular theorem does not yield the desired asymptotics here.",
+        "identifier_or_url": "arXiv:2112.04416v1 / Australas. J. Combin. 85(2) (2023), 150–158",
+        "material_read": "Full period-doubling section, including Table 2, the six-dimensional matrices, the spectral obstruction, Theorem 4.1, its dyadic formula, and the arbitrary-n inequalities.",
+        "method": "Open full-text inspection of the journal PDF and arXiv metadata.",
+        "title": "The periodic complexity function of the Thue–Morse word, the Rudin–Shapiro word, and the period-doubling word",
+        "trigger": "Direct primary source for the identical period-doubling periodicity function."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The general theory is cited by the primary source, which explains that the available joint-spectral-radius bound is too large in this representation to isolate the desired leading term.",
+        "identifier_or_url": "arXiv:1810.13178 / Algorithmica 82 (2020), 429–508",
+        "material_read": "Abstract/metadata and the applicability discussion quoted and used in the primary period-doubling paper.",
+        "method": "Open bibliographic inspection together with the primary paper’s explicit comparison to the theorem.",
+        "title": "Asymptotic analysis of regular sequences",
+        "trigger": "Potential broader theorem for summatory functions of regular sequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45ce6842-57a8-4289-8575-a17999bfe185",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper’s stated goal for the period-doubling case is asymptotic periodic complexity, but its general machinery stalls at the spectral boundary and leaves a fourfold gap between logarithmic coefficients. The result closes that central gap with the sharp coefficient 2/3 and a quantitative O(log log n) remainder. The seven-state scale law also explains structurally why the power-of-two coefficient extends to all n.",
+    "status": "PASS"
+  }
+}
