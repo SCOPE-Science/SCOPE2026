@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every positive immune count, the published immune-death rate is strictly positive, so a finite sequence of immune-death jumps has positive probability. Once the process reaches the zero-immune face, the published tumor-death, immune-birth, immune-death, and cytokine-production rates all vanish, while the logistic tumor-birth rate remains strictly positive below carrying capacity. A finite sequence of tumor births therefore reaches the invasion boundary with positive probability and cannot hit tumor extinction on that path. Every intermediate total rate is finite, so the same finite jump sequence has positive probability of occurring within any prescribed positive time horizon. The confidence bound is a separate exact binomial calculation and is not used to prove CTMC reachability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Merrill (1984), DOI 10.1007/BF00275990, studies tumor extinction by cytotoxic cells using branching and density-dependent jump-process approximations.",
+        "Liu, Li, and Pan (2018), DOI 10.1016/j.physa.2018.02.118, construct a different tumor-immune CTMC and estimate tumor-extinction probabilities.",
+        "Yang, Tan, and Cheke (2019), DOI 10.1016/j.cnsns.2019.02.025, derive stochastic extinction and persistence thresholds for a different pulsed-treatment model."
+      ],
+      "reasoning": "These papers establish that extinction probabilities and stochastic thresholds are mature prior art. They do not remove the source-specific gap: in the Jang-Yen CTMC, immune extinction itself opens an upward-only tumor route to K.",
+      "searches": [
+        "stochastic tumor immune invasion extinction branching process CTMC cytotoxic cells",
+        "tumor immune CTMC extinction probability chemotherapy",
+        "thresholds extinction proliferation stochastic tumour immune model pulsed therapy"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14132352",
+      "doi:10.1007/BF00275990",
+      "doi:10.1016/j.physa.2018.02.118",
+      "doi:10.1016/j.cnsns.2019.02.025"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Merrill's primary abstract treats one-dimensional tumor elimination and notes limits of linear branching near criticality.",
+        "The Liu-Li-Pan primary record states that its CTMC estimates tumor-extinction probability in a chemotherapy model.",
+        "The Yang-Tan-Cheke accepted-manuscript record concerns stochastic differential equations with pulsed therapy and Lyapunov extinction/persistence thresholds."
+      ],
+      "reasoning": "None of these broader results logically determines reachability in the source's distinct finite-tumor, unbounded immune/cytokine CTMC. The accepted theorem depends on the exact Jang–Yen jump factors: immune birth and tumor killing vanish when the immune count is zero, while tumor births remain possible below carrying capacity.",
+      "searches": [
+        "stochastic models tumor growth probability elimination cytotoxic cells branching process",
+        "deterministic stochastic tumor immune responses chemotherapy CTMC extinction probability",
+        "stochastic tumour immune extinction proliferation thresholds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's Table 3 makes the immune-death rate strictly positive at every positive immune count; on the zero-immune face, tumor killing, immune birth, immune death, and cytokine production vanish while tumor birth remains positive below carrying capacity.",
+        "The source reports zero invasions among ten thousand simulated paths and later states that after the immune threshold is crossed extinction becomes certain and invasion is no longer possible.",
+        "Source-specific published-finding corpus searches returned no item stating that every finite nonzero-tumor state retains positive CTMC probability of hitting the carrying-capacity invasion boundary."
+      ],
+      "reasoning": "Equivalent coverage would need to distinguish the frozen branching zero-probability threshold from exact reachability in this full three-component CTMC. The returned published-finding corpus items concern unrelated epidemic, population, and Markov-chain problems and do not imply the source-specific path construction.",
+      "searches": [
+        "10.3390/math14132352 immune death finite path K invasion",
+        "Jang Yen IL-4 CTMC P_inv zero rare event",
+        "full CTMC invasion positive probability any finite immune level y=0 tumor-only absorbing",
+        "tumor-only absorbing state CTMC immune extinction invasion probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hits included `2026/9/14/SCOPE021` on a coupled-SEIR reproduction-number counterexample and `2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf` on Filippov dengue switching; neither uses the Jang-Yen CTMC.",
+        "The current-week ledger and the latest prior-week ledger contain no occurrence of DOI 10.3390/math14132352."
+      ],
+      "reasoning": "Database nonoverlap is supporting evidence rather than novelty proof. The accepted originality rests on direct inspection of the source's Table 3 transition graph and statement-level comparison with its numerical interpretation.",
+      "searches": [
+        "10.3390/math14132352 CTMC tumor immune IL-4 invasion probability zero immune threshold",
+        "10.3390/math14132352 immune death finite path K invasion",
+        "Jang Yen IL-4 CTMC P_inv zero rare event"
+      ]
+    },
+    "rationale": "The 2026 source explicitly defines the CTMC rates and says its frozen branching approximation can overestimate invasion, but its reduced-scale numerical discussion interprets the deterministic immune-threshold crossing as making extinction certain and invasion no longer possible. Exact-DOI and alias published-finding corpus searches found no published finding stating the finite positive-probability path obstruction. Classical tumor stochastic papers provide branching, CTMC, and extinction-threshold context but do not imply this source-specific transition-graph theorem in the inspected material.",
+    "residual_risks": [
+      "A later unindexed correction could already qualify the source's zero-probability wording.",
+      "The exact CTMC theorem does not quantify how small the invasion probability is under the source's reduced-scale parameters.",
+      "The article simulates a tau-leaping approximation; exact CTMC reachability and numerical-scheme reachability are distinct questions.",
+      "The closest older sources were used only for context unless their primary full text was directly available; no abstract-level source was treated as whole-document noncoverage proof.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_OVERSTRONG_ZERO_INTERPRETATION. The printed CTMC rates leave a finite positive-probability route to the carrying-capacity invasion boundary from every finite state with nonzero tumor count, while the numerical discussion says threshold crossing makes extinction certain and invasion no longer possible.",
+        "evidence": "Table 3 makes immune death possible whenever immune cells are present; on the zero-immune face, tumor killing and immune/cytokine production are disabled while tumor birth remains possible below carrying capacity. Section 4.3 reports no invasion among ten thousand paths and then interprets crossing the branching critical level as making extinction certain.",
+        "identifier_or_url": "doi:10.3390/math14132352",
+        "material_read": "Open publisher full text: deterministic model, CTMC state space and Table 3 transition rates, frozen branching approximation and critical immune level, definition of finite-horizon CTMC invasion, reduced-scale parameters, 10^4-path numerical results, Figures 9-11 discussion, and conclusions.",
+        "method": "Direct statement-level and transition-graph comparison using the open-access publisher text.",
+        "title": "Stochastic Invasion and Immune Feedback in a Tumor–Immune–IL-4 Model",
+        "trigger": "Exact motivating source and the full CTMC whose zero-invasion interpretation is tested."
+      },
+      {
+        "assessment": "CONTEXT_ONLY. It is not used as whole-document noncoverage evidence.",
+        "evidence": "The abstract studies tumor elimination with one-dimensional stochastic models and uses branching processes for a one-cell tumor, switching to density-dependent processes near criticality.",
+        "identifier_or_url": "doi:10.1007/BF00275990",
+        "material_read": "Primary PubMed abstract and bibliographic record.",
+        "method": "Compared model dimension, branching role, and stated extinction calculations.",
+        "title": "Stochastic models of tumor growth and the probability of elimination by cytotoxic cells",
+        "trigger": "Classical branching-process tumor-extinction predecessor."
+      },
+      {
+        "assessment": "CONTEXT_ONLY. Different chemotherapy model and no evidence in the inspected material of the Jang-Yen transition graph.",
+        "evidence": "The abstract states that its CTMC accounts for cellular reproduction, death, competition, and chemotherapy response and is used to estimate tumor-extinction probability.",
+        "identifier_or_url": "doi:10.1016/j.physa.2018.02.118",
+        "material_read": "Primary institutional record, abstract, and metadata describing the CTMC's use for tumor-extinction probabilities.",
+        "method": "Compared model purpose and stochastic object; no whole-document noncoverage inference was drawn.",
+        "title": "A deterministic and stochastic model for the system dynamics of tumor-immune responses to chemotherapy",
+        "trigger": "Close tumor-immune CTMC predecessor."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. Its SDE threshold theorems concern a different pulsed-treatment model.",
+        "evidence": "The abstract states threshold conditions for extinction, non-persistence, weak persistence, and stochastic persistence in an impulsive stochastic differential model.",
+        "identifier_or_url": "doi:10.1016/j.cnsns.2019.02.025",
+        "material_read": "Open institutional abstract and accepted-manuscript front matter describing the stochastic differential model and threshold results.",
+        "method": "Compared stochastic object, treatment structure, and theorem scope.",
+        "title": "Thresholds for extinction and proliferation in a stochastic tumour-immune model with pulsed comprehensive therapy",
+        "trigger": "Stochastic tumor-immune threshold literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad872647-c1bf-4283-8b3a-f0e266fee560",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinction between extremely rare invasion and mathematically impossible invasion is substantive in a paper centered on stochastic hitting probabilities. The source's own mechanism makes the difference biologically interpretable: rare immune-cell extinction removes tumor killing and opens a path to tumor saturation. This also changes how a zero count in finite Monte Carlo should be reported. The result preserves the paper's main message that feedback strongly suppresses invasion while preventing a static branching threshold from being promoted into an exact full-CTMC impossibility claim.",
+    "status": "PASS"
+  }
+}
