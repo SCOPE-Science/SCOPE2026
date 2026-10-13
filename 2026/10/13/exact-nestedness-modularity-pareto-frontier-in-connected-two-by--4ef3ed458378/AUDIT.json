@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "A complete proof fixes all allowed column types and computes the NODF paired-overlap numerator exactly. Optimization of unrestricted Barber vertex partitions reduces rigorously to independent choices for each column after splitting the two rows; the resulting global maximum is the stated quadratic. Monotonic NODF, concave modularity, and an exact final adjacent-class difference prove the full Pareto frontier and threshold for every n>=2 and 1<=c<n. Embedded independent exact checker verifies 9322 labeled small networks, 1927648 two-label assignments, and 198158 unrestricted set-partition evaluations; these finite tests corroborate but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fortuna et al. (2010), doi:10.1111/j.1365-2656.2010.01688.x, empirically analyze relationships between nestedness, modularity, and connectance; their metrics/ensemble questions differ from exact fixed-size Barber-plus-NODF optimization.",
+        "Hoeppke and Simmons (2021), doi:10.1111/2041-210X.13545, develop network nestedness-maximum comparison methods but do not optimize Barber modularity jointly.",
+        "Flores et al. (2016), doi:10.1111/2041-210X.12458, implement the two separate indices but do not derive a complete Pareto locus.",
+        "Payrató-Borràs et al. (2019), doi:10.1103/PhysRevX.9.031024, study entropic/null-model nestedness origins, not the joint exact extremal classification."
+      ],
+      "reasoning": "The strongest directly relevant empirical and algorithmic papers cover correlation, degree-driven nestedness, or one-index extrema. None of their statements implies the globally optimized modularity polynomial for every column split nor the exact simultaneous-maximizer density threshold.",
+      "searches": [
+        "nestedness versus modularity low connectance high connectance extremal compatibility exact analytical",
+        "ecological network modularity nestedness species extinction robustness exact finite cutoff graph interaction degree",
+        "bipartite ecological network NODF nestedness tree sparsity connectance optimal nestedness no isolated vertices integer matrices",
+        "nestedness versus modularity ecological networks Fortuna 2010 connectance modularity",
+        "maxnodf exact upper bound connectance bipartite two row matrices Hoeppke Simmons"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0707.1616",
+      "doi:10.1103/PhysRevE.76.066102",
+      "doi:10.1111/j.2008.0030-1299.16644.x",
+      "doi:10.1111/j.1365-2656.2010.01688.x",
+      "doi:10.1111/2041-210X.12458",
+      "doi:10.1111/2041-210X.13545",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barber (2007) supplies only modularity definition/optimization framework, not the 2-row column-type reduction.",
+        "Almeida-Neto et al. (2008) supply NODF definition, not modularity optimization.",
+        "Fortuna et al. (2010) report empirical correlation patterns, not a Pareto frontier under fixed dimensions/edge count and globally optimized Barber modularity.",
+        "Hoeppke and Simmons (2021) concern NODF upper-bound search alone, so an exact NODF-maximizer result cannot imply the modularity-locus formula or co-maximizer threshold."
+      ],
+      "reasoning": "Existing individual-index formulas and qualitative incompatibility do not imply all global Barber partitions optimize to 2x(n-x)/(n+c)^2 or classify every non-dominated network. This is the precise logical gap filled by the theorem.",
+      "searches": [
+        "maximum NODF Barber modularity simultaneously network connectance analytical",
+        "Ferrers bipartite graph maximal NODF fixed connectance two rows",
+        "Nestedness versus modularity in ecological networks: two sides of the same coin Fortuna",
+        "maxnodf: An R package for fair and fast comparisons of nestedness between networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Almeida-Neto et al. (2008), doi:10.1111/j.2008.0030-1299.16644.x, define the strict degree-ordered paired-overlap NODF index.",
+        "Barber (2007), arXiv:0707.1616, defines bipartite modularity on arbitrary species-community partitions.",
+        "A connected two-row incidence matrix with n+c edges has exactly c degree-two columns and n-c degree-one columns; this makes integer x a complete isomorphism parameter."
+      ],
+      "reasoning": "Equivalent formulations were searched as nestedness/maximal NODF, modularity/community assignment, Ferrers bipartite graphs, two-row binary relations, and connectance. The new theorem is not a new definition of either index but an exact two-index Pareto optimization of their established definitions.",
+      "searches": [
+        "maximum NODF and maximum Barber modularity simultaneous extremizers bipartite two guild two by n incidence matrix nested Ferrers co-optimization connectance threshold",
+        "Barber bipartite modularity maximization for connected 2 by n incidence networks fixed number of shared neighbors private exclusive degree one columns exact closed formula",
+        "bipartite ecological networks exact threshold nestedness modularity coexistence 2xn incidence fixed density"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source or ranked semantic result supplied the 2×6, c=1 three-point exact locus (1/3,18/49), (11/32,16/49), (3/8,10/49).",
+        "The exact table was obtained by column-type and modularity algebra and cross-checked by direct exhaustive computation, not copied from a published lookup.",
+        "The searched published mathematical summaries nearest in bipartite graph structure concerned degree sets, dissociation, or Dowker-complex faithfulness, not optimized NODF plus Barber modularity."
+      ],
+      "reasoning": "The exact expressions, small witness tuple, and threshold inequality are searched as potential existing tables or special-case classifications. No covering table was found; absence of a result is treated as supporting evidence only, not proof of novelty.",
+      "searches": [
+        "For connected 2 by n bipartite networks with exactly n+c links, full Pareto frontier of NODF nestedness and optimally partitioned Barber modularity; joint maxima iff shared columns at least private columns minus one",
+        "maximum NODF Barber bipartite modularity two by six one shared column Pareto values 1/3 18/49",
+        "2xn Ferrers NODF modularity joint optimum c >= (n-1)/2",
+        "maxnodf Barber modularity exact Pareto frontier two-row network"
+      ]
+    },
+    "rationale": "The original NODF and Barber source papers define separate indices, empirical ecology describes their relationships, and later software optimizes NODF numerically. None of the inspected primary sources or the semantic result comparisons states or implies the complete exact attainable two-index locus, all non-dominated two-row fixed-link classes, or the sharp common-maximizer inequality. Novelty is restricted to this exact finite-to-parametric synthesis, not the indices themselves or qualitative tension.",
+    "residual_risks": [
+      "A broad extremal graph-optimization result for binary Ferrers matrices and bipartite modularity not returned by targeted searches might subsume a special case.",
+      "Different NODF tie handling or a constrained modularity partition changes the theorem; avoid silently translating to those conventions.",
+      "Empirical nestedness/modularity correlations in Fortuna et al. use different methods; no inference about their sign threshold is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the unrestricted bipartite modularity definition. No two-row ecological nestedness or joint Pareto theorem appears in the inspected original paper.",
+        "evidence": "Its modularity form is the sum over cross-guild observed minus expected links in equal community labels, corresponding to the objective optimized here.",
+        "identifier_or_url": "arxiv:0707.1616",
+        "material_read": "Complete 11-page original arXiv full text, including the bipartite null model and modularity equations, module-label optimization, examples, and concluding analysis.",
+        "method": "Open arXiv PDF, inspect text and page images at the definition/equations.",
+        "title": "Modularity and community detection in bipartite networks",
+        "trigger": "Foundational primary definition and need to exclude broader/global community-partition coverage."
+      },
+      {
+        "assessment": "Defines the NODF numerator and equal-fill rule used exactly here; does not compute optimal Barber modularity or the simultaneous-maximizer threshold.",
+        "evidence": "NODF is the average overlap divided by lower degree over strictly decreasing-degree paired rows and paired columns.",
+        "identifier_or_url": "doi:10.1111/j.2008.0030-1299.16644.x",
+        "material_read": "Complete publicly accessible original PDF, including the definitions and derivation of row/column paired-overlap components and main empirical results.",
+        "method": "Open lawful publicly accessible PDF and inspect Methods, formulas, and page images.",
+        "title": "A consistent metric for nestedness analysis in ecological systems: reconciling concept and measurement",
+        "trigger": "Original source for classical NODF including equal-degree pair treatment."
+      },
+      {
+        "assessment": "The study treats empirical network correlations and different index conventions, not exact Barber-plus-NODF co-optimization for every two-row fixed-link network.",
+        "evidence": "Analyzes nestedness/modularity correlation across empirical networks and connectance regimes, a distinct question from Pareto-optimal scores of every admissible matrix.",
+        "identifier_or_url": "doi:10.1111/j.1365-2656.2010.01688.x",
+        "material_read": "Publisher full-text HTML introduction, Methods, results and discussion on modularity/nestedness correlations and connectance.",
+        "method": "Publisher lawful full-text inspection, including Methods and Results passages.",
+        "title": "Nestedness versus modularity in ecological networks: two sides of the same coin?",
+        "trigger": "Highly plausible preexisting joint nestedness-modularity relationship result."
+      },
+      {
+        "assessment": "Provides numerical algorithms to calculate separate metrics, but no analytical exact joint Pareto frontier.",
+        "evidence": "Both indices occur as software outputs, without a theorem classifying their joint maximum at fixed connectance.",
+        "identifier_or_url": "doi:10.1111/2041-210X.12458",
+        "material_read": "Publisher full-text HTML descriptions of NODF, bipartite modularity, and computation algorithms.",
+        "method": "Publisher full-text inspection and relevant formula/method comparisons.",
+        "title": "BiMat: a MATLAB package to facilitate the analysis of bipartite networks",
+        "trigger": "Potential software/database containing both exact metrics and extremal cases."
+      },
+      {
+        "assessment": "Contains nestedness-maximization algorithms and discussion; does not optimize Barber modularity nor derive the two-index phase diagram.",
+        "evidence": "Optimizes attainable nestedness under network constraints, so its one-index scope cannot by itself classify the joint Pareto set.",
+        "identifier_or_url": "doi:10.1111/2041-210X.13545",
+        "material_read": "Publisher full-text HTML introduction, Methods, optimization algorithms and discussion.",
+        "method": "Publisher lawful full-text inspection.",
+        "title": "maxnodf: An R package for fair and fast comparisons of nestedness between networks",
+        "trigger": "Potential stronger exact bound on the NODF coordinate at fixed size and link count."
+      },
+      {
+        "assessment": "Supports the importance of degree structure for nestedness but does not derive Barber-modularity co-extremization.",
+        "evidence": "Nestedness explained through structural ensemble/degree constraints rather than complete joint objective maximization.",
+        "identifier_or_url": "doi:10.1103/PhysRevX.9.031024",
+        "material_read": "Publisher full-text HTML discussion of entropy and structural nestedness, including statements of main results.",
+        "method": "Lawful publisher full-text inspection.",
+        "title": "Breaking the Spell of Nestedness: The Entropic Origin of Nestedness in Mutualistic Systems",
+        "trigger": "Broader nestedness structure and degree-sequence baseline could imply exact 2-row extremality."
+      },
+      {
+        "assessment": "The mathematical object is an ecological two-guild incidence network and structural metric optimization.",
+        "evidence": "92D40 is the ecology subclass in MSC2020.",
+        "identifier_or_url": "MSC2020:92D40",
+        "material_read": "Official MSC2020 hierarchy identifying 92D40 as Ecology.",
+        "method": "Classification record inspection.",
+        "title": "Mathematics Subject Classification 2020, ecology",
+        "trigger": "Verify the primary mathematical classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ef3ed45-8378-4c14-b476-bf63739a658c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ecological network analyses compare nesting and modular organization under fixed connectance; their objectives can be structurally incompatible. The theorem provides the entire attainable score locus and complete globally optimized Pareto set in the first nontrivial connected guild size, with an exact density threshold for perfect co-maximization rather than a heuristic witness or isolated numerical gain. This quantifies a meaningful constraint on metric-based network design and benchmarking.",
+    "status": "PASS"
+  }
+}
