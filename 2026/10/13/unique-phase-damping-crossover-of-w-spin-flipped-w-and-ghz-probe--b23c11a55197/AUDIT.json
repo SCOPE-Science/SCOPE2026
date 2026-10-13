@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The entire 2n-dimensional noisy density matrix follows from a Hamming-distance calculation; all remaining basis states have zero support and J_z does not couple to them. Commuting two-by-two uniform and orthogonal blocks yield the SLD formula for 0<p<1; endpoints follow by continuity. The explicitly differentiated QFI ratio is strictly decreasing for 0<z<=1 since its controlling quadratic has negative derivative and negative value. Opposite endpoint limits give a unique critical root; the uniform-for-fixed-x ratio expansion and bracketing yield n p_c -> 1/2. Independent numerical eigenvalue tests at 100 physical cases and 107 further algebraic/asymptotic checks passed. Numerical tests alone cannot prove all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sudha et al. 2026 Eq. (8) is the general mixed-state spectral SLD formula and Eq. (29) defines the same local channel. Their Section III.2 explicitly notes that detailed analytic characterization is outside their scope.",
+        "Li–Ren 2023 optimizes over axes and supplies small-system noisy formulas; Ren–Li 2023 investigates particle-loss reduced density matrices."
+      ],
+      "reasoning": "The general QFI theorem is a computational instrument rather than a published explicit evaluation of the present n-dependent family; a generic spectral formula does not state the monotone ratio, unique polynomial root or sharp crossover. The optimized-axis family is not logically equivalent to the constrained longitudinal family. No paper checked derives a stronger theorem that directly states or implies the exact present crossover.",
+      "searches": [
+        "\"W superposition\" \"quantum Fisher\" \"phase damping\" \"N\" \"GHZ\" crossover",
+        "exact analytic quantum Fisher information W anti-W local dephasing all N phase damping",
+        "general spectral QFI formula for mixed states under unitary J_z encoding",
+        "Symmetric Dicke single excitation spin flipped quantum probe phase damping exact QFI polynomial and crossover",
+        "DOI:10.1103/PhysRevA.107.012403"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.23043v4",
+      "https://www.researchgate.net/publication/366859705_Quantum_metrology_with_an_N_-qubit_W_superposition_state_under_noninteracting_and_interacting_operations",
+      "https://www.researchgate.net/publication/373807373_Characterizing_entanglement_robustness_of_an_N_-qubit_W_superposition_state_against_particle_loss_from_quantum_Fisher_information",
+      "https://doi.org/10.1103/PhysRevA.84.022302",
+      "https://arxiv.org/abs/2601.23043",
+      "https://journals.aps.org/pra/abstract/10.1103/PhysRevA.107.012403",
+      "https://arxiv.org/abs/2601.23043"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li–Ren 2023 gives noiseless W-superposition comparison and optimized-direction noisy small-n QFI, not fixed-axis root classification; for n=4 its p=1 QFI remains nonzero, but a fully dephased density matrix commutes with J_z and gives fixed-axis zero.",
+        "Sudha et al. 2026 uses the same initial probes and noise channel and gives numerical inter-probe plots for selected n, explicitly deferring analytic mechanism; the present claim credits these observations and does not assert global-optimal probe superiority.",
+        "Ma et al. 2011 calculates GHZ QFI under noise but no W–spin-flipped-W directional crossover."
+      ],
+      "reasoning": "The present result is not just another wording of prior work: it derives n-dependent exact SLD information for a prescribed generator and establishes a global parameter crossing and weak-noise critical scale. These do not appear as published results in the primary passages reviewed. Potential unindexed independent derivations remain a residual priority risk.",
+      "searches": [
+        "Exact quantum Fisher information for W plus anti-W Dicke superposition under independent local phase damping, collective z rotation, crossover against GHZ and optimal dephasing",
+        "Dephasing GHZ Wbar W spin flipped W QFI crossover critical noise n inverse asymptotic",
+        "GHZ W-bar-W state phase damping fixed J_z quantum Fisher information unique crossover dephasing strength n p_c tends to 1/2",
+        "Symmetric Dicke single excitation spin flipped quantum probe phase damping exact QFI polynomial and crossover",
+        "\"W superposition\" \"quantum Fisher\" \"phase damping\" \"N\" \"GHZ\" crossover",
+        "exact analytic quantum Fisher information W anti-W local dephasing all N phase damping",
+        "Li Ren 2023 W superposition Eq 36 37",
+        "Sudha Karthik Akhilesh Usha Devi 2026 Section III.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Ren 2023 Section III.C.2 gives closed three-/four-qubit QFI after maximizing over collective-spin directions; n=4 formula 16-24p+12p^2 differs from the fixed-J_z result, which equals 4 at p=0 and 0 at p=1.",
+        "Sudha et al. 2026 Section III.2 explicitly considers W-bar-W, GHZ, and local phase damping, with plot-based analysis but no unique-crossing cubic or limit.",
+        "Indexed mathematical-record searches yielded unrelated Fourier and inequality results."
+      ],
+      "reasoning": "Source results concern different generator optimization or qualitative numerical comparisons. The theorem fixes the physical phase-encoding axis and derives an exact all-n rational QFI formula, a unique analytic crossing, and the critical n p boundary. No reviewed statement implies those formulas without a new dephased-state spectral evaluation and monotonicity proof.",
+      "searches": [
+        "Exact quantum Fisher information for W plus anti-W Dicke superposition under independent local phase damping, collective z rotation, crossover against GHZ and optimal dephasing",
+        "Dephasing GHZ Wbar W spin flipped W QFI crossover critical noise n inverse asymptotic",
+        "GHZ W-bar-W state phase damping fixed J_z quantum Fisher information unique crossover dephasing strength n p_c tends to 1/2",
+        "\"W bar W\" dephasing \"Fisher information\" \"GHZ\" crossover",
+        "Li Ren 2023 Eq. 34–37 phase damping W anti-W QFI",
+        "arXiv:2601.23043v4 Section III.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sudha et al. 2026 graphs use selected sizes n=12,30, and do not tabulate all-n longitudinal crossover roots.",
+        "Li–Ren 2023 provides n=3 and n=4 optimized direction formulas; related 2023 particle-loss article plots selected reduced-state QFI.",
+        "Mathematical-record searches yielded no matching W-bar-W/GHZ closed crossover; closest hits concerned unrelated harmonic phase inequalities."
+      ],
+      "reasoning": "No exact table of fixed-J_z crossover thresholds or matching all-n polynomial classification was found. Finite plots cannot imply uniqueness in every dimension or the n p asymptotic. This is evidence of coverage limits, not proof of global novelty.",
+      "searches": [
+        "Exact quantum Fisher information for W plus anti-W Dicke superposition under independent local phase damping, collective z rotation, crossover against GHZ and optimal dephasing",
+        "GHZ W-bar-W state phase damping fixed J_z quantum Fisher information unique crossover dephasing strength n p_c tends to 1/2",
+        "Symmetric Dicke single excitation spin flipped quantum probe phase damping exact QFI polynomial and crossover",
+        "arXiv:2601.23043v4 Figures 2-4",
+        "Results in Physics 53 106954 phase damping plots"
+      ]
+    },
+    "rationale": "Full relevant source comparison: 2026 Dicke-superposition work supplies the channel, finite-size noisy QFI plots, and baseline comparisons but explicitly leaves analytical mechanism open; 2023 Li–Ren derives noisy optimized-axis formulas only at n=3,4 and finite numerical curves, not fixed-J_z crossover. 2023 Ren–Li concerns reduced particle-loss states. The analytic closed longitudinal formula, exact unique cubic threshold, and n p_c ->1/2 are not implied by these published statements. Indexed mathematical-record and primary-source searches found no matched theorem, not a guarantee of priority.",
+    "residual_risks": [
+      "An unindexed derivation or implicit older special-case analysis could contain the all-size longitudinal QFI formula or crossing.",
+      "The related 2011 GHZ paper was available as publisher abstract rather than full text; its claim is only GHZ and is not credited as new.",
+      "Other direction-optimized QFI may behave differently; exact physical scope is fixed J_z, not axis-optimized performance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Numerical comparative noise study, not explicit all-n fixed longitudinal W/GHZ QFI ratio or crossover law.",
+        "evidence": [
+          "arXiv 2601.23043v4 lines 185–211: W-superposition, phase damping Kraus and noise figures; line 211 says detailed analytic characterization outside scope.",
+          "arXiv abstract submission history: first public 2026-01-30."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.23043v4",
+        "material_read": "Full HTML main article structure; definitions and general QFI in Sections II–III, complete Section III.2 noise models and graphs and textual claims, subsequent nonlinear-section scope, conclusion, and reference list.",
+        "method": "Primary open-access arXiv full-text HTML, searched and inspected relevant equations, figure captions, manuscript sections and references.",
+        "title": "Dicke superposition probes for noise-resilient Heisenberg and super-Heisenberg metrology",
+        "trigger": "Same W–spin-flipped-W and GHZ probes, same Kraus local dephasing; closely related numerical QFI comparison."
+      },
+      {
+        "assessment": "Reports axis-maximized QFI for n=3,4 and numerical curves for n=5–7, not the constrained J_z all-size result.",
+        "evidence": [
+          "Section III.C lines around 1199–1237: explicitly maximizes over directions.",
+          "Section III.C.2 lines 1370–1521: n=3,4 phase damping equations and n=5,6,7 curves."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/366859705_Quantum_metrology_with_an_N_-qubit_W_superposition_state_under_noninteracting_and_interacting_operations",
+        "material_read": "Public full-text HTML transcription of published nine-page article, including state and noiseless preparation, Section III.C.2 equations 34–37, direction optimization, later Ising analysis, conclusions and references.",
+        "method": "Open readable publisher-author full-text transcription; examined noisy-channel formulas, generator dependence and comparative statements.",
+        "title": "Quantum metrology with an N-qubit W superposition state under noninteracting and interacting operations",
+        "trigger": "Prior exact noisy QFI formulas for same W–spin-flipped-W family; most plausible stronger overlap."
+      },
+      {
+        "assessment": "The focus is QFI after tracing out qubits; does not state exact pure-probe fixed-axis GHZ crossover.",
+        "evidence": [
+          "Sections around lines 590–609 describe tracing out qubits; around 568–575 axis optimization; lines 1074–1123 summarize particle-loss results."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/373807373_Characterizing_entanglement_robustness_of_an_N_-qubit_W_superposition_state_against_particle_loss_from_quantum_Fisher_information",
+        "material_read": "Full-text HTML transcription; abstract, model and channel definitions, Sections on one-/multiple-particle loss, reported numerical plots and conclusions.",
+        "method": "Open public author-posted full-text transcription, compared unreduced probe state with reduced-state objective.",
+        "title": "Characterizing entanglement robustness of an N-qubit W superposition state against particle loss from quantum Fisher information",
+        "trigger": "Same W-superposition under environmental noise, potential general parameter results."
+      },
+      {
+        "assessment": "GHZ-only result is treated as known, not novelty; specific W-superposition crossover not established in available material.",
+        "evidence": [
+          "2011 Physical Review A abstract: analytical GHZ QFI in amplitude, phase and depolarizing noise; no W comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.84.022302",
+        "material_read": "Publisher abstract and bibliographic record, including erratum notice; no full article accessed.",
+        "method": "Publisher abstract inspection with limited scope; reference used for GHZ background only.",
+        "title": "Quantum Fisher information of the Greenberger–Horne–Zeilinger state in decoherence channels",
+        "trigger": "Prior GHZ exact QFI under same channel might cover comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b23c11a5-5197-4e58-bba4-69f6f7f6d536",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating work explicitly compares phase-damped W-superposition and GHZ but offers selected-size numerical plots without an analytic crossing law. A physically fixed sensing axis is a meaningful constraint; the result gives an exact, unique noise threshold for the choice between two natural probes, plus the nontrivial n p_c ->1/2 boundary showing that their competition occurs when useful Heisenberg-scale QFI survives. It is not a mere reparameterization of a known table or a one-size computation; the result includes all n>=3, a strict global crossing statement and its sharp asymptotic.",
+    "status": "PASS"
+  }
+}
