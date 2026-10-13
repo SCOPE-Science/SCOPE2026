@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exactly enumerating AB,BA vs AA,AB,BA,BB yields Qrr=(AB^2A+BA^2B)/2 and Qi=(A^4+B^4+AB^2A+BA^2B)/4. Writing A=I-omega uu^T, B=I-omega vv^T and using projector idempotence gives the operator identity in RESULT.md. Orthogonal bisectors have eigenvalues omega^2(2-omega)(1-c^2)[2-omega(1+/-c)]/4, with zero on the common orthogonal complement. Since 0<omega<2 and 0<c<1, the minus-bisector eigenvalue is positive and the plus-bisector eigenvalue changes sign only at 2/(1+c). This establishes all universal statements analytically. The 3-node path has inner product 1/2, giving threshold 4/3 and exact rational witnesses at omega=3/2. The extracted verifier passed 45 exact checks; finite tests are not used as a proof of universal signs. Reflection endpoint omega=2 is excluded and has zero difference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Recht--Re positive-semidefinite two-matrix norm comparison applies to unrelaxed and underrelaxed factors, but assumes PSD and controls only largest singular value.",
+        "De Sa constructs more general matrix-product reversal instances without deriving a two-edge angle-relaxation sign law.",
+        "The 2024 survey reports comparative convergence experiments and describes relaxation parameters, not the pointwise exact criterion."
+      ],
+      "reasoning": "Broad results about epoch rates, spectral norm and large product families do not subsume a full Loewner sign classification for two initially fixed directional risks. The counterexample lies in the indefinite-factor regime excluded by the stated positive-semidefinite norm theorem.",
+      "searches": [
+        "randomized alternating projection two nonorthogonal hyperplanes sampling without replacement 2 steps sharp Loewner improvement versus iid",
+        "PMLR:23:recht12 Theorem/Section 3.1 and Appendix B",
+        "De Sa 2020 NeurIPS paper sections 1-4",
+        "Ferreira Acebron Monteiro 2024 Numerical Algorithms sampling without replacement"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2110.14609v1",
+      "PMLR:23:recht12",
+      "NeurIPS:2020:42299f06ee419aa5d9d07798b56779e2",
+      "doi:10.1007/s11075-024-01945-2",
+      "published-finding corpus:2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+      "published-finding corpus:2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source gossip algorithm independently samples blocks, giving convergence bounds instead of a two-edge replacement-policy difference.",
+        "The norm inequality may hold while the operator difference has one negative eigenvalue, which the exact example demonstrates.",
+        "Cyclic block Kaczmarz reversal cancels asymptotic inconsistency bias; the present comparison is finite-horizon, consistent and pointwise."
+      ],
+      "reasoning": "The claimed sign criterion cannot be inferred from sampled-block convergence estimates, from a worst-direction norm bound, or from a bias law for cyclic inconsistent systems. The proof constructs the missing two-step second-moment operator and diagonalizes it.",
+      "searches": [
+        "Haddock Jarman Yap 2021 arXiv:2110.14609v1 pp.1-7",
+        "Recht Re 2012 PMLR:23:recht12 pp.1-6,15-16",
+        "De Sa 2020 NeurIPS:2020:42299f06ee419aa5d9d07798b56779e2 pp.1-4",
+        "published-finding corpus:2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the two-row Kaczmarz representation A=I-omega uu^T, B=I-omega vv^T; the exact Gram comparison equals the two-edge gossip comparison.",
+        "Recht--Re explicitly writes the two random Gram expectations, but proves a spectral-norm inequality for positive semidefinite update matrices rather than an operator-order criterion for these relaxation parameters."
+      ],
+      "reasoning": "The alternative Kaczmarz/alternating-projection terminology refers to the same update mechanism and was actively searched. Matching two-step Gram formulas alone do not furnish the sharp PSD/indefinite eigenvalue phase; operator norm results do not imply the claimed pointwise inequality.",
+      "searches": [
+        "relaxed two-row Kaczmarz shuffle without replacement independent sampling Gram Loewner omega 2/(1+cos theta) phase frontier",
+        "two rank one relaxed projections iid versus random permutation two-step second-moment matrix comparison",
+        "\"two projections\" \"with replacement\" \"without replacement\" \"Loewner\" relaxed",
+        "Recht and Re 2012 Section 3.1 and Appendix B (PMLR:23:recht12)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or source explicitly recording the 4/3 three-node boundary surfaced in the searched research index or public literature.",
+        "Closest related research index entries address delayed Gauss--Seidel, Kaczmarz residual coherence or cyclic-order bias; none specifies a two-edge pointwise sampling comparison."
+      ],
+      "reasoning": "No external exact table or database value was reused; 4/3 follows by c=1/2 in the analytically proved general threshold. A negative search alone would not establish priority and is not treated as sufficient evidence.",
+      "searches": [
+        "published-finding corpus semantic search three node path randomized gossip omega relaxation 4/3 without replacement with replacement expected square direction, two edges",
+        "published-finding corpus semantic search randomized consensus gossip overrelaxation independent versus permutation conditional expected squared disagreement angle",
+        "\"gossip\" \"reshuffling\" \"overrelaxation\" \"two\" \"edges\" variance mean square"
+      ]
+    },
+    "rationale": "Inspected primary papers establish the gossip/Kaczmarz mechanism and the two-matrix operator-norm comparison, but the pointwise second-moment Loewner sign boundary in the indefinite overrelaxed range is not implied by those statements. Recht--Re Section 3.1 and Appendix B address spectral norm for two positive semidefinite factors, whereas here 1<omega<2 makes each factor indefinite; norm dominance cannot force pointwise PSD ordering. The 2020 counterexample concerns a different family. The residual risk of equivalent work under other names remains, not a proof of uniqueness.",
+    "residual_risks": [
+      "An equivalent finite-horizon two-projection rank-two Loewner statement may exist in older or unindexed numerical analysis/matrix inequalities.",
+      "The generalized claim treats just two steps, so it does not imply full multiepoch scheduling advantages.",
+      "The source is a mathematical overlap assessment, not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Models edge incidence and independent randomized block Kaczmarz convergence, not two-edge complementarily sampled relaxed mean-square risk.",
+        "evidence": [
+          "arXiv:2110.14609v1, October 27 2021, pp.1-7; incidence vector notation, block selection and expected convergence rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.14609",
+        "material_read": "Full PDF accessible; examined title/date, abstract, introductions, Sections 1.3-1.5 and the definitions/algorithm and theorem presentations in pages 1-7.",
+        "method": "Open-access arXiv PDF text and page-image inspection",
+        "title": "Paving the Way for Consensus: Convergence of Block Gossip Algorithms",
+        "trigger": "Direct motivating paper for random block gossip and incidence-normal Kaczmarz representation"
+      },
+      {
+        "assessment": "Two-factor result bounds matrix/operator norm with positive-semidefinite premises, not a pointwise Loewner criterion in the indefinite overrelaxed parameter window.",
+        "evidence": [
+          "Equations (8),(9) and (16)-(17); Section 3.1 explicitly restricts A,B to PSD matrices; Appendix B gives two-step Gram expectations."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v23/recht12/recht12.pdf",
+        "material_read": "Primary 24-page PDF; examined introduction, Section 2, Section 3.1 pp.5-6 and Appendix B pp.15-16, with page-image check.",
+        "method": "Publisher-hosted openly available full PDF, text and page image",
+        "title": "Toward a Noncommutative Arithmetic-geometric Mean Inequality: Conjectures, Case-studies, and Consequences",
+        "trigger": "Strongest plausible two-factor sampling-with/without-replacement domination result"
+      },
+      {
+        "assessment": "Establishes a distinct larger-matrix reshuffling counterexample, not the closed-form two-edge, two-step angular frontier of relaxed gossip.",
+        "evidence": [
+          "Sections 1-2 concern general positive-semidefinite matrix noncommutative inequalities and permutation-symmetric counterexample families."
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "Primary 11-page PDF; examined abstract, Sections 1, 1.2, 2-2.3 and relevant discussion/constructive counterexample pages 1-5.",
+        "method": "Public NeurIPS complete PDF, text and page-image inspection",
+        "title": "Random Reshuffling is Not Always Better",
+        "trigger": "Potential existing sampling reversal of pointwise covariance inequality"
+      },
+      {
+        "assessment": "Reports numerical sampling comparisons, relaxations and practical behavior but not this exact pointwise two-step classification.",
+        "evidence": [
+          "Section 3.1 defines 0<alpha<2 relaxation; Section 6 reports without-replacement experiments at default alpha=1."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-024-01945-2",
+        "material_read": "Inspected open full webpage Sections 3.1, 6 and 6.1 and associated without-replacement conclusions.",
+        "method": "Open scholarly full-text webpage, searchable article sections",
+        "title": "Survey of a class of iterative row-action methods: The Kaczmarz method",
+        "trigger": "Relevant survey of Kaczmarz relaxation and without-replacement sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ec72397-639b-4118-9ac3-000b336fc2bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp pointwise sign law distinguishes energy savings from avoiding repeated edge selections and possible harm from overrelaxed, though individually nonexpansive, updates. On the smallest connected graph the nontrivial threshold 4/3 produces two explicit opposite initial-direction rankings at the same communication cost and marginals. It is a motivated structural benchmark for gossip and row-action sampling, rather than a bare normalization check or arbitrary finite statistic. The narrow two-step theorem is useful as a boundary for stronger, unjustified claims about uniformly beneficial reshuffling; no multiepoch theorem is claimed.",
+    "status": "PASS"
+  }
+}
