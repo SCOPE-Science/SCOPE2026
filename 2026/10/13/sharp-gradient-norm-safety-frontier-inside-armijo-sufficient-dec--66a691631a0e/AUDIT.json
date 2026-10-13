@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For a quadratic steepest-descent step, Armijo is exactly the scalar constraint \\(\\alpha q\\le2(1-\\sigma)\\). The squared new-gradient ratio is \\(1-2t+Kt^2\\), where the sharp condition-number-only moment factor is \\(K\\le(\\kappa+1)^2/(4\\kappa)\\). Convexity in \\(t\\) places the supremum at the zero-step limit or the Armijo endpoint. The endpoint spectral construction attains the unsafe branch and can be scaled so an arbitrary prescribed first trial is accepted at equality. The rational witness and algebraic identities are replayed by the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ahookhosh and Ghaderi state the classical monotone Armijo rule with \\(0<\\sigma<1/2\\), geometric backtracking trials, and monotone accepted objective values.",
+        "Nocedal, Sartenaer, and Zhu prove at every exact-line-search step the squared gradient bound \\((\\kappa-1)^2/(4\\kappa)\\) and infer monotonic gradient norms through \\(\\kappa=3+2\\sqrt2\\).",
+        "Neither inspected source states the sharp gradient-norm envelope over the full Armijo-admissible interval."
+      ],
+      "reasoning": "These sources dominate the algorithmic setup and the exact-line special case but leave open what sufficient decrease alone guarantees for the monitored gradient norm.",
+      "searches": [
+        "On efficiency of nonmonotone Armijo-type line searches",
+        "On the Behavior of the Gradient Norm in the Steepest Descent Method",
+        "Armijo steepest descent gradient norm oscillation quadratic"
+      ]
+    },
+    "checked_sources": [
+      "optimization-online:4488",
+      "doi:10.1023/A:1014897230089",
+      "2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "2026/9/20/SCOPE-cauchy-trust-region-optimal-decrease-ratio--0eec6412acfe"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact-line-search theorem corresponds to a single state-dependent step and therefore cannot control every longer or shorter step admitted by Armijo.",
+        "Armijo objective decrease controls a quadratic form in the error but does not by itself imply decrease of \\(\\|g\\|_2\\).",
+        "The rational \\(\\sigma=1/4\\), \\(\\kappa=4\\) construction satisfies Armijo at equality while its squared gradient norm grows by \\(97/64\\), explicitly separating the diagnostics."
+      ],
+      "reasoning": "The new implication requires optimizing the entire Armijo-admissible step interval jointly with spectral geometry. The prior exact-line result is recovered only as a boundary comparison, not as a theorem that covers the Armijo family.",
+      "searches": [
+        "Nocedal Sartenaer Zhu Theorem 4.1 gradient norm exact line search",
+        "Armijo sufficient decrease monotone function values gradient norm",
+        "scaled Polyak objective monotonicity condition number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-result searches returned scaled-Polyak objective monotonicity, Barzilai-Borwein objective monotonicity, trust-region Cauchy decrease, and other transient-norm results, but no Armijo gradient-norm frontier.",
+        "The full Armijo source was searched for gradient-norm and condition-number coverage; its relevant statement is the sufficient-decrease rule and monotone objective behavior.",
+        "The exact-line-search gradient-norm paper supplies a fixed exact-line result rather than a family indexed by the Armijo parameter."
+      ],
+      "reasoning": "Equivalent coverage must control the ordinary Euclidean gradient after every step satisfying Armijo sufficient decrease on SPD quadratics, with sharp dependence on both \\(\\sigma\\) and \\(\\kappa\\). Objective-descent guarantees and exact-line-only bounds do not imply that statement.",
+      "searches": [
+        "Armijo line search gradient norm can increase quadratic condition number",
+        "Armijo sufficient decrease gradient norm monotonicity sharp condition number",
+        "steepest descent Armijo gradient norm increase exact threshold",
+        "Armijo accepted step quadratic gradient norm amplification sharp",
+        "sufficient decrease does not imply gradient norm decrease SPD quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published result matched the formula \\(\\sigma=((\\kappa-1)/(\\kappa+1))^2\\) as an Armijo gradient-norm boundary.",
+        "The endpoint amplification is derived from a closed-form moment extremum, not from numerical tabulation."
+      ],
+      "reasoning": "The claimed boundary is a sharp analytic law relating the line-search sufficient-decrease parameter to spectral conditioning.",
+      "searches": [
+        "Armijo three plus two root two gradient norm",
+        "Armijo gradient norm safety frontier condition number",
+        "sufficient decrease gradient oscillation Kantorovich Armijo"
+      ]
+    },
+    "rationale": "Classical Armijo sufficient decrease and classical exact-line-search gradient-norm oscillation are treated as prior work. The inspected Armijo source states objective monotonicity but not a gradient-norm condition-number frontier. The inspected full exact-line-search source gives the \\(3+2\\sqrt2\\) threshold for exact line search but does not include the Armijo parameter or characterize all sufficient-decrease-admissible steps. Targeted database and literature searches found no implication-equivalent \\(\\sigma\\)-dependent frontier or first-trial sharpness construction.",
+    "residual_risks": [
+      "Older line-search literature is extensive, and an equivalent result may be phrased as a Kantorovich bound for sufficient-decrease steepest descent rather than as a gradient-norm safety frontier.",
+      "Adding Wolfe curvature conditions can exclude the sharp long Armijo step, so the theorem should not be transferred to Wolfe line searches without a fresh analysis.",
+      "The theorem is exact for quadratics; nonquadratic strongly convex functions can have changing Hessian geometry along the accepted segment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: it supplies the Armijo rule, objective monotonicity, and primary MSC 90C30, but no sharp gradient-norm conditioning frontier was located.",
+        "evidence": "The paper states \\(f(x_k+\\alpha_kd_k)\\le f_k+\\sigma\\alpha_k g_k^{\\mathsf T}d_k\\), with \\(0<\\sigma<1/2\\), and chooses the largest step in a geometric trial sequence satisfying this condition.",
+        "identifier_or_url": "optimization-online:4488",
+        "material_read": "The full PDF was inspected at the title page, introduction, classical Armijo inequality, parameter range, geometric backtracking rule, and Algorithm 1. Targeted full-text searches were made for gradient-norm and condition-number terminology.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "On efficiency of nonmonotone Armijo-type line searches",
+        "trigger": "Primary archive-era source stating the classical monotone Armijo backtracking rule and its optimization classification."
+      },
+      {
+        "assessment": "DECISIVE_SPECIAL_CASE: proves the sharp exact-line-search gradient bound and the \\(3+2\\sqrt2\\) monotonicity threshold, but not the Armijo-admissible interval or a \\(\\sigma\\)-dependent frontier.",
+        "evidence": "Theorem 4.1 bounds the squared next-gradient ratio by \\((\\kappa-1)^2/(4\\kappa)\\) at every exact-line-search iteration and states that gradient norms are monotone when \\(\\kappa\\le3+2\\sqrt2\\).",
+        "identifier_or_url": "doi:10.1023/A:1014897230089",
+        "material_read": "The full article was inspected through the exact-line-search setup, Section 4, Theorem 4.1, its Kantorovich proof, and the ensuing condition-number monotonicity statement.",
+        "method": "Full-text article and rendered-page inspection.",
+        "title": "On the Behavior of the Gradient Norm in the Steepest Descent Method",
+        "trigger": "Closest primary source on sharp one-step gradient-norm growth for steepest descent on quadratics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66a69163-1a0e-4fc1-928e-d0ca241e83de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Armijo sufficient decrease is a standard line-search acceptance rule, while the gradient norm is a standard stopping diagnostic. The theorem gives the exact point at which the acceptance rule ceases to protect that diagnostic, shows that the failure can occur on the very first accepted backtracking trial, and quantifies the effect by a sharp two-parameter law rather than a generic norm-equivalence estimate.",
+    "status": "PASS"
+  }
+}
