@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "From \\(ns(n)=p^2(p+1)\\), every solution divides the target and has \\(p\\)-adic exponent \\(0,1,\\) or \\(2\\). The exponent-two case forces \\(n=p^2\\) because any extra factor makes \\(p^2\\) a proper divisor while the required aliquot sum is at most \\(p+1\\). The exponent-zero case would force \\(p^2\\mid s(n)\\), contradicting \\(s(n)<p^2\\) for \\(n\\le p+1\\). In the exponent-one case \\(n=pd\\), multiplicativity of \\(\\sigma\\) reduces the equation to \\(d(1+ks(d))=pk\\) with \\(p+1=dk\\); coprimality forces \\(d\\mid k\\), and a second reduction forces \\(k=d\\), hence \\(p=d^2-1\\), so \\(p=3,d=2\\). The packaged verifier exhausts all target divisors for every prime through \\(5000\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Question 29 asks for infinitely many collisions of \\(B\\) and gives examples, but supplies no prime-square exclusion theorem.",
+        "The 2021 quasi-injectivity paper concerns equality under dilation for standard arithmetic functions and does not state the present fiber classification.",
+        "No later searched source supplied a broader theorem implying the classification."
+      ],
+      "reasoning": "The focal open problem is broader in objective but does not imply any particular fiber classification. The searched quasi-injectivity literature addresses a different quantifier pattern.",
+      "searches": [
+        "Product of Some Polynomials and Arithmetic Functions Question 29 B(x)",
+        "Quasi-Injectivity of Some Arithmetic Functions proper divisors B(x)",
+        "x s(x) arithmetic function injective prime square"
+      ]
+    },
+    "checked_sources": [
+      "JIS:23.9.1",
+      "OEIS:A212327",
+      "JIS:21.10.1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The focal paper's Table 1 is a finite collision table and Question 29 is open-ended.",
+        "Neither a finite table nor the existence of the collision \\(6,9\\) implies uniqueness among all prime-square fibers.",
+        "The new proof uses the divisor constraint \\(n\\mid p^2(p+1)\\) and exhausts all three possible \\(p\\)-adic exponents."
+      ],
+      "reasoning": "The new statement is a genuine infinite exclusion theorem: it shows every prime square except \\(9\\) has a singleton fiber, which is not implied by the reported examples or database enumeration.",
+      "searches": [
+        "JIS:23.9.1 Question 29",
+        "JIS:23.9.1 Table 1",
+        "OEIS:A212327"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed result returned a theorem classifying solutions of \\(ns(n)=p^2(p+1)\\).",
+        "The focal paper states the general collision question and the example \\(B(6)=B(9)=36\\), not the all-prime fiber theorem.",
+        "The exact collision-value sequence A212327 lists \\(36\\) but does not characterize prime-square preimages."
+      ],
+      "reasoning": "The claim was searched both as a fiber equation and as the structural statement that a prime square can occur in a collision only at \\(9\\).",
+      "searches": [
+        "B(n)=n s(n) prime square fiber proper divisor sum",
+        "sum of proper divisors product n s(n) collisions prime squares",
+        "p^2(p+1) n s(n) collision",
+        "full fiber of n(σ(n)-n) at prime squares"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A212327 is exactly the sequence of values having at least two preimages under \\(B(n)=nA001065(n)\\).",
+        "Its first term is \\(36\\), with example preimages \\(6\\) and \\(9\\).",
+        "The current entry contains no theorem asserting that no other prime square occurs in a collision."
+      ],
+      "reasoning": "The exact database object for collision values was inspected. It corroborates the smallest example but does not subsume the infinite prime-square fiber theorem.",
+      "searches": [
+        "OEIS A212327",
+        "A212327 prime square",
+        "A212327 B(6) B(9)"
+      ]
+    },
+    "rationale": "The focal 2023 paper poses collision questions for \\(B(n)=ns(n)\\) and lists \\(B(6)=B(9)=36\\), but does not classify the infinite family of fibers containing prime squares. OEIS A212327 records collision values, beginning with \\(36\\), but does not state that \\(9\\) is the only prime square in any collision. Targeted semantic and exact-form searches did not locate an implication-equivalent theorem.",
+    "residual_risks": [
+      "An unindexed note or informal observation about the first collision \\(36\\) could contain the same prime-square classification.",
+      "The theorem does not address higher prime powers or produce new collisions.",
+      "The exact collision database is dynamic; future annotations may add this classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper asks whether there are infinitely many collisions and lists \\(B(6)=B(9)=36\\), but does not state or prove the complete prime-square fiber classification.",
+        "evidence": "Question 29 explicitly gives the collision \\(6,9\\) and asks about infinitude; Table 1 lists finite examples. The final page gives primary MSC 11A25 and publication date 2 November 2023.",
+        "identifier_or_url": "JIS:23.9.1",
+        "material_read": "Open-access full text around Section 7, Question 29, Table 1, publication metadata, and the MSC classification; the open-question pages were visually inspected.",
+        "method": "Full-text PDF and page-image inspection.",
+        "title": "Product of Some Polynomials and Arithmetic Functions",
+        "trigger": "Primary source defining the collision function \\(B(x)=xs(x)\\) and posing Question 29."
+      },
+      {
+        "assessment": "The entry records \\(36\\) as the first collision value and exhibits \\(6,9\\), but contains no prime-square fiber theorem.",
+        "evidence": "The defining property is 'at least two solutions'; the example verifies \\(B(6)=B(9)=36\\).",
+        "identifier_or_url": "OEIS:A212327",
+        "material_read": "Current entry definition, initial terms, comment, example, program, and references.",
+        "method": "Database-page inspection.",
+        "title": "A212327",
+        "trigger": "Exact database sequence for values of \\(B\\) having at least two preimages."
+      },
+      {
+        "assessment": "The paper studies equality of arithmetic functions under multiplicative dilation and does not cover the fixed fiber equation \\(ns(n)=p^2(p+1)\\).",
+        "evidence": "Its abstract concerns conditions such as \\(f(an)=f(bn)\\) for all positive integers \\(n\\), a different statement.",
+        "identifier_or_url": "JIS:21.10.1",
+        "material_read": "Title, abstract, bibliographic metadata, and scope description.",
+        "method": "Open-access journal-page inspection.",
+        "title": "Quasi-Injectivity of Some Arithmetic Functions",
+        "trigger": "Earlier paper by one focal author on injectivity phenomena for arithmetic functions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a68b1a01-0290-4ec2-ab50-78b09d2fd92b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Prime squares are the first nontrivial prime-power inputs for the collision function in Question 29, and the smallest known non-amicable collision already contains \\(9\\). Classifying every such fiber explains that exceptional example and proves that any infinite collision mechanism must leave prime squares after a single exception. This is an infinite structural exclusion tied directly to the open collision problem, not a bounded computation or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
