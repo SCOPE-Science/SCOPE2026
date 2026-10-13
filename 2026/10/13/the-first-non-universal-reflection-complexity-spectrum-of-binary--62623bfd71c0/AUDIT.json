@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each order-n de Bruijn cycle the two preceding states as share suffix s and have distinct successors s0,s1, yielding the unique bijective feedback b=a xor f(s). For factors asb, reversal bs^R a occurs if and only if f(s)=f(s^R). Each nonpalindromic suffix reversal pair with equal values contributes two merged factor pairs; each palindromic suffix with f=1 contributes one; each palindromic suffix with f=0 contributes two distinct palindromic factors. Thus the number of reversal classes at length n+1 equals two to the power n, minus twice A, minus P-Z, where P counts palindromic length-(n-1) suffixes. At order five this simplifies to 28-2A+Z. The Python verifier exhausts all 65536 truth tables and independently counts cyclic reversal classes; 2048 full-length feedback orbits have exactly the specified five joint bins. The independent graph-traversal C++ enumerator visits each root-anchored Hamiltonian 32-state cycle once and produces exactly the same five-bin counts, without using feedback invariant equality. Both source files were executed from the package working paths. The full finite calculation proves the order-five spectrum; no higher-order histogram is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allouche et al. establish relationships with ordinary factor and palindrome complexities for general infinite words, not the exact de Bruijn order-five split.",
+        "Chang–Wang restrict to globally reverse-complement cycles; even if their count were known, it cannot determine all 2048 plain-reversal factor profiles."
+      ],
+      "reasoning": "A broader general identity for computing reflection complexity still requires its reflected-factor inputs. Neither paper supplies all five possible values or multiplicities; their implications do not dominate this exact completed natural-family classification.",
+      "searches": [
+        "arXiv:2406.09302 Section 3 reflected/unreflected identity",
+        "arXiv:2406.09302 Sections 4 and 5 graph and periodicity results",
+        "arXiv:2408.01794 global reverse-complement de Bruijn sequences",
+        "Binary de Bruijn feedback shift register reversal factor orbit count and distribution cyclic substrings under reversal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.09302 complete primary source",
+      "arXiv:2408.01794 complete primary source",
+      "Krawchuk–Rampersad, Integers 18A (2018), Article A12",
+      "Public indexed published-finding corpus results for the listed actual queries",
+      "Public concept comparisons: cyclic binary discrepancy and string attractors are different invariants",
+      "Public published-finding corpus scientific entry 2026/9/8/SCOPE079 (automatic-word attractors)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prefix discrepancy of binary cycles measures digit imbalance, not the reversal pairing of six-bit circular factors.",
+        "A string attractor concerns hitting positions of factors in a linear word, not the pure reversal-class count of a periodic word.",
+        "Reflection complexity for a different morphic word does not determine the factor set of a de Bruijn cycle.",
+        "Allouche et al. derive a general formula but not the input data needed to infer the five-row spectrum."
+      ],
+      "reasoning": "Coincidence of underlying 2048 cycles, number 2048, or use of reversal terminology does not entail the numerical spectrum. None of these inspected statements yields the five-bin classification as a corollary without independent feedback analysis or new exhaustive enumeration.",
+      "searches": [
+        "De Bruijn sequences string attractors exact classification order five ternary",
+        "reflection complexity de Bruijn cycles order 5 k+1 factors modulo reversal complete histogram 22 25 26 28 29",
+        "Exact census binary order-five de Bruijn cyclic words reflection complexity length six 22 25 26 28 29 576 960 192 256 64",
+        "arXiv:2406.09302 general identity reflection complexity",
+        "arXiv:2408.01794 reverse-complement symmetry",
+        "claim comparison for de Bruijn discrepancy, attractors and unrelated morphic reflection complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.09302, Definitions 1 and 3 and Section 3: pure reversal factor equivalence and a general reflected/unreflected counting identity.",
+        "Krawchuk–Rampersad 2018 introduces related cyclic/reversal complexity for distinct infinite-word families.",
+        "No exact distribution for 2048 order-five cycles found in targeted public searches."
+      ],
+      "reasoning": "The target is unchanged under reversal of individual length-six factors, not global reversal of the cycle or conjugacy of factors. The generic formula in Allouche et al. can be specialized but does not specify the feedback truth tables or the five joint distribution rows; no inspected equivalent-formulation theorem determines them.",
+      "searches": [
+        "\"reflection complexity\" \"de Bruijn sequences\" order",
+        "\"de Bruijn\" \"reversal complexity\" factors",
+        "\"de Bruijn\" \"reflection complexity\" cyclic words",
+        "reflection complexity de Bruijn cycles order 5 k+1 factors modulo reversal complete histogram 22 25 26 28 29",
+        "reversal pairs palindromes Hamiltonian binary de Bruijn graphs de Bruijn sequences reflect factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches with five output values and five exact counts did not return a table or direct matching claim.",
+        "The 2048 total is classical de Bruijn enumeration; it does not determine the five-bin values or their multiplicities."
+      ],
+      "reasoning": "The exact matching database entry is not identified. All five bins and their joint generating polynomial were derived from independent finite exhaustive enumerations, not copied from a known de Bruijn enumeration table. Absence of a discovered table is evidence of unresolved priority risk, not a mathematical uniqueness proof.",
+      "searches": [
+        "Exact census binary order-five de Bruijn cyclic words reflection complexity length six 22 25 26 28 29 576 960 192 256 64",
+        "reflection complexity for de Bruijn sequences all cycles first nonuniversal length",
+        "\"length six\" \"de Bruijn\" \"reversal\" \"2048\"",
+        "\"de Bruijn\" \"reflection complexity\" exact",
+        "\"de Bruijn\" \"reversal pairs\" \"order 5\" cycles",
+        "de Bruijn cycles n=5 reversal complexity r6 values 22 25 26 28 29"
+      ]
+    },
+    "rationale": "Primary paper arXiv:2406.09302 defines and derives general identities for reversal factor counts but does not provide a full order-five de Bruijn cycle distribution; arXiv:2408.01794 studies different global reverse-complement symmetry and linear complexity; Krawchuk–Rampersad 2018 concerns other generalizations. Exact parameter/alias searches of published claims and source texts, plus logical comparisons with discrepancy and attractor invariants, found no theorem implying the five bins or feedback joint enumerator. Residual priority risk is an unindexed equivalent table or alternate terminology.",
+    "residual_risks": [
+      "An equivalent exact enumeration may exist in an unindexed table or under terminology such as unoriented factor or reversal-orbit complexity.",
+      "Full-database uniqueness and unpublished-work exclusion cannot be inferred from public/semantic search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Definition and general identity are foundational and compatible, but no table or theorem evaluates the complete binary order-five de Bruijn cycle family at length six.",
+        "evidence": "Definitions 1 and 3 introduce reversal factor classes; Section 3 gives a generic expression in reflected/unreflected/palindromic counts; Section 4 introduces general de Bruijn factor graphs, not the 2048-cycle reflection spectrum. First public 2024-06-13; primary MSC 68R15.",
+        "identifier_or_url": "arXiv:2406.09302; https://arxiv.org/html/2406.09302v4",
+        "material_read": "Full-length freely available manuscript sections: introduction and Definitions 1,3; Section 3 general results on reflected, unreflected, and palindrome factors; Section 4 graph interpretation; Section 5 periodic sequences; concluding research questions and reference list.",
+        "method": "Read primary arXiv HTML version and rendered PDF relevant pages; text searches for de Bruijn graphs, periodic sequences, and reversing words.",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Defines the exact statistic and gives potentially subsuming general reflection/factor-count identities."
+      },
+      {
+        "assessment": "Counts highly constrained global reverse-complement symmetric cycles and studies linear complexity, not local plain-reversal orbits of every six-bit factor in all cycles.",
+        "evidence": "The abstract and main construction concern coincidence of the complement and reverse cycle and maximal linear complexity, distinct from the present r(6) histogram. First public 2024-08-03.",
+        "identifier_or_url": "arXiv:2408.01794; https://arxiv.org/abs/2408.01794",
+        "material_read": "Full preprint including introduction, reverse-complement construction, enumeration and linear-complexity discussion.",
+        "method": "Read legally available arXiv PDF and inspect its introductory and symmetry/counting results.",
+        "title": "Efficient generation of odd order de Bruijn sequence with the same complement and reverse sequences",
+        "trigger": "A close paper about symmetry of binary de Bruijn cycles, particularly odd order."
+      },
+      {
+        "assessment": "Develops conjugacy-based complexity and other families, not the plain-reversal class counts for all binary order-five de Bruijn cycles.",
+        "evidence": "The objects studied and equivalence relations differ from the cyclic de Bruijn cycle family and the pure two-element reversal relation used here.",
+        "identifier_or_url": "Krawchuk and Rampersad, Integers 18A (2018), Article A12",
+        "material_read": "Freely available full paper: definitions of cyclic complexity, case studies of infinite words and generalizations, concluding comparisons.",
+        "method": "Read original open full-text PDF including its definitions and sequence families.",
+        "title": "Cyclic Complexity of Some Infinite Words and Generalizations",
+        "trigger": "Earlier generalized factor complexity under rotations and reversals could subsume reflection-only equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "62623bfd-71c0-4d3d-a1d0-75cd1442c8a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Every binary order-five de Bruijn cycle has the same full factor language through length five, so reflection complexity at length six is the first natural nonconstant statistic of this form. This is a full census of all 2048 cycles with exact forbidden gaps and a general feedback-reversal structural explanation; it discriminates cycles in a motivated earliest-possible way, not a routine arbitrarily selected slice. The finite cutoff and closed enumerator provide a reproducible baseline for higher-order structural questions.",
+    "status": "PASS"
+  }
+}
