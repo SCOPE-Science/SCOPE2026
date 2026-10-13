@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Equation (2) has diffusion coefficients proportional to the current abundances. At any strictly positive deterministic drift equilibrium the diffusion matrix is nonzero, so the constant equilibrium path is not an SDE solution. Exact translation produces a nonzero additive Brownian term at zero displacement. Equation (13) instead centers every diffusion coefficient at the deterministic equilibrium, and Equation (15) therefore has an absorbing zero solution. Itô's formula for squared displacement gives a strictly positive right derivative of the mean square at time zero for Equation (2), proving the model mismatch without simulation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao and Kong, DOI 10.3390/math10183378, explicitly formulate random disturbances proportional to deviations from a deterministic equilibrium before studying stochastic equilibrium behavior.",
+        "That construction demonstrates that equilibrium-centered noise is a distinct modeling choice, not the coordinate translation of an abundance-proportional diffusion."
+      ],
+      "reasoning": "The general idea of centering stochastic perturbations around an equilibrium is established prior art. The accepted claim is narrower: the motivating article begins with one diffusion law, silently substitutes the other for its mean-square theorem, and later returns to the original diffusion for stationary-distribution analysis.",
+      "searches": [
+        "multiplicative noise positive equilibrium alpha x dB equilibrium stability centered noise",
+        "predator prey stochastic positive equilibrium diffusion nonzero mean square stability",
+        "stochastic predator prey equilibrium multiplicative noise mean square stability"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.34198/ejms.15625.9891020",
+      "doi:10.3390/math10183378",
+      "own-ledger:2026-10_week1__private research ledger__p0001_g000050.jsonl",
+      "own-ledger:2026-09_week4__private research ledger__p0001_g000063.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's Section 3 stability theorem explicitly acts on a homogeneous zero-displacement SDE with centered diffusion.",
+        "The source's Section 6 rewrites Equation (2) with diffusion coefficients proportional to the current populations, confirming that the abundance-proportional model remains the article's original stochastic system.",
+        "The related 2022 paper introduces centered noise explicitly as a new stochastic model rather than deriving it by translating an abundance-proportional SDE."
+      ],
+      "reasoning": "Existing centered-noise stability results do not imply a stability theorem for a model whose diffusion remains nonzero at the deterministic equilibrium. The source-specific obstruction follows from evaluating its own Equation (2) diffusion at its own positive drift equilibrium.",
+      "searches": [
+        "10.34198/ejms.15625.9891020 mean-square stability positive equilibrium multiplicative noise centered",
+        "stochastic predator prey equilibrium multiplicative noise mean square stability",
+        "Shao Kong Beddington DeAngelis stochastic equilibrium disturbance difference equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target full text prints abundance-proportional noise in Equation (2) and equilibrium-centered noise in Equation (13), while Theorem 3.2 concerns the zero solution of Equation (15).",
+        "No returned published-finding corpus item stated the same source-specific diffusion switch or the short-time second-moment obstruction."
+      ],
+      "reasoning": "Equivalent wording would have to identify that the Section 3 zero solution is not the translation of the stochastic model in Section 2, or otherwise prove that the deterministic positive equilibrium is not an equilibrium solution of Equation (2). The closest indexed results concern unrelated deterministic equilibria, stationary moment identities, or other ecological models.",
+      "searches": [
+        "10.34198/ejms.15625.9891020 mean-square stability positive equilibrium multiplicative noise centered",
+        "Stochastic Dynamics Dual-Prey Predator mean-square stability equilibrium noise alpha2 72.06",
+        "multiplicative noise positive equilibrium alpha x dB equilibrium stability centered noise",
+        "predator prey stochastic positive equilibrium diffusion nonzero mean square stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF records publication on 9 September 2025 and primary MSC 92D25, 60H10.",
+        "Exact DOI and title searches in the current and latest prior ledger returned no occurrence.",
+        "The closest published-finding corpus hits were unrelated records such as 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e and 2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175."
+      ],
+      "reasoning": "This is not a finite-table claim. Exact bibliographic and ledger checks were used to rule out a known source-specific duplicate, while the originality conclusion rests on statement-level comparison with the target article and relevant stochastic predator–prey literature.",
+      "searches": [
+        "10.34198/ejms.15625.9891020 mean-square stability positive equilibrium multiplicative noise centered",
+        "Stochastic Dynamics Dual-Prey Predator mean-square stability equilibrium noise alpha2 72.06",
+        "own ledgers: exact DOI 10.34198/ejms.15625.9891020 and exact title search"
+      ]
+    },
+    "rationale": "Source-specific published-finding corpus searches for the DOI, title, mean-square theorem, centered-noise formulation, and abundance-proportional diffusion returned no equivalent published finding. Current- and prior-ledger searches found no occurrence of the source DOI or title. A closely related predator–prey paper explicitly introduces deviation-from-equilibrium noise as a separate stochastic model, which is broader methodological prior but does not state or imply the correction to Talapatra's model switch.",
+    "residual_risks": [
+      "A non-indexed erratum or author note could already clarify that Section 3 intentionally studies a different centered-noise model.",
+      "The source may have intended Equation (13), rather than Equation (2), as the model for local equilibrium perturbations; that interpretation confirms rather than removes the distinction proved here.",
+      "No claim is made about long-time concentration of Equation (2) around a stationary distribution.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_SWITCHES_DIFFUSION_MODEL. The stability section replaces abundance-proportional diffusion by equilibrium-centered diffusion before invoking a theorem for the trivial solution.",
+        "evidence": "Equation (2) uses \\(\u0007lpha_1x_1\\), \\(\u0007lpha_2x_2\\), and \\(\u0007lpha_3y\\) as diffusion coefficients; Equation (13) uses \\(\u0007lpha_1(x_1-x_1^*)\\), \\(\u0007lpha_2(x_2-x_2^*)\\), and \\(\u0007lpha_3(y-y^*)\\); Equation (15) is then homogeneous at zero; Section 6 returns to the Equation (2) diffusion.",
+        "identifier_or_url": "doi:10.34198/ejms.15625.9891020",
+        "material_read": "Publisher PDF pages containing the model formulation and Equation (2), positive-equilibrium construction, Equations (13)–(17), Theorems 3.1–3.2, and the Section 6 rewrite of Equation (2) with its diffusion matrix; title-page publication date and MSC were also checked.",
+        "method": "Direct equation-to-equation comparison using the publisher PDF, including page-image inspection of Equations (2), (13)–(17), and Theorem 3.2.",
+        "title": "Stochastic Dynamics of Dual-Prey–Predator Interactions under Harvesting Pressure: Insights from the California Current Ecosystem",
+        "trigger": "Exact motivating article and its positive-equilibrium mean-square theorem."
+      },
+      {
+        "assessment": "RELATED_METHOD_NOT_COVERING. It supports the legitimacy of equilibrium-centered noise as an explicit modeling choice but does not address the 2025 article or its diffusion switch.",
+        "evidence": "The paper treats the deterministic model and the stochastic extension as separate systems; related literature on centered disturbances does not convert abundance-proportional noise into centered noise by coordinate translation.",
+        "identifier_or_url": "doi:10.3390/math10183378",
+        "material_read": "Open full-text abstract and stochastic-model section describing how environmental white noise is introduced and how stochastic behavior is analyzed relative to deterministic equilibria.",
+        "method": "Statement and model-form comparison in open publisher HTML.",
+        "title": "A Predator–Prey Model with Beddington–DeAngelis Functional Response and Multiple Delays in Deterministic and Stochastic Environments",
+        "trigger": "Close methodological prior on stochastic stability around a deterministic predator–prey equilibrium."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a1fa19ae-f938-4cae-8cb9-5eafac246394",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mean-square stability near the positive equilibrium is a central advertised analytical conclusion of the article and is used to interpret noise tolerance. For the printed SDE, however, the deterministic positive state is continuously forced by Brownian noise and is not an equilibrium solution. Identifying the switch separates two scientifically different questions: stability of an explicitly centered auxiliary SDE versus fluctuation and stationary-distribution behavior of the abundance-proportional ecological SDE. This changes what Theorem 3.2 can legitimately support without challenging unrelated persistence or stationary-distribution results.",
+    "status": "PASS"
+  }
+}
