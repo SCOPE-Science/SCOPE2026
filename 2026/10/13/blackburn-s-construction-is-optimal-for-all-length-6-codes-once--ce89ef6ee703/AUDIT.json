@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the published exact SQN size recurrence. Left-right symmetry gives x1<=y1. Ratios r,s,t parameterize every continuous feasible choice of x2,x3,x4, and the final variable is optimized at its endpoint because y1>=x1. Exact rational Bernstein certificates bound the normalized objective by p(1-p)^5 for p<=1/5 and by 1024/15625 for p>=1/5. For q=5k+r>=10, the explicit Blackburn split k versus 4k+r reaches at least the latter continuous bound; the five residue inequalities become polynomials with nonnegative coefficients after k=h+2. Thus every integer feasible solution is bounded by a realizable Blackburn value. The standalone verifier reconstructs all polynomial certificates and independently stress-tests the exact integer recurrence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn proves optimality when n divides q and obtains the leading asymptotic scale, not exact eventual optimality for n=6.",
+        "Stanovnik--Moškon--Mraz explicitly report Blackburn's sufficiently-large-q statement as a conjecture and give an integer optimization framework rather than a length-6 theorem.",
+        "Restricted-overlap work studies a broader forbidden-overlap model and does not yield the exact S(q,6) formula."
+      ],
+      "reasoning": "The strongest surrounding results provide either sparse exact alphabet sizes or asymptotics; neither dominates an exact statement for every integer q>=10.",
+      "searches": [
+        "Blackburn non-overlapping codes fixed n sufficiently large q",
+        "In search of maximum non-overlapping codes Conjecture 1 Blackburn",
+        "restricted overlaps non-overlapping codes length six"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.12593v1/v2 and open-access journal full text",
+      "DOI:10.1007/s10623-023-01344-z",
+      "arXiv:1303.1026v3",
+      "targeted current web searches for S(q,6), length-six non-overlapping codes, q>=10, and Blackburn's conjecture",
+      "targeted semantic-literature searches under non-overlapping and cross-bifix-free aliases",
+      "claim-level overlap checks against the available current and prior research records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact integer program is a premise used in the new proof, not an evaluation of it for unbounded q.",
+        "The primary source states that Blackburn's conjecture remains unresolved.",
+        "Finite exact values at q=7,8,9 do not imply any bound for all q>=10."
+      ],
+      "reasoning": "The new content is a global continuous upper certificate plus an integer residue comparison that evaluates the source's optimization problem for an infinite parameter ray.",
+      "searches": [
+        "arXiv:2307.12593 Proposition 10 S(q,n) integer optimization",
+        "arXiv:2307.12593 Blackburn conjecture sufficiently large q",
+        "arXiv:1303.1026 non-overlapping codes n divides q asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct source defines S(q,n) as the maximum non-overlapping-code cardinality and formulates the exact SQN integer program.",
+        "Cross-bifix-free, mutually uncorrelated, and strong comma-free are standard aliases listed in the source.",
+        "No checked indexed result states S(q,6)=max_l l^5(q-l) for all q>=10."
+      ],
+      "reasoning": "The searches cover the exact invariant, the standard aliases, the fixed length, the explicit construction, and the unbounded alphabet regime.",
+      "searches": [
+        "exact maximum non-overlapping codes length six all alphabet sizes",
+        "S(q,6) non-overlapping codes formula",
+        "cross-bifix-free length 6 maximum exact",
+        "Blackburn conjecture length 6 non-overlapping",
+        "q-ary length 6 cross-bifix-free maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper's published table gives selected finite q,n values but no symbolic q>=10 row.",
+        "The closest semantic-index hit gives an exact length-five theorem, not length six.",
+        "A prior finite computation covers q=7,8,9 only."
+      ],
+      "reasoning": "A symbolic table row, a threshold theorem, or a length-six exact classification would directly cover the claim; none was located.",
+      "searches": [
+        "\"S(q,6)\" \"non-overlapping\"",
+        "\"length six\" \"non-overlapping codes\" maximum",
+        "\"q >= 10\" non-overlapping codes length 6",
+        "\"Blackburn\" \"length 6\" non-overlapping"
+      ]
+    },
+    "rationale": "Blackburn's paper gives the construction, proves special divisibility cases and asymptotic bounds, and poses eventual optimality for fixed length. The 2023 primary source supplies the exact integer program, solves length 4, and computes finite tables, but explicitly treats Blackburn's conjecture as unresolved and gives no length-6 all-large-q formula. Focused semantic and web searches for S(q,6), length-six cross-bifix-free maxima, q>=10, and Blackburn's conjecture found no covering theorem. A prior finite length-six calculation at q=7,8,9 does not imply the unbounded q>=10 result.",
+    "residual_risks": [
+      "An unindexed thesis, note, or unpublished computation could contain the same q>=10 theorem.",
+      "The proof is computer-assisted through exact Bernstein positivity certificates, although all arithmetic and certificate reconstruction are included.",
+      "The theorem does not address whether analogous explicit thresholds exist for other fixed lengths."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source supplies the exact recurrence but no formula for S(q,6) on all q>=10 and explicitly presents eventual Blackburn optimality as unresolved.",
+        "identifier_or_url": "arXiv:2307.12593v1 / DOI:10.1007/s10623-023-01344-z",
+        "material_read": "Definitions of S(q,n), Blackburn construction, Proposition 10 (SQN), optimization reductions, exact length-4 section, computational tables, Conjecture 1 and its relation to Blackburn's conjecture.",
+        "method": "Full open-access HTML and arXiv metadata inspection.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Direct source for the exact optimization model and the unresolved Blackburn conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It proves exactness when n divides q and asymptotic closeness, but not exactness for every q>=10 at n=6.",
+        "identifier_or_url": "arXiv:1303.1026v3 / DOI:10.1109/TIT.2015.2456634",
+        "material_read": "Abstract, construction scope, exact divisibility statement, short-length discussion, and asymptotic fixed-length results.",
+        "method": "Primary arXiv/preprint comparison.",
+        "title": "Non-overlapping codes",
+        "trigger": "Original construction and conjectural eventual-optimality source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce89ef6e-e703-4eb8-8b86-d6a004740ee6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary literature identifies eventual optimality of Blackburn's construction as an open structural question. Fixing n=6 and proving exactness for every q>=10 resolves that conjectural regime for the next even length beyond the fully solved n=4 case. The result is an infinite theorem with a reusable continuous-relaxation certificate, not a finite parameter increment.",
+    "status": "PASS"
+  }
+}
