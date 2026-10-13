@@ -1,0 +1,173 @@
+{
+  "correctness": {
+    "rationale": "Direct degree-normalized three-state invariant subspace; stationary and remaining symmetric eigenvalues reconstructed by exact trace/determinant; weight w strictly inside (0,1); triangle-inequality equality characterizes exactly e^{-it theta_s}=1 and e^{-it theta_a}=-1. Coprime integer arithmetic gives an iff and ALL successful times. Edge cases m=1 and complete cores and possible spectral collisions are covered. The standard-library exact checker confirms 7,450 admissible cases, without replacing the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] Theorem 5 gives a general necessary/sufficient spectral condition for any connected graph under normalized Laplacian, but no m,k,epsilon simplification.",
+        "[3] and [5] treat general joins under A, ordinary L, or Q, with Hamiltonian-dependent conclusions.",
+        "The institutional thesis Chapter 6 has explicit adjacency-cone eigenvalues involving \\(\\sqrt{k^2+8m}\\), rather than the rational normalized quotient, and hence is not stronger coverage of this Hamiltonian."
+      ],
+      "reasoning": "General spectral criteria are acknowledged and do not yet decide a graph by the combinatorial parameters; the specialized family is solved explicitly here. Ordinary Laplacian join theorems cannot dominate a normalized-Laplacian assertion on nonregular cones.",
+      "searches": [
+        "arXiv:2209.04668v1 Theorem 5",
+        "arXiv:2201.02720v3 Sections 3 and 5",
+        "arXiv:2312.06906v1 quantum walks on join graphs",
+        "normalized Laplacian perfect state transfer double cones twins join regular graphs",
+        "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/9187af27-1f05-419a-b9e4-b9e50fa4465d/content"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.04668",
+      "arXiv:2111.01265",
+      "arXiv:2201.02720",
+      "arXiv:1409.5840",
+      "arXiv:2312.06906",
+      "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/9187af27-1f05-419a-b9e4-b9e50fa4465d/content"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] would identify PST after all supported eigenvalues and projection signs are known, but does not determine them as a function of m,k,epsilon.",
+        "[2] strong cospectrality is necessary but not sufficient; [3] classifies other Hamiltonians.",
+        "[4] ordinary-Laplacian disconnected-apex transfer depends on m modulo four, in contrast to k modulo four for the normalized walk.",
+        "The thesis Chapter 6 gives adjacency cone transfer conditions only, so it does not imply normalized cone transfer through mere normalization: degrees differ across the apex/core partition.",
+        "The full original 2014 source [4] Section 4.3 rules out adjacent-apex PST for ordinary Laplacian; Section 6 treats normalized weak products and paths, allowing the present adjacent-apex normalized examples."
+      ],
+      "reasoning": "The claimed parameter result is a calculation and classification beyond general conditional criteria, not a new general criterion or a contradiction of prior ordinary-Laplacian theorems. The 5-cycle with apex edge is a normalized transfer instance not supplied by those other-operator results.",
+      "searches": [
+        "arXiv:2209.04668v1 Theorem 5 phase/parity",
+        "arXiv:2111.01265v2 Corollary 6.47 strong cospectrality",
+        "arXiv:2201.02720v3 regular double cone PST",
+        "arXiv:1409.5840 ordinary Laplacian double cone",
+        "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/9187af27-1f05-419a-b9e4-b9e50fa4465d/content"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Normalized adjacency equals I minus normalized Laplacian, yielding identical transfer probabilities up to a global phase and sign convention.",
+        "The closest generalized normalized adjacency paper [2] develops strong cospectrality, without the time-phase arithmetic for both double-cone types.",
+        "The 2021 MSc thesis uses adjacency and ordinary Laplacian on double cones, explicitly excluding normalized-Laplacian dynamics in its introduction."
+      ],
+      "reasoning": "Translation to normalized adjacency, random-walk symmetrization, and twin-vertex language leaves the same two-parameter transfer question. The inspected closest twin result does not imply exact transfer times without a new quotient spectrum and parity analysis.",
+      "searches": [
+        "\"normalized Laplacian\" \"double cones\" \"perfect state transfer\"",
+        "\"normalized Laplacian\" \"join\" \"perfect state transfer\" apices",
+        "\"double cones\" \"normalized\" quantum walk regular graph",
+        "quantum walk normalized Laplacian twin cone perfect state transfer criterion",
+        "arXiv:2111.01265v2 sections 3 and 6",
+        "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/9187af27-1f05-419a-b9e4-b9e50fa4465d/content"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact m,k,apex-edge parameter table or general formula for normalized double-cone transfer was located.",
+        "[4] records ordinary Laplacian cone transfer by base order and normalized weak products; they are separate model cases.",
+        "Full-text original [4] Section 6 has no normalized-Laplacian cone parameter table, despite separate ordinary-Laplacian Section 4.2 classifications."
+      ],
+      "reasoning": "There is no identified prior exact entry/table giving the same full two-apex graph family, 2-adic test, and all successful times. Search noncoverage is not an absolute novelty guarantee.",
+      "searches": [
+        "\"normalized Laplacian\" \"double cones\" \"perfect state transfer\"",
+        "\"normalized Laplacian\" \"join\" \"perfect state transfer\" apices",
+        "\"double cones\" \"normalized\" quantum walk regular graph",
+        "quantum walk normalized Laplacian twin cone perfect state transfer criterion",
+        "\"normalized Laplacian\" \"double cones\" \"perfect state transfer\"",
+        "arXiv:1409.5840",
+        "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/9187af27-1f05-419a-b9e4-b9e50fa4465d/content"
+      ]
+    },
+    "rationale": "After full-text comparison of the most directly relevant primary works, the same-Hamiltonian global spectral phase criterion [1] does not itself provide the explicit (m,k,apex-edge) classification, which requires the quotient eigenvalue calculation and arithmetic. The papers most directly about double cones and twins [2]–[5] provide strong cospectrality only or transfer for other Hamiltonians. The full exact probability, 2-adic iff, all success times, and apex-edge reversal remain uncovered in the checked material. A 2021 full thesis on regular double cones was also checked and explicitly confines itself to adjacency and ordinary Laplacian dynamics. Residual risk is an equivalent specialized derivation in other weakly indexed sources.",
+    "residual_risks": [
+      "A specialized normalized-adjacency two-apex calculation could be weakly indexed under different quantum-walk terminology.",
+      "Generic spectral characterization [1] is known and the new quotient/parity deduction is elementary once the invariant subspaces are identified.",
+      "The 2021 Monterde thesis was obtained and inspected: it explicitly restricts transfer to adjacency and ordinary Laplacian; any unpublished or differently titled normalized-Laplacian specialization elsewhere remains a novelty risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general eigenvalue support parity condition, not explicit two-parameter double-cone solution",
+        "evidence": [
+          "Theorem 5 states general rational-support and even/odd support conditions and minimal transfer time.",
+          "Section 4 treats trees, not regular double cones.",
+          "No double-cone parameter theorem was present in the inspected original full text."
+        ],
+        "identifier_or_url": "arXiv:2209.04668v1",
+        "material_read": "Original arXiv full HTML, Sections 1 through 5, especially Theorem 5 in Section 3 and final references",
+        "method": "full HTML with targeted text search for double cones, joins and twin vertices",
+        "title": "Quantum Walks in the Normalized Laplacian",
+        "trigger": "same Hamiltonian and complete general PST theorem"
+      },
+      {
+        "assessment": "Provides generalized and normalized strong-cospectrality framework, with Section 6 concluding about generalized adjacency; it does not determine exact normalized-Laplacian PST times or the 2-adic parameter criterion",
+        "evidence": [
+          "Introduction explicitly distinguishes normalized adjacency from ordinary adjacency and Laplacian.",
+          "Corollary 6.47 concerns strong cospectrality, not phase alignment or all-time transition probabilities."
+        ],
+        "identifier_or_url": "arXiv:2111.01265v2",
+        "material_read": "Original arXiv HTML, introduction, definitions, Sections 3 and 6, including Corollaries 6.45–6.47",
+        "method": "read theorems and parameter conditions for the two-apex joins; distinguish strong cospectrality and PST",
+        "title": "Strong Cospectrality and Twin Vertices in Weighted Graphs",
+        "trigger": "same apex twins and generalized normalized adjacency framework"
+      },
+      {
+        "assessment": "Hamiltonians are adjacency, combinatorial Laplacian, signless Laplacian; no normalized operator in the classified statement",
+        "evidence": [
+          "Abstract and Sections 1–2 explicitly fix the three Hamiltonians A, L, Q.",
+          "Section 5 perfect-state-transfer results apply to A, L or Q."
+        ],
+        "identifier_or_url": "arXiv:2201.02720v3",
+        "material_read": "Original full arXiv HTML, Sections 1–5 and model definitions; checked abstract and double-cone application statements",
+        "method": "read operator definitions and result domains, search for normalized Laplacian",
+        "title": "Quantum State Transfer Between Twins in Weighted Graphs",
+        "trigger": "same regular double cones and perfect transfer problem"
+      },
+      {
+        "assessment": "Section 4 explicitly classifies ordinary/combinatorial-Laplacian double cones; Section 6 applies the normalized Laplacian to weak products and paths, not this cone family.",
+        "evidence": [
+          "Section 4.2 Corollary 5: ordinary-Laplacian nonadjacent apex transfer iff base order is two modulo four.",
+          "Section 4.3 Corollary 6: connected-apex ordinary-Laplacian double cones never transfer.",
+          "Section 6.1 Theorem 16 and Corollaries 17–18: normalized-Laplacian weak-product constructions; Section 6.2: normalized-Laplacian paths."
+        ],
+        "identifier_or_url": "arXiv:1409.5840",
+        "material_read": "Original arXiv full HTML, introduction, Section 4 (especially 4.2 double cones and 4.3 connected-apex joins), Section 5 (signless), and Section 6 (normalized, 6.1 weak products and 6.2 paths)",
+        "method": "Read the original full HTML and inspect every operator-separated section heading, the central double-cone corollaries, and all normalized-Laplacian theorems",
+        "title": "Perfect State Transfer in Laplacian Quantum Walk",
+        "trigger": "previous double-cone transfer classification and normalized counterexamples"
+      },
+      {
+        "assessment": "PST and periodicity results use ordinary adjacency and Laplacian Hamiltonians; not normalized",
+        "evidence": [
+          "Abstract and introductory model definition specify adjacency or Laplacian, with no normalized walk."
+        ],
+        "identifier_or_url": "arXiv:2312.06906v1",
+        "material_read": "Original full arXiv HTML introduction, model statement, and topic-indexed sections with targeted search for normalized Laplacian",
+        "method": "inspected model and searched full parsed text for normalized operator",
+        "title": "Quantum Walks on Join Graphs",
+        "trigger": "joins provide a potentially dominating general theorem"
+      },
+      {
+        "assessment": "The introduction expressly limits transfer Hamiltonians to ordinary adjacency and combinatorial Laplacian. Theorem 6.2.1 concerns adjacency dynamics and gives k,m conditions unlike the normalized problem; it does not imply the claimed 2-adic normalized criterion.",
+        "evidence": [
+          "The thesis introduction says: \"But for our purposes, we only consider the adjacency and Laplacian matrix of X\" (PDF p11).",
+          "Section 6.2 (PDF p100) provides a formula with \\(\\sqrt{k^2+8m}\\) for adjacency double cones, not the symmetric normalized-Laplacian eigenvalues."
+        ],
+        "identifier_or_url": "https://mspace.lib.umanitoba.ca/server/api/core/bitstreams/9187af27-1f05-419a-b9e4-b9e50fa4465d/content",
+        "material_read": "Original 141-page institutional OA thesis: title, abstract, table of contents, introductory model declaration on PDF page 11, and Chapter 6 Section 6.2 and Theorem 6.2.1 on PDF page 100; text find for normalized Laplacian",
+        "method": "Direct published institutional PDF text and page screenshot comparison of model and double-cone theorem",
+        "title": "Quantum State Transfer between Twins in Graphs",
+        "trigger": "Potentially dominating 2021 MSc thesis giving a complete chapter on regular double cones"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51d3b84f-5e64-4364-8a63-b50a46b4ab8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural complete classification of an infinite family of normalized quantum-walk transfer problems, resolving both true- and false-twin apex geometries. It gives all-time probability and exact minimum and recurring PST times, plus two opposite effects from one apex edge, a structural contrast with ordinary Laplacian transfer driven by the base order. Not merely a finite example or restatement of a general spectral criterion.",
+    "status": "PASS"
+  }
+}
