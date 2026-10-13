@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact 2D Galerkin formula and D>0 from strict Cauchy--Schwarz; independently verified closed-form moments for all k using discrete first differences; polynomial N_k has C_k>0, N_k(1)>0, N_k''>0, yielding a unique crossing; asymptotics from uniformly convergent scaled polynomial and Taylor expansion; positive Dirichlet Green inverse proves exact solution positivity. Rational checker validates 952 instances and the -58/171 witness; finite tests not substituted for proof. No claims of subsequent-step or broad-profile correctness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beckermann--Kuijlaars 2002 full text, pp. 1–3 and 17–18: 1D Poisson finite differences and special RHS, with superlinear error estimates; the theorem neither controls componentwise signs nor specializes to a two-step amplitude threshold.",
+        "Schmelzer--Stoll 2026 public abstract: non-negative CG methodology acknowledges positivity is not generally guaranteed, but full text was inaccessible.",
+        "Earlier archived own finding on general three-dimensional inverse-positive Stieltjes examples proves occurrence of a negative CG iterate without fixing the homogeneous one-dimensional Poisson matrix or the proposed sign frontier."
+      ],
+      "reasoning": "A general non-negativity failure or superlinear convergence theorem is weaker in the dimension of interest and does not imply this exact structured family law. Any full theorem guaranteeing all such profile signs would dominate, but none was established from material read; missing modern full text remains a residual risk.",
+      "searches": [
+        "M-matrix conjugate gradient Krylov approximation strong discrete maximum principle failure second iterate",
+        "Krylov Galerkin conjugate gradient violates maximum principle on path graph",
+        "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf",
+        "https://arxiv.org/abs/2607.22121"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf",
+      "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf",
+      "https://arxiv.org/abs/2607.22121",
+      "2026/9/17/SCOPE-cgaos-two-mode-transient-amplification--69464fd3db0c",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Standard CG two-dimensional Krylov identity is a known tool and not claimed original.",
+        "The earlier inverse-positive Stieltjes negative-iterate example uses matrix assumptions not fixing the present constant-coefficient Poisson path, and has no amplitude-root or hat parity classification.",
+        "Earlier published inverse-positive Poisson coordinate-sampling research concerns random coordinate probabilities rather than CG iterates."
+      ],
+      "reasoning": "Known CG theory can derive these polynomial computations when combined with new structured loads, but it does not state or automatically dominate the threshold theorem. The novelty claim is the mathematically motivated exact infinite-family boundary, not mere positivity failure or generic two-moment algebra.",
+      "searches": [
+        "conjugate gradient second iterate negative despite positive Green inverse for tridiagonal Toeplitz Poisson matrix isolated source and tent forcing",
+        "M-matrix conjugate gradient Krylov approximation strong discrete maximum principle failure second iterate",
+        "parity of triangular and trapezoid right-hand side forcing controls second conjugate-gradient iterate positivity on one dimensional Dirichlet Poisson grid",
+        "https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf",
+        "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shewchuk 1994 full text section 8 and appendix B2: general CG Galerkin iteration, no discrete-hat parity or second-iterate positive-amplitude threshold.",
+        "Independent published Results indexed under CG_AOS and CG Haar-rate laws address different dynamical or norm properties, not the same two-step Poisson coordinate sign."
+      ],
+      "reasoning": "In Krylov-polynomial, Galerkin, inverse-positive and discrete-maximum-principle terminology, equivalence would require the exact first-coordinate inequality for the given Toeplitz operator and hat loads, not merely the standard Galerkin formula. None of the retrieved close statements gives the quartic threshold or parity sign.",
+      "searches": [
+        "conjugate gradient method nonnegative intermediate iterate one-dimensional Poisson Dirichlet Laplacian tridiagonal sharp minimum grid size negative component",
+        "conjugate gradient second iterate negative despite positive Green inverse for tridiagonal Toeplitz Poisson matrix isolated source and tent forcing",
+        "parity of triangular and trapezoid right-hand side forcing controls second conjugate-gradient iterate positivity on one dimensional Dirichlet Poisson grid",
+        "https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published search returns no tabulation of roots of 2r^4−2r^3+A_k r^2−B_k r−C_k for the 1D Dirichlet Poisson hat profiles.",
+        "Beckermann--Kuijlaars tables/figures concern convergence error curves and spectra, not componentwise second iterate."
+      ],
+      "reasoning": "A finite numerical root table cannot by itself settle the all-width sharp root and asymptotic expansion. No directly corresponding exact table/database was located, but search absence alone cannot certify historical novelty.",
+      "searches": [
+        "conjugate gradient method nonnegative intermediate iterate one-dimensional Poisson Dirichlet Laplacian tridiagonal sharp minimum grid size negative component",
+        "threshold isolated positive atom and discrete hat function conjugate gradients early iterate sign",
+        "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf"
+      ]
+    },
+    "rationale": "The exact sign and unique-amplitude-root result for the first coordinate of the second CG iterate with a separated single-peak versus plateau-hat nonnegative forcing on the fixed Toeplitz Dirichlet Poisson matrix is not implied by classical CG convergence theory or by generic M-matrix positivity-failure examples in accessible inspected sources. The same Poisson matrix is treated by Beckermann--Kuijlaars (2002) for asymptotic energy-norm rates of different RHS, not the present finite-iterate signed profile. Novelty is provisional relative to unexamined literature, especially a modern non-negative CG preprint.",
+    "residual_risks": [
+      "Complete Schmelzer--Stoll 2026 paper not read: could contain exact or stronger Poisson forcing sign theorem.",
+      "Unindexed older maximum-principle and Krylov positivity studies could contain an equivalent special case.",
+      "The derivation uses known Galerkin machinery; novelty rests on structured load parity and all-width sharp amplitude transition, not on generic CG positivity failure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives classical CG principles used in the proof, not the discrete-hat sign or sharp threshold.",
+        "evidence": [
+          "Title-page public source date August 4, 1994.",
+          "Sections 8–9 and algorithm appendix B2 explain CG recurrences and Krylov optimality."
+        ],
+        "identifier_or_url": "https://www.cs.cmu.edu/~quake-papers/painless-conjugate-gradient.pdf",
+        "material_read": "Title/date, contents, full section on conjugate gradients and relevant proof formulas (64-page searchable PDF).",
+        "method": "Author-hosted lawful public PDF; read mathematical sections and full-text heading search.",
+        "title": "An Introduction to the Conjugate Gradient Method Without the Agonizing Pain",
+        "trigger": "Foundational full exposition of the exact method and Krylov-Galerkin equivalence."
+      },
+      {
+        "assessment": "Addresses asymptotic energy-norm superlinear CG convergence for Fourier-based smooth right-hand sides, not second-step componentwise signs for separated compact discrete hats.",
+        "evidence": [
+          "Section 1 equation (1.4) identical tridiagonal matrix.",
+          "Section 3 and Figures 3.1–3.2 plot CG energy-norm convergence; no corresponding plateau/peak amplitude frontier."
+        ],
+        "identifier_or_url": "https://etna.ricam.oeaw.ac.at/vol.14.2002/pp1-19.dir/pp1-19.pdf",
+        "material_read": "Full 19-page searchable open-access PDF, mathematical abstract, introduction, 1D Poisson matrix equation (1.4), theorem statements and closing Section 3/figures; first page image.",
+        "method": "Lawful OA full paper, text search for Poisson and review of principal mathematical results and conclusions.",
+        "title": "Superlinear CG Convergence for Special Right-Hand Sides",
+        "trigger": "Exact same 1D Dirichlet Poisson Toeplitz matrix with special RHS."
+      },
+      {
+        "assessment": "Abstract describes construction of a nonnegative CG method, but cannot exclude equivalent examples or results inside full paper. Not used for whole-document NOT_COVERING.",
+        "evidence": [
+          "Public abstract reports that standard CG may lose nonnegativity and motivates a modified algorithm.",
+          "Access restriction retained as a scientific priority risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.22121",
+        "material_read": "Public title and abstract only; preprint full text unavailable using attempted OA routes.",
+        "method": "arXiv abstract and attempted lawful full-text access; full document NOT inspected.",
+        "title": "Non-Negative Conjugate Gradients",
+        "trigger": "Specialized modern work could dominate a proposed positivity statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43379a17-501b-4cd2-9fd6-4b09c014bad5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact discrete-maximum-principle question for a canonical one-dimensional elliptic Poisson discretization and nonnegative compact tent/trapezoidal forcing. It identifies surprising peak-parity sensitivity, a sharp positive-parameter frontier valid uniformly for every grid length beyond support, asymptotic threshold law, and concrete exact negative integer-load example. It is more informative than a generic statement that CG may produce transient negative entries; meaningful limits are explicitly scoped.",
+    "status": "PASS"
+  }
+}
