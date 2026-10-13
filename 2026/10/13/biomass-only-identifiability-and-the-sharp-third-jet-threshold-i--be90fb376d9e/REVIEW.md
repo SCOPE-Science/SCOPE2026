@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof is based on exact input–output elimination rather than finite simulation. It proves \(a=A+mB\), rules out constant \(B\) for any nonconstant positive biomass via a nonconstant cubic polynomial, classifies all constant biomass outputs, and establishes an exact continuous family matching any second jet. The derived third-jet difference \(-\varepsilon u^2\dot B\) proves both necessity and sufficiency of the regularity condition, with analytic isolation of singular times. A standalone exact SymPy checker independently recomputes the key Lie derivatives and verifies a positive nonstationary third-jet singular witness.
+
+**Originality — PASS, with residual risk.** The closest published result proves identifiability with **both** water and biomass observed and an equilibrium-only Fisher-correlation law, which does not imply the much stronger one-output claim. The open 2017 Klausmeier analysis supplies forward equations and equilibria, and the primary 2023 generalized-model inverse section uses paired-state Bayesian observations. The closest contemporary model preprint was accessible only by abstract, so hidden coverage in its full text remains possible; broad differential-algebraic observability literature may also contain a stronger general theorem. Absence of an exact search hit was not used as a novelty proof.
+
+**Value — PASS.** The result resolves whether unobserved soil water creates a genuine parameter ambiguity in a classic normalized vegetation model, and determines the minimal local exact-derivative information. It separates structural identifiability in transient vegetation from failure at a stationary vegetation profile, a motivated measurement limitation rather than an arbitrary parameter sample.
+
+Scientific boundaries: exact continuously differentiable observations of the normalized autonomous nonspatial model only. The inversion can be badly conditioned near equilibrium or at a small \(\dot B\); the theorem does not supply a stable estimator. Original 1999 full text and the contemporary primary preprint were not fully accessible. See the structured comparisons in `AUDIT.json` for source-by-source implication analysis.
+
+Self-review: passed. Independent audit: not yet performed.
