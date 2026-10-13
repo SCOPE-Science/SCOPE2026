@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "For \\(b=2\\), a fixed normalized \\(2\\times 2\\) Hadamard transform bijects each four-state signed selector with all independent two-sign states, preserving independence over columns and blocks; thus \\(QS\\) has exactly iid dense Rademacher entries and the Gram is unchanged. For \\(b\\ge3\\), the two-column collision sum has fourth moment \\((b+3\\zeta-3)/(b^2\\zeta^3)\\); dense signs have \\((3b\\zeta-2)/(b^3\\zeta^3)\\), with strictly positive gap \\((b-1)(b-2)/(b^3\\zeta^3)\\). Width \\(b=1\\) is immediate, and the exceptional one-column case \\(m=1\\) is explicitly excluded. The standard-library verifier checked exact finite distributions and rational identities; general proof is not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2508.14234v2 Thm. 2.1; arXiv:2609.02978v2 Thm. 1.1 and Sec. 2 coupling",
+        "arXiv:2607.23017v1 Sec. 7.3"
+      ],
+      "reasoning": "Recent broadly scoped OSNAP/SparseStack embedding bounds are statements about tail probabilities or moment domination, not exact joint laws at all sample sizes. In particular, Heidary’s comparison is to independent three-point sparse variables, not iid dense Rademacher signs.",
+      "searches": [
+        "Two-bucket CountSketch blocks orthogonal Hadamard transform iid Rademacher dense sketch exact same Gram law, sparse stack half density identical embeddings",
+        "SparseStack block width 2 random signed coordinate column rotated into dense independent Rademacher entries; full subspace Gram distribution identity",
+        "\"OSNAP\" \"dense Rademacher\" equivalent block size two"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.20195v1",
+      "arxiv:2508.21189v1",
+      "arxiv:2508.14234v2",
+      "arxiv:2609.02978v2",
+      "arxiv:2607.23017v1",
+      "Published index search: published-finding-d9ecf263b248",
+      "Published index search: published-finding-77e11f8220ee",
+      "Published index search: published-finding-239f440726b0",
+      "Published index search: published-finding-30698826464a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2508.21189v1 App. B equations (B.1)-(B.4)",
+        "arXiv:2609.02978v2 Secs. 2 and 7",
+        "arXiv:2606.20195v1 Secs. 2 and 4"
+      ],
+      "reasoning": "Existing generic fourth-moment/embedding bounds do not force equality of entire Gram distributions: the new proof supplies a four-outcome bijection specifically at \\(b=2\\) and gives a nonzero fourth moment discrepancy for all \\(b\\ge3\\). A source may imply general bounds valid for both ensembles without proving they are identical.",
+      "searches": [
+        "\"SparseStack\" \"b=2\" \"Rademacher\"",
+        "Published index search: SparseStack block width 2 random signed coordinate column rotated into dense independent Rademacher entries; full subspace Gram distribution identity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.20195v1 Sec. 2.2; arXiv:2508.21189v1 App. B",
+        "Published index nearest published-finding-239f440726b0"
+      ],
+      "reasoning": "Looked for sparse signed selectors after a fixed \\(2\\times2\\) orthogonal Hadamard rotation, independent-sign vectors, and equal laws for entire random Grams. Hadamard frame scaling and standard sparse embedding descriptions do not imply the exact same fully independent Gram ensemble.",
+      "searches": [
+        "Two-bucket CountSketch blocks orthogonal Hadamard transform iid Rademacher dense sketch exact same Gram law, sparse stack half density identical embeddings",
+        "SparseStack block width 2 random signed coordinate column rotated into dense independent Rademacher entries; full subspace Gram distribution identity",
+        "Exact distributional equivalence between sparse sign hashes and dense signs via 2 by 2 Walsh Hadamard matrices",
+        "SparseStack CountSketch sparse oblivious embeddings coherent vectors sharp rank one collision probabilities",
+        "\"2 row\" \"CountSketch\" \"Rademacher\" \"Hadamard\" equivalent distribution",
+        "\"SparseStack\" \"Hadamard\" \"Rademacher\" two",
+        "\"CountSketch\" \"2\" \"Hadamard\" \"Rademacher\" sketch distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published index identifiers: published-finding-d9ecf263b248, published-finding-77e11f8220ee, published-finding-239f440726b0, published-finding-30698826464a",
+        "arXiv:2606.20195v1 Sec. 5 tables measure empirical distortion/throughput"
+      ],
+      "reasoning": "Published semantic lookup returned no exact sparse-vs-dense b-width Gram-law table or mathematical finding; experimental distortion tables cannot establish or subsume entire distribution equality. Absence from index is not proof of novelty.",
+      "searches": [
+        "Published index search: Two-bucket CountSketch blocks orthogonal Hadamard transform iid Rademacher dense sketch exact same Gram law, sparse stack half density identical embeddings",
+        "Published index search: SparseStack block width 2 random signed coordinate column rotated into dense independent Rademacher entries; full subspace Gram distribution identity",
+        "Published index search: Exact distributional equivalence between sparse sign hashes and dense signs via 2 by 2 Walsh Hadamard matrices",
+        "Published index search: SparseStack CountSketch sparse oblivious embeddings coherent vectors sharp rank one collision probabilities"
+      ]
+    },
+    "rationale": "Statement-and-implication comparison of five primary HTML manuscripts and relevant published mathematical-finding index did not reveal the exact two-row fixed orthogonal law or all-width Gram-law iff classification. Existing results concern construction, high-probability embedding inequalities, comparison to three-point independent ensembles, or general moments. Fourth-moment algebra alone is classical; this particular law/classification is the assessed contribution. Unindexed equivalent formulations remain possible.",
+    "residual_risks": [
+      "The 2x2 sign-selector bijection is elementary and may appear in unindexed or terminology-shifted literature.",
+      "Search results and examined sources cannot establish absolute uniqueness; no independent external originality review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same model and empirical FP16 comparisons; no exact all-input dense-sign Gram equality or sharp block-width classification in inspected results.",
+        "evidence": [
+          "arXiv:2606.20195v1 Sec. 2.2 Def. 3; Sec. 4.1; Sec. 5",
+          "https://arxiv.org/html/2606.20195v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.20195v1",
+        "material_read": "Full HTML sections 1–2.2, 3–4.1, 5, and references (in particular definition 3, normalization and implementation details).",
+        "method": "Read primary HTML text and identify construction, comparisons and stated contributions; inspect for fixed two-row orthogonal equivalence.",
+        "title": "Randomized Sketching is Robust to Low-Precision Rounding on GPUs",
+        "trigger": "Exact signed-hash SparseStack definition and benchmark baseline"
+      },
+      {
+        "assessment": "Bounds and moment comparisons do not state the exact \\(b=2\\) conjugacy or full Gram-law iff; source analyses different quantities.",
+        "evidence": [
+          "arXiv:2508.21189v1 Secs. 1.5.1 and 3.1; Appendix B, especially B.1",
+          "https://arxiv.org/html/2508.21189v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.21189v1",
+        "material_read": "Full HTML main definitions and Secs. 3.1–3.3; Appendix B and B.1, including equations (B.1)–(B.4).",
+        "method": "Read primary original formulation and compare its CountSketch first/second matrix moments with claimed off-diagonal fourth moment and all-distribution identity.",
+        "title": "Faster Linear Algebra Algorithms with Structured Random Matrices",
+        "trigger": "SparseStack construction and potentially dominating fourth-moment machinery"
+      },
+      {
+        "assessment": "General OSE probabilistic bounds neither imply nor state exact Gram-law equivalence for \\(b=2\\) or strict distributional inequivalence for \\(b\\ge3\\).",
+        "evidence": [
+          "arXiv:2508.14234v2 Sec. 2 and moment estimates",
+          "https://arxiv.org/html/2508.14234v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.14234v2",
+        "material_read": "Full HTML introduction, OSNAP definition Sec. 2.1, statements Thm. 2.1 and Cor. 2.2, Sec. 2.2 and moment arguments.",
+        "method": "Compare exact law and width threshold with high-probability spectral-norm inequalities in primary text.",
+        "title": "Optimal Subspace Embeddings: Resolving Nelson–Nguyen Conjecture Up to Sub-Polylogarithmic Factors",
+        "trigger": "OSNAP signed selector model; stronger OSE guarantees could subsume claim"
+      },
+      {
+        "assessment": "Establishes embedding parameter bounds and moment comparison; does not identify deterministic two-row Hadamard conjugacy, all-Gram law, or fourth-moment iff classification.",
+        "evidence": [
+          "arXiv:2609.02978v2 Secs. 1, 2, 3, 7, 8",
+          "https://arxiv.org/html/2609.02978v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.02978v2",
+        "material_read": "Full HTML main theorem and definitions Sec. 1, signed-selector coupling Sec. 2 and 2.3, independent three-point model Sec. 3, moment proof Sec. 7, limitations Sec. 8.",
+        "method": "Compare implication: optimal-order bounds and coupling to independent three-point model versus exact dense two-sign law.",
+        "title": "SparseStack Is an Optimal Oblivious Subspace Embedding",
+        "trigger": "Recent stronger theorem for exactly same independent signed-hash model"
+      },
+      {
+        "assessment": "Provides norm/concentration estimates and model definitions, not the exact distributional iff claim.",
+        "evidence": [
+          "arXiv:2607.23017v1 Secs. 1 and 7.3",
+          "https://arxiv.org/html/2607.23017v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.23017v1",
+        "material_read": "Full HTML introductory theorem statements and Sec. 7.3 defining admissible sparse models and SparseStack; related references.",
+        "method": "Compare bounds for negatively associated supports with exact Gram-law identity.",
+        "title": "Level-set entropy and sparse randomized embeddings",
+        "trigger": "Other general theorem comparing SparseStack and Bernoulli sparse-entry embeddings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "893b68c7-9546-40a1-8537-ce33156dce54",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fully independent SparseStack block width is a natural sparsity/accuracy design parameter. At \\(b=2\\) the theorem transfers all joint Gram-dependent reliability statements from dense independent signs while reducing signed input contributions from \\(d\\) to \\(d/2\\); this exact law is stronger than embedding expectation or probability inequalities. The sharp \\(b\\ge3\\) fourth-moment obstruction prevents extending that transfer by covariance matching, making a complete small-block-width classification rather than an arbitrary example. It does not claim GPU speed or low-precision equivalence.",
+    "status": "PASS"
+  }
+}
