@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The curve \(Y^4+XZ^3=0\) is integral with unique singular point \([1:0:0]\), and all its smooth tangents pass through the uniquely determined point \([0:1:0]\). These intrinsic projective markers yield the reduced affine-group stabilizer. Scheme-theoretic completeness does not rely on geometric-point enumeration: in the universal stabilizer coordinate ring, three forbidden matrix entries are nilpotent; the actual degree-four coefficient identities force those entries to vanish. All remaining equations are precisely \(a=b^4\), \(d=v^4\), and \(u^4=0\), with invertible determinant \(b^5\). This proves the functorial isomorphism over every coefficient algebra. The composition law, \(\alpha_4\) subgroup, and dimensions follow from the explicit coordinate algebra. The embedded checker verifies exact algebraic identities and independently enumerates the finite rational stabilizers in \(\operatorname{PGL}_3(\mathbb F_2)\). Risk: no independent formal or mathematical audit has been performed.
+
+## Originality — PASS
+Hilario–Stöhr (arXiv:2306.08579v1, Section 5) already specify the quartic pencil and study its cusps, strange tangents and ordinary automorphisms. This result does not claim those known geometric observations. Hilario–Schröer (arXiv:2303.12324v1) study nonreduced automorphism groups of a distinct cuspidal-curve hierarchy, not this embedded quartic with cusp semigroup \(\langle3,4\rangle\). The later quartic-fibration classification arXiv:2409.05464v1 concerns birational geometry, not this full projective group scheme. A recorded characteristic-two quartic with the extra term \(X^3Z\) has a different geometric stabilizer and does not imply the present statement. Targeted mathematical-record and semantic searches revealed no equivalent functorial group-scheme calculation. Residual risk: prior unindexed computations and inaccessible historical findings could cover the claim; searches cannot establish absolute novelty.
+
+## Value — PASS
+For a naturally published inseparable rational quartic, the ordinary two-dimensional symmetry group conceals a nontrivial order-four infinitesimal subgroup and a third tangent direction. The explicit group scheme and its multiplication classify all projective symmetries over nonreduced base rings and distinguish characteristic-two fibration geometry from pointwise automorphism calculations. This is a complete natural invariant of a geometrically motivated curve, rather than an arbitrary finite calculation.
+
+## Relationship to literature and limitations
+The finding is restricted to the fixed plane embedding over an algebraically closed field of characteristic two; it does not compute the full abstract automorphism scheme or uniform automorphism schemes throughout the Hilario–Stöhr pencil. Relevant literature: arXiv:2306.08579v1, arXiv:2303.12324v1, arXiv:2409.05464v1, arXiv:2211.16962v1. The finite-field census supplements exact symbolic proof and is not an infinite-proof substitute.
+
+Self-review: passed. Independent audit: not yet performed.
