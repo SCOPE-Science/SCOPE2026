@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "From exact scalar sketched Galerkin and least-squares equations, orthogonalizing the two vectors v and Av yields independent Gaussian sketches. Rotational Gaussian invariance gives numerator projections Z/H with H² chi-square with ell degrees, proving reciprocal shifted Student for FOM and affine Student for GMRES. The shifted-Student density at zero is explicitly continuous and positive for d>0, yielding a 1/t absolute tail and divergent moments q≥1. Expanding the exact SPD energy error around the deterministic Galerkin minimizer gives infinite expected squared energy. The GMRES Student variance and true residual identity yield the claimed finite risk for ell>2 and the sharp moment cutoff. Finite checker replay independently guards the coefficients and algebra; infinite moment follows from proof, not sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 ROPM high-probability quasioptimality estimate presumes embedding quality, excluding the near-zero sketched Galerkin denominator event.",
+        "The 2022 sketched GMRES residual bound uses the embedding-success event.",
+        "Palitta–Schweitzer–Simoncini develops Arnoldi relations and numerical stability comparisons, with no infinite-moment or Student distribution result in the inspected article."
+      ],
+      "reasoning": "Conditional bounds need not imply finite unconditional moments; their hypotheses omit the very draws that create reciprocal poles. Conversely a broad deterministic finite-precision stability analysis does not settle the Gaussian tail.",
+      "searches": [
+        "arXiv:2302.07466v1",
+        "arXiv:2208.11447v1",
+        "DOI:10.1002/nla.2596",
+        "Gaussian sketch FOM versus GMRES infinite moments despite arbitrary oversampling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.11447v1",
+      "arXiv:2302.07466v1",
+      "DOI:10.1002/nla.2596",
+      "arXiv:2011.05090v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 paper observes that a sketched FOM projected matrix can have spurious values outside the field of values and may exhibit irregular errors, but does not quantify Gaussian probabilities or absolute moments.",
+        "The 2023 paper reports large occasional energy-error spikes and provides embedding-conditional quasioptimality, not a finite-\\(\\ell\\) unconditional moment law.",
+        "The 2024/2025 paper distinguishes stable algebraic forms and studies outlying Ritz values; it does not make a first-step Gaussian Student-ratio computation."
+      ],
+      "reasoning": "Merely reporting spikes or a potentially singular reduced operator does not imply infinite expected energy for every finite Gaussian sketch size, and it does not derive the positive moment threshold of the least-squares competitor. The precise statements are therefore not covered by the inspected implications.",
+      "searches": [
+        "arXiv:2208.11447v1 §§2–3",
+        "arXiv:2302.07466v1 §3",
+        "DOI:10.1002/nla.2596 §§2,3,5,7",
+        "Gaussian sketch FOM versus GMRES infinite moments despite arbitrary oversampling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Güttel–Schweitzer §2.1 gives the sketched Galerkin coefficient via inverse reduced cross-Gram matrix; §3 gives the sketched GMRES least-squares coefficient.",
+        "Timsit–Grigori–Balabanov Definition 3.1 and Algorithm 3 give the same sketched Petrov–Galerkin equations; the theoretical comparison is conditional on a successful embedding.",
+        "Neither primary mathematical argument states an unconditional Gaussian Student reciprocal law or infinite first absolute moment."
+      ],
+      "reasoning": "Algebraic equality of the projection coefficients in source papers does not supply the inverse-Student distribution or the mean-risk split without calculating the correlated Gaussian ratios. A source that directly computed these Gaussian coefficient moments would dominate the claim, but the inspected primary papers do not.",
+      "searches": [
+        "Gaussian sketch randomized FOM Petrov Galerkin infinite expectation heavy tailed first step SPD",
+        "randomized orthogonal projection Krylov Gaussian sketch infinite mean energy error Student t reciprocal",
+        "arXiv:2208.11447v1",
+        "arXiv:2302.07466v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed prior finding on unit-normalized weak Gauss–Newton frames concerns a deterministic change of basis, not a Gaussian-sketch Krylov projection.",
+        "An indexed prior finding on symmetric GMRES(1) studies classical deterministic error amplification, not sketch randomness."
+      ],
+      "reasoning": "No matched result or numerical table in the searched records supplies the all-oversampling infinite-risk criterion; searchable absence alone is insufficient and is supplemented by published source-text comparisons.",
+      "searches": [
+        "sketched Petrov Galerkin one dimensional heavy tailed inverse t distribution",
+        "Gaussian sketch FOM versus GMRES infinite moments despite arbitrary oversampling",
+        "randomized orthogonal projection Krylov Gaussian sketch infinite mean energy error Student t reciprocal"
+      ]
+    },
+    "rationale": "The 2022 sketched-FOM/GMRES primary source defines both projection equations but reports stability phenomenology and embedding-conditional error estimates, not unconditional Gaussian coefficient laws. The 2023 randomized orthogonal-projection analysis similarly discusses occasional spikes. The 2024/2025 sketched Arnoldi analysis treats algebraic stability, not reciprocal-Student moment obstructions. Student and chi laws as such are standard; their precise insertion into FOM and GMRES, with infinite versus finite risk for the same SPD problem and every finite oversampling size, is the new implication. Four scientific database queries and focused primary-document comparisons found no claim-equivalent source; absence from an index is not proof of priority.",
+    "residual_risks": [
+      "An earlier RGS preprint or other unindexed work may separately derive the same Gaussian inverse-Student moment law.",
+      "The conclusion does not apply after clipping, rejection or conditioning on good embeddings; even unconditional Gaussian mean squared risk infinity can coexist with excellent typical accuracy.",
+      "The compared GMRES risk is the true Euclidean residual at one step, not a full-iteration energy-risk theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_BOTH_METHODS_AND_CONDITIONAL_BOUNDS_BUT_DOES_NOT_STATE_THE_GAUSSIAN_MOMENT_DICHOTOMY.",
+        "evidence": "§2 specifies an inverse reduced sketched cross-Gram matrix; §3 specifies Moore–Penrose sketched residual least-squares; the source describes irregular sketched FOM behavior under randomization.",
+        "identifier_or_url": "arXiv:2208.11447v1; https://arxiv.org/html/2208.11447v3",
+        "material_read": "Full accessible HTML sections 2 and 3, including Galerkin (5), sketched FOM (closed formula), GMRES sketched-residual minimization, embedding-condition error bounds, sections on theoretical and experimental spikes.",
+        "method": "Direct accessible arXiv full-text reading and source comparisons.",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Earliest primary paper explicitly defining both sketched FOM and sketched GMRES projections."
+      },
+      {
+        "assessment": "CONDITIONAL_HIGH_PROBABILITY_AND_SPIKE_RESULTS_DO_NOT_COMPUTE_UNCONDITIONAL_STUDENT_MOMENTS.",
+        "evidence": "The stated quasioptimality result assumes an epsilon embedding; its experiments describe occasional spikes and the theory leaves some spike analysis for future work.",
+        "identifier_or_url": "arXiv:2302.07466v1; https://arxiv.org/html/2302.07466v3",
+        "material_read": "Full accessible HTML §1, §2 preliminary sketch framework, §3 Definition 3.1, Proposition 3.1, Theorem 3.1 discussion and Algorithm 3, §4 Gaussian coefficient discussion.",
+        "method": "Direct arXiv full-text inspection of defining projection, condition-dependent proofs, and Gaussian remarks.",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Direct analysis of the same sketched Petrov–Galerkin condition and empirical spikes."
+      },
+      {
+        "assessment": "ALGEBRAIC_AND_NUMERICAL_STABILITY_WITHOUT_THE_STATED_ONE_STEP_GAUSSIAN_MOMENT_LAW.",
+        "evidence": "The source develops Arnoldi-type relations, algebraic bounds and numerical comparisons; no theorem about Student distribution or nonintegrable absolute moments was found.",
+        "identifier_or_url": "DOI:10.1002/nla.2596; https://onlinelibrary.wiley.com/doi/10.1002/nla.2596",
+        "material_read": "Accessible open-access article introduction, §§2–3 and described main theoretical results, numerical stability discussion, searches of full text for infinite moments, variance and heavy tails.",
+        "method": "Direct full HTML reading and targeted full-text checks.",
+        "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+        "trigger": "Recent full-text theoretical paper with directly plausible sketched-FOM stability statements."
+      },
+      {
+        "assessment": "EARLIER_SKETCHED_GRAM_SCHMIDT_LINEAGE; FULL_TEXT_NOT_INSPECTED; RESIDUAL_OVERLAP_RISK_NOTED.",
+        "evidence": "Earlier RGS GMRES uses sketched orthonormalization and motivates related sketched FOM formulations.",
+        "identifier_or_url": "arXiv:2011.05090v1; https://arxiv.org/abs/2011.05090",
+        "material_read": "Primary abstract and related-method characterization via citations in the two above full texts.",
+        "method": "ArXiv bibliographic and abstract read and cross-reference to later primary full text.",
+        "title": "Randomized Gram-Schmidt process with application to GMRES",
+        "trigger": "Earlier method lineage explicitly cited as the RGS predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bf11375-4aed-41a7-b37b-1ff52231f116",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The initial Krylov step is a natural and consequential reduced projection in Krylov solves, and the defining papers document large random spikes but offer condition-on-embedding guarantees. Exact identification of a reciprocal pole proves that no finite amount of Gaussian oversampling can make the unconditional squared FOM risk finite, while the same sketch budget admits a finite second-moment GMRES residual and an exact moment threshold. This resolves whether typical accuracy and mean-risk certification can be interchanged and motivates explicit clipping, sketch rejection or risk-aware projection choices.",
+    "status": "PASS"
+  }
+}
