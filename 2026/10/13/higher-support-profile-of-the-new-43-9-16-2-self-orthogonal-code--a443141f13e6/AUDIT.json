@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The exact companion generator was reconstructed over \\(\\mathbb F_2\\). Its rank is \\(9\\), its Gram matrix is zero, and exhaustive enumeration of all \\(512\\) words reproduces minimum distance \\(16\\). Every subspace of \\(\\mathbb F_2^9\\) is enumerated once in reduced row-echelon form; the complete support histograms sum to the Gaussian-binomial counts in every dimension and give the stated hierarchy and minimizer multiplicities. Independent column checks exclude dual weights \\(1\\) and \\(2\\), while complete triple enumeration finds exactly seven weight-\\(3\\) relations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generalized Hamming weights are classical, but general theory does not determine the hierarchy of an arbitrary explicit optimal self-orthogonal code.",
+        "The source explicitly presents dimensions 9 through 15 as a new computational range for its constructed witnesses."
+      ],
+      "reasoning": "Self-orthogonality and ordinary minimum distance impose constraints but do not imply the higher-support minima or their multiplicities for this generator.",
+      "searches": [
+        "binary self-orthogonal code generalized Hamming weights dimension 9",
+        "optimal self-orthogonal codes generalized weight hierarchy",
+        "Wei generalized Hamming weights binary code"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.02135v1 full text and Table 2",
+      "authors' public companion generator file, blob 346878eeefdb465e7d79e43d4fa3c34e3ad24570",
+      "exact public searches for [43,9,16] with generalized Hamming weights, weight hierarchy, minimum-support subcodes, and dual weight 3",
+      "semantic research-record searches using the exact parameters, exact hierarchy, minimizer sequence, source title, and projective-dual formulation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proves optimality at ordinary minimum distance 16 and self-orthogonality.",
+        "The companion matrix is raw construction data, not a statement of generalized weights.",
+        "The source article has no occurrences of generalized-Hamming-weight, weight-hierarchy, or minimum-support terminology."
+      ],
+      "reasoning": "Knowing d1, self-orthogonality, and automorphism order does not determine d2 through d9, the number of extremal subcodes, or the first nonzero dual weight layer; exact incidence computation is required.",
+      "searches": [
+        "arXiv:2609.02135 [43,9] 16 Aut 1",
+        "SO_Genetic algorithm_generator matrix [43,9,16]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary Table 2 identifies the exact new optimal code by parameters and automorphism order.",
+        "The companion file provides the exact generator matrix but no higher-support data.",
+        "No inspected exact-parameter or hierarchy search returned the claimed profile."
+      ],
+      "reasoning": "The search set covers the exact parameters, the standard generalized-weight alias, weight-hierarchy terminology, and the source-title formulation.",
+      "searches": [
+        "[43,9,16] generalized Hamming weights self-orthogonal binary code",
+        "43 9 16 weight hierarchy binary self-orthogonal",
+        "Constraint-Preserving Genetic Algorithms [43,9,16] higher support"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 2 gives only length, dimension, minimum distance, and automorphism-group order for the code.",
+        "The exact generator linked by the source is sufficient to reconstruct the new invariants but does not list them."
+      ],
+      "reasoning": "The decisive prior table is the source table itself; its parameter row does not encode subcode-support incidence or dual triple relations.",
+      "searches": [
+        "arXiv:2609.02135 Table 2 [43,9] 16",
+        "[43,9,16] binary self-orthogonal code table"
+      ]
+    },
+    "rationale": "The primary article reports only code parameters and automorphism-group order for this new optimal witness, and the companion data provides the generator without higher-support invariants. The full article contains no generalized-Hamming-weight, weight-hierarchy, or minimum-support statement. Focused exact and alias searches found no same-object hierarchy, minimizer census, or seven-triple dual statement.",
+    "residual_risks": [
+      "An unindexed or private computation could contain the same higher-support profile.",
+      "The result analyzes one published witness and does not prove uniqueness among all optimal [43,9,16]_2 self-orthogonal codes.",
+      "No claim is made about a complete dual weight enumerator beyond the exact weight-3 layer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARAMETER_COVERAGE_ONLY",
+        "evidence": "Table 2 lists [43,9], minimum distance 16, and automorphism order 1 among 66 new optimal codes; no generalized Hamming hierarchy is stated.",
+        "identifier_or_url": "arXiv:2609.02135v1",
+        "material_read": "Abstract and MSC; definitions of self-orthogonality; experimental results; Table 2 including the [43,9] row; statement linking generator matrices; conclusion and references.",
+        "method": "lawful public arXiv full text with visual inspection of the structured Table 2 page",
+        "title": "Constraint-Preserving Genetic Algorithms for Embedding Linear Codes into Self-Orthogonal Codes",
+        "trigger": "Primary source declaring the new optimal code and linking the generator data."
+      },
+      {
+        "assessment": "RAW_GENERATOR_ONLY",
+        "evidence": "The block supplies the exact 9x43 binary generator used by the verifier; it contains no generalized-weight or dual-weight analysis.",
+        "identifier_or_url": "GitHub-blob:346878eeefdb465e7d79e43d4fa3c34e3ad24570",
+        "material_read": "The complete nine-row block beginning source=[34,9,13]_2 best_so=[43,9,16]_2 and ending at its END marker.",
+        "method": "public companion repository file inspection",
+        "title": "SO_Genetic algorithm_generator matrix.txt",
+        "trigger": "Exact companion construction for the [43,9,16] witness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a443141f-13e6-430f-882d-8ead128e3745",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the first entry in a newly published table of optimal self-orthogonal codes, and the source supplies a reproducible generator but only ordinary minimum-distance data. The generalized Hamming hierarchy is the canonical higher-dimensional refinement of minimum distance; the accompanying minimizer counts measure the extremal-subcode geometry rather than merely recomputing \\(d_1\\). The projectivity and exact seven-triple dual layer add a concrete geometric boundary property of the same witness. Together these give a compact structural profile useful for distinguishing and reusing the new optimal construction.",
+    "status": "PASS"
+  }
+}
