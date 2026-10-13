@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For each positive diagonal \\(d_j\\), a Gram factorization yields \\(R_j=A-Ae_je_j^{\\mathsf T}A/d_j\\succeq0\\), with rank one less than \\(A\\), so \\(r_j=\\operatorname{tr}R_j>0\\). With \\(T=\\sum_jd_j\\) and \\(Q=\\sum_jd_j^q\\), the change-of-measure bound and Hölder give \\(\\mathcal E_q/\\mathcal E_1\\le T(\\max_jd_j)^{q-1}/Q\\le n^{1-1/q}\\) for every real \\(q>1\\). For \\(\\operatorname{diag}(t,J_m)\\), pivoting the singleton leaves trace \\(m\\) and pivoting the large block leaves trace \\(t\\); the two event weights are \\(t^q/(t^q+m)\\) and \\(m/(t^q+m)\\). Substitution gives exactly \\((\\mathcal E_q/\\mathcal E_1)-1=(m-t)(t^{q-1}-1)/(2(t^q+m))\\), determining the entire equality/strict sign region. Taking \\(t=((q-1)m)^{1/q}\\) gives the asserted nonzero constant times \\(m^{1-1/q}\\) asymptotically. For the two-block squared-diagonal rule, differentiating \\(F=(rt+s)(t+1)/(2(rt^2+s))\\) gives \\(F\\prime=(r+s)(s-rt^2)/(2(rt^2+s)^2)\\), whose unique maximum is \\(1/2+n/(4\\sqrt{rs})\\), globally largest when \\(rs=n-1\\). The SPD extension follows from continuity of all positive-diagonal expected risks. The actual packaged checker passed 2137 exact-rational checks, which support calculations but cannot prove the continuous-parameter or infinite-family cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al., Randomly pivoted Cholesky, arXiv:2207.06503, Sections 2.2, 2.3.4, 5, Appendix C (https://onlinelibrary.wiley.com/doi/10.1002/cpa.22234)",
+        "Published mathematical result 77e11f8220ee: multistage column-subset projection error, not Schur trace risk under Gibbs powers",
+        "Published mathematical result f46330fd3a80: weighted-mass adaptive cross approximation, with deflation-history contamination rather than Schur trace risk",
+        "Published mathematical result 82c9d23eb995: inverse-positive SPD coordinate sampling for energy contraction, a distinct method",
+        "Existing one-pivot RPCholesky theorem concerning target-oblivious supremum of quadratic-form risk, not trace"
+      ],
+      "reasoning": "Chen et al. derive powerful trace guarantees for β=1 and failures for β→∞, but the latter limit cannot by itself establish polynomial loss for every fixed finite q>1 or a matching n^(1−1/q) exponent. The multistage ARP result concerns orthogonal column-subset projection error over adaptive stage partitions; it does not dominate the first Schur-residual power-pivot ratio. The prior target-oblivious minimax risk is sup over target quadratic forms, not expected trace; neither direction of the new ratio is an immediate corollary.",
+      "searches": [
+        "randomly pivoted Cholesky diagonal residual sampling Schur complement exact expectation trace equicorrelation spectra",
+        "randomized pivoted Cholesky rank two covariance expected trace residual optimal pivot probabilities",
+        "RPCholesky Gibbs beta 2 power sampling trace-error sqrt(n) gap rank two clustered kernel",
+        "sharp Gibbs exponent trace bias in Nyström one-pivot 65F55",
+        "arXiv:2207.06503 Appendix C.2 greedy (β→∞) and Section 5",
+        "Published mathematical result 77e11f8220ee: Worst-case sharpness of multistage adaptive randomized pivoting"
+      ]
+    },
+    "checked_sources": [
+      "Chen et al., Randomly pivoted Cholesky, arXiv:2207.06503, Sections 2.2, 2.3.4, 5, Appendix C (https://onlinelibrary.wiley.com/doi/10.1002/cpa.22234)",
+      "Steinerberger, Randomly Pivoted Partial Cholesky: Random How?, arXiv:2404.11487, Sections 1, 2.1, 2.3 (Table 1), 3 (https://arxiv.org/html/2404.11487v1)",
+      "Existing theorem on squared-Frobenius one-pivot power-law contraction for the same rank-two two-block family",
+      "Existing one-pivot RPCholesky theorem concerning target-oblivious supremum of quadratic-form risk, not trace",
+      "Published mathematical result 77e11f8220ee: multistage column-subset projection error, not Schur trace risk under Gibbs powers",
+      "Published mathematical result f46330fd3a80: weighted-mass adaptive cross approximation, with deflation-history contamination rather than Schur trace risk",
+      "Published mathematical result 71dd3abf0659: complete-pivot adaptive cross approximation Frobenius growth, not randomized Schur trace risk",
+      "Published mathematical result 82c9d23eb995: inverse-positive SPD coordinate sampling for energy contraction, a distinct method",
+      "Earlier related numerical-analysis scientific claims (no exact trace-ratio law identified)",
+      "Related one-pivot squared-Frobenius and minimax mathematical statements (distinct objectives)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al., Randomly pivoted Cholesky, arXiv:2207.06503, Sections 2.2, 2.3.4, 5, Appendix C (https://onlinelibrary.wiley.com/doi/10.1002/cpa.22234)",
+        "Steinerberger, Randomly Pivoted Partial Cholesky: Random How?, arXiv:2404.11487, Sections 1, 2.1, 2.3 (Table 1), 3 (https://arxiv.org/html/2404.11487v1)",
+        "Existing theorem on squared-Frobenius one-pivot power-law contraction for the same rank-two two-block family",
+        "Existing one-pivot RPCholesky theorem concerning target-oblivious supremum of quadratic-form risk, not trace",
+        "Published mathematical result 77e11f8220ee: multistage column-subset projection error, not Schur trace risk under Gibbs powers"
+      ],
+      "reasoning": "New claim compares first-step expected positive-semidefinite residual traces at two finite exponents and quantifies a sharp polynomial growth rate, whereas previously documented exact results compare Frobenius contraction, all-step β=1 approximation to best rank-r, extreme greedy behavior, and an unrelated supremum-over-target risk. Qualitative β=2 trace reversals are already known, explicitly credited, and not the originality claim. The precise order-sharp n-exponent and exact signed two-block frontier are not implied by these statements without the new estimates and examples.",
+      "searches": [
+        "pivoted partial Cholesky squared diagonal weights versus linear diagonal weights trace-norm one-step error unbounded ratio two-block rank two sqrt dimension",
+        "Steinerberger random how sharp trace penalty quadratic diagonal sampling vs linear diagonal",
+        "For power-diagonal Cholesky pivot probabilities d_i^q with any q>1, expected residual trace divided by ordinary RPCholesky grows like n^(1-1/q), rank-two kernel singleton plus perfectly correlated cluster",
+        "arXiv:2207.06503 §2.3.4, Appendix C",
+        "arXiv:2404.11487 §2.1 Frobenius theorem, §2.3 Table 1",
+        "Related squared-Frobenius power-pivot and quadratic-form minimax mathematical statements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al., Randomly pivoted Cholesky, arXiv:2207.06503, Sections 2.2, 2.3.4, 5, Appendix C (https://onlinelibrary.wiley.com/doi/10.1002/cpa.22234)",
+        "Steinerberger, Randomly Pivoted Partial Cholesky: Random How?, arXiv:2404.11487, Sections 1, 2.1, 2.3 (Table 1), 3 (https://arxiv.org/html/2404.11487v1)",
+        "Existing theorem on squared-Frobenius one-pivot power-law contraction for the same rank-two two-block family"
+      ],
+      "reasoning": "Gibbs β=q sampling and power-diagonal pivoted partial Cholesky are exactly the same sampling law as the theorem (not a distinct new algorithm); the traced source results concern either original β=1, squared-Frobenius q=2, or finite numerical examples. The own rank-two power-pivot result bounds squared Frobenius error but does not yield a polynomial trace-error ratio E_q/E_1, because trace and squared-Frobenius comparisons are not interchangeable. No inspected equivalent statement was found; priority is not certified.",
+      "searches": [
+        "pivoted partial Cholesky squared diagonal weights versus linear diagonal weights trace-norm one-step error unbounded ratio two-block rank two sqrt dimension",
+        "For power-diagonal Cholesky pivot probabilities d_i^q with any q>1, expected residual trace divided by ordinary RPCholesky grows like n^(1-1/q), rank-two kernel singleton plus perfectly correlated cluster",
+        "exact two-block rank-two Cholesky pivot trace comparison beta=2 versus beta=1 with phase transition t vs cluster size and sqrt n loss",
+        "arXiv:2207.06503 §2.3.4 Gibbs power exponent β; §5 trace error",
+        "arXiv:2404.11487 §2.3 Table 1, §3; compare squared-Frobenius power-pivot theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Steinerberger, Randomly Pivoted Partial Cholesky: Random How?, arXiv:2404.11487, Sections 1, 2.1, 2.3 (Table 1), 3 (https://arxiv.org/html/2404.11487v1)",
+        "Existing theorem on squared-Frobenius one-pivot power-law contraction for the same rank-two two-block family",
+        "Published mathematical result 71dd3abf0659: complete-pivot adaptive cross approximation Frobenius growth, not randomized Schur trace risk"
+      ],
+      "reasoning": "Steinerberger Table 1 tabulates multi-pivot numerical ratios for a single spiral-kernel data set (β=1 trace 0.57, β=2 trace 0.58), not exact all-dimensional analytic constants. No discrete classification database is expected for the continuous A,t,q family; the exact block extremum is not contained in that table or the related scientific statements.",
+      "searches": [
+        "randomized numerical linear algebra Gaussian sketch Nyström eigenvalue exact bias uncertainty",
+        "exact two-block rank-two Cholesky pivot trace comparison beta=2 versus beta=1 with phase transition t vs cluster size and sqrt n loss",
+        "sharp Gibbs exponent trace bias in Nyström one-pivot 65F55",
+        "arXiv:2404.11487 §2.3 Table 1 (β=0,1,2,∞ numerical kernel errors)",
+        "Relevant existing rank-two and power-pivot scientific claims (trace versus Frobenius error)"
+      ]
+    },
+    "rationale": "Chen et al. define the exact Gibbs law and establish \\(q=1\\) trace bounds and infinite-power greedy counterexamples; Steinerberger proves a \\(q=2\\) Frobenius bound and already observes a small empirical trace reversal. Neither inspected primary full text provides the new finite-exponent \\(\\Theta(n^{1-1/q})\\) first-pivot expected trace-error ratio, its exact two-block sign region, or the squared-rule restricted-class optimum. Other published results were compared by mathematical implication rather than title, including a statement about squared Frobenius error in the same block family, which does not imply the present trace comparison. Novelty beyond these searches remains conditional on uncatalogued or alternative-terminology literature, and independently certified priority is not asserted.",
+    "residual_risks": [
+      "Independent literature-wide priority certification is not performed: similar elementary power-weight measure-change comparisons or rank-two Cholesky examples could appear in other numerical-linear-algebra literature.",
+      "The same rank-two cluster matrix appeared in prior Frobenius analysis, but the present exact trace-error ratio and exponent are not provided there; this overlap of model, not assertion, has been recorded.",
+      "The scientific comparisons address inspected primary texts and related published mathematical findings, not every publisher version or unpublished result; database search cannot prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Power-pivot Gibbs family and β=1 trace theory already known; β→∞ worst cases covered, but no matching fixed finite β>1 one-step dimension-sharp trace-ratio law in inspected sections.",
+        "evidence": [
+          "Chen et al., Randomly pivoted Cholesky, arXiv:2207.06503, Sections 2.2, 2.3.4, 5, Appendix C (https://onlinelibrary.wiley.com/doi/10.1002/cpa.22234)",
+          "arXiv first public v1 2022-07-13, MSC 65F55: https://arxiv.org/abs/2207.06503"
+        ],
+        "identifier_or_url": "arXiv:2207.06503; https://onlinelibrary.wiley.com/doi/10.1002/cpa.22234",
+        "material_read": "Published full HTML, specifically Sections 2.1–2.3.4, Section 5 theorem, and Appendix C comparisons/lower bounds including greedy Section C.2.",
+        "method": "Primary full text inspected in lawful publisher HTML (preprint arXiv metadata separately verified).",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Direct algorithm predecessor and likely exact power-law coverage"
+      },
+      {
+        "assessment": "Frobenius squared residual guarantee and empirical trace reversal for β=2. The exact all-finite-exponent one-step nuclear-norm gap and analytic two-block ratio are not contained in the inspected sections.",
+        "evidence": [
+          "Steinerberger, Randomly Pivoted Partial Cholesky: Random How?, arXiv:2404.11487, Sections 1, 2.1, 2.3 (Table 1), 3 (https://arxiv.org/html/2404.11487v1)",
+          "arXiv posted 2024-04-17: https://arxiv.org/abs/2404.11487"
+        ],
+        "identifier_or_url": "arXiv:2404.11487; https://arxiv.org/html/2404.11487v1",
+        "material_read": "Open-access arXiv full HTML, Sections 1, 2.1–2.5, 3; in particular Section 2.3 Table 1 and the Frobenius calculation in Section 3.",
+        "method": "Primary arXiv HTML read; mathematical statements, table and proof objectives checked.",
+        "title": "Randomly Pivoted Partial Cholesky: Random How?",
+        "trigger": "Same β=2 sampling rule and comparison across trace and Frobenius norms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77d91b1c-3c51-448f-98f7-9b5c132c78a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The power-diagonal pivot laws and their different norm motivations appear in the inspected 2022 and 2024 primary sources. A published empirical trace reversal gives no sharp quantitative bound. The new theorem shows that for every fixed finite \\(q>1\\), the nuclear-norm cost of using this power rule instead of the standard \\(q=1\\) rule can grow as \\(\\Theta(n^{1-1/q})\\), and proves no worse dimension exponent is possible. The natural orthogonal two-block rank-two family yields an exact sign frontier and a restricted-class squared-diagonal optimum, including an exact 17-coordinate witness. This quantifies a concrete numerical-method choice and structural worst-case boundary rather than relabeling a method or recomputing a known table; no claim is made about later adaptive pivots or Frobenius loss.",
+    "status": "PASS"
+  }
+}
