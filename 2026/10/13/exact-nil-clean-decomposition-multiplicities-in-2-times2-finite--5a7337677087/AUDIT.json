@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Rank 0 and rank 2 idempotents give the two unique indicator terms. For rank 1, trace forces trace(A)=1, the 2x2 determinant identity reduces nilpotence to tr(AE)=1-det(A), and projection idempotents can be counted exactly by their image line. Noninvariant lines contribute one solution; invariant lines contribute q or zero. Substituting 1-det(A) into the trace-one characteristic polynomial gives det(A)^2, proving the stated correction. Exhaustive replay over F_2, F_3, F_4, F_5, and F_7 matches the formula and census for every matrix.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Breaz–Călugăreanu–Danchev–Micu Theorem 3: a full matrix ring over a field is nil-clean exactly over F_2.",
+        "Koşan–Lee–Zhou extends the ring-level criterion to division rings.",
+        "Rajeswari–Gupta treats individual 2x2 matrices over integral domains by solvability conditions."
+      ],
+      "reasoning": "These results have broader coefficient-ring or ring-level scope, but their conclusions do not dominate the exact finite-field fiber size. The new theorem refines one fixed dimension in a quantitatively stronger direction.",
+      "searches": [
+        "arxiv:1310.0416 Nil-clean matrix rings",
+        "doi:10.1016/j.laa.2014.02.047 every matrix division ring idempotent nilpotent",
+        "doi:10.13069/jacodesmath.451229 characterization 2x2 nil-clean integral domains"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1310.0416v1",
+      "DOI 10.1016/j.laa.2013.08.027",
+      "DOI 10.1016/j.laa.2014.02.047",
+      "DOI 10.13069/jacodesmath.451229",
+      "published-finding corpus 2026/10/4/SCOPE-exact-t-fine-decomposition-multiplicities-for-two-by-two-finite--7b7188752131",
+      "published-finding corpus 2026/10/4/SCOPE-exact-fibers-of-idempotent-nilpotent-factorizations-in-two-dimen--376b6f723a17",
+      "published-finding corpus 2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Neither checked own ledger contains a nil-clean decomposition claim; current-week nearby work concerns clean and strongly clean decompositions, which use units rather than nilpotents.",
+        "Rajeswari–Gupta gives existence but not a count; Breaz et al. gives a whole-ring criterion but not elementwise multiplicities."
+      ],
+      "reasoning": "The new claim is not implied by the own-ledger findings on clean/strongly-clean decompositions because replacing a unit by a nilpotent changes the admissible idempotent set. The 2018 existence theorem can imply only whether the count is zero or positive after solving its condition; it does not yield the exact fiber size or census without the new projective-line count.",
+      "searches": [
+        "own current ledger 2026-10_week1__private research ledger__p0001_g000043.jsonl",
+        "own prior ledger 2026-09_week4__private research ledger__p0001_g000052.jsonl",
+        "doi:10.13069/jacodesmath.451229 Theorem 3.1",
+        "arxiv:1310.0416 Theorem 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rajeswari–Gupta Theorem 3.1 states an existence criterion using trace one and equations for a rank-one idempotent; the inspected text does not enumerate all solutions.",
+        "published-finding corpus nearest hit 2026/10/4/SCOPE-exact-t-fine-decomposition-multiplicities-for-two-by-two-finite--7b7188752131 counts torsion-unit-plus-nilpotent sums, a different decomposition.",
+        "published-finding corpus hit 2026/10/4/SCOPE-exact-fibers-of-idempotent-nilpotent-factorizations-in-two-dimen--376b6f723a17 counts products, not sums."
+      ],
+      "reasoning": "The closest existence formulation and the new multiplicity formula share the same idempotent/nilpotent objects, but existence is strictly weaker than counting all admissible idempotents. The published-finding corpus decomposition counts use different operations or summand classes.",
+      "searches": [
+        "published-finding corpus: nil-clean 2x2 finite field trace one rational eigenlines exact multiplicity",
+        "published-finding corpus: number of nil-clean decompositions matrix finite field idempotent plus nilpotent",
+        "published-finding corpus: nil-clean decomposition profile M2(F_q)",
+        "doi:10.13069/jacodesmath.451229 Theorem 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit states the additive nil-clean multiplicity formula or the q-dependent trace-one class table.",
+        "The closest web result is the 2018 integral-domain characterization; its text discusses existence and Diophantine solution conditions, not a finite-field table of decomposition counts."
+      ],
+      "reasoning": "No exact database/table coverage was located. This is not treated as a proof of novelty; it is evidence supporting the statement comparison.",
+      "searches": [
+        "published-finding corpus: 2x2 nil-clean finite field exact number decompositions",
+        "published-finding corpus: uniquely nil-clean M2 finite field decomposition count idempotent",
+        "web: nil-clean matrices finite field trace determinant idempotent decomposition"
+      ]
+    },
+    "rationale": "The inspected archive and later primary literature establish ring-level nil-cleanness or elementwise existence criteria, but not the exact number of additive idempotent-plus-nilpotent decompositions over finite fields. The new count uses projective eigenline geometry and yields a class census not implied by the cited statements without additional argument.",
+    "residual_risks": [
+      "The 2018 integral-domain characterization is very close in object and may allow the finite-field count to be derived by an unrecorded specialization; the inspected text itself does not state that count.",
+      "Search coverage cannot exclude an exact multiplicity formula published under different terminology such as nil-clean index or decomposition number."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS ring-level criterion; NOT_COVERING exact elementwise finite-field decomposition multiplicities.",
+        "evidence": "Theorem 3 characterizes fields K for which M_n(K) is nil-clean, with K=F_2; the paper constructs decompositions but does not state an exact count by matrix.",
+        "identifier_or_url": "arXiv:1310.0416v1; DOI 10.1016/j.laa.2013.08.027",
+        "material_read": "Abstract, introduction, AMS classification, Theorem 3 statement and proof pages, plus corollaries visible in the lawful arXiv PDF.",
+        "method": "Full-text PDF inspection with page rendering and text extraction.",
+        "title": "Nil-clean matrix rings",
+        "trigger": "Archive anchor and strongest ring-level predecessor."
+      },
+      {
+        "assessment": "COVERS existence characterization for 2x2 matrices over integral domains; NOT_COVERING the exact finite-field multiplicity formula and class census.",
+        "evidence": "Theorem 3.1 states trace one plus solvability of equations as the criterion; searches in the full text found no finite-field specialization and no exact count of all nil-clean decompositions.",
+        "identifier_or_url": "DOI 10.13069/jacodesmath.451229",
+        "material_read": "Abstract, introduction, Lemmas 2.1–2.2, Theorem 3.1 statement, surrounding proof setup, and discussion of solution counts in the lawful journal PDF.",
+        "method": "Full-text PDF inspection with page rendering, text search, and theorem-location checks.",
+        "title": "Characterization of 2 x 2 nil-clean matrices over integral domains",
+        "trigger": "Direct same-object elementwise predecessor."
+      },
+      {
+        "assessment": "COVERS the whole-ring division-ring criterion; not a decisive source for elementwise multiplicity.",
+        "evidence": "The abstract states M_n(D) is nil-clean exactly for D congruent to F_2 and gives semilocal consequences; it does not advertise an elementwise count.",
+        "identifier_or_url": "DOI 10.1016/j.laa.2014.02.047",
+        "material_read": "Abstract and bibliographic metadata from an institutional publication record.",
+        "method": "Web inspection of abstract-level material.",
+        "title": "When is every matrix over a division ring a sum of an idempotent and a nilpotent?",
+        "trigger": "Broader ring-level extension of the archive theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a733767-7087-4556-b83a-84f587a8fee1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nil-cleanness and unique nil-clean decompositions are established structural notions, and exact decomposition multiplicity is a natural finite-ring invariant. The theorem turns the qualitative 2x2 existence problem into a closed formula controlled by projective eigenlines, gives a complete finite-field census, and quantitatively isolates the F_2 whole-ring exception. This is more than a routine check or recomputation because it identifies the mechanism and all fibers uniformly in q.",
+    "status": "PASS"
+  }
+}
