@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact SOFIM scalar equation follows by rationalizing its printed Sherman–Morrison inverse with the original moment bias correction. The symmetric cycle solves a unique scalar quadratic equation. Its two phase Jacobians coincide and the three Jury quantities simplify to positive rational expressions precisely in the proposed interval. For the actual source-initialized biased algorithm, a weighted derivative bound strictly below two-thirds holds on explicit paired cycle neighborhoods; the bias remainder is bounded by a geometric sequence and the first corrected step enters the basin for an interval of starts. Summing the resulting recurrence proves the all-time convergence estimate. The package verifier independently checks algebraic equalities over rational parameters and numerical trajectories from the direct original recurrence; no finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bock–Weiss establish period-two nonconvergence for Adam including bias-correction effects, with an additional squared-gradient EMA state and an Adam-specific normalization.",
+        "Ye–Luo–Zhang Theorems 3–4 require quantitative positive-definite approximation to the Hessian for local Newton convergence, and their Theorem 4 is for sketch Newton, not rank-one moment-product Fisher momentum.",
+        "SOFIM uses a different two-state rational map, whose Jacobian determinant is the first-moment decay and whose boundary depends on the exact Fisher scale."
+      ],
+      "reasoning": "The general fact that Adam or fixed-step methods may cycle is prior and is not claimed as novel. Neither Adam’s three-state cycle results nor the Hessian-approximation Newton theorems dominate a sharp SOFIM-specific sign-symmetric phase diagram with a quantitative positive-momentum source basin; the hypotheses and state recurrences differ.",
+      "searches": [
+        "arXiv:2210.02070v1 Algorithm 1, Sections 2–3 and Theorem 2",
+        "PMLR:70:ye17a Theorems 3–4 and Hessian-comparison condition",
+        "Adam momentum rank one Fisher estimate periodic attracting orbit strongly convex",
+        "Fisher preconditioned momentum 1/(rho+m squared) Schur 2 cycle threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.02833v1",
+      "arXiv:2403.02833v2",
+      "arXiv:2210.02070v1",
+      "PMLR:70:ye17a",
+      "https://arxiv.org/abs/2403.02833",
+      "https://proceedings.mlr.press/v70/ye17a.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "SOFIM’s inverse preconditioner uses the bias-corrected first moment squared: in a scalar direction the update is proportional to corrected momentum divided by its own square plus regularization.",
+        "Adam’s corresponding denominator is an independent second-moment EMA, not the square of the first moment; Bock–Weiss analyze a different three-state map and different bias correction.",
+        "Ye–Luo–Zhang impose a two-sided Hessian comparison and local small-error hypothesis; SOFIM’s surrogate at the minimizer need not match the scalar quadratic curvature, and unrestricted fixed steps can be unstable.",
+        "The present exact inequalities are derived from the two-state SOFIM Jacobian and provide a positive-probability-width interval of source parameters converging to nonminimizing orbits."
+      ],
+      "reasoning": "The defining paper provides the update but not this nonlinear phase law; the Adam paper establishes an analogous phenomenon with a non-equivalent update, and the approximate Newton results have strict hypotheses absent in the claimed oscillatory regime. Neither known statement implies the closed SOFIM curvature window, symmetric amplitude, nor geometric source basin without substantive new analysis.",
+      "searches": [
+        "arXiv:2403.02833v2 Eq. (8), Eq. (9), Algorithm 1, Section III.D",
+        "arXiv:2210.02070v1 Adam update Algorithm 1 and nonconvergence Theorem 2",
+        "PMLR:70:ye17a Theorem 4, Eq. (2) approximation hypothesis",
+        "SOFIM optimizer exact source initialization bias correction convergence limit cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "SOFIM Algorithm 1 uses an EMA first moment, first-moment bias correction, and an inverse of the rank-one Fisher matrix formed from that same corrected moment.",
+        "Its Sections III–IV discuss Sherman–Morrison cost, experimental results and a borrowed convergence statement, but not a sign-symmetric cycle or its curvature/momentum boundary.",
+        "The derived cycle requires the exact equality between Fisher-normalized step and twice the parameter, followed by the state Jacobian Jury test."
+      ],
+      "reasoning": "An equivalent theorem must imply the unique nonzero sign-symmetric amplitude, the iff stability interval in the combined momentum/curvature ratio, and the actual bias-corrected source-initialized attraction bound. The inspected defining paper states none of these; they are not direct statements of its general cost or empirical comparisons.",
+      "searches": [
+        "SOFIM regularized Fisher optimizer 2403.02833 stable two cycle period doubling quadratic",
+        "SOFIM stochastic optimization Fisher information matrix scalar quadratic two cycle oscillation periodic orbit",
+        "arXiv:2403.02833v2 Algorithm 1 and Sections III–IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed optimization records concern exact-parameter Nesterov transient amplification, scaled Polyak one-step objective factors, and degree-two extragradient minimax polynomials; none treats a rank-one Fisher momentum recurrence.",
+        "These concern exact-parameter Nesterov transients, Polyak step-size objective factors, and degree-two extragradient minimax polynomials; none includes SOFIM’s Fisher-rational momentum recurrence or the claimed source attraction estimates.",
+        "Direct examination of the defining SOFIM algorithm and the two closest primary theoretical papers identified no corresponding tabulation or exact phase boundary."
+      ],
+      "reasoning": "Actual semantic and alias searches found no exact database result, but database nonappearance alone is not a novelty proof. Implication-level comparison with the full relevant primary sections supplies the independent scientific distinction.",
+      "searches": [
+        "SOFIM stochastic optimization Fisher information matrix scalar quadratic two cycle oscillation periodic orbit",
+        "SOFIM momentum eigenvalues Schur stability strongly convex quadratic learning rate",
+        "regularized rank one Fisher gradient normalized rational map stable 2 cycles",
+        "SOFIM regularized Fisher optimizer 2403.02833 stable two cycle period doubling quadratic",
+        "Fisher preconditioned momentum 1/(rho+m squared) Schur 2 cycle threshold",
+        "SOFIM optimizer exact source initialization bias correction convergence limit cycle",
+        "Adam momentum rank one Fisher estimate periodic attracting orbit strongly convex"
+      ]
+    },
+    "rationale": "Related adaptive-optimizer cycles are well known from Bock–Weiss for Adam, but its separate squared-gradient EMA does not cover SOFIM’s rank-one moment-product Fisher denominator. The defining SOFIM manuscript does not state an oscillatory phase diagram or source basin. The cited approximate Newton theorem assumes a spectrally controlled Hessian surrogate and cannot provide arbitrary-step SOFIM conclusions. The new result is the SOFIM-specific sharp stability interval, exact nonzero amplitude, and explicit source-initialized attraction bound for genuine positive momenta.",
+    "residual_risks": [
+      "Unindexed optimizer dynamical-systems analyses could contain the same SOFIM-specific calculation.",
+      "The general phase boundary refers to the limiting autonomous sign-symmetric cycle only; for the actual corrected recurrence an explicit, narrower attraction region is proved.",
+      "Nonlinear dynamics outside the attracting region, including nonsymmetric and higher-period cycles, are not characterized."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RECURRENCE_NOT_COVERING_CYCLE_PHASE_OR_SOURCE_BASIN",
+        "evidence": "The corrected momentum enters both the update numerator and the squared rank-one Fisher denominator with positive regularization; no explicit period-two phase threshold or source-initialized nonconvergence result is stated.",
+        "identifier_or_url": "arXiv:2403.02833v2; https://arxiv.org/pdf/2403.02833",
+        "material_read": "Full Algorithm 1 (page 3), the complete update derivation and Fisher definition in Sections II–III, its Section III.D borrowed convergence discussion, empirical parameter setup, and references including its cited Theorem 4.",
+        "method": "Author-available arXiv full-text inspection, including the page rendering of the printed algorithm.",
+        "title": "SOFIM: Stochastic Optimization Using Regularized Fisher Information Matrix",
+        "trigger": "Defining optimizer and potential convergence coverage."
+      },
+      {
+        "assessment": "RELATED_NONCONVERGENCE_PENOMENON_IS_PRIOR;_DIFFERENT_OPTIMIZER",
+        "evidence": "Adam maintains a separate exponentially averaged gradient-square state and a distinct denominator; its period-two law and stability are not the Fisher-momentum formulas derived here.",
+        "identifier_or_url": "arXiv:2210.02070v1; https://arxiv.org/pdf/2210.02070",
+        "material_read": "Abstract, Introduction, Algorithm 1 and Sections 2–3, including the autonomous/perturbed decomposition, period-two calculation, and Theorem 2; Sections 4 numerical discussion.",
+        "method": "Public arXiv full-text inspection, including the printed Adam algorithm and main nonconvergence proof.",
+        "title": "Non-Convergence and Limit Cycles in the Adam optimizer",
+        "trigger": "Closest primary literature on source-corrected adaptive-optimizer limit cycles on strongly convex quadratics."
+      },
+      {
+        "assessment": "RESTRICTED_LOCAL_APPROXIMATE_NEWTON_THEOREM_NOT_IMPLYING_ARBITRARY_FIXED_STEP_SOFIM_CYCLE_COVERAGE",
+        "evidence": "Convergence hypotheses require a spectrally controlled approximate Hessian and local regime; Theorem 4 studies a sketch-Newton algorithm rather than the SOFIM first-moment rank-one Fisher recurrence.",
+        "identifier_or_url": "PMLR:70:ye17a; https://proceedings.mlr.press/v70/ye17a/ye17a.pdf",
+        "material_read": "Section 3 Hessian approximation inequalities, Theorem 3 local framework, Theorem 4 sketch-Newton guarantees and regularized approximations in Section 5.",
+        "method": "Open PMLR primary full-text inspection, including the displayed assumptions and theorem statement.",
+        "title": "Approximate Newton Methods and Their Local Convergence",
+        "trigger": "SOFIM cites its Theorem 4 to support a convergence claim for convex losses."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41be5e18-91bf-43b1-86a0-dd3c9cd67b3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The regularized rank-one Fisher preconditioner and corrected momentum are exactly the design features of SOFIM. A fully specified Gaussian-location strongly convex likelihood, positive regularization and genuine positive momenta nevertheless admit an open interval of zero-moment source parameters converging geometrically to a nonoptimal oscillation. The explicit sharp Fisher-to-curvature phase condition and positive residual objective separate persistent nonlinear optimizer instability from transient overshoot or stochastic noise, giving a substantive diagnostic for fixed learning-rate and regularization choice.",
+    "status": "PASS"
+  }
+}
