@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For a monotonic automaton, a word synchronizes a subset exactly when it synchronizes the subset's minimum and maximum, so exhaustive pair distances are sufficient. Every nondecreasing self-map of the normalized chain is generated, with counts C(2n-1,n). Exhausting all binary map pairs gives exact maxima 0,1,2,3,4,5,6,7,9 for n=1,...,9. At n=9 exactly two unordered normalized map pairs have a pair at distance 9, yielding four ordered pairs. Independent forward BFS verifies the displayed hard pair and length-nine word.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3 gives the general monotonic upper bound (n-2)^2/4 for n at least 8.",
+        "Theorem 5 gives a binary monotonic family on 4m+3 states with a subset requiring at least m^2 letters.",
+        "The 2019 weakly acyclic paper describes the monotonic bound as asymptotically tight but provides no small binary table."
+      ],
+      "reasoning": "The general bounds leave a genuine finite gap: at n=9 the published upper bound permits values up to 12, while the binary lower-bound family does not determine the exact value. Neither broader theorem implies the boundary T_2(8)=7, T_2(9)=9.",
+      "searches": [
+        "Ryzhikov Shemyakov arXiv 1703.06356 Theorems 3 4 5",
+        "Synchronization problems in automata without non-trivial cycles monotonic asymptotically tight",
+        "later monotonic automata synchronization fixed alphabet exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1703.06356 full text",
+      "Fundamenta Informaticae DOI 10.3233/FI-2018-1721 bibliographic record",
+      "Theoretical Computer Science DOI 10.1016/j.tcs.2018.12.026 full text",
+      "exact and semantic web searches for nine-state binary monotonic subset synchronization",
+      "published-finding searches for exact value, first-excess, fixed-alphabet, and witness formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published upper bound at n=9 is 12, so it does not force the exact value 9.",
+        "The published binary family is asymptotic and does not establish the first state size where the n-1 behavior fails."
+      ],
+      "reasoning": "The new claim requires exhaustive exclusion of distances 8 or greater through n=8 and distances 10 or greater at n=9, plus an explicit distance-nine witness. None is implied by the cited inequalities.",
+      "searches": [
+        "arXiv 1703.06356 Theorem 3 upper bound",
+        "arXiv 1703.06356 Theorem 5 binary lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source formulates the invariant as the maximum length of a shortest word synchronizing a subset of states in a monotonic automaton.",
+        "No retrieved record states T_2(9)=9, the sequence through nine states, or the first failure of n-1 at nine."
+      ],
+      "reasoning": "The searches cover threshold, shortest-word, subset-synchronization, fixed-alphabet, binary, and first-boundary formulations of the same invariant.",
+      "searches": [
+        "binary monotonic automata subset synchronization nine states shortest word length 9",
+        "monotonic automata first subset synchronization threshold exceeds n minus 1",
+        "fixed alphabet monotonic subset synchronization exact small states",
+        "binary monotonic automata maximum shortest synchronizing subset word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source contains a small-state binary monotonic threshold table.",
+        "Exact witness-string and transition-table searches did not locate a published matching example."
+      ],
+      "reasoning": "A small-state computational table would directly dominate the finite claim, so exact parameter and witness searches were included.",
+      "searches": [
+        "nine state binary monotonic subset synchronization table",
+        "binary monotonic automata exact threshold 9",
+        "babbaabbb monotonic automaton synchronization",
+        "001244558 023446788 automaton"
+      ]
+    },
+    "rationale": "The primary paper proves an n-state quadratic upper bound and asymptotically quadratic lower bounds, including a binary family, but gives no exact binary small-state threshold table and no first-excess result. A later weakly acyclic synchronization paper cites the monotonic result only at the asymptotic level. Targeted searches for the exact value, first-excess wording, fixed binary alphabet, and witness word found no covering statement.",
+    "residual_risks": [
+      "An unindexed thesis, private computation, or unpublished small-state table may contain the same census.",
+      "The normalized extremal count is presentation-dependent when an abstract automaton preserves more than one linear order.",
+      "The result does not determine the onset or growth pattern beyond nine states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant but not covering the exact binary thresholds through nine states or the first-excess classification.",
+        "evidence": "Theorem 3 gives the general (n-2)^2/4 upper bound for n at least 8; Theorem 5 gives only an asymptotic binary lower-bound family.",
+        "identifier_or_url": "arXiv:1703.06356v1 / DOI:10.3233/FI-2018-1721",
+        "material_read": "Definitions and introduction; Section 2 structural reduction to extreme states; Section 3, especially Theorems 3, 4, and 5 and the binary construction; conclusions and references.",
+        "method": "Full-text PDF statement and implication comparison, including rendered-page inspection of the upper-bound proof and lower-bound construction.",
+        "title": "Subset Synchronization in Monotonic Automata",
+        "trigger": "Direct source for the same invariant and automaton class."
+      },
+      {
+        "assessment": "Mentions monotonic subset synchronization only through known general/asymptotic bounds and contains no exact binary monotonic small-state table.",
+        "evidence": "The paper explicitly describes the monotonic bound as asymptotically tight while focusing its own finite constructions on weakly acyclic automata.",
+        "identifier_or_url": "DOI:10.1016/j.tcs.2018.12.026",
+        "material_read": "Introduction and subset-synchronization bound discussion; Proposition 1 and surrounding extremal context; conclusions.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Synchronization Problems in Automata without Non-trivial Cycles",
+        "trigger": "Later paper discussing subset synchronization bounds in restricted automata and citing the monotonic result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "654adf45-f820-41ea-9a58-d0841d8dc2fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper makes the fixed binary alphabet a substantive part of the asymptotic theory and leaves a large finite gap between its binary lower construction and general upper bound. The exact first departure from the elementary n-1 regime is therefore a natural boundary invariant. Identifying nine states as the first excess, together with a complete normalized extremal orbit, gives structural information about where genuinely quadratic-style delay begins rather than an arbitrary small census.",
+    "status": "PASS"
+  }
+}
