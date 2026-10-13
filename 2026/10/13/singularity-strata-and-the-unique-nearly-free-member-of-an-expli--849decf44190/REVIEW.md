@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For the exact four quadrics and \(t\ne-1\), the six pairwise resultants and their discriminants exhaust the coincidence parameters; direct tangent/branch calculations identify the analytic types, and Bézout gives the remaining nodes. The \(t=0\) germs have nonuniform pairwise contact orders \((4,2,2)\), forcing strict Tjurina deficit. At \(t=8\), the explicit degree-three Jacobian relation is an exact polynomial identity; full-rank matrices modulo \(1000003\) exclude lower-degree relations over characteristic zero. The standard nearly-free numerical criterion then yields the claimed unique parameter. A standalone checker reproduces the decisive algebra.
+
+**Originality — PASS, with a specific residual risk.** Pokora's original Example 2.6 already states the intended \(4A_7+8A_1\) basket and near freeness, so the bare existence of that configuration is not claimed as new. Its displayed \(-9z^2\) equation does not realize that basket. The inspected original text and related general conic-arrangement results do not establish the complete discriminant \(\{0,2,7/2,8\}\), all five singularity strata, or the uniqueness of the nearly-free member within the displayed family. Searches on corrections, printed equations, equivalent contact baskets and syzygy descriptions found no equivalent statement. Possible unindexed errata or older computations are an explicit bibliographic risk.
+
+**Value — PASS.** This is a complete degeneration and freeness classification of a naturally sourced family, with the non-ADE triple boundaries identified, not merely a numerical correction of one coefficient. It pinpoints the unique highly tangent nearly-free configuration and quantifies how that geometry degenerates, providing an exact parameter-space boundary for this four-conic construction.
+
+**Scope of evidence.** The six pairwise eliminations, discriminants and exact syzygy are independently replayable with the accompanying checker; local analytic classifications and the near-free equivalence are justified in the proof using established criteria. The statement is confined to the displayed family, and no independent audit is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
