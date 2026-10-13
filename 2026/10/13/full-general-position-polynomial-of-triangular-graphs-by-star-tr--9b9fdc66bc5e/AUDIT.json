@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For n>=4 the line graph L(K_n) has diameter two; a GP violation is exactly an induced P3. The chosen base edges form disjoint stars/triangles/isolates iff their line graph is P3-free. A complete proof of the star/triangle component lemma and exact labeled component counts c_1=1,c_2=z,c_3=3z^2+z^3,c_s=sz^(s-1) for s>=4 establishes the exponential generating function and recurrence, including all n=0,1,2,3 boundary cases. The number of selected edges is n minus number of nontriangle components, proving degree and maximum multiplicity. The included independent shortest-path-based verifier matches all polynomial coefficients n=0..7 and the top identities through n=20; finite checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "ArXiv:2401.05696 Theorem 4.2 derives the general-position polynomial of Kneser K(n,2), not its complement L(K_n).",
+        "published-finding corpus closest 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f treats generalized windmill graphs rather than triangular graphs.",
+        "published-finding corpus closest 2026/9/30/SCOPE-complete-multipartite-dual-general-position-sets-and-exact-varia--9f3385084f7b concerns a different graph family and a different GP variant."
+      ],
+      "reasoning": "Published formulas for GP polynomials on Kneser graphs, rook graphs and windmills do not dominate a complete triangular-graph polynomial. Graph complementation does not preserve geodesics or GP sets. The old all-n extremal number alone does not determine coefficient counts.",
+      "searches": [
+        "arXiv:2401.05696 complete main text searched line graph / Johnson and inspected Theorem 4.2",
+        "published-finding corpus: general position polynomial line graph complete graph exact counting coefficients maximal sets",
+        "published-finding corpus: general position polynomial triangular graph T(n) line graph of complete graph exponential generating function star triangle components"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1903.04286v1 / Section 4.2 (same graph GP extremum)",
+      "arxiv:2306.09965v1 / Section 5 (same graph lower maximal GP extremum)",
+      "arxiv:2401.05696v1 / Sections 1,2,4 (polynomials including complement Kneser graph)",
+      "published-finding corpus 2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f (ranked published similarity result, title/summary only)",
+      "published-finding corpus 2026/9/30/SCOPE-complete-multipartite-dual-general-position-sets-and-exact-varia--9f3385084f7b (ranked published similarity result, title/summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghorbani et al.: gp(L(K_n)) equals n or n−1, but the proof counts no submaximum subsets.",
+        "Di Stefano et al.: smallest maximal GP sets of L(K_n) have sizes based on parity; this leaves the full distribution unknown in that paper.",
+        "Iršič et al.: full polynomial is for K(n,2), with different adjacency and shortest-path geometry."
+      ],
+      "reasoning": "The new weighted enumerator implies the earlier maximum cardinality and refines it to every coefficient. Conversely the two scalar extrema and the Kneser-complement polynomial do not imply these coefficients. The known star/triangle support classification together with the standard exponential formula is sufficient to derive the new result, and that transparent dependence is credited.",
+      "searches": [
+        "arXiv:1903.04286 Section 4.2 Theorem 4.4",
+        "arXiv:2306.09965 Section 5 Theorem 5.2",
+        "arXiv:2401.05696 Section 4 Theorem 4.2",
+        "published-finding corpus: general position sets Johnson graph J(n,2) full enumeration clique partitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "ArXiv:1903.04286, Section 4.2 uses independent clique components in L(K_n) and bounds |S|, but supplies no weighted all-size enumerator.",
+        "ArXiv:2306.09965, Theorem 5.2 characterizes lower maximal GP sets using unions of stars and triangles, without counting every subset by size.",
+        "Search results did not surface an exact star–triangle labeled-weight exponential series."
+      ],
+      "reasoning": "Triangular graph = Johnson J(n,2) = line graph of K_n are the same graph. The previously known component decomposition is the principal equivalent structural formulation, and is explicitly excluded from the new contribution. Classical exponential-species enumeration could already imply the expression and is a nonzero residual risk, but no checked result states or tabulates the new full GP enumerator.",
+      "searches": [
+        "published-finding corpus: triangular graphs L(K_n) Johnson J(n,2) general position generating function exponential star triangle components",
+        "published-finding corpus: disjoint unions of stars triangles general position sets line graph complete graph all-size enumeration",
+        "Web: \"star forests\" triangles \"exponential generating function\" labeled",
+        "Web: \"triangular graph\" \"general position polynomial\" stars",
+        "arXiv:1903.04286 Section 4.2; arXiv:2306.09965 Theorem 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact coefficient database or matching polynomial was returned in the completed title/full-text searches.",
+        "The present finite coefficients are independently generated rather than imported from a table."
+      ],
+      "reasoning": "A missing table entry is not proof of originality. The direct infinite-size weighted formula was compared against visible published statements; existence of unindexed tables remains a risk.",
+      "searches": [
+        "Web: \"general position polynomial\" \"triangular graphs\" Johnson J(n,2)",
+        "Web: enumeration graphs disjoint union stars and triangles generating function",
+        "published-finding corpus: line graph complete graph general position polynomial induced disjoint union stars triangles"
+      ]
+    },
+    "rationale": "Theorem 4.4 of arXiv:1903.04286 proves the GP cardinality of L(K_n) using independent cliques and support disjointness; Theorem 5.2 of arXiv:2306.09965 proves the lower maximal size and explicitly discusses the star/triangle maximal-support structure. Those inputs are already known. Theorem 4.2 of arXiv:2401.05696 computes a full polynomial for the Kneser complement K(n,2), not the triangular graph L(K_n), and does not imply the latter because geodesics change under complement. The new explicit full generating function, recurrence and maximum-set multiplicity were not located in the materially inspected primary texts or in targeted published-finding corpus searches. Standard labeled-component enumeration may contain an algebraically identical expression not indexed as general position, which remains a residual risk.",
+    "residual_risks": [
+      "A classical labeled-graph species for star forests supplemented with triangle components may have precisely this exponent outside searchable GP-poly literature.",
+      "The underlying support characterization and maximum GP number are already known and are not original contributions.",
+      "The published-finding corpus comparison used published ranked summaries; no claim of uniqueness or of unpublished-work coverage is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete weighted polynomial; COVERS the old unweighted GP-number and clique-support argument",
+        "evidence": "Section 4.2 obtains gp(L(K_n)) using disjoint clique-component vertex supports and divisibility by 3; no coefficient recurrence/EGF is given.",
+        "identifier_or_url": "https://arxiv.org/pdf/1903.04286",
+        "material_read": "Section 1 characterization and Section 4.2 Theorem 4.4 proof, including pages 9–10 (zero-index web PDF pages 9 and 10)",
+        "method": "arXiv full PDF text and page screenshot",
+        "title": "The general position problem on Kneser graphs and on some graph operations",
+        "trigger": "exact same graph L(K_n) and GP extremal theorem"
+      },
+      {
+        "assessment": "NOT_COVERING the all-size polynomial; COVERS structure of maximal sets and lower GP number",
+        "evidence": "Theorem 5.2 states the smallest maximal GP-set cardinality and discusses stars and triangles without enumerating all GP sets.",
+        "identifier_or_url": "https://arxiv.org/pdf/2306.09965",
+        "material_read": "abstract, introduction, Section 5 Theorem 5.2 and its proof (PDF pages 11–12)",
+        "method": "arXiv full PDF text and page screenshot",
+        "title": "Lower General Position Sets in Graphs",
+        "trigger": "same graph line graph of complete graph, maximal GP sets"
+      },
+      {
+        "assessment": "NOT_COVERING the triangular-graph polynomial; full Kneser K(n,2) enumerator is a distinct complement graph",
+        "evidence": "Theorem 4.2 calculates ordinary GP polynomial for K(n,2), while the target is L(K_n); no L(K_n) coefficient formula is stated.",
+        "identifier_or_url": "https://arxiv.org/pdf/2401.05696",
+        "material_read": "abstract, introduction, Section 2 and Section 4 Theorem 4.2 (PDF pages 0,1,2,9)",
+        "method": "arXiv full PDF text, term searches, and page screenshot",
+        "title": "General Position Polynomials",
+        "trigger": "foundational exact polynomial and possible dominating coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b9fdc66-bc5e-48fe-933b-ade0ddf74e5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph family is classical and its maximum and smallest maximal GP set sizes were studied in 2019 and 2023. The whole ordinary GP polynomial is an invariant explicitly promoted by the 2024 literature. The new labeled EGF gives exact counts of every GP set size simultaneously, an executable root-block recurrence, and maximal-set multiplicities; these go beyond the prior one-number extrema and distinguish the full distribution. The result is a natural full-invariant classification, not an arbitrary parameter slice or a numerical increment. The standard exponential formula and prior structural lemma are credited.",
+    "status": "PASS"
+  }
+}
