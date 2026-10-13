@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each starting trajectory the final position is i+A+B_i mod n; synchronization makes all B_i residues distinct, so some trajectory has at least n-1 b-events. Each gap between such events has at least n-1 a letters, forcing W as subsequence. W directly resets by the shrinking interval S_j. All next-length words are one-letter insertions; the t<j, t=j, t>j interval analysis accounts for every b insertion, while internal a insertion loses a compression. The count n^2-4n+7 covers n=2 separately. Two standalone programs verify n=2..12 by exhaustive word dynamic programming and n=2..30 by direct insertion simulation, without replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Springer 2013 primary full HTML studies shortest-reset algorithms and empirical distributions of lengths across automata, not word multiplicity at one automaton.",
+        "Published k-avoiding threshold theorem supplies different worst-target quantity at_k(C_n)=kn."
+      ],
+      "reasoning": "Neither an upper bound on reset length, exact reset length, nor worst-target avoidance determines all length-L+1 words. This result refines known shortest length into a necessary pattern plus an exact next-layer language count.",
+      "searches": [
+        "published-finding corpus: Cerny automaton number of shortest reset words minimal synchronizing words multiplicity enumeration",
+        "Web: counting synchronizing words Černý automaton first excess",
+        "doi:10.1007/s10878-013-9682-0"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s10878-013-9682-0",
+      "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+      "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/9/9/SCOPE010/RESULT.md",
+      "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/9/7/SCOPE007/RESULT.md",
+      "https://www.cambridge.org/core/journals/mathematical-structures-in-computer-science/article/synchronizing-words-and-monoid-factorization-yielding-a-new-parameterized-complexity-class/2910A2134026357AC684F256DB5C0349"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Cerny length (n-1)^2 follows by other standard arguments; the new modular letter-event count proves mandatory scattered W and the insertion classification.",
+        "k-avoiding worst-target theorem does not quantify literal reset words of each length."
+      ],
+      "reasoning": "The old existence of a shortest reset word W does not force every reset word to contain W as a scattered subsequence. The latter structural property permits a complete first-excess insertion classification; no comparable implication appears in checked primary statements.",
+      "searches": [
+        "published-finding corpus: particle trajectories in cyclic automata count occurrences of collapsing letter b",
+        "doi:10.1007/s10878-013-9682-0 primary HTML",
+        "Published k-avoiding Cerny theorem RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published SCOPE k-avoiding record uses inverse-subset target avoidance; Cambridge 2022 treats subsequences in separate algorithmic complexity reductions."
+      ],
+      "reasoning": "A scattered-subsequence inclusion on each reset word is not equivalent to a shortest-length result or a worst target-avoidance cost; the lower bound on shortest length follows from it, but no converse implication was found.",
+      "searches": [
+        "published-finding corpus: For the Černý automaton C_n all synchronizing reset words must contain b(a^{n-1}b)^{n-2} as a scattered subsequence",
+        "Web: \"Černý\" \"subsequence\" \"reset\" \"minimal\"",
+        "Web: piecewise testable reset language Cerny synchronizing language subsequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest IDs 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f, 2026/9/9/SCOPE010, 2026/9/7/SCOPE007; none has this exact table or polynomial in full readable RESULT.md."
+      ],
+      "reasoning": "Separate automaton reset-threshold distribution tables classify automata by their shortest length, not input-word counts at length L+1. No exact first-excess count table located. Search failure alone is not a novelty certificate.",
+      "searches": [
+        "Web: \"Cerny\" \"(n-1)^2+1\" \"reset words\"",
+        "Web: \"Cerny automata\" \"almost shortest\" reset words enumeration",
+        "published-finding corpus: Number of synchronizing words of length (n-1)^2+1 equals n^2-4n+7"
+      ]
+    },
+    "rationale": "The claim differs in quantifiers and objects from published shortest-threshold and k-avoiding threshold statements: it constrains every individual reset word by a particular scattered subsequence and counts all literal words one letter beyond optimum. Direct web queries on exact polynomial, mandatory subsequences and near-shortest enumeration plus published-finding corpus semantic searches found no prior statement or dominating general theorem. Relevant accessible primary full texts and close published research records were inspected, not only titles. Residual risk of older or unindexed coverage remains, not proof of uniqueness.",
+    "residual_risks": [
+      "Older work may describe the same language rigidity under scattered-subword, factor, unavoidable pattern, monotonic reset or cyclic-particle terminology not captured by the searches.",
+      "A searchable published-finding corpus index and available published repository records do not reveal other unpublished mathematical work; exact novelty still needs independent bibliographic verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers algorithms for finding the minimum reset length, not the scattered-subsequence obstruction or exact count of reset words at length one above the minimum.",
+        "evidence": [
+          "Section 2: shortest reset word search; Section 5.2: complexity on slowly synchronizing automata; Section 7.6: probability distribution of reset lengths across automata, not numbers of input words for one automaton."
+        ],
+        "identifier_or_url": "doi:10.1007/s10878-013-9682-0",
+        "material_read": "Full readable HTML sections 1–7, particularly definitions, shortest word search, slow-synchronization complexity and empirical reset-length distribution",
+        "method": "Primary full-text HTML, not snippet",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Original open-access exact-reset algorithms and Černý examples"
+      },
+      {
+        "assessment": "Determines worst-case shortest avoidance length kn over target k-sets and worst target, not the mandatory scattered pattern in all reset words and not first-excess reset word multiplicity.",
+        "evidence": [
+          "Theorem: at_k(C_n)=kn with unique worst k-subset B_k; proof by reverse-image boundary deletion; no enumeration of reset words of length (n-1)^2+1."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+        "material_read": "Full published RESULT.md including full theorem, inverse-action proof, related works and limits",
+        "method": "Public repository raw text via read-only repository access",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Same named automaton and same powers of a and b; potential stronger coverage"
+      },
+      {
+        "assessment": "Studies 14 partial-transition mutants and 98 completions; C7 shortest length 36 is baseline, not first-excess words or subsequence necessity.",
+        "evidence": [
+          "Baseline C7 shortest length 36; main result no carefully synchronizing one-hole mutant; 98 transition-fill reset-length table."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/9/9/SCOPE010/RESULT.md",
+        "material_read": "Full published RESULT.md including careful-synchronization trap proof and completion-fill landscape",
+        "method": "Public repository raw text via read-only repository access",
+        "title": "Complete certified careful-synchronizability map of the C7 one-hole ball",
+        "trigger": "Same Černý C7 automaton, possible word-set coverage"
+      },
+      {
+        "assessment": "Examines different 8-state automata and maximum reset threshold 34; neither the C_n reset-language necessary subsequence nor its near-minimal multiplicity.",
+        "evidence": [
+          "Exact 34 threshold for a one-cluster 5-cycle slice; distinct transition structure from C_n."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/published-finding corpus/2026/main/2026/9/7/SCOPE007/RESULT.md",
+        "material_read": "Full published RESULT.md including main theorem and power-automaton certification",
+        "method": "Public repository raw text via read-only repository access",
+        "title": "Slow-reset census for binary one-cluster synchronizing automata on 8 states with a prime 5-cycle",
+        "trigger": "Close reset-length computational study"
+      },
+      {
+        "assessment": "The work studies parametrized synchronization/intersection and subsequence extension, not exact words in the standard C_n automaton.",
+        "evidence": [
+          "Section 1 references Cerny 4-state shortest length 9; §6.2 concerns longest-common-subsequence complexity; no all-n near-shortest reset-word enumeration."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/mathematical-structures-in-computer-science/article/synchronizing-words-and-monoid-factorization-yielding-a-new-parameterized-complexity-class/2910A2134026357AC684F256DB5C0349",
+        "material_read": "Readable full HTML: introductory Cerny discussion, construction lemmas, subsequence subsection 6.2 and extension problems",
+        "method": "Primary full-text HTML",
+        "title": "Synchronizing words and monoid factorization, yielding a new parameterized complexity class?",
+        "trigger": "2022 complexity work mentions Černý automata and scattered-subsequence order for reset-word problems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a725fd1-702c-4daf-9954-79968dac7bfd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The standard Cerny family is an extremal calibration example in synchronization. Unlike simply reproducing the known shortest length, a forbidden-subsequence theorem constrains every reset protocol and gives an exact coefficient of the first excess-length layer of its reset language. The polynomial count quantifies the number of one-symbol slack choices and the precise unsafe insertion sites, providing a natural word-language invariant for comparing redundancy/rigidity of near-minimal reset sequences; the exact quantity is neither arbitrary parameter slicing nor immediate from the classical optimum.",
+    "status": "PASS"
+  }
+}
