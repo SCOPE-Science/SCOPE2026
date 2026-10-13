@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "All \\(16\\) two-couple and \\(46656\\) three-couple complete strict profiles are exhausted. Two independent stability checks and two independent objective computations agree on every perfect matching. The exact relation table and \\(29\\)-orbit incompatibility quotient replay from the packaged verifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cooper and Manlove's open full text defines a rank-maximal stable matching by lexicographic maximization of the two-sided profile and states that minimum regret minimizes the highest assigned rank.",
+        "The same full text attributes an exponential-weight rank-maximal method to Irving, Leather, and Gusfield's 1987 weighted stable-marriage framework.",
+        "Gusfield's 1987 SIAM abstract explicitly states an algorithm for the minimum-regret stable marriage and interprets it as optimizing the worst-off participant.",
+        "These general algorithms establish feasibility of each criterion separately but do not compare their optimizer-set intersection."
+      ],
+      "reasoning": "Algorithmic solvability of both objectives and their conceptual definitions are broader prior coverage. Neither yields a theorem about simultaneous attainability, smallest disjoint instance, or the finite relation census.",
+      "searches": [
+        "Two-sided profile-based optimality stable marriage rank maximal minimum regret",
+        "An efficient algorithm optimal stable marriage rank maximal exponential weights",
+        "Three fast algorithms four problems stable marriage minimum regret",
+        "stable marriage fairness rank profile worst rank"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0216010",
+      "doi:10.1145/28869.28871",
+      "arXiv:1905.06626",
+      "arXiv:1207.1265"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exponential-weight construction for rank profiles optimizes one lexicographic objective only; it does not constrain the worst rank of its optimizer relative to all stable matchings.",
+        "A minimum-regret algorithm optimizes the worst rank only; it does not constrain the lexicographic profile of its optimizer.",
+        "The later profile-based literature discusses several fair stable-matching criteria separately, without a theorem that one objective refines or dominates the other."
+      ],
+      "reasoning": "Neither objective implies the other. The accepted result requires exhaustive optimizer-set comparison over every profile through the first failure order, which is not a corollary of the known algorithms.",
+      "searches": [
+        "rank-maximal stable matching maximum weight stable marriage profile",
+        "minimum regret stable marriage worst off person",
+        "stable marriage rank maximal minimum regret comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked result states that rank-maximal and minimum-regret optimizer sets always intersect through two couples and first become disjoint at three.",
+        "Searches covered the aliases rank-maximal, two-sided profile, minimum regret, worst rank, optimizer intersection, disjointness, and smallest profile.",
+        "The open profile-based primary paper defines rank-maximality and separately describes minimum regret but does not give the claimed finite boundary."
+      ],
+      "reasoning": "A source showing that the objectives are different, or even that their chosen matchings can differ under a tie-breaking convention, would not imply disjoint optimizer sets. The accepted claim concerns the set-valued optimization problems and a sharp market-size cutoff.",
+      "searches": [
+        "rank-maximal stable marriage minimum regret disjoint optimizer",
+        "two-sided rank-maximal stable matching minimum regret",
+        "rank maximal versus regret stable marriage smallest profile",
+        "stable marriage rank profile minimum regret three couples",
+        "\"rank-maximal\" \"minimum regret\" stable marriage disjoint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the \\(37716,6984,1956\\) optimizer-relation table.",
+        "No inspected source supplied \\(29\\) incompatible three-couple isomorphism classes.",
+        "No inspected source supplied the orbit-size distribution \\(26\times72,2\times36,1\times12\\).",
+        "The packaged verifier derives these values directly from the complete labeled profile domain."
+      ],
+      "reasoning": "Exact-count, exact-order, and isomorphism-class searches directly target prior tabulation of the finite result.",
+      "searches": [
+        "\"1956\" \"stable marriage\" rank maximal regret",
+        "\"29\" isomorphism classes rank maximal minimum regret stable marriage",
+        "\"3x3\" stable marriage rank maximal minimum regret",
+        "\"three couples\" rank-maximal minimum-regret stable"
+      ]
+    },
+    "rationale": "Rank-maximal and minimum-regret stable matchings are established objectives, but the inspected sources do not state the sharp optimizer-set incompatibility boundary, the exact \\(1956\\) first incompatibilities, or the \\(29\\)-class quotient.",
+    "residual_risks": [
+      "The full text of the 1987 weighted-optimization paper was inaccessible during this comparison; a later open full text explicitly attributes the rank-maximal exponential-weight construction to it.",
+      "An unindexed thesis appendix, teaching exercise, or software test corpus could contain the same three-couple finite classification.",
+      "The theorem does not address incomplete lists, ties, one-sided rank profiles, or markets larger than three couples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the same rank-maximal objective and separately the minimum-regret objective, but does not state the sharp small-market optimizer-set incompatibility or the three-couple census.",
+        "evidence": "The text defines rank-maximality as lexicographic maximization of counts of first, second, and later choices; it states that minimum regret minimizes the highest rank; and it attributes an exponential-weight rank-maximal construction to Irving, Leather, and Gusfield.",
+        "identifier_or_url": "arXiv:1905.06626",
+        "material_read": "Open full text: introduction on stable-marriage fairness; definitions of rank, degree, minimum regret, profile, rank-maximality, and generous matchings; discussion of the 1987 exponential-weight framework; algorithmic sections describing profile optimization.",
+        "method": "Open full-text inspection.",
+        "title": "Two-sided profile-based optimality in the stable marriage problem",
+        "trigger": "Most directly relevant open primary full text defining the two-sided rank profile and placing it alongside classical stable-marriage fairness criteria."
+      },
+      {
+        "assessment": "Establishes the minimum-regret objective and a polynomial-time algorithm, but does not compare it with two-sided rank-maximality.",
+        "evidence": "The abstract states an \\(O(n^2)\\) algorithm for the minimum-regret stable marriage and describes it as the best stable marriage measured by the worst-off person.",
+        "identifier_or_url": "doi:10.1137/0216010",
+        "material_read": "Publisher abstract and bibliographic metadata.",
+        "method": "Publisher abstract inspection.",
+        "title": "Three Fast Algorithms for Four Problems in Stable Marriage",
+        "trigger": "Classical primary source for minimum-regret stable marriage."
+      },
+      {
+        "assessment": "Owns the weighted stable-marriage framework used by later profile-based work. The accessible material does not state the new optimizer-set boundary.",
+        "evidence": "Published 1 July 1987 in Journal of the ACM 34(3), 532–543.",
+        "identifier_or_url": "doi:10.1145/28869.28871",
+        "material_read": "Publisher bibliographic record and abstract; full article fetch was unavailable.",
+        "method": "Publisher metadata and abstract inspection, cross-checked against the later open full text's explicit attribution.",
+        "title": "An efficient algorithm for the “optimal” stable marriage",
+        "trigger": "Archive-era weighted stable-marriage framework later cited as supporting exponential-weight rank-profile optimization."
+      },
+      {
+        "assessment": "The associated journal record lists MSC \\(91B68\\), supporting slot ownership; it is not used as novelty evidence.",
+        "evidence": "The SIAM journal record lists MSC codes 68Q25, 68W40, and 91B68.",
+        "identifier_or_url": "arXiv:1207.1265",
+        "material_read": "Open arXiv record and publisher classification metadata.",
+        "method": "Bibliographic and classification inspection.",
+        "title": "Locally Stable Marriage with Strict Preferences",
+        "trigger": "Verification that stable matching falls under the permitted social-choice/game-theory MSC slot."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a61ca3eb-1863-4dd0-8d59-00a7bcdd3f5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Rank-maximality lexicographically rewards top-choice assignments, while minimum regret protects the single worst-off participant; both are canonical fairness notions in stable matching. Whether they admit a common optimum is therefore a natural compatibility question. The exact first failure at three couples, complete labeled incidence, and full isomorphism quotient provide a compact benchmark for objective tradeoffs and implementations.",
+    "status": "PASS"
+  }
+}
