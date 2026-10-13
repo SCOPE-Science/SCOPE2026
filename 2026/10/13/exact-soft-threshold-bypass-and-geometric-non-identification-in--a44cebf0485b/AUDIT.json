@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For \\(g\\equiv0\\), the source proximal-parameter decrease test is automatic, hence \\(\\mu_k=\\mu\\). Inside \\(|x|\\le\\mu\\lambda\\), soft thresholding gives \\(x^+=0\\) and \\(\\eta=x/\\mu\\). In one dimension the source coefficients satisfy \\(\\beta d=\\gamma y\\) identically whenever their common denominator is defined, so \\(d=-\\eta\\). On the claimed basin the source first-stage inequality accepts \\(t=1\\) because \\(|x|\\le\\mu\\lambda/T\\), and Armijo accepts \\(\\alpha=1\\) because \\(|x|\\le\\mu\\lambda/\\delta\\). This yields the exact contraction \\(x_{k+1}=(1-1/\\mu)x_k\\). Along that path the corrected denominator is \\(d^2(1/\\mu+\\nu)>0\\), so the algebra never divides by zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liang--Fadili--Peyré prove finite active-manifold identification for forward-backward-type methods under partial smoothness and nondegeneracy; that result concerns the proximal update itself and provides the contrast exploited here.",
+        "Zhang--Zhou--Li establish smooth three-term conjugate-gradient descent properties but do not treat composite proximal identification.",
+        "No inspected broader source covers the exact scalar recurrence of the 2026 PNCG line-search branch."
+      ],
+      "reasoning": "The final claim is not that finite identification is new in general; it is that the 2026 hybrid line-search update can destroy the one-step identification already present in its own computed proximal point.",
+      "searches": [
+        "DOI:10.1137/16M106340X activity identification forward backward methods",
+        "DOI:10.1080/10556780701223293 three-term Hestenes Stiefel sufficient descent",
+        "proximal conjugate gradient finite activity identification soft threshold counterexample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.11150v1",
+      "arXiv:2604.11150v2",
+      "DOI:10.1137/16M106340X",
+      "DOI:10.1080/10556780701223293"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary algorithm explicitly computes a proximal point but, after a successful line-search test, updates along the NCG direction instead of assigning the proximal point.",
+        "The primary source proves descent and global convergence but does not state finite support identification for this branch.",
+        "Forward-backward identification theory does not imply identification of a different relaxed NCG iterate, and the smooth three-term HS theory has no nonsmooth active manifold."
+      ],
+      "reasoning": "The accepted claim is precisely about the gap between a proximal point that is already identified and the actual line-search iterate. Neither parent theory closes that gap.",
+      "searches": [
+        "Primary full text: equations (17)--(26), Algorithm 3, Lemma 2, and LASSO experiment section",
+        "DOI:10.1137/16M106340X finite activity identification",
+        "DOI:10.1080/10556780701223293 three-term Hestenes Stiefel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed finding returned the primary source together with finite-identification, soft-threshold bypass, or active-manifold language.",
+        "The closest hits concern unrelated proximal convexification, row scaling, generic projected certification, and adaptive-gradient stability."
+      ],
+      "reasoning": "The searches covered the source identifier and invariant aliases: proximal-point hit, active-set identification, support identification, soft thresholding, forward-backward residual, and geometric line-search relaxation.",
+      "searches": [
+        "2604.11150 l1 finite identification proximal nonlinear conjugate gradient support identification",
+        "forward backward residual three term Hestenes Stiefel l1 exact zero identification",
+        "proximal nonlinear conjugate gradient sparse active set finite identification",
+        "PNCG l1 soft threshold exact prox point ignored line search geometric tail",
+        "arXiv 2604.11150 finite identification l1 one dimensional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-result record matched the primary source or the exact \\(\\ell_1\\) geometric-tail construction.",
+        "The claim is an analytic phase calculation rather than a numerical-table recomputation."
+      ],
+      "reasoning": "The indexed nearest neighbors concern different algorithms and do not imply the finite-identification failure or contraction factor \\(1-1/\\mu\\).",
+      "searches": [
+        "Proximal Nonlinear Conjugate Gradient Methods composite Hestenes Stiefel 2604.11150 scalar quadratic exact",
+        "2604.11150 forward backward residual three term Hestenes Stiefel convergence",
+        "PNCG l1 soft threshold exact prox point ignored line search geometric tail"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the forward-backward residual, proximal-parameter rule, three-term direction, corrected curvature vector, two-stage line search, convergence discussion, and LASSO experiments. Earlier forward-backward identification literature covers finite manifold identification by proximal-gradient-type updates, while the classical three-term Hestenes--Stiefel paper covers smooth descent directions. Neither inspected line implies the source-specific phenomenon that a composite NCG line-search branch can repeatedly bypass a proximal point already equal to the minimizer. Source-specific database and literature searches found no equivalent statement.",
+    "residual_risks": [
+      "Relaxed forward-backward literature may contain analogous examples of failed finite identification under under-relaxation, although no source-specific PNCG implication was located.",
+      "The source uses tolerance-based termination in experiments; the exact-stationarity non-identification result should not be read as a claim of endless practical execution.",
+      "The construction is scalar and does not classify support identification in higher-dimensional coupled problems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source provides the exact formulas used in the construction and proves global convergence, but it does not state the scalar soft-threshold bypass or a finite-identification theorem for the line-search branch.",
+        "evidence": "Algorithm 3 computes the proximal point in Step 1, forms the three-term direction in Step 3, and, when the line-search tests succeed, updates \\(x_{k+1}=x_k+\u0007lpha_kd_k\\) rather than assigning \\(x_k^+\\). The paper also includes \\(\\ell_1\\)-regularized LASSO experiments.",
+        "identifier_or_url": "arXiv:2604.11150v2",
+        "material_read": "Full-text portions containing the forward-backward residual and proximal parameter rule, equations (17)--(26), Algorithm 3, descent lemma, convergence discussion, and the LASSO experiment section; the line-search pages were visually inspected in the rendered PDF.",
+        "method": "Public arXiv full-text and rendered-PDF inspection.",
+        "title": "Proximal Nonlinear Conjugate Gradient Methods for Composite Optimization",
+        "trigger": "Primary recent source defining the composite PNCG direction and two-stage line search."
+      },
+      {
+        "assessment": "Covers finite identification by forward-backward-type updates under partial smoothness and nondegeneracy, but does not cover the 2026 PNCG line-search relaxation.",
+        "evidence": "The paper's stated results include finite identification of active manifolds for forward-backward-type methods and applications to Lasso-type regularizers.",
+        "identifier_or_url": "DOI:10.1137/16M106340X",
+        "material_read": "Published abstract, bibliographic metadata, and stated activity-identification result.",
+        "method": "Public publisher and bibliographic inspection.",
+        "title": "Activity Identification and Local Linear Convergence of Forward--Backward-type Methods",
+        "trigger": "Highly relevant prior literature on finite active-manifold identification for proximal-gradient methods."
+      },
+      {
+        "assessment": "Covers smooth sufficient-descent three-term conjugate-gradient directions, not nonsmooth proximal-point identification.",
+        "evidence": "The method predates the forward-backward residual construction and has no soft-threshold active-set mechanism.",
+        "identifier_or_url": "DOI:10.1080/10556780701223293",
+        "material_read": "Published abstract and bibliographic description of the three-term descent construction and global convergence.",
+        "method": "Public publisher metadata and abstract inspection.",
+        "title": "Some descent three-term conjugate gradient methods and their global convergence",
+        "trigger": "Original smooth three-term Hestenes--Stiefel direction underlying the primary method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a44cebf0-485b-4a53-846b-2b4db530e438",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary method is motivated by composite and sparse optimization and explicitly benchmarks on LASSO. In that setting, finite support identification is a structurally important benefit of proximal methods. The finding shows that the hybrid line-search branch can discard an exact proximal hit, identifies a complete source-compatible basin where this happens at every iteration, and gives the exact slowdown factor \\(1-1/\\mu\\), which can approach one. This supplies a concrete design boundary between the acceleration branch and the fallback proximal branch rather than a routine scalar exercise.",
+    "status": "PASS"
+  }
+}
