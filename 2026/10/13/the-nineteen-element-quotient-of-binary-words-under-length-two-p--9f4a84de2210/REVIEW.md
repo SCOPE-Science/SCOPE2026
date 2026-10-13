@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The elementary operation is \(ab\leftrightarrow abba\) in arbitrary contexts. Empty/singleton isolation, parity, leading symbol and precise initial-run category are invariants. Both displayed four-expansion paths end at the same word, establishing the essential nontrivial relation \(aba\equiv abb\) for distinct binary letters. From it the derivation \(ab\equiv abab\), the four possible suffix-erasure relations \(abuv\equiv ab\), and the canonical reduction for every mixed word are explicit. Constant words reduce via \(aa\equiv aaaa\). Canonical words with different signatures cannot coincide by invariance, and all 19 cases are represented. The standalone finite verifier checks these critical identities and short graphs; it is not substituted for the infinite argument. An independent audit has not yet been performed.
+
+## Originality — PASS, with residual priority risk
+The closest work is Zeraatpisheh–Esmaeili–Gulliver (2020), which examines nonunique palindromic roots and code constructions, and Yohananov–Schwartz (2023/2024), which proves zero asymptotic coding capacity for the wider channel. Neither inspected primary text states an exact 19-element binary monoid congruence or an all-words characterization by first-run type. The former's selected joint-irreducible codes do not classify arbitrary words, and the latter's upper capacity result neither entails the exact congruence classes nor their representative counts. Targeted semantic database and text searches identified no covering published theorem. Equivalence under alternate names or in unpublished material remains possible; absence of a search hit is not treated as proof of novelty.
+
+## Mathematical value — PASS
+The smallest nontrivial palindromic-duplication length has ambiguous directed roots, and a complete finite presentation of its induced binary equivalence was not supplied in the inspected literature. The theorem collapses an infinite context-sensitive rewriting system to 19 explicitly characterized classes, proves a finite-index normal form, and produces eight distinct error-protected classes at all lengths at least four. Unlike a small arbitrary numerical instance, the result treats every binary word and every number of duplications. Its coding consequence is deliberately only a construction, not an asserted optimum.
+
+## Closest sources and risks
+M. Zeraatpisheh, M. Esmaeili, T. A. Gulliver, *Construction of Duplication Correcting Codes*, IEEE Access (2020), DOI:10.1109/ACCESS.2020.2995812, Section III-A. L. Yohananov, M. Schwartz, *On the Coding Capacity of Reverse-Complement and Palindromic Duplication-Correcting Codes*, arXiv:2312.00394, especially Section 5. Risks are possible unindexed equivalent classifications, particularly under semi-Thue/congruence terminology, and the distinction between symmetric equivalence and directed common descendants. The former is an external priority risk; the latter is explicitly delimited in the theorem.
+
+Self-review: passed. Independent audit: not yet performed.
