@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "At time \\(t=w\\), Hamming distance forces every contributing path to be a permutation of the target support. The uniform initial coin is fixed by the Grover diffusion; every later shortest-path transition is off-diagonal with amplitude \\(2/n\\). Counting \\((w-1)!\\) coherent paths per final coin sector and \\(w\\) orthogonal sectors gives the exact probability. The classical count and Stirling limit then follow directly. Exact finite-state replay independently matches every \\(2\\le n\\le7\\), \\(1\\le w\\le n\\) case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kempe, arXiv:quant-ph/0205083v1, gives an exact spectral sum for the opposite-corner amplitude and proves near-unit hitting around \\(\\pi n/2\\).",
+        "Moore--Russell, arXiv:quant-ph/0104137v1, proves linear-time mixing statements.",
+        "Kokainis et al., arXiv:2201.11735v1, give the exact walk definition and shell recurrence machinery, then prove a pointwise dispersion bound near \\(0.8663n\\)."
+      ],
+      "reasoning": "The antipode spectral formula covers one target at arbitrary time but does not dominate the all-distance first-arrival law or the comparison with classical shortest-path probability. Generic shell recurrences and mixing theorems are ingredients rather than statements implying the displayed crossover without the new boundary calculation.",
+      "searches": [
+        "arXiv:quant-ph/0205083 opposite corner Eq. (2) Hamming distance",
+        "arXiv:quant-ph/0104137 discrete hypercube mixing",
+        "arXiv:2201.11735 Hamming shell recurrence factorial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.11735v1",
+      "arXiv:quant-ph/0205083v1",
+      "arXiv:quant-ph/0104137v1",
+      "DOI:10.1088/1751-8121/aca6b9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2201.11735v1 the model is defined by the Grover coin and shift, and the main theorem concerns strong dispersion near \\(0.8663n\\); its factorial shell estimate is an inequality.",
+        "In arXiv:quant-ph/0205083v1 Eq. (2) is an opposite-corner spectral amplitude, Theorem 1 concerns a later window around \\(\\pi n/2\\), and Section 4 discusses target neighborhoods rather than earliest-arrival probabilities for all Hamming weights.",
+        "arXiv:quant-ph/0104137v1 concerns mixing, not the causal-frontier point law."
+      ],
+      "reasoning": "The prior statements do not imply the full claimed profile as a stated special case: the novelty-bearing component varies the target Hamming weight and compares exact shortest-time quantum and classical probabilities, producing a new rate sign change at \\(e/4\\). The antipodal line alone is not used as the originality claim because Kempe has broader antipode spectral coverage.",
+      "searches": [
+        "arXiv:2201.11735v1 Sections II--III",
+        "arXiv:quant-ph/0205083v1 Sections 3.1 and 4",
+        "arXiv:quant-ph/0104137v1 discrete-time hypercube mixing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved indexed finding stated the exact formula \\(w!(w-1)!4^{w-1}/n^{2w-1}\\) or an equivalent shortest-path frontier law.",
+        "The motivating paper defines the same Hamming shells but its displayed factorial relation is an inequality connecting shell mass to return probability, not a first-arrival equality."
+      ],
+      "reasoning": "An equivalent formulation would have to determine the point probability at the causal boundary \\(t=|x|\\) for every Hamming weight, or equivalently the coherent sum over all shortest direction permutations. The inspected records did not do so.",
+      "searches": [
+        "Grover hypercube first arrival Hamming distance w probability w! (w-1)! constructive interference e/4",
+        "minimal-time transition probability Hamming shell discrete Grover walk hypercube",
+        "Grover coined quantum walk hypercube shortest path amplitude permutation Hamming weight",
+        "shortest-path Grover hypercube Hamming shell coherent permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-form web searches returned no source containing the factorial probability formula or the \\(e/4\\) crossover in this walk.",
+        "Semantic-database searches returned only mathematically unrelated Boolean-cube or Hamming-space records."
+      ],
+      "reasoning": "The exact constants, factorial dependence, and crossover threshold were queried directly; no covering database record or table was found.",
+      "searches": [
+        "Grover hypercube first arrival Hamming distance w probability w! (w-1)! constructive interference e/4",
+        "ballistic frontier quantum classical crossover e/4 hypercube Grover coin",
+        "4^{w-1} quantum walk hypercube",
+        "w!(w-1)! hypercube quantum walk",
+        "e/4 Grover hypercube"
+      ]
+    },
+    "rationale": "The originality-bearing statement is the exact all-Hamming-weight earliest-arrival profile and its quantum/classical exponential crossover at \\(\\rho=e/4\\). The motivating dispersion paper gives the walk, shell recurrences, and a factorial inequality but not this equality or crossover. Kempe gives an opposite-corner spectral amplitude and later near-unit hitting window, not the full earliest-arrival frontier. Moore--Russell gives mixing results, not this boundary law. Targeted semantic and exact-form searches found no indexed statement covering the profile or crossover.",
+    "residual_risks": [
+      "A weakly indexed derivation of the same shortest-time factorial profile may exist under path-counting or radial-walk terminology.",
+      "Kempe's opposite-corner spectral formula is broad enough to recover the antipodal specialization after further calculation; originality therefore rests on the all-Hamming-weight frontier and the \\(e/4\\) quantum/classical crossover, not on the antipodal line by itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact operator and proves later-time dispersion; does not state the exact earliest-arrival profile or the quantum/classical crossover.",
+        "evidence": [
+          "arXiv:2201.11735v1, Sections II--III; model equations and main theorem."
+        ],
+        "identifier_or_url": "arXiv:2201.11735v1",
+        "material_read": "Full open preprint, especially the walk definition in Section II, Hamming-shell reduction and Lemma 1 in Section III, and the main dispersion theorem.",
+        "method": "Full-text primary-source inspection including the rendered model-definition page.",
+        "title": "Strong dispersion property for the quantum walk on the hypercube",
+        "trigger": "Exact same discrete Grover walk and the motivating pointwise-dispersion problem."
+      },
+      {
+        "assessment": "Provides an arbitrary-time spectral formula for the opposite corner and later hitting results, but not the all-distance earliest-arrival formula or the \\(e/4\\) crossover.",
+        "evidence": [
+          "arXiv:quant-ph/0205083v1, Eq. (2), Theorem 1, Section 4."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0205083v1",
+        "material_read": "Full open preprint, especially Section 3.1, Eq. (2), Theorem 1, and Section 4 on dependence on target state.",
+        "method": "Full-text primary-source inspection including the rendered hitting-time page.",
+        "title": "Quantum Random Walks Hit Exponentially Faster",
+        "trigger": "Closest predecessor on hypercube target probabilities and opposite-corner hitting."
+      },
+      {
+        "assessment": "Establishes linear mixing but does not supply evidence that would cover the first-arrival frontier theorem.",
+        "evidence": [
+          "arXiv:quant-ph/0104137v1 abstract."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0104137v1",
+        "material_read": "Open abstract and bibliographic summary of the discrete- and continuous-time mixing results.",
+        "method": "Primary bibliographic/abstract inspection; not used for a whole-document noncoverage claim.",
+        "title": "Quantum Walks on the Hypercube",
+        "trigger": "Foundational source for the same discrete-time hypercube walk and mixing behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82378cf7-097e-4d94-b6d7-f5d8edda74ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The causal boundary \\(t=d(0,x)\\) is a natural dynamical regime, not an arbitrary time slice. The result gives the entire point-probability profile there and identifies a sharp normalized-distance threshold \\(e/4\\) where coherent shortest-path interference changes from exponential suppression to exponential amplification relative to the simple classical walk. This complements later-time dispersion and antipodal-hitting results by exposing a structural boundary mechanism.",
+    "status": "PASS"
+  }
+}
