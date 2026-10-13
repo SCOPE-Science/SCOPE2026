@@ -1,0 +1,158 @@
+{
+  "claim_to_evidence": {
+    "computations": "Exact integer sieve n<=1,000,000: 208 dyadic-totient candidates; 3 solutions.",
+    "critical_steps": [
+      "e=0 gives no positive solution",
+      "Odd prime factors occur exactly once and are Fermat primes",
+      "Odd n gives T=2^(1-T)P, forcing a contradiction",
+      "Even n gives a-1+T=2^(2-T)P and hence T<=2",
+      "T=0,1,2 yield exactly 32,192,80 and are checked"
+    ],
+    "domain": "All positive integers n with phi(n)=2^e, e>=0.",
+    "unproved_limits": "Nothing asserted when phi(n) has an odd prime factor; indexed search does not guarantee novelty; external independent audit not performed."
+  },
+  "correctness": {
+    "rationale": "The exact proof handles n=1,2 separately, proves n=2^a times distinct Fermat primes when phi(n) is dyadic, and excludes odd n. For even n, writing T=sum 2^j and odd P=product(2^(2^j)+1), it proves a-1+T=2^(2-T)P; integrality implies T<=2. Its only three cases give n=32,192,80, each verified directly. No appeal to the finite test proves the universal quantifier. A standalone exact integer sieve checked every dyadic-totient n up to 1,000,000 and observed exactly these hits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kovic (2012) studies D, its iterates, and antiderivatives; inspected pages 1-4 and searchable full-text terms provide no theorem treating the composition D(phi(n)).",
+        "Published record: Prime-power rigidity for the third and fourth arithmetic-derivative iterates concerns D^3(n)=n and D^4(n)=n on prime powers, not D(phi(n))=n on dyadic totients.",
+        "Published record: Sharp support thresholds for the arithmetic-derivative cototient gap studies D(n)-(n-phi(n)), a different arithmetic-function comparison."
+      ],
+      "reasoning": "Results on the derivative alone, higher iterates, or D(n) relative to n-phi(n) cannot imply the precise fixed-point equation after applying phi. The classical Fermat-prime description allows infinitely many a priori patterns; it does not itself imply the three-element answer.",
+      "searches": [
+        "\"arithmetic derivative\" \"totient\" \"32\" \"80\" \"192\" theorem",
+        "\"arithmetic derivative\" \"Euler totient\" \"Fermat primes\" 32 80 192",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL15/Kovic/kovic4.pdf",
+        "fixed points of composition arithmetic derivative Euler phi totient dyadic range 2-powers"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A248815",
+      "https://oeis.org/A248815/b248815.txt",
+      "https://oeis.org/A166374",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL15/Kovic/kovic4.pdf",
+      "https://www.physicsforums.com/threads/proof-about-itex-phi-n-itex-being-a-power-of-2.691973/",
+      "Published record: Sharp support thresholds for the arithmetic-derivative cototient gap",
+      "Published record: Prime-power rigidity for the third and fourth arithmetic-derivative iterates",
+      "Published record: Interior divisor degrees are never unique for two-prime phi-practical numbers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A248815 gives the defining fixed-point equation and numerical witnesses, not the filtered all-n theorem.",
+        "Published record: Interior divisor degrees are never unique for two-prime phi-practical numbers studies uniqueness of cyclotomic divisor degrees for phi-practical inputs, rather than the derivative of phi.",
+        "Gauss-Wantzel and the Fermat-prime factorization characterize the domain, not which members satisfy D(phi(n))=n."
+      ],
+      "reasoning": "The new statement intersects two classical classes and proves a complete classification. Its conclusion is not a corollary of a mere finite list, nor of the domain characterization without the additional exponent-denominator argument. No directly dominating theorem was identified in the actual indexed searches.",
+      "searches": [
+        "https://oeis.org/A248815",
+        "Exact equation n=D(phi(n)) with phi(n)=2^k; only n=32,80,192",
+        "Gauss constructible positive integers n satisfying arithmetic derivative of Euler totient equals n",
+        "fixed points of composition arithmetic derivative Euler phi totient dyadic range 2-powers",
+        "Published record: Sharp support thresholds for the arithmetic-derivative cototient gap",
+        "Published record: Prime-power rigidity for the third and fourth arithmetic-derivative iterates",
+        "Published record: Interior divisor degrees are never unique for two-prime phi-practical numbers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A248815 states D(phi(n))=n and lists individual solutions without a dyadic-totient characterization.",
+        "The prime-power-totient equivalent is the index set of constructible regular polygons (n>=3), classically obtained from distinct Fermat primes.",
+        "No directly matching result appeared in the three targeted semantic record searches."
+      ],
+      "reasoning": "The reformulation D(2^e)=e2^{e-1} and the factorization phi(n)=2^e do not alone supply the exhaustive intersection. The integral exponent identity e=2n/phi(n), combined with oddness of the Fermat-prime product, eliminates every Fermat prime index above 1. A248815 lists known witnesses but no such necessity theorem.",
+      "searches": [
+        "Exact equation n=D(phi(n)) with phi(n)=2^k; only n=32,80,192",
+        "Gauss constructible positive integers n satisfying arithmetic derivative of Euler totient equals n",
+        "fixed points of composition arithmetic derivative Euler phi totient dyadic range 2-powers",
+        "\"n = (phi(n))'\" \"32\" \"80\" \"192\"",
+        "https://oeis.org/A248815",
+        "https://oeis.org/wiki/Arithmetic_derivative"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A248815 (https://oeis.org/A248815), sequence author date 2014-10-15; initial terms 31,32,80,81,112,176,192 and finite table b248815.txt",
+        "The database list contains 32,80,192, but also 31,81,112,176,244, which have totients not equal to powers of two.",
+        "The posted integer table lists 10,000 solutions of the unrestricted equation, not an exhaustive proof over all power-of-two totients."
+      ],
+      "reasoning": "A finite table certifies membership only within its checked range. Even showing these are the only dyadic-totient hits among listed entries does not rule out a larger solution, including one with an unknown high Fermat-prime factor. The theorem supplies the missing unrestricted necessity.",
+      "searches": [
+        "https://oeis.org/A248815",
+        "https://oeis.org/A248815/b248815.txt",
+        "\"n = (phi(n))'\" \"32\" \"80\" \"192\""
+      ]
+    },
+    "rationale": "OEIS A248815 gives the original equation and witnesses, while the classical Gauss-Wantzel/Fermat-prime criterion describes a domain; neither supplies the unbounded classification of their intersection. Published-record semantic searches found only different arithmetic derivative or totient statements. An older unindexed short argument is a residual risk, not evidence of domination.",
+    "residual_risks": [
+      "Unindexed or unpublished prior proof could contain the same elementary classification.",
+      "The motivating database is a finite table; search absence by itself cannot prove originality.",
+      "Material inspected in Kovic (2012) was sufficient to identify its broad scope but was not a line-by-line reading of all sixteen pages."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Lists all three membership witnesses but gives no unrestricted dyadic-totient classification or proof",
+        "evidence": [
+          "Entry author Paolo P. Lava, October 15, 2014",
+          "Initial terms 31,32,80,81,112,176,192; example D(phi(32))=32",
+          "b248815.txt contains indexed finite terms"
+        ],
+        "identifier_or_url": "https://oeis.org/A248815",
+        "material_read": "Entire human-readable entry including definition, comments, finite program, examples, original author date, and b248815 table beginning and finite scope",
+        "method": "Full HTML entry and direct table inspection",
+        "title": "OEIS A248815: Numbers equal to the arithmetic derivative of their Euler totient function",
+        "trigger": "Exact original fixed-point equation and source date"
+      },
+      {
+        "assessment": "Provides derivative background and direct/iterated arithmetic differential equations. The inspected material is not the composite fixed-point claim under a power-of-two totient; no whole-document novelty conclusion is rested solely on this source.",
+        "evidence": [
+          "JIS 15 (2012), Article 12.3.8, pp. 1 and 4",
+          "Derivative formula D(m)=m sum_{p^a||m} a/p; Section 2 studies D(n)=n"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL15/Kovic/kovic4.pdf",
+        "material_read": "Article abstract, introduction, arithmetic derivative definition, formulas, Section 2 and opening theorem of Section 3; searchable full-text inspection for totient and Euler",
+        "method": "Lawful open-access PDF visual page inspection plus text inspection",
+        "title": "The Arithmetic Derivative and Antiderivative",
+        "trigger": "A directly relevant primary mathematical treatment of D preceding the source date"
+      },
+      {
+        "assessment": "Covers the classical equivalence between dyadic totient and Fermat-prime factors, not the derivative fixed-point equation",
+        "evidence": [
+          "Odd prime factors must be distinct Fermat primes",
+          "Does not discuss n=D(phi(n))"
+        ],
+        "identifier_or_url": "https://www.physicsforums.com/threads/proof-about-itex-phi-n-itex-being-a-power-of-2.691973/",
+        "material_read": "Entire May 15, 2013 discussion and its Fermat-prime factorization argument",
+        "method": "Full HTML text inspection",
+        "title": "Proof about phi(n) being a power of two",
+        "trigger": "Classical alternate formulation of the restricted domain"
+      },
+      {
+        "assessment": "Equation D(n)=phi(n) is reversed from the present D(phi(n))=n and is not a covering result",
+        "evidence": [
+          "Entry first authored 2009, D(n)=phi(n)",
+          "Different solutions start 2,9,15 versus 31,32,80"
+        ],
+        "identifier_or_url": "https://oeis.org/A166374",
+        "material_read": "Entire human-readable entry and formulas",
+        "method": "Full HTML entry inspection",
+        "title": "OEIS A166374: Numbers whose arithmetic derivative is Euler totient",
+        "trigger": "Alias search for reversed composition D(n)=phi(n)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5bb0615-45a3-4270-831d-6ec16c83bfa2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural dyadic-totient domain is precisely the Gauss-Wantzel constructible regular polygon index set for n>=3. The original derivative fixed-point sequence already includes examples 32,80,192. The theorem turns them into a complete all-size answer and excludes every potential contribution from as-yet-unknown higher Fermat primes, a structural unbounded classification rather than a table extension or arbitrary slice.",
+    "status": "PASS"
+  }
+}
