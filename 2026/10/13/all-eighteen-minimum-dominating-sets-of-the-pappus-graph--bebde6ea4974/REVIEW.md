@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The graph is defined by a complete explicit \(\mathrm{TD}(3,3)\) incidence table, and the lower bound follows from four-vertex closed neighborhoods. Bipartition incidence inequalities force the selected point–line split to be two–three or three–two. Tight coverage then forces the two same-class points (respectively two nonintersecting parallel lines) and the full opposite neighborhood of their missing classmate. The converse follows from the resolvable incidence structure. Distances give the canonical form and an unambiguous threefold-covered center; explicit automorphisms make the eighteen sets one orbit. The actual bundled verifier checks every subset and an independent LCF presentation, but the proof is unrestricted.
+
+**Originality — PASS with residual priority risk.** The scalar domination number \(\gamma(H)=5\) is available in House of Graphs and is not new. The examined papers on Pappus graph two-factors and PBIB edge/path designs do not address the full minimum dominating-set enumeration. Héger–Nagy analyze full projective-plane incidence graphs, not the truncated affine plane at issue. Semantic and exact-phrase searches for minimum Pappus-graph domination sets, closed-neighborhood enumerations, parallel-class equivalences, and the eighteen-set orbit found no statement implying the complete classification. This search is not a proof of uniqueness: possible unindexed incidence-configuration enumerations or inaccessible graph database fields remain a priority risk.
+
+**Value — PASS.** For the canonical 18-vertex cubic incidence graph, classifying *all* optimum monitoring placements, their symmetry orbit, and their exact closed-neighborhood coverage profiles adds substantially more structure than the known scalar optimum. The incidence argument exposes the dual nine-plus-nine families and the canonical geometry of every optimum; this may be useful as a sharp small case for locating/monitoring variants and symmetry-reduced enumeration, without claiming a downstream theorem.
+
+**Limitations.** The finding applies only to the Pappus graph and minimum ordinary domination, not its higher domination-polynomial coefficients. Independent priority and mathematical audits have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
