@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Equations (1.4)-(1.5) visibly use B1 in both patch equations, so their weighted total has one diffusion coefficient sigma1*x1+sigma2*theta*x2. The source's later proofs instead use B1 and B2 and a sum-of-squares quadratic variation. The sharp independent variance floor follows by one-variable quadratic minimization, while the common-noise floor is the square of the smaller positive intensity because the diffusion coefficient is a convex combination. The exact symmetric witness reduces the common-noise total to a scalar multiplicative-noise inequality with logarithmic growth at most -1/8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zou, Fan, and Wang explicitly state that their B1 and B2 are mutually independent Brownian motions in a related two-patch logistic diffusion model.",
+        "Hening, Nguyen, and Yin allow a general covariance matrix, including perfectly correlated degenerate environmental noise, and explain that correlation can change persistence and extinction behavior.",
+        "Engen's spatial geometric-Brownian population work likewise treats migration together with correlated noise."
+      ],
+      "reasoning": "The broader literature makes covariance dependence prior methodology, which narrows originality to the exact inconsistency and corrected bound in the motivating source. It does not provide the source-specific variance replacement or the exact 3/8 witness.",
+      "searches": [
+        "\"Effects of Dispersal for a Logistic Growth Population in Random Environments\" Brownian independent noise",
+        "\"Stochastic population growth in spatially heterogeneous environments: the density-dependent case\" correlated perfectly correlated noise theorem",
+        "stochastic population patch model correlated environmental noise migration extinction covariance Brownian",
+        "two patch stochastic logistic common environmental noise extinction correlated Brownian"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2020434",
+      "doi:10.1155/2013/912579",
+      "doi:10.1007/s00285-017-1153-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum resolving the B1/B2 discrepancy was located.",
+        "General correlated-noise population theory confirms that covariance is model data, but does not state the motivating article's exact mismatch.",
+        "The exact common-noise correction follows from the motivating source's own weighted-total proof after inserting the printed covariance."
+      ],
+      "reasoning": "General covariance theory does not subsume the accepted result because identifying which covariance the source prints, comparing it to the proof, and deriving the resulting exact replacement are source-specific steps.",
+      "searches": [
+        "\"10.3934/math.2020434\" correction erratum Brownian",
+        "\"10.3934/math.2020434\" B1 B2",
+        "\"Survival analysis of single-species population diffusion models with chemotaxis in polluted environment\" covariance",
+        "perfectly correlated noise patch population extinction Lyapunov exponent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating full text prints the same B1 in both patch equations but later uses B1 and B2 in its martingales and quadratic variations.",
+        "Searches by exact source identity and correlation/noise aliases did not locate a published source-specific correction.",
+        "The independent-noise effective variance appearing in the source equals the exact harmonic variance floor derived from the proof."
+      ],
+      "reasoning": "The claim was searched as a Brownian-index mismatch, a common-versus-independent covariance issue, and a correlation-sensitive extinction-threshold correction. No closest published finding stated the source-specific equivalence or the corrected common-noise bound.",
+      "searches": [
+        "\"10.3934/math.2020434\" Brownian B1 B2 stochastic extinction",
+        "\"Survival analysis of single-species population diffusion models\" common noise independent noise",
+        "chemotaxis polluted population B1 B2 correlated noise extinction threshold",
+        "two patch stochastic population harmonic noise threshold common Brownian",
+        "perfectly correlated environmental noise two patch population extinction threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source PDF was inspected at equations (1.4)-(1.5), where both stochastic equations end with dB1.",
+        "The preliminaries define sigma^2=sigma1^2*sigma2^2/(sigma1^2+sigma2^2).",
+        "Theorem 4.4 was inspected in full and visually checked; its displayed equations use dB1 and dB2 and compute a sum-of-squares quadratic variation.",
+        "The numerical section was inspected at Figure 2 and Example 2, where the paper applies the independent-noise effective variance to its stochastic examples.",
+        "Publisher metadata verifies publication on 1 September 2020 and lists primary MSC 92B05."
+      ],
+      "reasoning": "The finding is based on exact printed equations and the exact theorem proof rather than inferred from an abstract or secondary source.",
+      "searches": [
+        "doi:10.3934/math.2020434 equations 1.4 1.5 B1",
+        "doi:10.3934/math.2020434 sigma squared preliminaries",
+        "doi:10.3934/math.2020434 Theorem 4.4 B1 B2 quadratic variation",
+        "doi:10.3934/math.2020434 Figure 2 sigma1 sigma2"
+      ]
+    },
+    "rationale": "Correlation-sensitive extinction in stochastic spatial population models is established prior theory and is not claimed as new. The original result is source-specific: the 2020 article prints perfect correlation but proves its aggregate survival bounds using independent noise, and the exact correction changes the sufficient extinction margin. The strict symmetric witness demonstrates that the correction is not only notational.",
+    "residual_risks": [
+      "The repeated B1 in the motivating stochastic equations may have been a typesetting error, but no indexed correction was located and the printed model is mathematically unambiguous.",
+      "Simulation code is unavailable, so the covariance structure actually used for the source figures cannot be determined.",
+      "The corrected common-noise extinction inequality is sufficient rather than necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_COMMON_NOISE_PROVED_AS_INDEPENDENT_NOISE",
+        "evidence": "Equations (1.4)-(1.5) use B1 twice; Theorem 4.4 uses B1 and B2 and its quadratic variation omits the common-noise cross term.",
+        "identifier_or_url": "doi:10.3934/math.2020434",
+        "material_read": "Open full PDF covering equations (1.4)-(1.5), Remark 1.1, stochastic notation and effective variance, Lemmas 4.1-4.2, Theorem 4.4 and its complete Ito/quadratic-variation proof, Theorems 4.8 and 4.10, and Examples 2-3. The stochastic model page and Theorem 4.4 page were visually inspected.",
+        "method": "Compared Brownian indices statement by statement, recomputed the weighted-total quadratic variation for the printed common driver, minimized the resulting noise penalty, and constructed a symmetric exact extinction witness.",
+        "title": "Survival analysis of single-species population diffusion models with chemotaxis in polluted environment",
+        "trigger": "Primary source containing both the stochastic patch equations and the target extinction proof."
+      },
+      {
+        "assessment": "EXPLICIT_INDEPENDENT_BROWNIAN_PRIOR",
+        "evidence": "The paper explicitly declares B1 and B2 to be mutually independent Brownian motions.",
+        "identifier_or_url": "doi:10.1155/2013/912579",
+        "material_read": "Open full web text at the stochastic model formulation and positive-solution section.",
+        "method": "Checked the covariance assumption behind the related proof framework.",
+        "title": "Effects of Dispersal for a Logistic Growth Population in Random Environments",
+        "trigger": "Related two-patch stochastic diffusion paper cited by the motivating source."
+      },
+      {
+        "assessment": "CORRELATION_IS_STRUCTURAL_MODEL_DATA",
+        "evidence": "The work explicitly allows perfectly correlated noise and reports qualitative differences between degenerate and nondegenerate environmental covariance structures.",
+        "identifier_or_url": "doi:10.1007/s00285-017-1153-2",
+        "material_read": "Open arXiv/full web text covering the model overview, covariance-matrix formulation, persistence/extinction criterion, discussion of perfectly correlated patch environments, and degenerate-noise case.",
+        "method": "Used to test whether covariance can be treated as scientifically inert in spatial population models.",
+        "title": "Stochastic population growth in spatially heterogeneous environments: the density-dependent case",
+        "trigger": "Primary general theory for dispersal with correlated and degenerate environmental noise."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c2e5995-2ac5-4c91-a287-148e4463afd9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper's main stochastic conclusions concern whether environmental noise causes extinction or permits persistence. Noise correlation directly changes the aggregate Ito correction governing those conclusions; for equal intensities the sharp common-noise extinction margin is twice the independent-noise margin. The exact symmetric witness shows a biologically admissible parameter regime certified extinct under the printed model but missed by the theorem's stated independent-noise threshold.",
+    "status": "PASS"
+  }
+}
