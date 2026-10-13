@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every \\(m\\ge2\\) and \\(w>0\\) the star Gramian follows from the explicit row dot products. Algorithm 3 conditional sampling yields an m-state reset chain. Its success product, episode-length renewal and generalized binomial identity prove the GSSRK mean exactly. IID exponential-race probability and Wald center-count identity prove the RK mean. Gamma asymptotics and w limits follow algebraically. Separate exact-rational finite-state recurrences agree on 54 rational parameter pairs but are not substitutes for the general proof. The theorem concerns a structural certificate rather than the first actual hitting time.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yaniv et al. prove squared-error contractions and a size lower bound for the selectable set, rather than exact expected time for an entire leaf sweep.",
+        "The indexed reset-coupon result concerns a fixed independent catastrophe probability and large balanced coupon vectors, not the remaining-dependent center hazard in GSSRK."
+      ],
+      "reasoning": "General convergence in expectation does not quantify exact finite structural sweep completion. The reset coupon result does not imply the conditional nonrepetition chain because its reset hazard is constant rather than w/(w+r). Its IID component could be recovered by general coupon techniques and is treated only as a comparison.",
+      "searches": [
+        "randomized Kaczmarz finite termination orthogonality graph convergence bound selectable set",
+        "arXiv:2110.04703v2, Sec. 3-4",
+        "arXiv:1612.07838v1, Sec. 9 and Appendix L",
+        "Published published-finding corpus record 7b9ca5a2ebed: Balanced non-uniform reset coupon collectors"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2110.04703v2, sections 2-4",
+      "arxiv:1612.07838v1, Appendix K-L",
+      "Published published-finding corpus record 7b9ca5a2ebed (indexed summary)",
+      "https://escholarship.org/uc/item/4h67h5f6 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The algorithm transition is inherited, and standard coupon-coupon and renewal facts are used explicitly in the proof.",
+        "Neither inspected source states success probability Gamma(m)Gamma(w+1)/Gamma(m+w) followed by the exact GSS and IID certificate means or the rescaling-sensitive exponent."
+      ],
+      "reasoning": "The result is not obtained by merely substituting a parameter into either published error-contraction inequality; it requires solving a distinct stopping-time problem on the selectable-state Markov chain. Known mathematical primitives are not claimed as original. The indexed reset-coupon result has different transition probabilities and asymptotic parameter regimes.",
+      "searches": [
+        "arXiv:2110.04703v2, Algorithm 3 / Sec. 3-4",
+        "arXiv:1612.07838v1, Appendix L",
+        "\"Kaczmarz\" non-repetitive sampling leaf center star finite convergence coupon collector"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The GSSRK source defines conditional selectable-set sampling and the precise neighbor-union update; its Section 4 bounds only selectable-set cardinality.",
+        "Nutini et al. describe sampling using the orthogonality graph, not the episode completion law."
+      ],
+      "reasoning": "A differently worded equivalent would be the weighted nonrepeating-coupon process interrupted by an eligible center, including its regenerative mean; these terms were searched. No such identity was located in the inspected primary text. The ordinary IID part has a coupon-collector interpretation and is not independently presented as new.",
+      "searches": [
+        "\"Selectable Set Randomized Kaczmarz\" \"star\" \"termination\" \"expected\"",
+        "\"Gramian\" \"Kaczmarz\" \"star\" \"coupon\" convergence expected",
+        "\"GSSRK\" star graph exact expected iterations finite convergence",
+        "arXiv:2110.04703v2, Algorithm 3 and Sec. 4",
+        "arXiv:1612.07838v1, Appendix L"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published mathematical-finding index returned no matching exact mean formula; the closest identified reset-coupon entry was 7b9ca5a2ebed.",
+        "No inspected primary-source table lists the weighted star certificate times."
+      ],
+      "reasoning": "The formula applies to every integer m at every positive real weight w, not merely a small computed table. Index search cannot rule out all specialized formulas; this remains a residual priority risk.",
+      "searches": [
+        "\"Selectable Set Randomized Kaczmarz\" \"star\" \"termination\" \"expected\"",
+        "Gramian selectable set randomized Kaczmarz star graph expected stopping time exact finite termination leaf sweep weighted center, uniform row sampling, renewal",
+        "\"randomized Kaczmarz\" \"star graph\" \"hitting time\".",
+        "Published published-finding corpus semantic-search hits on orthogonality graph and coupon stopping laws"
+      ]
+    },
+    "rationale": "Directly compared the exact claim and its weaker/stronger implications with the defining GSSRK paper, its orthogonality-graph predecessor, related indexed reset-coupon work, and own prior claims. The defining theorems give expected-error and selectable-set-size bounds, which do not imply exact sweep-time means. No matching stopping formula was located in inspected material. Classical coupon-collector formulas are acknowledged; residual literature uncertainty remains.",
+    "residual_risks": [
+      "The 2024 related dissertation full text was inaccessible and could contain a stronger result.",
+      "Unindexed specialized stopping-time/coupon-with-resets literature may already state an equivalent identity.",
+      "The original orthogonality-graph method predated the 2021 motivating star-graph analysis; the claim does not assert first invention of the algorithm or classical renewal facts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines neighbor-update and conditional weights; proves mean-square bounds and selectable-size estimates, but no exact mean leaf-sweep certificate law located",
+        "evidence": [
+          "Algorithm 3 update S_next=(S union N(i)) minus {i}.",
+          "Section 4 Theorem 4.1 bounds selectable-set size by graph independent set; it does not analyze successful uninterrupted leaf sweeps."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.04703v2",
+        "material_read": "Accessible full HTML: Introduction, Algorithm 3 in Section 2.2, selected Section 3 passages, Section 4 graph bounds, and reference list inspected directly",
+        "method": "Direct reading and formula-to-claim comparison",
+        "title": "Selectable Set Randomized Kaczmarz",
+        "trigger": "Defines the exact GSSRK row-selection and star-graph natural gap"
+      },
+      {
+        "assessment": "Graph-based sampling implementation and convergence bounds, not the conditional-star certificate mean or IID comparison",
+        "evidence": [
+          "Appendix L implements adaptive non-uniform weights as selectable row squared norms.",
+          "The simple coupon collector is noted for orthogonal systems in the rate discussion; the reset-star calculation is absent from the inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1612.07838v1",
+        "material_read": "Accessible HTML: orthogonality graph discussion, published rate statements, and Appendices K and L inspected directly",
+        "method": "Direct reading and logical comparison to finite termination certificate",
+        "title": "Convergence Rates for Greedy Kaczmarz Algorithms, and Faster Randomized Kaczmarz Rules Using the Orthogonality Graph",
+        "trigger": "Original orthogonality graph selectable-set method and possible general coverage"
+      },
+      {
+        "assessment": "Does not supply a proven noncovering full-text verdict; stated model uses fixed reset probability rather than GSSRK state-dependent center hazard",
+        "evidence": [
+          "Summary: fixed reset probability; balanced coupon weights; saddle-point asymptotic rates."
+        ],
+        "identifier_or_url": "Published published-finding corpus record 7b9ca5a2ebed",
+        "material_read": "Published index title and abstract-length summary only; no full paper inspected",
+        "method": "published-finding corpus semantic query and comparison of explicitly described hypotheses",
+        "title": "Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties",
+        "trigger": "Closest indexed renewal/coupon comparison"
+      },
+      {
+        "assessment": "Unresolved priority risk, not classified as NOT_COVERING",
+        "evidence": [
+          "Repository listing identifies Kaczmarz and selectable-set-related work; no body pages could be checked."
+        ],
+        "identifier_or_url": "https://escholarship.org/uc/item/4h67h5f6",
+        "material_read": "Repository abstract/metadata only; attempted free full-text retrieval did not yield readable PDF",
+        "method": "Repository listing and bounded OA download/open attempt",
+        "title": "Kaczmarz Methods and Structured Matrix Decompositions",
+        "trigger": "Related dissertation might contain unpublished detailed GSSRK analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3624784-e2a6-488b-83b2-401883c185d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural and explicitly solvable family of redundant row-action systems, the exact complete-leaf structural certificate measures finite-step guaranteed solution attainment, unlike asymptotic expected-error bounds. The result makes the impact of adaptive selectable-set exclusion precisely quantitative, including its constant-factor speedup, harmonic small-center-weight gap, and \\(m^{w+1}\\) scaling sensitivity to a row normalization that leaves the geometric projector unchanged. It is explicitly limited to certificate time, not actual earliest convergence or wall-clock work.",
+    "status": "PASS"
+  }
+}
