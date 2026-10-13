@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source Theorem 6 makes both local-check dual codes \\([n,d-1,n-d+2]_q\\) MDS and explicitly invokes the fact that every \\((n-d+2)\\)-coordinate set supports a minimum word. The source Theorem 2 turns a paired X/Z support of size at most \\(r+1\\) into a recovery set. Since the Theorem 6 code is fixed before the support choice and the proof permits an arbitrary \\(S_i\\) containing \\(i\\), the argument can be repeated for every \\(S=R\\cup\\{i\\}\\). The MDS support fact is reconstructed directly from information-set independence. The binomial incidence and disjointness formulas then follow exactly. The finite verifier independently exhausts the \\([5,2,4]_5\\) case and all helper sets in the paper's example parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kshirsagar--Matthews--Shapiro define EAQLRC availability and construct families from Vandermonde/random and several algebraic-geometric/classical LRC families.",
+        "Their abstract and accessible full-text excerpts do not identify the Li--Ling--Lu--Luo--Zhu MDS-intersection family or the property that every r-subset is a recovery set.",
+        "General MDS theory supplies the exact-support lemma but does not by itself imply quantum recovery; the paired X/Z support criterion from the primary source is essential."
+      ],
+      "reasoning": "The closest broader theory makes multiple disjoint recovery routes a named invariant, but the accepted result is a source-specific complete recovery-hypergraph theorem and is not implied by the advertised availability constructions.",
+      "searches": [
+        "quantum locally recoverable entanglement assisted availability disjoint repair",
+        "2608.09886 availability MDS recovery sets EAQLRC",
+        "optimal pure EAQLRC MDS pair disjoint recovery sets"
+      ]
+    },
+    "checked_sources": [
+      "Li--Ling--Lu--Luo--Zhu, arXiv:2607.27091v1, public full text",
+      "Kshirsagar--Matthews--Shapiro, arXiv:2608.09886, public abstract and accessible full-text excerpts",
+      "published-research index exact/semantic searches for source ID, universal helper sets, MDS pair recovery, availability, and disjoint recovery",
+      "Current-week owned ledger g000034",
+      "Completed prior-week owned ledger g000058"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 supplies a recovery channel whenever paired dual words cover the erased coordinate in union support at most r+1.",
+        "Theorem 6 says both dual codes are [n,d-1,n-d+2] MDS and chooses an arbitrary S_i of exactly r+1 coordinates through i.",
+        "The source uses one such choice only to prove existence of a recovery set and locality r."
+      ],
+      "reasoning": "Existence of one chosen recovery set does not state the complete set system. The new implication observes that the code and stabilizer construction do not depend on that choice, so Theorem 2 can be instantiated independently for every r-subset.",
+      "searches": [
+        "2607.27091 Theorem 2 paired support recovery",
+        "2607.27091 Theorem 6 every set support minimum weight MDS",
+        "Entanglement-Assisted Quantum Locally Recoverable Codes recovery set Definition 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states locality r=n-d+1 but not universal choice of the r transmitted helpers.",
+        "No published-research index hit matched the arXiv source together with every-r-subset recovery, the binomial count, or the exact disjoint-set count.",
+        "Public exact searches for every helper subset and universal recovery returned the primary source but no statement of the accepted theorem."
+      ],
+      "reasoning": "The searches cover the operational recovery-set language, the MDS-support formulation, and the equivalent complete-uniform-hypergraph formulation.",
+      "searches": [
+        "2607.27091 availability universal helper sets",
+        "entanglement assisted quantum locally recoverable every helper subset recovery",
+        "MDS intersection EAQLRC every recovery subset n-d+1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper's Theorem 6 gives parameters and one existential locality value, with no table of recovery-set multiplicities.",
+        "Its Example 1 gives [[5,2,3;1]]_5 with locality 3, from which the accepted theorem yields four three-helper sets at each coordinate.",
+        "No inspected table or indexed finding records the binomial recovery-set count for this family."
+      ],
+      "reasoning": "The count is not a recomputation of a listed table; it is a structural consequence extracted from the arbitrary-support step in the proof.",
+      "searches": [
+        "2607.27091 recovery set count binomial n-1 r availability",
+        "Theorem 6 EAQLRC complete recovery hypergraph",
+        "2608.09886 availability MDS recovery sets EAQLRC"
+      ]
+    },
+    "rationale": "The July 2026 primary paper concludes only that the MDS-pair family has locality n-d+1; it does not state that every r-subset is a recovery set, count the complete recovery hypergraph, or give its disjoint-set number. Focused published-research index and public-literature searches under the arXiv identifier, universal-helper, every-subset, MDS-support, availability, and disjoint-repair formulations found no same theorem. The closest later paper explicitly studies EAQLRC availability, but its advertised constructions are Vandermonde/random, Tamo-Barg, fiber-product, and algebraic-geometric rather than this MDS-intersection family; no inspected material states the universal-helper property.",
+    "residual_risks": [
+      "The later availability paper may contain a generic observation in unindexed PDF text that was not visible in the accessible excerpts; no source-specific MDS-intersection statement was found.",
+      "The primary source's guaranteed locality need not be the actual minimum locality of each constructed code, so smaller recovery sets are not classified.",
+      "The theorem addresses a single erased transmitted qudit and does not establish simultaneous multi-erasure locality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_LOCALITY_ONLY",
+        "evidence": "The proof explicitly allows a set S_i of any r+1 coordinates containing i and obtains matching minimum dual supports, but records only locality r and no complete recovery-set enumeration.",
+        "identifier_or_url": "arXiv:2607.27091v1",
+        "material_read": "Public full-text article material covering Definitions 5--6, Theorem 2 support criterion, Theorem 6 statement and proof, the MDS minimum-support step, Remark 4, Example 1, and conclusion.",
+        "method": "public full-text HTML inspection",
+        "title": "Entanglement-Assisted Quantum Locally Recoverable Codes: Characterizations, Bounds, and Constructions",
+        "trigger": "Primary source defining the recovery model, paired-support theorem, and the exact MDS-intersection family."
+      },
+      {
+        "assessment": "BROADER_AVAILABILITY_FRAMEWORK_NOT_SAME_FAMILY",
+        "evidence": "The inspected material formalizes multiple disjoint local recovery sets but does not state that every r-subset repairs the MDS-intersection family of arXiv:2607.27091.",
+        "identifier_or_url": "arXiv:2608.09886",
+        "material_read": "Public abstract, accessible article/PDF excerpts, and detailed public article summary describing the availability definition, Singleton-like bound, Vandermonde/random construction, Tamo--Barg, fiber-product, Hermitian, Suzuki, and folded-code constructions.",
+        "method": "public abstract and accessible full-text excerpts",
+        "title": "Entanglement-assisted quantum locally recoverable codes: bounds and constructions with availability",
+        "trigger": "Closest later literature explicitly centered on multiple EAQLRC recovery sets and availability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bac99eef-d124-487d-908c-9f5f05d62ab8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source motivates EAQLRCs as quantum distributed-storage codes where helper-set size controls local recovery cost. Replacing one existential helper set by the complete uniform family changes the operational robustness substantially: any \\(r\\) surviving transmitted nodes can be used, the exact number of local routes is known, and the maximum disjoint-route multiplicity is explicit. This is a structural property of the entire new optimal MDS-pair family, not a parameter tweak or finite census, and it connects directly to the subsequently introduced notion of EAQLRC availability.",
+    "status": "PASS"
+  }
+}
