@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces every white-vertex constraint to the existence of red and blue vertices outside its part. Size-two DST sets are characterized exactly by two singleton parts; explicit size-three and size-four constructions meet the remaining lower bounds. For TDS, each color class must contain an edge, giving the lower bound \\(4\\), and explicit four-vertex constructions cover every nonstar complete multipartite graph of order at least four. Stars and \\(K_3\\) are handled separately. Exhaustive definition-level enumeration through order eight found no counterexample.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The initiating paper proves TDS existence for every connected nonstar graph of order at least four and the lower bound \\(\\gamma_{\\mathrm{tds}}\\ge4\\), but it does not prove that complete multipartite graphs always attain \\(4\\).",
+        "The same paper characterizes graphs with \\(\\gamma_{\\mathrm{dst}}\\) equal to their order and therefore already covers the star branch, but does not imply the complete nonstar \\(2/3/4\\) classification."
+      ],
+      "reasoning": "The strongest general theorems were compared by implication. They settle existence, a lower bound, and one extreme DST case; the new constructions and lower bounds are still required for arbitrary multipartite part profiles.",
+      "searches": [
+        "dual-server total domination complete multipartite",
+        "total dual-server domination complete multipartite",
+        "dual-server total domination crown graph",
+        "total dual-server domination crown graph"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.7151/dmgt.2635",
+      "arXiv:2608.14690",
+      "published-finding corpus:2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a",
+      "published-finding corpus:2026/10/4/SCOPE-locating-total-domination-polynomial-of-complete-multipartite-gr--cf5f4aa5d28e",
+      "published-finding corpus:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+      "published-finding corpus:2026/10/4/SCOPE-upper-signed-total-domination-of-complete-multipartite-graphs--5839cc1d8112"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior: \\(\\gamma_{\\mathrm{dst}}(K_{2,m})=3\\) and \\(\\gamma_{\\mathrm{tds}}(K_{2,m})=4\\) for \\(m\\ge2\\).",
+        "Prior: \\(\\gamma_{\\mathrm{dst}}(K_n)=2\\) and \\(\\gamma_{\\mathrm{tds}}(K_n)=4\\) for \\(n\\ge4\\).",
+        "Prior: every connected nonstar graph of order at least four admits a TDS set, and \\(\\gamma_{\\mathrm{tds}}\\ge4\\).",
+        "New implication gap: none of those statements determines \\(\\gamma_{\\mathrm{dst}}\\) for multipartite profiles with three or more parts or with both bipartition parts at least three, nor do they provide the uniform four-vertex TDS construction for arbitrary part profiles."
+      ],
+      "reasoning": "Published special cases are explicitly treated as covered. The accepted claim is the full arbitrary-part classification, which strictly contains uncovered multipartite families such as \\(K_{3,3}\\), \\(K_{1,3,3}\\), and \\(K_{2,3,4}\\).",
+      "searches": [
+        "DOI:10.7151/dmgt.2635 full-text definitions, K_{2,m} example, existence results, and concluding problems",
+        "dual-server total domination complete multipartite graph exact",
+        "dual server domination crown graph K_n,n minus matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The initiating paper defines DST and TDS domination by red-blue partitions and gives only the \\(K_{2,m}\\) complete-bipartite example among complete multipartite graphs.",
+        "Targeted semantic searches returned no record asserting the arbitrary complete-multipartite formulas for \\(\\gamma_{\\mathrm{dst}}\\) or \\(\\gamma_{\\mathrm{tds}}\\)."
+      ],
+      "reasoning": "Searches used both full parameter names and the standard \\(\\gamma_{\\mathrm{dst}}\\)/\\(\\gamma_{\\mathrm{tds}}\\) notation, together with complete multipartite, complete bipartite, and matching-deleted aliases. No equivalent arbitrary-part statement was located.",
+      "searches": [
+        "dual-server total domination complete multipartite graph exact",
+        "dual server domination crown graph K_n,n minus matching",
+        "gamma_ds complete multipartite graph",
+        "dual-server dominating set complete bipartite matching deletion",
+        "dual-server total domination complete multipartite exact gamma_dst",
+        "total dual-server domination complete multipartite exact gamma_tds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus records concern other domination variants on complete multipartite graphs, including neighborhood-total 2-domination, locating-total domination, super domination, and signed-total domination.",
+        "No indexed exact table or database record returned \\(\\gamma_{\\mathrm{dst}}\\) or \\(\\gamma_{\\mathrm{tds}}\\) values for arbitrary complete multipartite graphs."
+      ],
+      "reasoning": "The close hits share the host graph family but use different feasibility conditions and do not imply either dual-server total invariant.",
+      "searches": [
+        "dual-server total domination complete multipartite exact gamma_dst",
+        "total dual-server domination complete multipartite exact gamma_tds",
+        "DST-dominating complete multipartite singleton parts stars",
+        "TDS-dominating complete multipartite four vertices nonstar",
+        "complete multipartite dual-server total domination K_2,s extension"
+      ]
+    },
+    "rationale": "The closest primary source introduces the two invariants, proves general existence/lower-bound results, and gives complete-graph and \\(K_{2,m}\\) special cases, but its inspected full text contains no complete-multipartite classification. Targeted published-finding corpus and own-ledger searches found no equivalent arbitrary-part theorem. Prior-covered branches are identified rather than claimed as new.",
+    "residual_risks": [
+      "An equivalent theorem could exist under nonstandard terminology or in literature not indexed by the searched sources.",
+      "The later base dual-server graph-operations preprint was inspected only at abstract level because it concerns a different invariant; a hidden total-variant remark is therefore a low residual risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the arbitrary complete-multipartite classification. It covers the star extreme through a general proposition, \\(K_{2,m}\\), complete graphs, TDS existence for nonstars of order at least four, and the universal TDS lower bound \\(4\\).",
+        "evidence": "The paper lists primary MSC 05C69, gives \\(\\gamma_{\\mathrm{dst}}(K_{2,m})=3\\) and \\(\\gamma_{\\mathrm{tds}}(K_{2,m})=4\\), proves general TDS existence/lower bounds, and has no occurrence of 'complete multipartite'.",
+        "identifier_or_url": "DOI:10.7151/dmgt.2635",
+        "material_read": "Definitions, the \\(K_{2,m}\\) example, existence and lower-bound results, the complete-graph example, concluding problems, bibliographic date, and full-text search for complete multipartite terminology.",
+        "method": "Full-text inspection plus exact term search for complete multipartite language and implication comparison with the proposed formulas.",
+        "title": "Dual-server total domination and total dual-server domination",
+        "trigger": "Exact same two invariants and the source from which the complete-multipartite question naturally arises."
+      },
+      {
+        "assessment": "INAPPLICABLE to the accepted claim: it studies the base dual-server domination number under graph operations, not the two total variants \\(\\gamma_{\\mathrm{dst}}\\) and \\(\\gamma_{\\mathrm{tds}}\\).",
+        "evidence": "Its stated results concern join, Cartesian product, corona, and splitting graphs for the base dual-server domination number.",
+        "identifier_or_url": "arXiv:2608.14690",
+        "material_read": "Abstract and stated scope.",
+        "method": "Abstract-level source inspection.",
+        "title": "The Dual-Server Domination Number of Some Graph Operations",
+        "trigger": "Later 2026 work on the base dual-server parameter could potentially contain an implication or competing exact family result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b4a2a8b-e4bb-4d67-8bee-fdbcd50e6b4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "These are newly introduced 2026 domination parameters, and their initiating paper explicitly asks for further bounds and tractable graph classes. Complete multipartite graphs form a canonical test family. The theorem gives a complete arbitrary-part classification, identifies the exact existence boundary for TDS, and shows that every admissible complete multipartite graph attains the universal TDS lower bound. It strictly extends the published \\(K_{2,m}\\) and complete-graph examples rather than merely recomputing them.",
+    "status": "PASS"
+  }
+}
