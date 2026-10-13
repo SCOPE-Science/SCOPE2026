@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+For the unweighted adjacency walk on \(Q_r\square K_q\), tensor factorization of the propagator implies tensor factorization of instantaneous mixing matrices **at the same time**. The time-independent Walsh and complete-graph eigenspaces have the two claimed trigonometric eigenvalues. Their finite Fourier expansions are exact, and only zero-frequency terms persist under Cesàro averaging. The parity-and-threshold argument fully classifies which sectors are positive for \(r\ge1,q\ge3\), including the \(q\equiv2\pmod4\) case. Independently reconstructed graph spectral projectors and exact rational matrix ranks agree in five test graphs, including the first 48-vertex resonance; computations are not substituted for the general proof. Limits: no non-Cesàro averages, weighted graphs, or \(q=2\) case are asserted.
+
+## Originality — PASS with residual risk
+The closest full-text sources are Godsil's spectral-projector formula (arXiv:1103.2578), Lo et al.'s Cartesian bunkbeds (arXiv:quant-ph/0509059, Section 5), and Coutinho--Godsil--Guo--Zhan's commutant/rank theory (arXiv:1709.03591); also checked Coutinho et al.'s exact-computation work (arXiv:2208.08971) and the 2024 selective survey (DOI:10.1515/spma-2024-0025). Those sources establish the general tools and analyze homogeneous cubes or simple Cartesian bunkbeds, but do not give an all-parameter mixed \(Q_r\square K_q\) rank law or the sharp \(q\equiv2\pmod4\), \(r\ge q/2\) revival. The prior homogeneous Hamming spectrum and Cartesian randomized-time-mixing findings differ in their quantifiers and do not determine the mixed-product Cesàro resonance. Searches also compared frequency-collision aliases and broader Fourier formulations. A general but differently indexed result remains an explicit risk; novelty is not inferred solely from search absence.
+
+## Value — PASS
+The rank is a natural structural invariant of long-time quantum mixing. The theorem classifies an entire two-parameter family and exposes a non-obvious arithmetic threshold at which graph modes absent in either homogeneous rank law reappear. The smallest witness, \(Q_3\square K_6\), is a 48-site graph with five additional positive modes, while the theorem explains every larger resonance and every nonresonant parameter. This is a motivated exact classification, not a one-off finite-table computation or a restatement of factorwise mixing.
+
+Self-review: passed. Independent audit: not yet performed.
