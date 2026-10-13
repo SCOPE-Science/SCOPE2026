@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Exact rank-two orthogonal decomposition proves the chi-square error factorization. Standard angular integrals (with positive denominators) produce E[r^2]; the three-query baseline variance is direct from independent Gaussian quadratic forms. The palindromic quartic becomes an increasing quadratic in t+t^{-1} for t>=1, giving one threshold. A dominated-convergence argument proves persistence under full-rank perturbations. The packaged verifier passed 545 supporting checks; sampling was not substituted for the proof. Scope is all finite n>=2, rank-two PSD A with a>=b>0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meyer, Musco, Musco & Woodruff (2020), arXiv:2010.09649v5, Algorithm 1 and Section 5 variance upper bound for a separate allocation",
+        "Persson, Cortinovis & Kressner (2021), arXiv:2109.10659v3, Algorithms 1, 3, 5 and Sections 2-3 adaptive work allocation and general variance bounds"
+      ],
+      "reasoning": "General PSD high-probability and Frobenius variance bounds cover the existence of a variance-controlled estimator, not a sharp comparison against three independent Gaussian probes at the minimum budget. The primary original Algorithm 3 employs Gaussian sketches but sign-valued residual probes; its distribution cannot give the fully Gaussian rank-two threshold.",
+      "searches": [
+        "Hutch++ Gaussian one column sketch one Gaussian residual probe two by two positive definite exact variance versus three query Gaussian Hutchinson condition number threshold",
+        "Gaussian Hutch++ rank two positive semidefinite matrices exact variance three matrix-vector queries crossover Gaussian Hutchinson spectrum eigenvalue ratio 2.33",
+        "arXiv:2010.09649v5 Theorem 10",
+        "arXiv:2109.10659v3 Section 2.1"
+      ]
+    },
+    "checked_sources": [
+      "Meyer, Musco, Musco & Woodruff (2020), arXiv:2010.09649v5, Algorithm 1 and Section 5",
+      "Persson, Cortinovis & Kressner (2021), arXiv:2109.10659v3, Algorithms 1, 3, 5 and Sections 2-3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meyer, Musco, Musco & Woodruff (2020), arXiv:2010.09649v5, Algorithm 1 and Section 5 exact conditional Gaussian-probe variance expressed as an expected residual Frobenius norm",
+        "Persson, Cortinovis & Kressner (2021), arXiv:2109.10659v3, Algorithms 1, 3, 5 and Sections 2-3 generic baseline variance equal to twice squared Frobenius norm divided by the number of Gaussian probes"
+      ],
+      "reasoning": "The Gaussian Hutch++ algorithm and generic variance identity are credited, rather than claimed new. Neither displayed prior claim states whether the exact expected rank-two residual variance exceeds or falls below the equal-cost three-probe Gaussian baseline. Evaluating the random sketch orientation and solving the resulting quartic supplies the sharp new comparison; it is not a verbatim restatement, a renaming, or a corollary of only their reported scalar upper bounds.",
+      "searches": [
+        "arXiv:2010.09649v5 Algorithm 1, Section 5",
+        "arXiv:2109.10659v3 Algorithm 1, Section 2.1",
+        "Hutch++ Gaussian one column sketch one Gaussian residual probe two by two positive definite exact variance versus three query Gaussian Hutchinson condition number threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meyer, Musco, Musco & Woodruff (2020), arXiv:2010.09649v5, Algorithm 1 and Section 5 conditional squared-residual identity",
+        "Persson, Cortinovis & Kressner (2021), arXiv:2109.10659v3, Algorithms 1, 3, 5 and Sections 2-3 fully Gaussian Algorithm 1",
+        "No explicit rank-two averaged Gaussian residual law was found in the inspected relevant sections."
+      ],
+      "reasoning": "The factorization into a positive residual eigenvalue and an independent centered chi-square follows for rank two. Rademacher sketches/probes do not have the same angular law. These source identities allow but do not explicitly state the full derived distribution or universal overestimation probability.",
+      "searches": [
+        "Gaussian Hutch++ trace estimation two dimensional exact variance spectrum anisotropy isotropy crossover 2.331",
+        "one-column Gaussian Hutch++ sketch residual Gaussian probe distribution on rank-two PSD covariance angular integral",
+        "arXiv:2010.09649v5 Section 5",
+        "arXiv:2109.10659v3 Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact rank-two Gaussian Hutch++ variance/crossover table was located in the inspected primary sources or semantic research search hits."
+      ],
+      "reasoning": "The absence of a matching table in searched materials is limited evidence, not exhaustive enumeration or a priority certificate.",
+      "searches": [
+        "Gaussian Hutchinson vs Hutch++ finite query risk trace PSD sketch rank one",
+        "Hutch++ Hutchinson equal-budget three matvec Gaussian 2x2 variance spectral transition",
+        "\"Hutch++\" \"rank two\" \"variance\" \"Hutchinson\"",
+        "\"Hutch++\" \"2.331\" \"trace\""
+      ]
+    },
+    "rationale": "The inspected primary papers establish the Hutch++ construction and general conditional Gaussian variance/Frobenius identities but neither an exact fully Gaussian one-sketch residual-moment integral in rank two nor the fixed three-query comparison threshold; the latter does not follow as a quoted prior corollary without additional spectral integration. Published nearby sign-valued probe variants are not distributionally equivalent. Searches are not proofs of novelty and unindexed equivalences remain a residual risk.",
+    "residual_risks": [
+      "A specialized unindexed small-budget Gaussian variance analysis might independently contain an equivalent angular formula and threshold.",
+      "General conditional variance formulas make the calculation accessible; originality is confined to the evaluated rank-two spectral law and sharp fixed-budget comparison.",
+      "The near-rank-two persistence is an open-neighborhood consequence, not a quantified robust threshold in higher rank."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general conditional variance identity and variance bounds apply, but the distinct original Algorithm 3 has Gaussian range sketch with Rademacher residual probe, not the fully Gaussian minimum-budget law or its rank-two crossover.",
+        "evidence": [
+          "Algorithm 1 explicitly allows Gaussian sketches and Gaussian residual probes and uses m/3 queries in each phase (lines 58-79)",
+          "Section 5, Algorithm 3 and equations 2: conditional variance and generic PSD bound (lines 226-279)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2010.09649v5",
+        "material_read": "Introduction Sections 1.1-1.3; Algorithm 1; relevant Section 3 bound; Section 5 including Gaussian-sketch Algorithm 3 and conditional-variance computation; related prior-work references and experiments headings",
+        "method": "Read arXiv full-text HTML equations and algorithm definitions, checked stochastic choices and Section 5 identity",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Defining algorithm, exact baseline and conditional variance theorem, plausible direct coverage"
+      },
+      {
+        "assessment": "Defines the fully Gaussian implementation and alternative budget allocations, but the read sections neither tabulate the rank-two residual variance nor state the three-query spectral crossover.",
+        "evidence": [
+          "Introduction, Gaussian baseline variance and Algorithm 1 (lines 61-98)",
+          "Section 2.1.1 residual Frobenius bound and Section 2.2 adaptive allocation (lines 121-145, 268-322)",
+          "Section 3 Nyström++ alternative, Algorithms 4-5 (lines 483-535)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2109.10659v3",
+        "material_read": "Introduction; Algorithm 1 and Gaussian quadratic variance; Sections 2.1, 2.2 including adaptive design; Section 3 Nyström++ and its theorem and algorithm",
+        "method": "Read relevant sections of arXiv full-text HTML, equations and algorithm implementations",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Same Gaussian estimator and adaptive allocation might dominate the minimum-budget formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5423fc18-a56e-4fc9-a3a9-b557fb1cc093",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the smallest three-matrix-vector-product allocation of commonly used Gaussian trace estimators, the exact spectral threshold identifies when the low-rank variance reduction phase is worth its two products. Both sides occur naturally: isotropic rank two favors direct probing while sufficiently spiked rank two favors Hutch++. The contrast persists for nearby full-rank matrices. The result is an interpretable, motivated method-comparison benchmark; it does not purport to improve all algorithms or establish query optimality, and its known low-rank rank-identification alternatives are stated as limits.",
+    "status": "PASS"
+  }
+}
