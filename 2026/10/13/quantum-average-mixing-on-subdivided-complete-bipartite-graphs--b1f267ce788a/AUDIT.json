@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The exact adjacency singular spaces are computed from the unsigned incidence matrix. Projector Schur squares yield a positive-semidefinite sum including the necessary collision correction for equal part sizes; the kernel intersection is solved separately for all six boundary regimes. A standalone rational checker reconstructs projectors independently and matches 1,131 matrix entries across nine graphs, with exact rank checks in all small cases. This finite evidence supports rather than replaces the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutinho et al., arxiv:2208.08971v1, pp.3--4: generic exact computation from spectral data, without a general once-subdivided-biclique rank formula.",
+        "Coutinho et al., arxiv:1709.03591, pp.7--9: general commutant/rank results do not explicitly yield the sharp complete-biclique subdivision exceptions.",
+        "Chen, University of Waterloo thesis (2023), pp.65,86: incidence-spectrum construction and discrete-time bipartite-walk average, distinct from adjacency continuous-time Cesaro mixing."
+      ],
+      "reasoning": "The general spectral projector identity gives an algorithm for each fixed graph but does not by itself identify the infinitely many full-rank and exceptional kernel regimes. A stronger unsurveyed association-scheme or incidence-graph result could still logically subsume the theorem; such overlap remains a residual risk.",
+      "searches": [
+        "Schur squares of spectral idempotents for incidence subdivision graphs of K_{a,b}: full rank for both parts at least three",
+        "rank of average mixing matrix of symmetric design incidence graphs, subdivided complete graph",
+        "average mixing matrices graph subdivisions continuous time quantum walk spectrum"
+      ]
+    },
+    "checked_sources": [
+      "Coutinho et al., Irrational quantum walks, arxiv:2208.08971v1 (2022), Section 2; SIAM J. Appl. Alg. Geom. (2023).",
+      "Godsil, Average mixing of continuous quantum walks, arxiv:1103.2578, Sections 2 and 4.",
+      "Coutinho--Godsil--Guo--Zhan, A New Perspective on the Average Mixing Matrix, arxiv:1709.03591, Sections 4--5.",
+      "Q. Chen, Bipartite Quantum Walks and the Hamiltonian, University of Waterloo thesis (2023), Sections 5.4 and 6.5."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier exact complete-graph subdivision calculation concerns once-subdivided cliques rather than once-subdivided bicliques; it does not yield the two-parameter classification.",
+        "An earlier symmetric-design incidence classification assumes a regular bipartite four-eigenvalue incidence graph; the once-subdivided biclique is generally biregular and has more adjacency eigenvalues.",
+        "Godsil, arxiv:1103.2578, Section 4: complete path formula covers the \\(K_{1,1}\\) and \\(K_{1,2}\\) subdivision endpoints only."
+      ],
+      "reasoning": "The family has a different incidence singular-value decomposition: squared energies \\(a+b\\), \\(a\\), \\(b\\), and zero. The new matrix formula and all six kernel regimes require combining degenerate energy sectors, and do not follow from the complete-graph subdivision or symmetric-design incidence statements. The two path endpoints are not counted as separate novelty.",
+      "searches": [
+        "exact quantum average mixing spectrum rank of graph subdivisions S(K_n)",
+        "rank of average mixing matrix of symmetric design incidence graphs, subdivided complete graph",
+        "\"average mixing matrix\" \"incidence\" \"complete bipartite\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Godsil, arxiv:1103.2578, Sections 2 and 4: the projector identity and explicit path formula cover the three- and five-vertex path boundaries, not arbitrary subdivided bicliques.",
+        "Coutinho--Godsil--Guo--Zhan, arxiv:1709.03591, Section 5: rank bounds from commutants, notably a simple-spectrum bipartite bound; this incidence family has repeated eigenvalues.",
+        "Chen 2023 thesis, Section 5.4, p.65: subdivision-incidence adjacency spectrum, but a different walk model is used for Cesaro averages in Chapter 6."
+      ],
+      "reasoning": "The same graph may be called an incidence graph of a complete biclique, a once-subdivided biclique or a Levi graph of the complete rectangular incidence structure. Exact complete-graph subdivision and path cases do not imply the two-parameter phase transition. No searched source states a logically equivalent full parameter/kernel classification.",
+      "searches": [
+        "Continuous-time adjacency quantum walk: exact Cesaro average mixing rank and kernel of the subdivision of the complete bipartite graph, as function of two part sizes",
+        "quantum average mixing matrix subdivision complete bipartite graphs rank kernel continuous time quantum walks",
+        "\"average mixing matrix\" \"subdivided complete bipartite\"",
+        "arxiv:1103.2578",
+        "arxiv:1709.03591"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Coutinho--Godsil--Guo--Zhan, arxiv:1709.03591, Tables 1 and 3: small-order empirical rank histograms for generic bipartite graphs, not a formula indexed by two complete-biclique part sizes.",
+        "The available academic searches gave general quantum-mixing literature and subdivision spectral results, not a published exact two-parameter quantum average-mixing table.",
+        "The returned semantic research-index records centered on unrelated complete-bipartite invariants, such as phylogenetic rank and graph-indexed random walks; they contained no direct continuous-time quantum mixing theorem for the subdivided biclique."
+      ],
+      "reasoning": "A database listing some individual small graphs would not subsume the all-positive-integer formula, but an exact symbolic table over all part sizes would. No such covering table appeared in actual queries; incomplete indexing leaves a residual risk.",
+      "searches": [
+        "Theorem average mixing on edge-subdivided complete bipartite graphs, exceptional rank when a=1 or a=2",
+        "quantum average mixing graph subdivision graph exact spectrum rank",
+        "\"average mixing\" \"subdivision\" \"complete bipartite\" quantum"
+      ]
+    },
+    "rationale": "Primary sources establish the Schur identity, general exact algorithms and simple-spectrum rank bounds, but not the complete once-subdivided biclique two-parameter formula or kernel transition. The closest previous complete-graph subdivision and symmetric-design incidence results have different graph hypotheses, while path endpoints are already covered. No implication covering the full new statement was found in the inspected materials; residual risks are explicit.",
+    "residual_risks": [
+      "A stronger general incidence-graph Schur-square theorem, particularly one stated via association schemes or spectral multiplicity algebras, may imply this specialization without naming the family.",
+      "Search coverage is necessarily incomplete; full text was read for relevant sections rather than every page of every cited work.",
+      "The very small path endpoints are known and cannot count toward originality.",
+      "No independent external scientific audit or literature certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general exact computation and projector identity, not the classified family in the inspected material.",
+        "evidence": [
+          "Equation for Cesaro average as sum of projector Schur squares on PDF page 4; find \"subdivision\" returned no occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.08971",
+        "material_read": "Full-text introduction and Section 2, especially pages 1--5 and the spectral-projector identity on page 4; title/section layout checked.",
+        "method": "Opened and inspected public arXiv full-text PDF, rendered page 4; searched document for subdivision terminology.",
+        "title": "Irrational quantum walks",
+        "trigger": "Qualifying source, exact continuous-time Cesaro mixing and integral-Hamiltonian computation"
+      },
+      {
+        "assessment": "Proves rank bounds and estimates that differ in hypothesis and implication; does not give the complete biclique-subdivision rank classification in checked parts.",
+        "evidence": [
+          "Lemma 5.2 on PDF page 9 explicitly assumes simple adjacency eigenvalues; empirical bipartite table on PDF page 12."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.03591",
+        "material_read": "Introduction, commutant-to-rank correspondence and Section 5 (PDF pages 7--9); rank tables on pages 10--12.",
+        "method": "Opened public arXiv full-text PDF, rendered first page and read Section 4--5 passages and rank-table descriptions; searched for subdivision.",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "Possible rank theorem or graph symmetry reduction covering the finding"
+      },
+      {
+        "assessment": "Establishes the general Schur formula and the path boundaries; does not state the new two-parameter classification in checked material.",
+        "evidence": [
+          "Section 4 gives path average formula (2J+I+T)/(2n+2), covering the smallest star-subdivision cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1103.2578",
+        "material_read": "Introduction, Section 2 on positivity and rationality and Section 4 on paths (PDF pages 1--9), including Lemma 4.3.",
+        "method": "Opened public arXiv full-text PDF, rendered first page, read cited sections and searched for subdivision terminology.",
+        "title": "Average Mixing of Continuous Quantum Walks",
+        "trigger": "Foundational formula and possible path/subdivision coverage"
+      },
+      {
+        "assessment": "Discusses subdivision spectral relations but the mixing discussion uses discrete-time Grover/bipartite evolution; it does not claim continuous-time adjacency average-mixing rank for subdivided bicliques.",
+        "evidence": [
+          "Section 5.4 gives A(S(G)) as a bipartite incidence matrix; Section 6.5 explicitly defines average of powers of discrete-time U."
+        ],
+        "identifier_or_url": "https://dspacemainprd01.lib.uwaterloo.ca/server/api/core/bitstreams/4fe72fad-a681-474c-ae1e-8f9749dc0d98/content",
+        "material_read": "Section 5.4 on subdivision spectra (PDF page 81), Section 6.5 on mixing (PDF page 102), and definitions in Chapter 4; searched document for relevant terms.",
+        "method": "Opened authorized public university full-text thesis PDF and rendered the two mathematical sections; searched for subdivision and average mixing.",
+        "title": "Bipartite Quantum Walks and the Hamiltonian",
+        "trigger": "Subdivision incidence spectrum and average mixing terminology might cover the same objects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1f267ce-788a-473e-beaa-63e46cdcef31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem exactly characterizes when a canonical incidence-graph operation produces positive-definite long-time quantum mixing, gives a sharp part-size threshold, resolves all six exceptional nullity and kernel regimes, and supplies a universal rational matrix formula. This structural classification is motivated by quantum transport rank rather than an arbitrary isolated numerical slice.",
+    "status": "PASS"
+  }
+}
