@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For all integer n>=3 and t>0, cyclic averaging by concavity reduces attainment to a two-weight sunlet. Fourier diagonalization yields the exact Fiedler value h(a,b,mu)=a+mu*b/2-sqrt(a^2+(mu*b/2)^2) with mu=4*sin(pi/n)^2. The product identity (a-r)*(mu*b/2-r)=r^2/2 and sharp weighted AM-GM yield the claimed budget bound, explicit positive equality weights, and uniqueness within the symmetric class. Equality of both first-harmonic Rayleigh quotients transfers through the averaging argument to arbitrary optimal allocations, forcing every pendant weight, then every cycle weight, to its symmetric value by a nonzero planar chord determinant. The t>0 and n>=3 boundary assumptions are used. The n->infinity laws follow from mu~4*pi^2/n^2; they are analytical, not inferred from finite tests. A stand-alone checker executed successfully: 168 exact-rational identities, 36 full-Laplacian eigenspectra, and 1080 nonsymmetric feasible comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Göring, Helmberg and Wappler 2005, full text at optimization-online.org/wp-content/uploads/2005/09/1202.pdf, derive general dual and embedding relationships.",
+        "Sun, Boyd, Xiao and Diaconis 2006, full author-hosted PDF at web.stanford.edu/~boyd/papers/pdf/fmmp.pdf, give general SDP and analytical examples for simpler graphs.",
+        "Wan et al. 2008, DOI 10.1109/CDC.2008.4738734, inspectable full text gives structural conditions, tree algorithms and general graph comparisons."
+      ],
+      "reasoning": "Each broad theory covers the feasibility of formulating this problem as an SDP, and Fourier symmetry is an established technique, but neither explicit formula nor uniqueness of the per-edge sunlet optimizer follows as a stated special case without a further calculation and an all-edge rigidity argument. General algorithmic solvability does not establish that the exact price law and strict global equality class were already published.",
+      "searches": [
+        "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem 10.1137/S0036144504443821",
+        "Embedded in the Shadow of the Separator 2005 weighted graph algebraic connectivity optimal weights",
+        "On the structure of graph edge designs that optimize the algebraic connectivity 10.1109/CDC.2008.4738734",
+        "Graph Laplacian Fiedler eigenvalue optimization weighted sun graphs cyclic leaf attachments square root conductance price allocation"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "doi:10.1109/CDC.2008.4738734",
+      "doi:10.1155/2022/6884839",
+      "doi:10.3389/fphy.2022.948247 (open-access full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2005 separator dual yields structural constraints but not closed sunlet design; 2006 process optimization supplies the convex parent problem; 2008 edge designs give general eigenvector conditions; 2022 corona paper treats different Laplacian operators.",
+        "The new claim simultaneously includes every positive price, all n>=3, explicit weights, full asymmetric rigidity, and price-size scaling.",
+        "2022 Du et al. weighted-corona characteristic polynomial does not itself optimize conductances; the new global uniqueness statement requires a separate equality argument."
+      ],
+      "reasoning": "The proposed theorem is a specialization of the parent SDP problem, but its precise conclusion is not a direct corollary stated or quantitatively determined by the general SDP existence result, and the tree-only closed forms are inapplicable to a graph with a cycle. Conversely, a fixed corona eigenvalue formula alone does not imply a global budget optimum. The new equality proof supplies the nontrivial missing implication. Residual historical overlap remains possible.",
+      "searches": [
+        "Goring Helmberg Wappler weighted graph separator algebraic connectivity optimization",
+        "Sun Boyd Xiao Diaconis 2006 cycle and path fastest mixing process",
+        "Wan Roy Wang Saberi Yang Xue Malek graph edge designs 2008",
+        "cycle corona K1 spectral gap optimal conductance edge prices weighted network design"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. 2006 DOI 10.1137/S0036144504443821: full-text ordinary-Laplacian FMMP with paths/cycles examples, not a sunlet price classification.",
+        "Liu and Shao 2022 DOI 10.1155/2022/6884839: Sections 1-4 concern signless and normalized spectra of prescribed weighted corona networks.",
+        "Du et al. 2022 DOI 10.3389/fphy.2022.948247: weighted corona ordinary-Laplacian polynomial and coherence, not budget-priced optimization."
+      ],
+      "reasoning": "Terms sunlet, cycle corona with a leaf, necklace with pendant leaves, fastest-mixing Markov process, algebraic connectivity, and weighted-corona spectra were compared. An unweighted spectrum or classwise prescribed-edge spectrum does not include the universal all-individual-weight cost optimum or uniqueness.",
+      "searches": [
+        "sunlet graph corona of cycle with one pendant leaf at every vertex algebraic connectivity fastest mixing optimize spoke rim weights conductance costs spectral gap",
+        "Fastest mixing continuous-time Markov process sunlet graph C_n corona K1 with alternating rim and leaf edge conductance prices, unique closed-form eigenvalue optimum",
+        "Absolute algebraic connectivity of a cycle with pendant leaves net graph corona of cycle optimal weights, exact spectral gap",
+        "optimal algebraic connectivity weighted sunlet graph fastest mixing graph edge weights optimize",
+        "algebraic connectivity optimal edge weights sun graph corona C_n K_1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu and Shao 2022 (doi:10.1155/2022/6884839), indexed full article Sections 2-4 treat signless and normalized weighted-corona eigenvalues, not an optimal price allocation of ordinary-Laplacian conductances.",
+        "Du et al. 2022 Theorem 1 gives a fixed-weight ordinary-Laplacian characteristic polynomial, but no optimization or per-edge equality conditions."
+      ],
+      "reasoning": "Tabulated or symbolic eigenvalues for a given allocation, including corona formulas, are not equivalent to maximizing lambda2 over every individual priced edge with an equality budget. No exact sunlet conductance-optimization table was found in inspected material.",
+      "searches": [
+        "Two Kinds of Laplacian Spectra and Degree Kirchhoff Index of the Weighted Corona Networks 10.1155/2022/6884839",
+        "weighted cycle corona Laplacian spectrum pendant cycle spectral gap exact cost optimum"
+      ]
+    },
+    "rationale": "The reviewed early works contain general semidefinite and embedding frameworks for maximizing algebraic connectivity and examples for trees and plain cycles. The 2008 structural work mainly treats trees and graph-level necessary/sufficient optimality conditions; the 2022 fixed weighted-corona results concern normalized/signless spectra and Kirchhoff indices. Those ingredients do not explicitly give the price-dependent ordinary-Laplacian optimum for sunlets or the rigidity proof against all asymmetric allocations. Indexed specialized queries and nearby published results identified no equivalent statement. Residual risk remains for unindexed or uninspected historical specializations; passing this search-based self-review is not proof of worldwide novelty. A further full-text check of Du et al. (2022) found a fixed-weight ordinary-Laplacian polynomial and coherence formulas, but no priced spectral-gap optimal design.",
+    "residual_risks": [
+      "An equivalent theorem could exist in unindexed older graph-optimization literature or a historical thesis; web and semantic search are not completeness guarantees.",
+      "Some papers were inspected through indexed HTML extraction rather than every figure in an original PDF; no uninspected plausible item established stronger covering implications.",
+      "Self-review and finite checker results are not independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Broad objective and dual principles are relevant but inspected material did not determine the price-optimal sunlet or its all-edge uniqueness.",
+        "evidence": [
+          "Graph-constrained absolute algebraic connectivity and embedding dual material; dated public listing 2005-09-02."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "material_read": "Open-access 29-page PDF: problem definitions, embedding/dual formulation, and special graph constructions including figures.",
+        "method": "Authorized public PDF text inspection and visual checks of relevant diagrams.",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "Early general spectral-gap maximization and separator/dual results might imply stronger coverage."
+      },
+      {
+        "assessment": "The parent linear-budget semidefinite program and plain-cycle case are established; no sunlet with pendant prices or universal asymmetric rigidity was identified in the examined article.",
+        "evidence": [
+          "SIAM Review 48 (2006), 681–699, DOI 10.1137/S0036144504443821."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Open-access author-hosted 19-page article: mathematical setup, dual interpretation, and analytical path and plain cycle sections.",
+        "method": "PDF text, section, term and relevant page-figure inspection.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Canonical parent problem for symmetric continuous-time spectral-gap maximization."
+      },
+      {
+        "assessment": "Covers structural conditions, repeated Fiedler eigenspaces, and tree algorithms; it does not state the priced sunlet conductances or exact objective.",
+        "evidence": [
+          "2008 IEEE CDC; Theorem 2 is about trees and Theorem 3 gives implicit general structural optimality conditions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2008.4738734",
+        "material_read": "Publicly readable full-paper transcription, including abstract, §§I–V theorem statements, tree and general-graph parts.",
+        "method": "Full-text HTML inspection of author-uploaded conference paper.",
+        "title": "On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+        "trigger": "General structural equality theorems may subsume explicit optimal designs."
+      },
+      {
+        "assessment": "The article gives fixed-weight signless/normalized spectra and degree Kirchhoff indices rather than priced global ordinary-Laplacian gap optimization.",
+        "evidence": [
+          "Journal of Mathematics 2022, first published 2022-02-10, DOI 10.1155/2022/6884839."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2022/6884839",
+        "material_read": "Indexed public full-article HTML for abstract, introduction and Theorems 1–3 with section and operator definitions.",
+        "method": "Published full-text HTML material inspection, including its stated signless and normalized operators.",
+        "title": "Two Kinds of Laplacian Spectra and Degree Kirchhoff Index of the Weighted Corona Networks",
+        "trigger": "The sunlet is a corona of a cycle; a direct weighted-corona spectrum might contain an equivalent result."
+      },
+      {
+        "assessment": "Theorem 1 supplies a weighted-corona characteristic polynomial for fixed edge weights; the paper studies coherence and does not optimize the Fiedler spectral gap under any edge budget. Its conclusion notes that the general weighted-corona Laplacian spectra are not determined.",
+        "evidence": [
+          "Frontiers in Physics 10 (2022) 948247, DOI 10.3389/fphy.2022.948247, especially pp. 3 and 6."
+        ],
+        "identifier_or_url": "https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2022.948247/pdf",
+        "material_read": "Open-access 7-page PDF: abstract, weighted-corona definition, Section 3 Laplacian polynomial theorem and example, Section 4 coherence, Section 6 conclusion.",
+        "method": "Primary PDF text and visual inspection of the characteristic-polynomial derivation and graph diagram.",
+        "title": "Consensus analysis of the weighted corona networks",
+        "trigger": "The ordinary weighted-corona Laplacian characteristic polynomial may dominate an explicit sunlet spectral formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "638ad622-5b9e-4088-ab88-b876db3892e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sunlet models a ring backbone with one terminal at each station. The sharp rule allocates money simultaneously to backbone and terminal conductances for arbitrary positive relative price and any ring size, proving that both edge classes remain essential at the global optimum and that no hidden asymmetric alternative attains the gap. The exact formula exposes a nontrivial scale separation between individual pendant and cycle conductances and a t~n^2 price-size crossover, quantities a generic SDP solver or fixed-spectrum table does not itself report. This is a complete natural infinite-family optimization with exact and motivated parameters, not an isolated tiny numerical gain or terminology change.",
+    "status": "PASS"
+  }
+}
