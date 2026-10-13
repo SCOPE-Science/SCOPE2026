@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The channel produces exactly the receiver sets defined by one zero-error or one valid decrement. Disjointness is equivalent to binary set packing with 243 receiver constraints; alternatively to independence in its 1890-edge confusability graph. Both separately constructed mixed-integer optimizations returned status optimal and a matching primal=dual cardinality of 45 with zero mixed-integer gap. The provided 45-word code was separately checked receiver by receiver (185 distinct received words). Solver correctness is an explicit dependency, and finite optimization is not a symbolic all-parameter theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1401.6496v1 Theorem 12 and Table V report an LP upper 55 rather than 45.",
+        "arXiv:1112.0896v2 pp.1–2 constructs perfect lattice codes and discusses n−1 and n−2 errors; a general upper bound specializing to 45 was not found."
+      ],
+      "reasoning": "The broad general fractional bound applies but is strictly weaker, 55 versus 45. Perfect-lattice existence statements and systematic code designs do not upper-bound all unrestricted codes tightly without an additional theorem, not present in material read.",
+      "searches": [
+        "\"single asymmetric limited magnitude\" optimum nonlinear finite codes",
+        "\"ternary\" \"limited-magnitude\" \"five\" \"45\" codes",
+        "arXiv:1112.0896v2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1401.6496v1: full relevant primary section and Table V",
+      "arXiv:1112.0896v2: entire two-page primary paper",
+      "doi:10.1109/TIT.2010.2040971: accessible abstract only",
+      "doi:10.1109/TIT.2011.2146330: bibliographic details and accessible abstract only",
+      "published-finding corpus 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+      "published-finding corpus 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior GSPB: cardinality at most 55; a 45-word code is not implied by an upper bound of 55.",
+        "Prior lattice existence: optimized over lattices, not arbitrary code subsets of the finite 243-word box.",
+        "New computation: two full integer models have global optimum 45 and a separately checked 45-word witness."
+      ],
+      "reasoning": "The new upper bound 45 strictly strengthens 55 on the identical finite channel. Perfect lattice or systematic code constructions alone cannot imply a universal upper bound of 45. A plausible uninspected source could in principle imply the claim, which is separately disclosed.",
+      "searches": [
+        "arXiv:1401.6496v1 Section V.A Table V",
+        "arXiv:1112.0896v2 perfect asymmetric limited-magnitude codes",
+        "ternary length five limited magnitude single asymmetric error correcting code optimal 45"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1401.6496v1 Section V.A defines the ternary single-decrement directed balls; complementing all levels identifies upward versus downward errors.",
+        "Receiver-ball packing is identical to maximum independent set of the corresponding confusability graph; the numerical optimum 45 was sought under both names."
+      ],
+      "reasoning": "The non-wraparound upward and downward one-unit channels are isomorphic under level reflection, and graph-independent-set, packing, and zero-error formulations were explicitly compared. No inspected source determines the integer maximum 45.",
+      "searches": [
+        "ternary length five limited magnitude single asymmetric error correcting code optimal 45",
+        "\"ternary\" \"limited-magnitude\" \"five\" \"45\" codes",
+        "\"single asymmetric\" \"n=5\" \"q=3\" codes exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1401.6496v1, Table V, row q=3,n=5: monotonicity 60, average 56, Theorem 13 60, generalized sphere-packing 55.",
+        "published-finding corpus 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03: deletion channel and different parameters.",
+        "published-finding corpus 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a: prefix/suffix-free codes rather than limited-magnitude errors."
+      ],
+      "reasoning": "The most relevant inspected numerical table does not tabulate the integer optimum 45, and the nearest surfaced exact finite-code published-finding corpus tables address mathematically distinct channels; failure to find an additional table cannot certify absence.",
+      "searches": [
+        "ternary length five limited magnitude single asymmetric error correcting code optimal 45",
+        "four-level flash single one-step downward error optimal blocklength four",
+        "\"A_{q}\" \"limited magnitude\" \"5\" \"3\" code"
+      ]
+    },
+    "rationale": "The complete Section V.A and Table V of Fazeli–Vardy–Yaakobi (arXiv:1401.6496v1) establish only the finite fractional-packing bound 55, not the integer maximum 45. The full two-page Buzaglo–Etzion preprint concerns lattice and perfect codes, particularly n-1 and n-2 errors, not the unrestricted five-cell optimum. Exact-claim, channel-alias, and related published-finding corpus searches returned no statement implying the 45 optimum. Code-construction papers not fully accessed remain a bibliographic risk, not a demonstration of coverage. The claim of originality concerns closing the specific 55-to-45 integer optimum gap, not inventing the channel or the packing method.",
+    "residual_risks": [
+      "Published exact 45 result could exist in nonindexed numerical tables or uninspected full texts; no search result is proof of novelty.",
+      "Cassuto et al. 2010 and Kløve–Bose–Elarief 2011 full text could not be checked exhaustively; if an exact n=5 unrestricted result appears there, originality would need reassessment.",
+      "The displayed exact maximum relies on mixed-integer optimizer correctness; no independent formally checkable infeasibility certificate was generated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover: the exact q=3,n=5 integer cardinality was not calculated; table gives bound 55.",
+        "evidence": [
+          "arXiv:1401.6496v1 Section V.A, Table V row n=5, GSPB=55; text says it is a numerical LP bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.6496",
+        "material_read": "Abstract and introduction; Section V.A full channel definition and statements; Theorem 12, Theorem 13, Table V and surrounding discussion on PDF pp. 10–12",
+        "method": "Opened full arXiv PDF, inspected extracted text and visual pages 11–12",
+        "title": "Generalized Sphere Packing Bound",
+        "trigger": "Same channel and same q=3,n=5 parameters, possible dominating bound"
+      },
+      {
+        "assessment": "Addresses lattice constructions and n−1/n−2 correction and does not establish this unrestricted finite cardinality.",
+        "evidence": [
+          "arXiv:1112.0896v2, intro, Sections II–IV, particularly lattice representation and perfect-code focus."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1112.0896",
+        "material_read": "Full two-page article including Sections I–IV, theorem statements and scope",
+        "method": "Opened full arXiv PDF and examined full extracted text",
+        "title": "On the Existence of Perfect Codes for Asymmetric Limited-Magnitude Errors",
+        "trigger": "Natural one-asymmetric-error perfect-code methods might imply an exact optimum"
+      },
+      {
+        "assessment": "Unresolved bibliographic risk; abstract presents constructions and bounds but does not state the exact five-cell optimum.",
+        "evidence": [
+          "McMaster public abstract, DOI 10.1109/TIT.2010.2040971."
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2010.2040971",
+        "material_read": "Abstract, bibliographic metadata; not the full article",
+        "method": "Inspected institutional public abstract and sought lawful full text, without success",
+        "title": "Codes for Asymmetric Limited-Magnitude Errors with Application to Multilevel Flash Memories",
+        "trigger": "Foundational paper on same channel, candidate for prior finite optimal bound"
+      },
+      {
+        "assessment": "Plausible inaccessible coverage risk; no claim of whole-document not-covering.",
+        "evidence": [
+          "IEEE DOI metadata 10.1109/TIT.2011.2146330; no verified full text."
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.2011.2146330",
+        "material_read": "Title, abstract/metadata only; full paper not obtained",
+        "method": "Sought arXiv and OA first; authorized institutional access reported disconnected VPN",
+        "title": "Systematic, Single Limited Magnitude Error Correcting Codes for Flash Memories",
+        "trigger": "Same one-error channel, possible exact small-code values in appendices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65c1fe92-69be-4f83-ba86-821584ae73f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unrestricted exact number of messages storable with guaranteed recovery after one cell-level decrement is a natural finite capacity invariant; the foundational same-channel 2014 paper tabulates an upper bound 55 for precisely five ternary cells but leaves the integer optimum open. The 45-word explicit design and sharp upper bound close a ten-codeword finite gap, with relevance for evaluating nonlinear alternatives and moderate cell arrays. This is not claimed to establish a general family or physical implementation.",
+    "status": "PASS"
+  }
+}
