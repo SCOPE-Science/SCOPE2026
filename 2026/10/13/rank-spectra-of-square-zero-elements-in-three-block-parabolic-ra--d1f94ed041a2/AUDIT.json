@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Direct block multiplication gives X²=0 iff AB=0. Fixed rank i of A yields R_q(a,b,i) choices, fixed rank j of B inside ker A yields R_q(b-i,c,j), and rank X=i+j+rank(ker B→F_q^a/im A). The restriction/quotient map on C is surjective with kernel dimension ac-(a-i)(c-j), proving every multiplicity for all finite fields; matrix-rank count R_q is the standard Gaussian formula including zero dimensions. A matching in the complete tripartite support pattern yields all ranks to min(floor(N/2),N-maxpart), while square zero and block supports provide the exact upper bound. An independent one-sum ungraded count checks normalization; 41 complete finite field enumerations test small cases. The computations are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kirillov recurrence as reproduced in arxiv:math/9512224v1, lines 28–40, covers unrestricted triangular matrices.",
+        "Boos arxiv:1205.5197 Theorem 4.2 provides complex parabolic square-zero orbit representatives and Proposition 4.5 their dimensions; no finite-field orbit-cardinality/total rank-fiber polynomial in these results.",
+        "arxiv:1504.00339v2 defines geometric complexes D_(i+1) D_i=0 without long block C."
+      ],
+      "reasoning": "Although unrestricted triangular X^2=0 includes this locus as a subset, its aggregate rank distribution gives no distribution after imposing within-block vanishing. Boos gives orbit classification and dimensions over the complex numbers, which is strong structural coverage and may explain attainable ranks, but does not by itself furnish the finite-field numbers of individual elements in each stratum. Adjacent-complex results cover AB=0 but lack the long-block total-rank refinement.",
+      "searches": [
+        "arxiv:math/9512224v1",
+        "arxiv:1205.5197v1",
+        "arxiv:1504.00339v1",
+        "Three-step parabolic nilradical rank polynomial for square-zero elements block matrix [[0,A,C],[0,0,B],[0,0,0]], AB=0; fixed total matrix rank"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/9512224v1; https://arxiv.org/html/math/9512224v1",
+      "arxiv:1312.2058; https://arxiv.org/html/1312.2058v2",
+      "arxiv:1504.00339; https://arxiv.org/html/1504.00339v2",
+      "arxiv:1205.5197v1; https://arxiv.org/pdf/1205.5197",
+      "doi:10.1007/s10801-021-01052-8; https://doi.org/10.1007/s10801-021-01052-8",
+      "OEIS:A008964",
+      "OEIS:A092303"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boos arxiv:1205.5197 Theorem 4.2 and Proposition 4.5 classify parabolic orbits and their complex dimensions, not finite-field multiplicities.",
+        "Nien DOI:10.1007/s10801-021-01052-8 concerns coadjoint orbit/irreducible character degree numbers for 1+n.",
+        "arxiv:1312.2058v2 gives geometrical results on rank vectors for complexes."
+      ],
+      "reasoning": "Complex parabolic orbit parametrizations and their dimensions may imply qualitative orbit/rank feasibility but do not explicitly give the finite-field q-dependent rank multiplicities. Representation degrees of 1+n do not identify ordinary ranks of X∈n with X²=0. Complex ranks (i,j) leave h variable, so adjacent-differential stratifications alone do not imply the complete polynomial without counting C.",
+      "searches": [
+        "doi:10.1007/s10801-021-01052-8",
+        "arxiv:1205.5197v1",
+        "Three-block parabolic nilradical square-zero matrices rank distribution AB=0; arbitrary block sizes r,s,t finite fields counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:math/9512224v1 counts all triangular X with X^2=0, not parabolic block-zero subloci.",
+        "arxiv:1205.5197 Theorem 4.2 classifies parabolic orbits of 2-nilpotent matrices by enhanced link patterns over C but does not count finite-field rank fibers.",
+        "arxiv:1312.2058 studies differentials of fixed rank, which do not determine rank of (A,C,B)."
+      ],
+      "reasoning": "The stated invariant fixes a 3-block pattern and then refines by rank of the whole square-zero operator. Rank of adjacent maps (i,j) does not determine total rank since C contributes h. Full triangular rank counts sum over many patterns and cannot be specialized solely by n and rank.",
+      "searches": [
+        "Three-step parabolic nilradical rank polynomial for square-zero elements block matrix [[0,A,C],[0,0,B],[0,0,0]], AB=0; fixed total matrix rank",
+        "Count square-zero matrices in three block upper triangular algebra over GF(q) by ordinary rank and all positive block dimensions",
+        "Linear algebra variety of complexes AB=0 with additional free homomorphism C rank of extension T, finite field rank strata",
+        "Counting rank of square zero upper triangular matrices parabolic 3-level flags finite fields Gaussian binomial",
+        "arxiv:math/9512224v1",
+        "arxiv:1205.5197v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS upper-triangular square-zero sequences tabulate total unrestricted triangular counts, not all (a,b,c,q,r) restricted fibers.",
+        "No equal fixed-three-block rank table was surfaced by the actual targeted searches."
+      ],
+      "reasoning": "A one-parameter q=2 or n-indexed unrestricted triangular count cannot determine the multi-parameter family for fixed block type and rank. Absence of a search hit is not proof of historical novelty.",
+      "searches": [
+        "OEIS:A008964",
+        "OEIS:A092303",
+        "Count square-zero matrices in three block upper triangular algebra over GF(q) by ordinary rank and all positive block dimensions"
+      ]
+    },
+    "rationale": "No matching finite-field rank distribution for square-zero matrices in a prescribed three-block parabolic radical was identified after targeted statement-level comparisons. Kirillov/Ekhad–Zeilberger count full upper triangular square-zero matrices (including a rank-refined recurrence); Boos classifies complex parabolic orbits without finite-field rank multiplicities; geometric varieties-of-complexes results concern the two adjacent maps; and Nien counts character degrees of the associated unipotent group. None implies the displayed three-block restriction with total matrix-rank fibers without additional enumeration. An equivalent indexed differently remains possible.",
+    "residual_risks": [
+      "Boos 2012 complex parabolic orbit classification could potentially be converted into the exact finite-field rank counts through additional rational orbit-size calculations; such an equivalent enumerative corollary was not found.",
+      "Prior literature on nilpotent order-two orbits in parabolic radicals may encode the same finite-field polynomial under orbit parameters not returned by searches.",
+      "Full text of Nien 2021 and the earlier De Concini–Strickland varieties-of-complexes paper was not inspected; available descriptions suggest different invariants, but cannot exclude hidden equivalent formulas."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts all ordinary upper triangular square-zero matrices; the quoted rank-refined recurrence is not conditioned on fixed three-block zero patterns, and does not determine this restricted rank polynomial.",
+        "evidence": [
+          "Its Theorem gives the ungraded full upper-triangular count C_n(q).",
+          "Its proof records Kirillov A_n^r(q) recurrence for full upper-triangular matrices."
+        ],
+        "identifier_or_url": "arxiv:math/9512224v1; https://arxiv.org/html/math/9512224v1",
+        "material_read": "Entire short open-access HTML paper, including Theorem, Kirillov rank recurrence, Lemmas and references",
+        "method": "Read original complete arXiv HTML (lines 18–70)",
+        "title": "An Explicit Formula for the Number of Solutions of X^2=0 in Triangular Matrices over a Finite Field",
+        "trigger": "Exactly the same equation over finite fields and a closely related matrix algebra"
+      },
+      {
+        "assessment": "Its fixed ranks are ranks of differential maps; no unrestricted long block C or the total ambient matrix rank distribution appears in its main statements.",
+        "evidence": [
+          "The abstract states geometric smoothness/irreducible-fiber results.",
+          "Section 1.2 defines complex rank vectors componentwise, unlike rank(A,C,B) of the full block matrix."
+        ],
+        "identifier_or_url": "arxiv:1312.2058; https://arxiv.org/html/1312.2058v2",
+        "material_read": "Open-access article HTML introduction, definitions, theorem, and subsequent sections on smooth morphisms and examples",
+        "method": "Read primary arXiv HTML and searched relevant sections",
+        "title": "Varieties of complexes of fixed rank",
+        "trigger": "The equation AB=0 defines a variety of two-step complexes with separately fixed differential ranks"
+      },
+      {
+        "assessment": "Studies coordinate algebras, equivariant geometry and derived enhancements of complexes, not q-point counts ranked by adding a free long block C.",
+        "evidence": [
+          "Section 0 defines Com(V^bullet) by D_(i+1)D_i=0.",
+          "Its geometric cohomological results do not state the finite-field rank enumerator here."
+        ],
+        "identifier_or_url": "arxiv:1504.00339; https://arxiv.org/html/1504.00339v2",
+        "material_read": "Open-access introduction, classical variety-of-complexes definition, statements and relevant finite-complex constructions",
+        "method": "Read primary arXiv HTML, including introductory equations",
+        "title": "Derived varieties of complexes and Kostant’s theorem for gl(m|n)",
+        "trigger": "General algebraic-geometric framework for the same relation on adjacent maps"
+      },
+      {
+        "assessment": "Classifies 2-nilpotent parabolic conjugacy orbits and their dimensions over C, a strong precursor for feasible ranks; it does not state a finite-field number of individual rank-r square-zero elements in a given three-block nilradical. Counting rational orbit cardinalities could possibly recover the formula, an acknowledged overlap risk.",
+        "evidence": [
+          "Theorem 4.2 gives enhanced oriented link-pattern orbit correspondence.",
+          "Proposition 4.5 gives algebraic orbit dimensions over C, not q-point cardinalities."
+        ],
+        "identifier_or_url": "arxiv:1205.5197v1; https://arxiv.org/pdf/1205.5197",
+        "material_read": "Original open-access PDF abstract, introduction, central Theorem 4.2 link-pattern classification, Proposition 4.5 orbit dimensions and section 5 finiteness criterion",
+        "method": "Read original arXiv full-text PDF with page-image checks of cover and Theorem 4.2 and Proposition 4.5",
+        "title": "Conjugation on varieties of nilpotent matrices",
+        "trigger": "A directly stronger orbit classification for the same square-zero equation under parabolic conjugation"
+      },
+      {
+        "assessment": "Describes coadjoint orbits and irreducible character degree distributions of the unipotent group 1+n, not counts of rank-r square-zero elements; remaining uninspected content is a residual bibliographic risk.",
+        "evidence": [
+          "The published abstract characterizes the results as irreducible character constructions and character-degree counts."
+        ],
+        "identifier_or_url": "doi:10.1007/s10801-021-01052-8; https://doi.org/10.1007/s10801-021-01052-8",
+        "material_read": "Journal search-indexed abstract, introduction and summary only; entire body not retrieved",
+        "method": "Read indexed journal HTML excerpt; direct full-page retrieval unavailable",
+        "title": "Characters of unipotent radicals of standard parabolic subgroups with 3 parts",
+        "trigger": "Exactly the same family of three-part parabolic radicals over finite fields"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1f94ed0-41a2-4234-ba1c-c9551eefbbbc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete q- and block-size-uniform arithmetic classification of a natural square-zero locus in the nilradical of a parabolic matrix algebra, refined by a conjugacy-invariant operator rank. The unrestricted long block creates nontrivial residual-rank fibers invisible from the rank vectors of the adjacent complex; the matching threshold gives a sharp structural support theorem. It extends beyond isolated numerics and has a plausible use for finite parabolic radical distributions and degeneration comparisons. Its value does not rely on asserting an independent-audit outcome or a generalization beyond three blocks.",
+    "status": "PASS"
+  }
+}
