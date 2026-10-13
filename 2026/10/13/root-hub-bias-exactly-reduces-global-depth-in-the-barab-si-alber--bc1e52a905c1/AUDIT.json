@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The all-size proof derives exact conditional expectations from the degree-proportional growth rule and the deterministic tree identity sum degree times depth equals twice total depth minus the number of edges. The selected-root indicator times selected-parent depth is identically zero. These facts produce a closed covariance recurrence. Exact mean recurrences, normalization by the root-degree mean, and telescoping give the stated positive-sum formula; summation by parts gives the harmonic closed form. Exact-rational weighted enumeration through size nine independently reproduces the formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Móri studies maximal degree in the Barabási–Albert random tree and related attachment models.",
+        "Feng--Hu study topological indices and explicitly discuss an inner connection between large degree and short average path length.",
+        "Katona studies levels and degree distributions in the Barabási–Albert tree."
+      ],
+      "reasoning": "These sources are broader on degree extremes, degree-by-level structure, and topological indices, but none of the inspected statements implies the finite mixed moment of the distinguished root degree with total root depth. The Feng--Hu bridge uses Zagreb index rather than the accepted covariance, while marginal degree or level information does not determine a joint mixed moment.",
+      "searches": [
+        "DOI:10.1017/S0963548304006133",
+        "DOI:10.1239/jap/1371648958",
+        "DOI:10.1002/rsa.20106",
+        "scale-free tree degree path length Zagreb index",
+        "Barabasi Albert tree levels degree distribution"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1017/S0963548304006133",
+      "DOI:10.1239/jap/1371648958",
+      "DOI:10.1002/rsa.20106"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item a3885e62-cb19-4e3a-87a9-1e081a282b0a couples the same root degree to leaf count, not to total path length.",
+        "Own item 3b3e0426-b1ba-4b0a-92d6-6e53709e7469 concerns uniform random-recursive-tree root attachments and path length, a different attachment law and a different root statistic.",
+        "Own item b67cdf22-fe00-48fd-aba6-8663019cd5de concerns leaves and path length in a uniform random recursive tree, not preferential attachment.",
+        "Feng--Hu motivate degree/path interaction through Zagreb index but do not state the accepted root-degree mixed identity."
+      ],
+      "reasoning": "The previous preferential-attachment leaf covariance does not imply the present path covariance because the path update depends on the selected parent's depth rather than on leaf status; covariance is not transitive. Uniform recursive-tree path identities also do not transfer because their parent selection is uniform rather than degree proportional. The present claim requires the distinct deterministic identity for degree-weighted depths.",
+      "searches": [
+        "own ledger Barabasi Albert root degree leaf count covariance",
+        "own ledger random recursive tree root attachment total path length",
+        "own ledger random recursive tree leaves total path length covariance",
+        "Feng Hu scale-free tree degree path length covariance",
+        "Mori maximum degree Barabasi Albert path length"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Queries covered the aliases root degree, hub degree, total path length, internal path length, search cost, average path length, size bias, and the exact asymptotic constant.",
+        "No located record stated the covariance formula, the normalized telescoping law, or the root-degree size-biased depth shift.",
+        "The full Feng--Hu paper was searched for covariance and root occurrences and compared against its path-length discussion."
+      ],
+      "reasoning": "The standard aliases for both observables and for the size-biased reformulation were checked. Negative search results are not used alone; they are combined with a full-text statement and implication comparison against the strongest same-model source.",
+      "searches": [
+        "preferential attachment tree root degree total path length covariance",
+        "Barabasi Albert root degree total path length covariance exact harmonic",
+        "preferential attachment root degree internal path length covariance",
+        "root-degree size-biased preferential attachment total path length",
+        "scale-free tree root degree average path length covariance",
+        "root hub search cost covariance preferential attachment",
+        "\"root degree\" \"path length\" preferential attachment tree covariance",
+        "\"degree of the root\" \"total path length\" preferential attachment",
+        "\"Cov\" \"root degree\" \"total path length\" preferential attachment",
+        "\"1-log 2\" preferential attachment root degree path length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or database record matching the harmonic closed form, the positive telescoping sum, or the asymptotic constant was located."
+      ],
+      "reasoning": "The accepted statement is an all-size symbolic joint identity derived from the growth law, not a finite table, numerical fit, or recomputation of a known marginal.",
+      "searches": [
+        "\"Cov\" \"root degree\" \"total path length\" preferential attachment",
+        "\"1-log 2\" preferential attachment root degree path length",
+        "\"root-degree size-biased\" preferential attachment tree path length"
+      ]
+    },
+    "rationale": "Bibliographic and statement-level comparisons found no theorem matching the exact root-degree/total-root-depth covariance or its size-bias shift. The strongest same-model full source, Feng--Hu, explicitly motivates the connection between large degree and shorter paths but uses topological indices as its bridge. Móri treats maximal degree, and Katona treats degree distributions by level. The closest prior own result couples root degree to leaf count, which does not imply this mixed path-length law.",
+    "residual_risks": [
+      "Older preferential-attachment literature is extensive, and an equivalent formula could appear under the terminology root hub, search cost, Wiener-type depth, or profile.",
+      "The Móri and Katona comparisons used their public abstracts and bibliographic material rather than full-paper inspection.",
+      "Feng--Hu's motivating average path length is a pairwise-distance statistic, whereas the accepted \\(P_n\\) is total depth from the distinguished root."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MOTIVATES_DEGREE_PATH_CONNECTION_WITHOUT_ACCEPTED_MIXED_LAW",
+        "evidence": "The paper states that large-degree nodes shorten average path length and proposes the Zagreb index as a bridge between small-world behavior and degree distribution. Its primary classifications include 60C05. No covariance occurrence or theorem matching the accepted root-degree/total-root-depth identity was found.",
+        "identifier_or_url": "DOI:10.1239/jap/1371648958",
+        "material_read": "Full 17-page public manuscript, including the abstract, model definition, introductory path-length discussion, principal results, and concluding model variants; targeted full-text searches for covariance, path length, and root.",
+        "method": "Compared the source's stated bridge between degree distribution and average path length with the accepted root-degree/total-root-depth mixed moment and searched for equivalent covariance formulations.",
+        "title": "Phase Changes in the Topological Indices of Scale-Free Trees",
+        "trigger": "Strongest same-model source because it treats the linear preferential-attachment tree and explicitly motivates a degree-versus-path-length connection."
+      },
+      {
+        "assessment": "DEGREE_EXTREME_MARGINAL_NOT_ACCEPTED_MIXED_LAW",
+        "evidence": "The source studies maximal degree in a one-parameter random-tree model containing the Barabási–Albert tree. Its stated object is the maximum degree, not total root depth or their covariance.",
+        "identifier_or_url": "DOI:10.1017/S0963548304006133",
+        "material_read": "Publisher abstract and bibliographic metadata, including exact online publication date and the stated maximal-degree scope.",
+        "method": "Compared the stated maximal-degree results with a mixed root-degree/path-length theorem.",
+        "title": "The Maximum Degree of the Barabási–Albert Random Tree",
+        "trigger": "Archive-era same-model source for degree behavior in the Barabási–Albert random tree."
+      },
+      {
+        "assessment": "LEVEL_DEGREE_STRUCTURE_NOT_ACCEPTED_GLOBAL_MIXED_LAW",
+        "evidence": "The source studies the degree distribution on levels of a Barabási–Albert tree. The accessible statement does not state the finite covariance, the size-biased depth shift, or an implication that would determine them.",
+        "identifier_or_url": "DOI:10.1002/rsa.20106",
+        "material_read": "Public author/publisher abstract and bibliographic metadata, including first-publication date and stated degree-by-level scope.",
+        "method": "Compared level-specific degree distribution results with the distinguished-root/global-depth covariance.",
+        "title": "Levels of a scale-free tree",
+        "trigger": "Same-model source connecting depth levels with degree distributions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc1e52a9-05c1-4d9b-a4a2-ec6629b72893",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Root degree is the canonical early-hub statistic in the Barabási–Albert tree and total root depth is a canonical global search-cost/profile statistic. The literature explicitly motivates a hub-versus-short-path connection. The accepted identity supplies a direct quantitative bridge: root-degree size bias lowers expected total depth by an exact finite amount asymptotic to (1-log 2)n, and the raw covariance has a nontrivial n^(3/2) scale. This is a structural joint law rather than a routine restatement of marginal moments.",
+    "status": "PASS"
+  }
+}
