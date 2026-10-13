@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For all even k>=2 and odd p, the geometric sum with base p^k congruent 1 modulo 8 has exact 2-adic valuation nu_2(b+1); multiplicativity yields both necessary and sufficient cross-divisibility conditions. The bound a<2k follows from b>=2^a-1, p^b<=S_{k,a}, and 2^a-1>=k(a+1) for a>=2k. A separate induction at k=2 excludes a>=3, exact 27>21 excludes a=2, and S_{2,1}=5 gives n=10, checked directly by sigma_2(10)=130. The Python standard-library certificate enumerates k=2,4 within rigorous bounds and checks 2268 valuation instances; it is not substituted for the infinite argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai--Chen--Zhang 2013 Theorem 1 is finite for each fixed multiplier B in sigma_2(n)-n^2=Bn; Theorem 2 handles B=3 only.",
+        "Cai--Chen--Zhang Lemma 5 cites Luca--Ferdinands for infinitely many even n at each k, with no restriction to at most two distinct prime supports.",
+        "Theorem 4 of 2013 paper addresses sigma_3 and some two-prime families."
+      ],
+      "reasoning": "A fixed B result does not bound solutions with varying B=sigma_2(n)/n-n. Infinite unrestricted even constructions do not imply a finite support subfamily is finite; an odd-power classification does not include every even k. Full inspection of the original 2006 note was unavailable, retained as risk.",
+      "searches": [
+        "2013 Cai Chen Zhang Perfect numbers Fibonacci primes general sigma2(n) / n integer odd prime powers",
+        "\"Sometimes n divides sigma_k(n)\" pdf",
+        "Fixed even power k number of solutions 2^a p^b with n divides σ_k(n) finite 2-adic valuations b+1"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A046762 and full historical initial record (1999-12-11)",
+      "Cai, Chen, Zhang, arXiv:1310.0898v2, theorem and proof sections",
+      "Luca and Ferdinands, Problem 11090 (2006): accessible citation and attributed main statement, original text inaccessible",
+      "OEIS A055712: higher even-power sequence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 paper explicitly notes 10 is the only even case at multiplier 3, a strict subclass of n|sigma_2(n).",
+        "2013 Theorem 1 addresses fixed B, not variable B; its Theorem 4 is k=3.",
+        "Published comparisons with power-harmonic and unitary sigma classifications concern different divisor-function divisibility relations."
+      ],
+      "reasoning": "Even F-perfect is contained in n|sigma_2(n), but not conversely; the statement that the F-perfect subfamily contains only 10 does not exclude other even two-prime members of the larger set. Similarly different means and divisor-sum variants neither imply nor contradict the present criterion.",
+      "searches": [
+        "https://arxiv.org/html/1310.0898v2",
+        "https://www.jstor.org/stable/27641939",
+        "Complete classification even two distinct prime factors 2^a p^b dividing the sum of squared divisors σ_2(n); only 10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact equivalent prime-power divisibility criterion is p^b|S_{k,a} and 2^a|b+1 for even k, proved internally.",
+        "OEIS A046762 lists all solutions without support constraints only as a sequence, including 10 and 60."
+      ],
+      "reasoning": "The only exact statement located is the ambient n|sigma_2(n) sequence; a table containing 10 cannot imply that there are no other 2^a p^b solutions. The fixed support and uniform even-exponent quantifiers distinguish the theorem.",
+      "searches": [
+        "\"n divides sigma_2(n)\" \"two prime factors\"",
+        "\"2^a p^b\" \"sigma_2\" \"divides\"",
+        "OEIS A046762 n divides sigma2(n) 10 only two distinct prime supports even"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A046762 was publicly present on 1999-12-11 and gives 1,10,60,65,84,...",
+        "OEIS A055712 for sigma_8 lists 514=2*257, illustrating distinct higher even exponent behavior."
+      ],
+      "reasoning": "The database gives examples of the ambient sequence, not the proved global nonexistence assertion for other two-prime even supports. A finite numerical table cannot exhaust all possible a,b,p.",
+      "searches": [
+        "https://oeis.org/A046762",
+        "https://oeis.org/history?seq=A046762&start=30",
+        "https://oeis.org/A055712"
+      ]
+    },
+    "rationale": "No covering claim identified after checking exact ambient sequence, 1999 historical record, relevant 2006 cited theorem, material full text of the 2013 primary paper, and semantic published-result comparisons. OEIS enumerates values but does not prove the two-prime boundary; the fixed-multiplier 2013 theorem and unrestricted-even 2006 infinitude do not imply the present all-even-power fixed-support finiteness. Earlier unindexed work and inaccessible material remain named residual risks, not proof of global uniqueness.",
+    "residual_risks": [
+      "An unindexed earlier paper might contain the identical support-finiteness argument.",
+      "The full text of the 2006 short problem note could not be independently read; its accessible attributed result concerns unrestricted even infinitude, but unseen detailed claims could overlap.",
+      "Search and semantic ranking are not exhaustive discovery of unpublished or unindexed mathematics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Records 10 and ambient divisibility, not a complete two-prime even classification or fixed-even-power finiteness theorem.",
+        "evidence": [
+          "1999-12-11 initial OEIS record defines the exact condition and lists 1,10,60,65,84,...",
+          "Terms 60 and 84 have at least three prime supports; the table alone does not imply universal exclusion among two-prime even integers."
+        ],
+        "identifier_or_url": "https://oeis.org/A046762",
+        "material_read": "Sequence title, terms, notes, cited papers, examples, linked 1999 revision history.",
+        "method": "Read full publicly displayed OEIS record and the earliest revision at https://oeis.org/history?seq=A046762&start=30.",
+        "title": "OEIS A046762: integers whose square-divisor sum is divisible by the argument",
+        "trigger": "Exact database and natural ambient object, including two-prime and multisupport examples."
+      },
+      {
+        "assessment": "Theorem 1 controls a fixed ratio multiplier B; Theorem 2 classifies B=3; Theorem 4 treats k=3. None implies effective finiteness for n=2^a p^b at every even k with variable multiplier.",
+        "evidence": [
+          "Theorems 1--2: sigma_2(n)-n^2=B n with B fixed; 10 is identified as the unique even F-perfect number (B=3).",
+          "Theorem 4 classifies selected n dividing sigma_3(n), an odd exponent.",
+          "Lemma 5 states infinitely many even n dividing sigma_k(n) for fixed k>=2, citing Luca--Ferdinands."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1310.0898v2 (first version arXiv:1310.0898v1 dated 2013-10-03)",
+        "material_read": "Theorem statements, Lemma 5, proofs of Theorems 1--4 and relevant introduction in full-text HTML.",
+        "method": "Reviewed public OA HTML document at https://arxiv.org/html/1310.0898v2, including detailed proof sections.",
+        "title": "Perfect numbers and Fibonacci primes",
+        "trigger": "Directly studies n dividing the sum of squared divisors and a different power-divisibility problem."
+      },
+      {
+        "assessment": "Verified accessible theorem is infinitude of unrestricted even solutions for fixed k; complete original short note not inspected; unexplored content is a residual priority risk.",
+        "evidence": [
+          "Cai--Chen--Zhang Lemma 5 explicitly attributes unrestricted even infinitude to Luca--Ferdinands.",
+          "OEIS A046762 identifies full citation, American Mathematical Monthly 113 (2006), 372--373."
+        ],
+        "identifier_or_url": "https://www.jstor.org/stable/27641939",
+        "material_read": "Bibliographic entry and accessible secondary citation of the main infinitude statement, not the original full text.",
+        "method": "Tried exact-title searches for arXiv, legal open versions and public PDF; institutional retrieval required an unavailable interactive step.",
+        "title": "Problem 11090: Sometimes n divides sigma_k(n)",
+        "trigger": "Foundational 2006 primary reference for the same general integrality problem; potentially relevant stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7473c155-5c3d-4832-8837-4a7e5bc5e734",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "General divisibility n|sigma_k(n) was shown to have infinitely many even solutions for fixed k>=2, but the natural restriction to one odd prime support was not known to force finiteness. The theorem establishes a uniform exponent cutoff and exact effective classification across all even k, and completely resolves the first parameter k=2. This structural contrast motivates the precise restriction and invariant; it is not a finite table extrapolation or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
