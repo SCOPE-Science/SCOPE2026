@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional squared-error identity follows from summing four weighted coordinate transitions, with coefficient \\(2\\alpha(1-\\alpha)/S\\) and smallest singular value \\(1-\\rho\\). Jensen gives all orders \\(0<p\\le2\\); Markov plus summability gives almost-sure convergence. The two rare off-diagonal transitions jointly give a power-mean lower bound and an explicitly diagonalizable symmetric 2x2 map W, whose least singular value is \\(\\alpha/\\rho-(1-\\alpha)\\) on the stated domain. This yields uniform conditional order-p growth by L_p, iterates for every x0 and k by independence, and diverges as \\(\\rho\\downarrow0\\) for fixed \\(p>2\\). Verified exact-rational identities and exhaustive finite paths supplement, not replace, the proof. All quantifier and near-identity boundaries were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gower & Richtárik, arXiv:1506.03296, expected-error randomized methods",
+        "Gurbuzbalaban–Şimşekli–Zhu, arXiv:2006.04740, SGD stationary heavy-tail analysis",
+        "Hodgkinson–Mahoney, arXiv:2006.06293, multiplicative noise and stationary tails"
+      ],
+      "reasoning": "General linear random-product and stochastic-optimization theory can explain the mechanism qualitatively; the compared published statements give expected-norm results or heavy-tailed stationary laws under other recurrences. None of the inspected statements supplies an immediate reduction establishing the uniform per-state higher-moment expansion for this source-specific 2×2 positive-definite family. General overlap cannot be ruled out exhaustively.",
+      "searches": [
+        "random linear iterative algorithm mean square convergence higher moment exponential growth near identity",
+        "stochastic iterative linear solver mean square convergence fourth moments divergence heavy tailed 2018 2020",
+        "Rare amplification mean square contracting fourth moment exploding stochastic linear iteration Kaczmarz random matrix products"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.05251, Algorithm 1 and Theorem 1",
+      "arXiv:1912.13291, §2 and convergence theorems",
+      "arXiv:1506.03296, broad expected-error solver work",
+      "arXiv:2006.04740, quadratic SGD stationary tails",
+      "arXiv:2006.06293, multiplicative noise stationary tails",
+      "Published randomized Gauss–Seidel/coordinate-descent stability analyses indexed by topical searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1810.05251, Theorem 1 yields second-moment upper convergence; p>2 is not bounded by it",
+        "arXiv:1912.13291, Theorem 8 expected error norm upper bounds",
+        "arXiv:2006.04740 and arXiv:2006.06293 study SGD/invariant-tail mechanisms"
+      ],
+      "reasoning": "Source Theorem 1 is fully compatible with the new result: E||X_k||² decays but Jensen gives upper bounds only for p≤2, not \\(p>2\\). The new lower-bound mechanism uses the off-diagonal selection probability and inverse-entry magnitude, which are absent from the cited mean-square implication. Stationary heavy-tail results cannot immediately imply divergence of finite-time moments under an absorbing zero solution and no additive noise.",
+      "searches": [
+        "Double stochastic Gauss Seidel DSGS rare off diagonal entries infinite kurtosis fourth moment divergence although mean square converges",
+        "Randomized Gauss Seidel 2x2 well conditioned matrix mean square stable fourth moment unstable stochastic coordinate entry sampling",
+        "Rare amplification mean square contracting fourth moment exploding stochastic linear iteration Kaczmarz random matrix products"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Razaviyayn et al., arXiv:1810.05251, Algorithm 1, Theorem 1 (PDF pp. 9–10)",
+        "Du & Sun, arXiv:1912.13291, §2 (PDF pp. 2–5)"
+      ],
+      "reasoning": "Entrywise block Gauss–Seidel (singleton blocks) is exactly the same update; its cited mean-square guarantees do not exclude p-th moments growing. Ordinary deterministic Gauss–Seidel and randomized row projection are different transition laws: their formulas are not equivalent to entry-pair sampling with division by a small off-diagonal entry. Searches for these aliases produced no identified stronger statement.",
+      "searches": [
+        "Randomized Gauss Seidel 2x2 well conditioned matrix mean square stable fourth moment unstable stochastic coordinate entry sampling",
+        "For the original Razaviyayn Hong Reyhanian Luo doubly stochastic Gauss Seidel algorithm sampling each matrix entry with probability its square, a symmetric positive definite two by two matrix arbitrarily near the identity exhibits geometric mean square convergence while moments of every order p>2 grow exponentially, due to rare off diagonal updates",
+        "random linear iterative algorithm mean square convergence higher moment exponential growth near identity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1810.05251, inspected Algorithm 1, Theorem 1, Example 2, associated proof",
+        "arXiv:1912.13291, §2 and mean-square theorem statements"
+      ],
+      "reasoning": "The rational witness (alpha=1/2, rho=1/10, factors 323/404 and 6561/6464) follows by exact algebra; a statement or table recording this exact higher-moment witness was not located. Absence from the inspected sources and indexed search is an evidence limit, not novelty certification.",
+      "searches": [
+        "\"doubly stochastic Gauss-Seidel\" \"fourth moment\" instability",
+        "\"doubly stochastic Gauss Seidel\" rare event higher moments divergence",
+        "For the original Razaviyayn Hong Reyhanian Luo doubly stochastic Gauss Seidel algorithm sampling each matrix entry with probability its square, a symmetric positive definite two by two matrix arbitrarily near the identity exhibits geometric mean square convergence while moments of every order p>2 grow exponentially, due to rare off diagonal updates"
+      ]
+    },
+    "rationale": "The source-specific higher-moment divergence is not a restatement of the established mean-square guarantee: second-moment decay does not imply order-p decay for \\(p>2\\). Exact matched-algorithm primary text and additional block/solver papers were compared at the statement and implication level. The constructed near-identity family, every-nonzero-start p-moment lower factor, and arbitrary growth parameter are not stated by the inspected source results. General heavy-tail discussions address broader but distinct stationary SGD recurrences, not this homogeneous near-identity DSGS construction. Remaining priority risk is explicitly acknowledged.",
+    "residual_risks": [
+      "The same special homogeneous moment example could appear in nonindexed work or behind terminology such as random linear products and p-radius.",
+      "Full text of every general iterative-method paper has not been exhaustively checked; broad theory may contain a subsuming calculation.",
+      "A source-specific moment divergence is distinct from a new general heavy-tail theory or from a stationary distribution claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the same update and mean-square rate, but the inspected theorem and proof do not assert higher-p control or the near-identity fourth-moment counterexample. Example 2 concerns a different sampler on an indefinite system.",
+        "evidence": [
+          "Algorithm 1, eqs. (15)–(17)",
+          "Theorem 1, eq. (19)",
+          "arXiv abstract, v1 2018-10-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.05251",
+        "material_read": "Section 2.2 Algorithm 1 equations (15)–(17), §2.3 Theorem 1, proof of conditional squared-error identity, and Example 2 introducing alternate divergent samplers. PDF pages 6–11; abstract and v1 date also checked.",
+        "method": "Direct full-PDF text and page-image inspection at algorithm and theorem; source-claim implication comparison",
+        "title": "A Linearly Convergent Doubly Stochastic Gauss-Seidel Algorithm for Solving Linear Equations and A Certain Class of Over-Parameterized Optimization Problems",
+        "trigger": "Exact defining algorithm and strongest likely coverage"
+      },
+      {
+        "assessment": "Singleton specialization is source-compatible, but the inspected results bound expected first/second errors rather than disproving fourth-moment stability on a two-by-two SPD family.",
+        "evidence": [
+          "§2 singleton-block DSGS formula",
+          "arXiv:1912.13291 initial submission 2019-12-31"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.13291",
+        "material_read": "§2 Algorithm 1, singleton-block DSGS specialization, conditional expectation, §2 moment and mean-square convergence statements, inspected PDF pp. 2–6.",
+        "method": "Primary-PDF text and page-image inspection with exact update and implication comparison",
+        "title": "A doubly stochastic block Gauss-Seidel algorithm for solving linear equations",
+        "trigger": "Potential dominating block-generalization that contains singleton entrywise scheme"
+      },
+      {
+        "assessment": "Provides broad expected-error convergence, but no inspected implication for high-order moments of a division-by-small-entry DSGS update.",
+        "evidence": [
+          "SIAM Journal on Matrix Analysis and Applications 36 (2015), expected-norm convergence abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M1025487",
+        "material_read": "Open-access publisher abstract, methodological descriptions, and results concerning expected error rates.",
+        "method": "Publisher abstract and bibliographic/result-scope comparison; not treated as exhaustive full-text negative evidence",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "General sketch-and-project and randomized solver convergence dominance"
+      },
+      {
+        "assessment": "Addresses SGD stationary heavy tails under different sampling/data assumptions, not the zero-absorbing homogeneous DSGS moment phenomenon nor the near-identity matrix constants.",
+        "evidence": [
+          "arXiv:2006.04740 abstract and discussion of quadratic-SGD stationary distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.04740",
+        "material_read": "Introduction and source theorem discussion of invariant tail-index/finite moments in quadratic SGD; inspected the related theorem section.",
+        "method": "Full-PDF targeted text inspection and comparison of recurrence hypotheses",
+        "title": "The Heavy-Tail Phenomenon in SGD",
+        "trigger": "Known multiplicative-noise higher-moment instability that may dominate claim"
+      },
+      {
+        "assessment": "Identifies related multiplicative-noise stationary heavy tails; no statement matching the homogeneous near-identity DSGS all-start p-moment lower factor was identified.",
+        "evidence": [
+          "arXiv:2006.06293 introduction and stationary-distribution result context"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2006.06293",
+        "material_read": "Introduction and principal stationary heavy-tail discussion in the 30-page primary preprint.",
+        "method": "Primary-PDF targeted result reading and explicit model comparison",
+        "title": "Multiplicative noise and heavy tails in stochastic optimization",
+        "trigger": "Broader multiplicative random recursion higher moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4c31f6d-7541-4ecd-8e0f-28d33fd61c76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2018 double-stochastic linear solver advertises global geometric mean-square convergence at alpha=1/n. The theorem establishes the nontrivial missing robustness boundary: near-identity SPD matrices can nevertheless exhibit arbitrarily strong geometric growth of any requested \\(p>2\\) error moment, even from every starting direction, while almost-sure convergence survives. This sharp order-two distinction gives a precise reason not to infer high-confidence/tail error guarantees from mean-square rates, and motivates entrywise safeguards. It is a structural example for a real solver, not an arbitrary parameter slice. It makes no downstream optimality or stationary-heavy-tail claim.",
+    "status": "PASS"
+  }
+}
