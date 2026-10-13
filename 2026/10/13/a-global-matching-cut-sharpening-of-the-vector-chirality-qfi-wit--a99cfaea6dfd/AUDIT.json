@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The proof retains the exact block term \\((n_u^2+c_u)/16\\) from the anchor. For a complete matching the total cross incidence is twice the number of crossing matching edges. If the largest block has \\(m>N/2\\) sites, each crossing edge uses a distinct site outside that block, so the crossing-edge count is at most \\(N-m\\); otherwise it is at most \\(N/2\\). Exact optimization of this piecewise bound over block sizes gives \\(qk^2+s^2+N-\\max\\{0,2k-N\\}\\), and the anchor's QFI convexity and generator triangle inequality complete the argument. The accompanying finite enumeration is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1006.4366, Observation 1: a \\(qk^2+s^2\\)-type bound for arbitrary linear one-site generators.",
+        "arXiv:2609.39258v1: the composite two-site chirality generator requires separate cross-block analysis."
+      ],
+      "reasoning": "The older linear-generator theorem does not dominate the claim because its generator decomposes into one-site terms and has no matching cross-block incidences. The anchor is the broader composite-generator result, but its stated finite-size threshold is weaker in the high-depth regime.",
+      "searches": [
+        "multipartite entanglement vector chirality quantum Fisher matching partition cross bond bound",
+        "quantum Fisher composite observable entanglement depth finite-size threshold matching",
+        "arXiv:1006.4366 k-producible linear generator q k^2 r^2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.39258v1",
+      "arXiv:1006.4366",
+      "DOI:10.1103/PhysRevA.85.022321"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2609.39258v1 the transition from Eq. (20) to Eq. (22) replaces \\(c_u\\) by \\(n_u\\) independently; no global constraint on \\(\\sum_u c_u\\) is retained.",
+        "The anchor explicitly says its final odd/even recombination is not tight, but that observation alone does not imply the present pre-recombination matching-cut bound."
+      ],
+      "reasoning": "The new implication is not a corollary of the anchor's final displayed threshold: it requires recovering an intermediate c_u-dependent expression and proving a new global combinatorial incidence bound. Conversely, it does not solve the anchor's proposed joint odd/even optimization.",
+      "searches": [
+        "vector chirality N-k quantum Fisher entanglement witness",
+        "largest block vector chirality quantum Fisher",
+        "sum c_u chirality QFI block"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.39258v1, Eqs. (19)-(29)",
+        "No searched published result stated the correction \\(\\max\\{0,2k-N\\}\\) or the high-depth form \\(k^2+(N-k)^2+2(N-k)\\)."
+      ],
+      "reasoning": "Searches covered the exact correction, high-depth specialization, largest-block terminology, and matching-cut language. The anchor was then compared equation by equation at the point where c_u is relaxed.",
+      "searches": [
+        "vector chirality QFI k-producible finite size improved threshold largest block matching cross edges",
+        "2609.39258 k-producible chirality QFI finite size k greater N/2 sharpening",
+        "\"2k-N\" \"vector chirality\" QFI",
+        "\"k^2+(N-k)^2+2(N-k)\" \"quantum Fisher\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2609.39258v1 Eq. (20): \\(A_u=(n_u^2+c_u)/16\\) before the inequality \\(c_u\\le n_u\\); Eqs. (22)-(28) lead to \\(qk^2+s^2+N\\).",
+        "arXiv:1006.4366 Observation 1 gives the linear-generator benchmark and identifies the \\(qk^2+r^2\\) partition extremum."
+      ],
+      "reasoning": "The relevant exact equations were inspected rather than inferred from titles or snippets. No table or stated theorem in the inspected sources contains the new matching-cut correction.",
+      "searches": [
+        "arXiv:2609.39258v1 equations 19 20 22 24 28",
+        "arXiv:1006.4366 Observation 1 Fisher information k-producible"
+      ]
+    },
+    "rationale": "The anchor states the exact \\(c_u\\)-dependent block allocation but discards the global cross-incidence information by replacing \\(c_u\\) with \\(n_u\\) blockwise. The displayed matching-cut correction is not stated there, and the older \\(k\\)-producible QFI theorem applies to linear one-site generators rather than the vector-chirality bond generator.",
+    "residual_risks": [
+      "A contemporaneous or unindexed work may contain the same largest-block matching-cut refinement under different terminology.",
+      "The new upper bound is not asserted to be globally tight; stronger joint odd/even or local covariance optimization may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source and not covering: it states \\(qk^2+s^2+N\\), retains \\(c_u\\) only at the intermediate block level, then discards global cross-incidence information.",
+        "evidence": "Eq. (20) gives \\(A_u=(n_u^2+c_u)/16\\); Eq. (22) replaces \\(c_u\\) by \\(n_u\\); Eq. (28) gives the published total bound.",
+        "identifier_or_url": "arXiv:2609.39258v1",
+        "material_read": "Full arXiv HTML: abstract; Section II; Eqs. (1)-(29), with detailed attention to Eqs. (19)-(29) and the non-tightness discussion.",
+        "method": "Equation-by-equation implication comparison and reconstruction of the block-allocation maximization.",
+        "title": "Multipartite entanglement hidden in vector-chiral correlations of spin-1/2 chains",
+        "trigger": "Same observable, same k-producible class, and the exact finite-size threshold being sharpened."
+      },
+      {
+        "assessment": "Not covering: the theorem is for linear sums of one-site operators, whereas the present claim depends on cross-block incidences of a two-site chirality generator.",
+        "evidence": "Observation 1 states the k-producible bound for an arbitrary linear two-mode interferometer; the paper defines the generator as a sum of one-site Pauli terms.",
+        "identifier_or_url": "arXiv:1006.4366; DOI:10.1103/PhysRevA.85.022321",
+        "material_read": "Primary arXiv PDF, including the phase-estimation setup, definition of the linear generator, and Observation 1 with its k-producible bound.",
+        "method": "Domain and implication comparison.",
+        "title": "Fisher information and multiparticle entanglement",
+        "trigger": "Foundational \\(k\\)-producible QFI partition extremum with the same \\(qk^2+s^2\\) algebraic core."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a99cfaea-6dfd-4762-94c4-903a19bb3e62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result strengthens a newly proposed experimentally accessible entanglement-depth witness for every \\(k>N/2\\) without additional physical assumptions. It quantifies a previously discarded global matching constraint, gives a strict finite-size gain throughout the high-depth regime, and recovers the natural \\(N^2\\) endpoint at \\(k=N\\). This is a structural correction to the witness threshold rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
