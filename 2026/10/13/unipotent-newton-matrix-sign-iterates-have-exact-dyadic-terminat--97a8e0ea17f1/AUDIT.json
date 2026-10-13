@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Writing X_k=I+Z_k gives the exact identity Z_{k+1}=Z_k^2(I+Z_k)^{-1}/2. On Z_0=MJ_n, induction shows that the lowest nonzero nilpotent power in Z_k is N^{2^k} with coefficient 2^{1-2^k}; hence exact termination occurs iff 2^k>=n. For n>=3, applying Z_1 to e_3 gives M^2 e_1/2 while ||Z_0||_2=M, proving amplification at least M/2. At n=3, higher powers vanish, so this factor is exact and the second step is I. Dimensions one and two are safe because N^2=0 for every nilpotent matrix. The packaged checker independently replays exact cases and the dyadic exponent law.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Higham–Mackey–Mackey–Tisseur state the Newton matrix-sign iteration and explicitly warn that, because the matrices are generally nonnormal, sign-iteration errors are not determined solely by eigenvalues.",
+        "Kenney–Laub analyze globally convergent rational matrix-sign iterations and include Newton's method in the Padé framework.",
+        "These sources establish the algorithmic and convergence background but do not provide the displayed unipotent transient or exact finite-termination count."
+      ],
+      "reasoning": "The new statement is a quantitative sharp realization of a qualitative nonnormality warning, not a new claim that Newton's method converges.",
+      "searches": [
+        "Computing the Polar Decomposition and the Matrix Sign Decomposition in Matrix Groups",
+        "Rational Iterative Methods for the Matrix Sign Function",
+        "matrix sign Newton iteration nonnormal errors eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0895479803426644",
+      "doi:10.1137/0612020",
+      "2026/9/9/SCOPE008",
+      "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full 2004 source's statement that errors are not determined solely by eigenvalues is qualitative; it does not imply an unbounded transient when the entire spectrum is exactly {1}.",
+        "Global convergence of rational sign iterations does not imply monotone matrix-error norms or finite termination on unipotent blocks.",
+        "The Jordan-form definition of sign(A) establishes sign(I+N)=I but does not determine the transient of Newton's rational map."
+      ],
+      "reasoning": "The exact recurrence for Z_k and the leading-power induction are necessary to obtain the finite-termination horizon and amplification law; neither follows from the cited convergence statements alone.",
+      "searches": [
+        "matrix sign Newton nonnormal errors not determined eigenvalues",
+        "matrix sign Newton convergence Jordan form",
+        "matrix sign rational iteration global convergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published semantic searches returned generic nilpotency and nonnormal-transient results but no Newton matrix-sign result matching the dyadic termination law or the dimension-three amplification family.",
+        "Web searches returned standard matrix-sign definitions and Newton convergence descriptions, not the claimed scaled-Jordan transient.",
+        "No located source stated an unbounded first-step error with all eigenvalues already equal to 1."
+      ],
+      "reasoning": "Equivalent coverage would have to concern the same Newton rational map, unipotent Jordan inputs, matrix error relative to sign(A)=I, and the exact nilpotent-degree doubling or the minimal dimension-three unbounded transient. Generic nonnormality or nilpotent-power results do not imply the algorithm-specific termination count without the Newton error identity.",
+      "searches": [
+        "unipotent Newton matrix sign exact termination nilpotency index",
+        "matrix sign Newton Jordan block exact finite termination",
+        "Newton sign iteration nilpotent Jordan finite termination transient norm",
+        "matrix sign all eigenvalues one Newton step norm increase",
+        "\"matrix sign\" Newton nilpotent Jordan finite termination",
+        "\"matrix sign\" \"finite termination\" Newton iteration",
+        "\"Newton iteration\" \"matrix sign\" Jordan block transient",
+        "\"matrix sign function\" unipotent Jordan Newton"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact amplification factor or dyadic termination formula was located in the searched literature.",
+        "The formulas are derived symbolically from the exact rational recurrence rather than inferred from numerical tables."
+      ],
+      "reasoning": "The result is an analytic structural law with an all-dimension proof and a minimal-dimensional equality case.",
+      "searches": [
+        "\"matrix sign\" \"M/2\" Jordan Newton",
+        "\"matrix sign\" \"log_2\" Jordan Newton",
+        "\"matrix sign\" nilpotent index Newton"
+      ]
+    },
+    "rationale": "The Newton matrix-sign iteration, global convergence theory, and generic nonnormal transient phenomena are prior work. The closest full primary source explicitly notes that matrix-sign Newton errors are not determined solely by eigenvalues because the iterates are generally nonnormal, but it does not state the unipotent Jordan transient, the minimal dimension, or the exact dyadic finite-termination law. Targeted semantic and literature searches did not locate an implication-equivalent statement.",
+    "residual_risks": [
+      "Older matrix-function or Jordan-calculus literature may contain the same unipotent calculation without searchable matrix-sign terminology.",
+      "The full body of the 1991 Kenney–Laub paper was not available through the inspected route.",
+      "The construction is close in spirit to generic nonnormal transient growth; novelty is restricted to the exact Newton matrix-sign recurrence, dyadic termination, and minimal dimension-three equality family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_PARTIAL_COVERAGE: supplies the exact Newton sign iteration, sign definition, primary MSC 65F30, and the qualitative statement that errors are not eigenvalue-determined, but no located unipotent Jordan transient or dyadic finite-termination theorem.",
+        "evidence": "The paper defines sign(A) through the Jordan split, gives the matrix-sign Newton iteration in Section 7, and states that convergence tests from the polar case fail because the sign iterates are generally nonnormal and their errors are not determined solely by eigenvalues.",
+        "identifier_or_url": "doi:10.1137/S0895479803426644",
+        "material_read": "The lawful full MIMS PDF was inspected at the title/MSC page, introduction and Jordan-form definition, rational-iteration discussion, Newton iteration discussion, convergence section, and Section 7 on the matrix sign decomposition. The title page was also visually rendered.",
+        "method": "Full-text open PDF inspection with rendered-page verification and targeted in-document searches.",
+        "title": "Computing the Polar Decomposition and the Matrix Sign Decomposition in Matrix Groups",
+        "trigger": "Highly relevant primary source containing the Newton matrix-sign iteration and an explicit warning about nonnormal error behavior."
+      },
+      {
+        "assessment": "BROADER_ACCESS_LIMITED: confirms the classical global rational-iteration framework but is not used to assert whole-document noncoverage.",
+        "evidence": "The abstract states that diagonal Padé recursions including Newton's and Halley's methods are globally convergent and discusses matrix-sign rational iterations.",
+        "identifier_or_url": "doi:10.1137/0612020",
+        "material_read": "Publisher abstract, bibliographic record, publication history, classification, and references were inspected; full article access was not available through the inspected route.",
+        "method": "Publisher-record inspection.",
+        "title": "Rational Iterative Methods for the Matrix Sign Function",
+        "trigger": "Classical primary source for rational matrix-sign iterations, including Newton's method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "97a8e0ea-17f1-4565-affc-cbbe75e42c08",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Matrix-sign iterations are used to compute invariant subspaces and solve control-theoretic matrix equations, and the classical literature explicitly warns that nonnormality disconnects eigenvalues from error. The result turns that warning into a transparent exact law: the spectrum can already be perfectly placed at the limiting sign value while the matrix error grows by an arbitrarily large factor, yet the same iteration terminates exactly after a predictable dyadic number of steps. The minimal dimension-three example is a compact diagnostic for why eigenvalue-only convergence intuition is insufficient.",
+    "status": "PASS"
+  }
+}
