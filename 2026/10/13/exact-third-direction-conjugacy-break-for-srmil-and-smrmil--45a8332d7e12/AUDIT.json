@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Under exact line search the source correction term vanishes and RMIL/MRMIL coincide. Exact orthogonality identities give the first A-conjugate pair, then force the displayed third-direction defect. Its sign is strictly negative because \\(\\lVert d_1\\rVert^2=\\lVert g_1\\rVert^2+\\beta_1^2\\lVert d_0\\rVert^2>\\lVert g_1\\rVert^2\\). Dimension minimality follows analytically for dimensions one and two and by an exact-rational three-dimensional witness. The packaged checker returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Salihu--Kumam--Ibrahim--Phiangsungnoen explicitly motivate revised RMIL spectral parameters using pure and extended conjugacy conditions, so broad conjugacy concerns are treated as prior work.",
+        "Their full text develops rRMIL parameters, conjugacy-conditioned spectral choices, descent/global convergence, and numerical experiments, but contains no exact formula for the third SRMIL/SMRMIL A-conjugacy defect and no minimal three-dimensional finite-termination witness."
+      ],
+      "reasoning": "A paper that repairs or enforces conjugacy does not by itself imply the quantitative obstruction proved here. The present theorem compares the exact-line SRMIL/SMRMIL recurrence with classical quadratic CG and identifies the first unavoidable break.",
+      "searches": [
+        "An Adaptive Spectral Conjugate Gradient Method With Integrated Conjugacy Conditions and Its Application",
+        "RMIL conjugacy exact line search convergence finite termination",
+        "Rivaie RMIL exact line search convergence finite termination"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3934/math.2026355",
+      "DOI:10.1002/mma.70858",
+      "DOI:10.1016/j.amc.2012.05.030",
+      "DOI:10.1016/j.amc.2015.07.019",
+      "Focused searches on RMIL/SRMIL/SMRMIL, exact line search, A-conjugacy, quadratic finite termination, and denominator aliases",
+      "Current and prior own ledgers for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating source itself states that HS, FR, PRP, and DY coincide on quadratics with exact line search, providing the classical comparator.",
+        "The 2026 adaptive RMIL paper covers conjugacy-conditioned redesign but not this source-specific obstruction."
+      ],
+      "reasoning": "Classical finite termination does not imply failure of SRMIL/SMRMIL, while the later conjugacy redesign does not imply the exact sign or size of the defect. The new analytic identity is needed to establish both the universal third-direction break and the minimum dimension for actual dimension-step failure.",
+      "searches": [
+        "classical conjugate gradient quadratic exact line search finite termination Fletcher Reeves",
+        "An Adaptive Spectral Conjugate Gradient Method With Integrated Conjugacy Conditions and Its Application"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating full text states the RMIL coefficient, exact-line equivalence of RMIL/MRMIL, and the SRMIL/SMRMIL direction, but does not state the derived third-direction defect or minimal-dimension termination boundary.",
+        "Focused database searches returned nearby exact-quadratic results for other methods but no RMIL/SRMIL/SMRMIL statement with the same implication."
+      ],
+      "reasoning": "Equivalent wording could use A-orthogonality, conjugate directions, quadratic termination, or loss of the linear-CG property. These aliases were checked. The accepted statement is not the broad observation that conjugacy matters; it is the exact universal defect identity and minimal dimension for finite-termination failure.",
+      "searches": [
+        "RMIL exact line search A-conjugacy finite termination SPD quadratic third direction",
+        "SRMIL SMRMIL exact line search A-conjugate directions finite termination",
+        "\"RMIL\" \"finite termination\" conjugate gradient exact line search"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source DOI/title search recovered no stored finding with the same source-specific exact-line conjugacy theorem.",
+        "Closest indexed results concern CG_AOS, Richardson, Polyak, and other SPD iterations rather than SRMIL/SMRMIL."
+      ],
+      "reasoning": "No checked database result or exact-source search supplied the displayed defect identity, dimension-two termination statement, or three-dimensional nontermination witness.",
+      "searches": [
+        "10.3934/math.2026355 finite termination conjugacy quadratic",
+        "Rivaie RMIL denominator norm d squared Fletcher Reeves exact quadratic finite termination",
+        "SRMIL SMRMIL sufficient descent spectral conjugate gradient"
+      ]
+    },
+    "rationale": "The checked literature covers the RMIL coefficient, exact-line equivalence, sufficient descent/global convergence, and later conjugacy-conditioned RMIL redesign. It does not imply the exact universal third-direction defect, the dimension-two finite-termination boundary, or the explicit minimum-dimensional witness.",
+    "residual_risks": [
+      "An older specialized nonlinear-CG source may state an equivalent RMIL finite-termination obstruction under different notation.",
+      "A secondary bibliographic page labels the motivating article January 2026 without an exact public-posting day; the exact publisher publication date 2026-03-31 is used rather than inventing an earlier date.",
+      "The theorem concerns exact line search and does not imply practical failure under Wolfe or Armijo searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the recurrence and exact-line reduction used as premises, but does not cover the derived A-conjugacy defect or minimal-dimensional finite-termination failure.",
+        "evidence": "The paper states that SRMIL/SMRMIL reduce to RMIL under exact line search, gives denominator \\(\\lVert d_{k-1}\\rVert^2\\), and gives a direction with exact sufficient descent.",
+        "identifier_or_url": "DOI:10.3934/math.2026355",
+        "material_read": "Full relevant text: quadratic exact-line comparator; RMIL and MRMIL coefficients (2.1)-(2.2); exact-line equivalence; sufficient-descent direction (2.4)-(2.5); Algorithm 1; convergence statements and references.",
+        "method": "Full-text inspection of the lawful open-access article.",
+        "title": "Applications of two sufficient descent spectral conjugate gradient methods in image denoising",
+        "trigger": "Motivating source defining SRMIL/SMRMIL and their exact-line reduction."
+      },
+      {
+        "assessment": "BROADLY RELATED but NOT COVERING the accepted claim: it motivates revised RMIL parameters by conjugacy conditions and proves descent/convergence, without the SRMIL/SMRMIL third-direction identity or finite-termination phase/minimal dimension.",
+        "evidence": "Its abstract and Sections 2-3 explicitly discuss RMIL modifications and conjugacy-conditioned spectral parameters; no finite-termination theorem or exact third-direction defect is stated in the inspected text.",
+        "identifier_or_url": "DOI:10.1002/mma.70858",
+        "material_read": "Full article, including RMIL/rRMIL definitions, pure and extended conjugacy constructions, sufficient-descent proof, convergence analysis, numerical section, conclusion, and references.",
+        "method": "Authorized full-text inspection after open-access routes did not supply the article.",
+        "title": "An Adaptive Spectral Conjugate Gradient Method With Integrated Conjugacy Conditions and Its Application",
+        "trigger": "Closest same-family 2026 paper explicitly organized around RMIL and conjugacy conditions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45a8332d-7e12-4221-b1ed-855fa41005fc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quadratic A-conjugacy and dimension-step finite termination are structural benchmark properties of conjugate-gradient methods, not arbitrary diagnostics. The source explicitly compares its setting with classical exact-line quadratic CG and calls the constructions conjugate-gradient methods. Identifying the first unavoidable conjugacy break, proving the exact defect, and locating the minimum dimension where finite termination actually fails materially clarifies what the sufficient-descent modification preserves and what it does not.",
+    "status": "PASS"
+  }
+}
