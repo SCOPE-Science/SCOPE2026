@@ -1,0 +1,16 @@
+# Self-review
+
+## Correctness
+**PASS.** A pair of two-site species yields four, one, or zero checkerboard units according to whether its occupancy site-pair types are disjoint, intersect in one site, or coincide. The total is an explicit ten-variable homogeneous quadratic form. On the normalized simplex, the exact finite support certificate enumerates all 1,023 nonempty faces. Strict negative tangent-Hessian faces admit unique stationary points; their complete value-and-multiplicity table has maximum \(12/11\) on ten four-type supports. A degenerate maximizing face has a flat tangent direction and can be reduced to a smaller support without changing score, so the support census proves the global inequality for arbitrarily many species. On the ten winning faces every unused type has strict gradient deficit \(7/11\), ruling out additional flat-face maximizers. The exact witness multiplicities establish the integer equality criterion \(11\mid s\). The included standard-library verifier independently checks the three/four-site benchmarks and 352,705 finite integer occupancy multisets through eleven species.
+
+**Limits:** This does not optimize scores under fixed site richness (column sums), any row occupancy other than two, more than five sites, or arbitrary software-normalized variants. For species counts not divisible by eleven the universal bound is not attained; their exact finite maxima are not claimed.
+
+## Originality
+**PASS.** The fully inspected Stone–Roberts (1990) paper defines the same checkerboard statistic and includes a four-by-four fixed-margins census and a twenty-by-twenty example, but no five-site two-occurrence sharp coefficient, Petersen-weight reduction, or complete integer equality classification. Heino (2013) discusses ecological interpretation and score scaling, and Gotelli (2000) compares null models; neither supplies the stated extremal theorem. Searches for the exact ratio, two-site five-habitat aliases, graph-Lagrangian forms, relevant database records, and the own claims did not find an equal or stronger covering result. The ordinary Motzkin–Straus formula concerns unweighted clique forms and does not directly give the weights \(1\) and \(4\) or this equality family.
+
+**Residual risks:** An obscure mathematical copositivity inequality for the Petersen association scheme might imply the numerical bound, and not every indexing system covers older ecological optimization notes. General absence from search results is not a proof of uniqueness.
+
+## Value
+**PASS.** The C-score is an established measure of ecological segregation whose raw magnitude depends on incidence-matrix dimensions and occupancy frequencies. Fixing exactly two habitats per species removes the strongest row-sum confounder. The result provides an all-census sharp normalization and all equality cases in the first five-habitat regime where a mixture of overlapping and disjoint occupancy types beats the two-block segregation arrangement that is optimal for four habitats. It is a structural and interpretable baseline for small-site ecological surveys, not merely a numerical exercise or a null-model significance claim.
+
+Self-review: passed. Independent audit: not yet performed.

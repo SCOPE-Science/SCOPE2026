@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The count of checkerboard units for each two-site species pair is 4, 1, or 0 depending on disjoint, singleton-intersection or identical supports. Grouping by ten site-pair types yields a homogeneous quadratic. Its global maximum over the real simplex follows from exact support enumeration of all 1023 faces: 130 positive stationary points with strictly negative tangent Hessians, whose seven value strata have maximum 12/11. Singular maximizing faces reduce along exact flat tangent directions to these candidates; all ten winners have external gradients 17/11 versus 24/11 on support, excluding larger-support equality points. The integer equality condition is 11 dividing species count. The packaged standard-library verifier checks determinants, solves stationary equations over fractions, and confirms 352705 brute-force multisets and both score formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stone and Roberts (1990) p.77 call a particular 20x20 fixed-both-margins block matrix maximally exclusive, but that constraint fixes all row and column sums to ten, unlike five sites and row sum two.",
+        "Gotelli (2000) compares nine co-occurrence null-model algorithms for empirical power and type errors; no deterministic all-species fixed-row-sum five-site bound is stated in the checked abstract.",
+        "Heino (2013), co-occurrence analysis methods, notes that raw C-score depends on incidence matrix size and uses standardized effect sizes for ecological interpretation.",
+        "Wu and Peng (2017) recount Motzkin–Straus for unweighted graph Lagrangians; the mixed positive off-diagonal weights 1 and 4 do not reduce to an unweighted maximum-clique count."
+      ],
+      "reasoning": "Existing broad treatments determine the C-score formula, ecological significance testing, and generic graph-Lagrangian principles. Their results do not logically imply the numerical five-habitat bound and complete equality family without the new weighted ten-type optimization.",
+      "searches": [
+        "doi:10.1007/BF00317345 full six-page article",
+        "doi:10.1002/ece3.470 methods/results",
+        "doi:10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2 abstract",
+        "Motzkin Straus Petersen graph weighted graph Lagrangian optimization",
+        "doi:10.1016/j.dam.2017.03.014 abstract"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/BF00317345",
+      "doi:10.1002/ece3.470",
+      "doi:10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2",
+      "doi:10.1016/j.dam.2017.03.014",
+      "MSC2020:92D40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A universal bound for five habitat columns with species-row sum two cannot be inferred merely from an example at four-by-four with both marginals fixed to two, or one maximally exclusive twenty-by-twenty block matrix with all margins ten.",
+        "The closest own current records optimize nestedness/modularity for two-by-n incidence matrices, not checkerboard C-score for species-by-five incidence with every row sum two.",
+        "Indexed general Lagrangian methods apply to a much broader class of polynomials, but do not state the required explicit weighted Petersen optimum or equality classification."
+      ],
+      "reasoning": "The asserted sharp coefficient and complete four-type optimizer family require solving a nontrivial mixed-weight Petersen quadratic. Existing ecological significance results and generic optimization frameworks do not cover the specific theorem as a stated or immediate corollary.",
+      "searches": [
+        "Stone Roberts 1990 Oecologia 85 74-79 pages 2 3 4 6",
+        "Heino 2013 C-score fixed-fixed species cooccurrence analysis",
+        "weighted graph Lagrangian Petersen continuous simplex copositive",
+        "five-site species co-occurrence Stone Roberts checkerboard C-score maximum when each species occupies exactly two sites ratio 12/11 four pair types Petersen graph",
+        "ecological C-score extreme maximal co-occurrence segregation fixed occurrence two sites five habitats",
+        "published literature and claim-alias comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stone and Roberts (1990) p.75 gives exactly U_ij=(r_i-S_ij)(r_j-S_ij); when r_i=r_j=2 the weights for distinct pairs are 4 or 1.",
+        "Stone and Roberts (1990) pp.76-77 compare a 4x4 fixed-row-and-column-sum-2 ensemble and give a 20x20 high-C example, not a five-column uniform-row-sum-two optimum.",
+        "Targeted searches did not identify the exact five-site coefficient 12/11 or the occupancy proportions 5:2:2:2."
+      ],
+      "reasoning": "The same statement can be named maximum checkerboard C-score, maximum four-cycle segregation, a five-habitat incidence extremum, or the mixed-weight Lagrangian of KG(5,2), the Petersen graph. These names were checked; the specific five-column unrestricted-site-margin classification was not supplied by the inspected material.",
+      "searches": [
+        "checkerboard score maximum five sites each species two occurrences",
+        "Stone Roberts 2 occurrences 5 habitats segregation bound",
+        "ecological species co-occurrence checkerboard C-score fixed row column sums exact extremal bipartite matrices competition",
+        "five-site species co-occurrence Stone Roberts checkerboard C-score maximum when each species occupies exactly two sites ratio 12/11 four pair types Petersen graph",
+        "Stone Roberts classical C-score five habitat columns every species has exactly two presences sharp quadratic segregation maximum 12/11 times squared species count, equality ten site-pair motifs weight 5 2 2 2",
+        "doi:10.1007/BF00317345 pages 2-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No queried database result or exact-constant search provided a 12/11 C-score bound for five sites.",
+        "The original 1990 source includes a complete fixed-both-margins four-by-four example (two scores 16/6 and 12/6), but no five-site two-presence extremal table.",
+        "The present package derives the full 1023-support rational stationary table independently of such literature or known tables."
+      ],
+      "reasoning": "The exact value, optimizer rational proportions and ecological incidence aliases were tested directly against indexed paper/database material; the closest exact published table is for a different four-by-four fixed-margins model.",
+      "searches": [
+        "\"Petersen graph\" \"12/11\" \"quadratic\"",
+        "\"C-score\" \"maximum possible\" species pair segregation five sites",
+        "\"checkerboard units\" \"upper bound\" fixed row sums ecological",
+        "\"5/11\" \"2/11\" checkerboard species",
+        "weighted Petersen graph quadratic form simplex maximum 12/11 clique Lagrangian 5 choose 2 disjoint edges weight 4 overlapping weight 1",
+        "Stone Roberts classical C-score five habitat columns every species has exactly two presences sharp quadratic segregation maximum 12/11 times squared species count, equality ten site-pair motifs weight 5 2 2 2"
+      ]
+    },
+    "rationale": "The full six pages of Stone and Roberts (1990) were compared to this exact assertion. That source defines the same statistic and presents small fixed-both-margins and large example networks, but never supplies the weighted Petersen-graph five-habitat two-occurrence optimum. Heino (2013) gives metric use/size dependence, Gotelli (2000) gives null-model statistics, while general graph Lagrangians address broader optimization methods without the coefficient and equality classification. Several exact-constant, ecological-alias, weighted-graph and scientific literature comparisons found no covering implication.",
+    "residual_risks": [
+      "A general obscure copositivity inequality or specific Petersen-weight graph-Lagrangian exercise could encode the same numerical extremum without its ecological terminology; none was found in the searches inspected.",
+      "The 2000 null-model source was inspected through an abstract, not its full article body; the decisive foundational 1990 C-score paper was inspected in full.",
+      "The original 1990 source is publicly dated only to November 1990; the first-public exact-day archive anchor is the verified January 9, 2013 date of the ecology application."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the C-score correctly but does not state the sharp five-site two-occurrence theorem, the coefficient 12/11 or its 10 labeled equality motifs.",
+        "evidence": "Page 2 has C_ij=(r_i-S_ij)(r_j-S_ij); page 3 records two relabeling classes for 4x4 matrices with both margins two; page 4 displays maximally exclusive 20x20 fixed margins ten; pages 5-6 analyze field-data significance, not exact 5-site extremals.",
+        "identifier_or_url": "https://doi.org/10.1007/BF00317345",
+        "material_read": "Complete six-page article, pages 74–79 (pages 1–6 of the lawful full-text PDF), including metric definition, the 4x4 fixed-margins census, the 20x20 extreme example, field application and conclusion.",
+        "method": "Complete publisher PDF text inspection of the six-page article.",
+        "title": "The checkerboard score and species distributions",
+        "trigger": "Foundational C-score source; necessary to determine whether the five-site extremum was already derived."
+      },
+      {
+        "assessment": "Applies C-score with fixed-fixed null models and empirical comparisons, but no sharp five-site all-species total-score bound or equality classification.",
+        "evidence": "Co-occurrence analysis methods explicitly state the C-score mean, dependence of pure C-score on matrix size, and standardization through simulated null matrices.",
+        "identifier_or_url": "https://doi.org/10.1002/ece3.470",
+        "material_read": "Full-text indexed introduction, co-occurrence analysis methods, results passages and conclusions, including exact first-public date January 9, 2013.",
+        "method": "Publisher open full-text article indexed passages and publisher publication-history metadata.",
+        "title": "Environmental heterogeneity, dispersal mode, and co-occurrence in stream macroinvertebrates",
+        "trigger": "Open ecological application confirming metric normalization, dependence on survey size, and relevance of fixed occupancy when comparing species segregation."
+      },
+      {
+        "assessment": "Compares randomization algorithms, susceptibility to type I/II errors and powers of C-score, not deterministic five-site two-occurrence sharp optimization.",
+        "evidence": "Abstract discusses nine null-model algorithms and reports good power of Stone–Roberts C-score.",
+        "identifier_or_url": "https://doi.org/10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2",
+        "material_read": "Indexed publisher abstract and bibliographic information.",
+        "method": "Published abstract inspection.",
+        "title": "Null model analysis of species co-occurrence patterns",
+        "trigger": "Comparative methodological source for whether deterministic C-score extremes are pre-established in fixed row/column null-model work."
+      },
+      {
+        "assessment": "Classical theorem is an unweighted graph adjacency objective; it does not immediately evaluate the present complete mixed-weight function.",
+        "evidence": "The paper defines the graph Lagrangian as the sum over edges of products of vertex weights, rather than the two-level weight matrix required for ecological checkerboard pairs.",
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2017.03.014",
+        "material_read": "Published abstract and opening definition of unweighted graph Lagrangian and Motzkin–Straus maximum-clique relation.",
+        "method": "Publisher indexed article excerpt.",
+        "title": "The connection between polynomial optimization, maximum cliques and Turán densities",
+        "trigger": "Potential domination by generic Motzkin–Straus graph Lagrangian theory."
+      },
+      {
+        "assessment": "MSC2020 92D40 (Ecology) is appropriate for an ecological species-co-occurrence extremal problem.",
+        "evidence": "92D40 is explicitly listed as Ecology.",
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=92-10",
+        "material_read": "Official AMS MSC2020 hierarchy entry listing 92D40.",
+        "method": "Official classification lookup.",
+        "title": "MSC2020 database 92D40 Ecology",
+        "trigger": "Check primary mathematical classification for ecological species cooccurrence optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ae3afb4-5038-48fb-884a-9b0af20f5338",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ecological segregation analysis uses the classical checkerboard C-score, but raw scores change with matrix shape and frequency of site occupancy. At fixed row occupancy exactly two, the sharp upper envelope determines the meaningful scale and all extremal incidence structures for arbitrarily many species over five surveyed habitats. The five-site motif is qualitatively different from the disjoint-block four-site optimum: a fourth occupied pair type forms a triangle among the complementary habitats, and increases the scale-free ceiling from 1 to 12/11. This is structural ecological mathematics, not routine substitution or a claim of null-model significance.",
+    "status": "PASS"
+  }
+}
