@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The published algebraic data reconstruct a 21-dimensional binary code whose exhaustive \\(2^{21}-1\\) message census exactly matches the source weight distribution and gives 9,826 minimum words. Direct coordinate incidence counting yields the stated nine-value multiset and the check sum \\(707472=72\\cdot9826\\). Every degree is strictly between 0 and 9,826, and the puncturing/shortening parameter conclusions follow by elementary weight and kernel arguments. The bundled verifier was replayed from the packaged path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source says standard code modifications propagate table improvements, but the checked material does not quantify all 184 coordinates or their minimum-support degrees.",
+        "Generic puncturing/shortening results give bounds or existence statements, not the exact behavior at every coordinate of this explicit code."
+      ],
+      "reasoning": "A theorem asserting existence of some puncture or shortening is strictly weaker than the all-coordinate statement; neither it nor the global weight enumerator determines the nine incidence classes.",
+      "searches": [
+        "published-finding corpus: all-coordinate puncturing shortening [184,21,72] code",
+        "published-finding corpus: binary self-orthogonal [184,21,72] code",
+        "web: \"2609.37056\" puncture shorten support"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.37056",
+      "https://codetables.de/",
+      "published-finding corpus searches listed in the four originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary source provides the explicit parent code and global weight distribution, including \\(A_{72}=9826\\), but not the coordinatewise \\(r_j\\) spectrum in the inspected material."
+      ],
+      "reasoning": "The finalized claim requires a coordinate-resolved census. It is not a corollary of the published scalar weight enumerator, because inequivalent coordinate incidence distributions can share the same weight enumerator. The proof then derives the universal puncture/shorten conclusion from strict coordinatewise inequalities.",
+      "searches": [
+        "Primary full text arXiv:2609.37056, Appendix A construction and reported weight distribution",
+        "published-finding corpus exact-parameter and support-incidence searches"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-finding corpus record states the nine-valued coordinate incidence spectrum or an equivalent support-degree partition.",
+        "Public exact-parameter searches returned the source paper but no support-incidence analysis."
+      ],
+      "reasoning": "A 1-design statement, a coordinate-degree spectrum, and universal puncturing/shortening stability are equivalent here only after the exact r_j values are known. The source global weight distribution alone fixes only the total incidence sum, not the individual r_j.",
+      "searches": [
+        "published-finding corpus: [184,21,72] minimum weight support incidence puncturing shortening",
+        "published-finding corpus: 9826 minimum weight codewords coordinate incidence 184 21 72",
+        "published-finding corpus: minimum-weight support design [184,21,72] quasi-cyclic",
+        "web: \"[184,21,72]\" puncturing shortening minimum weight supports",
+        "web: \"[184,21,72]\" design minimum weight codewords"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "CodeTables is a parameter/construction database for linear-code distance bounds; the checked database material does not tabulate coordinatewise incidence of minimum supports."
+      ],
+      "reasoning": "Even if the two descendant parameter triples occur in a table, a parameter entry does not imply that all 184 punctures and all 184 shortenings of this particular parent attain them, nor does it imply the incidence spectrum.",
+      "searches": [
+        "web: codetables.de [183,21,71] binary linear code",
+        "web: codetables.de [183,20,72] binary linear code",
+        "CodeTables main database description"
+      ]
+    },
+    "rationale": "The new statement is the coordinatewise minimum-support incidence spectrum and its universal one-coordinate consequences, not the already published global weight enumerator or the generic existence of modified codes. Exact-parameter, incidence/design, and all-coordinate puncturing/shortening searches in published-finding corpus and the public literature found no equivalent statement. The primary paper was inspected at the construction and weight-distribution portions; it supplies the code and global enumerator but not the coordinate-degree spectrum. CodeTables supplies parameter/construction records, which do not imply coordinatewise minimum-support degrees. Residual risk remains that an unindexed companion computation of the released generator data contains the same spectrum.",
+    "residual_risks": [
+      "An unindexed companion notebook or later analysis of the released generator data could contain the same coordinate-incidence census.",
+      "The descendant parameter triples may already be obtainable by other codes; novelty here is the exact all-coordinate behavior and incidence spectrum of this parent, not mere existence of those parameter triples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for the parent construction and global weight distribution; NOT_COVERING for the coordinatewise minimum-support incidence spectrum or the assertion that every coordinate puncture/shortening has the stated exact parameters.",
+        "evidence": "The source reports the \\( [184,21,72] \\) code, its concise quasi-cyclic data, exhaustive minimum-distance verification, and standard modifications; the finalized coordinate-incidence spectrum is absent from the inspected sections.",
+        "identifier_or_url": "arXiv:2609.37056",
+        "material_read": "Abstract/results plus the appendix entry specifying the \\( [184,21,72] \\) quasi-cyclic construction and its reported weight distribution; relevant PDF pages were visually inspected.",
+        "method": "Public arXiv/preprint text/PDF inspection and parameter-specific searches.",
+        "title": "Evolving Towards Better Codes: LLM-Guided Search for High-Distance Binary Linear Codes",
+        "trigger": "Primary recent source introducing the explicit \\( [184,21,72] \\) code."
+      },
+      {
+        "assessment": "NOT_COVERING for the coordinate-incidence invariant; parameter tables do not state the all-coordinate relation to this parent code.",
+        "evidence": "CodeTables records bounds and constructions by [n,k] parameters, not the 184 coordinate degrees of minimum supports.",
+        "identifier_or_url": "https://codetables.de/",
+        "material_read": "Database description and search results relevant to binary linear-code parameter records.",
+        "method": "Public web/database search.",
+        "title": "Bounds on the minimum distance of linear codes",
+        "trigger": "Exact database/table comparison for possible descendant parameter coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8492ecda-2931-4753-a9c7-4c3d08b340cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a newly reported record code, knowing only that some standard modification exists does not describe robustness under coordinate choice. The exact minimum-support degree spectrum identifies a strong and previously unstated structural feature: all 184 punctures and all 184 shortenings preserve the best possible one-step distances even though the minimum supports are highly nonuniform. This is a natural invariant of the finite code, directly useful when the parent is used as a seed for further code modifications; it is not an arbitrary coordinate slice or a recomputation of the scalar weight enumerator.",
+    "status": "PASS"
+  }
+}
