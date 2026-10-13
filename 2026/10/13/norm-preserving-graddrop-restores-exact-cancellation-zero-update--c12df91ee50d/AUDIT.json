@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact return map is \\(\\widehat g=\\widetilde g\\lVert g\\rVert_2/(\\lVert\\widetilde g\\rVert_2+\\varepsilon)\\). Its norm is bounded by \\(\\lVert g\\rVert_2\\), and exact cancellation forces zero. The scalar pair \\(a,-a\\) has pure-mask output \\(\\pm a\\) but rescaled output \\(0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The supplement derives expectation and variance for the unrescaled mask.",
+        "The main paper motivates GradDrop by conflict-induced cancellation.",
+        "No inspected broader result analyzes the additional global norm rescale at cancellation."
+      ],
+      "reasoning": "Unrescaled stochastic-mask properties do not imply the zero set after composing with a multiplier containing the ordinary aggregate-gradient norm.",
+      "searches": [
+        "GradDrop variance positive negative gradient mass exact variance",
+        "Gradient Sign Dropout variance A B purity expected gradient",
+        "GradDrop unbiased estimator gradient variance formula",
+        "GradDrop coordinate variance conflict positive negative",
+        "Just Pick a Sign appendix variance GradDrop identity f purity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.06808v1",
+      "NeurIPS2020:16002f7a455a94aa4e91cc34ebdb9f2d",
+      "NeurIPS2020:16002f7a455a94aa4e91cc34ebdb9f2d-Supplemental",
+      "github:tensorflow/lingvo:lingvo/core/graddrop.py"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 1 returns the raw masked gradient.",
+        "A following paragraph describes optional norm renormalization used in many experiments.",
+        "The stable-point proposition is stated for the GradDrop update before that extra map."
+      ],
+      "reasoning": "The source theorem does not imply its preservation under an additional scale factor that becomes zero exactly when the ordinary aggregate gradient cancels.",
+      "searches": [
+        "Just Pick a Sign appendix variance GradDrop identity f purity",
+        "GradDrop norm preserving rescale stable points joint minima"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining paper proves the pure GradDrop zero-update iff all task gradients vanish.",
+        "The paper separately says many experiments renormalize the final gradient norm.",
+        "The public implementation rescales by original_grad_norm divided by transformed_grad_norm plus epsilon."
+      ],
+      "reasoning": "Equivalent statements would identify loss of the pure zero-set theorem under norm preservation or restoration of ordinary cancellation zero points; none was located.",
+      "searches": [
+        "GradDrop gradient norm renormalization zero summed gradient joint minima counterexample",
+        "Gradient Sign Dropout keep gradient norm constant cancellation zero update",
+        "GradDrop norm preserving rescale stable points joint minima",
+        "Just Pick a Sign GradDrop renormalize gradient norm theoretical guarantee cancellation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned records concern unrelated projection, variance, or normalization phenomena.",
+        "No returned record stated a GradDrop norm-preservation cancellation obstruction."
+      ],
+      "reasoning": "Search absence supports but does not replace direct source comparison.",
+      "searches": [
+        "GradDrop variance positive negative gradient mass exact variance",
+        "Gradient Sign Dropout variance A B purity expected gradient",
+        "GradDrop unbiased estimator gradient variance formula",
+        "GradDrop coordinate variance conflict positive negative",
+        "Just Pick a Sign appendix variance GradDrop identity f purity",
+        "GradDrop gradient norm renormalization zero summed gradient joint minima counterexample",
+        "Gradient Sign Dropout keep gradient norm constant cancellation zero update",
+        "GradDrop norm preserving rescale stable points joint minima",
+        "Just Pick a Sign GradDrop renormalize gradient norm theoretical guarantee cancellation"
+      ]
+    },
+    "rationale": "The defining paper separately states the pure stable-point theorem and the experimental norm-renormalization practice, while the supplement treats only unrescaled mask statistics. The inspected implementation makes the composition explicit. Focused searches found no analysis of the resulting cancellation zero set.",
+    "residual_risks": [
+      "An equivalent warning may exist in unindexed implementation discussions.",
+      "The public implementation can evolve; the claim concerns the inspected formula and paper-described variant.",
+      "Other gradient terms outside the layer can move the full model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_THEOREM_AND_RENORMALIZATION; COMPOSED_ZERO_SET_NOT_ANALYZED.",
+        "evidence": "The paper states both ingredients separately but does not derive the cancellation obstruction.",
+        "identifier_or_url": "arXiv:2010.06808v1; NeurIPS 2020",
+        "material_read": "Main paper Sections 3.1-3.4 including Equation 1, Algorithm 1, the norm-renormalization paragraph, Proposition 1, and Proposition 3.",
+        "method": "Full-text PDF inspection with page-image verification.",
+        "title": "Just Pick a Sign: Optimizing Deep Multitask Models with Gradient Sign Dropout",
+        "trigger": "Defining source for purity, masking, stable points, and norm renormalization."
+      },
+      {
+        "assessment": "UNRESCALED_MASK_STATISTICS_NOT_COVERING_GLOBAL_NORM_RESCALING.",
+        "evidence": "The supplement analyzes the raw mask, not the later global norm-preserving map.",
+        "identifier_or_url": "NeurIPS2020:16002f7a455a94aa4e91cc34ebdb9f2d-Supplemental",
+        "material_read": "Section A.1, including the full Proposition 3 proof, positive/negative mass notation, expectation, variance, and Corollary 3.1.",
+        "method": "Full-text PDF inspection with page-image verification of both proof pages.",
+        "title": "Supplemental material for Just Pick a Sign",
+        "trigger": "Primary proof most likely to contain equivalent stochastic calculations."
+      },
+      {
+        "assessment": "IMPLEMENTATION_DIRECTLY_EXHIBITS_THE_MULTIPLIER.",
+        "evidence": "keep_gradnorm_constant defaults to true; output is transformed_grad times original_grad_norm divided by transformed_grad_norm plus epsilon.",
+        "identifier_or_url": "github:tensorflow/lingvo:lingvo/core/graddrop.py",
+        "material_read": "Parameter defaults, mask construction, transformed-gradient sum, and keep_gradnorm_constant return branch.",
+        "method": "Direct public source-code inspection.",
+        "title": "TensorFlow Lingvo GradDrop implementation",
+        "trigger": "Verify exact postprocessing formula and default."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c12df91e-e50d-4500-a284-2d05f5482533",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact cancellation with nonzero task gradients is the motivating pathology GradDrop is designed to escape. The paper-described and default implementation postprocessing restores exactly those zero updates and caps near-cancellation escape by the ordinary summed-gradient norm, creating a direct implementation/theory boundary.",
+    "status": "PASS"
+  }
+}
