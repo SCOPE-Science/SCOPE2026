@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the source projector hypotheses exactly. A depth-\\(L\\) edge-local circuit keeps \\(UZ_vU^\\dagger\\) inside \\(B_G(v,L)\\); the Clifford projector factorizes across every qubit subset; Clifford conjugation is uniform over nonidentity Pauli classes; and exactly \\(4^{|B_G(v,L)|}-1\\) such classes are supported in the ball. Algebraic inversion gives the error threshold. No finite enumeration is used to prove the infinite family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.19355 treats arbitrary architectures but targets full-unitary Haar designs.",
+        "The anchor describes arXiv:2506.16005 and arXiv:2506.23925 as earlier one-dimensional subgroup-restricted lower bounds."
+      ],
+      "reasoning": "The arbitrary-architecture literature found does not dominate the claim because its target measure is different. The closest Clifford-group lower bounds do not cover arbitrary interaction graphs.",
+      "searches": [
+        "arXiv:2310.19355",
+        "arXiv:2506.16005",
+        "arXiv:2506.23925",
+        "Clifford 4-design arbitrary graph light cone volume depth lower bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.13528v1",
+      "arXiv:2310.19355",
+      "arXiv:2506.16005",
+      "arXiv:2506.23925",
+      "Pith:QU3PCQKT"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of the anchor is general, but Corollary 3 instantiates it only for a contiguous one-dimensional lightcone.",
+        "The present proof additionally establishes arbitrary-graph support propagation, arbitrary-subset factorization of the Clifford commutant projector, exact Pauli support counting, and the all-vertices diameter implication."
+      ],
+      "reasoning": "The claim is a genuine corollary-level extension of the anchor machinery rather than an independent new technique. It is not already implied as a stated result by the source: deriving it requires choosing graph balls for every vertex and carrying the Clifford counting argument through an arbitrary spatial bipartition. The scope is explicitly limited to that structural extension.",
+      "searches": [
+        "arXiv:2608.13528v1 Theorem 1 Corollary 3",
+        "arXiv:2310.19355"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted searches used graph-lightcone, graph-ball, graph-diameter, arbitrary-architecture, and Clifford-fourth-moment formulations.",
+        "The exact anchor statement is one-dimensional Corollary 3, not a graph-metric formulation."
+      ],
+      "reasoning": "No searched published finding stated an implication-equivalent graph-ball lower bound or the fixed-error diameter corollary. Search failure is not treated as proof of uniqueness; the decisive evidence is the full-text comparison with the exact same-object anchor.",
+      "searches": [
+        "Ambient unitaries shallow group designs graph geometry lightcone volume Clifford 4-design",
+        "Clifford 4-design arbitrary graph light cone volume depth lower bound",
+        "approximate Clifford design bounded degree graph depth lower bound",
+        "group design graph ball growth moment channel diamond distance",
+        "arXiv:2608.13528v1",
+        "arXiv:2310.19355",
+        "arXiv:2506.16005",
+        "arXiv:2506.23925"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor gives the exact count \\(4^{L+1}-1\\) for an endpoint lightcone on a line.",
+        "No graph-ball table or architecture-general exact count was found in the targeted searches."
+      ],
+      "reasoning": "The new statement replaces the one-dimensional support size \\(L+1\\) by the exact graph ball \\(|B_G(v,L)|\\), which is not a lookup of an existing table; it follows from a new architecture-level specialization of the invariant-projector argument.",
+      "searches": [
+        "arXiv:2608.13528v1 Eq. (29) Eq. (35)",
+        "group design graph ball growth moment channel diamond distance"
+      ]
+    },
+    "rationale": "The exact same-object anchor was inspected in full at its invariant-projector theorem and Clifford proof. It states only a one-dimensional nearest-neighbor corollary. Targeted published-result and own-ledger searches found no graph-ball or graph-diameter formulation. Architecture-general random-circuit design work targets full-unitary Haar measure and therefore does not imply this Clifford fourth-moment obstruction.",
+    "residual_risks": [
+      "Very recent or differently indexed work could contain an equivalent arbitrary-graph corollary.",
+      "Because the source theorem is intentionally general, a reader may regard the graph specialization as a natural corollary even though it is not stated there; value rests on the exact architecture-dependent consequence rather than a new proof technology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the invariant-projector tool and the exact one-dimensional endpoint-lightcone bound, but does not state an arbitrary interaction-graph ball-volume or diameter theorem.",
+        "evidence": "Corollary 3 assumes depth-\\(L\\) nearest-neighbor circuits on a one-dimensional line and counts \\(4^{L+1}-1\\) Paulis supported on the first \\(L+1\\) qubits. The proof explicitly factors the Clifford projector across that spatial cut.",
+        "identifier_or_url": "arXiv:2608.13528v1",
+        "material_read": "Theorem 1; the discussion of local enlargement/lightcones; Clifford Section 3.3; Corollary 3 and Eqs. (28)-(35); discussion section.",
+        "method": "Lawful public full text was read and the Clifford proof was reconstructed statement-by-statement.",
+        "title": "Ambient unitaries don't enable shallow group designs",
+        "trigger": "Exact same target distribution and ambient-circuit obstruction; decisive source comparison."
+      },
+      {
+        "assessment": "Not covering: it studies random circuits approaching Haar measure on the full unitary group \\(U(q^n)\\), not approximation to the Haar fourth moment of the Clifford group.",
+        "evidence": "The abstract explicitly defines its target as approximate unitary designs close to Haar measure on \\(U(q^n)\\) over arbitrary connected graphs.",
+        "identifier_or_url": "arXiv:2310.19355",
+        "material_read": "Abstract and theorem-level scope description.",
+        "method": "Primary arXiv abstract inspected.",
+        "title": "Local random quantum circuits form approximate designs on arbitrary architectures",
+        "trigger": "Closest architecture-general quantum-design result found."
+      },
+      {
+        "assessment": "Not covering the new ambient arbitrary-graph theorem; the anchor describes the predecessor as subgroup-restricted and one-dimensional.",
+        "evidence": "The 2026 anchor presents its own result as closing the ambient-unitary loophole left by the predecessor and retains one-dimensional nearest-neighbor locality.",
+        "identifier_or_url": "arXiv:2506.16005",
+        "material_read": "Bibliographic entry and scope as summarized and contrasted by the anchor.",
+        "method": "Comparison through the anchor paper and targeted published-result search.",
+        "title": "No-go theorems for sublinear-depth group designs",
+        "trigger": "Anchor identifies it as an immediate predecessor on shallow group designs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6abcdec-dc72-42cd-99e8-56b90573124c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies a natural complete architecture-sensitive obstruction for the source problem. It converts the line-specific \\(L+1\\) lightcone count into an exact graph-ball law and yields the clean threshold \\(L\\ge\\operatorname{diam}(G)\\) for every fixed error below \\(3/4\\). This distinguishes path, cycle, grid, expander, and dense architectures in the physically relevant edge-local circuit model. It is more than a renamed parameter substitution because the geometric support set and the all-vertices diameter consequence must be established for arbitrary graphs; no claim of general-graph tightness is made.",
+    "status": "PASS"
+  }
+}
