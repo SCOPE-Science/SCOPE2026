@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "At \\(\\widehat\\beta_{2,1}=0\\), the row and column states are exactly the marginals of \\(G^2+\\epsilon_1\\mathbf1\\mathbf1^\\top\\). Direct substitution yields the two normalized coordinates, their clipped direction, and the limit \\(f(X_1)/f(X_0)\\to1+\\rho^2\\). The source recommended constants independently replay to a ratio above \\(1.0000999999999\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 theory studies matrix factorization and update clipping and proves convergence under selected step and regularization conditions.",
+        "Its analyzed update does not contain the original paper's parameter-RMS multiplier.",
+        "CAME is broader empirical evidence that factorized memory-efficient optimization can be unstable."
+      ],
+      "reasoning": "Conditional convergence under a modified scaling does not dominate a source-default first-step ascent construction outside those sufficient conditions.",
+      "searches": [
+        "NeurIPS:2025:8e237ec6d3bc86f6d4967e9c7eef37ff",
+        "arXiv:2307.02047v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1804.04235v1",
+      "PMLR:v80:shazeer18a",
+      "arXiv:2307.02047v1",
+      "NeurIPS:2025:8e237ec6d3bc86f6d4967e9c7eef37ff"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining Algorithm 4 has \\(\\widehat\\beta_{2,1}=0\\), adds \\(\\epsilon_1\\) before row/column accumulation, applies matrix-RMS clipping, and uses parameter-relative scaling.",
+        "The defining source recommends \\(\\epsilon_1=10^{-30}\\), \\(\\epsilon_2=10^{-3}\\), \\(d=1\\), and \\(\\rho_t=\\min(10^{-2},1/\\sqrt t)\\).",
+        "The later monotonicity result is conditional on a different analyzed scaling and proper parameter selection."
+      ],
+      "reasoning": "The stale-moment warning cannot imply a failure at the first step, and the later sufficient theorem does not cover the original parameter-relative default rule used in the witness.",
+      "searches": [
+        "arXiv:1804.04235v1",
+        "arXiv:2307.02047v1",
+        "NeurIPS:2025:8e237ec6d3bc86f6d4967e9c7eef37ff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source specifies the factorization and clipping rule but no one-step objective-monotonicity theorem.",
+        "CAME reports instability/performance penalty associated with memory-efficient factorization but no deterministic isotropic-quadratic ascent witness."
+      ],
+      "reasoning": "Equivalent coverage would have to imply that the defining first-step rule can concentrate asymptotically all clipped RMS budget on a vanishing-gradient coordinate and force ascent for every positive relative step.",
+      "searches": [
+        "arXiv:1804.04235v1",
+        "arXiv:2307.02047v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The defining paper's exact matrix update was compared against the final claim.",
+        "The closest checked exact CAME result concerns biregular equal-magnitude support and does not contain objective ascent or the nonuniform diagonal family."
+      ],
+      "reasoning": "The final statement is not a re-expression of the prior sparsity-density amplification result: its new implication is first-step ascent on a \\(1\\)-strongly convex isotropic objective.",
+      "searches": [
+        "arXiv:1804.04235v1",
+        "PMLR:v80:shazeer18a"
+      ]
+    },
+    "rationale": "The defining source's instability mechanism is stale second moments, while this construction has no historical moment at all. CAME gives qualitative evidence of instability from memory-efficient factorization, and later theory gives conditional convergence, but neither inspected statement supplies the exact first-step ascent family or factored-versus-full limits. The closest checked exact CAME result concerns equal-magnitude biregular patterns rather than nonuniform diagonal objective dynamics.",
+    "residual_risks": [
+      "An unindexed implementation-level analysis may contain a similar sparse-gradient first-step example.",
+      "A prior exact CAME result already identifies spatial amplification for equal-magnitude biregular patterns; originality here rests on nonuniform magnitude inversion and strongly convex objective ascent.",
+      "The witness is deliberately extreme relative to the very small source default squared-gradient regularizer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RULES_NOT_COVERING_FIRST_STEP_FACTORIZATION_ASCENT.",
+        "evidence": "The source attributes instability to stale second moments and gives no deterministic isotropic-quadratic ascent family.",
+        "identifier_or_url": "arXiv:1804.04235v1",
+        "material_read": "Sections on factored second moments, instability, update clipping, matrix Algorithm 4, relative step scale, and recommended constants.",
+        "method": "Open-access full-text inspection.",
+        "title": "Adafactor: Adaptive Learning Rates with Sublinear Memory Cost",
+        "trigger": "Defining factored second moment, clipping, parameter-relative scaling, and constants."
+      },
+      {
+        "assessment": "QUALITATIVE_FACTORIZATION_INSTABILITY_NOT_COVERING_EXACT_ASCENT_FAMILY.",
+        "evidence": "The paper motivates confidence guidance from instability but does not state the accepted first-step calculation.",
+        "identifier_or_url": "arXiv:2307.02047v1",
+        "material_read": "Primary abstract and accessible full-text discussion of factorization error and stabilization motivation.",
+        "method": "Open-access primary-source inspection.",
+        "title": "CAME: Confidence-guided Adaptive Memory Efficient Optimization",
+        "trigger": "Closest later primary work explicitly discussing instability from Adafactor-style factorization."
+      },
+      {
+        "assessment": "CONDITIONAL_THEORY_WITH_DIFFERENT_SCALING_NOT_COVERING_SOURCE_DEFAULT_WITNESS.",
+        "evidence": "The analyzed algorithm omits the original parameter-RMS multiplier and its monotonicity conclusion requires proper hyperparameter selection.",
+        "identifier_or_url": "NeurIPS:2025:8e237ec6d3bc86f6d4967e9c7eef37ff",
+        "material_read": "Abstract, introduction, displayed Adafactor algorithm, matrix-factorization and clipping review, full-batch discussion, and the monotonicity proposition; relevant pages were visually inspected.",
+        "method": "Open-access PDF text and page-image inspection.",
+        "title": "Theoretical Investigation of Adafactor for Non-Convex Smooth Optimization",
+        "trigger": "Most relevant later convergence theory for Adafactor factorization and clipping."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afd96702-af72-45a0-a591-266d14fdb20f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result targets the interaction of Adafactor's defining memory-saving factorization and its defining stability clip. It proves that the clip can be fully respected while the factorization redirects nearly all update energy to a tiny-gradient coordinate and flips first-step descent into ascent. The \\(1+\rho^2\\) limit holds for every positive relative step, making this a sharp diagnostic benchmark rather than a single tuned numerical anomaly.",
+    "status": "PASS"
+  }
+}
