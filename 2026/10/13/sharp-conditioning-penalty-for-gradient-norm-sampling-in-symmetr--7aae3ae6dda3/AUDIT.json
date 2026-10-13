@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every full-column-rank \\(A\\), nonstationary residual and mirrored block partition, the source probability aggregates exactly to \\(w_j/\\sum_kw_k\\), and orthogonal projection gives \\(d_j=g_j^{\\mathsf T}H_j^{-1}g_j\\). Principal-submatrix spectral inclusion yields \\(a d_j\\le w_j\\le b d_j\\). The Cauchy/bounded-moment argument proves the exact universal coefficient including zero-block and equal-curvature endpoints. The full-rank diagonal four-column family attains equality for every \\(\\kappa\\ge1\\); rational example gives decrease ratio \\(16/25\\). A standalone checker at the actual `verify.py` path passed 1,269 exact-projection and rational-sharpness cases. Finite checks are supportive, not proofs of universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gower et al. (2019), Section 2.4, Theorem 11 and Table 3: convergence guarantee for progress-proportional selection, not the opposite direction for unnormalized gradients.",
+        "Tian et al. (arXiv:1911.03721v6), Section 4.1, Theorem 4 and Appendix B: squared-gradient importance sampling in Riemannian block descent, with convergence rate analysis but no sharp paired least-squares ratio.",
+        "Classical Cauchy–Schwarz and bounded-support scalar moment inequalities are known and directly cited as mathematical tools, not priority claims."
+      ],
+      "reasoning": "The most plausible stronger coverage would be a general theorem comparing curvature-mismatched gradient-norm selection with uniform exact block minimization. The inspected general algorithms analyze different sampling or give non-sharp global rates, so no decisive implication covering the precise sharp coefficient was found; equivalence elsewhere remains possible.",
+      "searches": [
+        "adaptive block coordinate descent uniform sampling gradient squared curvature scaled exact improvement sampling weights block Lipschitz",
+        "Kantorovich inequality probability proportional to squared gradient coordinate descent sampling regret",
+        "Sharp conditioning-dependent loss 4 sqrt(kappa)/(1+sqrt(kappa))^2 for gradient-norm-proportional symmetric Gauss Seidel versus uniform reflected-block sampling, four-column diagonal equality"
+      ]
+    },
+    "checked_sources": [
+      "Sha and Zhang, AIMS Mathematics 9(7), 2024, doi:10.3934/math.2024848.",
+      "Gower, Molitor, Moorman, Needell, arXiv:1909.03604, original 2019 preprint.",
+      "Tian, Khosoussi, Rosen, How, arXiv:1911.03721, original 2019 preprint (v6 read).",
+      "Published item: Sharp minimax Euclidean transient bound for two-coordinate Gauss–Seidel ordering.",
+      "Published item: Closed-form optimal coordinate sampling for inverse-positive SPD quadratics.",
+      "Published item: Exact delay-distribution law for two-coordinate randomized Gauss-Seidel."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sha–Zhang (2024), Theorem 1 provides a spectral convergence bound with no theorem about ordering against uniform mirror-block selection; its source probability law is exactly the tested one.",
+        "Gower et al. (2019), Theorem 11 can establish a statement for \\(\\Pr(j)\\propto d_j\\), not for \\(\\Pr(j)\\propto\\|g_j\\|^2\\) when the pair Gram matrices differ.",
+        "The exact \\(4\\times4\\) witness has one-step progresses \\(8/5\\) (raw) and \\(5/2\\) (uniform), disproving any universal raw-over-uniform claim."
+      ],
+      "reasoning": "Compared statements and logical implications, including the source method, the normalized sampling theorem, and several published related numerical-optimization results; no inspected published theorem contains this pointwise sharp comparison or implies it solely from its hypotheses and conclusion.",
+      "searches": [
+        "Fan Sha Jianbing Zhang 2024 Randomized Symmetric Gauss Seidel RSGS exact worst case one-step objective progress relative to uniform pairs gradient square sampling condition number Kantorovich",
+        "RSGS mirror pair squared gradient adaptive selection weighted by block norms sharp slowdown factor 4sqrt(kappa)/(1+sqrt(kappa))^2",
+        "Fan Sha Zhang randomized symmetric Gauss Seidel exact conditional expected residual decrease compared uniform mirror pairs, block gradient probability unnormalized curvature"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sha–Zhang (2024), equation (3.6), Algorithm 1: probability weights are unnormalized squared selected-block gradients.",
+        "Gower et al. (2019), Section 2.4 and Theorem 11: proportional selection uses the realized sketched loss, which in this setting is a Gram-inverse quadratic form.",
+        "For the diagonal equality instance, unnormalized squared gradients have weights \\(s^2,s\\) but squared residual decreases are \\(1,s\\); hence the two adaptive rules are mathematically inequivalent."
+      ],
+      "reasoning": "Checked aliases in pairwise block coordinate descent, importance sampling, gradient-norm weighting and loss-proportional sketching. A normalized sketched-loss rule is prior work, whereas the claimed factor concerns a different raw-gradient probability law. No inspected source states an equivalent sharp ratio.",
+      "searches": [
+        "\"randomized symmetric Gauss-Seidel\" \"uniform\" probability negative cases",
+        "Fan Sha Zhang randomized symmetric Gauss Seidel exact conditional expected residual decrease compared uniform mirror pairs, block gradient probability unnormalized curvature",
+        "RSGS 2024 raw gradient squared probability can be arbitrarily worse than uniform block sampled least squares per iteration",
+        "\"proportional to the squared gradient\" \"uniform\" \"coordinate descent\" worse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical finding titled “Sharp minimax Euclidean transient bound for two-coordinate Gauss–Seidel ordering” concerns deterministic order and a Euclidean transient norm, not the expected RSGS sampling progress.",
+        "Published mathematical finding titled “Closed-form optimal coordinate sampling for inverse-positive SPD quadratics” optimizes a fixed iid sampling contraction, not one-step raw-gradient versus uniform reflected-pair progress.",
+        "Sha–Zhang (2024), experimental Figures 1–2 and Theorem 1: no table of sharp one-step ratio by condition number."
+      ],
+      "reasoning": "Searched formula, rule and parameter aliases in publicly available mathematical finding records and the motivating paper, then compared the returned mathematical statements. The closest results concern different optimization objectives and do not imply this sharp inequality. No exact table was identified; search absence does not certify novelty.",
+      "searches": [
+        "Sharp conditioning-dependent loss 4 sqrt(kappa)/(1+sqrt(kappa))^2 for gradient-norm-proportional symmetric Gauss Seidel versus uniform reflected-block sampling, four-column diagonal equality",
+        "Fan Sha Zhang randomized symmetric Gauss Seidel exact conditional expected residual decrease compared uniform mirror pairs, block gradient probability unnormalized curvature",
+        "RSGS 2024 raw gradient squared probability can be arbitrarily worse than uniform block sampled least squares per iteration",
+        "\"4 sqrt\" \"gradient\" \"sampling\" \"coordinate descent\" ratio"
+      ]
+    },
+    "rationale": "The inspected 2024 RSGS source proves convergence for a raw squared-block-gradient law but not the sharp conditional relative progress to uniform reflected blocks. The 2019 adaptive sketch-and-project theorem uses probabilities proportional to realized sketched loss, a different rule and stronger known calibration. A 2021 Riemannian block method uses raw gradients but proves broad rates, not this exact sharp least-squares inequality. Classical scalar inequalities are acknowledged; an equivalent special-case or alternate-name presentation remains a priority risk.",
+    "residual_risks": [
+      "A mathematically equivalent specialized raw-gradient sampling inequality may appear under other terminology or outside indexed literature.",
+      "Classical inequalities supply proof ingredients; priority is claimed only for their sharp connection to the identified algorithm, not for the underlying scalar inequality.",
+      "No independent priority certification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes source rule and convergence estimates, but does not state the uniform reflected-block comparison or its exact extremizers.",
+        "evidence": "Equation (3.6) weights each reflected index pair by the sum of two squared coordinate gradients; equation (3.9) is the exact within-block projection. Theorem 1 concerns global expected convergence.",
+        "identifier_or_url": "doi:10.3934/math.2024848",
+        "material_read": "Full accessible 11-page primary PDF, in particular pages 1–8, Algorithm 1 and (3.1)–(3.6), Theorem 1 and proof; section 4 experiments and references.",
+        "method": "Inspected original open-access PDF textual formulas and page images at printed pages 17456–17457.",
+        "title": "Randomized symmetric Gauss-Seidel method for solving linear least squares problems",
+        "trigger": "Exact algorithm, reflected blocks, and curvature-dependent one-step sampling performance."
+      },
+      {
+        "assessment": "Its probabilities are proportional to actual sketched losses, a different quantity; the method dominates uniform but does not give this raw-gradient rule’s sharp loss factor.",
+        "evidence": "Section 2.4 specifies selection by sketched loss. Theorem 11 addresses the same selection type, not Sha–Zhang’s unnormalized pair gradient.",
+        "identifier_or_url": "arxiv:1909.03604",
+        "material_read": "Primary arXiv HTML text, Sections 2.1–2.4 and 7, Theorem 11, Table 3, and implementation discussion.",
+        "method": "Read lawful arXiv full-text HTML, comparing its sketched-loss definition (8) to block squared gradients.",
+        "title": "Adaptive Sketch-and-Project Methods for Solving Linear Systems",
+        "trigger": "Could subsume the claim as an established proportional adaptive sampling theorem."
+      },
+      {
+        "assessment": "Riemannian block-coordinate optimization with generic descent and convergence guarantees, not exact reflected-coordinate least-squares condition-number sharpness.",
+        "evidence": "Section 4.1 weights blocks by gradient squared, while Theorem 4 and Appendix B give sublinear convergence bounds with uniform and importance sampling.",
+        "identifier_or_url": "arxiv:1911.03721",
+        "material_read": "Original open arXiv 61-page PDF, especially Section 4.1 and Theorem 4 and its appendix proof in Section B.",
+        "method": "Read primary PDF sections defining sampling and convergence; compared scope and objects.",
+        "title": "Distributed Certifiably Correct Pose-Graph Optimization",
+        "trigger": "An earlier method with the same squared-block-gradient sampling heuristic could have a stronger generic theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7aae3ae6-dda3-4812-bd7b-cfca1a9681cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A published gradient-weighted reflected-block least-squares solver motivates whether its raw-gradient sampling genuinely prioritizes the most effective exact block step. The sharp condition-number ratio and four-column extremizers quantify the precise calibration loss, show arbitrarily severe relative one-step degradation, and distinguish known progress-normalized sampling from the published rule. This sharp algorithmic boundary is neither an arbitrary numerical slice nor merely implementation verification; claims are restricted to one-step squared-residual progress, not downstream speedups.",
+    "status": "PASS"
+  }
+}
