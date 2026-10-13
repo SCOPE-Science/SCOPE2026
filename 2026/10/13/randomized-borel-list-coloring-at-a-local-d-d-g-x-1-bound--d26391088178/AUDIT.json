@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Lemma 8 of arXiv:2609.21286v1 supplies a Borel random independent set containing each vertex with the fixed probability \\(p=2^{-d-1}\\). The new list hypothesis guarantees at least \\(d+1\\) available permitted colors after deleting all out-neighbor colors. Recoloring a selected sad vertex to one of these \\(d+1\\) choices is Borel, keeps the color in its list, and makes that vertex happy because the selected set is independent. For each vertex, the same union bound as in the source gives \\(\\mathbb P(S_{n+1}(x))\\le\\alpha^n((1-p)+d_G^+(x)p/(d+1))\\le\\alpha^{n+1}\\), where \\(\\alpha=1-p/(d+1)<1\\). Borel--Cantelli yields eventual stabilization, and finite out-degree then gives edgewise almost-sure propriety of the Borel limit. The Borel selection from varying lists is justified by finite-section projection and the natural order on \\(\\mathbb N\\). No experiment or partial enumeration substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conley--Marks--Tucker-Drob (2016), Theorem 1.3, gives Borel degree-list-colorability for locally finite Borel graphs with no Gallai-tree component.",
+        "The present setting permits unbounded in-degree, hence the underlying graph need not be locally finite; its list threshold is controlled by a finite orientation rather than total degree.",
+        "Pelayo-Gómez arXiv:2609.19038v1 allows arbitrary in-degree but proves a fixed-palette measurable theorem, not a random Borel arbitrary-list theorem."
+      ],
+      "reasoning": "The known Borel degree-list theorem does not dominate the claim because its local-finiteness and total-degree hypotheses can fail here. The recent out-degree theorems have the right graph class but only a common palette.",
+      "searches": [
+        "Literature search: Borel list coloring graph measurable",
+        "Literature search: measurable list coloring Borel graph",
+        "Literature search: Brooks theorem measurable colorings degree-list Borel",
+        "Literature search: out-degree list-colorable Borel digraph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21286v1 full theorem/lemma/proof sequence and metadata, primary MSC 03E15.",
+      "arXiv:2609.19038v1 full HTML proof, especially Theorem 1 and proof Step 3.",
+      "Conley--Marks--Tucker-Drob, Forum of Mathematics, Sigma 4 (2016), e16, Borel degree-list theorem.",
+      "Targeted web searches for Borel/random/measurable list coloring under bounded out-degree.",
+      "Targeted semantic literature database searches for the claim and natural aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2609.21286v1 the recoloring proof chooses among \\(d+1\\) colors available inside a fixed \\(2d+1\\) palette; the stated theorem does not quantify over input lists.",
+        "In arXiv:2609.19038v1, proof Step 3 defines residual lists \\(\\mathcal L(x)\\) only after fixing a common palette and a conull-core coloring; this does not supply arbitrary lists on the whole graph.",
+        "The variable-list proof needs the new inequality \\(|L(x)|-d_G^+(x)\\ge d+1\\) and a Borel ordered selection from \\(L(x)\\)."
+      ],
+      "reasoning": "The fixed-palette theorem is a special case of the new statement, not conversely. Pelayo-Gómez's residual-list compactness step is structurally different, and the older degree-list theorem cannot be applied when in-degree is unbounded.",
+      "searches": [
+        "Primary-literature inspection: arXiv:2609.21286 randomized Borel theorem and recoloring proof",
+        "Primary-literature inspection: arXiv:2609.19038 full HTML, especially Theorem 1 and proof Step 3",
+        "Primary-literature inspection: Conley Marks Tucker-Drob Borel degree-list-coloring"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.21286v1 states a random Borel coloring into one common palette of size \\(2d+1\\); the theorem statement retrieved contains no list assignment.",
+        "arXiv:2609.19038v1, Theorem 1, is likewise a fixed-palette measurable \\((2n+1)\\)-coloring theorem.",
+        "Targeted exact-phrase and semantic searches did not surface an arbitrary-list version with bounded out-degree."
+      ],
+      "reasoning": "Arbitrary vertex lists cannot be obtained by a global renaming of a common palette, because different vertices may have different finite color sets. The proof must verify both Borel selection from varying lists and preservation of the collision-probability recurrence.",
+      "searches": [
+        "Semantic database query: Borel measurable list coloring digraph maximum out-degree",
+        "Semantic database query: random Borel list coloring",
+        "Semantic database query: out-degree list coloring descriptive combinatorics",
+        "Literature search: \"out-degree\" \"2d+1\" \"list-coloring\" Borel",
+        "Literature search: \"maximum out-degree\" \"list coloring\" \"Borel\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic-database hit for the most specific query concerned finite maximum-degree-two prescribed color classes, not descriptive list coloring.",
+        "The random-Borel-list query surfaced an ordinary chromatic result with a local Borel-rule obstruction for one Schreier graph, not a bounded-out-degree arbitrary-list theorem.",
+        "No matching or stronger arbitrary-list statement appeared in the targeted semantic-database results."
+      ],
+      "reasoning": "There is no applicable numerical table. Direct semantic-database searches found no matching or stronger published finding.",
+      "searches": [
+        "Semantic database query: Borel measurable list coloring digraph maximum out-degree",
+        "Semantic database query: random Borel list coloring",
+        "Semantic database query: out-degree list coloring descriptive combinatorics"
+      ]
+    },
+    "rationale": "The inspected 2026 fixed-palette theorems do not state arbitrary Borel lists, and the closest older Borel degree-list theorem has materially different hypotheses. The new content is the variable-list recoloring argument and its local threshold.",
+    "residual_risks": [
+      "An equivalent arbitrary-list result may exist under terminology not exposed by the targeted searches.",
+      "The local threshold \\(d+d_G^+(x)+1\\) is not claimed optimal away from the regular worst case.",
+      "The finding concerns edgewise-almost-sure random Borel list coloring; stronger simultaneous Borel choosability is not proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves the fixed-palette random Borel theorem. Its proof supplies the independent-set mechanism and the geometric sadness bound, but it does not state the arbitrary-list or local-list-size refinement.",
+        "evidence": "The update uses exactly \\(d+1\\) available choices after excluding at most \\(d\\) out-neighbor colors; the source theorem itself is phrased as a \\((2d+1)\\)-coloring.",
+        "identifier_or_url": "arXiv:2609.21286v1",
+        "material_read": "The theorem statement, independent-set lemma, full iterative recoloring proof, convergence argument, and references in the public text available for the paper.",
+        "method": "Reconstructed every place where the common palette is used and replaced it by a varying finite list while preserving Borelness and the probability estimate.",
+        "title": "Randomized Borel (2d+1)-coloring of digraphs",
+        "trigger": "Primary recent source with exactly the bounded-out-degree object and sharp fixed-palette bound."
+      },
+      {
+        "assessment": "The paper proves a measurable fixed-palette theorem. Its list argument only colors the null complement from residual subsets of the already fixed common palette, so it does not cover the present random Borel arbitrary-list statement.",
+        "evidence": "Step 3 defines \\(\\mathcal L(x)=\\mathbb Z_q\\setminus c_\\infty[O(x)]\\) and then uses compactness; these lists are generated by the proof rather than supplied arbitrarily.",
+        "identifier_or_url": "arXiv:2609.19038v1",
+        "material_read": "Full public HTML text, including statement/context, all lemmas, the proof of Theorem 1, Step 3's residual-list compactness argument, and references.",
+        "method": "Compared its use of lists with arbitrary input-list quantification.",
+        "title": "The measure half of the 2n+1 problem",
+        "trigger": "Earlier theorem explicitly cited by the primary source and a plausible place for a list strengthening."
+      },
+      {
+        "assessment": "Its Borel degree-list theorem assumes local finiteness of the underlying graph and excludes Gallai-tree components; it therefore does not imply a theorem controlled only by a finite out-degree orientation with potentially unbounded in-degree.",
+        "evidence": "Theorem 1.3 is stated for locally finite Borel graphs and lists of size equal to total vertex degree.",
+        "identifier_or_url": "DOI:10.1017/fms.2016.14",
+        "material_read": "The published theorem statement and the section defining Borel degree-list-colorability, including Theorem 1.3 as surfaced in the accessible text.",
+        "method": "Compared graph hypotheses and list-size parameters.",
+        "title": "Brooks's theorem for measurable colorings",
+        "trigger": "Foundational descriptive list-coloring paper and strongest obvious older source with an explicit Borel degree-list theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2639108-8178-42e1-9f50-a85285a796e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "List colorability is a standard robustness strengthening of ordinary coloring, and the statement is not merely the uniform \\((2d+1)\\)-list analogue: it gives the local threshold \\(d+d_G^+(x)+1\\), strictly reducing the required list size at vertices below the global out-degree maximum. It retains the sharp universal constant \\(2d+1\\), with regular tournaments providing the obstruction to any uniform improvement. This is a natural extension of a new sharp descriptive-coloring theorem and is directly reusable when admissible colors vary by vertex.",
+    "status": "PASS"
+  }
+}
