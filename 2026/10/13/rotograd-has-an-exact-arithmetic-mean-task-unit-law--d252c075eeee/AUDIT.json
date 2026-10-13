@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Each fixed positive task multiplier cancels exactly in the normalized gradient and current-to-initial norm ratio. The common target magnitude therefore changes by an explicit probability-weighted arithmetic mean. The source rotation target is normalized and invariant, while the unnormalized rotated task gradient makes the rotation loss and its gradient homogeneous of degree one in the task scale. Common scaling multiplies every source first-order update gradient by the same factor, proving the reciprocal-learning-rate trajectory equivalence by induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Later dual-balancing work explicitly identifies loss-scale and gradient-magnitude disparities as distinct balancing problems.",
+        "Its proposed remedy uses logarithmic loss transformation and maximum-norm gradient normalization rather than RotoGrad's relative-convergence target and learned rotations.",
+        "General statements about gradient normalization do not determine RotoGrad's rotation and head update scaling."
+      ],
+      "reasoning": "Broader scale-balancing literature motivates the question but does not imply the exact three-channel transformation law or the common-scale trajectory equivalence.",
+      "searches": [
+        "Dual-Balancing multi-task loss scale gradient magnitude",
+        "multi-task learning task loss scale gradient normalization RotoGrad",
+        "RotoGrad scale invariant multitask"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.02631v1",
+      "arXiv:2103.02631v3",
+      "arXiv:2308.12029v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation 1 writes each weighted task gradient as the common magnitude times its normalized direction.",
+        "Equation 2 defines relative convergence through current gradient norm divided by the initial gradient norm.",
+        "Algorithm 1 updates backbone, task heads, and rotations in separate first-order channels and treats the rotated feature gradient as constant with respect to the rotation."
+      ],
+      "reasoning": "The source formulas contain the ingredients, but the accepted theorem requires transforming the entire coupled update under fixed task-unit changes, identifying the arithmetic-mean factor, and distinguishing common-scale trajectory equivalence from independent task-specific timescale changes.",
+      "searches": [
+        "arXiv:2103.02631 Equation 1 magnitude homogenization",
+        "arXiv:2103.02631 Equation 2 relative task convergence initial gradient",
+        "arXiv:2103.02631 Algorithm 1 RotoGrad learning rate rotation loss"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source normalizes each task gradient before forming the backbone direction.",
+        "Its relative-convergence score divides each current gradient norm by that task's initial norm.",
+        "The common target magnitude remains a convex combination of unnormalized current task-gradient norms."
+      ],
+      "reasoning": "Equivalent coverage would state exact task-unit invariance of the normalized direction together with an arithmetic-mean magnitude multiplier, or would identify the task-specific scale factor in the rotation update. None was located.",
+      "searches": [
+        "RotoGrad task loss scaling invariance gradient magnitude homogenization units",
+        "RotoGrad independent task rescaling rotation learning rate scale",
+        "gradient homogenization multitask arithmetic mean loss scaling RotoGrad"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concerned matrix-equivariant adaptation, skew-rotation step tuning, and normalization obstructions in unrelated algorithms.",
+        "No returned indexed finding named RotoGrad or stated an equivalent task-unit law."
+      ],
+      "reasoning": "The nearest records use different optimization maps and do not imply the source RotoGrad normalization identities. Database absence is supporting evidence only.",
+      "searches": [
+        "RotoGrad task loss scaling invariance gradient magnitude homogenization units",
+        "RotoGrad independent task rescaling rotation learning rate scale",
+        "gradient homogenization multitask arithmetic mean loss scaling RotoGrad"
+      ]
+    },
+    "rationale": "The defining paper gives all three update channels and discusses gradient-magnitude disparities but does not state their joint loss-unit transformation. Later dual-balancing work treats loss and gradient scales as separate problems without deriving this RotoGrad law. Focused published-record searches returned no RotoGrad-specific arithmetic-mean or rotation-speed scale theorem.",
+    "residual_risks": [
+      "An equivalent scaling observation may exist in unindexed implementation notes or discussions.",
+      "Later empirical comparisons may describe loss-scale sensitivity without giving the exact transformation law.",
+      "Independent rescaling changes matched trajectories after the first differing update, so the arithmetic-mean identity is pointwise rather than a fixed long-run multiplier."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_UPDATE_SYSTEM_NOT_COVERING_THE_EXACT_TASK_UNIT_TRANSFORMATION.",
+        "evidence": "The paper defines normalized task directions, current-to-initial relative convergence, the unnormalized common magnitude, and task-specific rotation/head updates, but no arithmetic-mean rescaling law or full common-scale trajectory equivalence was found.",
+        "identifier_or_url": "arXiv:2103.02631v1/v3",
+        "material_read": "Open full text covering Sections 2 and 3, Equations 1 through 4, Algorithm 1, the discussion of target-gradient magnitude and individual step sizes, the normalized target direction, rotation slow-learning condition, and practical rotation parametrization.",
+        "method": "Full-text and page-image inspection.",
+        "title": "RotoGrad: Gradient Homogenization in Multitask Learning",
+        "trigger": "Defining source for gradient-magnitude normalization, relative convergence, the rotation loss, and all displayed update channels."
+      },
+      {
+        "assessment": "BROADER_SCALE_BALANCING_MOTIVATION_NOT_COVERING_THE_ROTROGRAD_TRANSFORMATION_LAW.",
+        "evidence": "The paper treats loss and gradient scales as distinct balancing problems and proposes a different method; the inspected material does not derive RotoGrad's arithmetic-mean or rotation-speed scaling.",
+        "identifier_or_url": "arXiv:2308.12029v1",
+        "material_read": "Open abstract and full-text introduction/related-work sections describing loss-scale imbalance, gradient-magnitude imbalance, logarithmic loss transformation, and gradient normalization.",
+        "method": "Open-access full-text inspection.",
+        "title": "Dual-Balancing for Multi-Task Learning",
+        "trigger": "Later primary work centered on loss-scale and gradient-magnitude disparities in multi-task learning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d252c075-eeee-45fe-bae9-1dbc06d171b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "RotoGrad's defining contribution is to couple magnitude homogenization with slowly learned task-specific rotations. The theorem separates exactly which parts are loss-unit invariant and which are not: the backbone direction is invariant, the shared magnitude follows an arithmetic mean of task units, and rotation/head learning speeds inherit individual task units. This distinction directly affects interpretation of gradient homogenization and the practical leader-follower learning-rate separation.",
+    "status": "PASS"
+  }
+}
