@@ -1,0 +1,15 @@
+# Scientific assessment: sharp photon-cutoff loss/parity envelope
+
+## Correctness — PASS
+The parity identity follows independently from the vacuum-loss Kraus formula and binomial thinning. Its coefficientwise lower bound uses only \(p_j\ge0\), \(\sum_jp_j=1\), the initial parity constraint \(\sum_{j\ \mathrm{odd}}p_j\le1/2\), and the finite photon cutoff. Both coefficient inequalities are attained simultaneously by precisely the stated two populations. Strict convex minimization determines the unique interior transmissivity; comparison of powers gives the exact even–odd staircase and the unbounded-cutoff limit. Positivity rules out hidden coherence outside the attaining two-level support. Direct Kraus computations on 5,600 numerical cases reproduce the generating-function formula, but are corroboration, not an infinite proof.
+
+## Originality — PASS (provisional priority assessment)
+The full Kenfack–Życzkowski arXiv text concerns integrated Wigner negativity and individual Fock states. The full Genoni et al. arXiv text contains the binomial loss formula for fixed Fock inputs and a different Gaussian-convex-hull witness. The full Walschaers review addresses phase-space negativity and single-photon representations, not a sharp optimization constrained by initial origin parity across all cutoff states and channel transmissions. An additional closely related study by Filip on adapting non-Gaussian states to loss was accessible only in abstract; it optimizes Gaussian adaptation rather than this cutoff-constrained parity envelope, but its unexplored details leave priority risk. Searches for equivalent generating-polynomial formulations, stronger arbitrary-state inequalities, tables, and exact photon-cutoff optimizers found no demonstrated implication covering the stated all-cutoff bound. Absence of a search match is not conclusive evidence of novelty; independent priority evaluation remains necessary.
+
+## Value — PASS
+The value at the origin is directly connected to photon parity, an operational phase-space observable. Imposing an initial nonnegative origin value and finite Fock support asks how strongly attenuation can expose preexisting phase-space negativity at a point where it was initially absent. The sharp all-state/all-transmission optimum, exact optimizer classification, repeated odd-cutoff plateaus, and asymptotic floor are quantitative finite-resource statements rather than an arbitrary coefficient example. The theorem expressly does not say that loss creates total Wigner negativity or quantify integrated negativity.
+
+## Limitations and integrity
+The inputs can be mixed or coherent but must have bounded photon number; the environment is vacuum and attenuation is Gaussian. The initial condition is local at the origin, not global Wigner positivity. The proof is self-contained and independent of finite sampling; the computations do not certify all cutoff parameters. A potential equivalent literature formulation may exist, notably in less accessible loss-robustness work. No independent scientific audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.

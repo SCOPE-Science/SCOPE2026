@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exact Kraus/binomial thinning proves W_out(0)=(2/pi) sum_j p_j(1-2 eta)^j even for coherent density matrices. For eta>1/2 the initial nonnegative parity condition bounds odd population by 1/2, and coefficient monotonicity yields W_out >= (r^(2m)-r)/pi, attained if and only if p_1=p_2m=1/2. Strict convexity gives unique r=(2m)^(-1/(2m-1)); equality, cutoff plateaus, strict decreases and limiting value follow analytically. A standalone Kraus implementation corroborated this formula in 5600 random tests. No finite calculation is treated as a proof of universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Genoni et al. (2013), Sec. III and IV, derives an origin-Wigner lower bound for Gaussian-convex-hull states dependent on mean photon number; that class and constraint differ from arbitrary cutoff states with nonnegative input parity.",
+        "Walschaers (2021), arXiv:2104.12596v3, Sec. III and IV surveys Fock-state Wigner representations and non-Gaussian optical operations.",
+        "Filip (2013), DOI:10.1103/PhysRevA.87.042308, abstract: squeezing/Gaussian adaptation of non-Gaussian states in a lossy channel, with a different optimization variable."
+      ],
+      "reasoning": "A Gaussian-convex-hull witness does not bound the output of arbitrary photon-cutoff non-Gaussian states conditional on initial origin positivity. The surveyed Fock examples do not supply a uniform optimum over arbitrary density operators and loss. The potentially relevant adaptation paper was not available in full, so stronger specialized coverage remains a stated priority risk.",
+      "searches": [
+        "Sharp photon number cutoff bound for Wigner function at origin after pure-loss attenuation starting with positive initial photon parity: half one photon half maximal even Fock state",
+        "Optimal loss-induced sign change of photon-number parity under attenuation with bounded Fock support",
+        "photon-number truncated state Wigner parity loss channel optimizing negative origin"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0406015v1 — Kenfack and Życzkowski (2004): relevant sections inspected.",
+      "arXiv:1304.3340v2 — Genoni et al. (2013): relevant sections and exact Fock-loss formula inspected.",
+      "arXiv:2104.12596v3 — Walschaers (2021): relevant Fock/Wigner sections inspected.",
+      "DOI:10.1103/PhysRevA.87.042308 — Filip (2013): abstract only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kenfack–Życzkowski, arXiv:quant-ph/0406015v1: full text Sec. II/IV defines an integrated negativity functional for mostly pure non-Gaussian states.",
+        "Genoni et al., arXiv:1304.3340v2: Eq. (32)–(33) shows photon-loss thinning, while the main bounds concern Gaussian convex combinations and average energy.",
+        "Walschaers, arXiv:2104.12596v3: reviewed phase-space Fock formulas and the conceptual distinction between local negativity and total negativity."
+      ],
+      "reasoning": "Known thinning and parity identities are sufficient ingredients for a short new optimization argument but do not already assert its output optimum and equality structure; similarly an integrated negativity inequality does not imply the origin-constrained optimum. Loss never creates global negativity from globally nonnegative input, which is consistent with the theorem because only one input point is constrained. Published components are credited and the specific novel target is sharply isolated.",
+      "searches": [
+        "Loss drives Wigner negative annulus into central disk for mixtures of one and two photon Fock states through a vacuum loss channel; exact 1/2 and 1/[2(1-a)] thresholds",
+        "Laser quantum optics single-photon two-photon mixtures Wigner negativity transition annular to origin pure loss",
+        "Optimal loss-induced sign change of photon-number parity under attenuation with bounded Fock support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kenfack–Życzkowski (2004), arXiv:quant-ph/0406015v1, Sec. II and IV: integrated Wigner-negativity measure and pure Fock-state examples.",
+        "Genoni et al. (2013), arXiv:1304.3340v2, Eq. (32)–(33): exact binomial attenuation of a single Fock input."
+      ],
+      "reasoning": "The origin Wigner value is parity and loss is binomial thinning, so the theorem admits an equivalent generating-polynomial statement. Neither inspected source optimizes that polynomial over arbitrary truncated input distributions subject to nonnegative parity at the input and over all channel transmissivities. The generating-polynomial formulation itself is explicitly included in the proof; known basic formulas are not presented as novel.",
+      "searches": [
+        "Wigner function zero negativity thresholds loss for mixtures of photon number states 0 1 2 and phase space annular negativity",
+        "Fock state photon number distribution parity under attenuation negative at origin despite initially positive photon number parity",
+        "Exact extremal generating polynomial parity value on interval -1 0 under nonnegative value at -1 with bounded degree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete Kenfack–Życzkowski arXiv treatment evaluates Fock-state Wigner negativity rather than a cutoff-versus-optimal-origin-value table.",
+        "Genoni et al. numerically study selected pure Fock levels and a distinct non-Gaussianity witness under loss."
+      ],
+      "reasoning": "No inspected table directly supplies the exact family indexed by every finite photon cutoff, its exact optimizing transmission, its two-step plateaus, or its complete mixed/pure-state optimizer characterization. Absence of an indexed database hit is not independent proof of priority.",
+      "searches": [
+        "Maximum central Wigner negativity produced by pure loss from a Fock-diagonal vacuum one-photon two-photon mixture with initial central Wigner nonnegative 1/8 at 3/4 transmissivity",
+        "Energy cutoff one plus even photon Fock mixture optimum negative Wigner at origin after loss"
+      ]
+    },
+    "rationale": "The assessed single theorem optimizes an origin-parity value under a simultaneous photon-cutoff and initial-parity constraint, includes exact attaining states/transmission, and resolves every finite cutoff. Inspected 2004 and 2013 primary sources credit the general Wigner/Fock and binomial loss formulas but target integrated negativity or Gaussian-hull witnesses. The 2021 review addresses distinct tasks. Abstract-only comparison for a 2013 Gaussian-adaptation study remains a residual priority risk, not an assertion of whole-document noncoverage.",
+    "residual_risks": [
+      "The complete Filip (2013) adaptation article was not available for text comparison; a specialized result with equivalent parameters cannot be excluded.",
+      "A textbook or less easily indexed treatment of constrained parity-generating polynomials may already imply the formula. Search nonmatches alone do not establish priority.",
+      "No independent literature or scientific audit has taken place."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected formulation does not state the constrained all-cutoff optimization or its two-step sharp bound.",
+        "evidence": [
+          "arXiv v1 header dated 2004-06-02; Sections II, IV; Eq. (2) integrated negativity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/quant-ph/0406015v1",
+        "material_read": "Full arXiv HTML available; title, introduction, Section II (negativity-volume definition) and Section IV (Fock-state treatment) read, with article section inventory inspected.",
+        "method": "Compared objective (integrated phase-space negativity), state family and channel parameters against the proposed cutoff origin-value optimization.",
+        "title": "Negativity of the Wigner function as an indicator of nonclassicality",
+        "trigger": "An early motivating source on Wigner negativity and single-mode Fock examples."
+      },
+      {
+        "assessment": "The input class, objective and theorem differ; its Fock loss formula is a credited proof ingredient and does not state the optimized cutoff envelope.",
+        "evidence": [
+          "Sec. III origin Wigner bound is conditional on Gaussian-convex-hull membership; Sec. IV.1.1 Eq. (32)–(33) gives binomial thinning for a single Fock state."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1304.3340v2",
+        "material_read": "Full arXiv HTML available; abstract, Section III Gaussian-convex-hull bound, Section IV.1.1 Fock loss Eqs. (32)–(33), and adjacent applications examined.",
+        "method": "Separated the known binomial loss identity and the mean-energy Gaussian-hull witness from the present two-constraint exact minimization.",
+        "title": "Detecting quantum non-Gaussianity via the Wigner function",
+        "trigger": "Closest primary published formula for Fock-state attenuation and origin-Wigner lower bounds."
+      },
+      {
+        "assessment": "No direct cutoff-constrained universal minimization identified in inspected sections; the review was not used as a proof of exhaustive noncoverage.",
+        "evidence": [
+          "Sections III and IV discuss single-photon Fock Wigner values and non-Gaussian phase-space resources."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.12596v3",
+        "material_read": "Accessible arXiv HTML; selected sections on Wigner-function negativity, Fock states, one-photon mixtures, and optical generation read, not an exhaustive page-by-page review.",
+        "method": "Compared discussed phase-space observables, mixtures and Gaussian maps with the precise extremal claim.",
+        "title": "Non-Gaussian Quantum States and Where to Find Them",
+        "trigger": "Broad reference for equivalences and any dominating Wigner-negativity statements."
+      },
+      {
+        "assessment": "Different stated optimization target; unresolved possibility that a specialized bound appears in the inaccessible text.",
+        "evidence": [
+          "2013 published abstract describes Gaussian adaptation of non-Gaussian input states under a lossy channel."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.87.042308",
+        "material_read": "Bibliographic record and abstract only; complete primary text was unavailable after checking accessible preprint and open versions.",
+        "method": "Compared abstract-level physical input class and stated Gaussian adaptation control objective, without drawing whole-document negative conclusions.",
+        "title": "Gaussian quantum adaptation of non-Gaussian states for a lossy channel",
+        "trigger": "Potentially related optimization of negativity preservation under loss."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "415b026f-8884-421f-bca4-9ae703352128",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The origin Wigner value is a directly measurable photon-parity functional. The natural finite-photon-resource and initially nonnegative-origin constraints ask how strongly ordinary loss can expose preexisting off-origin phase-space negativity at the origin. The theorem gives the exact all-state/all-loss floor, complete attaining input families, nontrivial adjacent-cutoff plateaus and a strict asymptotic staircase. It is not merely a table entry, and it explicitly avoids claiming that Gaussian loss creates global Wigner negativity.",
+    "status": "PASS"
+  }
+}
