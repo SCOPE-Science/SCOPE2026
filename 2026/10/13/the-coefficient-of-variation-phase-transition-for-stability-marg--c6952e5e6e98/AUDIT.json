@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For 0<beta<1 positive definite V established on stable interval via explicit determinant, exact conditional drift gives summable mean-square errors for any iid positive random curvature with finite second moment. Beta=0 direct exact contraction. For eta at or above cutoff, det(I-T)<=0 gives an eigenvalue >=1 and deterministic rank-one initial second moments span the state, excluding convergence from all deterministic starts. Derivative factorization proves v=0 nonattained and v>0 unique optimizers. Standalone symbolic and 3528 rational checks return VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang et al use horizon-dependent stochastic momentum convergence conditions, not sharp scalar constant-step stability.",
+        "Paquette and Paquette use high-dimensional random least-squares diffusion/Volterra limits and show approximate SHB-SGD equivalence in that limit, not the finite scalar optimized step ceiling.",
+        "Kidambi restricted c>=2 high-noise, so the central strict 0<v<1 branch is outside its model."
+      ],
+      "reasoning": "The standard spectral-radius criterion of a stochastic linear second-moment map is general machinery, not an explicit answer to the low-variance optimizer and threshold; the latter requires solving a different parameter optimization on a regime absent from the closest prior special model.",
+      "searches": [
+        "sharp mean square convergence stability stochastic heavy ball random coordinate descent two coordinate positive definite quadratic multiplicative momentum",
+        "iid random curvature Polyak heavy ball scalar mean square stability critical step size optimal momentum beta minimum curvature over maximum curvature",
+        "arXiv:2106.03696 Sections 2 and Appendix E.4",
+        "arXiv:1604.03257 Theorems 1-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1604.03257v1 (full accessible, pertinent theorem sections)",
+      "arXiv:1609.04228v1 (full accessible, pertinent quadratic/memory sections)",
+      "arXiv:1803.05591v2 (full accessible, especially exact necessary bound Appendix A)",
+      "arXiv:2106.03696v2 (full accessible, Section 2 and Appendix E.4)",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 (indexed summary; different algorithm)",
+      "2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158 (indexed summary; deterministic)",
+      "Published cyclic fixed-order heavy-ball classifications were compared at the claim level; their deterministic matrix products differ from iid second-moment recurrences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kidambi necessary bound exactly matches the algebraic formula in high-noise c>=2; it gives no low-noise optimized beta under c<2.",
+        "Gadat et al analyze diminishing gains and different stochastic memory scaling; no exact iid scalar constant-gain optimization.",
+        "Paquette et al high-dimensional equivalence does not imply the finite iid scalar full moment convergence threshold.",
+        "The deterministic cyclic fixed-order two-component heavy-ball setting involves a periodic matrix product, not the iid second-moment transfer in the present claim."
+      ],
+      "reasoning": "The novel portion is not a corollary within the stated range c>=2 of Kidambi's theorem because low-noise positive curvature examples have 1<c<2. A positive-definite drift proves sufficiency not present in the prior necessary-only lemma, while derivative optimization gives new phase and uniqueness. A cyclic deterministic two-step matrix product neither implies nor is implied by this iid random-curvature moment calculation.",
+      "searches": [
+        "arXiv:1803.05591 Appendix A Lemma 4; c>=2",
+        "arXiv:1609.04228 Theorem 4 and Section 4",
+        "arXiv:2106.03696 Appendix E.4 Theorem 5",
+        "scalar iid stochastic heavy ball positive random curvature coefficient of variation below one optimal momentum beta=(1-cv)/(1+cv) maximum stable step size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kidambi Appendix A has identical necessary cutoff when c=EA²/(EA)²>=2; it states that setting c=2 gives an upper cutoff 1-beta² for its coordinates.",
+        "The present optimizing transition requires c<2 and supplies sufficiency for arbitrary scalar positive iid curvature distributions."
+      ],
+      "reasoning": "The second moment recursion is a random-coefficient AR(2) model, so that alias was included. The algebraic high-noise cutoff is preexisting and excluded from novelty. No found equivalence supplies the positive momentum optimizer for low-noise curvature laws and exact sufficiency across all starts.",
+      "searches": [
+        "random coefficient autoregression two stochastic heavy ball mean square optimal momentum coefficient of variation",
+        "stochastic heavy ball Bernoulli scalar quadratic curvature multiplicative noise exact Schur stability step size and optimal momentum",
+        "Kidambi et al arXiv:1803.05591 Appendix A Lemma 4 and Remark 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed scalar random-curvature work: 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 addresses OSGM and one-step SGD, not heavy-ball momentum.",
+        "Closest indexed fixed heavy-ball work: 2026/9/20/SCOPE-heavy-ball-real-root-acceleration-barrier--5f3230b80158 addresses deterministic interval spectra."
+      ],
+      "reasoning": "No known exact numerical table/database was required or reused; the theorem is a symbolic all-parameter phase diagram. Query misses are not treated as proof of uniqueness.",
+      "searches": [
+        "scalar iid stochastic heavy ball positive random curvature coefficient of variation below one optimal momentum beta=(1-cv)/(1+cv) maximum stable step size",
+        "stochastic momentum quadratic constant stepsize mean square stability boundary 2(1-beta^2)/(c+(c-2)beta) low noise c less than two",
+        "random coefficient autoregression two stochastic heavy ball mean square optimal momentum coefficient of variation"
+      ]
+    },
+    "rationale": "Narrow claim: unique stability-margin-optimal momentum transitions at curvature coefficient of variation one; the original high-noise necessary threshold is expressly credited to Kidambi et al., Appendix A Lemma 4, where c>=2. The current theorem gives a full low-noise c in (1,2) characterization, a positive definite sufficiency proof, exact end-point behavior and finite-sum tuning rule. No identified full text or indexed finding implies that entire optimized phase. Residual risk from random-coefficient AR(2) stationarity theory remains.",
+    "residual_risks": [
+      "Older AR(2) random-coefficient mean-square stability references might present an equivalent c<2 optimized momentum phase in different notation; searches cannot eliminate that possibility.",
+      "The necessity formula itself and high-noise obstruction are known from Kidambi et al. 2018. Novelty is confined to the explicit c<2 optimized and sufficient classification, not the original formula's appearance.",
+      "No independent literature expert assessment has been performed; unindexed specialized works may still dominate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING low-noise optimized constant-step mean-square phase; general convergence under diminishing/horizon-dependent steps",
+        "evidence": "PDF p5-6 Theorems 1-4 set alpha proportional to 1/sqrt(t+1) and give averaged objective/gradient bounds, rather than an exact iid scalar quadratic iff boundary.",
+        "identifier_or_url": "arXiv:1604.03257v1; https://arxiv.org/pdf/1604.03257",
+        "material_read": "Full accessible PDF, introduction, stochastic momentum update definition, Section 3.1 Theorems 1-4, Section 3.2 proof assumptions and reported rates",
+        "method": "Opened 17-page public PDF; inspected initial page and searchable theorem sections",
+        "title": "Unified Convergence Analysis of Stochastic Momentum Methods for Convex and Non-convex Optimization",
+        "trigger": "Earliest relevant public stochastic-momentum analysis; algorithmic precedent and archive anchor"
+      },
+      {
+        "assessment": "NOT_COVERING the exact fixed scalar iid curvature stability margin and its optimum; uses decreasing stochastic approximation gain and memory schedule",
+        "evidence": "Theorem 4 has rates expressed through gamma_n under exponential/polynomial memory, not the current fixed eta, beta phase transition.",
+        "identifier_or_url": "arXiv:1609.04228v1; https://arxiv.org/pdf/1609.04228",
+        "material_read": "Full accessible PDF, abstract/introduction, Theorem 4 p5, Section 4.1 and Proposition 15 on memory and quadratic rates",
+        "method": "Opened 39-page public PDF; searched quantitative quadratic result and checked relevant theorem and proof setting",
+        "title": "Stochastic Heavy Ball",
+        "trigger": "Archive-era stochastic heavy-ball optimization primary literature"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: identical algebraic necessary cutoff for c>=2, explicitly treated as established; low-variance c<2 optimizing phase and full sufficiency not supplied",
+        "evidence": "Appendix A Lemma 4: delta sigma_1²>=2(1-alpha²)/(c+(c-2)alpha) forces eigenvalue >=1. Distribution in Section 3 requires Ez^4=2c>=4 hence c>=2. Appendix Remark 8 focuses on larger c.",
+        "identifier_or_url": "arXiv:1803.05591v2; https://arxiv.org/pdf/1803.05591",
+        "material_read": "Full accessible 28-page PDF, Section 3 model and stochastic Hessian moments, Algorithm 1, Appendix A Lemmas 4-6 and Remark 8, including characteristic determinant at 1",
+        "method": "Opened primary PDF, read stochastic regression distribution c>=2 and Appendix A p15-17 algebra/interpretation",
+        "title": "On the insufficiency of existing momentum schemes for Stochastic Optimization",
+        "trigger": "High-priority decisive near overlap: exact stochastic heavy-ball moment instability bound"
+      },
+      {
+        "assessment": "NOT_COVERING finite scalar iid curvature stability-margin optimum; establishes large-dimension asymptotic diffusion and SHB/SGD equivalence",
+        "evidence": "Introduction specifies n,d large, and Appendix E.4 Theorem 5 assumes n->infty with bounded spectral upper edge; no finite iid scalar cv=1 optimizer.",
+        "identifier_or_url": "arXiv:2106.03696v2; https://arxiv.org/pdf/2106.03696",
+        "material_read": "Full accessible 43-page PDF, introduction/parameter table/Section 2, Appendix E.4 Theorem 5 and Appendix E moment equations",
+        "method": "Opened full PDF, inspected p0-p3 and searched Sections and Appendix for finite vs high-dimensional claim",
+        "title": "Dynamics of Stochastic Momentum Methods on Large-scale, Quadratic Models",
+        "trigger": "Modern exact quadratic stochastic momentum dynamics may dominate finite scalar criterion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c6952e5e-6e98-45d1-958b-b0c269e4bca1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp CV=1 boundary partitions realistic scalar finite-sum random curvature models into two opposite admissible-stepsize tuning regimes, including a nontrivial unique low-noise momentum and exact 25 percent margin gain on iid curvatures 1 and 2. The high-noise necessary formula was known, but the low-noise c<2 part lies outside that model and gives useful exact prescription; no faster iteration-rate claim is made. The complete phase diagram addresses a motivated stability question rather than arbitrary parameters.",
+    "status": "PASS"
+  }
+}
