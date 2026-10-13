@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the quantum cut-rank criterion from graph-state amplitudes, the exact conditional laws for overlapping and disjoint pairs, event-pair multiplicities, and the isolated-vertex covariance. Conditional full-rank probabilities reduce to uniform F2 row comparisons; symbolic expansion yields the stated positive covariances and n-dependent variance. Mean-square isolation identity follows from exact E[D Z] and Var Z; every limit holds as n tends to infinity. Exhaustive exact-rational enumeration of 64, 1024, and 32768 labeled graphs and direct partial traces in 264 sample graphs confirm finite cases, without treating them as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miller et al. Eq. (25) gives expected Shor-Laflamme weight-k coefficients for random graph states, and Eqs. (16)-(18) give variance over stabilizer Pauli weights within a state.",
+        "Zhang and Zhang derive graph-nullity GHZ content and an asymptotic ER description."
+      ],
+      "reasoning": "General results on individual graph-state cut ranks or their low-weight stabilizer supports enable per-graph testing and first moments. They do not provide the across-random-graph pair-event cross moments needed here, nor isolate rare-event domination of variance. The claimed finite-n law for exact independent edges is also not a finite-depth circuit corollary.",
+      "searches": [
+        "2-uniform stabilizer graph states random graph probability all two-qubit reductions maximally mixed",
+        "Erdos Renyi random graph state two-qubit marginal purity fluctuation variance",
+        "arXiv:2207.07665 Section 3.2 Appendix E",
+        "arXiv:2608.03102 Section III"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.03102",
+      "arXiv:2207.07665",
+      "arXiv:2201.05622",
+      "doi:10.1103/PhysRevA.69.062311",
+      "published-finding corpus: Exact variance covariance of number of two-qubit maximally mixed marginals in Erdos Renyi graph states, random graph full cut ranks",
+      "published-finding corpus: Two-vertex graph-state cut rank events positive correlation when vertex pairs overlap or are disjoint; exact second moment",
+      "published-finding corpus: 2-uniform stabilizer graph states random graph probability all two-qubit reductions maximally mixed",
+      "published-finding corpus: uniform random graph-state two-site marginal entropy covariance overlap disjoint subsets"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 result A2=L+T involves sums of two-body stabilizer supports; its random-graph Eq. (25) is a first moment over graphs. The variance it reports is internal to the normalized Pauli-weight distribution.",
+        "The 2026 paper focuses on tripartite GHZ nullity and local-Clifford graph representations.",
+        "The 2022 constructions exhibit fixed k-uniform graph families rather than random-ensemble fluctuations."
+      ],
+      "reasoning": "A theorem for single-graph low-weight invariants or mean SLD is not a statement about Cov(I_S,I_T), since it lacks a joint probability law for distinct specified subsets. The new positive disjoint-pair covariance and isolated-vertex mean-square equivalence require the independent conditional cross-edge-block and shared-neighborhood calculations, absent from the examined statements. Thus the final result is not an immediate special case of their reported theorems.",
+      "searches": [
+        "arXiv:2207.07665 Eq. (10), Secs. 2.2, 3.2 and Appendix E",
+        "arXiv:2608.03102 Secs. III A-D and Appendix A",
+        "arXiv:2201.05622 Secs. II-IV",
+        "uniform random graph-state two-site marginal entropy covariance overlap disjoint subsets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2207.07665 Eq. (10) counts leaves and external twin pairs in Pauli-weight-two stabilizers, a related graph-theoretic formulation but not a pair-event second moment.",
+        "arXiv:2608.03102 Section III instead studies GHZ nullity of random adjacency matrices.",
+        "Published published-finding corpus nearest semantic hits included 2026/9/18/SCOPE-gaussian-magnitude-renyi2-total-correlation--4eebefe6d8fe and 2026/9/30/SCOPE-exact-ordered-tuple-orbit-profiles-of-the-side-preserving-random--f8b9342567cf; their stated Gaussian dependence and bipartite tuple-orbit claims concern other objects."
+      ],
+      "reasoning": "Two-site maximal mixing is equivalently binary cut rank two; its failure can also be characterized via zero/equal external neighborhood rows and graph leaf/twin configurations. The new claim is not just that criterion: it gives exact joint probabilities of two distinct pair events for both overlap types, the total event-count variance, and a leading L2 fluctuation equivalence. The examined nearby aliases did not state those results.",
+      "searches": [
+        "Exact variance covariance of number of two-qubit maximally mixed marginals in Erdos Renyi graph states, random graph full cut ranks",
+        "Two-vertex graph-state cut rank events positive correlation when vertex pairs overlap or are disjoint; exact second moment",
+        "joint distribution cut-rank two vertex subsets in Erdos Renyi random graph stabilizer state",
+        "random graph states number two-qubit maximally mixed reduced states variance covariance 2-uniform",
+        "published-finding corpus: Two-vertex graph-state cut rank events positive correlation when vertex pairs overlap or are disjoint; exact second moment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No specific table of joint two-site maximal-mixing probabilities or all-n event-count variance was found in the inspected source full texts or ranked published records.",
+        "The included exact census for n=4,5,6 reproduces a theorem stated and proved for all n>=4, rather than claiming a new small table."
+      ],
+      "reasoning": "Finite census alone would be too weak. The new quantities are exact rational expressions for every n and for two distinct pair-event overlap types, with an asymptotic L2 structural mechanism. No exact database or table searched furnished these statements.",
+      "searches": [
+        "variance count full-rank 2 x (n-2) submatrices of symmetric Bernoulli adjacency matrix",
+        "isolated vertices dominate fluctuations of number of non-maximally-mixed two-qubit marginals",
+        "random graph graph states counting two-body maximally mixed marginals isolated vertices twin pairs",
+        "published-finding corpus: Exact variance covariance of number of two-qubit maximally mixed marginals in Erdos Renyi graph states, random graph full cut ranks"
+      ]
+    },
+    "rationale": "The full-text comparison with 2026 graph-state ER/GHZ work, 2023 general SLD leaf/twin and random-graph first-moment results, and 2022 deterministic 2-uniform graph-state constructions isolates a different, non-implied observable: exact overlap-class covariance of pairwise two-qubit maximal mixing, its all-n count variance, and the rare isolated-vertex leading-variance theorem. Search of semantic published records and aliases found no direct equivalent. The unavoidable unindexed-equivalence risk is explicitly retained.",
+    "residual_risks": [
+      "A published but unindexed second-moment formula for twin/leaf counts or low-weight stabilizer patterns might imply the same observable after reduction.",
+      "The arXiv:2608.03102 random-stabilizer graph approximation does not imply an exact finite-size circuit-output law; none is claimed.",
+      "Semantic record searches are not an exhaustive survey of unpublished research."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stated exact pairwise maximal-mixing covariances. The paper computes GHZ-entanglement nullity and dense-subgraph structure, not across-graph two-site marginal count variance.",
+        "evidence": [
+          "arXiv:2608.03102 (first submission 2026-08-04), introduction and Sec. III A-D: G(N,1/2) and GHZ nullity; Appendix A: GHZ statistics for general edge probability."
+        ],
+        "identifier_or_url": "arXiv:2608.03102; https://www.researchgate.net/publication/411345480_Typical_Output_States_of_Monitored_Random_Clifford_Circuits_A_Graph-Theoretic_Approach",
+        "material_read": "Full public manuscript transcription including introduction, graph-representation section III, GHZ nullity formulas, and Appendix A on unequal edge probability.",
+        "method": "Read legal public full-text HTML transcription and compared the random variables and cut-matrix ranks with the present two-site events.",
+        "title": "Typical Output States of Monitored Random Clifford Circuits: A Graph-Theoretic Approach",
+        "trigger": "Same independent-edge random graph-state ensemble used to analyze random Clifford graph representations."
+      },
+      {
+        "assessment": "RELATED_NOT_IMPLYING without further moment calculations. Eq. (10) classifies graph-state Pauli-weight-two counts; Eqs. (16)-(18) treat within-state SLD variance; Eq. (25) gives one-point mean SLD for ER graphs. None states or derives the required joint event covariance or isolation-dominated fluctuation theorem.",
+        "evidence": [
+          "Miller et al. J. Phys. A 56 (2023) 335303, Eq. (10), Eqs. (16)-(18), Sec. 3.2 Eq. (25), Appendix E Eq. (91)."
+        ],
+        "identifier_or_url": "arXiv:2207.07665; https://www.researchgate.net/publication/372516277_Shor-Laflamme_distributions_of_graph_states_and_noise_robustness_of_entanglement",
+        "material_read": "Full public manuscript transcription: theorem on graph supports and Eq. (10) A2=L+T, Sections 2.2 and 3.2, and Appendix E on averaged SLD of random graph states.",
+        "method": "Compared exact weight-two stabilizer counting and the definitions of two different variances with the binary cut rank pair events.",
+        "title": "Shor-Laflamme distributions of graph states and noise robustness of entanglement",
+        "trigger": "Shor-Laflamme low-body invariants and random graph states may dominate the proposed two-site marginal invariant."
+      },
+      {
+        "assessment": "NOT_COVERING the ensemble law; establishes constructions for all-pair maximal mixing but not probabilities or covariances in independently randomized graph edges.",
+        "evidence": [
+          "Sudevan and Das, arXiv:2201.05622, Sec. II definition of k-entangled states and graph-state construction sections."
+        ],
+        "identifier_or_url": "arXiv:2201.05622; https://www.researchgate.net/publication/357927139_N-qubit_states_with_maximum_entanglement_across_all_bipartitions_A_graph_state_approach",
+        "material_read": "Full public manuscript transcription including introduction, definition of k-entangled graph states, and examples constructing 2-entangled cycle states.",
+        "method": "Compared deterministic uniformity criterion against random-graph count and joint covariance questions.",
+        "title": "N-qubit states with maximum entanglement across all bipartitions: A graph state approach",
+        "trigger": "Exact construction of graph states with every two-site marginal maximally mixed."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e0e5cfe-8fa2-4e46-98dc-3a946783ab19",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A random graph state is 2-uniform exactly when all its two-site marginals are maximally mixed; the count of successful pairs is a natural graded entanglement-resource statistic. Its variance cannot be recovered from marginal success probability alone. The result gives two structurally distinct strictly positive pair covariances for all n>=4, an exact full count variance, and a non-obvious rare-isolate fluctuation mechanism (the isolate effect controls leading variance but only one third of mean failures). This provides a concrete, interpretable benchmark for graph-state randomness and 2-uniformity, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
