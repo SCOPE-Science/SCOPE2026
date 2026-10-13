@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For each integer u>=3 the tail decomposition normalizes at M-r. The pair of endpoint terms has valuation 2^u, while the middle terms reduce modulo 2^(3u-1) to a polylogarithmic expansion. The logarithm and dilogarithm terms vanish in Q_2; the cubic truncated sum has a unique minimum at b=4 of valuation -2; every higher-order and denominator-correction term is at least one unit higher. Thus the tail valuation is M-r+3u-2. The exact factorial identity, Legendre formula, and s_2(N)=r-1 prove the a_N value. A standalone verifier independently checks u=3..12 modular valuations and directly replays the n=2039 integer recurrence; finite tests are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dubickas (2024), Theorem 1: nu_2(S_n)>=n+1-log_2(n+1), equality only n=2^k-1; Eq. (2.3) supplies a min-tail bound but not cancellation order when multiple terms attain the minimum.",
+        "Farhi arXiv:2212.00446v1 Theorem 2.1 gives lower bound for paired p-adic sums, reducing to Dubickas for p=2,a=1.",
+        "Farhi arXiv:2212.03727v1 applies the dilogarithm functional equation to a different harmonic-weighted sum, establishing a valuation lower bound rather than the cubic valuation here."
+      ],
+      "reasoning": "The two terms at k=2^r-2^u and k=2^r have equal minimal valuation, so general tail-minimum inequalities do not determine their cancellation. The present proof cancels both logarithm and dilogarithm layers and proves a unique cubic term. Hence the stated quantitative equality is not a corollary of just the published bounds/equality indices.",
+      "searches": [
+        "Research-record search: nontrivial lower bound 2-adic valuation rational sum 2^k/k unexpected spikes farhi dubickas",
+        "Web: \"Nontrivial lower bounds for the p-adic valuations\" Farhi Dubickas",
+        "Primary full-text Dubickas Theorem 1 and Eq. (2.3)",
+        "Primary full-text Farhi arXiv:2212.00446v1 Theorems 2.1-2.2 and p-adic logarithm proof",
+        "Primary full-text Farhi arXiv:2212.03727v1 dilogarithm identity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.10136v1",
+      "DOI:10.18514/MMN.2024.4276",
+      "arXiv:2212.00446v1",
+      "arXiv:2212.03727v1",
+      "OEIS:A003149",
+      "Research-record search:five targeted sparse-index, alias, polylogarithm and valuation searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Farhi recurrence gives a_n=n!2^(-n)S_n, not nu_2(S_n) at the new indices.",
+        "Dubickas establishes nu_2(S_{2^r-1})=2^r-r and a global bound; at this family the two leading tail summands tie and their sum cancels, so neither theorem resolves excess 3u-2.",
+        "The derived proof shows s=1,2 layers vanish while s=3 has a unique minimal b=4 term, a distinct implication requiring an extra valuation analysis."
+      ],
+      "reasoning": "Published Mersenne equality and the recurrence can imply some neighboring valuations when a unique tail term dominates, but here there are *two* equal minimal endpoint terms and subsequent cancellations. The exact 3u-2 order does not follow from the published bound or equality characterization alone.",
+      "searches": [
+        "Primary Dubickas Eq. (2.3), (2.4), and Theorem 1",
+        "Primary Farhi arXiv:2204.10136v1 Proposition 2.2",
+        "Research-record search: 2-adic logarithm harmonic exponential truncations special cancellation third-order polylog Li_2(2) vanishing Li_3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Farhi arXiv:2204.10136v1, Proposition 2.2 and Section 3, defines a_n and the truncated sum; no sparse-index formula.",
+        "Dubickas DOI:10.18514/MMN.2024.4276, Theorem 1 and proof, bounds valuations and singles out Mersenne indices.",
+        "A closest mathematical research-record hit concerns a Thue--Morse generating function, not the factorial-convolution sequence."
+      ],
+      "reasoning": "Aliases include a shifted factorial convolution OEIS A003149, rational binomial reciprocal sums, and the truncated 2-adic logarithm. The present exact exceptional excess at N=2^(2^u+u)-2^u-1 is not stated in the inspected equivalents.",
+      "searches": [
+        "Research-record search: Farhi Dubickas sum 2^k/k exact valuation n=2^(2^u+u)-2^u-1 3u-2",
+        "Research-record search: Farhi curious integer sequence 2-adic exceptional high valuation non Mersenne index 2^r-2^u-1",
+        "Web: \"2^r\" \"2^u\" \"Farhi\" \"valuation\"",
+        "Web: \"On a curious integer sequence\" \"2-adic\" \"valuation\" Farhi"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A003149 records the pre-existing factorial-convolution sequence, recurrence, and table through n=100; it is shifted by one index relative to the present a_n.",
+        "The smallest claimed index N=2039, and all larger members of the family, are outside that displayed table."
+      ],
+      "reasoning": "Known sequence identification and finite values are not an exact infinite non-Mersenne valuation classification; no matching database formula was found in the checked entry.",
+      "searches": [
+        "OEIS:A003149, factorial convolution and recurring sum identities",
+        "Web: site:oeis.org \"1, 2, 5, 16, 64, 312, 1812\" sum factorial",
+        "Research-record search: binomial inverse sum k factorial (n-k) factorial 2-adic valuation at special near-power-two indices"
+      ]
+    },
+    "rationale": "Farhi 2022 introduced the modern Genocchi-based study of the older A003149 shifted sequence and proved integer representation and lower valuation information. Dubickas 2024 gives a global bound with equality only for Mersenne indices, and Farhi 2022/2023 gives related general p-adic bounds and dilogarithmic identities. These statements leave the exact non-Mersenne sparse-index excess undetermined. The new result isolates a third-order cubic contribution of valuation \\(3u-2\\); neither the lower bound nor the Mersenne equality or arithmetic recurrence implies that exact cancellation order alone. See named comparisons and residual risks.",
+    "residual_risks": [
+      "Published bounds and 2-adic functional equations are strong background; a previously unindexed derivation combining them might exist.",
+      "Complete global literature coverage is impossible; no independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides recurrence, representation, integrality and valuation lower bounds, not the sparse higher cancellation",
+        "evidence": [
+          "PDF pp. 1-3 recurrence and formula (2.2); p. 6 Section 3 open problems."
+        ],
+        "identifier_or_url": "arXiv:2204.10136v1",
+        "material_read": "Seven-page preprint including definitions, Proposition 2.2, Section 3 questions, and references",
+        "method": "Read parsed PDF full sections; visually inspected page 6",
+        "title": "On a curious integer sequence",
+        "trigger": "Identical sequence and truncated logarithm"
+      },
+      {
+        "assessment": "Strongest close prior: global sharp lower bound and equality at Mersenne indices, not quantified sparse non-Mersenne excess",
+        "evidence": [
+          "Theorem 1 on p. 2; Eq. (2.3) and (2.4) proof on p. 4."
+        ],
+        "identifier_or_url": "DOI:10.18514/MMN.2024.4276",
+        "material_read": "Six-page primary open-access paper, Theorems 1-2 and proof section",
+        "method": "Read parsed PDF and visually inspected p. 4",
+        "title": "On a sequence of rational numbers with unusual divisibility by a power of 2",
+        "trigger": "Exact same truncated sum and global bound"
+      },
+      {
+        "assessment": "Quantitative lower-bound machinery only; no equivalent third-order formula found",
+        "evidence": [
+          "Preprint pp. 1-3 inequalities (1.1)–(1.3), Theorem 2.1 and 2.2."
+        ],
+        "identifier_or_url": "arXiv:2212.00446v1",
+        "material_read": "Abstract, introduction, Theorems 2.1-2.2 and later proof sections/search for exact and higher polylog forms",
+        "method": "Read parsed preprint and targeted text locations",
+        "title": "Nontrivial lower bounds for the p-adic valuations of some type of rational numbers",
+        "trigger": "Possible stronger p-adic theorem subsuming exact valuation"
+      },
+      {
+        "assessment": "Uses the same standard dilogarithm tool for a harmonic-related lower bound, not this sequence valuation equality",
+        "evidence": [
+          "Page 3 Eq. (2.1), weighted harmonic sum and bounds."
+        ],
+        "identifier_or_url": "arXiv:2212.03727v1",
+        "material_read": "Introduction and the theorem proof and displayed Spence identity on page 3",
+        "method": "Read parsed PDF and visually inspected p. 3",
+        "title": "Nontrivial lower bounds for the p-adic valuations of some type of rational numbers and an application for establishing the integrality of some rational sequences",
+        "trigger": "Relevant dilogarithm functional identity"
+      },
+      {
+        "assessment": "Known object, no exact sparse-index formula in inspected entry",
+        "evidence": [
+          "A003149 a(n)=sum_{k=0}^n k!(n-k)!, Farhi link and finite list."
+        ],
+        "identifier_or_url": "https://oeis.org/A003149",
+        "material_read": "Entry definitions, comments, formulas, references, and finite table",
+        "method": "Read source entry and compare index shift",
+        "title": "A003149 factorial convolution sequence",
+        "trigger": "Exact sequence alias and possibility of known tables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d4dc6e3-155f-4515-8281-75fd4a1e7b53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a two-parameter-dependent infinite sparse index law for a classical factorial-convolution sequence studied for exceptional divisibility. It detects an unbounded exact valuation excess, not predicted by the sharp general lower bound and requiring nontrivial double cancellation with a unique cubic order. The result supplies a motivated sharp arithmetic invariant for exceptional indices and potential test cases for broader valuation-profile classifications.",
+    "status": "PASS"
+  }
+}
