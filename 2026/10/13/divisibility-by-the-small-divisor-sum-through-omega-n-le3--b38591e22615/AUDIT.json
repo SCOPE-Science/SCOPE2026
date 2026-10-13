@@ -1,0 +1,93 @@
+{
+  "correctness": {
+    "rationale": "Every factorization shape with total prime-factor multiplicity at most three is covered. Prime powers and semiprimes are immediate. For \\(p^2q\\), exact identification of the small divisors reduces divisibility to \\(q=p^2+p+1\\), \\(q=p^2-p-1\\), or \\((p-1)(q-1)=2\\). For squarefree \\(pqr\\), exact pairing around the square root gives \\(\\{1,p,q,\\min(r,pq)\\}\\), and all possible divisor equalities are contradicted. A cutoff-\\(300000\\) checker reports no mismatch but is not used to infer the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1910.11835v1, full text: definition, Lemma 1, Theorem 2, Dirichlet-series section, prime-power formula",
+        "Integers:18:A77, small-divisor arithmetic-progression study"
+      ],
+      "reasoning": "The source paper's broader analytic treatment and the earlier structural small-divisor paper do not provide a divisibility theorem that contains this claim as a corollary.",
+      "searches": [
+        "Iannucci 1910.11835 divisibility A066839 prime factor classification",
+        "sum of small divisors n p^2 q exact classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1910.11835v1",
+      "OEIS:A066839",
+      "Integers 18 (2018), Paper A77 / DOI 10.5281/zenodo.10680290"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1910.11835v1 proves supermultiplicativity, average order, and a Dirichlet-series comparison; none constrains the divisibility fiber \\(a(n)\\mid n\\)",
+        "OEIS:A066839 prime-power formula covers only one factorization shape and does not imply the \\(p^2q\\) or \\(pqr\\) cases"
+      ],
+      "reasoning": "The new theorem is a statement-level classification of a divisibility fiber. Prior analytic results and the prime-power identity neither imply the two \\(p^2q\\) branches nor exclude squarefree three-prime inputs.",
+      "searches": [
+        "arithmetic function small divisors p^2 q p^2+p+1 p^2-p-1",
+        "sum of small divisors divides n squarefree three primes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1910.11835v1",
+        "OEIS:A066839"
+      ],
+      "reasoning": "The defining sum, its OEIS identifier, and the relation \\(a(n)\\mid n\\) were searched directly. No located statement gives an equivalent low-multiplicity classification.",
+      "searches": [
+        "A066839 divisibility a(n) divides n small divisor sum Omega at most three",
+        "sum of positive divisors <= sqrt(n) divides n prime factors",
+        "small-divisor sum divisibility low Omega p squared q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A066839 lists values, generating functions, prime-power values, and references; no divisibility subsequence or theorem is stated"
+      ],
+      "reasoning": "The exact sequence database for the function was inspected rather than inferred from snippets. Its recorded formulas do not imply the classification without the new case analysis.",
+      "searches": [
+        "OEIS A066839 full entry",
+        "A066839 p^2+p+1 p^2-p-1 divides n"
+      ]
+    },
+    "rationale": "The checked primary source studies the same arithmetic function but not divisibility by the argument. The exact OEIS entry likewise contains no low-\\(\\Omega\\) divisibility classification. Multiple semantic and exact-form searches found only adjacent divisor-function and low-support results, none implying the two polynomial branches or the squarefree-three-prime exclusion.",
+    "residual_risks": [
+      "A divisibility result may exist in poorly indexed literature under terminology other than 'small divisors'.",
+      "The 2018 progression paper was checked for scope and metadata rather than used as a whole-document novelty certificate; it studies divisor order patterns, not the sum-divisibility relation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper defines \\(a(n)\\), proves \\(a(mn)\\ge a(m)a(n)\\) for coprime \\(m,n\\), gives the average order and Dirichlet-series bounds, and records \\(a(p^m)=1+p+\\cdots+p^{\\lfloor m/2\\rfloor}\\). No divisibility classification \\(a(n)\\mid n\\) appears.",
+        "identifier_or_url": "arXiv:1910.11835v1",
+        "material_read": "Full 12-page text, including definition, supermultiplicativity lemma, average-order theorem, Dirichlet-series section, prime-power formula, and references",
+        "method": "Lawful arXiv PDF and text extraction with page inspection",
+        "title": "On sums of the small divisors of a natural number",
+        "trigger": "Same arithmetic function and primary source for the research direction"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The entry records the function and prime-power formula but no classification of \\(n\\) for which \\(a(n)\\mid n\\).",
+        "identifier_or_url": "OEIS:A066839",
+        "material_read": "Full current entry including comments, formulas, examples, references, and programs",
+        "method": "Public OEIS entry",
+        "title": "A066839",
+        "trigger": "Exact sequence entry for the small-divisor sum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b38591e2-2615-4ae6-9d84-258c4fa1a231",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question \\(a(n)\\mid n\\) is a natural divisibility problem for an arithmetic function studied mainly through average order and generating series. The complete \\(\\Omega(n)\\le3\\) boundary is structurally informative: it isolates two prime-polynomial families, two exceptional mixed-power cases, and proves a full squarefree-three-prime obstruction. It is exact, cutoff-free, and provides a clear base layer for higher-multiplicity work.",
+    "status": "PASS"
+  }
+}
