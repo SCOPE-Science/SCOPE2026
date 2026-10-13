@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source defines \\(N=S+Q+E+I+A+R\\) and states \\(\\dot\\lambda=-\\partial H/\\partial x\\). Direct symbolic differentiation of the displayed Hamiltonian produces incidence derivatives with respect to all six states, the quarantine coefficient \\((\\lambda_1-\\lambda_2)u_3\\), and the factor \\(\\sigma\\rho\\) in the exposed costate. The bundled checker reconstructs these identities exactly. A terminal expansion also shows that the omitted recovered-costate incidence term is nonzero on a generic positive interior optimal trajectory.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yan and Zou apply Pontryagin control to quarantine and isolation in a different SARS compartment model.",
+        "The broader method requires costates to be the negative Hamiltonian state gradient.",
+        "The comparison model does not contain the motivating source's normalized exponential media-incidence term."
+      ],
+      "reasoning": "General optimal-control theory supplies the differentiation rule but does not subsume the source-specific derivative formulas; the correction requires differentiating this exact incidence with its state-dependent denominator.",
+      "searches": [
+        "Optimal and sub-optimal quarantine and isolation control in SARS epidemics Yan Zou 2008",
+        "epidemic Pontryagin quarantine isolation optimal control adjoint",
+        "media coverage epidemic optimal control Pontryagin"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2021712",
+      "doi:10.1016/j.mcm.2007.04.003"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific replacement for equation (6.2) was located.",
+        "The closest published findings returned by semantic search concern different epidemic thresholds, switching systems, identifiability, or delay normalization.",
+        "Owned current and prior ledgers contain no motivating DOI, exact title, or equivalent SQEIAR adjoint correction."
+      ],
+      "reasoning": "Neither generic Pontryagin theory nor a different epidemic optimal-control model implies the exact corrected six-state gradient or the terminal activation of the missing recovered-costate term.",
+      "searches": [
+        "10.3934/math.2021712 correction erratum adjoint",
+        "Analysis of an SQEIAR epidemic model media coverage costate correction",
+        "10.3934/math.2021712 Hamiltonian population denominator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary theorem states equation (6.2) as the Hamiltonian adjoint.",
+        "The exact Hamiltonian gradient contains state-normalization terms omitted from the printed costates and a different quarantine-control coefficient.",
+        "Published-finding searches for the source DOI, adjoint/costate aliases, and population-denominator correction returned no equivalent result."
+      ],
+      "reasoning": "Equivalent formulations include a wrong costate system, omitted derivatives of the total-population normalization, a quarantine-costate coupling error, and failure of equation (6.2) to equal the Hamiltonian state gradient.",
+      "searches": [
+        "10.3934/math.2021712 Pontryagin adjoint costate media coverage asymptomatic population denominator",
+        "Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection adjoint correction",
+        "SQEIAR media coverage optimal control Hamiltonian adjoint N denominator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF defines the total population as the sum of all six state variables and records its nonconstant dynamics.",
+        "The Theorem 6.2 page was visually inspected and confirms the printed costate equations, including the recovered equation \\(\\dot\\lambda_6=\\mu\\lambda_6\\).",
+        "The numerical section states that an iterative fourth-order Runge–Kutta method solves the optimality system and Figure 7 displays the resulting controlled trajectories.",
+        "Publisher metadata verifies first publication on 26 August 2021 and primary MSC 92D30."
+      ],
+      "reasoning": "The comparison is anchored to the exact model definition, Hamiltonian, theorem, and numerical-use statement in the primary source.",
+      "searches": [
+        "doi:10.3934/math.2021712 N(t)=S+Q+E+I+A+R",
+        "doi:10.3934/math.2021712 Theorem 6.2 equation 6.2",
+        "doi:10.3934/math.2021712 Figure 7 optimality system"
+      ]
+    },
+    "rationale": "Pontryagin epidemic control is established prior work. Originality is restricted to the source-specific correction of Theorem 6.2 and the proof that its omitted population-normalization term is active in the stated boundary-value problem. Targeted source, alias, implication, and owned-ledger searches found no equivalent published repair.",
+    "residual_risks": [
+      "An unindexed author correction could exist outside the checked records.",
+      "Unavailable numerical code could have used corrected adjoints despite the printed theorem.",
+      "The numerical trajectories were not recomputed under the corrected necessary system."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PUBLISHED_ADJOINT_IS_NOT_THE_HAMILTONIAN_STATE_GRADIENT",
+        "evidence": "The printed recovered costate omits \\((\\lambda_1-\\lambda_3)F_R\\); the susceptible costate couples \\(u_3\\) to \\(\\lambda_3\\) rather than \\(\\lambda_2\\); several other exact derivative terms are also absent.",
+        "identifier_or_url": "doi:10.3934/math.2021712",
+        "material_read": "Full publisher text at the total-population definition and dynamics, controlled system (6.1), objective, Hamiltonian, Theorem 6.2, transversality and stationarity conditions, and Section 6.2; the theorem page was visually inspected.",
+        "method": "Differentiated the displayed Hamiltonian with respect to all six states, retaining the dependence of \\(N\\) on every compartment, and compared term by term with equation (6.2).",
+        "title": "Analysis of an SQEIAR epidemic model with media coverage and asymptomatic infection",
+        "trigger": "Primary source containing the state-normalized incidence, Hamiltonian, Theorem 6.2, and numerical optimal-control results."
+      },
+      {
+        "assessment": "RELATED_PONTRYAGIN_EPIDEMIC_CONTROL_DIFFERENT_MODEL",
+        "evidence": "The paper studies a different SEQIJR SARS model and does not contain the motivating source's exponential incidence normalized by the six-state total population.",
+        "identifier_or_url": "doi:10.1016/j.mcm.2007.04.003",
+        "material_read": "Open full-text/abstract record describing Pontryagin quarantine and isolation controls and iterative numerical optimal-control laws.",
+        "method": "Used as method-level comparison rather than as a whole-document source-specific non-coverage certificate.",
+        "title": "Optimal and sub-optimal quarantine and isolation control in SARS epidemics",
+        "trigger": "Primary epidemic optimal-control comparison cited by the motivating paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "617573b9-a87a-4dfa-9f64-1f61b6202770",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper explicitly uses its optimality system for numerical control simulations and concludes that the resulting media/quarantine strategy minimizes infected populations and control cost. Because equation (6.2) is not the Hamiltonian adjoint and the missing terms are active near the terminal time, the printed system cannot certify those controls as optimal. The correction is therefore directly relevant to reproducibility and interpretation of Figure 7.",
+    "status": "PASS"
+  }
+}
