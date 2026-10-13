@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The direct \\(RR\\) and \\(OR\\) formulas have positive denominators on the stated domain, so pairwise ordering is certified by exact integer cross-products. Complete enumeration proves zero strict reversals through \\(n=4\\), exactly one at \\(n=5\\), and exact agreement between two independent comparison implementations. The infinite family is proved symbolically rather than extrapolated from computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davies, Crombie and Tavakoli explain that \\(OR\\) diverges from \\(RR\\) as the initial risk and effect magnitude increase.",
+        "Zhang and Yu give the exact conversion \\(RR=OR/(1-p_0+p_0 OR)\\), making the dependence on baseline risk explicit.",
+        "Cummings gives the standard two-by-two formulas and shows across multiple baseline risks that common outcomes push \\(OR\\) farther from \\(1\\) than \\(RR\\)."
+      ],
+      "reasoning": "These sources cover the mechanism and practical relevance but do not imply the smallest finite pair of balanced positive-cell studies whose strict rankings reverse.",
+      "searches": [
+        "When can odds ratios mislead BMJ 1998 baseline risk",
+        "What's the Relative Risk Zhang Yu 1998 common outcomes",
+        "The Relative Merits of Risk Ratios and Odds Ratios Cummings 2009"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1136/bmj.316.7136.989",
+      "doi:10.1001/jama.280.19.1690",
+      "doi:10.1001/archpediatrics.2009.31"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Within a single study, \\(OR\\) and \\(RR\\) always lie on the same side of \\(1\\); that does not prevent their cross-study rankings from reversing when baseline risks differ.",
+        "The conversion formula with baseline risk shows that ranking reversal is possible in principle but gives no finite lower bound under integer positive-cell constraints.",
+        "General warnings about common outcomes do not imply uniqueness of the \\(n=5\\) protective reversal or the explicit all-\\(n\\) family."
+      ],
+      "reasoning": "The accepted theorem adds a finite extremal statement and a complete first-layer classification. Those require exhaustive exclusion below \\(n=5\\) and exact comparison of all six \\(n=5\\) protective tables.",
+      "searches": [
+        "odds ratio relative risk baseline risk comparison two studies",
+        "risk ratio odds ratio common outcome qualitative interpretation",
+        "odds ratio portability baseline risk clinical epidemiology"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-result record stated a minimum balanced-table rank reversal between \\(RR\\) and \\(OR\\).",
+        "Exact-value and exact-event-count searches did not locate the pair \\((2,3)\\) versus \\((3,4)\\) as a first strict reversal.",
+        "Searches covered the equivalent language of relative risk, risk ratio, odds ratio, treatment ranking, baseline risk, and two-by-two tables."
+      ],
+      "reasoning": "The theorem can be stated as opposite treatment-effect rankings, opposite orderings of two-by-two tables, or baseline-risk-induced non-portability across two studies. The query set covers all three formulations.",
+      "searches": [
+        "odds ratio risk ratio exact ranking reversal equal sample size two by two tables",
+        "relative risk odds ratio rank reversal equal arms minimal sample",
+        "odds ratio relative risk small contingency table reversal",
+        "\"odds ratio\" \"risk ratio\" \"ranking\" \"baseline risk\" clinical trials",
+        "\"4/9\" \"3/8\" odds ratio risk ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulated the six protective \\(n=5\\) tables together with the exact \\(RR\\) and \\(OR\\) orderings.",
+        "No checked source identified \\(n=5\\) as the first strict reversal boundary.",
+        "The packaged verifier derives the result from the complete finite domain rather than from a published lookup table."
+      ],
+      "reasoning": "Exact-event and exact-fraction searches directly test for worked examples or finite tables containing the claimed first layer.",
+      "searches": [
+        "\"2 events\" \"3 events\" odds ratio risk ratio 5 trial",
+        "\"2/5\" \"3/5\" \"3/5\" \"4/5\" odds ratio risk ratio",
+        "\"4/9\" \"3/8\" odds ratio risk ratio",
+        "equal arm size odds ratio risk ratio small table"
+      ]
+    },
+    "rationale": "Prior epidemiologic work owns the definitions, rare-outcome approximation, and baseline-risk dependence of \\(OR\\) versus \\(RR\\). The inspected sources and targeted searches did not state the sharp equal-arm positive-cell ranking boundary, the unique first strict pair, or the continuation family.",
+    "residual_risks": [
+      "An unindexed teaching example, textbook exercise, or software regression test could contain the same two \\(n=5\\) tables.",
+      "The exact rank-reversal result is an elementary consequence of standard effect-measure formulas, so it may have appeared informally without being indexed as a theorem.",
+      "The minimality statement is restricted to equal arm sizes and positive cells; other design classes can have different first boundaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly establishes the practical baseline-risk mechanism but does not state a cross-study finite rank-reversal boundary or the small witness.",
+        "evidence": "BMJ records publication on 28 March 1998. The article states that the discrepancy between \\(OR\\) and \\(RR\\) depends on initial risk and grows for common outcomes.",
+        "identifier_or_url": "doi:10.1136/bmj.316.7136.989",
+        "material_read": "Full-text web material covering the summary points, definitions of risk and odds, the common-outcome comparison, the baseline-risk dependence, and the conclusion on quantitative misinterpretation.",
+        "method": "Publisher full-text webpage as returned by the literature search.",
+        "title": "When can odds ratios mislead?",
+        "trigger": "Primary full-text article directly analyzing how \\(OR\\) and \\(RR\\) diverge with common outcomes and initial risk."
+      },
+      {
+        "assessment": "Provides the exact baseline-risk formula that motivates cross-study rank changes, but does not state the minimum balanced-table reversal.",
+        "evidence": "JAMA records online publication on 18 November 1998 and gives \\(RR=OR/(1-p_0+p_0 OR)\\).",
+        "identifier_or_url": "doi:10.1001/jama.280.19.1690",
+        "material_read": "Publisher full text including abstract, definitions, the displayed relationship between \\(OR\\), \\(RR\\), and baseline risk \\(p_0\\), simulated-cohort discussion, and limitations of the correction.",
+        "method": "Publisher HTML full-text inspection.",
+        "title": "What's the Relative Risk? A Method of Correcting the Odds Ratio in Cohort Studies of Common Outcomes",
+        "trigger": "Primary full text giving the exact \\(OR\\)-to-\\(RR\\) conversion as a function of baseline risk."
+      },
+      {
+        "assessment": "Confirms the exact objects and broader comparison theory but does not state the finite first-reversal theorem.",
+        "evidence": "The review gives \\(RR=[A/(A+B)]/[C/(C+D)]\\), \\(OR=(A/B)/(C/D)\\), and shows that the two diverge as outcome risk becomes common.",
+        "identifier_or_url": "doi:10.1001/archpediatrics.2009.31",
+        "material_read": "Publisher full text covering the standard two-by-two table formulas, rare-outcome approximation, common-outcome divergence, symmetry, collapsibility, and examples across different risk levels.",
+        "method": "Publisher HTML full-text inspection.",
+        "title": "The Relative Merits of Risk Ratios and Odds Ratios",
+        "trigger": "Highly relevant full-text review comparing the same two effect measures in trials and cohort studies."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "40864fc2-9d61-467b-98c0-1af402f5928b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The literature treats \\(RR\\) and \\(OR\\) as important but non-equivalent summaries whose relationship changes with baseline risk. A smallest exact cross-study reversal gives a concrete diagnostic for that dependence under the cleanest balanced positive-cell design, while the infinite family proves persistence beyond the boundary.",
+    "status": "PASS"
+  }
+}
