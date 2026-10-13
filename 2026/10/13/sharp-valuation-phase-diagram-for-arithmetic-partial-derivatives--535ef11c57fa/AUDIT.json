@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the exact update \\(D_p(bp^m)=bmp^{m-1}\\). Below \\(p\\) and strictly between \\(p\\) and \\(2p\\), no intermediate valuation is divisible by \\(p\\), so the factorial formulas are exact; \\(m=p\\) is fixed. The half-line \\(m\\ge2p\\) is forward invariant because \\(m-1+\\nu_p(m)\\ge2p\\), including \\(m=2p\\), and there \\(|D_p(x)|/|x|=m/p\\ge2\\). Edge cases \\(e=0\\), \\(p=2\\), negative coefficients, and both threshold endpoints are covered. The bundled checker passed 786314 assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 Theorem 10 states eventual zero, eventual fixed \\(a p^p\\), or divergence, but supplies no criterion based only on the initial valuation.",
+        "The 2024 theorem gives eventual periodicity/convergence properties for valuation sequences over local fields and does not state integer magnitude thresholds \\(p\\) and \\(2p\\)."
+      ],
+      "reasoning": "The later paper is broader in ambient field but not stronger in the claimed Archimedean integer conclusion. The focal theorem supplies the qualitative alternatives; the new barrier argument identifies exactly which initial valuations realize them and quantifies the orbit.",
+      "searches": [
+        "Emmons–Xiao 2022, Theorems 8–10 in JIS Article 22.4.7",
+        "Emmons–Xiao 2024, Theorem 1.3 / Theorem 2.8, DOI:10.7546/nntdm.2024.30.2.357-382"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.12453v1",
+      "JIS 25 (2022), Article 22.4.7",
+      "DOI:10.7546/nntdm.2024.30.2.357-382",
+      "published-finding corpus semantic index",
+      "owned current-week ledger g000010",
+      "owned prior-week ledger g000053"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 10 distinguishes outcomes only after locating the eventual valuation cycle; it does not imply from its statement that \\(p\\le\nu_p(n)\\le2p-1\\) is exactly the fixed-point basin.",
+        "The new proof uses the forward-invariant barrier \\(\nu_p\\ge2p\\) and the absence of multiples of \\(p\\) between \\(p\\) and \\(2p\\), yielding exact formulas and a quantitative growth estimate."
+      ],
+      "reasoning": "The claim is not a restatement of the qualitative trichotomy. Its additional content is the sharp initial-data criterion and exact quantitative orbit description.",
+      "searches": [
+        "Emmons–Xiao 2022 Theorem 10 and proof",
+        "Emmons–Xiao 2024 discussion of prior Theorem 9 and local-field valuation dynamics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated the two-threshold integer phase diagram or exact landing formula.",
+        "The closest arithmetic-derivative hits concern the full derivative or a two-prime subderivative, not the one-prime partial derivative."
+      ],
+      "reasoning": "The claim was searched as a phase diagram, a basin/fixed-point classification, an exact landing-time formula, and a doubling statement; these are equivalent or stronger formulations of its main content.",
+      "searches": [
+        "published-finding corpus: arithmetic partial derivative sharp phase diagram ord_p n p to 2p-1 fixed point",
+        "published-finding corpus: D_p(n)=n ord_p(n)/p iteration e>=2p doubles",
+        "published-finding corpus: The Arithmetic Partial Derivative exact landing time fixed point app"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record or standard table returned an exact threshold table for the integer orbits.",
+        "The focal paper is concerned with OEIS A003415 for the arithmetic derivative but does not tabulate these partial-derivative basins."
+      ],
+      "reasoning": "The result is structural rather than a finite table lookup, and the standard indexed sequence material attached to the source does not encode this phase diagram.",
+      "searches": [
+        "published-finding corpus: arithmetic partial derivative integer dynamics exact extinction time p-adic valuation e less than p",
+        "published-finding corpus semantic index for arithmetic partial derivative periodic points fixed points valuation basin"
+      ]
+    },
+    "rationale": "The 2022 focal paper proves eventual periodicity of the valuation sequence and a qualitative zero/fixed/divergent trichotomy, but it does not state the sharp criterion from the initial valuation, exact landing/extinction times, the middle-band limit, or the uniform doubling bound. The 2024 generalization broadens valuation dynamics to local fields without giving this integer Archimedean phase diagram. published-finding corpus and owned-ledger searches found no implication-equivalent statement.",
+    "residual_risks": [
+      "Because the threshold proof is elementary, an unindexed note or informal observation may have recorded it.",
+      "The claim deliberately excludes rational and general local-field inputs, where negative or fractional valuations require different analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp threshold/landing-time statement; it gives only the eventual trichotomy and recursive valuation analysis.",
+        "evidence": "Theorem 10 lists eventual zero, eventual \\(a p^p\\), or divergence; the paper contains no stated \\(2p\\) threshold and no exact middle-band limit formula.",
+        "identifier_or_url": "arXiv:2201.12453 / JIS 25 (2022), Article 22.4.7",
+        "material_read": "Full open-access paper, with detailed inspection of the definition and Theorems 8–10 plus the proof of Theorem 10.",
+        "method": "Full-text PDF inspection with page image verification.",
+        "title": "The Arithmetic Partial Derivative",
+        "trigger": "Focal source proving eventual valuation periodicity and the nearest qualitative orbit trichotomy."
+      },
+      {
+        "assessment": "NOT_COVERING the integer Archimedean phase diagram; it generalizes valuation dynamics to local fields.",
+        "evidence": "Theorem 1.3 classifies valuation-sequence behavior, while Theorem 2.8 gives eventual periodicity structure; neither states the integer thresholds \\(p\\), \\(2p\\), exact landing times, or magnitude-doubling bound.",
+        "identifier_or_url": "DOI:10.7546/nntdm.2024.30.2.357-382",
+        "material_read": "Introduction, Theorem 1.3, and the local-field valuation-periodicity section around Corollary 2.6 and Theorem 2.8.",
+        "method": "Full-text open-access PDF inspection with page image verification.",
+        "title": "A generalization of arithmetic derivative to p-adic fields and number fields",
+        "trigger": "Later work by the same authors that could dominate the focal dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "535ef11c-57fa-4c1e-98a5-0eecc5e0766a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete and sharp phase diagram for every integer orbit of \\(D_p\\) using only the initial \\(p\\)-adic valuation: exact extinction below \\(p\\), exact fixed-point landing on \\([p,2p-1]\\), and at least doubling above \\(2p\\). It replaces a qualitative eventual classification with exact basin boundaries, stopping times, terminal values, and quantitative growth, clarifying the one-prime model that motivates harder arithmetic-derivative dynamics.",
+    "status": "PASS"
+  }
+}
