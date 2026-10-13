@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For \\(Q\\ge40\\) and \\(m\\le\\lfloor Q/20\\rfloor\\), direct comparison of the exact source minima selects explicit branches. In both parities the summand difference simplifies exactly to \\(a_Q/[Q(m+\\ell_Q(m))]\\). Since \\(0\\le\\ell_Q(m)\\le1\\), this block is \\((a_Q/Q)(H_N+O(1))=(2/3)(\\log Q)/Q+O(1/Q)\\). The remaining tail is absolutely \\(O(\\sum_{m>N}m^{-2})=O(1/Q)\\). The standalone checker confirms the branch inequalities and identities with exact rational arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.37459v1 gives a two-parameter closed-form law and exact slice series but labels the relevant asymptotic behavior as numerical evidence.",
+        "arXiv:2609.11276 proves the finite Bai parameter bound and a strict local minimum, not an endpoint asymptotic.",
+        "arXiv:1912.06345v2 treats the earlier fixed-parameter construction and does not contain the symmetric-slice \\(Q\\)-limit."
+      ],
+      "reasoning": "The closest broader works define or motivate the family but do not imply a rigorous all-\\(Q\\) endpoint asymptotic with exact leading coefficient.",
+      "searches": [
+        "Salikhov Zeilberger Zudilin Bai prime elimination window Q asymptotic log Q / Q",
+        "Salikhov Zeilberger Zudilin Bai window asymptotic 2/3 log Q over Q",
+        "Bai point 3714 window measure asymptotic coefficient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.37459v1",
+      "arXiv:2609.11276",
+      "arXiv:1912.06345v2",
+      "DOI:10.2140/moscow.2020.9.407"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source empirical fit has leading term \\((2/3)(\\log Q)/Q\\) but is explicitly computational evidence.",
+        "Bai 2026 proves a finite parameter irrationality bound and local minimizer statement.",
+        "Zeilberger–Zudilin 2020 proves a predecessor bound for a fixed parameter choice."
+      ],
+      "reasoning": "Neither a finite verified computation nor a local finite-parameter minimum entails the \\(Q\\to\\infty\\) asymptotic. The new proof supplies the missing implication by isolating the harmonic initial block and bounding the tail.",
+      "searches": [
+        "arXiv 2609.37459 Jhat 3/2 - 1/Q leading logarithmic coefficient 2/3",
+        "Bai point 3714 window measure asymptotic coefficient",
+        "Salikhov Zeilberger Zudilin Bai prime elimination window Q asymptotic log Q / Q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no finding matching the source identifier, the limit formulation, or the normalized window notation; the closest hits concerned unrelated logarithmic asymptotics.",
+        "The source itself reports the sharper finite-Q law as computational evidence and does not supply the proof of this limit."
+      ],
+      "reasoning": "The limit statement and the asymptotic form are equivalent, and both were searched explicitly. No published finding located states either formulation for this window.",
+      "searches": [
+        "arXiv 2609.37459 Jhat 3/2 - 1/Q leading logarithmic coefficient 2/3",
+        "Q J(Q)-J infinity divided by log Q tends 2/3 irrationality pi",
+        "widehat J(1,3/2-1/Q) log Q / Q Salikhov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no exact record for arXiv:2609.37459 or for the displayed limit.",
+        "The source paper reports finite numerical checks across a \\(Q\\)-range, but those computations are evidence rather than an exact database theorem."
+      ],
+      "reasoning": "Finite tables or regression fits do not imply the infinite asymptotic; the proof instead uses exact source branch formulas and a convergent tail bound.",
+      "searches": [
+        "2609.37459 asymptotic window leading coefficient",
+        "irrationality measure pi Bai point Q=3714 window Jhat asymptotic"
+      ]
+    },
+    "rationale": "The closest source reports the same leading behavior numerically but does not prove it; targeted published-finding corpus and primary-literature searches found no equivalent or stronger theorem for this window. Bai and Zeilberger–Zudilin cover finite parameter bounds rather than this endpoint asymptotic.",
+    "residual_risks": [
+      "The proof is elementary once the recent source formulas are available, so an equivalent asymptotic could exist under notation not surfaced by targeted searches.",
+      "The theorem proves only the leading logarithmic term; it does not validate the source paper's fitted constant term or global-optimality conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: supplies exact formulas and numerical evidence but not the rigorous leading asymptotic proved here.",
+        "evidence": "The paper states that the Bai-point global search relies on finite computations and labels it verified rather than proved; its slice discussion reports the \\(2/3\\) logarithmic coefficient empirically.",
+        "identifier_or_url": "arXiv:2609.37459v1",
+        "material_read": "Abstract and full HTML portions defining the symmetric-slice series, parity-dependent branch lengths, limiting density, and the section reporting the fitted \\((\\log \\(Q\\))/\\(Q\\)\\) law.",
+        "method": "Lawful arXiv abstract and HTML inspection.",
+        "title": "A closed-form law for the Salikhov–Zeilberger–Zudilin–Bai family, and computational evidence that Bai's point is optimal",
+        "trigger": "Direct source of the exact window series and the empirical asymptotic to be upgraded."
+      },
+      {
+        "assessment": "NOT_COVERING: proves the finite irrationality-measure bound and local minimality, not the endpoint window asymptotic.",
+        "evidence": "The abstract explicitly describes a fixed parameter point and a strict local minimizer statement.",
+        "identifier_or_url": "arXiv:2609.11276",
+        "material_read": "arXiv abstract and bibliographic metadata.",
+        "method": "Lawful arXiv abstract inspection.",
+        "title": "The irrationality measure of π is at most 7.101862832357",
+        "trigger": "The finite Bai parameter point \\(Q=3714\\) motivates the endpoint-scale question."
+      },
+      {
+        "assessment": "NOT_COVERING: treats the earlier fixed construction and bound, not the later symmetric-slice \\(Q\\)-asymptotic.",
+        "evidence": "The published result establishes the 7.103205334137... bound and associated fixed arithmetic construction.",
+        "identifier_or_url": "arXiv:1912.06345v2; DOI:10.2140/moscow.2020.9.407",
+        "material_read": "arXiv/publisher abstract and Rutgers project page.",
+        "method": "Public abstract and project-page inspection.",
+        "title": "The Irrationality Measure of Pi is at most 7.103205334137...",
+        "trigger": "Predecessor construction potentially capable of dominating the window claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b90d632-5a92-4453-a2aa-3d6404fb96bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent source uses the near-endpoint behavior to explain the unusually large Bai parameter and reports a sharper asymptotic only computationally. The theorem rigorously identifies the natural \\((\\log Q)/Q\\) scale and its exact coefficient for the entire endpoint limit, separating a proved structural fact from the still-empirical constant and optimization claims.",
+    "status": "PASS"
+  }
+}
