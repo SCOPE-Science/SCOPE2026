@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The largest-label cycle-insertion bijection gives an independent uniform insertion site. For a record position j, insertion before j kills the record, insertion at j creates it, and insertion after j preserves the smaller permutation's record event. This yields the exact recurrence for E[C_n R_{n,j}], which after centering solves to the displayed positive binomial kernel. Summation and standard independent-Bernoulli representations give the total covariance, variances, and asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gnedin--Gorin develops coherent record-dependent measures and the initial-rank representation, a substantially broader theory of record processes.",
+        "Bakšajeva--Manstavičius studies additive permutation statistics under Ewens measures and analyzes cycle counts."
+      ],
+      "reasoning": "These sources cover the marginal and transformed structures broadly, but neither inspected statement contains both the cycle count and upper-record indicators of the same permutation. Equidistribution through a bijection does not imply independence or determine the joint law before applying the bijection.",
+      "searches": [
+        "arXiv:1202.3680 record-dependent measures symmetric groups",
+        "arXiv:1303.4540 Ewens permutation statistics cycles",
+        "fundamental bijection records cycles random permutation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1202.3680",
+      "DOI:10.1002/rsa.20526",
+      "arXiv:1303.4540",
+      "DOI:10.1017/S0963548314000376",
+      "own:e8a15004-8c1a-4e27-ba92-b8c00b572dab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gnedin--Gorin states that record-weighted measures are mapped by the fundamental bijection to Ewens cycle-weighted measures; this is a distributional transport to another permutation, not a joint statement about the original permutation.",
+        "The current own fixed-point/record result concerns fixed points against record indicators, not total cycle count.",
+        "The prior own cycle/inversion result concerns cycle count against inversion indicators, not record indicators."
+      ],
+      "reasoning": "Neither own result subsumes the new local record kernel. The classical Foata-type equidistribution is strictly weaker than a same-object covariance formula, so the accepted claim requires an additional insertion argument.",
+      "searches": [
+        "Gnedin Gorin records cycles fundamental bijection same permutation",
+        "Ewens cycles records joint distribution",
+        "own ledger cycle count record permutation",
+        "own ledger fixed points records permutation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches returned record-process, cycle-statistic, and unrelated covariance results but no item stating the local covariance kernel.",
+        "The full Gnedin--Gorin manuscript defines the same upper records and links record weights to Ewens cycle weights through the fundamental bijection, which changes the permutation rather than forming a same-object joint law."
+      ],
+      "reasoning": "The queries cover the principal aliases upper record, left-to-right maximum, record indicator, cycle count, Stirling statistic, joint distribution, and covariance. The claim is not accepted merely because exact wording was absent; the closest full source was compared at the level of whether its bijection or measure statements imply same-permutation covariance.",
+      "searches": [
+        "uniform permutation cycles records covariance local record indicator",
+        "random permutation cycle count left-to-right maxima covariance",
+        "cycles and records joint distribution permutation",
+        "record indicator cycle count random permutation",
+        "Stirling records cycles permutation joint",
+        "cycle count record indicator covariance binomial coefficient permutation",
+        "Cov cycles record position j uniform permutation",
+        "number of cycles total records covariance uniform permutation exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database entry or published table matching the binomial local kernel or the total covariance sum was located."
+      ],
+      "reasoning": "The theorem is symbolic for every n and j. The finite exhaustive census in the package is only a replay and was not used to infer the formula.",
+      "searches": [
+        "\"cycle count\" \"record indicator\" permutation covariance",
+        "\"cycles\" \"left-to-right maxima\" covariance permutation",
+        "\"number of cycles\" \"number of records\" covariance permutation"
+      ]
+    },
+    "rationale": "The strongest inspected record source connects records to cycles by the fundamental bijection and treats record-dependent measures, but does not state the same-permutation mixed covariance. The strongest cycle-statistics source treats Ewens additive functions without record coordinates. No searched published result stated the local kernel; older joint permutation-enumeration literature remains a declared residual risk.",
+    "residual_risks": [
+      "Older enumerative work on pairs of classical permutation statistics may contain a bivariate generating function whose mixed derivative implies the same covariance.",
+      "The fundamental bijection makes a record-cycle connection classical, so an equivalent same-permutation mixed moment may have appeared as a secondary identity without record terminology.",
+      "Originality is limited to the same-permutation local covariance kernel and its aggregate dependence scale, not to the marginal distributions or record-cycle equidistribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RECORD_CYCLE_EQUIDISTRIBUTION_VIA_BIJECTION_NOT_SAME_PERMUTATION_COVARIANCE",
+        "evidence": "The manuscript defines an upper record at position j by the same running-maximum condition. It states that the record-weighted law maps under the fundamental bijection to an Ewens law weighted by cycle count, and it gives independent initial ranks under the uniform law. The inspected material does not state the accepted local covariance kernel.",
+        "identifier_or_url": "arXiv:1202.3680 / DOI:10.1002/rsa.20526",
+        "material_read": "Full public 23-page arXiv manuscript; introduction, record definition, fundamental-bijection discussion, projection framework, and initial-rank representation were inspected, including the rendered PDF pages.",
+        "method": "Compared whether the record-to-cycle relation is a same-permutation joint law or a distributional transport under a bijection, and checked for a cycle-count/record-indicator mixed moment.",
+        "title": "Record-dependent measures on the symmetric groups",
+        "trigger": "Closest source because it uses the identical upper-record statistic and explicitly relates record counts to cycle counts."
+      },
+      {
+        "assessment": "CYCLE_STATISTICS_CONTEXT_WITHOUT_RECORD_COORDINATES",
+        "evidence": "The source studies additive functions under Ewens probability, with particular attention to numbers of cycles, and Cambridge lists Primary 60C05. The stated results do not introduce upper-record indicators.",
+        "identifier_or_url": "arXiv:1303.4540 / DOI:10.1017/S0963548314000376",
+        "material_read": "ArXiv abstract and Cambridge article metadata, abstract, keywords, MSC classification, and stated cycle-statistic scope.",
+        "method": "Compared its additive-cycle-statistic conclusions with a joint statistic involving upper records.",
+        "title": "On statistics of permutations chosen from the Ewens distribution",
+        "trigger": "Primary combinatorial-probability source centered on cycle statistics of random permutations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "436727c4-ad97-4859-9bd2-49d958c7495c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cycle count and upper-record count are canonical equidistributed statistics of a uniform permutation, so their same-object dependence is a natural structural question. The exact local kernel separates equidistribution from independence and shows that every nontrivial record coordinate carries the same positive-sign interaction with cycle count. The total asymptotic quantifies how this finite dependence becomes negligible after standardization.",
+    "status": "PASS"
+  }
+}
