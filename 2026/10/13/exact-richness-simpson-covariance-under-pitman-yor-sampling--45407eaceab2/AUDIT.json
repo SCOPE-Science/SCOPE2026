@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on whether labels 1 and 2 co-cluster changes only the block count at time two, from one to two. The Pitman–Yor expected block-count recursion is affine with multiplicative coefficient 1+alpha/(theta+m), so the conditional mean difference evolves exactly by the product R_n. The event probability is (1-alpha)/(theta+1), and exchangeability identifies the covariance with every pair indicator; averaging proves the pair-homozygosity formula. The sample-homozygosity identity is a deterministic affine conversion. Exact enumeration and recurrence replay independently agree with all formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman gives the exchangeable partition probability function and the exact sequential two-parameter rule used in the proof.",
+        "Yamato–Sibuya treat moments of component counts in the Pitman sampling formula; the accessible abstract emphasizes component-count moments rather than a mixed diversity statistic.",
+        "Sibuya develops exact restart/subsampling laws and moments of species counts, but the inspected complete text does not state the mixed statistic here.",
+        "Tavaré reviews K_n and Watterson sample homozygosity in the Ewens model, chiefly through the conditional-on-K_n testing framework."
+      ],
+      "reasoning": "These sources provide broad partition-distribution and species-count results but no displayed theorem that supplies the pair-conditioned richness gap or the closed covariance without the additional two-state conditional-recursion argument.",
+      "searches": [
+        "DOI:10.1007/BF01213386",
+        "DOI:10.5109/13490",
+        "DOI:10.1007/s10463-013-0427-8",
+        "DOI:10.1112/blms.12537"
+      ]
+    },
+    "checked_sources": [
+      "Pitman (1995), DOI 10.1007/BF01213386, complete public PDF.",
+      "Sibuya (2014), DOI 10.1007/s10463-013-0427-8, complete public PDF.",
+      "Tavaré (2021), DOI 10.1112/blms.12537, complete public HTML.",
+      "Yamato and Sibuya (2000), DOI 10.5109/13490, bibliographic record and abstract.",
+      "Current and earlier packaged findings searched for Poisson–Dirichlet, Pitman–Yor, richness, Simpson, and homozygosity overlap.",
+      "Published semantic and exact-form searches for the covariance and the pair-conditioned richness gap."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior packaged result concerns covariance of two latent Poisson–Dirichlet frequency functionals, Shannon entropy and Gini–Simpson diversity; it does not involve finite-sample K_n.",
+        "A second prior packaged result concerns sample richness versus latent Shannon entropy only in the Dirichlet-process case; it does not involve empirical homozygosity or the pair-conditioned richness gap.",
+        "No checked prior packaged result states the finite-sample richness–pair-diversity covariance."
+      ],
+      "reasoning": "Latent population diversity and empirical sample diversity are different random variables. Neither latent-diversity covariance implies the finite partition-statistic identity, and the new theorem also covers nonzero Pitman–Yor discount alpha.",
+      "searches": [
+        "latent Poisson-Dirichlet Gini-Simpson entropy covariance",
+        "sample richness latent Shannon entropy Dirichlet process covariance",
+        "sample richness Simpson diversity Pitman-Yor partition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact finite covariance matching the displayed product R_n was located under richness, number-of-blocks, homozygosity, Simpson, or pair-coalescence terminology.",
+        "The complete Pitman 1995 text contains the two-parameter construction but no occurrences of homozygosity or Simpson terminology.",
+        "The complete Sibuya 2014 text contains no occurrences of homozygosity, Simpson, or covariance."
+      ],
+      "reasoning": "The searches cover the principal aliases on both sides: richness/number of blocks/species count and homozygosity/Simpson/pair coalescence. The conditional-gap formulation was also searched separately because an equivalent result need not have been presented as a covariance.",
+      "searches": [
+        "Pitman-Yor sample richness empirical Simpson diversity covariance",
+        "Ewens number of blocks sample homozygosity covariance exact",
+        "Chinese restaurant block count pair coalescence covariance",
+        "Pitman-Yor K_n Simpson index covariance finite sample",
+        "Ewens Watterson homozygosity K_n covariance",
+        "conditional number of blocks first two same table Pitman Yor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact symbolic match for the Ewens constant theta/(theta+1)^2 or the Pitman–Yor product R_n was located.",
+        "The packaged values are generated from an all-n proof rather than copied from a numerical table."
+      ],
+      "reasoning": "The searches target the closed forms themselves and the two most common statistical interpretations of the quantities.",
+      "searches": [
+        "\"Cov\" \"K_n\" homozygosity Ewens",
+        "\"theta/(theta+1)^2\" richness Simpson Ewens",
+        "\"number of blocks\" \"pair diversity\" Pitman Yor",
+        "\"number of alleles\" homozygosity covariance Ewens"
+      ]
+    },
+    "rationale": "The defining Pitman paper gives the full partition construction but does not state a homozygosity or Simpson covariance. A complete later paper on Ewens–Pitman restart and subsampling distributions gives exact species-count machinery but contains no homozygosity, Simpson, or covariance statement. The Ewens review places K_n and Watterson homozygosity in the same testing framework without stating the unconditional mixed moment. Targeted exact-form, alias, and semantic searches found no finite richness–pair-diversity covariance or pair-conditioned richness gap. The main residual risk is older population-genetics literature using different homozygosity notation.",
+    "residual_risks": [
+      "The complete text of Yamato and Sibuya (2000) was not available in the inspected access path; it is the strongest unresolved older moment-literature comparison.",
+      "Watterson-era population-genetics literature may encode the same mixed moment in allele-frequency notation rather than Simpson terminology.",
+      "Because the full exchangeable partition law is classical, the result is a new closed dependence identity derived from known structure rather than a new probability model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_SOURCE_NOT_MIXED_DIVERSITY_COVARIANCE",
+        "evidence": "The paper states the attachment probabilities and two-parameter partition law. Full-text searches return no homozygosity or Simpson result.",
+        "identifier_or_url": "DOI:10.1007/BF01213386",
+        "material_read": "Complete public 14-page PDF with focused inspection of Proposition 9, the sequential construction, the exchangeable partition probability function, and full-text searches for homozygosity and Simpson.",
+        "method": "Public full-text inspection.",
+        "title": "Exchangeable and partially exchangeable random partitions",
+        "trigger": "Foundational full source for the two-parameter exchangeable partition used in the theorem."
+      },
+      {
+        "assessment": "BROAD_SPECIES_COUNT_RESULTS_NOT_CLAIMED_MIXED_MOMENT",
+        "evidence": "The paper gives exact species-count and subsampling formulas but no occurrence of the three targeted mixed-statistic terms.",
+        "identifier_or_url": "DOI:10.1007/s10463-013-0427-8",
+        "material_read": "Complete public 32-page PDF, with focused inspection of the Ewens–Pitman construction, block-count recursion, conditional partition law, restart moments, and full-text searches for homozygosity, Simpson, and covariance.",
+        "method": "Public full-text inspection.",
+        "title": "Prediction in Ewens–Pitman sampling formula and random samples from number partitions",
+        "trigger": "Highly relevant complete source with restart, subsampling, and exact moments of species counts in the same partition model."
+      },
+      {
+        "assessment": "JOINT_CONTEXT_WITHOUT_UNCONDITIONAL_COVARIANCE",
+        "evidence": "The article uses homozygosity as a conditional goodness-of-fit statistic after conditioning on K_n; the displayed sections do not state the unconditional covariance.",
+        "identifier_or_url": "DOI:10.1112/blms.12537",
+        "material_read": "Complete public HTML sections defining the Ewens sampling formula, K_n, its Bernoulli representation, conditional sampling given K_n, and Watterson homozygosity.",
+        "method": "Public full-text HTML inspection.",
+        "title": "The magical Ewens sampling formula",
+        "trigger": "Direct modern review juxtaposing sample richness K_n and Watterson sample homozygosity in the Ewens model."
+      },
+      {
+        "assessment": "PLAUSIBLE_OLDER_MOMENT_SOURCE_ACCESS_RISK",
+        "evidence": "The abstract emphasizes moments and asymptotics of the number of components and marginals/functions, but the unavailable full text leaves a residual comparison risk for mixed moments.",
+        "identifier_or_url": "DOI:10.5109/13490",
+        "material_read": "Accessible bibliographic record and abstract; complete text was not available through the inspected path.",
+        "method": "Abstract-level inspection after direct exact-title and DOI searches.",
+        "title": "Moments of some statistics of Pitman sampling formula",
+        "trigger": "Title indicates potentially dominating moment formulas for the same random partition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45407eac-eab2-4661-a8c3-d83d05374810",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "K_n is the canonical finite-sample richness statistic in Ewens–Pitman models, while sample homozygosity/Gini–Simpson diversity is a canonical measure of frequency concentration and a classical neutrality-test statistic. The theorem quantifies their exact finite dependence for the full two-parameter model and, more structurally, identifies the exact richness shift caused by observing one pair to match or differ. The Ewens specialization is especially sharp: pair-diversity covariance is exactly sample-size invariant, equal to theta/(theta+1)^2 for every n. This is a motivated relationship between two standard summaries, not an arbitrary sliced moment.",
+    "status": "PASS"
+  }
+}
