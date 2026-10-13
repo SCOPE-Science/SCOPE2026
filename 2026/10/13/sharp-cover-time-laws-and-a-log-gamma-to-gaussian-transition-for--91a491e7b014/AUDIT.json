@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For any adaptive strategy, each unvisited count changes by at most one per scheduled visit, and its success threshold is bounded above by eps+(1-eps)k/m. A shared-uniform coupling prevents the greedy count exceeding a competitor count, coordinatewise; this proves stochastic, not merely expectation, dominance. Greedy alternates independent side-specific coupon chains, initial missing counts m and m-1, with p_m=1, hence tau=max(2S_B-1,2(S_A-1)) and the exact odd/even CDF. The geometric Laplace product is a gamma quotient with a=m eps/(1-eps), delta=m(expm1(s/m))/(1-eps). In the critical window a->c, delta->s, (delta-s)log m->0; mgfs around zero give -log Gamma(c+1,1). In the diffuse window integral sums yield variance asymptotic m/eps and Lyapunov ratio O((m eps)^(-1/2)+(m eps)^(-3/2)); independent two-clock maxima give Phi^2. Replay of the standalone checker gave 906 passed finite and transform assertions. Residual risk: mathematical indexing mistakes outside tested cases; no finite-only inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bukh–Dubroff 2026, Propositions 1,4,5 and Theorems 3,7–9: upper/lower cover bounds and graph-cover decomposition.",
+        "Olesker-Taylor–Sauerwald–Sylvester 2024, Theorems 1.3,1.6: bounds on expected regular graph cover time and small bias; Theorem 1.7 event comparison.",
+        "Haslegrave–Sauerwald–Sylvester 2020, Section 5: general optimal policy existence/complexity, not exact laws."
+      ],
+      "reasoning": "A theorem holding for all graphs might imply qualitative time bounds, but no inspected formula or assertion dominates the exact optimal cover CDF on K_{m,m} or the weak limits at m eps->c or infinity. Fixed-degree expander results are inapplicable to K_{m,m} as degree m diverges. General event probability bounds do not imply equalities for this optimal law.",
+      "searches": [
+        "Optimal epsilon-time-biased random walk cover time on complete bipartite graphs K_m,m with adaptive controller. Gumbel-to-Gaussian transition at epsilon m ~ 1; gamma generalized Gumbel finite crossover",
+        "Stochastic domination optimal adaptive exploration of complete bipartite graph under occasional steering with probability eps",
+        "arxiv:2605.18712v1",
+        "arxiv:2412.13109v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.18712v1",
+      "arxiv:2006.02475v2",
+      "arxiv:2412.13109v1",
+      "doi:10.46298/dmtcs.3515",
+      "arxiv:2607.25016v1 (abstract only)",
+      "public mathematical-record nearest titles and IDs above",
+      "Earlier published mathematical comparisons listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bukh–Dubroff 2026 establishes n^{1+o(1)} upper bounds for bounded-degree graphs and group-cover constructions; no asymptotic distribution in exact K_{m,m} regime.",
+        "Tung–Ueltzen 2026 accessible abstract: a partition into logarithmic-radius pieces yields improved general upper cover bound; full paper not accessible.",
+        "Nakata–Kubo 2006 Theorem 1.2 has Gumbel, Gaussian and their convolution controlled by number and relative rate of bonus coupon types, not an all-real c negative-log-Gamma(c+1) family."
+      ],
+      "reasoning": "Expected-time inequalities do not determine finite-time stochastic optimality, distribution functions or maximum-of-two-clock fluctuations; similarly the bonus-coupon theorem for a different state transition does not imply this theorem. The inaccessible graph-cover appendix is a residual priority risk, not negative full-text evidence.",
+      "searches": [
+        "Optimal epsilon-time-biased random walk cover time on complete bipartite graphs K_m,m with adaptive controller. Gumbel-to-Gaussian transition at epsilon m ~ 1; gamma generalized Gumbel finite crossover",
+        "Steered coupon collector forced unseen coupon with probability epsilon: hypo geometric distribution gamma logarithm limit, Gaussian when m epsilon diverges; controlled coupon collection",
+        "Stochastic domination optimal adaptive exploration of complete bipartite graph under occasional steering with probability eps",
+        "modified coupon collector preferential missing coupon alpha/n probability Gumbel gamma limiting",
+        "arxiv:2607.25016v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.18712v1, sections on epsilon-time-biased walks and main cover bounds; no biclique exact CDF stated.",
+        "arXiv:2006.02475v2, Sections 1, 3, 5 and appendices; cover and optimal-policy complexity results, not this specific law.",
+        "Nakata–Kubo 2006, Theorems 1.1–1.2 (pages 216–218): a bonus coupon triggers an additional coupon; different event mechanism."
+      ],
+      "reasoning": "The graph walk is equivalent to two independent periodically sampled forced-new-coupon birth chains with affine missing-count success rates. The bonus-coupon and ordinary independent/weighted coupon models are not equivalent to this affine rate for a forced unseen type at randomly selected steps; the prior general graph policy theorems neither imply independence of two part clocks nor the log-gamma limit.",
+      "searches": [
+        "Optimal epsilon-time-biased random walk cover time on complete bipartite graphs K_m,m with adaptive controller. Gumbel-to-Gaussian transition at epsilon m ~ 1; gamma generalized Gumbel finite crossover",
+        "Steered coupon collector forced unseen coupon with probability epsilon: hypo geometric distribution gamma logarithm limit, Gaussian when m epsilon diverges; controlled coupon collection",
+        "Stochastic domination optimal adaptive exploration of complete bipartite graph under occasional steering with probability eps",
+        "\"epsilon-biased\" \"complete bipartite\" \"cover time\" control",
+        "modified coupon collector preferential missing coupon alpha/n probability Gumbel gamma limiting",
+        "coupon collector with artificial arrivals new item probability epsilon gamma distribution Gumbel shifted log gamma"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-record titles: Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders (2026), and Balanced non-uniform reset coupon collectors: profile rates and heterogeneity penalties (2026).",
+        "The 2006 Nakata–Kubo exact table concerns coupon types split into permanent bonus and ordinary types and does not encode an independent steering coin."
+      ],
+      "reasoning": "No located exact database gives the optimal biclique parity-specific CDF or its critical phase. The closest graph hits involve different Markov geometries; the reset coupon hit destroys collections and cannot encode monotone forced discovery.",
+      "searches": [
+        "Optimal epsilon-time-biased random walk cover time on complete bipartite graphs K_m,m with adaptive controller. Gumbel-to-Gaussian transition at epsilon m ~ 1; gamma generalized Gumbel finite crossover",
+        "Steered coupon collector forced unseen coupon with probability epsilon: hypo geometric distribution gamma logarithm limit, Gaussian when m epsilon diverges; controlled coupon collection",
+        "Stochastic domination optimal adaptive exploration of complete bipartite graph under occasional steering with probability eps",
+        "Stochastic domination optimal adaptive exploration of complete bipartite graph under occasional steering with probability eps"
+      ]
+    },
+    "rationale": "The compared primary theorems give general steering cover-time estimates and graph-decomposition constructions rather than optimal biclique distributions. A superficially close 2006 bonus collector has a different transition mechanism and different limit law. All exact claims are checked against prior accessible claims and a public mathematical-record search; absence of a match is not treated as certainty. One later primary full text was inaccessible but its accessible statement is about general graph partitions, not exact biclique laws.",
+    "residual_risks": [
+      "Undiscovered equivalent in older reinforced/assisted coupon literature despite targeted forced-new and bonus search terms.",
+      "Tung–Ueltzen 2026 full text was inaccessible, so an appendix cannot be ruled out from abstract alone.",
+      "No independent referee verification of priority has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BOUNDS_NOT_COVERING_EXACT_STATEMENT",
+        "evidence": [
+          "May 18, 2026 arXiv v1; lines 30–47 define walk; lines 51–155 main results; graph-cover proofs lines 345–465."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.18712v1",
+        "material_read": "Full available HTML, abstract, definitions, Propositions 1,4,5, Theorems 3,7–9, sections on cover times and graph constructions, plus references.",
+        "method": "Primary arXiv HTML text, inspected proof and statement sections and searched for coupon/bipartite distribution claims.",
+        "title": "Faster random walks via infrequent steering",
+        "trigger": "Motivating 2026 paper defines the exact epsilon-controlled walk and covers the same objective."
+      },
+      {
+        "assessment": "GENERAL_OPTIMAL_POLICY_COMPLEXITY_NOT_COVERING_EXACT_STATEMENT",
+        "evidence": [
+          "Section 1.1 generic hitting/cover bounds; Section 5 PSPACE/NP hardness and optimal policy structure; a biclique ring in Section 4, not the standalone biclique distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.02475v2",
+        "material_read": "Full available HTML; abstract, Sections 1, 3, 5 and related results/appendix indexing; targeted complete-bipartite and coupon searches.",
+        "method": "Primary arXiv HTML text and theorem-content comparison.",
+        "title": "Time Dependent Biased Random Walks",
+        "trigger": "Foundational same model and claimed optimal cover policies."
+      },
+      {
+        "assessment": "GENERAL_BOUNDS_NOT_COVERING_EXACT_STATEMENT",
+        "evidence": [
+          "Theorem 1.3 general upper expected-cover bound with degree factors; Theorem 1.6 universal lower bound for small epsilon; no exact distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.13109v1",
+        "material_read": "Full available HTML, introduction/main Theorems 1.3,1.6,1.7, cover-time method and appendices, keyword searches.",
+        "method": "Primary arXiv HTML full theorem and hypothesis comparison.",
+        "title": "Time-Biased Random Walks and Robustness of Expanders",
+        "trigger": "Relevant general regular graph cover bounds with variable steering probability."
+      },
+      {
+        "assessment": "DIFFERENT_BONUS_MECHANISM_NO_IMPLICATION",
+        "evidence": [
+          "At p.216 model: special bonus coupons generate more coupons, not random forced-new steering; p.217 Theorem 1.1 and p.218 Theorem 1.2 give different CDF and beta crossover."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3515/download",
+        "material_read": "Complete 10-page primary PDF text, inspected page images 217–218, Theorems 1.1–1.2, model definition and main proof.",
+        "method": "Lawful journal open-access PDF text and visual page inspection.",
+        "title": "A coupon collector's problem with bonuses",
+        "trigger": "Plausible earlier exact Gamma/Gumbel/Gaussian coupon model."
+      },
+      {
+        "assessment": "ACCESS_RISK_NOT_DECISIVE",
+        "evidence": [
+          "Abstract specifies graph partitions and improvements to global upper cover-time bounds, not exact biclique CDF; remaining possible uninspected appendix."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.25016",
+        "material_read": "Authoritative public abstract and secondary detailed statement only; primary full text was inaccessible despite lawful arXiv and access attempts.",
+        "method": "Preprint metadata, public abstract and access attempt; not interpreted as full-text verification.",
+        "title": "On efficient graph covers and steered random walks",
+        "trigger": "Later 2026 paper bearing same process and cover-time theme."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "91a491e7-b014-42e2-a362-e2ba316dc40c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete stochastically optimal law for all sizes and steering rates is a natural sharp benchmark for general adaptive graph-coverage questions. The epsilon~1/m window yields continuously indexed negative-log-gamma fluctuations with explicit two-side maximum; in the larger vanishing-epsilon window the one-side clocks become asymptotically normal but their maximum remains nonnormal. This is not a renamed expected-time inequality or a known tabular recomputation; neither law nor its structural two-phase distinction follows from the general cover-time bounds. The narrow family is mathematically canonical (degree-m balanced complete bipartite graphs), and its full exact optimality is an object-level motivation.",
+    "status": "PASS"
+  }
+}
