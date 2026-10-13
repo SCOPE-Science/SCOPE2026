@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Kapranov's Proposition 1.2.4 identifies each Grassmannian torus-orbit closure as a projective normal toric variety with its matroid polytope, and the generic matroid polytope is \\(\\Delta(k,n)\\). The toric degree is the normalized volume, classically \\(A(n-1,k-1)\\). The torus-orbit decomposition has one orbit per face; positive-dimensional tori have Euler characteristic zero, so \\(\\chi\\) is the number of vertices \\(\\binom nk\\). The comparison is proved for all parameters by a direct Eulerian recurrence lower bound and an elementary parity-class bound for the central binomial coefficient. The package checker independently reconstructs the Eulerian rows and tests every pair through \\(n=120\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kapranov gives the projective normal toric orbit-closure model and hypersimplex face structure but not the invariant comparison.",
+        "Li gives the normalized-volume Eulerian formula but does not discuss projective degree versus topological Euler characteristic.",
+        "A later toric-statistics paper explicitly identifies the hypersimplex toric variety as representing generic Grassmannian torus orbits and again records Eulerian normalized volume, without the finalized crossover."
+      ],
+      "reasoning": "The broader sources cover the two ingredients separately. None of the inspected statements implies the sharp threshold without comparing Eulerian and binomial growth.",
+      "searches": [
+        "generic torus orbit Grassmannian hypersimplex normalized volume Eulerian",
+        "hypersimplex toric variety fixed points Euler characteristic",
+        "matroid toric variety degree Euler characteristic hypersimplex"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:alg-geom/9210002",
+      "zbMATH:0811.14043",
+      "arXiv:1104.5292",
+      "doi:10.46298/dmtcs.12798",
+      "arXiv:1703.02251",
+      "targeted semantic literature searches for hypersimplex degree, Euler characteristic, Eulerian numbers, and binomial equality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kapranov's full text identifies the generic hypersimplex orbit closure and its torus-face decomposition; targeted full-text search found no occurrence of 'Euler characteristic'.",
+        "Li's full text states the normalized-volume Eulerian formula; targeted full-text searches found no 'Euler characteristic' or 'projective degree' comparison.",
+        "Own current- and prior-week ledgers contain no finding on hypersimplices, generic Grassmannian torus orbit closures, or Eulerian-number degree comparisons."
+      ],
+      "reasoning": "The final theorem combines classical geometric and combinatorial premises with a new global inequality. Neither inspected premise separately states or implies the below/above phase diagram.",
+      "searches": [
+        "arXiv:alg-geom/9210002 hypersimplex generic torus orbit Euler degree",
+        "arXiv:1104.5292 hypersimplex normalized volume Eulerian",
+        "own ledger hypersimplex generic torus orbit Eulerian number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database result stated the all-parameter degree-versus-Euler classification.",
+        "Web searches for the exact Eulerian and binomial formulations returned standard formulas but no crossover theorem.",
+        "No located result asserted equality or non-equality between these two invariants for generic Grassmannian torus orbits."
+      ],
+      "reasoning": "The searches cover the object under both hypersimplex-toric and Grassmannian-orbit terminology and also search the equivalent pure sequence comparison.",
+      "searches": [
+        "hypersimplex toric variety degree Euler characteristic Eulerian binomial crossover",
+        "generic torus orbit closure Grassmannian degree Euler characteristic hypersimplex",
+        "Eulerian number versus binomial coefficient hypersimplex toric degree",
+        "toric hypersimplex degree equals Eulerian number Euler characteristic vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located table or database record singled out an equality case or the dimension-four transition.",
+        "The finite checker is generated after the symbolic proof and is not used as novelty evidence."
+      ],
+      "reasoning": "The accepted result is an infinite inequality theorem with a symbolic proof, not a pattern inferred from small Eulerian tables.",
+      "searches": [
+        "A(n-1,k-1) binomial(n,k) hypersimplex",
+        "Eulerian binomial equality hypersimplex",
+        "Grassmannian torus orbit degree Euler equality"
+      ]
+    },
+    "rationale": "The inspected primary literature supplies the toric hypersimplex model and the classical normalized-volume formula but does not compare projective degree with Euler characteristic. Targeted semantic-database and web searches in geometric and equivalent Eulerian-versus-binomial language did not locate the sharp phase boundary or a no-equality theorem. Nearby indexed results concern arithmetic of Grassmannian degrees, other toric volume questions, or topology of Grassmannian complements rather than this generic-orbit invariant comparison.",
+    "residual_risks": [
+      "The inequality is elementary after the two classical formulas are juxtaposed, so it may occur in unindexed combinatorics literature without toric terminology.",
+      "A broader study of hypersimplex invariants could contain the same comparison as an unstated corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_GENERIC_HYPERSIMPLEX_TORIC_MODEL_NOT_DEGREE_EULER_CROSSOVER",
+        "evidence": "The generic matroid polytope is explicitly \\(\\Delta(k,n)\\); Proposition 1.2.4 says the orbit closure is projective, normal, and toric with that polytope, and torus orbits correspond to faces.",
+        "identifier_or_url": "arXiv:alg-geom/9210002",
+        "material_read": "Full archival PDF with focused inspection of Sections 1.2.3--1.2.7: definition of \\(\\Delta(k,n)\\), generic matroid polytope, Proposition 1.2.4 identifying orbit closures as projective normal toric varieties, orbit-face correspondence, and the Pluecker momentum map. A full-text search for 'Euler characteristic' returned no occurrence.",
+        "method": "Rendered PDF inspection, extracted full-text inspection, and targeted in-document search.",
+        "title": "Chow quotients of Grassmannian I",
+        "trigger": "Primary archival algebraic-geometry source for generic maximal-torus orbit closures in Grassmannians."
+      },
+      {
+        "assessment": "SUPPORTS_EULERIAN_VOLUME_FORMULA_NOT_TOPOLOGICAL_COMPARISON",
+        "evidence": "Theorem 1.1 states that the normalized volume of \\(\\Delta(k,n)\\) is the Eulerian number counting permutations of \\(n-1\\) letters with \\(k-1\\) descents.",
+        "identifier_or_url": "arXiv:1104.5292",
+        "material_read": "Full PDF introduction and Theorem 1.1, including the definition of the hypersimplex, its Grassmannian moment-polytope role, and the statement that normalized volume equals the Eulerian number. Targeted full-text searches found no 'Euler characteristic' or 'projective degree' comparison.",
+        "method": "Full-text PDF inspection and targeted in-document search.",
+        "title": "Ehrhart h*-vectors of hypersimplices",
+        "trigger": "Archival full-text source for the normalized volume of hypersimplices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0baca59-986b-4159-9de4-ce6f683cbcf1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Generic torus orbit closures are canonical toric subvarieties of Pluecker Grassmannians and hypersimplices are among the most basic matroid polytopes. Projective degree measures normalized hypersimplex volume while Euler characteristic counts torus fixed points, so the theorem compares two intrinsic geometric complexities of exactly the same family. The result gives a complete phase diagram, identifies dimension four as the sharp onset of interior degree domination, and proves that equality never occurs.",
+    "status": "PASS"
+  }
+}
