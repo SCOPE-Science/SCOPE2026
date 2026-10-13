@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The pair-saturation induction is valid for every positive displacement: its three base distances and four residue-wise letter-pair lifts are finite exhaustively verified identities, while every induction call refers to strictly smaller positive gaps. The aligned-block counting identity includes all start offsets and both boundary source letters. For unequal images, pair saturation makes every endpoint combination realizable; the possible one-counts form an interval under single-position shifts. Coincident images are periodic. The packaged checker proves all finite preconditions and tests 1,152 explicit factor instances, but the theorem rests on the symbolic argument, not the sampled range.
+
+**Originality — PASS, with limits.** Rigo–Stipulanti–Whiteland, arXiv:2405.18032, Theorem 3 gives an algorithm for automatic abelian complexity, not this table or the distance-pair lemma; Section 6 explicitly asks the broader periodicity question. Results concerning three-uniform binary or ternary substitutions do not imply this four-uniform result. Searches for length-four balanced substitutions, their image aliases, and ordered pairs at all positive separations found no stronger covering published claim. The priority risk from unindexed equivalent special-case calculations is nonzero.
+
+**Value — PASS.** This is the complete first balanced binary four-uniform classification: eighteen natural substitutions, with a proof of exact periodicity and sharp values (including complexity five) for all factor lengths. The all-distance pair-saturation lemma supplies a structural mechanism that replaces per-length automaton calculations, and the classification gives a substantive restricted affirmative case of the open Parikh-constant periodicity question. No implication for arbitrary image lengths or alphabets is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
