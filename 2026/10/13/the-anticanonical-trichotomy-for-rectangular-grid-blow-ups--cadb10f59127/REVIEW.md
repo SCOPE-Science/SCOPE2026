@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The calculation is universal, not extrapolated from the finite checker. On the blow-up of a full grid, the divisor \(L=rA+sB-\sum E_{ij}\) is basepoint-free because the two grid-defining forms generate the reduced complete-intersection ideal and independent directions at each exceptional fiber. The intersection \(L\cdot(-K_T)=2r+2s-rs\) detects non-pseudo-effectivity when negative. A rational interval supplies explicit effective plus big decompositions when positive. At equality the negative self-intersections of the pairwise disjoint grid-fiber transforms force every coefficient and prove uniqueness/integrality in all degrees. The canonical blow-up formula proves the final all-point disappearance. The exact arithmetic checker verified the integer formulas for \(784\) grid sizes but is not used as an infinite proof.
+
+## Originality — PASS
+The initiating 2026 preprint studies automorphisms of the \(4\times4\) grid surface and its additional blow-up. The highly relevant earlier 2022-version preprint (arXiv:2106.05687v3, Lemma 2.1(3)) proves that the same \(4\times4\) surface has one bi-anticanonical divisor with eight disjoint \((-4)\)-curves; this special-case rigidity is explicitly credited. The present theorem determines a sharp three-regime inequality over **every** rectangular grid with \(r,s\ge3\), identifies the previously unaddressed \(3\times6\) and \(6\times3\) degree-three boundaries, computes the complete boundary rings, and handles the point blow-up for every center. The searched published records on weighted-projective anticanonical sections and Hessian/Hessenberg fourfolds concern different objects and do not imply the grid trichotomy. Searches under grid, symbolic-power, and nef-cone formulations found no exact match; this absence is not a uniqueness proof. Possible older effective-cone or fat-grid-point formulations remain a real originality risk.
+
+## Value — PASS
+This is a complete structural classification of anticanonical birational geometry on the natural family containing the rational Kummer-quotient construction: the sharp wall \(4-(r-2)(s-2)=0\), the two asymmetric eighteen-point boundary grids, big anticanonical classes even with negative self-intersection, and the collapse of every boundary section ring after one point blow-up. The extra boundary pairs are not prescribed by the source, and their generator degree differs from the source's \(4\times4\) degree. The result is suitable for understanding how grid incidence controls anti-canonical birational models; it does not claim any automorphism classification.
+
+## Limits and literature
+The earlier \(4\times4\) uniqueness statement belongs to Dinh–Oguiso–Yu (arXiv:2106.05687v3). The current 2026 construction of Dinh–Oguiso–Yu–Zhou is arXiv:2609.40045v1. Equivalence under a less explicit symbolic-powers or effective-cone theorem remains a residual risk. All claims are over an algebraically closed field of characteristic zero; independent audit has not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
