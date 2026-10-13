@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The proof uses the exact closed neighborhoods \\(N[a_i]=\\{a_i\\}\\cup(B\\setminus\\{b_i\\})\\) and \\(N[b_i]=\\{b_i\\}\\cup(A\\setminus\\{a_i\\})\\). If a mixed sequence changes sides after one heavy-side vertex, at most four moves are possible; if it changes after at least two, the first light-side vertex dominates every still-unselected heavy-side vertex except its matched partner, so at most one heavy-side vertex and one terminal light-side vertex can follow. This gives the upper bound \\(n\\) and forces the four equality types. The counting formulas follow from disjoint parameter choices. The standalone checker independently reconstructs neighborhoods and all legal orders for \\(5\\le n\\le7\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bacsó et al. characterize a broad equality class for \\(\u0007lpha(G)=\\gamma_{\\mathrm{gr}}(G)\\) using legal-sequence properties, but do not enumerate crown-graph maximum sets or orders.",
+        "Brešar and Dravec characterize uniqueness and iso-uniqueness; their ordinary Grundy result does not give exact counts for crown graphs.",
+        "The published-finding corpus complete-multipartite theorem applies to \\(K_{n_1,\\ldots,n_r}\\), whereas \\(\\operatorname{Cr}_n\\) is not complete multipartite for \\(n\\ge3\\)."
+      ],
+      "reasoning": "Broader scalar and class-level theorems do not determine the matching-index data that distinguishes the four crown-graph extremal types. The closest enumerative theorem is on a graph class that does not contain the crowns in the claimed range.",
+      "searches": [
+        "arXiv:2212.01335v2 equality alpha gamma_gr bipartite legal sequences",
+        "DOI:10.1007/s40314-026-03835-w unique Grundy dominating sets",
+        "published-finding corpus 2026/10/4/SCOPE-maximum-grundy-dominating-sequences-of-complete-multipartite-gra--036eea4e58d1"
+      ]
+    },
+    "checked_sources": [
+      "hdl:11562/933301",
+      "DOI:10.1016/j.disc.2014.07.016",
+      "arXiv:2212.01335v2",
+      "DOI:10.1007/s40314-026-03835-w",
+      "published-finding corpus:2026/10/4/SCOPE-maximum-grundy-dominating-sequences-of-complete-multipartite-gra--036eea4e58d1",
+      "own prior ledger:2026-09_week4__private research ledger__p0001_g000063.jsonl",
+      "own current ledger:2026-10_week1__private research ledger__p0001_g000052.jsonl"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own prior ledger contains a complete-multipartite maximum-Grundy-sequence theorem, but no crown-graph ordinary Grundy classification.",
+        "The current ledger contains many crown-graph invariants but no ordinary Grundy dominating-sequence classification.",
+        "The complete-multipartite theorem cannot specialize because the deleted matching destroys complete multipartiteness.",
+        "The 2023 equality-class paper constrains maximum length but does not determine every extremal set or ordering."
+      ],
+      "reasoning": "The retained claim is not a corollary or parameter substitution of the closest own or published statements. Its proof depends on the one-missing-cross-edge-per-index structure, which creates mixed-side maximum sequences absent from the complete-multipartite classification.",
+      "searches": [
+        "own current ledger through 2026-10_week1__private research ledger__p0001_g000052.jsonl",
+        "own prior ledger 2026-09_week4__private research ledger__p0001_g000063.jsonl",
+        "published-finding corpus 2026/10/4/SCOPE-maximum-grundy-dominating-sequences-of-complete-multipartite-gra--036eea4e58d1",
+        "arXiv:2212.01335v2 Theorem 20 and conclusions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2212.01335v2 contains no occurrence of “crown” or “perfect matching”.",
+        "Focused database searches returned the complete-multipartite Grundy classification as the nearest same-invariant result, plus crown-graph results for different invariants."
+      ],
+      "reasoning": "The aliases crown graph and balanced complete bipartite graph minus a perfect matching were searched directly. No equivalent four-type maximum-sequence statement or the two exact counts was located.",
+      "searches": [
+        "Grundy domination crown graphs maximum legal dominating sequences K_{n,n} minus perfect matching",
+        "crown graph Grundy domination number sequence enumeration",
+        "crown graph maximum Grundy dominating sets sequences enumeration 4 n n! K_n,n minus perfect matching",
+        "arXiv:2212.01335v2 full text: crown; perfect matching; K_{n,n}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database/table result located in the focused searches states \\(2+n(n-1)(2n-1)\\) maximum sets or \\(4n\\,n!\\) maximum sequences.",
+        "published-finding corpus nearest hit was the complete-multipartite classification, not a crown-graph entry."
+      ],
+      "reasoning": "A table containing only the scalar value \\(\\gamma_{\\mathrm{gr}}(\\operatorname{Cr}_n)=n\\) would not imply the retained classification or enumeration.",
+      "searches": [
+        "Grundy domination crown graph K_n,n perfect matching",
+        "crown graph Grundy domination number",
+        "crown graph maximum Grundy dominating sequences count"
+      ]
+    },
+    "rationale": "Statement-level comparisons found broader theory for the scalar Grundy domination number and a separate complete-multipartite enumeration, but no source that implies the matching-sensitive four-type classification or either crown-graph counting formula.",
+    "residual_risks": [
+      "A crown-specific theorem may exist under terminology not retrieved by the tested aliases.",
+      "The foundational 2014 article was not available as searchable full text in this run, so it is not used to support a whole-document negative-coverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTEXT_ONLY",
+        "evidence": "The accessible record establishes the invariant and 2014 public date but was not used as negative full-text evidence for crown-specific coverage.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2014.07.016; hdl:11562/933301",
+        "material_read": "Public institutional metadata and abstract defining legal dominating sequences and the Grundy domination number.",
+        "method": "Direct public record and statement comparison.",
+        "title": "Dominating sequences in graphs",
+        "trigger": "Foundational source for ordinary Grundy domination and archive dating."
+      },
+      {
+        "assessment": "NOT_COVERING_THE_RETAINED_CLASSIFICATION",
+        "evidence": "The paper treats equality \\(\u0007lpha=\\gamma_{\\mathrm{gr}}\\) and legal-sequence structure generally, but contains no crown occurrence and no enumeration of all maximum crown-graph sequences or sets.",
+        "identifier_or_url": "arXiv:2212.01335v2",
+        "material_read": "Abstract, AMS classification, definitions of legal/Grundy sequences, bipartite equality-class results, Property U/Theorem 20, conclusions, and exact full-text searches for “crown” and “perfect matching”.",
+        "method": "Searchable full text plus page inspection.",
+        "title": "Graphs with equal Grundy domination and independence number",
+        "trigger": "Broadest highly relevant source because crowns have independence number \\(n\\) and the candidate has Grundy domination number \\(n\\)."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It proves qualitative uniqueness and iso-uniqueness results; it does not enumerate crown-graph maximum sets or orders, and contains no crown occurrence.",
+        "identifier_or_url": "DOI:10.1007/s40314-026-03835-w",
+        "material_read": "Ordinary Grundy domination section, Corollary 3, Theorem 4, concluding discussion, and exact search for “crown”.",
+        "method": "Searchable open full text.",
+        "title": "Graphs with unique Grundy dominating sets",
+        "trigger": "Directly studies extremal Grundy dominating sets and could potentially dominate a set-classification claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aebec64f-02d9-4b87-9c03-45e2c8e8dfde",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is a natural exact extremal classification for a canonical matching-deleted complete bipartite family. It goes beyond the scalar Grundy domination number by identifying every maximum set, every permissible ordering, and two closed enumerators. The formulas show precisely how deleting one perfect matching creates mixed-side extremizers that are absent in complete multipartite graphs, so the statement captures a structurally meaningful sensitivity rather than a routine recomputation.",
+    "status": "PASS"
+  }
+}
