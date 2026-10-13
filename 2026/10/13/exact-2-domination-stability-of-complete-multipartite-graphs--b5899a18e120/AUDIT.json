@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "The occupancy criterion is necessary and sufficient, and each deletion case is proved by matching lower and upper bounds. Exhaustive independent profile enumeration through order 11 and all bipartite profiles with shores at most 20 matches every formula. The computation is corroborative; the proof is arbitrary-order.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu--Xu proves an exact p-domination-number formula for every complete multipartite graph.",
+        "Mehraban--Alikhani studies stability for selected families and graph operations."
+      ],
+      "reasoning": "Lu--Xu subsumes the baseline gamma_2 calculation but has no vertex-deletion stability theorem. The initiating stability paper has no arbitrary complete-multipartite result. Neither broader source implies the new stability formula.",
+      "searches": [
+        "arXiv:1205.0102v1",
+        "The p-Domination Number of Complete Multipartite Graphs",
+        "2-domination stability complete multipartite graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.18535v1",
+      "doi:10.22052/MIR.2025.257573.1540",
+      "arXiv:1205.0102v1",
+      "doi:10.1142/S1793830914500633"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Deleting one vertex from the 2-shore of K_{2,3} yields K_{1,3}, changing gamma_2 from 2 to 3, so stability is 1.",
+        "Every one- or two-vertex deletion from K_{2,2} leaves gamma_2=2, while deleting three leaves K_1 with gamma_2=1, so stability is 3."
+      ],
+      "reasoning": "These implication checks separate the new theorem from the published biclique proposition and show that the multipartite classification is not a corollary of that proposition.",
+      "searches": [
+        "K_{2,3} 2-domination stability",
+        "K_{2,2} 2-domination stability",
+        "complete multipartite 2-domination stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2507.18535v1 defines ordinary 2-domination stability as the least number of deleted vertices that changes gamma_2.",
+        "The complete-multipartite occupancy condition is exactly the p=2 specialization of the standard p-domination definition."
+      ],
+      "reasoning": "Searches included the invariant's full name, symbolic alias, complete-multipartite terminology, and crown/biclique aliases. Adjacent hits concerned neighborhood-total 2-domination, 2-rainbow domination, and other non-equivalent invariants.",
+      "searches": [
+        "\"2-domination stability\" complete multipartite",
+        "\"st_{gamma_2}\" complete multipartite",
+        "\"2-domination stability\" crown graph",
+        "\"2-domination\" complete multipartite exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Proposition 2.7 of the stability paper states values for K_n, K_{1,n}, and K_{m,n}; no complete-multipartite table is present.",
+        "Lu--Xu's main result is a formula for gamma_p, not a table of stability values."
+      ],
+      "reasoning": "The closest exact database-like coverage is the initiating paper's short family list. Direct residual-size checks show its blanket K_{m,n} stability value does not cover the correct boundary behavior required here.",
+      "searches": [
+        "arXiv:2507.18535v1 Proposition 2.7 complete bipartite",
+        "arXiv:1205.0102v1 complete multipartite p-domination"
+      ]
+    },
+    "rationale": "The initiating stability paper treats complete and complete-bipartite graphs but not arbitrary complete multipartite graphs; its uniform biclique statement is not consistent with direct application of the invariant at K_{2,3} and K_{2,2}. Lu--Xu gives the baseline p-domination number but not stability. Searches found no statement implying the full deletion-stability classification.",
+    "residual_risks": [
+      "An older or poorly indexed equivalent theorem may exist under domination-criticality or alteration-set terminology.",
+      "The initiating paper's complete-bipartite statement conflicts with direct boundary calculations; the present proof is therefore intentionally independent of that statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and treats selected families but does not give a complete-multipartite theorem. Its uniform K_{m,n} statement is not used as a premise because direct boundary calculations disagree with it.",
+        "evidence": "Proposition 2.7 lists K_n, K_{1,n}, and K_{m,n}; the paper proceeds to cactus graphs rather than multipartite generalization.",
+        "identifier_or_url": "arXiv:2507.18535v1; DOI 10.22052/MIR.2025.257573.1540",
+        "material_read": "Abstract, definition material, Section 2.1, Observation 2.6, Proposition 2.7, and neighboring results in the full PDF.",
+        "method": "Full-text inspection of the lawful preprint/publisher PDF.",
+        "title": "Stability of 2-Domination Number of a Graph",
+        "trigger": "Defines the exact invariant and contains the closest claimed complete-bipartite values."
+      },
+      {
+        "assessment": "Covers gamma_p for all complete multipartite graphs, so it covers the baseline gamma_2 values, but it does not study vertex-deletion stability.",
+        "evidence": "The main section explicitly gives an exact formula for gamma_p(K_{n_1,...,n_t}); no stability parameter is defined or analyzed.",
+        "identifier_or_url": "arXiv:1205.0102v1; DOI 10.1142/S1793830914500633",
+        "material_read": "Abstract, definitions, structural lemmas, and main exact-formula section of the full arXiv PDF.",
+        "method": "Full-text inspection of the arXiv preprint.",
+        "title": "The p-Domination Number of Complete Multipartite Graphs",
+        "trigger": "Same graph family and a strictly broader domination-number parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5899a18-e120-4421-a8b5-9288a998be5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a natural complete classification for the canonical complete-multipartite family, identifies distinct structural stability mechanisms, and corrects nontrivial complete-bipartite boundary behavior in the initiating literature. The classification is not a mere parameter substitution or isolated finite computation.",
+    "status": "PASS"
+  }
+}
