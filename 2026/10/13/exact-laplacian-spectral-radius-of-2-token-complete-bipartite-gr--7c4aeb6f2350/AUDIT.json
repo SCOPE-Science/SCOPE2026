@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For \\(m,n\\ge2\\), the 2-token graph is connected and bipartite. Its signless Laplacian has an equitable three-cell partition with quotient [[2n,2n,0],[m-1,m+n-2,n-1],[0,2m,2m]]. The strictly positive vector (n(n-1),(m-1)(n-1),m(m-1)) is an eigenvector with eigenvalue \\(2(m+n-1)\\). Perron--Frobenius identifies this as the signless-Laplacian spectral radius, and bipartite similarity transfers it to the ordinary Laplacian. Boundary m=n=2 and broad finite instances were replayed by the packaged checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.00500v1 Corollary 4.14 states rho_L(F_2(\\(K_{n_1,n_2}\\))) >= \\(2(N-1)\\), and Remark 4.15 proves tightness for the balanced case.",
+        "DOI 10.1007/s40590-023-00583-3 Proposition 5.2 gives equality with a Laplacian quotient for bipartite distance-regular bases; unbalanced complete bipartite graphs are not regular and hence are outside that hypothesis."
+      ],
+      "reasoning": "Neither broader source implies equality for all unbalanced complete bipartite graphs. The new positive signless-Laplacian quotient eigenvector removes the regularity requirement in this specific family.",
+      "searches": [
+        "token graph complete bipartite quotient signless Laplacian",
+        "complete bipartite token graph lower bound 2(n-1) tight"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00500v1",
+      "doi:10.1007/s40590-023-00583-3",
+      "doi:10.1016/j.akcej.2019.05.002",
+      "targeted semantic database searches for token, double-vertex, symmetric-square, complete-bipartite, quotient, and Laplacian-spectral-radius formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.00500v1 explicitly separates its general lower bound from a balanced-family equality argument.",
+        "The 2024 distance-regular theorem cannot be applied to K_{m,n} when m is not n because such a graph is not regular."
+      ],
+      "reasoning": "The accepted statement strictly extends the published equality domain from balanced nonstar bicliques to all nonstar bicliques; it is not a corollary of the inspected broader theorems.",
+      "searches": [
+        "F_2(K_{m,n}) Laplacian spectral radius 2(m+n-1)",
+        "complete bipartite token graph lower bound 2(n-1) tight",
+        "token graph complete bipartite quotient signless Laplacian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00500v1 defines the same token graph and uses Laplacian spectral radius terminology.",
+        "DOI 10.1016/j.akcej.2019.05.002 confirms the older 2-token/double-vertex terminology and supplies basic structural facts, but no Laplacian spectral-radius formula was located."
+      ],
+      "reasoning": "The searches covered the standard name and two established aliases. The inspected older basic paper does not state the claimed spectral formula.",
+      "searches": [
+        "2-token graph complete bipartite exact Laplacian spectral radius",
+        "double vertex graph complete bipartite Laplacian spectrum",
+        "symmetric square complete bipartite Laplacian spectral radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned database record stated the all-parameter equality. The closest records were unrelated complete-bipartite or Laplacian results, while the directly relevant 2026 paper contains only the lower bound plus balanced equality."
+      ],
+      "reasoning": "No exact database/table match or stronger numerical classification was found for the unbalanced family.",
+      "searches": [
+        "F_2(K_{m,n}) Laplacian spectral radius 2(m+n-1)",
+        "2-token graph complete bipartite exact Laplacian spectral radius"
+      ]
+    },
+    "rationale": "The initiating 2026 source gives the same value only as a lower bound for arbitrary complete bipartite graphs and proves equality only in the balanced case. The 2024 spectral paper's exact Laplacian quotient result assumes a bipartite distance-regular base, which excludes unbalanced complete bipartite graphs. Targeted exact and alias searches found no implication covering all \\(m,n\\ge2\\).",
+    "residual_risks": [
+      "An older poorly indexed source may state the same unbalanced equality under double-vertex or symmetric-square terminology.",
+      "The accepted result does not claim novelty for the balanced specialization, which the 2026 source already identifies as tight."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the unbalanced equality; it proves the general lower bound and equality only for balanced complete bipartite graphs.",
+        "evidence": "Corollary 4.14 states the bound \\(2(N-1)\\); Remark 4.15 specializes the equality argument to \\(K_{N/2,N/2}\\).",
+        "identifier_or_url": "arXiv:2610.00500v1",
+        "material_read": "Abstract, MSC line, complete-bipartite spectral-radius discussion, Theorem 4.13, Corollary 4.14, and Remark 4.15 in the full arXiv HTML.",
+        "method": "Direct full-text inspection and exact-phrase search.",
+        "title": "The Algebraic Connectivity and Laplacian Spectral Radius of Token Graphs",
+        "trigger": "The paper is the recent source that gives the exact lower-bound expression for complete bipartite 2-token graphs."
+      },
+      {
+        "assessment": "NOT_COVERING the unbalanced biclique family.",
+        "evidence": "Its exact quotient equality requires a distance-regular base; unbalanced complete bipartite graphs are not regular.",
+        "identifier_or_url": "doi:10.1007/s40590-023-00583-3",
+        "material_read": "Open-access article sections defining token graphs and Proposition 5.2 on Laplacian spectral radius for bipartite distance-regular graphs.",
+        "method": "Direct full-text inspection.",
+        "title": "On the spectra and spectral radii of token graphs",
+        "trigger": "This is the closest earlier spectral treatment of token graphs and includes Laplacian quotient machinery."
+      },
+      {
+        "assessment": "NOT_COVERING the claimed Laplacian spectral-radius formula.",
+        "evidence": "The paper develops basic structural properties of 2-token graphs and does not present a Laplacian spectral-radius theorem for complete bipartite graphs.",
+        "identifier_or_url": "doi:10.1016/j.akcej.2019.05.002",
+        "material_read": "Open-access abstract, definitions, degree formula, and main-results overview.",
+        "method": "Direct full-text inspection of the accessible article.",
+        "title": "On the 2-token graph of a graph",
+        "trigger": "Older 2-token terminology and basic structural results could conceal an equivalent formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c4aeb6f-2350-4770-80d2-4b054b7f3818",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result closes an explicit sharpness gap in a fresh spectral token-graph direction for the canonical two-parameter complete-bipartite family. It turns a general lower bound plus one balanced equality family into an exact theorem for every nonstar biclique, using a structural Perron--Frobenius argument that specifically handles the unbalanced cases not covered by regularity-based prior methods.",
+    "status": "PASS"
+  }
+}
