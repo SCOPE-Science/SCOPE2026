@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For smooth compact nonnegative data and no-flux boundaries, the conservative diffusion PDE gives S+I+R=1, S monotonically decreasing, I=I0 exp(-mu t)+exp(-mu .)*(-S′), hence I->0. If S_inf=a>0 in the half-line with positive D, heat kernel positivity seeds a positive Dirichlet-sine subsolution on any sufficiently high interval, whose principal linear growth exponent k a L-mu-D pi²/(2H²)>0 contradicts I<=1. On a bounded interval, lambda<=L bounds cumulative force of infection by kL/mu times cumulative recoveries; strict positivity and the unique sharp final-size root follow. At D=0 compact support stays bounded; finite-time semigroup continuity then proves noncommutation. Standard Feynman-Kac Gaussian exponential moment bounds yield finite-time weighted norms on the unbounded domain. verify.py passes exact rational witness and numerical bracket, with no claim that finite testing proves asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Almeida et al., arxiv:2010.15410 abstract and publicly viewable publisher preview: heterogeneous-population SEIR final size with diffusion",
+        "Bernardi et al. (2025) full open-access paper Section 2 assumes each trait domain is bounded, excluding the unbounded half-line in the proposed theorem",
+        "Lamata-Otín et al. 2026 Supplementary Note 5 numerically evaluated attack rates with finite prevalence stopping threshold"
+      ],
+      "reasoning": "Almeida et al. study individual heterogeneity through static contact kernels and rates under a different SEIR structure, while the new statement exploits mutant inheritance and arbitrarily high infected transmission traits in the evolving strain distribution. A broad framework could conceivably be specialized, but inspected material has not shown an implication of complete attack for every positive mutation strength; full text could not be inspected and remains a residual risk.",
+      "searches": [
+        "Interplay between evolutionary and epidemic time scales challenges the outcome of control policies Lamata Otin Arenas Gomez Gardenes Soriano Panos final susceptible continuum trait diffusion bounded unbounded",
+        "nonzero Gaussian Brownian diffusion unbounded linear transmission infectivity all susceptibles eventually infected epidemic final size S infinity zero singular mutation",
+        "trait-structured SIR mutation diffusion unbounded infectivity eventual susceptible depletion final epidemic size",
+        "Final size and convergence rate for an epidemic in heterogeneous population Almeida Bliman Nadin Perthame Vauchelet full text theorem diffusion population trait 2020",
+        "arxiv:2010.15410 final size diffusion heterogeneous trait",
+        "Bernardi Lorenzi Sensi Tosin 2025 heterogeneously structured compartments"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.18801v1 full accessible HTML",
+      "arxiv:2603.18801v2 full accessible HTML",
+      "arxiv:1405.2768v1 full accessible HTML",
+      "arxiv:2010.15410 abstract and publisher-preview introduction",
+      "Bernardi et al. 2025 open-access primary paper, Section 2 bounded trait assumption and Sections 3-4 modeling",
+      "published mathematical-record closest comparisons: patch SEIR / mutation chemostat / age-structured population / dengue switching"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 paper assumes effective unboundedness only for early-time diffusion moments; numerical epidemic curves are terminated below prevalence 0.0001",
+        "2014 replicator–mutator analysis: global acceleration and extinction for normalized trait density, without susceptible or recovered compartments",
+        "2020 heterogeneous SEIR paper: general final-size equation but a different infection-heterogeneity formulation"
+      ],
+      "reasoning": "Neither short-time Gaussian acceleration nor persistence of an active phase implies total asymptotic susceptible exhaustion. Here a high-trait Dirichlet eigenfunction yields contradiction if any susceptible mass remains; finite bounded traits instead force a positive terminal susceptible root bound. The precise half-line/finite-domain juxtaposition and noncommutation are not explicitly established in the inspected source results.",
+      "searches": [
+        "final susceptible sharp lower bound maximum infectivity SIR transmission trait mutation conservation Kermack McKendrick",
+        "bounded transmission heterogeneity SIR optimal final size comparison maximal infectivity",
+        "arxiv:2603.18801v2 main Eq. (1), Supplementary Notes 1, 3, 5 and 7",
+        "arxiv:1405.2768v1 Section 2, Section 4",
+        "arxiv:2010.15410 abstract and publisher preview"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2603.18801v1 Eq. (1), SIR infected-trait PDE and recovered equation",
+        "arxiv:1405.2768v1 Eq. (1.2), mass-normalized replicator–mutator with linear fitness and a heat-transform solution"
+      ],
+      "reasoning": "Normalized replicator–mutator dynamics and spatially linear heat potential are established tools. Their Gaussian acceleration or positivity does not by itself assert that the coupled susceptible fraction tends to zero; the novel conclusion is a global exact SIR final-size boundary, plus the singular zero-mutation limit. No equivalence with a known final-size theorem was established.",
+      "searches": [
+        "Unbounded infectivity trait diffusion coupled SIR Gaussian closure final susceptible zero attack rate one Lambert asymptotic",
+        "replicator mutator SIR parabolic trait diffusion unbounded positive infection Gaussian distribution total attack probability one",
+        "trait diffusion susceptible Gaussian final size epidemic",
+        "epidemic infectivity mutation trait unbounded support final size 1 persistent extinction",
+        "arxiv:2603.18801v1 Supplementary Note 1",
+        "arxiv:1405.2768v1 Section 1 and Theorem 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant closest published records compare patch SEIR thresholds, mutation chemostat washout, age-structured population convergence, and switching dengue surfaces; none is a table of terminal susceptible masses for the evolving infectivity equation",
+        "Lamata-Otín et al. Supplementary Fig. 3 evaluates finite-threshold epidemic attack rates, not an analytic unbounded-domain terminal-size table"
+      ],
+      "reasoning": "The claim is a universal all-parameter asymptotic dichotomy, not a finite numerical entry. Database checks exposed no implication-equivalent identity; a failed search is not a proof of novelty.",
+      "searches": [
+        "2026 mathematical biology epidemiology ecology SIR predator prey nonlinear dynamics original stability bifurcation invariance time delay mathematical findings",
+        "finite maximum infectivity contact probability bound strictly positive final susceptible SIR model mutation trait",
+        "Neumann mutating trait structured SIR final size dichotomy bounded trait vs unbounded mutation support spectral lower bound",
+        "evolving infectivity Gaussian attack rate asymptotic",
+        "SIR epidemic model unbounded trait mutation diffusion eventual total infection zero susceptible"
+      ]
+    },
+    "rationale": "Primary arXiv:2603.18801v1/v2 introduce this precise evolving-infectivity SIR equation, discuss early-time Gaussian selection and policy-dependent finite-threshold attack rates; they do not state the global exact half-line susceptible extinction and bounded-domain sharp final size/noncommutation. Alfaro–Carles 2014 establish linear-fitness replicator-mutator acceleration but not a susceptible–recovered SIR terminal-size theorem. Broad heterogeneous-SEIR final-size literature was compared by statement, with unavailable full text documented as genuine residual risk. Eight actual semantic queries against published mathematical records and targeted primary-literature queries exposed no dominating theorem; lack of search hits alone was not used to infer uniqueness.",
+    "residual_risks": [
+      "Almeida et al. 2020/2021 full primary text was not accessible; a specialist could uncover a more general implication requiring comparison. The inspected description is not identical to a pathogen-strain mutation flow.",
+      "The general 2025 trait-structured model uses bounded trait intervals; whether other modifications of its framework imply related unbounded-domain consequences is not established.",
+      "Public literature and database searches are incomplete discovery tools; unpublished work outside inspected sources cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME PDE structure; earliest version and finite-time findings do not assert the uncapped exact infinite-time domain dichotomy",
+        "evidence": [
+          "arxiv:2603.18801v1 Eq.(1)-(2)",
+          "arxiv:2603.18801v1 Supplementary Notes 1,3,5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18801v1",
+        "material_read": "Complete accessible HTML v1 including main equation and Supplementary Notes 1-5, especially mutation operators, numerical prevalence threshold, and attack rate",
+        "method": "Read native scholarly HTML and compare each equation and asymptotic claim",
+        "title": "Interplay between evolutionary and epidemic time scales challenges the outcome of control policies",
+        "trigger": "Exact motivating infected-trait equation, original assumptions and earliest text"
+      },
+      {
+        "assessment": "Later version still uses a finite trait discretization and a prevalence stopping criterion, with unbounded-domain approximation justified for initial stages, not theorem for exact global limit",
+        "evidence": [
+          "arxiv:2603.18801v2 Eq.(1), lines around 43-73",
+          "arxiv:2603.18801v2 Supplementary Note 5 and 7"
+        ],
+        "identifier_or_url": "https://arxiv.t3mt.com/html/2603.18801v2",
+        "material_read": "Complete accessible HTML v2, main text and Supplementary Notes 1,3,5,7 including proposed sigmoid final susceptible approximation",
+        "method": "Read v2 HTML equations, notes, end-of-paper interpretation and figures captions",
+        "title": "Interplay between evolutionary and epidemic time scales challenges the outcome of control policies",
+        "trigger": "Revised scientific claims and full supplemental long-time comparison"
+      },
+      {
+        "assessment": "Known heat-equation transformations and acceleration precede this work; no stated susceptible final-size property or zero-mutation noncommutation",
+        "evidence": [
+          "arxiv:1405.2768v1 Eq.(1.2) and Theorem 2.1",
+          "arxiv:1405.2768v1 Introduction discussion of biological cutoffs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.2768v1",
+        "material_read": "Full scholarly HTML including problem Eq.(1.2), Theorem 2.1, main results, proofs and discussion of cutoff caveats",
+        "method": "Read full arXiv HTML, reconstruct difference between normalized fitness dynamics and coupled SIR mass budget",
+        "title": "Explicit solutions for replicator-mutator equations: extinction vs. acceleration",
+        "trigger": "Potentially dominating result for linear-fitness mutation and tail acceleration"
+      },
+      {
+        "assessment": "Potential broad prior coverage; inspected portions do not identify the mutant-inheritance, unbounded infectivity limit; retain explicit originality risk",
+        "evidence": [
+          "arxiv:2010.15410 abstract",
+          "DOI 10.1142/S0218202521500251 publisher-preview introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.15410",
+        "material_read": "Abstract and accessible publisher preview introduction; full primary paper not retrieved",
+        "method": "Read arXiv bibliographic abstract and publisher preview; compared stated model classes",
+        "title": "Final size and convergence rate for an epidemic in heterogeneous populations",
+        "trigger": "General result mentioning trait diffusion and epidemic final sizes"
+      },
+      {
+        "assessment": "Its general framework expressly assumes bounded trait intervals in Section 2; it does not imply the positive-diffusion half-line final-size exhaustion theorem",
+        "evidence": [
+          "Bernardi et al. 2025 DOI 10.1111/sapm.70091 Section 2: each trait space is a bounded interval",
+          "Bernardi et al. 2025 Sections 3-4: modeling and moment equations"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/sapm.70091",
+        "material_read": "Open-access primary HTML, abstract, introduction, Section 2 explicit bounded trait intervals and mesoscopic/macroscopic sections",
+        "method": "Read source paper model assumptions and compare underlying trait domains and claimed results",
+        "title": "Heterogeneously structured compartmental models of epidemiological systems: from individual-level processes to population-scale dynamics",
+        "trigger": "Potential broad mathematical model with evolving compartment-specific continuous traits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d87f0bc-3ae7-4909-8d0d-82b963341c76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 evolving-infectivity SIR article uses effectively unbounded trait diffusion for early-time analysis, finite trait numerical implementations, and prevalence cutoffs for final attack estimates. The exact infinite-time continuum model has a singular, domain-dependent terminal epidemic size: any positive mutation diffusion can force total mathematical eventual infection on the unbounded rate half-line, whereas a physically bounded infectivity trait gives a strictly positive universal sharp susceptible lower bound. This precisely locates why long-time continuum extrapolation and capped numerical epidemic outcomes may disagree and why arbitrarily small mutation cannot be treated as a regular perturbation. The bounded-case inequality is classical alone, but it is the comparison half of an analytically new domain/zero-diffusion singularity rather than an isolated textbook estimate; no epidemiological policy prediction is claimed.",
+    "status": "PASS"
+  }
+}
