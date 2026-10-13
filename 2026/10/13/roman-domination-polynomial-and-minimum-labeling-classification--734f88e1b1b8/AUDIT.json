@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For each label-two set F, exactly the edges between ground vertices unused by F are forced to have label one; all other non-two edges are freely zero or one. Inclusion-exclusion counts all F with exactly s incident ground vertices, yielding every coefficient without duplication. The extremal bound 2m+binom(w,2)>=n-1+(w-1)(w-2)/2+1_{n-w odd} has equality exactly for parity-compatible w=1 or2, where F must be a perfect matching, establishing all minimum functions. Independently checked every labeling for n=3..5 (59805 total), every F for n=3..6, and optimum counts through n=18 using actual verify.py. Finite checks corroborate rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gangabylaiah et al. (2021), Sections 2-3, https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf: general upper-coefficient identities and exact formulas for complete graphs, stars, wheels and complete bipartite graphs.",
+        "Zec (2023), Theorem 2.1, https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf: gamma_R(J(n,2))=n-1 with parity examples, but not the all-weight polynomial.",
+        "Chambers et al. (2009), https://epubs.siam.org/doi/10.1137/070699688: general extremal inequalities for Roman domination; no full polynomial assertion in the accessible abstract."
+      ],
+      "reasoning": "General coefficient identities from 2021 do not determine arbitrary coefficients of this family. The previously known minimum-weight value is strictly weaker than a complete coefficientwise formula and all-optimum multiplicities. The 2009 abstract alone cannot establish absence from its full text, so this remains a limited supporting comparison, not a novelty certificate.",
+      "searches": [
+        "Roman domination polynomial triangular graphs line graphs of complete graphs exact counting minimum Roman dominating functions",
+        "\"On the roman domination polynomial of graphs\" Deepak Indiramma 2021 pdf",
+        "\"Roman domination polynomial\" \"line graph\" formula"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2298/FIL2307067Z",
+      "doi:10.7251/BIMVI2102355G",
+      "doi:10.1080/09728600.2024.2342310",
+      "doi:10.1137/070699688",
+      "published-finding corpus indexed: Roman-domination polynomial of complete multipartite graphs",
+      "published-finding corpus indexed: Roman-domination polynomial of chain graphs",
+      "Roman-domination polynomial of sunlet graphs and comparable results for complete multipartite and chain graphs (scientific overlap comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zec (2023) Theorem 2.1 proves the minimum n-1 and provides one matching construction per parity, without an all-RDF coefficient formula: https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+        "Gangabylaiah et al. (2021) introduces the polynomial and gives general highest-degree coefficients and examples on other families: https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+        "Mahmoodi et al. (2024) Theorem 33 bounds the edge Roman domination number in graphs with a dominating induced matching, not an all-weight count for K_n: https://www.tandfonline.com/doi/full/10.1080/09728600.2024.2342310"
+      ],
+      "reasoning": "Knowing only gamma_R(T_n)=n-1 or a single optimal construction does not imply the complete R_n(z), the exhaustive classification of all minimum solutions, or its exact matching multiplicities. The present theorem recovers the known minimum as a corollary. Its proof makes the additional no-isolate graph inclusion-exclusion explicit. A general definition or enumerating algorithm is not itself the asserted closed family formula.",
+      "searches": [
+        "Roman domination polynomial triangular graphs line graphs of complete graphs exact counting minimum Roman dominating functions",
+        "Roman domination number and minimum Roman functions Johnson graph J(n,2) triangular graph",
+        "Roman domination polynomials of line graphs of complete graphs known formula",
+        "\"Roman edge domination\" \"complete graph\" \"number\" optimal functions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Triangular graph T_n is exactly Johnson graph J(n,2) and line graph L(K_n); see Zec (2023), pp.2068-2071, https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+        "Edge Roman domination of K_n is precisely ordinary Roman domination of its line graph, by the shared-vertex adjacency definition; see Mahmoodi et al. (2024), Section 3, https://www.tandfonline.com/doi/full/10.1080/09728600.2024.2342310"
+      ],
+      "reasoning": "All three names represent the identical labeling problem, so the exact Zec comparison is decisive for the known optimum. The identified edge Roman paper treats bounds and definitions, not this labeled coefficientwise polynomial. No stronger same-family all-order enumerator was found through these equivalent names.",
+      "searches": [
+        "Roman domination number and minimum Roman functions Johnson graph J(n,2) triangular graph",
+        "Roman domination polynomials of line graphs of complete graphs known formula",
+        "\"Roman domination polynomial\" \"line graph\" \"complete\"",
+        "\"Roman domination polynomial\" \"J(n,2)\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The reviewed 2023 primary paper prints the optimum value and illustrative parity configurations rather than a coefficient table: https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+        "The reviewed 2021 primary Roman-polynomial paper lists other graph families and general top-coefficient formulas: https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf"
+      ],
+      "reasoning": "Targeted indexed searches did not identify an exact all-n coefficient table or equivalent sequence. This is negative retrieval evidence only; unindexed sequences and datasets remain a residual priority risk.",
+      "searches": [
+        "OEIS \"Roman domination polynomial\" \"triangular graph\"",
+        "OEIS \"Roman domination\" \"Johnson\" minimum number functions",
+        "\"Roman domination polynomial\" \"T(n)\" triangular graph",
+        "Roman domination polynomial of triangular graphs exact coefficient multiplicities"
+      ]
+    },
+    "rationale": "The same-graph 2023 Zec theorem establishes only the minimum value n-1 and gives constructions of optimal functions; this is acknowledged prior work, not republished as new. The new finite expression counts every RDF by weight and structurally characterizes and counts all minimum functions. The 2021 Roman-polynomial paper treats other specific families, not line graphs of complete graphs. Related indexed complete-multipartite and chain-graph records are not equivalent graph classes. These comparisons support originality with explicit residual priority risk.",
+    "residual_risks": [
+      "A previously published or unindexed table could encode the same coefficients under edge Roman domination of complete graphs.",
+      "The 2009 general extremal paper was not available as full text; no conclusion about the absence of results in its body follows from its abstract alone.",
+      "The literature search cannot establish absolute priority or exclude unpublished results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MINIMUM_VALUE_KNOWN_NOT_COEFFICIENT_ENUMERATION",
+        "evidence": "Theorem 2.1 states gamma_R(J(n,2))=n-1 and Table 1 gives a sample matching construction for odd/even n; no all-weight R_n or optimum-count formula appears in the examined material.",
+        "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2023/37-7/37-7-6-18102.pdf",
+        "material_read": "Nine-page lawful public PDF, notably pp.2067–2071 (the complete Theorem 2.1 proof and figures), remaining J(n,3) sections scanned.",
+        "method": "Full parsed PDF text and page-image inspection of the two proof pages, plus searches for coefficient/enumerator terminology.",
+        "title": "On the Roman Domination Problem of Some Johnson Graphs",
+        "trigger": "Exact same graph and exact same Roman domination invariant."
+      },
+      {
+        "assessment": "GENERAL_DEFINITION_AND_OTHER_FAMILIES_NOT_SAME_ENUMERATOR",
+        "evidence": "Sections 2–3 give general top coefficient identities and polynomials for K_n, star, wheel, complete bipartite; do not give the polynomial of L(K_n).",
+        "identifier_or_url": "https://www.imvibl.org/buletin/bulletin_imvi_11_2_2021/bulletin_imvi_11_2_2021_355_365.pdf",
+        "material_read": "Eleven-page lawful public PDF, definition and coefficient theorems in Section 2, specific-family formula list and proofs in Section 3, references.",
+        "method": "Parsed full PDF and targeted find of line graph, Johnson and triangular; family theorems checked in the full text.",
+        "title": "On the Roman Domination Polynomial of Graphs",
+        "trigger": "Primary source defining the exact weight enumerator and potentially stronger general formulas."
+      },
+      {
+        "assessment": "NO_IDENTIFIED_EQUIVALENT_COEFFICIENTWISE_RESULT",
+        "evidence": "Theorem 33 states bounds relating edge Roman domination to induced matching in DIM graphs; no formula for complete-graph edge Roman coefficient distribution there.",
+        "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/09728600.2024.2342310",
+        "material_read": "Open full HTML, introductory graph definitions, the edge Roman portion and Theorem 33.",
+        "method": "Public full HTML material read and targeted searches for edge Roman, complete graph and enumerator.",
+        "title": "Dominating Induced Matchings and Other Graph Parameters",
+        "trigger": "Edge Roman domination is an equivalent formulation on complete graphs."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY_INSUFFICIENT_FOR_FULL_DOCUMENT_NOT_COVERING",
+        "evidence": "Published online 2009-10-29; abstract gives upper/lower bounds and extremal graph characterization, no enumeration claim; full text not available for a stronger negative conclusion.",
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/070699688",
+        "material_read": "Publisher abstract, author/date metadata; an institutional repository full-PDF link returned access denied.",
+        "method": "Publisher article page and abstract; public full text attempted, not inspected.",
+        "title": "Extremal Problems for Roman Domination",
+        "trigger": "Dated 2009 primary extremal Roman-domination background."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "734f88e1-b1b8-4c6a-bc1c-dc886ddc85a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "J(n,2) is the fundamental triangular/Johnson family, and known Roman minimum weights do not quantify the degeneracy or whole distribution of feasible functions. This work determines the full all-order weight enumerator, not just a single weight, and a natural exhaustive perfect-matching classification and exact count of minima. The parity difference is intrinsic to vertex-covering edge configurations, and the complete distribution can serve as exact input for weighted counting and sampling. No downstream theorem or publication-scale contribution is claimed.",
+    "status": "PASS"
+  }
+}
