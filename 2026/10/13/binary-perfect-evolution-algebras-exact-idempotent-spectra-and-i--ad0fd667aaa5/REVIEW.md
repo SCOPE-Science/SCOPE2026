@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** In characteristic two over the prime field, squaring in a natural basis is the linear map \(M^{\mathsf T}\). The idempotents are its fixed space, and their possible cardinalities are powers of two. Gaussian subspace Möbius inversion produces the all-rank exact distribution. An irreducible companion matrix proves the sharp dimension-two first existence of idempotent-free perfect algebras. Uniqueness of the natural basis up to permutation over \(\mathbb F_2\) justifies the finite isomorphism-orbit quotient. Exhaustive stdlib tests verify every invertible matrix through rank four and the four-rank 248-orbit decomposition; finite checks do not replace the general proof.
+
+**Originality — PASS, with historical risk.** The 2025 motivating paper already states the general equation for idempotents, the 2023 Wei–Zou classification already describes monomial orbits, and classical subspace Möbius inversion already counts fixed-point-free invertible linear maps. These are explicitly acknowledged. The more specific idempotent-multiplicity distribution and idempotent-free subclass isomorphism-orbit counts, including the sharp \(n=4\) figure of \(248\), were not located in the consulted records or published-finding corpus queries. The earlier general classification's full appendices were not read, leaving genuine risk of implicit prior coverage.
+
+**Value — PASS.** The classification refines a natural algebraic dichotomy: perfect evolution algebras over \(\mathbb C\) have nonzero idempotents in the cited result, but over \(\mathbb F_2\) one can be idempotent-free starting in dimension two. The exact distribution of idempotent numbers and the four-dimensional restricted isomorphism census quantify this algebraic boundary in a complete, reproducible manner. No result for larger fields or higher-rank isomorphism orbits is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
