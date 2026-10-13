@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Kernel dimension is invariant under \\(B\\mapsto PBQ\\) using the bijection \\(U\\mapsto PUQ^{-T}\\). For the rank-normal form of \\(B\\), the trailing \\(k(r-t)\\) entries of \\(U\\) are free, the lower-left block vanishes, and the leading \\(t\\times t\\) block is symmetric, contributing \\(t(t+1)/2\\) dimensions. Rank-nullity gives the image rank. Proposition 5.3 of the primary source parametrizes all fixed-residue shortest lifts by one affine translate of this kernel, so the power-of-two count follows. Exhaustive finite replay independently verifies every binary \\(B\\) through size \\(3\\times3\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary Z4 paper provides the all-lifts kernel parameterization but leaves the kernel to be computed instance by instance.",
+        "The preceding binary embedding paper concerns binary appended columns and does not count the Z4 affine lift kernel.",
+        "The later embedding literature over other rings uses different congruence/Witt parameterizations rather than this fixed Z4 kernel count."
+      ],
+      "reasoning": "General embedding frameworks do not state the accepted rank-only cardinality for the source Proposition 5.3 fiber.",
+      "searches": [
+        "shortest self-orthogonal embeddings Z4 all possible embeddings algorithm",
+        "matrix map BU^T+UB^T characteristic two rank kernel",
+        "shortest self-orthogonal embeddings binary all embeddings parameterization"
+      ]
+    },
+    "checked_sources": [
+      "An--Kim--Ling, arXiv:2606.08964v1 and DOI 10.1007/s10623-026-01948-1",
+      "An--Kaplan--Kim--Luo--Wang, arXiv:2511.05440",
+      "Public exact searches for the source title, the map \\(BU^T+UB^T\\), kernel dimension, lift count, and the closed exponent formula",
+      "Published-research semantic searches for shortest Z4 embeddings and rank-only kernel counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 5.3 says that every fixed-residue lift is obtained as \\(X+Y\\) with \\(Y\\in\\ker f_B\\).",
+        "The source algorithm therefore requires enumerating this kernel but does not simplify its dimension.",
+        "The new rank-normal-form calculation proves the exact dimension and hence the exact number of iterations in that fiber."
+      ],
+      "reasoning": "The source implies that counting lifts is equivalent to counting the kernel, but it does not imply the closed formula without the new linear-algebra calculation.",
+      "searches": [
+        "arXiv:2606.08964 Proposition 5.3 BU^T+UB^T",
+        "arXiv:2606.08964 Algorithm 1 all possible shortest self-orthogonal embeddings",
+        "arXiv:2511.05440 shortest self-orthogonal embeddings binary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states the affine-kernel parametrization of all lifts over a fixed residue embedding.",
+        "No inspected source states that the kernel dimension depends only on rank(B) with the displayed closed formula.",
+        "No exact search located the exponent \\(k(r-t)+t(t+1)/2\\) in the embedding context."
+      ],
+      "reasoning": "The searches cover the source terminology, the exact defining map, fixed-residue lift counting, and the rank-only formulation.",
+      "searches": [
+        "\"Embedding linear codes over Z4 into self-orthogonal codes\" kernel dimension lifts",
+        "\"B U^T + U B^T\" kernel dimension binary",
+        "\"number of shortest self-orthogonal embeddings\" Z4 fixed residue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The paper reports twelve database-improving codes found by its all-lifts search.",
+        "The inspected proposition and algorithm provide the kernel parametrization but no table of kernel dimensions or fiber cardinalities.",
+        "No searched database record supplied a count of the multiplier matrices \\(Y\\) for fixed \\(B\\)."
+      ],
+      "reasoning": "A source table of kernel dimensions or exact fiber sizes would directly cover the claim; none was located.",
+      "searches": [
+        "arXiv:2606.08964 Proposition 5.3 kernel f",
+        "arXiv:2606.08964 all possible shortest embeddings count",
+        "DOI 10.1007/s10623-026-01948-1 lift count"
+      ]
+    },
+    "rationale": "The June 2026 primary source gives the exact kernel parametrization used by its all-lifts algorithm but does not state the kernel dimension or number of lifts. Focused searches under the source identifier, the exact bilinear map, kernel dimension, lift count, and the closed exponent found no covering statement. The result is not a rephrasing of rank-nullity alone: the closed formula requires identifying the kernel structure uniformly for every rank-t block and converts the source algorithm into an exact search-space law.",
+    "residual_risks": [
+      "The same matrix-kernel dimension could appear as a general linear-algebra exercise or lemma outside coding theory under different notation.",
+      "The count is a labeled generator-matrix count, not a count of inequivalent codes.",
+      "Different binary residue embeddings must still be counted separately by the source algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KERNEL_PARAMETERIZATION_ONLY_NOT_CLOSED_COUNT",
+        "evidence": "The source states that all lifts with the same residue embedding are indexed by \\(\\ker f\\), but does not give \\(\\dim\\ker f\\) or a rank-only lift count.",
+        "identifier_or_url": "arXiv:2606.08964v1; DOI:10.1007/s10623-026-01948-1",
+        "material_read": "Abstract and introduction; binary-residue reduction; the exact-length regime; Proposition 5.3 defining \\(f(U)=BU^T+UB^T\\); the adjacent construction algorithm; computational-results discussion and conclusion.",
+        "method": "public preprint/full-text inspection",
+        "title": "Embedding linear codes over Z4 into self-orthogonal codes",
+        "trigger": "Primary source of the fixed-residue all-lifts parametrization and strongest same-object coverage risk."
+      },
+      {
+        "assessment": "BINARY_BACKGROUND_NOT_Z4_LIFT_FIBER_COUNT",
+        "evidence": "The work determines shortest binary self-orthogonal embeddings but does not contain the quaternary fixed-residue affine kernel of the accepted claim.",
+        "identifier_or_url": "arXiv:2511.05440",
+        "material_read": "Public abstract and embedding-framework description.",
+        "method": "public preprint metadata and abstract",
+        "title": "Shortest self-orthogonal embeddings of binary linear codes",
+        "trigger": "Closest preceding embedding framework and possible broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce0885ee-065f-4001-98ed-4e20fa2f5884",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary paper explicitly enumerates these kernels in its construction of all shortest embeddings and uses that search to discover twelve database-improving codes. A closed fiber-size formula gives the exact cost of this central search stage before any Lee-distance computation and shows that detailed entries of the appended binary block are irrelevant once its rank is known. The monotonic rank law gives an immediate structural comparison between residue embeddings and can guide which fibers are computationally expensive.",
+    "status": "PASS"
+  }
+}
