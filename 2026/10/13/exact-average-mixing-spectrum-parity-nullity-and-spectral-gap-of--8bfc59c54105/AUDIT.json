@@ -1,0 +1,179 @@
+{
+  "correctness": {
+    "rationale": "For each integer dimension \\(d\\ge3\\), the quotient has exactly \\(N=2^{d-1}\\) distinct characters indexed by even-weight binary vectors. Their adjacency energies \\(d-2r\\) are distinct across even r. Writing the averaged matrix as the Schur-square sum of its normalized spectral projectors, Fourier orthogonality shows that a weight-\\(w\\) character has multiplier \\(N^{-1}\\) times the number of ordered equal-even-weight pairs (a,c) summing to \\(b\\). Exactly \\(w/2\\) of the support of b must be chosen, and the outside choices have parity \\(j\\equiv w/2\\pmod2\\). When \\(w<d\\) the count is \\(\\binom{w}{w/2}2^{d-w-1}\\); when \\(w=d\\), it is \\(\\binom{d}{d/2}\\) iff \\(4\\mid d\\) and zero otherwise. This proves all multipliers and their binomial multiplicities, and yields only the all-ones parity character as a kernel vector in dimensions congruent 2 mod 4. The positive minimum is attained at the greatest nonterminal even weight because central binomial proportions decrease strictly, while the positive terminal value when \\(4\\mid d\\) is larger. The exact stand-alone integer checker independently confirms the formulas for dimensions three through nine (87,376 adjacency checks and 508 multiplier checks). The proof, not finite computation, covers the quantified infinite family.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutinho and Guo, arXiv:2404.02236, Section 4, Open Problem 4.1, expressly asks for full rank of average mixing on primitive distance-regular graphs.",
+        "Godsil, arXiv:1103.2578, Lemma 1.1, gives the Schur-square projector formula for every graph.",
+        "Coutinho, Godsil, Guo and Zhan, arXiv:1709.03591, give general rank/commutant structure but no folded-cube multiplier table.",
+        "Coutinho et al., arXiv:2208.08971, Theorem 3, provides exact computation procedures for arbitrary integral Hamiltonians."
+      ],
+      "reasoning": "The general projector identity and algorithms are explicit methods, not a graph-family spectrum or the parity-ranked nullity theorem. Even the complete ordinary-hypercube average-mixing spectrum does not directly determine the folded quotient, since antipodal amplitudes interfere before Schur squaring and only even-weight adjacency projectors survive. The parity-filtered projectors and ordered-pair count are needed.",
+      "searches": [
+        "primitive distance regular average mixing full rank",
+        "primitive distance-regular average mixing rank proof 2025 2026",
+        "cubelike graphs average mixing rank Schur squares idempotent Fourier quantum walk",
+        "quantum average mixing matrix continuous time walk weighted graph rank complete spectrum cycle graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.08971v1: exact average-mixing computation; primary MSC81P68 and public date 2022-08-18.",
+      "arXiv:2404.02236v1: primitive distance-regular graph rank open problem.",
+      "arXiv:1102.4898v3: folded cubes and instantaneous flatness.",
+      "arXiv:1103.2578v3: general average mixing and Schur-square projectors.",
+      "arXiv:1709.03591v1: general rank/commutant theory.",
+      "Fan–Luo (2013): instantaneous cubelike/folded mixing.",
+      "Natalie Mullin (2013): quotient Hamming instantaneous uniform mixing, Theorem 8.3.6.",
+      "arXiv:1305.5811: Chan on instantaneous mixing/complex Hadamard elements of folded-cube association schemes.",
+      "MathWorld Folded Cube Graph: standard graph identification, order and special cases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Godsil, arXiv:1103.2578, gives the all-graph formula Σ E_r∘E_r and proves rationality/positive semidefiniteness.",
+        "Coutinho et al., arXiv:2208.08971, gives a general exact computation method but not a closed formula for folded cubes.",
+        "Coutinho and Guo, arXiv:2404.02236, states the primitive distance-regular full-rank problem openly.",
+        "Godsil, arXiv:1102.4898, and Fan–Luo 2013 concern instantaneous mixing of the folded family."
+      ],
+      "reasoning": "Specific implication check: finite-time flatness on odd folded cubes neither forces a Cesàro mixing matrix to have full rank nor supplies its eigenvalues; the average is formed from all spectral projector Schur squares. A full-hypercube formula does not imply the folded quotient result by row restriction due to interference. A general exact algorithm makes the invariant computable but does not state or immediately entail the evaluated modulo-four rank and smallest-positive gap without a separate global counting argument. Explicit graph-family conclusions for small strongly regular/bipartite cases are considered previously covered, not independent new discoveries.",
+      "searches": [
+        "folded hypercube average mixing matrix long time Cesaro spectrum rank continuous quantum walks",
+        "folded cube Cesaro average mixing matrix full rank quantum walk positive definite",
+        "folded hypercube quotient of Boolean cube antipodal quantum walk average mixing matrix full rank eigenvalues",
+        "continuous time quantum walk Cesaro average mixing on folded hypercube full spectrum spectral gap rank",
+        "folded hypercube average mixing matrix rank paper"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Godsil, State Transfer on Graphs, arXiv:1102.4898, Section 17: folded-cube quotient and instantaneous flatness.",
+        "Fan and Luo, Mixing of Continuous Quantum Walks on Cubelike Graphs (2013), Theorem 6: instantaneous uniform mixing in shifted foldcube notation.",
+        "Mullin, Uniform Mixing of Quantum Walks and Association Schemes (2013), Section 8.3, Theorem 8.3.6: instantaneous uniform mixing of folded hypercube quotients.",
+        "Chan, arXiv:1305.5811: instantaneous mixing and complex Hadamard matrices in folded-cube Bose–Mesner algebras."
+      ],
+      "reasoning": "The quotient hypercube is also an augmented lower-dimensional cube, and several papers classify one-time uniform mixing or flat complex Hadamard elements. Neither an isolated time at which a matrix is uniform, nor a one-time impossibility result, implies the spectral multipliers of its infinite-time Cesàro matrix. The candidate computes that distinct object and its complete eigenspaces.",
+      "searches": [
+        "Mixing of continuous quantum walks on cubelike graphs Fan Luo 2013 PDF",
+        "folded cube quantum walk uniform mixing average Cesaro",
+        "folded cube Clebsch graph continuous-time quantum average mixing spectral eigenvalues zero rank",
+        "folded hypercube average mixing matrix long time Cesaro spectrum rank continuous quantum walks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld, Folded Cube Graph, lists graph orders, diameter, and small special cases but no ordinary Cesàro average-mixing spectrum.",
+        "Mullin (2013), Sections 2.7 and 8.3, studies folded-cube association schemes and instantaneous mixing, not this rank table.",
+        "A direct finite rational cross-check agrees in dimensions 3 through 9, including rank 31 of the 32-vertex folded six-cube; those tests alone are not originality evidence."
+      ],
+      "reasoning": "Exact-family and small-graph queries did not return a published table for this long-time matrix. This failed search is not used as proof of novelty, and numerical coincidences do not establish priority. The result is compared by object and implication, not just by matching graph titles.",
+      "searches": [
+        "Clebsch graph folded cube average mixing matrix nullity full rank",
+        "folded n cube average mixing spectra eigenvalues quantum walks",
+        "folded hypercube Cesaro mixing Schur spectral idempotents"
+      ]
+    },
+    "rationale": "The original graph-family literature on folded cubes concerns instantaneous uniform mixing; standard continuous-time Cesàro average-mixing papers provide general spectral-projector formulas and exact computation but not this closed dimension-uniform folded-cube spectrum or modulo-four nullity result. The 2024 Coutinho–Guo survey states a motivating primitive distance-regular full-rank open problem. Specific statements and their logical implications, not mere titles, were compared. A complete hypercube average-mixing spectrum is not mechanically a quotient average spectrum: parity-restricted projectors and cross-coset interference must be evaluated. Published small-graph special cases are treated as already covered. Literature incompleteness remains a genuine acknowledged priority risk.",
+    "residual_risks": [
+      "An unlocated algebraic-combinatorics paper or thesis could explicitly tabulate these Fourier multipliers or yield the same rank/gap as a corollary; database and web searches do not certify novelty.",
+      "The spectral formula follows from well-known projectors plus a new-to-this-record parity count; novelty of the evaluated family statement, rather than novelty of the general method, is assessed.",
+      "Previously known primitive strongly regular and complete bipartite special cases subsume isolated small-dimensional rank statements; new value is the unrestricted dimension-wise spectrum and boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General exact computability and projector formula, not the folded hypercube multipliers, rank transition, or gap.",
+        "evidence": [
+          "Theorem 3 computes rational entries exactly for integral graph Hamiltonians.",
+          "arXiv first submission 2022-08-18; primary MSC 81P68."
+        ],
+        "identifier_or_url": "arXiv:2208.08971v1",
+        "material_read": "PDF pages 1–4 (introduction, average-mixing definition, Theorem 3) plus paper bibliography.",
+        "method": "Read public first-version PDF and original dated arXiv metadata.",
+        "title": "Irrational quantum walks",
+        "trigger": "Direct middle-period qualifying source on exact arithmetic of quantum average mixing, primary MSC 81P68."
+      },
+      {
+        "assessment": "Explicit open problem and general Bose–Mesner mixing formalism; no evaluated folded-cube spectrum.",
+        "evidence": [
+          "Section 4, Open Problem 4.1: full rank for primitive distance-regular graphs.",
+          "Section 4.1 discusses positive semidefiniteness, not a folded-cube solution."
+        ],
+        "identifier_or_url": "arXiv:2404.02236v1",
+        "material_read": "PDF Sections 3–4 including page 12, Open Problem 4.1, and the immediately surrounding positivity discussion.",
+        "method": "Read public preprint PDF and source metadata.",
+        "title": "Selected Open Problems in Continuous-Time Quantum Walks",
+        "trigger": "Directly states the motivating rank question for primitive distance-regular graphs."
+      },
+      {
+        "assessment": "Covers instantaneous perfect mixing for odd folded cubes, not standard Cesàro rank or spectrum.",
+        "evidence": [
+          "Section 17.1 defines folded cubes and records odd-dimensional instantaneous perfect mixing."
+        ],
+        "identifier_or_url": "arXiv:1102.4898v3",
+        "material_read": "PDF Section 17, pages 29–30, including folded-cube quotient and uniform-mixing discussion.",
+        "method": "Read publicly available full-text PDF relevant section.",
+        "title": "State Transfer on Graphs",
+        "trigger": "Folded-cube terminology and the strongest closely related one-time mixing theorem."
+      },
+      {
+        "assessment": "Gives the precise general formula, but not the folded quotient evaluations.",
+        "evidence": [
+          "Equation for averaging eigenvalue projectors by Schur squares.",
+          "No folded-cube-specific rank/spectrum statement in the inspected source."
+        ],
+        "identifier_or_url": "arXiv:1709.03591v1",
+        "material_read": "PDF Introduction and Section 2 (Schur-square identity and commutant formulation) and relevant text matches for folded/cube.",
+        "method": "Read public full-text PDF and checked graph-family occurrences.",
+        "title": "A New Perspective on the Average Mixing Matrix",
+        "trigger": "Closest general theorem on the same averaged matrix and its rank."
+      },
+      {
+        "assessment": "Schur projector formula, rationality, paths/cycles and pseudocyclic cases; no folded-cube spectrum formula.",
+        "evidence": [
+          "Lemma 1.1 gives the general sum of Schur squares.",
+          "Paper abstract lists paths, odd cycles and pseudocyclic association schemes."
+        ],
+        "identifier_or_url": "arXiv:1103.2578v3",
+        "material_read": "PDF Abstract, Sections 1–3 including Lemma 1.1 and properties, plus searches for cube/Hamming/folded.",
+        "method": "Read primary full-text PDF and its relevant results.",
+        "title": "Average Mixing of Continuous Quantum Walks",
+        "trigger": "Foundational full-text paper for possible direct coverage of quotient-cube averages."
+      },
+      {
+        "assessment": "Theorem 6 concerns instantaneous mixing. Its terminology labels the augmented lower-dimensional cube, so its dimension is shifted by one relative to the quotient convention.",
+        "evidence": [
+          "Introduction and Theorem 6 explicitly characterize instantaneous uniform mixing, not the Cesàro spectral matrix."
+        ],
+        "identifier_or_url": "Fan and Luo (2013), Journal of Lanzhou University 49(1)",
+        "material_read": "Public author-uploaded full text including abstract, Lemmas 1–5 and Theorem 6.",
+        "method": "Inspected the primary article text, definitions and mathematical statements.",
+        "title": "Mixing of Continuous Quantum Walks on Cubelike Graphs",
+        "trigger": "Very close object/family; a title-only comparison would risk missing a covering theorem."
+      },
+      {
+        "assessment": "Focuses on instantaneous uniform mixing of Hamming quotients, including folded cubes; contains no established full folded-cube Cesàro spectrum in the examined relevant chapters.",
+        "evidence": [
+          "Theorem 8.3.6 is explicitly on uniform mixing at time π/4.",
+          "Chapter 3 differentiates instantaneous uniform mixing from average mixing."
+        ],
+        "identifier_or_url": "Natalie E. Mullin, University of Waterloo thesis (2013)",
+        "material_read": "University repository PDF Chapter 3, Section 2.7 and Chapter 8 Section 8.3, especially Theorem 8.3.6.",
+        "method": "Read lawful institutional open-access full PDF in relevant theorem and background sections.",
+        "title": "Uniform Mixing of Quantum Walks and Association Schemes",
+        "trigger": "A full primary thesis with an extensive folded-cube section and general mixing terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bfc59c5-4105-4cab-825b-1de7ca27ddd7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves an exact spectrum and sharp rank/conditioning invariant for all unweighted folded cubes, a natural class of quantum information transport graphs. A single parity mode disappears precisely in dimensions congruent 2 mod 4 while every other dimension is positive definite; the sharp spectral-gap formula is asymptotically of order inverse square root of dimension. Odd folded cubes of unbounded diameter address a motivated subfamily of a published primitive-distance-regular full-rank question. This is a meaningful complete structural family classification, rather than a table for an arbitrary slice or a computational novelty assertion.",
+    "status": "PASS"
+  }
+}
