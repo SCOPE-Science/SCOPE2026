@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Unique factorization reduces equality of two values to equality of all coordinate gcds. The identity \\(\\operatorname{lcm}_i\\gcd(e_i,\\alpha)=\\gcd(\\operatorname{lcm}_i e_i,\\alpha)\\) was reconstructed prime-adically, proving the converse direction. Divisors of \\(L\\) provide all and only the fibers; elementary coprime counting gives \\(\\varphi(L/d)\\); and comparing the parameters \\(L\\) and \\(L+T\\) proves every period \\(T\\) is a multiple of \\(L\\). The deterministic verifier checks 780 exponent tuples and 479656 parameter pairs, but the infinite theorem rests on the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 orbit theorem proves \\(O_n\\subseteq E_n\\) and characterizes when \\(O_n=E_n\\), while the inspected text gives \\(|E_n|=\\prod_i\\tau(e_i)\\) rather than a general formula for \\(|O_n|\\).",
+        "The exact fiber theorem yields \\(|O_n|=\\tau(L)\\) for every fixed \\(n\\), including cases where \\(O_n\\ne E_n\\)."
+      ],
+      "reasoning": "The later orbit framework is broader in algebraic viewpoint but does not dominate the present statement: its equality-with-exponential-divisors classification neither determines the parameter fibers nor implies their frequencies or the least period.",
+      "searches": [
+        "arithmetic function relative to fixed positive integer parameter fibers gcd(alpha,lcm exponents)",
+        "number of distinct values f_alpha(n) tau(lcm(e_i))"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.7546/nntdm.2021.27.1.22-26",
+      "doi:10.20948/mathmontis-2022-53-1",
+      "doi:10.7546/nntdm.2025.31.1.91-97",
+      "opaque semantic-search matches 19603ae53ef5, 1c41bf9ffead, f88f4760cf3b, fe7d873016df"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 theorem establishes only that \\(L\\) is a period; a period need not generally be least.",
+        "The 2021 equality theorem assumes a special factorization \\(\\beta=\\alpha\\beta'\\) with coprimality conditions and is not necessary.",
+        "The 2025 orbit classification addresses when every exponential divisor is attained, not which parameter values coincide."
+      ],
+      "reasoning": "Deriving the final theorem from the cited statements requires the new converse step \\(f_\\alpha(n)=f_\\beta(n)\\Rightarrow\\gcd(\\alpha,L)=\\gcd(\\beta,L)\\), obtained by taking the lcm of coordinate gcds. The least-period and exact multiplicity statements then follow and are not corollaries explicitly contained in the inspected prior results.",
+      "searches": [
+        "Mittou Derbal f_alpha gcd exponents exact period least period lcm",
+        "2021 DOI 10.7546/nntdm.2021.27.1.22-26 Theorems 2.2 2.3 2.4",
+        "2022 DOI 10.20948/mathmontis-2022-53-1 full text",
+        "2025 DOI 10.7546/nntdm.2025.31.1.91-97 orbit exponential divisors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The focal 2021 paper states \\(f_{\\alpha+L}(n)=f_\\alpha(n)\\) and a one-way sufficient equality criterion, not an if-and-only-if fiber classification.",
+        "The 2022 full text reuses the 2021 \\(L\\)-periodicity and does not give the exact parameter quotient."
+      ],
+      "reasoning": "Aliases using exact period, least period, equal parameter values, gcd-exponent function, and lcm of the exponents were checked. The proposed statement is strictly stronger than the source's sufficient condition and period assertion.",
+      "searches": [
+        "Mittou Derbal f_alpha gcd exponents exact period least period lcm",
+        "f_alpha(n)=product p_i^(gcd(e_i,alpha)) equality f_alpha(n)=f_beta(n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned semantic-search record supplied a table or database theorem giving these fibers or the orbit-size formula.",
+        "The 2022 paper identifies fixed-parameter sequences such as OEIS A066990, which concern variation in \\(n\\), not the exact parameter orbit for fixed \\(n\\)."
+      ],
+      "reasoning": "The finding is symbolic rather than a finite-table extraction, and the checked sequence references vary the base integer rather than classify the parameter fibers.",
+      "searches": [
+        "f_alpha(n)=product p_i^(gcd(e_i,alpha)) equality f_alpha(n)=f_beta(n)",
+        "number of distinct values f_alpha(n) tau(lcm(e_i))"
+      ]
+    },
+    "rationale": "The 2021 source proves only that \\(L\\) is a period and gives a sufficient equality condition. The 2022 full text again cites that periodicity without giving exact fibers or a least period. The 2025 paper explicitly introduces the orbit and classifies when it equals the full exponential-divisor set, but its inspected orbit section gives no formula \\(|O_n|=\\tau(L)\\), no parameter-fiber criterion, no within-period multiplicities, and no least-period statement. Targeted semantic searches found no published result implying the combined theorem.",
+    "residual_risks": [
+      "The function is recent and specialized, but a result using different notation outside the checked publication chain could escape keyword and semantic searches.",
+      "Originality is a literature-comparison conclusion rather than a formal uniqueness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves composition, one period, and a sufficient equality condition, but not exact fibers, least period, orbit cardinality, or multiplicities.",
+        "evidence": "Theorem 2.3 states only \\(f_{\\alpha+L}(n)=f_\\alpha(n)\\); Theorem 2.4 is conditional and one-way.",
+        "identifier_or_url": "doi:10.7546/nntdm.2021.27.1.22-26",
+        "material_read": "Full five-page public PDF, with particular attention to the definition and Theorems 2.2, 2.3, and 2.4 and their proofs.",
+        "method": "Full-text and page-level inspection.",
+        "title": "On new arithmetic function relative to a fixed positive integer. Part 1",
+        "trigger": "Defines the exact function and contains the source period and equality results most likely to cover the claim."
+      },
+      {
+        "assessment": "NOT_COVERING: the paper reuses the known periodicity while studying multiplicativity and divisibility sequences; it gives no exact parameter-fiber theorem.",
+        "evidence": "The relevant passage cites the 2021 period theorem; the remaining main results concern multiplicativity and divisibility-sequence properties.",
+        "identifier_or_url": "doi:10.20948/mathmontis-2022-53-1",
+        "material_read": "Public full text including all main theorems, conclusion, and the passage citing the known periodicity.",
+        "method": "Full-text inspection and in-document searches.",
+        "title": "New properties of an arithmetic function",
+        "trigger": "Same function, later paper, and therefore a direct implication risk."
+      },
+      {
+        "assessment": "NOT_COVERING: it defines the orbit, proves containment in the exponential divisors, and classifies equality with that set, but does not give the exact general fiber quotient or least-period/multiplicity theorem.",
+        "evidence": "The orbit section gives \\(|E_n|=\\prod_i\\tau(e_i)\\), examples for \\(72\\) and \\(36\\), and the equality classification, with no general formula \\(|O_n|=\\tau(L)\\).",
+        "identifier_or_url": "doi:10.7546/nntdm.2025.31.1.91-97",
+        "material_read": "Full public PDF, especially the monoid-action/orbit discussion and Theorem 2.6.",
+        "method": "Full-text, page-level, and term searches for orbit, period, least, and divisor-count notation.",
+        "title": "New properties of arithmetic functions related to gcd and lcm",
+        "trigger": "Later paper on the same function that explicitly introduces its orbit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98417f7a-6769-4ad7-83bd-80a6ea9760d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source literature treats periodicity and, later, the orbit of this parameterized arithmetic function. The theorem completes that natural parameter-dynamics question for every fixed integer: it identifies the exact quotient of the parameter set, proves the source period is minimal, gives the orbit cardinality in closed form, and supplies exact fiber frequencies. These are structural invariants of the orbit, not a finite numerical slice or a restatement of the source theorem.",
+    "status": "PASS"
+  }
+}
