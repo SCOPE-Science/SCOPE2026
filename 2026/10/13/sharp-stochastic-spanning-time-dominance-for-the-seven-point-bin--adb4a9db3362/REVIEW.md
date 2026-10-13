@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The subspace-lattice counting formula is exact: every failing ordered read sequence is contained in one or more proper binary subspaces, and their Möbius weights are \(1,-2,8\). A Fano incidence double count proves every nonsimplex multiset has a four-position plane; this supplies an analytic strict inequality at all deadlines of at least seven reads. At deadlines three through six the complete census of \(3432\) column multisets, including all \(2696\) full-rank multisets, is checked twice by algebraic inclusion–exclusion and an independently implemented subspace-state dynamic program. Both checks give sharp integer differences \(24,192,1080,5280\) and exactly 42 minimizers at each deadline. Zero and repeated columns are included, and the theorem's length, rank, and sampling assumptions are explicit.
+
+## Originality — PASS, with limitations
+The prior rank-two DNA coverage-depth optimizer and the 2025/2026 expected-depth literature do not imply the asserted seven-column, rank-three, deadline-by-deadline comparison. Kovačević's independent-sample theorem does cover the three-read optimum; the original assertion therefore concerns the stronger all-deadline distribution order, especially at four or more reads. The October 2026 general expected-optimality theorem does not establish stochastic dominance. Searches of related public mathematics records and earlier established claims found no tail theorem with this exact hypothesis/conclusion. An October 2026 distributed-storage paper was accessible at abstract level only, leaving the specific possibility of an equivalent inaccessible full-text result. Novelty is provisional pending a broader independent literature audit.
+
+## Value — PASS
+In noiseless molecular retrieval, a deadline guarantee is stronger than minimizing the average number of samples: an all-tail ordering simultaneously optimizes all bounded-time failure probabilities and any nondecreasing waiting-time cost. The seven-point Fano model is the smallest nontrivial binary rank-three full-projective code, and the 42 sharp runner-up multisets exhibit the first stability gap. The finite verification covers the small outstanding deadlines while the geometric argument handles the entire unbounded tail; the result is not a selected arbitrary statistic or a restatement of code distance.
+
+Self-review: passed. Independent audit: not yet performed.
