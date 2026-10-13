@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "For fixed zero-index sets, the least excess needed on each side is derived exactly by distinguishing a common-positive defender from the only alternative, two inside-index defenders. Substitution into the total weight gives an exact support-level optimization. Its equality cases yield one odd pattern and five even patterns; equality also forces one strong defender per side and all other positive labels to be 1. Direct exhaustive enumeration for \\(n=3,4,5\\) matches the classification exactly, and an independent parameter scan through \\(n=50\\) confirms the equality-pattern reduction. The infinite result relies on the written parity proof, not on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published exact-value work covers several graph families and crown graphs at the scalar level.",
+        "A separate exact result for complete multipartite graphs with at least three parts concerns a structurally different class."
+      ],
+      "reasoning": "No broader theorem inspected determines all minimum strong Roman functions of crowns. In particular, crowns are not complete multipartite for \\(n\\ge3\\) because each vertex has exactly one nonneighbor across the displayed bipartition.",
+      "searches": [
+        "strong Roman domination complete multipartite graphs",
+        "strong Roman domination regular bipartite graph",
+        "strong Roman domination exact graph families"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1502.03933",
+      "DOI 10.1016/j.dam.2016.12.013",
+      "DOI 10.3390/math14091535",
+      "Published exact-result records for strong Roman domination on complete multipartite and other graph families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 12 of DOI 10.3390/math14091535 implies only the minimum weight \\(n+1\\) or \\(n+2\\) and exhibits one optimal labeling.",
+        "arXiv:1502.03933 introduces the invariant and general bounds but contains no crown-graph classification.",
+        "For even \\(n\\), the new theorem has \\(n(n^2+n-1)\\) optimizers, so the single canonical witness from the scalar proof does not determine the full optimum set."
+      ],
+      "reasoning": "The new statement strictly refines the known scalar result. Knowing an optimum value and one witness does not imply which other functions attain it, nor their exact number; the fixed-zero-support analysis is additional structure.",
+      "searches": [
+        "doi:10.3390/math14091535 crown strong Roman Proposition 12",
+        "arXiv:1502.03933 strong Roman domination bounds",
+        "strong Roman domination crown graph minimum labeling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3390/math14091535, Proposition 12 gives the exact crown-graph minimum value.",
+        "The same paper defines a crown as a complete bipartite graph with a complete matching removed.",
+        "No inspected source stated the five-family optimum classification or the count \\(n(n^2+n-1)\\)."
+      ],
+      "reasoning": "The main alias is a matching-deleted balanced complete bipartite graph. Searches under both crown terminology and that construction recovered the known scalar proposition but not the complete optimum-family statement.",
+      "searches": [
+        "strong Roman domination crown graph n+1 n+2 minimum functions",
+        "strong Roman domination K n n minus perfect matching",
+        "Cr_n strong Roman domination",
+        "minimum functions crown graph strong Roman"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2026 crown proposition gives a piecewise scalar formula and a canonical witness, not a table or enumeration of all optimizers.",
+        "No exact-count table or database entry was located for the optimizer family."
+      ],
+      "reasoning": "The classification is not a recomputation of a known table: the closest exact source records only the minimum value.",
+      "searches": [
+        "n(n^2+n-1) strong Roman crown",
+        "minimum strong Roman functions crown graph count",
+        "gamma_StR-function crown graph"
+      ]
+    },
+    "rationale": "The 2026 crown-graph paper already proves the scalar parity formula, so that part is explicitly excluded from the originality claim. The accepted claim is the complete optimizer classification and exact counts. Searches under crown, matching-deleted biclique, minimum-function, gamma-function, and exact-count formulations recovered the scalar proposition and neighboring family results but not this classification.",
+    "residual_risks": [
+      "A poorly indexed source may classify minimum strong Roman functions using different terminology such as gamma-functions without using crown-graph keywords.",
+      "Search absence is not treated as a proof of novelty; the pass rests mainly on direct comparison with the primary 2026 crown paper, which covers the scalar value but not the optimizer classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines strong Roman domination and establishes general complexity and bounds; no crown-graph optimizer classification was found.",
+        "evidence": "The first public arXiv version is dated 2015-02-13; the work identifies strong Roman domination as a graph parameter and the searchable text does not present the crown result.",
+        "identifier_or_url": "arXiv:1502.03933; DOI 10.1016/j.dam.2016.12.013",
+        "material_read": "Abstract, formal definition, classification metadata, and searchable full text around the defining section; full text was also searched for crown and perfect-matching terminology.",
+        "method": "Lawful open-access preprint and publisher-indexed text.",
+        "title": "On the Strong Roman Domination Number of Graphs",
+        "trigger": "Foundational definition, bounds, and possible early family coverage."
+      },
+      {
+        "assessment": "DIRECTLY COVERS the scalar value \\(\\gamma_{\\mathrm{StR}}(\\operatorname{Cr}_n)=n+1\\) for odd n and \\(n+2\\) for even \\(n\\). It does not state the five-family classification or count all minimum functions. The scalar statement is therefore excluded from the new originality basis.",
+        "evidence": "Proposition 12 states the piecewise value and constructs a canonical optimal function; exact-count and minimum-function searches did not reveal an optimizer enumeration in the article.",
+        "identifier_or_url": "DOI 10.3390/math14091535",
+        "material_read": "Full HTML text covering the crown definition, strong Roman definition, Proposition 12, its stated parity formula, and the beginning and substance of its crown proof.",
+        "method": "Open-access full article text.",
+        "title": "Complexity and Exact Values for [k]-Roman and Strong Roman Domination for Specific Graph Families",
+        "trigger": "Highly relevant primary source because it explicitly treats strong Roman domination of crown graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a950c398-436e-4df4-afe8-70694c3a6785",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim determines the entire optimal solution space for a canonical dense regular bipartite family, not just another scalar evaluation. It exposes five even-order support geometries and an exact cubic optimizer count versus a rigid \\(n\\)-element odd-order family. This structure is useful for symmetry-aware enumeration and exact-algorithm benchmarks and is not implied by the already known minimum value.",
+    "status": "PASS"
+  }
+}
