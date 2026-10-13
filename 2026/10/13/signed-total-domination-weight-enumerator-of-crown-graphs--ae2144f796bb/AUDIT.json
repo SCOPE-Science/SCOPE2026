@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For each matched pair, N(a_i)=B\\{b_i} and N(b_i)=A\\{a_i}. Thus every A-side inequality is equivalent to B_f>=2 and every B-side inequality to A_f>=2; parity upgrades the threshold to 2 for even n and 3 for odd n. The enumerators and minimum layer then follow by independent binomial counting on the two sides. Exhaustive enumeration for 3<=n<=8 agrees with every stated coefficient and extremal count.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zelinka 2001 gives a regular-graph lower bound and exact values for complete bipartite graphs.",
+        "Liang 2012 gives exact minimum parameters for complete multipartite graphs.",
+        "Henning 2004 develops general bounds for signed total domination."
+      ],
+      "reasoning": "General bounds and scalar values do not classify every feasible labeling on the crown graph. The complete-multipartite class does not contain crowns for n>=3.",
+      "searches": [
+        "signed total domination regular crown graph exact",
+        "signed total domination complete bipartite minus matching",
+        "signed total domination complete multipartite graphs exact"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1023/A:1013782511179",
+      "arXiv:1205.0343v1",
+      "doi:10.1016/j.disc.2003.06.002"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zelinka Proposition 4 gives gamma_st(K_{m,n}) from whole-side sums.",
+        "Liang defines the same parameter and solves complete multipartite graphs.",
+        "Zelinka 2001 also gives gamma_st(C_n)=n, covering the scalar n=3 crown case because Cr_3 is C_6."
+      ],
+      "reasoning": "The new proof uses N(a_i)=B\\{b_i}, not N(a_i)=B. For odd n this missing matched neighbor raises the allowed side-sum threshold from 1 to 3, so the complete-bipartite result does not imply the crown classification; for even n the proof explains why the feasible families coincide. The n=3 scalar overlap is explicitly excluded from the novelty basis; the all-function factorization for arbitrary n is not implied.",
+      "searches": [
+        "Zelinka Signed total domination number of a graph Proposition 4 complete bipartite",
+        "Liang Signed and Minus Domination in Complete Multipartite Graphs signed total theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zelinka 2001 defines the same STDF and treats K_{m,n}, but not K_{n,n}-M_n.",
+        "Liang 2012 treats complete multipartite graphs; a crown graph is not complete multipartite for n>=3."
+      ],
+      "reasoning": "The crown condition depends on the deleted matched nonneighbor and is not an alternate naming of the complete-bipartite formula. No equivalent crown statement was located.",
+      "searches": [
+        "signed total domination crown graph",
+        "signed total dominating functions crown graph K_n,n minus perfect matching",
+        "signed total domination polynomial crown graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No crown-specific exact table or all-function formula was found in the targeted database and web searches."
+      ],
+      "reasoning": "The retained formulas enumerate all functions by both positive-label counts and weight, which is strictly more information than a minimum-parameter table.",
+      "searches": [
+        "crown graph signed total domination exact enumeration",
+        "complete bipartite minus perfect matching signed total dominating function count"
+      ]
+    },
+    "rationale": "The closest primary results determine the scalar signed total domination number for complete bipartite or complete multipartite graphs, while the retained claim is an iff classification and all-weight enumeration for the matching-deleted biclique. Targeted crown/perfect-matching-deletion searches found no statement implying this factorized enumerator or its parity-sensitive deletion comparison. The scalar case n=3 is already covered because Cr_3 is C_6, and scalar minima are not the basis of the originality assessment.",
+    "residual_risks": [
+      "An older paper or thesis may contain the crown specialization under alternate terminology without being surfaced by the searches.",
+      "The earliest-source repository supplies 2001-01-01 as metadata date although the journal issue itself gives only the year 2001."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the identical invariant and proves scalar values for K_{m,n}; does not state the matching-deleted crown all-function classification.",
+        "evidence": "The article states N(v)-sum >=1, the regular lower bound, and gamma_st(K_{m,n}) by parities.",
+        "identifier_or_url": "doi:10.1023/A:1013782511179",
+        "material_read": "Primary article text covering the definition, regular lower bound, and Proposition 4 for complete bipartite graphs; PDF screenshot retrieval was attempted but timed out, while parsed full text was available.",
+        "method": "Open primary repository PDF text plus repository metadata.",
+        "title": "Signed total domination number of a graph",
+        "trigger": "Foundational exact signed-total source and closest complete-bipartite comparison."
+      },
+      {
+        "assessment": "Determines scalar signed-total domination numbers for complete multipartite graphs, not crowns or all feasible functions.",
+        "evidence": "The paper explicitly restricts its graph class to K_{n_1,...,n_k}; crowns are not in that class for n>=3.",
+        "identifier_or_url": "arXiv:1205.0343v1",
+        "material_read": "Accessible arXiv full HTML including definitions, scope, and complete-multipartite theorem development.",
+        "method": "arXiv full text.",
+        "title": "Signed and Minus Domination in Complete Multipartite Graphs",
+        "trigger": "Broader exact graph-class treatment of the same minimum parameter."
+      },
+      {
+        "assessment": "General bound-focused treatment; no crown-specific all-function formula was exposed in accessible material.",
+        "evidence": "The abstract states lower bounds for gamma_st and upper bounds for the upper signed-total parameter.",
+        "identifier_or_url": "doi:10.1016/j.disc.2003.06.002",
+        "material_read": "Institutional bibliographic record and abstract.",
+        "method": "Open institutional publication record.",
+        "title": "Signed total domination in graphs",
+        "trigger": "General foundational bounds and terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae2144f7-96bb-48ad-89b0-6d491b7b6f83",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is a complete structural classification and exact weight distribution for a canonical matching-deleted biclique, not merely a recomputation of the minimum. The parity-sensitive comparison with K_{n,n} pinpoints exactly when deleting a perfect matching changes every feasible signed-total labeling, giving a natural robustness/boundary statement for an established invariant.",
+    "status": "PASS"
+  }
+}
