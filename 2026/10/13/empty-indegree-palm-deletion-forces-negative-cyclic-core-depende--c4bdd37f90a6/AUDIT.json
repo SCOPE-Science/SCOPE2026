@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Conditioning a specified vertex to have zero indegree forces every image to avoid it. The restriction to the remaining labels is therefore exactly a uniform random mapping of size n-1 and preserves all cyclic vertices. The exact cyclic-point tails are proved by rooted-forest enumeration and yield strict stochastic growth with n. The Palm identity and all covariance signs then follow directly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hansen--Jaworski develop a general exchangeable-indegree mapping model and derive cyclic-point and component distributions from the indegree vector.",
+        "Their companion local-properties work studies predecessor and successor statistics and is classified Primary 60C05.",
+        "Drmota proves joint local-limit results for counts in distance strata from the cyclic set."
+      ],
+      "reasoning": "These sources are broader in random-mapping distribution theory, but none of the inspected statements supplies the specific size-biased deletion law for the total zero-indegree count. Separate marginal formulas for indegrees and cyclic points do not determine their mixed law.",
+      "searches": [
+        "DOI:10.1002/rsa.20187",
+        "DOI:10.1239/aap/1208358892",
+        "DOI:10.1002/rsa.3240060223"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1002/rsa.20187",
+      "DOI:10.1239/aap/1208358892",
+      "DOI:10.1002/rsa.3240060223",
+      "Kolchin, Random Mappings (1986)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Hansen--Jaworski article gives the marginal cyclic-point distribution and later discusses expected zero-indegree counts, but the inspected theorem statements do not connect the total zero-indegree count to the cyclic core by size-biasing.",
+        "The same article's deletion coding is an algorithmic representation, not a statement that weighting by the total number of deletable vertices produces the size-(n-1) cyclic-core law.",
+        "Drmota's strata are defined by directed distance to the cyclic set; zero indegree is a different property and can occur at many positive distances."
+      ],
+      "reasoning": "The accepted implication requires summing the fixed-empty-vertex conditional law over all empty vertices. That mixed Palm step is additional information beyond either the marginal indegree distribution or the marginal cyclic-point law.",
+      "searches": [
+        "Hansen Jaworski exchangeable in-degrees zero indegree cyclic vertices",
+        "Drmota correlations strata random mapping",
+        "random mapping local structure origins cyclic points",
+        "uniform random mapping zero indegree cyclic core"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted searches located random-mapping cyclic-point and indegree literature but no record stating the accepted Palm identity or exact threshold covariance.",
+        "Searches covered the aliases zero indegree, leaf, origin, cyclic vertex, cyclic point, functional digraph, covariance, joint law, and Palm deletion."
+      ],
+      "reasoning": "The terminology in the literature varies between zero-indegree vertices, origins, local structure, cyclic points, and functional digraphs. The comparison therefore used all of these aliases and then inspected the closest full primary paper rather than treating search absence as novelty proof.",
+      "searches": [
+        "uniform random mapping zero indegree vertices cyclic points covariance",
+        "random mapping leaves cyclic vertices Palm deletion",
+        "random mapping empty indegree cyclic points joint",
+        "number of leaves cyclic points random mapping",
+        "zero indegree count total cyclic vertices random functional digraph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact literature record matching the threshold covariance or the Palm reduction to L_{n-1} was located."
+      ],
+      "reasoning": "The result is an all-n distributional identity. The exhaustive table in the package is only a replay and is not used to infer the theorem.",
+      "searches": [
+        "\"random mapping\" \"indegree zero\" cyclic points covariance",
+        "\"random mapping\" leaves cycles covariance",
+        "\"zero indegree\" \"cyclic points\" mapping"
+      ]
+    },
+    "rationale": "The closest full inspected primary source treats both indegree structure and cyclic points and even uses iterative deletion of zero-indegree vertices, but it does not state the size-biased zero-indegree/cyclic-core identity or its all-monotone covariance consequence. The nearest correlation paper studies distance strata rather than zero-indegree vertices. Older local-structure literature is retained as an explicit residual risk.",
+    "residual_risks": [
+      "Older local-structure or random-mapping monograph literature may contain the same mixed identity in origin/leaf terminology.",
+      "The zero-indegree deletion mechanism is elementary once isolated, so an equivalent unstated consequence of a classical coding may have been noticed elsewhere.",
+      "The cyclic-point tail distribution is classical; originality is limited to the explicit Palm deletion law and its mixed dependence consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BROAD_INDEGREE_AND_CYCLIC_POINT_THEORY_WITHOUT_TOTAL_ZERO_INDEGREE_PALM_LAW",
+        "evidence": "The article derives cyclic-point distributions from exchangeable indegrees and explicitly deletes zero-indegree vertices in its coding algorithm. Its final remarks discuss expected numbers of zero-indegree vertices in constrained mapping models. The inspected full text does not state the accepted mixed Palm or monotone-covariance law.",
+        "identifier_or_url": "DOI:10.1002/rsa.20187",
+        "material_read": "Full 22-page article obtained through authorized institutional access after open-access searches failed; inspected introduction, model definition, cyclic-point theorem and proof, deletion-code construction, special examples, final remarks, and references.",
+        "method": "Compared theorem statements and proofs for a joint law involving the total zero-indegree count and cyclic-point count, including whether the deletion algorithm was converted into a size-biased identity.",
+        "title": "Random Mappings With Exchangeable In-Degrees",
+        "trigger": "Closest source because it treats the same mapping object, the full indegree sequence, zero-indegree deletion, and cyclic-point distributions."
+      },
+      {
+        "assessment": "LOCAL_PREDECESSOR_SUCCESSOR_DISTRIBUTIONS_NOT_ACCEPTED_MIXED_CORE_LAW",
+        "evidence": "The publisher classifies the paper Primary 60C05 and describes exact distributions for local predecessor and successor variables. The stated scope does not expose the total zero-indegree/cyclic-core Palm identity.",
+        "identifier_or_url": "DOI:10.1239/aap/1208358892",
+        "material_read": "Publisher abstract, scope, keywords, MSC classification, and reference list.",
+        "method": "Compared the stated predecessor/successor program with the zero-indegree-count versus cyclic-core claim.",
+        "title": "Local properties of random mappings with exchangeable in-degrees",
+        "trigger": "Companion source focused on local mapping structure and carrying verified probability classification."
+      },
+      {
+        "assessment": "DISTANCE_STRATA_CORRELATIONS_NOT_ZERO_INDEGREE_FRINGE",
+        "evidence": "The abstract studies counts of points at specified directed distance from cyclic points. Zero indegree is not a distance stratum, so the stated joint local-limit theorem does not directly imply the accepted identity.",
+        "identifier_or_url": "DOI:10.1002/rsa.3240060223",
+        "material_read": "Publisher abstract, publication history, and cited-scope description.",
+        "method": "Checked whether its strata statistic coincides with zero indegree or gives a stronger joint theorem covering the accepted claim.",
+        "title": "Correlations on the strata of a random mapping",
+        "trigger": "Most plausible older source explicitly devoted to correlations involving the cyclic stratum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4bdd37f-90a6-4341-a2c3-d18c53458f05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Zero-indegree vertices and cyclic vertices are canonical fringe and core observables of a functional digraph. The theorem gives an exact finite local-global relation, not merely a marginal recomputation: size-biasing by the fringe count reduces the core law by one vertex. The resulting sign holds simultaneously for every increasing core functional and has exact threshold formulas.",
+    "status": "PASS"
+  }
+}
