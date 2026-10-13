@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For the four-site one-excitation basis, exact Pauli action gives H_4|j>=2(|j-1>+|j+1>). The opposite-momentum vectors and every linear combination in their span therefore have energy zero. Fixed excitation makes each one-qubit reduced state diagonal. Substitution into the proven average-purity form of Q gives Q=3/4-[Re(a conjugate(b))]^2, hence the exact interval [1/2,3/4]. The standard-library checker replays both endpoints exactly. No finite experiment is used to prove the continuous formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meyer–Wallach cover momentum eigenstates and then display a formula phrased for fixed-Sz eigenstates.",
+        "Ichikawa–Sasaki–Tsutsui cover symmetric W_k/Dicke states rather than degenerate standing-wave mixtures."
+      ],
+      "reasoning": "The source formula would look broader only if every energy eigenvector were a translation eigenvector. The explicit degenerate standing wave falsifies exactly that step, so the displayed source formula cannot dominate the accepted claim.",
+      "searches": [
+        "Meyer Wallach Heisenberg n=4 one excitation degenerate eigenstate Q=1/2 source formula 3/4",
+        "Global entanglement multiparticle systems Eq Heisenberg translation invariance degeneracy counterexample eigenstate",
+        "Meyer-Wallach one-magnon standing wave entanglement",
+        "Meyer-Wallach fixed magnetization Heisenberg degeneracy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0108104",
+      "DOI:10.1063/1.1497700",
+      "arXiv:quant-ph/0305094",
+      "DOI:10.26421/QIC3.6-5",
+      "arXiv:0809.1932",
+      "DOI:10.1103/PhysRevA.79.052307"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source plane-wave calculation implies Q=3/4 only for uniform one-site probabilities.",
+        "Brennen allows Q to be evaluated from site purities but supplies no theorem forcing those purities uniform in a degenerate energy eigenspace.",
+        "The later Dicke analysis concerns a symmetry-restricted family."
+      ],
+      "reasoning": "None of the inspected prior statements implies constancy of Q on the degenerate eigenspace; the accepted formula instead shows the missing degree of freedom explicitly. The source claim is contradicted rather than subsuming the result.",
+      "searches": [
+        "quant-ph/0108104 Heisenberg eigenstate formula implication degeneracy",
+        "quant-ph/0305094 Meyer Wallach average purity Heisenberg eigenspace",
+        "0809.1932 Dicke Meyer Wallach one-magnon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brennen gives an equivalent average-purity formula for Q but no energy-degeneracy statement.",
+        "No returned semantic record stated the exact four-site range [1/2,3/4]."
+      ],
+      "reasoning": "The average-purity identity is an equivalent definition of Q, not an equivalent statement about the values of Q across a degenerate Heisenberg eigenspace.",
+      "searches": [
+        "\"maximal only on the ground state\" Meyer Wallach Heisenberg entanglement counterexample",
+        "Meyer Wallach Heisenberg antiferromagnet excited state Q=1 Dicke half filling",
+        "Global entanglement multiparticle systems ground state maximal only excited Dicke correction",
+        "Meyer Wallach Q maximal excited eigenstate Heisenberg chain half filling",
+        "arXiv:quant-ph/0305094 average purity Meyer-Wallach Q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic-record searches returned no matching correction; nearest returned records concerned unrelated mathematical counterexamples.",
+        "Current-week and prior-week archive ledgers were checked for Meyer–Wallach/Heisenberg overlap; no recoverable prior claim matches this correction."
+      ],
+      "reasoning": "No exact database record or own-ledger row was found containing the four-site zero-energy one-magnon range or the standing-wave counterexample.",
+      "searches": [
+        "quant-ph/0108104 Heisenberg eigenstate degeneracy translation invariance error",
+        "\"Q(Sz = s eigenstate\" counterexample",
+        "Meyer Wallach Heisenberg n=4 one excitation Q 1/2 3/4"
+      ]
+    },
+    "rationale": "The direct source, the average-purity reformulation, and later symmetric-state literature were compared at statement and implication level. The direct source gives the constant one-magnon plane-wave value but does not treat arbitrary vectors in a degenerate energy eigenspace. Exact source/alias/value/degeneracy searches and own-ledger checks located no implication-equivalent correction. The residual risk of an obscure unindexed note is recorded.",
+    "residual_risks": [
+      "An obscure erratum, lecture note, or unindexed discussion may already point out the same degeneracy caveat.",
+      "The claim intentionally does not infer analogous ranges for other chain lengths without separate analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source correctly evaluates momentum eigenstates but treats translation invariance as if it forced every energy eigenvector to be a momentum eigenvector; it does not address degenerate linear combinations.",
+        "evidence": [
+          "arXiv:quant-ph/0108104 pp. 2-5; one-magnon plane waves and Heisenberg formula on the displayed chain-analysis page."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0108104; DOI:10.1063/1.1497700",
+        "material_read": "Full arXiv text around the definition of Q, Proposition 3, and the Heisenberg-chain calculation, including the s=1 plane-wave paragraph and the displayed 4s(n-s)/n^2 formula.",
+        "method": "Full-text and rendered-page inspection.",
+        "title": "Global entanglement in multiparticle systems",
+        "trigger": "Direct source of the one-magnon plane-wave statement and the claimed Heisenberg eigenstate formula."
+      },
+      {
+        "assessment": "Provides the exact average-purity identity used in the proof but does not state or resolve the Heisenberg spectral-degeneracy issue.",
+        "evidence": [
+          "Brennen Eq. (6): Q is twice one minus the average one-qubit purity."
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0305094; DOI:10.26421/QIC3.6-5",
+        "material_read": "Full text around Eqs. (5)-(6) and the discussion of one-qubit purities and the W-state value.",
+        "method": "Full-text and rendered-page inspection.",
+        "title": "An observable measure of entanglement for pure states of multi-qubit systems",
+        "trigger": "Closest equivalent formulation of the Meyer–Wallach quantity."
+      },
+      {
+        "assessment": "Studies permutation-symmetric W_k/Dicke states, not arbitrary superpositions inside the degenerate one-magnon energy eigenspace, so it does not cover the exact interval proved here.",
+        "evidence": [
+          "arXiv:0809.1932 Sec. IV, especially the W_k definition and Meyer–Wallach endpoint discussion."
+        ],
+        "identifier_or_url": "arXiv:0809.1932; DOI:10.1103/PhysRevA.79.052307",
+        "material_read": "Full text around the introduction and Sec. IV on W_k/Dicke states, including the statement that the balanced Dicke state maximizes the Meyer–Wallach endpoint.",
+        "method": "Full-text and rendered-page inspection.",
+        "title": "Entanglement Measures for Intermediate Separability of Quantum States",
+        "trigger": "Later primary literature explicitly treating Meyer–Wallach values for W and Dicke states."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b496ff03-e699-42e0-a3f5-2fe7ed3be47d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result corrects a structural symmetry inference in a foundational spectral application of the Meyer–Wallach measure. It gives the complete range on the smallest nontrivial degenerate one-magnon eigenspace, showing that energy and excitation number alone do not determine Q there. This is a motivated boundary/counterexample, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
