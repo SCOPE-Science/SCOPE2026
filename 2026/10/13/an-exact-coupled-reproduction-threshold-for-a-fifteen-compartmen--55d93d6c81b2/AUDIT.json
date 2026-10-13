@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For the published Eq. (1), the eight-dimensional infected linearization is F-V with new-entry states E_C,E_M,E_r and lower triangular V with positive diagonal a,b,c,d,e,u,g,h. Exact symbolic inversion and path accounting yield a three-by-three block-upper-triangular next-generation matrix, with a coupled two-by-two human block and rodent eigenvalue. Because V is a nonsingular M-matrix, the standard threshold theorem establishes local asymptotic stability for spectral radius less than one and instability for greater than one, without asserting either conclusion at equality. An exact rational parameter assignment satisfying strict positivity gives G=[[329/180,56/45,0],[8/45,47/180,1/4],[0,0,1/4]], corrected radius 47/45+sqrt(27049)/180>1 and separate published maximum 7/8<1. The standalone verify.py was executed from its packaged source path and returned VERIFY_OK. The proof neither relies on finite simulation as an infinite argument nor claims global dynamics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diekmann–Heesterbeek–Roberts (DOI:10.1098/rsif.2009.0386) establishes the generic reduction from a full next-generation matrix to entry states.",
+        "van den Driessche–Watmough (DOI:10.1016/S0025-5564(02)00108-6) provides the reproduction-threshold theorem.",
+        "The published September 2026 two-patch SEIR analysis reports a distinct counterexample to a universal isolated-threshold bound."
+      ],
+      "reasoning": "The generic theorem alone prescribes a computation but does not contain the eight-by-eight F,V entries of Acheneje et al., their three-by-three reduced matrix, or the all-positive parameter counterexample. The distinct coupled-SEIR example does not imply the exact COVID–Mpox expression. Originality is assigned only to the particular derived threshold and contradiction, not to the NGM method or general fact that coupling can matter.",
+      "searches": [
+        "epidemic two-pathway latency progression coinfected class linear transition false reproduction number max separate pathogen thresholds instability positive Metzler",
+        "co-infection model cross-compartment progression phi_C without second pathogen exposure eigenvalue reproduction number full linearization",
+        "coupled coinfection 2x2 next generation Monkeypox COVID",
+        "Diekmann Heesterbeek Roberts 2010 construction next-generation matrices epidemic models journal royal society interface doi"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/s12982-025-00893-z — motivating published full-text Eq. (1), Sections 3.1–3.3 and Theorem 11",
+      "https://doi.org/10.1038/s41598-024-82955-x — different COVID–typhoid co-infection model and reproduction expression",
+      "https://doi.org/10.1098/rsif.2009.0386 — standard small/large next-generation construction",
+      "https://doi.org/10.1016/S0025-5564(02)00108-6 — standard disease-free stability threshold method",
+      "https://doi.org/10.48185/jmam.v7i1.1915 — abstract and partial indexed subsection only",
+      "Published September 2026 two-patch SEIR coupled-vs-isolated counterexample (public scientific summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acheneje et al., Theorem 11 states stability under a componentwise maximum less than one; the present strictly positive witness has that maximum 7/8 and an actual coupled reproduction radius greater than one.",
+        "Mgonja et al., DOI:10.1038/s41598-024-82955-x, study a different COVID–typhoid co-dynamics system and formulate its own reproduction operator.",
+        "A published two-patch SEIR counterexample addresses a general bracketing conjecture for movement between patches."
+      ],
+      "reasoning": "The motivating theorem is logically contradicted for its printed equations by the exact witness, not extended as a corollary. Other co-infection formulae and the generic next-generation theorem do not entail numerical or symbolic values for this fifteen-equation mechanism without carrying out the omitted source-specific matrix calculation. The conclusion is therefore about the printed mathematical model, not any undisclosed implementation.",
+      "searches": [
+        "Acheneje Omale Atokolo 2025 COVID-19 Monkeypox co-infection treatment phi_C E_C phi_M E_M infectious co-infection spurious secondary infection reproduction number max threshold",
+        "epidemic two-pathway latency progression coinfected class linear transition false reproduction number max separate pathogen thresholds instability positive Metzler",
+        "Mathematical modeling and analysis of COVID-19 and typhoid fever co-dynamics with treatment reproduction number",
+        "co-infection max reproduction numbers cross infection coupling thresholds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acheneje et al., DOI:10.1186/s12982-025-00893-z, Eq. (1), Section 3.3.1 and Theorem 11: the cross-progression terms are printed, but the threshold is stated as max{R0c,R0m,R0r}.",
+        "The published September 2026 two-patch SEIR counterexample concerns exposed/infected movement, not the COVID–Mpox model."
+      ],
+      "reasoning": "Alternative wordings include coupled co-infection reproduction number, cross-progression, and non-invariant single-disease submodels. The source equations are compared algebraically, not merely by titles: the proposed max omits both positive human cross-loop entries B,C and the direct co-infected contributions to A,D. No retrieved claim states this exact source-specific G.",
+      "searches": [
+        "Acheneje Omale Atokolo 2025 COVID-19 Monkeypox co-infection treatment phi_C E_C phi_M E_M infectious co-infection spurious secondary infection reproduction number max threshold",
+        "COVID monkeypox co-infection 15 compartment 2025 noninvariant COVID-only monkeypox-only submodels and next generation reproduction counterexample",
+        "s12982-025-00893-z threshold incorrect co-infection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating article provides tables of biological model parameters and numerical initial conditions, but Section 3.3.1 does not list the coupled G or the exact all-positive rational witness.",
+        "The targeted literal rational and DOI searches did not return an existing table of the matrix [[329/180,56/45],[8/45,47/180]]."
+      ],
+      "reasoning": "This is an analytic reproduction threshold, not a natural-invariant database lookup. Tables in the primary article were checked for exact coverage rather than treated as insufficient merely because keywords differ. The rational witness is reproducible, and absence from search alone is not taken as proof of priority.",
+      "searches": [
+        "329/180 co-infection reproduction",
+        "s12982-025-00893-z threshold incorrect co-infection",
+        "s12982-025-00893-z reproduction number max critique"
+      ]
+    },
+    "rationale": "The exact combined next-generation matrix and positive interior parameter contradiction are absent from the open full-text source, which instead asserts a maximum-of-components threshold in Section 3.3. Known general next-generation rules are applied rather than claimed as original. A related published two-patch SEIR counterexample proves a different max-bound failure but does not imply the particular exact entries of this source model or its strict all-positive witness. Comparisons were made at the statement/implication level with full relevant source sections; search incompleteness and other potential derivations are acknowledged.",
+    "residual_risks": [
+      "Undiscovered preprints or independent derivations could contain the same exact source-specific formula; negative search results do not certify priority.",
+      "The full text of the separate 2026 COVID–Monkeypox model was access-challenged; only its abstract and indexed excerpt were compared, and it is not treated as definitively not covering.",
+      "The unrelated published two-patch SEIR counterexample was available as a scientific record summary rather than fully retrievable text; its stated object and claimed conclusion do not imply this source-specific matrix.",
+      "The source article was read in its publicly accessible full-text form; unpublished simulation code and potential future corrigenda are outside the proved statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; the exact coupled human block and its all-positive witness are not derived, and the published componentwise max is incompatible with the source Eq. (1).",
+        "evidence": "Eq. (1) transfers E_C and E_M into E_CM at positive phi rates; its I_CM infectivity enters both forces. Section 3.3.1 instead states R0cmr=max{R0c,R0m,R0r}; Theorem 11 uses it as a stability criterion.",
+        "identifier_or_url": "https://doi.org/10.1186/s12982-025-00893-z",
+        "material_read": "Open-access full-text HTML: model description; complete displayed Eq. (1); Section 3.1.4 component COVID reproduction; Section 3.2.7 Mpox/rodent expressions; Sections 3.3.1–3.3.4 and Theorem 11; available relevant discussion.",
+        "method": "Read publicly accessible full-text HTML and compare its printed equations, component formulae, and full-system theorem term-by-term.",
+        "title": "Mathematical modelling on the transmission dynamics of the co-infection of COVID-19 and Monkeypox with treatment as a control strategy",
+        "trigger": "Exact motivating fifteen-compartment model and the stability theorem under comparison"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT; a different pathogen pair and compartment graph. It does not provide the given fifteen-equation COVID–Mpox matrix entries.",
+        "evidence": "Its stated effective reproduction number combines terms from a typhoid/COVID system involving environmental shedding; that model has different infected entry classes and transfer pathways.",
+        "identifier_or_url": "https://doi.org/10.1038/s41598-024-82955-x",
+        "material_read": "Public full-text HTML: abstract, model and equilibrium descriptions, effective reproductive number section and theorem statements.",
+        "method": "Read HTML passages containing its nine-variable co-infection system and combined reproduction calculation.",
+        "title": "Mathematical modeling and analysis of COVID-19 and typhoid fever co-dynamics with treatment",
+        "trigger": "Plausible broader two-pathogen next-generation and co-infection threshold analysis"
+      },
+      {
+        "assessment": "METHOD_ONLY; standard framework, not the source-specific co-infection calculation.",
+        "evidence": "The work formulates the construction of next-generation matrices for compartmental epidemic models and their reproduction-number spectral interpretation.",
+        "identifier_or_url": "https://doi.org/10.1098/rsif.2009.0386",
+        "material_read": "Bibliographic record, abstract, and description of equivalence between large- and small-domain matrices.",
+        "method": "Read PubMed and associated indexed descriptions; apply the conventional theorem only.",
+        "title": "The construction of next-generation matrices for compartmental epidemic models",
+        "trigger": "General theorem providing the small-domain next-generation-matrix reduction"
+      },
+      {
+        "assessment": "METHOD_ONLY; provides a general criterion without the analyzed model coefficient matrix.",
+        "evidence": "The paper explicitly studies reproduction numbers and disease-free equilibrium thresholds in compartmental systems.",
+        "identifier_or_url": "https://doi.org/10.1016/S0025-5564(02)00108-6",
+        "material_read": "PubMed bibliographic entry and abstract.",
+        "method": "Read index and abstract; use only its standard infection-threshold result.",
+        "title": "Reproduction numbers and sub-threshold endemic equilibria for compartmental models of disease transmission",
+        "trigger": "Classical threshold theorem for nonsingular M-matrix infected systems"
+      },
+      {
+        "assessment": "PARTIAL; its excerpt models entry to co-infection by second-pathogen force times an already infected population, distinct from the printed constant-rate E_C-to-E_CM progression in the target. No whole-document exclusion claimed.",
+        "evidence": "The excerpt contains force-dependent transfers to I_CM, whereas the target Eq. (1) includes linear phi_C E_C and phi_M E_M transfers.",
+        "identifier_or_url": "https://doi.org/10.48185/jmam.v7i1.1915",
+        "material_read": "Search-indexed abstract and a text excerpt of Section 3.7 only; the article website presented an access challenge, so the remainder was not read.",
+        "method": "Compare the exposed excerpt on infection-force and co-infection terms; record limited access transparently.",
+        "title": "Mathematical model for the dynamics of COVID-19 and Monkeypox co-infection considering the effects of vaccination, quarantine, and reinfection",
+        "trigger": "Same disease pair and co-infected class with another transition structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55d93d6c-81b2-4199-8b09-2cb30a285f44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model was proposed to evaluate disease-control thresholds; reversing an explicit claimed local-stability verdict on an open set of strictly positive rates is consequential, unlike a cosmetic sign check. The positive cross-progression pathways in the actual published equations create a new direct reproduction route and two-way human invasion coupling. The exact coupled spectrum quantifies how and when separate-pathogen thresholds cease to represent the full model. It does not claim empirical epidemiological policy validity or global disease dynamics.",
+    "status": "PASS"
+  }
+}
