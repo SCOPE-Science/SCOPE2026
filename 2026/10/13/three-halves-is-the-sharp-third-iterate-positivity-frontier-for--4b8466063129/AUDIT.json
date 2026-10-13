@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "After positive diagonal similarity, the \\(k\\)-th iterate is \\(q_k(C)c\\). Exact expansion gives \\(q_1(C)=\\omega I\\), \\(q_2(C)=2\\omega I-\\omega^2C\\), and the third-iterate off-diagonal identity with nonnegative path terms. Convergence implies \\(0<\\omega<2\\) and \\(q_3(C)\\) is positive definite. This proves the universal direction. The two-by-two family \\(C_a\\) has \\((q_3(C_a))_{12}=a\\omega^2(3-2\\omega)\\), providing a convergent counterexample for every \\(3/2<\\omega<2\\). Scalar convergence gives all-step positivity in dimension one. The exact witness is replayed by `verify.py`.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Imakura et al. define the weighted/relaxed Jacobi recurrence and optimize spectral convergence.",
+        "Li and Sun treat Jacobi-type iterations for \\(Z\\)- and \\(M\\)-matrices with convergence and spectral-radius comparisons.",
+        "De Sterck et al. explicitly prove positivity preservation for underrelaxed weighted Jacobi with weight in \\((0,1)\\) on a singular \\(M\\)-matrix."
+      ],
+      "reasoning": "The present theorem extends neither source by a routine parameter substitution: it identifies an overrelaxed finite-iterate cone-preservation window through \\(3/2\\) and proves that every larger convergent weight fails universally already in dimension two.",
+      "searches": [
+        "Full-text source: Imakura et al., DOI:10.14495/jsiaml.4.41",
+        "Full-text source: Li and Sun, DOI:10.1016/S0024-3795(00)00140-3",
+        "Full-text source: De Sterck et al., Smoothed aggregation multigrid for Markov chains"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.14495/jsiaml.4.41",
+      "DOI:10.1016/S0024-3795(00)00140-3",
+      "De Sterck et al., Smoothed aggregation multigrid for Markov chains (accepted manuscript 2009-01-28)",
+      "published-finding corpus: 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f",
+      "published-finding corpus: 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 source gives \\(x_{k+1}=x_k+\\omega D^{-1}(b-Ax_k)\\) and \\(G_\\omega=I-\\omega D^{-1}A\\).",
+        "The 2000 source states convergence analysis and spectral-radius comparisons for modified Jacobi methods on \\(Z\\)- and \\(M\\)-matrices.",
+        "The 2009 manuscript justifies positivity only from the convex/nonnegative decomposition valid for \\(0<\\omega<1\\)."
+      ],
+      "reasoning": "Spectral convergence does not imply cone preservation, and the underrelaxed convex-combination argument stops at \\(\\omega=1\\). The exact third-degree identity is needed to reach \\(3/2\\) and to prove sharp failure above it.",
+      "searches": [
+        "Source comparison: DOI:10.14495/jsiaml.4.41, recurrence and convergence sections",
+        "Source comparison: DOI:10.1016/S0024-3795(00)00140-3, introduction and convergence results",
+        "Source comparison: De Sterck et al., Section 3 weighted-Jacobi positivity paragraph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest published published-finding corpus IDs: 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f and 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705."
+      ],
+      "reasoning": "Weighted Jacobi is diagonally preconditioned Richardson, but the closest published-finding corpus items concern Euclidean norm safety and stagewise nonexpansiveness. Those properties do not imply entrywise nonnegativity of the third iterate.",
+      "searches": [
+        "published-finding corpus query: weighted Jacobi sharp three halves third iterate coordinatewise positivity Stieltjes",
+        "published-finding corpus query: relaxed Jacobi third iterate nonnegative M-matrix omega 3/2",
+        "published-finding corpus query: diagonally preconditioned Richardson third iterate positivity Stieltjes 3/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No implication-equivalent finite-iterate positivity table or published published-finding corpus finding was returned; the closest weighted-Jacobi item tabulates a different Euclidean damping frontier."
+      ],
+      "reasoning": "This is an analytic threshold problem rather than a known finite database lookup. The nearest indexed exact frontier concerns a norm, not the positive cone, so it does not cover the claim.",
+      "searches": [
+        "published-finding corpus query: weighted Jacobi overrelaxation positivity third iterate Stieltjes two dimensional",
+        "published-finding corpus query: Jacobi iteration coordinatewise positivity M-matrix overrelaxation third iterate",
+        "published-finding corpus query: weighted Jacobi Richardson entrywise positivity two by two M-matrix"
+      ]
+    },
+    "rationale": "The closest located literature covers the weighted-Jacobi recurrence, spectral convergence, \\(M\\)-matrix/Jacobi splitting theory, or the underrelaxed positivity mechanism. None of the inspected sources or published-finding corpus matches states or implies the sharp universal third-iterate coordinatewise threshold \\(3/2\\) together with the two-dimensional minimal obstruction.",
+    "residual_risks": [
+      "Older matrix-iterative-analysis or nonnegative-splitting literature may encode the same finite-iterate polynomial sign fact under terminology not surfaced by the searches.",
+      "The result is not claimed for nonsymmetric M-matrices or varying relaxation schedules."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The article states the weighted/relaxed Jacobi recurrence and \\(G_\\omega=I-\\omega D^{-1}A\\), and analyzes spectral-radius convergence. Searches within the full text found no positivity, Stieltjes, or \\(M\\)-matrix discussion.",
+        "identifier_or_url": "DOI:10.14495/jsiaml.4.41",
+        "material_read": "Full four-page open-access article; recurrence, iteration matrix, and convergence analysis sections were inspected, with the method page also visually checked.",
+        "method": "full-text and visual PDF inspection",
+        "title": "A parameter optimization technique for a weighted Jacobi-type preconditioner",
+        "trigger": "Exact classical method and weight-parameter optimization."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper identifies AMS 65F10 and focuses on convergence and spectral-radius comparison for modified Jacobi/Gauss-Seidel schemes; no finite-iterate coordinatewise positivity theorem was located.",
+        "identifier_or_url": "DOI:10.1016/S0024-3795(00)00140-3",
+        "material_read": "Public full-text article sections covering the abstract, classical Jacobi splitting, stated main results, and \\(M\\)-matrix convergence context.",
+        "method": "full-text inspection",
+        "title": "Modified Gauss-Seidel type methods and Jacobi type methods for Z-matrices",
+        "trigger": "Closest classical \\(Z\\)-/\\(M\\)-matrix Jacobi literature."
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_NOT_COVERING_THRESHOLD",
+        "evidence": "For \\(0<\\omega<1\\), the manuscript proves positivity because the update is a strictly positive old iterate plus a nonnegative Jacobi term. It does not treat overrelaxation or the third-iterate threshold \\(3/2\\).",
+        "identifier_or_url": "accepted manuscript dated 2009-01-28",
+        "material_read": "Full-text Section 3 positivity paragraph and surrounding \\(M\\)-matrix setup, visually checked on the relevant PDF page.",
+        "method": "full-text and visual PDF inspection",
+        "title": "Smoothed aggregation multigrid for Markov chains",
+        "trigger": "Nearby explicit weighted-Jacobi positivity statement for an \\(M\\)-matrix."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b846606-3129-4563-b6f0-4d36934cf564",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The weight parameter is central to weighted Jacobi convergence and parallel smoothing/preconditioning. A sharp universal boundary showing exactly how far one may overrelax while retaining the positive cone through the first three iterates separates two practically distinct properties—spectral convergence and order preservation. The dimension-two, iteration-three minimality and the all-weights sharp family make the claim structural rather than an isolated computation.",
+    "status": "PASS"
+  }
+}
