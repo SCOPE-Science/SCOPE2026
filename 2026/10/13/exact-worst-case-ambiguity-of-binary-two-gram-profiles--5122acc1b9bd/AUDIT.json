@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive run-composition bijections count balanced closed paths and unbalanced open paths for every profile. Binomial strict log-concavity determines balanced self-loop counts; explicit ratios isolate the unique maximizing transition count except the proven residue-1 tie. Endpoint-unbalanced maxima are strictly dominated, including the two small even cases; constant words are dominated. Stirling proves the asymptotic. Independent direct binary enumeration for \\(3\\le n\\le18\\) and all-profile partition checks for \\(3\\le n\\le80\\) match every claimed maximum and equality case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Whittle (1955), DOI 10.1111/j.2517-6161.1955.tb00197.x, accessible abstract: formula for probability distribution of observed transition totals, not a stated optimization of the largest total.",
+        "Jacquet et al. (2010), printed p. 390, explicitly credit Whittle for fixed type-class cardinalities while proving number-of-types asymptotics.",
+        "Kiah et al. (arXiv:1410.8837), p. 6 Remark 1(i), note Ukkonen observations on individual equivalence classes and state their focus is the number of equivalence classes."
+      ],
+      "reasoning": "Whittle-type general fixed-profile count formula is mathematically broader as a pointwise enumeration, but extracting this sharp all-length global maximum and exact optimizer parity is a separate discrete optimization not stated in the accessible abstract. The inaccessible Whittle text is a genuine residual risk, not asserted to be noncovering. Full available primary texts have no dominating modal theorem.",
+      "searches": [
+        "Whittle 1955 Markov type maximum cardinality binary transition counts exact largest profile",
+        "Whittle 1955 Markov type class size maximum probability modal transition count class",
+        "https://academic.oup.com/jrsssb/article/17/2/235/7026736",
+        "https://dmtcs.episciences.org/2768/pdf"
+      ]
+    },
+    "checked_sources": [
+      "Jacquet, Knessl, Szpankowski (2010), doi:10.46298/dmtcs.2768 full primary PDF",
+      "Kiah, Puleo, Milenkovic, arxiv:1410.8837v2 full primary PDF",
+      "Whittle (1955), doi:10.1111/j.2517-6161.1955.tb00197.x publisher abstract only",
+      "Published result SCOPE057 (contingency-table Markov fiber graph diameters, not word profiles)",
+      "Published result SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b (different distinct-factor statistic)",
+      "Published result SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73 (independent multinomial, not overlapping Markov counts)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jacquet et al., https://dmtcs.episciences.org/2768/pdf, pp. 388-390, especially p. 390 lines introducing Whittle, gives fixed-type-count attribution and its own number-of-type problem; the paper explicitly switches to cyclic strings, whereas this theorem is noncyclic.",
+        "Kiah et al., https://arxiv.org/pdf/1410.8837, pp. 2-7 and the main-results discussion, treats profile-vector codings and number of distinct outputs rather than maximal preimage size.",
+        "Whittle (1955) abstract at https://academic.oup.com/jrsssb/article/17/2/235/7026736, states exact distribution of transition totals; full text not accessed."
+      ],
+      "reasoning": "A general fixed-transition count provides input data from which a maximization can in principle be performed, but neither it (as inspectable) nor the distinct-profile count states the optimizer index, equality cases, or sharp modal asymptotic. They do not imply the displayed explicit extremum without further balancing, maximization, and rejection of opposite-endpoint paths. No known stronger coverage was verified. Access uncertainty remains identified.",
+      "searches": [
+        "Maximum binary first-order Markov type class size fixed length n same 2-gram counts sequence reconstruction exact formula",
+        "Markov type class maximum size all n linear binary sequence profile binomial square",
+        "Old cyclic Markov type counts compared with linear Markov word profile maximum multiplicity",
+        "https://dmtcs.episciences.org/2768/pdf",
+        "https://arxiv.org/pdf/1410.8837"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jacquet, Knessl, Szpankowski (2010), https://dmtcs.episciences.org/2768/pdf, printed pp. 388-390: the object is a Markov transition count matrix, while the targeted output is the number of types, explicitly distinguished from size of a fixed type class.",
+        "Kiah, Puleo, Milenkovic (arXiv:1410.8837v2), https://arxiv.org/pdf/1410.8837, pp. 2-7, define the full substring-profile channel and focus on number of equivalence classes and error-correcting profile codes."
+      ],
+      "reasoning": "The full four-count bigram channel coincides with binary noncyclic first-order Markov empirical transition counts. Equivalence of objects was checked directly, rather than merely by titles. The existing results define/count fibers separately or count the number of distinct profiles; neither inspected main-result statement solves the global maximizing fiber or classifies all equality profiles.",
+      "searches": [
+        "Exact maximum population size of binary Markov type class or transition count class, linear word, central binomial coefficient squared for 4s edges; modes and equality cases",
+        "largest fiber size for binary dinucleotide multiset profile de Bruijn graph linear strings reconstruction ambiguity",
+        "https://dmtcs.episciences.org/2768/pdf",
+        "https://arxiv.org/pdf/1410.8837"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kiah et al., Section 7 in full arXiv text: numerical results address constrained possible profile vectors and code sizes, not maximizing preimages of a particular profile.",
+        "Published record SCOPE057 (https://github.com/published-finding corpus/2026/tree/main/2026/9/8/SCOPE057) studies diameters of contingency-table Markov bases, with tables as states, rather than word-to-transition-spectrum fibers."
+      ],
+      "reasoning": "Searches for the exact modal sequence, central squared-binomial specialization, and tabulated all-length largest fiber yielded no directly matching enumerated table or database. A table of individual fixed-profile class sizes would not directly establish the complete symbolic argmax classification; absence of search hits alone is not evidence of absolute novelty.",
+      "searches": [
+        "Exact biggest 2-gram equivalence class tabulation for binary strings length n",
+        "n=4s+1 two-gram profile fiber maximum binomial(2s,s)^2 counting adjacent 00 01 10 11 pairs",
+        "Maximum multiplicity of binary 2-gram frequency vector length n, four counts 00 01 10 11; most ambiguous DNA sequence assembly profile; modal Markov type class"
+      ]
+    },
+    "rationale": "The accessible primary texts explicitly treat numbers of distinct Markov types/profile outputs, while Whittle gives fixed-type probability distribution without an inspectable claim of the optimized all-length maximum. Neither main-result comparison yields the exact largest binary noncyclic two-gram fiber and complete optimizer classification. Records about multinomial maxima and contingency-table Markov moves are mathematically distinct. Risk remains that inaccessible Whittle sections or unindexed earlier studies optimize the formula.",
+    "residual_risks": [
+      "Original Whittle 1955 complete paper not inspectable; its existing fixed-transition formula might contain additional modal-specialization results.",
+      "Indexing gaps and older literature on most populous Markov types could contain an equivalent all-length extremum despite nonmatching results from actual searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related definitions and previous fixed-fiber formula cited, but published claims concern number of types (mainly cyclic), not exact noncyclic maximum-fiber theorem or equality profile classification.",
+        "evidence": [
+          "https://dmtcs.episciences.org/2768/pdf, pp. 387-390 and main results",
+          "https://dmtcs.episciences.org/2768, published January 1, 2010"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/2768/pdf; doi:10.46298/dmtcs.2768",
+        "material_read": "Full 14-page open-access primary text; relevant abstract, introduction, sections on binary balanced matrices, main results and conclusion",
+        "method": "Read extracted PDF text and first-page rendering; inspected setup on printed pp. 388-390 and main results; compared what is counted (types) with maximal size of one type class",
+        "title": "Counting Markov Types",
+        "trigger": "Identical first-order Markov empirical transition-count objects; candidate stronger general theorem"
+      },
+      {
+        "assessment": "Introduces the profile mapping and focuses on number of outputs and profile codes, with no modal largest preimage theorem in inspected sections.",
+        "evidence": [
+          "https://arxiv.org/pdf/1410.8837, pp. 1-7",
+          "https://arxiv.org/abs/1410.8837, first public v1 October 31, 2014"
+        ],
+        "identifier_or_url": "arxiv:1410.8837; https://arxiv.org/pdf/1410.8837",
+        "material_read": "Full 31-page open-access v2 PDF; particularly pp. 1-7, equivalence-class setup, graph model, main result overview, Section 7 numerical results and concluding paragraphs",
+        "method": "Inspected actual PDF text and first-page rendering, searched equivalence-class and gram terms, compared objectives and finite/enumerative outputs",
+        "title": "Codes for DNA Sequence Profiles (preprint abstract title: Codes for DNA Storage Channels)",
+        "trigger": "Same full substring count-profile channel, natural reconstruction ambiguity application"
+      },
+      {
+        "assessment": "Plausible background/source of known fixed-fiber formula; cannot rule out equivalent extremal formula in inaccessible sections.",
+        "evidence": [
+          "https://academic.oup.com/jrsssb/article/17/2/235/7026736, abstract",
+          "Jacquet et al. (2010), printed p. 390, reference [21]"
+        ],
+        "identifier_or_url": "doi:10.1111/j.2517-6161.1955.tb00197.x",
+        "material_read": "Accessible publisher abstract and bibliographic information only; complete original article inaccessible",
+        "method": "Checked bibliographic abstract and legal open-access/preprint searches; institutional full-text route could not provide an article because VPN was disconnected. No inference from unread body.",
+        "title": "Some Distribution and Moment Formulae for the Markov Chain",
+        "trigger": "Possibly dominating exact formula for all fixed-transition class populations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5122acc1-b9bd-4913-8639-9eb5f95492c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For complete binary adjacent-pair counts the maximum preimage cardinality is the sharp worst-case ambiguity/list size of a natural string-reconstruction and finite-state observation channel. The finding determines it for every length, identifies all maximizers and their parity ties, and gives the exact leading collision-probability law. Counting possible outputs or any one fixed-type class does not answer this motivated extremal question; no unmotivated parameter slices or unproved downstream applications are used.",
+    "status": "PASS"
+  }
+}
