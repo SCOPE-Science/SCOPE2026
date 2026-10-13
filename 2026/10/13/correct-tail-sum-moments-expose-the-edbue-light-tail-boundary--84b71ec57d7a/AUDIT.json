@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The exact PMF telescopes through \\(G_k\\), so the lattice survival is \\(1-G_k\\). The source's asymptotic \\(u_k\\sim\\theta^k/(\\lambda k)\\) gives the survival and PMF equivalents, hence the exact PGF/MGF convergence boundary by the root test. The corrected raw moments follow from the nonnegative tail-sum identity and Tonelli's theorem. The source's Eq. (6.4) has summand \\(\\sim-rk^{r-1}\\), proving divergence without numerical assumptions. The standalone checker reproduces the tail constants and direct-versus-tail moment agreement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard heavy-tail references define a nonnegative law as heavy-tailed when every positive exponential moment is infinite.",
+        "Standard tail-sum identities imply the corrected moment formula once the exact EDBuE survival is identified.",
+        "Those general facts do not identify the divergence of the target's Eq. (6.4) or its contradictory heavy-tail labels."
+      ],
+      "reasoning": "General probability theory supplies the comparison tools, but the accepted result is model-specific because it links the source's exact \\(G_k\\) structure, published tail asymptotic, MGF, and Section 6.2 formulas.",
+      "searches": [
+        "regular geometric tail moment generating radius discrete distribution",
+        "heavy-tailed distribution positive moment generating function definition",
+        "discrete tail sum raw moments integer valued"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026471",
+      "isbn:9781316511732"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (2.6) gives \\(p_n\\) asymptotic to a positive constant times \\(\\theta^n/n\\).",
+        "Equation (3.4) gives hazard limit \\(1-\\theta\\), consistent with geometric-type decay.",
+        "Equation (6.4) replaces the survival factor \\(1-G_k\\) by \\(G_k\\) and reverses the finite difference, yielding a divergent negative series.",
+        "Equation (6.5) writes an MGF series but gives no maximal convergence domain."
+      ],
+      "reasoning": "The target's asymptotic statements imply the accepted transform boundary, while its moment formula contradicts elementary convergence. The final claim therefore both sharpens and repairs the source.",
+      "searches": [
+        "EDBuE Eq 2.6 PMF asymptotic theta^x over x",
+        "EDBuE Eq 3.4 hazard limit 1-theta",
+        "EDBuE Eq 6.4 raw moments",
+        "EDBuE Eq 6.5 moment generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target full text gives the geometric PMF asymptotic but does not state the exact MGF convergence interval.",
+        "No model-specific correction of Eq. (6.4), Eq. (6.6), or Eq. (6.7) was located.",
+        "The closest semantic search results concern unrelated gamma, Bernoulli, and moment problems rather than EDBuE."
+      ],
+      "reasoning": "The claim was searched both as an EDBuE heavy/light-tail classification and as a correction to the printed moment equations. No equivalent source-specific statement was found.",
+      "searches": [
+        "10.3934/math.2026471 EDBuE heavy tail geometric tail mgf",
+        "10.3934/math.2026471 equation 6.4 moment correction EDBuE",
+        "EDBuE mean variance formula correction Burr Hatke exponential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publisher PDF labels \\(\\alpha=0.5\\), \\(\\theta=0.8\\) as a heavy-tailed simulation setting.",
+        "The same PDF's asymptotic section says the PMF decays geometrically with a polynomial correction.",
+        "No corrigendum or erratum was located in exact-source searches."
+      ],
+      "reasoning": "The contradiction is internal to the primary source and does not depend on an external numerical database.",
+      "searches": [
+        "10.3934/math.2026471 correction erratum",
+        "10.3934/math.2026471 heavy-tailed simulation alpha 0.5 theta 0.8",
+        "10.3934/math.2026471 Eq 6.4 moments"
+      ]
+    },
+    "rationale": "The target paper contains the ingredients but not the correction: its asymptotic section says the PMF decays geometrically with a \\(1/x\\) correction, while later prose and a simulation scenario call the distribution heavy-tailed. Section 6.2 prints the divergent moment rearrangement without the missing survival term. Eight focused published-result searches found no EDBuE correction covering the moment formulas or exact MGF boundary.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "The source's numerical descriptive tables may have been computed directly from the PMF rather than from the divergent printed moment formulas.",
+      "The label heavy-tailed is sometimes used informally for high finite-sample kurtosis; the exact MGF domain removes that terminological ambiguity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING BUT INTERNALLY INCONSISTENT. The source correctly derives geometric PMF decay and a constant hazard limit, but later claims heavy-tailed regimes and prints divergent raw-moment identities.",
+        "evidence": "Eq. (2.6) gives geometric decay with a \\(1/x\\) correction; Eq. (3.4) gives \\(h(x)\\to1-\\theta\\); Eqs. (6.4)–(6.7) contain the invalid moment rearrangement; Section 8.2 calls \\(\\alpha=0.5\\), \\(\\theta=0.8\\) heavy-tailed.",
+        "identifier_or_url": "doi:10.3934/math.2026471",
+        "material_read": "Open-access full PDF, including the defining CDF/PMF, Section 2.1 asymptotics, Section 3 hazard limit, Section 6.2 raw moments and MGF, the descriptive discussion, and the simulation setting labeled heavy-tailed.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "The generalized discrete Burr–Hatke exponential distribution: Mathematical characterization, reliability analysis, and applications to censored actuarial, clinical, and agricultural data",
+        "trigger": "Primary 2026 source defining EDBuE and containing the tail, hazard, moment, and heavy-tail statements."
+      },
+      {
+        "assessment": "DEFINITIONAL SUPPORT ONLY. It does not discuss EDBuE.",
+        "evidence": "A nonnegative law is heavy-tailed iff its MGF is infinite for every positive argument.",
+        "identifier_or_url": "isbn:9781316511732",
+        "material_read": "Publisher excerpt defining heavy-tailed nonnegative laws through positive exponential moments.",
+        "method": "Publisher excerpt inspection.",
+        "title": "The Fundamentals of Heavy Tails: Properties, Emergence, and Estimation",
+        "trigger": "Definition-level comparison for asymptotic heavy-tail terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84b71ec5-7d7a-4548-937b-b612657d950a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Moments, skewness, kurtosis, actuarial tail risk, and heavy-tail flexibility are major advertised properties of the new distribution. The finding corrects the raw-moment formulas at their foundation, gives the exact transform domain, and shows that a named heavy-tail simulation regime is asymptotically light. These corrections directly affect mathematical interpretation while preserving the possibility of finite-range high-kurtosis fits.",
+    "status": "PASS"
+  }
+}
