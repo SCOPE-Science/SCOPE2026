@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For either displayed accumulator indexing convention, the isotropic quadratic parameter step is exactly a scalar multiplier. The objective-growth criterion is therefore necessary and sufficient. While below the barrier, the radius grows and forces a uniform positive accumulator increase, proving finite escape. Above the safe region, exact radius-decrease identities telescope against accumulator growth, proving that the learned scale is bounded. Vanishing accumulator increments then force convergence to the minimizer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "AdaGrad-Norm has arbitrary-initialization convergence guarantees, but its scale satisfies a different squared-accumulation law and its parameter step uses that different scale.",
+        "The AdaGrad-Norm paper explicitly describes WNGrad as a different, closely related adaptive gradient algorithm."
+      ],
+      "reasoning": "The stronger-looking arbitrary-initialization theorem for AdaGrad-Norm does not dominate the accepted WNGrad claim because it applies to a different recurrence. Generic gradient-descent stability gives the local barrier once a scale is fixed, but not finite self-tuning escape and boundedness for WNGrad.",
+      "searches": [
+        "AdaGrad-Norm arbitrary initialization WNGrad related adaptive stepsize",
+        "adaptive gradient scale self tuning quadratic stability",
+        "WNGrad AdaGrad-Norm relation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1803.02865v1",
+      "arXiv:1806.01811v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The WNGrad paper gives the parameter step and both accumulator indexing displays used in the proof.",
+        "Its batch discussion uses the conservative smoothness scale \\(L\\) for stabilization and assumes an initialization relation in its general theorem.",
+        "The AdaGrad-Norm paper proves arbitrary-initialization convergence for its own different squared accumulator and identifies WNGrad as related but distinct."
+      ],
+      "reasoning": "Neither prior theorem implies the exact WNGrad state-space statement. The accepted claim requires using the quadratic radial reduction, proving finite escape from \\(b<\\lambda/2\\), and separately establishing boundedness for both WNGrad indexing conventions.",
+      "searches": [
+        "arXiv:1803.02865 equation 5 WNGrad b update",
+        "arXiv:1803.02865 Algorithm 1 WNGrad batch",
+        "arXiv:1806.01811 WNGrad different adaptive gradient algorithm arbitrary initialization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The WNGrad source displays the scalar inverse-stepsize recurrence and later batch pseudocode, but its theorems use general smoothness bounds rather than an exact quadratic state-space phase diagram.",
+        "No inspected WNGrad source states the if-and-only-if barrier \\(b=\\lambda/2\\) or the finite-prefix property."
+      ],
+      "reasoning": "Equivalent coverage would have to classify objective increase versus decrease for the same WNGrad state and prove finite exit from the unstable side for every positive initial scale. The source convergence theorem and generic fixed-step smoothness remarks do not state that combined result.",
+      "searches": [
+        "WNGrad scalar quadratic arbitrary initialization global convergence",
+        "WNGrad exact objective monotonicity threshold half Lipschitz",
+        "WNGrad unstable transient finite crossing learning rate scalar",
+        "WNGrad quadratic b L/2 stability self tuning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concern Polyak-step monotonicity, stochastic feedback stability, AdOGD spectral persistence, and automatic boundedness for a different gradient-mapping accumulator.",
+        "No returned indexed finding names WNGrad with a half-curvature objective frontier or finite unstable-prefix theorem."
+      ],
+      "reasoning": "The closest records use different adaptive laws and do not imply the WNGrad normalized two-state recurrence.",
+      "searches": [
+        "WNGrad scalar quadratic arbitrary initialization global convergence",
+        "WNGrad exact objective monotonicity threshold half Lipschitz",
+        "WNGrad unstable transient finite crossing learning rate scalar",
+        "WNGrad quadratic b L/2 stability self tuning"
+      ]
+    },
+    "rationale": "The defining WNGrad source proves robustness and batch convergence but does not classify its exact scalar-quadratic objective-growth region or show that all increases form a finite prefix from arbitrary positive scale. The later arbitrary-initialization AdaGrad-Norm theorem concerns a different squared accumulator and step rule. Focused published-record searches found no implication-equivalent WNGrad phase law.",
+    "residual_risks": [
+      "A short scalar WNGrad phase analysis may exist in unindexed notes.",
+      "The exact barrier partly reflects the classical scalar gradient-descent stability threshold, but the finite self-tuning escape and arbitrary-scale convergence require the coupled WNGrad accumulator.",
+      "The isotropic result does not automatically extend to anisotropic Hessians."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_WNGRAD_RECURRENCES_AND_GENERAL_BOUNDS; EXACT_HALF_CURVATURE_TRANSIENT_CLASSIFICATION_NOT_STATED.",
+        "evidence": "The paper states both accumulator displays and general robustness guarantees, but no exact isotropic-quadratic objective-growth frontier, finite-prefix theorem, or arbitrary-positive-scale phase classification was found.",
+        "identifier_or_url": "arXiv:1803.02865v1/v2",
+        "material_read": "Full open PDF covering the defining recurrence, batch pseudocode, scale-invariance discussion, batch convergence theorem, and stabilization lemmas; the defining recurrence and batch algorithm pages were visually inspected.",
+        "method": "Full-text PDF inspection plus page-image inspection.",
+        "title": "WNGrad: Learn the Learning Rate in Gradient Descent",
+        "trigger": "Defining source for the WNGrad parameter update, learning-rate accumulator, and robustness motivation."
+      },
+      {
+        "assessment": "BROADER_ARBITRARY_INITIALIZATION_RESULT_FOR_A_DIFFERENT_ACCUMULATOR; DOES_NOT_COVER_WNGRAD_PHASE_LAW.",
+        "evidence": "AdaGrad-Norm updates a squared scale and the paper explicitly calls WNGrad a different closely related adaptive algorithm; its theorem does not give the accepted WNGrad half-curvature state boundary.",
+        "identifier_or_url": "arXiv:1806.01811v1",
+        "material_read": "Open full text covering the AdaGrad-Norm update, arbitrary-initialization theorem, previous-work comparison to WNGrad, and discussion of adaptive-scale robustness; a page showing the AdaGrad-Norm update was visually inspected.",
+        "method": "Full-text open-access inspection plus page-image inspection.",
+        "title": "AdaGrad Stepsizes: Sharp Convergence Over Nonconvex Landscapes",
+        "trigger": "Strongest closely related arbitrary-initialization adaptive-scale analysis by overlapping authors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a3787d7-01b6-4c20-8bf0-bade0ad029ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unknown learning-rate scale is WNGrad’s defining problem. The theorem gives a complete and interpretable answer on the canonical isotropic quadratic: it identifies exactly when a step increases the objective, proves that all such increases are confined to one finite initial prefix even under arbitrarily aggressive initialization, and shows that the learned scale remains bounded and yields eventual linear contraction. This sharpens the qualitative robustness mechanism without relying on a tuned initial scale.",
+    "status": "PASS"
+  }
+}
