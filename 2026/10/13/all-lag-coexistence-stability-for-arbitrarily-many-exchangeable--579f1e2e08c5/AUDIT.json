@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The balance equations yield S_i=1-(1+a/b)I_i and P_i=I_i. Differentiation shows f/Q strictly decreasing, proving symmetric uniqueness when R0>1 and nonexistence at R0<=1. The full physical 3n Jacobian is block diagonalized by common and transverse pathogen modes with nonnegative feedback gains. Each cubic has strictly positive coefficients and A1*A2-A3=(b+u)[u(a+b)+c(b+u+c)]+c*v*(u+c)>0. Strict cubic Hurwitz yields local exponential stability. The exact-rational Python-3 verifier built from this package returned VERIFY_OK for 2916 representative cases; universality comes from symbolic signs, not the tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1103/PhysRevE.111.014317: behavioral feedback with vaccination and activity-driven equilibria; available abstract describes a single-infection SIR setting.",
+        "doi:10.1137/25M1826160, Section 2: two-strain cross-immunity model with joint host-state compartments, not exponentially lagged behavioral transmissibility.",
+        "arxiv:1311.4808: generic symmetry methods, but its stability results depend on antigenic cross-immunity equations."
+      ],
+      "reasoning": "The listed broader mathematical-epidemiology frameworks do not supply a theorem whose hypotheses entail the particular n-fold product behavioral transmission law with independent SIRS infection states and first-order perceived-prevalence filters. The full text of the two directly structurally comparable sources was inspected. Berry and colleagues is an abstract-level comparison only, retained as a residual risk rather than characterized as fully inspected.",
+      "searches": [
+        "two pathogen behavioral incidence exponential risk response no cross-immunity equal transmission lag coexisting equilibrium symmetric antisymmetric modes",
+        "multi pathogen behavioral response n strains prevalence-dependent contact rates all to all stable symmetric coexistence 2025",
+        "Existence and stability of equilibria in infectious disease dynamics with behavioral feedback Berry Ferrari Sauer 2025",
+        "Hidden Oscillations How Minimal Immunological Interactions Destabilize Two-Strain Epidemic Models doi:10.1137/25M1826160"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2510.19153v1 (first public timestamp)",
+      "arxiv:2510.19153v2 (full model and Appendix)",
+      "doi:10.1080/17513758.2026.2676366 (journal classification and comparison)",
+      "arxiv:1311.4808 (full comparative manuscript text)",
+      "doi:10.1137/25M1826160 (full HTML comparative model)",
+      "doi:10.1103/PhysRevE.111.014317 (abstract-level comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 5 proves endemic stability for no spillover only and expressly leaves positive spillover conjectural.",
+        "Blyuss model has antigenic immune-status variables and neither k nor first-order perceived prevalence.",
+        "Gavish model has primary/secondary infection compartments and no cross-pathogen behavioral response filtering."
+      ],
+      "reasoning": "No-spillover stability is the special case s=0 of the proposed theorem, so it cannot establish the s>0 statement. Generic symmetric-matrix spectral decomposition supplies a method but does not imply the crucial stability sign for this model; indeed, cross-immunity literature includes symmetric equilibrium instabilities. Our universal cubic sign follows from an independent exact calculation. This claim is local, not implied by source simulations or equilibrium existence alone.",
+      "searches": [
+        "arxiv:2510.19153v2 Theorem 5 no spillover proof A1.2",
+        "arxiv:1311.4808 Section 2 antigenic cross-immunity multi-strain symmetry",
+        "doi:10.1137/25M1826160 Section 2 two-strain immunity equations",
+        "behavioral response two pathogen perceived risk exponential smoothing local stability coexistence Routh Hurwitz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2510.19153v2 Theorem 5, Tables 4-5: proof only for no spillover, coupled endemic stability conjectured.",
+        "arxiv:1311.4808 (Blyuss), system (1)-(2): symmetric strain-coupling decompositions but immune-status, not perceived-transmission equations."
+      ],
+      "reasoning": "The common/contrast eigenmode decomposition has a broad methodological antecedent in multi-strain symmetry theory. However, neither the precise product feedback incidence nor its two mode gains and uniformly positive Hurwitz expression is supplied there. The motivating source presents the perfect/imperfect spillover stability claim as a conjecture, so its existence/uniqueness equations cannot imply an established local stability theorem.",
+      "searches": [
+        "LeJeune Saucedo Childs Ghaffarzadegan behavioral spillover 2025 SIRS two pathogens symmetric coexistence equilibrium local stability theorem",
+        "behavioral spillover multi-pathogen exponential smoothing perceived risk symmetric equal R0 Routh Hurwitz stability all lag",
+        "equal reproduction number symmetric two-pathogen behavior spillover equilibrium symmetry breaking uniqueness",
+        "arxiv:2510.19153v2 Sections 3.2 and A1.2",
+        "arxiv:1311.4808"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2510.19153v2 Table 3 lists stability for s=0.",
+        "arxiv:2510.19153v2 Tables 4-5 explicitly mark coupled coexistence stability conjectural, without eigenvalue proof or n-strain census."
+      ],
+      "reasoning": "The closest exact named model has tables for the two-pathogen case, but its strong-spillover stability entries are conjectured, not an exact proved database/table result. Searches found no listed all-n exchangeable spectral classification. Absence of a hit alone is not treated as novelty evidence.",
+      "searches": [
+        "LeJeune Saucedo Childs Ghaffarzadegan behavioral spillover 2025 SIRS two pathogens symmetric coexistence equilibrium local stability theorem",
+        "behavioral spillover multi-pathogen exponential smoothing perceived risk symmetric equal R0 Routh Hurwitz stability all lag",
+        "\"behavioral spillover effect\" \"symmetric\" \"stability\" LeJeune",
+        "arxiv:2510.19153v2 Tables 3, 4, 5 and Appendix A1.2"
+      ]
+    },
+    "rationale": "The source model establishes coexistence stability for no spillover and labels the positive-spillover stability statements conjectural. The present all-n exchangeable theorem proves those conjectured implications in the natural equal-parameter sector and extends them to arbitrary finite pathogen count. General symmetry reductions are antecedents; no checked full-text prior establishes the positive all-mode cubic for the lagged behavioral SIRS product incidence. Unindexed and full-text-access risks remain.",
+    "residual_risks": [
+      "The published 2014 symmetry methods could contain broader transfer principles not captured by a claim-specific literature search; they are cited as antecedents, not ignored.",
+      "The full text of Berry et al. (2025) could not be inspected, so only its abstract and model description were compared; potential general-method overlap remains.",
+      "Unindexed or subsequently revised work may contain an equivalent all-n theorem.",
+      "The theorem does not extend automatically to heterogeneous pathogens or non-complete behavioral coupling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The n=2 positive-spillover stability assertion is not proven in the source; the no-spillover stability theorem is prior, and n>2 is not its model.",
+        "evidence": [
+          "System (1), Equation (2), Table 1, Theorem 5 and Tables 3-5; Appendix A1.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.19153v2",
+        "material_read": "Complete accessible HTML: model equations and incidence law in Section 2; equilibrium results and Tables 3-5 in Section 3; stationary and stability derivations in Appendix A1.2, through its end.",
+        "method": "Read the public arXiv full-text HTML equations, theorem and appendix, including the precise conjecture labeling.",
+        "title": "The behavioral spillover effect: Modeling behavioral interdependencies in multi-pathogen dynamics",
+        "trigger": "Identical model for two pathogens; conjectured coexistence stability under perfect and imperfect spillover"
+      },
+      {
+        "assessment": "The symmetry-decomposition strategy is established prior art, but the underlying transmission and immune variables differ: no SIRS perceived-risk first-order filters or present cubic sign identity.",
+        "evidence": [
+          "System (1)/(2) in Blyuss: immune-status equations with cross-protection parameter gamma."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.4808",
+        "material_read": "Public full author text via manuscript reproduction: introduction; Sections 2-3 model and symmetries; dynamical-implication discussion and representative formulas.",
+        "method": "Read complete manuscript text displayed in an author-uploaded academic manuscript copy, comparing model equations and symmetry-stability conclusions.",
+        "title": "Analysis of symmetries in models of multi-strain infections",
+        "trigger": "General symmetry/decomposition might subsume the eigenmode analysis"
+      },
+      {
+        "assessment": "The source studies cross-immunity and secondary infection, with no behavioral-perception state; its stability results do not entail a sign of the characteristic cubics here.",
+        "evidence": [
+          "Section 2, equations (1a)-(1g), susceptibility parameters sigma_ij."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/25M1826160",
+        "material_read": "Full HTML model Sections 1-2, coexistence equilibrium and spectral analysis; explicit eight-compartment cross-immunity structure.",
+        "method": "Read and compare its equations and stability hypotheses with the product-feedback SIRS system.",
+        "title": "Hidden Oscillations: How Minimal Immunological Interactions Destabilize Two-Strain Epidemic Models",
+        "trigger": "Recent strong two-pathogen stability/instability classification might cover symmetric co-circulation"
+      },
+      {
+        "assessment": "Available material concerns adaptive behavior plus vaccination equilibria, not explicitly the multi-pathogen product mechanism; full-text implications remain unresolved and listed as a risk, but available evidence does not present a decisive covering result.",
+        "evidence": [
+          "Publisher DOI abstract: SIR behavior and vaccination equilibria."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.111.014317",
+        "material_read": "Publisher and PubMed abstracts and identifying metadata; full text not inspected because publisher access restricted and the open repository view returned a challenge page.",
+        "method": "Read available publisher abstract and citation metadata; did not infer whole-document absence of coverage.",
+        "title": "Existence and stability of equilibria in infectious disease dynamics with behavioral feedback",
+        "trigger": "Potentially dominating general mathematical stability analysis of behavior-responsive epidemics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "579f1e2e-08c5-4692-a624-2bdce0835c68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Delayed behavior-mediated suppression in simultaneous epidemics has a concrete unresolved coexistence-stability question in the motivating research. The result classifies the exact positive coexistence equilibrium and excludes local Hopf instability across every finite pathogen count, all spillover strengths, all feedback sensitivities and all finite perception delays under exchangeable rates. Its structural certificate explains why a large information lag alone cannot destabilize this equilibrium, while avoiding unsupported global claims.",
+    "status": "PASS"
+  }
+}
