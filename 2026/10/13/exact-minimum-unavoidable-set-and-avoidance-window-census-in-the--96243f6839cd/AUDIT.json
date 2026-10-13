@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The equivalence between unavoidable sets and FVS in the finite constrained shift graph is proved. Disjoint admissible necklaces force c_k selected vertices; equality forces one per necklace. For k=2..8, the exact product of necklace lengths is exhaustively traversed, and every candidate is either certified cyclic or accepted acyclic. Independently implemented Kahn topological DP and DFS recursion yield byte-equivalent sorted optimizer catalogues and identical longest-path histograms. Complete source and exact list are embedded. No infinite-length claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zheng et al. (2020 online) use full graph V={0,1}^k and RPL; Marçais et al. (2023 preprint) optimize full graph. Golden-mean G_k has F_{k+2} vertices and a different language."
+      ],
+      "reasoning": "A full-shift optimum cannot imply the numerical census in an induced constrained subgraph, since the admissibility condition changes all cycles and all remaining paths. Restricted-language minimum-cardinality existence is acknowledged as covered.",
+      "searches": [
+        "minimum directed feedback vertex set universal hitting set de Bruijn full graph 2024",
+        "https://journals.sagepub.com/doi/full/10.1089/cmb.2020.0432",
+        "https://arxiv.org/abs/2311.03592"
+      ]
+    },
+    "checked_sources": [
+      "Champarnaud–Hansel–Perrin (2004), complete author-supplied manuscript HTML",
+      "Moreno (2003), complete HTML mirror of proceedings manuscript",
+      "Zheng–Kingsford–Marçais (2020), publisher open-access full HTML",
+      "Burstein–Kitaev, arxiv:math/0311399, abstract (posted 2003-11-23)",
+      "Marçais–DeBlasio–Kingsford, arXiv:2311.03592 abstract (not complete full text)",
+      "semantic mathematical index semantic searches: ['golden mean shift forbidden 11 minimal unavoidable k-mer sets exact counts length eight', 'Fibonacci de Bruijn graph directed feedback vertex set size necklace transversal 240', 'unavoidable sets of constant length constrained de Bruijn golden mean subshift maximal acyclic subsets']"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing theorem: equality of minimum size and number of allowed periodic necklaces for each k. Existing full-shift UHS paper: relation of graph residual path length to hitting window."
+      ],
+      "reasoning": "Those results imply the baseline lower bound and make the cutoff meaningful, but do not calculate finite optimizer multiplicities, all sharp solutions or their constrained residual-path distributions.",
+      "searches": [
+        "golden mean shift forbidden 11 minimal unavoidable k-mer sets exact counts length eight",
+        "unavoidable sets of constant length constrained de Bruijn golden mean subshift maximal acyclic subsets",
+        "doi:10.1142/S0218196704001700",
+        "doi:10.1089/cmb.2020.0432"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-per-periodic-necklace = sharp unavoidable set = minimum directed feedback-vertex set of the constrained shift graph; Champarnaud Theorem 3 already gives sharp minimum size."
+      ],
+      "reasoning": "Enumeration of every sharp transversal and its path length is stronger than existence and cardinality; no equivalence from the prior theorem to exact multiplicities without exhaustive further analysis.",
+      "searches": [
+        "golden mean shift forbidden 11 minimal unavoidable k-mer sets exact counts length eight",
+        "unavoidable sets of constant length constrained de Bruijn golden mean subshift maximal acyclic subsets",
+        "https://www.researchgate.net/publication/220169546_UNAVOIDABLE_SETS_OF_CONSTANT_LENGTH"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Champarnaud has k8 necklace count 8, not optimizer multiplicity 240. Moreno has 216 order-eight de Bruijn sequences, a different enumeration. No searched table lists 240 golden-mean sharp unavoidable sets or its eight-bin remaining-path histogram."
+      ],
+      "reasoning": "The prior numbers 8 and 216 answer different invariants; neither is the number of minimum acyclic-deletion sets 240 or the histogram 15:16,...,22:16.",
+      "searches": [
+        "Fibonacci de Bruijn graph directed feedback vertex set size necklace transversal 240",
+        "Moreno Golden Mean de Bruijn sequence # seq 216 n8",
+        "Champarnaud c_2(k,2) table k8=8"
+      ]
+    },
+    "rationale": "The original claim is the complete optimizer multiplicity and waiting-window spectrum in the shift with 11 forbidden, not the known minimum size or necklace table. The author-supplied full Champarnaud–Hansel–Perrin manuscript proves minimum size and lists cyclic orbit numbers, but contains no enumerations of all minimum restricted-language unavoidable sets or residual path histograms. Moreno studies golden-mean de Bruijn sequence counts, not minimum cycle-breakers. Published full-shift residual-path optimization results do not imply the constrained full census. Three semantic mathematical index searches found no equivalent or dominating statement; this cannot establish global uniqueness. Unindexed data or uninspected articles could overlap.",
+    "residual_risks": [
+      "Earlier unindexed datasets or independent exact enumerations of constrained golden-mean feedback vertex sets may exist.",
+      "2024 minimum-decycling-set work and some related older conference/full paper editions were not all inspected in full; a plausible matching table would require renewed human comparison.",
+      "Independent external scientific validation is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves sharp minimum sizes for the golden mean (X_2 up to letter exchange), so minimum cardinality is prior. Its table supplies known necklace counts 2,2,3,3,5,5,8 but not counts 2,1,4,1,40,2,240 of all optimum sets or their longest residual paths.",
+        "evidence": [
+          "Champarnaud et al., Theorem 3, final section; periodic-orbit table c_2(k,2); introduction and main theorem; https://www.researchgate.net/publication/220169546_UNAVOIDABLE_SETS_OF_CONSTANT_LENGTH"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220169546_UNAVOIDABLE_SETS_OF_CONSTANT_LENGTH",
+        "material_read": "Author-supplied complete text through references: introduction, cycle theorem, final section (X_n, c_n(k,2), Theorem 3), periodic-orbit table, references.",
+        "method": "HTML text inspection of author-supplied full manuscript on ResearchGate; original author PDF fetch unavailable.",
+        "title": "Unavoidable Sets of Constant Length",
+        "trigger": "Direct restricted-language existence theorem and possible coverage of the claimed enumeration"
+      },
+      {
+        "assessment": "Provides same underlying restricted shift graph and c_k necklace counts. Its enumerated number of restricted de Bruijn sequences (216 at order 8) has different definition and is not number of minimum feedback vertex sets. No complete minimum-set catalogue/path spectra found in inspected sections.",
+        "evidence": [
+          "Moreno, Examples 1–3 and Section 3, https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-WORDS03-Lyndon_words_and_de_Bruijn_sequences_in_a_subshift_of_finite_type.pdf"
+        ],
+        "identifier_or_url": "https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-WORDS03-Lyndon_words_and_de_Bruijn_sequences_in_a_subshift_of_finite_type.pdf",
+        "material_read": "HTML full-text mirror: definitions, golden-mean example, periodic-word and necklace table, Section 3 restricted de Bruijn graph, sequence-enumeration table, references.",
+        "method": "Read HTML full-text mirror of 2003 proceedings paper; author PDF URL returned HTTP 403.",
+        "title": "Lyndon Words and de Bruijn Sequences in a Subshift of Finite Type",
+        "trigger": "Same golden-mean shift graph and periodic necklaces"
+      },
+      {
+        "assessment": "Explains the window-guarantee interpretation and treats all unrestricted alphabet k-mers. It does not supply counts of optimal hitting sets for the shift forbidding 11.",
+        "evidence": [
+          "Zheng–Kingsford–Marçais, Sections 1–2, https://journals.sagepub.com/doi/full/10.1089/cmb.2020.0432"
+        ],
+        "identifier_or_url": "https://journals.sagepub.com/doi/full/10.1089/cmb.2020.0432",
+        "material_read": "Full open-access HTML text, introduction, definitions of UHS, full shift and remaining path length, results/algorithms.",
+        "method": "Read the primary article HTML from the publisher.",
+        "title": "Lower Density Selection Schemes via Small Universal Hitting Sets with Short Remaining Path Length",
+        "trigger": "Longest avoidance path as quality metric for minimum-size unavoidable sets"
+      },
+      {
+        "assessment": "Full-shift minimum decycling-set search and residual-path optimisation, not evidence of the restricted golden-mean enumeration; full text remains uninspected and is explicitly a residual risk.",
+        "evidence": [
+          "arXiv:2311.03592 abstract; https://arxiv.org/abs/2311.03592"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.03592",
+        "material_read": "Open arXiv abstract and bibliographic record; publisher fetch timed out.",
+        "method": "Open-access abstract read; full-text retrieval not completed.",
+        "title": "Sketching Methods with Small Window Guarantee Using Minimum Decycling Sets",
+        "trigger": "Closest optimisation on minimum decycling sets of full de Bruijn graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96243f68-39cd-43db-8c9d-473b763f2f6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An established SFT minimum-set theorem gives only existence and size; the complete structural enumeration and waiting-window spectrum reveal design differences at fixed optimal cardinality. For length eight the 240 minimum-size sets split into eight distinct sharp cutoff classes and exactly 16 provide length-23 hitting. This natural exact finite invariant is directly motivated by constrained symbolic dynamics and universal hitting sets and is not a routine reformulation of the known size.",
+    "status": "PASS"
+  }
+}
