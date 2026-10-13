@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For correlated Brownian increments with covariance \\(R\\,dt\\), Itô's product rule gives the linear covariance forcing \\(GRG^\\top\\). In the motivating model \\(G\\) is diagonal, so the source's stated \\(Q_{ij}=\\rho_{ij}\\sigma_i\\sigma_jE_i^*E_j^*\\) equals \\(GRG^\\top\\); adding \\(GG^\\top\\) therefore double-counts the diagonal when \\(\\rho_{ii}=1\\). The reconstructed baseline independent covariance matches Eq. (4.4). The adjoint Lyapunov identity gives the trace functional, and a Gram-vector reduction proves the displayed global minimum and maximum over all \\(3\\times3\\) correlation matrices. The bundled checker reproduces every numerical constant and the linearity relation for the printed covariance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.1007/s11538-020-00733-y states the standard independent-noise stochastic-sensitivity equation \\(FW+WF^\\top=-GG^\\top\\) and relates \\(W\\) to confidence-domain geometry.",
+        "DOI 10.1007/s11071-019-05114-2 explicitly constructs correlated Brownian motions for an SIS epidemic model through a coefficient matrix acting on independent Brownian motions."
+      ],
+      "reasoning": "These sources establish the general frameworks for stochastic sensitivity and correlated epidemic noise, but they use different models and do not imply the numerical affine trace law or its sharp extrema for the 2026 SIRS baseline.",
+      "searches": [
+        "stochastic sensitivity correlated noise Lyapunov matrix covariance FW WF G R G transpose",
+        "stochastic SIRS correlated Brownian covariance confidence ellipsoid correction",
+        "correlated Brownian stochastic sensitivity matrix double counts diagonal covariance"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026278",
+      "doi:10.1007/s11071-019-05114-2",
+      "doi:10.1007/s11538-020-00733-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai, Cai, and Mao (2019) analyze extinction and persistence for a one-dimensional infected-population SIS SDE with two correlated Brownian drivers; they do not derive a three-dimensional confidence-ellipsoid covariance.",
+        "Yuan et al. (2020) give the independent-noise stochastic-sensitivity Lyapunov equation in a producer-grazer model, not the 2026 SIRS correlated extension.",
+        "The motivating paper's baseline Eq. (4.4) provides the independent covariance against which the reconstruction was checked."
+      ],
+      "reasoning": "The general priors make the covariance correction conceptually natural but do not subsume the accepted claim. The sharp SIRS trace range requires the source's specific equilibrium, Jacobian, noise amplitudes, adjoint Lyapunov solution, and a separate optimization over the three-dimensional correlation elliptope.",
+      "searches": [
+        "A stochastic differential equation SIS epidemic model with two correlated Brownian motions covariance",
+        "Noise-Induced Transitions producer grazer stochastic sensitivity matrix FW WF",
+        "correlated stochastic epidemic model Brownian coefficient matrix covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2026278 prints \\(FW+WF^\\top+GG^\\top+Q=0\\) with \\(Q_{ij}=\\rho_{ij}\\sigma_i\\sigma_jE_i^*E_j^*\\) for all \\(i,j=1,2,3\\).",
+        "The same paper's independent equation is \\(FW+WF^\\top+GG^\\top=0\\), so a correct correlated formula must recover it when \\(R=I_3\\)."
+      ],
+      "reasoning": "The printed correlated formula fails that identity limit if its stated diagonal definition is used. No searched publication or indexed finding supplied the corrected source-specific equation together with the baseline sharp correlation envelope.",
+      "searches": [
+        "\"Dynamics and stochastic sensitivity technique\" correlated Brownian covariance matrix Eq 3.19",
+        "Huang Du Liang stochastic SIRS correlated noise covariance matrix confidence ellipsoid",
+        "10.3934 math 2026278 correlated Brownian covariance correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed covariance result was `2026/9/19/SCOPE-quadratic-anisotropy-slaving-simplex-covariance--c7e9c46d956f`, which concerns simplex covariance dynamics rather than epidemic stochastic sensitivity.",
+        "The closest indexed population-model covariance result was `2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e`, which concerns parameter-identifiability Fisher correlation rather than correlated Brownian forcing."
+      ],
+      "reasoning": "Indexed noncoverage is supporting evidence only. The originality judgment rests on direct statement-level comparison with the motivating paper and full-text related literature.",
+      "searches": [
+        "Huang Du Liang stochastic SIRS correlated noise covariance matrix confidence ellipsoid",
+        "SIRS stochastic sensitivity correlation matrix trace covariance sharp envelope",
+        "10.3934 math 2026278 correlated Brownian covariance correction"
+      ]
+    },
+    "rationale": "The general covariance identity for correlated linear noise is standard and is not claimed as new. The new content is source-specific: identifying the diagonal double count in Remark 3.8, reconstructing the exact correlation-dependent SIRS covariance functional at the paper's baseline, and optimizing that functional sharply over the correlation elliptope. Neither the motivating paper nor the inspected correlated-epidemic and stochastic-sensitivity literature states this correction or sharp envelope.",
+    "residual_risks": [
+      "The covariance correction itself is a standard linear-SDE identity; originality is limited to its source-specific consequence and the sharp baseline correlation envelope.",
+      "A published erratum or unindexed note could have clarified that the source intended \\(Q\\) to have zero diagonal despite its printed \\(i,j=1,2,3\\) definition.",
+      "The sharp trace endpoints use singular correlation matrices; practical empirical correlations may lie strictly inside the elliptope.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_GAP. The independent-noise equation is standard and the numerical independent covariance is correct, but the correlated extension as printed includes both \\(GG^\\top\\) and a matrix \\(Q\\) whose stated diagonal already contains the same marginal variances.",
+        "evidence": "Remark 3.8 defines \\(Q_{ij}=\\rho_{ij}\\sigma_i\\sigma_jE_i^*E_j^*\\) for \\(i,j=1,2,3\\); Eq. (3.16) is the independent-noise formula, and Eq. (4.4) gives the baseline independent covariance.",
+        "identifier_or_url": "doi:10.3934/math.2026278",
+        "material_read": "Model equations; stochastic-sensitivity linearization; Eqs. (3.14)-(3.19); correlated-noise Remark 3.8; baseline parameters; Eq. (4.4) covariance and confidence-ellipsoid interpretation. The relevant PDF pages were also inspected visually.",
+        "method": "Open-access publisher full text and PDF page inspection.",
+        "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+        "trigger": "Exact motivating model, covariance equation, correlated-noise remark, and baseline confidence ellipsoid."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It confirms standard correlated-noise construction but analyzes a different one-dimensional SIS process and no stochastic-sensitivity confidence ellipsoid.",
+        "evidence": "The paper writes correlated Brownian motions as a coefficient matrix times independent Brownian motions and studies their effect on SIS extinction and persistence.",
+        "identifier_or_url": "doi:10.1007/s11071-019-05114-2",
+        "material_read": "Full-text model construction, representation of correlated Brownian motions through independent drivers, covariance relation, and extinction/persistence conclusions.",
+        "method": "Open-access publisher full-text HTML.",
+        "title": "A stochastic differential equation SIS epidemic model with two correlated Brownian motions",
+        "trigger": "Highly relevant prior on correlated Brownian forcing in an epidemic SDE."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It states the independent-noise covariance framework but neither correlated epidemic noise nor the SIRS-specific trace optimization.",
+        "evidence": "Its Appendix B gives \\(FW+WF^\\top=-GG^\\top\\) for a stable equilibrium and identifies \\(\\varepsilon^2W\\) as the weak-noise covariance.",
+        "identifier_or_url": "doi:10.1007/s11538-020-00733-y",
+        "material_read": "Appendix B stochastic-sensitivity framework, equilibrium covariance equation, confidence-domain construction, and associated model discussion.",
+        "method": "Open-access publisher full-text HTML.",
+        "title": "Noise-Induced Transitions in a Nonsmooth Producer–Grazer Model with Stoichiometric Constraints",
+        "trigger": "Full-text stochastic-sensitivity reference with an explicit Lyapunov covariance equation and confidence-domain interpretation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aebdfa64-4c4e-4b81-b0ab-0436eacabad9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper uses the stochastic-sensitivity matrix to define confidence ellipsoids as quantitative monitoring and intervention benchmarks and explicitly proposes a correlated-noise extension. The printed extension can inflate the covariance substantially: at full positive correlation its literal trace is about \\(73.95\\%\\) too large. The sharp envelope also shows that correlation structure alone changes total first-order variance by a factor of about \\(2.03\\) at fixed marginal noise intensity. This materially affects the uncertainty geometry the paper proposes for interpretation.",
+    "status": "PASS"
+  }
+}
