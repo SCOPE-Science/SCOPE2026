@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Exact 9x9 spin-one projectors and realignment and partial-transpose traces reproduce the known six-term phase polynomial. Rewriting in cosine-alpha and phase-aligned beta branches produces the necessary factor -500(4c+5)(8c+19)(64c²+64c+115), strictly negative for c in [-1,1]. This excludes all points with sin(alpha) nonzero. At alpha 0 or pi, beta must be multiple of pi/2, yielding precisely eight points, all verified stationary. Exact Hessian determinants classify four pairs and torus compactness yields sharp maximum 131/324 only at alpha=pi, beta=pi/2 or 3pi/2. The SymPy verifier was executed from its actual package path with VERIFY_OK. No finite enumeration is used to prove exhaustiveness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The universal phase-corner theorem proves stationarity only at binary-phase corners and does not exhaust the stationary set.",
+        "The earlier many-body study concerns selected time-dependent trajectories and their long-time averages rather than maximizing over both independent relative phases."
+      ],
+      "reasoning": "The universal theorem has broader projector scope but strictly weaker stationary-set coverage in this concrete model; it cannot exclude the extra four extrema or yield the sharp upper bound without further analysis. Time-averaged curves along selected Hamiltonians do not dominate full independent-coupling optimization.",
+      "searches": [
+        "arxiv:2609.09276v1 Sec. III theorem and Sec. V",
+        "arxiv:2605.20661v2 Sec. V.2",
+        "Spectral phase entangling power spin one qutrit gates noncorner critical points Hessian",
+        "arxiv 2609.09276 Universal Entanglement Dynamics of Unitary Operators spin 1 global maximum"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.09276v1",
+      "arxiv:2312.14484v1",
+      "arxiv:2605.20661v2",
+      "arxiv:0803.1032 (two-copy matrix formula cited and algebra verified directly)",
+      "Published mathematical research records found through targeted semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Low and McGinnis prove four corners with entangling powers 0 and 20/81 and one saddle classification, but their theorem explicitly does not exhaust stationary points.",
+        "Kirchner et al. provide E(alpha,beta) exactly, which logically determines but does not explicitly calculate its extrema."
+      ],
+      "reasoning": "The 2026 corner theorem does not imply exhaustion. The 2023 exact E expression is a sufficient starting premise and thus mathematically implies any correct optimized consequence after additional argument; this is a significant priority caveat. The claim specifically contributes the nontrivial exact sign factorization proving the stationary-set exhaustion and a sharp global comparison, absent in the examined texts.",
+      "searches": [
+        "arxiv:2609.09276v1 Section IV.3 Eqs. (57)-(64) and Discussion",
+        "arxiv:2312.14484v1 Section 5.1 Table 4",
+        "entangling power three projector phase torus complete eight critical points 20/81 131/324",
+        "\"two qutrit\" \"entangling power\" \"global maximum\" spin invariant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kirchner et al. Table 4 is algebraically exactly the six-term polynomial (1) under alpha=2(delta_0-delta_2), beta=2(delta_1-delta_2).",
+        "Low and McGinnis use identical projectors and eigenphase torus, but state only four stationary corners and the corner values 0 and 20/81."
+      ],
+      "reasoning": "The phase function, as a stronger source of numerical information, already existed; the precise novelty is the complete global analytical critical-set determination, which Table 4 does not state or optimize. Neither source establishes the factorized noncorner exclusion or the value and equality cases 131/324. Nontrivial implication from the old formula is acknowledged rather than disguised.",
+      "searches": [
+        "arxiv:2312.14484v1 Table 4 distinguishable spin-1 scattering",
+        "arxiv:2609.09276v1 Eq. (55) and Sec. IV.3",
+        "\"131/324\" \"entangling\" spin",
+        "\"131/324\" \"spin\" quantum gate",
+        "Complete classification all stationary points entangling power two-site spin-1 bilinear biquadratic Hamiltonian three total-spin channels phase torus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact published table gives only the phase-dependent trigonometric expression. It does not tabulate the eight critical points, their Hessian types, or the sharp global max 131/324.",
+        "No corresponding global-optimum table was found in available targeted research records."
+      ],
+      "reasoning": "No known table of exact critical-point classes or optimum was identified. The previously published phase function is explicitly credited and its logical informational relationship is recorded; a raw polynomial formula is not misidentified as a novelty.",
+      "searches": [
+        "arxiv:2312.14484v1 Table 4, system: distinguishable particles",
+        "\"131/324\" \"entangling\" spin",
+        "131/324 maximal entangling power spin 1 SU(2) invariant two qutrit bilinear biquadratic"
+      ]
+    },
+    "rationale": "Complete classification of precisely eight critical phase configurations, the four additional noncorner points, their Hessian types and the exact global maximum 131/324 are not results stated in the examined closest sources. The full trigonometric phase polynomial was previously published in Kirchner et al. (2023) and is not claimed as new; its complete global optimization is the new claim. Exact algebraic root-exclusion is necessary to establish exhaustiveness. Published-record and own-record searches found no equivalent optimization, with residual risk explicitly retained.",
+    "residual_risks": [
+      "A closed-form formula for the same full phase function was published in 2023, so the new global maximum and critical classification are derivable from known premises; their priority or independent mathematical significance could be judged differently.",
+      "An equivalent phase-torus optimization might exist in literature not returned by available targeted search and indexing.",
+      "No independent scientific audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_CORNER_ONLY_NOT_GLOBAL_CLASSIFICATION",
+        "evidence": "Theorem identifies four phase-inversion corners; Sec IV.3 computes 0,20/81 and a saddle along trajectories; Sec V acknowledges additional noncorner extrema in multi-projector systems.",
+        "identifier_or_url": "https://arxiv.org/html/2609.09276v1",
+        "material_read": "Full text: Sec. II (Haar realignment formula), Sec. III theorem, Sec. IV.3 equations 46–64, Sec. V discussion and references",
+        "method": "Read lawful arXiv HTML primary full text, compare mathematical statements, parameters and Hessian/corner scope",
+        "title": "Universal Entanglement Dynamics of Unitary Operators",
+        "trigger": "Identical phase-projector family and nearest recent theorem"
+      },
+      {
+        "assessment": "COVERS_FULL_FUNCTION_NOT_OPTIMIZED_CRITICAL_CLASSIFICATION",
+        "evidence": "Table 4 exactly coincides with phase formula (1) after substitutions, but no complete stationary-point list or global bound is calculated; paper focuses on scattering datasets and energy dependence.",
+        "identifier_or_url": "https://arxiv.org/html/2312.14484v1",
+        "material_read": "Full arXiv HTML paper sections 2–6, including Table 4 with distinguishable spin-one entry",
+        "method": "Read full-text mathematical table and phenomenology, substitute scattering phase differences into the exact two-parameter gate phase coordinates",
+        "title": "Entanglement in Few-Nucleon Scattering Events",
+        "trigger": "Explicit source cited as full spin-one entangling-power phase expression"
+      },
+      {
+        "assessment": "RELATED_NOT_THE_SAME_GLOBAL_PHASE_OPTIMIZATION",
+        "evidence": "Secs III and V evaluate fixed-model spin-chain time evolution and time-averaged entangling powers; not an all-phase critical-point theorem.",
+        "identifier_or_url": "https://arxiv.org/html/2605.20661v2",
+        "material_read": "Full arXiv HTML text, Sec. II, two-site spin-one models and Sec. V.2 BLBQ chain discussion, conclusions",
+        "method": "Compare instantaneous versus time-averaged quantities and whether the phase torus is independently optimized",
+        "title": "Entangling Power: A Probe of Symmetry and Integrability in Quantum Many-Body Systems",
+        "trigger": "Close prior instantaneous and time-averaged spin-one entangling-power analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46b5f1d0-55ef-4b89-9be5-4e3e2c93f819",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact global optimum and all eight local types are intrinsic, physically realizable invariants of the complete SU(2)-invariant two-spin-one gate family. The 2026 source foregrounds only the four stationary corners and their physical paths, yet the maximum at noncorner phases strictly exceeds their known entangling power 20/81. The factorized exclusion supplies nontrivial global control, not a raw table recomputation or an unmotivated slice; the sharp optimum supplies a directly meaningful gate-design benchmark. Value is limited to this natural two-parameter, linear-entropy model.",
+    "status": "PASS"
+  }
+}
