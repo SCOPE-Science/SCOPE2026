@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "From the 2026 source CDF the hazard is exactly \\(h=\\theta\\alpha(e^t-1)/[(\\lambda+x)(e^{\\alpha t}-1)]\\) with \\(t=-\\log(1-v/2)\\). Its exact logarithmic derivative is \\((\\theta K_\\alpha(t)-1)/(\\lambda+x)\\). For \\(\\alpha\\le1\\), \\(K_\\alpha\\le0\\); for \\(\\alpha>1\\), elementary exponential and hyperbolic-sine inequalities prove \\(K_\\alpha\\) increases strictly from 0 to \\(B(\\alpha)\\) as \\(t\\) increases from 0 to \\(\\log2\\). Because \\(t(x)\\) decreases strictly, this gives either global strict decrease or exactly one positive-time maximum with a sharp equality boundary. The included standard-library numerical checker passed 360 derivative identity cross-checks, scale comparisons, and the exact \\(\\alpha=2\\) example; these finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mohsin and Kalt (2025), DOI 10.18280/mmep.120330, full open text sections 2–4: generator \\(((1+G)^\\alpha-1)/(2^\\alpha-1)\\) and its exponential/Weibull instances.",
+        "Qura et al. (2023), DOI 10.1155/2023/6661792, first and second sections: four-parameter APPLx formed using a different alpha-power (exponential-in-CDF) transformation."
+      ],
+      "reasoning": "The generator is broader as a set of distributions but no general baseline-independent hazard-monotonicity theorem was identified that, when specialized to Lomax, yields the two-sided necessary/sufficient boundary. In particular, the transformed derivative contains the Lomax-specific term \\(-1/(\\lambda+x)\\). Separate 2023 power-Lomax extensions do not entail the exact APIILx classification.",
+      "searches": [
+        "Alpha power type-II-G family hazard shape Lomax baseline generator rate derivative",
+        "Lomax polynomial power CDF hazard function strictly decreasing or upside-down bathtub, exact boundary in alpha and theta",
+        "\"extended power-Lomax\" 2023 CDF alpha power transform and hazard formula"
+      ]
+    },
+    "checked_sources": [
+      "Kalt et al. 2026: DOI 10.3934/math.2026334, full publisher PDF",
+      "Mohsin–Kalt 2025: DOI 10.18280/mmep.120330, full open HTML",
+      "Qura et al. 2023: DOI 10.1155/2023/6661792, accessible HTML primary text",
+      "Lomax 1954: DOI 10.1080/01621459.1954.10501239, established classical baseline"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kalt et al. (2026), DOI 10.3934/math.2026334, pp. 8135–8137 notes possible decreasing or unimodal hazards without separating parameters.",
+        "The Lomax \\(\\alpha=1\\) case has only a decreasing hazard; a tail-asymptotic analysis of APIILx gives eventual \\(\\theta/x\\) behavior but not near-origin derivative signs."
+      ],
+      "reasoning": "The prior tail-index or moment-existence statement entails eventual decay, but does not distinguish always-decreasing from first-increasing-then-decreasing or prove a unique peak. The qualitative source sentence allows both but does not imply the exact if-and-only-if boundary and peak location. A genuine consequence for one subfamily does not cover the remaining parameter space.",
+      "searches": [
+        "Pareto type II distribution generator survival hazard derivative hyperbolic sine monotonicity",
+        "2026 new probability distribution sharp parameter identifiability copula tail dependence stochastic order",
+        "\"alpha power type II Lomax\" \"hazard\" \"unimodal\" \"decreasing\" conditions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kalt et al. (2026), DOI 10.3934/math.2026334, eqs. (2.4)–(2.7): exact \\(F,f,S,h\\), qualitative hazard shapes in introduction and Figure 1, without the phase threshold.",
+        "Qura et al. (2023), DOI 10.1155/2023/6661792, describes an alpha-power transformation of a power-Lomax baseline, not the \\((1+G)^\\alpha\\) generator of APIILx."
+      ],
+      "reasoning": "Aliases APIILx, alpha-power type-II Lomax, alpha power-II Lomax, and an alpha-power power-Lomax model were compared by their CDF-generating maps. The new statement partitions all positive triples by a sharp \\(\\theta\\)-\\(\\alpha\\) inequality. Matching the word Lomax or presenting a family with fewer or more parameters does not imply that implication; the primary paper does not derive its derivative-sign boundary.",
+      "searches": [
+        "\"alpha power type II\" \"Lomax\" hazard threshold critical shape unimodal",
+        "A new alpha power type-II Lomax distribution DOI 10.3934/math.2026334 hazard sharp monotonicity phase diagram alpha theta lambda",
+        "\"alpha power power Lomax distribution\" \"hazard\" \"type-II\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kalt et al. (2026), DOI 10.3934/math.2026334, Figure 1 shows hazards at selected parameters; equations (2.4)–(2.7) give functions but no phase table.",
+        "Targeted published-result queries yielded no table or exact boundary for the present model."
+      ],
+      "reasoning": "A finite set of plots is not a complete analytic classification. The exact boundary \\(\\theta[\\alpha/(1-2^{-\\alpha})-2]=1\\), the strict-decrease equality case, and the unique-peak equation have a different quantified scope from any plotted parameter tuples or model comparison tables.",
+      "searches": [
+        "\"A new alpha power type-II Lomax distribution\" \"hazard\" unimodal exact parameter threshold",
+        "APIILx hazard increasing decreasing unimodal if and only if alpha/(1-2^-alpha)-2 threshold theta 2026"
+      ]
+    },
+    "rationale": "The 2026 primary source (eqs. (2.4)–(2.7), Fig. 1) gives qualitative decreasing/unimodal hazard curves but no necessary-and-sufficient parameter threshold or monotone uniqueness proof. The 2025 APII-G generator article uses exponential/Weibull baselines; the 2023 APPLx article uses another generator. A separately indexed heavy-tail statement for the present 2026 model has only large-time and moment implications, not the global derivative-sign criterion. Cross-source comparisons and searches support noncoverage, subject to the recorded unindexed-priority risk.",
+    "residual_risks": [
+      "An unindexed paper might independently derive this same transformed hazard inequality or an equivalent sharp parameter division. Search absence does not establish absolute priority.",
+      "The 2023 article displays some equations as non-text mathematics in the accessible HTML; its generator and model description, not inaccessible equation graphics, support the inapplicability comparison.",
+      "A secondary indexing service reports a date inconsistent with the primary publisher acceptance/publication sequence; publisher PDF and article page state 27 March 2026."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers distribution, hazard definition and qualitative shapes; does not give the quantitative shape boundary or uniqueness proof.",
+        "evidence": [
+          "DOI 10.3934/math.2026334; equation (2.7) hazard, Figure 1 sampled shapes, introduction page 8135, conclusions pages 8162–8164."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-334.pdf",
+        "material_read": "Publisher PDF pages 1–6, 29–31, reference pages and entire-document searches for hazard, unimodal and threshold, including eqs. (2.1)–(2.9), Figure 1 and applications/conclusion",
+        "method": "Read the open-access publisher PDF via extracted text and a page-rendered image; inspected mathematical statements and searched full parsed PDF.",
+        "title": "A new alpha power type-II Lomax distribution with applications to radiation and materials sciences",
+        "trigger": "Exact same 2026 APIILx CDF and hazard; decisive source for novelty"
+      },
+      {
+        "assessment": "The general transformation is present; Lomax baseline and exact hazard phase boundary are not studied.",
+        "evidence": [
+          "DOI 10.18280/mmep.120330; Section 2 formula (2), Sections 3–4 formulas for exponential and Weibull baselines."
+        ],
+        "identifier_or_url": "https://www.iieta.org/node/19845",
+        "material_read": "Open complete HTML article, generator Section 2, exponential and Weibull examples Sections 3–4, hazard formulas and concluding discussion",
+        "method": "Read full text/HTML formulas and compared generator and baseline choices",
+        "title": "Alpha Power Type II-G Family: Adding a Power Parameter of Distributions",
+        "trigger": "Original broader APII-G generator might imply a general theorem"
+      },
+      {
+        "assessment": "APPLx uses an alpha-power (exponential-in-CDF) generator on a power-Lomax baseline, distinct from \\((1+G)^\\alpha\\) on standard Lomax; it does not state the new threshold.",
+        "evidence": [
+          "DOI 10.1155/2023/6661792, model construction in Sections 1–2 and hazard discussion in Section 7."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2023/6661792",
+        "material_read": "Accessible full-page HTML abstract, introduction, Section 2 family construction and Section 7 conclusion; mathematical equation images in that view not extracted",
+        "method": "Compared generator descriptions, parameter counts and claimed hazard shapes in the accessible primary full-page text",
+        "title": "A Novel Extended Power-Lomax Distribution for Modeling Real-Life Data: Properties and Inference",
+        "trigger": "Highly similar family name and hazard-flexibility claims might dominate the 2026 model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1408882-c6f5-48e2-b214-bd63e61aa550",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves a natural structural question posed by published qualitative hazard plots for a newly proposed 3-parameter lifetime law: precisely which parameters permit an interior failure-rate peak, whether two peaks or globally increasing rates can occur, and where the peak lies. The sharp criterion is scale independent and gives a direct calibration/diagnostic tool for survival modeling. The contribution is a complete nontrivial hazard-shape classification, not the existing generator, tail index or a small numerical improvement.",
+    "status": "PASS"
+  }
+}
