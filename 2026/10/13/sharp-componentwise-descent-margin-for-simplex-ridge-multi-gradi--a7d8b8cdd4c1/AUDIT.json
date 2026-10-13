@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The unique ridge simplex optimum satisfies (G^T v+rho lambda)·(e_i-lambda)>=0 for every vertex. Maximizing lambda_i-||lambda||^2 over the simplex gives exactly (m-1)/(4m), including all boundary cases. Explicit all-m two-vector-family KKT equations attain equality and maintain non-Pareto-stationarity. Exact strongly convex quadratics have component increase 3/8 at the stated full step while a common descent direction exists. verify.py reproduces rational finite checks independently of the algebraic proof; no incomplete enumeration is used for infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li et al. (2026) obtain g_i dot p <= -(sigma/2)||p||^2+rho(m-1)/(2m sigma) for constrained feasible displacements.",
+        "The 2022 MoCo paper gives convergence for stochastic tracking of a regularized weight solution, with no claimed sharp componentwise coefficient in inspected relevant sections and appendix."
+      ],
+      "reasoning": "A broader constrained inequality does apply when unconstrained, but it is quantitatively weaker and does not dominate the claimed bound. The present inequality makes no projected-case extension and cannot be inferred by mere specialization of the published numerical coefficient.",
+      "searches": [
+        "arXiv:2609.02722v1, Lemma 4.1 proof and Algorithm 1",
+        "\"regularized multi gradient convex combination destroys common descent exact threshold\"",
+        "\"Tikhonov regularization multi gradient descent directions fail common descent multiobjective regularization\"",
+        "arXiv:2210.12624, Sections 3.3 and theoretical appendix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.02722v1 full text, §3.1 and Lemma 4.1",
+      "arXiv:2210.12624 full-text preprint, §2.2, §3.1, §3.3, related work and theory appendix",
+      "arXiv:1907.04472v3 full text, §§3-5",
+      "arXiv:2305.18409v3 full text, §§3-4",
+      "Published optimization literature searches for multi-gradient ridge weighting, Tikhonov simplex coefficients, common-descent thresholds and equivalent formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source bound implies strict derivative only above rho(m-1)/m; the present sufficient condition is above rho(m-1)/(4m), a genuinely enlarged parameter regime.",
+        "The 2022 paper supplies the same regularization mechanism but studies tracker bias and asymptotic Pareto stationarity; its formulas do not settle a best universal margin in the inspected sections."
+      ],
+      "reasoning": "Same direction class does not make the stronger sharp certificate a corollary of the earlier weaker statement. The all-m family also rules out replacing the sharp constant by a smaller one; no earlier inspected theorem supplies the matching necessity.",
+      "searches": [
+        "arXiv:2609.02722v1, Equations (10)-(14)",
+        "arXiv:2210.12624, Equations (9)-(11)",
+        "\"regularized\" \"minimum norm\" \"common descent\" simplex gradients penalty"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fernando et al. (2022) minimize ||G lambda||^2+(rho/2)||lambda||^2, equivalent to the chosen dual after reparameterizing their rho; they use projected stochastic updates and prove convergence, not the claimed sharp margin.",
+        "Li et al. (2026) specialize exactly to the chosen half-normalized ridge problem and p=-G lambda/sigma."
+      ],
+      "reasoning": "The ridge-weight operator is intentionally not new; the precise universal componentwise inequality and sharpness are the new content. General KKT and the minimum-norm projection are insufficient alone to state the all-m optimal coefficient without the simplex extremum and witness.",
+      "searches": [
+        "\"regularized min-norm convex combination common descent\"",
+        "\"biobjective ridge penalized simplex multiplier least norm convex hull of gradients exact common descent safety threshold\"",
+        "arXiv:2210.12624, Section 3.1 Eq. (9) and Eq. (10)",
+        "arXiv:2609.02722v1, Section 3.1 unconstrained closed-form rule"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched titles and content around Tikhonov regularization, simplex-regularized gradient mixing and componentwise monotonicity.",
+        "Liu–Vicente uses unregularized convex-hull minimum norm; Xiao–Ban–Ji uses a direction-oriented mixed-gradient target instead of a squared simplex weight penalty."
+      ],
+      "reasoning": "No exact tabulated bound or identical all-objective family was located. This is a mathematical inequality, not a finite catalogue; failed searches remain only supporting evidence, not uniqueness certification.",
+      "searches": [
+        "\"simplex ridge gradient margin sharp (m-1)/(4m)\"",
+        "\"multiobjective gradient ridge penalty componentwise descent bound sharp\"",
+        "arXiv:1907.04472v3, Sections 3-5",
+        "arXiv:2305.18409v3, Sections 3-4"
+      ]
+    },
+    "rationale": "Exact operator comparison: the 2026 source states a componentwise projected-step bound with half the useful negative quadratic coefficient and twice the sharp ridge penalty; its unconstrained specialization certifies negative derivative only for norm-square greater than rho(m-1)/m. Here the threshold is rho(m-1)/(4m), with equality for each objective count and a strict ascent witness. Closely related 2022 simplex-ridge method is already acknowledged, including its parameter scaling; its inspected gradient-tracking and convergence analysis does not provide the exact finite-step margin. Residual risk is equivalent unindexed optimization inequalities derived from elementary KKT geometry.",
+    "residual_risks": [
+      "A mathematically equivalent constant may occur in unindexed literature under a regularized monotone-map variational inequality or a differently normalized simplex projection.",
+      "The sharp guarantee concerns the unconstrained exact multiplier; it must not be read as improving Li et al.’s general constrained lemma.",
+      "Only material recorded from relevant full-text regions was compared, not a line-by-line evaluation of every independent preprint cited by these articles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING sharp unconstrained margin; DOES_COVER operator and weaker general constrained inequality",
+        "evidence": "Section 3.1 gives lambda_rho=min 1/2||G lambda||^2+rho/2||lambda||^2. Lemma 4.1 derives g_i dot p <= -sigma||p||^2/2+rho(m-1)/(2m sigma).",
+        "identifier_or_url": "https://arxiv.org/html/2609.02722v1",
+        "material_read": "Full mathematical presentation including introduction, §3.1 Eq. (10)-(12), Algorithm 1, §4 Lemma 4.1 with proof, §5 consistency and §6 experiments; inspected text and formulae",
+        "method": "Public full-text HTML equation-by-equation comparison",
+        "title": "An Adaptive Projected-Gradient Algorithm for Sample-Average Approximations of Stochastic Multi-Objective Optimization",
+        "trigger": "Exact unconstrained multiplier equation and closest directional bound"
+      },
+      {
+        "assessment": "COVERS same ridge-weight family after parameter rescaling, not the new optimal componentwise finite-step margin in material inspected",
+        "evidence": "Section 3.1 uses ||G lambda||^2+(rho/2)||lambda||^2, and updates x by -alpha Y lambda. Its theorems establish stochastic convergence rather than a sharp ridge descent coefficient.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2210.12624",
+        "material_read": "Full-text sections 2.2, 3.1 (Eqs. (9)-(11)), 3.3, related work, convergence and relevant proof appendix, not just abstract",
+        "method": "Authorized publicly available preprint HTML and structural/equation comparison",
+        "title": "Mitigating Gradient Bias in Multi-objective Learning: A Provably Convergent Stochastic Approach",
+        "trigger": "Prior ridge-regularized simplex gradients potentially equivalent by scaling"
+      },
+      {
+        "assessment": "NOT_COVERING positive ridge penalty sharp constant",
+        "evidence": "Minimum norm convex combination without the positive squared multiplier penalty.",
+        "identifier_or_url": "https://arxiv.org/html/1907.04472v3",
+        "material_read": "Public full-text formulation and convergence analysis in Sections 3-5",
+        "method": "Public preprint HTML, assumptions and operator comparison",
+        "title": "The stochastic multi-gradient algorithm for multi-objective optimization and its application to supervised machine learning",
+        "trigger": "Classical common-descent gradient mixing"
+      },
+      {
+        "assessment": "NOT_COVERING the same ridge penalty or sharp constant",
+        "evidence": "Direction-oriented penalty centers an aggregate toward a prescribed target, not ridge penalization of simplex coefficients.",
+        "identifier_or_url": "https://arxiv.org/html/2305.18409v3",
+        "material_read": "Public preprint Sections 3-4 and related displayed equations and appendix references",
+        "method": "Public preprint HTML, compare penalty functional and componentwise claim",
+        "title": "Direction-oriented Multi-objective Learning: Simple and Provable Stochastic Algorithms",
+        "trigger": "Regularized alternatives may dominate multi-gradient descent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7d8b8cd-d4c1-441b-a666-2ea5e3f87d47",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses a concrete gap in finite-step componentwise descent assessment for the exact multiplier used by a recent function-free projected-gradient method: the universal, computable sufficient condition in the unconstrained regime admits fourfold more ridge relative to squared gradient norm than the source Lemma 4.1 specialization. An all-m sharp obstruction and coercive strongly convex ascent example establish that the constant is structurally necessary; this is not an arbitrary parameter substitution or a general algorithm-failure claim.",
+    "status": "PASS"
+  }
+}
