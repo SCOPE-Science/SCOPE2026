@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For Re(s)>=0 and every order alpha in (0,1], the principal power s^alpha has nonnegative real part. Nonnegative integration therefore gives Re(Psi_omega(s))>=0. A characteristic root would force Psi_omega(s) to equal an eigenvalue of J, which is impossible when J is Hurwitz; s=0 is excluded because a Hurwitz matrix is nonsingular. For the source baseline, an independent scalar equilibrium reconstruction gives the published endemic state and a quartic whose coefficients and two nontrivial Routh-Hurwitz margins are strictly positive. The packaged checker recomputes the equilibrium residuals, Jacobian, coefficients, and margins.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2011 theorem covers general linear distributed-order systems but leaves stability in terms of roots of det(B(s)I-A)=0.",
+        "The 2026 SEIRS source explicitly says stability may depend on the memory distribution and derives numerical crossing conditions, then reports no transition only within investigated parameter ranges."
+      ],
+      "reasoning": "The accepted result does not compete with the general root criterion. It adds a sufficient structural condition that collapses the entire memory scan when the classical Jacobian is Hurwitz, then verifies that condition for the source's baseline endemic equilibrium.",
+      "searches": [
+        "characteristic symbol Psi omega right half plane Hurwitz matrix distributed order",
+        "Stability and Transient Dynamics Distributed-Order Fractional SEIRS memory oscillatory transition Hurwitz",
+        "distributed-order characteristic equation Hurwitz matrix common Caputo operator"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math14173186",
+      "doi:10.1155/2011/175323",
+      "doi:10.1155/2013/356215"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saberi Najafi et al. (2011) prove asymptotic stability iff all roots of det(B(s)I-A)=0 lie in the open left half-plane; the inspected full text contains no Hurwitz-matrix statement.",
+        "Ali (2026) provides the source-specific equilibrium, characteristic symbol, and finite numerical stability scans but does not give a Routh-Hurwitz certificate for its baseline endemic Jacobian or an all-density theorem.",
+        "The reconstructed baseline quartic satisfies strict Routh-Hurwitz margins 0.04694965067 and 0.0001761101341."
+      ],
+      "reasoning": "The 2011 theorem is an essential premise but does not, by itself, evaluate the image of B(s) on the closed right half-plane or certify the 2026 Jacobian. Combining the positive-real image lemma with the source-specific Routh-Hurwitz computation yields a stronger conclusion than the motivating paper's finite scan: memory-only destabilization is impossible for every admissible common density/support at the baseline.",
+      "searches": [
+        "\"Stability Analysis of Distributed Order Fractional Differential Equations\" Hurwitz",
+        "\"Stability of Fractional Order Systems\" distributed-order negative real",
+        "\"Stability and Transient Dynamics\" endemic Jacobian eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ali (2026), DOI 10.3390/math14173186, gives the characteristic equation det(Psi_omega(s)I-J)=0 and searches numerically for oscillatory crossings under selected memory distributions.",
+        "Saberi Najafi et al. (2011), DOI 10.1155/2011/175323, Theorem 3.1 gives the general root-location stability criterion for distributed-order systems.",
+        "Rivero et al. (2013), DOI 10.1155/2013/356215, reviews distributed-order stability and cites the 2011 criterion."
+      ],
+      "reasoning": "The prior general root criterion is broader in system class but does not itself identify the right-half-plane image obstruction for nonnegative orders at most one or the exact SEIRS baseline consequence. No inspected source stated an equivalent all-memory stability conclusion for the 2026 baseline.",
+      "searches": [
+        "distributed order SEIRS common memory Hurwitz Jacobian no stability switch",
+        "distributed order fractional epidemic Hurwitz equilibrium memory distribution stability invariant",
+        "\"Hurwitz matrix\" \"distributed-order\" fractional system stable",
+        "\"Hurwitz\" \"distributed order fractional\" \"asymptotically stable\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic result searches returned memory and Hopf results for other models, including `2026/9/18/SCOPE-all-order-gamma-memory-bifurcation-geometry--1c8a8bf2a700` and `2026/9/17/SCOPE-no-hopf-serial-am2-distinct-removal--f27e4f47727b`, but no result on this SEIRS model or this common-memory Hurwitz barrier.",
+        "The current private ledger contains no source ID `doi:10.3390/math14173186` and no prior claim on this distributed-order SEIRS model."
+      ],
+      "reasoning": "Database non-matches are supporting evidence only. Originality rests on the direct statement comparison with the source and the full-text general stability literature, not on absence of a title match.",
+      "searches": [
+        "distributed order SEIRS common memory Hurwitz Jacobian no stability switch",
+        "Stability and Transient Dynamics Distributed-Order Fractional SEIRS memory oscillatory transition Hurwitz",
+        "distributed order fractional epidemic Hurwitz equilibrium memory distribution stability invariant"
+      ]
+    },
+    "rationale": "The general distributed-order root criterion is prior work and is not claimed as new. The motivating 2026 paper derives that criterion for its model but reports only finite numerical memory scans. The inspected 2011 general paper and 2013 review do not state or apply the positive-real half-plane obstruction to obtain a Hurwitz-implies-all-memory theorem for orders at most one, and neither certifies the 2026 SEIRS baseline Jacobian. The accepted claim is limited to this exact robust corollary plus the source-specific Hurwitz certificate.",
+    "residual_risks": [
+      "The positive-real half-plane lemma is elementary once the 2011 characteristic-root theorem is known; a mathematically equivalent corollary could exist in distributed-order control literature not surfaced by the inspected searches.",
+      "The source-specific numerical Jacobian certificate depends on the printed baseline parameter vector; a different hidden numerical parameter choice would require recomputation.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_NOT_COVERING. The paper supplies the characteristic equation and numerical observations but not the all-memory Hurwitz obstruction or baseline Routh-Hurwitz certification.",
+        "evidence": "The paper states det(Psi_omega(s)I-J)=0, derives imaginary-root conditions, and reports no transition only within investigated parameter ranges while varying selected memory supports and densities.",
+        "identifier_or_url": "doi:10.3390/math14173186",
+        "material_read": "Article metadata and MSC; model formulation; equilibrium section; linearization and general stability criterion; endemic characteristic equation; oscillatory-transition section; baseline endemic simulation; memory-support and memory-density experiments; conclusions.",
+        "method": "Publisher full-text HTML.",
+        "title": "Stability and Transient Dynamics of a Distributed-Order Fractional SEIRS Epidemic Model with Temporary Immunity",
+        "trigger": "Exact motivating model and baseline endemic equilibrium."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It proves the general characteristic-root criterion but does not state the positive-real Hurwitz corollary for support in (0,1] and does not analyze the SEIRS model.",
+        "evidence": "Theorem 3.1 states stability iff all roots of det(B(s)I-A)=0 have negative real parts; the inspected text contains no occurrence of 'Hurwitz'.",
+        "identifier_or_url": "doi:10.1155/2011/175323",
+        "material_read": "Definitions of the distributed-order Caputo operator and characteristic function; Section 3; Theorem 3.1; Definitions 3.2-3.5; Theorem 3.6; Remark 3.7; example table.",
+        "method": "Full-text HTML.",
+        "title": "Stability Analysis of Distributed Order Fractional Differential Equations",
+        "trigger": "Closest general full-text stability theorem for common distributed-order linear systems."
+      },
+      {
+        "assessment": "NOT_COVERING. The review points to the 2011 distributed-order framework but does not state the accepted source-specific all-memory conclusion.",
+        "evidence": "Section 4.6 introduces distributed-order systems and cites Najafi et al. (2011); no equivalent SEIRS or all-density Hurwitz certification was located.",
+        "identifier_or_url": "doi:10.1155/2013/356215",
+        "material_read": "Classical Hurwitz discussion, distributed-order subsection 4.6, and references around the distributed-order literature.",
+        "method": "Full-text HTML.",
+        "title": "Stability of Fractional Order Systems",
+        "trigger": "Broad review likely to expose an equivalent standard distributed-order stability corollary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "828c2c9c-248b-42e3-85bc-8ba03b9a8f48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper devotes a full stability-switching analysis and numerical experiments to determining whether changing the distributed-order memory can alter endemic stability. The new result replaces that finite search, at the published baseline, with an exact all-density/all-support theorem: once the ordinary endemic Jacobian is certified Hurwitz, common memory of orders at most one can change transient decay but cannot destroy local stability. This directly sharpens the interpretation of the paper's central numerical conclusion and supplies a reusable diagnostic for the same modeling architecture.",
+    "status": "PASS"
+  }
+}
