@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For C=[[P,-Q],[1,0]] the (2,1) entry of C^j is U_j. At primes p not dividing Δ, separability over F_(p²) gives C^(p^(2s))≡C mod p, and successive commuting p^(2s)-powering lifts this to p^r. At p|Δ, C=αI+N mod p with N²=0, so C^(p^(2s)) and C^(p^(4s)) coincide modulo p, giving p^(r-1) at all r≥2 after lifting. One factor p of the multiplier repairs that loss, and Möbius pairing yields Dold for every index. Conversely the n=p congruence forces p|M for each p|Δ since U_(p^(2s))≡0 and U_1=1 mod p; when Δ=0 this holds for all p and no positive M exists. The reasoning includes p=2, all negative parameters and all s>=1. Exact finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 of Luca–Ward requires integer multiples of discriminant factors as a sufficient hypothesis, while Theorem 5 supplies the full discriminant and a special |P| bound when Q=0.",
+        "The 2021 Dold survey treats linear recurrence trace sequences; sampling at nonlinear powers does not retain linear recurrences in the index.",
+        "published-finding corpus result published-finding corpus public title: All local prime parts are Dold for split companion Lucas sequences discusses local Dold status of companion V_n, not the optimal multiplier for U_(n^(2s))."
+      ],
+      "reasoning": "None of the checked stronger-looking theorem statements proves or implies the exact least positive scalar. Luca–Ward proves the discriminant is sufficient, but removal of squarefull factors is not automatic under Dold integrality. The proof here supplies a distinct Frobenius/nilpotent congruence establishing local optimality; the p-index obstruction proves the converse. Existing Fibonacci cases are included and credited.",
+      "searches": [
+        "Luca–Ward full paper: arXiv:2204.02711v2; JIS 26 (2023) Theorems 1,5, proof of Theorem 5",
+        "Moss–Ward full article: arXiv:2011.13068v1, Theorem 2 and Corollary 3",
+        "Byszewski–Graff–Ward 2021 DOI:10.1112/blms.12531, Dold/trace sections",
+        "published-finding corpus semantic: Minimal Dold repair multiplier for square-index Lucas U(n squared) equals radical discriminant P²-4Q, repeated root no multiplier"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2011.13068v1 (Moss–Ward; original preprint, 2020-11-26)",
+      "arXiv:2204.02711v2 and JIS 26 Article 23.4.6 (Luca–Ward; first public v1 2022-04-06)",
+      "DOI:10.1112/blms.12531 (Byszewski–Graff–Ward survey)",
+      "published-finding corpus: published-finding corpus public title: All local prime parts are Dold for split companion Lucas sequences (published metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For Q=0 the JIS paper notes |P| suffices; for |P| with repeated prime factors the present least scalar rad(|P|) may be smaller, e.g. P=12 has least multiplier 6.",
+        "For nondegenerate (P,Q)=(2,-15), discriminant 64, JIS Theorem 5 provides multiplier 64 while the present theorem gives the necessary and sufficient least multiplier 2.",
+        "At each prime dividing the discriminant, the new necessity step uses U_(p^(2s))−U_1 ≡ −1 (mod p), which is not a consequence of discriminant-sufficiency alone."
+      ],
+      "reasoning": "The prior result Δ·U_(n²) Dold (and analogous sufficient scalars for higher even powers) is strictly weaker than the all-parameter iff statement rad(|Δ|) divides M. The new result cannot be recovered merely by integer multiplication or by the standard Dold closure under index monomials. The zero-discriminant impossibility case is also part of the complete classification.",
+      "searches": [
+        "JIS full proof: Theorem 5 and separate Q=0 proof, https://cs.uwaterloo.ca/journals/JIS/VOL26/Ward/ward9.pdf",
+        "Moss and Ward Corollary 3, https://arxiv.org/html/2011.13068v1",
+        "published-finding corpus semantic: Frobenius square stabilization for companion matrices modulo prime powers yields Dold congruences at square-index Lucas sequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moss and Ward, arXiv:2011.13068v1, Corollary 3: minimal factor 5 for the Fibonacci even-power subsequence only.",
+        "Luca and Ward, JIS 26 (2023), Theorem 5: the full discriminant scalar is sufficient for square indices; it is not stated as minimal."
+      ],
+      "reasoning": "Equivalent terms include almost-Dold, pre-realizable, Gauss sequence, local Dold, orbit-count integrality and discriminant repair. The new theorem is a necessary-and-sufficient sharp radical multiplier over all integer second-order parameters and every even index power; the checked statements either concern the Fibonacci instance or provide nonoptimal sufficient multipliers. Their scaling implications run upward, not downward, and therefore do not establish the radical reduction.",
+      "searches": [
+        "published-finding corpus semantic: \"squarefree\" \"discriminant\" \"Dold\" \"Lucas\" \"n²\" minimal integer multiplier",
+        "published-finding corpus semantic: \"radical\" \"Dold\" \"square\" Fibonacci Lucas recurrence smallest multiplier",
+        "web: \"rad\" \"Lucas\" \"Dold\" square subsequence periodic point counts",
+        "web: \"smallest\" \"multiplier\" \"Dold\" \"discriminant\" recurrence \"square\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest public published-finding corpus identifier concerns split companion Lucas local Dold properties: published-finding corpus public title: All local prime parts are Dold for split companion Lucas sequences.",
+        "The checked published papers describe the Fibonacci exact 5 and general discriminant sufficiency, not a database table of least multipliers by all (P,Q)."
+      ],
+      "reasoning": "The claim is an unrestricted theorem about minimal multipliers, not a lookup of finite parameter values. No exact matching published table or indexed research record was identified; negative search evidence is not treated as an absolute priority proof.",
+      "searches": [
+        "published-finding corpus semantic: \"squarefree\" \"discriminant\" \"Dold\" \"Lucas\" \"n²\" minimal integer multiplier",
+        "published-finding corpus semantic: \"Moss\" \"Ward\" \"radical\" \"discriminant\" square subsequence Dold",
+        "web: \"minimum\" \"multiplier\" \"Fibonacci\" square indices Dold congruences",
+        "web: \"squarefree part\" \"discriminant\" \"Dold\" Lucas"
+      ]
+    },
+    "rationale": "Relative to the primary full papers and checked research records, Moss–Ward gives the Fibonacci special case and Luca–Ward already proves the conjectured full-discriminant sufficient multiplier, but no checked source gives the exact all-parameter minimal radical multiplier, its necessity, and zero-discriminant boundary uniformly across all even exponents. Implication direction and parameter coverage were compared; residual risk from unindexed equivalent literature is acknowledged.",
+    "residual_risks": [
+      "An earlier or parallel theorem could present this exact radical multiplier under another name (Gauss/pre-realizable/almost Dold) despite targeted searches.",
+      "The nearest published local companion Lucas result was compared by published searchable summary, not its entire full-text source; its stated objects differ.",
+      "No independent mathematical audit or claim of publication priority is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fibonacci is covered with optimal multiplier 5; arbitrary P,Q and discriminant-radical classification are not established.",
+        "evidence": [
+          "Theorem 2 and Corollary 3 establish (5 F_(n^(2s))) for Fibonacci and failure of the unscaled version; closing conjecture concerns full discriminant generalization."
+        ],
+        "identifier_or_url": "arXiv:2011.13068v1; https://arxiv.org/html/2011.13068v1",
+        "material_read": "Full accessible article: abstract, Introduction, Theorem 2, Corollary 3, modular-period arguments, and final remarks/conjecture",
+        "method": "Read primary arXiv HTML text and its relevant mathematical statements",
+        "title": "Fibonacci along even powers is (almost) realizable",
+        "trigger": "Direct original square/even-power Dold-repair problem and known Fibonacci case"
+      },
+      {
+        "assessment": "Full discriminant sufficient factor is proved (cannot be claimed new); Q=0 improves it to |P|, but optimal radical multiplier and iff classification are not stated or implied by these sufficient statements.",
+        "evidence": [
+          "Theorem 5 (printed p.5) proves Conjecture 4; proof printed pp.9–10 obtains |P| for Q=0 and derives general case from Theorem 1."
+        ],
+        "identifier_or_url": "arXiv:2204.02711v2; JIS 26 (2023), 23.4.6; https://cs.uwaterloo.ca/journals/JIS/VOL26/Ward/ward9.pdf",
+        "material_read": "Complete 11-page authorized open paper, with focused line-by-line inspection of Theorems 1, 5 and Theorem 5 proof including Q=0 and exceptional cases",
+        "method": "Read full PDF text and visually inspected relevant theorem/proof pages",
+        "title": "On (almost) realizable subsequences of linearly recurrent sequences",
+        "trigger": "Same recurrence object; paper directly resolves the Moss–Ward discriminant multiplier conjecture"
+      },
+      {
+        "assessment": "General theory does not give the exact optimal scalar for the nonlinear-index Lucas sequence.",
+        "evidence": [
+          "Definition 2.1 states Möbius divisibility; Theorem 2.4 concerns linearly recurrent trace sequences rather than square-index subsequences."
+        ],
+        "identifier_or_url": "DOI:10.1112/blms.12531; https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/blms.12531",
+        "material_read": "Open full-article introduction, Dold definition and equivalent terminology, Theorem 2.4 about traces, and matrix-trace congruences",
+        "method": "Read primary survey full-text relevant mathematical sections",
+        "title": "Dold sequences, periodic points, and dynamics",
+        "trigger": "Potential broader equivalent Dold/pre-realizability formulation and trace-sequence reduction"
+      },
+      {
+        "assessment": "Published claim about V_n local p-part rather than U_(n^(2s)) optimal scalar; unresolved full-text equivalences are residual risk.",
+        "evidence": [
+          "Published summary treats split companion V_n and p-local Dold/realizability, not least global multiplier for first-kind Lucas under even-power index sampling."
+        ],
+        "identifier_or_url": "published-finding corpus public title: All local prime parts are Dold for split companion Lucas sequences",
+        "material_read": "published-finding corpus published title and semantic summary, not full paper",
+        "method": "Compared exposed objects, hypotheses, and conclusions by scope; no whole-document noncoverage assertion",
+        "title": "All local prime parts are Dold for split companion Lucas sequences",
+        "trigger": "Nearest indexed public scientific result for local Lucas Dold questions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf6bfff0-4c53-45cf-b910-c05f0694f660",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural least-multiplier invariant for a classical two-parameter Lucas family at every even index power; the discriminant repair problem is explicit in Moss–Ward and solved nonoptimally in Luca–Ward. The prime support of the discriminant alone controls repair, squarefull factors are entirely superfluous, and a prime-index obstruction proves sharpness. The gain over published sufficient factors can be arbitrarily large even for nondegenerate recurrences (Δ=2^(2k) with P=2, Q=1−2^(2k−2)); Δ=0 yields an exact impossibility boundary. No conjectured downstream applications or dynamical sign assertion are needed.",
+    "status": "PASS"
+  }
+}
