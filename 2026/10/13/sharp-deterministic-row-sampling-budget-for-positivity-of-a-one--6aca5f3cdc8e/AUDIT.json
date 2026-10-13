@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For a sampled unit vector v, the quotient is tr(AQ) with Q= (uv^T+vu^T)/2, u=P_Jv/||P_Jv||^2. Its eigenvalues are (1±1/a)/2; optimizing tr(BQ) over 0<=B<=I gives both exact endpoints attained by projector perturbations of μI. Energy averaging proves top-s sampling a^2>=s/n, while a flat v forces equality for every selector. The exact threshold, zero boundary, negative witnesses and s=n degeneracy follow. Rational projector and random finite tests reproduce critical identities but are not substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergermann §§4–5 prescribe deterministic row sketching for general m, and §6.3 observes spurious Ritz values but gives only qualitative oversampling statements.",
+        "Drmač–Gugercin proves bounds for DEIM/Q-DEIM basis conditioning rather than Ritz sign."
+      ],
+      "reasoning": "Greater algorithmic generality in prior sources does not imply an exact threshold for the rank-one SPD eigenvalue under a given coordinate budget; their statements do not quantify an extremum over every bounded-spectrum SPD matrix and row-selection rule.",
+      "searches": [
+        "deterministic row subset sketching Krylov subspace least squares Rayleigh Ritz subspace embeddings invariance breakdown leverage selection",
+        "deterministic row subset sketched Rayleigh Ritz SPD exact positivity safety threshold oversampling ratio s/n condition number (sqrt(n/s)+1)/(sqrt(n/s)-1)",
+        "minimax interpolation coordinate sampling generalized Rayleigh quotient SPD spectral inclusion two test vectors condition number budget eigenvalues",
+        "arXiv:2604.07158v1",
+        "arXiv:1505.00370v2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.07158v1: §§2.4, 3–6, Algorithm 6",
+      "arXiv:2111.00113v2: §§6–7",
+      "arXiv:1505.00370v2: Q-DEIM selection and bounds",
+      "Published mathematical findings: 'Sharp certification boundary for Lanczos-based proximal convexification' (2026-09-18); 'A sharp row-coherence obstruction in PDNQP diagonal step initialization' (2026-09-19); 'Sharp Rayleigh-residual distortion under normal spectral filtering' (2026-09-21)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bergermann Section 6.3: spurious dsRR values can leave the field of values; no universal κ,s/n threshold is stated.",
+        "A published Lanczos convexification finding concerns inaccurate λ_min certification, not coordinate-sketched Ritz positivity.",
+        "A published row-coherence finding bounds row coupling in a quadratic-programming method, not the eigenvalues of a one-column Petrov–Galerkin compression."
+      ],
+      "reasoning": "A qualitative existence of spurious values does not determine the exact attainable interval or a necessary-and-sufficient guarantee for every SPD A, every trial vector, and all basis-only row-selection policies. Different Ritz certification and row-coherence statements do not imply this theorem.",
+      "searches": [
+        "Bergermann deterministic sketching Krylov dsRR Q-DEIM SPD Ritz positivity sampled coordinate spectral interval threshold",
+        "two-sided Rayleigh quotient oblique test trial coordinate subset minimax positive definite n s kappa sharp negative eigenvalues",
+        "arXiv:2604.07158v1",
+        "arXiv:2111.00113v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-dimensional sketched Ritz is the two-sided quotient (P_Jv)^T A v / (P_Jv)^T v.",
+        "Nakatsukasa–Tropp Section 6 studies sRR structure but not this all-coordinate minimax budget.",
+        "Generalized/two-sided Rayleigh quotient is a classical notion; exact minmax use of fixed overlap may be implicit elsewhere."
+      ],
+      "reasoning": "The fixed-J trace pairing is an equivalent formulation and was checked against two-sided Rayleigh-quotient and oblique Petrov–Galerkin language; no inspected primary source establishes the all-v, optimal-v-only row rule and sharp universal positive budget. Standard quotient theory alone does not explicitly provide this sampling minimax without combining overlap constraints.",
+      "searches": [
+        "sharp dimension dependent condition number threshold spurious negative Ritz eigenvalues for positive definite matrix using one row DEIM Q-DEIM max coordinate interpolatory oblique Rayleigh quotient",
+        "interpolatory Petrov Galerkin positivity loss SPD rank-one row sampling exact worst case sqrt dimension condition number",
+        "two-sided Rayleigh quotient oblique test trial coordinate subset minimax positive definite n s kappa sharp negative eigenvalues",
+        "arXiv:2111.00113v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The invariant varies continuously in the real spectral ratio κ and sampled fraction s/n, rather than being a finite catalog.",
+        "No closest returned published record concerns a table of one-vector sketched SPD Ritz positivity thresholds."
+      ],
+      "reasoning": "A numerical database or finite table could not determine the full continuous-parameter universal theorem; relevant published mathematical summaries were compared by their quantified statements, not just titles.",
+      "searches": [
+        "exact worst case sharp threshold deterministic coordinate sketch for Krylov FOM GMRES matrix functions finite dimensions",
+        "row sampled Petrov-Galerkin positive definite matrix quotient negative positivity sharp condition number eigenvalue outside spectrum",
+        "Bergermann deterministic sketching Krylov dsRR Q-DEIM SPD Ritz positivity sampled coordinate spectral interval threshold",
+        "published mathematical finding database semantic search"
+      ]
+    },
+    "rationale": "The 2026 Bergermann paper introduces dsRR, DEIM/Q-DEIM row selection and observes qualitative spurious Ritz effects but, in inspected sections, does not derive a sharp all-SPD rank-one positivity-versus-sampling-budget threshold. Earlier sketched Ritz and Q-DEIM sources give related methods/conditioning, not this composed minimax classification. Some component two-sided quotient bounds are standard; the proposed new result is the exact row-budget condition with matching all-selector obstruction. Older equivalent oblique projection results remain possible.",
+    "residual_risks": [
+      "An equivalent sharp cross-quadratic-form bound may be published in older oblique Rayleigh-quotient, Petrov–Galerkin, interpolation, or inverse-positive-matrix literature.",
+      "The fixed-row endpoint is a short consequence of classical trace duality; novelty is asserted for the complete optimal row-budget classification, not each algebraic ingredient.",
+      "Only one trial vector and basis-dependent but matrix-independent row selection are studied; this is not a general dsRR statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the method, coordinate-selection objectives, and qualitative out-of-field Ritz pathology; inspected material does not supply the all-SPD rank-one exact spectral interval or row-budget positivity threshold.",
+        "evidence": [
+          "Section 5.3, Algorithm 6 uses S as selected identity rows and the reduced matrix R^{-1}Q^*SAV.",
+          "Section 6.3 reports spurious Ritz values outside the field of values and a qualitative oversampling effect.",
+          "Sections 4.1–4.2 describe DEIM/Q-DEIM and oversampling but not the claimed sharp SPD condition-number frontier."
+        ],
+        "identifier_or_url": "arXiv:2604.07158v1 | https://arxiv.org/html/2604.07158v1",
+        "material_read": "Sections 2.4, 3, 4.1, 4.2, 5.3 (Algorithm 6), 6.3, and the conclusion; equations defining the whitened reduced eigenproblem, DEIM/Q-DEIM and oversampling; reported discussion of spurious Ritz values",
+        "method": "Read full-text HTML sections and adjacent algorithm and discussion text",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Exact deterministic row-selection objective and sketched Rayleigh–Ritz motivating the claim"
+      },
+      {
+        "assessment": "Analyzes sRR, its approximate eigenpairs and non-Hermitian projection issues; does not provide the stated deterministic coordinate sampling minimax fraction.",
+        "evidence": [
+          "Section 6 discusses how sRR may fail to inherit symmetry and describes treatment of complex eigenvalues for symmetric inputs.",
+          "The formulation uses generic randomized subspace embeddings rather than a full minimax classification of selected coordinate subsets."
+        ],
+        "identifier_or_url": "arXiv:2111.00113v2 | https://arxiv.org/html/2111.00113v2",
+        "material_read": "Overview of the sketched Rayleigh–Ritz algorithm and Sections 6 and 7, including self-adjoint handling and basis construction",
+        "method": "Read full-text HTML mathematical and algorithm sections",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Underlying sketched Ritz eigenproblem and failure to preserve Hermitian eigenvalue structure"
+      },
+      {
+        "assessment": "Gives the established selection method and subspace reconstruction/conditioning bounds, not Ritz eigenvalue sign loss under spectral intervals.",
+        "evidence": [
+          "Q-DEIM index selection controls conditioning of the selected subspace basis.",
+          "The theorem here adds a different output condition: sign and exact interval of a one-dimensional sketched Ritz value for all SPD matrices."
+        ],
+        "identifier_or_url": "arXiv:1505.00370v2 | https://arxiv.org/html/1505.00370v2",
+        "material_read": "Method and main results on Q-DEIM selection and conditioning, including the selection-operator formulation and error bounds",
+        "method": "Read full-text HTML methodology and theorem discussions",
+        "title": "A New Selection Operator for the Discrete Empirical Interpolation Method—Improved A Priori Error Bound and Extensions",
+        "trigger": "Could subsume optimal deterministic row selection in the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6aca5f3c-dc8e-428a-90d0-d362c7ba4b86",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly documents spurious sketched eigenvalues and oversampling uncertainty. The theorem supplies a sharp all-dimensional necessary-and-sufficient sample fraction in terms of SPD condition ratio, pointwise optimal selection for the given budget, and exact constructive zero/negative witnesses. It is a complete natural minimax decision boundary rather than a generic negative example or arbitrary small dimension slice; it provides no unsupported performance or multi-vector guarantees.",
+    "status": "PASS"
+  }
+}
