@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Substituting the exact secant relation \\(y_{k,i}=q s_{k,i}\\) into the published coordinate update makes the unprojected metric a convex combination of \\(q\\) and \\(u_{k,i}\\), so projection is inactive when both lie in \\([m_L,m_U]\\). The error recurrence is therefore exact and multiplicative. The infinite product vanishes if and only if \\(\\sum_k s_{k,i}^2\\) diverges, proved by the standard two-case comparison for \\(\\log(1+t)\\). The exponential bias lower bound follows from \\(\\log(1+t)\\le t\\). The two-objective quadratic realizes \\(g(x)=q(x-a)\\) exactly, and the Q-linear path-energy bound follows from a geometric-series estimate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 spectral conjugate-gradient paper develops spectral CG parameters, truncation, descent, and global convergence for vector optimization, but not the primary source regularized diagonal coordinate recurrence.",
+        "The 2018 nonlinear conjugate-gradient paper extends classical CG parameters and Wolfe analysis to vector optimization without a regularized diagonal secant-learning state."
+      ],
+      "reasoning": "These papers establish the relevant vector-CG background but do not dominate a theorem about asymptotic identification in the new fixed-regularization diagonal metric module.",
+      "searches": [
+        "DOI:10.1007/s10589-023-00508-w spectral conjugate gradient vector optimization diagonal metric",
+        "DOI:10.1137/17M1126588 nonlinear conjugate gradient vector optimization secant metric",
+        "vector optimization spectral conjugate gradient variable metric secant fitting"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3934/math.20261224",
+      "DOI:10.1007/s10589-023-00508-w",
+      "DOI:10.1137/17M1126588"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary metric-stability lemma bounds \\(\\|U_{k+1}-U_k\\|_F\\) by a constant times \\(\\|s_k\\|^2\\), but does not characterize whether the metric learns an exact curvature.",
+        "The new result uses the source exact coordinate formula to show that the same squared-step scaling creates a persistent bias whenever total coordinatewise path energy is finite.",
+        "The older vector-CG sources contain no state variable governed by this regularized secant recurrence."
+      ],
+      "reasoning": "The source stability bound controls motion of the metric, not its limiting target. The product law supplies a different implication: finite total metric motion can lock in an initially missed curvature even when all secant observations are exact.",
+      "searches": [
+        "Primary full text: Section 2.2 equations (2.3)--(2.7), scalarized-gradient definition, algorithm motivation, and diagonal-metric ablation",
+        "DOI:10.1007/s10589-023-00508-w abstract and method summary",
+        "DOI:10.1137/17M1126588 abstract and vector-CG convergence statement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.3934/math.20261224 gives the coordinate update \\(\\widetilde u=(s y+\\omega u)/(s^2+\\omega)\\), fixed \\(\\omega>0\\), interval projection, and \\(U_0=I\\).",
+        "Exact-formula searches located the primary source but no separate publication deriving the product law or finite-energy identification condition."
+      ],
+      "reasoning": "The claim was searched both in source terminology and as recursive regularized secant learning, persistent curvature bias, finite excitation, and infinite-product identification. Matching the update formula is essential because generic diagonal or spectral Barzilai--Borwein methods have different dynamics.",
+      "searches": [
+        "DVM-R3TCG diagonal variable metric regularized secant finite path energy curvature bias",
+        "regularized diagonal Barzilai Borwein metric update square summable steps curvature learning freeze",
+        "secant fitting omega U_k s y diagonal metric asymptotic bias quadratic optimization",
+        "regularized diagonal secant optimization variable metric omega",
+        "diagonal secant-fitting optimization omega"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concerned adaptive-gradient spectral persistence, Barzilai--Borwein objective monotonicity, row-coherence defects in diagonal steps, and matrix-valued adaptive metrics; none used the same metric recurrence.",
+        "The primary paper itself is the only source found by exact update-formula searches."
+      ],
+      "reasoning": "The accepted result is an analytic recurrence theorem rather than a recomputation of a known benchmark table. No indexed item gave the same exact product or identification criterion.",
+      "searches": [
+        "DVM-R3TCG diagonal variable metric regularized secant finite path energy curvature bias",
+        "regularized diagonal Barzilai Borwein metric update square summable steps curvature learning freeze",
+        "secant fitting omega U_k s y diagonal metric asymptotic bias quadratic optimization"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the regularized diagonal secant-fitting problem, its coordinate formula, scalarized-gradient construction, metric-stability lemma, algorithmic motivation, and diagonal-metric ablation. Published-result database searches and broader vector conjugate-gradient literature were compared at the recurrence and implication level. No inspected source states the exact product law, the finite-path-energy obstruction to exact curvature identification, or the quantitative residual-bias bound.",
+    "residual_risks": [
+      "A mathematically equivalent recursive-least-squares observation may exist outside vector optimization under different terminology; no source-specific result was located.",
+      "The theorem concerns exact curvature identification, not whether a biased diagonal metric remains a useful preconditioner.",
+      "A time-varying or vanishing regularization parameter can change the identification criterion and is not analyzed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source gives the exact recurrence needed for the theorem and a square-step metric-change bound, but does not state an exact curvature-identification criterion or permanent-bias result.",
+        "evidence": "Equation (2.4) is \\(\\widetilde u_{k+1,i}=(s_{k,i}y_{k,i}+\\omega u_{k,i})/(s_{k,i}^2+\\omega)\\) followed by interval projection; equation (2.5) defines \\(s_k\\), \\(y_k\\), and the scalarized gradient; Lemma 2.2 uses \\(U_0=I\\).",
+        "identifier_or_url": "DOI:10.3934/math.20261224",
+        "material_read": "Full public article material covering Section 2.2 equations (2.3)--(2.7), the fixed normalized dual scalarization, the initialization \\(U_0=I\\), algorithm motivation, convergence setup, and the diagonal-metric ablation discussion.",
+        "method": "Publisher full-text HTML inspection.",
+        "title": "A restarted three-term vector conjugate gradient method with a diagonal variable metric for nonconvex unconstrained vector optimization",
+        "trigger": "Primary recent source introducing the regularized diagonal variable metric."
+      },
+      {
+        "assessment": "Uses spectral CG constructions rather than the fixed-regularization coordinatewise secant fit, so it does not imply the accepted product law.",
+        "evidence": "The abstract describes spectral conjugate-gradient parameters and a modified self-adjusting SCG scheme, without a persistent diagonal metric recurrence.",
+        "identifier_or_url": "DOI:10.1007/s10589-023-00508-w",
+        "material_read": "Published abstract and method summary describing spectral parameters, truncation, descent behavior, and global convergence.",
+        "method": "Public bibliographic and abstract inspection.",
+        "title": "Spectral conjugate gradient methods for vector optimization problems",
+        "trigger": "Closest established vector spectral-CG literature that might imply a diagonal curvature-learning result."
+      },
+      {
+        "assessment": "Establishes vector versions of classical CG parameters and Wolfe analysis, but no diagonal regularized secant-learning state.",
+        "evidence": "The paper treats Fletcher--Reeves, conjugate descent, Dai--Yuan, Polak--Ribière--Polyak, and Hestenes--Stiefel extensions under inexact line searches.",
+        "identifier_or_url": "DOI:10.1137/17M1126588",
+        "material_read": "Published abstract, convergence statement, method families, and bibliographic information.",
+        "method": "Public SIAM abstract and metadata inspection.",
+        "title": "Nonlinear Conjugate Gradient Methods for Vector Optimization",
+        "trigger": "Foundational vector nonlinear-CG literature cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58d5d6c5-37b7-47a8-a821-8413ffc71cc7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The diagonal variable metric is presented as a main new component of DVM-R3TCG and is empirically credited with improving performance. The theorem identifies a previously unstated structural tradeoff created by the fixed regularizer: the same damping that stabilizes metric changes also limits cumulative curvature learning, and a rapidly convergent trajectory can preserve nonzero metric bias forever even under noiseless exact secants. The exact iff criterion and quantitative lower bound give a concrete design diagnostic for regularization and excitation, rather than a routine algebraic restatement.",
+    "status": "PASS"
+  }
+}
