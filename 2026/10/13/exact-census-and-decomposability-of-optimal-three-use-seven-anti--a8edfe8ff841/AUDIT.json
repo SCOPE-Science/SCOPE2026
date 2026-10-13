@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For all 343 words the two standalone C++17 programs independently reconstruct the pairwise distinguishability relation and exhaustively enumerate rooted eight-cliques with different exact recursion orders: both return 38,259,704 and exclude a nine-clique containing the origin. Translation invariance excludes nine-cliques globally, and double-counting the eight marked words per code gives precisely 1,640,384,809 optima. Independent exhaustive 49-vertex two-use computations yield 1,715 four-word optima and rule out five. The product decomposition count follows from sharp factor sizes two and four plus complete inclusion-exclusion. The explicit indecomposable code has all 28 pairs distinguishable. Nonzero translations have order seven, which cannot stabilize an eight-subset, proving 4,782,463 translation classes. The computer claims are finite/exhaustive, with two independent counting implementations, not inferred from samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2015 paper explicitly excludes a nine-word independent set and displays one eight-word Cartesian construction, but its full text does not enumerate all equality cases.",
+        "Badalyan--Markosyan, DOI:10.1016/j.disc.2012.09.008, abstract specifies the two-factor independence-number theorem, not a three-factor equality census.",
+        "Jurkiewicz et al., On zero-error codes produced by greedy algorithms, DOI:10.1007/s10878-021-00825-y, Section 7 treats the original C7 at two uses and a greedy search rather than all antihole three-use optimizers."
+      ],
+      "reasoning": "The strongest matching three-use theorem implies maximum size eight but not the cardinality of the equality set or indecomposable proportion. Earlier two-factor and later C7 graph results neither contain nor dominate the present three-factor antihole classification.",
+      "searches": [
+        "On the Independence Number of Some Strong Products of Cycle-Powers full PDF alpha C7^2 third power",
+        "On zero-error codes produced by greedy algorithms C7 strong product seven",
+        "On the independence number of the strong product of cycle-powers Badalyan Markosyan 2013"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1515/fcds-2015-0009",
+      "DOI:10.1016/j.disc.2012.09.008 (abstract and metadata only)",
+      "DOI:10.1007/s10878-021-00825-y",
+      "Sciendo Foundations of Computing and Decision Sciences 40(2), online 2015-05-16"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 result proves alpha=8 and exhibits one product-type optimum. An exact maximum-size theorem does not count all maximizing independent vertex subsets.",
+        "The exhaustive new census finds 1,640,349,480 indecomposable optima, including an explicit eight-triple witness whose coordinate projections have sizes 6, 5, and 4.",
+        "The two-use census 1,715 and the 7 one-use pairs lead by inclusion-exclusion to exactly 35,329 decomposable three-use maxima."
+      ],
+      "reasoning": "The previously known witness shows existence, not rigidity or a count of alternatives. The old cardinality bound cannot imply the equality-set count, product/nonproduct split, or translation-class count; the supplied complete finite recursion and separate inclusion-exclusion proof furnish the missing information.",
+      "searches": [
+        "Complete equality census 1,640,384,809 optimal size-eight zero-error codes for three uses seven-antihole graph complement C7",
+        "Seven symbol zero error confusability complement seven-cycle third strong power three uses 35329 decomposable codes 1640349480 indecomposable",
+        "On the Independence Number of Some Strong Products of Cycle-Powers C7 alpha 8 product witness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jurkiewicz--Kubale--Ocetkiewicz, DOI:10.1515/fcds-2015-0009, p.140, proves \\(\\alpha((C_7^2)^{\\boxtimes3})=8\\) and gives a product witness.",
+        "The complement of \\(C_7\\) on residues is isomorphic to \\(C_7^2\\) via multiplication by three modulo seven: differences \\(\\pm2,\\pm3\\) map to \\(\\pm1,\\pm2\\).",
+        "The source and package both identify zero-error codes with independent sets of the strong product, equivalently cliques in the complement distinguishability graph."
+      ],
+      "reasoning": "Both the zero-error channel and strong-graph-power descriptions refer to the same sets, after an explicit symbol relabeling. The new equality census is therefore compared against the correct alias rather than against the original seven-cycle C7, whose confusability graph is different.",
+      "searches": [
+        "On the Independence Number of Some Strong Products of Cycle-Powers C7 square third power",
+        "complete equality census eight-word zero-error code seven-antihole complement C7 strong cube",
+        "independent sets size eight in strong cube C7 squared 343 vertices 38259704 containing fixed vertex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-parameter list on p.140 of DOI:10.1515/fcds-2015-0009 records the optimum 8 and one witness for (C7^2) strong third power, not a count of optimal sets.",
+        "Exact numerical and parameter-based searches located no published table listing 1,640,384,809 eight-codeword maxima, 1,715 two-use maxima, or the decomposable count 35,329."
+      ],
+      "reasoning": "The known numerical optimum is covered by the old table and is not presented as original. Lack of an indexed census is not itself novelty proof; it corroborates the more probative direct full-text comparison and claim implication analysis.",
+      "searches": [
+        "1640384809 maximum independent sets strong power C7",
+        "1715 maximum independent sets complement C7 two use",
+        "C_7^2 optimal independent set size eight third power 343 vertices table census"
+      ]
+    },
+    "rationale": "The 2015 nine-page primary paper settles the maximum cardinality eight and provides one product construction, which are explicitly excluded from novelty. Its inspected full text and table do not state the complete three-use equality count or the decomposition stratification; the 2013 paper concerns two factors, and the 2022 zero-error-code work treats the original C7 graph at two uses. Targeted exact-parameter bibliographic searches uncovered no result implying the 1,640,384,809 census or 35,329/1,640,349,480 factorization split. This is evidence-based noncoverage, not a claim of absolute bibliographic uniqueness.",
+    "residual_risks": [
+      "Obscure or unindexed independent-set enumerations might contain an equivalent three-use equality count.",
+      "The directly relevant but only two-factor 2013 Badalyan--Markosyan paper was not obtained in full text; no full-text noncoverage assertion is made for it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_OPTIMAL_SIZE_AND_ONE_WITNESS_NOT_ALL_EQUALITY_CASES",
+        "evidence": "Page 140 explicitly reports \\(\\alpha((C_7^2)^{\\boxtimes3})=8\\), notes that no nine-set exists, and lists only one Cartesian example; the full document gives no number of equality cases or decomposability census.",
+        "identifier_or_url": "https://eti.pg.edu.pl/documents/174618/23783336/fcds-2015-0009.pdf",
+        "material_read": "Full nine-page PDF text, including definitions, upper bound, computational method, tables, p.140 exact-target paragraph and references; p.140 was also visually inspected.",
+        "method": "Lawful open full-text PDF reading and direct statement/implication comparison against the complete equality census.",
+        "title": "On the Independence Number of Some Strong Products of Cycle-Powers",
+        "trigger": "The original paper proves the exact same strong-cube optimum and gives an eight-word example."
+      },
+      {
+        "assessment": "TWO_FACTOR_BACKGROUND_FULL_TEXT_UNAVAILABLE",
+        "evidence": "The abstract proves independence numbers for products of two cycle-powers and describes two-dimensional torus rectangle packings; no assertion is made about uninspected appendices or noncoverage of its full text.",
+        "identifier_or_url": "DOI:10.1016/j.disc.2012.09.008",
+        "material_read": "Bibliographic metadata and abstract; a lawful full-text version was not available in inspected resources.",
+        "method": "Abstract-level review and scope comparison only.",
+        "title": "On the Independence Number of the Strong Product of Cycle-Powers",
+        "trigger": "The directly preceding general exact theorem for two cycle-power factors."
+      },
+      {
+        "assessment": "ORIGINAL_C7_TWO_USES_NOT_COVERING_ANTIHOLE_THREE_USE_CENSUS",
+        "evidence": "Section 7, Theorem 1, treats greedy optimal codes for \\(C_7^{\\boxtimes2}\\) (maximum size \\(10\\)), rather than for \\(\\overline{C_7}^{\\boxtimes3}\\) (maximum size \\(8\\)) or its equality census.",
+        "identifier_or_url": "DOI:10.1007/s10878-021-00825-y",
+        "material_read": "Accessible full HTML, including definitions, greedy code algorithms, Section 7 theorem for C7 strong square, conclusions and references.",
+        "method": "Full HTML reading with distinction between C7 and its complement plus factor count comparison.",
+        "title": "On zero-error codes produced by greedy algorithms",
+        "trigger": "A later zero-error code study by authors in the same research line with a nearby seven-cycle example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8edfe8f-f841-4277-bf79-6ca3093429d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter is the established (C7^2) three-factor zero-error graph channel, a standard finite Shannon capacity benchmark with previously known optimum eight. Counting its entire equality layer is an intrinsically motivated classification question because the known example is a Cartesian product. The new result discovers 1,640,349,480 indecomposable optima versus just 35,329 coordinate-factorable ones and gives an explicit indecomposable example. These exact structural statistics are not a renaming, small gain, or isolated unmotivated invariant; they reveal how severely the familiar product construction underrepresents optimal codes, with reusable benchmarks for zero-error code search and group symmetries.",
+    "status": "PASS"
+  }
+}
