@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "All 16 order-four windows are unique, giving lower bound 4 and a forced unique four-set (zero-based 3,7,11,15). Hitting all order-four windows also covers every longer factor, reducing full-attractor verification to lengths 1 through 4. Reproducible stdlib verifier enumerates every one of 2^16 binary circular candidates, all 256 roots and 16 rotation classes, checks both four- and five-set coverings at all factor lengths 1..19, and compares all 16 finite certificate rows. It actually returned 192 four-roots, 64 five-roots, 4/8/4 orbit classes; the universal five-set works throughout.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Whittington Theorem 29 proves a Lyndon construction for prime order only, explicitly noting nonprime-order proof difficulty.",
+        "Mantaci et al. Proposition 41 supplies general asymptotic bounds, not exact binary order-four all-cuts cardinalities."
+      ],
+      "reasoning": "Neither a bound on the cardinality for arbitrary de Bruijn order nor a prime-order construction determines the composite-order exact distribution or the universal five-set. The one-example 4-attractor is subsumed but does not subsume this classification.",
+      "searches": [
+        "Whittington online string attractors composite de Bruijn order four optimum cyclic cut",
+        "de Bruijn conjecture composite order four minimum sharp 4-attractor cyclic unfolding",
+        "arXiv:2407.15599 Theorem 29",
+        "DOI:10.1016/j.tcs.2020.11.006 Proposition 41"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.15599",
+      "arXiv:1907.04660",
+      "DOI:10.1016/j.tcs.2020.11.006",
+      "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mantaci bound applies to all orders but is not sharp enough to decide any particular unfolding whose optimum may be four or five.",
+        "Whittington explicitly asks whether general cycles/cuts attain the sharp order-size bound; his theorem treats a selected prime-order construction.",
+        "The special-sequence census involves different factor sets and gives no implication for binary de Bruijn order four."
+      ],
+      "reasoning": "The present 192/64 split and root-by-root distinctions cannot be deduced from generic asymptotic bounds, a single known example, or existence theorems restricted to prime orders. The earlier size-four example is a direct special case and is acknowledged, not claimed as original.",
+      "searches": [
+        "arXiv:1907.04660 de Bruijn §6.2 proposition 41 full attractor",
+        "arXiv:2407.15599 §5 de Bruijn prime order Theorem 29",
+        "minimum string attractors Rudin Shapiro paperfolding prefixes exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1907.04660, expanded §6.2: one order-four linearization with a four-position attractor; no equivalence across all rooted unfoldings.",
+        "arXiv:2407.15599 §5: distinguish sharp order-four window hitting from ordinary full attractor, and discuss alternative unfoldings."
+      ],
+      "reasoning": "Tested equivalent phrasing as 4-attractor/full-attractor equality and as cyclic unfolding/rotation effects. The tested statement is the exact classification of all rooted binary order-four cycles, not the already-known existence of a good cut or a sharp 4-attractor. Neither inspected source equates all 256 rooted cases.",
+      "searches": [
+        "binary de Bruijn necklaces order four string attractor all 16 cycles 256 rooted cuts",
+        "de Bruijn order 4 minimum string attractor covering every factor S=(3,7,11,15) binary circular root",
+        "arXiv:1907.04660",
+        "arXiv:2407.15599"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The compared special-sequence attractor census concerns Rudin–Shapiro and regular paperfolding prefixes rather than de Bruijn cycles.",
+        "Mantaci et al. give one explicit binary order-four word and its four marks, not a table of all sixteen cycles."
+      ],
+      "reasoning": "No covering exact cycle-by-cut table arose from the performed searches. This negative search is not, by itself, proof that an unindexed table does not exist. The supplied independent census provides a new exact table relative to checked sources.",
+      "searches": [
+        "exact counts 192 64 binary de Bruijn words of order four full string attractor rotation root size 4 or 5",
+        "binary de Bruijn order 4 minimum full string attractor 16 cycles 256 cuts",
+        "de Bruijn all binary sequences order 4 universal attractor exact rotation count"
+      ]
+    },
+    "rationale": "Inspected primary text of Mantaci et al. §6.2 and Whittington §5 does not imply the exact all-rotations, first-composite-order classification; targeted database and alias searches did not find a covering table. The known single order-four example is excluded from standalone novelty. Priority risk of an unindexed equivalent result remains.",
+    "residual_risks": [
+      "Semantic and keyword searches cannot exclude an unindexed, unpublished, or differently named exact all-cuts census.",
+      "The classification is finite and does not solve general composite-order existence conjectures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Raises all-cycle/all-cut behavior and proves a chosen prime-order Lyndon construction; not a full all-rotations binary composite-order-four census.",
+        "evidence": [
+          "§5 page 17: asks what cycles and unfoldings force larger attractors.",
+          "Theorem 29: chosen Lyndon-generated prime-order construction.",
+          "Following proof: nonprime Lyndon lengths obstruct direct extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.15599",
+        "material_read": "Full manuscript context and §5 discussion including page 17 (PDF page index 16), Theorem 29 and its proof through page 18",
+        "method": "Inspected the primary open-access manuscript text and rendered theorem/question page",
+        "title": "Online String Attractors",
+        "trigger": "Explicit conjecture and general question about de Bruijn unfoldings, possible broader coverage"
+      },
+      {
+        "assessment": "General non-sharp bounds and one explicit size-four attractor; no classification by all sixteen cycles and all 256 rooted cuts.",
+        "evidence": [
+          "Proposition 41 gives upper and lower growth bounds.",
+          "Example binary order-four linearization has size-four marks at one-based positions 4,8,12,16."
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+        "material_read": "§6.2, original de Bruijn construction, Proposition 41 and order-four example on PDF pages 24–25 (indices 23–24), with surrounding conclusions",
+        "method": "Inspected primary lawful open-access PDF textual results and rendered relevant pages",
+        "title": "A Combinatorial View on String Attractors",
+        "trigger": "Strongest plausible prior theorem and exact order-four worked example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b89f9338-47cc-4890-a70d-8c4daf045783",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Published motivation explicitly asks for behavior over general de Bruijn cycles and unfoldings. The exact, complete all-256-cuts census at the first composite binary order supplies previously unprovided cycle-by-cycle effects: every cycle has at least eight optimal cuts, yet 64 roots require one extra full-attractor position, and a fixed five-position set always suffices. This is not merely re-evaluating the known one good example.",
+    "status": "PASS"
+  }
+}
