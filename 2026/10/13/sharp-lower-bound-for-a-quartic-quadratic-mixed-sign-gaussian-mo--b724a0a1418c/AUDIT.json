@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "With u in (0,1), t=1-u and Y=aX+sqrt(1-a²)W, the weighted Gaussian even moments yield an exact 3-by-3 quadratic form for E[abs(X)^(-u)Y^4Z²]/M_u. The diagonal V term minus t(t+2) equals (1-r)(1-t)(3+t-r(3-t)) >=0. The upper-left 2-by-2 principal entry is strictly positive, and its determinant is t(1-r)(1-t)(t+5) times the explicitly nonnegative Bernstein polynomial K. Thus the matrix is PSD for all r in [0,1], t in (0,1). Equality only at r=1 and zero X coefficient in Z, giving Y=±X independent of Z. The exact rational standalone verifier checked 207 matrix, determinant and independent Wick-expansion comparisons. All domains, singular boundaries and unproved extensions are identified; finite tests do not establish the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou et al. Proposition 1.6 lower bound for exponents 4,2 is 3 M_u (1-a^2)^2(1-b^2); at a=1,b=0 this equals zero while the present inequality is sharp and strictly positive.",
+        "Lan–Ouimet–Sun Theorem 1 reduces to a Schur-complement lower bound with the same degeneracy for the quartic variable."
+      ],
+      "reasoning": "Although the prior theorems permit a broader range of powers, their numerical statements do not dominate the correlation-free positive lower envelope here: they vanish at its equality configuration. No broader dominating statement was established.",
+      "searches": [
+        "three-dimensional centered Gaussian sharp uniform lower bound negative power of first coordinate times squared other two, 1 minus exponent constant",
+        "sharp mixed-sign Gaussian product inequality one negative exponent two positive exponents 4 and 2 optimal covariance-independent lower bound (1-u)(3-u)",
+        "arXiv:2308.13740v1 Proposition 1.6",
+        "arXiv:2505.09976v3 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.10231v1",
+      "doi:10.1016/j.spl.2022.109656",
+      "arXiv:2308.13740v1",
+      "doi:10.1016/j.jmaa.2023.127907",
+      "arXiv:2505.09976v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 bivariate opposite inequality addresses E|X|^(-u)|Y|^p with a single positive factor, not three factors.",
+        "The 2023 general lower bound yields zero rather than (1-u)(3-u) at Y=X and Z independent.",
+        "The 2025 Schur-complement lower bound likewise tends to zero in this regime and its upper convex-order result has opposite inequality direction.",
+        "The (negative,2,2) covariance identity concerns a different polynomial integrand; the (positive,2,2,4) theorem addresses a different sign pattern."
+      ],
+      "reasoning": "The new exact lower endpoint and extremizer are not logical corollaries of the numerical inequalities inspected. Derivation instead requires a separate weighted quartic–quadratic moment matrix and a positive cubic Bernstein determinant.",
+      "searches": [
+        "arXiv:2205.10231v1 Theorem 2.1",
+        "arXiv:2308.13740v1 Theorem 1.1 Proposition 1.6 and proof section 2.5",
+        "arXiv:2505.09976v3 Theorems 1 and 2",
+        "Gaussian absolute negative moment times quartic squared powers optimal constant 3-u 1-u"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhou et al. arXiv:2308.13740v1 Proposition 1.6 compares a negative power and two positive powers but has a different covariance-dependent lower bound.",
+        "Russell–Sun arXiv:2205.10231v1 concerns two Gaussian factors only.",
+        "No matching theorem for the sixth-degree negative-weight Gaussian moment was identified among the published records searched."
+      ],
+      "reasoning": "The equivalent form is a sharp lower envelope over the 3-by-3 correlation elliptope of E[abs(X)^(-u)Y^4Z^2]/(3E abs(X)^(-u)); its value is (1-u)(3-u)/3. The inspected prior results state no such envelope or equality classification. Negative search is not priority proof.",
+      "searches": [
+        "sharp mixed-sign Gaussian product inequality one negative exponent two positive exponents 4 and 2 optimal covariance-independent lower bound (1-u)(3-u)",
+        "Gaussian absolute negative moment times quartic squared powers optimal constant 3-u 1-u",
+        "mixed-sign Gaussian quadratic quartic three dimensional product inequality exact lower bound",
+        "Gaussian 4 2 negative product inequality sharp",
+        "mixed-sign Gaussian X_2^4 X_3^2 product",
+        "Gaussian product inequality inverse moment quartic squared exact constant infimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published covariance-dependent inequalities are Zhou et al. (2023), Proposition 1.6, and Lan et al. (2025), Theorem 1; neither gives a sharp positive correlation-independent lower constant.",
+        "Searches for quartic–quadratic negative Gaussian moments, aliases and the candidate constant did not identify an exact covering record."
+      ],
+      "reasoning": "No compared exact table or published record supplies the asymmetric negative-power, quartic, quadratic sharp moment infimum. Search incompleteness remains a priority risk.",
+      "searches": [
+        "sharp mixed-sign Gaussian product inequality one negative exponent two positive exponents 4 and 2 optimal covariance-independent lower bound (1-u)(3-u)",
+        "Gaussian absolute negative moment times quartic squared powers optimal constant 3-u 1-u",
+        "mixed-sign Gaussian quadratic quartic three dimensional product inequality exact lower bound"
+      ]
+    },
+    "rationale": "The literature contains bivariate opposite inequalities and three-factor covariance-dependent inequalities, but the closest three-factor lower bounds vanish at the rank-two extremizer of the strictly positive sharp constant (1-u)(3-u). The new sextic weighted quadratic-form determinant certifies a different optimal positive envelope. The (negative,2,2) exact correlation polynomial and (positive,2,2,4) stability results in the related literature neither state nor imply the present (negative,4,2) sharp lower bound. Residual risk from differently named general moment principles remains.",
+    "residual_risks": [
+      "An earlier general covariance-moment principle with a hidden sharp specialization may exist outside the inspected sources.",
+      "Search indexing and published databases cannot certify universal originality or absence of unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Bivariate result; cannot state a sharp three-factor lower envelope.",
+        "evidence": [
+          "arXiv:2205.10231v1; 2022-05-20",
+          "doi:10.1016/j.spl.2022.109656, Theorem 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.10231",
+        "material_read": "Publisher full-text HTML introduction, Theorem 2.1, proof setup, and discussion, with arXiv PDF available.",
+        "method": "Lawful arXiv and publisher open textual reading",
+        "title": "An Opposite Gaussian Product Inequality",
+        "trigger": "Foundational bivariate opposite mixed-sign result and eligible first date 2022-05-20"
+      },
+      {
+        "assessment": "Theorem 1.1/Proposition 1.6 has lower factor (1-a²)^2(1-b²), zero where this sharp result remains positive; not covering.",
+        "evidence": [
+          "arXiv:2308.13740v1, Proposition 1.6, display (1.15)",
+          "arXiv:2308.13740v1, section 2.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.13740",
+        "material_read": "Full-text arXiv PDF main result statements pp.1–4 and proof of Proposition 1.6 pp.9–10; comparisons of formulas and equality boundary.",
+        "method": "ArXiv PDF text with targeted proof-section reading",
+        "title": "Some New Results on Gaussian Product Inequalities",
+        "trigger": "Closest three-factor mixed-sign lower bound with arbitrary positive exponents"
+      },
+      {
+        "assessment": "Lower theorem is conditional-covariance bound and does not imply positive endpoint at Y=X; upper theorem has opposite comparison direction.",
+        "evidence": [
+          "arXiv:2505.09976v3, Theorem 1, pp.3–4",
+          "arXiv:2505.09976v3, Theorem 2 and Corollary 2, pp.4–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.09976",
+        "material_read": "Full-text arXiv PDF Introduction, Theorem 1, Corollary 1, Theorem 2 and Corollary 2 statements pp.1–5; comparisons with (4,2).",
+        "method": "ArXiv PDF textual and page visual inspection",
+        "title": "Results related to the Gaussian product inequality conjecture for mixed-sign exponents in arbitrary dimension",
+        "trigger": "Potential newer stronger theorem with broadly covering exponents"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b724a0a1-418c-4fda-81e2-0965bb1c53c3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The asymmetric positive exponents four and two are the first natural unequal even powers in a three-factor mixed-sign Gaussian product. The global sharp strictly positive lower envelope survives the singular covariance where published conditional-variance lower bounds collapse to zero, and the equality characterization identifies the unique correlation geometry. This is a motivated natural exact extremal moment, not a trivial sign test, arbitrary numerical slice or restatement of the older (2,2) case. The theorem does not purport to cover all positive exponents or resolve the general product conjecture.",
+    "status": "PASS"
+  }
+}
