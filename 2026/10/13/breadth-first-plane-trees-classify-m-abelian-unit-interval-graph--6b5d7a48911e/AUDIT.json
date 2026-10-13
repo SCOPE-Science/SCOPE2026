@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every n and m, the nondecreasing legal parent list gives a reversible BFS-ordered plane tree. Independent-set sizes containing vertex i satisfy b_i=1+max_{j<=p_i}b_j=1+b_{p_i}, which equals tree depth. A constructive greedy partition yields alpha consecutive cliques, and any clique partition has at least alpha blocks. Standard formal-series plane-tree recursion proves the exact rational count. A standalone finite program independently checks all n<=9 graphs for alpha, clique partition and tree reconstruction and agrees with Dyck-height DP; the infinite conclusion is obtained by proof, not by finite extrapolation. Boundary conditions m>=1,n>=1, disconnected graphs and n=0 generating function convention are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bacher, arXiv:1303.2724v1, Equation (1) gives rational bounded-excursion generating functions for general steps; it does not classify m-Abelian graph subclasses.",
+        "Saitoh et al. 2010 describe balanced-string enumeration and a family tree for unlabeled connected proper interval graphs; their tree is an enumeration parent-child hierarchy among graph representations, not the breadth-first tree on graph vertex labels with height equal to alpha."
+      ],
+      "reasoning": "Classical formulas for bounded-height Dyck excursions strongly cover the enumerative final step once an equinumerosity is known; those formulas are expressly excluded from the originality claim. Their broader path coverage does not imply the new graph-to-tree height bijection absent an identification of the graph property.",
+      "searches": [
+        "\"proper interval graph\" independence number height Dyck tree bijection",
+        "\"proper interval graph\" \"independence number\" \"Dyck path\" height",
+        "\"unit interval graph\" \"breadth-first\" \"plane tree\"",
+        "arXiv:1303.2724v1 Sections 1-2",
+        "doi:10.1587/transinf.E93.D.1816 Sections 3-5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.38084v1",
+      "arXiv:1303.2724v1",
+      "doi:10.1587/transinf.E93.D.1816"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source paper establishes two-clique equivalence and m=1 count, then introduces all m without counting them.",
+        "Bacher gives a stronger theorem for counting already specified height-bounded paths, not a reduction from graph alpha.",
+        "The graph generator of Saitoh et al. treats unlabelled connected isomorphism classes, not the fixed area-sequence model."
+      ],
+      "reasoning": "m=1 case follows from [1] and is included only for consistency. The new bridge alpha=kappa=height is not a consequence of known path enumeration alone. The full counting result follows from the new bridge plus known path enumeration; this dependency is explicit. The user-defined primary finding does not solve the open peak/peak-nesting polynomial questions.",
+      "searches": [
+        "arXiv:2609.38084v1 Lemma 4.1 Proposition 4.2 Section 7 Question 7.1",
+        "arXiv:1303.2724v1 bounded-excursion formula",
+        "doi:10.1587/transinf.E93.D.1816 section 4 and conclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.38084v1 p.6 defines graph via area sequences; p.15 Proposition 4.2 gives the m=1 enumeration; p.35 defines m-Abelian and asks broader refined questions.",
+        "The ordinary Dyck path directly encoded by an area sequence does not generally have height equal to graph independence number: the zero-area sequence yields an edgeless graph with independence n, while its ordinary Dyck path has height 1."
+      ],
+      "reasoning": "Potential rephrasing as clique-cover number alpha or as Dyck maximum height was checked. The new BFS tree is not the original area-sequence Dyck path, so a known Dyck height formula alone cannot establish the graph class equidistribution. The m=1 case is prior, not new.",
+      "searches": [
+        "\"m-Abelian\" \"Fibonacci\" \"unit interval\"",
+        "\"m-Abelian\" \"height\" \"Dyck\" graphs",
+        "\"area sequence\" \"independence number\" \"Dyck\" path",
+        "\"unit interval graphs\" \"independence number\" \"Dyck paths\" height",
+        "arXiv:2609.38084v1 Sections 3,4,7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2609.38084v1 cites existing Dyck height counts and odd-index Fibonacci sequence in Corollary 3.15; they are pre-existing path values.",
+        "The full graph corpus in that paper explicitly gives only the m=1 numerical class size; no table assigning the Fibonacci numbers to all 2-Abelian unit interval graphs occurs in the inspected result sections."
+      ],
+      "reasoning": "The same numerical coefficients exist in path databases, but a sequence match does not show an exact database of m-Abelian graphs nor supply the graph-class-preserving bijection. No new identity for the classical path counts is claimed.",
+      "searches": [
+        "\"Fibonacci 2n-1\" \"Dyck paths\" \"height\"",
+        "\"m-Abelian\" \"Fibonacci\"",
+        "arXiv:2609.38084v1 Corollary 3.15 and Proposition 4.2"
+      ]
+    },
+    "rationale": "The new content is a reversible area-sequence to BFS-ordered plane rooted tree construction preserving independent number and optimal consecutive clique count. The 2026 primary defines the general class but only enumerates its m=1 instance; existing Dyck height rational functions are given full attribution, not claimed original. Cross-formulation and graph-family searches produced no stronger covering implication. Risk: alternate literature may already describe this same statistic-preserving bijection.",
+    "residual_risks": [
+      "Other authors may have proved the same BFS-tree statistic identification using a different Catalan correspondence or the synonym proper interval order.",
+      "Classical bounded-height path numbers and the m=1 graph count are already published and cannot independently support an originality claim.",
+      "No claim about peak or peak-nesting polynomials, connected subclasses, or unlabeled isomorphism counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides family definition, Catalan model, previously known m=1 count and classical bounded-Dyck-height numbers, but no arbitrary-m BFS tree-height identification. Its Question 7.1 concerns peak/peak-nesting polynomials, which remain unresolved here.",
+        "evidence": [
+          "p. 6 area-sequence adjacency; p. 15 Lemma 4.1 and Proposition 4.2; p. 35 definition of m-Abelian and Question 7.1; pp. 11-12 Corollary 3.15 citations to classical bounded Dyck heights."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.38084v1",
+        "material_read": "pp. 2-3, 6-7, 11-12, 15-17, 34-35; definitions, Proposition 4.2, Corollary 3.15, Question 7.1, and cited results",
+        "method": "Full primary PDF text and page-image inspection of definitions and open-questions page",
+        "title": "Peaks and peak-nestings on unit interval graphs",
+        "trigger": "Introduces the precise m-Abelian family and the motivating open enumeration directions"
+      },
+      {
+        "assessment": "Covers bounded-excursion continued-fraction enumerators generally. It does not relate those enumerators to the m-Abelian unit interval graph property; accepted as prior coverage of enumeration after reduction.",
+        "evidence": [
+          "p. 1 abstract and p. 3 Eq. (1): bounded-excursion generating functions as ratios of polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.2724",
+        "material_read": "pp. 1-4, Abstract, Sections 1 and 2, especially Equation (1)",
+        "method": "Open-access primary PDF full text at relevant sections",
+        "title": "Generalized Dyck paths of bounded height",
+        "trigger": "Exact rational formula may dominate the enumerative statement"
+      },
+      {
+        "assessment": "Treats connected proper interval graphs up to isomorphism and balanced canonical strings. Its family tree indexes entire graph representations, not the n-edge breadth-first plane tree preserving independence number.",
+        "evidence": [
+          "Section 4 begins \"enumerate all connected proper interval graphs\"; conclusion distinguishes unlabeled isomorphism from labeled counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1587/transinf.E93.D.1816",
+        "material_read": "pp. 1-7, including Section 4 enumeration and Section 5 conclusion",
+        "method": "Authorized journal open-access primary PDF, text and page images",
+        "title": "Random Generation and Enumeration of Proper Interval Graphs",
+        "trigger": "Could contain equivalent graph-to-tree enumeration/classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b5d7a48-911e-4d4b-8620-1ed47a48abd9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 paper introduces all m-Abelian unit interval graphs and seeks refined enumerations. The result delivers an exact all-m canonical combinatorial classification and counting series, translating an intrinsic graph optimization invariant into tree height by a bijection different from the original Dyck representation. This distinguishes the graph problem from simply restating a classical path formula, explains the known m=1 case and gives natural complete Fibonacci and power-of-three enumerations at m=2,3. It is mathematically motivated even though refined peak-polynomials remain untreated.",
+    "status": "PASS"
+  }
+}
