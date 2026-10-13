@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every nonnegative diagonal length t in E, the two endpoints yield a lower point and an upper point enclosing an axis-aligned box of shortest side at least t; the converse holds by taking the lower corner. This proves the finite pairwise max-min identity independently. Dominated points can be replaced by coordinatewise stronger points. Along sorted planar Pareto fronts the two gaps are oppositely strictly monotone, making each upper-index score unimodal with maximum at the immediate crossing predecessor or successor. Crossing thresholds are nondecreasing along the lower front, yielding at most |U*| pointer advances and 2|L*| score evaluations. Exact integer and rational comparisons reproduced the all-pairs result in 114,400 cases, including empty/zero-width and tie scenarios. These tests are corroboration only; the theorem is proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eichfelder--Kirst--Meng--Stein (2021), Sections 3 and 7, supplies branch-and-bound width formulas and stopping rules but does not in the inspected sections give a two-front co-ordered crossing algorithm.",
+        "Eichfelder--Link--Volkwein--Warnow (2025), algorithmic and experiment sections, uses width tolerances with repeated local bounds but does not in the inspected sections establish the stated linear candidate scan: https://link.springer.com/article/10.1007/s12532-025-00299-7 .",
+        "Using dual relaxations in multiobjective mixed-integer convex quadratic programming (2024), Definitions 1-2, displays the same all-pairs width optimization: https://doi.org/10.1007/s10898-024-01440-x ."
+      ],
+      "reasoning": "Convergence, enclosure update, and local-upper-bound constructions do not automatically furnish a linear-time exact evaluation of the bottleneck between two arbitrary planar fronts. No stronger dimension-general or data-structure theorem implying the bracketing certificate was located in the inspected primary materials. Inspection covers relevant sections, not every possible external algorithm.",
+      "searches": [
+        "\"A general branch-and-bound framework\" \"width\" \"linear\" \"biobjective\"",
+        "\"Adaptive relaxation-refinement scheme for multi-objective mixed-integer nonconvex optimization\" width computational costs",
+        "\"enclosure width\" \"sorting\" multiobjective",
+        "\"enclosure width\" \"algorithm\" \"linear\" multiobjective"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/2025/09/properties-of-enclosures-in-multiobjective-optimization/ (dated first public posting 2025-09-05)",
+      "https://optimization-online.org/wp-content/uploads/2025/09/Properties_of_Enclosures_in_Multiobjective_Optimization-1.pdf (same source, revisions not substituted for initial date)",
+      "https://link.springer.com/article/10.1007/s10898-020-00984-y (2021 predecessor)",
+      "https://doi.org/10.1007/s10898-024-01440-x (2024 comparator)",
+      "https://link.springer.com/article/10.1007/s12532-025-00299-7 (2025 algorithmic comparator)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 paper expressly says the width is easily computed from the longest shortest edge of every box and cites many algorithms using it as a stopping criterion; equation (3.4) is still an optimization over the full Cartesian pair set.",
+        "Its Proposition 3.2 proves dominance reduction but does not state that a lower vertex needs only its upper-front difference bracketing neighbors.",
+        "The 2021 paper provides the pair formula and algorithmic stopping but no crossing-index monotonicity statement in material inspected."
+      ],
+      "reasoning": "One can derive the contribution from the cited formulas plus the elementary planar antichain-order lemma; it is not logically a new width definition or bound. However, converting that formula to a provable O(|L*|+|U*|) candidate certificate is an additional algorithmic assertion not contained in the claims compared, and the proof establishes it uniformly over all finite planar fronts. Equivalent prior implementation remains possible.",
+      "searches": [
+        "Eichfelder--Hoff, Proposition 3.2 and equations (3.3)-(3.5), full-text relevant sections",
+        "Eichfelder--Kirst--Meng--Stein (2021), Lemma 3.2 and Section 7, full-text relevant sections",
+        "\"width\" \"enclosure\" \"O(n\" \"biobjective\" optimization",
+        "\"max\" \"min\" \"lower bound sets\" \"upper bound sets\" \"linear\" multiobjective width"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eichfelder--Hoff (2025 first release; 2026 revision), equations (3.3)-(3.5), identifies the bottleneck max-min over coordinatewise feasible pairs; manuscript https://optimization-online.org/wp-content/uploads/2025/09/Properties_of_Enclosures_in_Multiobjective_Optimization-1.pdf .",
+        "Eichfelder--Kirst--Meng--Stein (2021), Lemmas 3.2-3.3, proves the same pairwise width characterization; https://link.springer.com/article/10.1007/s10898-020-00984-y ."
+      ],
+      "reasoning": "The width metric, diagonal-separation and maximum-over-pairs formulation are not new. The standard additive epsilon indicator uses a different nested minimization/maximization of domination error and is not identified here with the pairwise enclosure width. The additional result restricts potential maximizers to two bracketing upper-front points for each lower-front point and proves these brackets can be processed jointly with one pointer. Neither cited identity by itself states the candidate sparsification and linear-time witness algorithm.",
+      "searches": [
+        "\"enclosure width\" \"biobjective\" computation",
+        "\"enclosure\" \"two objective\" \"linear time\" width",
+        "\"additive epsilon indicator Pareto fronts two dimensional maximin coordinate difference width enclosures\"",
+        "Eichfelder and Hoff, open manuscript, equations (3.3)-(3.5) and Proposition 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest public-record matches include Exact minimal width-area Cheeger constant for planar convex bodies (2026), about convex-body minimal width, and Exact one-dimensional Hilbert packing duality (2026), about Hilbert metric packings; neither has lower/upper finite Pareto front inputs or a maximum-of-minimum coordinate gap.",
+        "A public record on the Pareto frontier of skew-symmetric Littlewood polynomials (2026) is an exhaustive finite combinatorial census, not a planar enclosure width algorithm."
+      ],
+      "reasoning": "There is no numerical instance enumeration or known-table value underlying the claim; it is an algorithm for every finite planar input. Semantic search found no matching exact database entry. The lack of a match is weak evidence and does not establish global novelty.",
+      "searches": [
+        "Published mathematical findings semantic search: Exact linear-time two-pointer computation of enclosure width in biobjective optimization for sorted Pareto antichains",
+        "Published mathematical findings semantic search: biobjective bounding sets computational width O(n+m) comparison maximal min coordinate gaps",
+        "Published mathematical findings semantic search: Exact width computation for two-dimensional finite Pareto enclosure lower upper fronts monotone merge maximal minimum coordinate gap"
+      ]
+    },
+    "rationale": "The 2025 source and 2021 predecessor already give the enclosure and maximum-of-minimum-gaps width formula, while Proposition 3.2 of the newer source explicitly reduces bound sets to minimal/maximal fronts; those premises are attributed. The new claim is the planar two-candidate per lower vertex result and the monotone merge with explicit linear complexity and attaining witness. Material examination of the relevant full-text proofs, algorithmic sections, and cited subsequent methods did not locate that exact complexity guarantee. Published-record searches returned chiefly unrelated convex-body width and Pareto enumeration results. The remaining risk of unindexed specialized implementations or equivalent set-indicator algorithms is expressly recorded.",
+    "residual_risks": [
+      "There could be an unindexed planar Pareto width implementation or a special-case data structure using the same monotone crossing without an explicit research-paper theorem.",
+      "An equivalent bottleneck-width reformulation in multiobjective indicator or computational geometry literature might imply the scan although the searches and inspected primary sections did not locate one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS width definition, box-pair formula and domination pruning, NOT the specific bracketing candidate theorem in sections read.",
+        "evidence": "Proposition 3.2; equations (3.3)-(3.5); page 11 notes width is the longest shortest box edge and used as a stopping test.",
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2025/09/Properties_of_Enclosures_in_Multiobjective_Optimization-1.pdf",
+        "material_read": "Pages 1-2, 5-6, 10-12, Sections 3.2 and relevant portions of 3.3, conclusion pages 25-26; page 11 visually inspected.",
+        "method": "Openly accessible full manuscript text, targeted section navigation and PDF page rendering.",
+        "title": "Properties of Enclosures in Multiobjective Optimization",
+        "trigger": "Exact same width object and bounding sets; strongest risk of direct coverage."
+      },
+      {
+        "assessment": "COVERS all-pairs width and general stopping use; no explicit matching two-front monotone merge in examined material.",
+        "evidence": "Lemmas 3.2-3.3; width-based node selection and termination rules; source describes efficient updates of upper bound sets as a separate procedure.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10898-020-00984-y",
+        "material_read": "Open-access HTML Sections 3, 4, 7 and related implementation and final remarks; searched for linear-time and sorting claims.",
+        "method": "Publisher open-access full-text HTML and within-document term searches.",
+        "title": "A general branch-and-bound framework for continuous global multiobjective optimization",
+        "trigger": "Original cited source for width and algorithmic stopping; stronger historical coverage risk."
+      },
+      {
+        "assessment": "COVERS finite-enclosure bottleneck optimization formula, not an explicit two-bracket merge guarantee in material read.",
+        "evidence": "Definition 1 enclosure as union of all feasible boxes and subsequent maximum of minimum box-edge lengths.",
+        "identifier_or_url": "https://doi.org/10.1007/s10898-024-01440-x",
+        "material_read": "Publisher accessible introductory enclosure and local upper bound definitions, width formula in Section 2.",
+        "method": "Full publisher HTML, relevant passages read.",
+        "title": "Using dual relaxations in multiobjective mixed-integer convex quadratic programming",
+        "trigger": "Recent finite bounding-set representation may include an exact accelerated width computation."
+      },
+      {
+        "assessment": "Supports importance of the width as a computational stopping quantity, no stated specialized planar bracketing algorithm in inspected passages.",
+        "evidence": "Proposition 3 bounds decreasing shortest box-edge lengths; solver parameters include an explicit enclosure width tolerance.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12532-025-00299-7",
+        "material_read": "Publisher HTML abstract, enclosure definitions, algorithmic description, Proposition 3 and computational discussion of width tolerances.",
+        "method": "Open-access publisher full-text HTML, targeted relevant passages.",
+        "title": "An adaptive relaxation-refinement scheme for multi-objective mixed-integer nonconvex optimization",
+        "trigger": "2025 implemented solver uses an enclosure-width stopping threshold."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8287a1d3-5779-4c04-bc5d-37de82d1d164",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original width is a genuine repeatedly evaluated stopping-quality measure in biobjective enclosing-set optimization, not a contrived scalar invariant. On already sorted antichains, checking \\(|L_*|\\,|U_*|\\) boxes is replaced by a sharp at-most-two-upper-candidates-per-lower-point structural certificate computed via \\(|L_*|+|U_*|\\) work, returning an auditable maximizing witness and handling empty enclosures. Arbitrary input inherits an \\(O(N\\log N)\\) algorithm. This is potentially valuable precisely for large finite fronts and repeated width checks, with no unproved solver-wide runtime gain asserted.",
+    "status": "PASS"
+  }
+}
