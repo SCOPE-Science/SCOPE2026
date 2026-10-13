@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Exchangeability gives one diagonal and one off-diagonal covariance entry; the almost-sure unit-sum constraint fixes the off-diagonal entry exactly. The aggregate-gradient covariance is then a direct matrix pushforward and equals the centered task scatter. The sharp variance maximum follows from the simplex inequality between each coordinate and its square, with equality forcing a one-hot vector. The embedded verifier checks the identities on exact finite exchangeable laws.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kurin and coauthors compare RLW directly and describe random scalarization as a source of stochastic regularization.",
+        "The defining RLW paper claims improved escape from sharp local minima from the extra random-weight noise.",
+        "Broader random-data-weighting work concerns randomness across samples rather than the task-simplex covariance operator studied here."
+      ],
+      "reasoning": "General statements that random weighting adds noise or regularizes do not determine which parameter-space directions receive variance. The final theorem gives exact support, rank, energy, and the unique maximum-amplitude exchangeable law.",
+      "searches": [
+        "In Defense of the Unitary Scalarization Random Loss Weighting stochastic regularization",
+        "Random Loss Weighting local minima noise regularization multi task",
+        "random data weights covariance linear regression"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.10603v1",
+      "arXiv:2201.04122v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source samples and normalizes random weights on the simplex and uses their weighted task-gradient sum.",
+        "It identifies constrained Bernoulli as a one-task-at-a-time special case.",
+        "Its effectiveness analysis treats the extra randomness through a generic noise-intensity model.",
+        "The later scalarization paper notes the relation between RLW and adding stochasticity but does not derive its covariance geometry."
+      ],
+      "reasoning": "Unbiasedness fixes only the first moment. The final claim requires the exchangeability covariance identity, a matrix pushforward through the task gradients, a rank/nullspace analysis, and a sharp simplex variance extremizer.",
+      "searches": [
+        "arXiv:2111.10603 RLW simplex random weights unbiased gradient",
+        "arXiv:2111.10603 constrained Bernoulli one task update",
+        "arXiv:2111.10603 noise local minima Theorem 2",
+        "arXiv:2201.04122 RLW noise regularization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source states that RLW adds weight-sampling randomness and gives an unbiased aggregate gradient.",
+        "Its local-minimum analysis represents stochasticity through a generic zero-mean noise term with a bounded intensity.",
+        "No inspected source states that the weight-induced covariance is exactly the centered task-gradient scatter up to one scalar."
+      ],
+      "reasoning": "Equivalent formulations would identify the exact disagreement-subspace range, the pairwise-distance energy identity, or the fact that every exchangeable simplex law has identical covariance eigendirections. None was located.",
+      "searches": [
+        "Random Loss Weighting RLW exact gradient covariance task disagreement scatter matrix",
+        "RLW noise covariance lies in task disagreement subspace",
+        "random weighting multitask gradient covariance",
+        "RLW gradient covariance multi-task"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed results concern clustered gradient-estimator variance, stochastic-subspace moments, and covariance effects in unrelated algorithms.",
+        "No returned published finding states an RLW task-disagreement covariance law."
+      ],
+      "reasoning": "The closest records study different randomization mechanisms and therefore do not imply the simplex-weight pushforward identity. Search absence is only supporting evidence and is combined with direct primary-source inspection.",
+      "searches": [
+        "Random Loss Weighting RLW exact gradient covariance task disagreement scatter matrix",
+        "random simplex task weights covariance aggregated gradient centered task gradients multi task learning",
+        "RLW noise covariance lies in task disagreement subspace"
+      ]
+    },
+    "rationale": "The defining RLW paper analyzes unbiasedness, convergence, and local-minimum escape from extra randomness but models that randomness generically rather than deriving its task-gradient covariance geometry. A later primary analysis interprets RLW as stochastic regularization without giving the exact covariance support. Focused published-record searches found no implication-equivalent task-scatter covariance law or sharp one-hot maximality theorem.",
+    "residual_risks": [
+      "The covariance identity is elementary enough that an equivalent observation may exist in unindexed implementation or lecture notes.",
+      "Higher-order distributional effects distinguish symmetric RLW laws even though their covariance eigendirections coincide.",
+      "Mini-batch gradient noise can add covariance outside the task-disagreement span."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_RANDOM_WEIGHT_MECHANISM_NOT_COVERING_EXACT_COVARIANCE_GEOMETRY.",
+        "evidence": "The source proves unbiasedness and reasons about additional random noise, but does not state the centered task-scatter covariance, its exact support, or one-hot covariance maximality.",
+        "identifier_or_url": "arXiv:2111.10603v1",
+        "material_read": "Open full text covering the implementation example, the weighted-gradient formulation, Section 3 RLW definition and normalization, the six sampled weight families, constrained-Bernoulli task sampling, and Section 4's doubly stochastic and local-minimum analysis.",
+        "method": "Full-text open-access HTML inspection with targeted covariance, noise, and distribution searches.",
+        "title": "Reasonable Effectiveness of Random Weighting: A Litmus Test for Multi-Task Learning",
+        "trigger": "Defining source for RLW, simplex normalization, symmetric weight laws, constrained Bernoulli, and the extra-noise escape interpretation."
+      },
+      {
+        "assessment": "BROADER_STOCHASTIC_REGULARIZATION_INTERPRETATION_NOT_COVERING_RLW_COVARIANCE_SUPPORT.",
+        "evidence": "The paper connects RLW to random scalarization and stochastic regularization, but the inspected discussion contains no exact task-gradient covariance matrix or exchangeable-law extremal result.",
+        "identifier_or_url": "arXiv:2201.04122v1",
+        "material_read": "Open full PDF material covering the RLW benchmark discussion and Section 5.2 technical analysis, including the explicit comparison of PCGrad stochastic loss reweighting with RLW.",
+        "method": "Full-text PDF search plus direct page-image inspection of the relevant technical-results pages.",
+        "title": "In Defense of the Unitary Scalarization for Deep Multi-Task Learning",
+        "trigger": "Later primary work directly comparing RLW and interpreting specialized multi-task optimizers through regularization and stochasticity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98bba42a-7da9-4c97-9026-552f9948cce6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining scientific justification for RLW emphasizes the benefit of extra stochasticity, yet the geometry of that noise determines what local directions it can actually explore. The theorem shows that all exchangeable RLW laws share one exact anisotropic support—the task-disagreement span—and that their distribution choice changes only covariance amplitude. It also identifies the source's one-task-at-a-time option as the unique maximum-noise endpoint and gives a pairwise disagreement energy formula, directly sharpening the method's escape-and-regularization interpretation.",
+    "status": "PASS"
+  }
+}
