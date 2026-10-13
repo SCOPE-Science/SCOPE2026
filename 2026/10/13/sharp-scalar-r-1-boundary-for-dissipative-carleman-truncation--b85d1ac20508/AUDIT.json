@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The nonlinear solution follows from the linear reciprocal equation. The source's scalar finite Carleman section is upper bidiagonal, and backward variation of constants gives the stated binomial formula for every lifted degree and the geometric first-component formula. Its exact remainder gives the finite-horizon iff condition. At \\(R=1\\), one-variable differentiation gives the unique maximizer \\(x_N\\) and the \\(u_0/(2eN)\\) asymptotic. Under the source's rescaling equation, the alternating test vector has Rayleigh quotient \\(\\frac N2[(c-a)N-(a+c)]\\), positive for \\(N>(R+3)/(R-1)\\). Constant rescaling leaves \\(R\\) and the decoded truncation invariant.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sancho--Escribano--Oller (DOI 10.1088/1402-4896/add65a) gives the infinite Riccati recurrence, low-order zero-closure approximants, and numerical order-20 illustrations, but no all-\\(N\\) threshold theorem.",
+        "Forets--Pouly (arXiv:1711.02552) develops computable local truncation-error bounds for polynomial ODEs, not the exact source-specific threshold or lifted-dissipativity obstruction.",
+        "Li--An explicitly report several finite-horizon dissipative examples with \\(R>1\\), so their numerical evidence does not dominate a theorem showing late-time failure in a different scalar family."
+      ],
+      "reasoning": "A general theorem proving convergence of the same unshifted finite sections for all globally dissipative scalar quadratics with \\(R>1\\), or an exact all-order Riccati formula with the same long-time threshold, would cover the claim. No such theorem was located.",
+      "searches": [
+        "\"Carleman approximants for non-linear differential systems\" Riccati exact solution",
+        "\"Explicit Error Bounds for Carleman Linearization\" Riccati",
+        "\"Carleman embedding\" scalar quadratic ODE convergence threshold",
+        "\"Carleman\" \"u'=-u+u^2\" \"order N\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.25822v1",
+      "DOI:10.1088/1402-4896/add65a",
+      "arXiv:1711.02552",
+      "semantic literature-index results for the four recorded claim-specific queries",
+      "current and immediately prior cumulative research files"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li--An define \\(R\\), prove their algorithm under \\(R<1\\), and explicitly say their tested \\(R>1\\) finite-horizon cases suggest that condition is not a sharp necessary threshold for that model.",
+        "The 2025 Riccati paper writes the same monomial recurrence after normalization and truncates it by setting the final coupling to zero, but only derives low-order formulas and numerical higher-order illustrations.",
+        "The new theorem identifies an exact late-time failure time, a critical algebraic rate, and a separate lifted-matrix Rayleigh obstruction, none of which follows as a stated corollary from the inspected results."
+      ],
+      "reasoning": "The anchor's numerical convergence at \\(R>1\\) cannot imply universal convergence beyond \\(R=1\\). Conversely, the prior Riccati recurrence is an ingredient rather than a covering theorem: solving it for arbitrary order, extracting the exact geometric remainder, optimizing the critical all-time error, and combining it with the source-prescribed rescaling to prove eventual non-dissipativity are the additional statement-level steps.",
+      "searches": [
+        "2608.25822 scalar Riccati logistic Carleman truncation exact error R threshold",
+        "Carleman embedding scalar dissipative quadratic ODE exact truncation error nonlinearity R greater than 1",
+        "u prime equals minus a u minus b u squared Carleman truncation convergence threshold",
+        "strong nonlinearity dissipative scalar Carleman divergence R > 1",
+        "\"2608.25822\" \"R > 1\" Carleman convergence",
+        "\"Carleman approximants for non-linear differential systems\" \"order twenty\" Riccati",
+        "\"Carleman\" Riccati \"uniform convergence\" truncation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-index result states the arXiv:2608.25822 scalar sharpness theorem or its exact geometric remainder.",
+        "Web searches located a 2025 Riccati-Carleman paper and generic error-bound papers, but no source with the displayed finite-horizon iff condition or the critical \\(R=1\\) all-time rate."
+      ],
+      "reasoning": "Equivalent formulations were sought under scalar Riccati/logistic terminology, exact finite-section error, uniform convergence, strong-nonlinearity failure, and the anchor's parameter \\(R\\). The closest recurrence source defines the same finite-section mechanism in a normalized Riccati example but does not solve the sharp all-order convergence boundary.",
+      "searches": [
+        "2608.25822 scalar Riccati logistic Carleman truncation exact error R threshold",
+        "Carleman embedding scalar dissipative quadratic ODE exact truncation error nonlinearity R greater than 1",
+        "u prime equals minus a u minus b u squared Carleman truncation convergence threshold",
+        "strong nonlinearity dissipative scalar Carleman divergence R > 1",
+        "\"Carleman\" logistic equation truncation exact error",
+        "\"Carleman linearization\" Riccati exact truncation error",
+        "\"u'=-a u-b u^2\" Carleman",
+        "\"Carleman\" Riccati \"uniform convergence\" truncation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The semantic index returned no exact-error table or record for the candidate family.",
+        "The 2025 Riccati article illustrates selected initial conditions and finite orders, including an order-20 figure, but does not tabulate or state the exact all-order error or threshold."
+      ],
+      "reasoning": "The accepted claim is a closed-form theorem over continuous parameters and all truncation orders; it is not a recomputation of a finite table or numerical census.",
+      "searches": [
+        "2608.25822 scalar Riccati logistic Carleman truncation exact error R threshold",
+        "u prime equals minus a u minus b u squared Carleman truncation convergence threshold",
+        "\"Riccati\" \"Carleman approximant\" \"c<-1\""
+      ]
+    },
+    "rationale": "The anchor proves a sufficient weak-nonlinearity theory and gives finite-horizon numerical evidence beyond the threshold, but no necessity boundary. The closest Riccati-Carleman paper supplies the same type of monomial recurrence after a sign/scale change and works out low orders, yet does not state the all-order remainder, finite-horizon iff criterion, critical algebraic uniform rate, or eventual lifted non-dissipativity. General Carleman-error literature gives bounds rather than this sharp source-specific trichotomy.",
+    "residual_risks": [
+      "The arbitrary-order scalar formula is elementary once the Riccati finite-section recurrence is written, so an older source may contain an equivalent closed form under different approximation terminology.",
+      "No claim is made that the displayed sufficient order for loss of lifted dissipativity is minimal.",
+      "The theorem does not exclude particular multidimensional \\(R>1\\) systems from converging on finite or even long horizons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES the exact finite-section convention, rescaling rule, sufficient \\(R<1\\) theory, and finite-horizon \\(R>1\\) numerical evidence, but DOES_NOT_COVER the scalar all-order sharpness theorem.",
+        "evidence": "The source defines \\(R\\) in Section 2, truncates the infinite monomial lift at order \\(N\\) in Section 3, and reports convergence for tested \\(R\u0007pprox1.01,1.16,1.57\\) on \\(T=1\\), while explicitly describing \\(R<1\\) as sufficient but not sharp for that tested model.",
+        "identifier_or_url": "arXiv:2608.25822v1",
+        "material_read": "Full 24-page arXiv preprint, with detailed inspection of Sections 2, 3.1--3.2, Theorem 4.1, and Sections 5.1.1--5.1.2; page images for the definition of \\(R\\), the dissipative test family, and the \\(R>1\\) numerical observations were also inspected.",
+        "method": "Direct lawful arXiv full-text and page-image inspection.",
+        "title": "Fast-forwarding quantum algorithms for weakly nonlinear dissipative differential equations and beyond",
+        "trigger": "Primary anchor defining \\(R\\), the finite Carleman section, the prescribed rescaling, and the numerical stronger-nonlinearity direction."
+      },
+      {
+        "assessment": "SUPPLIES a normalized Riccati recurrence equivalent after sign and scale changes, but DOES_NOT_COVER the exact arbitrary-order remainder, the finite-horizon iff condition, the \\(R=1\\) uniform asymptotic, or the lifted dissipativity obstruction.",
+        "evidence": "The article gives \\(\\dot v_k=-k v_k+k v_{k+1}\\), states the zero terminal-coupling truncation, derives only low-order formulas in the main text, and presents selected higher-order plots.",
+        "identifier_or_url": "DOI:10.1088/1402-4896/add65a",
+        "material_read": "Web-rendered full article sections on the special Riccati equation, its infinite recurrence, first through third order approximants, discussion, and the appendix description of order-20 Riccati approximants.",
+        "method": "Direct full-text web rendering supplied by the publisher index.",
+        "title": "Carleman approximants for non-linear differential systems",
+        "trigger": "Closest source treating a scalar Riccati monomial Carleman recurrence and zero terminal closure."
+      },
+      {
+        "assessment": "SUPPLIES general local truncation-error bounds but DOES_NOT_COVER the exact scalar threshold theorem.",
+        "evidence": "The work develops computable time-dependent upper bounds for polynomial systems rather than an exact all-order error identity or long-time sharpness classification.",
+        "identifier_or_url": "arXiv:1711.02552",
+        "material_read": "Abstract and methodological description of the two general error-bound constructions.",
+        "method": "Open arXiv metadata and abstract inspection.",
+        "title": "Explicit Error Bounds for Carleman Linearization",
+        "trigger": "Foundational quantitative truncation-error literature returned by exact-error searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b85d1ac2-0508-49e5-a5e9-d425feb5d2d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The anchor explicitly uses finite-horizon numerics beyond \\(R=1\\) to motivate stronger-nonlinearity fast-forwarding. A sharp boundary example is therefore directly motivated. The accepted theorem shows that a globally stable dissipative scalar flow can still lose Carleman convergence after an explicit time when \\(R>1\\), identifies the critical \\(R=1\\) algebraic law, and proves eventual loss of the lifted dissipativity needed by the fast-forwarding solver. This separates finite-horizon beyond-threshold success from a universal long-time extension.",
+    "status": "PASS"
+  }
+}
