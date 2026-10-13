@@ -1,0 +1,92 @@
+{
+  "correctness": {
+    "rationale": "The printed density becomes exactly \\(y\\beta^{-2}e^{-y/\\beta}\\) under \\(y=x-I\\), hence \\(Y\\sim\\Gamma(2,\\beta)\\). Inverting \\((1+z)e^{-z}=1-p\\) requires the lower real branch \\(W_{-1}\\); the source expression instead has a positive Lambert-W argument and falls below the support. Direct integration of the printed survival gives \\(m(t)=\\beta(t-I+2\\beta)/(t-I+\\beta)\\), whose derivative is strictly negative. A standalone high-precision checker independently verifies both identities and the failure of the printed formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard Gamma(2, beta) theory implies the same inversion and residual-life formulas once the shift is recognized.",
+        "The general theory does not identify the errors in the 2025 NMED paper or its plotted increasing residual-life conclusion."
+      ],
+      "reasoning": "Generic gamma and Lambert-W facts provide ingredients, but the source-specific correction and its reliability consequence are not a mere renamed literature theorem.",
+      "searches": [
+        "NMED shifted gamma distribution quantile",
+        "moment exponential distribution mean residual life gamma shape 2",
+        "neutrosophic moment exponential Lambert W branch"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20251222"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source defines \\(X_N=X+I\\) and prints the shifted moment-exponential density.",
+        "Its MGF \\(e^{tI}/(1-\\beta t)^2\\) is consistent with a translated Gamma(2, beta) law.",
+        "Its survival \\((1+(x-I)/\\beta)e^{-(x-I)/\\beta}\\) directly yields the corrected residual-life formula.",
+        "The printed quantile is below the support for every interior probability because its Lambert-W argument is positive."
+      ],
+      "reasoning": "The accepted theorem is a correction forced by the source premises; it is not already stated by the source, whose displayed conclusions are opposite in the two affected sections.",
+      "searches": [
+        "NMED X_N=X+I density gamma shape 2",
+        "NMED survival function Eq 3.4",
+        "NMED Theorem 3 MRLF",
+        "NMED quantile Lambert W"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published-finding corpus records concern unrelated gamma quantiles, renewal residual-life correlations, and endpoint asymptotics.",
+        "Exact DOI searches returned the original article and mirrors, not a corrigendum.",
+        "The target density is a translated Gamma(2, beta) density, but the source does not use that identity to repair its quantile or residual-life theorem."
+      ],
+      "reasoning": "The claim was searched as an NMED correction, a shifted-gamma equivalence, a Lambert-W branch correction, and a mean-residual-life correction. No equivalent model-specific statement was located.",
+      "searches": [
+        "neutrosophic moment exponential quantile Lambert W mean residual life correction",
+        "10.3934/math.20251222 quantile mean residual life",
+        "NMED shifted gamma distribution quantile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The rendered quantile page prints a positive Lambert-W argument.",
+        "The rendered Theorem 3 page states \\(r_N(t)=\\beta+(t-I)\\) and says it increases linearly.",
+        "No publisher correction was located."
+      ],
+      "reasoning": "The comparison is with exact displayed formulas and their plotted qualitative interpretation, not with a secondary summary.",
+      "searches": [
+        "10.3934/math.20251222 quantile Lambert W correction",
+        "10.3934/math.20251222 mean residual life correction",
+        "10.3934/math.20251222 corrigendum"
+      ]
+    },
+    "rationale": "The target full text explicitly prints both incorrect formulas and no correction was located. Five published-finding corpus searches, exact-DOI web searches, and own-ledger searches found no NMED result identifying the shifted-gamma structure as a simultaneous correction of the Lambert-W quantile and mean residual life.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the publisher record.",
+      "A general gamma-distribution reference contains the corrected formulas abstractly, but no NMED-specific correction was located.",
+      "The broader neutrosophic interpretation of a non-fixed indeterminacy component is not assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING BUT INTERNALLY INCONSISTENT. The shifted density, CDF, MGF, and survival are sufficient to derive the correct formulas, while the published quantile and mean-residual-life statements are incorrect.",
+        "evidence": "Section 2 defines \\(X_N=X+I\\) and Eq. (2.1); Eq. (3.3) gives the shifted-gamma MGF; Section 3.5 prints the quantile; Theorem 3 and Figure 4 give the increasing linear residual life.",
+        "identifier_or_url": "doi:10.3934/math.20251222",
+        "material_read": "Open-access full PDF, including the NMED definition and density, moment/MGF section, survival and hazard formulas, quantile section, Theorem 3 and its proof, and the corresponding rendered plots.",
+        "method": "Direct full-text plus rendered-page inspection.",
+        "title": "Neutrosophic moment exponential distribution: properties and modeling of child mortality rate data",
+        "trigger": "Primary source defining NMED and containing the quantile and mean-residual-life formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83c81615-4574-45e7-b2c3-f40d6be18fa9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantiles and mean residual life are central advertised statistical and reliability properties of the NMED. The published quantile fails even the support test, while the published residual-life theorem reverses the true monotonicity and drives a displayed plot. The shifted-gamma identity gives exact replacements and a coherent reliability interpretation, making the correction mathematically substantive and directly reusable.",
+    "status": "PASS"
+  }
+}
