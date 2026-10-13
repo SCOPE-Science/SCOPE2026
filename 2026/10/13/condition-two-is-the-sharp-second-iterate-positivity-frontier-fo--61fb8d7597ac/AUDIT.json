@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly reconstructs the exact-line warm start, both BB endpoint steps, the interval ordering, and the factorization \\(x^{(2)}=\u0007lpha_0\u0007lpha_1(\theta I-A)b\\). For \\(\\kappa\\le2\\), \\(\theta\\ge2\\mu\\ge L\\) makes the shifted Stieltjes matrix entrywise nonnegative. For every \\(\\kappa>2\\), an explicit two-dimensional diagonal family makes even the maximum interval shift smaller than \\(L\\), forcing a negative second coordinate for every interval choice. The exact-rational replay verifies the stated witness and endpoint values; finite checks are not used for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Birgin--Martínez--Raydan state the BB recurrence and show that on SPD quadratics the long BB step used at the next iteration is the previous Cauchy exact-line step.",
+        "Dai--Huang--Liu study convex combinations of the long and short BB steps and prove convergence properties, not coordinatewise Stieltjes positivity.",
+        "The published-index BB-interval result controls objective change; objective level and orthant membership are logically distinct invariants."
+      ],
+      "reasoning": "The broader literature supplies the method and convergence context but not the entrywise shifted-Stieltjes factorization or the universal all-selector safety/failure boundary.",
+      "searches": [
+        "Birgin Martinez Raydan Spectral Projected Gradient Methods Review and Perspectives full text",
+        "Dai Huang Liu A family of spectral gradient methods for optimization",
+        "Barzilai Borwein Two-Point Step Size Gradient Methods",
+        "Published index: Sharp objective-monotonicity frontier for Barzilai-Borwein interval steps"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.18637/jss.v060.i03",
+      "DOI:10.1093/imanum/8.1.141",
+      "DOI:10.1007/s10589-019-00107-8",
+      "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+      "DOI:10.3934/jimo.2005.1.181"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 review gives the delayed Cauchy-step identity for the classical BB long step, which is used as background but does not constrain coordinate signs.",
+        "The 2019 family result concerns R-superlinear/R-linear convergence for long-short combinations.",
+        "The closest published-index theorem bounds objective amplification; neither objective increase nor decrease determines entrywise nonnegativity."
+      ],
+      "reasoning": "No inspected prior statement dominates the accepted claim. The new proof needs the Stieltjes sign pattern and the lower bound on \\(\theta=\u0007lpha_0^{-1}+\u0007lpha_1^{-1}\\), followed by a family showing failure even at the short endpoint.",
+      "searches": [
+        "Primary full text: DOI:10.18637/jss.v060.i03, introduction and BB quadratic discussion",
+        "DOI:10.1007/s10589-019-00107-8 abstract and long/short family description",
+        "Published research-index record 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest published research-index record is 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53; it classifies objective monotonicity for the same BB interval, not coordinate signs.",
+        "Focused semantic searches returned convergence, norm, objective, and spectral-gradient records rather than a Stieltjes orthant theorem."
+      ],
+      "reasoning": "Equivalent aliases include positive-orthant preservation, entrywise nonnegativity of the second BB solution operator, BB1/BB2 sign safety, and spectral-gradient cone invariance. The checked statements do not imply the sign of individual coordinates.",
+      "searches": [
+        "Published research index query: Barzilai Borwein BB1 positivity nonnegative iterates diagonal quadratic condition number 2 exact line warm start",
+        "Published research index query: spectral gradient positive orthant second iterate Barzilai Borwein",
+        "Published research index query: BB1 negative coordinate positive solution quadratic exact line initialization",
+        "Published research index query: Barzilai Borwein positivity Stieltjes matrix",
+        "Web: Barzilai-Borwein positivity nonnegative iterates quadratic",
+        "Web: spectral gradient positive orthant Barzilai Borwein"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact-constant searches exposed the objective-monotonicity frontier at \\(\\kappa=2\\), but no coordinatewise positivity table or theorem.",
+        "The inspected BB review tabulates and explains spectral steps but does not state an orthant-safety threshold."
+      ],
+      "reasoning": "Because the accepted boundary is the elementary exact constant \\(2\\), direct constant-and-property searches were used in addition to semantic aliases.",
+      "searches": [
+        "Published research index query: Barzilai Borwein condition number 2 positivity",
+        "Web: \"condition number\" 2 Barzilai Borwein positivity",
+        "Web: BB1 BB2 Stieltjes nonnegative second iterate"
+      ]
+    },
+    "rationale": "Classical BB definitions, delayed-curvature interpretation, convergence theory, and objective nonmonotonicity are prior work. The accepted statement is the coordinatewise Stieltjes positivity classification for the complete short-to-long BB interval after an exact-line warm start, with a sharp \\(\\kappa=2\\) boundary and a two-dimensional family that defeats every selector above it. Focused database and primary-literature comparisons found no implication-equivalent entrywise result.",
+    "residual_risks": [
+      "Older spectral-gradient or monotone-iteration literature may encode an equivalent second-step sign result under different terminology.",
+      "The closest published BB-interval theorem has the same numerical boundary for a different invariant, so terminology-independent overlap remains a nonzero risk even though implication comparison is negative."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_BACKGROUND_NOT_COVERING",
+        "evidence": "The paper derives the two secant-based step sizes and analyzes convergence/nonmonotonicity, but does not classify nonnegative orthants, Stieltjes matrices, or coordinate signs.",
+        "identifier_or_url": "DOI:10.1093/imanum/8.1.141",
+        "material_read": "Complete eight-page article, including the derivation of both step sizes in Section 2, the numerical example, the two-dimensional quadratic analysis, and concluding discussion of nonmonotone behavior.",
+        "method": "Full-text statement and implication comparison.",
+        "title": "Two-Point Step Size Gradient Methods",
+        "trigger": "Foundational primary paper defining both two-point BB steps and analyzing the two-dimensional SPD quadratic case."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The text states the BB iteration and explains that for SPD quadratics the step saved for the next iteration is the Cauchy exact-line step; no Stieltjes/nonnegative-iterate classification was found.",
+        "identifier_or_url": "DOI:10.18637/jss.v060.i03",
+        "material_read": "Public full-text rendering, especially the introduction and SPD quadratic discussion around equations (1)--(3), plus the publication record.",
+        "method": "Open full-text statement-level comparison.",
+        "title": "Spectral Projected Gradient Methods: Review and Perspectives",
+        "trigger": "Closest open review for the classical BB iteration and exact-line-delay interpretation."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The abstract explicitly studies convex combinations of long and short BB steps and R-superlinear/R-linear convergence, not coordinatewise positivity.",
+        "identifier_or_url": "DOI:10.1007/s10589-019-00107-8",
+        "material_read": "Publisher abstract, method description, and listed convergence claims.",
+        "method": "Publisher record statement-level comparison.",
+        "title": "A Family of Spectral Gradient Methods for Optimization",
+        "trigger": "Directly relevant broader source for steps between long and short BB choices."
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_IMPLICATION_EQUIVALENT",
+        "evidence": "It controls objective-gap amplification and monotonicity. Those statements do not determine whether any coordinate is negative.",
+        "identifier_or_url": "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "material_read": "Published title and summary returned by semantic search.",
+        "method": "Statement and implication comparison.",
+        "title": "Sharp objective-monotonicity frontier for Barzilai–Borwein interval steps",
+        "trigger": "Closest semantic-database hit: same method, same interval, same exact-line warm-start context, and the same numerical condition-number boundary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61fb8d75-97ac-4bf9-8eeb-124738f8ba77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The BB interval is a canonical spectral-gradient choice and constrained variants often add projection specifically to control feasibility. This result gives the exact condition-number boundary at which the raw interval is already nonnegative after an exact-line warm start and shows that above it even the conservative short endpoint cannot prevent a two-dimensional sign failure. The all-selector phase boundary is a structural safety result rather than a routine single-instance calculation.",
+    "status": "PASS"
+  }
+}
