@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The fibre certificate is strictly weaker than the reference's weight prescription but is the exact inequality required in its rigidity proof. Here the rank weights are monotone, odd and satisfy \(M_{k+1}>\sum_{j<k}M_j+\varepsilon_k\), forcing every unfriendly colouring to be proper. The counting lift is invariant by finite-bit-flip charts, and its mass is exactly \(11/3\), so it normalizes to an invariant probability; the parity argument rules out measurable almost-everywhere unfriendly colourings. The direct lower bound \(\sum_k2^{-k-2}M_kM_{k+1}\) diverges because \(\varphi^2>2\). The package contains a finite, independently replayable arithmetic cross-check, not a substitute for the infinite proofs.
+
+**Originality — PASS.** The closest original source, Pelayo-Gómez (arXiv:2609.11919v1, §§3–4, 6), uses \(\Theta(3^k)\) weights, explicitly establishes nonexistence of any invariant probability in its construction, and treats the infinite-cost invariant case as an open direction. Conley–Tamuz (arXiv:1903.05268, Theorem 1) proves a positive result **assuming finite mean degree** and thus does not imply the negative invariant example. Published-finding and literature searches for equivalent strengthened examples and optimal Fibonacci majority fibres revealed no dominating claim. Searches are not proof of absolute novelty, and subsequent preprints could alter the comparison.
+
+**Value — PASS.** The invariant-probability obstruction answers the motivating integrability-boundary question left by the earlier results, rather than merely reducing a coefficient. The weights' golden-ratio growth is coordinatewise optimal in the explicitly delimited parent-majority certificate class; this summability threshold enables a qualitatively stronger measure-preserving conclusion and a degree-three stratum.
+
+**Limitations and risks.** This does not settle the bounded-maximum-degree Borel question. Strict-parent-majority minimality is not unrestricted gadget minimality. The nonexistence proof presupposes completion of a measurable colouring by a Borel representative and removal of a null connectedness saturation, both justified by standard Borel equivalence-relation facts. The work has not received independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
