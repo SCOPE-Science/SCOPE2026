@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Simultaneous diagonalization and delta<1/L ensure symmetric positive definite B. Sharp one-step SPD residual extremum follows via scalar line search/Kantorovich with explicit weighted endpoint residual. Endpoint error signs and two independent L-modes attain exact two- and higher-dimensional condition ratios. Rational derivative signs, a unique positive quadratic crossing, and a critical noise equality give the three global minimax regimes. Exact-rational verification checks 2100 spectral instances and 2100 residual equality witnesses, 9 boundary equalities; the analytic argument covers all dimensions and parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "S. Shah et al., arXiv:2606.17227v1 (2026), §3.4 and equation (3.20), qualitative reliable-identity safeguard and analog simulations; no exact aligned-error minimax theorem in inspected manuscript.",
+        "B. Feinberg et al., DOI:10.1109/HPCA51647.2021.00069, full paper on analog inversion and circuit compensation; no exact right-GMRES one-step uncertainty envelope.",
+        "Pearson & Wathen, DOI:10.1002/gamm.202000015, general preconditioner survey: SPD convergence/condition number context, not an optimized identity shift under commuting bounded inverse error."
+      ],
+      "reasoning": "General analog simulations include wider noncommuting and variable errors but do not imply sharp constants for this narrow commuting norm ball; broader modeling scope is not mathematically stronger coverage of a specific uniform minimax law. Conversely this theorem does not imply numerical hardware performance or multi-step convergence.",
+      "searches": [
+        "\"damped approximate inverse bounded noise GMRES shift\"",
+        "\"analog preconditioning minimax damping\"",
+        "\"analog preconditioner\" \"identity\" \"noise\" \"damping\" optimum GMRES"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.17227v1",
+      "DOI:10.1109/HPCA51647.2021.00069",
+      "DOI:10.1002/gamm.202000015",
+      "DOI:10.1137/0914028",
+      "arXiv:2107.06973"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "S. Shah et al., arXiv:2606.17227v1 (2026), §3.4 and equation (3.20), qualitative reliable-identity safeguard and analog simulations; no exact aligned-error minimax theorem in inspected manuscript.",
+        "B. Feinberg et al., DOI:10.1109/HPCA51647.2021.00069, full paper on analog inversion and circuit compensation; no exact right-GMRES one-step uncertainty envelope.",
+        "Pearson & Wathen, DOI:10.1002/gamm.202000015, general preconditioner survey: SPD convergence/condition number context, not an optimized identity shift under commuting bounded inverse error.",
+        "V. Kalantzis et al., arXiv:2107.06973 (2021), §§III–IV and Appendix A: fixed-step noisy Richardson convergence and write-noise model, not minimax reliable identity safeguard."
+      ],
+      "reasoning": "Shah et al. define the augmented inverse application and study its performance, yet neither equation (3.20) nor the reported parameter sweeps yields a uniform optimal omega across an operator-norm uncertainty set. Feinberg et al. discuss circuit compensation but have no deterministic first-step minimax for an exact inverse plus bounded mode-aligned error. The standard condition-number-to-GMRES1 formula is insufficient to infer the exact uncertainty envelope or threshold without the additional constructive spectral analysis. Kalantzis et al. use additive/multiplicative analog noise but establish convergence of a stationary Richardson algorithm rather than an optimal identity offset or exact adversarial one-step GMRES residual contraction.",
+      "searches": [
+        "arXiv:2606.17227v1 §3.4 equation (3.20)",
+        "DOI:10.1109/HPCA51647.2021.00069",
+        "DOI:10.1002/gamm.202000015",
+        "arXiv:2107.06973 Appendix A device noise and Richardson iteration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "S. Shah et al., arXiv:2606.17227v1 (2026), §3.4 and equation (3.20), qualitative reliable-identity safeguard and analog simulations; no exact aligned-error minimax theorem in inspected manuscript.",
+        "Pearson & Wathen, DOI:10.1002/gamm.202000015, general preconditioner survey: SPD convergence/condition number context, not an optimized identity shift under commuting bounded inverse error.",
+        "Classical SPD one-step Kantorovich expression: (condition-number minus 1)/(condition-number plus 1)."
+      ],
+      "reasoning": "The Kantorovich formula is equivalent to the one-step residual part, which is credited as known. Equivalence to the full inner uncertainty supremum and the best safeguard phase diagram would additionally require optimizing independently signed perturbation eigenmodes and comparing two versus three dimensions; no such prior result was identified.",
+      "searches": [
+        "\"analog preconditioner\" \"identity\" \"noise\" \"damping\" optimum GMRES",
+        "\"approximate inverse\" \"identity shift\" \"minimax\" perturbation preconditioning",
+        "\"inexact preconditioner\" \"identity\" \"noise\" \"shift\" optimal",
+        "\"mode aligned error approximate inverse spectral ratio gamma one step worst case GMRES identity shift dimension 2 3\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The literature comparisons concern theorem statements and optimization guarantees; no catalogued exact natural two-/three-mode identity-safeguard table was located."
+      ],
+      "reasoning": "The claim is a continuous minimax law over matrices, errors and residuals, not a finite catalogue or a parameter table reconstruction. Searches did not reveal a known identical formula; negative searches alone are not novelty proof.",
+      "searches": [
+        "\"identity damping preconditioner analog write noise minimax\"",
+        "\"diagonal write noise GMRES preconditioner\""
+      ]
+    },
+    "rationale": "The fully read motivating analog-preconditioning paper uses a reliable identity term, but its perturbation experiments and its proof do not establish this exact mode-aligned robust first-step residual minimax or the duplicate-high-eigenmode dimension transition. Feinberg et al. (2021) study circuitry, and Kalantzis et al. (2021) analyze noisy preconditioned Richardson iterations without optimizing an identity safeguard for one-step GMRES; while the general preconditioner survey and Kantorovich bound supply classical ingredients, not the resulting sharp three-regime safeguard rule. Targeted semantic and web literature searches disclosed no covering comparison. Residual risk: older robust matrix perturbation/condition-number work could have an equivalent closed form; no independent originality audit.",
+    "residual_risks": [
+      "An equivalent exact interval-perturbation safeguard optimization might occur in older robust numerical linear algebra or matrix-inequality work under different terminology.",
+      "The flexible GMRES reference was not fully accessible; no NOT_COVERING finding is based on snippets alone.",
+      "Published analog hardware models are less constrained than symmetric commuting errors; the present mathematical conclusion cannot be asserted for those models."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines a reliable identity action and empirically evaluates damping, but does not give the three-regime exact rank/dimension-sensitive optimum for the stated commuting operator-norm error ball",
+        "evidence": [
+          "S. Shah et al., arXiv:2606.17227v1 (2026), §3.4 and equation (3.20), qualitative reliable-identity safeguard and analog simulations; no exact aligned-error minimax theorem in inspected manuscript.",
+          "https://www.researchgate.net/publication/407172383_Hybrid_Digital-Analog_Approximate_Inverse_Preconditioning_for_Krylov_Methods"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.17227",
+        "material_read": "Full author-uploaded preprint: introduction, analog model, §3.3 theorem, §3.4 equation (3.20), and experimental comparisons",
+        "method": "Read the accessible manuscript text and compare identity-safeguard equation, hypotheses, theorems and plotted parameter experiments against this exact deterministic minimax",
+        "title": "Hybrid Digital-Analog Approximate Inverse Preconditioning for Krylov Methods",
+        "trigger": "Direct motivating 2026 preprint, identity safeguard, uncertainty and flexible GMRES"
+      },
+      {
+        "assessment": "Circuit-compensation paper; no same exact commuting-error GMRES1 minimax classification",
+        "evidence": [
+          "B. Feinberg et al., DOI:10.1109/HPCA51647.2021.00069, full paper on analog inversion and circuit compensation; no exact right-GMRES one-step uncertainty envelope.",
+          "https://bfeinberg.com/papers/hpca-2021/"
+        ],
+        "identifier_or_url": "DOI:10.1109/HPCA51647.2021.00069",
+        "material_read": "Accessible 14-page research manuscript, including circuit-compensation construction and evaluation",
+        "method": "Read full publicly accessible PDF and checked preconditioning and error-compensation sections for an equivalent optimal identity shift",
+        "title": "An Analog Preconditioner for Solving Linear Systems",
+        "trigger": "Earlier primary analog preconditioning using nonideal hardware"
+      },
+      {
+        "assessment": "Supplies classical residual and spectral context but not the exact uncertainty/identity-offset joint minimax statement",
+        "evidence": [
+          "Pearson & Wathen, DOI:10.1002/gamm.202000015, general preconditioner survey: SPD convergence/condition number context, not an optimized identity shift under commuting bounded inverse error.",
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/gamm.202000015"
+        ],
+        "identifier_or_url": "DOI:10.1002/gamm.202000015",
+        "material_read": "Accessible preconditioned-Krylov overview, in particular Hermitian/GMRES preconditioning sections",
+        "method": "Inspected full-text relevant method and convergence discussion",
+        "title": "Preconditioners for Krylov subspace methods: An overview",
+        "trigger": "Background that might contain dominating general preconditioner contraction bounds"
+      },
+      {
+        "assessment": "Describes flexible GMRES rather than the specific structurally constrained identity-safeguard scalar minimax, but complete comparison is unverified",
+        "evidence": [
+          "Y. Saad (1993), DOI:10.1137/0914028"
+        ],
+        "identifier_or_url": "DOI:10.1137/0914028",
+        "material_read": "Abstract and bibliographic descriptions; complete primary paper not accessible for material full-text comparison",
+        "method": "Compared only abstract scope; did not assert full-text NOT_COVERING",
+        "title": "A Flexible Inner-Outer Preconditioned GMRES Algorithm",
+        "trigger": "Background on variable right preconditioners"
+      },
+      {
+        "assessment": "Derives sufficient stochastic conditions for Richardson with noisy approximate inverse; does not introduce digital reliable identity safeguard or optimize one-step right-GMRES residual against a deterministic commuting operator-norm error ball",
+        "evidence": [
+          "https://www.researchgate.net/publication/353284828_Solving_sparse_linear_systems_with_approximate_inverse_preconditioners_on_analog_devices",
+          "arXiv:2107.06973",
+          "§III.B–D and Appendix A, noise equation; method is preconditioned Richardson, not identity-augmented GMRES minimax"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.06973",
+        "material_read": "Accessible 2021 preprint text: method and preconditioned Richardson analysis in §III, error assumptions and results in §IV, Appendix A noise and convergence analysis, and figures/results",
+        "method": "Full research-preprint text read and searched for optimal damping, identity, GMRES, Richardson and error analysis; theorem endpoints compared",
+        "title": "Solving sparse linear systems with approximate inverse preconditioners on analog devices",
+        "trigger": "Earlier full-text analog approximate inverse algorithm with additive write errors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b966da10-1cb3-45fd-8c79-0d16b1c5142b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural designer-selected reliable identity offset has a complete exact one-step worst-case objective and a sharply characterized actionable noise threshold. The 2-versus-3 dimension bifurcation changes optimal damping by order (noise)^2 versus order noise and follows from a structural eigenvalue-multiplicity mechanism; the same bounds are attained with explicit perturbations. This is mathematically motivated by the analog-inverse preconditioning architecture and not just a renamed textbook inequality. Scope is intentionally the commuting deterministic baseline, not a claim about actual analog-hardware probabilities or multi-step performance.",
+    "status": "PASS"
+  }
+}
