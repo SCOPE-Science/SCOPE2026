@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For n=3,4,5,6 every claimed rational circulant matrix is certified by exact coefficient identity (12I−6hQ+h²Q²)N(h)=D(h)(12I+6hQ+h²Q²). All denominator factors are positive; every required numerator on n≤5 is positive at h>0. For n6 only the nearest-neighbor numerator −2hF6 changes sign, and Descartes’ one-positive-root argument is decisive. The periodic Laplacian pseudoinverse Green kernel is independently proved via cyclic second differences and zero row sums, yielding the explicit negative leading coefficient for all n≥6. The scalar R(−t)=(t²−6t+12)/(t²+6t+12) belongs to (0,1) for t>0, proving simultaneous spectral stability and mass conservation. Exact rational h=7 witness checked. The universal n claim is analytical, not extrapolated from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zappavigna et al. 2010 give sufficient Padé positivity conditions and 2×2 analysis under strict stability assumptions; their assumptions do not provide a sharp conservative cycle-size threshold.",
+        "Zappavigna et al. 2012 distinguish spectral stability from entrywise positivity and exhibit dimension-eight nilpotent-type examples.",
+        "Lóczi–Ketcheson 2013 give universal absolute-monotonicity bounds for rational RK maps; universal bounds do not decide positivity for one periodic Laplacian family.",
+        "Horváth 1998 accessible bibliographic abstract describes general RK positivity thresholds, not an explicit six-cycle exact statement."
+      ],
+      "reasoning": "Broader convergence or universal positivity obstruction theorems do not dominate the cycle classification: a universal zero positivity radius allows particular structured Laplacians to be positive for all steps, as proved for n≤5. Likewise a general sufficient restriction cannot establish the optimal h6. No inspected primary result states a stronger periodic-cycle map theorem.",
+      "searches": [
+        "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "Essentially Negative News About Positive Systems diagonal Padé positive systems",
+        "Rational functions with maximal radius of absolute monotonicity",
+        "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods"
+      ]
+    },
+    "checked_sources": [
+      "mural:2195",
+      "mural:3761",
+      "arxiv:1303.6651v1",
+      "doi:10.1016/S0168-9274(98)00050-6",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Preexisting same-ledger complete-bipartite graph theorem proves positivity for the 4-cycle and gives a 4-vertex open path failure; neither controls periodic cycles with five or six vertices.",
+        "The eight-state Markov theorem deals with **small steps** and nonreversible pure-birth generators; the present fourth-order Gauss periodic-generator failure is **large step** and reversible.",
+        "General A-stability applies to all real symmetric negative semidefinite generators but says nothing about entrywise transition signs."
+      ],
+      "reasoning": "The implication boundary is not a parameter collision: changing from a path to a periodic cycle changes the Green kernel and shifts the smallest nonnegative-all-steps failure to six vertices. Established fourth-order Padé absolute monotonicity and generic counterexamples cannot imply a positive all-step five-cycle or the exact sharp six-cycle interval.",
+      "searches": [
+        "Padé Gauss Legendre two stage periodic cycle graph six states Markov matrix positivity exact time step threshold",
+        "diagonal Padé [2/2] circulant tridiagonal periodic Laplacian nonnegative preserving",
+        "periodic 1D heat equation fourth order Gauss Legendre circle positivity six nodes threshold",
+        "\"On the preservation of co-positive Lyapunov functions\" second order Padé",
+        "\"eight-state barrier\" Markov positivity Padé"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full primary 2010 positive-Padé article treats Metzler positivity and second-order Padé sufficient thresholds but not a finite periodic-cycle dichotomy.",
+        "Full 2012 paper gives a nonconservative nilpotent/Metzler Padé counterexample, not the all-size conservative symmetric cycle threshold.",
+        "The full published lattice positivity result concerns a filtered Crank–Nicolson map, not Gauss–Legendre order four.",
+        "The published eight-state Markov theorem classifies an absorbing pure-birth chain and small-step failure, not the present large-step cycle effect."
+      ],
+      "reasoning": "Equivalent formulations would characterize the sign of the cyclic convolution kernel of R(-hL(C_n)) for every n, especially whether all h are safe, or give an implication-equivalent Green-kernel sign theorem plus the six-cycle exact cutoff. Generic spectral A-stability and SSP-radius results cannot infer these claims.",
+      "searches": [
+        "Padé Gauss Legendre two stage periodic cycle graph six states Markov matrix positivity exact time step threshold",
+        "diagonal Padé [2/2] circulant tridiagonal periodic Laplacian nonnegative preserving",
+        "periodic 1D heat equation fourth order Gauss Legendre circle positivity six nodes threshold",
+        "cycle Laplacian pseudoinverse off diagonal sign five six nodes negative rational Padé step",
+        "\"Gauss\" \"Padé\" \"cycle\" \"positivity\" \"periodic\" fourth order heat",
+        "\"Padé\" \"circulant Laplacian\" \"positivity\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched exact-form published table identified the six-cycle threshold polynomial or its unique positive root.",
+        "The six-cycle result has an exact full rational matrix certificate and unique-root proof; it is not a numerical grid table.",
+        "The all-cycle statement follows from a closed-form discrete Green kernel, rather than a finite census of cycle sizes."
+      ],
+      "reasoning": "Exact tabulation of a few mesh sizes would be insufficient to cover the all-size theorem; direct coverage would need the sign transition at six or a stronger analytic cyclic-resolvent formula that implies it.",
+      "searches": [
+        "exact threshold for nonnegative circulant Gauss Legendre Markov propagator six vertex cycle",
+        "fourth order Gauss 6 cycle nearest-neighbor diffusion negative transition probability threshold",
+        "\"six\" \"cycle\" \"Padé\" positivity",
+        "\"Padé\" \"circulant Laplacian\" \"positivity\"",
+        "\"5*h**4 - 12*h**3 - 102*h**2 - 144*h - 72\" Padé"
+      ]
+    },
+    "rationale": "The direct full text of early Padé positive-system papers establishes generic positivity failures and sufficient bounds, while classical absolute-monotonicity theory establishes a universal RK obstruction. Neither located full-text statement classifies the periodic nearest-neighbor cycle by size, identifies the exact six-cycle quartic, or derives the all-size failure coefficient from the cycle Laplacian pseudoinverse. Publicly indexed related findings on eight-state pure-birth small-step failure and filtered-CN cycle positivity are genuinely different. The own-history comparison specifically excludes a preexisting four-vertex path cutoff and four-cycle special case; the new theorem is instead the five/six-cycle and all-cycle classification. Older cyclic-matrix positivity results remain a possible residual risk.",
+    "residual_risks": [
+      "An older circulant rational-matrix or Fourier-grid positivity paper may encode the same six-cycle threshold under different terminology.",
+      "The full 1998 Horváth RK positivity paper was not obtained; no claim of whole-document noncoverage is made.",
+      "The asymptotic all-size law is sharp for fixed cycle n, not uniform in n; the exact positivity set for cycles n≥7 remains unclassified here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_IMPLYING: general sufficient thresholds and low-dimensional strictly Hurwitz results, not the conservative simple-cycle size threshold.",
+        "evidence": "Section III derives the order-two diagonal Padé end-step and a sufficient step restriction; Section III-E treats two-state Metzler Hurwitz systems. Public repository lists deposit 2010-10-15.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+        "material_read": "Full public PDF available; read introduction, definitions, the second-order Padé formula and sufficient positivity theorem in Section III, and its 2×2 system subsection. Public repository metadata and date deposited were verified.",
+        "method": "Lawful openly available full PDF and repository page; parsed text with rendered-page inspection.",
+        "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "trigger": "Earliest verified archive-era positive-Padé primary paper, explicitly covering the same diagonal order-two rational map and positive systems."
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_DOMINATING: shows generic positive systems can have Padé positivity failures, including small-step phenomena, but no located sharp periodic six-cycle law.",
+        "evidence": "The article differentiates A-stability from entrywise positivity and studies nonconservative Metzler matrices. It does not state the cyclic Green-kernel coefficient or F6 positivity cutoff.",
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/3761/1/SK_Essentially_Negative.pdf",
+        "material_read": "Full openly available 23-page PDF accessed; inspected introduction, general Padé framework and relevant Section 4 on positivity counterexamples and sufficient conditions.",
+        "method": "Open full-text PDF with relevant-page inspection.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "Same authors later treat diagonal Padé failures, nilpotent examples and stabilizing alternatives."
+      },
+      {
+        "assessment": "GENERIC_NOT_DOMINATING: classifies universal absolute-monotonicity restrictions, not periodic Markov cycle entrywise positivity.",
+        "evidence": "The original v1 header explicitly lists MSC 65L06 primary and submission 2013-03-26.",
+        "identifier_or_url": "https://arxiv.org/html/1303.6651v1",
+        "material_read": "Original first public HTML was inspected through abstract, mathematical introduction, rational positivity-radius setting, and MSC metadata.",
+        "method": "Open full-text arXiv HTML.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Strongest general rational absolute-monotonicity framework and independently verified primary MSC."
+      },
+      {
+        "assessment": "DISTINCT: eight-state nonreversible pure-birth small-step barrier, not six-cycle large-step phase transition.",
+        "evidence": "Theorem 1 concerns arbitrarily small h and dimensions n≤7; Theorem 2 is an eight-state pure-birth chain with a different positivity window.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Entire published RESULT.md read, including proofs of eight-state minimal small-step failure and the pure-birth exact positivity window.",
+        "method": "Public research file read-only.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Highly relevant published fourth-order Gauss/Padé Markov positivity result."
+      },
+      {
+        "assessment": "DISTINCT_METHOD: a backward-Euler-filtered Crank–Nicolson composite, not the unfiltered fourth-order Gauss map.",
+        "evidence": "Its positive kernel is for C_sR_s=2R_s²−R_s, with periodic positivity by kernel periodization; no two-stage Gauss six-cycle threshold.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "material_read": "Entire published RESULT.md read, including infinite-lattice resolvent kernel, cycle periodization and conclusions.",
+        "method": "Public research file read-only.",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson",
+        "trigger": "Published result on positivity for nearest-neighbor periodic lattice numerical semigroups."
+      },
+      {
+        "assessment": "ACCESS_LIMITED: related general-RK theory but cannot assert whole-document noncoverage.",
+        "evidence": "The accessible description gives general class thresholds and positivity radii, with no exact periodic six-cycle graph statement in the material read.",
+        "identifier_or_url": "doi:10.1016/S0168-9274(98)00050-6",
+        "material_read": "Accessible bibliographic abstract describing general positive IVPs, RK radii, and thresholds; the full article was not obtained.",
+        "method": "Public university research-record abstract.",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Potentially broad 1998 predecessor analyzing RK positivity thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98f4ce42-b84c-4515-94e0-4ec6808dc683",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nearest-neighbor periodic lattice is a canonical conservative semidiscretization of diffusion, and a numerical propagator must be nonnegative to represent a stochastic transition. The result supplies an all-size yes/no classification of unconditional positivity, a sharp first failing finite mesh and explicit threshold, and an exact Green-function mechanism explaining why the graph-size boundary is six despite unconditional A-stability and all-step positivity through five sites. This is a motivated natural classification and practical maximum safe step, not an arbitrary isolated matrix entry or a routine consequence of generic SSP radii.",
+    "status": "PASS"
+  }
+}
