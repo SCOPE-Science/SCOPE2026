@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "At \\(\\eta=1/a\\), each scalar client reaches \\(b_i\\) after one step and all later local gradients vanish. The source normalization therefore gives \\(d_i=(x-b_i)/(\\eta\\tau_i)\\). Substitution into the source default server update yields an exact scalar affine map with multiplier \\(-(\\tau_1-\\tau_2)^2/(4\\tau_1\\tau_2)\\). Solving \\(|M|<1\\) gives the stated quadratic inequality and the roots \\(3\\pm2\\sqrt2\\). The \\(1:6\\) witness is exact rational arithmetic, not an experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "FedShuffle develops a more general federated local-update framework and proves larger allowable theoretical steps for its proposed scaling approach.",
+        "The FedNova source handles arbitrary local solvers and time-varying local work in a convergence theorem with a shrinking client step.",
+        "Neither broader framework was found to state the accepted exact constant-step two-client classification."
+      ],
+      "reasoning": "Broader algorithmic or convergence frameworks can contain the present recurrence as a specialization without covering its exact boundary. The inspected broader statements are sufficient rate guarantees and qualitative comparisons, not an implication-equivalent sharp scalar classification.",
+      "searches": [
+        "FedNova over-relaxation normalized averaging local computation imbalance",
+        "FedNova scalar quadratic exact convergence normalization heterogeneous clients"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.07481v1",
+      "arXiv:2204.13169v1",
+      "OpenReview:Lgs5pQ1v30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source states the normalized FedNova update and the vanilla-SGD rescaling by average local-step count divided by each client's local-step count.",
+        "Its theorem uses a client learning rate proportional to the inverse square root of the horizon-local-work product.",
+        "FedShuffle explicitly says FedNova diminishes the weight of a client that makes more progress and allows smaller theoretical local steps than FedShuffle."
+      ],
+      "reasoning": "The new claim concerns a nonvanishing client step at which local trajectories are exact local solves. The defining asymptotic theorem therefore does not imply convergence here, while the later qualitative FedShuffle comparison does not imply the exact ratio frontier or fixed-point displacement.",
+      "searches": [
+        "arXiv:2007.07481v1 FedNova normalized local gradients default tau_eff",
+        "arXiv:2007.07481v1 FedNova convergence learning rate sqrt horizon",
+        "arXiv:2204.13169 FedNova diminishes weights progress larger theoretical step"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining FedNova formula normalizes local gradients by the local solver accumulation norm and uses the average local-step count as the default vanilla-SGD server scale.",
+        "The defining convergence theorem prescribes a learning rate that decreases with the communication horizon.",
+        "FedShuffle gives the closest qualitative observation: FedNova diminishes the weight of clients making more progress."
+      ],
+      "reasoning": "An equivalent result would need to determine the exact constant-step scalar round multiplier or directly imply its Schur boundary. The qualitative weight-diminishment statement and general convergence-rate bounds do not determine the exact factor \\(-(\\tau_1-\\tau_2)^2/(4\\tau_1\\tau_2)\\) or its \\(3+2\\sqrt2\\) frontier.",
+      "searches": [
+        "FedNova sharp stability local step ratio quadratic 3+2sqrt2",
+        "FedNova fixed point inverse local steps scalar quadratic",
+        "FedNova divergence heterogeneous local steps constant learning rate exact quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed findings concerned Polyak-step objective frontiers, reflected-gradient stability, adaptive stochastic feedback, and other scalar recurrences.",
+        "No indexed FedNova-specific finding stated a fixed-point formula, a local-step-ratio stability threshold, or the exact 1:6 divergence witness."
+      ],
+      "reasoning": "The closest indexed recurrences use different updates and cannot imply the FedNova normalized-aggregation map. Search absence is supporting evidence only and is not treated as a novelty proof.",
+      "searches": [
+        "FedNova scalar quadratic exact convergence normalization heterogeneous clients",
+        "FedNova divergence heterogeneous local steps constant learning rate exact quadratic",
+        "FedNova sharp stability local step ratio quadratic 3+2sqrt2",
+        "FedNova over-relaxation normalized averaging local computation imbalance",
+        "FedNova fixed point inverse local steps scalar quadratic"
+      ]
+    },
+    "rationale": "The defining FedNova paper gives normalized aggregation and a vanishing-learning-rate convergence theorem. FedShuffle later states qualitatively that FedNova diminishes the weight of a client making more progress and permits smaller theoretical local steps than FedShuffle. The inspected sources do not state or imply the exact affine fixed point together with the sharp local-step-ratio stability frontier and the locally solved 1:6 divergence witness.",
+    "residual_risks": [
+      "FedShuffle contains a broad general framework whose omitted appendix algebra could admit the present scalar recurrence as an immediate specialization, although the inspected statements do not give the exact classification.",
+      "An unindexed federated-optimization note may contain the same two-client calculation under different notation.",
+      "The sharp frontier is for the source default server scale and the locally exact client step, not a universal FedNova instability threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_NORMALIZATION_AND_VANISHING_STEP_THEORY_NOT_COVERING_THE_CONSTANT_STEP_RATIO_FRONTIER.",
+        "evidence": "The paper supplies the exact algorithm used in the derivation and prescribes a horizon-dependent learning rate in its convergence theorem; no exact constant-step two-client multiplier or 1:6 instability statement was found.",
+        "identifier_or_url": "arXiv:2007.07481v1",
+        "material_read": "Open full text covering the generalized update rule, Section 5 FedNova formula, the explanation of vanilla-SGD rescaling, Theorem 3, Appendix H pseudocode, and Appendix A quadratic formulation.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "Tackling the Objective Inconsistency Problem in Heterogeneous Federated Optimization",
+        "trigger": "Defining source for FedNova, normalized local gradients, default effective local-step scaling, convergence theorem, and quadratic motivation."
+      },
+      {
+        "assessment": "QUALITATIVE_AND_RATE_COMPARISON_NOT_COVERING_THE_EXACT_TWO_CLIENT_AFFINE_FRONTIER.",
+        "evidence": "The paper identifies the same qualitative weight-diminishment mechanism and motivates a different scaling design, but the inspected text does not state the exact multiplier, fixed point, ratio threshold, or exact locally solved divergence witness.",
+        "identifier_or_url": "arXiv:2204.13169v3 / OpenReview:Lgs5pQ1v30",
+        "material_read": "Open full text covering the comparison table, contributions, Sections 4.1 to 4.3, and the discussion that FedNova diminishes the weight of clients making more progress and permits smaller theoretical local steps.",
+        "method": "Open-access full-text HTML inspection.",
+        "title": "FedShuffle: Recipes for Better Use of Local Work in Federated Learning",
+        "trigger": "Closest later work comparing FedNova's update scaling with an alternative local-step scaling design."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6cd382ca-6258-40f8-96a2-ea47e5f9d37c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "FedNova was designed specifically to neutralize heterogeneous local-work weighting. The accepted result isolates a complementary finite-step effect in the simplest possible setting: even when local optimization is perfect after one step, the default normalization-plus-rescaling can both invert the effective client weighting and cross a sharp stability frontier solely because the local step counts differ. The exact 1:6 onset and the closed fixed-point formula make the boundary directly interpretable for server-scale design and clarify why later work favors alternative local-step scaling.",
+    "status": "PASS"
+  }
+}
