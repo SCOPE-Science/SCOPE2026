@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For the larger L-stable ROS2 parameter, the stability function reduces to a rational function with a single repeated pole. Its kth derivative has one affine sign factor, \\(1+\\sqrt2-k+(3+2\\sqrt2)h\\). On \\(J_n=-I+N_n\\), nilpotency makes the exact matrix function a finite Taylor series whose kth coefficient occupies a distinct subdiagonal. Entrywise positivity is therefore equivalent to nonnegativity of all derivatives through order \\(n-1\\), and monotonicity in k reduces the test sharply to the highest order. The packaged checker independently replays the threshold algebra and the exact four-state sign witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1997 full report derives the ROS2 stability function and argues from scalar \\(R(z)\\) positivity for chemical species.",
+        "The 2015 full paper states that \\(R\\), \\(R'\\), and \\(R''\\) are positive on the negative real axis while a third-derivative obstruction makes the absolute-monotonicity radius zero.",
+        "Neither inspected source identifies the exact serial-chain threshold or the re-entrant large-step recovery."
+      ],
+      "reasoning": "General absolute monotonicity is stronger than positivity on one matrix family, but a zero general radius does not imply the exact positive or negative regions on that family. The new classification is not dominated by the general SSP statement.",
+      "searches": [
+        "CWI MAS-R9717 ROS2 stability and positivity full text",
+        "arXiv:1510.04303 ROS2 positivity first two derivatives third derivative",
+        "absolute monotonicity Rosenbrock ROS2 positivity"
+      ]
+    },
+    "checked_sources": [
+      "CWI:MAS-R9717",
+      "doi:10.1137/S1064827597326651",
+      "arXiv:1510.04303"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Scalar positivity of \\(R(z)\\) controls only one eigenmode and does not imply entrywise positivity of a nonnormal coupled matrix function.",
+        "The first-two-derivatives statement explains why dimensions up to three are safe on a Jordan chain, but the source does not derive the all-order affine derivative formula or the exact state-count threshold.",
+        "The third-derivative obstruction proves only that general absolute monotonicity has radius zero; it does not imply re-entrant positivity at larger steps on this family."
+      ],
+      "reasoning": "The final claim is a complete if-and-only-if matrix-family classification. The prior scalar and general-SSP statements supply ingredients but neither logically entails the state-count law without the new derivative calculation and Jordan functional-calculus reduction.",
+      "searches": [
+        "Verwer Spee Blom Hundsdorfer ROS2 scalar positivity negative real axis",
+        "Bonaventura Della Rocca ROS2 weak absolute monotonicity derivatives",
+        "ROS2 derivative positivity matrix function Metzler"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest retrieved findings concern a different fourth-order Padé map on pure-birth chains and unrelated positivity barriers, not ROS2.",
+        "Web searches for ROS2 with pure-birth, serial-decay, Jordan-block, and state-count terminology returned the source ROS2 papers and implementations but no exact dimension-step classification.",
+        "The 2015 ROS2 discussion records derivative-sign behavior but no matrix-family equivalence or recovery threshold."
+      ],
+      "reasoning": "The searched aliases cover the algorithm name, Rosenbrock terminology, serial reaction-chain terminology, Jordan-block matrix-function terminology, and the weak-absolute-monotonicity phrase used by the closest source.",
+      "searches": [
+        "ROS2 Rosenbrock pure birth chain positivity state count derivative stability function",
+        "Rosenbrock ROS2 positivity serial decay chain four states",
+        "ROS2 Jordan block positivity stability function derivatives",
+        "weak absolute monotonicity ROS2 state dimension positivity",
+        "two-stage Rosenbrock positivity nilpotent Jordan chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or published table with the threshold \\(10-7\\sqrt2\\) or the sequence \\(3n-2-(2n-1)\\sqrt2\\) was located.",
+        "The result is derived symbolically from the matrix function rather than recomputed from a numerical table."
+      ],
+      "reasoning": "No exact-tabulation coverage was found.",
+      "searches": [
+        "\"ROS2\" \"10-7 sqrt(2)\"",
+        "\"ROS2\" state-count positivity",
+        "\"ROS2\" serial decay chain positivity threshold"
+      ]
+    },
+    "rationale": "The original ROS2 report proves scalar stability-function positivity and motivates it for stiff chemistry, but it does not address matrix positivity on coupled Metzler systems. The later monotonicity paper observes positivity of the stability function and its first two derivatives and a third-derivative obstruction, but stops at weak absolute monotonicity and does not derive a state-count phase law. Targeted searches found no source converting those derivative facts into the exact serial-chain threshold \\(n\\le2+\\sqrt2+(3+2\\sqrt2)h\\).",
+    "residual_risks": [
+      "Older matrix-function or Rosenbrock literature may encode the same Jordan-chain derivative argument without using serial-decay or state-count terminology.",
+      "The derivative facts are close to the 2015 weak-absolute-monotonicity discussion, so the originality rests on the exact all-dimension if-and-only-if phase law and its re-entrant interpretation rather than on the sign of the first few derivatives alone.",
+      "The theorem is family-specific and should not be read as a positivity criterion for arbitrary Metzler systems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: supplies the ROS2 formula and scalar positivity property but not entrywise positivity for serial Metzler chains or the state-count threshold.",
+        "evidence": "The report is dated 1997-08-31, lists primary MSC 65M06 and 65M20, gives the rational stability function in equation (3.3), chooses \\(\\gamma=1+1/\\sqrt2\\), and discusses positivity of \\(R(z)\\) for negative real z.",
+        "identifier_or_url": "CWI:MAS-R9717 / doi:10.1137/S1064827597326651",
+        "material_read": "Full 26-page CWI report, with focused inspection of the report date and classifications, Section 3.1 stability function, Section 3.2 stability and positivity, the choice of the larger L-stable parameter, and the chemistry motivation.",
+        "method": "Full-text PDF inspection with rendered-page verification of the stability formula and positivity discussion.",
+        "title": "A Second Order Rosenbrock Method Applied to Photochemical Dispersion Problems",
+        "trigger": "Original ROS2 construction and the source of the scalar positivity motivation."
+      },
+      {
+        "assessment": "CLOSEST_PARTIAL_COVERAGE: states positivity of the stability function and its first two derivatives and a third-derivative obstruction, but not the exact serial-chain dimension-step classification.",
+        "evidence": "Section 5.2 says ROS2 has zero absolute-monotonicity radius because a third derivative becomes negative, while positivity through the second derivative gives weak absolute monotonicity.",
+        "identifier_or_url": "arXiv:1510.04303",
+        "material_read": "Full 40-page paper, with focused inspection of the abstract, AMS classifications, absolute-monotonicity definitions, and Section 5.2 on ROS2.",
+        "method": "Full-text PDF inspection with rendered-page verification of Section 5.2.",
+        "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+        "trigger": "Closest source explicitly analyzing ROS2 derivative positivity and weak absolute monotonicity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5edb282a-cc94-479b-aeb8-93b9e8a6417f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "ROS2 was designed for stiff atmospheric chemistry where nonnegative species concentrations are physically essential. Serial irreversible transfer and decay chains are a natural linear subsystem class. The theorem turns a qualitative weak-absolute-monotonicity observation into a complete sharp safety map: dimensions up to three are unconditionally safe, dimension four is the first failure, and every longer chain has an exact lower recovery threshold. The counterintuitive fact that decreasing a positive step can create negativity while increasing it restores positivity is directly relevant to interpreting step-size safeguards for stiff positive systems.",
+    "status": "PASS"
+  }
+}
