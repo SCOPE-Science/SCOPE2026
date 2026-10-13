@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The exact line-search formula gives successor-gradient orthogonality. The Euclidean ratio is reduced to two spectral moments and bounded sharply by the endpoint secant inequality, with maximum (kappa-1)^2/(4 kappa). Projecting a coordinate vector onto the orthogonal complement of the current gradient then gives the sharp geometric factor sqrt(n-1). The explicit two-plane SPD construction has eigenvalues 1 and kappa and simultaneously attains both equalities. Solving the resulting scalar inequality gives the stated dimension-dependent frontier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nocedal-Sartenaer-Zhu Theorem 4.1 gives the sharp Euclidean one-step gradient bound and the condition-number threshold 3+2 sqrt(2), but its inspected theorem and surrounding sections use the Euclidean norm.",
+        "De Klerk-Glineur-Taylor states that successive exact-line-search gradients are orthogonal and gives exact worst-case objective convergence, but no coordinatewise-gradient theorem."
+      ],
+      "reasoning": "Euclidean convergence and objective convergence do not dominate a coordinatewise maximum norm: the explicit three-dimensional witness has a decreasing Euclidean gradient norm while its max norm increases.",
+      "searches": [
+        "On the behavior of the gradient norm in the steepest descent method",
+        "exact line search steepest descent orthogonal successive gradients",
+        "steepest descent gradient norm oscillation condition number"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1023/A:1014897230089",
+      "arxiv:1606.09365",
+      "doi:10.1007/s11590-016-1087-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Euclidean theorem supplies only ||g+||_2 <= c ||g||_2. Naive norm equivalence yields sqrt(n)c, whereas exact-line-search orthogonality is needed to sharpen this to the exact sqrt(n-1)c.",
+        "The simultaneous equality construction is necessary to show that the geometric sharpening is not merely a sufficient bound.",
+        "The three-dimensional kappa=4 witness separates the metrics: the Euclidean ratio is 3/4 while the max-norm ratio is 3 sqrt(2)/4 greater than one."
+      ],
+      "reasoning": "The prior Euclidean bound and orthogonality are ingredients, but neither alone nor their standard published conclusions state the sharp coordinatewise worst case. The new implication requires a separate extremal geometry and a joint realizability construction.",
+      "searches": [
+        "Nocedal Sartenaer Zhu Theorem 4.1 gradient norm steepest descent",
+        "de Klerk Glineur Taylor exact line search orthogonal gradients",
+        "gradient maximum component stopping steepest descent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The indexed results returned Euclidean-gradient, objective, Barzilai-Borwein, and unrelated non-Euclidean steepest-descent results, but no max-norm theorem with the dimension factor sqrt(n-1).",
+        "Exact-phrase web searches did not return the threshold (sqrt(n)+1)/(sqrt(n)-1) in connection with exact-line steepest descent."
+      ],
+      "reasoning": "An equivalent formulation would have to control the maximum absolute gradient component after the ordinary Euclidean exact-line-search step, uniformly over all SPD quadratics of fixed dimension and condition number. Results that change the search norm or control the Euclidean gradient are not implication-equivalent.",
+      "searches": [
+        "steepest descent exact line search infinity norm gradient amplification",
+        "steepest descent l-infinity norm gradient exact line search quadratic",
+        "steepest descent max norm residual exact line search condition number",
+        "gradient infinity norm oscillation steepest descent quadratic",
+        "\"steepest descent\" \"infinity norm\" gradient exact line search",
+        "\"steepest descent\" \"max norm\" gradient quadratic exact line search",
+        "\"exact line search\" \"maximum norm\" gradient quadratic steepest descent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant or formula match was located in the searched research records or literature results.",
+        "The frontier is obtained analytically from the sharp equality construction, not from a numerical table."
+      ],
+      "reasoning": "The new quantity is a closed-form dimension-conditioned worst-case factor and threshold rather than a recomputation of a known benchmark.",
+      "searches": [
+        "\"sqrt n+1\" \"sqrt n-1\" steepest descent gradient",
+        "\"maximum norm\" steepest descent gradient condition number",
+        "\"infinity norm\" steepest descent gradient condition number"
+      ]
+    },
+    "rationale": "The closest full source, Nocedal-Sartenaer-Zhu, proves the sharp Euclidean gradient-norm bound and studies component dynamics but does not state a max-norm or infinity-norm dimension law. De Klerk-Glineur-Taylor records exact-line-search orthogonality and tight objective convergence. Targeted database and literature searches found no statement implication-equivalent to the max-norm factor sqrt(n-1)(kappa-1)/(2 sqrt(kappa)) or the threshold (sqrt(n)+1)/(sqrt(n)-1).",
+    "residual_risks": [
+      "Older numerical-optimization literature may state an equivalent result under maximum-component norm, sup norm, or a geometric corollary of the Euclidean theorem.",
+      "The theorem is for an unrestricted dense SPD Hessian; additional sign, sparsity, or coordinate-structure assumptions may have different sharp constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVE_PARTIAL_COVERAGE: it establishes the sharp Euclidean one-step bound and threshold, which are treated as prior work, but does not state the dimension-dependent maximum-component theorem.",
+        "evidence": "Theorem 4.1 bounds the squared Euclidean gradient ratio by (gamma-1)^2/(4 gamma) and identifies gamma <= 3+2 sqrt(2) as Euclidean gradient-norm monotonicity. Searches found no matching maximum-component or componentwise theorem.",
+        "identifier_or_url": "doi:10.1023/A:1014897230089",
+        "material_read": "The accepted full manuscript was inspected around Section 4, Theorem 4.1 and its proof, the following monotonicity discussion, and later oscillation sections. Full-text searches were also made for infinity-norm, maximum-component, and componentwise terminology.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "On the Behavior of the Gradient Norm in the Steepest Descent Method",
+        "trigger": "Closest primary source on one-step steepest-descent gradient-norm growth and oscillation."
+      },
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: records the exact-line-search structure and tight objective rate but not a max-norm gradient frontier.",
+        "evidence": "The preprint states that successive gradients are orthogonal under exact line search and lists AMS classification 90C25 first.",
+        "identifier_or_url": "arxiv:1606.09365",
+        "material_read": "The full preprint was inspected at the abstract, algorithm definition, exact-line-search properties, objective worst-case theorem, and the orthogonality identity for successive gradients.",
+        "method": "Full-text arXiv PDF and rendered-page inspection.",
+        "title": "On the worst-case complexity of the gradient method with exact line search for smooth strongly convex functions",
+        "trigger": "Archive-era primary source for exact-line-search gradient descent, gradient orthogonality, and subject classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b6346e54-cd5b-4f04-a207-09e620e3e8c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximum absolute gradient component is a natural coordinatewise stationarity diagnostic. The theorem gives a complete sharp dimension-and-conditioning law, not a generic norm-equivalence estimate: exact-line-search orthogonality improves sqrt(n) to the attained sqrt(n-1), and the safety threshold collapses toward one as dimension grows. The explicit witness shows that this diagnostic can worsen even when the Euclidean gradient norm and objective improve, making the distinction operationally meaningful rather than merely a change of norm.",
+    "status": "PASS"
+  }
+}
