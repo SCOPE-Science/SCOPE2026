@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For each length from three to sixteen two independently written programs enumerated all 2^n binary strings by exact integer loops, with one computing triple counts incrementally via a proven update recurrence and the other directly iterating all increasing index triples. The resulting dictionary frequencies give exactly the stated maxima, histograms and two maximizing 16-bit vectors. The length-sixteen frequencies sum to 36649 classes and weighted sum 65536 words, matching the 2019 reported distinct-deck total. The restricted domain avoids the degenerate n<3 case. The proof is exhaustive and finite; no symbolic all-length inference is made. Both checks executed on the actual files to be delivered.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full 2019 paper, Sections II–V, computes reachable deck counts and bounds on D_k(n); its tabulated D_3(16)=36649 is consistent but leaves all individual class sizes unspecified.",
+        "The 2020 21-page author preprint studies k-equivalence classes but explicit binary classification focuses on k=2; Section 6 identifies k>=3 extensions as natural.",
+        "2015 preprint compares input words efficiently, which could be used as a subroutine to form fibers but does not give the claimed finite census."
+      ],
+      "reasoning": "The algorithms for deciding equality or counting distinct spectra would allow the new figures to be calculated with additional enumeration, but they neither state nor mathematically force the exact histogram without the additional result. The theorem is not presented as a new general technique for deck generation.",
+      "searches": [
+        "https://www.aimsciences.org/article/doi/10.3934/amc.2021032",
+        "https://www.lirmm.fr/~mrosenfeld/LejeuneRigoRosenfeld.pdf",
+        "https://arxiv.org/html/1509.00622v2",
+        "k-deck subsequence reconstruction worst case list size inverse image largest fiber"
+      ]
+    },
+    "checked_sources": [
+      "Rigo and Salimov, WORDS 2013, ORBi item 2268/149313",
+      "Freydenberger et al., arXiv:1509.00622",
+      "Chrisnata et al., ISCIT 2019 author full text",
+      "Lejeune, Rigo and Rosenfeld, 2020 author full text",
+      "Chrisnata et al., 2021/2023 journal abstract/table DOI 10.3934/amc.2021032",
+      "OEIS A258585 (distinct-deck counts)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rigo–Salimov: definition, inequalities and infinite-word complexity, not H_16.",
+        "Freydenberger et al.: membership testing, no list-size extremum.",
+        "Chrisnata et al.: D_3(16) only, not maximum fiber 20.",
+        "Lejeune et al.: 2-binomial class analysis and non-context-free languages for at least ternary alphabets."
+      ],
+      "reasoning": "The claimed theorem distinguishes three separate statistics: number of distinct observations D_3(n), largest fiber cardinality L_3(n), and complete multiplicity histogram H_16(s). None of the inspected prior claims concerning D_3, equivalence testing or 2-binomial fibers implies the latter two quantities without further computation.",
+      "searches": [
+        "https://orbi.uliege.be/handle/2268/149313",
+        "https://arxiv.org/abs/1509.00622",
+        "https://yaakobi.net.technion.ac.il/files/2020/07/105_K_Deck_ISCIT19.pdf",
+        "https://www.lirmm.fr/~mrosenfeld/LejeuneRigoRosenfeld.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2013 authors define m-binomial equivalence and estimate numbers of classes; their theorems are not fiber-size enumerations.",
+        "2015 authors test pairwise k-binomial equivalence in polynomial time; no exact maximum preimage lists in the stated results.",
+        "ISCIT 2019 Table I gives D_3(16)=36649, a count of distinct decks, not sizes of corresponding classes.",
+        "2020 paper describes size/generation of binary 2-binomial classes, not the 3-binomial histogram at 16."
+      ],
+      "reasoning": "The observed deck vector is equivalent, at each fixed n>=3, to 3-binomial equivalence; the comparison therefore explicitly tests both aliases. Equal numbers of classes do not imply their maximum sizes or size-frequency histogram. Available source statements do not imply the two maximum spectra or first superlinear list-size threshold.",
+      "searches": [
+        "https://orbi.uliege.be/handle/2268/149313",
+        "https://arxiv.org/abs/1509.00622",
+        "https://yaakobi.net.technion.ac.il/files/2020/07/105_K_Deck_ISCIT19.pdf",
+        "https://www.lirmm.fr/~mrosenfeld/LejeuneRigoRosenfeld.pdf",
+        "3-binomial equivalence binary words class size distribution maximal class length sixteen"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A258585 and Chrisnata et al. record D_3(16)=36649 (total number of fibers), not H_16(20)=2 or maximum size 20.",
+        "The full enumerated length-sixteen histogram sums to 36649 fibers, with total fiber multiplicity 65536."
+      ],
+      "reasoning": "The published sequence supplies only one linear aggregate of the fiber histogram; infinitely many size distributions have the same aggregate and length, so the present maximum and exact class-size census are not a recomputation of the published table.",
+      "searches": [
+        "https://oeis.org/A258585",
+        "https://www.aimsciences.org/article/doi/10.3934/amc.2021032",
+        "Maximum fiber size of binary k=3 subsequence deck (3-binomial equivalence) at lengths 9..16, class size spectrum",
+        "Exact histogram of 3-binomial equivalence classes of binary length-16 words and inverse reconstruction list sizes"
+      ]
+    },
+    "rationale": "The central newly calculated invariant is the worst-case class size and complete class-size distribution of binary 3-binomial equivalence at length sixteen, together with sharp first failure of L_3(n)<=n for n>=3. It is not the already published D_3(16)=36649, not pairwise class testing, and not the known 2-binomial class algorithms. Closest primary texts were inspected and exact scientific implications compared. Residual risk of unindexed enumeration or uninspected expanded journal is explicitly retained.",
+    "residual_risks": [
+      "Unindexed private or historical exhaustive fiber enumeration might reproduce this exact n=16 statistic; lack of matching search hits does not establish absolute novelty.",
+      "The expanded 2021/2023 journal full text requires access; only its public abstract and table were inspected. It could contain further size-frequency information not visible publicly.",
+      "The finite result does not establish any all-length upper or lower growth law for the maximum list size."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact equivalence notion; supplies class-number bounds, not sizes of binary 3-binomial fibers at n=16.",
+        "evidence": [
+          "Section 3 counts number of equivalence classes; Theorem 6 studies bounded binomial complexity of Thue–Morse factors."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/1/binomial_final_short.pdf",
+        "material_read": "12-page conference version: pp. 1–4 definition, Section 3 on number of equivalence classes, later results on Sturmian and Thue–Morse factors, abstracts and references",
+        "method": "Full-text PDF extracted and inspected, pages 1 and 4 checked visually",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+        "trigger": "Earliest archive-era definition of binomial classes; possible counting coverage"
+      },
+      {
+        "assessment": "Algorithms decide when two words share subsequence multiplicities; they do not supply the exact maximum class-size distribution.",
+        "evidence": [
+          "arXiv:1509.00622 (2015-09-02 v1); Theorem 2.1 gives polynomial-time membership testing."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1509.00622v2",
+        "material_read": "Abstract; Introduction, Sections 2–3 algorithms and their stated conclusions",
+        "method": "Open arXiv HTML primary full text",
+        "title": "Testing k-binomial equivalence",
+        "trigger": "Potential equivalence testing or class enumeration could subsume present list statistic"
+      },
+      {
+        "assessment": "Direct count D3(16)=36649 agrees, but text treats number of possible observation decks, not their 20-word maximum preimage or histogram.",
+        "evidence": [
+          "Table I n=16,k=3 gives 36649; Section III trellis counts number of reachable decks."
+        ],
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2020/07/105_K_Deck_ISCIT19.pdf",
+        "material_read": "Entire 6-page document scope, abstract, Introduction, Sections II–V and Table I including n=16; definitions, Propositions 1/5, trellis enumeration method and asymptotic results",
+        "method": "Open author-hosted full-text PDF, examined page 1 screenshot and principal theorems/table",
+        "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+        "trigger": "Very close object; Table I includes n=16 and k=3, possible dominating parameter"
+      },
+      {
+        "assessment": "Develops 2-binomial class structure and cardinalities; binary 3-binomial class-size census not stated. Section 6 calls extension to k>=3 a natural question.",
+        "evidence": [
+          "Section 2 specifically describes binary 2-binomial equivalence; Section 6 notes lack of a clear k>=3 extension."
+        ],
+        "identifier_or_url": "https://www.lirmm.fr/~mrosenfeld/LejeuneRigoRosenfeld.pdf",
+        "material_read": "21-page author preprint: abstract, first four sections including binary 2-binomial classification, Section 5 scope on larger alphabets, Section 6 conclusions and bibliography",
+        "method": "Full-text PDF sections and conclusion examined",
+        "title": "On the Binomial Equivalence Classes of Finite Words",
+        "trigger": "Title directly promises cardinalities; strongest potential coverage"
+      },
+      {
+        "assessment": "Accessible public table reports only D3(n), not fiber maxima; full journal version NOT inspected and not declared non-covering.",
+        "evidence": [
+          "Abstract and Table 1 include D3(16)=36649; journal HTML reported login requirement."
+        ],
+        "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/amc.2021032",
+        "material_read": "Public abstract, primary MSC, complete displayed Table 1 and references; attempted full HTML but access-gated",
+        "method": "Public landing page and restricted full-text attempt",
+        "title": "On the number of distinct k-decks: Enumeration and bounds (extended journal version)",
+        "trigger": "Journal version of close 2019 proceedings paper might add complete fiber-size census"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c4727dbb-e5d0-4cc9-a59c-44e81cbd4af8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The worst-case size of an inverse image of a k-deck observation is a natural exact reconstruction/list-decoding invariant. The minimal nondegenerate length with L_3(n)>n is a sharp structural boundary for linear-list reconstruction of binary three-subsequence observations. At that length, the calculation identifies both extremal observations and every fiber multiplicity rather than simply duplicating the known number of distinct decks. The exact finite boundary and classification are plausibly useful for benchmark reconstruction, ambiguity distributions and finite-list code selection; no broader theorem is claimed.",
+    "status": "PASS"
+  }
+}
