@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The proof explicitly handles n=2, and for n=2u with odd u>1 uses multiplicativity to force phi(2u+1)/(2u+1)<1/2. The totient Euler factors for odd at-most-three-prime-factor integers leave only 105,165,195, with congruence n=2 mod 4 ruling out 104 and 164. Direct beta evaluation gives 96 at 194 and 195. The proof covers unbounded n and makes no inference from the finite exact regression.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Toth Problem 3 states the general open consecutive-equality question and lists example 194; its partial discussion does not classify every n=2u.",
+        "A prior theorem for n=2p has strictly stronger assumptions on n and cannot imply the unrestricted-odd-u case."
+      ],
+      "reasoning": "The general problem is not solved, and previously established restrictions for p prime cannot be substituted for every odd composite u. The new claim does not cover the prior result for predecessor 2p-1, so there is partial overlap but not subsumption.",
+      "searches": [
+        "consecutive equal alternating divisor sum beta(2p^a) beta(2p^a+1) three prime factors odd neighbor",
+        "Toth beta(n)=beta(n+1) twice odd prime power semiprime neighbor 194 195 uniqueness",
+        "arithmetical alternating divisor sum adjacent prime powers squarefree triples",
+        "arXiv:1111.4842 Problem 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1111.4842 full text, Sections 1-2 and Problem 3",
+      "OEIS A206368: consecutive equality indices (summary-level context)",
+      "OEIS A206369: function definition and rho alias",
+      "Published mathematical claims searched for exact valuation-one theorem and prime-power special cases",
+      "Related earlier classification of n=2p (claim-only scientific comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior n=2p theorem covers a prime-only subset of n=2u.",
+        "The new proof uses only that u>1 is odd, without bounding omega(u), Omega(u), or any exponent."
+      ],
+      "reasoning": "The logical direction from the present theorem to its 2p successor special case holds, but reverse implication fails because prime-only quantification does not cover odd composite u. Primary prior source presents the unrestricted question, not this complete restriction.",
+      "searches": [
+        "alternating divisor sum consecutive equal beta(n)=beta(n+1) n congruent 2 mod 4 omega(n+1) at most three 194",
+        "Toth beta consecutive values n=2u u odd odd neighbor at most three prime factors uniqueness",
+        "beta(2u)=beta(2u+1) omega(2u+1) <=3 unique 194",
+        "arXiv:1111.4842 Problem 3",
+        "earlier classification of the prime-only 2p special case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identity beta(2u)=beta(u) for odd u translates the claim into a statement about beta(u)=beta(2u+1), with u any odd integer.",
+        "OEIS A206369 provides the identical multiplicative beta definition and rho alias."
+      ],
+      "reasoning": "The equivalent twice-odd and valuation-one formulations were compared directly; a search for the prime-only special case cannot certify coverage of all odd u.",
+      "searches": [
+        "alternating divisor sum consecutive equal beta(n)=beta(n+1) n congruent 2 mod 4 omega(n+1) at most three 194",
+        "Toth beta consecutive values n=2u u odd odd neighbor at most three prime factors uniqueness",
+        "beta(2u)=beta(2u+1) omega(2u+1) <=3 unique 194",
+        "OEIS:A206369 (rho / alternating divisor sum)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A206368 tabulates finite indices of equal adjacent beta values, including 194.",
+        "A206369 tabulates the function and its prime-power formula."
+      ],
+      "reasoning": "Finite database tables do not imply exact uniqueness across all n congruent 2 modulo 4 with an at-most-three-factor odd neighbor.",
+      "searches": [
+        "OEIS:A206368",
+        "OEIS:A206369",
+        "alternating divisor sum consecutive equal beta(n)=beta(n+1) n congruent 2 mod 4 omega(n+1) at most three 194"
+      ]
+    },
+    "rationale": "The source poses the general consecutive equality problem but does not classify all valuation-one even inputs with at-most-three-factor successors. A prior prime-only result does not imply the theorem for arbitrary odd u. OEIS initial tables do not give the universal theorem. Published-record searches on valuation-one, twice an odd integer, aliases and complexity constraints found no dominating result. Earlier unindexed proof remains possible.",
+    "residual_risks": [
+      "A previously unindexed theorem may already prove the full valuation-one uniqueness result.",
+      "The claim applies only to successors with at most three prime factors counted with multiplicity; values beyond that complexity are not classified.",
+      "No independent audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: no theorem settling the full valuation-one even layer with successor Omega<=3.",
+        "evidence": [
+          "The 2011 article explicitly asks about beta(n)=beta(n+1) and records example 194,195.",
+          "No all-odd-u quantified uniqueness assertion is provided."
+        ],
+        "identifier_or_url": "arXiv:1111.4842v1 (2011-11-21)",
+        "material_read": "Primary full-text definition and Sections 1-2, 7 including the complete Problem 3 discussion and examples.",
+        "method": "Original arXiv full text, page-level view for problem section, and scientific implication comparison.",
+        "title": "A survey of the alternating sum-of-divisors function",
+        "trigger": "Original formulation of the exact consecutive-equality question and beta prime-power formula."
+      },
+      {
+        "assessment": "SUMMARY_ONLY; a finite examples list does not cover the universal theorem",
+        "evidence": [
+          "Includes n=194, but finite terms do not establish an unbounded exclusion."
+        ],
+        "identifier_or_url": "https://oeis.org/A206368",
+        "material_read": "Sequence identity and cited finite examples in retrieved source descriptions; the complete live OEIS entry was not inspected.",
+        "method": "Compared exact table scope to universal theorem.",
+        "title": "OEIS A206368",
+        "trigger": "The table lists equal consecutive alternating divisor-sum values."
+      },
+      {
+        "assessment": "FORMULA_NOT_CLASSIFICATION",
+        "evidence": [
+          "The prime-power definition is equivalent, but does not itself state the result for all n in the residue class."
+        ],
+        "identifier_or_url": "https://oeis.org/A206369",
+        "material_read": "Definition, formula and sequence description.",
+        "method": "Definition and scope comparison.",
+        "title": "OEIS A206369",
+        "trigger": "Alias and defining arithmetic function."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af184e03-21d9-43ec-8f8e-b8e4dd1bddb6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact layer v2(n)=1 is mathematically natural from beta(2u)=beta(u), and odd successors with Omega<=3 are the first structural range where phi(m)/m can be below 1/2. The result removes all restrictions on the odd part u, proving a complete unbounded classification for the entire residue class, rather than making a routine finite increment from the prior prime-only case. It is a meaningful structural boundary for Toth’s stated consecutive-equality problem.",
+    "status": "PASS"
+  }
+}

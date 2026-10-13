@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The claim covers every \(n\ge2\) with \(n\equiv2\pmod4\) and \(\Omega(n+1)\le3\), without imposing any support or exponent bounds on \(n/2\). The multiplicative identity \(\beta(2u)=\beta(u)\), the inequality \(\varphi(m)\le\beta(m)\), and the strict comparison \(\beta(u)<u\) force \(\varphi(m)/m<1/2\) for \(m=2u+1\). Every odd integer with at most three prime factors satisfying this inequality has exactly three *distinct* factors \(3,5,r\) with \(r\in\{7,11,13\}\); the congruence hypothesis eliminates the first two resulting values of \(n\), and direct exact evaluation verifies the remaining value \(194\). The case \(n=2\) is explicit. A complete finite independent regression through \(10^6\) corroborates the proof, but is not used for its infinite conclusion.
+
+**Originality: PASS, with residual risk.** Tóth's Problem 3 asks for progress on equal consecutive alternating-divisor sums and gives examples rather than a complete valuation-one/three-factor classification. A related established classification treats \(n=2p\) with \(p\) prime; it cannot imply the present conclusion for arbitrary odd \(u=n/2\), because no condition limits the factorization of \(u\). OEIS data and searches using prime-power/squarefree/twice-odd/valuation and consecutive-equality formulations did not reveal a theorem covering the full class. An unindexed earlier proof remains possible.
+
+**Value: PASS.** The exact \(2\)-adic layer \(\nu_2(n)=1\) is natural for \(\beta\), because \(\beta(2u)=\beta(u)\) whenever \(u\) is odd. The odd-neighbor restriction \(\Omega(n+1)\le3\) is the first range where the totient ratio can dip below one half. This gives a complete unbounded classification of a full congruence class, with **no** constraint at all on prime support or exponents of the even input's odd part. The theorem strictly broadens the prime-input classification, rather than adding a finite example.
+
+**Closest literature and limitations.** Tóth, arXiv:1111.4842 (2011), Sections 1–2 and Problem 3 of Section 7; OEIS A206368 and A206369; a previous narrower \(2p\) classification. This result does not settle the unrestricted consecutive-equality problem, and independent review has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
