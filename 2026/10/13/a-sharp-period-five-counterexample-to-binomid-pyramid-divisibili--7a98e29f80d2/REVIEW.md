@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact cyclic-block lemma converts all binomid inequalities for each periodic exponent column to finitely many tests. Directly reconstructing columns gives four displayed five-element blocks, each with minimum initial cyclic block sums for every remainder length. The lower-period result follows at each prime valuation: for period three, the second column forces equality of the first two valuations; for period four, the first and third columns force equality of the first and third valuations and a divisibility chain for the others. The proof covers all bases \(q\ge2\), all column indices and all starting indices. Numerical checks were replayed separately, but are not substituted for proof.
+
+**Originality — PASS relative to inspected literature.** Shapiro's source establishes a divisor-product sufficient condition for all pyramid levels and poses a higher-order recurrence question. Caalim–Tanaka's 2024 and 2025 studies treat first-level binomid indices and lexicographically minimal extensions, without the all-column condition or the sharp period-five boundary. An exact sequence/pyramid and implication comparison did not identify a previously stated identical theorem. Remaining risk: unindexed or differently phrased results about periodic all-level integrality.
+
+**Value — PASS.** The explicit nondivisible example resolves the higher-order direction of a published integrality-versus-divisibility question in the negative for the strongest binomid-pyramid property. The exact shortest-period theorem supplies a structural rigidity threshold, rather than only a new example. It leaves the original order-two recurrence question open and makes no assertion about eventually periodic sequences.
+
+Self-review: passed. Independent audit: not yet performed.
