@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For pq squarefree semiprime, the defining equation is pq=1+k(p+q), which factors exactly as (p-k)(q-k)=k^2+1. The factors must be positive; ordering p<q makes d=p-k the unique smaller factor and forces 1<=d<=k. Thus checking all divisors d<=k is exhaustive. The packaged checker enumerates all k through 132, uses exact trial-division primality, and rechecks the original equation. It finds multiplicity two only at 12 and 18 below 132, and exactly three pairs at 132.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Te Riele's Rule 2, in the two-prime specialization, uses factors A and B with AB=1+k^2 and primes k+A and k+B; the full paper was inspected.",
+        "McCranie's Theorem 2 states the equivalent condition q=(kp+1)/(p-k), gives structural restrictions, and Table 4 lists example pairs including the three at k=132.",
+        "McCranie separately lists indices known to have at least four hyperperfect numbers in the unrestricted population, confirming that multiplicity is a studied invariant."
+      ],
+      "reasoning": "The broader sources cover construction and unrestricted hyperperfect multiplicity, but they do not state the complete squarefree-semiprime multiplicity spectrum through the first triple layer. The new result is a finite exact census inside a classical structurally distinguished branch.",
+      "searches": [
+        "\"Rules for constructing hyperperfect numbers\"",
+        "\"A Study of Hyperperfect Numbers\"",
+        "hyperperfect numbers multiple values of k prime pairs",
+        "hyperperfect numbers form 2 table prime p q k"
+      ]
+    },
+    "checked_sources": [
+      "CWI:2569",
+      "JIS:3:00.1.3",
+      "OEIS:A034913",
+      "OEIS:A034914"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical factorization implies a finite candidate set for each fixed k, but no inspected source performs or states the exhaustive comparison of all 1<=k<132.",
+        "McCranie's Table 4 gives three k=132 examples but is expressly a table of some values, so table inclusion alone does not imply minimality.",
+        "The new checker closes the missing implication by exhausting every divisor candidate at every smaller k."
+      ],
+      "reasoning": "Known construction plus examples does not logically imply a first-occurrence theorem. The claimed minimality requires a complete negative comparison over all lower indices, supplied here by an exact finite criterion and replayable certificate.",
+      "searches": [
+        "hyperperfect theorem 2 k(p+q)=pq-1 table 132",
+        "factor 1+k^2 hyperperfect two primes multiplicity",
+        "least k three prime pairs hyperperfect",
+        "semiprime hyperperfect multiplicity cutoff 132"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McCranie's table contains three prime pairs at k=132 and two each at k=12 and k=18, but labels the table as giving some values rather than a complete multiplicity census.",
+        "Targeted semantic searches for the first triple layer, the multiplicity function, and the three exact 132-values returned unrelated number-theory findings rather than an equivalent hyperperfect result.",
+        "Exact web searches located the classical construction and sequence data but no theorem asserting minimality of 132."
+      ],
+      "reasoning": "The same claim can be phrased as the least k for which the equation (p-k)(q-k)=k^2+1 has three unordered prime-producing factor pairs. Both the hyperperfect and factor-pair formulations were checked. The examples are known, but the minimality and complete lower spectrum were not located.",
+      "searches": [
+        "first hyperperfect index with three squarefree semiprime realizations k=132",
+        "multiplicity of semiprime k-hyperperfect numbers 132",
+        "k-hyperperfect semiprime count by index divisor k^2+1",
+        "132-hyperperfect semiprime 96361 130153 495529",
+        "first k with three hyperperfect prime pairs",
+        "hyperperfect multiplicity semiprime prime pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A034913 records participating smaller primes and gives 137 as an example from k=132 with partner 3617.",
+        "A034914 records participating primes and its program searches divisors of p^2+1 for a prime partner.",
+        "Neither sequence is indexed by k-multiplicity, so the database entries do not state that 132 is the first k with three pairs."
+      ],
+      "reasoning": "The exact databases strongly cover the underlying prime-pair construction and examples. They do not aggregate solutions by hyperperfect index, which is the invariant needed for the first-triple claim.",
+      "searches": [
+        "OEIS A034913 hyperperfect",
+        "OEIS A034914 hyperperfect",
+        "hyperperfect Table 4 k 132 137 3617 157 829 173 557"
+      ]
+    },
+    "rationale": "The classical factorization and the three numerical examples at k=132 are explicitly treated as prior. The new statement is the first-occurrence theorem for semiprime multiplicity: exhaustive comparison of every k<132 rules out a third pair and identifies the only two double layers. No inspected primary source, exact database, or semantic research record states that cutoff.",
+    "residual_risks": [
+      "A short first-occurrence observation may exist in unindexed computational notes or recreational literature.",
+      "The numerical k=132 triple itself is published; originality rests only on exhaustive minimality and the lower multiplicity spectrum.",
+      "The theorem concerns squarefree semiprimes only and does not order multiplicities in the full set of k-hyperperfect numbers.",
+      "The 1984 primary source has only year-level publication metadata in the inspected record, so the structured exact date uses the later exact-date source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE. It supplies the factorization mechanism but not the first multiplicity-three cutoff.",
+        "evidence": "The paper states the two-prime construction from factors of 1+n^2. Its repository metadata gives Fibonacci Quarterly 22(1), 1984, pages 50-60, with MSC 11A25.",
+        "identifier_or_url": "CWI:2569",
+        "material_read": "Full eleven-page paper; emphasis on Section 2 and Rule 2. The inspected page explicitly specializes the rule to two primes with AB=1+n^2 and gives 2*3, 3*7, and 7*43 as examples.",
+        "method": "Direct PDF text inspection plus page-image inspection of the construction page.",
+        "title": "Rules for constructing hyperperfect numbers",
+        "trigger": "Historical primary source for the factorization-based two-prime construction."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE. It contains the three k=132 pairs and the two k=12 and k=18 pairs, but presents Table 4 as some values and does not prove that 132 is the first triple semiprime index.",
+        "evidence": "Theorem 2 gives q=(kp+1)/(p-k). Table 4 lists (137,3617,132), (157,829,132), and (173,557,132). The article was published 21 January 2000.",
+        "identifier_or_url": "JIS:3:00.1.3",
+        "material_read": "Full accessible article, including Theorem 2, its structural restrictions, Table 4, the discussion of indices with several hyperperfect numbers, references, and publication metadata.",
+        "method": "Direct full-HTML inspection and targeted phrase searches.",
+        "title": "A Study of Hyperperfect Numbers",
+        "trigger": "Closest explicit table of prime pairs by hyperperfect index and exact publication-date evidence."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE. It encodes participating primes but not the multiplicity function by k.",
+        "evidence": "The example states that 137 participates because k=132 gives prime partner 3617.",
+        "identifier_or_url": "OEIS:A034913",
+        "material_read": "Definition/comments, example, programs, references, and cross-reference to A034914.",
+        "method": "Direct database-page inspection.",
+        "title": "A034913",
+        "trigger": "Exact database linked by McCranie for the smaller primes in the two-prime construction."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE. Its code searches divisor-based prime partners, but it does not aggregate or certify the first k with three pairs.",
+        "evidence": "The displayed Maple code factors p^2+1 and tests the complementary prime.",
+        "identifier_or_url": "OEIS:A034914",
+        "material_read": "Definition/comments, Maple and PARI programs, references, and cross-reference to A034913.",
+        "method": "Direct database-page inspection.",
+        "title": "A034914",
+        "trigger": "Exact database linked by McCranie for primes occurring in the two-prime construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d43a4e0-d435-4d07-8947-3cd394b93e4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hyperperfect multiplicity at fixed k is explicitly tracked in the archival literature, and the squarefree-semiprime construction is a principal named form. The first multiplicity-three layer is therefore a natural cutoff. The result is stronger than table lookup because the classical factorization makes the lower negative range exhaustive, and the certificate is small enough to audit independently.",
+    "status": "PASS"
+  }
+}
