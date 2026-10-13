@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every connected labeled simple graph through six vertices is generated directly. Breadth-first and Floyd--Warshall distance matrices agree; pair-count and Brandes betweenness agree exactly; the conflict set is canonicalized under all vertex permutations; and the representative vectors are recomputed from definitions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Freeman's centrality program distinguishes degree-, closeness-, and betweenness-based conceptions.",
+        "Das explicitly treats degree, closeness, and betweenness as classical centrality metrics for large networks.",
+        "Unnithan, Kannan, and Jathavedan define Freeman betweenness and derive exact formulas for multiple important graph classes."
+      ],
+      "reasoning": "These broader results establish the scientific context and the fact that the measures can encode different structural roles, but they do not logically imply that all connected graphs through five vertices share a unique degree/betweenness leader or that the first conflict quotient has one class.",
+      "searches": [
+        "\"Centrality in social networks\" degree closeness betweenness Freeman",
+        "\"Betweenness Centrality in Some Classes of Graphs\"",
+        "\"On Local and Global Centrality in Large Scale Networks\"",
+        "degree centrality local betweenness global shortest paths network"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.2307/3033543",
+      "doi:10.1016/0378-8733(78)90021-7",
+      "doi:10.1155/2014/241723",
+      "arXiv:1405.5512"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Examples with differing centrality rankings prove only existence at their own orders and do not establish minimality.",
+        "Closed formulas for special graph families do not cover every connected graph through five or six vertices.",
+        "The famous use of different centrality notions in social-network examples does not determine the quotient structure of the first unique-leader conflict layer."
+      ],
+      "reasoning": "The accepted theorem combines a universal lower bound, exact labeled count, symmetry classification, and a closeness refinement. None follows from qualitative centrality non-equivalence or from formulas on selected graph families.",
+      "searches": [
+        "Freeman degree closeness betweenness different centrality rankings",
+        "betweenness centrality graph classes degree comparison",
+        "Krackhardt kite degree betweenness closeness centrality",
+        "small graph degree betweenness unique maximum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The searches located definitions, applications, and examples where centrality measures differ, but no theorem giving a smallest order for different unique degree and betweenness leaders.",
+        "The inspected exact-betweenness graph-family paper treats stars, paths, wheels, complete bipartite graphs, trees, and related families rather than a complete small-order degree-versus-betweenness comparison.",
+        "No located source gave the representative edge set or an equivalent unique-leader obstruction."
+      ],
+      "reasoning": "The searches use both the standard measure names and the equivalent smallest-order, unique-leader, and unique-maximizer formulations. A general example of differing centrality rankings is not equivalent to a sharp universal lower bound plus complete first obstruction layer.",
+      "searches": [
+        "\"six vertices\" \"degree centrality\" betweenness",
+        "\"6 vertices\" \"betweenness centrality\" degree centrality graph",
+        "\"smallest graph\" \"betweenness centrality\" degree",
+        "\"unique\" \"degree centrality\" \"betweenness centrality\" graph",
+        "\"six-vertex\" centrality degree betweenness graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source supplied the \\(720\\)-of-\\(26704\\) labeled count.",
+        "No inspected source supplied a one-isomorphism-class first-conflict census.",
+        "No inspected source supplied the five-vertex tie-level count \\(150\\).",
+        "The packaged computation derives all counts from the full labeled graph domain rather than importing a table."
+      ],
+      "reasoning": "Exact-number searches directly test whether the finite census is a known tabulation. The standard connected-graph count \\(26704\\) alone cannot imply any centrality classification.",
+      "searches": [
+        "\"720\" \"betweenness centrality\" degree graph",
+        "\"26704\" betweenness centrality graphs",
+        "\"720\" \"degree centrality\" \"betweenness\"",
+        "\"45/1669\" centrality graph"
+      ]
+    },
+    "rationale": "Prior work defines and contrasts degree, closeness, and betweenness centrality and provides formulas for many graph classes, but the inspected sources do not state the sharp unique-maximizer boundary or the exact \\(720\\)-graph, one-class first conflict layer.",
+    "residual_risks": [
+      "An unindexed graph atlas annotation, thesis appendix, software corpus, or teaching enumeration could contain the same finite census.",
+      "The literature contains many illustrative examples where centrality rankings differ; the originality claim is restricted to the sharp distinct-unique-maximizer boundary and complete first layer.",
+      "The result does not cover directed, weighted, disconnected, or graphs of order greater than six."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the historical betweenness source and date; it does not provide the small-order degree-versus-betweenness census.",
+        "evidence": "Sociometry 40(1), 35–41; DOI 10.2307/3033543; March 1977.",
+        "identifier_or_url": "doi:10.2307/3033543",
+        "material_read": "Bibliographic article record identifying the 1977 Sociometry paper, volume, pages, DOI, and March 1977 publication. No claim of full-text inspection is made for this source.",
+        "method": "Publisher/index bibliographic inspection.",
+        "title": "A Set of Measures of Centrality Based on Betweenness",
+        "trigger": "Foundational source for the exact betweenness convention used in the claim and the archive date anchor."
+      },
+      {
+        "assessment": "Confirms the exact convention and demonstrates extensive family-specific coverage, but does not compare degree and betweenness unique maximizers across all graphs of a given small order.",
+        "evidence": "International Journal of Combinatorics, 2014, Article 241723; DOI 10.1155/2014/241723.",
+        "identifier_or_url": "doi:10.1155/2014/241723",
+        "material_read": "Open full article, including the formal vertex-betweenness definition and sections deriving exact values for wheels, complete-minus-edge graphs, complete bipartite graphs, paths, trees, and other graph classes.",
+        "method": "Open full-text article inspection.",
+        "title": "Betweenness Centrality in Some Classes of Graphs",
+        "trigger": "Highly relevant primary article giving the same betweenness object and exact graph-family calculations."
+      },
+      {
+        "assessment": "Supplies direct context for comparing local and global centrality notions; it does not contain the exact six-vertex boundary or census.",
+        "evidence": "arXiv:1405.5512, 2014.",
+        "identifier_or_url": "arXiv:1405.5512",
+        "material_read": "Open arXiv full text, including the introductory discussion of degree, closeness, and betweenness and the interpretation of betweenness through shortest-path placement.",
+        "method": "Open arXiv full-text inspection.",
+        "title": "On Local and Global Centrality in Large Scale Networks",
+        "trigger": "Primary full text explicitly discussing degree, closeness, and betweenness together as classical centrality metrics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b452e547-7117-4c60-9374-170d3d787566",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Degree and betweenness are canonical competing notions of network importance. The smallest connected graph where each measure makes an unambiguous but different choice of most-central actor is therefore a natural structural boundary, and the fact that its entire first layer is one asymmetric isomorphism type gives a concise benchmark rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
