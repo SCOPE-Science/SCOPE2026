@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For a selected vertex, the outside-neighbor count is exactly \\(n-t\\) if its deleted mate is selected and \\(n-t-1\\) otherwise, with the symmetric formula on the other shore. This yields sharp support lower bounds \\(q=n-k\\) for intersecting supports and \\(r=q-1\\) for disjoint supports. Domination forces at least two selected vertices per shore, which resolves the \\(k=n-2\\) boundary. The constructions attain every bound, and the support classification gives the stated exact counts. Independent finite replay checks both values and counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published complete-bipartite formula is \\(2(n-k)\\) in the balanced case.",
+        "A prior exact complete-multipartite theorem concerns only genuine complete multipartite graphs; crown graphs with \\(n\\ge3\\) are excluded.",
+        "Recent follow-up papers surfaced complexity, Cartesian products, Sierpiński graphs, and cubic Goldberg graphs rather than crown graphs."
+      ],
+      "reasoning": "None of the broader theorems dominates the new statement. The new result quantifies the effect of deleting a perfect matching from the known balanced biclique case.",
+      "searches": [
+        "k-limited domination complete multipartite graphs exact formula",
+        "k-limited domination crown graph K_n,n minus perfect matching",
+        "regular crown graph (1,n-1-k)-domination exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.22422",
+      "DOI:10.1007/s40314-026-03902-2",
+      "arXiv:2606.22428",
+      "arXiv:2610.01796",
+      "prior local complete-multipartite k-limited finding 1c4ae0b1-465b-409e-a4d2-f7c9f6afcbf8",
+      "semantic-index records named in the comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 1(iv) of the initiating article gives the balanced complete-bipartite baseline \\(2(n-k)\\), not the matching-deleted case.",
+        "The prior local item 1c4ae0b1-465b-409e-a4d2-f7c9f6afcbf8 gives \\(k\\)-limited domination for complete multipartite graphs and therefore does not imply a result for crowns."
+      ],
+      "reasoning": "The new phase transition depends on whether selected deleted-matching index sets intersect; that structure is absent from complete bipartite and complete multipartite graphs.",
+      "searches": [
+        "crown graph k-limited domination exact phase transition 2(n-k-1) 2(n-k)",
+        "minimum k-limited dominating sets crown graph count binomial",
+        "perfect matching deletion complete bipartite k-limited domination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The initiating article identifies \\(k\\)-limited domination with \\((0,k)\\)-pitchfork domination and proves the \\(d\\)-regular identity with \\((1,d-k)\\)-domination.",
+        "No searched crown/\\((1,t)\\), crown/pitchfork, or matching-deletion formulation returned a covering statement."
+      ],
+      "reasoning": "The alias and regularity bridge were explicitly searched. They change terminology but do not supply an evaluation of the crown family.",
+      "searches": [
+        "k-limited domination crown graph K_n,n minus perfect matching",
+        "\"(1,t)-domination\" crown graph",
+        "crown graph limited domination",
+        "gamma_{1,t} crown graph",
+        "K_{n,n}-M_n domination (1,t)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic-index crown hit: 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa, for a different domination invariant.",
+        "Closest limited-related host-family hit: 2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4, for k-limited packing rather than domination."
+      ],
+      "reasoning": "No exact table or indexed record returned the proposed k-limited crown values or counts.",
+      "searches": [
+        "crown graph k-limited domination exact phase transition 2(n-k-1) 2(n-k)",
+        "K_{n,n}-M_n k-limited domination 2(n-k-1)",
+        "minimum k-limited dominating sets crown graph count binomial",
+        "perfect matching deletion complete bipartite k-limited domination"
+      ]
+    },
+    "rationale": "The initiating full article evaluates complete bipartite graphs and proves a regular-graph equivalence with \\((1,t)\\)-domination, but it contains no crown or matching-deletion treatment. Targeted searches under \\(k\\)-limited, \\((1,t)\\), pitchfork, crown, and deleted-perfect-matching formulations found no result implying the exact phase transition or optimum-set counts. The previous complete-multipartite result does not apply because crown graphs are not complete multipartite for \\(n\\ge3\\).",
+    "residual_risks": [
+      "An older or poorly indexed equivalent formula may be stated under \\((1,t)\\)-domination or \\((0,k)\\)-pitchfork terminology.",
+      "The two recent follow-up papers were not both inspected line-by-line in full; their abstracts and surfaced exact-family descriptions do not indicate crown graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant, proves the balanced biclique baseline as a special case of Proposition 1(iv), and proves the regular-graph bridge; no crown or matching-deletion result appears.",
+        "evidence": "Proposition 1(iv); regular-graph section; no full-text matches for “crown” or “matching”; MSC 2020 lists 05C69 first.",
+        "identifier_or_url": "arXiv:2606.22422 / DOI:10.1007/s40314-026-03902-2",
+        "material_read": "Full open-access article sections containing the definition, Proposition 1, efficient-graph result, regular-graph (1,t) bridge, and concluding context; full-text searches for crown and matching were also performed.",
+        "method": "Direct full-text inspection and targeted text search.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Primary source introducing the invariant and the exact complete-bipartite baseline."
+      },
+      {
+        "assessment": "Studies complexity and Cartesian products, including rook graphs, coronas, grids, prisms, and hypercubes; no crown-graph claim surfaced.",
+        "evidence": "Abstract family list and Cartesian-product theorem context.",
+        "identifier_or_url": "arXiv:2606.22428",
+        "material_read": "Abstract and surfaced article text describing the exact families studied.",
+        "method": "Public abstract/text inspection.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Recent same-invariant follow-up with potential broader exact results."
+      },
+      {
+        "assessment": "Restricted to cubic graphs and the Goldberg family; it cannot cover the all-\\(n\\) crown theorem except isolated degree-three cases.",
+        "evidence": "Abstract states cubic restriction and exact Goldberg-family result.",
+        "identifier_or_url": "arXiv:2610.01796",
+        "material_read": "Abstract.",
+        "method": "Public abstract inspection.",
+        "title": "On 1-limited and (1,2)-domination in cubic graphs",
+        "trigger": "Newest same-invariant follow-up and alias check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6023cf20-70b6-4edd-afdc-21cd07b6d4c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crown graphs are a canonical one-factor deletion of complete bipartite graphs and are regular, so they directly test the newly introduced capacity invariant against its published biclique baseline and regular-graph bridge. The theorem gives a sharp intermediate-capacity phase transition, complete optimum-set structure, and exact counts; it is not a routine finite increment.",
+    "status": "PASS"
+  }
+}
