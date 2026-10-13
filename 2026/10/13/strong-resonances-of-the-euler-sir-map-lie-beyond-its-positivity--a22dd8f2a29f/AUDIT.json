@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The Jacobian determinant at the endemic equilibrium is reconstructed directly from the printed Euler map. Setting the multiplier product to one gives h(d+r)=R0/(R0-1) exactly for every positive unit-determinant boundary with R0>1. The infected update then maps the open strip 0<S<S1/R0, I>0 to negative I. Strong 1:2, 1:3, and 1:4 resonances all have multiplier product one. Exact rational replay of the source's rounded 1:3 parameters and its stated global-diagram initial condition gives I1=-0.10256632066707.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hu, Teng, and Zhang analyze the same Euler SIR map and derive a unit-circle bifurcation step h** equal to A lambda/((d+r)(A lambda-d(d+r))), which is algebraically the same determinant-one boundary.",
+        "Suryanto and Darti explicitly compare SIR discretizations and report that their nonstandard construction is dynamically consistent for all step sizes and superior to explicit Euler in their model.",
+        "Naik and collaborators later study flip, Neimark-Sacker, and strong resonances for a nonstandard discrete SIR construction, showing that resonance analysis is not inherently an Euler artifact."
+      ],
+      "reasoning": "Broader literature covers both the Euler bifurcation boundary and positivity-conscious discretization separately. It therefore narrows originality to the exact incompatibility theorem for this Euler SIR map rather than the general observation that large Euler steps can be nonphysical.",
+      "searches": [
+        "\"Stability and bifurcation analysis in a discrete SIR epidemic model\" positivity Euler step size h",
+        "\"Stability and bifurcation analysis in a discrete SIR epidemic model\" Neimark Sacker",
+        "\"On the nonstandard numerical discretization of SIR epidemic model\" Euler dynamically consistent",
+        "\"Complex dynamics of a discrete-time seasonally forced SIR epidemic model\" nonstandard strong resonance"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2022187",
+      "doi:10.1016/j.matcom.2013.08.008",
+      "doi:10.3934/math.2021010",
+      "doi:10.1002/mma.8955"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed source was found stating h(d+r)=R0/(R0-1) as a positivity obstruction for the endemic unit-circle boundary of this map.",
+        "The Hu-Teng-Zhang formula implies the same equality algebraically but is used for bifurcation analysis rather than a state-space positivity comparison.",
+        "The motivating source has no located erratum addressing positivity of its strong-resonance parameter sets."
+      ],
+      "reasoning": "The predecessor formula does not by itself cover the accepted claim: the new implication requires comparing the determinant-one boundary with the infected-component positivity factor and then identifying the open strip and source-initial-condition failure.",
+      "searches": [
+        "\"h(d+r)\" \"R0/(R0-1)\" SIR",
+        "\"R0/(R0-1)\" \"Neimark-Sacker\" SIR",
+        "\"strong resonance\" SIR positivity Euler",
+        "\"10.3934/math.2022187\" correction erratum comment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact-source searches returned the motivating article and unrelated positivity or bifurcation findings, but no source-specific positivity correction.",
+        "The motivating article itself derives the map by Euler discretization and analyzes unit-circle strong resonances without imposing a state-space positivity condition.",
+        "The exact determinant-one identity converts the resonance condition into a step-size inequality opposite to infected positivity at low susceptible density."
+      ],
+      "reasoning": "The claim was searched as a positivity barrier, a step-size incompatibility, and a strong-resonance/Neimark-Sacker statement. These are equivalent formulations of the same implication, and none of the closest indexed results covers it.",
+      "searches": [
+        "\"10.3934/math.2022187\" positivity Euler SIR resonance",
+        "\"The existence of codimension-two bifurcations in a discrete-time SIR epidemic model\" positivity",
+        "discrete SIR Euler strong resonance positivity step size h(d+r)",
+        "Neimark-Sacker Euler SIR positivity preserving strong resonance 1:3 1:4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating PDF was inspected at the Euler map, R0 and endemic equilibrium, Jacobian and characteristic polynomial, all three numerical resonance parameter sets, and the Figure 6 paragraph specifying the positive initial condition.",
+        "Visual inspection of the source PDF confirms the 1:2 and 1:3 phase-portrait page and the later Figure 6 setup.",
+        "The predecessor author-uploaded full text was inspected at its Euler map and unit-circle bifurcation formula."
+      ],
+      "reasoning": "The theorem is derived from the exact printed map and determinant rather than from approximate plots. The numerical one-step witness uses the source's own rounded 1:3 parameters and stated global-diagram initial condition.",
+      "searches": [
+        "doi:10.3934/math.2022187 equations 1.2 1.4 Jacobian E1",
+        "doi:10.3934/math.2022187 1:2 1:3 1:4 resonance h lambda",
+        "doi:10.3934/math.2022187 Figure 6 initial condition 1.4222 0.9861",
+        "doi:10.1016/j.matcom.2013.08.008 h** Hopf"
+      ]
+    },
+    "rationale": "Euler-step positivity restrictions and SIR bifurcation theory are both prior art. The accepted original content is their exact source-specific synthesis: the entire unit-determinant endemic boundary of this Euler SIR map is forced beyond the infected positivity barrier, so every strong resonance studied in the motivating paper has this structural incompatibility. The same theorem yields an open strictly positive strip of one-step failure and an explicit failure of the source's own global-diagram initial condition at its 1:3 resonance. No inspected or indexed source states this implication.",
+    "residual_risks": [
+      "A non-indexed comment or correction could exist outside the searched records.",
+      "The local strong-resonance dynamics near the positive endemic equilibrium can remain inside the positive quadrant; the theorem is a global state-space validity obstruction, not a disproof of local normal-form algebra.",
+      "The nonstandard discretization papers use related but not identical SIR formulations, so they are methodological context rather than statement-level coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNIT_CIRCLE_RESONANCES_LIE_BEYOND_INFECTED_POSITIVITY_BARRIER",
+        "evidence": "The source's three resonance examples have h(d+r) approximately 5.158016, 3.37952, and 3.21524. Its Figure 6 initial condition gives a negative infected first iterate at the rounded 1:3 resonance parameters.",
+        "identifier_or_url": "doi:10.3934/math.2022187",
+        "material_read": "Open full PDF: continuous SIR model; Euler system (1.2) and reduced map (1.4); R0, endemic equilibrium, Jacobian and characteristic polynomial; 1:2, 1:3 and 1:4 resonance sections; all three numerical resonance examples; Figures 1-5; global Figure 6 setup and its initial condition; conclusion.",
+        "method": "Re-expressed the determinant using R0, imposed the universal product-one condition for unit-circle multipliers, and compared the resulting step size with the infected update at small susceptible density.",
+        "title": "The existence of codimension-two bifurcations in a discrete-time SIR epidemic model",
+        "trigger": "Primary source deriving the Euler SIR map and analyzing the target strong resonances."
+      },
+      {
+        "assessment": "SAME_BOUNDARY_PRIOR_POSITIVITY_IMPLICATION_NOT_STATED",
+        "evidence": "The printed h** equals A lambda/((d+r)(A lambda-d(d+r))), which simplifies to R0/((d+r)(R0-1)). The inspected text develops bifurcation consequences rather than the positivity obstruction.",
+        "identifier_or_url": "doi:10.1016/j.matcom.2013.08.008",
+        "material_read": "Author-uploaded full-text material covering the Euler map, endemic equilibrium stability conditions, the unit-circle bifurcation step h**, the local Hopf/Neimark-Sacker analysis, and numerical parameter examples.",
+        "method": "Compared its h** formula with the determinant-one relation and searched for an explicit positivity interpretation.",
+        "title": "Stability and bifurcation analysis in a discrete SIR epidemic model",
+        "trigger": "Direct predecessor studying the same Euler SIR map and cited by the motivating article."
+      },
+      {
+        "assessment": "GENERAL_DYNAMIC_CONSISTENCY_PRECEDENT_NOT_EXACT_BARRIER",
+        "evidence": "The article states that its nonstandard method preserves boundedness and dynamic consistency for all step sizes and is numerically superior to Euler in the studied SIR setting.",
+        "identifier_or_url": "doi:10.3934/math.2021010",
+        "material_read": "Publisher article material including abstract, stated all-step dynamic-consistency result, explicit comparison with Euler, and figure captions comparing Euler and nonstandard discretizations.",
+        "method": "Used to assess whether positivity/dynamic consistency is recognized as a substantive discretization requirement in neighboring SIR literature.",
+        "title": "On the nonstandard numerical discretization of SIR epidemic model with a saturated incidence rate and vaccination",
+        "trigger": "Primary literature on preserving epidemic dynamics under discretization, cited by the motivating paper."
+      },
+      {
+        "assessment": "STRONG_RESONANCE_POSSIBLE_IN_DIFFERENT_NONSTANDARD_DISCRETIZATION",
+        "evidence": "The paper explicitly studies flip, Neimark-Sacker, and 1:2/1:3/1:4 resonance phenomena in a nonstandard discrete SIR framework.",
+        "identifier_or_url": "doi:10.1002/mma.8955",
+        "material_read": "Publisher full-page material including abstract, the stated nonstandard finite-difference construction, the Neimark-Sacker theorem excerpt, resonance discussion, and numerical-bifurcation summary.",
+        "method": "Checked whether the accepted claim should be interpreted as excluding strong resonances from biologically structured discrete SIR models in general.",
+        "title": "Complex dynamics of a discrete-time seasonally forced SIR epidemic model",
+        "trigger": "Later discrete-SIR work combining nonstandard discretization with strong-resonance bifurcation analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a22dd8f2-a29f-4c5b-b8fb-e2350ab141b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source presents strong resonances, quasiperiodicity, and chaos as dynamical features of a discrete epidemic model and constructs broad parameter diagrams to interpret those behaviors. The exact theorem shows that the whole unit-circle endemic boundary is separated from even the most elementary infected-positivity requirement, and the source's own global-diagram initial condition becomes negative in one step at its 1:3 resonance. This is a substantive structural boundary between polynomial-map bifurcation and epidemiologically admissible discretization, not merely a small numerical discrepancy.",
+    "status": "PASS"
+  }
+}
