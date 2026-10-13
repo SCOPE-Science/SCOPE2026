@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The candidate function is verified symbolically: each zero vertex has an explicit moving neighbor whose transfer remains Italian. Weight below three is impossible, and a complete weight-three case split proves uniqueness. The leaf transfer invoked by the published proof is Italian but not secure. Exhaustive computation independently checks the target and every smaller simple graph with a leaf.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lemma 1 asserts existence of an optimum labeling every leaf by 1 and its proof transfers one unit from a support labeled 2 to a leaf labeled 0.",
+        "Theorem 2 explicitly invokes Lemma 1 to normalize all leaves in a rooted product.",
+        "Later framework and survey sources retain the same transfer definition but do not provide an inspected correction of the leaf lemma."
+      ],
+      "reasoning": "General frameworks and surveys are broader in terminology, but they do not override the exact contradictory statement. The new witness directly falsifies the universal lemma.",
+      "searches": [
+        "full-text inspection of DOI 10.1007/s10878-020-00658-1 at Lemma 1 and Theorem 2",
+        "inspection of DOI 10.3390/sym12121948 for secure (2,0,0)-domination",
+        "inspection of DOI 10.3390/math12172771 secure Roman {2} section"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/s10878-020-00658-1",
+      "DOI:10.3390/sym12121948",
+      "DOI:10.3390/math12172771",
+      "targeted exact and semantic searches under secure Italian, secure Roman {2}, leaf, pendant, diamond, erratum, correction, and counterexample formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published lemma is universal, so one graph whose every optimum labels a leaf 0 is a decisive counterexample.",
+        "For the witness, the transfer from the support to the leaf is an IDF but fails SIDF security at another zero vertex.",
+        "No inspected correction or erratum was found."
+      ],
+      "reasoning": "This is not a special case already covered by a stronger theorem; it contradicts the prior universal statement. The counterexample pinpoints the invalid implication in the published proof.",
+      "searches": [
+        "compare the five-vertex witness directly against Lemma 1 of DOI 10.1007/s10878-020-00658-1",
+        "search for erratum correction counterexample to Secure Italian domination in graphs",
+        "compare the transferred leaf labeling with the SIDF definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper defines SIDFs by the same one-unit transfer rule and states the universal leaf-normalization lemma.",
+        "The secure w-domination framework identifies secure Italian domination with secure (2,0,0)-domination.",
+        "The 2024 survey identifies the equivalent secure Roman {2}-domination formulation."
+      ],
+      "reasoning": "The main name, the later framework name, the Roman {2} alias, and the graph-structure description were all compared. Different secure domination variants do not imply the transfer behavior at issue.",
+      "searches": [
+        "secure Italian domination leaf optimal function counterexample",
+        "secure Italian domination Lemma 1 leaves label 1",
+        "secure Roman {2} domination leaf counterexample",
+        "secure Italian domination diamond pendant vertex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved indexed finding states this counterexample or a correction of the leaf-normalization lemma.",
+        "Closest indexed records concern ordinary secure domination on chain or multipartite graphs and secure total domination, all with non-equivalent feasibility conditions."
+      ],
+      "reasoning": "The contradiction depends specifically on the secure Italian one-unit transfer preserving Italian domination but not security; records for ordinary secure domination do not imply it.",
+      "searches": [
+        "semantic published-finding search: secure Italian domination leaf optimal function counterexample",
+        "semantic published-finding search: secure Italian domination Lemma 1 leaves label 1",
+        "semantic published-finding search: secure Italian domination pendant leaf moving neighbour",
+        "semantic published-finding search: secure Italian domination diamond pendant leaf"
+      ]
+    },
+    "rationale": "The 2020/2021 foundational article states the opposite universal lemma. Direct statement comparison, alias searches, later-framework inspection, survey inspection, and correction/erratum searches did not reveal a prior counterexample or repair. Closest indexed records use different secure-domination notions.",
+    "residual_risks": [
+      "A differently phrased or non-indexed correction may exist.",
+      "The counterexample invalidates the lemma and its proof step but does not establish that downstream results depending on the lemma are false."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source states the contradicted lemma. Its leaf-zero proof step establishes that a transfer is Italian dominating and then asserts it is again a minimum SIDF; the witness shows the latter need not follow.",
+        "evidence": [
+          "Published online 28 October 2020 and classified 05C69.",
+          "Lemma 1 states that an optimum can label every leaf 1.",
+          "Theorem 2 explicitly invokes Lemma 1 for leaf normalization."
+        ],
+        "identifier_or_url": "DOI:10.1007/s10878-020-00658-1",
+        "material_read": "Open full-text article at the definition of SIDF, Lemma 1 and its proof, the rooted-product Theorem 2 proof, and later tree uses of Lemma 1.",
+        "method": "Primary full-text statement and proof-step comparison.",
+        "title": "Secure Italian domination in graphs",
+        "trigger": "Foundational source containing the exact universal lemma challenged by the witness."
+      },
+      {
+        "assessment": "Identifies secure Italian domination with secure (2,0,0)-domination and does not expose an inspected leaf-normalization correction.",
+        "evidence": [
+          "Published 25 November 2020.",
+          "The article explicitly identifies the secure Italian parameter as the (2,0,0) secure w-domination case."
+        ],
+        "identifier_or_url": "DOI:10.3390/sym12121948",
+        "material_read": "Open article definition and specialization list for secure w-domination.",
+        "method": "Alias and broader-framework comparison.",
+        "title": "Secure w-Domination in Graphs",
+        "trigger": "Broader framework containing secure Italian domination as a named special case."
+      },
+      {
+        "assessment": "Confirms the equivalent transfer formulation; no inspected correction of the leaf-normalization lemma was found.",
+        "evidence": [
+          "Published 7 September 2024.",
+          "The survey identifies secure Roman {2} as the secure (2,0,0) case."
+        ],
+        "identifier_or_url": "DOI:10.3390/math12172771",
+        "material_read": "Secure Roman {2}/secure w-domination survey section and surrounding definitions.",
+        "method": "Later-literature alias and correction-risk check.",
+        "title": "Survey on Roman {2}-Domination",
+        "trigger": "Later survey using the secure Roman {2} alias and capable of recording corrections."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4808ebe1-efd3-4830-8ad2-6a94f064fe7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The contradicted statement is a structural normalization lemma in the foundational paper and is explicitly used in a hardness proof and later tree arguments. A smallest-order counterexample isolates exactly why the transfer argument fails, giving a meaningful correction target rather than a routine numerical computation.",
+    "status": "PASS"
+  }
+}
