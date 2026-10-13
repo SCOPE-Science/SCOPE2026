@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: Proof parts 1-4",
+      "verify.py: exhaustive, independent_cycle_formula, independent_integral_formula",
+      "arxiv:0907.5351v1: cycle expectation identity (input, independently rederived)"
+    ],
+    "rationale": "An exact Ewens tagged-cycle beta-binomial mixture yields the integral expectation after integration by parts. Differentiation of finite theta-weighted sums gives Cov(K,E)=theta*d/dtheta E[E]. For even n the resulting integral is strictly negative. For odd n, its two signed halves have a strictly decreasing ratio in theta because their supports lie on opposite sides of 1/2; strict concavity proves positivity at theta=1 and a support bound proves negativity at large theta. Hence the crossover exists, is unique and exceeds 1. Uniform endpoint Laplace estimates give theta_n->1 and (theta_n-1)log n-log log n->0. The included standard-library verifier checks 56 exact moment identities via complete permutation enumeration at n=2..8, 64 rational sign cases, and seven numerical crossover brackets. Numerical evidence is corroboration only.",
+    "risks": [
+      "Independent scientific audit not performed.",
+      "Laplace asymptotics use compact-parameter uniformity, justified by exponential domination near the two endpoints; no unverified numerical step is used to prove the limit."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lugo section 1 Lemma 1.2 and section 2 Proposition 2.4 show the single-length expected cycle counts, and section 3 conditions on all cycle lengths being odd or even.",
+        "Maples et al 2012 sections 1 and 3 give total-cycle counting distributions and central-limit machinery but do not analyze even-cycle mass covariance."
+      ],
+      "reasoning": "The known arbitrary-cycle-mean formula is a source ingredient and yields the exact finite expectation after summation; it does not imply an all-theta sign pattern or crossover uniqueness by a mere parameter substitution. The general weighted-cycle CLT concerns a different observable and scaling.",
+      "searches": [
+        "Lugo Profiles of permutations sections 1-3 arxiv:0907.5351v1",
+        "Maples Nikeghbali Zeindler On the number of cycles in a random permutation arxiv:1203.4132v1",
+        "Ewens even-length cycles expectation theta",
+        "exponential family covariance Ewens cycle count even cycle sizes length"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0907.5351v1 (original preprint HTML, first publicly submitted 2009-07-30)",
+      "arxiv:1203.4132v1 (original preprint HTML, first publicly submitted 2012-03-19)",
+      "Electronic Journal of Combinatorics 16(1) R99 article page (bibliographic corroboration)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lugo formula can be summed to give E[E] but not the explicit sign crossover without an additional variation-diminishing argument.",
+        "Maples total cycle count moments do not determine the mixed covariance with even-cycle mass.",
+        "A prior long-cycle cutoff-count covariance concerns the number of cycles above a length threshold and does not imply the parity-mass sign theorem."
+      ],
+      "reasoning": "The implication comparison separates the classical complete marginal expectation from the new strict derivative-sign, uniqueness, and asymptotic-root results. The general fixed-j formula is acknowledged as logically sufficient for computing the covariance symbolically, but deriving the qualitative all-parameter theorem is the nontrivial new mathematical analysis.",
+      "searches": [
+        "Lugo 2009 Proposition 2.4 expected j-cycle count: arxiv:0907.5351v1",
+        "Maples et al 2012 cycle-count CLT: arxiv:1203.4132v1",
+        "Ewens permutation parameter theta covariance number of cycles and number of points in even-length cycles sign change odd n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tagged-cycle evenness is equivalent to the mass statistic under exchangeability; the mixture formula and covariance-as-parameter-derivative are derived in RESULT.md.",
+        "Lugo 2009 arXiv:0907.5351v1 Proposition 2.4 computes single-cycle means, not the parity-crossover classification."
+      ],
+      "reasoning": "Search and statement-level comparison included even-cycle mass, beta-binomial tagged cycle parity, differential expectation in theta, and number-of-cycles covariance. The new theorem is not merely an alternative name for a fixed-cycle expectation: its unique crossing and scale require a separate strict support-ratio lemma.",
+      "searches": [
+        "Ewens permutation parameter theta covariance number of cycles and number of points in even-length cycles sign change odd n",
+        "cycle of tagged element Ewens beta binomial even parity unimodality",
+        "Ewens parameter even length monotone expected points",
+        "Ewens even cycles covariance number of cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No table for unique real theta crossover parameters was located by those searches.",
+        "The exact case theta_3=sqrt(2) is obtained from the rational finite expression; all n=3..101 numerical values are checks rather than an exhaustive database."
+      ],
+      "reasoning": "This is a continuous-parameter sign theorem over all odd orders, not a finite classification reducible to an existing small-parameter table. Lack of a search hit is acknowledged only as incomplete negative evidence.",
+      "searches": [
+        "Ewens even cycles covariance",
+        "Ewens even length expectation theta monotonic",
+        "Ewens sampling even cycle total length expected value parity parameter monotonicity"
+      ]
+    },
+    "rationale": "Inspected Lugo 2009 sections 1-3 (specifically Lemma 1.2, Proposition 2.4 and the restricted-parity section) and Maples-Nikeghbali-Zeindler 2012 sections 1 and 3. Lugo supplies the general fixed-cycle expectation from which the mean even mass is summable, but it neither states nor directly proves the theta-dependent, n-parity covariance sign theorem and its unique crossover with logarithmic boundary layer. Maples et al treat total-cycle CLTs under cycle weights. An earlier cutoff-count covariance result concerns the number of cycles above a length threshold, not even-cycle total vertex mass, and does not imply the unique parameter threshold. Search failures alone are not used as proof of priority. Residual risk is indirect coverage by a broad parity-statistic treatment.",
+    "residual_risks": [
+      "The tagged-cycle beta-binomial and complete marginal means are classical; historical papers with broader parity functionals may imply the specific strict sign law without explicitly naming it.",
+      "Published coverage outside the inspected primary papers and semantic searches cannot be exhaustively ruled out; independent priority review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers expected individual cycle counts and conditioned parity-restricted permutations. Does not state unrestricted-permutation even-cycle vertex-mass covariance with K, its unique theta threshold, or logarithmic threshold scaling.",
+        "evidence": [
+          "arxiv:0907.5351v1, lines 37-79 and 133-175 (cycle means), 280-339 (parity-restricted section)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0907.5351v1",
+        "material_read": "Full HTML introduction, section 1 Lemma 1.2, section 2 Propositions 2.2-2.6 and Theorem 2.7, and section 3 parity-constrained results including Propositions 3.1-3.4 and Theorem 3.5",
+        "method": "Opened author preprint HTML, compared observables and hypotheses at theorem and proof level",
+        "title": "Profiles of permutations",
+        "trigger": "Same Ewens cycle structure, explicit odd and even cycle sections and exact expectation formula"
+      },
+      {
+        "assessment": "Addresses total-cycle CLT and moment estimates for cycle-weight families, not even-cycle vertex mass or its mixed covariance classification.",
+        "evidence": [
+          "arxiv:1203.4132v1, lines 48-109 and 399-413"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1203.4132v1",
+        "material_read": "Full HTML organization and main results in sections 1 and 3, including Theorem 1.1, Proposition 1.4 and Corollary 3.5",
+        "method": "Opened open-access arXiv HTML and compared random variable, parameters and conclusions",
+        "title": "On the number of cycles in a random permutation",
+        "trigger": "Primary 60C05 analysis of generalized Ewens total cycle count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6eb3b094-1f86-4f9a-b01e-8d0187edaec9",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "RESULT.md: Theorem and strict support-ratio proof",
+      "Lugo 2009: background motivation of length-parity structures",
+      "Maples et al 2012: relevance of cycle-count behavior to weighted permutations"
+    ],
+    "rationale": "The central statistics capture complementary features of the same random partition: global cycle complexity and the vertex mass belonging to a parity-defined class. The theorem gives a nontrivial all-order sign dichotomy, a unique finite-parameter transition in odd orders, and a sharp (log log n)/(log n) boundary for its location. These properties are not ordinary one-line consequences of cycle-count marginals and can inform sensitivity of parity composition to Ewens cycle-weight tuning.",
+    "risks": [
+      "The theorem does not yield a joint limit distribution or a direct application beyond the structural dependence profile; its value is a self-contained exact probabilistic classification."
+    ],
+    "status": "PASS"
+  }
+}
