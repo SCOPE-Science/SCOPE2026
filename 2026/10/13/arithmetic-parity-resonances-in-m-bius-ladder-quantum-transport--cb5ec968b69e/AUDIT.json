@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Fourier adjacency eigendecomposition was reconstructed; strict parity-monotonicity gives a single two-cosine unit-gap equation. Conway–Jones Theorem 7 eliminates all irrational unit-gap pairs, and the rational cases yield precisely m=2 mod 4 or m=3 mod 6. The detector eigenbasis ranks (one or two sinks) yield exact limiting mixed-state absorption via dissipativity, while equal-energy spectral projections yield the coherent averages and correction factors. All boundary cases m>=3, J nonzero, and absorber strengths strictly positive are handled analytically. The included full executable verifier checks exact cyclotomic collisions and rational formulas for 28 values, detector ranks in 24 cases and no-jump dynamics in four; these finite observations are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agliari, Mülken and Blumen study trapping on ordinary rings and general transport; those ring results have no antipodal chord.",
+        "Xu studies transport and trapping of a long-range cycle with doubled antipodal displacement in the limiting case, not the simple cubic graph.",
+        "Conway and Jones prove a general trigonometric rational-relation classification, which is applied here; they do not discuss graph trapping."
+      ],
+      "reasoning": "The general spectral-projector mechanism and the cosine classification together make the proof possible, but none of the materially inspected broader papers asserts the complete ladder-size congruence conditions and linked opposite-absorber and return-asymmetry formulas. Existing tools in combination should not be mistaken for an independent presentation of the evaluated theorem.",
+      "searches": [
+        "Continuous-time quantum walk of a single excitation on lollipop or complete-graph-with-path networks: dark states, absorbing vertex, spectral observability",
+        "Möbius ladder quantum walk trapping absorption perfect transfer return time averaged probability bright eigenspace 3 mod 6 2 mod 4",
+        "arXiv:0903.3288v1",
+        "arXiv:0812.3452v1",
+        "doi:10.4064/aa-30-3-229-240"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0812.3452v1 (full primary text inspected)",
+      "arXiv:0903.3288v1 (relevant model/trap material inspected)",
+      "Conway and Jones 1976 Theorem 7 (primary PDF theorem pages inspected)",
+      "Abreu et al. 2014 Example 2.9 (entire example inspected)",
+      "Norman Biggs, Algebraic Graph Theory §3e (partial excerpts; NOT fully inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known spectral inputs: eigenvalues 2cos(pi*k/m)+(-1)^k and the general sink-visible eigenspace criterion.",
+        "Newly established combination: the mixed-parity collision equation has only m congruent 2 mod 4 or 3 mod 6 solutions; no two sizes of defect coexist.",
+        "The resulting special eigenspace is detected with rank one at a single vertex and rank two with antipodal detectors; coherent averages distinguish the two residue types with factors 1 and 2."
+      ],
+      "reasoning": "The arithmetically evaluated iff result is not a trivial restatement of a cosine eigenvalue formula. It requires correctly applying a non-elementary trigonometric classification and reconstructing how parity affects both loss and coherent interference; this is not claimed as a new general spectral principle. A hidden stronger theorem or book passage remains a residual novelty risk.",
+      "searches": [
+        "Möbius ladder graph continuous-time quantum walk with one absorbing vertex: exact visible eigenvalue count, coincident even and odd Fourier branches, modular conditions m congruent 3 mod 6 or 2 mod 4",
+        "Exact spectral collision classification for Möbius ladder C_{2m}(1,m): cosine even odd crossing, quantum trapping absorption probability vertex-local sink, distinct adjacency eigenvalues",
+        "Conway Jones Theorem 7 trigonometric diophantine rational cosine sums",
+        "arXiv:0812.3452v1",
+        "2014 Teoria Espectral de Grafos Example 2.9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For ordinary CTQW on a graph, survival against a local absorbing projector is controlled by detector-visible eigenspaces, and infinite-time return depends on degeneracy-weighted spectral projectors.",
+        "The 2014 graph-spectra textbook gives precisely the Fourier values 2cos(pi*k/m)+(-1)^k but not an evaluated arithmetic count of parity crossings, absorption or average differences.",
+        "arXiv:0812.3452v1 uses a four-neighbor long-range cycle Hamiltonian rather than a singly connected antipodal rung."
+      ],
+      "reasoning": "Equivalent-language checks included cyclic graph CTQW, Möbius ladder, absorbing vertex, dark eigenstates, frequency collisions and time-average return. The source spectral formula is an essential antecedent; the claimed modular classification and two-detector comparison are not stated in its inspected Example 2.9 or the quantum-transport paper.",
+      "searches": [
+        "Möbius ladder graph continuous-time quantum walk with one absorbing vertex: exact visible eigenvalue count, coincident even and odd Fourier branches, modular conditions m congruent 3 mod 6 or 2 mod 4",
+        "Exact spectral collision classification for Möbius ladder C_{2m}(1,m): cosine even odd crossing, quantum trapping absorption probability vertex-local sink, distinct adjacency eigenvalues",
+        "Mobius ladder continuous time quantum walk exact return antipodal degeneracies cos parity collisions trapping single vertex",
+        "arXiv:0812.3452v1",
+        "Abreu Del-Vecchio Trevisan Vinagre Example 2.9 Möbius ladder"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A separate fixed-order spectral reference table concerns 29-vertex six-regular circulants, not the cubic Möbius ladders studied here.",
+        "Abreu et al. Example 2.9 writes the exact eigenvalues but gives no enumeration of repeated eigenvalues, detector ranks, trapped probabilities or return-asymmetry table.",
+        "Exact cyclotomic remainder checks in verify.py corroborate 28 ladders, but do not themselves establish literature priority."
+      ],
+      "reasoning": "An exact spectral-expression entry is an antecedent, but its text does not resolve the collision arithmetic or operational absorber invariants; distinct graph tables do not subsume the claimed theorem.",
+      "searches": [
+        "Möbius ladder adjacency eigenvalues coincidence distinct eigenvalues m mod 6 m mod 4",
+        "2014 Teoria Espectral de Grafos Example 2.9"
+      ]
+    },
+    "rationale": "Direct comparison with the materially inspected Möbius-ladder textbook formula, Xu and Agliari open-access quantum-transport papers, Conway–Jones theorem and targeted public literature searches did not identify the exact combined modular collision/absorber/return classification. The eigenvalue formula, general sink mechanism, and trigonometric theorem are clearly acknowledged. An incompletely inspected Biggs chapter and unknown equivalent specialized treatment remain risks; no absolute uniqueness claim is made.",
+    "residual_risks": [
+      "The full Biggs algebraic-graph-theory book and its §3e passage could not be read; spectrum formula is known, and an uninspected remark may be stronger.",
+      "An equivalent classification may be derivable or published under quantum walk revival or spectral graph alias terminology; search nonappearance does not prove novelty.",
+      "The argument relies on the published Conway–Jones theorem rather than reproducing its full trigonometric classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Mechanism and setting are prior; no evaluated cubic Möbius-ladder congruence classification identified",
+        "evidence": "Its cycle family adds distinct displacements plus and minus m; when m equals half the cycle length those indices coincide, giving a counted-twice link rather than the cubic rung used here.",
+        "identifier_or_url": "arXiv:0812.3452v1; https://arxiv.org/pdf/0812.3452",
+        "material_read": "Full 9-page public PDF, including Hamiltonian model, Bloch energies, trap and return-average discussion",
+        "method": "Opened open-access arXiv PDF; inspected model and claimed transport results and compared the opposite-link term with a singly counted Möbius rung",
+        "title": "Coherent exciton transport and trapping on long-range interacting cycles",
+        "trigger": "Potential same quantum trapping and time-average result for circulant cycles"
+      },
+      {
+        "assessment": "General phenomenon and ordinary ring results are prior; no opposite-chord ladder modular classification found",
+        "evidence": "Ordinary cycle traps and their asymptotic behavior do not account for the rung-induced mixed-parity Fourier collisions.",
+        "identifier_or_url": "arXiv:0903.3288v1; https://arxiv.org/pdf/0903.3288",
+        "material_read": "Abstract, graph/trap model, methods and ring trapping discussion in accessible PDF",
+        "method": "Opened open-access arXiv PDF and inspected relevant trapping/graph formulas",
+        "title": "Continuous-Time Quantum Walks and Trapping",
+        "trigger": "Potential general absorber/trap theorem that dominates graph result"
+      },
+      {
+        "assessment": "Theorem 7 supports the only exceptional two-cosine rational relation; it predates but does not claim the graph transport result",
+        "evidence": "The only irrational two-cosine rational relation has half-unit rational value up to reflection/sign; it cannot yield the required unit gap.",
+        "identifier_or_url": "doi:10.4064/aa-30-3-229-240; https://mathweb.ucsd.edu/~tgrubb/trig_dio.pdf",
+        "material_read": "Theorem 7 and surrounding classification in the original 7-page accessible PDF, pages containing theorem and cases",
+        "method": "Opened primary PDF and visually inspected theorem pages",
+        "title": "Trigonometric diophantine equations (On vanishing sums of roots of unity)",
+        "trigger": "The nonstandard two-cosine arithmetic lemma in the general proof"
+      },
+      {
+        "assessment": "Explicitly gives adjacency Fourier formula and graph definition but no absorption, coherent time averages or cross-parity congruence classification",
+        "evidence": "Example 2.9: M_h=Ci(2h;1,h) is cubic and lambda_k=2cos(k*pi/h)+(-1)^k; exposition immediately proceeds to hyperoctahedron.",
+        "identifier_or_url": "https://livrozilla.com/doc/752670/; 2014, Example 2.9",
+        "material_read": "Complete Example 2.9 at transcription lines 1635-1687, plus immediately following Example 2.10; 2014 front matter",
+        "method": "Opened accessible full text and directly compared spectrum formula and neighboring exposition",
+        "title": "Teoria Espectral de Grafos — Uma Introdução",
+        "trigger": "Exact source reproducing the same cubic Möbius-ladder eigenvalues"
+      },
+      {
+        "assessment": "Standard eigenvalue formula credited; no whole-chapter NOT_COVERING claim is made",
+        "evidence": "The available excerpt names the Möbius-ladder graph spectral formula; a chapter-length overlap check remains unresolved.",
+        "identifier_or_url": "Norman Biggs, Cambridge University Press, §3e, 1974; available excerpt",
+        "material_read": "Available indexed excerpts and spectral formula references; full relevant chapter unavailable",
+        "method": "Searched and attempted lawful online access; full book could not be materially inspected",
+        "title": "Algebraic Graph Theory",
+        "trigger": "Potential stronger prior coverage of cubic Möbius ladder spectrum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb5ec968-b69e-48d2-94f3-1c6b8cdd9010",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete evaluated infinite-family classification answers exactly when two physically natural transport measurements differ. It identifies nontrivial interference-induced trapping geometry and an exact detection placement correction tied to return-versus-antipode localization. The result handles every size m>=3 with one concise modular law rather than an arbitrary finite or parameter slice, and the graph is a standard cubic quantum transport network. No unproved application beyond the specified model is asserted.",
+    "status": "PASS"
+  }
+}
