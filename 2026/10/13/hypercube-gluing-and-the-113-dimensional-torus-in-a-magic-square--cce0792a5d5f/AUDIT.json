@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The four paired diagonal equations split the center-zero divisor into sixteen reduced elliptic quartic sheets over the smooth two-quadric base. Each base coordinate has exactly four distinct zeros, with no pair vanishing; hence exactly 128 two-component intersections. Analytic elimination yields an A1 surface equation whose center hyperplane is an ordinary node. The graph is connected 4Q4 and has first Betti number 113, independently consistent with arithmetic genus 129 by adjunction. For the sign action, four node orbits per coordinate direction have stabilizer of order two reversing oriented edges; character induction gives multiplicities 4|S|-1. An extracted standalone checker verifies exact graph/Fourier arithmetic and finite-field base geometry, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Auel--Singer section 5 proves global rank-518 Picard lower bound from a 1204-divisor intersection matrix on the minimal resolution; the current nodal curve is a distinct singular Cartier hyperplane section and the claim concerns its semiabelian Picard identity component.",
+        "Caporaso--Viviani provides a theorem for all nodal curves, conditional on the dual graph; no base-curve graph specified."
+      ],
+      "reasoning": "No inspected stronger statement determines both the node-by-node four-cube gluing and the sign-isotypic character. The ambient resolution intersection matrix cannot alone be identified with the nodal dual graph; all the relevant node intersections disappear as strict-transform intersections after resolving the surface A1 points.",
+      "searches": [
+        "3x3 magic squares of squares surface Auel Singer rank 518 Picard group automorphism quotient geometry 2026",
+        "Auel--Singer arXiv:2609.09351v1 sections 3.2 and 5; Singer companion Magma README.md",
+        "nodal reducible 16 elliptic curves intersection hypercube Picard torus rank"
+      ]
+    },
+    "checked_sources": [
+      "Auel--Singer, arXiv:2609.09351v1, Sections 1.3, 3.2, 5 (complete relevant primary paper inspected).",
+      "Caporaso--Viviani, arXiv:0904.4039v4, Sections 3.0.4--3.1 (standard generalized Jacobian and dual graph).",
+      "Singer companion repository: README.md and Comps.m opening component data read; IntersectionMatrix.m exists but complete dense data not inspected.",
+      "2026/10/4/SCOPE-orbit-incidence-structure-of-the-128-known-conics-on-the-magic-s--41a8fbd7b44e",
+      "2026/10/4/SCOPE-the-128-known-rational-conics-form-one-automorphism-orbit--3e2b0ddebea8",
+      "2026/10/4/SCOPE-uniform-klein-four-quotient-description-for-all-magic-octic-dode--266ff2a5e6f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3.3 implies existence and elliptic types of 16 components, not their pairwise intersection cardinalities.",
+        "Caporaso--Viviani implies rank equal to graph b1 after the graph is computed but supplies neither this graph nor the G action.",
+        "Auel--Singer §5 computes intersections between strict transforms on a desingularization and does not state the rational sign-character multiplicities 3,7,11,15."
+      ],
+      "reasoning": "The exact implication comparison is: decomposition plus generic nodal-Jacobian theorem yields only a conditional answer given the incidence graph; the new explicit four-point-per-cube-edge proof provides the missing incidence input, and equivariant oriented-edge induction yields the character formula. The entire answer is not an already stated corollary/special case of a source carrying the needed graph data.",
+      "searches": [
+        "Auel--Singer Proposition 3.3; §5 intersection formula and full text",
+        "Caporaso--Viviani §3.0.4; §3.1",
+        "magic-square-of-squares middle zero hyperplane 16 elliptic curves 128 intersection nodes hypercube graph mixed Hodge generalized Jacobian 113"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Auel--Singer Proposition 3.3 (arXiv:2609.09351v1) gives the 16 smooth elliptic components, but no dual nodal graph, Picard torus rank or its rational G-character.",
+        "Caporaso--Viviani arXiv:0904.4039v4 §3.0.4 gives the general semiabelian normalization sequence, not a fixed hyperplane section calculation."
+      ],
+      "reasoning": "Aliases include center-zero, M=0, elliptic boundary, dual graph, node multigraph, sign-change representation, generalized Jacobian and torus character. Existing elliptic decomposition plus general theory alone does not specify branch incidence of each component pair and the induced rational character on graph cycles.",
+      "searches": [
+        "magic-square-of-squares middle zero hyperplane 16 elliptic curves 128 intersection nodes hypercube graph mixed Hodge generalized Jacobian 113",
+        "Auel Singer center-zero magic square curve Picard generalized Jacobian dual graph 4 hypercube",
+        "web: \"magic square of squares surface center zero divisor intersection graph elliptic components 128\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Singer repo README describes the full 1204-by-1204 intersection matrix and reproduction files but does not state an equivariant generalized-Jacobian character.",
+        "The first retrieved Comps.m entries are geometric divisor equations; the full dense matrix was not materially read.",
+        "Published related finding on 128 conic incidence counts a different collection of curves."
+      ],
+      "reasoning": "No identified exact tabulation of the 16 elliptic components’ original node multigraph or torus representation. The complete author computation has not been exhausted and remains a specific originality risk, rather than evidence of noncoverage.",
+      "searches": [
+        "magic-square-of-squares middle zero hyperplane 16 elliptic curves 128 intersection nodes hypercube graph mixed Hodge generalized Jacobian 113",
+        "Singer repo README.md; Comps.m first 95 lines; IntersectionMatrix.m retrieval of first 95 lines",
+        "published-finding corpus: Auel Singer center-zero magic square curve Picard generalized Jacobian dual graph 4 hypercube"
+      ]
+    },
+    "rationale": "The initiating source gives sixteen elliptic components but not the original-section nodal gluing graph or any semiabelian torus sign character. A direct intersection and local-analytic calculation supplies the previously unspecified 128-node four-cube multigraph, and equivariant graph-chain analysis gives all 15 sign multiplicities. General nodal-Jacobian theory provides a conditional method only. No covering claim was identified in focused mathematical literature, the published-result searches, or the accessible historical claim records; unresolved exact data in the authors’ full computational repository is acknowledged.",
+    "residual_risks": [
+      "The authors’ complete 1204-by-1204 Magma intersection data and full component-equation set were not exhaustively read; they may indirectly encode some of the nodal incidence assertions.",
+      "Other historical calculations of the center-zero curve or equivariant generalized Jacobian might exist under different terminology. Search absence is not definitive proof of priority.",
+      "The source papers supply general theory; the claim is a new specialized computation, not a new general theorem about every nodal curve."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers 16 elliptic components and ambient Picard lattice; no stated original hyperplane nodal multigraph or equivariant generalized Jacobian character",
+        "evidence": [
+          "Section 3.2 pp. 16--19: Proposition 3.3, 16 smooth elliptic quartics",
+          "Section 5 pp. 39--40: only strict-transform intersection formula and rank computation",
+          "arXiv submission history 2026-09-08 UTC"
+        ],
+        "identifier_or_url": "arxiv:2609.09351v1; https://math.dartmouth.edu/~auel/papers/docs/AS_magic.pdf",
+        "material_read": "Full relevant Section 3.2 including Proposition 3.3, Section 5 including proof and limitations of the 1204-curve intersection matrix, singular locus descriptions, related source overview and references",
+        "method": "Original 43-page PDF text and relevant page images inspected",
+        "title": "The algebraic geometry of 3-by-3 magic squares of squares",
+        "trigger": "Exact same magic-square surface and center-zero hyperplane; closest primary source"
+      },
+      {
+        "assessment": "Establishes general nodal-curve torus extension and graph-cycle character lattice, not application to this center-zero divisor",
+        "evidence": [
+          "Section 3.0.4 explicit sequence J(X) with torus of rank b1(dual graph)",
+          "Section 3.1.1 explicit chain boundary and H1(dual graph)"
+        ],
+        "identifier_or_url": "arxiv:0904.4039v4",
+        "material_read": "Section 3.0.4--3.1.1 and Introduction concerning semiabelian generalized Jacobians; inspected arXiv primary PDF",
+        "method": "Primary PDF text, Section 3 around pages 14--15",
+        "title": "Torelli theorem for stable curves",
+        "trigger": "Standard normalization-to-generalized-Jacobian exact sequence and torus character lattice"
+      },
+      {
+        "assessment": "Computes ambient divisor geometry and some relevant component equations; complete data not ruled out as indirectly encoding incidences. No inspected description of a G-equivariant generalized Jacobian.",
+        "evidence": [
+          "README.md states 1204-by-1204 Picard intersection matrix",
+          "Comps.m lists component equations, not the stated torus character formula"
+        ],
+        "identifier_or_url": "https://github.com/BenSinger2005/A-Geometric-Approach-to-3-x-3-Magic-Squares-of-Squares",
+        "material_read": "README.md and opening 95 lines of Comps.m, with metadata/existence of IntersectionMatrix.m; not the complete matrix",
+        "method": "Read published repository files and documentation without execution",
+        "title": "A Geometric Approach to 3 x 3 Magic Squares of Squares (accompanying Magma code)",
+        "trigger": "Source paper cites associated complete computational intersection matrix, which could imply some incidence data"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cce0792a-5d5f-4cb5-ad49-90eff9e5b261",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The center-zero section and its elliptic components are singled out by the source’s arithmetic geometry. Its exact nodal boundary combinatorics and torus-character spectrum are intrinsic semiabelian invariants of a natural genus-129 degeneration: the normalization alone leaves the 113-dimensional torus and its fifteen nontrivial sign multiplicities undetermined. The result can inform further boundary-monodromy and intermediate-quotient analysis without claiming any unproved application. It is more than a trivial component recount; no extension-class computation or classification of other divisors is claimed.",
+    "status": "PASS"
+  }
+}
