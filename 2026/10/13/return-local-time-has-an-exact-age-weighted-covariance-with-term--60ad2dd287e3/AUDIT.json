@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For each return time k, conditioning on S_k=0 replaces the terminal position by an independent centered future sum of n-k increments, whose expected squared norm is (n-k) tau. Subtracting the unconditional n tau gives the exact local covariance -k tau P(S_k=0), and summation proves the general theorem. For simple walk, the central-binomial return probabilities, two finite binomial identities, a convolution calculation for local-time variance, and the fourth endpoint moment give the displayed closed form and correlation. The packaged checker independently enumerates all simple-walk paths through length 18 and a nonsymmetric centered three-point walk, and replays the symbolic identities exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Csáki--Csörgő--Földes--Révész define the same simple symmetric random-walk local time and study strong approximation of the centered local-time process by Brownian objects.",
+        "The paper lists primary MSC 60J55 and 60G50 and treats return times and excursions at the origin explicitly."
+      ],
+      "reasoning": "This is broader and deeper than the present result for asymptotic local-time approximation, but it does not state a theorem that determines the finite covariance with terminal squared displacement. The present calculation depends on the age-resolved interaction of a return event with the independent future.",
+      "searches": [
+        "arXiv:0709.0389",
+        "DOI:10.1214/08-AIHP173",
+        "random walk local time Brownian sheet origin strong approximation"
+      ]
+    },
+    "checked_sources": [
+      "Csáki, Csörgő, Földes, and Révész, arXiv:0709.0389, metadata and abstract.",
+      "Csáki, Csörgő, Földes, and Révész, DOI 10.1214/08-AIHP173, public full PDF with targeted whole-document searches.",
+      "Previously derived local-time, occupation, last-zero, and endpoint statements, compared at claim level.",
+      "Previously derived random-walk endpoint and local-time statements, compared at claim level.",
+      "Published-record web searches for local-time/terminal-square covariance aliases and exact constants."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously derived exact regression concerns positive occupation versus zero local time, not terminal energy.",
+        "A previously derived theorem concerns maxima and odd endpoint transforms under reversal/sign symmetry, not even endpoint energy or local time.",
+        "A previously derived finite-walk result concerns last-zero time and positive occupation, not the count of all returns against endpoint energy."
+      ],
+      "reasoning": "None of the checked claims implies the age-weighted return sum. The new proof conditions on each exact return event and uses only the second moment of the independent post-return future.",
+      "searches": [
+        "own zero local time positive occupation regression",
+        "own random walk maximum terminal endpoint covariance",
+        "own finite-lattice last zero positive occupation",
+        "published simple random walk local time strong approximation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic database searches returned random-walk maxima, cover-time, and local-time-adjacent findings but no return-local-time/terminal-energy statement.",
+        "Targeted web searches for covariance, endpoint square, and return-probability aliases found background local-time sources but no displayed equivalent identity."
+      ],
+      "reasoning": "The searches cover the mixed moment itself, the terminal-energy alias, the origin-local-time alias, and the return-probability expansion. Originality is not inferred from failed search alone; the closest same-object full text was inspected separately.",
+      "searches": [
+        "random walk local time endpoint squared displacement covariance exact return probabilities",
+        "simple random walk zero local time endpoint square covariance",
+        "\"Cov\" \"local time\" \"S_n^2\" simple random walk",
+        "\"covariance\" \"local time at zero\" squared random walk",
+        "\"local time\" \"terminal square\" random walk covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact symbolic match for the finite covariance or limiting correlation was located.",
+        "The result is an all-horizon theorem; exhaustive enumeration is used only as verification."
+      ],
+      "reasoning": "The queries target both the general covariance notation and the two distinctive simple-walk constants, reducing the risk of a notation-only miss.",
+      "searches": [
+        "\"Cov(L_n,S_n^2)\" random walk",
+        "\"local time\" \"S_n^2\" random walk",
+        "\"2N(2N+1)\" local time random walk covariance",
+        "\"1/(3 sqrt(pi-2))\" random walk local time"
+      ]
+    },
+    "rationale": "The closest inspected full primary source studies the same origin local time for simple symmetric random walk but develops strong approximations of the local-time field rather than finite mixed moments with terminal squared displacement. Statement-level searches for local-time/terminal-energy covariance and return-probability formulations produced no equivalent theorem. A previously derived zero-local-time result couples local time to positive occupation time; it does not imply the endpoint-energy identity because the proof here uses a distinct conditional second-moment argument. A previously derived maximum-endpoint path-symmetry theorem concerns extrema and odd endpoint transforms, not return local time or even quadratic terminal energy.",
+    "residual_risks": [
+      "Classical Green-function or additive-functional literature may encode the same covariance without using terminal-energy or covariance terminology.",
+      "The simple-walk limiting correlation could be derivable from an older joint transform of local time and endpoint that was not surfaced by the searches.",
+      "The full inspected local-time paper is primarily asymptotic, so an older finite combinatorial source remains the main originality risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_LOCAL_TIME_NOT_TERMINAL_ENERGY_COVARIANCE",
+        "evidence": "The paper defines the local time as the number of visits, develops strong approximation of the local-time field, and discusses return times and excursions. Document-wide searches found no occurrence of terminal-energy language or an S_n^2 mixed covariance formula.",
+        "identifier_or_url": "DOI:10.1214/08-AIHP173",
+        "material_read": "Public full PDF: title/abstract, introduction and main-result setup, origin-return/excursion definitions, plus document-wide searches for terminal, squared, S_n^2, and covariance.",
+        "method": "Compared definitions, target random-walk law, local-time observable, theorem statements, and searched the complete text for the mixed endpoint-energy statistic.",
+        "title": "Random walk local time approximated by a Brownian sheet combined with an independent Brownian motion",
+        "trigger": "Closest full primary source using the same one-dimensional simple-walk local time at the origin."
+      },
+      {
+        "assessment": "ARCHIVE_DATE_AND_SOURCE_IDENTITY",
+        "evidence": "The arXiv record is first submitted on 2007-09-04 and states the same local-time approximation program.",
+        "identifier_or_url": "arXiv:0709.0389",
+        "material_read": "ArXiv metadata and abstract, including first-submission timestamp 2007-09-04.",
+        "method": "Verified public-date anchor and source identity against the journal version.",
+        "title": "Random walk local time approximated by a Wiener sheet combined with an independent Brownian motion",
+        "trigger": "Earliest verified public version of the same primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60ad2dd2-87e3-460f-8eb3-4def2d42ac7c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Origin local time and terminal displacement are canonical observables of a random walk, but their dependence is not visible from either marginal theory. The theorem gives a distribution-free finite identity for every centered iid increment law, resolves the sign into an age-weighted return profile, and in the classical simple walk yields a nonzero limiting correlation with an explicit constant. This is a structural dependence law rather than a finite table or a one-parameter numerical coincidence.",
+    "status": "PASS"
+  }
+}
