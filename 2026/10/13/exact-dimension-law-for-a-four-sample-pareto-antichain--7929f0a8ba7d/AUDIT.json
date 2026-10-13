@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Uniform independent rank permutations follow from four iid atomless samples and independent coordinate components. Six forbidden nonreversal events give exact inclusion-exclusion in the remaining d−1 coordinate orders; all 64 subsets and 24 permutations are exhaustively processed in the finite linear-extension table. The checker reproduces the table, a separate dynamic recurrence for d<=12, and direct tuples d<=5. A coordinate-appending coupling proves strict increase for all d, and the explicit formula gives the majority threshold and the asymptotic. Checked ranges are stated; computations are not substituted for the all-d derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Răducan et al. (2022), Introduction, explicitly say the sample comparable-pair probability for product-uniform cubes in dimensions at least three is unknown to them, contrasting the d=2 answer; their article otherwise treats leader/anti-leader events and asymptotics.",
+        "Their references mention Barndorff-Nielsen and Sobel (1966) on distribution of numbers of maximal points and say the older paper obtained asymptotic first two moments. The 1966 full text was not inspected."
+      ],
+      "reasoning": "The 2022 paper supplies exactly the higher-dimensional comparable-pair motivation, but no formula for its n=4 specialization. The old frontier-size literature might implicitly or explicitly yield an equivalent special case; no noncoverage claim is made for inaccessible full text.",
+      "searches": [
+        "Barndorff Nielsen Sobel distribution number of maxima in random sample n=4 independent coordinates exact d dimensional finite combinatorial formula",
+        "number maximal points n four dimensions probability all four maxima complete formula",
+        "https://www.researchgate.net/publication/360506327_On_the_Probability_of_Finding_Extremes_in_a_Random_Set",
+        "Barndorff-Nielsen Sobel 1966 distribution of number of admissible points random vector sample"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math10101623",
+      "https://www.researchgate.net/publication/360506327_On_the_Probability_of_Finding_Extremes_in_a_Random_Set",
+      "https://oeis.org/A007767",
+      "arxiv:math/0605490",
+      "doi:10.1090/S0002-9947-08-04478-4",
+      "2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91",
+      "2026/9/21/SCOPE-four-way-interaction-sparre-andersen-persistence--a412ed2dcdb6",
+      "2026/9/30/SCOPE-exact-ordered-tuple-orbit-profiles-of-the-five-random-poset-redu--635ca0d5aff9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 full text defines leader a_n, anti-leader b_n, and joint extremes c_n; these are existence of global maximal/minimal elements, rather than the full sample Pareto frontier cardinality event K_{4,d}=4.",
+        "The 2008 Hammett–Pittel paper abstract concerns comparability in weak/strong Bruhat orders on permutations of growing length, tied to a fixed three-dimensional rank encoding.",
+        "An independent coordinate order adds a new permutation: the all-four-antichain event is inclusion–exclusion over all six reversal requirements, not determined solely from leader/anti-leader marginals."
+      ],
+      "reasoning": "The formulas a_n=b_n=n^{-(d-1)} and c_n=(n(n-1))^{-(d-1)} in 2022 do not determine the joint six-pair event: a point may be comparable to another without either being a global leader/anti-leader. The OEIS n=4 count is the d=3 instance; it does not dominate the all-d statement.",
+      "searches": [
+        "Probability no pair of four iid multivariate observations dominates another in dimension d; random intersection partial order random permutations fourth order Pareto antichain",
+        "Exact enumeration of size-four d-dimensional random poset antichains, number of coordinatewise comparable pairs, 151/576 for 4 points in 3-cube",
+        "doi:10.3390/math10101623",
+        "https://oeis.org/A007767",
+        "arxiv:math/0605490"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A007767 states a(4)=151 for permutation-pair avoidance (12,21). Complementing one permutation converts that event into simultaneous avoidance of increasing pairs; it gives exactly the known dimension-three specialization 151/576.",
+        "For general d the event is the empty coordinatewise dominance relation, equivalently all four observations Pareto maximal."
+      ],
+      "reasoning": "The 3D numerator is an existing enumerated count and explicitly credited. It is a single base-dimension value, not a six-term formula in arbitrary integer dimension. The published-finding corpus hits deal with scalar order/dependence and do not imply the all-d IID independent-coordinate formula.",
+      "searches": [
+        "Probability that four independent continuous uniform random vectors in [0,1]^d are pairwise incomparable antichain; exact formula 1-12(1/2)^d+24(1/3)^d+4(1/4)^d-24(5/24)^d+6(1/6)^d",
+        "Probability no pair of four iid multivariate observations dominates another in dimension d; random intersection partial order random permutations fourth order Pareto antichain",
+        "A007767 four perm pairs incomparable dimension 3 Pareto maxima 151 7207 4 independent linear orders",
+        "https://oeis.org/A007767",
+        "\"random points\" \"no comparable pair\" \"four\" hypercube probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The fully inspected OEIS A007767 table gives the value 151 at n=4 (two permutations), which accounts for d=3 and is not new.",
+        "An exhaustive 64-subset / 24-permutation certificate yields the all-d coefficient table and new dimension-four value 7207/13824. No indexed exact all-d table was located by the targeted searches."
+      ],
+      "reasoning": "An existing isolated or fixed-dimension count does not by itself imply the all-dimensional exponential-polynomial formula or its majority dimension. Search failure is treated as supporting context, not as proof of novelty.",
+      "searches": [
+        "Exact enumeration of size-four d-dimensional random poset antichains, number of coordinatewise comparable pairs, 151/576 for 4 points in 3-cube",
+        "A007767 four perm pairs incomparable dimension 3 Pareto maxima 151 7207 4 independent linear orders",
+        "\"151\" \"7207\" four points antichain d dimensional",
+        "\"7207\" \"antichain\" permutations 4 dimensions",
+        "https://oeis.org/A007767"
+      ]
+    },
+    "rationale": "2022 primary full text explicitly asks for higher-dimensional sample comparable-pair probabilities and does not give the n=4 all-dimensional expression. OEIS A007767 gives the fixed dimension-three n=4 count 151 and is expressly credited; a known special value does not cover the six-term dimension law or first majority dimension. Related published-finding corpus summaries and Hammett–Pittel abstracts have different domains or fixed-d comparability. Residual historical full-text risks are explicitly retained; search failure alone is not treated as novelty proof.",
+    "residual_risks": [
+      "Full Barndorff-Nielsen–Sobel (1966) frontier-distribution article unavailable to this comparison; it could imply this n=4 all-d special case.",
+      "Full Hammett–Pittel (2008) permutation-comparability paper was not inspected; the known d=3 specialization is expressly disclaimed as a new count.",
+      "Other texts on random partially ordered sets or Pareto-frontier size may contain an equivalent dimension-variable four-point identity under different terminology; targeted searches and recorded comparisons do not establish absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not provide the n=4 all-d probability; explicitly describes general higher-d comparability chance as unknown to authors. It studies first/last-point events and convergence instead.",
+        "evidence": "DOI 10.3390/math10101623, published 2022-05-10, primary MSC 60E15; introduction after the n! two-dimensional probability.",
+        "identifier_or_url": "https://www.researchgate.net/publication/360506327_On_the_Probability_of_Finding_Extremes_in_a_Random_Set",
+        "material_read": "Open publisher-provided full-text transcription, introduction and comparable-pair passage near printed pages 1–2; §2 definitions of leader, anti-leader, extremal probabilities; later relevant proofs and final conclusions in the 24-page accessible text.",
+        "method": "Direct full-text HTML inspection, targeted term searches and mathematical comparison of events",
+        "title": "On the Probability of Finding Extremes in a Random Set",
+        "trigger": "Exactly same sample coordinatewise-comparability event and explicit unsolved higher-d query"
+      },
+      {
+        "assessment": "Already contains dimension-three special count 151; does not supply the six-term arbitrary-d expression.",
+        "evidence": "OEIS A007767 sequence starts 1,1,3,17,151; explanatory note attributes permutation pair comparison to the weak Bruhat order.",
+        "identifier_or_url": "https://oeis.org/A007767",
+        "material_read": "Complete entry including listed terms, definition, references, equivalence to weak Bruhat order intervals and formula notes.",
+        "method": "Direct page read; translate via reversal of one of the two permutations",
+        "title": "OEIS A007767: Number of pairs of permutations of degree n that avoid (12,21)",
+        "trigger": "Exact 151/576 dimension-three instance and potential prior table coverage"
+      },
+      {
+        "assessment": "A relevant fixed-three-coordinate permutation-count problem; no arbitrary-d four-point antichain formula is evident from accessible abstract, but full-paper equivalence remains a risk.",
+        "evidence": "arXiv:math/0605490; DOI 10.1090/S0002-9947-08-04478-4.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0605490",
+        "material_read": "2006 preprint abstract and 2008 published abstract and bibliographic description; full paper not inspected.",
+        "method": "Abstract inspection and direct comparison of weak/strong Bruhat-order questions with d-independent four-sample coordinate order",
+        "title": "How often are two permutations comparable?",
+        "trigger": "Potential equivalent double-permutation ranking event for d=3"
+      },
+      {
+        "assessment": "Potential source of an equivalent formula cannot be excluded; not asserted NOT_COVERING.",
+        "evidence": "Răducan et al. 2022 references section item 1 and introduction discussion.",
+        "identifier_or_url": "Barndorff-Nielsen and Sobel, Theory Probab. Appl. 11 (1966) 249–269",
+        "material_read": "Bibliographic reference and description of early moment asymptotics given in Răducan et al. 2022, not the 1966 original full text.",
+        "method": "Secondary-literature reference check; recorded access limitation",
+        "title": "On the distribution of the number of admissible points in a vector random sample",
+        "trigger": "Early general Pareto-frontier distribution potentially dominating special n=4"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7929f0a8-ba7d-4b9f-a707-5510b6f38e0f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-d four-point Pareto-frontier probability is a natural occupancy-of-maximal-points statistic highlighted as a higher-dimensional computability gap in 2022. Four sampled points already create six interacting pairwise reversal constraints rather than isolated pair events. The formula is distribution-free for atomless independent coordinate marginals, gives a non-obvious exact fourth-dimension majority transition, and refines the rare-comparability asymptotic. Fixed n=4 is a motivated finite cutoff, not an arbitrary parameter slice. The older dimension-three specialization is not presented as new.",
+    "status": "PASS"
+  }
+}

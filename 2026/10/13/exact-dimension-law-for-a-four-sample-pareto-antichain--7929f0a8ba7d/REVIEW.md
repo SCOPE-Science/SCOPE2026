@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+Each coordinate ranks four i.i.d. atomless observations by an independent uniformly random permutation. Fixing the first order, a pair remains comparable exactly if none of the other coordinate permutations reverses it. Inclusion–exclusion over the six pairs gives formula (1); exhaustive finite testing of all 64 constraint subsets against all 24 permutations proves the signed extension table. Independent inversion-mask dynamic programming and tuple enumeration reproduce it exactly. The monotone coordinate coupling proves strict dimension growth, and direct evaluation settles the first-majority dimension. The verification script's finite checks do not replace the proof for arbitrary dimensions. The theorem's dependent-coordinate limitation is explicit.
+
+## Originality — PASS, residual bibliographic risk
+The exact sample-comparability event for higher dimensional coordinate-independent vectors is explicitly raised by Răducan et al. (2022). Their inspected full paper treats first/last point and leader probabilities and does not give the all-four-antichain arbitrary-dimension law. The known 151 numerator at dimension three is recovered, *not* presented as new: OEIS A007767 gives the corresponding weak-order permutation-pair count. Hammett–Pittel examines that related permutation problem, while the linked published-finding corpus literature concerns different dependence assumptions or different random-order events. This assessment compares mathematical implication rather than merely title matches. Older 1966 Pareto-frontier distribution literature was not fully accessible; an unrecognized equivalent exact expression remains a real risk.
+
+## Value — PASS
+The event is the top-cardinality point of the naturally motivated random Pareto-frontier distribution, and the 2022 paper explicitly asks for the related comparable-pair probability beyond dimension two. Four points are the first small-sample configuration where multiple pairwise reversals interact across six constraints, so the all-dimensional classification is not a routine one-pair calculation. The exact majority threshold, sharp asymptotic correction and independence-from-marginals property give interpretable information, without pretending to settle arbitrary sample sizes or to invent the known three-dimensional count.
+
+Self-review: passed. Independent audit: not yet performed.
