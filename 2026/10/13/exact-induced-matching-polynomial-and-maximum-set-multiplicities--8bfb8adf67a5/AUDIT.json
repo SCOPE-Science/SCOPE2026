@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "For each n≥3, fixed edge labels R_i,T_i,B_i give a bijective cyclic word encoding. Direct endpoint inspection reduces pairwise induced-matching compatibility to adjacent-column emptiness and five permitted directed pairs at separation two; cyclic closure enforces both orientations when appropriate. The seven-state graph has one weighted closed walk per feasible word. Signed-permutation calculation of det(I-tT) gives (1+zt²)(1-t-2zt²-zt³+z²t⁴), and formal log derivative yields the polynomial after subtracting the two auxiliary traces. Exact gap classification gives floor(n/2) and n² versus 6/2 maximum counts. A new standalone standard-library program performs an exact polynomial determinant, graph-level enumeration of 349,504 words for n=3..9, transfer checks, and extremal checks n=3..44. All checks passed; arbitrary n follows from proof, not finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Joos–Rautenbach–Sasse: universal cubic lower bound ν_s(G)≥|E(G)|/9; gives no exact per-size enumerator for cycle prisms.",
+        "Chen–Miao–Zhou (2020): partitions E(G) into induced matchings, i.e. strong edge-coloring, not number of induced matchings.",
+        "Published cyclomatic gap result (2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc): fixed-order extremal gaps, not cycle-prism matching-set enumeration."
+      ],
+      "reasoning": "Universal subcubic size bounds and strong edge-coloring cannot imply each coefficient I_n(z) or n² versus 6/2 maximum-set multiplicities. An explicit all-width transfer enumeration for cylindrical strips could dominate the claim if found; it was not identified in full-text comparisons.",
+      "searches": [
+        "arXiv:1312.1110, Theorems 1–2",
+        "doi:10.3390/math8081265, abstract and introduction",
+        "published-finding corpus result 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc",
+        "Web: \"strong matching\" prism graph generating function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1312.1110 full OA PDF",
+      "arXiv:2404.18806 full OA PDF",
+      "doi:10.3390/math8081265 publisher HTML",
+      "doi:10.3390/sym17010133 prism section",
+      "doi:10.1080/09728600.2024.2342310 Section 3",
+      "OEIS:A102079",
+      "published repository record 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mathar open-board denominator q_2=1-t-2zt²-zt³+z²t⁴ coincides with one factor of the displayed cyclic transfer determinant, but Mathar computes an open-boundary generating function and no cyclic trace or top-count classification.",
+        "The precise closed-cycle determinant contains an additional factor (1+zt²) absent from Mathar open-board denominator.",
+        "The new theorem supplies every coefficient and the odd/even top-degree multiplicity, stronger than an existence lower bound."
+      ],
+      "reasoning": "The shared local transfer core does not imply the closed cyclic trace formula from the published open-strip sequence without handling wrap-around boundary states. The extra determinant factor and periodic extremal classification are new assertions rather than direct corollaries of the named open-board Eq. (8); this is a substantive comparison, though standard transfer theory makes an adaptation natural.",
+      "searches": [
+        "arXiv:2404.18806, Eq. (8), denominator and boundary conditions",
+        "arXiv:1312.1110, Theorems 1–2",
+        "doi:10.3390/sym17010133, prisms",
+        "published-finding corpus semantic: induced matching polynomial prism graph C_n square K_2 ladder cyclic closure exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mathar arXiv:2404.18806, Definition 1, Table 2 and Eq. (8): non-bonding dominoes only on open rectangular boards; no prism or cyclic closure theorem stated.",
+        "Joos–Rautenbach–Sasse arXiv:1312.1110 pp. 1–2: induced matching and strong matching terminology.",
+        "The closed prism polynomial I_4=1+12z+6z^2 differs from open ladder D(4,2,z)=1+10z+9z^2 in Mathar Table 2."
+      ],
+      "reasoning": "Non-bonding dominoes on a width-two strip are isomorphic to induced matchings in an open path ladder, but the end-to-end cyclic interaction makes the object different. Literature terms include strong matching, induced matching polynomial, circular/cyclic ladder, cylindrical dominoes and generalized Petersen P(n,1). No inspected source presented the closed-cycle trace polynomial or top-count parity classification; this is not a proof against uncatalogued equivalent results.",
+      "searches": [
+        "Web: \"induced matching polynomial\" \"prism\" graphs",
+        "Web: \"induced matchings\" \"cyclic ladder\" counting",
+        "Web: \"induced matching\" \"generalized Petersen\" G(n,1) enumeration",
+        "arXiv:2404.18806, all 15 pages, terms cyclic/cylinder/periodic",
+        "published-finding corpus semantic: cyclic ladder generalized Petersen G(n,1) induced matching enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A102079 and Symmetry 17 (2025) article count ordinary matchings (not necessarily induced).",
+        "Mathar 2024 Table 2 gives D(4,2,z)=1+10z+9z² for open boards; closed prism I_4(z)=1+12z+6z².",
+        "For triangular prism P_3 the ordinary matching polynomial has nonzero terms in z² and z³, whereas I_3(z)=1+9z."
+      ],
+      "reasoning": "A matching polynomial for an n-prism counts edge sets with disjoint endpoints but allows edges between endpoints of distinct matched pairs, so it is strictly broader than the induced-matching polynomial. Direct coefficient mismatch establishes the listed databases do not already state the full claimed data.",
+      "searches": [
+        "OEIS:A102079 ordinary matching coefficient counts of prism graphs",
+        "doi:10.3390/sym17010133, section Matching Polynomials of Prism Graphs and circulenes",
+        "arXiv:2404.18806, Table 2 and Eq. (8)",
+        "Web: \"prism graph\" \"strong matching number\" floor n/2"
+      ]
+    },
+    "rationale": "The closest full-text source Mathar arXiv:2404.18806 gives all open rectangular-board non-bonding domino counts, including width two, but not longitudinally cyclic prisms. Its open four-column coefficient vector differs from the prism vector. Joos et al. arXiv:1312.1110 state general cubic induced-matching lower bounds, not enumerators; generalized Petersen strong edge-coloring and ordinary prism matching tables count different quantities. Named search/comparison checks document residual risk of an uncatalogued cylindrical-strip formula.",
+    "residual_risks": [
+      "A pre-existing equivalent induced-matching enumeration under cylindrical non-bonding-domino, circular ladder, or generalized Petersen P(n,1) terminology may have escaped indexing.",
+      "A published generic cylindrical transfer matrix might imply the closed formula after specialization even without identical wording.",
+      "A 2020 prism perfect-matching paper was identified but its full text could not be inspected; its subject is ordinary perfect matchings, a different class of sets.",
+      "The indexed repository result was compared from its published scientific summary, not full primary text; implication judged inapplicable by its stated scope."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers open ladders exactly, not closed cycle prisms. Local denominator overlaps, full cyclic trace and extremal multiplicities are not given.",
+        "evidence": [
+          "arXiv:2404.18806, Definition 1, Table 2, Eq. (8), and pages 1–15; open four-column counts 1,10,9 versus closed counts 1,12,6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.18806",
+        "material_read": "Full 15-page parsed text accessible; definitions p1, state construction pp5–6, evaluated Table 2 and Eq. (8) p7, and remaining coefficient discussion; whole-document term search for cyclic/cylindrical closure.",
+        "method": "Open-access PDF parsed text and page examination; match object, boundaries, actual coefficients.",
+        "title": "Bivariate Generating Functions Enumerating Non-Bonding Dominoes on Rectangular Boards",
+        "trigger": "Same local edge-separation rule on width-two boards; strongest candidate covering exact polynomial."
+      },
+      {
+        "assessment": "Provides lower bounds for induced matching cardinality in subcubic graphs; not coefficients or exact counts on prism family.",
+        "evidence": [
+          "arXiv:1312.1110v1 (2013-12-04), Theorem 1 ν_s(G)≥m/9 for cubic G, Theorem 2 subcubic order bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1312.1110",
+        "material_read": "Full eight-page paper searched; title page, introduction pp1–2, Theorems 1–2 and proof contexts pp2–6.",
+        "method": "Open-access full PDF parsed text, theorem and scope comparison.",
+        "title": "Induced Matchings in Subcubic Graphs",
+        "trigger": "Archive-period source with MSC 05C70 and global induced matching results potentially stronger."
+      },
+      {
+        "assessment": "Strong chromatic-index bounds for generalized Petersen P(n,k) with k≥4, not P(n,1) induced matching enumerators.",
+        "evidence": [
+          "Chen–Miao–Zhou (2020), abstract: upper bound nine for strong edge coloring of P(n,k), k≥4."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math8081265",
+        "material_read": "Open publisher article abstract and introduction including parameter restriction k≥4.",
+        "method": "Publisher open-access HTML search and abstract/theorem scope review.",
+        "title": "Strong Edge Coloring of Generalized Petersen Graphs",
+        "trigger": "Generalized Petersen graphs contain the prism family P(n,1)."
+      },
+      {
+        "assessment": "These tables concern ordinary matching polynomials; no induced-endpoint restriction.",
+        "evidence": [
+          "Symmetry 17 (2025), section D, matchings and perfect matchings for 2n-vertex prisms."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym17010133",
+        "material_read": "Open publisher HTML section \"Matching Polynomials of Prism Graphs and circulenes\"; abstract and table description.",
+        "method": "Full-text section read via web retrieval; counted objects compared.",
+        "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+        "trigger": "Prism matching-polynomial tables look potentially covering."
+      },
+      {
+        "assessment": "Counts/existence of dominating induced matchings (none on prisms); does not prohibit or enumerate ordinary induced matchings.",
+        "evidence": [
+          "Article Section 3: no dominating induced matching in P(n,1)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2024.2342310",
+        "material_read": "Open article Section 3, statement that every prism edge lies on a four-cycle.",
+        "method": "Web text section scope and definition comparison.",
+        "title": "Dominating induced matchings and other graph parameters",
+        "trigger": "Phrase induced matchings plus explicit prisms."
+      },
+      {
+        "assessment": "Ordinary matchings include pairs of selected edges connected by third edges, excluded here.",
+        "evidence": [
+          "OEIS A102079; ordinary prism matching numbers."
+        ],
+        "identifier_or_url": "https://oeis.org/A102079",
+        "material_read": "Sequence entry definition and values.",
+        "method": "Direct web sequence inspection; compare precise object definition.",
+        "title": "OEIS A102079, ordinary matchings of prism graphs",
+        "trigger": "Database possibility for equal coefficient table under matching nomenclature."
+      },
+      {
+        "assessment": "Deals with fixed-order extremal matching/induced-matching gaps, not coefficient counts for cyclic prisms; primary access not established.",
+        "evidence": [
+          "Published record states gap maxima for trees and unicyclic graphs."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc",
+        "material_read": "Published title and scientific summary in indexed search response; primary text not retrieved.",
+        "method": "Compare stated summary implications, not treat search absence as novelty proof.",
+        "title": "Cyclomatic bounds and sharp matching-induced-matching gaps",
+        "trigger": "Closest ranked published semantic search result in matching-induced matching domain."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bfb8adf-67a5-45c9-bb81-774cc0b45ede",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cycle prism is the canonical cubic cyclic closure of a two-column ladder. Its exact induced-matching distribution differs from the known open-board polynomial and from ordinary prism matching data; closure alters both coefficients and maximum-set behavior. The parity-sensitive exact multiplicity classification n² in odd order and 6/2 in even order is a complete natural extremal invariant, with a motivated consequence for enumerating independent edge packings on periodic strips. This is not an arbitrary small-board datum or a restatement of a generic size bound.",
+    "status": "PASS"
+  }
+}
