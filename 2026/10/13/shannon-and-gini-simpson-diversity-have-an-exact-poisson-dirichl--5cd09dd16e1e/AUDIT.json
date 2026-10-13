@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The mixed power-sum expectation is reconstructed from beta moments of the first two size-biased Poisson–Dirichlet frequencies. Its analytic derivative at the Shannon endpoint gives the mixed logarithmic moment. Subtracting the independently verified means yields the stated rational covariance. The quadratic variance follows from the same mixed moment at equal exponents, and the trigamma asymptotic gives the limiting correlation. A deterministic high-precision checker independently evaluates the mixed moment by gamma differentiation and beta-log-moment formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cerquetti derives separate prior moments for fixed-order Tsallis diversity and Shannon entropy under the broader Gnedin–Pitman family.",
+        "Archer, Park, and Pillow derive Shannon entropy moments for Pitman–Yor priors using size-biased stick breaking.",
+        "Recent Gini–Simpson work treats the quadratic diversity index in Bayesian nonparametric models.",
+        "Foundational Poisson–Dirichlet theory supplies the size-biased beta representation used in the proof."
+      ],
+      "reasoning": "These sources are broader in model class, entropy estimation, or general Poisson–Dirichlet structure, but the inspected statements do not imply the accepted cross-index covariance without performing a new mixed-exponent calculation. Separate marginal means and variances do not determine a covariance.",
+      "searches": [
+        "arXiv:1404.3441 Tsallis Shannon Poisson Dirichlet prior moments",
+        "arXiv:1302.0328 Pitman Yor Shannon entropy variance",
+        "arXiv:2607.25737 Gini Simpson Shannon Bayesian nonparametric",
+        "Pitman Yor 1997 two parameter Poisson Dirichlet size biased"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.3441",
+      "arXiv:1302.0328",
+      "arXiv:2607.25737",
+      "Pitman and Yor (1997), Annals of Probability 25, 855–900"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Own item 061e4bb9-211c-47fc-9976-c0534f3d6c26 concerns a finite \\(\\operatorname{Dirichlet}(1,\\ldots,1)\\) spacing vector and the Greenwood square sum.",
+        "No current or immediately prior own-ledger claim was found for a two-parameter infinite Poisson–Dirichlet Shannon/Gini–Simpson covariance.",
+        "The finite spacing law has a dimension-driven total concentration and a different covariance formula; it is not the accepted two-parameter random-measure theorem."
+      ],
+      "reasoning": "The finite-simplex result is not a covering special case or stronger statement. The present law permits a fixed concentration parameter and an independent discount parameter, while the finite spacing result fixes every Dirichlet coordinate parameter at one. Neither statement implies the other by a parameter substitution, and the standardized asymptotic constants differ.",
+      "searches": [
+        "own ledger Greenwood spacing entropy covariance Dirichlet simplex",
+        "own ledger Shannon Simpson Poisson Dirichlet",
+        "own ledger entropy diversity covariance",
+        "finite Dirichlet spacing entropy Simpson concentration covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered the aliases Gini–Simpson diversity, Simpson concentration, homozygosity, Shannon entropy, Poisson–Dirichlet, Pitman–Yor, Dirichlet process, covariance, correlation, and mixed power sums.",
+        "No located record stated the exact covariance or the fixed-discount large-concentration correlation limit.",
+        "The strongest same-family full text was compared at theorem and proof level rather than by title alone."
+      ],
+      "reasoning": "The accepted statement is equivalent to a negative covariance between Shannon entropy and Simpson concentration, so both diversity and concentration aliases were searched. The closed formula is also a derivative of a mixed power-sum moment, so searches included that formulation. Search failure is not used alone; the conclusion relies on full-source implication comparisons.",
+      "searches": [
+        "Poisson Dirichlet Shannon entropy Simpson diversity covariance",
+        "Pitman Yor Shannon Simpson covariance correlation",
+        "Gini Simpson Shannon entropy Poisson Dirichlet exact covariance",
+        "Dirichlet process Shannon entropy Simpson concentration covariance",
+        "Poisson Dirichlet power sum derivative mixed moment Shannon Simpson",
+        "theta alpha over theta plus one squared theta plus two covariance Shannon Simpson",
+        "Shannon entropy Simpson concentration Poisson Dirichlet mixed moment",
+        "Pitman Yor entropy homozygosity covariance",
+        "Dirichlet process entropy homozygosity correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table, formula collection, or semantic record matching the rational covariance or its correlation consequence was located."
+      ],
+      "reasoning": "The accepted object is an all-parameter symbolic mixed moment, not a finite numerical table or a recomputation of a marginal formula.",
+      "searches": [
+        "\"Shannon\" \"Gini-Simpson\" covariance Poisson-Dirichlet",
+        "\"entropy\" \"homozygosity\" covariance Pitman-Yor",
+        "\"Simpson concentration\" \"Shannon entropy\" covariance",
+        "\"theta+alpha\" \"theta+1\" \"theta+2\" entropy Simpson covariance"
+      ]
+    },
+    "rationale": "The closest full Poisson–Dirichlet diversity source inspected gives separate Tsallis and Shannon marginal moments but no cross-covariance. The closest full entropy source gives Shannon mean and variance via size-biased frequencies but no Simpson statistic. A recent Gini–Simpson inference source treats the quadratic index without deriving the joint Shannon covariance. Semantic searches returned no published record matching the closed covariance or limiting correlation.",
+    "residual_risks": [
+      "An older Poisson–Dirichlet or population-genetics source may record the same covariance under the terms entropy, homozygosity, concentration, or diversity.",
+      "The covariance is a short derivative consequence once the mixed power-sum identity is written down, so implicit coverage by general moment machinery remains possible even though no explicit statement was found.",
+      "The recent Gini–Simpson source is outside the archive date window and is used only as supporting literature, not as the cohort anchor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SEPARATE_MARGINAL_MOMENTS_WITHOUT_ACCEPTED_CROSS_COVARIANCE",
+        "evidence": "The manuscript gives separate prior mean/variance formulas for fixed-order Tsallis diversity and for Shannon entropy and develops same-exponent power-sum moments. The inspected text does not state the accepted mixed Shannon/Gini–Simpson covariance or the persistent-correlation limit.",
+        "identifier_or_url": "arXiv:1404.3441",
+        "material_read": "Full 21-page manuscript, including the definitions, prior-moment theorems, Poisson–Dirichlet specialization, proofs through power sums and exchangeable partition probabilities, posterior section, and references.",
+        "method": "Compared theorem statements and proof formulas for any Shannon/Gini–Simpson cross moment, covariance, mixed-exponent power sum, or joint correlation.",
+        "title": "Bayesian nonparametric estimation of Tsallis diversity indices under Gnedin–Pitman priors",
+        "trigger": "Closest full source because it treats both Tsallis/Gini–Simpson and Shannon diversity under the same Poisson–Dirichlet and broader Gnedin–Pitman framework."
+      },
+      {
+        "assessment": "SHANNON_MARGINAL_MACHINERY_WITHOUT_SIMPSON_CROSS_LAW",
+        "evidence": "The paper derives Shannon entropy moments from size-biased stick breaking. No Simpson or Gini–Simpson statistic was found in the inspected full text.",
+        "identifier_or_url": "arXiv:1302.0328; JMLR 15 (2014), 2833–2868",
+        "material_read": "Full public article, including the Pitman–Yor entropy mean/variance derivation and appendix formulas for the first two size-biased atoms.",
+        "method": "Compared the logarithmic size-biased formulas against any quadratic diversity or Simpson mixed moment.",
+        "title": "Bayesian Entropy Estimation for Countable Discrete Distributions",
+        "trigger": "Closest full entropy source using the same Pitman–Yor size-biased beta representation."
+      },
+      {
+        "assessment": "GINI_SIMPSON_INFERENCE_WITHOUT_ACCEPTED_JOINT_LAW",
+        "evidence": "The paper names Shannon and Gini–Simpson as common diversity measures but develops inference for the latter. No matching Shannon/Gini–Simpson covariance was located.",
+        "identifier_or_url": "arXiv:2607.25737",
+        "material_read": "Public manuscript text including introduction, model motivation, and searches for Shannon, entropy, and covariance.",
+        "method": "Compared its Gini–Simpson inference results with the accepted prior cross-covariance.",
+        "title": "Nonparametric Bayesian inference for the Gini-Simpson index",
+        "trigger": "Recent source directly focused on Bayesian Gini–Simpson inference and explicitly positioning it alongside Shannon diversity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5cd09dd1-6e1e-40fd-b48b-c1f069d88cf5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shannon and Gini–Simpson indices are canonical companion summaries of random discrete diversity, and the literature commonly reports their marginal uncertainty separately. The exact covariance quantifies their redundancy under the central Poisson–Dirichlet prior family. The nonzero limiting correlation adds substantive structure: increasing concentration collapses the scale of both fluctuations but does not asymptotically decorrelate the two summaries.",
+    "status": "PASS"
+  }
+}
