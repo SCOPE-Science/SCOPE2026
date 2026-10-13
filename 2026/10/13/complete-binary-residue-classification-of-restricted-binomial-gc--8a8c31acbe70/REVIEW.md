@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Kummer/Legendre translates the gcd valuation into the minimum carry count over positive five-divisible lower indices. The proof characterizes valuation zero by proper zero-sum submultisets, exhausts the fourteen minimal residue types, gives explicit one-carry witnesses for ordinary types and upper/lower two- or three-carry witnesses for the exceptional types. Each witness is valid for every permitted binary position with its specified residues. Independent finite dynamic-program and direct-enumeration tests pass; they support but do not replace the infinite proof.
+
+**Originality — PASS, with residual risks.** Fairfax-Ball (arXiv:2609.37754v1; full accessible HTML, all mathematical sections reviewed) concerns primes whose residues modulo the progression modulus are plus or minus one and explicitly tabulates only moduli three, four and six; prime two at modulus five has order four. McTague's corrected same-residue theorem cannot give this order-four case. Wu's related restricted gcd work has a potentially relevant broader scope but the entire primary text could not be read via the available HTML route; the available abstract and the motivating paper's comparison indicate different congruence restrictions, so no implication covering this result was established. Closest related published records concern a different modulus or other binomial valuations. Unindexed or inaccessible equivalences remain possible, but no decisive covering result was found.
+
+**Value — PASS.** This settles the first naturally excluded order-four prime/modulus pair for the ongoing restricted-binomial-gcd classification, uniformly over every admissible row. It gives both a complete computable digit criterion and a sharp global exponent bound, with an explicit infinite extremal family; it is not a numerical lookup or an arbitrary small slice.
+
+**Limits and risks.** The theorem determines only the two-adic part. Published-source comparisons do not establish universal priority; an alternative result may be overlooked. Verification covers finitely many rows; the mathematical proof is the basis of correctness.
+
+Self-review: passed. Independent audit: not yet performed.
