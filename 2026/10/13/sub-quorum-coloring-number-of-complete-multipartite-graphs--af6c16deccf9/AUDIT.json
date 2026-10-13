@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces a sub-quorum coloring to a quorum coloring of its colored induced complete-multipartite subgraph. For a largest occupied part P with M colored vertices outside it, color classes meeting P require at least ceil((M+1)/2)-1 outside vertices and classes missing P require at least ceil((M+1)/2). With at least three colors, one missing P would exceed the M available outside vertices for M>=2; M=1 is ruled out directly. Hence all colors meet P and q<=|P|<=L. Explicit induced independent-set and K2 constructions attain max{L,2}. Exhaustive verification through order seven checks both the formula and structural assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The initiating full text states general lower bounds psi_sq>=beta_1 and psi_sq>=beta_2, then develops exact results for paths, stars, double stars, and caterpillars.",
+        "Its Section 4 scope and document-wide search contain no complete multipartite or complete bipartite theorem."
+      ],
+      "reasoning": "The general lower bounds do not dominate the exact formula because they provide no matching upper bound. The complete-multipartite proof uses a family-specific occupancy obstruction not supplied by the general propositions.",
+      "searches": [
+        "quorum coloring induced subgraph complete multipartite sub-quorum",
+        "quorum coloring complete multipartite induced subgraph",
+        "sub-quorum coloring exact value general graph beta2 upper bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.39619v1",
+      "DOI:10.1051/ro/2021116",
+      "Hedetniemi et al., Quorum colorings of graphs, AKCE Int. J. Graphs Comb. 10 (2013) 97-109",
+      "semantic literature index"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1051/ro/2021116 proves ordinary quorum number 1 for K_{3,3,...,3} with an odd number of parts.",
+        "arXiv:2609.39619v1 explicitly identifies psi_sq(G) with the maximum ordinary quorum number over induced subgraphs, but does not evaluate that maximum on complete multipartite graphs."
+      ],
+      "reasoning": "The older ordinary-quorum theorem does not imply the sub-quorum maximum; indeed it highlights the difference because deleting vertices can raise the optimum from 1 to 3. The initiating identity converts the problem to an induced-subgraph optimization but leaves the optimization unsolved.",
+      "searches": [
+        "ordinary quorum coloring complete multipartite graph psi_q",
+        "K3,3,...,3 quorum coloring number 1",
+        "sub-quorum complete multipartite psi_sq"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.39619v1 defines sub-quorum coloring as quorum coloring on an induced colored subgraph and gives general lower bounds via independent and 2-independent sets.",
+        "No leading semantic-index match used the sub-quorum invariant on complete multipartite or complete bipartite graphs."
+      ],
+      "reasoning": "The defensive-alliance equivalence was included because quorum classes are defensive alliances. The candidate is not a renaming of the independent-set lower bound: it proves a global upper bound and a complete-graph exception.",
+      "searches": [
+        "sub-quorum coloring complete multipartite graph",
+        "subquorum coloring complete bipartite graph",
+        "defensive alliance partial coloring complete multipartite sub-quorum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Leading semantic-index matches concerned 2-rainbow domination, odd coloring, interval-sandwich structure, and other different invariants."
+      ],
+      "reasoning": "No exact literature-index record supplied the displayed formula or an equivalent maximum-part table.",
+      "searches": [
+        "sub-quorum K_mn complete multipartite maximum part",
+        "sub-quorum graph coloring partial coloring complete multipartite",
+        "psi_sq complete multipartite graph maximum part"
+      ]
+    },
+    "rationale": "The exact complete-multipartite sub-quorum formula and the largest-occupied-part obstruction were not found in the initiating full text, older quorum literature inspected, or targeted semantic literature searches. The recent paper supplies only general lower bounds and exact tree/caterpillar families, while older complete-multipartite results concern ordinary quorum coloring.",
+    "residual_risks": [
+      "An older result may phrase the same induced-subgraph optimization purely in defensive-alliance terminology and be poorly indexed.",
+      "The initiating sub-quorum literature is only days old, leaving some concurrent-literature risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the complete-multipartite exact formula. It supplies the induced-subgraph equivalence and lower bounds, then treats tree and caterpillar families.",
+        "evidence": "The paper states psi_sq(G)=max_{S subseteq V(G)} psi_q(G[S]) and psi_sq(G)>=beta_1(G), psi_sq(G)>=beta_2(G); its exact-value section is explicitly devoted to paths, stars, double stars, and caterpillars, and document-wide searches returned no multipartite or bipartite occurrence.",
+        "identifier_or_url": "arXiv:2609.39619v1",
+        "material_read": "Abstract; introduction and formal definition; preliminary Observations 2-6 and Propositions 9-12; Section 4 family scope; document-wide searches for multipartite and bipartite terminology.",
+        "method": "Full PDF text inspection plus page-image check of the definition page.",
+        "title": "Sub-quorum colorings of some infinite families of caterpillars",
+        "trigger": "Initiating paper for the exact invariant and closest possible source."
+      },
+      {
+        "assessment": "NOT_COVERING for sub-quorum coloring. It treats ordinary quorum coloring and proves psi_q=1 on an odd number of parts of size three.",
+        "evidence": "The complete-multipartite statements concern psi_q, not the maximum over induced subgraphs that defines psi_sq.",
+        "identifier_or_url": "DOI:10.1051/ro/2021116",
+        "material_read": "Definition and complete-multipartite setup; Corollaries 3.4 and 3.6; Section 4 and Corollary 4.2; open-problem list; page-image inspection of the complete-multipartite section.",
+        "method": "Full PDF text search and targeted reading with page-image confirmation.",
+        "title": "Solutions to four open problems on quorum colorings of graphs",
+        "trigger": "Closest older source using complete multipartite graphs and the underlying ordinary quorum invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af6c16de-ccf9-4837-a77f-eb3e4a710469",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete multipartite graphs are a canonical dense family, and the result gives a full infinite-family classification of a newly studied invariant rather than a routine finite case. The structural all-colors-meet-a-largest-part obstruction explains the exact maximum and reveals a genuine separation from ordinary quorum coloring on published K_{3,3,...,3} examples.",
+    "status": "PASS"
+  }
+}
