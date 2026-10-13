@@ -1,0 +1,17 @@
+# Self-review
+
+**Correctness — PASS.** Section 5.1 of Accinelli–Muñiz–Quintas–Salas [1] gives an additive payoff matrix whose self-tariff contribution is exactly \(-D_I\), unaffected by the partner's strategy. Comparing both row and column payoff gaps gives \(-D_A\) and \(-D_B\) for every mixed partner policy. Positive deadweight losses imply strict dominance of no tariff. The binary replicator identity yields the decoupled logistic system, and exact differentiation verifies the displayed solution and convergence for all strictly interior initial conditions. The source's Eq. (8) instead prints positive opponent-frequency slopes under positive initial producer surplus. These claims hold only for the welfare matrix as written; boundary corners remain stationary.
+
+**Originality — PASS.** The source itself supplies the matrix and separately asserts no-subsidy protection as the typical equilibrium and presents coupled dynamics. Its conditional free-trade result does not identify that its actual printed welfare matrix satisfies dominance *for every allowable deadweight-loss pair*, or reconcile the mismatch with Eq. (8). Direct comparison of the full source sections and Appendix with related international tariff-game publications [2,3], relevant published binary-replicator results and database similarity searches identified no prior statement proving this *specific* table-to-dynamics inconsistency. The strict-dominance and logistic identities are standard tools and are not claimed to be novel in isolation. Residual risk: a correction or discussion elsewhere may not be indexed; indexing gaps never certify uniqueness.
+
+**Value — PASS.** This is a substantive source-specific structural obstruction, not a mere sign convention or a microscopic numerical improvement. The table is the economic primitive feeding the equilibrium and evolutionary analyses, yet its exact strategy differences eliminate the prisoner's-dilemma, coordination and mixed-equilibrium mechanisms invoked later, collapsing the supposed alternatives to a single interior attractor. Establishing precisely which assumptions force that collapse can guide reformulation of the model with genuine strategic externalities, subsidies or non-welfare motives.
+
+Closest literature: [1] directly contradicts the inferred dynamics from its table; [2] examines a different endogenous tariff game; [3] uses generalized Nash quota games. The related binary-replicator classifications concern abstract games, not the posted trade-payoff accounting. The theorem does not evaluate empirical trade behavior or all alternative game specifications.
+
+Self-review: passed. Independent audit: not yet performed.
+
+## Sources
+
+1. E. Accinelli, H. Muñiz, L. Quintas, and O. Salas, “The tariff game: Is the imposition of reciprocal tariff really a best response?”, *Journal of Dynamics and Games*, early access June 8, 2026, DOI: 10.3934/jdg.2026036. Sections 5.1, 5.2, 7, 8, and Appendix 9. Full text: https://www.researchgate.net/publication/406398478_The_tariff_game_Is_the_imposition_of_reciprocal_tariff_really_a_best_response ; publisher: https://www.aimsciences.org/article/doi/10.3934/jdg.2026036 .
+2. F. Martins, A. A. Pinto, and J. P. Zubelli, “Nash and social welfare impact in an international trade model”, *Journal of Dynamics and Games* **4** (2017), 149–173, DOI: 10.3934/jdg.2017009.
+3. M. Passacantando and F. Raciti, “A game theory model of tariff rate quotas in international trade”, *Journal of Dynamics and Games* **13** (2026), 72–90, DOI: 10.3934/jdg.2025011.
