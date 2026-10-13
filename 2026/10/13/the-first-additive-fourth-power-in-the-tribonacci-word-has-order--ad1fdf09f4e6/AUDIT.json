@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For an additive fourth power of order n only factors of length 4n matter. For n=1,...,6 the certified prefix contains 9,17,25,33,41,49 distinct factors at lengths 4,8,12,16,20,24, exactly matching the published Tribonacci complexity p(m)=2m+1, so these lists are exhaustive. Direct four-block sum comparison gives counts 0,0,0,0,0,1. The unique order-six factor splits into four length-six blocks of sum four. The package reconstructs and checks all of these facts from source code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Popoli-Shallit-Stipulanti Theorem 37 characterizes additive cube orders with a 4927-state automaton and then says the analogous k=4 computation requires much more memory.",
+        "Problem 38 asks for characterization of additive k-power orders, so a complete later theorem would dominate the candidate; none was located.",
+        "The 2021 presentation reaches additive cubes and a broader research project on additive powers but contains no additive-fourth-power order result."
+      ],
+      "reasoning": "The inspected broader sources establish existence and cube-order machinery but do not determine the first order for k=4.",
+      "searches": [
+        "arXiv:2410.02409 Problem 38 additive powers Tribonacci",
+        "Additive Word Complexity and Walnut Theorem 37 Problem 38",
+        "Tribonacci additive powers 2025 2026",
+        "Abelian and Additive Powers in the Tribonacci Word"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.02409v1 full text",
+      "DOI:10.4230/LIPIcs.FSTTCS.2024.32 full text",
+      "DOI:10.1016/j.aam.2019.101947 abstract/main theorem",
+      "Jeffrey Shallit 2021 Tribonacci additive-powers presentation",
+      "OEIS A347752 additive-cube order sequence",
+      "targeted indexed searches for additive fourth powers, 4-powers, order six, and the exact witness"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existence of additive k-powers for every k does not give their minimum orders.",
+        "The cube automaton concerns k=3 and does not imply any k=4 order.",
+        "The factor-complexity theorem p(m)=2m+1 certifies exhaustiveness of a computed factor list but does not itself decide the additive-sum predicate."
+      ],
+      "reasoning": "The final claim needs a new finite implication: complete enumeration of all Tribonacci factors at the six relevant lengths followed by the additive-four-block test. None of the prior statements supplies that implication.",
+      "searches": [
+        "Problem 38 characterize orders additive k-powers Tribonacci",
+        "Tribonacci factor complexity 2n+1 additive powers",
+        "Theorem 37 additive cubes Tribonacci 4927 states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct paper defines an additive k-power as equal-length blocks with equal symbol sums and explicitly identifies k=4 as computationally difficult.",
+        "The 2021 presentation uses the same order convention and lists additive cube orders, providing the closest earlier terminology.",
+        "No checked result states minimum additive-fourth-power order six."
+      ],
+      "reasoning": "The searches cover the spelled-out fourth-power term, the standard 4-power abbreviation, smallest-order language, and general order-set language for the same Tribonacci object.",
+      "searches": [
+        "\"Tribonacci word\" \"additive fourth power\"",
+        "\"Tribonacci word\" \"additive 4-power\"",
+        "Tribonacci additive fourth power order 6",
+        "additive 4-power Tribonacci smallest order",
+        "orders additive fourth powers Tribonacci"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A347752 is an additive-cube order sequence, matching the direct paper's Theorem 37 rather than fourth powers.",
+        "The exact witness search returned no published fourth-power table or dataset.",
+        "No checked table reports the zero counts for orders one through five and the unique order-six factor."
+      ],
+      "reasoning": "An exact sequence, witness table, or raw finite classification could directly cover the result, so the concrete witness and nearby OEIS cube sequence were checked.",
+      "searches": [
+        "102010102010010201010201 Tribonacci additive power",
+        "\"order 6\" Tribonacci \"additive\" power",
+        "OEIS Tribonacci additive fourth powers",
+        "A347752 additive Tribonacci powers"
+      ]
+    },
+    "rationale": "The direct 2024 paper explicitly says the k=4 Walnut computation needs much more memory and poses characterization of additive k-power orders in the Tribonacci word as Problem 38. Its stated exact order results stop at squares and cubes. A 2021 presentation likewise lists additive cube orders but not fourth-power orders. Searches using direct terminology, the concrete order, and the exact witness found no covering statement. The result is therefore not implied by the inspected literature, though an unindexed computation remains a residual risk.",
+    "residual_risks": [
+      "An unindexed note, computational notebook, or unpublished dataset may already record the same minimum order and witness.",
+      "The result is intentionally local to the first order and does not settle Problem 38's full characterization.",
+      "The finite-exhaustion proof relies on the established global Tribonacci factor-complexity theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states exact results for squares and cubes, says the analogous fourth-power computation exceeds simple desktop resources, and leaves the general order characterization open.",
+        "identifier_or_url": "arXiv:2410.02409v1 / DOI:10.4230/LIPIcs.FSTTCS.2024.32",
+        "material_read": "Definitions of additive equivalence and powers; Tribonacci section; Theorems 36 and 37; the paragraph on the k=4 memory barrier; Problem 38.",
+        "method": "Open full-text PDF and rendered inspection of the page containing Theorem 37 and Problem 38.",
+        "title": "Additive Word Complexity and Walnut",
+        "trigger": "Direct source on additive powers in the Tribonacci word and the explicit open order-characterization problem."
+      },
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "It proves the standard factor-complexity identity p(m)=2m+1 but does not study additive fourth-power minimum orders.",
+        "identifier_or_url": "DOI:10.1016/j.aam.2019.101947",
+        "material_read": "Abstract, statement of the main complexity theorem, and its identification of the ordinary Tribonacci factor complexity.",
+        "method": "Publisher/open-repository text comparison.",
+        "title": "Templates for the k-Binomial Complexity of the Tribonacci Word",
+        "trigger": "Needed to certify completeness of the finite factor sets used in the proof."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The presentation gives the additive-cube orders and proposes broader study of additive powers but does not state any additive fourth-power order.",
+        "identifier_or_url": "Jeffrey Shallit, presentation dated 2021-11-22",
+        "material_read": "Definition/order slides; Tribonacci setup; additive cube theorem and sequence; final research-project slides.",
+        "method": "Full PDF text inspection with rendered slide check.",
+        "title": "Abelian and Additive Powers in the Tribonacci Word",
+        "trigger": "Earlier direct treatment of additive powers and order sequences in the same infinite word."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad1fdf09-f4e6-465a-ac96-e96bbd1610d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct source explicitly identifies additive fourth-power order computation as the first case where its Walnut approach becomes impractical and asks for a characterization of additive k-power orders. The exact minimum order is therefore a natural first invariant of that open problem, and uniqueness of the shortest factor gives the complete equality layer rather than an isolated witness. The result narrows the open direction without pretending to solve the much harder full order set.",
+    "status": "PASS"
+  }
+}
