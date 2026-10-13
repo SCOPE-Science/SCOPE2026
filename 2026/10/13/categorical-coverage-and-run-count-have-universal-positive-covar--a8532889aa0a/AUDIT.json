@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The exact mixed probability for a symbol to be absent while one distinguished adjacent pair differs is computed directly from iid sampling. Summing the resulting symbolwise covariance gives the finite formula. For strict positivity, the ratio of two tilted power sums is proved nonincreasing by Cauchy--Schwarz; its initial value is the collision probability, producing a strictly positive lower bound for every nondegenerate probability vector. Exact weighted enumeration and recurrence checks independently reproduce the formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson and Fu study distributions of runs and patterns in iid multi-state trials; the inspected full text contains no coverage or distinct-symbol statistic.",
+        "Ben-Hamou, Boucheron, and Ohannessian study occupancy counts and total observed species for iid discrete sampling; targeted full-text searches found no run, adjacent-transition, or covariance treatment of the present pair."
+      ],
+      "reasoning": "These sources represent broad theories for each of the two marginal statistics. Neither supplies a broader theorem whose statement implies the mixed covariance or its universal positive sign.",
+      "searches": [
+        "DOI:10.1186/2195-5832-1-5",
+        "arXiv:1412.8652",
+        "\"coverage\" \"runs\" \"multi-state trials\" covariance",
+        "\"number of occupied boxes\" \"number of runs\" probability"
+      ]
+    },
+    "checked_sources": [
+      "Johnson and Fu (2014), DOI 10.1186/2195-5832-1-5, complete public article.",
+      "Ben-Hamou, Boucheron, and Ohannessian, arXiv:1412.8652, public full text.",
+      "Current and prior own ledgers searched for random-word runs, transition counts, occupancy richness, and distinct-symbol claims.",
+      "Published-record semantic searches covering coverage/richness/distinct-symbol and runs/transitions aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior own result gives adjacent/disjoint transition covariances in uniformly random binary words with fixed composition; it does not involve random coverage.",
+        "A prior own result gives covariance of occupied-box richness with occupancy-frequency counts under iid allocation; it discards order and does not involve runs or adjacent changes.",
+        "No checked own claim gives the one-switch conditional coverage gap or the present arbitrary-probability covariance."
+      ],
+      "reasoning": "The two prior themes concern different probability spaces and different pairs of observables. Neither can be specialized or summed to recover the present mixed order-sensitive/order-insensitive theorem.",
+      "searches": [
+        "own fixed-composition run transitions covariance",
+        "own occupancy richness frequency counts covariance",
+        "own random word runs distinct symbols"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Targeted searches returned separate literature on random-word complexity, runs, and occupancy, but no theorem matching the mixed covariance.",
+        "The conditional formulation comparing one forced adjacent switch with one forced repeat was also searched through transition and coverage terminology without a matching result."
+      ],
+      "reasoning": "Coverage may be called richness, distinct-symbol count, occupied boxes, or observed species, while adjacent changes may be called transitions or runs. The searches cover these aliases and the equivalent conditional-gap formulation.",
+      "searches": [
+        "\"number of distinct symbols\" covariance \"number of runs\"",
+        "\"number of distinct values\" covariance runs sequence",
+        "coverage covariance runs iid symbols",
+        "\"distinct letters\" transitions covariance random",
+        "\"number of distinct\" adjacent changes covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite table or symbolic covariance formula matching the claim was located.",
+        "The result is an all-parameter identity and sign theorem, not a numerical reconstruction from a finite table."
+      ],
+      "reasoning": "The searches target both common notation and descriptive aliases for the exact mixed statistic.",
+      "searches": [
+        "\"Cov(K_n\" runs distinct symbols occupancy",
+        "\"Covariance\" \"distinct symbols\" runs iid",
+        "\"occupied\" \"runs\" random sequence covariance",
+        "\"number of distinct states\" transitions iid sequence covariance"
+      ]
+    },
+    "rationale": "The closest inspected run source develops multi-state run and pattern distributions but does not treat categorical coverage. The closest inspected occupancy source develops distinct-symbol and occupancy-count theory but contains no run, transition, or adjacent-change analysis. Targeted exact-form, alias, and semantic searches did not locate the mixed covariance or the universal sign theorem. Own prior results on fixed-composition binary transition covariances and on occupancy richness versus occupancy-frequency counts do not imply this iid order-sensitive/order-insensitive coupling.",
+    "residual_risks": [
+      "Older multivariate run-distribution literature could encode the same moment as a derivative of a generating function without naming covariance.",
+      "Older occupancy or species-sampling work could couple coverage to an order statistic under terminology not surfaced by the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RUN_THEORY_NOT_COVERAGE_COUPLING",
+        "evidence": "The article develops runs and patterns in multi-state trials and gives primary classification 60E05; targeted full-text checks found no treatment of categorical coverage or the present mixed covariance.",
+        "identifier_or_url": "DOI:10.1186/2195-5832-1-5",
+        "material_read": "Complete public article text, including definitions, methods, examples, discussion, and references.",
+        "method": "Public full-text inspection with targeted searches for covariance, distinct-symbol, and occupancy terminology.",
+        "title": "Approximating the distributions of runs and patterns",
+        "trigger": "Primary source for multi-state iid run and pattern distributions."
+      },
+      {
+        "assessment": "OCCUPANCY_THEORY_NOT_RUN_COUPLING",
+        "evidence": "The paper defines total observed species and occupancy counts under iid discrete sampling and develops their concentration theory; targeted text searches did not locate run or adjacent-transition analysis.",
+        "identifier_or_url": "arXiv:1412.8652",
+        "material_read": "Public full text around the model, occupancy definitions, main results, and literature discussion, plus targeted whole-text searches.",
+        "method": "Public full-text inspection with searches for run, transition, adjacent, and covariance terminology.",
+        "title": "Concentration inequalities in the infinite urn scheme for occupancy counts and the missing mass, with applications",
+        "trigger": "Primary source for iid distinct-symbol and occupancy-count statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8532889-aa0a-4a58-9e7c-e458fcef892e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Coverage is a canonical occupancy/species-richness statistic, while run count is a canonical local-order statistic. The theorem links these complementary summaries for every finite iid categorical law, including strongly unequal probabilities. Its sign is not termwise obvious: individual symbol contributions can be negative, yet a Cauchy--Schwarz tilt argument forces the total covariance to be positive. The uniform specialization gives an exact finite covariance and an interpretable forced-switch increase in expected global coverage.",
+    "status": "PASS"
+  }
+}
