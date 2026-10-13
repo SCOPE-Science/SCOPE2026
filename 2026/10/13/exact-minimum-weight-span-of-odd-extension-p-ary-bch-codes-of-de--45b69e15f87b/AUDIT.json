@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Every normalized weight-three BCH word yields a quadratic equation for each nonzero locator. Odd extension degree forces those locators into the prime field, hence both exponent differences are multiples of h. The two BCH zeros then force divisibility by the quadratic in x^h. The quadratic itself expands to a three-term BCH codeword with nonzero coefficients, so its cyclic shifts give the reverse inclusion. Degree gives the span dimension, and the standard Cayley-component/coset identity gives the exact component count. A direct F_125 replay independently checks the p=5,m=3 anchor and returns rank 62 and component exponent 56.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mogilnykh--Solov'eva (2020) proves non-generation and a proper containing subcode.",
+        "Rajput--Rajan--Freij-Hollanti--Hollanti (2026) strengthens the containing subcode for odd m."
+      ],
+      "reasoning": "The older and newer results cover the same BCH family but only establish necessary zeros shared by all minimum words. They do not imply that the full common-zero set is sharp or that one minimum word generates the exact span cyclically.",
+      "searches": [
+        "minimum-weight generated subcode p-ary BCH designed distance three",
+        "BCH designed distance 3 minimum weight basis p-ary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.26397v1",
+      "DOI:10.1134/S003294602004002X",
+      "current research ledger generation g000060",
+      "prior-week research ledger generation g000058"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 primary text states only containment in C_{1,2,p^2+1}.",
+        "The 2026 primary text explicitly says its D containment yields a lower bound on connected components."
+      ],
+      "reasoning": "Containment of the minimum-weight span in D gives only a lower bound on the number of cosets/components. It cannot imply equality with the strictly smaller cyclic ideal proved here. Conversely, the explicit three-term generator supplies the missing reverse inclusion.",
+      "searches": [
+        "C_{1,2} weight-3 span versus C_{1,2,p^2+1}",
+        "strict function-correcting BCH C_{1,2} connected components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.26397v1, Section VI and Theorem 6",
+        "DOI 10.1134/S003294602004002X, Theorem 2"
+      ],
+      "reasoning": "Searches included span, minimum-weight-generated subcode, cyclic-generator, and weight-three aliases. The closest same-object sources state containment rather than equality and do not give the generator (x^h-beta)(x^h-beta^2).",
+      "searches": [
+        "minimum-weight span BCH C_{1,2} p^m-1 exact generator weight-3",
+        "span of weight-3 codewords narrow-sense BCH designed distance 3 p>=5 odd m",
+        "C_{1,2} weight-3 span x^h beta beta^2 cyclic generator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-span or exact-component entry was returned among the closest indexed findings.",
+        "The current and prior ledgers contain binary BCH and Hamming generation results but no p-ary C_{1,2} exact minimum-weight span."
+      ],
+      "reasoning": "The claim is an infinite symbolic family, not a recomputation of a tabulated finite invariant. Searches by the exact exponent 2(h-m), the generator factorization, and the C_{1,2} notation did not locate a table or database entry covering it.",
+      "searches": [
+        "minimum-weight span BCH C_{1,2} p^m-1 exact generator weight-3",
+        "span of weight-3 codewords narrow-sense BCH designed distance 3 p>=5 odd m",
+        "C_{1,2} weight-3 span x^h beta beta^2 cyclic generator",
+        "connected components G_3(C_{1,2}) exact number p^{2(h-m)}",
+        "span of minimum weight codewords BCH designed distance 3 p^m-1",
+        "minimum weight codewords C1,2 BCH exact span",
+        "weight-3 codewords BCH p^m-1 span",
+        "C_{1,2} weight-3 span BCH"
+      ]
+    },
+    "rationale": "The two closest primary papers prove only proper-subcode containments for the same minimum-weight words. The 2020 paper gives C_{1,2,p^2+1}; the 2026 paper gives a smaller D with roots p^r+1. Neither identifies the generated cyclic ideal or an exact component count. Exact-statement, alias, generator, and component-count searches found no result implying the equality.",
+    "residual_risks": [
+      "An unindexed older coding-theory source could conceivably state the exact minimum-weight-generated subcode under different notation; no such source was found in the exact/alias searches performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves a proper-subcode containment and lower-bound consequence, not the exact generated ideal or exact component count.",
+        "evidence": "Theorem 6 states <S3> subset D; its proof derives alpha^i and alpha^j in F_p. Section VI explains that such containment yields only a lower bound on component count.",
+        "identifier_or_url": "arXiv:2604.26397v1",
+        "material_read": "Abstract, Section VI, Theorem 6 and proof, Theorem 7, and Example 9 in the public full text.",
+        "method": "Full-text reading of the public preprint.",
+        "title": "Existence and Constructions of Strict Function-Correcting Codes with Data Protection",
+        "trigger": "Same BCH family, same weight-three span, and direct motivation via distance-three graph components."
+      },
+      {
+        "assessment": "NOT_COVERING: proves only containment in C_{1,2,p^2+1} and non-generation of C_{1,2}.",
+        "evidence": "Theorem 2 gives the C_{1,2,p^2+1} containment; Corollary 3 concludes the minimum words do not generate the whole BCH code.",
+        "identifier_or_url": "DOI:10.1134/S003294602004002X",
+        "material_read": "Full eight-page article, especially Theorem 2, Corollary 3, and surrounding proof.",
+        "method": "Full-text reading.",
+        "title": "On Bases of BCH Codes with Designed Distance 3 and Their Extensions",
+        "trigger": "The 2026 paper identifies it as the closest prior subcode result for these weight-three BCH words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45b69e15-f87b-4991-9a37-d61691c79958",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimum-weight-generated subcode is the central invariant controlling connected components in the motivating strict function-correcting-code construction. The result replaces a proper-subcode lower bound by an exact cyclic generator, exact dimension, and exact number of components for the entire odd-extension family. The improvement is structurally large: for p=5,m=3 the published containing subcode gives 125 components whereas the exact count is 5^56.",
+    "status": "PASS"
+  }
+}

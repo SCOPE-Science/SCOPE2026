@@ -1,0 +1,72 @@
+# Exact minimum-weight span of odd-extension \(p\)-ary BCH codes of designed distance three
+## Finding
+Let \(p\ge5\) be prime and let \(m\ge3\) be odd. Put \(n=p^m-1\) and \(h=n/(p-1)\). Fix a primitive element \(\alpha\in\mathbb F_{p^m}\), set \(\beta=\alpha^h\), and let \(C=C_{1,2}\subseteq\mathbb F_p^n\) be the primitive narrow-sense BCH code defined by the zeros \(\alpha\) and \(\alpha^2\). If \(S_3\) denotes the weight-three codewords of \(C\), then
+\[
+\langle S_3\rangle=\left\langle g(x)\right\rangle,\qquad g(x)=(x^h-\beta)(x^h-\beta^2).
+\]
+In particular,
+\[
+\dim\langle S_3\rangle=n-2h=(p-3)h.
+\]
+The distance-three Cayley graph \(G_3(C)\) therefore has exactly
+\[
+p^{2(h-m)}
+\]
+connected components.
+
+## Assumptions and scope
+The field is the prime field \(\mathbb F_p\) with \(p\ge5\), and the extension degree \(m\) is odd and at least three. The code length is \(n=p^m-1\). The defining-zero convention is relative to the chosen primitive element \(\alpha\). The statement concerns the span of the minimum-weight words and the connected components of the distance-three graph; it does not address even \(m\), \(p=3\), or nonprime base fields.
+
+## Proof
+Take any weight-three word and apply a cyclic shift and a nonzero scalar so that its polynomial is
+\[
+c(x)=1+a x^i+b x^j,
+\]
+with \(a,b\in\mathbb F_p^*\) and \(0<i<j<n\). Since \(c\in C_{1,2}\), writing \(X=\alpha^i\) gives
+\[
+1+aX+b\alpha^j=0,\qquad 1+aX^2+b\alpha^{2j}=0.
+\]
+Eliminating \(\alpha^j\) yields
+\[
+a(a+b)X^2+2aX+(b+1)=0.
+\]
+If \(a+b=0\), this is linear and gives \(X\in\mathbb F_p\). Otherwise \(X\) has degree at most two over \(\mathbb F_p\). But \(X\in\mathbb F_{p^m}\), and because \(m\) is odd, \(\mathbb F_{p^2}\cap\mathbb F_{p^m}=\mathbb F_p\). Hence again \(X\in\mathbb F_p\). The same argument applies to \(\alpha^j\).
+
+Because \(\alpha\) has order \(n=(p-1)h\), the condition \(\alpha^i\in\mathbb F_p^*\) is equivalent to \(h\mid i\); similarly \(h\mid j\). Thus \(i=hr\) and \(j=hs\) for integers \(1\le r<s\le p-2\). With
+\[
+P(y)=1+a y^r+b y^s,
+\]
+we have \(c(x)=P(x^h)\). Since \(\beta=\alpha^h\), the two BCH checks are exactly \(P(\beta)=P(\beta^2)=0\). The elements \(\beta\) and \(\beta^2\) are distinct because \(\beta\) has order \(p-1\ge4\). Therefore
+\[
+(y-\beta)(y-\beta^2)\mid P(y),
+\]
+and consequently \(g(x)\mid c(x)\). Undoing the shift and scalar shows every member of \(S_3\) lies in the cyclic code \(\langle g\rangle\). Hence \(\langle S_3\rangle\subseteq\langle g\rangle\).
+
+Conversely,
+\[
+g(x)=x^{2h}-(\beta+\beta^2)x^h+\beta^3.
+\]
+All three displayed coefficients are nonzero: \(\beta\ne0\), and \(\beta+\beta^2=\beta(1+\beta)\ne0\) because a primitive element of order \(p-1\ge4\) is not \(-1\). Also \(0<h<2h<n\). Thus \(g\) has Hamming weight three. Moreover \(g(\alpha)=g(\alpha^2)=0\), so \(g\in C\). Every cyclic shift of \(g\) is therefore in \(S_3\), and their span is precisely the cyclic ideal \(\langle g\rangle\). This proves equality.
+
+Finally, \(g\mid x^n-1\) because \(x^n-1=(x^h)^{p-1}-1\) and \(\beta,\beta^2\) are roots of \(y^{p-1}-1\). Hence \(\deg g=2h\) and \(\dim\langle g\rangle=n-2h\). The cyclotomic classes of \(1\) and \(2\) modulo \(n\) are distinct and both have size \(m\), so \(\dim C=n-2m\). The connected components of \(G_3(C)\) are the cosets of \(\langle S_3\rangle\), giving exactly \(p^{(n-2m)-(n-2h)}=p^{2(h-m)}\) components.
+
+## Verification
+The standalone verifier `verify.py` performs a direct finite-field anchor at \(p=5\), \(m=3\), using \(\mathbb F_{125}=\mathbb F_5[u]/(u^3+u^2+2)\) with a primitive residue class \(u\). It enumerates every normalized weight-three solution of the two BCH parity checks, confirms that both nonzero support differences are multiples of \(h=31\), constructs the three-term generator, and computes the rank of all its cyclic shifts over \(\mathbb F_5\). The replay returns `cyclic_shift_rank 62`, `component_exponent 56`, and `VERIFY_OK`, matching the symbolic formulas.
+
+The finite replay is only a consistency check. The all-parameter claim is proved by the field-intersection and polynomial-divisibility argument above.
+
+## Relationship to prior work
+Rajput, Rajan, Freij-Hollanti, and Hollanti prove for the same \(C_{1,2}\) family that, for prime \(p\ge5\) and odd \(m\ge3\), every weight-three word lies in
+\[
+C_{1,2,p+1,p^2+1,\ldots,p^{(m-1)/2}+1}.
+\]
+Their argument establishes the crucial support fact that the two normalized locators lie in \(\mathbb F_p\), but their stated result is a containment and their resulting component count is a lower bound. The exact cyclic ideal above is strictly more informative: its defining roots are all \(\alpha^e\) with \(e\equiv1\) or \(2\pmod{p-1}\), and the displayed weight-three generator proves that this entire constraint is sharp.
+
+Mogilnykh and Solov'eva previously proved the weaker containment of the weight-three words in \(C_{1,2,p^2+1}\), sufficient to show that \(C_{1,2}\) is not generated by its minimum-weight words. Their theorem does not identify the generated subcode. The present equality determines that subcode and therefore the exact component count required by the later strict function-correcting-code construction.
+
+## Limitations
+The oddness of \(m\) is used essentially when a quadratic locator over \(\mathbb F_p\) is forced into \(\mathbb F_p\) by the intersection \(\mathbb F_{p^2}\cap\mathbb F_{p^m}=\mathbb F_p\). The argument does not establish the analogous span for even extension degree. It also does not cover \(p=3\), where the minimum-distance behavior changes, or base fields that are nonprime prime powers.
+
+## References
+1. C. Rajput, B. S. Rajan, R. Freij-Hollanti, and C. Hollanti, *Existence and Constructions of Strict Function-Correcting Codes with Data Protection*, arXiv:2604.26397v1, submitted 29 April 2026. In particular, Section VI and Theorem 6.
+2. I. Yu. Mogilnykh and F. I. Solov'eva, *On Bases of BCH Codes with Designed Distance 3 and Their Extensions*, Problems of Information Transmission 56(4), 309–316 (2020), DOI 10.1134/S003294602004002X. In particular, Theorem 2 and Corollary 3.
