@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The final claim has one exact domain: ten-word binary (2,1)-separating systems of length eight. The prior maximum 10 was reconstructed from the inspected normalized closest-pair proof. For the new refinement, the package verifier exhaustively counts all distance-at-least-four ten-word systems containing zero (46,200), converts this by translation incidence to 1,182,720 labeled systems, directly validates three representatives, computes their exact stabilizers 48, 32, and 16 in the full Hamming-isometry group, and obtains disjoint orbit sizes summing to the full census. The coordinate pair-distance bound proves no ten-word binary code can have minimum distance at least five. The computation is finite and exhaustive; no timeout or partial enumeration is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Korže--Vesel report hypercube computations and a size-10 lower bound at dimension eight but state exact values only through dimension seven in their 2023 paper.",
+        "Randriambololona concerns asymptotic rates and metric convexity, not finite equality classifications."
+      ],
+      "reasoning": "The broader hypercube and asymptotic separating-system results neither dominate the exact cardinality-ten theorem nor imply a minimum-distance-four equality census.",
+      "searches": [
+        "general position Q8 maximum sets minimum Hamming distance four classification",
+        "DOI:10.1007/s00009-023-02416-z",
+        "arXiv:1010.5764v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1010.5764v1",
+      "DOI:10.1137/S0895480101384633",
+      "DOI:10.1007/s00009-023-02416-z",
+      "OEIS:A089676",
+      "2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact length-eight proof rules out size 11 after closest-pair normalization and provides one size-10 witness. It does not enumerate all size-10 codes, impose minimum distance four on equality cases, or compute stabilizers.",
+        "The new exhaustive count 1,182,720 and the three orbit sizes sum exactly, with pairwise inequivalence certified by distance-profile multisets."
+      ],
+      "reasoning": "The prior theorem supplies the ambient optimum but does not logically imply how many extremizers maximize Hamming separation or how those extremizers decompose under cube isometries.",
+      "searches": [
+        "binary separating code length eight 10 codewords distance 4 stabilizer orbit",
+        "2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0 RESULT.md and artifacts/verify_q8.cpp"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest exact published-finding corpus record proves the equivalence among binary 2-frameproof codes, binary (2,1)-separating systems, and general-position sets in the hypercube, and proves the cardinality maximum 10. Its result statement does not classify the distance-four equality subclass or enumerate Hamming-isometry orbits.",
+        "Korže--Vesel (DOI:10.1007/s00009-023-02416-z), Section 4, explicitly identifies hypercube general position with (2,1)-separating systems."
+      ],
+      "reasoning": "The aliases lead to the same ambient object, so they were searched together. None of the inspected equivalent formulations contains the new labeled count or three-orbit decomposition.",
+      "searches": [
+        "binary (2,1)-separating systems length 8 minimum distance 4 maximum code classification orbits",
+        "binary 2-frameproof code length 8 size 10 minimum distance 4",
+        "published-finding corpus:2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The current exact published-finding corpus record gives the value 10 but no count of distance-four maxima.",
+        "OEIS A089676 records small exact cardinalities and examples, including the length-eight value, but the inspected entry does not provide this distance-four labeled census or orbit decomposition."
+      ],
+      "reasoning": "Known tables answer the extremal cardinality question, whereas the new claim concerns a secondary sharp distance invariant and complete equality structure.",
+      "searches": [
+        "m_2(8,2) size 10 distance 4 equality cases",
+        "OEIS A089676",
+        "published-finding corpus exact length-eight binary (2,1)-separating systems"
+      ]
+    },
+    "rationale": "Exact-parameter, alias, broader-coverage, table, and implication searches all return the known cardinality-ten theorem as the closest result. Full inspection of that record and the closest primary hypercube paper shows no count or orbit classification of the distance-four equality subclass. The claim is not presented as a novelty proof from failed search alone: the closest statements were compared for implication and do not entail the new census.",
+    "residual_risks": [
+      "An unindexed historical or private computational enumeration could contain the same finite equality census.",
+      "The oldest foundational Hamming-space paper was not available with a verified public-release day; this affects dating precision only, not the implication comparison with the inspected exact length-eight result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the maximum cardinality 10 and the exact upper-bound mechanism, but not the distance-four extremizer count or orbit classification.",
+        "evidence": "The result statement gives m_2(8,2)=10; the verifier searches normalized closest-pair cases d=2,3,4 and does not enumerate equality cases.",
+        "identifier_or_url": "2026/9/21/SCOPE-exact-length-eight-binary-21-separating-systems--bbbd20b813f0",
+        "material_read": "Full RESULT.md, METADATA.json, verification report, and standalone C++ verifier source.",
+        "method": "Direct repository inspection of the published record and its verifier.",
+        "title": "Exact size of binary (2,1)-separating systems of length eight",
+        "trigger": "Closest exact same-parameter result returned by all exact-parameter published-finding corpus searches."
+      },
+      {
+        "assessment": "Defines the hypercube/general-position alias and reports only a lower bound of 10 for dimension eight; no equality classification.",
+        "evidence": "Section 4 states the equivalence with (2,1)-separating systems; Table 1 lists h=8 with gp(Q_h) at least 10, and the text says exactness was confirmed only through dimension seven.",
+        "identifier_or_url": "DOI:10.1007/s00009-023-02416-z",
+        "material_read": "Full open-access article, including Section 4 and the hypercube table; PDF pages containing Section 4 and Table 1 were visually inspected.",
+        "method": "Publisher HTML plus open-access PDF inspection.",
+        "title": "General Position Sets in Two Families of Cartesian Product Graphs",
+        "trigger": "Primary literature on the exact hypercube alias."
+      },
+      {
+        "assessment": "Asymptotic construction and rate result, not a finite length-eight classification.",
+        "evidence": "The abstract discusses asymptotic binary (2,1)-separating systems and metric convexity; v1 was publicly submitted 2010-10-27.",
+        "identifier_or_url": "arXiv:1010.5764v1",
+        "material_read": "Abstract and arXiv submission metadata.",
+        "method": "arXiv record inspection.",
+        "title": "(2,1)-separating systems beyond the probabilistic bound",
+        "trigger": "Foundational archive source using the exact separating-system terminology and providing exact public-release dating."
+      },
+      {
+        "assessment": "Provides frameproof-code context and verifies primary MSC 68R05; it does not contain the finite distance-four classification.",
+        "evidence": "The SIAM record explicitly lists MSC 68R05 and defines frameproof codes combinatorially.",
+        "identifier_or_url": "DOI:10.1137/S0895480101384633",
+        "material_read": "Abstract, subject classification, and accessible introductory description.",
+        "method": "SIAM metadata and accessible repository text inspection.",
+        "title": "Frameproof Codes",
+        "trigger": "MSC ownership and the equivalent frameproof-code terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f3f7b5c-ff85-4226-9f32-8afb5818f0ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural equality refinement of a standard exact coding-theory parameter: among all cardinality-optimal separating systems it determines the greatest simultaneous Hamming separation and completely classifies every system attaining that secondary optimum. The invariant is motivated by error separation inside an extremal fingerprinting/separating code, and the result supplies a full census and symmetry taxonomy rather than an arbitrary slice or a recomputation of the known maximum size.",
+    "status": "PASS"
+  }
+}
