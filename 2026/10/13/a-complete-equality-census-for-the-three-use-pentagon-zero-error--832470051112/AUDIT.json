@@ -1,0 +1,136 @@
+{
+  "claim": "For three independent uses of the pentagon confusability channel, equivalently the strong graph power \\(C_5^{\\boxtimes 3}\\), the maximum zero-error code size is \\(10\\). Exactly \\(391{,}600\\) maximum codes of size \\(10\\) exist on the labeled alphabet \\((\\mathbb Z/5\\mathbb Z)^3\\), and exactly \\(31{,}328\\) contain any prescribed word. Under the natural channel-isometry group \\(G=(D_{10})^3\\rtimes S_3\\) of order \\(6000\\), the maxima form exactly \\(85\\) orbits. Their stabilizer-order distribution is \\(1^{53},2^{19},3^2,4^7,8^1,10^2,40^1\\). The unique orbit with stabilizer order \\(40\\) has representative \\(\\{(0,0,0),(0,0,2),(1,2,0),(1,2,2),(2,4,0),(2,4,2),(3,1,0),(3,1,2),(4,3,0),(4,3,2)\\}\\).",
+  "correctness": {
+    "rationale": "The packaged verifier reconstructs the compatibility graph directly from cyclic distance, exhaustively proves that no size-11 code containing a fixed word exists, enumerates all 31,328 size-10 codes containing that word, directly rechecks every pair in every enumerated code, double-counts to 391,600 labeled maxima, canonicalizes them under the stated natural group, and independently recomputes all 85 stabilizers. The orbit-size sum exactly equals the independent incidence count. Risk is implementation error; it is mitigated by these redundant defining-condition and counting checks, but no independent audit has been performed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bohman--Holzman--Natarajan 2009 give a complete classification for powers of the form \\(C_{k2^d+1}^{d}\\); the three-use pentagon does not satisfy that parameter relation.",
+        "Their 2013 cube paper treats \\(C_{8n+5}^{\\boxtimes 3}\\), not an equality classification of \\(C_5^{\\boxtimes 3}\\).",
+        "The available abstract for Sonnemann--Krafft describes independence-number results for odd-cycle products of power three but does not expose an equality-case census."
+      ],
+      "reasoning": "A classification theorem covering all odd-cycle cubes would dominate the claim, but the inspected classification has a different parameter family and the inspected cube result is an independence-number result. The inaccessible 1974 full text prevents a categorical NOT_COVERING conclusion for that source, so it is retained as a risk.",
+      "searches": [
+        "Maximum Independent Sets in Certain Powers of Odd Cycles C5 cube",
+        "On the Independence Numbers of the Cubes of Odd Cycles C5^3 classification maximum independent sets",
+        "Independence numbers of product graphs Sonnemann Krafft odd cycles power three"
+      ]
+    },
+    "checked_sources": [
+      "Baumert et al., A Combinatorial Packing Problem (1971)",
+      "Badalyan--Mnatsakanyan, On the independence numbers of the powers of C5 graph (2012)",
+      "Bohman--Holzman--Natarajan, Maximum Independent Sets in Certain Powers of Odd Cycles (2009)",
+      "Bohman--Holzman--Natarajan, On the Independence Numbers of the Cubes of Odd Cycles (2013)",
+      "Sonnemann--Krafft, Independence numbers of product graphs (1974), abstract only",
+      "OEIS A003012",
+      "Modern Shannon-capacity literature identifying the confusability-graph strong-product problem with zero-error information theory and MSC 94A15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Baumert et al. Theorem 4 proves \\(\\alpha(C_5^{\\boxtimes 3})=10\\) by excluding \\(11\\) and \\(12\\), while their subsequent essential-packing classification theorem is explicitly two-dimensional.",
+        "Badalyan--Mnatsakanyan provide a later proof of the optimum \\(10\\).",
+        "A maximum-size theorem alone does not determine how many maximum sets exist or their stabilizers."
+      ],
+      "reasoning": "The final claim strictly refines the known cardinality theorem. Neither the maximum value nor a construction implies the \\(391{,}600\\) count, the \\(31{,}328\\) fixed-word count, the \\(85\\) orbits, or the stabilizer distribution.",
+      "searches": [
+        "alpha(C5 strong power 3) 10 maximum independent sets",
+        "On the independence numbers of the powers of C5 graph equality cases",
+        "A combinatorial packing problem Theorem 4 C5 cube 10 maximal packings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baumert et al. formulate the object as packings in the three-dimensional 5-torus and prove the same independence number 10.",
+        "Badalyan--Mnatsakanyan study the same strong power of C5 and prove alpha=10.",
+        "The channel formulation is the standard confusability-graph/strong-product formulation of zero-error communication."
+      ],
+      "reasoning": "Toroidal packing, maximum independent sets of the strong cube, and three-use zero-error codes were treated as equivalent formulations of the same finite object. The inspected sources cover the optimum value but not the equality census or the stated symmetry decomposition.",
+      "searches": [
+        "C5 strong cube maximum independent sets classification Shannon capacity pentagon three uses",
+        "pentagon confusability graph three-use zero-error code equivalence classes",
+        "three-use pentagon zero-error codes maximum independent sets classification",
+        "pentagon zero-error three uses maximum code equality census 31328 391600"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding database returned no exact-count or orbit-classification match. Its closest C5^3 hits concerned tight-cycle-free 3-uniform hypergraphs, a notation collision with a different object.",
+        "OEIS A003012 records the independence-number sequence and cites Baumert et al.; it records the value 10 for the 5-cycle cube but not an equality census."
+      ],
+      "reasoning": "The known exact value and sequence table do not imply the number or symmetry types of extremizers. Exact numerical searches for the new counts found no scientific source asserting them.",
+      "searches": [
+        "\"391600\" maximum independent sets C5 cube",
+        "\"31328\" C5 cube independent",
+        "\"85\" equivalence classes maximum independent sets C5^3",
+        "maximum independent sets C5^3 10 strong product classification orbit stabilizer",
+        "\"On the independence numbers of the powers of C5 graph\" maximum independent sets equality classification"
+      ]
+    },
+    "rationale": "The closest inspected primary sources settle the maximum value or classify different odd-cycle-power families, but the inspected material does not give the labeled equality count, the 85 natural-group orbits, or the stabilizer distribution. Exact-count, alias, and implication searches located no equivalent published finding. A plausible 1974 source could not be fully inspected and is retained as a residual risk rather than treated as negative evidence.",
+    "residual_risks": [
+      "The full 1974 Sonnemann--Krafft paper was not accessible during the bounded source check, so an equality classification hidden there cannot be excluded from the inspected evidence alone.",
+      "An obscure unindexed or unpublished historical computational census may exist.",
+      "The object sits at the graph-theory and information-theory boundary; the finding is classified here under 94A15 because the final statement and motivation are zero-error channel coding, while early packing papers used graph or combinatorial classifications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the object and alpha=10; NOT_COVERING the claimed three-dimensional equality census in the inspected text. Theorem 5 classifies an explicitly two-dimensional family.",
+        "evidence": "Theorem 4 states \\(\\alpha(C_5^{\\boxtimes 3})=10\\) and says exhaustive search excludes \\(11\\) and \\(12\\); the following Theorem 5 concerns essentially distinct maximal packings of a two-dimensional torus.",
+        "identifier_or_url": "https://oeis.org/A003012/a003012.pdf",
+        "material_read": "Full 12-page scanned paper, with particular inspection of pp. 97-102 and Theorems 4-5.",
+        "method": "Lawful open scanned full text and page images.",
+        "title": "A Combinatorial Packing Problem",
+        "trigger": "Earliest directly relevant source and exact C5-cube value."
+      },
+      {
+        "assessment": "COVERS \\(\\alpha(C_5^{\\boxtimes 3})=10\\); NOT_COVERING the labeled equality census or orbit decomposition.",
+        "evidence": "The article proves the independence number \\(10\\); no complete enumeration of all size-\\(10\\) independent sets appears in the inspected text.",
+        "identifier_or_url": "doi:10.46991/PYSUA.2012.46.1.038",
+        "material_read": "Complete five-page open-access article, including both proofs of the C5-cube value.",
+        "method": "Lawful open full text and page images.",
+        "title": "On the independence numbers of the powers of C5 graph",
+        "trigger": "Exact same graph power and maximum."
+      },
+      {
+        "assessment": "NOT_COVERING by parameter mismatch.",
+        "evidence": "The stated complete classification is for powers \\(C_{k2^d+1}^{d}\\); \\(C_5^{\\boxtimes 3}\\) is not in that family.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v16i1n26/pdf/",
+        "material_read": "Open-access article introduction and classification scope.",
+        "method": "Lawful open full text.",
+        "title": "Maximum Independent Sets in Certain Powers of Odd Cycles",
+        "trigger": "Closest published equality-classification result for powers of odd cycles."
+      },
+      {
+        "assessment": "NOT_COVERING the C5-cube equality census.",
+        "evidence": "The paper gives bounds and exact cases for \\(C_{8n+5}^{\\boxtimes 3}\\); its cited equality classifications concern different powers and parameters.",
+        "identifier_or_url": "doi:10.37236/2598",
+        "material_read": "Open-access full paper, especially introduction and the section describing neighboring equality classifications.",
+        "method": "Lawful open full text and page images.",
+        "title": "On the Independence Numbers of the Cubes of Odd Cycles",
+        "trigger": "Closest later paper specifically on cubes of odd cycles."
+      },
+      {
+        "assessment": "Plausibly relevant but unresolved for equality-case coverage; retained as a residual risk.",
+        "evidence": "The abstract states that it extends results for cycle-products of power three, but no accessible material seen here states a count or classification of maximum independent sets of \\(C_5^{\\boxtimes 3}\\).",
+        "identifier_or_url": "doi:10.1016/0095-8956(74)90081-1",
+        "material_read": "Bibliographic abstract or summary only; open-access and arXiv attempts did not yield full text, and an authorized institutional retrieval attempt timed out.",
+        "method": "Bibliographic abstract after bounded lawful access attempts.",
+        "title": "Independence numbers of product graphs",
+        "trigger": "Historical source whose abstract explicitly mentions odd-cycle products of power three."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83247005-1112-4816-922e-05cd6193d83d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pentagon channel is the canonical finite example in zero-error information theory where block coding and strong graph products are central. Classifying every three-use optimum is therefore a natural equality problem, not an arbitrary parameter slice. The result shows a large and highly non-rigid equality landscape—85 natural symmetry types—behind the classical scalar optimum 10, supplies exact labeled and fixed-word counts, and gives a reproducible finite benchmark for structural work on zero-error codes and strong powers. Risk: it is a finite result and does not by itself improve Shannon-capacity bounds.",
+    "status": "PASS"
+  }
+}
