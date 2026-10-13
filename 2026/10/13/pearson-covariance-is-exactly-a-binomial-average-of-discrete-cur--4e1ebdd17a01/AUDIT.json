@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Pearson X-squared is exactly affine in the number of equal observation pairs. Conditioning one distinguished pair on equality versus inequality changes the expected additive cell statistic by precisely the binomial average of its second forward difference. The algebra gives the displayed coefficient. For the power-divergence family, strict convexity for positive lambda and strict concavity together with a negative normalization for minus one less than lambda less than zero give strict positive covariance; the lambda-zero limit is handled directly by k log k. The packaged enumeration reproduces the likelihood-ratio and representative power-family cases, and the quadratic specialization reproduces the exact Pearson variance.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cressie--Read (1984) defines the power-divergence family and identifies Pearson and log likelihood as special cases; its published summary emphasizes asymptotic differences and finite-sample comparisons.",
+        "Marhuenda--Marhuenda--Morales (2003) treats the equiprobable multinomial case exactly, generating the support to compute exact marginal distributions, critical values, and powers for several divergence statistics.",
+        "Jann (2008) likewise treats exact small-sample tests by enumeration or Monte Carlo for Pearson, likelihood ratio, and the general power-divergence family."
+      ],
+      "reasoning": "These sources are broader in the choice of divergence and exact testing tasks, but the inspected statements and substantive sections do not supply the mixed covariance identity. Exact marginal distributions or separate critical values do not determine the joint covariance of two statistics on the same multinomial sample.",
+      "searches": [
+        "DOI:10.1111/j.2517-6161.1984.tb01318.x",
+        "DOI:10.2307/1403582",
+        "DMLCZ:135508",
+        "DOI:10.1177/1536867X0800800201"
+      ]
+    },
+    "checked_sources": [
+      "Cressie and Read (1984), DOI 10.1111/j.2517-6161.1984.tb01318.x, publisher summary and available first-page text.",
+      "Cressie and Read (1989), DOI 10.2307/1403582, bibliographic abstract describing comparative small-sample and efficiency review.",
+      "Marhuenda, Marhuenda, and Morales (2003), DML-CZ 135508, public full PDF substantive sections and targeted full-text searches.",
+      "Jann (2008), DOI 10.1177/1536867X0800800201, public abstract and test-statistic section.",
+      "Current and prior own ledgers searched for Pearson, likelihood ratio, deviance, power divergence, multinomial, and occupancy-statistic overlap."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One prior result gives the conditional mean and variance of Pearson X-squared given the number of occupied cells; it contains no likelihood-ratio or arbitrary additive-cell statistic.",
+        "Another prior result gives covariance of fixed occupancy-frequency counts with Pearson X-squared; frequency indicators are a narrow class of cell scores and that formula does not imply the arbitrary-h second-difference identity or power-divergence corollary.",
+        "No checked prior claim involves the log-likelihood ratio or the Cressie--Read family covariance with Pearson."
+      ],
+      "reasoning": "Conditioning Pearson on support size and coupling Pearson to individual occupancy-frequency coordinates do not determine covariance with nonlinear cell scores such as k log k or k to a noninteger power. The new pair-conditioning identity is required to obtain the claimed family result.",
+      "searches": [
+        "own Pearson chi-square conditional occupied cells multinomial",
+        "own occupancy spectrum covariance Pearson chi-square",
+        "own multinomial likelihood ratio deviance covariance",
+        "published exact power divergence distributions uniform multinomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches returned multinomial-mode asymptotics, unrelated covariance results, and power-divergence definitions, but no theorem expressing Pearson covariance as a binomial average of a second difference.",
+        "Exact web searches for Pearson/log-likelihood covariance and power-divergence covariance did not locate the displayed finite formula."
+      ],
+      "reasoning": "The searches cover Pearson chi-square, log-likelihood ratio, G-square, the Cressie--Read family, additive symmetric multinomial statistics, collision counts, covariance, and discrete-curvature aliases. The proposed theorem is statement-level stronger than the two-statistic specialization because it applies to every additive cell score.",
+      "searches": [
+        "Pearson chi-square covariance power divergence statistic exact finite uniform multinomial",
+        "positive covariance Pearson with all Cressie Read power divergence",
+        "uniform multinomial Pearson covariance additive cell statistic discrete second difference",
+        "collision count covariance additive occupancy statistic curvature",
+        "Pearson chi-square likelihood ratio G-square exact finite covariance multinomial goodness of fit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact symbolic match for the curvature formula or the Pearson--G-square finite covariance was located.",
+        "The complete public 2003 exact-distribution paper contains tables of marginal critical values; full-text searches returned no covariance, correlation, or joint-statistic result."
+      ],
+      "reasoning": "The new claim is an all-n and all-m identity and a sign theorem, not a recomputation of an existing finite table. The closest exact tables concern one statistic at a time.",
+      "searches": [
+        "\"Cov(X^2,G^2)\" multinomial Pearson likelihood ratio",
+        "\"covariance\" \"power divergence statistics\" multinomial",
+        "\"correlation\" \"power divergence statistics\" Pearson multinomial",
+        "\"collision\" \"second difference\" multinomial covariance"
+      ]
+    },
+    "rationale": "The closest foundational literature defines and compares the power-divergence family, and the closest exact finite literature enumerates marginal exact distributions and powers under uniformity. The inspected exact-distribution paper does not state a joint covariance or a discrete-curvature identity, and marginal exact laws do not imply a mixed moment. Semantic and exact-form searches did not locate the displayed all-cell-score identity or the finite positive-covariance theorem for the whole lambda greater than minus one family. The inaccessible remainder of the 1984 foundational paper is retained as a concrete residual risk rather than treated as negative evidence.",
+    "residual_risks": [
+      "The complete 1984 Cressie--Read article was not available through a stable public full-text endpoint during this inspection; an equivalent finite covariance identity there remains a specific risk.",
+      "Older categorical-data or occupancy literature may contain the general additive-statistic covariance identity under different U-statistic or finite-difference notation.",
+      "The result is restricted to the equal-probability null; a broader unequal-cell theorem, if already known, could subsume it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_FAMILY_SOURCE_WITH_RESIDUAL_RISK",
+        "evidence": "The accessible material says most analytic work concerns asymptotic differences among power divergences, with finite-sample results as checks and supplements; it does not expose the proposed covariance identity.",
+        "identifier_or_url": "DOI:10.1111/j.2517-6161.1984.tb01318.x",
+        "material_read": "Publisher summary and available first-page public text, including the family definition, special cases, and the authors' stated analytic emphasis.",
+        "method": "Compared the source scope with the proposed finite mixed-moment statement; a stable complete public full-text endpoint was not available, so no whole-document noncoverage inference was made.",
+        "title": "Multinomial Goodness-Of-Fit Tests",
+        "trigger": "Foundational source defining the power-divergence family and its Pearson and log-likelihood special cases."
+      },
+      {
+        "assessment": "EXACT_MARGINAL_DISTRIBUTIONS_NOT_MIXED_COVARIANCE",
+        "evidence": "The paper computes exact distributions, critical values, and powers for individual divergence statistics under uniformity. The inspected material gives no mixed covariance; exact marginal laws do not imply the proposed joint moment.",
+        "identifier_or_url": "DMLCZ:135508",
+        "material_read": "Public PDF introduction, definitions, exact-support generation method, exact-distribution discussion, exact-power section, and critical-value tables; targeted full-text searches for covariance, correlation, and joint terminology were also checked.",
+        "method": "Statement and implication comparison against the exact finite covariance theorem.",
+        "title": "On the Computation of the Exact Distribution of Power Divergence Test Statistics",
+        "trigger": "Closest public full-text source for exact finite power-divergence calculations under the uniform multinomial null."
+      },
+      {
+        "assessment": "EXACT_TEST_PROCEDURE_NOT_COVARIANCE_FORMULA",
+        "evidence": "The source describes exact p-values by Monte Carlo or exhaustive enumeration and separately defines Pearson, likelihood ratio, and power divergence; the inspected material contains no covariance formula.",
+        "identifier_or_url": "DOI:10.1177/1536867X0800800201",
+        "material_read": "Public abstract and the classic large-sample test-statistic section made available in the indexed PDF text.",
+        "method": "Compared the exact-test task with the proposed mixed-moment task.",
+        "title": "Multinomial Goodness-of-Fit: Large-Sample Tests with Survey Design Correction and Exact Tests for Small Samples",
+        "trigger": "Exact small-sample methodology covering Pearson, likelihood ratio, and the general power-divergence family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e1ebdd1-7a01-405d-b032-2ee9eb898356",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pearson X-squared and the likelihood-ratio statistic are the two classical multinomial goodness-of-fit statistics, while the Cressie--Read family is the standard unifying class. The theorem gives an exact finite mechanism for their dependence: pair collisions probe only the discrete curvature of an additive cell score. This yields a universal sign theorem across all finite power divergences with lambda greater than minus one and clarifies why the Pearson and likelihood-ratio statistics align even before their common chi-square asymptotics become accurate. The result is structural and reusable for arbitrary additive cell statistics rather than a single numerical covariance.",
+    "status": "PASS"
+  }
+}
