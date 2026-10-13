@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The finite domain is complete: every one of the \\(4^m\\) labeled profiles and every complete allocation is checked for \\(1\\le m\\le5\\). A second computation works only with the four item-type counts and multinomial weights. The independent routes agree on zero disjoint cases through four goods and exactly \\(100\\) at five goods, and reproduce all four symmetry classes and the witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ramezani and Endriss formulate Nash social welfare for indivisible multiagent resource allocation as a fairness-efficiency objective.",
+        "Halpern et al. state that under binary additive valuations the MNW and leximin allocation sets coincide.",
+        "Benabbou et al. work with matroid-rank valuations whose marginal gains are binary, so their equivalence structure does not cover additive per-item values \\({1,2}\\).",
+        "Lin, Wu, and Zhou study bi-valued goods and show that leximin and MNW have sharply different fairness-approximation behavior, but their inspected leximin appendix addresses EFX, GMMS, and PMMS rather than optimizer-set intersection or minimal number of goods."
+      ],
+      "reasoning": "These sources own the objectives, the binary coincidence, and the qualitative bi-valued divergence. They do not imply the universal four-good intersection lower bound or the exact five-good quotient classification.",
+      "searches": [
+        "Nash social welfare indivisible goods fair division Ramezani Endriss",
+        "Fair Division with Binary Valuations One Rule to Rule Them All MNW leximin",
+        "Finding Fair and Efficient Allocations matroid rank MNW leximin",
+        "When Maximum Nash Welfare Becomes Strongly Fair Bi-valued Goods leximin"
+      ]
+    },
+    "checked_sources": [
+      "https://ir.cwi.nl/pub/17464/",
+      "doi:10.1007/978-3-642-15117-0_9",
+      "doi:10.1145/2940716.2940726",
+      "arXiv:2007.06073",
+      "arXiv:2003.07060",
+      "arXiv:2610.00122"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Binary \\({0,1}\\) coincidence does not extend by substitution to positive \\({1,2}\\) values; the new witness directly disproves such an extension.",
+        "Matroid-rank valuations have binary marginal gains and therefore do not contain the positive additive \\({1,2}\\) domain.",
+        "A difference in EFX, PMMS, or GMMS approximation guarantees does not imply that MNW and leximin optimizer sets are disjoint for a given instance, much less establish the smallest good count.",
+        "The recent bi-valued paper gives larger parametric leximin examples for approximation guarantees rather than the five-good incompatibility census."
+      ],
+      "reasoning": "The accepted claim requires a universal lower bound over all profiles through four goods plus exact classification of every first disjoint case. None of the inspected broader theorems has that implication.",
+      "searches": [
+        "binary additive valuations MNW leximin coincide",
+        "matroid rank valuations MNW leximin equivalence",
+        "bi-valued goods leximin fairness approximation MNW",
+        "two agent bi-valued leximin Nash welfare"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked search result supplied a two-agent five-good disjointness boundary for MNW and leximin.",
+        "Halpern et al. prove equality of the two optimizer sets for binary additive valuations, which is a different domain with values \\({0,1}\\).",
+        "The exact utility signatures \\((3,6)\\) and \\((4,4)\\), the count \\(100\\), and the four type-count classes were not found in the checked literature."
+      ],
+      "reasoning": "The searches cover Nash-welfare/MNW aliases, leximin, positive bi-valued values \\({1,2}\\), the two-agent restriction, the minimal-good formulation, and exact first-layer signatures.",
+      "searches": [
+        "maximum Nash welfare leximin two agents bivalued five goods",
+        "Nash welfare leximin 1 2 valuations five goods fair division",
+        "two-agent fair division maximum Nash welfare leximin smallest counterexample",
+        "bivalued indivisible goods leximin MNW first disagreement five goods",
+        "five goods maximum Nash welfare leximin utility 3 6 4 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the \\(100/1024\\) count or incidence \\(25/256\\).",
+        "No checked source supplied the four canonical type-count vectors or orbit sizes \\(10,10,40,40\\).",
+        "The packaged verifier derives these counts directly from all labeled profiles and independently from the type-count quotient."
+      ],
+      "reasoning": "Exact-number, exact-good-count, and exact-utility searches directly target prior tabulation of the finite boundary rather than relying only on title similarity.",
+      "searches": [
+        "five goods leximin Nash welfare fair division",
+        "100 1024 leximin Nash welfare",
+        "five goods maximum Nash welfare leximin utility 3 6 4 4",
+        "two agents five goods values 1 2 maximum Nash welfare leximin disjoint allocations 100 profiles"
+      ]
+    },
+    "rationale": "Published work establishes MNW/leximin coincidence for binary additive and binary-marginal valuation domains, while recent bi-valued work compares their fairness guarantees. No inspected source states or implies the exact first disjoint-optimizer boundary for two-agent positive \\({1,2}\\)-valuations or its complete five-good census.",
+    "residual_risks": [
+      "An unindexed exercise, thesis appendix, supplementary table, or software enumeration could contain the same five-good boundary.",
+      "The recent bi-valued literature is active; the originality claim is restricted to the exact two-agent \\({1,2}\\) incompatibility boundary and first-layer classification.",
+      "No claim is made for other value ratios, more agents, or more than five goods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the objective in the relevant allocation setting but does not compare MNW with leximin or study positive bi-valued small instances.",
+        "evidence": "The BNAIC 2009 proceedings were presented in Eindhoven on 29--30 October 2009; the item is listed as the Ramezani--Endriss extended abstract.",
+        "identifier_or_url": "https://ir.cwi.nl/pub/17464/",
+        "material_read": "Public bibliographic record and abstract describing indivisible resource allocation, Nash social welfare as the product of individual utilities, and its efficiency-fairness motivation; the record identifies the BNAIC 2009 presentation.",
+        "method": "Open institutional publication-record inspection.",
+        "title": "Nash Social Welfare in Multiagent Resource Allocation",
+        "trigger": "Early primary formulation of Nash social welfare for indivisible multiagent resource allocation and the archive date anchor."
+      },
+      {
+        "assessment": "Establishes MNW as a canonical fair-division rule but does not study the MNW-versus-leximin positive-bi-valued boundary.",
+        "evidence": "EC 2016 paper, DOI 10.1145/2940716.2940726.",
+        "identifier_or_url": "doi:10.1145/2940716.2940726",
+        "material_read": "Open accepted-version PDF including the abstract, introduction, additive-indivisible-goods model, and discussion of MNW as balancing utilitarian and egalitarian welfare.",
+        "method": "Open full-PDF text inspection with rendered-page checks.",
+        "title": "The Unreasonable Fairness of Maximum Nash Welfare",
+        "trigger": "Foundational full treatment of MNW for additive indivisible-goods fair division."
+      },
+      {
+        "assessment": "Decisively covers the binary \\({0,1}\\) domain, but not positive additive \\({1,2}\\) valuations.",
+        "evidence": "Definitions 4--6 and Lemma 3 in arXiv:2007.06073.",
+        "identifier_or_url": "arXiv:2007.06073",
+        "material_read": "Open full-text sections defining generalized MNW and leximin and Lemma 3 stating that their allocation sets coincide for binary additive valuations.",
+        "method": "Open arXiv full-text HTML inspection.",
+        "title": "Fair Division with Binary Valuations: One Rule to Rule Them All",
+        "trigger": "Closest primary theorem asserting exact MNW/leximin optimizer-set coincidence."
+      },
+      {
+        "assessment": "Does not cover the present domain because additive values \\({1,2}\\) have marginal gains \\(1\\) or \\(2\\), whereas matroid-rank marginal gains are binary.",
+        "evidence": "The paper explicitly characterizes matroid-rank valuations as submodular valuations with binary \\({0,1}\\) marginal gains.",
+        "identifier_or_url": "arXiv:2003.07060",
+        "material_read": "Open full text describing matroid-rank valuations and their binary marginal gains, including the section on MNW and leximin allocations.",
+        "method": "Open arXiv full-text HTML inspection.",
+        "title": "Finding Fair and Efficient Allocations for Matroid Rank Valuations",
+        "trigger": "Potential broader MNW/leximin equivalence that needed an implication check."
+      },
+      {
+        "assessment": "Covers qualitative and approximation-theoretic divergence but does not state the minimal five-good optimizer-set incompatibility or its exact census.",
+        "evidence": "Appendix A studies parametric approximation guarantees and examples; no five-good statement or exact \\(100/1024\\) census appears in the inspected text.",
+        "identifier_or_url": "arXiv:2610.00122",
+        "material_read": "Open full text including the introduction, the statement that binary MNW/leximin equivalence gives way to different fairness performance in bi-valued instances, and Appendix A on leximin EFX, GMMS, and PMMS guarantees, including its two-agent constructions.",
+        "method": "Open arXiv full-text HTML inspection.",
+        "title": "When Maximum Nash Welfare Becomes Strongly Fair: Bi-valued Goods",
+        "trigger": "Most directly relevant recent full text comparing MNW and leximin on bi-valued goods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "772585cf-1504-437f-be47-b620e5c341fb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "MNW and leximin are standard competing fairness objectives, while binary additive valuations are a notable domain in which they coincide exactly. Positive \\({1,2}\\)-valuations are the simplest strictly positive two-level extension, so the first good count at which the two optimizer sets become mutually incompatible is a natural structural boundary. The first layer is especially informative because all conflicts reduce to four symmetry types and the same exact tradeoff between balanced utility \\((4,4)\\) and higher Nash product at \\((3,6)\\).",
+    "status": "PASS"
+  }
+}
