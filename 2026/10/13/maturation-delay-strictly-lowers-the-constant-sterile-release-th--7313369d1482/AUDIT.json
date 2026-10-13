@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The source's cubic equilibrium equation factors exactly into the release graph \\(b=B_a(N)=N(\\mu_2+\\xi_2N)(a-\\mu_1-\\xi_1N)/a\\). For fixed admissible N its derivative with respect to a is strictly positive, so the maximized threshold rises strictly with a and therefore falls strictly with delay because a=a0 exp(-mu0 tau). Rescaling N near a=mu1 gives the quadratic endpoint law. High-precision replay reproduces the delayed equilibrium coordinates printed in Figure 1 but gives a different threshold label, and shows no positive equilibria at the Figure 2 delays 1.5 and 4.9 when b=21.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 Cai–Ai–Li model establishes the nondelayed constant-release saddle-node structure at fixed reproductive parameter.",
+        "The 2019 Yu–Li delayed model establishes release thresholds under a different formulation in which sexually active sterile mosquitoes are modeled separately.",
+        "Neither comparison source supplies the exact delay-dependent release graph or the source-specific Figure 1–2 correction."
+      ],
+      "reasoning": "The mechanism of release thresholds is prior art, but the accepted claim depends on the exact exponential maturation-survival factor and equilibrium cubic of the 2018 model.",
+      "searches": [
+        "\"Dynamics of Mosquitoes Populations with Different Strategies for Releasing Sterile Mosquitoes\" threshold release",
+        "\"Dynamics of interactive wild and sterile mosquitoes with time delay\" threshold",
+        "sterile insect mosquito release threshold delay differential equation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/mbe.2018054",
+      "doi:10.1137/13094102X",
+      "doi:10.1080/17513758.2019.1682201"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific correction of the Figure 1 threshold or Figure 2 delay sweep was located.",
+        "The earlier nondelayed threshold result does not imply monotonicity in a maturation delay that it does not contain.",
+        "The later delayed threshold literature uses different state and release formulations and does not imply the exact accepted formulas.",
+        "Owned current and prior ledgers contain no motivating DOI, exact title, or equivalent delay-threshold claim."
+      ],
+      "reasoning": "The accepted result is not a generic consequence that delays change equilibria. It requires solving the exact source cubic for the release rate and tracking the source's delay-dependent survival parameter.",
+      "searches": [
+        "\"10.3934/mbe.2018054\" correction erratum threshold",
+        "\"10.3934/mbe.2018054\" b0 21.93",
+        "\"Dynamics of delayed mosquitoes populations models\" critical delay release threshold",
+        "a0 exp(-mu0 tau) sterile mosquito threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source defines a=a0 exp(-mu0 tau), gives a cubic equilibrium equation, and defines a release threshold b0(tau).",
+        "The exact cubic factorization turns b0 into a one-variable maximum whose monotonicity in a is immediate.",
+        "Published-finding searches for b0(tau), maturation delay, threshold-release monotonicity, and the source DOI returned no equivalent source-specific result."
+      ],
+      "reasoning": "Equivalent formulations include strict decrease of the release threshold with maturation delay, a critical delay beyond which no positive wild equilibrium exists, and correction of the Figure 1–2 threshold sweep. The searches covered all three implications.",
+      "searches": [
+        "10.3934/mbe.2018054 threshold release b0 tau monotone maturation delay sterile mosquitoes",
+        "\"Dynamics of delayed mosquitoes populations models with two different strategies of releasing sterile mosquitoes\" threshold release delay",
+        "sterile mosquito constant release critical maturation delay b0(tau) monotonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary PDF was inspected at system (6), where a=a0 exp(-mu0 tau) is defined.",
+        "Theorem 2.2 and the cubic P(N) were inspected on the primary theorem page.",
+        "The Figure 1–2 page was visually inspected: Figure 1 states tau=0.2, b=21, b0=21.93 and prints the two positive equilibrium coordinates; Figure 2 states all other Figure 1 parameters are unchanged while tau is varied to include 1.5 and 4.9.",
+        "Publisher metadata verifies publication on 1 October 2018 and primary MSC 92D25."
+      ],
+      "reasoning": "The finding is tied to the exact primary-source threshold formula, survival factor, and figure captions rather than to a secondary transcription.",
+      "searches": [
+        "doi:10.3934/mbe.2018054 system 6 a0 exp mu0 tau",
+        "doi:10.3934/mbe.2018054 Theorem 2.2 b0 tau",
+        "doi:10.3934/mbe.2018054 Figure 1 b0 21.93",
+        "doi:10.3934/mbe.2018054 Figure 2 tau 1.5 4.9"
+      ]
+    },
+    "rationale": "Release thresholds and delayed sterile-mosquito models are established prior work. Originality is restricted to the source-specific variational form of b0, the strict delay monotonicity, the critical maturation-delay cutoff, the quadratic collapse law, and the numerical correction of Figures 1–2. Targeted source, threshold, delay, and correction searches did not locate an equivalent published statement.",
+    "residual_risks": [
+      "A non-indexed author note could contain the same numerical correction.",
+      "The 2014 predecessor was inspected at bibliographic/summary level rather than as a complete full-text non-coverage certificate.",
+      "The result classifies equilibrium existence under constant release, not transient suppression times or proportional-release oscillations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DELAY_THRESHOLD_MONOTONICITY_AND_FIGURE_SWEEP_CORRECTION",
+        "evidence": "The exact release graph proves strict delay monotonicity; at tau=0.2 it gives b0 about 21.0432928772 while the source prints 21.93, and at tau=1.5 and 4.9 it gives thresholds below the caption's fixed b=21.",
+        "identifier_or_url": "doi:10.3934/mbe.2018054",
+        "material_read": "Full publisher PDF at the age-structured derivation, model (4), constant-release model (6), Lemma 2.1, Theorem 2.2, equilibrium cubic, Theorem 2.3, and Figures 1–2. The theorem page and the Figure 1–2 page were visually inspected.",
+        "method": "Solved the printed equilibrium cubic for b, recast the saddle-node threshold as a maximization problem, differentiated with respect to the delay-dependent reproductive parameter, and replayed the figure parameters at high precision.",
+        "title": "Dynamics of delayed mosquitoes populations models with two different strategies of releasing sterile mosquitoes",
+        "trigger": "Primary source containing the constant-release delayed model, threshold theorem, and numerical delay sweep."
+      },
+      {
+        "assessment": "NONDELAYED_THRESHOLD_PRIOR_ART",
+        "evidence": "The predecessor has the constant-release threshold structure but no maturation-survival factor a0 exp(-mu0 tau), so it cannot imply the accepted delay law.",
+        "identifier_or_url": "doi:10.1137/13094102X",
+        "material_read": "Publisher bibliographic record and article summary describing the nondelayed sterile-release strategies, Allee effects, and stability framework; the motivating full text was also inspected where it explicitly imports the equilibrium argument from this predecessor.",
+        "method": "Used to distinguish the inherited nondelayed saddle-node structure from the new delay dependence.",
+        "title": "Dynamics of Mosquitoes Populations with Different Strategies for Releasing Sterile Mosquitoes",
+        "trigger": "Direct nondelayed predecessor cited by the motivating source for the constant-release equilibrium classification."
+      },
+      {
+        "assessment": "LATER_DELAYED_THRESHOLD_MODEL_DIFFERENT_FORMULATION",
+        "evidence": "The later model assumes only sexually active sterile mosquitoes enter the interaction and does not state the 2018 model's exact b0(tau) monotonicity or figure correction.",
+        "identifier_or_url": "doi:10.1080/17513758.2019.1682201",
+        "material_read": "Open article abstract and model overview describing constant and time-dependent releases, threshold suppression, delay differential equations, and global/local stability.",
+        "method": "Compared the model formulation and threshold implication at statement level.",
+        "title": "Dynamics of interactive wild and sterile mosquitoes with time delay",
+        "trigger": "Later delayed sterile-mosquito primary literature with release-threshold analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7313369d-1482-47d3-9051-c974c3b8e84b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The critical constant release rate is the central control quantity separating persistence from absence of positive wild-mosquito equilibria. The monotonicity theorem shows exactly how maturation mortality assists sterile release, identifies a finite delay at which the required release threshold vanishes, and gives the sharp quadratic scaling near that boundary. It also corrects the paper's numerical delay sweep: two of the displayed positive-equilibrium cases lie beyond the actual saddle-node disappearance for the caption's fixed release.",
+    "status": "PASS"
+  }
+}
