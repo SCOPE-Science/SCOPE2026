@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The receiver-decoding criterion is proved by a kernel/row-span duality argument. Exact exhaustive enumeration covers all \\(155\\) three-dimensional subspaces of \\(\\mathbb F_2^5\\), and an independent enumeration of all \\(1024\\) fitting matrices reproduces exactly the same \\(20\\) optimal row spaces. The dihedral orbit calculation and \\(\\operatorname{GL}(3,2)\\) basis count are exhaustive finite computations; the packaged verifier replays them from source.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ong proves linear optimality for every zero-error unicast instance with at most five receivers.",
+        "The later finite-length treatment determines optimal codelengths over all graphs with at most five receivers."
+      ],
+      "reasoning": "These broader theorems determine optimal values or existence of optimal linear codes. They do not classify all binary scalar encoders attaining the optimum for the fixed pentagon instance, so they do not imply the optimizer count or orbit decomposition.",
+      "searches": [
+        "arXiv:1401.7369v1",
+        "arXiv:1606.05982v1"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/FOCS.2006.42",
+      "arXiv:1107.1958v1",
+      "arXiv:1401.7369v1",
+      "arXiv:1606.05982v1",
+      "arXiv:1408.3046v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The odd-hole theorem implies only that \\(C_5\\) has binary scalar linear optimum length \\(3\\).",
+        "Minrank algorithms give methods to find an optimum, and five-receiver optimality proves linear codes suffice."
+      ],
+      "reasoning": "Knowing the minimum rank is \\(3\\), or that a linear optimum exists, does not determine how many minimum-rank row spaces exist or their \\(D_{10}\\)-equivalence classes. The new counts therefore are not corollaries of the inspected prior statements.",
+      "searches": [
+        "DOI:10.1109/FOCS.2006.42",
+        "arXiv:1107.1958v1",
+        "arXiv:1401.7369v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bar-Yossef et al. identify linear index coding with minimum-rank fitting matrices.",
+        "Esfahanizadeh–Lahouti–Hassibi explicitly formulate finite-field matrix completion for scalar and vector linear index coding."
+      ],
+      "reasoning": "The direct row-space criterion and the fitting-matrix formulation are equivalent for this instance. The package checks both formulations exhaustively and obtains the same \\(20\\) rank-three row spaces; neither inspected source states the complete minimizer census.",
+      "searches": [
+        "DOI:10.1109/FOCS.2006.42",
+        "arXiv:1408.3046v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The five-receiver paper categorizes instances and proves codelength optimality.",
+        "The matrix-completion paper reports code-design procedures and benchmark ranks rather than a table of all pentagon minimizers."
+      ],
+      "reasoning": "No inspected primary table or benchmark gives the \\(20\\) optimal row spaces, four dihedral orbits, their representative bases, or the \\(3360\\) full-rank matrix count.",
+      "searches": [
+        "DOI:10.1109/ISIT.2014.6874881",
+        "DOI:10.1109/ITW.2014.6970888"
+      ]
+    },
+    "rationale": "The classical literature proves the optimum codelength/minrank for the pentagon and broader five-receiver optimality, but the inspected statements do not enumerate all optimal binary scalar row spaces. Exact finite reconstruction gives a new equality classification: \\(20\\) row spaces in four dihedral orbits with explicit representatives and distinct weight enumerators. Targeted exact-parameter and alias searches found no statement implying these counts. Residual risk is an obscure or poorly indexed finite enumeration.",
+    "residual_risks": [
+      "A finite enumeration of pentagon minrank representations may exist in an obscure thesis, code repository, or poorly indexed note not exposed by the targeted searches.",
+      "The classification is only for binary scalar linear encoders; no novelty is claimed for nonlinear or vector-code optima."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers optimum codelength for \\(C_5\\), not the complete binary scalar optimizer classification.",
+        "evidence": "The odd-hole theorem specializes to minrank \\(3\\) for the five-cycle; the pentagon section discusses optimal coding but no \\(20\\)-row-space/four-orbit census.",
+        "identifier_or_url": "DOI:10.1109/FOCS.2006.42",
+        "material_read": "Full-text odd-hole minrank theorem and pentagon discussion.",
+        "method": "Lawful publicly accessible author full text; theorem and pentagon sections inspected.",
+        "title": "Index Coding with Side Information",
+        "trigger": "Foundational source proving odd-hole minrank and treating the pentagon."
+      },
+      {
+        "assessment": "Proves equality of optimal codelength and minrank for all instances up to five vertices; does not enumerate optimal coding row spaces.",
+        "evidence": "Theorem 1 states optimal value equality for every graph of order at most five; the argument classifies side-information graphs, not all encoders for one graph.",
+        "identifier_or_url": "arXiv:1401.7369v1",
+        "material_read": "Full five-page arXiv paper, including definitions, Theorem 1, and the five-vertex proof setup.",
+        "method": "Lawful arXiv full text.",
+        "title": "Linear Codes are Optimal for Index-Coding Instances with Five or Fewer Receivers",
+        "trigger": "Plausible broader theorem that might subsume a five-receiver claim."
+      },
+      {
+        "assessment": "Algorithmic and extremal-minrank results do not give the fixed \\(C_5\\) optimizer census.",
+        "evidence": "The source treats algorithms parameterized by minrank and identifies the area under MSC 94A15.",
+        "identifier_or_url": "arXiv:1107.1958v1",
+        "material_read": "Abstract, introductory minrank formulation, and bibliographic classification.",
+        "method": "Lawful arXiv/public bibliographic records.",
+        "title": "Linear Index Coding via Semidefinite Programming",
+        "trigger": "Minrank-focused source and MSC ownership evidence."
+      },
+      {
+        "assessment": "Provides code-design/matrix-completion algorithms but no complete pentagon equality table located.",
+        "evidence": "Reported results concern algorithmic recovery of low-rank completions and other benchmark instances, not a \\(C_5\\) minimizer census.",
+        "identifier_or_url": "arXiv:1408.3046v1",
+        "material_read": "Abstract, methodology description, and reported benchmark material.",
+        "method": "Lawful open bibliographic/full-text-derived material.",
+        "title": "A Matrix Completion Approach to Linear Index Coding Problem",
+        "trigger": "Equivalent minimum-rank matrix-completion formulation could contain finite minimizer tables."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d196277-0e72-442e-8a94-5aec637d2601",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pentagon is the canonical smallest odd-hole index-coding example, and the optimum codelength is classical. A complete equality classification is a natural structural refinement: it quantifies nonuniqueness of the optimum, gives symmetry classes and invariants, and supplies canonical representatives. This is not an arbitrary parameter slice or routine re-evaluation of the known optimum.",
+    "status": "PASS"
+  }
+}
