@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the Appendix-A threshold exactly: \\(M_0>K H_R\\), \\(H_R>\\log R+\\gamma\\), and \\(R=\\lceil e^{m-\\gamma}\\rceil\\) give \\(M_0>mK\\); with \\(K=1+(m-1)(R+\\pi(R))\\), Olson's formula gives \\(D(C_m^r)=mK\\). The source's zero-sum-to-factorial step then yields the stated bound. The asymptotic follows from \\(\\pi(R)=o(R)\\). Finite replay checks representative parameters but is not used to prove the quantified theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bérczes–Dujella–Hajdu–Saradha–Tijdeman (2019), Theorem 4.2, gives infinitely many cube products of distinct factorials with fewer than \\(1.5\\log n\\) factors for a varying largest argument; it is a different quantifier regime and does not dominate a factor bound depending only on \\(m\\) for fixed affine families.",
+        "The own-ledger four-factor classification applies only to \\(m=2\\), \\(N=4\\), and classifies structure rather than the factor count of the Appendix-A construction for arbitrary prime powers."
+      ],
+      "reasoning": "The nearest stronger-looking factorial-power results concern either a varying largest argument or the special four-factor square case. Neither implies the present uniform-in-parameter prime-power construction bound.",
+      "searches": [
+        "improving explicit factor bound in constructions of perfect m-th powers as products of distinct factorials",
+        "perfect m-th power product distinct factorials fixed affine functions factor count e^{-gamma}",
+        "bounded number distinct factorials fixed affine functions prime power exponent factor count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.01899v1",
+      "Bérczes–Dujella–Hajdu–Saradha–Tijdeman, Acta Arith. 190 (2019), 339–350",
+      "own-ledger:c53238f2-758b-4eb4-a90f-38428f835b33"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yudin's proof supplies the ingredients \\(M_0\\), \\(r=K+R+\\pi(R)\\), and Olson's \\(D(C_m^r)\\), but its stated parameter choice yields the coefficient \\(2\\), not \\(e^{-\\gamma}\\).",
+        "The 2019 paper's Section 4 addresses distinct factorials with a fixed largest argument and does not set up the affine-family Davenport construction."
+      ],
+      "reasoning": "The new statement is not a corollary of the source's displayed final bound: it requires a different parameter choice and the strict finite inequality \\(H_R>\\log R+\\gamma\\). Conversely it does not subsume the source's general-composite branch or the classical fixed-largest-argument results.",
+      "searches": [
+        "Fedir Yudin factorial perfect powers Theorem A.1 explicit N bound",
+        "Yudin affine factorial perfect m-th powers harmonic number Euler constant improve factor count bound",
+        "products of factorials which are powers distinct factorials Theorem 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01899v1 Appendix A states a bounded affine-family construction and the prime-power factor-count bound \\(2m(m-1)\\lceil e^m\\rceil\\), but no \\(e^{-\\gamma}\\) refinement was found.",
+        "Closest indexed hits concerned Jordan–Pólya factorial normal forms, gamma-function monotonicity, or factorial valuation bias; none states an equivalent affine perfect-power factor-count bound."
+      ],
+      "reasoning": "Searches used the source title, factorial-product aliases, Davenport terminology, and the exact Euler-constant feature. No equivalent formulation of the new bound was located.",
+      "searches": [
+        "square products of factorials Erdős Graham bounded number distinct factorials m-th power affine functions Davenport constant",
+        "improving explicit factor bound in constructions of perfect m-th powers as products of distinct factorials",
+        "Davenport constant factorials harmonic number optimize R K prime power",
+        "Fedir Yudin factorial perfect powers Theorem A.1 explicit N bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record or web search result was found with the exact \\(e^{-\\gamma}\\) coefficient or the finite bound \\(m[1+(m-1)(R+\\pi(R))]\\) for this construction.",
+        "Representative exact integer values were generated only as verification of the new proof and are not a pre-existing table claim."
+      ],
+      "reasoning": "The claim is a symbolic all-prime-power bound rather than a finite table fact; exact-constant searches did not reveal a covering database entry.",
+      "searches": [
+        "Yudin Theorem A.1 prime power exponent distinct factorials improved bound Euler Mascheroni e^{-gamma}",
+        "arXiv 2610.01899 Appendix A Theorem A.1 factor count bound e gamma harmonic optimization",
+        "e^{-gamma} factorial perfect powers Davenport constant"
+      ]
+    },
+    "rationale": "The primary paper states the coarser prime-power bound \\(2m(m-1)\\lceil e^m\\rceil\\) and uses \\(R=\\lceil e^m\\rceil\\). Targeted semantic, alias, exact-constant, and implication searches found no published or indexed statement retaining \\(\\gamma\\) to obtain the \\(e^{-\\gamma}\\) leading coefficient. The closest own-ledger item from the same paper classifies four-factor square families and does not imply this quantitative general-prime-power bound.",
+    "residual_risks": [
+      "An unindexed note could optimize the same Appendix-A parameters without using the exact phrasing searched.",
+      "The within-method optimality is intentionally restricted to the harmonic-number sufficient-condition relaxation; it is not a claim of optimality for the exact floor sum or for all factorial perfect-power constructions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the source states the coarser \\(2m(m-1)\\lceil e^m\\rceil\\) prime-power bound and does not state the Euler-constant sharpening or within-harmonic-envelope optimization.",
+        "evidence": "Appendix A uses \\(R=\\lceil e^m\\rceil\\), \\(K=(m-1)(R+\\pi(R))\\), the row count \\(M_0\\), and Olson's exact Davenport constant; changing the balance as proved here gives a smaller threshold.",
+        "identifier_or_url": "arXiv:2610.01899v1",
+        "material_read": "Full arXiv HTML, with emphasis on Appendix A, Theorem A.1, the row count, group dimension, Olson threshold, and prime-power parameter choice; abstract and MSC/date metadata were also checked.",
+        "method": "Statement-by-statement and proof-parameter comparison.",
+        "title": "Square products of factorials and a conjecture of Erdős and Graham",
+        "trigger": "Primary recent source and exact construction being sharpened."
+      },
+      {
+        "assessment": "NOT_COVERING: its logarithmic factor-count theorem is for infinitely many varying largest arguments in the cube case, not a bounded affine family parameterized by \\(m\\).",
+        "evidence": "Theorem 4.2 states existence of infinitely many \\(n\\) with a perfect-cube product of distinct factorials using \\(k<1.5\\log n\\); it contains no Davenport-constant affine-family bound.",
+        "identifier_or_url": "Acta Arith. 190 (2019), 339–350",
+        "material_read": "Official full-text PDF, especially Section 4, Theorem 4.2, and the beginning of its proof.",
+        "method": "Full-text theorem and quantifier comparison, including rendered PDF pages.",
+        "title": "Products of factorials which are powers",
+        "trigger": "Closest older paper on products of distinct factorials that are perfect powers."
+      },
+      {
+        "assessment": "NOT_COVERING: it classifies all four-factor affine square identities but gives no quantitative factor bound for general prime-power exponent.",
+        "evidence": "Its quantified domain is \\(m=2\\) with exactly four affine factorials; the present claim concerns the factor count produced for every prime-power \\(m\\).",
+        "identifier_or_url": "own-ledger:c53238f2-758b-4eb4-a90f-38428f835b33",
+        "material_read": "Stored claim and RESULT statement for overlap only.",
+        "method": "Direct implication comparison.",
+        "title": "Classification of four-factor affine square families",
+        "trigger": "Closest own prior finding because it uses the same recent paper and affine-factorial setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43ae5df5-64ac-4898-a8b8-12f5ebc90c91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's appendix is specifically about bounding the number of affine factorial factors for each exponent. The refinement cuts the leading prime-power envelope by about \\(72\\%\\) and identifies the natural balance \\(H_R\\approx m\\); the accompanying minimization shows this is not an arbitrary one-step constant tweak but the asymptotically best scale in the harmonic-majorant version of the proof. It leaves a clear target for further improvement: exploit the exact floor sum or a different zero-sum group bound.",
+    "status": "PASS"
+  }
+}
