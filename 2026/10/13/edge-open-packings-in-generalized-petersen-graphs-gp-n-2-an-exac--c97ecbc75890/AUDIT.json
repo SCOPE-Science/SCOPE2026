@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge9\\), the exhaustive local-conflict table produces 120 finite states and 291 arcs. The exact listed 120-integer potential satisfies \\(h(s)\\ge h(t)+9w-7\\) on all arcs, forcing \\(|F|\\le\\lfloor7n/9\\rfloor\\) for every cyclic mask word. Explicit base words of lengths \\(9\\)–\\(17\\) have a common four-mask state and concatenate with the optimal nine-word to attain equality for every \\(n\\ge9\\). For \\(\\(n=5\\),\\ldots,8\\), an exact independent-set recurrence on each directly constructed edge-conflict graph gives 3,4,5,6 with witnesses. Reproduced verifier stdout and standalone code establish the finite premises; mathematical telescoping and concatenation establish infinitely many orders, not finite extrapolation. Residual risk: independent formal review has not been performed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar–Samadi, arXiv:2403.00750, full text: universal bounds and graph algorithms, but no \\(GP(n,2)\\) equality.",
+        "Brešar–Dravec–Hedžet–Samadi, arXiv:2406.04020, full text: trees/products rather than a generalized Petersen extremal formula.",
+        "Pandey–Santra, arXiv:2508.01935 (2025), offers a general conditional characterization via quantified tests over packings, but does not verify it for \\(GP(n,2)\\) or imply the explicit formula directly."
+      ],
+      "reasoning": "A generic 3-regular edge-count bound is of order \\(n\\), which is strictly above \\(\\lfloor7n/9\\rfloor\\) at all sufficiently large n; neither such inequality nor known product formulas implies both the improved upper bound and period-nine attainment.",
+      "searches": [
+        "doi:10.1051/ro/2022171",
+        "arxiv:2403.00750",
+        "arxiv:2406.04020",
+        "arxiv:2508.01935",
+        "edge packing generalized Petersen graphs GP(n,k) induced star forest"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1051/ro/2022171",
+      "arxiv:2403.00750",
+      "arxiv:2406.04020",
+      "published-finding corpus:2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6",
+      "published-finding corpus:2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4",
+      "published-finding corpus:2026/10/4/SCOPE-the-petersen-2-matching-complex-is-a-wedge-of-four-7-spheres--c0442780c8c1",
+      "arxiv:2508.01935"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chelladurai et al. 2022 Proposition 2.5 entails the new claim only at \\(n=5\\); does not cover higher n.",
+        "General upper bounds and complexity results in arXiv:2403.00750 do not prove the nontrivial 7n/9 inequality, and cannot entail explicit attaining configurations.",
+        "Graph-product cases in arXiv:2406.04020 concern graphs not isomorphic to \\(GP(n,2)\\) at arbitrary \\(n\\).",
+        "A generic if-and-only-if test for \\(\\rho\\le t\\) that itself requires checking all possible packing structures does not directly establish the family formula \\(\\rho=\\lfloor7n/9\\rfloor\\) or its sharp constructions."
+      ],
+      "reasoning": "Prior special instance \\(GP(5,2)\\) is subsumed by the new universal formula, but a known special case does not imply its generalization. The exact all-orders upper and lower formula needs the new conflict potential and periodic constructions; those are not logical consequences of the inspected prior statements.",
+      "searches": [
+        "edge open packing number generalized Petersen graph P(n,2) floor seven n over nine induced star forest",
+        "rho_e^o GP(n,2) maximum edge open packing exact formula 7n/9",
+        "doi:10.1051/ro/2022171",
+        "arxiv:2403.00750",
+        "arxiv:2508.01935"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Edge-open packings are precisely selected-edge induced star forests; each such packing is one allowable class of an injective edge coloring. No inspected source gives the per-class extremum for \\(GP(n,2)\\).",
+        "Chelladurai et al. 2022 Section 2, Proposition 2.5 gives \\(GP(5,2)\\) alone."
+      ],
+      "reasoning": "Checking the induced-star-forest and injective edge color-class aliases is needed because a color class could subsume edge open packing without the original term. An injective coloring number is an optimization over partitions into color classes and does not determine a maximum single class absent a particular reduction. No stronger equivalence was located.",
+      "searches": [
+        "edge open packing number generalized Petersen graph P(n,2) floor seven n over nine induced star forest",
+        "maximum induced star forest generalized Petersen P(n,2) seven ninths of n",
+        "edge packing generalized Petersen graphs GP(n,k) induced star forest"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ID 2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6 is about vertex open-packing spread, not the edge invariant.",
+        "published-finding corpus ID 2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4 concerns a different graph family and vertex-limited packing.",
+        "Chelladurai et al. 2022 identify the Petersen order only."
+      ],
+      "reasoning": "The database and searches returned no exact \\(GP(n,2)\\) edge-open-packing table covering arbitrary \\(n\\). Nonappearance is not proof; the precise documented direct family instance \\(n=5\\) is treated as known.",
+      "searches": [
+        "rho_e^o GP(n,2) maximum edge open packing exact formula 7n/9",
+        "edge-open packing generalized Petersen graphs",
+        "published-finding corpus:2026/9/20/SCOPE-sharp-upper-lower-open-packing-spread--d14b87c012d6",
+        "published-finding corpus:2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4"
+      ]
+    },
+    "rationale": "Direct comparison with the full published foundational edge-open-packing article shows only the \\(GP(5,2)\\) value 3, which is acknowledged, and other families. Full 2024 complexity/bounds and tree/product articles contain no theorem implying a \\(\\lfloor7n/9\\rfloor\\) value for \\(GP(n,2)\\). Searches for edge-open packings, maximum induced star forests, one-color injective edge classes, and the exact density did not identify covering published work or database records. This is a literature-based originality judgment, not certification of uniqueness.",
+    "residual_risks": [
+      "Equivalent pre-existing exact formula under induced star forests, maximum star packing, or injective-color-class terminology may remain unindexed.",
+      "No independent human audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_ONLY_GP_5_2_NOT_ALL_N",
+        "evidence": "Proposition 2.5 reports edge-open packing number 3 of Petersen graph; no general \\(GP(n,2)\\) formula.",
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+        "material_read": "12-page open full-text PDF, including early definitions, proposition on Petersen graph and results by graph family",
+        "method": "opened PDF textual content and inspected rendered PDF page",
+        "title": "Edge open packing sets in graphs",
+        "trigger": "same invariant and the classical Petersen graph instance"
+      },
+      {
+        "assessment": "NOT_COVERING_GENERALIZED_PETERSEN_FORMULA",
+        "evidence": "Theorems treat hardness and universal bounds; neither full \\(GP(n,2)\\) exact value nor period-nine extremizers.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+        "material_read": "open full-text manuscript, 12 pages, sections on complexity, structural bounds, algorithms",
+        "method": "read full-text PDF and checked rendered title and definitions",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "direct same-invariant bounds and potential dominating coverage"
+      },
+      {
+        "assessment": "NOT_COVERING_GP_N_2",
+        "evidence": "Direct results treat trees and graph products; no general generalized Petersen \\(GP(n,2)\\) extremal formula.",
+        "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+        "material_read": "open full-text manuscript, 27 pages, trees and Cartesian products/hypercubes",
+        "method": "read full-text PDF and checked rendered page and family statements",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "related EOP graph families including cubic examples"
+      },
+      {
+        "assessment": "GENERAL_CRITERION_NOT_EXACT_GP_N_2_EVALUATION",
+        "evidence": "Theorem 3 gives graph-generic conditions quantifying over induced matchings and pre-existing packings for a given t; there is no generalized Petersen \\(n\\)-dependent evaluation. Applying these conditions at t=\\(\\lfloor7n/9\\rfloor\\) demands new family-specific work.",
+        "identifier_or_url": "https://arxiv.org/pdf/2508.01935",
+        "material_read": "open 14-page full-text manuscript, including characterization Theorem 3, Corollary 4, and families in remainder",
+        "method": "read searchable full-text PDF, checked rendered second page and explicit conditions",
+        "title": "Edge open packing: further characterizations",
+        "trigger": "highly relevant general characterization potentially covering every graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c97ecbc7-5890-40d1-83b1-ff07dd832dab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines exactly a natural edge extremal parameter of all connected cubic generalized Petersen graphs \\(GP(n,2)\\), a two-layer classical family, with sharp 7/9 density and an explicit nine-periodic construction. This improves known general cubic upper estimates, establishes both upper bound and witnesses for every order, and supplies a finite state/potential proof template for related periodic graph families. It does not claim an all-optima census or general-k case.",
+    "status": "PASS"
+  }
+}
