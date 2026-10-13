@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Eq. (4.13) makes the test domain a vector space and Eq. (4.14) is linear in the test function. Scaling \\(v\\mapsto cv\\) makes the A8 variational second moment grow by \\(c^2\\). The nonlinear-minus-linearized first component is also linear in \\(v\\), so any nonzero discrepancy makes the Eq. (4.109) all-space supremum infinite. These are exact algebraic implications of the published definitions and quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berrone--Canuto--Pintore (2022), DOI:10.1007/s10915-022-01950-4, uses finite known test functions in a Petrov--Galerkin framework.",
+        "Marcondes, arXiv:2605.03542v1, treats weak residual control through an \\(H^{-1}\\)-norm framework, providing normalization context but no comparison to arXiv:2609.19239v1.",
+        "published-finding corpus's singular-PINN integrability finding 2026/9/19/SCOPE-singular-pinn-weighted-residual-integrability--3a141a44694e concerns boundary integrability of strong residuals, not this variational scaling issue."
+      ],
+      "reasoning": "Broader variational PINN literature motivates finite or normalized testing, but the inspected sources do not state a theorem that covers or dominates the specific correction to A8 and Eq. (4.109).",
+      "searches": [
+        "Variational Physics Informed Neural Networks role quadratures test functions finite set Petrov Galerkin",
+        "Random test functions H^{-1} norm equivalence stochastic variational PINNs normalized dual norm",
+        "published-finding corpus: physics informed neural network variational loss test functions finite dimensional span unit ball uniform approximation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.19239v1",
+      "DOI:10.1007/s10915-022-01950-4",
+      "arXiv:2605.03542v1",
+      "published-finding corpus 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "published-finding corpus 2026/9/19/SCOPE-singular-pinn-weighted-residual-integrability--3a141a44694e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current and immediately prior owned ledgers contained no source identifier or claim alias match.",
+        "Within arXiv:2609.19239v1, Lemmas 4.1--4.2 explicitly use \\(\\|v\\|_{1,B}\\le1\\), while A8 and Eq. (4.109) quantify over the full \\(\\mathcal H_M\\).",
+        "No inspected public review or search result stated the same all-space homogeneity obstruction."
+      ],
+      "reasoning": "The source itself contains the ingredients but does not draw the necessary-domain conclusion; the local unit-norm lemmas do not imply the published all-space theorem because the theorem's explicit supremum is broader. No owned prior record was implication-equivalent.",
+      "searches": [
+        "own current/prior ledger: 2609.19239; QPINN; variational; test function; H_M; lazy training",
+        "web: Lazy training quantum physics informed neural networks A8 review correction",
+        "web: 2609.19239 unbounded test function scale"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.19239v1 defines the full linear span in Eq. (4.13), a test-linear energy in Eq. (4.14), A8 over all of that span, and Eq. (4.109) with the same unrestricted supremum.",
+        "Closest indexed weak-form result found was published-finding corpus 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af, which concerns basis conditioning of weak Gauss--Newton, not QPINN homogeneity or A8."
+      ],
+      "reasoning": "Searches covered the aliases unbounded test space, unit-ball normalization, weak test functions, uniform supremum, and scaling/homogeneity. The closest indexed result studies a different basis-robustness obstruction and does not imply the source-specific all-space scaling failure.",
+      "searches": [
+        "published-finding corpus: variational QPINN uniform bound test function space H_M unbounded scaling linear functional",
+        "published-finding corpus: lazy training variational QPINN theorem supremum over test functions",
+        "web: arXiv 2609.19239 A8 unbounded test function unit ball correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit matched the source identifier or the implication-equivalent scaling claim.",
+        "The exact source text was inspected at the definitions, assumptions, unit-norm lemmas, and theorem statement rather than inferred from an abstract or snippet."
+      ],
+      "reasoning": "The relevant database search returned no exact source correction. Direct source inspection establishes that the named equations have the quantified domains used in the proof.",
+      "searches": [
+        "published-finding corpus: arXiv 2609.19239 variational QPINN H_M",
+        "published-finding corpus: variational QPINN uniform bound test function space H_M unbounded scaling linear functional",
+        "full text: arXiv:2609.19239v1 Eqs. (4.13)-(4.16), A8-A10, Eq. (4.109)"
+      ]
+    },
+    "rationale": "The homogeneity fact is standard and is not claimed as new. The original content is the source-specific implication that the published A8 and Eq. (4.109) are scale-degenerate on their literal domain, together with the necessary normalized-domain repair. Direct full-text comparison and semantic searches found no implication-equivalent correction.",
+    "residual_risks": [
+      "An unindexed public comment or later author revision could independently state the same correction.",
+      "The result is about version 1's literal quantified domains; a corrected unit-ball statement requires a separate proof audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the scaling correction; the source states the unrestricted domains and separately uses unit-norm test functions only in intermediate estimates.",
+        "evidence": "Eq. (4.13) defines \\(\\mathcal H_M\\) as a span; Eq. (4.14) is linear in \\(v\\); A8 maximizes over \\(\\mathcal H_M\\times\\partial B\\); A10 bounds only the chosen basis vectors; Eq. (4.109) takes the same full-space supremum.",
+        "identifier_or_url": "arXiv:2609.19239v1",
+        "material_read": "Full text around Eqs. (4.13)-(4.16), A8-A10, Lemmas 4.1-4.2, and Theorem 4.3 Eqs. (4.104)-(4.110).",
+        "method": "Direct full-text and page-image inspection.",
+        "title": "Lazy training of quantum physics informed neural networks",
+        "trigger": "The main variational theorem takes a uniform supremum over a finite-dimensional test-function space described as a span."
+      },
+      {
+        "assessment": "NOT_COVERING; it studies convergence and test-function choices in VPINNs, not the QPINN all-space normalization or lazy-training supremum.",
+        "evidence": "The method uses finite known test functions or a test network in a Petrov--Galerkin setting and does not discuss arXiv:2609.19239v1.",
+        "identifier_or_url": "DOI:10.1007/s10915-022-01950-4",
+        "material_read": "Abstract, introduction, and description of the finite Petrov--Galerkin test family.",
+        "method": "Open-access article inspection.",
+        "title": "Variational Physics Informed Neural Networks: the Role of Quadratures and Test Functions",
+        "trigger": "Broader-coverage check for standard treatment of variational test functions."
+      },
+      {
+        "assessment": "NOT_COVERING; it supplies normalized weak-topology context but no source-specific correction or implication for A8 and Eq. (4.109).",
+        "evidence": "The paper studies stochastic recovery of a weak residual norm rather than a QPINN test-space homogeneity defect.",
+        "identifier_or_url": "arXiv:2605.03542v1",
+        "material_read": "Abstract and stated dual-norm motivation.",
+        "method": "Primary arXiv abstract inspection.",
+        "title": "Random test functions, H^{-1} norm equivalence, and stochastic variational physics-informed neural networks",
+        "trigger": "Broader-coverage check for normalized weak-residual formulations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aab06ffa-9dcb-430f-a6ac-910011f846fb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defect is structural rather than cosmetic: A8 is an explicit hypothesis for the paper's principal variational lazy-training theorem, and Eq. (4.109) is its advertised uniform nonlinear-versus-linearized bound. On the written domain, either statement is nontrivial only after test-function normalization. Identifying the necessary repair separates the intended variational theorem from a vacuous or infinitely scaled formulation without asserting more than is proved.",
+    "status": "PASS"
+  }
+}
