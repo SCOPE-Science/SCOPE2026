@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Derived directly from the one-dimensional sketched harmonic Petrov--Galerkin pencil. On the fixed two-eigenmode plane, the sign for all directions is exactly positive definiteness of a 2-by-2 symmetric Jordan-product matrix; its Sylvester determinant is positive precisely when the squared Gaussian-column cosine is below \\(4\\kappa/(1+\\kappa)^2\\). Independent Gaussian directions give the Beta(1/2,(s-1)/2) distribution. A negative determinant yields an explicit negative-Ritz witness. Strict stochastic ordering in s and the spherical-coordinate normal limit prove the exact row-budget constant; the beta density at zero proves fixed-s asymptotics. Edge cases s=2 and \\(\\kappa=1\\) are covered. Exact rational checks and seeded simulations independently agree; they are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel--Liu--Nyman, arXiv:2607.10354v1, Section 5 gives a sufficient half-plane condition for the sketched harmonic Ritz spectrum, not the exact Gaussian probability.",
+        "Grigori--Kressner--Shao--Simunec, arXiv:2601.10248v1, introduction and Section 2 concern a similarity-restoring randomized ordinary Arnoldi construction.",
+        "Jang--Grigori, DOI:10.1002/nla.70029, Section 5 analyzes reorthogonalized GMRES and harmonic Ritz constructions, without a probability for positivity simultaneously in a two-eigenmode plane."
+      ],
+      "reasoning": "The general subspace embedding guarantee is a sufficient path to half-plane stability; it does not logically supply the exact failure probability of a Gaussian sketch or the asymptotically sharp linear-in-condition-number threshold. Ordinary randomized Arnoldi and reorthogonalized harmonic Ritz constructions use distinct operators or corrections, so their stability results do not directly imply this event.",
+      "searches": [
+        "Gaussian matrix product AG+GA positive definite probability Wishart 2x2",
+        "Wishart Gaussian probability symmetrized product AB+BA positive definite 2x2 exact beta",
+        "Restoring similarity in randomized Krylov methods arXiv:2601.10248v1",
+        "Randomized Orthogonalization Process With Reorthogonalization DOI:10.1002/nla.70029"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.10354v1 equations (2.13), Theorem 5.4",
+      "arXiv:2601.10248v1 introduction and Section 2",
+      "DOI:10.1002/nla.70029 Section 5",
+      "arXiv:2408.04101 Theorem 2.1",
+      "General Gaussian directional-cosine beta law; classical 2-by-2 Sylvester positivity criterion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gaunt derives distributions for a sum of correlated Gaussian products, applicable to positivity for any one prespecified \\(b\\).",
+        "The prior exact two-eigenvalue antieigenvalue cosine \\(2\\sqrt{\\kappa}/(1+\\kappa)\\) controls worst deterministic alignment, but its fixed-vector interpretation does not exchange the order of sketch probability and the universal quantifier over \\(b\\).",
+        "For the present event, a negative determinant of \\((AG+GA)/2\\) constructs an offending \\(b\\) *after* seeing the shared sketch."
+      ],
+      "reasoning": "Known scalar-product laws, the antieigenvalue minimum, and the Gaussian-cosine beta law are credited. Neither the fixed-direction probability nor the ordinary all-vector embedding inequality has the same implication as the exact probability \\(\\Pr_S[\forall b\\in E\\setminus\\{0\\}:\theta_S(b)>0]\\), because selecting a common sketch and then quantifying over all directions is stronger than protecting a single deterministic starting direction. The result is an application-specific conjunction and sharp parameter classification, not a claim that the elementary ingredients are new.",
+      "searches": [
+        "On the product of correlated normal random variables and the noncentral chi-square difference distribution arXiv:2408.04101",
+        "Sketch-and-Restart randomized sketched harmonic Arnoldi positive real Theorem 5.4",
+        "Kantorovich antieigenvalue minimal angle SPD two eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a rank-one trial space, sketched harmonic Ritz is the ratio of \\(\\|SAb\\|_2^2\\) to \\((SAb)^{\\mathsf T}Sb\\); see Güttel--Liu--Nyman, arXiv:2607.10354v1, equation (2.13).",
+        "Its all-directions positivity is equivalent to positive definiteness of the Jordan product \\((AG+GA)/2\\) on the fixed extremal eigenplane, with \\(G=S^{\\mathsf T}S\\); the exact determinant criterion involves the squared correlation of two independent Gaussian columns."
+      ],
+      "reasoning": "The Jordan-product and Wishart-cosine formulations were compared with the scalar harmonic formulation, not merely titles. The exact joint all-directions probability and sharp row-budget constant were not found in the material inspected. The matrix reformulation is established in the proof; the beta distribution of a random cosine is classical, and no novelty is claimed for that ingredient alone.",
+      "searches": [
+        "sketched harmonic Arnoldi Gaussian sign indefinite Rayleigh quotient probability all trial vectors",
+        "two-dimensional Gaussian Wishart Gram matrix anticommutator positive definite threshold simultaneous all vectors harmonic Ritz",
+        "arXiv:2607.10354v1 equation (2.13) and Theorem 5.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating arXiv manuscript contains analytic convergence conditions, not an exact two-mode Gaussian uniform-sign probability table.",
+        "Gaunt, arXiv:2408.04101, describes correlated Gaussian-product sums and chi-square-difference distributions, a different fixed-direction probability object."
+      ],
+      "reasoning": "The original article, related full texts, and targeted mathematics searches did not yield a database or tabulated identical all-directions Beta probability or sharp minimal-row constant. Failure of a search alone is not a novelty certificate; equivalent tabulations of a Wishart Jordan-product event remain a documented residual risk.",
+      "searches": [
+        "sample correlation Beta Gaussian sketch symmetric Jordan product SPD uniform positivity probability",
+        "two by two positive definite symmetric A random Wishart G AG+GA positive probability",
+        "sketched harmonic Ritz values right half plane Gaussian sketches sample complexity two eigenvalues",
+        "arXiv:2607.10354v1; arXiv:2408.04101"
+      ]
+    },
+    "rationale": "Equation-level inspection of the originating sketched harmonic Arnoldi manuscript and close related original full texts did not find the simultaneous all-directions exact Gaussian probability or sharp row-budget constant. Classical scalar Gaussian products, Gaussian directional Beta laws, two-by-two positive-definiteness, and deterministic antieigenvalue bounds are credited. Quantifier-order comparison distinguishes the present shared-sketch guarantee from fixed-vector results. Novelty remains conditional on the finite available bibliographic coverage, with explicit residual risks.",
+    "residual_risks": [
+      "An alternate presentation of the 2-by-2 Wishart Jordan-product positivity probability may exist in older or unindexed random-matrix literature.",
+      "A potentially relevant broad 2026 randomized eigenvalue thesis was not accessible in full; its specific coverage remains unknown.",
+      "Result is sharp for real Gaussian sketches and a fixed two-mode plane, not necessarily for other sketch families or longer harmonic spaces."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECT_NOT_EXACT_PROBABILITY",
+        "evidence": "Equation (2.13) gives the sketched harmonic reduced matrix; Theorem 5.4 assumes harmonic Ritz values in the right half-plane for convergence; no exact Gaussian two-eigenmode uniform probability or sketch-budget constant in inspected text.",
+        "identifier_or_url": "arXiv:2607.10354v1; https://arxiv.org/pdf/2607.10354",
+        "material_read": "Original PDF, Sections 2.2 and 5, equations (2.13)--(2.14), Theorem 5.4, and surrounding assumptions; original pages inspected both as text and rendered page image",
+        "method": "Open-access original PDF; equation-level comparison",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Same sketched harmonic one-dimensional projection and half-plane requirement"
+      },
+      {
+        "assessment": "DIFFERENT_RITZ_OPERATOR",
+        "evidence": "Similarity-restoring correction makes randomized ordinary Arnoldi Ritz matrices similar to classical Arnoldi; sketched harmonic denominator and the simultaneous Gaussian positivity probability are not this correction.",
+        "identifier_or_url": "arXiv:2601.10248v1; https://arxiv.org/pdf/2601.10248",
+        "material_read": "Full original preprint loaded, introduction and Section 2 descriptions and main operator formulation inspected",
+        "method": "Open-access original PDF text",
+        "title": "Restoring Similarity in Randomized Krylov Methods with Applications to Eigenvalue Problems and Matrix Functions",
+        "trigger": "Potentially dominating randomized Ritz spectral guarantee"
+      },
+      {
+        "assessment": "RELATED_BUT_NO_COVERING_UNIFORM_LAW",
+        "evidence": "The article discusses randomized GMRES and reorthogonalized harmonic Ritz pairs; the checked claims do not classify shared-Gaussian-sketch positive-harmonic events.",
+        "identifier_or_url": "DOI:10.1002/nla.70029; https://doi.org/10.1002/nla.70029",
+        "material_read": "Original open-access full-text HTML, introduction and Section 5 around equations (5.1)--(5.3), plus conclusion",
+        "method": "Publisher open-access full-text HTML; targeted equation and operator comparison",
+        "title": "Randomized Orthogonalization Process With Reorthogonalization",
+        "trigger": "Primary full text contains harmonic Ritz extraction in Section 5"
+      },
+      {
+        "assessment": "COVERS_FIXED_DIRECTION_INGREDIENT_NOT_SIMULTANEOUS_EVENT",
+        "evidence": "A sum of correlated Gaussian products is representable as a difference of scaled chi-squares; it governs the denominator at one fixed vector but not the probability of all-vector positivity under one shared sketch.",
+        "identifier_or_url": "arXiv:2408.04101; https://arxiv.org/pdf/2408.04101",
+        "material_read": "Original full PDF, introductory claims, Theorem 2.1 and proof of central Gaussian-product representation; rendered page inspected",
+        "method": "Open-access original PDF and rendered page",
+        "title": "On the Product of Correlated Normal Random Variables and the Noncentral Chi-Square Difference Distribution",
+        "trigger": "Directly relevant product distribution for a prespecified starting direction"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK",
+        "evidence": "No mathematical statement from this thesis was available; cannot use it to claim whole-document noncoverage.",
+        "identifier_or_url": "https://theses.hal.science/tel-05652060v1/file/154472_DE_DAMAS_2026_archivage.pdf",
+        "material_read": "No thesis pages; document listing identified but the full-document endpoint denied access",
+        "method": "Public index metadata and attempted primary PDF access",
+        "title": "Randomized methods for solving eigenvalue problems and matrix functions (thesis)",
+        "trigger": "Broad 2026 randomized eigenvalue-problem thesis, possibly relevant to alternate terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82e6f28b-1c80-4951-ab00-429b8c31a5fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Half-plane positivity of sketched harmonic Ritz values is a stated hypothesis in a recent restarted matrix-function convergence analysis. The result determines the exact simultaneous safe probability and the sharp minimal Gaussian row count on the natural smallest nontrivial eigenmode plane; at any fixed sketch size, uniform safety becomes asymptotically unlikely as conditioning grows. It also separates a shared-sketch guarantee from individually fixed-direction probabilities, a consequential distinction for sketches reused over variable starting directions. This is a complete motivated natural invariant and optimal sample-budget classification, not a generic tail estimate, arbitrary finite slice or a mere type check. Limits to one-dimensional extraction are explicitly stated.",
+    "status": "PASS"
+  }
+}
