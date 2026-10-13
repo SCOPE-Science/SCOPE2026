@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The first BiCGSTAB coefficient is the reciprocal spectral mean m. The stabilizing coefficient is the reciprocal of a second positive spectral mean n formed from the intermediate residual. This gives the exact coordinate ratio lambda(m+n-lambda)/(mn). Concavity in lambda reduces the lower envelope to spectral endpoints; the lower endpoint branch exceeds kappa(2-kappa) by ((kappa-1)^3(kappa+1))/kappa^2, and the upper endpoint branch is minimized at m=n=mu. Completing the square and optimizing (m+n)^2/(4mn) gives the upper Kantorovich factor. Exact rational replay confirms the explicit negative witness and two-mode identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full 14-page van der Vorst paper derives BiCGSTAB and chooses the scalar omega to minimize the current residual norm; it emphasizes residual smoothness and finite termination.",
+        "Gutknecht develops polynomial variants for complex spectra, a different question from coordinate signs on positive diagonal systems.",
+        "The later induced-dimension-reduction interpretation explains BiCGSTAB structurally but does not state the first-cycle component envelope."
+      ],
+      "reasoning": "General polynomial and convergence analyses do not imply the sign-sensitive coordinate bounds, because residual norm reduction permits individual solution coordinates to cross zero or overshoot.",
+      "searches": [
+        "doi:10.1137/0913035 full BiCGSTAB paper algorithm polynomial omega minimization",
+        "doi:10.1137/0914062 BICGSTAB variants complex spectrum",
+        "Bi-CGSTAB as induced dimension reduction method 2010"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/0913035",
+      "doi:10.1137/0914062",
+      "doi:10.1016/j.apnum.2009.07.001"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Van der Vorst gives r_i=Q_i(A)P_i(A)r_0 and the unpreconditioned recurrence, but its conclusions concern smoother convergence and numerical accuracy rather than componentwise sign.",
+        "Residual-minimizing omega controls the Euclidean norm of the residual and does not by itself constrain the sign of alpha b + omega s.",
+        "No inspected later variant paper or search result supplies a theorem that would imply the sharp dimension-free envelope or the two-active-mode exception."
+      ],
+      "reasoning": "The accepted theorem uses the diagonal positive spectral measure to convert the first two BiCGSTAB scalars into two means and then performs a coordinatewise extremal analysis. That implication is absent from the inspected prior results.",
+      "searches": [
+        "van der Vorst 1992 BiCGSTAB section 3 first iteration omega residual minimization",
+        "Gutknecht 1993 BICGSTAB polynomial variants",
+        "Krylov BiCGSTAB positive orthant nonnegative iterates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches for BiCGSTAB positivity, diagonal SPD sign changes, M-matrix monotonicity, and two-eigenvalue safety returned no result stating the coordinate ratio or the sharp envelope.",
+        "Web searches for BiCGSTAB combined with positive orthant, nonnegative iterates, componentwise positivity, and M-matrices predominantly returned algorithm descriptions and convergence papers rather than sign-preservation theorems.",
+        "The closest method-level records discuss residual smoothing, polynomial variants, or Krylov recycling, not componentwise feasibility."
+      ],
+      "reasoning": "The searches cover BiCGSTAB/Bi-CGSTAB naming, positivity/nonnegativity aliases, diagonal and M-matrix settings, first-cycle language, and spectral-mode formulations. No retrieved statement is equivalent to or stronger than the accepted claim.",
+      "searches": [
+        "BiCGSTAB positive diagonal system nonnegative iterate first cycle",
+        "Bi-CGSTAB positivity preserving M-matrix nonnegative solution",
+        "BiCGSTAB componentwise positivity sign change diagonal SPD",
+        "BiCGSTAB first iteration polynomial positivity condition number two",
+        "BiCGSTAB two eigenvalue positivity three eigenvalue sign loss",
+        "BiCGSTAB M-matrix monotonicity positive orthant Krylov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No scientific database result or table with the constants kappa(2-kappa) and (kappa+1)^2/(4kappa) was located for BiCGSTAB.",
+        "The rational three-mode example is derived directly from the algorithm and is not a recomputation of a tabulated benchmark."
+      ],
+      "reasoning": "The claim is an analytic envelope and minimal-mode classification, not a database lookup.",
+      "searches": [
+        "BiCGSTAB first cycle component formula diagonal",
+        "BiCGSTAB condition number 2 positivity",
+        "BiCGSTAB two eigenvalue nonnegative iterate"
+      ]
+    },
+    "rationale": "The full original BiCGSTAB paper was inspected. It derives the same unpreconditioned algorithm, the product residual polynomial, the residual-minimizing omega step, finite termination, and numerical smoothness, but does not state a componentwise first-cycle formula, a sharp coordinate envelope, a condition-number-two positivity frontier, or unconditional two-active-eigenvalue positivity. Targeted semantic-database and web searches using positive-orthant, nonnegative-iterate, M-matrix, componentwise, first-cycle, and two-eigenvalue aliases located no implication-equivalent result.",
+    "residual_risks": [
+      "Older Krylov or formal-orthogonal-polynomial literature may encode the same first-cycle coordinate formula under different terminology not recovered by the searches.",
+      "The universal sharp constants are infimum and supremum values approached by three-mode families; they are not claimed to be attained for strictly positive weights at finite parameters.",
+      "The result is specific to the standard shadow residual equal to the initial residual and does not automatically transfer to alternative BiCGSTAB initializations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: establishes the algorithm and residual-polynomial structure needed for the new proof, but does not state componentwise positivity or the sharp first-cycle envelope.",
+        "evidence": "Section 3 defines Q_i as products of linear stabilizing factors, derives r_i=Q_i(A)P_i(A)r_0, selects omega to minimize the residual 2-norm, and prints the unpreconditioned algorithm. The conclusions discuss smoothness and efficiency, not coordinate signs.",
+        "identifier_or_url": "doi:10.1137/0913035",
+        "material_read": "All 14 pages, including the CGS background, Section 3 polynomial derivation, the unpreconditioned BiCGSTAB algorithm, residual-minimizing omega step, finite-termination discussion, preconditioning section, numerical experiments, conclusions, and references.",
+        "method": "Publisher PDF obtained through authorized institutional access after open-access searches did not yield the full paper; extracted text was read page by page.",
+        "title": "Bi-CGSTAB: A Fast and Smoothly Converging Variant of Bi-CG for the Solution of Nonsymmetric Linear Systems",
+        "trigger": "Original primary source for the exact algorithm whose first completed cycle is analyzed."
+      },
+      {
+        "assessment": "CONTEXT_ONLY: concerns variants for complex spectra and does not provide a positive-diagonal componentwise theorem.",
+        "evidence": "The abstract identifies BICGSTAB as a BiCG-based Krylov method and focuses on variants suitable for complex spectra.",
+        "identifier_or_url": "doi:10.1137/0914062",
+        "material_read": "Publisher abstract, metadata, keywords, and bibliographic context.",
+        "method": "Publisher record inspection.",
+        "title": "Variants of BICGSTAB for Matrices with Complex Spectrum",
+        "trigger": "Early primary follow-up on BiCGSTAB polynomial variants that could potentially dominate a first-cycle polynomial statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ab81660-fcb4-49c8-9c70-9e524fb74857",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "BiCGSTAB is a canonical short-recurrence solver for large sparse systems, and its residual smoothing is often taken as evidence of benign intermediate behavior. The theorem shows exactly how much a single completed cycle can under- or overshoot each positive solution coordinate, gives a sharp condition-number frontier for sign safety, and proves that two spectral modes are qualitatively protected while three are sufficient for failure. The two-sided envelope is a reusable quantitative diagnostic rather than an isolated counterexample.",
+    "status": "PASS"
+  }
+}
