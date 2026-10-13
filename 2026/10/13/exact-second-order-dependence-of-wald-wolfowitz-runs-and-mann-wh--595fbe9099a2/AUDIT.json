@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the common continuous null to a uniform fixed-composition binary word. Word reversal proves the odd cross-moment vanishes. For the squared centered Mann–Whitney statistic, conditioning on each adjacent transition reduces the calculation to exact simple-random-sampling inclusion moments; summing uses the explicit centered-rank square sum and the exact identity for the adjacent coefficient sums. The fourth centered moment follows independently from the two-letter Gaussian-binomial cumulant generating function. The exact checker exhaustively verifies all displayed finite formulas for every positive sample-size pair with pooled size at most 14. No finite computation is used to establish the universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baringhaus–Henze full article, DOI 10.1007/s11749-015-0463-1, pages 432–448, was read in full; its stated main results are exact expectation and variance of the runs statistic under fixed alternatives and consistency.",
+        "Biswas–Mukhopadhyay–Ghosh author-uploaded full text explicitly lists Wilcoxon–Mann–Whitney and Wald–Wolfowitz as separate classical tests and gives the exact null run distribution and moments.",
+        "The 2009 control-chart paper's abstract concerns Shewhart charts and run-length signaling; later full-text literature describes it as adding runs-type rules to Mann–Whitney monitoring."
+      ],
+      "reasoning": "The closest broad runs papers do not dominate the claim because they contain only moments of the runs statistic itself or process-control signaling rules, not a same-ranking cross-moment with squared Mann–Whitney evidence.",
+      "searches": [
+        "Revisiting the two-sample runs test",
+        "A distribution-free two-sample run test applicable to high-dimensional data",
+        "Nonparametric control charts based on runs and Wilcoxon-type rank-sum statistics"
+      ]
+    },
+    "checked_sources": [
+      "Wilcoxon (1945), DOI 10.2307/3001968.",
+      "Baringhaus and Henze (2016), DOI 10.1007/s11749-015-0463-1.",
+      "Biswas, Mukhopadhyay, and Ghosh (2014), DOI 10.1093/biomet/asu045.",
+      "Canfield, Janson, and Zeilberger (2009), arXiv:0908.2089.",
+      "Balakrishnan, Triantafyllou, and Koutras (2009), DOI 10.1016/j.jspi.2009.02.013, abstract/downstream characterization only.",
+      "published-finding corpus searches under test-name, covariance, inversion, and binary-word aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The only own-ledger keyword overlap is item 4340a875-fde4-482f-815b-260adb7c0344, a one-sample Wilcoxon signed-rank covariance with the sample mean; it uses different data, statistic, null structure, and dependence mechanism.",
+        "Closest published-finding corpus hit 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac concerns missing-mass discovery events, not rank tests.",
+        "Closest published-finding corpus hit 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91 concerns ordering probabilities under pairwise independence, not fixed-composition rank words."
+      ],
+      "reasoning": "Neither the prior one-sample signed-rank finding nor the closest published published-finding corpus records implies a covariance between the two classical two-sample statistics.",
+      "searches": [
+        "Own ledger keyword scan: wilcoxon, mann, run, rank sum, rank-sum, wald",
+        "published-finding corpus: runs statistic Mann Whitney U joint distribution exact covariance",
+        "published-finding corpus: Wilcoxon rank sum Wald Wolfowitz runs combination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Under the null, Mann–Whitney is the inversion count of a uniform fixed-composition binary word and Wald–Wolfowitz is the number of symbol runs.",
+        "Canfield–Janson–Zeilberger, arXiv:0908.2089, gives the inversion generating function for words but does not introduce the symbol-run count.",
+        "No published-finding corpus hit from the exact statistical or binary-word formulations stated the claimed cross-moment."
+      ],
+      "reasoning": "The inversion/run formulation is mathematically equivalent to the statistical claim, so it was searched explicitly rather than relying only on test names. The located Mahonian literature covers the inversion marginal, not the joint statistic.",
+      "searches": [
+        "published-finding corpus: Wald Wolfowitz runs Mann Whitney squared centered statistic covariance mn(mn-1)",
+        "published-finding corpus: binary word inversion number runs squared centered covariance",
+        "Web: binary words inversions runs joint distribution generating function",
+        "Web: joint distribution inversions runs binary words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Baringhaus–Henze states the classical exact null mean and variance of the runs statistic.",
+        "Canfield–Janson–Zeilberger gives the q-binomial probability generating function and exact inversion moments for two-letter words.",
+        "Biswas–Mukhopadhyay–Ghosh reproduces exact run probabilities under the null."
+      ],
+      "reasoning": "Separate exact marginal tables or generating functions do not determine the joint cross-moment. The new quantity requires the dependence between adjacency transitions and the inversion statistic.",
+      "searches": [
+        "Web: Mann Whitney exact distribution variance mn(m+n+1)/12",
+        "Web: Wald Wolfowitz exact null distribution mean variance",
+        "Web: q-binomial inversions two-letter words moments"
+      ]
+    },
+    "rationale": "The closest full runs treatment inspected, Baringhaus–Henze, derives exact null and alternative moments of the Wald–Wolfowitz statistic but no joint moment with Mann–Whitney. The full Mahonian-word source supplies the marginal inversion generating function but no symbol-run statistic. Biswas–Mukhopadhyay–Ghosh discuss the two classical tests side by side but do not derive their joint null dependence. Searches under statistical aliases and the equivalent binary-word inversion/run formulation found no stated formula implying the claimed covariance. The ambiguous 2009 control-chart title is retained as a residual risk rather than treated as negative evidence.",
+    "residual_risks": [
+      "The complete 2009 control-chart article with the superficially close title was not successfully retrieved, although its abstract and later description point to signaling runs rather than the Wald–Wolfowitz statistic.",
+      "An unindexed historical joint generating function for inversion number and symbol-run count in fixed-composition binary words could contain the moment implicitly.",
+      "Search nonappearance is not a proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper defines the same pooled-label run statistic and states its main results as expectation and variance under fixed alternatives; it does not give a joint moment with the Mann–Whitney rank-sum statistic.",
+        "identifier_or_url": "doi:10.1007/s11749-015-0463-1",
+        "material_read": "Complete 17-page article, including definitions, null moments, alternative-moment theorems, asymptotics, final remarks, and references.",
+        "method": "Full-text article inspection.",
+        "title": "Revisiting the two-sample runs test",
+        "trigger": "Same Wald–Wolfowitz statistic and explicit exact finite-sample null moments."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper treats the two classical procedures as distinct tests and reproduces the run statistic's exact null law; no cross-covariance or squared rank-sum dependence formula is stated.",
+        "identifier_or_url": "doi:10.1093/biomet/asu045",
+        "material_read": "Author-uploaded full-text introduction, exact null-distribution section, relevant concluding discussion, and references.",
+        "method": "Lawful author-uploaded full-text inspection.",
+        "title": "A distribution-free two-sample run test applicable to high-dimensional data",
+        "trigger": "Primary nonparametric-testing source that explicitly compares Wald–Wolfowitz and Wilcoxon–Mann–Whitney."
+      },
+      {
+        "assessment": "MARGINAL_ONLY_NOT_COVERING",
+        "evidence": "It covers inversion counts on words and their moments but contains no symbol-run statistic, so its results do not determine the new cross-moment.",
+        "identifier_or_url": "arxiv:0908.2089",
+        "material_read": "Full arXiv HTML through the two-letter generating-function and moment sections, including equations for the q-binomial distribution, mean, variance, symmetry, and moment machinery.",
+        "method": "Open-access full-text inspection.",
+        "title": "The Mahonian Probability Distribution on Words is Asymptotically Normal",
+        "trigger": "Equivalent two-letter inversion formulation of the Mann–Whitney statistic and possible broader generating-function coverage."
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_NOT_DECISIVE",
+        "evidence": "The abstract is about distribution-free Shewhart charts and run-length behavior, while later literature describes the method as adding runs-type signaling rules to Mann–Whitney charts rather than using the Wald–Wolfowitz pooled-label run count.",
+        "identifier_or_url": "doi:10.1016/j.jspi.2009.02.013",
+        "material_read": "Abstract, bibliographic record, and a later full-text article's characterization of the method; a direct full-text retrieval attempt returned unrelated material and was not used as scientific evidence.",
+        "method": "Abstract/reference inspection plus downstream-method description.",
+        "title": "Nonparametric control charts based on runs and Wilcoxon-type rank-sum statistics",
+        "trigger": "Title appears to combine runs and Wilcoxon rank-sum and therefore could plausibly dominate the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "595fbe90-99a2-432a-b4f8-2e6c6e5793a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two statistics are classical distribution-free tests aimed at different departures from a common two-sample null. The exact zero first-order covariance can suggest orthogonality, but the new formula shows a strict negative coupling with the natural two-sided squared rank-sum evidence at every nontrivial finite sample size. The standardized covariance has a compact closed form and a nonzero proportional-sample limit, while the correlation has a universal first-order decay independent of the sample fraction. This identifies a concrete dependence structure relevant to combining or comparing the two tests and is not a mere reparameterization of known marginal moments.",
+    "status": "PASS"
+  }
+}
