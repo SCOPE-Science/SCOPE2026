@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact rate-one Kingman construction separates uniform-merger histories from independent holding times. Explicit marked-leaf survival probabilities establish all required first three singleton factorial moments. A two-case calculation for \(\mathbb E[B_kJ_j]\) produces the level-resolved covariance, and an elementary falling-factorial sum gives \(-2/9\) uniformly in integer \(n\ge4\). At \(n=2,3\), the cherry count is constant. The packaged exact-rational program checks every labelled merger history through \(n=7\), dynamic mixed moments through \(n=60\), and 1,767 finer identities. Enumeration is corroboration, not the infinite proof.
+
+**Originality — PASS with a genuine residual risk.** Janson–Kersting give singleton histories and external-length moments, whereas Disanto–Wiehe enumerate cherries but explicitly omit branch lengths. Palacios et al. encode both quantities and offer a general joint state calculus, but no identified exact closed covariance; the existence of this state representation cannot be treated as proof that the \(-2/9\) formula is absent from all derived literature. Alimpiev–Rosenberg's published covariance collection omits cherries. François–Mioland treat marginal cherry counts and branch-length Gaussian approximations in a related but distinct tree model, without the exact mixed Kingman finite-size moment. An older mixed moment/generating function remains a plausible but unlocated overlap risk. The result is neither implied by the checked marginals nor a reformulation of the Yule or Popović model's marginal results.
+
+**Value — PASS.** The result relates a canonical discrete tree-shape statistic to a biologically interpretable length measuring branches on which mutations affect a single sampled individual. Uniform negative covariance across all sample sizes is an exact structural cancellation; the additional level kernel gives a natural account of that effect.
+
+**Scientific limits.** A rate change rescales length; no generalization to varying population size, multiple mergers, joint distributions, correlations, or independence is asserted. The prior-work comparison is conditional on the inspected literature and does not certify global novelty.
+
+Self-review: passed. Independent audit: not yet performed.
