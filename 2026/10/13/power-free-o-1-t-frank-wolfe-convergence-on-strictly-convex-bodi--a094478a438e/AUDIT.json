@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "A reconstructed proof establishes continuity of unique support minimizers, a strictly positive compact fixed-separation support modulus, the standard smoothness descent bound, convergence to the compact minimizer set, and an exhaustive two-branch inverse-gap increment argument. For arbitrary fixed K choose small epsilon; small displacements force increment >K and all large displacements force increment >K as optimizer distance vanishes. Cesaro averaging gives tF_t->0. The explicit superflat body has h>0 off the origin, strict convexity through zero, a strictly concave top, and support ratio o(|x|^q) for all finite q. No numerical sampling is relied on.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kerdreux–d’Aspremont–Pokutta (PMLR 130, 2021), Definition 1.1 permits gamma_C(r) but Theorem 2.2 assumes (alpha,q) power uniform convexity and a positive gradient norm lower bound.",
+        "Pokutta (2026) Theorem 3.5 assumes power LDS; Corollary 3.8 relies on it.",
+        "Garber–Hazan strongly convex-domain regimes imply this only for their stronger domain class, not superflat cases.",
+        "Dunn 1980 abstract gives implicit line-minimization rates using the same optimum-gradient-dependent separation function."
+      ],
+      "reasoning": "Power-type guarantees miss superflat bodies. Dunn 1979/1980 have much older qualitative-exposure results for exposed optima with nonzero gradients; these cover that subclass and must be credited. Their abstract-stated premise fails when the optimum gradient is zero; their full papers were not accessible, leaving unresolved possible further extensions.",
+      "searches": [
+        "published-finding corpus: Frank Wolfe short step strictly convex compact feasible set without uniform convexity o(1/t) convergence smooth convex objective support gap modulus",
+        "web: \"conditional gradient\" \"strictly convex sets\" \"faster than\" 1/t",
+        "web: strict convex body no power uniform convex Frank Wolfe qualitative faster 1/k convergence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.28006v3, Sections 2, 3, A.2 (full relevant source read)",
+      "pmlr:v130:kerdreux21a, Sections 1–2 (PDF and relevant pages inspected)",
+      "pmlr:v28:jaggi13 (background bibliographic source)",
+      "published-finding corpus searches listed in equivalent_formulations/broader_coverage/exact_database_or_table",
+      "MSC2020 90C25: Convex programming, AMS classification",
+      "J. C. Dunn (1979), DOI 10.1137/0317015, abstract only (full text not obtained)",
+      "J. C. Dunn (1980), DOI 10.1137/0318035, abstract only (full text not obtained)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Strict compact convex bodies may fail all finite power LDS: explicit exp(-1/x²) exposed boundary; see 2026 Remark A.4.",
+        "Kerdreux Theorem 2.2 additionally needs gradients bounded below; our theorem permits vanishing gradients.",
+        "The reciprocal-gap proof requires only omega_C(epsilon)>0 at each fixed epsilon; no quantitative power inequality appears.",
+        "Dunn 1979/1980 optimize through a(sigma)>0 built from the derivative at the extremal; at a zero-gradient extremal, a(sigma)=0 and the published abstract does not yield little-o."
+      ],
+      "reasoning": "The power-type Pokutta and Kerdreux statements do not imply the theorem on superflat strictly convex domains. The Dunn abstracts imply some nonzero-gradient strictly convex special cases, not their zero-gradient cases, which are present in the new theorem. Without the historical full texts, no stronger coverage exclusion is asserted.",
+      "searches": [
+        "arxiv:2604.28006v3:Definition-3.1,Theorem-3.5,Corollary-3.8,Remark-A.4",
+        "pmlr:v130:kerdreux21a:Definition-1.1,Theorem-2.2",
+        "published-finding corpus: power-free qualitative support gap modulus superflat strictly convex body unconditional Frank Wolfe convergence faster than 1/t"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.28006v3, Definition 3.1 and Corollary 3.8: any LDS certificate fixes finite q and A>0.",
+        "Its Remark A.4 proves compact strict convexity need not entail any such finite q.",
+        "Qualitative support-exposure modulus omega_C(epsilon)>0 at each fixed separation has no power growth bound.",
+        "Dunn 1979 abstract defines a(sigma) using F-prime(xi) at a constrained minimizer; positive a implies o(1/n), whereas a is identically zero for zero optimum gradient."
+      ],
+      "reasoning": "Rate language and equivalent support-map/rotundity formulations were compared. An arbitrary epsilon-dependent positive modulus is strictly weaker than a single exponent-and-constant LDS certificate; existence of the former does not imply the latter (superflat body). Searches did not reveal the same universal convergence implication.",
+      "searches": [
+        "published-finding corpus: Frank Wolfe little o 1/t strict convex finite-dimensional compact body no power type no gradient growth global short step exact line search",
+        "published-finding corpus: power-free qualitative support gap modulus superflat strictly convex body unconditional Frank Wolfe convergence faster than 1/t",
+        "web: \"Frank Wolfe\" \"strictly convex\" \"o(1/t)\" smooth",
+        "web: \"Frank-Wolfe\" \"strictly convex\" \"little-o\" convergence rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest results are 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53 and 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248; their summary statements concern different methods.",
+        "A comparison against accessible previously stated mathematical claims revealed no covering strict-convex-body asymptotic theorem.",
+        "The Dunn abstracts exhibit qualitative exposure results for nonzero-gradient constrained optima, but do not state the all-objectives theorem that includes zero-gradient minimizers."
+      ],
+      "reasoning": "Neither the published research-record index nor the accessible earlier mathematical statements contained an exact or stronger result. These comparisons are not exhaustive novelty certificates.",
+      "searches": [
+        "published-finding corpus: Frank Wolfe little o 1/t strict convex finite-dimensional compact body no power type no gradient growth global short step exact line search",
+        "published-finding corpus: power-free qualitative support gap modulus superflat strictly convex body unconditional Frank Wolfe convergence faster than 1/t",
+        "published-finding corpus: strictly convex rotund feasible set conditional gradient no uniform power convexity asymptotic small o optimization",
+        "web: \"Frank Wolfe\" \"strictly convex\" \"o(1/t)\" smooth"
+      ]
+    },
+    "rationale": "The 2026 motivating theorem requires fixed-power LDS, while its own superflat example defeats every exponent. The 2021 antecedent assumes power-type curvature in its convergence theorems. Dunn (1979, 1980) has important earlier non-power exposure results that cover a nonzero-gradient constrained-minimizer subclass, but its abstract-stated optimum-gradient exposure modulus vanishes when the gradient at the optimum is zero. The present all-objectives theorem includes that excluded case. Since Dunn full texts are inaccessible, further coverage by them is an explicit substantial originality risk.",
+    "residual_risks": [
+      "Possible uncatalogued earlier qualitative support-modulus Frank–Wolfe asymptotic result; negative search evidence cannot exclude it.",
+      "The novelty comparison to older broad methods is limited to the specifically inspected published statements and accessible full texts.",
+      "No quantitative uniform convergence exponent or empirical speedup is implied by strict convexity alone.",
+      "The two relevant historical Dunn manuscripts were not available for full-text examination. Their primary abstracts establish meaningful partial overlap, and their uninspected complete texts could contain broader coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: published universal little-o requires finite q LDS, which their own Remark A.4 says need not hold for compact strict convexity. Present proof is power-free.",
+        "evidence": [
+          "Definition 3.1 requires A>0 and fixed q>=2.",
+          "Theorem 3.5 equations 3.1-3.2 use d^q and a q-dependent geometric mean.",
+          "Corollary 3.8 uses LDS.",
+          "Remark A.4 exhibits e^{-1/x²} boundary, gap o(|x|^q) for every fixed q."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.28006v3",
+        "material_read": "Full HTML sections 2 and 3; Definition 3.1, Theorem 3.5 proof, Corollary 3.8 proof, Appendix A.2 Remark A.4; v1 date independently checked from arXiv submission record",
+        "method": "Original publicly accessible HTML v3; checked theorem assumptions, inverse-gap proof, and superflat exception line by line",
+        "title": "Frank–Wolfe Beyond 1/t Convergence",
+        "trigger": "Direct recent theorem on unconditional beyond-1/t Frank–Wolfe; remark about strict convexity and excluded geometry"
+      },
+      {
+        "assessment": "NOT_COVERING: defining arbitrary curvature moduli is not a convergence theorem for arbitrary strict convexity; operative convergence hypotheses involve power curvature and/or gradient/growth properties.",
+        "evidence": [
+          "Definition 1.1 introduces gamma_C as arbitrary nondecreasing modulus.",
+          "Theorem 2.2 assumes (alpha,q) uniformly convex with q>=2 and min gradient norm c>0.",
+          "Other section 2 theorems impose power local scaling or function error bounds."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v130/kerdreux21a/kerdreux21a.pdf",
+        "material_read": "Full accessible PDF text sections 1 and 2 including Theorem 2.2, 2.5 and 2.9; visually inspected pages 2 and 4 (zero indexed 1 and 3).",
+        "method": "Publisher open-access PDF textual inspection and page-image verification",
+        "title": "Projection-Free Optimization on Uniformly Convex Sets",
+        "trigger": "Earlier acceleration with arbitrary-modulus uniform convexity definitions; plausible stronger covering theorem"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: supplies generic O(1/t) bound, not a theorem asserting little-o for all compact strict convex sets.",
+        "evidence": [
+          "Classical smooth-convex compact-domain Frank–Wolfe primal O(1/t) rate; no strict-convex geometry improvement claimed here."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v28/jaggi13.html",
+        "material_read": "Bibliographic abstract and standard 1/t rate formulation; no whole article novelty claim made from this source.",
+        "method": "Publisher public research page and current-paper citations",
+        "title": "Revisiting Frank–Wolfe: Projection-Free Sparse Convex Optimization",
+        "trigger": "Classical general convex-set convergence baseline"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE; unresolved full text. The abstract positive-optimum-gradient-exposure theorem covers nonzero-gradient constrained optima, but its condition fails for a zero-gradient minimizer. Full text not assessed.",
+        "evidence": [
+          "The abstract states o(1/n) for Lipschitz-derivative convex functions if a(sigma)>0 for every positive sigma.",
+          "The formula for a(sigma) uses the derivative evaluated at an extremal."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0317015",
+        "material_read": "Publisher abstract and bibliographic record only; full text was not obtained.",
+        "method": "Read primary publisher abstract; full article not inspected.",
+        "title": "Rates of Convergence for Conditional Gradient Algorithms Near Singular and Nonsingular Extremals",
+        "trigger": "1979 qualitative exposure-rate work, a directly relevant early antecedent"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE_RISK: the abstract links implicit line minimization to optimum-derivative exposure growth; cannot exclude stronger omitted results without full text.",
+        "evidence": [
+          "The abstract lists implicit line minimization and Goldstein–Armijo step rules.",
+          "Convergence estimates depend on a(sigma) defined via derivative at a minimizer."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0318035",
+        "material_read": "Publisher abstract and bibliographic record only; full text was not obtained.",
+        "method": "Read primary publisher abstract; full article not inspected.",
+        "title": "Convergence Rates for Conditional Gradient Sequences Generated by Implicit Step Length Rules",
+        "trigger": "1980 line-minimization sequel with same qualitative growth function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a094478a-438e-4e8b-92d2-458acf269760",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Answers the meaningful gap exposed in the motivating 2026 paper: its superflat strictly convex counterexample defeats every power-type LDS theorem, while our power-free geometric theorem nevertheless guarantees per-instance improvement over the universal O(1/t) baseline for every smooth convex objective. It identifies strict support exposure, not curvature exponent or objective growth, as a sufficient qualitative mechanism, valid with vanishing gradient and arbitrary minimizer multiplicity. The implication is mathematical rather than a routine renaming of LDS parameters: no fixed polynomial parameter exists for the example.",
+    "status": "PASS"
+  }
+}
