@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The proof independently reconstructs exact partial-transpose blocks and Schmidt eigenvalues in all D, reduces the difference to a one-variable symmetric expression, proves its sign and strict convexity/concavity, and proves strict monotonicity of the one-dimensional critical-point equation. Two asymptotically matching elementary bounds establish the exact sharp square-root coefficient. The embedded SymPy program directly reconstructs partial transposes at D=2,3,4,5, checks key identities and evaluates scalar maxima; no finite test is used as an infinite proof. Boundary cases are explicitly separated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1103/PhysRevA.75.062308 treats squared negativity for three qubits, not the additive unsquared qudit excess.",
+        "arXiv:1508.07673 studies squared convex-roof extended negativity of generalized W-vacuum states.",
+        "DOI:10.1103/PhysRevA.102.062428 treats Rényi-alpha entanglement and concurrence/convex-roof negativity; its abstract and definitions distinguish these from raw trace-norm negativity."
+      ],
+      "reasoning": "Squared-negativity inequalities constrain the Euclidean norm of pairwise negativities, not their sum; squared convex-roof extended negativity and Rényi entanglement are distinct functionals on mixed pairwise marginals. Consequently the published broader state classes do not logically supply this sharp additive trace-norm extremum.",
+      "searches": [
+        "Allen Meyer W qudit negativity linear polygamy excess N_AB plus N_AC minus N_A_BC dimension square root sharp",
+        "tripartite qudit W class maximum negativity polygamy score sharp balanced coefficients global dimension asymptotics",
+        "Ou Fan monogamy inequality in terms of negativity for three qubit states 2007",
+        "Choi Kim negativity strong monogamy of multi-party quantum entanglement beyond qubits",
+        "Liang Zheng Zhu 2020 generalized W class Rényi alpha entropy convex roof negativity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1502.04807v2, Eqs. (3)-(17), especially 13-17",
+      "arXiv:1502.04807 public submission date 2015-02-17",
+      "DOI:10.1103/PhysRevA.102.062428, abstract/definitions/intro",
+      "arXiv:1508.07673 abstract",
+      "DOI:10.1103/PhysRevA.75.062308 abstract",
+      "AMS MSC2020 81P42 classification",
+      "Research-index semantic searches on the exact claim and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1502.04807v2 Eq. (17): a leading expansion of each negativity for W-boundary states, with an unspecified remainder too broad to determine an optimized square-root contribution.",
+        "Allen–Meyer states conjectures about the total achievable three-qudit region, not an extremum of this particular additive functional.",
+        "The checked source arXiv:1502.04807v2 provides the state and matrices but contains no global scalar calculus or \\(\\sqrt2-1\\) optimizing limit."
+      ],
+      "reasoning": "A leading-order component-wise expansion with an O(D) error cannot by itself imply a sharp order-\\(\\sqrt D\\) *difference* with an explicit leading constant after optimizing coefficients that scale with dimension. Neither the qubit quadratic relation nor convex-roof monogamy bounds recovers the unsquared expression.",
+      "searches": [
+        "Allen Meyer W qudit negativity linear polygamy excess N_AB plus N_AC minus N_A_BC dimension square root sharp",
+        "tripartite qudit W class maximum negativity polygamy score sharp balanced coefficients global dimension asymptotics",
+        "arXiv:1502.04807v2 eq (17) large dimension negativity",
+        "W states high dimensional qudit negativity polygamy linear sum deficit maximization asymptotic square root dimension",
+        "maximal monogamy score negativity W states qudit dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Allen–Meyer arXiv:1502.04807v2, Eqs. (13)-(17): W-state parameterization, block partial transpose and dimension-leading expansion, not the exact additive-defect maximizer.",
+        "Nearest indexed quantum records concern stabilizer separation and local filtering, neither additive negativity of the W-vacuum family."
+      ],
+      "reasoning": "The direct source gives enough ingredients to express the excess, but does not optimize the *sum of unsquared pairwise negativities minus the pure-split negativity*. Search aliases include polygamy score, linear negativity and additive sharing. Similar source thresholds for an achievable-region fold do not already imply the unique worst-case optimizer or sharp square-root coefficient.",
+      "searches": [
+        "Allen Meyer polynomial monogamy entanglement negativity higher dimensional qudits W GHZ family conjecture achievable negativity triples counterexample qutrit",
+        "vacuum plus generalized W states negativity sum sign threshold vacuum weight 1 dimension",
+        "negativity monogamy score generalized W states fixed vacuum amplitude optimal balanced coefficient",
+        "Allen Meyer negativity W qudit linear negativity sum difference maximum sqrt D",
+        "three qubit W negativity monogamy score N_AB+N_AC-N_A_BC sign threshold equal vacuum coefficient",
+        "arXiv:1502.04807v2 equations (13)-(17)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Allen–Meyer Figure 3 and Eqs. (13)-(17) display an achievable negativity surface, without a tabulated maximizer of the additive excess at each dimension.",
+        "The consulted searches returned no exact table for the dimension-by-dimension maximizing excess."
+      ],
+      "reasoning": "The claimed result is an all-dimension analytic optimization, rather than filling a numeric datum. The motivating spectrum/surface figure fixes neither its unique root equation nor the sharp normalized large-dimension constant.",
+      "searches": [
+        "Allen Meyer polynomial monogamy entanglement negativity higher dimensional qudits W GHZ family conjecture achievable negativity triples counterexample qutrit",
+        "Allen Meyer W qudit negativity linear polygamy excess N_AB plus N_AC minus N_A_BC dimension square root sharp",
+        "vacuum plus generalized W states negativity sum sign threshold vacuum weight 1 dimension",
+        "tripartite qudit W class maximum negativity polygamy score sharp balanced coefficients global dimension asymptotics",
+        "negativity monogamy score generalized W states fixed vacuum amplitude optimal balanced coefficient",
+        "Allen Meyer arXiv 1502.04807 qutrit boundary analytic negativity figures 3"
+      ]
+    },
+    "rationale": "The originating state family and negativity blocks appear in Allen–Meyer and are credited; the contribution is the complete globally sharp optimization of the unsquared additive negativity excess and its exact large-dimensional constant. Statement-level comparisons with source, quadratic monogamy, convex-roof variants, and indexed research-record queries yielded no dominating known statement. Equivalence under differently parameterized polygamy analyses remains a realistic literature risk.",
+    "residual_risks": [
+      "An equivalent sharp maximization could be implicit in literature under a different definition of monogamy score or parametrization.",
+      "Only the publicly accessible portion of the later generalized W paper and abstracts of some related works were inspected; the later paper is relevant but addresses distinct measures.",
+      "Search-index coverage is incomplete and a negative search result is not a mathematical novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS source state and spectral building blocks; DOES NOT STATE the global additive-excess optimization, exact scalar maximizer, or square-root coefficient.",
+        "evidence": [
+          "arXiv:1502.04807v2 lines 108-172 and Eqs. (13)-(17) specify state, spectrum, conjectured achievable region and component-wise asymptotics."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1502.04807v2",
+        "material_read": "Equations (3)-(17), surrounding proof and qudit generalization including the discussion of the fold at vacuum population 1/D and asymptotic Eq. (17), and references.",
+        "method": "Direct full-text HTML, statement-level comparison and independent algebraic reconstruction.",
+        "title": "Polynomial Monogamy Relations for Entanglement Negativity",
+        "trigger": "Source defines same tripartite qudit W-state family and exact negativity-block structure; decisive overlap check."
+      },
+      {
+        "assessment": "Studies Rényi-alpha, concurrence and convex-roof extended negativity, as opposed to the globally optimized unsquared trace-norm pairwise negativity. Full-document noncoverage not asserted.",
+        "evidence": [
+          "Phys. Rev. A 102, 062428 (2020), abstract and Eqs. (4)-(5), (9)-(12)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.102.062428",
+        "material_read": "Accessible PDF abstract, introduction, Sections II-III and definition of raw negativity versus convex-roof extension; further PDF pages were inaccessible when revisiting.",
+        "method": "Lawful open-access repository PDF text extraction where available; separate attempted page screenshot returned access denied.",
+        "title": "Monogamy and polygamy for generalized W-class states using Rényi-α entropy",
+        "trigger": "Later study has identical generalized W-vacuum state class and monogamy/polygamy terminology."
+      },
+      {
+        "assessment": "Published result concerns squared convex-roof extended negativity. No full-text exclusion claimed.",
+        "evidence": [
+          "arXiv:1508.07673 abstract expressly identifies SCREN as the studied measure."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.07673",
+        "material_read": "Abstract and public bibliographic description; full text not retrieved.",
+        "method": "arXiv abstract search and definition comparison.",
+        "title": "Negativity and strong monogamy of multi-party quantum entanglement beyond qubits",
+        "trigger": "Discusses W-vacuum three-qudit systems and negativity monogamy."
+      },
+      {
+        "assessment": "Three-qubit squared-negativity inequality does not bound the sum of unsquared pairwise negativities across arbitrary qudit dimension.",
+        "evidence": [
+          "Phys. Rev. A 75, 062308 (2007), abstract, three-pi negativity monogamy."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.75.062308",
+        "material_read": "Abstract; no full source text retrieved.",
+        "method": "Publisher abstract inspection and comparison of squared versus unsquared functional.",
+        "title": "Monogamy inequality in terms of negativity for three-qubit states",
+        "trigger": "Established negativity monogamy benchmark, potential broader implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a1e32675-7de7-4a30-8123-76e6609d4600",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The additive sharing deficit is a motivated invariant on a standard tripartite W-vacuum family already central to an entanglement-monogamy study. The exact sign threshold and unique global optimizer settle the full finite-dimensional family, and the nontrivial √D growth coefficient quantifies a dimension-dependent subleading phenomenon absent from the leading source expansion. Neither a routine substitution nor an arbitrary isolated number.",
+    "status": "PASS"
+  }
+}
