@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The actual norms have total \\(T\\bar G\\), while the source targets have total \\(T\\bar G M_\\alpha\\). The \\(L_1\\) triangle inequality gives the normalized lower bound \\(|1-M_\\alpha|\\). Two explicit positive normalized allocations attain equality on the two sides of one, and any such allocation is realizable by positive source-normalized task weights when all unweighted gradient norms are positive. Strict Jensen inequalities give the exact heterogeneous-rate phase transition at unit asymmetry. Fresh checker replay confirms the formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Later scale-invariant multi-task work states that GradNorm's learned task weights do not guarantee gradient scale invariance throughout training.",
+        "That work replaces learned magnitude balancing by direct normalization of task gradients.",
+        "Its inspected full text does not state the powered-rate target mass identity or the exact Jensen threshold."
+      ],
+      "reasoning": "A broad scale-invariance critique does not imply the present exact compatibility theorem. The new statement is specifically about the arithmetic mean of GradNorm's own powered target vector and supplies a sharp quantitative lower bound plus a unique ratio-preserving correction.",
+      "searches": [
+        "Dual-Balancing for Multi-Task Learning GradNorm gradient magnitude",
+        "GradNorm limitation gradient targets multi-task optimization paper",
+        "GradNorm scale invariant task balancing"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1711.02257v1",
+      "PMLR:80:794-803",
+      "arXiv:2308.12029v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source sets \\(r_i\\) equal to each loss ratio divided by the taskwise mean loss ratio.",
+        "The desired norm is \\(\\bar G r_i^\\alpha\\), and the auxiliary objective is the sum of absolute deviations from these targets.",
+        "Targets are held fixed when differentiating the auxiliary loss, while task weights are renormalized after each update to sum to the number of tasks.",
+        "The source uses asymmetry values below and above one in experiments."
+      ],
+      "reasoning": "These definitions jointly imply the mass mismatch but do not state it. The final claim requires summing the target vector, proving a sharp \\(L_1\\) lower bound, classifying the sign by Jensen's inequality, and constructing positive weights that attain the bound and the repaired targets.",
+      "searches": [
+        "arXiv:1711.02257 relative inverse training rate equation",
+        "arXiv:1711.02257 desired gradient norm alpha equation",
+        "arXiv:1711.02257 L_grad target fixed constant renormalize weights",
+        "arXiv:1711.02257 alpha 0.12 alpha 1.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source normalizes the relative rates to arithmetic mean one before raising them to the asymmetry power.",
+        "The defining source forms targets by multiplying those powered rates by the current average weighted gradient norm.",
+        "No inspected source states that the powered target vector has the correct mean only at unit asymmetry for heterogeneous rates."
+      ],
+      "reasoning": "Equivalent formulations would identify a nonzero target-mass defect, an irreducible normalized auxiliary-loss floor, or a special self-consistent value of the asymmetry exponent. None was located in the defining source or focused published-record searches.",
+      "searches": [
+        "GradNorm target gradient norms inconsistent mean r power alpha Jensen lower bound",
+        "GradNorm unavoidable gradient loss target mean mismatch",
+        "GradNorm alpha one self consistent target gradient norms",
+        "GradNorm alpha not one target gradient loss cannot vanish heterogeneous training rates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record results concerned unrelated gradient normalization, minimax stability, and task-allocation phenomena.",
+        "No returned record named a GradNorm powered-rate target inconsistency, unit-asymmetry threshold, or unavoidable auxiliary-loss floor."
+      ],
+      "reasoning": "The nearest records use different algorithms or different notions of balancing and do not imply the target-mass identity. Search absence is supporting evidence only and is combined with direct primary-source inspection.",
+      "searches": [
+        "GradNorm two task exact dynamics weights gradient norm balancing closed form",
+        "GradNorm multi task scalar shared parameter exact equilibrium weights",
+        "GradNorm two tasks relative inverse training rate exact solution",
+        "GradNorm target gradient norms inconsistent mean r power alpha Jensen lower bound",
+        "GradNorm unavoidable gradient loss target mean mismatch",
+        "GradNorm alpha one self consistent target gradient norms",
+        "GradNorm alpha not one target gradient loss cannot vanish heterogeneous training rates",
+        "relative inverse training rates power alpha average gradient norm target infeasible"
+      ]
+    },
+    "rationale": "The defining GradNorm paper states the rate normalization, powered targets, auxiliary loss, target detachment, and weight renormalization, but the inspected full text does not compare target mass with actual gradient mass or derive the unit-asymmetry consistency threshold. Later scale-invariant multi-task work criticizes learned task-weight balancing more broadly and proposes direct normalization, but does not state this exact Jensen obstruction, sharp residual, or mean-preserving repair. Focused published-record searches found no implication-equivalent result.",
+    "residual_risks": [
+      "The mass-balance identity is elementary enough that it may have been noted in unindexed implementation discussions.",
+      "Later multi-task balancing papers contain broad critiques of learned weight methods, so qualitative concerns about GradNorm are prior-covered.",
+      "No empirical claim is made for the proposed mean-renormalized target."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_FORMULAS_NOT_COVERING_POWERED_TARGET_MASS_CONSISTENCY.",
+        "evidence": "The source explicitly normalizes rates before exponentiation and multiplies the powered rates by the mean gradient norm, but no target-mean consistency calculation, sharp residual floor, or mean-preserving powered-rate correction was found.",
+        "identifier_or_url": "arXiv:1711.02257v1; PMLR 80:794-803",
+        "material_read": "Full open text covering Sections 3.1 and 3.2, Algorithm 1, the toy experiment, and the main NYUv2 experiment including asymmetry choices.",
+        "method": "Full-text open-access inspection with targeted searches for target normalization, asymmetry, and task-weight renormalization.",
+        "title": "GradNorm: Gradient Normalization for Adaptive Loss Balancing in Deep Multitask Networks",
+        "trigger": "Defining source for weighted task gradient norms, relative inverse training rates, powered targets, auxiliary loss, target detachment, task-weight renormalization, and experimental asymmetry values."
+      },
+      {
+        "assessment": "BROADER_SCALE_INVARIANCE_CRITIQUE_NOT_COVERING_EXACT_POWERED_TARGET_DEFECT.",
+        "evidence": "The paper argues that learned task weights do not guarantee scale invariance and proposes direct normalization, but does not state the exact GradNorm target-mass mismatch or the unit-asymmetry consistency threshold.",
+        "identifier_or_url": "arXiv:2308.12029v1",
+        "material_read": "Open full text covering the introduction's GradNorm comparison, the scale-invariance motivation, and the proposed direct gradient-magnitude normalization.",
+        "method": "Full-text open-access inspection.",
+        "title": "Dual-Balancing for Multi-Task Learning",
+        "trigger": "Later primary work directly comparing gradient-magnitude balancing with GradNorm and arguing for scale-invariant task balancing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6461bdd6-9252-41da-abb5-3a3123c0d655",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "GradNorm's powered training-rate target is the method's central mechanism and its asymmetry exponent is its sole principal tuning parameter. The theorem shows that exponentiation silently changes the target vector's total gradient mass except at unit asymmetry, producing a sharp, unavoidable auxiliary-loss floor whenever heterogeneous rates are used with the source's common experimental choices below or above one. The result also supplies the unique common rescaling that preserves the intended relative task priorities while restoring exact mean consistency, making the finding directly useful for analysis and possible algorithm design.",
+    "status": "PASS"
+  }
+}
