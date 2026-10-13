@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Exact uniform-history measure is 1/n!, excess recurrence is e_{t+1}=e_t+u_t+e_{u_t}. Fixing the first r indices freezes all feasible later positive selection increments j+e_j (j<=r), giving an exact binomial basis with nonnegative integers. At k=r,r-1 the adder equals Mahonian counts, while at k=r-2 their coefficient difference is r-2 due solely to early selection of index 1 at time 1, which changes the later cost of selecting 2 from 2 to 3. This proves M-A=(r-2)binom(n-r,r-2)+O_r(n^(r-3)) and limiting ratio r(r-1)(r-2). r=0,1,2 are handled separately or omitted from the correction assertion. Verified 164 exact finite checks using the packaged standard-library script, not as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonner arXiv:2303.03606v1 presents fixed positive moment growth rates asymptotically; moments do not fix small individual point masses.",
+        "Bonner 2025 dissertation Chapter 3 develops adder moment material, not a visible fixed-surplus all-r coefficient theorem in inspected sections.",
+        "Ben-Naim/Krapivsky 2002 treat sparse exact endpoints and growth, with no fixed-r full polynomial family."
+      ],
+      "reasoning": "The strongest nearby results address different quantifiers: entire moments of X_n and growth, not precise exponentially rare near-minimal probabilities for every fixed surplus. The 2002 endpoint identities cover the r=0 and r=1 special cases, but not the general theorem or Mahonian discrepancy.",
+      "searches": [
+        "Ulam Kac adder exact distribution near minimal growth n+1+r factorial times probability is polynomial in n for fixed excess r; Brauer star addition chains counts",
+        "Near-minimal Ulam-Kac adder path enumeration exact polynomial count fixed excess and asymptotic n^r/r!",
+        "arXiv:2303.03606v1",
+        "2025 Bonner dissertation Chapter 3",
+        "arXiv:cond-mat/0208072v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0208072v1",
+      "arXiv:2303.03606v1",
+      "G. Bonner (2025) dissertation Chapter 3",
+      "OEIS A008302",
+      "OEIS A008927",
+      "2026/9/18/SCOPE-exact-local-limit-weighted-representation-counts--4e870c1cf2eb",
+      "2026/10/4/SCOPE-exact-fixed-point-free-map-counts-under-finite-antichain-caps--bb36a1bf1a34",
+      "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earliest adder paper has surplus-zero and surplus-one formulas, subsumed here as special cases, not a claim covering every r.",
+        "The independent-inversion Mahonian polynomial has matching top two coefficients but differs at coefficient r-2 by r-2 for fixed r≥3; hence it does not itself prove the adder count.",
+        "The closest returned published-finding corpus IDs are on partition enumeration or unrelated combinatorial structures and have no shared recurrence or implication."
+      ],
+      "reasoning": "Logical direction checked: known near-minimum point masses and moment estimates do not entail the all-r exact prefix enumeration; classical insertion inversion codes define a deliberately different process. A prior theorem covering all path histories with this freeze-prefix condition would subsume the claim, but no such theorem was identified among inspected sources.",
+      "searches": [
+        "Ulam Kac adder exact distribution near minimal growth n+1+r factorial times probability is polynomial in n for fixed excess r; Brauer star addition chains counts",
+        "Near-minimal Ulam-Kac adder path enumeration exact polynomial count fixed excess and asymptotic n^r/r!",
+        "Random recursive addition chains star chains fixed additive surplus endpoint exact probability law",
+        "2026/9/18/SCOPE-exact-local-limit-weighted-representation-counts--4e870c1cf2eb",
+        "2026/10/4/SCOPE-exact-fixed-point-free-map-counts-under-finite-antichain-caps--bb36a1bf1a34",
+        "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "arXiv:2303.03606v1",
+        "arXiv:cond-mat/0208072v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonner (arXiv:2303.03606v1), main theorem concerns moment growth, not coefficients of near-minimal point probabilities.",
+        "Ben-Naim/Krapivsky (arXiv:cond-mat/0208072v1), p.2 gives only surplus 0 and 1.",
+        "Mahonian inversion-code coefficient [z^r] product_{t=0}^{n-1}(1+...+z^t) counts independent digits, but cannot directly count feedback-dependent adder paths."
+      ],
+      "reasoning": "Searched equivalent formulations as near-minimal adder path counts, fixed-surplus Brauer/star addition chains, and inversion/Mahonian enumeration. The adder excess e_{t+1}=e_t+u_t+e_{u_t} differs from the independent digit sum by a history term, explicitly first affecting its third-leading binomial coefficient. Neither the identical-model primary source nor the independent-index comparator establishes this fixed-surplus theorem.",
+      "searches": [
+        "Ulam Kac adder exact distribution near minimal growth n+1+r factorial times probability is polynomial in n for fixed excess r; Brauer star addition chains counts",
+        "Near-minimal Ulam-Kac adder path enumeration exact polynomial count fixed excess and asymptotic n^r/r!",
+        "Random recursive addition chains star chains fixed additive surplus endpoint exact probability law",
+        "Ulam Kac adder near minimal value P(X_n = n+k) factorial polynomial asymptotic",
+        "\"Ulam-Kac\" \"Mahonian\"",
+        "arXiv:2303.03606v1",
+        "arXiv:cond-mat/0208072v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A008302 is the Mahonian inversion triangle, an independent-digit comparator.",
+        "OEIS A008927 aggregates Brauer/star chains by terminal integer and does not tabulate simultaneous chain length and additive surplus.",
+        "published-finding corpus nearby record 2026/9/18/SCOPE-exact-local-limit-weighted-representation-counts--4e870c1cf2eb concerns unrelated weighted partition counts."
+      ],
+      "reasoning": "Matching individual polynomial values or the inversion triangle would not imply the full surplus-indexed adder coefficient identities. Database coverage inspected concerns different objects or different parameters. Exhaustive database coverage is not claimed.",
+      "searches": [
+        "Brauer chains length n ending n+k counts polynomial n Ulam-Kac",
+        "\"Ulam-Kac\" \"Mahonian\"",
+        "OEIS A008302",
+        "OEIS A008927",
+        "Random recursive addition chains star chains fixed additive surplus endpoint exact probability law"
+      ]
+    },
+    "rationale": "The explicit same-process 2002 endpoint identities give only r=0,1; the 2023 and later full/partial texts concentrate on moments. Matching top Newton coefficients with Mahonian inversion enumeration does not cover the nonzero feedback correction. Actual semantic record searches found only noncovering nearby results; an unlocated older Brauer-chain equivalence remains priority risk.",
+    "residual_risks": [
+      "Earlier Brauer/star-addition-chain enumerations or different recurrence normalizations may contain the all-r polynomial or leading deficit.",
+      "The 2025 dissertation was only partially inspected; unseen sections could contain stronger coverage.",
+      "Search and accessible record comparisons do not establish independent priority or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-fixed-surplus count and Mahonian deficit; works on logarithmic moment growth and first passage.",
+        "evidence": [
+          "First public version 2023-03-07; abstract and moment theorems concern log E[X_n^m].",
+          "Section 6 discusses first-passage directions, not stated exact path-count generating polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.03606",
+        "material_read": "Full 21-page arXiv PDF; model definition, main theorems and moment methods in Sections 1–5 and discussion/open questions in Section 6.",
+        "method": "Primary full-text mathematical comparison of recurrence and conclusions.",
+        "title": "On the moments of the Ulam-Kac adder",
+        "trigger": "Same recursive adder, possible stronger complete treatment."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: minimum and next-minimum probabilities coincide with r=0 and r=1; does not cover all r or deficit.",
+        "evidence": [
+          "Page 2 records P_n(n+1)=1/n! and P_n(n+2)=(n-1)/n!.",
+          "Other statements address range/growth rather than fixed-surplus exact polynomiality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0208072",
+        "material_read": "All four pages of public preprint, with focus on pp.1–2 endpoint probabilities and model.",
+        "method": "Full paper text and page image of endpoint discussion.",
+        "title": "Growth and Structure of Stochastic Sequences",
+        "trigger": "Original Ulam–Kac model, explicit minimum endpoint statements."
+      },
+      {
+        "assessment": "No covering fixed-surplus polynomial/discrepancy result observed in inspected chapter passages; residual risk from unread dissertation portions.",
+        "evidence": [
+          "Chapter 3 moment estimates, Ulam–Kac definition, and history-dependent behavior."
+        ],
+        "identifier_or_url": "https://asset.library.wisc.edu/1711.dl/SR36Z64DI2RXU8U/R/file-761d0.pdf",
+        "material_read": "Dissertation Chapter 3 selected sections and pages 79–96 of chapter (not entire dissertation).",
+        "method": "Open-access PDF chapter text and sampled page images.",
+        "title": "Random Entanglement and History-Dependent Random Sequences",
+        "trigger": "Expanded later treatment by same researcher could contain detailed adder distribution."
+      },
+      {
+        "assessment": "Known comparator, not the feedback-dependent adder count.",
+        "evidence": [
+          "Mahonian counts correspond to sum of independent uniform insertion digits."
+        ],
+        "identifier_or_url": "https://oeis.org/A008302",
+        "material_read": "Sequence title, interpretation, and classical inversion generating function.",
+        "method": "Sequence-record comparison.",
+        "title": "OEIS A008302: Mahonian numbers",
+        "trigger": "Direct inversion-code comparison."
+      },
+      {
+        "assessment": "Aggregates by endpoint; does not show the exact joint fixed-step/surplus polynomial.",
+        "evidence": [
+          "Count aggregates over chain length while the claim fixes time n and endpoint n+1+r."
+        ],
+        "identifier_or_url": "https://oeis.org/A008927",
+        "material_read": "Sequence title and endpoint-count interpretation.",
+        "method": "Database record and parameter comparison.",
+        "title": "OEIS A008927: Brauer chains",
+        "trigger": "Model equivalence to star addition chains suggests prior enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82b4f7bf-365b-49cd-964f-950e34c25af4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural all-fixed-surplus left-tail probabilities for a history-dependent random addition process, with a constructive nonnegative integer coefficient formula and an exact second-order comparison to a canonical independent-digit permutation inversion law. The r-dependent r(r-1)(r-2) coefficient quantifies the first effect of feedback, beyond previously stated isolated endpoints or moment asymptotics. No unproved growing-surplus conclusion or downstream application is claimed.",
+    "status": "PASS"
+  }
+}
