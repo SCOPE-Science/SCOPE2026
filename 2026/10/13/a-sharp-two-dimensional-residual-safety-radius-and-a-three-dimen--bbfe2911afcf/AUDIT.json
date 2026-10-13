@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Newton–Schulz gives the exact residual recurrence E_{k+1}=E_k^2. In 2x2, unitary Schur form reduces the Frobenius comparison to |a|^4+|b|^4+|z|^2|a+b|^2 versus |a|^2+|b|^2+|z|^2. Spectral radius at most 1/2 makes every term nonexpansive, while the Jordan family with repeated eigenvalue r>1/2 becomes expansive for sufficiently large off-diagonal entry. In 3x3, the two-edge nilpotent shift has E_0^2 with one entry M^2, giving exact Frobenius amplification M/sqrt(2), spectral amplification M, and E_0^4=0. Taking A=I and X_0=I-E_0 realizes the residual sequence as an actual inverse iteration. The packaged exact-rational checker replays representative identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cordero et al. state the classical inverse iteration, the spectral-radius convergence criterion, and residual quadratic estimate.",
+        "Gawlik–Leok treat Newton–Schulz matrix iterations and provide a primary 65F30 classification in a public 2016 preprint.",
+        "The nearby published spectral-filter theorem is explicitly for normal matrices and a Rayleigh residual; the present witness is nilpotent and nonnormal."
+      ],
+      "reasoning": "The broad prior theory supplies convergence and generic matrix-power context. It does not dominate the transient claim because spectral radius controls asymptotics but not norm growth for nonnormal powers, exactly the gap quantified here.",
+      "searches": [
+        "Newton Schulz matrix inversion residual recurrence I AX convergence spectral radius 65F30 paper",
+        "Newton-Schulz iteration matrix inverse convergence residual I-AX spectral radius paper 65F30",
+        "Newton-Schulz nonnormal convergence residual spectral radius",
+        "spectral filter Rayleigh residual distortion normal matrix"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1177/0142331214528350",
+      "arxiv:1608.04491v1",
+      "doi:10.1002/mma.10754",
+      "2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0",
+      "2026/9/20/SCOPE-irreducible-weighted-shift-essential-power-profiles--d5ae263f185c",
+      "2026/9/9/SCOPE008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical condition rho(E_0)<1 implies E_0^{2^k}->0 but does not imply monotone norms; the 3x3 nilpotent example demonstrates the logical gap at rho(E_0)=0.",
+        "The normal spectral-filter result cannot cover a nonnormal nilpotent matrix.",
+        "General transient-growth and operator-power results show that nonnormal powers can behave badly, but they do not imply the sharp finite-dimensional 2x2/3x3 Newton–Schulz boundary without the specific residual-squaring and Schur calculations."
+      ],
+      "reasoning": "The final claim is not that nonnormal powers can grow. It identifies exactly when spectral radius alone is sufficient for first-step Frobenius safety in dimension two, proves that no such spectral-radius safeguard survives in dimension three, and realizes the obstruction inside a condition-one inverse problem with exact next-step termination.",
+      "searches": [
+        "Newton-Schulz spectral radius convergence residual squaring",
+        "nonnormal matrix powers transient growth Newton Schulz",
+        "irreducible weighted shift power profiles",
+        "Hurwitz stable Jordan transient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned nearby normal spectral-filter residual distortion, nonnormal transient-growth, and matrix-power results, but no Newton–Schulz inverse theorem with the 2x2 threshold or 3x3 nilpotent construction.",
+        "Targeted web searches for Newton–Schulz combined with nilpotent, nonnormal, transient, and residual-norm terminology did not expose the displayed sharp classification.",
+        "The full modern Newton–Schulz inversion article contains no matches for Frobenius, nonnormal, transient, or nilpotent terminology."
+      ],
+      "reasoning": "Equivalent coverage must concern the Newton–Schulz inverse residual itself, universal first-step Frobenius monotonicity over every 2x2 residual with a spectral-radius bound, and the minimal dimension for an unbounded zero-spectrum spike. Generic statements about powers of nonnormal matrices or asymptotic convergence do not supply these algorithm-specific sharp boundaries.",
+      "searches": [
+        "Newton-Schulz 2x2 Frobenius residual spectral radius one half sharp",
+        "Newton Schulz three dimensional nilpotent residual spike exact termination",
+        "Schulz inverse iteration nilpotent residual norm amplification dimension three",
+        "Newton-Schulz residual squaring Frobenius monotonicity spectral radius",
+        "Newton-Schulz nonnormal residual norm increase",
+        "matrix inversion Newton Schulz residual norm can increase"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact match for the 1/2 safety radius or the nilpotent M/sqrt(2) amplification law was located.",
+        "The constants follow from exact Schur-form and nilpotent calculations rather than numerical tables."
+      ],
+      "reasoning": "The result is a closed-form structural classification, not a recomputation of benchmark residual histories.",
+      "searches": [
+        "\"Newton-Schulz\" \"1/2\" Frobenius residual",
+        "\"Newton-Schulz\" nilpotent residual",
+        "\"Schulz\" residual spike dimension three"
+      ]
+    },
+    "rationale": "The Newton–Schulz formula, residual squaring, and spectral-radius convergence criterion are classical and explicitly treated as prior work. The closest full modern inversion source states those ingredients but does not formulate Frobenius transient monotonicity, nonnormal residual spikes, a 2x2 spectral-radius threshold, or a 3x3 nilpotent exact-termination obstruction. Generic nonnormal transient growth is also prior background. Targeted database and literature searches did not locate an implication-equivalent Newton–Schulz statement.",
+    "residual_risks": [
+      "Generic nonnormal-power theory is extensive, so an older source may contain the same 2x2 or 3x3 matrix calculation without Newton–Schulz terminology.",
+      "The full body of the 2014 Schulz-type inversion paper was access restricted through the inspected route.",
+      "The 2x2 universal classification is only for Frobenius norm; no corresponding all-matrix spectral-norm threshold is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: supplies the exact classical iteration and convergence facts used as premises but no located transient norm classification matching the final claim.",
+        "evidence": "The article states X_{k+1}=X_k(2I-AX_k), attributes convergence iff rho(I-AX_0)<1 to Schulz, and states the residual quadratic estimate. Searches found no Frobenius, nonnormal, transient, nilpotent, or dimension occurrence relevant to the claim.",
+        "identifier_or_url": "doi:10.1002/mma.10754",
+        "material_read": "The full HTML article was inspected around the Newton–Schulz definition and convergence discussion and through its numerical residual discussion. Targeted full-text searches were made for Frobenius, nonnormal, transient, nilpotent, and dimension terminology.",
+        "method": "Full-text publisher HTML inspection with targeted in-document searches.",
+        "title": "New Iterative Procedures for Approximating Different Types of Inverse Matrix: Convergence and Stability",
+        "trigger": "Closest full primary source for the classical Newton–Schulz inverse formula, residual mechanism, and spectral-radius convergence condition."
+      },
+      {
+        "assessment": "CLASSIFICATION_AND_BROADER_CONTEXT: primary MSC 65F30 and Newton–Schulz matrix-iteration context, but it concerns polar-decomposition derivatives rather than inverse-residual transient monotonicity.",
+        "evidence": "arXiv v1 is dated 2016-08-16 and lists AMS 65F30 first. The paper discusses Newton–Schulz convergence in a matrix-function setting.",
+        "identifier_or_url": "arxiv:1608.04491v1",
+        "material_read": "The complete arXiv HTML was inspected through the introduction and the Newton–Schulz corollary. The title block, submission history, and AMS classification were checked.",
+        "method": "Lawful open full-text arXiv HTML inspection.",
+        "title": "Computing the Fréchet Derivative of the Polar Decomposition",
+        "trigger": "Archive-era primary numerical-matrix source involving Newton–Schulz and providing verified primary MSC ownership."
+      },
+      {
+        "assessment": "RELEVANT_ACCESS_LIMITED: directly confirms archive-era active use of Schulz inversion but is not used to assert whole-document noncoverage.",
+        "evidence": "The publisher records first online publication on 2014-04-15 and describes an improved method relative to the well-known Schulz iteration for square-matrix inversion.",
+        "identifier_or_url": "doi:10.1177/0142331214528350",
+        "material_read": "Publisher title, abstract, online-publication date, and reference list were inspected. The article body was access restricted through the inspected route.",
+        "method": "Publisher-record and abstract inspection.",
+        "title": "An improved Schulz-type iterative method for matrix inversion with application",
+        "trigger": "Archive-era matrix-inversion source directly centered on Schulz-type inversion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bbfe2911-afcf-43b5-a901-59c43a0cc587",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Newton–Schulz is commonly justified by residual squaring and the spectral-radius convergence condition, while residual norms are natural diagnostics for approximate inverses. The theorem shows exactly how far asymptotic spectral convergence is from stepwise residual safety: dimension two has a sharp universal spectral-radius ceiling, but dimension three permits arbitrarily large residual deterioration even at zero spectral radius and for a condition-one target, immediately followed by exact termination. The minimal-dimension and exact-termination features make this more informative than a generic nonnormal-transient example.",
+    "status": "PASS"
+  }
+}
