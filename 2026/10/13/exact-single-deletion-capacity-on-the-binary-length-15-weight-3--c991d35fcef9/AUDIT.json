@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each of all 455 possible inputs, the dual cover is >=1, as proved by the three exhaustive run-type cases and checked independently by two deletion-output representations. Exactly 78 nonadjacent-pair outputs receive 1/3, 13 adjacent-pair outputs receive 2/3, and 7 selected triple outputs receive 1/3; sum is 37. The standalone verifier reads and checks 37 distinct codewords and confirms disjoint deletion-descendant sets. This proves both global upper and constructive lower bounds for the exact scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf (Section III and Theorem 2, chromatic number)",
+        "https://arxiv.org/html/1211.4056 (sections III-IV and appendices)",
+        "https://arxiv.org/html/1211.3128v1 (Section III, IV and constrained-source bounds)"
+      ],
+      "reasoning": "The 2012 coloring theorem provides a partition into 13 independent sets, not a matching upper bound of 35; the 37-word construction disproves that potential inference. The broad fractional-transversal method is a proof framework, not a particular 37-valued dual certificate. No dominating theorem settling every n,k independence number was found.",
+      "searches": [
+        "\"Two Approaches to the Construction of Deletion Correcting Codes\" 15 3 independent set max code",
+        "\"constant weight\" \"single-deletion-correcting\" \"independence\" three",
+        "\"Non-asymptotic Upper Bounds for Deletion Correcting Codes\" constrained source weight"
+      ]
+    },
+    "checked_sources": [
+      "https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf",
+      "https://arxiv.org/abs/1211.4056",
+      "https://arxiv.org/html/1211.3128v1",
+      "https://arxiv.org/abs/math/0207197",
+      "https://oeis.org/A265032/a265032.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ISIT 2012 Theorem 2: the fixed-Hamming-weight chromatic number is \\(\\max\\{k,n-k\\}+1=13\\) for these parameters.",
+        "arXiv:1211.3128 Section III: general dual upper for unrestricted binary codes and Section V constrained sources",
+        "The attached exact 37-word witness, plus an independent 37-total fractional cover"
+      ],
+      "reasoning": "An optimal 13-coloring implies only alpha >= ceiling(455/13) = 35, not alpha <=35. The generic fractional covering technique permits the new weights but does not specify their sharp value. Triple packings for Hamming-error correction and adjacent-transposition codes constrain different pairs than common one-deletion descendants and do not imply this result.",
+      "searches": [
+        "Cullina Kulkarni Kiyavash Theorem 2 chromatic number constant weight 2012",
+        "Kulkarni Kiyavash fractional transversal single deletion constrained source 2012",
+        "binary length 15 constant Hamming weight three single deletion correcting code maximum 37 Steiner triple system Hamming"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cullina et al., ISIT 2012, Section II-C defines deletion-code graphs and alpha; https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf",
+        "https://arxiv.org/abs/1211.4056"
+      ],
+      "reasoning": "The exact claim is equivalent to independence number 37 in the one-deletion graph induced by length-15 words of weight three, or maximum disjoint family of deletion-output hyperedges. Unlike chromatic number 13 or the 35-word checksum cells, this determines alpha itself. No matched exact alpha statement was located.",
+      "searches": [
+        "\"L_{1,15,3}\" independent set",
+        "\"A(15,1,3)\" deletion code",
+        "\"single deletion\" \"weight three\" exact maximum",
+        "published research index: alpha(L_{1,15,3}) = 37 maximum size 37 binary length-15 weight-three single-deletion-correcting codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cullina et al., ISIT 2012 Section IV computes two-deletion constructions, not a full weight-three single-deletion maximum for length 15",
+        "https://oeis.org/A265032/a265032.html records unrestricted small single-deletion graphs; different parameter sets"
+      ],
+      "reasoning": "The inspected tables and code constructions do not contain an exact 15/3 deletion-code optimizer with a matching 37 upper certificate. Search absence is not a uniqueness proof; hidden or unindexed computational tables remain a residual risk.",
+      "searches": [
+        "\"L_{1,15,3}\" \"37\"",
+        "\"constant weight\" \"single deletion\" \"37\" \"15\"",
+        "\"single deletion\" \"three ones\" \"37\" coding",
+        "https://oeis.org/A265032/a265032.html independent sets deletion graphs"
+      ]
+    },
+    "rationale": "The full ISIT 2012 constant-weight primary paper and the 2012 arXiv extension establish optimal colorings and an asymptotic construction, not the precise independence number of the 15/3 graph. Its 13 modified-VT color classes each contain 35 words, whereas the new 37-word witness and 37 fractional-transversal proof determine the maximum. The separate 2012 upper-bound work supplies a general LP-duality method, but its theorems do not state or imply the sharp 15/3 integer optimum without the new specialized dual and matching construction. Public searches and published records located no identical count. Earlier unindexed work remains a risk.",
+    "residual_risks": [
+      "A complete earlier enumeration of this constant-weight subgraph may exist in an unindexed code table, supplement, or unpublished calculation.",
+      "The Sloane 2002 full text and some specialist historical algorithm papers were not exhaustively searched page by page.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "An optimal chromatic-number result and constructions, no 37-valued 15/3 independence maximum",
+        "evidence": "Theorem 2 gives \\(\\chi(L_{1,n,k})=\\max\\{k,n-k\\}+1\\); Section IV concerns two-deletion computations.",
+        "identifier_or_url": "https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf",
+        "material_read": "Five-page primary paper, particularly Sections II-C, III-A, IV, theorem and reference discussions; reviewed page images and extracted mathematical text",
+        "method": "Full accessible PDF and page-image inspection",
+        "title": "A Coloring Approach to Constructing Deletion Correcting Codes from Constant Weight Subgraphs",
+        "trigger": "The same deletion-channel graph and composition parameters"
+      },
+      {
+        "assessment": "Confirms coloring and asymptotic statements; no exact 15/3 independence computation identified",
+        "evidence": "Sections III-IV state coloring and asymptotic code construction; the introduction expressly distinguishes independent-set from coloring questions.",
+        "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+        "material_read": "Accessible full-text arXiv exposition, relevant introduction, graph and coloring results, comparison and appendices",
+        "method": "Lawful open full text via arXiv",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Extended original proof and appendices may contain omitted exact table"
+      },
+      {
+        "assessment": "Provides generic fractional-transversal framework and broad bounds, not the particular sharp 15/3 result",
+        "evidence": "Theorem III.1 gives unrestricted bound; Sections IV-V give general and constrained bounds, without a matching code for 15/3.",
+        "identifier_or_url": "https://arxiv.org/html/1211.3128v1",
+        "material_read": "Full-text HTML Sections II, III, IV, constrained-source results and numerical discussion",
+        "method": "Full accessible arXiv text",
+        "title": "Non-asymptotic Upper Bounds for Deletion Correcting Codes",
+        "trigger": "Could dominate by a sharp general deletion-code upper bound"
+      },
+      {
+        "assessment": "No detected matching 15/3 exact claim, but cannot exclude full-text coverage",
+        "evidence": "Sloane focuses on single-deletion codes and independent-set computations; full-text noncoverage is not asserted.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0207197",
+        "material_read": "Public abstract, bibliographic details and cited descriptions; complete body not materially inspected",
+        "method": "arXiv listing and secondary citations",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Foundational exact independent-set computations could include the parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c991d35f-cef9-4332-af58-3dd789ff49be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Constant-composition deletion-code independence numbers are natural exact invariants determining how many fixed-composition messages withstand a deleted symbol. At the standard length 15 and sparse weight three, the complete exact answer of 37 is genuinely stronger than the 35-word classes from a known optimal coloring: chromatic optimality fails to capture maximum code size. The matching rational certificate is a substantive structural obstruction, not just a numerical heuristic. This finite parameter-specific fact gives a reproducible benchmark for refined deletion-code constructions and LP bounds.",
+    "status": "PASS"
+  }
+}
