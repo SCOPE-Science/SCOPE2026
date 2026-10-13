@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "All n>=3 with omega(n)<=5 are covered by even prime powers, even mixed support, and odd cases split by 3|psi(n). For even mixed support, 6|psi(n), phi(psi(n))/psi(n)<=1/3 and psi(n)/n<=1152/385, giving 384/385; exact simultaneous equality forces support {2,3,5,7,11}, and exponents at 5,7,11 equal to 1. Conversely psi(2^a3^b*5*7*11)=2^(a+7)3^(b+2), implying equality for all a,b>=1. Even prime powers have ratio 1/2. Odd 3|psi(n) yields <=512/715; odd 3∤psi(n) restricts prime support to 3 or 1 mod 3 and gives <=20480/22971. All strict comparisons are exact fractions. The n=39270 computation psi=124416 and phi=41472 proves six prime support is the next violating layer. Finite integer sieve to n=300000 independently cross-checks but is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sándor 2005 pp. 7–8 gives even omega<=2 and odd omega<=4, plus reductions subject to hypotheses.",
+        "Sándor 2016 concerns inequalities among products/powers of psi, not phi composed with psi."
+      ],
+      "reasoning": "Neither a parameter-dominating result nor an unconditional five-prime-support theorem occurs in the inspected primary full text. The 2005 paper treats more general n with additional conditions, not all n of fixed prime support; hence it cannot imply this theorem at n=2310.",
+      "searches": [
+        "Even n with at most five prime divisors phi(Dedekind psi(n)) < n and odd n five prime factors; Sandor Conjecture 1988",
+        "φ(ψ(n)) > n Dedekind psi Euler totient least six distinct prime factors n 39270",
+        "Sándor 2005 Theorems 3.9, 3.23 and Remark 3.10",
+        "Sándor 2016 Theorems 1–2"
+      ]
+    },
+    "checked_sources": [
+      "Sándor, JIPAM 6(3) 73 (2005), entire accessible PDF, specific pp. 1–3, 6–9, 12–13",
+      "OEIS A196200 initial date Dec 21, 2012, definition, numerical list and source links",
+      "Sándor, NNTDM 22(1) 5–7 (2016), three-page accessible PDF",
+      "Published mathematical records searched by six exact/alias/implication published-finding corpus queries, nearest indexed records compared",
+      "Public web searches on 384/385, phi(psi(n)) and 2310, and five-prime support terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest indexed named findings involve phi iterates/perfect totients, Deaconescu equations, or Jordan totients rather than phi(psi(n)); none provides an implication with the same hypotheses or a stronger family.",
+        "Remark 3.26 proves existence of failures at omega=6; it does not rule out omega<=5 at arbitrarily large n."
+      ],
+      "reasoning": "We compare quantified statements and hypotheses, not overlapping terminology. A counterexample at six-prime support and a sufficient condition psi<=2n do not logically imply an unconditional optimal bound over all five-prime-support integers.",
+      "searches": [
+        "Sharp upper bound 384/385 for phi(psi(n))/n with at most five distinct prime factors, equality at 2310 and powers of 2 and 3, Dedekind Euler composition",
+        "phi composed Dedekind psi sharp prime factor support barrier five six",
+        "published-finding corpus indexed findings: prime-support sieve for perfect totients; Deaconescu omega threshold; Jordan J5 cutoff",
+        "Sándor 2005 Remark 3.26"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The sequence is equivalently the sign of phi(psi(n))-n; the new theorem gives its exact omega<=5 sign and maximal normalized ratio.",
+        "Sándor 2005 lists 39270 but does not give the sharp maximum 384/385 or characterize the equality n=2^a3^b*385."
+      ],
+      "reasoning": "Reformulating as phi(psi(n))<n for omega<=5, an omega threshold, or maximizing phi(psi(n))/n does not make the historical finite counterexamples a covering proof. The source theorem has a stricter sufficient hypothesis psi(n)<=2n, which fails on the equality family.",
+      "searches": [
+        "Sharp upper bound 384/385 for phi(psi(n))/n with at most five distinct prime factors, equality at 2310 and powers of 2 and 3, Dedekind Euler composition",
+        "Least number of distinct prime factors of n for which phi(Dedekind psi(n)) exceeds n; sharp five prime support obstruction; Sandor conjecture counterexamples 39270",
+        "OEIS:A196200",
+        "Sándor (2005), equation (1.8) and Remark 3.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A196200 begins at 39270 and links Sándor 2005; it is a list and bounded computation, not an infinite omega<=5 proof.",
+        "Verifier checks n<=300000 and separately gives infinite symbolic equality class, with explicit computational limit."
+      ],
+      "reasoning": "An exact first global term 39270 does not preclude a larger five-support exception, and a database of positive violations does not determine the exact supremum 384/385 for all numbers with omega<=5.",
+      "searches": [
+        "OEIS A196200 phi(Dedekind psi(n)) > n",
+        "Totient of Dedekind psi function for 2310, 39270, omega threshold six"
+      ]
+    },
+    "rationale": "Remark 3.10 of Sándor (2005) proves only even omega<=2 and odd omega<=4 by a psi<=2n sufficient condition; this condition fails at n=2310 with psi/n=1152/385>2. His Remark 3.26 already exhibits n=39270, and OEIS A196200 lists numerical counterexamples; neither establishes the all-size omega<=5 upper bound nor its exact equality family. The 2016 Sándor note concerns power/product inequalities of psi instead. published-finding corpus searches using exact functions, parameters, ratio and conjecture returned no implication-dominating record; nearest indexed work treats different arithmetic functions. Unindexed prior proofs remain a residual risk, so originality is a self-review rather than independent certification.",
+    "residual_risks": [
+      "An earlier elementary proof or a source not indexed in the consulted mathematical services could cover the bound.",
+      "The 2005 work has a known year of publication but no independently established exact first-public calendar day; no earlier precise public-date claim is made.",
+      "No claim of independent literature completeness or external certification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.9 assumes psi(n)<=2n; Remark 3.10 handles even omega<=2 and odd omega<=4. Theorem 3.23 gives squarefree reduction; Remark 3.26 lists n=39270. None asserts 384/385 sharp uniform bound, five-factor theorem, or exact equality class.",
+        "evidence": "Eq. (1.8), p. 2; Remark 3.10, p. 8; Theorem 3.23 and Remark 3.26, pp. 12–13. The extremal n=2310 has psi(n)/n=1152/385>2.",
+        "identifier_or_url": "JIPAM 6(3), Article 73 (2005); https://www.maths.tcd.ie/EMIS/journals/JIPAM/images/146_05_JIPAM/146_05.pdf",
+        "material_read": "Full 17-page open PDF: definitions and introduction pp. 1–3; central theorems and remarks pp. 6–9; general squarefree transfer and explicit counterexamples pp. 12–13; searched further headings and text for domination.",
+        "method": "Open-access PDF with direct text and visual inspection of p. 8 Remark 3.10; equation and theorem comparison including conditions",
+        "title": "On the Composition of Some Arithmetic Functions, II",
+        "trigger": "Exact functions, original conjecture, published partial-support bounds and counterexamples"
+      },
+      {
+        "assessment": "Lists 39270 first, but a finite table and definition cannot imply no counterexample at any size with omega<=5, nor the exact ratio maximum or equality family.",
+        "evidence": "Entry A196200 definition and terms; attribution dated Dec 21 2012.",
+        "identifier_or_url": "OEIS:A196200; https://oeis.org/A196200",
+        "material_read": "Entry definition, initial sequence terms, comments, cited sources, program, attribution and 2012-12-21 initial dated author line",
+        "method": "Read public database record and compare its listed numerical data against a quantified omega<=5 inequality",
+        "title": "A196200: Numbers k such that Euler phi(Dedekind psi(k)) > k",
+        "trigger": "Exact function inequality, first displayed counterexample, and dated record"
+      },
+      {
+        "assessment": "Inequalities for products/powers of Dedekind psi do not involve the composite totient phi(psi(n)) in a five-prime-support extremal bound.",
+        "evidence": "Theorems 1 and 2 are supermultiplicative power bounds for psi; not a sharp estimate for phi(psi(n))/n.",
+        "identifier_or_url": "NNTDM 22(1), 5–7 (2016); https://nntdm.net/papers/nntdm-22/NNTDM-22-1-05-07.pdf",
+        "material_read": "Three-page open PDF, all pages including theorems and references",
+        "method": "Open-access text extraction and visual inspection of p. 2 main results",
+        "title": "A note on Dedekind’s arithmetical function",
+        "trigger": "Closely named primary follow-up from the source author"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f070a3c-86c2-4a18-815a-c802916b368b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is Sándor's disproved phi(psi(n))<=n conjecture; the mathematical gap is the least distinct-prime support allowing violation and the best global ratio on the preceding support layer. This theorem proves the exact sharp constant 384/385 with a complete infinite equality family, while an exhibited six-prime counterexample makes the support threshold best possible. It goes beyond the prior even-two/odd-four sufficient cases, including n=2310 where psi(n)>2n, and cannot be inferred from a finite counterexample list. The bound does not claim to resolve unrestricted behavior or density.",
+    "status": "PASS"
+  }
+}
