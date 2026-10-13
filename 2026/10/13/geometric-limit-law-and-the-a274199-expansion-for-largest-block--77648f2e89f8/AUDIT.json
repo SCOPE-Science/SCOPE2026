@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Shortest-border length m has exact probability u_m(q)/q^(2m), because the shortest border must be unbordered and any unbordered matching prefix/suffix is automatically the shortest border. Iterating gives an exact truncated product-sum for every fixed number of peeled pairs. Monotone convergence yields geometric tail probabilities s_q^r; s_q<1 follows from an explicit uniform bound. Empty-center probabilities form a summable renewal sequence and therefore vanish. The mean follows from dominated convergence. The formal-series proof uses a triangular recursion for shortest-border probabilities and the identical recursion for normalized first-part composition series. A separate induction identifies those composition numbers with the defining stabilized reverse row of A274190, hence A274199.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goto et al. prove uniqueness and greedy shortest-border peeling but do not study random-word limiting distributions.",
+        "OEIS A330886 records the binary asymptotic mean constant numerically, not an all-alphabet formula or distribution law.",
+        "The exact recurrence in the thesis and paper determines finite counts, but the cited sources stop at existence and a conjectural expansion rather than deriving the renewal law and coefficient theorem."
+      ],
+      "reasoning": "The closest broader results provide the structural peeling rule or finite recurrences. They do not state the geometric limiting law, and the paper explicitly leaves the power-series identification conjectural.",
+      "searches": [
+        "Block Palindromes A New Generalization shortest border largest block palindrome",
+        "shortest border factorization random word asymptotic",
+        "A330886 shortest border factorization asymptotic constant",
+        "bordered words shortest border probability unbordered recurrence"
+      ]
+    },
+    "checked_sources": [
+      "University of Waterloo thesis repository record dated 2022-10-12 and Chapter 6 full text",
+      "arXiv:2302.13147v1 and author-hosted full PDF, especially expected-width section and Conjecture 5",
+      "MaRDI/zbMATH-derived record for DOI 10.1007/978-3-031-33180-0_14 confirming MSC 68R15",
+      "arXiv:1806.00198v1 full text on largest block palindromes",
+      "OEIS A274199 and defining array A274190",
+      "OEIS A330886",
+      "focused semantic-result searches for the conjecture, geometric law, shortest-border aliases, and exact constants",
+      "current and prior own research records checked for block-palindrome, expected-width, A274199, unbordered, and factorization overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The thesis proves existence of the limiting mean but contains no A274199 conjecture or distribution theorem.",
+        "The 2023 paper adds Conjecture 5, explicitly marking the coefficient identity as unproved.",
+        "The 2018 structural theorem implies greedy peeling but neither a random limiting law nor the A274199 expansion by itself."
+      ],
+      "reasoning": "The new proof uses the published peeling structure and unbordered counts as premises, but the final geometric law and the formal-series identification require additional renewal and composition arguments. The strongest directly relevant source explicitly labels the coefficient statement a conjecture.",
+      "searches": [
+        "arXiv:2302.13147 Theorem 2 recurrence Conjecture 5",
+        "hdl:10012/18874 Chapter 6 expected width largest block palindrome",
+        "arXiv:1806.00198 largest block palindrome shortest border"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 primary paper states Conjecture 5 for the A274199 expansion rather than a theorem.",
+        "The 2022 thesis proves only existence of the limiting expected width and gives numerical values.",
+        "Targeted searches did not locate a published geometric limit law for largest block-palindrome width."
+      ],
+      "reasoning": "The searches covered the exact named factorization, the random-width formulation, the conjecture number, the coefficient sequence, and the equivalent shortest-border language. The new statement is stronger than an expected-value formula because it identifies the whole limiting distribution.",
+      "searches": [
+        "largest block palindrome factorization expected width random words A274199",
+        "Smallest and Largest Block Palindrome Factorizations Conjecture 5 expected width",
+        "block palindrome geometric distribution expected width",
+        "largest BP-factorization unbordered probability",
+        "A274199 block palindrome factorization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A274199 is defined as the limiting reverse row of A274190 and lists the constrained-composition interpretation as an observation.",
+        "A330886 gives the binary shortest-border-factorization total and the constant 6.468626906..., agreeing with the new formula at q=2.",
+        "No checked table gives the all-q renewal parameter or geometric distribution."
+      ],
+      "reasoning": "The database checks were necessary because both the conjectured coefficients and the binary numerical constant already appear in OEIS. The proof identifies the defining A274190 reverse row exactly rather than relying on matching initial terms.",
+      "searches": [
+        "OEIS A274199",
+        "OEIS A330886 block palindrome",
+        "6.468626906 palindrome factorization",
+        "A274190 limiting reverse row recurrence"
+      ]
+    },
+    "rationale": "The earliest source found for the expected-width problem is the 2022 thesis, which proves existence and tabulates values. The 2023 paper explicitly presents the A274199 expansion as Conjecture 5. The 2018 block-palindrome paper proves the greedy shortest-border structure only. OEIS A330886 records the binary numerical mean, and OEIS A274199 records the coefficient sequence, but no checked source gives the geometric limit law or proves the conjectured all-alphabet expansion.",
+    "residual_risks": [
+      "An unindexed note or unpublished derivation may contain the same renewal argument.",
+      "The exact finite recurrence in the primary source makes the limiting law derivable from published premises, although the source itself stops at existence and an explicit conjecture for the coefficients.",
+      "OEIS records can be updated independently of papers; the checked version records the composition interpretation but not a proof of the block-palindrome identity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The thesis proves existence of the limiting expected width and gives numerical values, but it does not state a geometric limiting law or the A274199 expansion.",
+        "identifier_or_url": "hdl:10012/18874",
+        "material_read": "Repository metadata and Chapter 6, especially Section 6.3 on expected width and its theorem asserting existence of the limit.",
+        "method": "Lawful institutional repository full-text inspection, including the relevant chapter pages.",
+        "title": "On the Properties and Structure of Bordered Words and Generalizations",
+        "trigger": "Earliest public source found containing the limiting expected-width problem and numerical table."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper explicitly labels the A274199 expansion as Conjecture 5 and does not state a geometric limiting distribution.",
+        "identifier_or_url": "arXiv:2302.13147v1 / DOI:10.1007/978-3-031-33180-0_14",
+        "material_read": "Definitions, greedy-shortest-border discussion, exact LBP recurrence, Section 3 on expected width, Theorem 4, Conjecture 5, and the numerical table.",
+        "method": "Author-hosted full PDF and arXiv metadata inspection.",
+        "title": "Smallest and Largest Block Palindrome Factorizations",
+        "trigger": "Direct primary publication containing Conjecture 5."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source establishes the deterministic structural factorization rule but does not study uniform random words, limiting width distributions, or expected-width power series.",
+        "identifier_or_url": "arXiv:1806.00198v1",
+        "material_read": "Definitions and Section 3, including the uniqueness statement and Theorem 1 describing greedy shortest-border construction.",
+        "method": "Primary arXiv full-text inspection.",
+        "title": "Block Palindromes: A New Generalization of Palindromes",
+        "trigger": "Foundational source for largest block palindromes and greedy shortest-border peeling."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The records supply the sequence and binary numerical constant but no proof connecting A274199 to the all-alphabet expected width and no geometric law.",
+        "identifier_or_url": "OEIS:A274199 / OEIS:A330886",
+        "material_read": "Sequence definitions, comments, defining recurrence for A274190/A274199, composition observation, and the binary asymptotic constant for shortest-border factorization.",
+        "method": "OEIS record inspection.",
+        "title": "A274199 and A330886",
+        "trigger": "Exact coefficient sequence and binary asymptotic mean appear in the conjecture and nearby database record."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77648f2e-89f8-4603-ab36-bec35134344b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves an explicit conjecture from the primary publication and strengthens it to a full limiting distribution. The geometric law explains why a single renewal parameter controls all limiting widths, while the formal-series argument gives a rigorous structural reason for the previously empirical A274199 coefficients rather than another numerical fit.",
+    "status": "PASS"
+  }
+}
