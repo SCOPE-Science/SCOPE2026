@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The source inlier weight and pseudo-count recurrence give an exact attracting fixed point for beta above one half. At that fixed point, direct cancellation gives the outlier mixing coefficient. The Mahalanobis displacement reduces to a one-variable rational function with a unique critical point, proving the sharp bound. The support-size threshold follows exactly from the source default degrees-of-freedom choice.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Student-t location estimation is broadly known to down-weight remote samples.",
+        "The TAdam journal source explicitly distinguishes parameter-wise, block-wise, and whole-vector momentum and warns that a large whole-vector dimension can under-detect a sparse aberration.",
+        "These broader facts do not state the source-recursion-specific dependence on beta or the exact sparse-support threshold."
+      ],
+      "reasoning": "General robust-statistics intuition explains redescending weights but does not imply the TAdam pseudo-count equilibrium, which is what introduces the exact beta-dependent response and block-size law.",
+      "searches": [
+        "Student t robust mean bounded influence Mahalanobis",
+        "t-momentum outlier block dimension parameter-wise block-wise whole estimates",
+        "robust stochastic gradient Student t first-order momentum outlier"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.00179v1",
+      "DOI:10.1109/TNNLS.2020.3041755",
+      "github:Mahoumaru/TAdam"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The defining source provides the exact first-moment update, weight, pseudo-count recurrence, and default degrees of freedom.",
+        "The journal source says outlying gradients are down-weighted because their Mahalanobis distance is large.",
+        "The journal source qualitatively warns that whole-vector estimates may underestimate one aberrant component because the block dimension is large."
+      ],
+      "reasoning": "The prior statements provide the mechanism but not the quantitative boundary. The accepted result additionally solves the inlier pseudo-count fixed point, derives the exact beta-dependent influence curve, maximizes it, and solves the sparse-support attenuation threshold.",
+      "searches": [
+        "arXiv:2003.00179 equations 8 9 10 TAdam weight pseudo-count",
+        "Robust Stochastic Gradient Descent Student-t momentum block-wise whole estimates outlier dimension",
+        "TAdam beta1 W weight Mahalanobis distance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The defining source gives the Student-t weight as a rational function of squared Mahalanobis distance.",
+        "The journal source explains that outliers are down-weighted continuously rather than thresholded.",
+        "No inspected source states the sharp bounded Mahalanobis displacement or its optimizer."
+      ],
+      "reasoning": "Equivalent coverage would specify the exact single-outlier displacement after inlier pseudo-count calibration, or an algebraically identical bounded-influence maximum. None was located.",
+      "searches": [
+        "TAdam Student-t momentum Mahalanobis bounded influence maximum outlier weight",
+        "t-momentum exact maximum momentum displacement Mahalanobis outlier",
+        "TAdam stationary inlier equilibrium outlier influence beta1 nu"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records concern unrelated stochastic-feedback stability, matrix-valued adaptive moments, and Student-t testing.",
+        "No returned indexed finding names TAdam or t-momentum with a Mahalanobis influence maximum."
+      ],
+      "reasoning": "The closest records use different update maps and do not imply the source TAdam pseudo-count response. Search absence is supporting evidence only.",
+      "searches": [
+        "TAdam Student-t momentum Mahalanobis bounded influence maximum outlier weight",
+        "t-momentum exact maximum momentum displacement Mahalanobis outlier",
+        "TAdam stationary inlier equilibrium outlier influence beta1 nu"
+      ]
+    },
+    "rationale": "The defining and journal sources state qualitative outlier down-weighting and explicitly discuss a block-size tradeoff, but the inspected full text does not quantify the exact pseudo-count-calibrated influence curve, its maximizing distance, or the sparse-support threshold. Focused published-record searches returned no TAdam-specific result with those formulas.",
+    "residual_risks": [
+      "The redescending nature of Student-t location weights is classical robust-statistics background and is not claimed as new by itself.",
+      "An equivalent TAdam-specific influence calculation may exist in unindexed implementation notes.",
+      "The block-size threshold is for one outlier at the inlier pseudo-count equilibrium and should not be extrapolated to long contaminated sequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINING_MECHANISM_NOT_COVERING_SHARP_INFLUENCE_OR_BLOCK_THRESHOLD.",
+        "evidence": "The paper states continuous outlier down-weighting and gives all recurrences used in the proof, but no exact pseudo-count-equilibrium influence maximum or sparse-support threshold was found.",
+        "identifier_or_url": "arXiv:2003.00179v1/v2",
+        "material_read": "Full open PDF, especially Algorithm 1 and the formulation/outlier-detection sections containing the Student-t weight, Mahalanobis distance, pseudo-count update, and qualitative down-weighting discussion; the algorithm/formulation page was visually inspected.",
+        "method": "Full-text PDF inspection plus page-image inspection.",
+        "title": "TAdam: A Robust Stochastic Gradient Optimizer",
+        "trigger": "Defining source for the Student-t weight, pseudo-count recurrence, first-momentum update, and default degrees of freedom."
+      },
+      {
+        "assessment": "QUALITATIVE_BLOCK_SIZE_WARNING_PRIOR; EXACT_THRESHOLD_NOT_STATED.",
+        "evidence": "The article explicitly warns that a whole-vector estimate may underestimate one aberrant component when dimension is large, but does not state the exact half-attenuation scaling or bounded displacement maximum.",
+        "identifier_or_url": "DOI:10.1109/TNNLS.2020.3041755",
+        "material_read": "Accessible full text covering the t-momentum formulation, Mahalanobis outlier weighting, parameter-wise/block-wise/whole-vector variants, robustness control, and theoretical analysis.",
+        "method": "Accessible full-text inspection.",
+        "title": "Robust Stochastic Gradient Descent With Student-t Distribution Based First-Order Momentum",
+        "trigger": "Later primary full treatment of t-momentum and the closest source for possible coverage of block-size robustness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57f3afff-740c-470c-b245-fcf7d92522ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Outlier robustness is the defining purpose of TAdam, and the authors themselves identify block granularity as a practical design tradeoff. The result turns that qualitative issue into a sharp law: it gives the worst possible normalized first-momentum displacement, the outlier distance where it occurs, and an exact square-root dimension penalty for sparse aberrations under the recommended degrees-of-freedom choice. These formulas are directly interpretable for selecting block granularity and for stress-testing whether a purported outlier is actually suppressed.",
+    "status": "PASS"
+  }
+}
