@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For A=e1 the scalar sketched Hessian W has a scaled chi-square density proportional to w^(ell/2-1) at zero. The r-th power moment of 1-eta/W is finite exactly for r<ell/2, including the sharp logarithmic divergence at equality. Conditioning on every possible Bernoulli refresh partition yields independent blocks; the all-retention event of probability (1-p)^(k-1)>0 proves the exact 2qk cutoff, and bounded block size proves sufficiency. The iid 2nd-moment multiplier computed from exact inverse gamma moments is 2/(ell-2) at eta=(ell-4)/ell. For p>0 the Markov refresh chain is stationary ergodic, log|1-eta/W| is integrable, and Jensen plus the iid second moment gives a finite negative almost-sure Lyapunov exponent independent of p. Periodic-block SLLN supplies its comparison. A standalone exact rational checker passed 1275 identity/boundary tests; the proof, not these tests, establishes infinite moments and asymptotic limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1911.02675 Theorem 4.1 assumes iid sketches; fixed-sketch rate arguments are conditioned on favorable subspace embeddings",
+        "JMLR 17 (2016) Theorem 2 controls iterative Hessian sketch under fresh sketches",
+        "PMLR 162 (2022) Theorem 3.1 is conditional and asymptotic for double sketching"
+      ],
+      "reasoning": "Known high-probability bounds conditional on good embeddings neither control negative moments in bad rare sketches nor dominate unconditional Bernoulli-held moments. The existing iid exact expectation formula applies to p=1 only, not to Markov-dependent p<1; the new claim does not challenge or rebrand those endpoints.",
+      "searches": [
+        "Gaussian sketched preconditioned gradient descent fixed sketch resampling iterations divergence small eigenvalues 2020 2022",
+        "iterative Hessian sketch fixed sketch versus resampling random sketch gradient preconditioner convergence 2019 arxiv",
+        "Faster Least Squares Optimization Lacotte Pilanci 2019 Gaussian sketch fixed refreshed mean square iterative Hessian"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1911.02675",
+      "https://jmlr.org/papers/v17/14-460.html",
+      "https://proceedings.mlr.press/v162/wang22t.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lacotte–Pilanci Theorem 4.1: iid sketch expected-error factor; its hypotheses fail for p<1",
+        "Pilanci–Wainwright 2016: fresh sketch high-probability solution approximation",
+        "Wang–Ouyang–Xu 2022: nested Gaussian double sketching rather than the same IHS Hessian-only Markov hold model"
+      ],
+      "reasoning": "A source result is covering only if its hypotheses or a proven reduction imply the exact Markov-refresh theorem. Independent-sketch rate estimates, fixed-sketch conditional spectral bounds, and nested gradient-sketch moment cutoffs have no such implication. The gamma moment lemma is classical, and the new contribution is explicitly restricted to its full scheduling implication and almost-sure/mean-square separation.",
+      "searches": [
+        "Faster least squares optimization random preconditioner reused for batches sketch refresh Bernoulli probability exponential moment divergence",
+        "sketch reuse intermittent Hessian sketch stochastic gradient non-finite second moments reused sketch",
+        "almost sure Lyapunov exponent independent sketch refresh probability geometric holding Gaussian inverse Wishart"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1911.02675 Sections 3–4 explicitly compare frozen and iid sketches",
+        "PMLR 162 wang22t discusses nested and sequentially related sketches with separate sketched gradient"
+      ],
+      "reasoning": "The equivalent random-preconditioner and Gaussian inverse-Wishart formulations were sought. Neither inspected IHS formulation includes positive-probability consecutive retention with an exact all-q, all-k moment criterion, and the IDS correlation model has different gradient noise and reuse structure.",
+      "searches": [
+        "intermittent Gaussian Hessian sketch refresh hold repeated preconditioner heavy tail moment divergence inverse Wishart reused",
+        "probabilistic refresh Gaussian preconditioner moment cutoff negative chi-square repeated Newton iterations least squares",
+        "Bernoulli sketch reuse Hessian preconditioner rare persistence divergent moments quenched exponent"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1911.02675 gives inverse moments for an iid expected-error formula, not a table of Bernoulli-run moments",
+        "PMLR 162 wang22t gives conditional prediction-error asymptotics, not an unconditional refresh-run cutoff"
+      ],
+      "reasoning": "Focused published-index and primary-literature searches identified no exact table containing the all-q, all-horizon boundary or the discontinuity at full refresh. Lack of a retrieved entry is not taken as proof of absolute novelty.",
+      "searches": [
+        "iterative Hessian sketch periodic refresh sketch reuse squared error moment divergence",
+        "Iterative double sketching finite horizon Gaussian inverse moment 4t+2 sharp sketch width clock",
+        "sketch reuse rare long run infinite expected squared error gradient descent random Hessian inverse preconditioner"
+      ]
+    },
+    "rationale": "The defining IHS analysis uses independent iteration sketches. Lacotte and Pilanci distinguish fully fixed versus fully independent fresh sketches and prove an exact mean-square rate only under their independence hypothesis; their conditional fixed-sketch bounds do not imply unconditional finite moments when Bernoulli retention is introduced. Wang, Ouyang and Xu treat sequentially nested Gaussian sketches and a different double-sketch gradient/Hessian update, not the Hessian-only Bernoulli holding schedule. The new asserted statement is the exact refresh-run integrability clock jointly with p-invariant almost-sure contraction and deterministic capped-reuse boundary, not the known iid rate or the generic inverse-chi-square formula. Plausible unindexed priority risk remains.",
+    "residual_risks": [
+      "Unindexed literature may already discuss Bernoulli-held Gaussian Hessian inverse tails or the equivalent Markov-run integrability condition.",
+      "The moment computation is a specialization of known inverse-gamma integrability; priority rests on the joint refresh-design theorem, not on a new inverse-gamma identity.",
+      "Existing broad high-probability theory is compatible with the rare-event divergence and cannot be treated as contrary evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers endpoints and exact independent-sketch mean rate, not Bernoulli holding, all-order moment clock or p-invariant quenched rate",
+        "evidence": "Theorem 4.1 explicitly requires iid sketches; Section 3 bounds fixed sketches conditional on embedding events.",
+        "identifier_or_url": "https://arxiv.org/pdf/1911.02675",
+        "material_read": "26-page open full-text PDF: introduction pp. 1–3, fixed embedding Section 3 pp. 5–10, Section 4 Theorem 4.1 p. 11, and searched later appendix/contents for intermediate refresh and higher moments",
+        "method": "read open-access PDF text and inspect page images for formulas, assumptions and rates",
+        "title": "Faster Least Squares Optimization",
+        "trigger": "Same IHS update and explicit fixed-versus-refreshed comparison"
+      },
+      {
+        "assessment": "Uses nested Gaussian sketches and sketching both gradient and Hessian, with asymptotic conditional prediction errors; not a dominating result for Bernoulli-held Hessian-only IHS",
+        "evidence": "Section 3 uses first-row prefixes of one Gaussian matrix and Theorem 3.1 is a conditional asymptotic result.",
+        "identifier_or_url": "https://proceedings.mlr.press/v162/wang22t/wang22t.pdf",
+        "material_read": "29-page open PDF: introduction pp. 1–2, construction of nested matrices and Theorem 3.1 pp. 4–6; searched full text for Bernoulli refresh, moment, and sequential dependence",
+        "method": "read open-access PDF text and inspect page images",
+        "title": "Iterative Double Sketching for Faster Least-Squares Optimization",
+        "trigger": "Correlated Gaussian sketching and moment-clock adjacent model"
+      },
+      {
+        "assessment": "Defines IHS and proves high-probability error guarantees under fresh sketches; no matching Bernoulli-hold moment theorem identified",
+        "evidence": "The update uses a new sketch at each iteration; Appendix C derives a per-step error relation from fresh sketch independence.",
+        "identifier_or_url": "https://jmlr.org/papers/volume17/14-460/14-460.pdf",
+        "material_read": "38-page open PDF: formulation, sketch distributions and original IHS theorem/appendix statements, with page-image inspection",
+        "method": "read open-access PDF text and inspect page images",
+        "title": "Iterative Hessian Sketch: Fast and Accurate Solution Approximation for Constrained Least-Squares",
+        "trigger": "Original algorithm and normalizations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53f4487a-6dcc-41c8-bff6-d8116f583e44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The refresh policy is an explicit computational design choice in iterative Hessian sketching. The theorem proves that an arbitrarily small chance of retaining a Gaussian preconditioner produces an infinite unconditional mean-square error at a finite horizon, despite retaining the same negative almost-sure exponent. Its deterministic periodic-reuse comparison provides a sharp and actionable sketch-width/budget condition for finite moments. This is a structural separation between typical behavior and moment-based guarantees, not a generic one-step textbook deduction, a fabricated speedup, or a finite census.",
+    "status": "PASS"
+  }
+}
