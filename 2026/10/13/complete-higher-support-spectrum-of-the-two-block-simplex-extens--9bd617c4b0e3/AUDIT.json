@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every \\(r\\)-subspace \\(U\\), the simplex coordinates outside the support are exactly the nonzero vectors of \\(U^\\perp\\), giving \\(B_r=2^m-2^{m-r}\\). The two appended blocks are active according to two explicit independent functionals, so Gaussian-binomial inclusion--exclusion gives all four multiplicities. The formulas sum to \\(\\genfrac{[}{]}{0pt}{}{m}{r}_2\\). Exhaustive enumeration for \\(m=3\\) and \\(m=4\\) reproduces source examples and all higher-support layers, ending VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "V. K. Wei, doi:10.1109/18.133259, supplies the general GHW framework and classical families; it does not analyze the source's appended two-functional generator.",
+        "X. Qiao and X. Du, doi:10.3934/amc.2023056, determine hierarchies for a defining-set family constructed through trace evaluations.",
+        "K. Meng et al., doi:10.3934/amc.2026016, determine hierarchies for two defining-set self-orthogonal families and do not use the Theorem 6.6 two-block simplex extension."
+      ],
+      "reasoning": "Known broader GHW machinery covers the simplex base term but no located theorem dominates the appended-block calculation. The new content is the exact interaction of all subspaces with two repeated linear functionals.",
+      "searches": [
+        "generalized Hamming weights simplex code binary 2^m-1",
+        "weight hierarchy simplex code binary generalized Hamming weights",
+        "repeated coordinates generalized Hamming weights binary code",
+        "Constructions of binary self-orthogonal singly-even generalized Hamming"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.12240",
+      "doi:10.1007/s10623-026-01921-y",
+      "doi:10.3934/amc.2023056",
+      "doi:10.3934/amc.2026016",
+      "doi:10.1109/18.133259",
+      "published result IDs 2026/9/8/SCOPE080, 2026/9/17/SCOPE014, 2026/9/18/SCOPE-qary-long-gap-mirror-band--69c27f4f7824, 2026/9/18/SCOPE-packing-covering-redundancy-fifteen--96101bcc4ffa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No checked published result matched arXiv:2507.12240 or stated the Li--Chen--Jin--Qu Theorem 6.6 higher-support hierarchy.",
+        "The closest published systematic-simplex theorem concerns a generator \\([I_m\\mid S_q(m)]\\) and support sizes \\(q^m-q^{m-r}+s\\); it has \\(m\\) independent appended coordinate functionals, not two repeated functionals.",
+        "Other checked published results compute finite GHW spectra for specific self-orthogonal and few-weight codes, but none states this all-\\(m\\) closed family formula."
+      ],
+      "reasoning": "The claimed formula is not a corollary of the closest private systematic-simplex result because the appended-column matroid is different. Deriving this result requires a separate two-hyperplane incidence count.",
+      "searches": [
+        "arXiv:2507.12240 generalized Hamming support spectrum simplex extension",
+        "systematic simplex generalized Hamming support spectrum repeated blocks",
+        "published result IDs: simplex generalized weights support multiplicities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2507.12240v1, Theorem 6.6 and Table VIII state the generator and ordinary weight distribution but no generalized Hamming-weight hierarchy.",
+        "Closest database results included 2026/9/8/SCOPE080, 2026/9/17/SCOPE014, and 2026/9/18/SCOPE-qary-long-gap-mirror-band--69c27f4f7824; their statements concern symbol-pair codes, packing-covering, and weight-distribution gap phenomena rather than this support spectrum."
+      ],
+      "reasoning": "Equivalent formulations were searched using the source theorem number, the repeated-block generator description, generalized Hamming weights, weight hierarchy, and support spectrum. No located statement gives the four hyperplane-containment support classes or the resulting closed hierarchy.",
+      "searches": [
+        "Li Chen Jin Qu Theorem 6.6 simplex appended blocks generalized Hamming weights",
+        "binary simplex appended repetition blocks generalized Hamming weight hierarchy",
+        "self-orthogonal singly-even minimal code generalized Hamming weights Li Chen Jin Qu 2025",
+        "four-weight code Theorem 6.6 support spectrum generalized Hamming weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2507.12240, Table VIII lists exactly the four nonzero ordinary weights and their multiplicities; this equals the \\(r=1\\) specialization of the new formula.",
+        "arXiv:2507.12240, Example 6.7 has weight enumerator \\(1+z^4+2z^6+2z^8+2z^{10}\\), reproduced exactly by the verifier.",
+        "arXiv:2507.12240, Example 6.8 has weight enumerator \\(1+3z^8+4z^{12}+4z^{14}+4z^{18}\\), reproduced exactly by the verifier.",
+        "Qiao--Du's accessible HTML contains no occurrence of simplex, and Meng et al.'s accessible HTML contains no occurrence of simplex in the inspected material."
+      ],
+      "reasoning": "The exact source table fixes only one-dimensional subcodes. The finite examples validate that the new spectrum specializes correctly, while the searched hierarchy tables concern other families.",
+      "searches": [
+        "arXiv:2507.12240 Theorem 6.6 Table VIII Example 6.7 Example 6.8",
+        "Weight distributions and weight hierarchies of a class of binary linear codes with a few weights simplex",
+        "The weight distributions and weight hierarchies of two classes of self-orthogonal codes simplex"
+      ]
+    },
+    "rationale": "The motivating 2025/2026 source gives only ordinary weight distributions for Theorem 6.6. Searches across equivalent terminology, broader GHW literature, exact source tables, and prior published ledger claims found no statement of this two-hyperplane support spectrum or its complete hierarchy.",
+    "residual_risks": [
+      "No exhaustive bibliographic database can prove novelty; an unindexed or differently phrased treatment of repeated-column simplex extensions could exist.",
+      "The version-of-record HTML does not expose an author-declared MSC tag. Ownership is assigned to 94B05 because the exact source is a binary linear-code construction categorized by the publisher under error-correcting codes and no competing primary MSC ownership was found; this classification risk is noted explicitly."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source determines the ordinary \\(r=1\\) distribution, self-orthogonality, singly-evenness, minimality conditions, and examples, but does not state higher-support spectra or generalized Hamming weights for Theorem 6.6.",
+        "evidence": "Theorem 6.6 specifies the two appended column types; Table VIII lists four ordinary weights; Examples 6.7 and 6.8 give the finite enumerators reproduced by verify.py.",
+        "identifier_or_url": "arXiv:2507.12240",
+        "material_read": "Full arXiv HTML around Section 6-B, Theorem 6.6, Table VIII, proof, and Examples 6.7--6.8; abstract and publication history also checked.",
+        "method": "Direct HTML inspection of the preprint, with theorem/table/example text compared against the derived formulas.",
+        "title": "Constructions of binary self-orthogonal singly-even minimal linear codes violating the Aschikhmin-Barg condition with few weights",
+        "trigger": "Primary motivating source and exact generator family."
+      },
+      {
+        "assessment": "Confirms the journal identity and that the work constructs binary self-orthogonal singly-even wide minimal few-weight linear codes and determines their ordinary weight distributions.",
+        "evidence": "Designs, Codes and Cryptography 94, article 186, published 2026-08-21; keywords include Binary linear code, Self-orthogonal, Singly-even, Wide minimal, Few weight.",
+        "identifier_or_url": "doi:10.1007/s10623-026-01921-y",
+        "material_read": "Publisher abstract, bibliographic metadata, keywords, references, and version-of-record date.",
+        "method": "Publisher HTML inspection.",
+        "title": "Constructions of binary self-orthogonal singly-even wide minimal linear codes with few weights",
+        "trigger": "Version-of-record metadata and publication identity."
+      },
+      {
+        "assessment": "Different trace defining-set family; does not cover the two-block simplex extension.",
+        "evidence": "The paper defines \\(C_D\\) by trace evaluation on selected defining sets and reports Primary MSC 94B05; no simplex occurrence was found in the inspected HTML.",
+        "identifier_or_url": "doi:10.3934/amc.2023056",
+        "material_read": "Full accessible HTML abstract/introduction, construction description, MSC metadata, tables, and references; searched within for simplex coverage.",
+        "method": "Publisher HTML inspection and in-page search.",
+        "title": "Weight distributions and weight hierarchies of a class of binary linear codes with a few weights",
+        "trigger": "Plausible broader literature because it determines complete GHWs of few-weight binary codes and is cited by the motivating paper."
+      },
+      {
+        "assessment": "Constructs two defining-set self-orthogonal families; no support for coverage of the motivating simplex extension was found.",
+        "evidence": "Abstract explicitly says both classes are constructed by defining sets; no simplex occurrence was found in the inspected HTML.",
+        "identifier_or_url": "doi:10.3934/amc.2026016",
+        "material_read": "Publisher HTML abstract, MSC metadata, table material, and in-page simplex search.",
+        "method": "Publisher HTML inspection and in-page search.",
+        "title": "The weight distributions and weight hierarchies of two classes of self-orthogonal codes",
+        "trigger": "Recent primary literature explicitly on GHWs of self-orthogonal codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9bd617c4-b0e3-4449-b8ce-4de10ce34661",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result provides the complete hierarchy and exact multiplicities for every subcode dimension in an infinite newly published family. It isolates a sharp structural phenomenon: all levels through codimension two remain the simplex values, while only the two top levels detect the appended blocks. Higher-support data are standard invariants for wiretap, erasure, and trellis questions, so this is more than a routine re-expression of the ordinary weight enumerator.",
+    "status": "PASS"
+  }
+}
