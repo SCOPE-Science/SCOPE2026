@@ -1,0 +1,90 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces total domination in a bipartite graph to two independent shore-domination numbers. The pair-cover lemma is proved from incidence counting and graphic-rank subadditivity, yielding the sharp lower bound 2n-3 for destroying all shore-dominating pairs without isolates. The explicit deletion set has exactly 2n-3 edges, has no isolates, forces both shore domination numbers to be 3, and supplies explicit dominating triples, so the resulting total domination number is exactly 6. Exhaustive checks for n=3,4 and construction checks through n=40 agree with the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Appel et al., Theorem 14: b_t^2(K_{a,b})=b for 2<=a<=b<=2a; in particular b_t^2(K_{n,n})=n.",
+        "The inspected paper treats paths, cycles, wheels, complete graphs, and complete bipartite graphs, but its full-text searches for crown and matching returned no relevant occurrence."
+      ],
+      "reasoning": "The balanced complete-bipartite formula is close in object and stronger in family only before the perfect matching is removed. k-total bondage is not preserved under taking this spanning subgraph, so the K_{n,n} theorem does not imply the crown value.",
+      "searches": [
+        "arXiv:2506.07000v1 complete bipartite Theorem 14",
+        "k-total bondage complete bipartite theorem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.07000v1",
+      "published-finding corpus:2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
+      "published-finding corpus:2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8",
+      "published-finding corpus:2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+      "own-ledger:1c9edcdf-ad95-42d3-bdb1-f56356c7a45e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The owned prior claim gives ordinary total bondage b_t(Cr_n)=2n-3, which implies only the monotonic lower bound b_t^2(Cr_n)>=2n-3.",
+        "The new construction of 2n-3 deletions is independently shown to leave no isolates and to make gamma_t exactly 6, supplying the missing upper bound for the second-level invariant.",
+        "Appel et al. give b_t^2(K_{n,n})=n, not the matching-deleted case."
+      ],
+      "reasoning": "Neither the ordinary crown bondage value nor the complete-bipartite 2-total-bondage value implies the accepted equality. The old crown result does not establish a two-unit jump, while the K_{n,n} result concerns a different edge set. The accepted proof independently reconstructs the lower bound instead of relying on historical certification.",
+      "searches": [
+        "own-ledger item 1c9edcdf-ad95-42d3-bdb1-f56356c7a45e",
+        "arXiv:2506.07000v1 Theorem 14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned crown-graph records for restrained domination, edge metric dimension, and proper conflict-free coloring, but no k-total-bondage crown statement.",
+        "Web searches under crown graph, K_{n,n}-M_n, and 2-total bondage located the initiating k-total-bondage paper but no crown specialization."
+      ],
+      "reasoning": "The exact claim was searched under the standard crown name, the matching-deletion notation, and the explicit 2-total-bondage terminology. The returned crown records use different invariants and have no implication for b_t^2.",
+      "searches": [
+        "k-total bondage crown graph K_n,n minus perfect matching",
+        "2-total bondage crown graph",
+        "k total bondage matching deleted complete bipartite",
+        "total bondage crown graph K_n,n-M_n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact crown entry was returned by the targeted published-finding corpus searches.",
+        "The closest indexed crown findings concern different parameters; the closest same-parameter source is arXiv:2506.07000v1."
+      ],
+      "reasoning": "No located database/table entry states b_t^2 for crown graphs or matching-deleted balanced bicliques. Absence from search is treated only as evidence, not as a proof of novelty.",
+      "searches": [
+        "published-finding corpus: k-total bondage crown graph K_n,n minus perfect matching",
+        "published-finding corpus: 2-total bondage crown graph",
+        "Web: \"k-total bondage\" crown graph"
+      ]
+    },
+    "rationale": "The closest same-invariant source gives exact values for complete bipartite graphs but not crowns or matching-deleted bicliques. Targeted published-finding corpus and web searches under standard aliases returned no exact crown formula. The prior owned ordinary-total-bondage result implies only the lower-bound direction for b_t^2; the size-2 jump and matching upper bound are not implied.",
+    "residual_risks": [
+      "A poorly indexed older or non-arXiv equivalent result may exist under an uncommon name for crown graphs or matching-deleted bicliques.",
+      "The owned ordinary-total-bondage result is mathematically close; its implication is limited to the lower bound and does not subsume the new 2-total-bondage equality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and gives b_t^2(K_{n,n})=n as a close baseline, but does not cover crown graphs or perfect-matching deletions.",
+        "evidence": "Version 1 is dated 2025-06-08 and lists primary MSC 05C69. Theorem 14 states b_t^2(K_{a,b})=b for 2<=a<=b<=2a.",
+        "identifier_or_url": "arXiv:2506.07000v1",
+        "material_read": "First page and MSC line; definitions of total domination and k-total bondage; complete-bipartite section including Theorems 11 and 14; full-text searches for crown and matching.",
+        "method": "Lawful arXiv full text and page inspection.",
+        "title": "The k-Total Bondage Number of a Graph",
+        "trigger": "Same invariant and exact complete-bipartite results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c553fa1e-3db3-49ba-a71a-b5c78ebc0198",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The k-total-bondage invariant is newly introduced in the 2025 anchor and asks how many link failures are needed for a prescribed increase in total domination. Crown graphs are the canonical perfect-matching deletion of balanced bicliques. The exact formula shows a sharp structural change from b_t^2(K_{n,n})=n to b_t^2(Cr_n)=2n-3 and proves that the first optimal vulnerability event can jump total domination by two units. The pair-cover lemma gives a reusable explanation rather than a table computation.",
+    "status": "PASS"
+  }
+}
