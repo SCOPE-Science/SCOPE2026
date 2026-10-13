@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "At a fixed index, normalizing the positive modal contributions and putting a=1-lambda gives Delta e=-e E[a] and Delta^2 e=e E[a^2], so the Aitken residual ratio is exactly Var(a)/E[a^2]. The bounded-variable inequality E[a^2]<=(m+M)E[a]-mM reduces the problem to a one-variable maximization with exact maximum ((M-m)/(M+m))^2. Equality conditions force endpoint support and the stated weights. The exact-rational verifier reproduces the identity and sharp witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weniger's full text states exactness for one geometric mode and derives an explicit transformed expression for two geometric modes with asymptotic dominant-term elimination.",
+        "The same full text discusses general acceleration properties and iterated Aitken, but the inspected Aitken section does not provide a uniform finite-n sharp bound over arbitrary positive mixtures.",
+        "Classical convergence-acceleration sources located in the searches focus on model elimination, asymptotic acceleration, or broader nonlinear transforms rather than this endpoint-only moment bound."
+      ],
+      "reasoning": "General convergence-acceleration theory does not itself imply a sign-safe sharp quantitative bound for every positive spectral mixture. The proof here uses bounded positive moments.",
+      "searches": [
+        "Weniger nonlinear sequence transformations Aitken two exponential model full text",
+        "Aitken positive mixtures convergence acceleration",
+        "Aitken Stieltjes moment sequence transformation positivity"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0377-0427(92)00120-X",
+      "arXiv:math/0306302",
+      "doi:10.1137/100808757"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Weniger's Section 5.1 gives exactness for a single geometric mode and an explicit formula for two geometric modes, but not the arbitrary-positive-mixture sharp endpoint bound.",
+        "Pereyra establishes Aitken acceleration as part of numerical extrapolation under MSC 65B05; the accessible metadata does not state the present inequality.",
+        "The closest black-box contraction theorem permits error amplification under much weaker assumptions, so it does not imply the positive-spectral-mixture theorem."
+      ],
+      "reasoning": "The new statement is a uniform finite-index sharp inequality and equality characterization over an entire positive-mixture class. Model exactness and asymptotic acceleration for one or two modes do not imply that bound.",
+      "searches": [
+        "arXiv:math/0306302 Section 5.1 Aitken Delta2 one-mode two-mode formulas",
+        "doi:10.1016/0377-0427(92)00120-X Aitken interval acceleration",
+        "doi:10.1137/100808757 convergence acceleration MSC 65B05",
+        "semantic database Aitken Steffensen contraction stability frontier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No semantic-database hit stated the sharp positive-mixture factor or the variance-to-second-moment identity.",
+        "Web searches combining Aitken with moment sequences, completely monotone sequences, spectral measures, and positive exponential sums did not locate the displayed endpoint constant.",
+        "The closest method-level semantic hit was a scalar Aitken--Steffensen contraction-stability result, which studies general contractions rather than positive spectral mixtures."
+      ],
+      "reasoning": "The searches cover Aitken/Shanks terminology, moment-sequence terminology, spectral-measure terminology, and no-overshoot phrasing. The closest retrieved statements are not implication-equivalent.",
+      "searches": [
+        "Aitken delta squared positive exponential mixture sharp contraction factor spectral interval",
+        "Aitken transform positive sums of exponentials no overshoot exact bound",
+        "Aitken delta2 completely monotone sequence endpoint rate bound",
+        "Shanks transformation Hausdorff moment sequence positive mixture exponentials sharp error",
+        "Aitken spectral measure self adjoint contraction moment sequence acceleration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched database or table returned the constant ((lambda_+-lambda_-)/(2-lambda_+-lambda_-))^2.",
+        "The finding is a continuous sharp inequality with an equality classification, not a recomputation of tabulated values."
+      ],
+      "reasoning": "No exact database/table coverage was found.",
+      "searches": [
+        "\"Aitken\" \"Kantorovich\" sequence transformation",
+        "\"delta squared\" Kantorovich inequality sequence",
+        "\"Aitken\" positive sum exponentials acceleration bound"
+      ]
+    },
+    "rationale": "The classical full-text source derives Aitken from a one-geometric-mode model and explicitly treats a two-mode model, but the inspected sections do not state the finite-index positive-mixture variance identity or the sharp endpoint-only factor. Targeted semantic-database and literature searches for positive exponential mixtures, Hausdorff moments, no-overshoot behavior, spectral measures, and the endpoint factor found no implication-equivalent statement.",
+    "residual_risks": [
+      "Older extrapolation literature may state an equivalent inequality under Hausdorff-moment, totally monotone, or log-convex sequence terminology not recovered by the searches.",
+      "The sharp constant follows from a classical bounded-moment inequality, so a source specializing such inequalities to Aitken transforms could cover the result without using exponential-mixture language.",
+      "Pereyra's full text was not inspected; it is treated only as a field/date anchor, not as whole-document evidence of noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_CLAIM: provides the classical transform, exact one-mode result, and a two-mode acceleration formula, but not the sharp finite-index endpoint-only positive-mixture bound or its equality classification.",
+        "evidence": "Section 5.1 derives Aitken from s_n=s+c lambda^n and later treats s_n=s+a x^n+b y^n, showing asymptotic elimination of the dominant term.",
+        "identifier_or_url": "arXiv:math/0306302",
+        "material_read": "Full PDF table of contents and Section 5.1, including the one-geometric-mode derivation, equivalent Aitken formulas, stated acceleration properties, and the two-geometric-mode formula on the following page.",
+        "method": "Parsed full-text PDF inspection plus rendered page inspection of the two pages containing Section 5.1.",
+        "title": "Nonlinear sequence transformations for the acceleration of convergence and the summation of divergent series",
+        "trigger": "Most relevant full-text classical treatment of Aitken's Delta-squared process and multi-exponential model sequences."
+      },
+      {
+        "assessment": "FIELD_ANCHOR_ONLY: supports placement in MSC 65B05 and archive-era acceleration literature.",
+        "evidence": "The bibliographic record identifies Aitken-Delta2 acceleration and MSC 65B05, with publication date 1995-10-08.",
+        "identifier_or_url": "doi:10.1016/0377-0427(92)00120-X",
+        "material_read": "Accessible bibliographic record and abstract-level metadata, including publication date, topic, and MSC identifiers.",
+        "method": "Metadata and abstract inspection; not used for a whole-document noncoverage claim.",
+        "title": "Acceleration of convergence of interval sequences",
+        "trigger": "Archive-era source explicitly involving Aitken Delta-squared acceleration and carrying the numerical-extrapolation MSC code."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf59950d-4170-4f77-9c3f-898939a16ce8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positive mixtures of decaying exponentials are a natural error model for self-adjoint positive stationary iterations and scalar spectral observables. The theorem gives a sign-safe, sharp finite-index guarantee for a classical three-point accelerator and quantifies exactly when its three inputs beat simply taking two further raw iterations. The endpoint equality case makes the bound directly usable as a worst-case benchmark.",
+    "status": "PASS"
+  }
+}
