@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The parent toric hypersurface is normal, and the characteristic-dependent logarithmic Jacobian ideal has exactly three Newton vertices. Explicit saturation and polarity yield four primitive rays in every normalized affine chart; all four two-face lattice indices follow by cross products. The standard toric orbit criterion gives the complete chart singular locus, and a four-equation rational support-function calculation proves the canonical-divisor trichotomy and exact Cartier index. The actual embedded checker verifies the independent integer calculations for 511 sample integers. The proof itself is uniform in every integer and every admissible characteristic.
+
+**Originality — PASS, with priority risk.** The source of the toric Nash algorithm already contains the \(n=2\) cone and its normalized semigroups. This special instance is prior art, not a new contribution. The claimed theorem adds an infinite natural family, exact per-chart singular-curve counts, transverse lattice indices, and a complete arithmetic \(\mathbb Q\)-Gorenstein classification. The 2025 characteristic-free normalized Nash paper revisits the exponent-two cone but does not state those formulas, and the 2025 computational Nash paper's toric hypersurface examples are four-dimensional and different. No equivalent statement was found in the available mathematical records or source comparisons; unindexed results or an overlooked implication remain possible.
+
+**Value — PASS.** The example in the originating paper motivates understanding which threefold singularities persist under normalized Nash modification. In the simplest symmetric family containing it, the singular locus abruptly changes dimension, while the canonical class changes among Cartier, higher-index \(\mathbb Q\)-Cartier, and non-\(\mathbb Q\)-Cartier by divisibility. The uniform indices and exact boundary cases are intrinsic birational-geometric information, not a routine finite census.
+
+Limits: positive characteristic dividing \(n\), per-chart curve counts, and only one normalized Nash step. Later iterates and other characteristics are not classified. Publication priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
