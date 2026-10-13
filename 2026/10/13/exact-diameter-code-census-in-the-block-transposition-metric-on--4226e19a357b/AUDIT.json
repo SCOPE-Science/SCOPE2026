@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The claim is reduced exactly to cliques in a 120-vertex compatibility graph reconstructed from all 20 block transpositions. Exhaustive maximal-clique enumeration gives only sizes 2 and 4, with 540 maxima of size 4; an independent increasing-order four-clique enumeration returns the identical set. The symmetry, subgroup, and coset statements are checked directly on those 540 sets. The packaged verifier replays all critical finite steps without randomness or floating point.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1410.8166v1 proves structural automorphism results for the block-transposition Cayley graph.",
+        "arXiv:1504.02157v1 gives small-n distance distributions and the n=5 full automorphism-group order.",
+        "arXiv:1811.04600 concerns a differently defined block permutation metric, so its coding bounds do not imply the present block-transposition-metric statement."
+      ],
+      "reasoning": "The broader sources supply the ambient metric and symmetry information or study a different metric. None gives a theorem whose specialization determines the size, census, or orbit structure claimed here.",
+      "searches": [
+        "permutation code block transposition distance exact small n maximum code",
+        "block transposition metric permutation codes S5 S6 exact maximum",
+        "single insertion deletion permutation code translocation metric small n",
+        "rank modulation block transposition codes exact optimum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1410.8166v1",
+      "arXiv:1504.02157v1",
+      "arXiv:1811.04600"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The computation adds an exhaustive maximal-clique census and a direct orbit/coset classification to published metric and automorphism data.",
+        "The two full-isometry orbit sizes 180 and 360 and the exact 120/420 coset/non-coset split are not consequences of the published distance row without additional finite structure.",
+        "The final exact-count and cyclic-coset searches returned no implication-equivalent record; the closest hits concerned different code families or unrelated orbit censuses."
+      ],
+      "reasoning": "The prior results are necessary setup but do not logically imply the final classification. The new claim requires exhaustive pairwise-distance structure and action on extremizers, both supplied by the verifier.",
+      "searches": [
+        "block transposition distance S5 diameter packing code census",
+        "block transposition S5 maximum code orbit cyclic subgroup coset",
+        "block transposition metric S5 maximum code size 4 exactly 540 maximum codes orbit 180 360",
+        "S5 block transposition diameter code four cyclic subgroup cosets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1504.02157v1: full-text searches found no occurrences of ‘code’, ‘packing’, ‘independent set’, or ‘maximum clique’.",
+        "The minimum-distance-three problem is exactly the maximum-clique problem in the graph joining permutations at block-transposition distance three, equivalently a diameter packing in the published metric."
+      ],
+      "reasoning": "Aliases based on coding, packing, clique, and independence formulations were checked. The closest same-metric source studies sorting distances and Cayley-graph automorphisms rather than subsets with pairwise diameter distance.",
+      "searches": [
+        "S5 block transposition distance minimum distance 3 code maximum 4",
+        "block transposition Cayley graph S5 540 four-cliques distance three",
+        "independent set square block transposition Cayley graph Sym5",
+        "block transposition code S_5 minimum distance 3 orbit classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published n=5 distance row is 1,20,68,31 at distances 0,1,2,3.",
+        "The published full automorphism-group order for Cay(Sym5,S5) is 1440."
+      ],
+      "reasoning": "A distance distribution fixes the 31 farthest neighbors of each vertex but does not determine the clique number or number of four-cliques in the resulting 31-regular compatibility graph. Likewise the automorphism-group order alone does not determine its action on maximum codes.",
+      "searches": [
+        "arXiv:1504.02157v1 Table 5.2 block transposition distances n=5",
+        "arXiv:1504.02157v1 case n=5 full automorphism group 1440"
+      ]
+    },
+    "rationale": "The closest primary sources establish the metric, the n=5 distance distribution, and the order 1440 of the full Cayley-graph automorphism group, but the inspected statements do not give the diameter-code clique number, the 540-extremizer census, the two code orbits, or the cyclic-coset classification. Targeted equivalence and exact-parameter searches found no implication-equivalent published result. Residual risk is limited to an obscure or unindexed finite census.",
+    "residual_risks": [
+      "An obscure or unindexed finite enumeration could duplicate part of the census.",
+      "Full-isometry exhaustion relies on the published theorem/order 1440; the package verifies a subgroup of exactly that order but does not independently prove the external upper bound on graph automorphisms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Defines the same generating set and automorphism framework; does not state a diameter-code census or equality-case classification.",
+        "identifier_or_url": "arXiv:1410.8166v1",
+        "material_read": "Abstract, submission history, block-transposition definition, and automorphism-group statement.",
+        "method": "Full-text HTML inspection.",
+        "title": "Cayley graph on symmetric groups with generating block transposition sets",
+        "trigger": "Same block-transposition Cayley graph and automorphism structure."
+      },
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "Records n=5 distances 1,20,68,31 and full automorphism-group order 1440, but no maximum-distance subset census or orbit/coset classification was found.",
+        "identifier_or_url": "arXiv:1504.02157v1",
+        "material_read": "Block-transposition definition and toric/reverse formulas; Table 5.2; Chapter 9 n=5; targeted full-text searches for code/packing/independence/clique terminology.",
+        "method": "Full-text PDF inspection with page images for the defining and small-order tables.",
+        "title": "Combinatorial properties of block transpositions on Symmetric groups",
+        "trigger": "Same metric, exact n=5 distance table, and small-order automorphism group."
+      },
+      {
+        "assessment": "DIFFERENT_METRIC",
+        "evidence": "Studies a block permutation metric distinct from the Cayley metric generated by block transpositions used here.",
+        "identifier_or_url": "arXiv:1811.04600",
+        "material_read": "Abstract and metric description.",
+        "method": "Bibliographic/full-text search inspection.",
+        "title": "New Theoretical Bounds and Constructions of Permutation Codes under Block Permutation Metric",
+        "trigger": "Plausible coding-theory title involving blocks and permutation metrics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4226e19a-357b-4d43-9285-664b67549e3c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum distance 3 is the diameter of the n=5 block-transposition metric, so this is the canonical diameter-packing problem at the smallest order where the published n>=5 symmetry theory applies. The result gives a complete equality-case classification, not merely a recomputation of the distance table: it separates two inequivalent extremizer types and shows that only 120 of 540 maxima arise as cosets of the four cyclic order-4 subgroup maxima. These exact structural data are natural benchmarks for permutation-code constructions and for testing symmetry-based arguments in the metric.",
+    "status": "PASS"
+  }
+}
