@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The lengths define the exact short-arc fractions under the iid uniform endpoint model, and conditional chord rotations are independent and uniform. The arc symmetric-difference argument gives g(r,s)=2min(r,s); conditioning on a shared chord rotation establishes pairwise conditional independence even for indicators with one common chord, so both conditional moment formulas are exact. Independent integrations for Eg, Eg², and Var(E[g|R]) yield 1/3, 1/6, and 1/45; the overlap-pair count establishes Var conditional predictor n(n−1)(4n−3)/180. E conditional Bernoulli variance is n(n−1)/12. Total variance and L² optimal prediction prove the quoted explained fraction. The included verification source was actually executed and checked against geometric samples; finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bortolotto–Souza Theorem 1 concerns radius of intersection point for *two lines* from uniform endpoint pairs; PDF Sections 1-3 contain no n-chord conditional variance.",
+        "Bortolotto–Ramos Theorems 1.2–1.5 concern extremization of probability of pair intersections for prescribed endpoint distributions, not the joint length sigma-field or multi-chord optimal predictor."
+      ],
+      "reasoning": "Neither an intersection-position law for one pair nor a pairwise extremal probability implies the complete vector-conditional second-order law for n chords. One could derive the kernel using general geometry and then use U-statistic combinatorics, but this derivation is not located as an already-stated or demonstrably immediate corollary in the inspected principal results.",
+      "searches": [
+        "random chord diagram crossings count total chord lengths covariance correlation U statistic unit disk iid endpoints",
+        "\"random chords\" \"conditional variance\" \"number of intersections\"",
+        "\"random chord diagram\" \"total chord length\" crossing correlations",
+        "arxiv:2504.12866v1 full 18-page PDF",
+        "doi:10.1112/mtk.70024 full OA text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1501.01489v1",
+      "inria:RR-3914",
+      "arxiv:2504.12866v1",
+      "doi:10.1112/mtk.70024",
+      "published mathematics records for conditional crossing variance, geometric chord lengths, and equivalent formulations",
+      "original 2000 report and 2015 random-chord preprint were compared against the complete new conditional claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The located older formula Var(X_n)=n(n-1)(n+3)/45 is compatible with infinitely many length-conditional laws; by itself it does not give Var(E[X_n|lengths]) or E Var(X_n|lengths).",
+        "Simple and isolated chord count restrictions concern discrete matching topology and do not, by themselves, specify the continuous Euclidean length-conditioned moments."
+      ],
+      "reasoning": "The new theorem implies the known marginal variance by total variance, but the reverse implication fails without a coupling of lengths and crossings; therefore the new theorem is not a corollary of the known one. The geometric pairwise crossing kernel and pairwise conditional-decorrelation step are essential additional inputs.",
+      "searches": [
+        "random chord diagram crossings count total chord lengths covariance correlation U statistic unit disk iid endpoints",
+        "uniform random chord diagram conditional distribution number crossings given chord lengths arc distances conditional variance pairwise independence",
+        "random chord pair intersection probability conditional on their Euclidean lengths shortest central arcs",
+        "inria:RR-3914 Theorem 3",
+        "arxiv:1501.01489v1 Sections 1-2",
+        "arxiv:1501.01489v1 full text topological simple-chord definitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan defines length by the smaller *count of intervening labeled endpoints* (arxiv HTML v1, lines 69-80), not by Euclidean distance; such discrete chord diagrams do not specify random spacing lengths.",
+        "Flajolet–Noy Section 2 explicitly supplies the marginal crossing mean and variance but no geometry-conditioned distributional information."
+      ],
+      "reasoning": "Equivalently the theorem is a conditional Hoeffding-projection identity for a circular crossing U-statistic with the chord length sigma-field. Comparing that implication, not just shared terms “chord length” or “crossings,” shows the discrete endpoint-label results and marginal crossing distribution do not determine the new conditional mean/variance.",
+      "searches": [
+        "uniform random chord diagram conditional distribution number crossings given chord lengths arc distances conditional variance pairwise independence",
+        "random circular chords lengths determine expected number of crossings 2 min arc fractions conditioned lengths",
+        "random chord pair intersection probability conditional on their Euclidean lengths shortest central arcs",
+        "\"random chords\" \"given their lengths\" \"intersect\"",
+        "arxiv:1501.01489v1 Sections 2 and 4",
+        "inria:RR-3914 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Flajolet–Noy report Theorem 3 already tabulates the unconditional variance n(n-1)(n+3)/45; it is explicitly not novel here.",
+        "No length-conditioned second moment, optimum predictor risk n(n-1)/12 or explained fraction (4n-3)/(4n+12) occurred in the checked records."
+      ],
+      "reasoning": "A precomputed table of unconditional crossing numbers is insufficient to infer their joint distribution with the continuous Euclidean chord lengths; exact marginal moment overlap is acknowledged and excluded from novelty.",
+      "searches": [
+        "uniform random chord diagram conditional distribution number crossings given chord lengths arc distances conditional variance pairwise independence",
+        "random circular chords lengths determine expected number of crossings 2 min arc fractions conditioned lengths",
+        "uniform random chord diagram conditional crossing variance table Euclidean lengths",
+        "inria:RR-3914 Theorem 3"
+      ]
+    },
+    "rationale": "The contribution is the exact conditional first and second moments of the full crossing count given the Euclidean chord-length vector and the sharp optimal-prediction explained fraction. In the primary full texts examined, classical exact marginal moments are explicitly recognized as prior; conditional geometric prediction is not covered. Direct overlap and synonym searches found no same claim. Residual risk remains from unlocated older integral geometry or a combination of standard conditional U-statistic facts, not from any located dominating theorem.",
+    "residual_risks": [
+      "Generic Hoeffding projection and classical geometric-probability formulas could combine into the result in an older unlocated source; the search does not prove global uniqueness.",
+      "Flajolet–Noy marginal variance is prior and is not asserted to be original; original historical priority for the new conditional refinement is not independently certified.",
+      "Pre-2000 chord-geometry work may give the two-chord conditional kernel even if not the n-chord explained-variance calculation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS marginal crossing variance but NOT the new conditional length-based mean, variance, or prediction fraction.",
+        "evidence": [
+          "Theorem 3(ii) at PDF p. 10 gives Var crossing count n(n-1)(n+3)/45 and Gaussian limit.",
+          "The work treats diagrams with cyclic order only, so contains no random continuous Euclidean endpoint spacings."
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Report title, introduction, Section 2 Crossings, Theorem 3 and proof paragraphs (PDF pp. 5–10, PDF text and rendered page).",
+        "method": "Opened original author-hosted full PDF; read theorem and argument, including explicit marginal variance and asymptotic normality.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Earliest classical exact crossing-moment source likely to dominate the result"
+      },
+      {
+        "assessment": "NOT_COVERING the continuous Euclidean chord-length conditional crossing law; its “length” is a discrete count of other endpoints.",
+        "evidence": [
+          "arXiv first submitted 2015-01-07; manuscript explicitly gives Primary: 60C05.",
+          "Definition of chord length as minimum number of intervening endpoint labels, not physical distance; Section 2 concerns degree of a random vertex."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1501.01489v1",
+        "material_read": "Full author preprint HTML, introduction and definitions, Section 2 crossing degree, Section 4 chord-length threshold, statements of Sections 3–6.",
+        "method": "Read archival full-text HTML and searched occurrences of Euclidean length, covariance and chord-length definitions.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Exact uniform-matching model; plausible use of word “length” and chord-degree law"
+      },
+      {
+        "assessment": "NOT_COVERING multi-chord conditional crossing-count moments; studies location of intersection of two random *lines*.",
+        "evidence": [
+          "Theorem 1 specifies law of intersection-point radius and a dilogarithm expression in the disk; no n-chord variance conditioned on lengths.",
+          "Original preprint posted 2025-04-17; used only as contextual primary comparison, not archival source."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.12866",
+        "material_read": "Original 18-page OA PDF, introduction, Theorems 1–2, proof geometry and bibliography; full-text searches for covariance and length.",
+        "method": "Read PDF text and original first-page rendering; inspected model, theorems and intersection-point geometry.",
+        "title": "Intersections of random chords of a circle",
+        "trigger": "Same iid uniform circumference endpoint model and intersecting random chords"
+      },
+      {
+        "assessment": "NOT_COVERING the n-chord length-conditioned crossing count; its focus is extremal two-chord probabilities over endpoint measures.",
+        "evidence": [
+          "Theorem 1.2 characterizes atomless endpoint measures as extremizers for a pairwise intersection probability.",
+          "No covariance or count-conditioned-on-all-lengths theorem in the full-text discussion."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70024",
+        "material_read": "Open-access full HTML article: introduction, Theorems 1.2–1.5 and Sections 2–4; searched for covariance.",
+        "method": "Read lawful OA full text and compare exact parameters and implications.",
+        "title": "On extremal problems associated with random chords on a circle",
+        "trigger": "Potentially dominating general conditional crossing-probability theory for nonuniform chord endpoints"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f4fca54-9ebc-4c91-843e-5eb55851e44d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question quantifies how much of a random chord arrangement’s topological crossing-count variability is determined by readily measured geometric chord lengths. The answer is an exact conditional second-moment theorem and a sharp optimal length-only estimator; its residual error is O(n²) against O(n³) total variance, so the explained variance fraction 1−15/[4(n+3)] tends to one. This is a motivated natural complete second-moment classification, not merely recomputation of the prior-known unconditional variance.",
+    "status": "PASS"
+  }
+}
