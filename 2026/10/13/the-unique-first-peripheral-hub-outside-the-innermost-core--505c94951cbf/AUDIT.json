@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A direct proof gives the universal lower bound and uniquely forces the seven-vertex structure. The embedded exhaustive replay independently checks all connected labeled graphs through order seven, obtains zero failures through six and exactly 420 at seven, recomputes core numbers by an independent pruning formulation on every failure, and verifies the single orbit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Seidman's full text defines a \\(k\\)-core through a minimum-degree condition and develops it as a social-network cohesion structure.",
+        "Kitsak et al. explicitly describe hubs in peripheral low-\\(k_S\\) layers and argue that core position can be more informative than raw degree for spreading.",
+        "Later centrality-comparison work treats degree and coreness as distinct node-ranking measures."
+      ],
+      "reasoning": "This broader literature decisively owns the qualitative distinction between degree and coreness. It does not logically imply the smallest graph order, the uniqueness of the first obstruction, or the labeled count.",
+      "searches": [
+        "doi:10.1016/0378-8733(83)90028-X Network structure minimum degree k-core",
+        "arXiv:1001.5285 degree hub k-shell core spreading",
+        "arXiv:1404.4528 degree coreness centrality influential spreaders",
+        "\"highest degree\" \"lowest k-shell\" graph example"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0378-8733(83)90028-X",
+      "arXiv:1001.5285",
+      "doi:10.1038/nphys1746",
+      "arXiv:1404.4528"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Examples of peripheral hubs prove only that degree and coreness can differ on some larger networks; they do not establish minimality.",
+        "The definition of a \\(k\\)-core does not by itself give the seven-vertex cutoff without the counting argument on core size, outside neighbors, and connectedness.",
+        "General degeneracy identities concern the graph-wide maximum core number, not whether the unique maximum-degree vertex attains it."
+      ],
+      "reasoning": "The accepted theorem requires a universal statement for every connected graph through six vertices and a complete equality-case analysis at seven. Neither follows as a direct corollary of the cited definitions or empirical observations.",
+      "searches": [
+        "Kitsak peripheral hubs low k-shell degree core",
+        "Seidman k-core minimum degree cohesive regions",
+        "degree versus coreness network centrality peripheral hub",
+        "maximum degree vertex core number degeneracy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked result states a smallest connected order for a unique maximum-degree vertex to lie outside the innermost core.",
+        "The standard equivalent vocabulary—core number, coreness, k-shell, innermost core, peripheral hub, and maximum-degree leader—was searched.",
+        "The closest graph-theoretic search results concern general degeneracy/core definitions or unrelated extremal graph parameters rather than this implication."
+      ],
+      "reasoning": "The accepted statement is invariant under relabeling and can equivalently be phrased as the first connected graph with a unique degree leader whose core number is strictly below the graph degeneracy. The searches cover both network-science and graph-theoretic terminology.",
+      "searches": [
+        "maximum degree vertex excluded from maximum k-core smallest graph",
+        "unique highest degree vertex lower core number than maximum coreness",
+        "degree centrality k-core first disagreement finite connected graph",
+        "seven vertex graph degree leader not in innermost core",
+        "hub outside innermost core exact smallest graph",
+        "\"smallest\" \"hub\" \"k-core\" graph degree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source supplied the count \\(420\\) for this property.",
+        "No checked source supplied a seven-vertex one-isomorphism-class census.",
+        "No checked source identified the displayed triangle-plus-peripheral-hub graph as the complete first obstruction layer.",
+        "The labeled count follows independently from the structural classification and automorphism-group order \\(12\\), and is also reproduced by exhaustive enumeration."
+      ],
+      "reasoning": "Exact-order, exact-count, and structure-signature searches directly test whether the finite boundary is already tabulated.",
+      "searches": [
+        "\"seven vertices\" \"k-core\" maximum degree",
+        "\"420\" \"k-core\" graph degree",
+        "\"triangle\" \"three leaves\" \"k-core\" hub",
+        "\"three pendant\" triangle \"k-core\" maximum degree",
+        "\"degree 4\" hub triangle leaves coreness"
+      ]
+    },
+    "rationale": "Seidman introduces core-based cohesion and later network-science work explicitly documents peripheral hubs with low coreness, but the inspected sources do not state the sharp unique-degree-leader boundary at seven vertices or its one-class, 420-labeling census.",
+    "residual_risks": [
+      "An unindexed graph atlas annotation, thesis appendix, teaching example, or software corpus could contain the same small-order classification.",
+      "The literature already contains larger examples of high-degree peripheral low-coreness vertices; originality is restricted to the exact smallest unique-leader boundary and complete first layer.",
+      "The theorem does not compare actual epidemic or information-spreading performance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the historical core notion and its social-network motivation. It does not state the smallest graph where a unique degree leader lies outside the innermost core.",
+        "evidence": "The article is recorded as Social Networks 5(3), September 1983, DOI 10.1016/0378-8733(83)90028-X; the inspected definition page explicitly formulates k-cores via minimum degree.",
+        "identifier_or_url": "doi:10.1016/0378-8733(83)90028-X",
+        "material_read": "Open full-paper scan, including the section 'Definition and Properties of k-cores'. The inspected page defines a \\(k\\)-core as a maximal connected induced subgraph with minimum degree at least \\(k\\) and explains the cohesion motivation.",
+        "method": "Full-PDF page inspection.",
+        "title": "Network structure and minimum degree",
+        "trigger": "Foundational primary source for the core concept and the archive date anchor."
+      },
+      {
+        "assessment": "Directly motivates the degree-versus-coreness comparison and documents peripheral hubs, but does not give a finite smallest-order obstruction or exact small-graph census.",
+        "evidence": "The paper states that highly connected nodes can have little spreading effect when located in the periphery, defines the k-shell index by successive pruning, and reports hubs in peripheral low-shell layers. The arXiv record is first dated 28 January 2010.",
+        "identifier_or_url": "arXiv:1001.5285",
+        "material_read": "Open full arXiv text, including the introduction, the discussion of a hub at a peripheral branch, the k-shell definition, the empirical comparison of degree and shell index, and the methods section describing iterative shell pruning.",
+        "method": "Open full-text inspection.",
+        "title": "Identification of influential spreaders in complex networks",
+        "trigger": "Primary full text explicitly contrasting degree hubs with k-shell position."
+      },
+      {
+        "assessment": "Supports the scientific relevance of comparing degree and coreness but does not state the sharp seven-vertex structural boundary.",
+        "evidence": "arXiv:1404.4528, first submitted 17 April 2014.",
+        "identifier_or_url": "arXiv:1404.4528",
+        "material_read": "Public arXiv abstract and record describing a systematic comparison of degree, coreness, and other centralities against spreading dynamics.",
+        "method": "Open arXiv record inspection.",
+        "title": "The role of centrality for the identification of influential spreaders in complex networks",
+        "trigger": "Independent primary comparison treating degree and coreness as distinct centrality metrics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "505c9495-1cbf-49c6-867a-460b3a198f31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Degree and coreness are canonical local-versus-embedded network descriptors, and the literature explicitly uses their disagreement to explain peripheral hubs. The smallest connected network in which a single unambiguous degree leader is expelled from the innermost core is therefore a natural structural invariant. The complete first layer being one transparent graph type gives a reusable benchmark for examples, algorithms, and intuition.",
+    "status": "PASS"
+  }
+}
