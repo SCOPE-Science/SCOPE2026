@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The exact sketch update is a Euclidean rank-one orthogonal projection after y=H^{1/2}x. In dimension two, two-step zero error for any fixed nonzero start is almost surely equivalent to perpendicular sketch directions. Gaussian polar integration yields density sqrt(kappa)/(2pi(cos²+kappa sin²)). Maximal equality-coupling probability of its quarter-turn is the overlap integral, exactly 4/pi atan(kappa^-1/2). An explicit maximal coupling of full angles and independent conditional radial Rayleigh factors realizes exactly N(0,I) in each original sketch. For jointly Gaussian pairs the conditional regression s2=Cs1+Z gives zero success when Z has nonzero covariance; when Z=0, orthogonality would force C orthogonal and HC skew, possible only for scalar H. Independent pair repetition yields the exact geometric stopping law, including the isotropic endpoint. The package verifier checked 64000 examples and quadrature, not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.09585, Section 3.4 (2022): spectral expected-projection-rate bounds for sketch-and-project and RSN.",
+        "Gower-Richtárik, Randomized Iterative Methods for Linear Systems, doi:10.1137/15M1025487: iid sketch-and-project framework and Gaussian projector expectations.",
+        "Standard maximal coupling: matching probability of variables with densities f,g is bounded by the mass of min(f,g)."
+      ],
+      "reasoning": "General maximal coupling gives an unevaluated overlap for any two marginal laws, but not the algorithmic planar Hessian-specific closed form or the jointly Gaussian separation. RSN and later spectral theories give expected one-step results under sampling assumptions rather than a universal two-step temporal-coupling frontier.",
+      "searches": [
+        "randomized sketch and project correlated sketches finite convergence exact two steps non iid Gaussian orthogonality",
+        "RSN randomized subspace Newton two-step finite termination coupled Gaussian sketches eigenvalue anisotropy",
+        "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition arxiv 2208.09585"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1905.10874v1 (earliest source 2019-05-26)",
+      "arXiv:2208.09585v1",
+      "arXiv:1610.09072v1",
+      "doi:10.1137/15M1025487"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1905.10874, Algorithm 1 and Lemmas 4-5 (2019): exact sketched Newton update and associated single-sketch descent.",
+        "arXiv:2208.09585, Section 3.4 (2022): spectral expected-projection-rate bounds for sketch-and-project and RSN.",
+        "arXiv:1610.09072, Section 3 and Theorem 1 (2016): Haar orthogonal rows rescaled with chi radii, preserving Gaussian row marginals.",
+        "Standard maximal coupling: matching probability of variables with densities f,g is bounded by the mass of min(f,g)."
+      ],
+      "reasoning": "Orthogonal Random Features ensures orthogonal original Gaussian directions in isotropic geometry; for a nonscalar Hessian that condition does not imply perpendicularity after H^{1/2} transformation, so it does not achieve exact termination. The new result computes optimal positive success but strictly less than one in anisotropy, and shows all jointly Gaussian couplings yield zero. Standard iid sketch analyses imply almost-sure convergence, not positive finite-time success.",
+      "searches": [
+        "orthogonal Gaussian random features orthogonal vectors marginal Gaussian",
+        "RSN randomized subspace Newton two-step finite termination coupled Gaussian sketches eigenvalue anisotropy",
+        "nonlinear dependence two marginal Gaussian sketches versus jointly Gaussian orthogonality probability positive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.10874, Algorithm 1 and Lemmas 4-5 (2019): exact sketched Newton update and associated single-sketch descent.",
+        "Exact 2D Gaussian directional density derived by radial polar integration and the integral 4sqrt(kappa)/pi int_0^1 dt/(t²+kappa).",
+        "arXiv:1610.09072, Section 3 and Theorem 1 (2016): Haar orthogonal rows rescaled with chi radii, preserving Gaussian row marginals."
+      ],
+      "reasoning": "Translated optimization-iterate termination to Hessian-orthogonality of sketch lines, rotated-density exact matching, and equality of projective angles. Searched exact Gaussian-marginal coupling and angle-matching aliases; no checked source states the derived nonisotropic arctan frontier with Gaussian-class impossibility.",
+      "searches": [
+        "Gaussian correlated sketch orthogonal in Hessian metric exact termination maximal coupling angular density 4 arctan sqrt condition number",
+        "nonlinear dependence two marginal Gaussian sketches versus jointly Gaussian orthogonality probability positive",
+        "RSN randomized subspace Newton two-step finite termination coupled Gaussian sketches eigenvalue anisotropy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact 2D Gaussian directional density derived by radial polar integration and the integral 4sqrt(kappa)/pi int_0^1 dt/(t²+kappa).",
+        "arXiv:1610.09072, Section 3 and Theorem 1 (2016): Haar orthogonal rows rescaled with chi radii, preserving Gaussian row marginals."
+      ],
+      "reasoning": "Targeted exact angular overlap and Gaussian orthogonality searches did not locate a table or formula covering the optimization stopping probability. This search absence is not itself evidence of priority.",
+      "searches": [
+        "Gaussian correlated sketch orthogonal in Hessian metric exact termination maximal coupling angular density 4 arctan sqrt condition number",
+        "bivariate angular central Gaussian distribution total variation 90 degree rotation exact arctan overlap"
+      ]
+    },
+    "rationale": "The output is a condition-number-exact finite-termination frontier for a fixed Gaussian marginal and a separate jointly Gaussian no-go theorem. Inspected original RSN and stronger sketch-and-project bounds concern projected rates, not optimizing exact termination over temporal couplings. Published orthogonal-Gaussian-marginal features cover the isotropic construction only. The known maximal-coupling inequality is used, not claimed as new; the angular-density overlap integral and its Newton meaning, exact radial Gaussian lift, and Gaussian-class rigidity are the additional claimed contribution. Related indexed findings on iid planar sketch BFGS rates, stationary Haar-coupled Lanczos MSE and fixed sparse sketch distributions do not imply this event under the same law. Unindexed equivalent work cannot be excluded.",
+    "residual_risks": [
+      "An equivalent anisotropic ACG/angular maximal-coupling calculation may exist in unindexed work.",
+      "The maximal-coupling inequality itself is classical; novelty attaches to its exact RSN specialization plus the joint-Gaussian impossibility.",
+      "No claim of priority over general optimal transport or over isotropic orthogonal Gaussian-row constructions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm matches with gain one on a quadratic; convergence theory does not give cross-iteration maximal couplings or an exact finite-time probability",
+        "evidence": [
+          "arXiv:1905.10874, Algorithm 1 and Lemmas 4-5 (2019): exact sketched Newton update and associated single-sketch descent."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1905.10874",
+        "material_read": "full PDF first five pages, especially Section 2, Algorithm 1 on page 4, and projection lemmas; publication chronology checked against arXiv record",
+        "method": "open-access PDF text and page rendering",
+        "title": "RSN: Randomized Subspace Newton",
+        "trigger": "same iteration, exact Hessian sketch and quadratic specialization"
+      },
+      {
+        "assessment": "Gives single-sketch expected convergence-rate bounds and sketch-size laws; no two-step maximal Gaussian-marginal coupling or joint-Gaussian rigidity",
+        "evidence": [
+          "arXiv:2208.09585, Section 3.4 (2022): spectral expected-projection-rate bounds for sketch-and-project and RSN."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.09585",
+        "material_read": "full-text introduction, background, theorems overview and Section 3.4 on randomized subspace Newton (pages 1-4 and 12-13); searched independence assumptions",
+        "method": "open-access PDF text plus page rendering and section search",
+        "title": "Sharp Analysis of Sketch-and-Project Methods via a Connection to Randomized Singular Value Decomposition",
+        "trigger": "plausible stronger spectral theory could dominate two-step result"
+      },
+      {
+        "assessment": "Confirms isotropic orthogonal Gaussian-marginal construction is prior; not a fixed-Hessian anisotropic coupling maximum, nor a jointly Gaussian impossibility",
+        "evidence": [
+          "arXiv:1610.09072, Section 3 and Theorem 1 (2016): Haar orthogonal rows rescaled with chi radii, preserving Gaussian row marginals."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.09072",
+        "material_read": "PDF introduction and Section 3, construction and proof around pages 3-4",
+        "method": "open-access PDF text and page rendering",
+        "title": "Orthogonal Random Features",
+        "trigger": "known dependent orthogonal Gaussian-marginal directions threaten novelty at isotropic endpoint"
+      },
+      {
+        "assessment": "Provides sketch-and-project theory under standard sampling; does not solve the specified two-sketch nonlinear temporal-dependence optimization",
+        "evidence": [
+          "Gower-Richtárik, Randomized Iterative Methods for Linear Systems, doi:10.1137/15M1025487: iid sketch-and-project framework and Gaussian projector expectations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M1025487",
+        "material_read": "open-access PDF introduction, update identities and relevant Gaussian projector appendix",
+        "method": "PDF text and rendered pages",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "earlier broad sketch-and-project framework and expected Gaussian projector results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78fb0fd4-0ae7-4db3-a414-ff2f816beccd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp exact two-step success probability and its geometric work distribution are intrinsic algorithmic quantities, not an arbitrary finite table. Fixing the full one-step Gaussian marginals while varying only dependence creates a qualitative change from never finite termination under joint Gaussian dependence (nonisotropic case) to almost-sure finite termination with optimal nonlinear block coupling. The exact dependence on Hessian conditioning provides a mathematically meaningful reproducibility benchmark. General sketch cost and implementation efficacy are not inferred.",
+    "status": "PASS"
+  }
+}
