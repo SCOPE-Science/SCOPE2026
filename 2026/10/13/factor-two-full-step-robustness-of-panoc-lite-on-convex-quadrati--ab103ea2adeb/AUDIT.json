@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For quadratic \\(g\\), the proximal map is affine with matrix \\(P=(I+\\gamma B)^{-1}\\). Substitution into the source normal residual gives the affine map \\(R_\\gamma^{\\mathrm{nor}}(z)=(A+B)P(z-\\gamma b)+(a+b)\\), whose Jacobian is invertible because \\(A+B\\succ0\\) and \\(P\\) is invertible. Exact Newton therefore moves the normal-residual argument directly toward its zero. After scaling by \\(\\theta\\), affineness of the proximal map gives \\(\\hat x^+=x_\\star+(1-\\theta)(y-x_\\star)\\). Quadratic energy scales by \\((1-\\theta)^2\\), so \\(\\theta\\in[0,2]\\) never makes the candidate worse than the proximal-gradient fallback; the source decrease lemma then proves full-step acceptance. The scalar smooth example gives the exact line-search inequality and proves sharpness outside the interval.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "ZeroFPR is an FBE-based linesearch method whose sufficient-decrease construction uses the traditional \\(\\gamma<1/L_f\\) range.",
+        "The Bregman forward-backward linesearch paper proves eventual unit-step acceptance under superlinear-direction assumptions but does not state this PANOC-lite quadratic geometry.",
+        "No inspected broader source gives a sharp universal scalar-multiple interval for exact normal Newton."
+      ],
+      "reasoning": "General local superlinear convergence does not imply global acceptance from every starting point, compatibility with every \\(\\gamma<2/L_f\\), or sharpness of the factor-two direction cone.",
+      "searches": [
+        "DOI:10.1137/16M1080240 ZeroFPR unit step superlinear forward-backward envelope",
+        "DOI:10.1137/19M1264783 Bregman forward-backward linesearch unit step superlinear",
+        "normal residual quadratic composite Newton full step proximal gradient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.14503v1",
+      "DOI:10.1137/16M1080240",
+      "DOI:10.1137/19M1264783"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "PANOC-lite Algorithm 1 permits \\(\\gamma\\in(0,2/L_f)\\), while the paper's Dennis--Moré Theorem 13 is stated for \\(\\gamma\\in(0,1/L_f)\\).",
+        "Theorem 10 gives eventual full steps for superlinear directions assuming convergence to a strong local minimum; it does not assert immediate global acceptance.",
+        "The quadratic proof here shows an exact affine identity valid at every iterate and proves sharp failure outside \\([0,2]\\) for legal source parameters."
+      ],
+      "reasoning": "The final claim is stronger than the source's asymptotic theorem only on a narrower quadratic-composite class. It neither follows from nor contradicts the general theorem and does not claim a general extension beyond \\(1/L_f\\).",
+      "searches": [
+        "Primary full text: Lemma 2, Algorithm 1, Remarks 5--6, Theorems 10--13",
+        "DOI:10.1137/16M1080240 full-text FBE linesearch description",
+        "DOI:10.1137/19M1264783 abstract and unit-step superlinear statement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary source states eventual unit-step acceptance for superlinear directions but no global all-start scaled exact-Newton cone.",
+        "Source-specific published-result searches returned no theorem with the interval [0,2] or the exact quadratic-composite candidate identity."
+      ],
+      "reasoning": "The searches covered the source name and identifier, normal-residual Newton and equivalent affine-residual formulations, full-step acceptance, quadratic composites, the doubled proximal stepsize range, and scalar direction relaxation.",
+      "searches": [
+        "PANOC-lite 2604.14503 superlinear gamma larger than 1/L exact Newton quadratic composite",
+        "PANOC-lite quadratic exact Newton full step gamma 2/L",
+        "normal residual Newton direction composite quadratic prox line search full acceptance",
+        "psi_gamma merit prox exact Newton full-step acceptance quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed optimization findings concern unrelated Newton sector bounds, extragradient minimax polynomials, Polyak-step frontiers, and Barzilai--Borwein transients.",
+        "No exact indexed result matched the PANOC-lite identifier with the quadratic full-step claim."
+      ],
+      "reasoning": "The finding is an analytic statement about a specific source algorithm and is not a numerical-table recomputation. The nearest generic Newton stability results do not include the proximal affine geometry or source line-search parameter.",
+      "searches": [
+        "PANOC-lite 2604.14503 exact Newton quadratic one step",
+        "PANOC-lite factor two scaled Newton full step",
+        "2604.14503 quadratic composite normal residual affine Newton"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the residual definitions, sufficient-decrease lemma, Algorithm 1, enlarged global stepsize remark, superlinear theorem, normal-residual Jacobian, and Dennis--Moré theorem. The source gives eventual unit-step acceptance for superlinear directions but not the global quadratic factor-two cone or one-iteration exact-solve statement. Earlier FBE and Bregman FBE linesearch literature establishes different local/global frameworks and does not imply the sharp scaled-direction interval.",
+    "residual_risks": [
+      "An equivalent affine-residual relaxation identity may exist in older proximal-Newton literature under different terminology; no source-specific dominating result was located.",
+      "The theorem is exact for quadratic composites and should not be extrapolated to nonlinear composite objectives.",
+      "Practical quasi-Newton directions may not remain inside the scaled exact-Newton ray."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies all algorithmic premises but does not state the global quadratic scaled-Newton cone or its sharpness.",
+        "evidence": "Algorithm 1 uses \\(\\gamma\\in(0,2/L_f)\\) and the objective sufficient-decrease test; Newton-type directions use the normal residual. Theorem 10 is eventual/local, while Theorem 13 is stated for \\(\\gamma<1/L_f\\).",
+        "identifier_or_url": "arXiv:2604.14503v1",
+        "material_read": "Full public preprint sections containing Assumption I; natural and normal residuals; Lemma 2; Algorithm 1; Remarks 5--7; Theorems 8--13; and the structured-direction remark. Rendered pages containing the decrease lemma, Algorithm 1, and superlinear theorem were visually inspected.",
+        "method": "Public arXiv PDF text and rendered-page inspection.",
+        "title": "PANOC-lite: A simpler and more efficient algorithm for composite minimization",
+        "trigger": "Primary recent source defining the method, enlarged stepsize range, and Newton-type normal-residual directions."
+      },
+      {
+        "assessment": "Provides the older FBE-based framework and local fast-direction theory, not the PANOC-lite full-range quadratic cone.",
+        "evidence": "The method linesearches on the forward-backward envelope and is tied to the traditional smaller proximal-gradient stepsize range.",
+        "identifier_or_url": "DOI:10.1137/16M1080240",
+        "material_read": "Published full-text description of the FBE merit function, ZeroFPR linesearch, sufficient-decrease framework, and superlinear quasi-Newton motivation.",
+        "method": "Public publisher full-text inspection.",
+        "title": "Forward-Backward Envelope for the Sum of Two Nonconvex Functions: Further Properties and Nonmonotone Linesearch Algorithms",
+        "trigger": "Direct predecessor identified by the primary source and a plausible source of a dominating full-step theorem."
+      },
+      {
+        "assessment": "Uses a Bregman forward-backward envelope and does not state the PANOC-lite quadratic candidate identity or sharp scalar relaxation interval.",
+        "evidence": "Its advertised unit-step result is asymptotic under superlinear-direction assumptions rather than global for a sharp direction-scaling cone.",
+        "identifier_or_url": "DOI:10.1137/19M1264783",
+        "material_read": "Published abstract, method description, and stated eventual unit-step superlinear result.",
+        "method": "Public publisher abstract and metadata inspection.",
+        "title": "A Bregman Forward-Backward Linesearch Algorithm for Nonconvex Composite Optimization: Superlinear Convergence to Nonisolated Local Minima",
+        "trigger": "Broader forward-backward linesearch literature with eventual full-step superlinear behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab103ea2-adeb-42eb-a7b9-f00f2b91a5fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The enlarged interval \\((0,2/L_f)\\) is a highlighted contribution of PANOC-lite, but the paper's most explicit Dennis--Moré superlinear specialization is stated on the older \\((0,1/L_f)\\) range. The finding shows that on the canonical strongly convex quadratic-composite class the Newton branch is not merely compatible with the doubled range: it accepts full steps globally, solves exactly at unit scaling, and tolerates any scalar overrelaxation up to a sharp factor of two. This identifies a concrete robustness margin for Newton-system inexact scaling and clarifies that the enlarged global stepsize range need not trade away fast-direction acceptance on this structural model.",
+    "status": "PASS"
+  }
+}
