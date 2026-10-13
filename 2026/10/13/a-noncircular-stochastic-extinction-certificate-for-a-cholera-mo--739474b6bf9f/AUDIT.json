@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source's generator inequality gives two coefficient constraints. The environmental coefficient is negative exactly above g0 = beta_c H/(omega K). The infected coefficient is bounded by Phi(g)+g sigma-mu1, where k(g) decreases with g and Phi(g) is therefore nondecreasing. Hence Phi(g)+g sigma is strictly increasing and a feasible g>g0 exists exactly when its value at g0 is below mu1. The interval for the printed R* follows directly from the limits k(g)->xi^2 and k(g)->0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The earlier stochastic SEIRS paper establishes a related noise-adjusted extinction threshold using fixed perturbation quantities.",
+        "It does not contain the cholera model's environmental reservoir, auxiliary I+gB weighting, or the boundary criterion Phi(g0)+g0 sigma<mu1.",
+        "Closest database findings concern different chemostat, SEIR, age-structured, and resource-coupled models."
+      ],
+      "reasoning": "General stochastic epidemic extinction theory does not imply the exact feasibility boundary because that boundary depends on the specific two-coefficient Lyapunov construction and environmental reservoir.",
+      "searches": [
+        "\"An SEIRS epidemic model with stochastic transmission\" stochastic threshold h_*",
+        "stochastic epidemic Lyapunov weight extinction threshold invariant",
+        "stochastic cholera exponential extinction Lyapunov threshold"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/dcdss.2021116",
+      "url:https://uwcscholar.uwc.ac.za/bitstreams/bc321e49-9ab8-44fd-b5a4-0f08ffa26af4/download",
+      "doi:10.1186/s13662-017-1166-6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Current and prior own ledgers contain no matching DOI, title, or noncircular-weight claim.",
+        "The closest database results address unrelated epidemic or population thresholds and do not share the cholera reservoir weighting.",
+        "The earlier SEIRS threshold paper does not contain an auxiliary proof weight chosen after threshold formation."
+      ],
+      "reasoning": "No inspected prior statement implies the exact iff feasibility criterion or the range of the printed R*(g) without re-deriving the source-specific generator bounds.",
+      "searches": [
+        "\"A stochastic population model of cholera disease\" correction R*",
+        "\"A stochastic population model of cholera disease\" Lyapunov weight g",
+        "\"10.3934/dcdss.2021116\" cited extinction threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines k from a bound that explicitly depends on the arbitrary positive weight g.",
+        "Equation (9) uses k in R* before Theorem 4.4 later selects g.",
+        "No searched correction or erratum stated a weight-independent repair."
+      ],
+      "reasoning": "The defect can be described as a circular threshold, a proof-weight-dependent reproduction scalar, or a missing optimization/feasibility step. Searches covered each of these equivalent formulations.",
+      "searches": [
+        "\"A stochastic population model of cholera disease\" \"R*\" k g extinction theorem",
+        "\"10.3934/dcdss.2021116\" stochastic cholera threshold invariant g k",
+        "\"dcdss.2021116\" correction erratum extinction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cholera full text was inspected at the SDE, Remark 3.3, equation (9), Theorem 4.4 and proof, and the numerical extinction subsection.",
+        "The publisher record lists Primary MSC 92D30.",
+        "The Section 6.3 printed parameters reproduce R*(g0)=0.905338... and satisfy the repaired inequality."
+      ],
+      "reasoning": "The comparison is against the exact theorem, proof architecture, and parameter table rather than abstract-level wording.",
+      "searches": [
+        "doi:10.3934/dcdss.2021116 Remark 3.3 equation 9 Theorem 4.4",
+        "doi:10.3934/dcdss.2021116 Section 6.3 R*=0.905",
+        "doi:10.1186/s13662-017-1166-6 R_sigma h_* Theorem 4.6"
+      ]
+    },
+    "rationale": "The motivating article defines the stochastic scalar before fixing the auxiliary weight and later chooses that weight after invoking an inequality that already contains its dependent coefficient. No located correction states the noncircular boundary criterion. The earlier related stochastic SEIRS paper uses fixed stochastic quantities and does not imply this source-specific feasibility result.",
+    "residual_risks": [
+      "An unindexed author note may contain a correction.",
+      "The feasibility condition is exact only for the source's coefficientwise log(I+gB) certificate family, not for all possible extinction proofs.",
+      "The numerical replay uses rounded published parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRINTED_RSTAR_DEPENDS_ON_AN_AUXILIARY_WEIGHT_AND_ADMITS_AN_EXACT_NONCIRCULAR_REPAIR",
+        "evidence": "The source defines k(g) before equation (9), then later fixes g inside the extinction proof after using a condition containing k. The repaired boundary follows from monotonicity of k(g), Phi(g), and the environmental coefficient.",
+        "identifier_or_url": "doi:10.3934/dcdss.2021116",
+        "material_read": "Full text at stochastic system (2), the positivity/boundedness setup, Remark 3.3 defining h and k for arbitrary g, the u=I+gB logarithmic generator, equation (9), Theorem 4.4 and its proof, and Section 6.3 parameter values. Relevant theorem and parameter pages were visually inspected.",
+        "method": "Tracked every occurrence of the auxiliary weight g and its dependent coefficient k, eliminated the proof-weight circularity by solving the two coefficient inequalities as a one-dimensional feasibility problem, and replayed the printed parameter example.",
+        "title": "A stochastic population model of cholera disease",
+        "trigger": "Primary source defining the stochastic cholera extinction threshold."
+      },
+      {
+        "assessment": "RELATED_STOCHASTIC_THRESHOLD_BUT_NO_AUXILIARY_WEIGHT_CIRCULARITY_OR_CHOLERA_RESERVOIR_REPAIR",
+        "evidence": "The predecessor's threshold depends on fixed model/noise quantities rather than a later-selected coefficient weight and therefore does not state the accepted result.",
+        "identifier_or_url": "doi:10.1186/s13662-017-1166-6",
+        "material_read": "Open full text at the stochastic threshold definitions and extinction theorem, including the fixed noise quantity used in its adjusted reproduction threshold.",
+        "method": "Compared whether its theorem already implies the cholera model's weight-feasibility repair.",
+        "title": "An SEIRS epidemic model with stochastic transmission",
+        "trigger": "Closest methodological predecessor by the same lead author for a noise-adjusted epidemic extinction threshold."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "739474b6-bf9f-4618-9940-4acbf7d2d2ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The stochastic threshold is the paper's stated mechanism for noise-induced extinction and is used in its main numerical example. Showing that the printed scalar can cross one solely by changing an arbitrary proof weight exposes a substantive interpretability defect. The replacement is an exact, checkable condition on physical parameters that preserves the source's successful example and separates theorem content from an auxiliary Lyapunov choice.",
+    "status": "PASS"
+  }
+}
