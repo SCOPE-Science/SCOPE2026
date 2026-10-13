@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The exact CoCD per-coordinate update matches the originating source. For a symmetric positive-definite two-coordinate quadratic, each central difference equals its partial derivative for every nonzero perturbation. The two-update sweep reduces exactly to the displayed 3x3 matrix; its characteristic cubic satisfies the four necessary-and-sufficient strict real Schur inequalities. Symbolic factorization reduces their joint feasible set to the smaller root of Q and proves the determinant threshold falls strictly between Q roots. Gamma-zero, rho-zero, and gamma-one endpoints are handled separately. At equality a unit-circle root prevents universal convergence, and above it spectral radius exceeds one; nonconvergence also affects actual iterates with zero buffer initialization. The entire parameter domain is proved analytically. The bundled script independently recomputes symbolic identities and adds non-exhaustive finite spectral checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liang et al., arXiv:2605.14373, Theorem 5.10 and §5.3 are general sufficient convergence bounds but are not necessary, and do not identify the stable over-two regime.",
+        "Gürbüzbalaban et al., arXiv:1506.02081, Theorem 3.3 gives sufficient small-step convergence for a different component-gradient algorithm; it does not dominate the proposed necessary-and-sufficient inequality.",
+        "Published result 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac analyzes randomized coordinate updates and an independent delay distribution, not full-vector CoCD with cyclic fading buffer."
+      ],
+      "reasoning": "A stronger general convergence theorem might imply the stable side but a sufficient condition does not imply the sharp necessity or its frontier. The randomized delayed-Gauss–Seidel spectral law differs in state, averaging, and update operator.",
+      "searches": [
+        "stale gradient cyclic coordinate descent delay stability exact two coordinate quadratic",
+        "cyclic delayed gradient descent 2x2 quadratic characteristic polynomial critical stepsize",
+        "\"CoCD\" \"quadratic\" learning rate momentum stability gradient buffer",
+        "two dimensional CoCD global convergence stability threshold coupling rho alpha gamma"
+      ]
+    },
+    "checked_sources": [
+      "Liang, Sun, Wang, Rakita, arXiv:2605.14373, PDF §§3–5 and Appendix C/D.",
+      "Gürbüzbalaban, Ozdaglar, Parrilo, arXiv:1506.02081, PDF §§1–4.",
+      "Wright, Coordinate Descent Algorithms, arXiv:1502.04759, §1 and targeted §4 inspection.",
+      "Published record 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b.",
+      "Published record 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac.",
+      "Published record 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liang et al., arXiv:2605.14373, §5.3 uses sufficient bound alpha < 2/[L(1+n tau)]; it is weaker and does not imply failure at equality or larger learning rates.",
+        "Gürbüzbalaban et al., arXiv:1506.02081, §2 IAG uses the sum of actual component gradients; its theorems therefore have different premises.",
+        "Published result 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac concerns mean-square randomized delay distribution, not deterministic Schur roots."
+      ],
+      "reasoning": "The final statement is a necessary-and-sufficient stability theorem for a specific buffered coordinate finite-difference method, including exact critical steps and over-two stability. The paper supplies only sufficient rate conditions. Existing analogous algorithms do not imply its sharp threshold by substitution or restriction. The zero-decay endpoint is intentionally credited to classical coordinate descent.",
+      "searches": [
+        "Coherent Coordinate Descent CoCD two coordinate quadratic fading gradient memory exact stepsize Schur stability",
+        "two dimensional CoCD global convergence stability threshold coupling rho alpha gamma",
+        "incremental aggregated gradient stale coordinate partial gradient cyclic quadratic matrix stability region Schur"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liang et al., arXiv:2605.14373, §4 equations (5)-(7) fixes the same fading/replacement/full-step algorithm; §5.3 supplies a general sufficient condition rather than the two-coordinate exact frontier.",
+        "Gürbüzbalaban et al., arXiv:1506.02081, §2 equation (2) stores gradients of component functions, not nonsymmetric coordinate vector fields."
+      ],
+      "reasoning": "An algebraically equivalent two-coordinate spectral test would cover the result, regardless of title. The closest algorithm source does not state the cubic Schur boundary. The IAG update is structurally analogous but the components here have nonsymmetric Jacobians at nonzero coupling and cannot be potential gradients, so the IAG theorem does not specialize to this exact statement.",
+      "searches": [
+        "Coherent Coordinate Descent CoCD two coordinate quadratic fading gradient memory exact stepsize Schur stability",
+        "two block cyclic stale gradient buffer gamma decay coupled quadratic spectral stability learning rate",
+        "\"Coherent Coordinate Descent\" \"spectral\" \"quadratic\" stability",
+        "incremental aggregated gradient cyclic coordinate stale derivatives CoCD quadratic spectral stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b computes single-sweep Euclidean norm behavior for classical Gauss–Seidel, not CoCD eigenvalue stability.",
+        "Published result 2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f computes one-step norm damping, not buffered cyclic CoCD.",
+        "The public CoCD original supplies no table of exact two-coordinate Schur thresholds in §5.3 or Appendix C."
+      ],
+      "reasoning": "No matching table or classification of the same state-transition matrix and three independent parameters was identified. Overlap of ambient two-by-two SPD quadratics does not constitute coverage when the update operator and measured stability differ.",
+      "searches": [
+        "buffered cyclic partial derivatives full gradient step Hessian two coordinates stability spectral polynomial",
+        "coherent coordinate descent gamma fading memory quadratic exact stability 2026",
+        "two block cyclic stale gradient buffer gamma decay coupled quadratic spectral stability learning rate"
+      ]
+    },
+    "rationale": "Primary full text for the originating 2026 fading-buffer algorithm gives a sufficient general descent bound, not the exact two-coordinate cubic stability surface. A full primary IAG preprint is structurally analogous but cannot imply the statement for coupled nonconservative coordinate vector fields. Relevant published two-coordinate Gauss–Seidel and weighted Jacobi results concern different operators/observables. The exact positive-memory threshold and \\(\\alpha>2\\) region were not located in these comparisons; unindexed equivalent linear-switching analyses remain a real risk.",
+    "residual_risks": [
+      "A periodically switched linear-system theorem or unpublished equivalent algebra may encompass this exact CoCD matrix despite terminology differences.",
+      "The broad classical coordinate descent review was examined in relevant original sections but not exhaustively theorem-by-theorem; it covers the gamma-zero endpoint.",
+      "Database and public-source search cannot establish logical global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_SAME_METHOD_NOT_EXACT_COVERAGE",
+        "evidence": [
+          "Equation (5) decays all gradient-buffer entries, (6) overwrites active entry, (7) changes the full iterate.",
+          "Section 5.3 states a sufficient condition involving dimension and staleness and does not derive a coupled two-coordinate Schur boundary."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.14373",
+        "material_read": "Original full-text PDF, pages 1–7 and Appendix C/D, specifically §3.2, §4.1 equations (3),(5)-(7), §5.3, Theorem 5.10, Appendix C Theorem C.1, Algorithm 1.",
+        "method": "Full-text open, section reading, algorithm screenshot and appendix check.",
+        "title": "Turning Stale Gradients into Stable Gradients: Coherent Coordinate Descent with Implicit Landscape Smoothing for Lightweight Zeroth-Order Optimization",
+        "trigger": "Exact originating update scheme and potential already-known stability theorem"
+      },
+      {
+        "assessment": "STRUCTURALLY_RELATED_NOT_COVERING",
+        "evidence": [
+          "The stored terms are gradients of individual scalar component functions f_i; CoCD refreshes coordinate vector fields that are nonconservative when rho is nonzero.",
+          "The source uses sufficient small-step and rate analyses rather than this exact faded-coordinate Schur criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1506.02081",
+        "material_read": "Original 15-page preprint; §1 and §2 equations (1)–(4), convergence and momentum discussions in §§3–4.",
+        "method": "Full-text PDF inspection, explicit comparison of update operators and theorem hypotheses.",
+        "title": "On the Convergence Rate of Incremental Aggregated Gradient Algorithms",
+        "trigger": "Closest mature theory of stored stale gradients and cyclic finite-sum updates"
+      },
+      {
+        "assessment": "CLASSICAL_COORDINATE_AND_STALE_READ_BACKGROUND_NOT_COVERING",
+        "evidence": [
+          "Algorithm 1 changes only the selected coordinate of the iterate; CoCD changes both components using a stored full-buffer direction.",
+          "The asynchronous discussion uses stale reads of the current iterate for a single-coordinate update, not explicitly faded partial-derivative buffers with deterministic cyclic full-vector steps."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.04759",
+        "material_read": "Original 32-page arXiv text: Introduction, §§1.1–1.2 and Algorithm 1 (pages 1–5), with targeted full-text inspection of asynchronous stale-read method in §4 (pages 25–27) and momentum references; not an exhaustive theorem-by-theorem reading.",
+        "method": "Original open-access primary full-text retrieval, targeted section and terminology checks.",
+        "title": "Coordinate Descent Algorithms",
+        "trigger": "Classical zero-memory cyclic coordinate-descent endpoint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bff3bfd5-7949-4d68-82f5-9011f2adc7a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 faded-coordinate algorithm motivates determining a usable fixed learning-rate boundary rather than relying on a restrictive sufficient bound. The new exact classification reveals the structurally counterintuitive effect that stronger coupling increases the stable step ceiling for strictly interior buffer retention and gives a sharp natural \\(\\alpha>2\\) threshold with explicit stable parameters. This differentiates actual stability from the ordinary cyclic-coordinate step limit and can guide interpretation of stale-gradient memory; no broader optimization guarantee is claimed.",
+    "status": "PASS"
+  }
+}
