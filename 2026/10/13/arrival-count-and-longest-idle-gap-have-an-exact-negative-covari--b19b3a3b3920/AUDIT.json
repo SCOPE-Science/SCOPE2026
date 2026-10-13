@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the Poisson count gives uniform order statistics and hence a Dirichlet(1,...,1) gap vector. Inclusion-exclusion yields the exact largest-spacing mean H_m/m. Poissonization gives the exact mean t Ein(mu)/mu, and the standard Poisson score identity Cov(N,g(N))=mu dE[g(N)]/dmu then gives the covariance. Its strict negativity follows from the positive derivative of Ein(mu)-(1-exp(-mu)). All boundary cases, normalization, and small/large-mu asymptotics are handled explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Onn--Weissman derive the exact first moment of the largest coordinate of a uniform simplex vector and identify the vector with uniform spacings.",
+        "Omwonylee studies the same longest-gap statistic for a homogeneous Poisson process, explicitly states its relationship to Poissonized maximal uniform spacing, and gives primary MSC 60F10."
+      ],
+      "reasoning": "These sources dominate the marginal ingredients but not the joint count-gap statement. Knowing the conditional mean for each fixed count does not itself state the covariance; the accepted claim performs and simplifies the Poisson mixing exactly.",
+      "searches": [
+        "DOI:10.1007/s10479-009-0567-7",
+        "DOI:10.1017/S0004972719000972",
+        "maximum uniform spacing expectation harmonic",
+        "Poisson process longest gap maximal spacing"
+      ]
+    },
+    "checked_sources": [
+      "Onn and Weissman, DOI 10.1007/s10479-009-0567-7, public full text.",
+      "Omwonylee, DOI 10.1017/S0004972719000972, complete public PDF.",
+      "Current and prior own archive ledgers searched for Poisson longest-gap, maximal-spacing, and count covariance.",
+      "Published-record semantic searches for longest gap, arrival count, maximal spacing, and covariance aliases.",
+      "Targeted web searches for exact count/longest-gap mixed moments and exponential-integral formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest own archive results concern longest runs in Bernoulli/composition models, renewal quantities, or unrelated Poisson functionals; none contains the Poisson count/longest-gap pair.",
+        "The current ledger contains spacing covariances and Poisson-related results on other statistics, but no claim implies this exact mixed moment."
+      ],
+      "reasoning": "The new statistic pair is not a specialization of the existing spacing-energy or run-count results. The conditioning variable is itself the Poisson number of spacings, which is random and directly coupled to the dimension of the simplex.",
+      "searches": [
+        "Own ledgers: Poisson process longest gap number of arrivals covariance",
+        "Own ledgers: maximal spacing Poisson count covariance",
+        "Own ledgers: longest idle interval arrival count Poisson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No Published-record database result returned an arrival-count/longest-gap mixed moment.",
+        "Targeted web searches returned longest-gap and maximal-spacing literature but no covariance or Poisson-score derivative formula.",
+        "The inspected longest-gap paper explicitly identifies Poissonized maximal spacing, but its theorem set concerns transforms and large deviations rather than dependence on N(t)."
+      ],
+      "reasoning": "Equivalent formulations include arrival count versus largest idle interval, Poissonized maximal uniform spacing versus the Poisson index, and differentiation of the mean longest gap with respect to the Poisson mean. All were searched.",
+      "searches": [
+        "Published-record semantic search: Poisson process longest gap arrival count covariance maximal spacing exact",
+        "Web: covariance longest gap Poisson arrivals",
+        "Web: number of arrivals longest gap Poisson",
+        "Web: Ein longest gap Poisson process expectation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact covariance table or symbolic formula matching t[1-exp(-mu)-Ein(mu)]/mu was located.",
+        "The result is an all-parameter analytic identity rather than a finite numerical table."
+      ],
+      "reasoning": "Exact-form searches covered covariance, count, arrival, longest-gap, maximal-spacing, and exponential-integral aliases.",
+      "searches": [
+        "\"Cov\" \"longest gap\" \"Poisson process\"",
+        "\"covariance\" \"longest gap\" Poisson arrivals",
+        "\"expected longest gap\" \"Poisson process\" exact",
+        "\"maximum spacing\" Poisson count covariance"
+      ]
+    },
+    "rationale": "The closest inspected simplex source gives the exact first moment of the largest uniform spacing, while the closest inspected Poisson-gap source studies the longest gap distribution, Poissonized spacing connection, and large deviations. Neither states a covariance with the realized count. Claim-specific published-record database, own-ledger, and web searches for count/longest-gap covariance and equivalent maximal-spacing formulations found no matching theorem. The principal residual risk is older random-division or maximal-spacing literature using a bivariate generating function.",
+    "residual_risks": [
+      "Classical random-division or uniform-maximal-spacing literature may contain the same Poissonized mixed moment in a bivariate generating-function form.",
+      "The covariance follows compactly once the fixed-count largest-spacing mean and Poisson score identity are combined, so older literature may have regarded it as an unhighlighted corollary.",
+      "No full joint distribution of N(t) and L_t is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONDITIONAL_MEAN_PRIOR_NOT_MIXED_COUNT_MOMENT",
+        "evidence": "The source identifies uniform spacings with a simplex vector, connects the construction to homogeneous Poisson interarrival times, and derives the largest-spacing first moment. It does not formulate a random Poisson index jointly with the maximal spacing or the covariance claimed here.",
+        "identifier_or_url": "DOI:10.1007/s10479-009-0567-7",
+        "material_read": "Public author-uploaded full text, including the simplex construction, Poisson/exponential representation, and displayed first-moment formula for the largest spacing.",
+        "method": "Full-text web inspection with targeted searches around the largest-spacing mean and uniform-spacing construction.",
+        "title": "Generating uniform random vectors over a simplex with implications to the volume of a certain polytope and to multivariate extremes",
+        "trigger": "Direct source for the exact first moment of the largest uniform spacing used in the conditional regression."
+      },
+      {
+        "assessment": "SAME_LONGEST_GAP_NO_COUNT_COVARIANCE",
+        "evidence": "The paper defines the boundary-censored longest gap, explicitly relates it to Poissonized maximal uniform spacing, and develops transform and large-deviation results. No covariance with N(t) or equivalent count-regression theorem was located.",
+        "identifier_or_url": "DOI:10.1017/S0004972719000972",
+        "material_read": "Complete public PDF text, with page images inspected for the introduction, definition, Poissonized maximal-spacing relation, and classification.",
+        "method": "Full-PDF inspection plus targeted whole-document searches for conditional/count/uniform terminology.",
+        "title": "Large Deviations for the Longest Gap in Poisson Processes",
+        "trigger": "Direct full primary source for the same homogeneous-Poisson longest-gap statistic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b19b3a3b-3920-45c5-88b9-217be7dae248",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Arrival count and longest idle interval are canonical complementary load/reliability observables of a Poisson process. The theorem converts the intuitive anticorrelation into an exact all-intensity law, exposes the decreasing conditional regression, and gives both sparse- and dense-arrival asymptotics. The dense-regime covariance grows logarithmically on the interarrival-time scale even though the longest gap itself shrinks, which is a nontrivial quantitative feature of the count-extreme coupling.",
+    "status": "PASS"
+  }
+}
