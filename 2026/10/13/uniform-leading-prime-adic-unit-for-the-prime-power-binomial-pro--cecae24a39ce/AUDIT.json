@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "All p including p=2, all a>=1 and 2<=q<=p^a. Digit-sum complements force exact valuation a. Wilson unit-factorial formula gives constant leading unit -1; normalized p=2 case separately checked. The 825 finite triples agree, but proof is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "An existing exact full-gcd valuation formula for the progression: for p^a||n, v_p(D(n-1))=max(0,a-floor(log_p(n/p^a))). This fixes minima, not normalized residues of each coefficient.",
+        "Guo et al. 2026, full text Sections 1–3."
+      ],
+      "reasoning": "A formula for a gcd and its valuations is weaker: it cannot force the residues of each quotient by p^a. The existing exact gcd theorem therefore does not imply the claimed universal residue.",
+      "searches": [
+        "prime power binomial gcd every binomial coefficient same valuation a and unit -1 modulo prime p",
+        "Guo Qiu Cao 2606.22997 refinement exact gcd value p-adic exponent valuation instead of coprimality",
+        "\"binom(q(p^a-1),p^a-1)\" \"mod\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2606.22997",
+      "https://oeis.org/A080170",
+      "https://ojs.wiserpub.com/index.php/CM/article/view/5017",
+      "Existing exact valuation theorem for the same binomial progression (minimum valuations only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guo et al. arXiv:2606.22997v1, Theorem 1, Lemma 9, pages 1, 7–8",
+        "An existing exact full-gcd valuation formula for the progression: for p^a||n, v_p(D(n-1))=max(0,a-floor(log_p(n/p^a))). This fixes minima, not normalized residues of each coefficient."
+      ],
+      "reasoning": "The new claim implies exact v_p of every member and thus a prime-power lower bound for the gcd. The prior binary criterion and even the full exact gcd formula do not imply a common quotient residue. Conversely the new result is limited to prime-power parameters and does not supersede the full gcd theorem.",
+      "searches": [
+        "binomial gcd D(k) full formula nonzero values greatest common divisor qk choose k 2026",
+        "Guo Qiu Cao 2606.22997 refinement exact gcd value p-adic exponent valuation instead of coprimality",
+        "uniform congruence binomial q(p^a-1) choose (p^a-1) is congruent -p^a mod p^(a+1) for all 2<=q<=p^a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo et al. Theorem 1 and Lemma 9 at https://arxiv.org/pdf/2606.22997",
+        "The normalized-unit statement is equivalent to a congruence modulo p^(a+1), rather than only p-divisibility."
+      ],
+      "reasoning": "Checked the literal binomial congruence, its normalized-residue formulation, and a factorial-digit representation. No covering stated congruence found in these sources.",
+      "searches": [
+        "uniform congruence binomial q(p^a-1) choose (p^a-1) is congruent -p^a mod p^(a+1) for all 2<=q<=p^a",
+        "factorial Lucas digit sum constant valuation q times p^a minus q choose p^a minus one universal normalized residue",
+        "\"q(p^r-1)\" \"p^r-1\" modulo p binomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080170 at https://oeis.org/A080170",
+        "The database records indices k for which D(k)=1, not normalized residues."
+      ],
+      "reasoning": "The exact progression appears in A080170, but the tabulation concerns gcd-one indices. No database/table result establishing uniform units was identified.",
+      "searches": [
+        "OEIS A080170 gcd qk k 2 q k+1",
+        "binomial gcd OEIS A080170 kth prime power component exact valuations greatest common divisor"
+      ]
+    },
+    "rationale": "Full-text comparison with the 2026 binomial-gcd criterion and an existing exact gcd-valuation refinement shows neither determines the individual normalized units. Separate exact-phrase, valuation, equivalent factorial and OEIS searches found no covering congruence; this is not a uniqueness guarantee.",
+    "residual_risks": [
+      "Equivalent congruence in unindexed classical factorial/binomial-unit literature may exist.",
+      "A published general prime-power binomial congruence not returned by these queries could subsume the result.",
+      "Related restricted-binomial-gcd article was compared at abstract level only, because its parameter domain differs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the gcd-one and p-divisibility criteria, not the universal p-adic leading-unit congruence",
+        "evidence": [
+          "Theorem 1: gcd=1 criterion; Lemma 9: p divides gcd iff cofactor <= p^a; no congruence modulo p^(a+1) for every multiplier is given."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.22997",
+        "material_read": "Full 13-page PDF text, including Theorem 1, Lemmas 4 and 9, Section 2 proof, and the formal-statement discussion; page images 1 and 5 inspected",
+        "method": "Primary arXiv PDF textual inspection and rendered page inspection",
+        "title": "A Greatest Common Divisor Criterion of Certain Binomial Coefficients",
+        "trigger": "identical fixed-lower-index binomial gcd, prime-power boundary"
+      },
+      {
+        "assessment": "Only records gcd-one indices, not normalized unit residues",
+        "evidence": [
+          "Sequence description: numbers k such that the gcd of C(2k,k), ..., C((k+1)k,k) is 1."
+        ],
+        "identifier_or_url": "https://oeis.org/A080170",
+        "material_read": "Sequence entry, description, comments, programs, and references",
+        "method": "Official online sequence page",
+        "title": "OEIS A080170",
+        "trigger": "exactly the relevant progression gcd sequence"
+      },
+      {
+        "assessment": "Studies a fixed upper row with restricted lower indices, not the identical variable-upper family; no full-text exclusion is inferred",
+        "evidence": [
+          "Abstract describes gcdA2(n) for restricted binomial index sets."
+        ],
+        "identifier_or_url": "https://ojs.wiserpub.com/index.php/CM/article/view/5017",
+        "material_read": "Bibliographic entry and published abstract only",
+        "method": "Published abstract comparison",
+        "title": "The Greatest Common Divisor of Sets of Binomial Coefficients with Restrictions",
+        "trigger": "related selected-binomial-gcd title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cecae24a-39ce-4099-85a6-ab9ba2669c26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The prime-power lower index is an extremal canonical subfamily for the original progression-gcd problem. Determining all individual first nonzero p-adic digits gives uniform sharp modular information genuinely finer than both gcd-one and exact gcd-valuation classifications, and a usable first precision layer for linear combinations or future congruence lifting.",
+    "status": "PASS"
+  }
+}
