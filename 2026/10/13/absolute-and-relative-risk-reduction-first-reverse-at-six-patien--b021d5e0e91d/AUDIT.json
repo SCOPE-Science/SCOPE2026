@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "ARR and RRR reduce exactly to d/m and d/c on the stated lattice. Complete exact enumeration proves the lower boundary and first-layer count, while the persistent family follows from 2/(m-1)<1/2 for every m at least 6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cook and Sackett define ARR, RRR, and NNT and show that the same RRR can yield very different ARR/NNT values at different baseline risks.",
+        "Schechtman explicitly compares the same measures and reports that different measures can give different impressions.",
+        "The literature therefore strongly covers the mechanism and qualitative distinction, but not the finite lattice minimum."
+      ],
+      "reasoning": "Tie splitting and baseline-risk sensitivity do not imply the smallest sample size at which two positive-cell equal-arm trials receive opposite strict rankings. That requires a finite universal exclusion through arm size five.",
+      "searches": [
+        "Laupacis Sackett Roberts 1988 number needed to treat consequences treatment",
+        "Cook Sackett 1995 number needed to treat absolute risk reduction relative risk reduction",
+        "Schechtman 2002 odds ratio relative risk absolute risk reduction NNT which should we use"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1056/NEJM198806303182605",
+      "doi:10.1136/bmj.310.6977.452",
+      "doi:10.1046/j.1524-4733.2002.55150.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cook and Sackett's hypertension example holds RRR fixed while ARR/NNT change, establishing tie splitting rather than strict ranking reversal.",
+        "Schechtman's hypothetical examples include equal RRR with different ARR/NNT and equal ARR/NNT with different RRR; they do not supply a strict two-treatment reversal minimum.",
+        "The accepted claim additionally requires exhaustive positive-cell exclusion through m=5 and exact classification at m=6."
+      ],
+      "reasoning": "Known qualitative divergence and examples of one-measure ties do not logically imply an opposite strict ordering, much less the first integer arm size at which one is realizable.",
+      "searches": [
+        "same relative risk reduction different number needed to treat baseline risk Cook Sackett",
+        "Schechtman different measures different impressions ARR RRR NNT",
+        "absolute relative effect measures treatment choice baseline risk"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-result record stated a minimum equal-arm positive-cell size for strict ARR/RRR reversal.",
+        "Exact-fraction and six-per-arm web searches did not locate the witness or the two-pair first layer.",
+        "Searches covered the aliases ARR/risk difference/NNT and RRR/relative benefit/risk-ratio reduction."
+      ],
+      "reasoning": "Because lower NNT is exactly higher ARR on positive-benefit trials, the same theorem can be phrased as NNT-versus-RRR ranking reversal. The query set explicitly covered both formulations and the finite equal-arm boundary.",
+      "searches": [
+        "absolute risk reduction relative risk reduction ranking reversal clinical trial number needed to treat",
+        "number needed to treat relative risk treatment ranking reversal equal sample size",
+        "absolute versus relative risk reduction compare treatments minimum trial",
+        "absolute risk reduction relative risk reduction six patients per arm exact ranking reversal",
+        "number needed to treat relative risk reduction 1/6 1/3 50% 40% ranking"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked source tabulated strict-reversal counts 0,0,0,0,2 for arm sizes 2 through 6.",
+        "No checked source identified the exact witness (1,2) versus (3,5).",
+        "The packaged verifier derives every admissible table directly instead of importing a table."
+      ],
+      "reasoning": "Exact witness and exact small-size searches directly test whether the proposed boundary appears as a worked example, teaching table, or software fixture.",
+      "searches": [
+        "\"six patients per arm\" relative risk reduction absolute risk reduction",
+        "\"1/6\" \"1/3\" \"50%\" \"40%\" number needed to treat",
+        "\"(1,2)\" \"(3,5)\" absolute risk reduction relative risk reduction"
+      ]
+    },
+    "rationale": "Prior clinical literature establishes the formulas and qualitative divergence between absolute and relative treatment summaries. The inspected sources and targeted searches did not state the sharp equal-arm positive-cell threshold of six, the exact two-pair first layer, or the persistent integer family.",
+    "residual_risks": [
+      "The 1988 NEJM full article was not accessible through the checked route, although the later open full text by Cook and Sackett supplies the exact formulas and cites the 1988 source.",
+      "An unindexed educational example or software test could contain the same six-per-arm reversal.",
+      "Unequal arm sizes, zero cells, continuity corrections, or other treatment-effect summaries can have different minimal boundaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the measures and qualitative baseline-risk mechanism. It does not state the six-per-arm strict-reversal boundary or first-layer census.",
+        "evidence": "The paper states RRR=ARR/control-event probability and NNT=1/ARR, and its table shows RRR 40% with materially different ARR and NNT across baseline-risk groups.",
+        "identifier_or_url": "doi:10.1136/bmj.310.6977.452",
+        "material_read": "Full five-page public PDF, including the measures-of-treatment-effect section, definitions of ARR, RR and RRR, NNT as reciprocal ARR, and the hypertension table comparing the same RRR at different baseline risks.",
+        "method": "Public PDF text extraction with rendered-page inspection of the formula and definition pages.",
+        "title": "The number needed to treat: a clinically useful measure of treatment effect",
+        "trigger": "Direct full-text source giving exactly the ARR, RRR, and NNT formulas and a baseline-risk comparison."
+      },
+      {
+        "assessment": "Strong prior art for non-equivalence of the summaries, but the table shows ties split by another measure rather than the accepted sharp strict-reversal boundary.",
+        "evidence": "The article explicitly states that different measures can give different impressions and recommends reporting both a relative and an absolute measure.",
+        "identifier_or_url": "doi:10.1046/j.1524-4733.2002.55150.x",
+        "material_read": "Full HTML text including definitions of ARR, RRR, and NNT, the four-case hypothetical comparison table, and the discussion of equal relative effects with different absolute effects and vice versa.",
+        "method": "Open full-text HTML inspection.",
+        "title": "Odds Ratio, Relative Risk, Absolute Risk Reduction, and the Number Needed to Treat—Which of These Should We Use?",
+        "trigger": "Closest full-text treatment of multiple binary effect summaries and their comparative impressions."
+      },
+      {
+        "assessment": "Establishes the 30 June 1988 publication date and foundational NNT provenance. Full article text was not available through the checked route.",
+        "evidence": "The publisher records publication in issue on 30 June 1988.",
+        "identifier_or_url": "doi:10.1056/NEJM198806303182605",
+        "material_read": "Publisher abstract and history record.",
+        "method": "Publisher record inspection.",
+        "title": "An Assessment of Clinically Useful Measures of the Consequences of Treatment",
+        "trigger": "Foundational source for NNT and earliest verified public date used for archive classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b021d5e0-e91d-45fb-90e3-409b8e3834bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Absolute and relative risk reductions are canonical competing summaries in clinical evidence, and NNT is exactly the reciprocal absolute summary. The smallest nondegenerate equal-arm trial at which they make opposite strict comparative judgments is a natural finite benchmark. The result isolates baseline-risk standardization as the mechanism and remains present at every larger arm size.",
+    "status": "PASS"
+  }
+}
