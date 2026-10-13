@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The channel ball is reconstructed directly from the published simultaneous-error definition. Exhaustive construction of the \\(64\\)-vertex compatibility graph followed by complete Bron–Kerbosch enumeration yields \\(2921\\) maximal cliques with maximum size \\(6\\) and exactly \\(26\\) maxima. Direct intersections and exhaustive action of the four declared symmetries verify the common core and orbit sizes. The replay is finite and does not infer impossibility from timeout or sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 paper gives constructions with logarithmic redundancy for one deletion plus adjacent transpositions.",
+        "Ye–Ge 2025 give asymptotic upper bounds for deletion/transposition codes and state that earlier cardinality upper bounds were generally unknown."
+      ],
+      "reasoning": "General constructions do not determine the fixed length-six optimum or classify all extremizers. The later upper-bound theorems require asymptotic threshold conditions and likewise do not imply the exact finite census.",
+      "searches": [
+        "published-finding corpus: binary length six one deletion and one adjacent transposition code exact maximum",
+        "published-finding corpus: Damerau TD code n=6 adjacent transposition deletion maximum code",
+        "Web: Damerau deletion adjacent transposition code exact small length"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.06885v1",
+      "doi:10.1109/TIT.2017.2778143",
+      "arXiv:2507.04806v1",
+      "published-finding corpus semantic-search records from the recorded exact-claim and alias queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gabrys–Yaakobi–Milenkovic prove correctness of code constructions but do not enumerate all codes at \\(n=6\\).",
+        "Ye–Ge Theorem IV.1 and related results provide asymptotic cardinality upper bounds; their statements do not specialize to an exact length-six equality and contain no extremizer census."
+      ],
+      "reasoning": "Neither prior statement implies the accepted four-part claim. In particular, knowing an asymptotic order or construction size cannot imply the exact finite optimum, labeled count, common core, or orbit decomposition.",
+      "searches": [
+        "arXiv:1601.06885 full-text Section IV",
+        "arXiv:2507.04806 full-text Sections I–IV",
+        "published-finding corpus: one deletion one adjacent transposition n=6 maximum code size 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gabrys–Yaakobi–Milenkovic define the same binary simultaneous-error ball as at most one adjacent transposition followed by at most one deletion in Section IV.",
+        "Ye–Ge define deletion-transposition balls and explicitly identify Gabrys et al. as the prior fixed-error construction."
+      ],
+      "reasoning": "The alternative “deletion or transposition” ball is a different, weaker channel. The accepted claim uses the simultaneous model, and all searches were compared at that statement level rather than by title alone.",
+      "searches": [
+        "published-finding corpus: binary length-6 1-TD codes maximum 6 exactly 26 maximum codes",
+        "published-finding corpus: one deletion one adjacent transposition n=6 maximum code size 6",
+        "Web: \"1-TD\" code length 6 adjacent transposition deletion binary",
+        "Web: \"B_{(T,1),D}\" code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit returned the numerical pair “maximum \\(6\\), \\(26\\) labeled maxima” for this channel; the nearest returned exact-deletion results concern different objects such as quinary single-deletion codes.",
+        "The inspected primary papers contain constructions or upper bounds rather than a length-six extremizer table."
+      ],
+      "reasoning": "A numerical table or database giving the same fixed parameter would cover the optimum even without matching terminology; none was located in the targeted searches or inspected primary sources.",
+      "searches": [
+        "published-finding corpus: simultaneous deletion adjacent transposition length six 26 extremal codes",
+        "published-finding corpus: binary 1-TD code length 6 census extremal",
+        "published-finding corpus: B_(T,1),D F2^6 code"
+      ]
+    },
+    "rationale": "Targeted database and primary-literature comparisons found the same simultaneous deletion/transposition object and later general upper bounds, but no statement implying the exact binary length-\\(6\\) optimum, the \\(26\\)-maximizer census, the universal two-word core, or the orbit decomposition. The 2018 full text was inspected at its definitions and simultaneous-error construction section; the 2025 maximum-size paper was inspected at its model, introduction, and upper-bound theorem statements.",
+    "residual_risks": [
+      "An obscure, unpublished, or unindexed small-parameter enumeration could contain the same finite census.",
+      "The four-element reversal/complement group is explicitly claimed, not asserted to be the full automorphism group of the compatibility graph."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_NOT_COVERING_FINAL_CLAIM",
+        "evidence": "Section IV defines at most \\(\\ell\\) adjacent transpositions followed by at most one deletion and develops correcting constructions; no exact \\(n=6\\) census was found.",
+        "identifier_or_url": "arXiv:1601.06885 / doi:10.1109/TIT.2017.2778143",
+        "material_read": "Full-text introduction, terminology, Section IV definition of the simultaneous ball, and construction theorem.",
+        "method": "Lawful open full text; definition and theorem statements read directly.",
+        "title": "Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction",
+        "trigger": "Same binary channel and defining paper."
+      },
+      {
+        "assessment": "BROADER_ASYMPTOTIC_BOUNDS_NOT_COVERING_FIXED_CENSUS",
+        "evidence": "The paper states prior construction work lacked general cardinality upper bounds and gives asymptotic upper bounds; its theorem statements do not give the exact length-six optimum or extremizer classification.",
+        "identifier_or_url": "arXiv:2507.04806v1",
+        "material_read": "Full-text abstract, introduction, model definitions, and Section IV upper-bound theorem statements.",
+        "method": "Lawful arXiv full text; relevant theorem statements read directly.",
+        "title": "On the Maximum Size of Codes Under the Damerau-Levenshtein Metric",
+        "trigger": "Title directly concerns maximum code size for the same family of edit errors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d675c09-6f6e-4dd1-a710-213e369895ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The foundational work introduced a practically motivated simultaneous deletion/transposition channel but supplied constructions rather than exact small-parameter structure; even later maximum-size work emphasizes the scarcity of cardinality bounds. A complete exact benchmark at binary length \\(6\\), including all extremizers and their shared core and symmetry decomposition, supplies a concrete calibration point for those constructions and upper-bound methods rather than a routine recomputation of a known table.",
+    "status": "PASS"
+  }
+}
