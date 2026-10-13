@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The five structural conditions are necessary: vertex-cover feasibility forces at least one center and forces all leaves incident to an omitted center, while two omitted leaves adjacent to one center make the corresponding pendant edges edge-metrically indistinguishable. They are sufficient because selected leaves separate same-side pendant edges, a selected center separates opposite-side pendant edges, and either the opposite center or a forced opposite leaf separates the central edge from a pendant edge. The three disjoint center-selection cases expand exactly to the stated polynomial. The independent exhaustive checker agrees for all parameter pairs from one through five.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2.4 proves that a graph with \\(m\\) pendant vertices has dominant edge metric dimension at least \\(m\\).",
+        "Theorem 3.1 gives \\(\\operatorname{Ddim}_e(G\\circ H)=|V(G)||V(H)|\\).",
+        "Example 3.3 specializes this to the uniform caterpillar \\(T_{l,t}=P_l\\circ\\overline{K_t}\\), giving \\(\\operatorname{Ddim}_e(T_{l,t})=lt\\).",
+        "Taking \\(l=2\\) covers the scalar value for the balanced double star \\(S_{t,t}\\), but neither theorem enumerates generators or handles unequal leaf multiplicities through an all-set statement."
+      ],
+      "reasoning": "The strongest prior family result was treated as real coverage rather than ignored. It subsumes one scalar subfamily, so the accepted claim is framed around the all-generator characterization and polynomial; these require new edge-pair and vertex-cover arguments.",
+      "searches": [
+        "DOI 10.5614/ejgta.2023.11.1.16, Theorem 2.4",
+        "DOI 10.5614/ejgta.2023.11.1.16, Theorem 3.1 and Example 3.3",
+        "dominant edge metric dimension caterpillar double star",
+        "dominant edge metric dimension tree double star"
+      ]
+    },
+    "checked_sources": [
+      "Electronic Journal of Graph Theory and Applications 11 (2023), 197–208, DOI 10.5614/ejgta.2023.11.1.16",
+      "Public author-uploaded full-text record dated 11 April 2023",
+      "Kelenc, Tratnik, and Yero, Discrete Applied Mathematics 256 (2018), 204–220",
+      "Targeted published-result searches under double-star, bistar, caterpillar, generator, basis-count, and polynomial formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The pendant lower bound gives \\(\\operatorname{Ddim}_e(S_{p,q})\\ge p+q\\), but says nothing about the complete feasible-set family.",
+        "The corona formula implies the balanced scalar equality \\(\\operatorname{Ddim}_e(S_{t,t})=2t\\).",
+        "The new structural theorem determines all generators for arbitrary \\(p,q\\), and hence exact coefficients at sizes \\(p+q\\), \\(p+q+1\\), and \\(p+q+2\\)."
+      ],
+      "reasoning": "The scalar lower bound is broad and the balanced equality is already covered. Neither implication determines which vertex covers also edge-resolve, nor the minimum-basis multiplicity, nor the all-generator polynomial. Those are the final claim.",
+      "searches": [
+        "DOI 10.5614/ejgta.2023.11.1.16, pendant-vertex lower bound",
+        "DOI 10.5614/ejgta.2023.11.1.16, corona-product formula",
+        "DOI 10.5614/ejgta.2023.11.1.16, uniform caterpillar Example 3.3",
+        "dominant edge metric dimension double star bistar"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The introducing paper defines a dominant edge metric generator as a vertex cover that edge-resolves all edges.",
+        "Full-text searches of the introducing paper found no occurrence of “double star” or “bistar”.",
+        "A later similarly named vertex-edge dominant edge metric invariant uses vertex-edge domination rather than vertex-cover feasibility and therefore does not define the same objects."
+      ],
+      "reasoning": "The direct family names, standard bistar synonym, parameter notation, and generator/enumerator formulations were compared. The only close terminological collision changes the domination requirement and is not equivalent.",
+      "searches": [
+        "dominant edge metric dimension double star",
+        "dominant edge metric generator double star",
+        "dominant edge metric dimension bistar",
+        "dominant edge metric dimension S_{p,q}",
+        "dominant edge metric polynomial double star",
+        "dominant edge metric generator enumerator double star"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No searched published record returned a double-star generator polynomial or basis-count table.",
+        "The closest indexed same-invariant results concern hypercubes; other nearby records concern ordinary edge metric bases of crowns and half graphs.",
+        "The accepted polynomial is derived symbolically for arbitrary \\(p,q\\), not inferred from the finite verification table."
+      ],
+      "reasoning": "The search targeted both the scalar invariant and the stronger enumerative object. The absence of an exact table is supporting evidence only; novelty rests on the statement-level comparison with the inspected primary source.",
+      "searches": [
+        "dominant edge metric polynomial double star",
+        "dominant edge metric generator double star",
+        "double star dominant edge metric bases count",
+        "bistar dominant edge metric generator"
+      ]
+    },
+    "rationale": "The primary introducing paper gives a pendant lower bound and a corona formula. Its uniform-caterpillar example already implies the balanced double-star scalar value, so the accepted novelty is deliberately narrower and stronger in a different direction: arbitrary unequal double stars, every dominant edge metric generator, the complete cardinality enumerator, and the exact count of bases. No inspected or searched source supplied that classification.",
+    "residual_risks": [
+      "The balanced scalar subfamily is prior-covered and is not claimed as original.",
+      "A differently phrased or non-indexed all-generator double-star classification may exist.",
+      "The polynomial notation used here is a natural enumerator definition for this result and need not be standardized elsewhere."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the target invariant, lists MSC 05C12 and 05C76 among its classifications, proves the pendant lower bound and a corona formula, and covers balanced double stars only at the scalar level through its uniform-caterpillar example; no all-generator double-star classification is stated.",
+        "evidence": [
+          "The abstract defines dominant edge metric generators as vertex covers with distinct edge representations.",
+          "Theorem 2.4 states the pendant-vertex lower bound.",
+          "Theorem 3.1 states the corona-product formula.",
+          "Example 3.3 states \\(\\operatorname{Ddim}_e(T_{l,t})=lt\\) for \\(T_{l,t}=P_l\\circ\\overline{K_t}\\).",
+          "The public author-uploaded full text is dated 11 April 2023."
+        ],
+        "identifier_or_url": "DOI:10.5614/ejgta.2023.11.1.16",
+        "material_read": "Open journal PDF at the abstract and definition, Theorems 2.1 and 2.4, Theorem 3.1, Example 3.3, and targeted full-text searches for double star, bistar, and caterpillar.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "The dominant edge metric dimension of graphs",
+        "trigger": "Introducing primary source and possible direct or broader coverage of the target tree family."
+      },
+      {
+        "assessment": "Provides the underlying edge metric dimension but not dominant edge metric generators, so it cannot imply the vertex-cover-constrained polynomial.",
+        "evidence": [
+          "The target primary paper explicitly cites this work as the source of edge metric dimension before adding the vertex-cover condition."
+        ],
+        "identifier_or_url": "Discrete Applied Mathematics 256 (2018), 204–220",
+        "material_read": "Bibliographic and definitional role as cited by the target primary source; no dominant vertex-cover condition is present in this precursor invariant.",
+        "method": "Definition-boundary comparison.",
+        "title": "Uniquely identifying the edges of a graph: The edge metric dimension",
+        "trigger": "Underlying edge-metric notion referenced by the introducing paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4bb42244-09e6-4317-96da-8aad5a83ffee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Double stars are the canonical diameter-three trees with exactly two branching centers and the first nonuniform extension of the published uniform caterpillar example. The full feasible-set classification turns the target invariant from a single optimum value into an exact structural profile, handles arbitrary imbalance, and gives the basis multiplicity and every possible generator size. This is a natural complete classification rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
