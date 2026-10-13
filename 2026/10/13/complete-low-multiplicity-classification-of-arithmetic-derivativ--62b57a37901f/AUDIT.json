@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Complete proof partitions all exponent patterns with \\(\\Omega(n)\\le4\\). Squarefree products have strictly positive gap, nonsingleton prime powers strictly negative; \\(p^2q\\) gives 12,18, \\(p^3q\\) impossible by q<2, \\(p^2q^2\\) strictly negative, \\(p^2qr\\) has an odd-mod-2 obstruction unless p=2, when (q-3)(r-3)=16 has unique valid distinct-prime pair (5,11). Direct substitution and independent SPF/aliquot verifier corroborate the boundary. All n>=2 quantifiers and n=1 exclusion stated; n=396 shows larger Omega need separate work.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2003 original article provides D(n)=n sum e_p/p and derivative inequalities, rather than this equality with s(n).",
+        "The nearby published cototient gap theorem concerns \\(n-\\varphi(n)\\), mathematically different from \\(\\sigma(n)-n\\)."
+      ],
+      "reasoning": "No inspected broader theorem gives both the D=s equation and a complete \\(\\Omega(n)\\le4\\) necessary-and-sufficient classification. Having shared derivative notation alone does not imply coverage.",
+      "searches": [
+        "equation n prime or 12 18 220 396 287532 arithmetic derivative aliquot sum",
+        "arithmetic derivative and aliquot sum equality squarefree semiprime p^a q^b",
+        "A212127 classification arithmetic derivative equal sum proper divisors low prime factors 220 396",
+        "Ufnarovski and Ahlander 2003 Article 03.3.4"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A211991",
+      "https://oeis.org/A212127",
+      "https://oeis.org/A003415",
+      "https://oeis.org/A001065",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+      "Published research record: Sharp support thresholds for the arithmetic-derivative cototient gap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The theorem rules out all other \\(\\Omega(n)\\le4\\) composites, including arbitrary-size \\(p^3q\\), \\(p^2q^2\\) and \\(p^2qr\\).",
+        "The nearest published arithmetic-derivative cototient gap classification uses a different second function and does not yield these exclusions."
+      ],
+      "reasoning": "The inclusion of early known witnesses in an existing sequence cannot imply an unbounded converse. Conversely this theorem is only a sharp multiplicity-stratum classification and does not settle higher Omega.",
+      "searches": [
+        "D(n)=\\(\\sigma(n)-n\\) arithmetic derivative aliquot sum exactly prime or 12 18 220 for \\(\\Omega(n)\\le4\\)",
+        "difference \\(\\sigma(n)-n\\) - D(n) zero solutions squarefree semiprime p^2 q r 220",
+        "A211991 zero fiber classification at most four prime factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A211991 defines \\(D(n)-s(n)\\), so the theorem classifies the zero fiber restricted to \\(\\Omega(n)\\le4\\).",
+        "OEIS A212127 lists \\(D(n)=s(n)\\) witnesses, including 12,18,220, and states no global \\(\\Omega(n)\\le4\\) converse."
+      ],
+      "reasoning": "Equivalent terminology (number derivative, arithmetic derivative, aliquot sum, sum of proper divisors, zero of difference) was checked; the numerical zero list does not exclude arbitrarily large \\(\\Omega(n)\\le4\\) candidates.",
+      "searches": [
+        "arithmetic derivative D(n) equals sum of proper divisors \\(\\sigma(n)-n\\), classification two prime powers",
+        "D(n)=\\(\\sigma(n)-n\\) arithmetic derivative aliquot sum exactly prime or 12 18 220 for \\(\\Omega(n)\\le4\\)",
+        "OEIS:A211991",
+        "OEIS:A212127"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A212127 explicitly names 12,18,220; OEIS A211991 defines their signed-difference fiber.",
+        "The included exact sieve through 500000 finds precisely those composite solutions under \\(\\Omega(n)\\le4\\), but is finite."
+      ],
+      "reasoning": "Existing tables show witnesses, not an infinite exclusion proof. This work does not claim those observed numerical entries as discoveries.",
+      "searches": [
+        "OEIS:A211991",
+        "OEIS:A212127",
+        "A212127 classification arithmetic derivative equal sum proper divisors low prime factors 220 396"
+      ]
+    },
+    "rationale": "The exact defining sequences OEIS A211991 and A212127 record numerical equality cases but neither inspected entry states or proves the all-integers classification under \\(\\Omega(n)\\le4\\). The first relevant original full paper inspected, Ufnarovski–Åhlander (2003), develops D(n) but does not state an aliquot equality classification. Published nearby arithmetic-derivative cototient work concerns \\(D(n)-(n-\\varphi(n))\\), not \\(D(n)-(\\\\(\\sigma(n)-n\\))\\); its results neither imply nor subsume the present theorem. Searches and statement comparisons support originality relative to inspected sources, not absolute publication priority.",
+    "residual_risks": [
+      "A prior but unindexed proof of the same low-multiplicity classification could exist.",
+      "The semantic search of published records is not a certificate of uniqueness or priority; cited pages were directly compared as far as accessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OBJECT_NOT_COVERING_CLASSIFICATION",
+        "evidence": "Formula a(n)=A003415(n)-A001065(n); comments compare signs with unrelated exponent conditions, not a complete zero classification.",
+        "identifier_or_url": "https://oeis.org/A211991",
+        "material_read": "Complete accessible OEIS page including definition, comments, formula, code and references",
+        "method": "Read live entry and compared its stated formulas and comments against unrestricted \\(\\Omega(n)\\le4\\) theorem",
+        "title": "Difference between the arithmetic derivative of n and the sum of proper divisors of n",
+        "trigger": "Exact signed gap function and zero-fiber equivalence"
+      },
+      {
+        "assessment": "LISTS_WITNESSES_NOT_COVERING_UNRESTRICTED_CONVERSE",
+        "evidence": "Comments explicitly list nonprimes 1,12,18,220,...; code searches a fixed finite interval, not a theorem.",
+        "identifier_or_url": "https://oeis.org/A212127",
+        "material_read": "Complete accessible OEIS entry (sequence, description, comments, Maple and references)",
+        "method": "Read the full web entry and evaluated logical implication of finite terms vs all \\(\\Omega(n)\\le4\\)",
+        "title": "Numbers n whose arithmetic derivative equals the sum of its proper divisors",
+        "trigger": "Exact solutions of the equation, including first composites"
+      },
+      {
+        "assessment": "DEVELOPS_DERIVATIVE_WITHOUT_TARGET_ALIQUOT_CLASSIFICATION",
+        "evidence": "Theorem 1 proves \\(D(n)=n\\sum e_i/p_i\\); its displayed equations involve D(n)=n and other derivative properties, not equality with s(n).",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+        "material_read": "Original 24-page PDF, examined title/abstract, Theorem 1 with prime-factorization formula and sections on integer differential equations; searched extracted text for divisor and sigma",
+        "method": "Primary PDF text inspection with page image of page 1, mathematical formula and source-page review",
+        "title": "How to Differentiate a Number",
+        "trigger": "Primary published general arithmetic-derivative formula and possible structural bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "62b57a37-901f-42bb-ac40-6140af6b372d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pre-existing exact equality sequence A212127 has many prime witnesses and sporadic composites. The theorem gives its first complete unrestricted prime-factor-multiplicity strata including the first three-distinct-prime witness 220. It distinguishes a finite table of examples from an all-size exclusion in every pattern up to Omega=4; 396 at Omega=5 shows a genuine new regime beyond the boundary. This is a mathematically natural classification, not a small numerical cutoff or a recomputation of existing entries.",
+    "status": "PASS"
+  }
+}
