@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "The proof derives Cov(L,U)=delta^2 from LU=X1X2, uses reflection to equate the two variances, evaluates delta and Var(L) exactly, and factors 5/11-rho. The remaining factors are strictly positive on theta in [0,1], so all endpoints, equality cases, and quantifiers are covered analytically. The verifier only rechecks identities and does not stand in for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Papadatos Theorem 1.2 gives the discrete-uniform bound (1-N^{-2})/(2+N^{-2}); for N=4 this is 5/11.",
+        "Record 92f0f4188ee4 proves the arbitrary-probability three-point case with sharp value 8/19."
+      ],
+      "reasoning": "The general discrete Terrell theorem has the broader class of finite uniform populations but only the global bound associated with their population size; it does not imply a fixed four-support bound for arbitrary masses. The closest probability-vector theorem is broader in masses but narrower in support and has no reduction covering four atoms.",
+      "searches": [
+        "four point distribution min max correlation uniform probabilities iid order statistics",
+        "reflection symmetric four point probability weights min max correlation sample size two 5/11",
+        "symmetric four point law order statistics min max Pearson correlation outer mass"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2205.14360v1",
+      "DOI:10.3103/S1066530723020035",
+      "published record 92f0f4188ee4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2205.14360v1 requires uniformity on P in Definition 1.1 and Theorem 1.2.",
+        "Record 92f0f4188ee4 concerns exactly three equally spaced atoms."
+      ],
+      "reasoning": "Papadatos's N=4 equality case is recovered at theta=1/2 but does not control theta away from 1/2. The three-point arbitrary-mass theorem does not embed the four-point reflection-symmetric family without changing the order-statistic law. Therefore neither prior statement implies the new exact formula or its sharp stability deficit.",
+      "searches": [
+        "correlation minimum maximum four point support uniform probability",
+        "Papadatos four point probability weights correlation sample minimum maximum",
+        "symmetric four point law order statistics min max Pearson correlation outer mass"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2205.14360v1",
+        "published record 92f0f4188ee4"
+      ],
+      "reasoning": "Searches used minimum/maximum, extreme order statistics, Pearson correlation, four-point probability vectors, and Papadatos terminology. The primary paper's theorem assumes a uniform finite population; the three-point record has a different support size. Neither is statement-equivalent to the one-parameter four-point stability identity.",
+      "searches": [
+        "four point distribution min max correlation uniform probabilities iid order statistics",
+        "correlation minimum maximum four point support uniform probability",
+        "Papadatos four point probability weights correlation sample minimum maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No covering published-finding corpus hit was returned; the closest indexed scientific result was record 92f0f4188ee4.",
+        "The primary full text identifies 5/11 only as the N=4 uniform-population value, not as an exact mass-deformation profile."
+      ],
+      "reasoning": "The exact constant, support size, symmetry qualifier, and Papadatos source were searched together. No database/table result supplying the displayed theta-dependent formula or factorized deficit was found.",
+      "searches": [
+        "reflection symmetric four point probability weights min max correlation sample size two 5/11",
+        "Papadatos four point symmetric probability vector 5/11 correlation",
+        "5/11 four point min max correlation discrete order statistics"
+      ]
+    },
+    "rationale": "The closest primary source fixes uniform masses and supplies the value 5/11 at four distinct lattice points, whereas the new claim gives the full exact correlation and sharp stability deficit along the nonuniform reflection-symmetric mass family. The closest published probability-vector result treats only three support points. Targeted semantic and exact-phrase searches found no covering four-point symmetric statement; the remaining risk is an older equivalent calculation under different order-statistic notation.",
+    "residual_risks": [
+      "An equivalent elementary four-point symmetric calculation may exist in older order-statistic correlation literature under different notation.",
+      "The published three-point record was compared from its indexed scientific summary rather than a separately fetched full package; this does not affect the decisive comparison to the primary four-point source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the new claim: the theorem assumes a uniform finite population; it supplies 5/11 at N=4 but no theta-dependent nonuniform mass formula or stability factorization.",
+        "evidence": "Definition 1.1 defines uniformity through equal population slots; Theorem 1.2 states the bound (1-N^{-2})/(2+N^{-2}) for that setting.",
+        "identifier_or_url": "arXiv:2205.14360v1",
+        "material_read": "Abstract, Definition 1.1, Theorem 1.2, and surrounding proof setup in the full-text PDF.",
+        "method": "Full-text inspection, including rendered PDF page inspection.",
+        "title": "A discrete analogue of Terrell's characterization of rectangular distributions",
+        "trigger": "Same order-statistic correlation object and exact four-point uniform benchmark."
+      },
+      {
+        "assessment": "NOT_COVERING: support has three equally spaced atoms and sharp value 8/19; no four-point statement is reported.",
+        "evidence": "Summary states arbitrary probability weights on three equally spaced atoms, sample size two, unique uniform maximizer.",
+        "identifier_or_url": "92f0f4188ee4",
+        "material_read": "Indexed title and scientific summary returned by the published-record search.",
+        "method": "Semantic database comparison.",
+        "title": "Sharp min-max correlation over three-point probability weights",
+        "trigger": "Closest published probability-vector result in the same order-statistic problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "584614ef-8b99-46c8-aebf-c7f3fe268a1b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reflection symmetry is the canonical symmetry-preserving deformation of the four-point rectangular law, not an arbitrary parameter slice: it keeps the same support center and the natural symmetry of the extremizer while moving mass between outer and inner pairs. The result gives an exact sharp stability law at the first support size beyond the published arbitrary-mass three-point theorem, quantifying how the Papadatos N=4 extremal value deteriorates under symmetric mass imbalance.",
+    "status": "PASS"
+  }
+}
