@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The exact CDF yields the survival expansion by one Taylor expansion at the upper BSH endpoint. The published density independently gives the matching density constant, and division yields the hazard equivalent. The MGF trichotomy follows from the sign of \\(tx-x^\\alpha\\), with the boundary case \\(\\alpha=1\\) handled explicitly. Polynomial moments are finite by Weibull-type integrability, and the quantile equivalent follows by logarithmic inversion. A standalone high-precision checker replayed from the package path confirms all three normalized asymptotic ratios.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The BSH parent paper studies a bounded distribution on the unit interval, so it has no unbounded EBSH right-tail phase.",
+        "General heavy-tail references identify absence of every positive exponential moment as the heavy-tail criterion, but do not state the EBSH constants or theta-independence of the terminal hazard scale."
+      ],
+      "reasoning": "Generic stretched-exponential facts explain why the final phase diagram is plausible once the exact EBSH survival equivalent is proved, but they do not supply that model-specific equivalent or its correction of the source's blanket claim.",
+      "searches": [
+        "bounded sine hyperbolic Weibull transform hazard tail alpha theta",
+        "stretched exponential heavy tailed mgf Weibull alpha less than 1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026613",
+      "doi:10.1016/j.kjs.2025.100467",
+      "doi:10.1029/2021WR030506"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target equations define F(x) and f(x) exactly, but the paper does not take the Taylor expansion of the CDF at its upper BSH endpoint.",
+        "The bounded parent distribution cannot itself state the post-transformation alpha phase because its support ends at one.",
+        "The standard heavy-tail definition converts the proved MGF domains into an unambiguous alpha-dependent classification."
+      ],
+      "reasoning": "The prior formulas imply the accepted theorem only after a new endpoint expansion and exponential-moment comparison. The source instead draws the opposite family-wide light-tail conclusion.",
+      "searches": [
+        "EBSH CDF equation 2.7 tail",
+        "EBSH density equation 2.2 hazard",
+        "bounded sine hyperbolic distribution support 0 1",
+        "heavy tail positive moment generating function definition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary EBSH PDF states only that the factor exp(-x^alpha) makes the family light-tailed and does not give an alpha-dependent phase theorem.",
+        "The closest indexed semantic results concern unrelated power-law or endpoint phase transitions rather than EBSH.",
+        "No EBSH-specific search result states the exact MGF domains or unit terminal hazard normalization."
+      ],
+      "reasoning": "The same claim was searched as a stretched-exponential classification, an MGF-domain classification, and a long-tail statement. No equivalent EBSH theorem was located.",
+      "searches": [
+        "extended bounded sine hyperbolic heavy tail alpha less than one stretched exponential",
+        "EBSH distribution moment generating function alpha tail phase",
+        "EBSH long-tailed alpha theta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The target PDF's Section 3.1 says that the terminal exp(-x^alpha) factor makes EBSH light-tailed for the stated parameter space.",
+        "No corrigendum or source-specific correction was located in exact-DOI searches."
+      ],
+      "reasoning": "The accepted result is not inferred from a numerical table; it is a direct asymptotic consequence of the published closed-form CDF and density.",
+      "searches": [
+        "10.3934/math.2026613 tail light-tailed correction",
+        "10.3934/math.2026613 EBSH stretched exponential"
+      ]
+    },
+    "rationale": "The target full PDF explicitly calls the entire EBSH family light-tailed but does not state the survival constant, hazard equivalent, positive-MGF phase transition, or long-tail regime. The bounded BSH precursor has compact support and does not contain the transformed unbounded-tail theorem. Five focused semantic searches using the exact family, DOI, stretched-exponential, MGF, hazard, and long-tail formulations found no covering EBSH result.",
+    "residual_risks": [
+      "An unindexed note may already observe the same EBSH stretched-exponential phase under different terminology.",
+      "Some applied authors use 'light-tailed' more loosely than the standard positive-MGF definition; the exact MGF and survival statements avoid that terminological ambiguity.",
+      "A generic transformation theorem for bounded upper-endpoint densities could subsume the first-order calculation abstractly, although no EBSH-specific covering result was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING and scientifically contradicted on the blanket label. The paper provides the exact formulas but does not state the sharp alpha phase; its Section 3.1 says the family is light-tailed for the full positive parameter space.",
+        "evidence": "Equations (2.2) and (2.7), and the tail paragraph following equation (3.5).",
+        "identifier_or_url": "doi:10.3934/math.2026613",
+        "material_read": "Open-access full PDF: title/MSC page, Section 2 transformation and equations (2.1)-(2.7), Section 3.1 linear representation and explicit tail paragraph, quantile and moment sections, and conclusion.",
+        "method": "Direct full-text and rendered-page inspection.",
+        "title": "A new extended distribution with monotonic and nonmonotonic failure rates: statistical properties and comparative predictive modeling in medical datasets",
+        "trigger": "Primary source defining EBSH and making the family-wide light-tail statement."
+      },
+      {
+        "assessment": "NOT_COVERING. It studies the bounded parent on the unit interval and therefore does not contain the unbounded transformed-tail phase theorem.",
+        "evidence": "The BSH CDF and density are defined on the unit interval; its analysis concerns bounded-distribution shape and reliability.",
+        "identifier_or_url": "doi:10.1016/j.kjs.2025.100467",
+        "material_read": "Full accessible article text covering its unit-support CDF, density, hazard discussion, statistical properties, and residual-life section.",
+        "method": "Direct full-text inspection.",
+        "title": "Bounded sine hyperbolic distribution with applications to real datasets",
+        "trigger": "Immediate bounded parent distribution cited by the EBSH source."
+      },
+      {
+        "assessment": "DEFINITIONAL SUPPORT ONLY. It supplies the positive-MGF/exponential-bound criterion but does not analyze EBSH.",
+        "evidence": "Section 2.1 states that heavy tails are characterized by nonexistence of finite positive exponential moments.",
+        "identifier_or_url": "doi:10.1029/2021WR030506",
+        "material_read": "Publisher full HTML, Section 2.1 on equivalent heavy-tail definitions.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "Understanding heavy tails of flood peak distributions",
+        "trigger": "Authoritative comparison for the heavy-tail definition used in the classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b8c14e8-31cb-4746-b6bc-5af2a282c633",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Tail behavior and hazard flexibility are central stated motivations of the EBSH model, and the paper explicitly interprets its tail class. The finding supplies a complete natural phase classification over the full alpha parameter range, corrects a family-wide light-tail assertion, identifies theta's precise asymptotic role, and determines the positive-MGF domain, long-tail property, terminal hazard, and extreme-quantile scale. These are structural reliability and extreme-value properties rather than a finite numerical discrepancy.",
+    "status": "PASS"
+  }
+}
