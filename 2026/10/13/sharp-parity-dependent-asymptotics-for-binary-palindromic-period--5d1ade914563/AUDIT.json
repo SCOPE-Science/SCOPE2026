@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The exact root-split model parameterization is injective for fixed d,c, and its size is algebraically 2^(ceil(c/2)+ceil((d-c)/2)). Separate near-full-length models with central cuts have at least delta*n-2 conflicting partner vertices. These give at least (delta*n-2)/2 distinct cross-component second-matching edges. On contraction of the first size<=2 matching, maximum degree two ensures at least half that many component mergers. Hence pair intersections are exponentially negligible after fixed L,delta, and Bonferroni + geometric-series upper bound prove parity-sensitive leading constants. Standalone finite independent predicate, model construction and OEIS checks passed; these do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici–Shallit–Simpson 2025 §7 asks the asymptotic question and proves different results on factors in infinite words.",
+        "Kemp 1982 concerns the language of products of two palindromes at equal total length."
+      ],
+      "reasoning": "Root language enumeration and bounds on periodicities inside infinite words do not imply an asymptotic for distinct periodic extensions over all root lengths; no stronger published bound covering the theorem was identified.",
+      "searches": [
+        "Fici Shallit Simpson 2024 palindromic periodicities asymptotic enumeration language A374495",
+        "\"palindromic periodicities\" \"asymptotic\" number 2026 2025",
+        "doi:10.4230/LIPIcs.CPM.2025.11"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.10564 (2024 original and 2025 open proceedings version)",
+      "arXiv:2402.05381 (2024)",
+      "OEIS A374495",
+      "Kemp 1982 root-enumeration bibliographic record only",
+      "published semantic research index: closest title Second-order digital oscillation for distinct substrings of a uniform random word (unrelated object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited primary paper explicitly leaves asymptotic P(n) as a question.",
+        "The earlier overlapping-period study does not estimate total collisions across bounded-deficit models."
+      ],
+      "reasoning": "The proof establishes exponentially small overlaps between root models with distinct length/split parameters and then sums their exact sizes; this needed implication is absent from the compared primary statements.",
+      "searches": [
+        "Asymptotic enumeration of binary palindromic periodicities length n, two palindromes period, growth 5 n 2^(n/2) for even n and 7/sqrt(2) n 2^(n/2) odd",
+        "Fici Shallit Simpson 2024 palindromic periodicities asymptotic enumeration language A374495",
+        "arXiv:2407.10564",
+        "arXiv:2402.05381"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reflections of cyclic palindrome-pair roots and symmetric words are compared with the exact two-palindrome periodic-prefix language.",
+        "Simpson 2024 treats two-period overlap, not the count of all binary length-n prefixes."
+      ],
+      "reasoning": "A different reflection-axis formulation of palindrome pairs does not supply both parity-dependent asymptotic constants, nor the cross-root-length intersection bound.",
+      "searches": [
+        "Asymptotic enumeration of binary palindromic periodicities length n, two palindromes period, growth 5 n 2^(n/2) for even n and 7/sqrt(2) n 2^(n/2) odd",
+        "Primitive palindrome pair cyclic reflection class asymptotic counting primitive symmetric words and word periods",
+        "arXiv:2402.05381"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A374495 enumerates P(n) up to n=39 with a finite generator.",
+        "Source article §7 quotes initial terms and only the trivial Omega(2^{n/2}) bound."
+      ],
+      "reasoning": "Finite exact counts contain no stated asymptotic theorem and do not entail sharp leading constants without a uniform argument.",
+      "searches": [
+        "\"palindromic periodicities\" \"asymptotic\" counting binary 2024 2025",
+        "\"A374495\" asymptotic \"n\" power two",
+        "OEIS:A374495"
+      ]
+    },
+    "rationale": "Direct same-object full-text literature contrasts, table checks and semantic index comparison show no covering asymptotic; the 2025 primary paper poses exactly this as open. Residual unindexed priority risk is acknowledged.",
+    "residual_risks": [
+      "Kemp 1982 full original was not available for detailed reading; the source and subsequent paper describe it as enumeration of products of palindromes rather than extensions.",
+      "Unindexed equivalent results under the labels reflection word, symmetric periodic prefix or palindrome pair may exist.",
+      "Comparison with selected indexed literature is not a priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Section 7 poses the precise asymptotic question; lists only exact prefix and trivial exponential lower bound. The two constants and overlap estimate are absent.",
+        "evidence": [
+          "arXiv:2407.10564, submitted 2024-07-15",
+          "doi:10.4230/LIPIcs.CPM.2025.11, Section 7 and results sections"
+        ],
+        "identifier_or_url": "arXiv:2407.10564 ; doi:10.4230/LIPIcs.CPM.2025.11",
+        "material_read": "Original arXiv preprint sections on definitions and conclusions, and full accessible 2025 proceedings HTML with mathematical main theorems, examples, section 7, and bibliography; searched for count, bounds, asymptotic.",
+        "method": "Public full-text HTML reading; checked original first-submission record and revised journal text.",
+        "title": "Some Remarks on Palindromic Periodicities / On Palindromic Periodicities",
+        "trigger": "Identical definition and explicit asymptotic question for binary words."
+      },
+      {
+        "assessment": "Focuses on structural two-period overlap, not asymptotic enumeration of all distinct length-n prefix models.",
+        "evidence": [
+          "arXiv:2402.05381, submitted 2024-02-08"
+        ],
+        "identifier_or_url": "arXiv:2402.05381",
+        "material_read": "Abstract, definitions, statement and proof context of two-period result, conclusions and cited sources.",
+        "method": "Authorized public PDF extracted text and arXiv abstract; checked the relevant theorem and concluding discussion.",
+        "title": "Palindromic Periodicities",
+        "trigger": "Earlier primary treatment of the same language and multiple periods."
+      },
+      {
+        "assessment": "Finite table up to 39, generator and references; no parity-dependent asymptotic constants stated.",
+        "evidence": [
+          "OEIS A374495, listed 2024 source and numerical values 2026 index"
+        ],
+        "identifier_or_url": "https://oeis.org/A374495",
+        "material_read": "Definition, all displayed values through n=39, comments, example, attached programs, references and links.",
+        "method": "Live OEIS sequence page reading and comparison with enumerator outputs.",
+        "title": "A374495: Number of palindromic periodicities among binary words of length n",
+        "trigger": "Exact database or table could already contain stronger statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d1ade91-4563-435a-ab5c-b0126aacd0c9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original arXiv 2024 and CPM 2025 paper specifically asks the asymptotic growth of binary palindromic periodicities. The theorem settles it with exact leading constants and a parity phase, based on a nontrivial reflection-overlap lemma, rather than a routine finite enumeration.",
+    "status": "PASS"
+  }
+}
