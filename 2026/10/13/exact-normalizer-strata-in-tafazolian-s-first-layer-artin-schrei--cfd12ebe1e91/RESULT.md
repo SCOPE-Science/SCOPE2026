@@ -1,0 +1,199 @@
+# Exact normalizer strata in Tafazolian's first-layer Artin--Schreier families
+## Finding
+Let \(k\) be algebraically closed of odd characteristic \(p\), and let \(X=X(V)\) be a first-layer curve in Tafazolian's Theorem 1.7. Thus its distinguished Sylow subgroup satisfies
+\[
+S\cong C_p^2.
+\]
+Tafazolian identifies
+\[
+N_{\operatorname{Aut}(X)}(S)/S
+\cong
+\operatorname{Stab}_{k^*\rtimes C_2}(V),
+\]
+where the generators acting on coefficient pairs are
+\[
+D_\lambda(a,b)=(\lambda^{-1}a,\lambda b),
+\qquad
+J(a,b)=(b,a).
+\]
+
+The stabilizer, and hence the normalizer, can be computed completely.
+
+For the first normal form
+\[
+V=A(x+x^{-1}),
+\]
+with \(A\subset k\) a two-dimensional \(\mathbf F_p\)-subspace,
+\[
+\boxed{
+N_{\operatorname{Aut}(X)}(S)/S\cong C_2\times C_2,
+\qquad
+|N_{\operatorname{Aut}(X)}(S)|=4p^2.
+}
+\]
+
+For the second normal form
+\[
+V=
+\mathbf F_p a(x+x^{-1})
+\oplus
+\mathbf F_p b(x-x^{-1}),
+\qquad
+r=\frac ab\notin\mathbf F_p,
+\]
+one has the exact dichotomy
+\[
+\boxed{
+N_{\operatorname{Aut}(X)}(S)/S\cong
+\begin{cases}
+C_2\times C_2,&r^2\notin\mathbf F_p,\\
+D_{p+1},&r^2\in\mathbf F_p,
+\end{cases}}
+\]
+where \(D_{p+1}\) denotes the dihedral group of order \(2(p+1)\). Equivalently,
+\[
+\boxed{
+|N_{\operatorname{Aut}(X)}(S)|=
+\begin{cases}
+4p^2,&r^2\notin\mathbf F_p,\\
+2p^2(p+1),&r^2\in\mathbf F_p.
+\end{cases}}
+\]
+Thus the universal lower bound \(4p^2\) noted in the source is exact throughout the first normal form and on the generic part of the second, while the second normal form has a precisely located symmetry-jump locus.
+
+## Assumptions and scope
+The base field \(k\) is algebraically closed and \(p>2\). The curve \(X=X(V)\) is one of the first-layer curves classified in Tafazolian's Theorem 1.7. In particular the Artin--Schreier plane \(V\) is two-dimensional over \(\mathbf F_p\), the associated subgroup \(S\) has order \(p^2\), and Corollary 1.8 applies.
+
+The conclusion computes the normalizer of this distinguished Sylow \(p\)-subgroup. It does not claim that the normalizer is the full automorphism group in every member of the family.
+
+For the second normal form, \(r=a/b\) depends on the displayed eigenbasis, but the condition \(r^2\in\mathbf F_p\) is invariant under the allowed rescaling \(a\mapsto ua\), \(b\mapsto vb\) with \(u,v\in\mathbf F_p^*\), and under swapping the two branch points: multiplying \(r\) by an element of \(\mathbf F_p^*\) or replacing it by its inverse preserves whether its square lies in \(\mathbf F_p\).
+
+## Proof
+Corollary 1.8 reduces the problem to a stabilizer calculation in
+\[
+k^*\rtimes\langle J\rangle,
+\qquad
+J D_\lambda J=D_{\lambda^{-1}}.
+\]
+
+For the first normal form, write
+\[
+e_+=(1,1),
+\qquad
+V=Ae_+.
+\]
+The involution \(J\) fixes \(V\). Moreover
+\[
+D_\lambda e_+=(\lambda^{-1},\lambda)
+\]
+lies on the line \(ke_+\) if and only if
+\[
+\lambda^{-1}=\lambda,
+\]
+equivalently \(\lambda^2=1\). Thus the diagonal part of the stabilizer is exactly
+\[
+\{D_1,D_{-1}\}\cong C_2.
+\]
+Together with \(J\), which commutes with \(D_{-1}\), this gives
+\[
+\operatorname{Stab}(V)\cong C_2\times C_2.
+\]
+Since \(|S|=p^2\), the normalizer has order \(4p^2\).
+
+For the second normal form, put
+\[
+e_+=(1,1),\qquad e_-=(1,-1),\qquad
+v_1=ae_+,\qquad v_2=be_-,
+\qquad r=\frac ab.
+\]
+Define
+\[
+c=\frac{\lambda+\lambda^{-1}}2,
+\qquad
+d=\frac{\lambda^{-1}-\lambda}2.
+\]
+Relative to the \(\mathbf F_p\)-basis \(v_1,v_2\), the transformation \(D_\lambda\) has matrix
+\[
+\begin{pmatrix}
+c&d/r\\
+rd&c
+\end{pmatrix}.
+\]
+Therefore \(D_\lambda\) preserves \(V\) exactly when
+\[
+c\in\mathbf F_p,\qquad
+rd\in\mathbf F_p,\qquad
+d/r\in\mathbf F_p.
+\]
+
+If \(d=0\), then \(\lambda=\pm1\). If \(d\ne0\), the last two conditions imply
+\[
+r^2=\frac{rd}{d/r}\in\mathbf F_p.
+\]
+Hence when \(r^2\notin\mathbf F_p\), the diagonal stabilizer is exactly \(\{D_1,D_{-1}\}\), and adjoining \(J\) again gives \(C_2\times C_2\).
+
+Now assume
+\[
+\delta=r^2\in\mathbf F_p.
+\]
+Because \(r\notin\mathbf F_p\), the element \(\delta\) is a nonsquare and \(\mathbf F_p(r)=\mathbf F_{p^2}\). The stabilizer conditions are equivalent to
+\[
+c\in\mathbf F_p,\qquad d=ur\quad\text{for some }u\in\mathbf F_p.
+\]
+The identity
+\[
+c^2-d^2=1
+\]
+then becomes
+\[
+c^2-\delta u^2=1.
+\]
+Since
+\[
+\lambda=c-d=c-ur,
+\]
+these \(\lambda\)'s are exactly the norm-one elements of
+\[
+\mathbf F_{p^2}^*.
+\]
+The norm-one subgroup is cyclic of order \(p+1\). Thus the diagonal stabilizer is \(C_{p+1}\). Finally,
+\[
+J D_\lambda J=D_{\lambda^{-1}},
+\]
+so \(J\) acts on this cyclic group by inversion. The full stabilizer is therefore dihedral of order \(2(p+1)\), proving the formula for the normalizer order.
+
+## Verification
+The full initiating source was inspected at Theorem 1.7, Corollary 1.8, and Remark 9.4. Theorem 1.7 supplies the two normal forms and \(S\cong C_p^2\). Corollary 1.8 identifies the normalizer quotient with the stabilizer of \(V\) under the projectivities generated by \(D_\lambda\) and \(J\). Remark 9.4 records the universal subgroup
+\[
+\langle D_{-1},J\rangle\cong C_2\times C_2
+\]
+and hence the lower bound \(4p^2\), but does not give the exact stabilizer classification above.
+
+The matrix calculation was reconstructed directly from
+\[
+D_\lambda(a,b)=(\lambda^{-1}a,\lambda b).
+\]
+The two off-diagonal membership conditions are simultaneous and force \(r^2\in\mathbf F_p\) whenever \(d\ne0\). On that locus, the determinant identity becomes the norm-one equation in the quadratic extension \(\mathbf F_{p^2}/\mathbf F_p\), whose kernel has exactly \(p+1\) elements.
+
+As a boundary check, for \(p=3\) the exceptional diagonal stabilizer has order \(4\) and the quotient has order \(8\), while away from the exceptional locus the quotient has order \(4\), agreeing with the general formulas.
+
+No finite enumeration is used as proof; the argument is uniform in every odd prime \(p\).
+
+## Relationship to prior work
+Tafazolian's paper classifies the first admissible layer, gives the two Artin--Schreier normal forms, identifies isomorphism classes as orbits under \(k^*\rtimes C_2\), and expresses the normalizer quotient as the corresponding stabilizer. The same paper notes that every first-layer normalizer has order at least \(4p^2\) and that the stabilizer in the second normal form is finite. It does not state the exact stabilizer sizes or the symmetry-jump condition \(r^2\in\mathbf F_p\).
+
+Earlier work of Korchmáros and Montanucci studies ordinary curves with large automorphism groups and includes related Artin--Schreier examples with large elementary abelian subgroups. Its emphasis is on automorphism bounds and special families; it does not classify the stabilizers of Tafazolian's rank-two first-layer planes.
+
+Searches for the source identifier, the exact normalizer orders, the dihedral quotient, the condition \(r^2\in\mathbf F_p\), and equivalent norm-one-torus formulations found no statement implying the classification above. The closest located normalizer result concerns a different Kummer maximal-curve family and is implication-incomparable.
+
+## Limitations
+The theorem computes \(N_{\operatorname{Aut}(X)}(S)\), not necessarily the full automorphism group \(\operatorname{Aut}(X)\).
+
+The symmetry-jump statement is tied to the second normal form of Theorem 1.7. No analogous assertion is made for curves outside Tafazolian's first admissible layer.
+
+Absolute novelty cannot be inferred from search alone; the main residual risk is that this short stabilizer computation may occur in unindexed notes or informal treatments.
+
+## References
+S. Tafazolian, “Sharp bounds and gap phenomena for large \(p\)-subgroups of automorphism groups of curves,” arXiv:2610.05539v1, first public 2026-10-04; especially Theorem 1.7, Corollary 1.8, and Remark 9.4.
+
+G. Korchmáros and M. Montanucci, “Ordinary algebraic curves with many automorphisms in positive characteristic,” arXiv:1610.05252.
