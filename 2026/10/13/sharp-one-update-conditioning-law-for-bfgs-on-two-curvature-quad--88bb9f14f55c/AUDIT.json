@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The BFGS update acts nontrivially only on span{s,Hs}. In that plane its determinant is q=s^T Hs and its trace is q+1+m^2/q, with m^2=s^T H^2s-q^2. The endpoint spectral inequality gives the sharp bound m^2<=(q-1)(kappa-q), attained by support on the extreme eigenspaces. The resulting normalized trace is maximized uniquely at q=3kappa/(kappa+2), and solving the two-eigenvalue trace/determinant relation yields the closed form Gamma(kappa). The strict comparison Gamma(kappa)>kappa follows from an exact positive factorization. The packaged checker independently replays the algebra and explicit witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shanno's abstract explicitly studies optimal conditioning in a parameterized class of quasi-Newton approximations, establishing conditioning as prior subject matter.",
+        "Dennis-Wolkowicz analyze condition-related least-change measures and sizing, and their full text notes that low-rank secant updates can become ill-conditioned and that sizing can correct this.",
+        "Powell's full article analyzes two-dimensional BFGS eigenvalue recurrences when the true Hessian is the identity and the approximate Hessian is initially poor; its quantified inefficiency is a different initialization/true-Hessian regime."
+      ],
+      "reasoning": "These sources establish broader motivation and remedies but do not dominate the final statement. The new theorem fixes the initial approximation at identity and asks how ill-conditioned the first learned Hessian can become relative to a nontrivial true Hessian.",
+      "searches": [
+        "Conditioning of quasi-Newton methods for function minimization Shanno",
+        "Sizing and Least-Change Secant Methods BFGS condition number",
+        "How bad are the BFGS and DFP methods when the objective function is quadratic",
+        "Matrix conditioning and nonlinear optimization BFGS"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.5141",
+      "doi:10.1137/0730067",
+      "doi:10.1007/BF01582161",
+      "doi:10.1090/S0025-5718-1970-0274029-X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Powell's setup has true Hessian I and studies correction of a badly conditioned current B_k; reversing those roles is not an implication because the BFGS update is not symmetric in the true and approximate Hessians.",
+        "Dennis-Wolkowicz show why scaling and alternative least-change choices can improve conditioning, but their inspected sections do not give the unsized one-update fixed-kappa extremum.",
+        "The BFGS secant and positive-definiteness properties alone do not determine the extreme eigenvalues; the sharp spectral second-moment step and optimization over the Rayleigh quotient are additional."
+      ],
+      "reasoning": "The final theorem is a statement-level refinement: prior literature supplies the update and a conditioning motivation, whereas the new proof supplies the exact worst-case map kappa -> Gamma(kappa), its attaining direction, and the strict worsening comparison.",
+      "searches": [
+        "Powell BFGS quadratic eigenvalues approximate Hessian recurrence",
+        "Dennis Wolkowicz BFGS sizing condition number optimal update",
+        "Shanno optimal conditioning quasi-Newton BFGS"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published-record searches returned objective-transient, Barzilai-Borwein, Polyak, and other optimization findings but no BFGS one-update condition-number theorem.",
+        "Web searches recovered classical BFGS conditioning, self-scaling, and poor-quadratic-behavior literature, but no statement of the closed form Gamma(kappa) or the every-kappa worsening law.",
+        "The exact update formula and identity initialization are present in the full Erway-Jain-Marcia text, but that source studies shifted L-BFGS solves rather than the extremal conditioning question."
+      ],
+      "reasoning": "An equivalent result would have to quantify the ordinary unsized direct BFGS update from a scalar identity, optimize over all secant directions and SPD Hessians of fixed condition number, and compare the resulting condition number directly with the true Hessian. The retrieved statements do not make that implication.",
+      "searches": [
+        "BFGS one update Hessian approximation condition number quadratic identity initial matrix",
+        "BFGS update can worsen condition number true Hessian two dimensional",
+        "BFGS Hessian condition number one secant update exact formula",
+        "BFGS identity initialization quadratic condition number amplification",
+        "BFGS one update condition number Hessian approximation exact line search condition number trace determinant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table, formula, or database result matching Gamma(kappa) was located.",
+        "The value at kappa=4, namely 3+2sqrt(2), follows from the analytic extremizer rather than a benchmark table."
+      ],
+      "reasoning": "The reported function is an exact extremal invariant derived from the update geometry, not a recomputation of published numerical tests.",
+      "searches": [
+        "\"BFGS\" \"condition number\" \"identity matrix\" quadratic",
+        "\"one BFGS update\" eigenvalues condition number",
+        "\"BFGS matrix\" eigenvalues identity initial matrix y=As",
+        "\"BFGS\" \"ill-conditioned\" Hessian approximation one update"
+      ]
+    },
+    "rationale": "Conditioning and scaling of quasi-Newton updates are established topics, and those general facts are treated as prior work. The closest full conditioning paper inspected discusses least-change measures, sizing, and the possibility that low-rank updates become ill-conditioned; Powell's full two-dimensional analysis studies a complementary regime with identity true Hessian and a poor initial approximation. The inspected sources do not state the exact worst one-update condition number from identity initialization relative to a true Hessian of condition kappa, nor the strict inequality for every kappa>1.",
+    "residual_risks": [
+      "Shanno's 1970 paper could not be fully retrieved in this run, so an equivalent one-update specialization there cannot be excluded.",
+      "Older self-scaling or condition-optimal quasi-Newton literature may encode the same extremal formula under scaled-eigenvalue notation.",
+      "The theorem fixes B_0 to the minimum-curvature scalar identity; other initialization scalings may have different and potentially larger worst-case laws."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: supplies the exact update used in the theorem but studies shifted L-BFGS systems rather than worst one-update conditioning.",
+        "evidence": "Section 2 defines B_0 as a scalar multiple of identity, gives the direct BFGS rank-two formula, and states positive definiteness of the resulting BFGS matrices.",
+        "identifier_or_url": "arxiv:1209.5141",
+        "material_read": "The full arXiv text was inspected, with focused reading of the introduction and Section 2 on limited-memory BFGS matrices, including the definitions of secant pairs, scalar identity initialization, and the direct update.",
+        "method": "Lawful open full-text inspection.",
+        "title": "Shifted L-BFGS Systems",
+        "trigger": "Archive-era full source containing the direct BFGS formula, scalar-identity initialization, and positive-definiteness context."
+      },
+      {
+        "assessment": "BROADER_PARTIAL_COVERAGE: establishes classical conditioning concerns and scaling remedies, but the inspected results do not state the unsized identity-start one-update extremum relative to the true Hessian condition number.",
+        "evidence": "The paper explicitly notes that low-rank updates can make the new approximation ill-conditioned and motivates sizing; it develops optimally conditioned or condition-related scaled updates rather than the final unsized extremal formula.",
+        "identifier_or_url": "doi:10.1137/0730067",
+        "material_read": "The complete 25-page article was available. Focused inspection covered the condition-number preliminaries, Sections 4 and 5 on sizing and BFGS/DFP optimality, the two-dimensional discussion, and the concluding conditioning remarks.",
+        "method": "Full-text PDF inspection with rendered-page verification of the conditioning and sizing sections.",
+        "title": "Sizing and Least-Change Secant Methods",
+        "trigger": "Highly relevant full source devoted to conditioning measures, sizing, and BFGS/DFP secant updates."
+      },
+      {
+        "assessment": "CLOSEST_DIFFERENT_REGIME: the true Hessian is the identity and the current Hessian approximation is initially ill-conditioned; the paper studies how BFGS corrects that approximation. It does not state the identity-start versus nontrivial-true-Hessian one-update extremum.",
+        "evidence": "The paper sets F(x,y)=(x^2+y^2)/2, parameterizes the nonunit eigenvalue of B_k, and derives nonlinear recurrences explaining slow correction of poor approximate Hessians.",
+        "identifier_or_url": "doi:10.1007/BF01582161",
+        "material_read": "The full 14-page article was inspected through authorized institutional access, including the BFGS recurrence analysis, numerical results, step-length discussion, and conclusions.",
+        "method": "Authorized full-text inspection after open-access retrieval was unavailable.",
+        "title": "How Bad Are the BFGS and DFP Methods When the Objective Function Is Quadratic?",
+        "trigger": "Plausible decisive prior source because it analyzes two-dimensional BFGS eigenvalue behavior on quadratics."
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON_RISK_RETAINED: the abstract confirms that conditioning-based update design is old, but inaccessible body text is not treated as evidence of noncoverage.",
+        "evidence": "The abstract states that the paper studies a scalar-parameter class of Hessian-inverse approximations and investigates their optimal conditioning.",
+        "identifier_or_url": "doi:10.1090/S0025-5718-1970-0274029-X",
+        "material_read": "The abstract and bibliographic record were accessible. A lawful open PDF attempt was blocked by the source, and a bounded authorized institutional retrieval found no verified PDF.",
+        "method": "Abstract/metadata inspection plus bounded full-text retrieval attempts.",
+        "title": "Conditioning of Quasi-Newton Methods for Function Minimization",
+        "trigger": "Early primary source explicitly centered on optimal conditioning of quasi-Newton approximations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "88bb9f14-f55c-4d6b-a8c0-89a19312ba74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "BFGS is designed to learn curvature while preserving positive definiteness, and matrix conditioning directly affects stability of quasi-Newton search directions and shifted systems. The theorem gives a complete sharp first-update law showing that even an exact quadratic secant can make a perfectly conditioned initial model more ill-conditioned than the true Hessian at every nontrivial condition number, with quadratic worst-case growth. This gives a precise structural reason why scaling and conditioning safeguards can matter before asymptotic Hessian recovery.",
+    "status": "PASS"
+  }
+}
