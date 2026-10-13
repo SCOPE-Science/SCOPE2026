@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For every \\(1\\le k\\le n\\), the lower bound follows because never-moved elements define a block matching, while the upper bound pads both partitions to \\(k\\) labeled slots, extends a maximum-weight matching to a slot bijection, and recolors each mismatched element once. Forgetting labels produces a Bell-graph walk with at most \\(k\\) blocks; the lower bound forces equality. The diameter bound follows because a random slot permutation has expected overlap \\(n/k\\), and a balanced \\(k\\)-block partition versus the indiscrete partition attains equality. Exhaustive all-pairs checks through \\(n=6\\) agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Finbow--MacGillivray prove a Cartesian-product theorem for Bell graphs of joins and broad Hamiltonicity results, but do not determine graph distances or diameters.",
+        "Hearn determines reconstruction properties of Bell colouring graphs, not their all-pairs shortest-path metric.",
+        "The transfer-distance literature covers the abstract partition metric but does not, in the inspected material, prove that every \\(k\\)-truncated Bell reconfiguration graph is isometric."
+      ],
+      "reasoning": "The strongest located Bell-graph results cover Hamiltonicity, connectivity, reconstruction, and join products. None implies the cap-preserving shortest-path construction or the exact \\(n-\\lceil n/k\\rceil\\) diameter.",
+      "searches": [
+        "arXiv:2512.13864 full text, Proposition 2.6 and Sections 1--4",
+        "arXiv:2604.13005v1 full 34-page PDF; searches for diameter, distance, Cartesian, multipartite",
+        "web: Hamiltonicity of Bell and Stirling colour graphs diameter distance",
+        "Bell colour graph edgeless graph distance diameter set partitions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.13864v1",
+      "DOI:10.61091/um127-16",
+      "arXiv:2604.13005v1",
+      "DOI:10.13140/RG.2.1.1654.8328"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical maximum matching distance supplies the numerical lower target \\(n-\\mu(P,Q)\\) for unrestricted partition transfer.",
+        "The Bell-graph papers supply the reconfiguration graph definition but not a proof that the at-most-\\(k\\) induced subgraph preserves unrestricted distance.",
+        "The new padded-label construction supplies exactly the missing implication: it realizes an \\(n-\\mu(P,Q)\\) move sequence while using at most \\(k\\) nonempty labels at every step."
+      ],
+      "reasoning": "Prior results jointly motivate the formula but the decisive cap-preserving realization is not an immediate quoted theorem from the inspected sources. The diameter then follows from a separate sharp matching lower bound using a random permutation and a balanced extremal partition.",
+      "searches": [
+        "arXiv:2512.13864 Proposition 2.6",
+        "arXiv:2604.13005v1",
+        "DOI:10.13140/RG.2.1.1654.8328 maximum matching distance",
+        "web: maximum matching distance partitions minimum elements moved"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rossi's 2015 partition-comparison paper defines maximum matching distance as the minimum number of elements that must be moved between clusters and computes it by maximum-weight matching on block intersections.",
+        "Finbow--MacGillivray define the at-most-\\(k\\) Bell colour graph and study Hamiltonicity; their accessible full text contains no occurrence of 'diameter' or 'distance'.",
+        "Hearn's 34-page Bell-colouring reconstruction preprint contains no 'diameter' theorem and no Cartesian-product discussion."
+      ],
+      "reasoning": "The classical transfer/maximum-matching metric is an equivalent numerical formulation of \\(n-\\mu(P,Q)\\) and is treated as prior. The new claim is narrower and reconfiguration-specific: every at-most-\\(k\\) Bell graph of an edgeless graph realizes that metric without detours and has the stated exact diameter.",
+      "searches": [
+        "Bell colour graph edgeless graph distance diameter set partitions",
+        "Bell coloring graph distance formula maximum matching block intersections",
+        "isomorphic colour graph edgeless graph diameter",
+        "Bell colour graph complete multipartite diameter Cartesian product",
+        "set partition reconfiguration single element move maximum matching distance",
+        "web: \"Bell colour graph\" diameter partition",
+        "web: \"Bell coloring graph\" distance partition",
+        "web: \"isomorphic colour graph\" distance partition set",
+        "web: \"transfer distance\" partitions maximum weight matching blocks",
+        "web: \"partition distance\" maximum weight matching set partitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed hit among the targeted Bell-colour, isomorphic-colour, partition-reconfiguration, or matching-distance searches states the isometry or the exact diameter.",
+        "No checked scientific record tabulates or states the claimed all-parameter Bell-graph metric or diameter."
+      ],
+      "reasoning": "No exact indexed scientific record was found that states the claimed all-parameter Bell-graph metric or diameter.",
+      "searches": [
+        "Bell colour graph edgeless graph distance diameter set partitions",
+        "Bell coloring graph distance formula maximum matching block intersections",
+        "isomorphic colour graph edgeless graph diameter",
+        "Bell colour graph complete multipartite diameter Cartesian product",
+        "set partition reconfiguration single element move maximum matching distance"
+      ]
+    },
+    "rationale": "The abstract maximum-matching/transfer distance between partitions is known and is explicitly excluded from the novelty claim. The inspected Bell-colour literature addresses Hamiltonicity, connectivity, reconstruction, and join products. Targeted scientific searches found no statement that every at-most-\\(k\\) Bell graph of an edgeless graph is isometric in the full Bell graph or that its diameter is \\(n-\\lceil n/k\\rceil\\).",
+    "residual_risks": [
+      "The partition-distance literature is older and uses several aliases; an unindexed source may explicitly identify its transfer metric with this exact truncated reconfiguration graph.",
+      "The full Rossi conference paper was not obtained through a clean primary full-text route in the bounded comparison, although the retrieved excerpt was enough to establish that the maximum-matching metric component is prior."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_PRIOR",
+        "evidence": [
+          "Proposition 2.6 gives a Cartesian-product rule for Bell graphs of joins. The paper studies Hamiltonicity and connectivity, but its full text has no 'diameter' or 'distance' occurrence."
+        ],
+        "identifier_or_url": "arXiv:2512.13864v1 / DOI:10.61091/um127-16",
+        "material_read": "Full 19-page arXiv preprint plus the accessible journal full text, including the definition, basic properties, Proposition 2.6, and targeted searches for 'diameter' and 'distance'; the first PDF page was visually inspected.",
+        "method": "Primary arXiv PDF text and page image, cross-checked against full journal HTML.",
+        "title": "Hamiltonicity of Bell and Stirling Colour Graphs",
+        "trigger": "Recent primary-05C15 literature lead using the same at-most-\\(k\\) Bell-colour definition."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The paper defines Bell colouring graphs and proves reconstruction theorems. It contains no occurrence of 'diameter', no Cartesian-product theorem, and no complete-multipartite treatment."
+        ],
+        "identifier_or_url": "arXiv:2604.13005v1",
+        "material_read": "Full 34-page arXiv PDF, including the definition, reconstruction sections, and targeted searches for 'diameter', 'distance', 'Cartesian', and 'multipartite'; the first page was visually inspected.",
+        "method": "Primary arXiv PDF text plus page image.",
+        "title": "Reconstructing a graph from its Bell colouring graph",
+        "trigger": "Recent primary-05C60 Bell-colouring source and literature lead."
+      },
+      {
+        "assessment": "COVERING_COMPONENT",
+        "evidence": [
+          "The source states that maximum matching distance is the minimum number of elements moved between clusters and is computable by a maximum-weight matching. This covers the abstract partition-distance expression and is therefore not claimed as new."
+        ],
+        "identifier_or_url": "DOI:10.13140/RG.2.1.1654.8328",
+        "material_read": "Accessible primary-paper excerpt containing the definition of maximum matching distance and its maximum-weight block-intersection matching formulation; a complete clean full-text copy was not obtained in the bounded access attempt.",
+        "method": "Indexed full-text excerpt and bibliographic source.",
+        "title": "Hamming distance between partitions, clustering comparison and information",
+        "trigger": "Potentially equivalent maximum-weight-matching formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d06611e-18c5-48f6-907d-752e408e5384",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives the complete all-pairs shortest-path metric and exact diameter for a canonical two-parameter family at the foundation of Bell-colouring reconfiguration. It also proves the non-obvious isometry of every block-capped induced subgraph and reduces shortest reconfiguration to one assignment problem. This is structural information not supplied by the recent Hamiltonicity or reconstruction theorems and is more than a finite computation or routine parameter substitution.",
+    "status": "PASS"
+  }
+}
