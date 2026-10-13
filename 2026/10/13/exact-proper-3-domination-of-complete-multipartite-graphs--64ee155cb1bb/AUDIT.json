@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For a set with occupancies \\(d_i\\) and size \\(s\\), an outside vertex in part \\(i\\) has exactly \\(s-d_i\\) selected neighbors. This yields a necessary-and-sufficient occupancy criterion. Choosing an exact-three witness part leaves exactly three selected vertices outside it and reduces every existence instance to size at most \\(6\\). The four possible minimum sizes \\(3,4,5,6\\) are then exhausted by the distribution of those three outside vertices, giving the stated branches. Exhaustive occupancy enumeration through total order \\(20\\) and direct labeled-graph subset enumeration through order \\(9\\) match the formula exactly. Finite checks are corroborative, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazemi, DOI 10.7151/dmgt.1616, treats total k-domination and k-tuple domination on complete multipartite graphs, which require lower-neighbor-count inequalities but not an exact-three outside witness.",
+        "Closest database records included upper k-tuple domination and liar’s domination of complete multipartite graphs; their defining conditions are not equivalent to proper 3-domination."
+      ],
+      "reasoning": "Broader domination parameters do not imply the claim because the decisive equality condition at an outside witness is absent from those invariants.",
+      "searches": [
+        "proper p-dominating complete multipartite",
+        "secondary domination proper 3 complete multipartite",
+        "3-dominating but not 4-dominating complete multipartite",
+        "exactly three neighbors in dominating set complete multipartite",
+        "p-domination complete multipartite",
+        "k-domination number complete multipartite graph"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math13121960",
+      "doi:10.3390/sym16030296",
+      "doi:10.7151/dmgt.1616",
+      "2026/10/4/SCOPE-all-liar-s-dominating-sets-of-complete-multipartite-graphs--0f35e58d261d",
+      "2026/10/4/SCOPE-upper-k-tuple-domination-of-complete-multipartite-graphs--ba8c8eb62dc8",
+      "2026/10/4/SCOPE-total-outer-component-domination-of-complete-multipartite-graphs--db661d8715d6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For \\(r=2\\), the new formula recovers the published \\(K_{3,n}\\) and \\(K_{m,n}\\) values but also classifies \\(K_{1,n}\\), \\(K_{2,n}\\), and all nonexistence cases.",
+        "For \\(r\\ge3\\), the proof depends on the exact occupancy identity \\(s-d_j=3\\), which is not present in the broader complete-multipartite domination results inspected."
+      ],
+      "reasoning": "The prior exact biclique theorem is a strict special case of the claim in its stated regimes, not a stronger theorem from which the multipartite branches follow.",
+      "searches": [
+        "proper 3-domination complete multipartite",
+        "3-dominating but not 4-dominating complete multipartite",
+        "proper p-dominating complete multipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Cai, DOI 10.3390/math13121960: Definition 1 equates proper 3-domination with 3-domination but not 4-domination.",
+        "Full-text inspection located the equivalent exact-neighbor formulation: every outside vertex has at least three selected neighbors and one has exactly three."
+      ],
+      "reasoning": "Searches covered the defining name, the not-4-dominating formulation, and proper-k/proper-p aliases; no equivalent complete-multipartite theorem was located.",
+      "searches": [
+        "proper 3-domination complete multipartite",
+        "proper 3-dominating set complete multipartite graph",
+        "proper 3-domination crown graph",
+        "proper k-domination complete multipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen–Cai’s exact complete-bipartite theorem was inspected and compared directly with the two-part specialization.",
+        "No complete-multipartite value table or exact theorem for this invariant was located in the searched records."
+      ],
+      "reasoning": "The known biclique values are subsumed by, but do not imply, the multipartite classification; the new branches for three or more parts and for small biclique shores are outside the inspected table/theorem.",
+      "searches": [
+        "proper 3-dominating set complete bipartite",
+        "proper 3-domination complete multipartite",
+        "proper 3-dominating complete multipartite graph"
+      ]
+    },
+    "rationale": "The initiating 2025 source was inspected at the definition, complete-bipartite theorem, and conclusion. It gives \\(\\gamma_{\\overline{3}}(K_{3,n})=3\\) and \\(\\gamma_{\\overline{3}}(K_{m,n})=6\\) for \\(m,n\\ge4\\), but no complete-multipartite theorem. Database searches using the exact defining phrase, proper-\\(p\\) aliases, secondary-domination terminology, and the complete-multipartite specialization returned no statement implying the displayed classification. The closest complete-multipartite records concern different domination invariants, whose hypotheses do not encode the required exact-three witness.",
+    "residual_risks": [
+      "An older equivalent statement may exist under terminology not captured by the searched proper-domination, secondary-domination, or exact-neighbor aliases.",
+      "The earliest public date used is the earliest directly verified public appearance located; no earlier preprint was verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and gives exact biclique values in two regimes, but does not state a complete-multipartite theorem.",
+        "evidence": "Published 2025-06-13; MSC 05C09 and 05C69; the complete-bipartite section gives value 3 for K_{3,n} and 6 when both shores are at least 4.",
+        "identifier_or_url": "doi:10.3390/math13121960",
+        "material_read": "abstract; Definition 1 and equivalent exact-neighbor formulation; complete-bipartite theorem and proof; conclusion; full-text search for complete-multipartite terminology",
+        "method": "open-access HTML plus PDF full-text inspection",
+        "title": "Proper 3-Dominating Sets in Graphs",
+        "trigger": "initiating source and closest exact theorem for the same invariant"
+      },
+      {
+        "assessment": "Concerns proper 2-domination, not the proper 3-domination parameter; it does not imply the exact multipartite classification here.",
+        "evidence": "The abstract characterizes proper 2-domination and bounds its number relative to ordinary domination parameters.",
+        "identifier_or_url": "doi:10.3390/sym16030296",
+        "material_read": "abstract and definition-level relation described by the initiating source",
+        "method": "open-access bibliographic/abstract inspection",
+        "title": "On Proper 2-Dominating Sets in Graphs",
+        "trigger": "direct predecessor terminology for proper domination"
+      },
+      {
+        "assessment": "Studies total k-domination and k-tuple domination in complete multipartite graphs, which are different invariants and lack the exact-three witness condition.",
+        "evidence": "The journal abstract explicitly states a characterization involving complete multipartite graphs for equality of k-tuple and total k-domination.",
+        "identifier_or_url": "doi:10.7151/dmgt.1616",
+        "material_read": "journal abstract and stated theorem scope",
+        "method": "journal record inspection",
+        "title": "On the Total k-domination Number of Graphs",
+        "trigger": "broader complete-multipartite domination coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64ee155c-b1bb-4a70-af7c-beca94def8cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The initiating article introduces the invariant, gives exact biclique values only in selected regimes, and explicitly presents calculation of proper \\(3\\)-domination numbers on further graph classes as meaningful. The theorem gives a natural complete classification on the canonical complete-multipartite family, resolves all small-shore biclique boundary cases, identifies exactly when the parameter does not exist, and supplies the structural occupancy lemma that explains why no finite value above \\(6\\) can occur in this class.",
+    "status": "PASS"
+  }
+}
