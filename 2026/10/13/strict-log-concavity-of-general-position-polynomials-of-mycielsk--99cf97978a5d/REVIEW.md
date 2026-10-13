@@ -1,0 +1,12 @@
+# Scientific review: strict log-concavity of Mycielskian clique general-position polynomials
+
+## Correctness — PASS
+The graph has diameter two for every integer \(n\ge2\); hence a selected subset is in general position exactly when its induced subgraph has no induced three-vertex path. The proof enumerates all subsets by whether the root is selected and by the selected-original and selected-twin index sets, with explicit converse checks in every class. Binomial simplification yields every coefficient. The tail is a product of strictly log-concave binomial coefficients and positive strictly concave quadratic weights; four exact boundary differences are proved positive. Exhaustive shortest-path checks on all vertex subsets for \(2\le n\le8\), and exact arithmetic checks through \(n=250\), agree. These finite checks supplement, rather than replace, the all-\(n\) proof.
+
+## Originality — PASS, with stated risk
+The closest article on general-position sets of Mycielskians (Thomas et al., arXiv:2203.08170, Corollary 2 and Section 3) already determines their maximum cardinality for complete-graph bases and provides a general set-partition characterization. The maximum cardinality and its multiplicity for \(n\ge3\) are not claimed as new. The polynomial introduction paper (Iršič et al., arXiv:2401.05696) proves enumerations and unimodality for other classes, not these Mycielskians; Roy et al. (arXiv:2403.05120) treat extremal graph-operation parameters. The 2025 survey likewise does not list this enumerator. The full polynomial and its strict log-concavity require the specific counting and inequality arguments given here. Residual risks: an unindexed equivalent induced-cluster enumeration and the possibility that the general Mycielskian partition framework makes the counting less independent than a new general theory.
+
+## Value — PASS
+This gives every cardinality of a central graph-geodesic invariant on a standard chromatic-number-raising graph construction. The uniform strict log-concavity result is a qualitative regularity theorem, not only an extremal-number calculation or a small finite table. It ties directly to the active study of unimodality of general-position polynomials. Its domain is one application of the construction to complete graphs, not arbitrary Mycielskians, and no real-rootedness result is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
