@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "With a=1-sigma and x=sqrt(epsilon_1), y=sqrt(epsilon_2), the unsaturated objective is strictly increasing in either coordinate because 1-2x+4x^3>0 on [0,1/sqrt(2)]. In the saturated region monotonicity of the exact rejection function moves any optimum to x+y=2a. On that boundary, the stated soundness range keeps both variables in the first exact product-test branch, and the exact defect factorization is R((a+z)^2)+R((a-z)^2)-2R(a^2)=2z^2(1-6a^2-z^2)>0. Thus x=y=a is the unique optimizer and substitution gives the claimed closed form. The comparison with Proposition 7.1 is the positive difference a^2(1-2a^2)/4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harrow--Montanaro establishes the QMA(k)=QMA(2) reduction using an all-regimes product-test estimate, not the 2026 exact curve.",
+        "Beckey--Granha Jeronimo--Wu improves the uniform one-shot parameter to 1-(1-sigma)^2/4 and separately records the sharper full-curve maximization without a closed-form evaluation."
+      ],
+      "reasoning": "The foundational reduction and the exact-curve paper together contain the ingredients, but neither inspected source states the high-soundness optimizer or resulting quartic-corrected soundness formula.",
+      "searches": [
+        "\"Testing Product States, Quantum Merlin-Arthur Games and Tensor Optimization\" product test soundness",
+        "\"Harrow Montanaro\" QMA(k) QMA(2) product test soundness",
+        "\"An Optimal Analysis of the Product Test\" QMA soundness"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.21477v1",
+      "DOI:10.1145/2432622.2432625",
+      "Pith public review of arXiv:2607.21477, used only as a literature-discovery comparison",
+      "published-finding corpus semantic searches listed in the four originality checks",
+      "current cumulative owned ledger g000078",
+      "prior-week cumulative owned ledger g000052"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Remark 7.3 of arXiv:2607.21477v1 states the exact two-variable upper-bound maximization and calls it sharper but less transparent; it does not state its optimizer.",
+        "Proposition 7.1 of the same source uses only the global linear rejection constant and gives 1-(1-sigma)^2/4.",
+        "Owned prior item d6ea289b-6323-42d0-9420-7d92988dd5aa studies the generalized three-qubit W-family product-test frontier, not the QMA conversion soundness expression."
+      ],
+      "reasoning": "The new claim is not implied by merely knowing the exact product-test curve: the two-parameter max couples rejection and verification-continuity terms. The proof resolves that max in a nontrivial soundness interval by showing saturation and symmetric optimality.",
+      "searches": [
+        "2607.21477 Remark 7.3 exact QMA(k) QMA(2) soundness optimization",
+        "product test full curve QMA two Merlin sharper soundness soundness sigma analytic optimization",
+        "QMA(k) QMA(2) exact one-shot soundness product test epsilon1 epsilon2",
+        "1 - ((1-sigma)^2-(1-sigma)^4)/2 QMA product test",
+        "\"2607.21477\" \"1-(1-sigma)^2/4\"",
+        "\"2607.21477\" \"full exact curve\" QMA"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The four published-finding corpus searches returned no product-test/QMA soundness optimization; leading hits were unrelated optimization and extremal problems.",
+        "Exact-source web searches recovered arXiv:2607.21477 and its Remark 7.3, but no independent source with the closed form 1-[(1-sigma)^2-(1-sigma)^4]/2."
+      ],
+      "reasoning": "Natural aliases include full exact curve, two-Merlin soundness, Remark 7.3, epsilon_1/epsilon_2 optimization, and the explicit closed-form polynomial in 1-sigma. All were searched.",
+      "searches": [
+        "2607.21477 Remark 7.3 exact QMA(k) QMA(2) soundness optimization",
+        "product test full curve QMA two Merlin sharper soundness soundness sigma analytic optimization",
+        "QMA(k) QMA(2) exact one-shot soundness product test epsilon1 epsilon2",
+        "1 - ((1-sigma)^2-(1-sigma)^4)/2 QMA product test",
+        "\"An Optimal Analysis of the Product Test\" \"Remark 7.3\" soundness",
+        "\"QMA(k)\" \"QMA(2)\" exact product-test curve soundness optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record supplies this polynomial soundness curve or an epsilon_1/epsilon_2 optimizer table.",
+        "The source itself presents the quantity as a continuum maximization rather than tabulated numerical values."
+      ],
+      "reasoning": "The finding is an analytic evaluation of a continuum optimization, not a recomputation of a database or a finite parameter table.",
+      "searches": [
+        "2607.21477 Remark 7.3 exact QMA(k) QMA(2) soundness optimization",
+        "1 - ((1-sigma)^2-(1-sigma)^4)/2 QMA product test"
+      ]
+    },
+    "rationale": "The 2026 anchor explicitly writes the full-curve soundness optimization in Remark 7.3 but does not evaluate it; Proposition 7.1 instead records the uniform linear-curve consequence. Targeted semantic and web searches found no publication giving the displayed high-soundness closed form. The owned prior same-anchor result concerns a fixed-dimension W-state frontier and has disjoint objects and implications.",
+    "residual_risks": [
+      "A later or differently indexed note may independently optimize Remark 7.3 under another notation.",
+      "The result is an exact evaluation of the paper's upper-bound expression, not a matching lower bound on actual converted-protocol soundness.",
+      "The lower-soundness piecewise optimization remains untreated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES the exact objective and exact product-test rejection curve, but DOES_NOT_COVER the analytic high-soundness maximizer or the quartic-corrected closed form proved here.",
+        "evidence": "The source explicitly says the full curve can be retained and gives a sharper but less transparent maximization, then states that Proposition 7.1 is the uniform parameter obtained from the global linear rejection constant.",
+        "identifier_or_url": "arXiv:2607.21477v1",
+        "material_read": "Full rendered preprint text around Theorem 1.1, Corollary 6.2, Proposition 7.1, Remarks 7.2-7.3, and the Section 8 discussion. Remark 7.3 defines R(epsilon) and displays the two-variable maximum; Proposition 7.1 gives the uniform 1-(1-sigma)^2/4 bound.",
+        "method": "Direct full-text inspection of the publicly available preprint rendering.",
+        "title": "An Optimal Analysis of the Product Test",
+        "trigger": "Primary anchor and exact source of the unoptimized soundness expression."
+      },
+      {
+        "assessment": "SUPPLIES the foundational reduction but DOES_NOT_COVER the later exact product-test curve or the present closed-form optimization.",
+        "evidence": "The publisher abstract states the product test has rejection Theta(epsilon) and establishes QMA(k)=QMA(2); it predates the exact all-regimes curve.",
+        "identifier_or_url": "DOI:10.1145/2432622.2432625",
+        "material_read": "Publisher abstract and bibliographic record, cross-checked against the 2026 source's Section 7 reconstruction of the reduction.",
+        "method": "Direct publisher record inspection plus statement comparison in the 2026 primary source.",
+        "title": "Testing Product States, Quantum Merlin-Arthur Games and Tensor Optimization",
+        "trigger": "Foundational prior work for the QMA(k) to QMA(2) conversion and product test."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d3c9ab7-fb67-4afa-9c2a-7d312ed5fb68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source highlights the full-curve expression precisely because it is sharper but less transparent. Closing it analytically in the high-soundness regime covers the parameter form sigma=1-1/q used in the complexity reduction for every q>=3. The result improves the source's rejection probability from 1/(4q^2) to 1/(2q^2)-1/(2q^4), asymptotically doubling the leading constant. This is a direct quantitative strengthening of a principal complexity-theoretic application rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
