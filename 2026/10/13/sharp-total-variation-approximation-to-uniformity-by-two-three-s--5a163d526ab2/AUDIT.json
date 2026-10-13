@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For all probability factors on {0,1,2}, the exact convolution determinant r1*r2*r3-r4*r1^2-r0*r3^2 is b*e times an explicitly nonnegative sum. When TV delta<1/10, all convolution entries are positive and ratio t=r1/r3 is defined. After optional simultaneous reversal t>=1, polynomial nonnegativity forces D=r0/t-r2+t*r4<=0. Two exact dual vectors for 1<=t<=2 and t>=2 give D>0 at delta<1/10. At delta=1/10, strictness and complementary slackness force t=1, r=(v,1/5,3/10,1/5,3/10-v), and polynomial equality yields b*e=0; normalizations give the complete optimizer family. Direct convolution verifies all endpoints. A 4^6 degree-determining exact arithmetic certificate establishes the determinant identity; 9469 assertions pass. All quantifiers, boundaries, normalization, and TV factor 1/2 were rechecked. No numerical experiment substitutes for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Metya–Mukherjee 2026 Section 4.1: l2 and KL solved via separate literature; Section 4.2: line-metric W1 bound; Section 4.3: explicitly unproved l1 lower bound",
+        "Asgarli–Hartglass–Ostrov–Walden 2023 Theorem 1 and Section 3: optimizes sum of squared deviations"
+      ],
+      "reasoning": "An l2-optimal distribution is not generally l1-optimal, and uniqueness under l2 cannot imply the l1 continuum. The exact W1 lower bound is a metric with transport weights, not a sharp total-variation lower bound. Older impossibility of perfect uniform convolution merely gives strictly positive error without this optimal constant.",
+      "searches": [
+        "\"Metya Mukherjee Conjecture 4.7 2026 proof 3-sided dice\"",
+        "\"three sided dice five point sum nearest uniform total variation distance 1/10 optimal loaded dice n=3\"",
+        "arXiv:2609.38243v1 Section 4.1 Section 4.2 Section 4.3",
+        "arXiv:2304.08501v2 Theorem 1 and full relevant mathematical argument"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.38243v1 (2026-09-29), Sections 1 and 4.1–4.3, PDF and HTML",
+      "arXiv:2304.08501v2 (2023-08-02), Theorem 1, relevant full PDF passages",
+      "Public mathematical research index semantic search: exact theorem and alias formulations, nearest results concern other convolution/Fourier/TV problems"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Eq. 22 proves min l1 <=1/5 for n=3; Conjecture 4.7 predicts min l1 >=1/5 without a proof",
+        "2023 Theorem 1 determines only min squared l2=1/[2(5)(7)]=1/70 for n=3"
+      ],
+      "reasoning": "The lead upper bound plus its conjecture does not logically give a matching global lower bound. The older l2 theorem does not imply min l1=1/5: Cauchy–Schwarz supplies only norm-comparison inequalities that are not sharp enough, and its unique l2 extremizer is not the continuum of l1 extremizers. The new proof gives a missing implication and equality structure.",
+      "searches": [
+        "arXiv:2609.38243v1 Conjecture 4.7 Equation 22",
+        "arXiv:2304.08501v2 Theorem 1",
+        "\"loaded 3-sided dice sum uniform distribution distance 1/5 l1 total variation convolution\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.38243v1, Section 4.3: Manhattan projection conjectured and proposed family already displayed",
+        "arXiv:2304.08501v2, Theorem 1: squared Euclidean projection, not total variation"
+      ],
+      "reasoning": "Manhattan norm l1 and twice total variation describe exactly the same new target. Both phrasings were queried; neither exact global inequality nor factor equality classification was located outside the original conjecture. This does not certify priority.",
+      "searches": [
+        "\"loaded 3-sided dice sum uniform distribution distance 1/5 l1 total variation convolution\"",
+        "\"three-sided loaded dice five-point sum uniform distance 1/5 exact optimal total variation lower bound\"",
+        "\"nonnegative convolution of two length three probability vectors uniform l1 minimum 1/5\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The lead 2026 paper exhibits the entire candidate equality family as an explicit construction, but neither establishes global minimality nor proves completeness",
+        "The 2023 paper lists n=3 squared-distance optimizer distinct from the l1 continuum"
+      ],
+      "reasoning": "The previously published candidate family is acknowledged and is not the novelty claim. What remains new is the lower-bound certificate for all probability vectors and proof that no other minimizers occur. Searches located no tabulated l1 optimum that already resolves the finite problem.",
+      "searches": [
+        "\"minimum total variation distance uniform five point law convolution two independent three point dice lower bound one fifth\"",
+        "\"Metya Mukherjee approximate uniformity finite convolution diagonal n-by-n dice Manhattan ell1 total variation conjecture sharp n=3 n=4\""
+      ]
+    },
+    "rationale": "Metya and Mukherjee (arXiv:2609.38243v1, 2026-09-29, Section 4.3, Conjecture 4.7) explicitly leave the matching l1 lower bound open for every n>=3 and exhibit only the upper-bound family (their Eq. 22). The new mathematical implication is a rigorous uniform lower bound and exhaustive optimizer classification for the smallest n=3. Asgarli et al. (arXiv:2304.08501v2, Theorem 1) prove optimal squared-Euclidean distance, which does not determine optimal l1 distance or l1 equality. Distinct Wasserstein and KL optima also do not entail this theorem. No equivalence was identified in searches of mathematical research records; priority risk remains for unindexed proofs.",
+    "residual_risks": [
+      "An earlier proof may exist in an unindexed or inaccessible source; absence of search matches is not definitive proof of priority.",
+      "The source conjecture remains unresolved for n>=4; this theorem does not attempt that extension."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only l1 upper construction for diagonal n-by-n model; matching lower bound is explicitly conjectural for n>=3, including n=3.",
+        "evidence": [
+          "Section 1 at arXiv:2609.38243v1 states matching diagonal l1 lower bound left conjectural",
+          "Section 4.3, equations (21)-(22), Conjecture 4.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.38243v1",
+        "material_read": "Introduction and statements; Sections 4.1, 4.2, 4.3; equation (22), Conjecture 4.7 and the associated discussion; PDF text of the corresponding lead, including the relevant references and appendix index.",
+        "method": "Read original open preprint HTML and PDF mathematical passages, checking exact claimed metric, domain, conjecture, and candidate family.",
+        "title": "Approximate Uniformity in Finite Convolution Models",
+        "trigger": "Same finite convolution model and explicit conjecture of the exact l1 bound"
+      },
+      {
+        "assessment": "Optimizes squared Euclidean distance, not Manhattan or total-variation distance; its uniqueness claim concerns only the former objective.",
+        "evidence": [
+          "Theorem 1, pages 1-3, defines D as the sum of squared deviations",
+          "For n=3, Theorem 1 gives (1/2,0,1/2) and (2/7,3/7,2/7), distinct from l1 optimal factor q with middle 2/5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.08501",
+        "material_read": "Nine-page primary preprint: abstract, Theorem 1, n=3 example, definitions, squared-error proof, conclusion and its discussion of further dice problems.",
+        "method": "Read full primary PDF text with page-image cross-check of the theorem and its normalization.",
+        "title": "A Fair Shake: How Close Can the Sum of n-Sided Dice Be to a Uniform Distribution?",
+        "trigger": "Prior general sharp approximation theorem for the identical two-dice convolution model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a163d52-6ab2-440d-9375-f17fb733921f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first open cardinality n=3 of a specific 2026 published finite convolution Manhattan-projection conjecture is completely resolved. The theorem gives an optimal TV constant, identifies every exact factor pair as a one-dimensional interval rather than only giving examples, and shows a structural duality between a nonnegative convolution determinant and sharp TV potentials. This is a natural complete finite classification with unknown prior answer, not an arbitrary special-parameter recomputation. It is of independent interest for approximate uniformity and the loaded-dice model. Future n>=4 cases remain genuinely open.",
+    "status": "PASS"
+  }
+}
