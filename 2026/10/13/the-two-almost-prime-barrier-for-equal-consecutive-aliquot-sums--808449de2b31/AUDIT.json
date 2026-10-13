@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The proof is exhaustive for \\(\\Omega\\le2\\). Prime/composite equality is impossible because the aliquot sums are respectively \\(1\\) and greater than \\(1\\). Prime-square/semiprime and semiprime/prime-square configurations contradict exact sum/product identities. For two squarefree semiprimes, equal prime sums and products differing by one give \\(1=t(q-p-t)\\), forcing the reconstructed primes on the second side to coincide. The factorization-based verifier through \\(200000\\) has no mismatch and is only a regression check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "JIS Article 23.8.4, Theorem 4 proves only that six consecutive aliquot sums cannot all be equal.",
+        "published-finding corpus item 2026/10/4/SCOPE-pell-rigidity-at-the-five-term-boundary-for-equal-proper-divisor--91ee4d5579bc constrains hypothetical five-term constant runs, not every two-term run under a multiplicity condition."
+      ],
+      "reasoning": "Neither longer-run obstruction dominates a theorem about all two-term solutions in the low-prime-factor domain; a two-term solution need not extend to a longer run.",
+      "searches": [
+        "sum of proper divisors consecutive equal low prime-factor multiplicity",
+        "Lebowitz-Lockard Vandehey proper-divisor sum consecutive equation n=2"
+      ]
+    },
+    "checked_sources": [
+      "JIS:23.8.4",
+      "MathOverflow:14459",
+      "OEIS:A001065",
+      "published-finding corpus:2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301",
+      "published-finding corpus:2026/10/4/SCOPE-pell-rigidity-at-the-five-term-boundary-for-equal-proper-divisor--91ee4d5579bc",
+      "published-finding corpus:2026/10/4/SCOPE-a-semiprime-barrier-for-quasi-amicable-pairs--60285e65fda6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus item 2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301 treats \\(\\sigma(n)=\\sigma(n+1)\\), whereas equal aliquot sums are \\(\\sigma(n+1)=\\sigma(n)+1\\).",
+        "Lebowitz-Lockard--Vandehey explicitly separate the \\(\\sigma\\) and sum-of-proper-divisors problems."
+      ],
+      "reasoning": "The closest low-\\(\\Omega\\) result has a superficially similar consecutive-divisor-sum statement but a different equation, so it does not imply the claim by specialization or rearrangement.",
+      "searches": [
+        "arithmetic functions constant runs proper divisor sum low prime factors",
+        "Lebowitz-Lockard Vandehey sum-of-proper-divisors consecutive equal values"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lebowitz-Lockard--Vandehey, JIS 26 (2023), Article 23.8.4, p. 3: \\(s(n)=s(n+1)\\) is explicitly rewritten as \\(\\sigma(n)+\\sigma(1)=\\sigma(n+1)\\).",
+        "Targeted searches for \\(\\sigma(n+1)=\\sigma(n)+1\\) with semiprime and prime-square restrictions returned no covering theorem."
+      ],
+      "reasoning": "The claim was searched both in aliquot-sum notation and in the exactly equivalent shifted sigma notation; the latter prevents a wording-only novelty claim.",
+      "searches": [
+        "aliquot sum consecutive integers semiprime s(n)=s(n+1) Omega at most 2",
+        "sigma(n+1)=sigma(n)+1 semiprime prime square classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001065 is the exact aliquot-sum sequence and gives values/formulas but no classification of consecutive equal values under \\(\\Omega\\le2\\).",
+        "The focal article reports that no solution other than \\(n=2\\) was found through \\(10^{16}\\), but a finite search does not imply the unbounded low-\\(\\Omega\\) theorem."
+      ],
+      "reasoning": "The exact sequence/database material was checked to distinguish a known table computation from a structural classification.",
+      "searches": [
+        "s(n)=s(n+1) prime semiprime prime square classification",
+        "sum of proper divisors consecutive semiprimes equal"
+      ]
+    },
+    "rationale": "The inspected focal article calls \\(s(n)=s(n+1)\\) unresolved and proves only a six-term-run obstruction. Its cited MathOverflow discussion supplies parity and computational observations but no low-\\(\\Omega\\) theorem. The closest published database findings checked concern either \\(\\sigma(n)=\\sigma(n+1)\\), a different equation, or longer constant runs of the aliquot sum. Exact-form and alias searches found no statement implying the two-almost-prime barrier.",
+    "residual_risks": [
+      "The argument is elementary enough that an older, poorly indexed note or informal observation could contain the same low-\\(\\Omega\\) classification.",
+      "The unrestricted equation remains open; this result does not imply uniqueness of \\(n=2\\) without the multiplicity hypotheses."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves \\(F_s(x)\\le5\\) and reports the two-term equation as unresolved; no low-\\(\\Omega\\) two-term classification is stated.",
+        "evidence": "Pages 3 and 8 state Theorem 4 and its proof; page 3 says the authors are unaware of papers on \\(s(n)=s(n+1)\\) and reports the \\(n=2\\) question; page 11 gives Primary MSC 11A25 and publication date October 3, 2023.",
+        "identifier_or_url": "JIS:23.8.4 / https://cs.uwaterloo.ca/journals/JIS/VOL26/Lebowitz/lebo10.pdf",
+        "material_read": "Abstract, introduction through Theorem 5, Section 4 proof of Theorem 4, references, MSC and publication-date footer.",
+        "method": "Direct full-text PDF inspection, including the page stating the open two-term equation and the page containing Theorem 4's proof.",
+        "title": "Arithmetic Functions that Remain Constant on Runs of Consecutive Integers",
+        "trigger": "Focal source defining the exact open equation and proving a longer-run theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: the discussion records restrictions and computation, not the complete \\(\\Omega\\le2\\) proof.",
+        "evidence": "The question asks whether the \\(2,3\\) pair is unique; the focal article reports Poonen's computation through \\(10^{16}\\).",
+        "identifier_or_url": "MathOverflow:14459 / https://mathoverflow.net/q/14459",
+        "material_read": "Question and indexed answer material concerning the \\(n=2\\) example, parity restrictions, and computational searches.",
+        "method": "Direct web inspection and cross-check against the focal paper's citation.",
+        "title": "Are there pairs of consecutive integers with the same sum of factors?",
+        "trigger": "The focal paper cites this as the prior discussion of the exact equation."
+      },
+      {
+        "assessment": "NOT_COVERING: it tabulates and characterizes the aliquot-sum function but does not state the consecutive low-\\(\\Omega\\) classification.",
+        "evidence": "The entry gives \\(a(n)=\\sigma(n)-n\\) and the exact sequence values, with no low-prime-factor consecutive-equality theorem.",
+        "identifier_or_url": "OEIS:A001065 / https://oeis.org/A001065",
+        "material_read": "Definition, initial terms, comments, formulas, references, and links.",
+        "method": "Direct database entry inspection.",
+        "title": "OEIS A001065: Sum of proper divisors (or aliquot parts) of n",
+        "trigger": "Exact database/table for the arithmetic function in the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "808449de-2b31-4ba9-aff5-3e9e039ba007",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The focal source presents \\(s(n)=s(n+1)\\) as an unresolved arithmetic-function equation. The theorem removes the complete first nontrivial prime-factor-multiplicity domain on both sides and yields the sharp structural consequence that every further solution must have \\(\\Omega\\ge3\\) on one side. This is a natural boundary for future search and proof methods, not a finite-table extension.",
+    "status": "PASS"
+  }
+}
