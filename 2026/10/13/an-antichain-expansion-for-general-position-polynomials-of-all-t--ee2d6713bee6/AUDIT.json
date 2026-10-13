@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For each vertex the recursive A_v exactly enumerates ancestor antichains by splitting on whether the root is included. Every non-antichain GP subset has a unique selected ancestor p and a unique child v such that all other selected vertices form a nonempty antichain of T_v; the reverse construction is valid because comparable selected descendants would put three vertices on one geodesic. Disjoint weighted enumeration gives Gamma_T=A_r+sum_{p->v} z_p(A_v-1) for every finite nonempty tree and arbitrary root. The actual verify.py tests direct BFS/geodesic subsets on 1,692 trees, independent recurrences, alternative roots, weights, and a known broom formula. Finite checks are not substituted for the bijective proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iršič–Klavžar–Rus–Tuite (2024), https://doi.org/10.1007/s00025-024-02133-3 , Proposition 2.2 (maximal-set inclusion–exclusion), Proposition 2.1 (paths), Section 4 (brooms and combs), and Section 2 tree-equivalence examples.",
+        "The general inclusion–exclusion formula requires knowledge of maximal general-position sets and can have exponentially many intersection terms; it does not explicitly give a uniform all-tree polynomial-time coefficient algorithm.",
+        "Special-family polynomial formulas for paths and broom trees do not cover arbitrary branching patterns."
+      ],
+      "reasoning": "A universal counting identity via all maximal sets can evaluate any graph in principle, but does not already imply the claimed low-complexity tree-specific construction or the multivariate edge decomposition without additional proof. The proposed theorem has a broader graph domain than special tree-family formulas and a narrower domain than general inclusion–exclusion, yet a strictly different and stronger algorithmic representation on trees.",
+      "searches": [
+        "\"general position polynomial\" \"arbitrary tree\" formula",
+        "\"general position polynomial\" \"trees\" \"dynamic programming\"",
+        "\"general position polynomial\" \"all trees\" algorithm",
+        "All general position sets arbitrary rooted tree multivariate generating function antichain recursion ancestor comparable pair unique edge subtree A_r sum z_parent(A_child-1)"
+      ]
+    },
+    "checked_sources": [
+      "2024 full publication https://doi.org/10.1007/s00025-024-02133-3 (Sections 1–4, Proposition 2.2 and tree examples)",
+      "Original public arXiv record https://arxiv.org/abs/2401.05696 (submission history)",
+      "Semantic research-index comparison for rooted antichains, all-tree general-position recurrences, and geodesic-convex independence",
+      "Earlier tree-specific general-position claims considered for implication and excluded as special cases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Iršič–Klavžar–Rus–Tuite (2024), https://doi.org/10.1007/s00025-024-02133-3 , Proposition 2.2 (maximal-set inclusion–exclusion), Proposition 2.1 (paths), Section 4 (brooms and combs), and Section 2 tree-equivalence examples.",
+        "2018 Manuel–Klavžar general-position literature addresses the maximum set cardinality, which is the degree of the later polynomial, not its entire weight profile.",
+        "The recent semantic-index closest family-specific general-position polynomial concerns generalized windmill graphs, not arbitrary trees."
+      ],
+      "reasoning": "Minimum/maximum cardinality formulas reveal only the degree and cannot recover all coefficients or mixed weights. Prior path/broom formulas and generalized windmill enumerators are instances or other objects. The 2024 general inclusion–exclusion formula is valid for arbitrary graphs but only after maximal sets are supplied; it is neither this disjoint structural partition nor a uniformly compact weighted tree recursion.",
+      "searches": [
+        "\"general position polynomial\" \"arbitrary tree\" formula",
+        "\"general position polynomial\" \"all trees\" algorithm",
+        "All general position sets arbitrary rooted tree multivariate generating function antichain recursion ancestor comparable pair unique edge subtree A_r sum z_parent(A_child-1)",
+        "Counting geodesically convex-independent vertex subsets arbitrary trees polynomial-time dynamic programming antichains general position polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In a tree, geodesic general position excludes a chosen vertex internal to the unique path between two other chosen vertices; comparability in a rooted ancestor poset gives an alternative coding. Iršič–Klavžar–Rus–Tuite (2024), https://doi.org/10.1007/s00025-024-02133-3 , Proposition 2.2 (maximal-set inclusion–exclusion), Proposition 2.1 (paths), Section 4 (brooms and combs), and Section 2 tree-equivalence examples.",
+        "No checked full-text theorem states the exact edge-summed multivariate antichain identity."
+      ],
+      "reasoning": "Checked synonyms include geodesic convexly independent sets, tree ancestor antichains, path-free triple subsets, and general-position polynomials. An antichain by itself is not equivalent to a general-position set: selected comparable pairs supply the additional edge correction. Replacing the polynomial by only an antichain polynomial would miss those sets.",
+      "searches": [
+        "\"general position\" \"sets\" trees \"antichain\" counting",
+        "Counting geodesically convex-independent vertex subsets arbitrary trees polynomial-time dynamic programming antichains general position polynomial",
+        "General position polynomial arbitrary tree recursive antichain formula complete graph geodesic sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 foundational article provides individual graph families and tree examples, not a stored all-tree multivariate polynomial table or the recursive identity.",
+        "Available searches for exact sequences, tabulations, and recursive antichain formulations did not identify a complete matching database."
+      ],
+      "reasoning": "No finite coefficient table could alone imply the claimed identity for every finite tree. Existing small-family values may agree as necessary specializations. Database absence is not used to prove novelty.",
+      "searches": [
+        "\"general position polynomial\" \"arbitrary tree\" formula",
+        "\"general position polynomial\" \"all trees\" algorithm",
+        "General position polynomial arbitrary tree recursive antichain formula complete graph geodesic sets"
+      ]
+    },
+    "rationale": "A complete, vertex-weighted polynomial for all finite trees is derived from a unique antichain-plus-parent-edge decomposition. The founding 2024 article already gives a universal inclusion–exclusion prescription over known maximal general-position sets; it does not supply this direct efficient rooted formula. Its path/broom instances are included but cannot entail the all-tree symbolic identity without a further tree-specific theorem. Searches for equivalent antichain, convex-independence, and geodesic formulations produced no actual stronger matching statement. Remaining risk is an unindexed equivalence; search non-retrieval is not treated as proof.",
+    "residual_risks": [
+      "An earlier theorem under another term (for instance antichain polynomials or geodesic convex independence) may imply the same expansion and was not located.",
+      "Some related papers were assessed only through abstracts; absence of a matching claim cannot be certified from those snippets.",
+      "The general inclusion–exclusion identity in the 2024 article is formally valid for every graph; distinguishing the direct weighted polynomial-time tree formula is the substantive novelty claim, not discovery of computability.",
+      "No independent originality audit or expert validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces polynomial and a universal inclusion–exclusion identity, but no edge-local weighted all-tree polynomial-time antichain expansion found in the inspected body",
+        "evidence": "Proposition 2.2 sums over nonempty subsets of maximal general-position sets; Proposition 2.1(ii) gives path polynomial; Section 2 describes equal-polynomial nonisomorphic trees.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-024-02133-3",
+        "material_read": "Full openly accessible HTML body including Sections 1–4, Proposition 2.2, Sections 2 and 4 tree examples and references",
+        "method": "Directly read publication HTML, inspected statement and proof of general inclusion–exclusion and path/broom/comb cases; matched exact formula domain and computational implications",
+        "title": "General Position Polynomials",
+        "trigger": "Exact original definition and possible dominating all-graph counting identity"
+      },
+      {
+        "assessment": "Original publicly posted 2024-01-11; supports middle-cohort date and 05 graph-combinatorics ownership",
+        "evidence": "v1 posted 11 Jan 2024 06:45:29 UTC; mathematical scope graph general-position polynomial.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+        "material_read": "arXiv abstract, submission history, manuscript title and author metadata",
+        "method": "Direct arXiv abstract/history page inspection",
+        "title": "General position polynomials (first public manuscript)",
+        "trigger": "Verify earliest public source date and first published subject classification provenance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ee2d6713-bee6-4f78-a9e2-3bb1790d81e7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete general-position polynomial is a motivated graph invariant, and this theorem provides all degrees and the full multivariate weight profile on every tree by a linear-size algebraic circuit and efficient coefficient recursion. The decomposition is structural and extends beyond previously enumerated graph families; it is neither a thin parameter slice nor a routine scalar-number recomputation. Arbitrary tree shapes and vertex weights are covered.",
+    "status": "PASS"
+  }
+}
