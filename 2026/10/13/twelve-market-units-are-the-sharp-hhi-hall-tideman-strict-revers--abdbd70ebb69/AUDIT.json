@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For common \\(k,N\\), HHI ordering is exactly the ordering of \\(Q=\\sum_i n_i^2\\), while Hall–Tideman ordering is the reverse ordering of \\(R=\\sum_i i d_i\\) for descending sizes. Two independently generated complete profile sets agree, and exact comparison of all \\(762\\) admissible pairs proves weak agreement through \\(N=9\\), the unique tie split at \\(10\\), no strict reversal through \\(11\\), and exactly one strict reversal at \\(12\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hall and Tideman's abstract states that the paper discusses established concentration measures including Herfindahl and a new measure analytically and empirically.",
+        "Bikker and Haaf give both formulas, classify both as cumulative concentration measures, and explain their different weighting schemes.",
+        "Anbarci and Katzman review HHI as a standard index and Hall–Tideman as a notable alternative emphasizing rank and firm count."
+      ],
+      "reasoning": "These sources cover the metric definitions, motivations, and broad comparative behavior, but they do not imply the smallest positive-integer profile at which strict order reversal occurs.",
+      "searches": [
+        "Measures of Concentration Hall Tideman 1967 Herfindahl",
+        "Measures of Competition and Concentration banking industry Bikker Haaf Hall Tideman HHI",
+        "A New Industry Concentration Index Anbarci Katzman Hall Tideman HHI"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1080/01621459.1967.10482897",
+      "https://www.dnb.nl/media/o2vdj421/measures_of_competition_and_concentration_in_the_banking_industry.pdf",
+      "doi:10.1111/1759-3441.12122",
+      "MSC2020:91B82"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original abstract reports that estimates from the new measure are not too different from Herfindahl in its empirical application, which is not an ordering theorem.",
+        "Bikker and Haaf's review explains that HHI and Hall–Tideman assign different weights and gives empirical values for both in the same market.",
+        "Different weighting schemes make disagreement plausible but do not prove universal agreement below any finite total or uniqueness at a first reversal."
+      ],
+      "reasoning": "The accepted claim requires a universal lower bound and complete sharp layer. Neither broad empirical similarity nor structural distinction between the indices implies those finite statements.",
+      "searches": [
+        "Hall Tideman HHI estimates not too different concentration",
+        "Hall Tideman rank weights HHI market shares weights",
+        "HHI HTI empirical comparison Dutch mortgage market"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bikker and Haaf formulate HHI as share-weighted concentration and Hall–Tideman as rank-weighted concentration over all firms.",
+        "At fixed total, the problem is equivalently a comparison between \\(\\sum_i n_i^2\\) and the descending rank sum \\(\\sum_i i d_i\\).",
+        "No checked source or database result stated the twelve-unit first strict reversal."
+      ],
+      "reasoning": "Hall–Tideman is also discussed under rank-based or Rosenbluth-style concentration terminology. The searches therefore covered both named indices, the alias, and the equivalent integer invariant formulation.",
+      "searches": [
+        "Hall-Tideman Herfindahl concentration index ranking reversal fixed number firms market shares",
+        "Rosenbluth Hall Tideman HHI opposite ranking market concentration",
+        "Herfindahl Rosenbluth ranking reversal concentration",
+        "market concentration HHI HTI comparison exact shares",
+        "Hall Tideman index integer market shares four firms"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-vector search located the twelve-unit witness as an HHI–Hall–Tideman comparison.",
+        "No checked source tabulated the ten-unit tie split or twelve-unit strict boundary.",
+        "The packaged verifier generates the complete finite layers directly rather than importing a concentration table."
+      ],
+      "reasoning": "Exact-vector searches test whether the small witness already appears as a worked example, software benchmark, or concentration-index table.",
+      "searches": [
+        "\"1 2 4 5\" \"Hall-Tideman\" Herfindahl",
+        "\"2 2 2 6\" \"Hall-Tideman\" Herfindahl",
+        "\"1,2,4,5\" Rosenbluth Herfindahl",
+        "\"2,2,2,6\" Rosenbluth Herfindahl"
+      ]
+    },
+    "rationale": "Prior literature establishes HHI and Hall–Tideman as distinct concentration measures with different weighting principles. The checked database, published literature, exact-profile searches, and historical ledgers did not state the sharp fixed-\\((k,N)\\) weak or strict disagreement boundary.",
+    "residual_risks": [
+      "The original Hall–Tideman full article was not retrievable through the checked open or authorized institutional routes, so its complete contents were not used for a NOT_COVERING conclusion.",
+      "An unindexed exercise, spreadsheet, or software regression test could contain the exact small witness.",
+      "The theorem is a discrete fixed-\\((k,N)\\) result and does not classify continuously divisible market-share reversals or all larger integer reversals."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundational prior art for the measure. Because full text was unavailable, whole-document noncoverage is not asserted; the formula and interpretation were independently checked in later full-text sources.",
+        "evidence": "The abstract states that several concentration measures, including Herfindahl, are discussed and that a new measure is examined analytically and empirically.",
+        "identifier_or_url": "doi:10.1080/01621459.1967.10482897",
+        "material_read": "Article abstract, bibliographic metadata, issue information, and exact publication date. Open-access searches did not yield a verified full text, and a subsequent authorized institutional retrieval attempt also returned no verified article PDF.",
+        "method": "Publisher/abstract records plus bounded open-access and authorized institutional retrieval attempts.",
+        "title": "Measures of Concentration",
+        "trigger": "Foundational source for the Hall–Tideman measure and its comparison with Herfindahl."
+      },
+      {
+        "assessment": "Directly covers the same two measures and explains the share-versus-rank weighting distinction, but does not state the finite strict-reversal boundary.",
+        "evidence": "The review states that HHI uses market shares as weights, Hall–Tideman uses firm ranks, assigns the largest firm rank one, and includes all firms.",
+        "identifier_or_url": "https://www.dnb.nl/media/o2vdj421/measures_of_competition_and_concentration_in_the_banking_industry.pdf",
+        "material_read": "Full public PDF sections on classification of concentration measures, HHI, Hall–Tideman/Rosenbluth, and the empirical comparison table.",
+        "method": "Full-text PDF inspection with rendered-page verification of the Hall–Tideman formula.",
+        "title": "Measures of Competition and Concentration in the Banking Industry: a Review of the Literature",
+        "trigger": "Highly relevant full-text review presenting HHI and Hall–Tideman formulas and comparing their weighting principles."
+      },
+      {
+        "assessment": "Confirms contemporary interpretation and comparative context but does not cover the exact finite cutoff.",
+        "evidence": "The paper treats HHI as a prominent standard measure and Hall–Tideman as a rank-sensitive alternative designed to address limitations of common concentration indices.",
+        "identifier_or_url": "doi:10.1111/1759-3441.12122",
+        "material_read": "Public author-manuscript introduction and literature-review passages presenting HHI and the Hall–Tideman formula and motivation.",
+        "method": "Public full-text manuscript inspection with rendered-page verification.",
+        "title": "A New Industry Concentration Index",
+        "trigger": "Later concentration-index paper reviewing HHI and Hall–Tideman in the same methodological setting."
+      },
+      {
+        "assessment": "The finding is an exact comparison of economic concentration indices.",
+        "evidence": "MSC2020 lists 91B82 as Statistical methods; economic indices and measures.",
+        "identifier_or_url": "MSC2020:91B82",
+        "material_read": "Public MSC2020 hierarchy entry for 91B82.",
+        "method": "Public classification-page inspection.",
+        "title": "MSC2020 database: 91B82 Statistical methods; economic indices and measures",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abdbd70e-bb69-4cd5-9ee8-fb48859e0d9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "HHI is a standard concentration benchmark, while Hall–Tideman deliberately replaces share self-weighting with rank weighting and incorporates all firms. Fixing firm count and total isolates that design difference. The exact first strict reversal and its unique sharp witness provide a natural interpretation and implementation benchmark rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
