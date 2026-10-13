@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The matching \\(\\{a_i b_i\\}\\) proves the cover lower bound \\(n\\). Every maximum independent set is a canonical prefix-suffix cut, so every minimum vertex cover is one \\(C_t\\). For edges crossing the cut, the two zero coordinates identify both endpoints. For edges wholly on one side of the cut boundary, the unique selected endpoint plus a monotone distance-one threshold on the selected vertices recovers the other endpoint. The cases are exhaustive, and a direct checker confirms the complete basis family through \\(n=9\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 paper proves \\(\\max\\{\\tau(G),\\operatorname{edim}(G)\\}\\le\\operatorname{Ddim}_e(G)\\).",
+        "Its Theorem 2.1 gives complete, complete-bipartite, path, cycle, and wheel values.",
+        "Targeted full-text searches found no half or chain occurrence.",
+        "The ordinary edge-metric half-graph result gives value \\(n-1\\), but does not meet the vertex-cover lower bound."
+      ],
+      "reasoning": "The general lower bound yields only \\(\\operatorname{Ddim}_e(H_n)\\ge n\\). The new proof supplies equality and classifies every equality set. Ordinary edge metric dimension alone cannot imply this because its optimum sets are too small to cover the graph.",
+      "searches": [
+        "DOI 10.5614/ejgta.2023.11.1.16 full-text definition, Section 2 bounds, and Theorem 2.1",
+        "full-text searches in DOI 10.5614/ejgta.2023.11.1.16 for half and chain",
+        "published ordinary edge-metric half-graph classification"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.5614/ejgta.2023.11.1.16",
+      "targeted exact searches for dominant edge metric dimension with half graph and chain graph",
+      "published ordinary edge metric classification of half graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published inequality supplies the sharp candidate lower bound \\(n\\) but no construction or equality condition for half graphs.",
+        "The complete-bipartite formula does not apply because a half graph with \\(n\\ge2\\) is not complete bipartite.",
+        "Ordinary half-graph edge bases have size \\(n-1\\), so they cannot be vertex covers; their classification does not imply the \\(n+1\\) dominant bases."
+      ],
+      "reasoning": "The accepted theorem fills a genuine implication gap: it proves that all, and only, minimum vertex covers satisfy the independent edge-resolving requirement.",
+      "searches": [
+        "general lower bound in DOI 10.5614/ejgta.2023.11.1.16",
+        "Theorem 2.1 in DOI 10.5614/ejgta.2023.11.1.16",
+        "ordinary edge metric bases of half graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact searches returned the foundational dominant-edge-metric paper and unrelated graph families, but no half-graph theorem.",
+        "Searches using the chain-graph alias likewise produced no same statement.",
+        "The dominant-edge definition was checked against the vertex-cover-plus-edge-resolving formulation used in the proof."
+      ],
+      "reasoning": "The main aliases and the exact invariant name were searched. Vertex-edge dominant edge metric dimension is a different parameter because it uses vertex-edge domination rather than a vertex cover.",
+      "searches": [
+        "\"dominant edge metric dimension\" \"half graph\"",
+        "\"dominant edge metric dimension\" \"chain graph\"",
+        "\"dominant edge metric\" \"half graph\"",
+        "dominant edge metric chain graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact half-graph dominant-edge-metric table or basis count was retrieved.",
+        "The closest stored same-object result is the ordinary edge metric basis classification.",
+        "The bundled checker derives the basis set from the definition rather than importing a table."
+      ],
+      "reasoning": "The formula and basis count are proved for arbitrary \\(n\\) from structural arguments; finite enumeration is only corroborative.",
+      "searches": [
+        "dominant edge metric dimension half graph",
+        "dominant edge metric dimension chain graph",
+        "dominant edge metric bases half graph",
+        "half graph edge metric vertex cover"
+      ]
+    },
+    "rationale": "The introducing primary paper covers the definition, general inequalities, complete and complete-bipartite graphs, paths, cycles, wheels, complexity, and graph operations, but not half graphs or chain graphs. The closest same-object result is for ordinary edge metric dimension and does not impose a vertex-cover condition. No searched source stated that every minimum half-graph cover edge-resolves or enumerated the dominant edge metric bases.",
+    "residual_risks": [
+      "A differently phrased or non-indexed half-graph treatment may exist.",
+      "The indexed publication day 8 April 2023 is external bibliographic evidence; the journal PDF itself displays submission, revision, and acceptance dates rather than a publication day.",
+      "The theorem does not address chain graphs with repeated twin classes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the target invariant and lists MSC 05C12. It gives the general lower bound and several standard exact families, but no half-graph or chain-graph theorem.",
+        "evidence": [
+          "The article lists Mathematics Subject Classification 05C12, 05C76, 90C60.",
+          "The definition is exactly vertex cover plus edge metric generator.",
+          "Section 2 states the lower bound by vertex-cover number and ordinary edge metric dimension.",
+          "Theorem 2.1 covers complete, complete-bipartite, path, cycle, and wheel graphs.",
+          "Full-text searches found no half or chain occurrence."
+        ],
+        "identifier_or_url": "DOI:10.5614/ejgta.2023.11.1.16",
+        "material_read": "Full searchable journal PDF at the definition, Section 2 bounds, Theorem 2.1, and targeted full-text searches for half and chain; the relevant PDF pages were visually inspected.",
+        "method": "Primary full-text statement, definition, family-coverage, and implication comparison.",
+        "title": "The dominant edge metric dimension of graphs",
+        "trigger": "Introducing primary source for the target invariant, its MSC ownership, and the strongest general lower bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9eb1b705-cde5-4672-9c36-b87a54222740",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The parameter was introduced to enforce simultaneous edge identification and edge coverage by a vertex cover. Half graphs are a canonical structured bipartite family, and the theorem shows that the two optimization requirements align exactly at every minimum cover. The complete basis classification and the contrast with ordinary edge metric dimension make the result a motivated structural statement rather than a routine scalar bound.",
+    "status": "PASS"
+  }
+}
