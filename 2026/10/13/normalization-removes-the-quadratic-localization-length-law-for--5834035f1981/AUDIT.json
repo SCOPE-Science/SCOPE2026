@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The source identity \\(M\\bar C=(\\sum_i|\\psi_i|)^2-1\\) is exact for a normalized one-particle state. Normalizing \\(Ae^{-|x|/\\xi}\\) forces \\(A=\\xi^{-1/2}\\), so both the source's truncated integral and the full-line integral are linear in \\(\\xi\\) after squaring. The exact finite-chain geometric calculation reconstructs the same scaling mechanism and yields a closed boundary-away expression with a verified large-\\(\\xi\\) expansion.",
+    "risks": [
+      "The source's exponential envelope is an approximation to actual disordered eigenstates, so the finding is deliberately restricted to that analytic ansatz.",
+      "The continuum profile assumes unit lattice spacing."
+    ],
+    "sources": [
+      "arXiv:quant-ph/0403178, Eqs. (2), (6), (7), and (8)",
+      "artifacts/verify.py",
+      "artifacts/verification_output.txt"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The nearby exact localization relations concern bipartite linear entropy or average squared concurrence, not the average concurrence \\(\\bar C\\) whose dependence is controlled by the amplitude \\(L^1\\) norm.",
+        "The source itself cites these lines of work but still introduces Eq. (8) as its analytic average-concurrence estimate."
+      ],
+      "reasoning": "A stronger participation-ratio theorem would cover the finding only if it determined the \\(L^1\\)-based average concurrence for the normalized exponential profile. The inspected related results do not do so.",
+      "searches": [
+        "arXiv:quant-ph/0308116 bipartite entanglement localization one-particle participation ratio",
+        "arXiv:quant-ph/0308118 average squared concurrence participation ratio",
+        "arXiv:quant-ph/0212049 entanglement sharing one-particle states"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0403178",
+      "DOI:10.1142/S0217984905008487",
+      "MaRDI:Q3507614",
+      "arXiv:quant-ph/0308118",
+      "arXiv:quant-ph/0308116",
+      "arXiv:quant-ph/0212049",
+      "published-finding corpus published-finding search with four focused semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:quant-ph/0403178 prints a quadratic \\(\\xi^2/M\\) estimate rather than the normalized linear dependence.",
+        "arXiv:quant-ph/0308118 derives a participation-ratio identity for \\(\\langle C^2\\rangle\\), which does not imply the present \\(\\bar C\\) formula."
+      ],
+      "reasoning": "The new statement contradicts the power in the motivating estimate after enforcing its own normalization; it is not a corollary of the printed Eq. (8). Nearby squared-concurrence results use a different moment and therefore do not dominate or subsume it.",
+      "searches": [
+        "Full-text inspection of arXiv:quant-ph/0403178 around Eqs. (6)-(9)",
+        "Full-text inspection of arXiv:quant-ph/0308118 around average concurrence and average squared concurrence",
+        "Semantic searches for normalized exponential and average-concurrence aliases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved published-finding corpus finding stated a correction of Eq. (8), a normalized exponential average-concurrence law, or the exact discrete geometric formula.",
+        "Title/DOI correction searches returned the original article and bibliographic records but no identified erratum."
+      ],
+      "reasoning": "Equivalent phrasings include average concurrence as an \\(L^1\\)-amplitude functional, a normalized exponential envelope, a geometric localized profile, and correction of the printed \\(\\xi^2\\) law. None of the closest records implied the stated linear scaling.",
+      "searches": [
+        "published-finding corpus: quant-ph/0403178 average concurrence localization length",
+        "published-finding corpus: \"Localized Entanglement in one-dimensional Anderson model\" correction",
+        "published-finding corpus: normalized exponential localization average concurrence linear in localization length",
+        "published-finding corpus: one-particle average concurrence l1 norm localization length",
+        "Web: exact title/DOI with erratum, correction, and corrigendum terminology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MaRDI Q3507614 identifies the source, DOI, arXiv version, and primary-listed MSC 81P15.",
+        "No exact database entry or correction table was found that supplies the normalized linear law."
+      ],
+      "reasoning": "The claim is a symbolic normalization correction, not a numerical-table lookup. Relevant bibliographic databases establish source identity and classification but do not contain a competing exact formula.",
+      "searches": [
+        "published-finding corpus exact source identifier quant-ph/0403178",
+        "MaRDI Q3507614 bibliographic record",
+        "Web searches for the printed coefficient and localization-length scaling"
+      ]
+    },
+    "rationale": "Focused database, source, alias, and implication searches did not find a published result that states or implies this normalization correction. Related one-particle entanglement work gives participation-ratio relations for different observables, especially average squared concurrence, and therefore does not cover the present claim.",
+    "residual_risks": [
+      "A correction may exist in literature not indexed by the searched services or under terminology not captured by the tested aliases.",
+      "The exact discrete geometric profile is a model envelope; originality is claimed for the correction and exact profile consequence, not for the elementary geometric-series identities in isolation."
+    ],
+    "risks": [
+      "An unindexed note, informal comment, or differently worded derivation may contain the same normalization correction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BASELINE_SOURCE_NOT_COVERING_CORRECTION",
+        "evidence": "Eq. (6) contains the normalized amplitude sum; Eq. (7) is the exponential envelope; Eq. (8) prints a term proportional to \\(\\xi^2/M\\).",
+        "identifier_or_url": "arXiv:quant-ph/0403178",
+        "material_read": "Full arXiv preprint, with direct inspection of the one-particle concurrence definition, average concurrence Eq. (6), exponential ansatz Eq. (7), estimate Eq. (8), and adjacent numerical interpretation.",
+        "method": "Parsed arXiv PDF text plus page-image inspection of the equations and surrounding prose.",
+        "title": "Localized Entanglement in one-dimensional Anderson model",
+        "trigger": "Primary source whose Eq. (8) asserts the localization-length scaling under examination."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The exact participation-ratio relation is for \\(\\langle C^2\\rangle\\), not for the \\(L^1\\)-based \\(\\bar C\\) considered here.",
+        "identifier_or_url": "arXiv:quant-ph/0308118",
+        "material_read": "ArXiv full text around the average concurrence definition and the later exact average-squared-concurrence/participation-ratio relation.",
+        "method": "Parsed arXiv PDF text plus page-image inspection of the relevant formulas.",
+        "title": "Mode entanglement of electrons in the one-dimensional Frenkel-Kontorova model",
+        "trigger": "Closely related same-lineage work using average concurrence for one-particle localization."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The work relates bipartite linear entropy to participation ratio; it does not state the normalized exponential average-concurrence correction.",
+        "identifier_or_url": "arXiv:quant-ph/0308116",
+        "material_read": "Abstract, bibliographic record, and the stated participation-ratio connection.",
+        "method": "ArXiv/MaRDI bibliographic inspection and targeted text search.",
+        "title": "Bipartite entanglement and localization of one-particle states",
+        "trigger": "Potentially broader localization-entanglement result by overlapping authors."
+      }
+    ],
+    "sources": [
+      "published-finding corpus semantic search results for the four recorded queries",
+      "arXiv:quant-ph/0403178",
+      "arXiv:quant-ph/0308118",
+      "arXiv:quant-ph/0308116",
+      "arXiv:quant-ph/0212049"
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5834035f-1981-4502-bfe1-987feeadee57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source uses Eq. (8) as its analytic explanation for how average concurrence tracks localization length. Replacing quadratic dependence by linear dependence changes the quantitative scaling of that bridge and prevents overstating how rapidly the entanglement measure grows with the localization length. The result also supplies an exact finite-chain model formula that cleanly separates normalization from boundary effects.",
+    "risks": [
+      "The correction does not by itself overturn the source's qualitative monotonic relation between stronger localization and smaller average concurrence.",
+      "Its quantitative predictive value outside exponential-envelope regimes is limited."
+    ],
+    "sources": [
+      "arXiv:quant-ph/0403178, discussion immediately after Eq. (8)",
+      "Exact finite-chain formula and boundary-away asymptotic in RESULT.md"
+    ],
+    "status": "PASS"
+  }
+}
