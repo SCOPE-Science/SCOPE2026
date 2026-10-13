@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Eq. (3.5) defines a nonconstant conditional posterior depending on gamma, eta, xi and the data. For a symmetric random-walk normal proposal, the exact Metropolis-Hastings rule reduces to the target-density ratio. The printed Eq. (3.10) either supplies arguments not defined for Eq. (3.5), or, under the natural proposal-density reading, omits the target ratio. A symmetric proposal plus symmetric displacement-only acceptance violates detailed balance with every nonconstant target. The packaged checker independently evaluates a concrete target ratio and the resulting unequal probability fluxes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hastings gives the general Metropolis-Hastings construction whose acceptance probability contains target and proposal ratios.",
+        "For symmetric random-walk normal proposals, standard MCMC references reduce the acceptance to the target-density ratio.",
+        "Broader MCMC sampling-bias results found in the database concern other algorithms and do not identify the IPL source's Eq. (3.10)."
+      ],
+      "reasoning": "The general theorem supplies the comparison standard but does not make the source-specific incompatibility redundant; the accepted claim identifies exactly why the displayed IPL algorithm cannot preserve its own conditional posterior.",
+      "searches": [
+        "\"inverse power Lomax\" Bayesian stress strength MCMC sampler",
+        "Metropolis Hastings acceptance ratio symmetric proposal target density ratio",
+        "Hastings 1970 Monte Carlo sampling methods Markov chains"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2025700",
+      "doi:10.1093/biomet/57.1.97"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previous-result corpus contains no finding with DOI 10.3934/math.2025700 or the inverse power Lomax model.",
+        "The previous-result corpus search returned no matching DOI, model name, or sampler claim.",
+        "The closest published-result database hits concern covariance bias in other Langevin/MCMC schemes rather than the IPL conditional posterior."
+      ],
+      "reasoning": "No checked prior claim implies the source-specific mismatch between Eqs. (3.5) and (3.10). Generic MH theory is necessary background but the concrete incompatibility and reproducibility consequence require inspection of this article.",
+      "searches": [
+        "current probability-statistics inverse power Lomax stress-strength",
+        "prior probability-statistics inverse power Lomax Metropolis Hastings",
+        "published MCMC acceptance correction posterior invariant kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned published-result database finding states an IPL Algorithm 1 acceptance-ratio correction.",
+        "Exact web searches for the DOI with correction, corrigendum, erratum, and Algorithm 1 located the original article but no correction notice.",
+        "The primary PDF visibly places the conditional posterior in Eq. (3.5) and the incompatible acceptance notation in Eq. (3.10)."
+      ],
+      "reasoning": "The searches cover the exact source, model name, sampler type, algorithm number, acceptance-ratio terminology, and correction aliases. No equivalent source-specific repair was located.",
+      "searches": [
+        "10.3934/math.2025700 Metropolis Hastings Algorithm 1 acceptance probability correction",
+        "\"inverse power Lomax\" MCMC acceptance probability stress strength",
+        "\"Estimating the stress-strength reliability\" IPL Metropolis Hastings correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Eq. (3.5) defines pi_nu^*(nu | gamma, eta, xi) with explicit data-dependent factors.",
+        "The surrounding text says the nu and xi conditionals are nonstandard and motivates normal MH proposals.",
+        "Algorithm 1 Eq. (3.10) displays an acceptance ratio using pi_nu^* with a variance argument rather than the conditioning variables."
+      ],
+      "reasoning": "The comparison is internal and exact: the symbol and arguments used in the acceptance step do not match the conditional target defined immediately beforehand, while the normal-proposal interpretation omits the target ratio.",
+      "searches": [
+        "doi:10.3934/math.2025700 Eq. 3.5 conditional posterior",
+        "doi:10.3934/math.2025700 Eq. 3.10 acceptance probability",
+        "doi:10.3934/math.2025700 Algorithm 1 normal proposal"
+      ]
+    },
+    "rationale": "The 2025 source prints the problematic acceptance step and uses Algorithm 1 as the basis for Bayesian point and interval estimation. Five source-specific published-result database searches, exact DOI correction searches, previous-result comparisons, and comparison with the classical Metropolis-Hastings rule found no published model-specific correction.",
+    "residual_risks": [
+      "The authors' unavailable code may already implement a correct target-density acceptance ratio.",
+      "Eq. (3.10) may be a notation/transcription error rather than the rule actually used numerically.",
+      "A recent unindexed correction may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT AS PRINTED. Eq. (3.10) does not provide a valid Metropolis-Hastings acceptance probability for the target in Eq. (3.5).",
+        "evidence": "Eqs. (3.5)–(3.6), the paragraph introducing normal proposals, and Algorithm 1 Eq. (3.10).",
+        "identifier_or_url": "doi:10.3934/math.2025700",
+        "material_read": "Open publisher PDF at the IPL model definition, joint posterior, conditional posterior Eqs. (3.3)–(3.6), normal-proposal discussion, and Algorithm 1 including Eq. (3.10).",
+        "method": "Direct publisher PDF text and rendered-page inspection.",
+        "title": "Estimating the stress-strength reliability parameter of the inverse power Lomax distribution",
+        "trigger": "Primary source defining the IPL posterior and the MCMC algorithm used for Bayesian inference."
+      },
+      {
+        "assessment": "GENERAL THEORY. It supplies the target/proposal detailed-balance rule used to evaluate the IPL algorithm.",
+        "evidence": "The Metropolis-Hastings construction requires the target-density ratio and the reverse-to-forward proposal ratio.",
+        "identifier_or_url": "doi:10.1093/biomet/57.1.97",
+        "material_read": "Bibliographic record, abstract, and open full-text exposition of the general acceptance construction.",
+        "method": "Direct primary-paper record and lawful open full-text inspection.",
+        "title": "Monte Carlo sampling methods using Markov chains and their applications",
+        "trigger": "Foundational comparison source for the Metropolis-Hastings acceptance rule."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5aebd52a-4df3-480a-9506-eed805deb47e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Algorithm 1 is the article's mechanism for generating posterior draws used in Bayesian point estimates and credible intervals for the stress-strength reliability R. As printed, its central MH update does not define a posterior-invariant kernel, so a reader cannot reproduce the advertised Bayesian analysis from the article. The repair is mathematically exact and operationally essential: it identifies the correct target ratio and the positive-support treatment without claiming that unavailable private code was necessarily wrong.",
+    "status": "PASS"
+  }
+}
