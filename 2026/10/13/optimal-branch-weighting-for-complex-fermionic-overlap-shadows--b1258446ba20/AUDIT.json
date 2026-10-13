@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the source normalization, diagonal second-moment spectrum, Born weighting, and complex-variance convention. The unequal branch state is normalized because the physical and ancillary branches are orthogonal. The first moment scales as \\(\\sqrt{\\lambda(1-\\lambda)}\\), the squared estimator rescales the source second-moment operator by \\(1/[4\\lambda(1-\\lambda)]\\), and strict convexity gives the unique ensemble optimizer. The minimax lower bound is witnessed by an admissible trial-equals-target Slater pair and matches the source sharp equal-weight upper bound. No finite experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.27254v1 treats particle-preserving shadows for squared Slater overlaps, a different observable that does not require the coherent phase reference.",
+        "arXiv:2610.03103v1 explicitly distinguishes squared-overlap estimation from phase-sensitive complex-overlap estimation."
+      ],
+      "reasoning": "The strongest broader fermionic-shadow results located concern squared overlaps or generic reduced-density-matrix observables. They do not dominate the modified complex-overlap protocol because they do not contain the coherent-reference branch-weight parameter or its variance law.",
+      "searches": [
+        "orbital rotation shadows weighted augmentation auxiliary determinant variance optimization",
+        "fermionic classical shadows overlap unequal superposition reference state optimal weight",
+        "particle preserving shadows coherent reference branch weight complex overlap estimator"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03103v1",
+      "arXiv:2208.08964v2",
+      "arXiv:2606.27254v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.03103v1 proves the sharp equal-weight upper bound \\(4b_{N,\\eta}-1\\) and notes that its lower bound uses the fixed reference weight.",
+        "arXiv:2208.08964v2 says variations of the augmentation are possible but does not analyze unequal coherent amplitudes."
+      ],
+      "reasoning": "The published equal-weight theorem does not imply the unequal-weight statement because changing \\(\\lambda\\) changes both the prepared state and the Born distribution. Re-deriving the first and second moments for that new family is necessary. The minimax statement additionally combines the new family with the source sharp equal-weight bound.",
+      "searches": [
+        "arXiv:2610.03103 unbalanced augmented state overlap estimator variance branch weight",
+        "orbital rotation shadows weighted augmentation auxiliary determinant variance optimization",
+        "quantum classical AFQMC overlap estimator augmentation weight variance minimax"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.03103v1 Sec. II B defines only the equal state \\((|\\Psi_T\\rangle+|\\mathbf a\\rangle)/\\sqrt2\\).",
+        "arXiv:2208.08964v2 Eqs. (132)-(133) likewise use only the equal coherent reference.",
+        "No searched record stated an unequal-reference complex-overlap variance law or its optimizer."
+      ],
+      "reasoning": "Searches included unequal/unbalanced superposition, reference-branch weighting, and variance-optimization aliases. The closest primary sources use equal amplitudes and therefore do not state an equivalent one-parameter theorem.",
+      "searches": [
+        "arXiv:2610.03103 unbalanced augmented state overlap estimator variance branch weight",
+        "orbital rotation shadows weighted augmentation auxiliary determinant variance optimization",
+        "fermionic classical shadows overlap unequal superposition reference state optimal weight"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact source variance table/formulas are Theorem 3 and Appendix A Eqs. (A62)-(A70) of arXiv:2610.03103v1; all are specialized to branch probability one half.",
+        "The full current and prior own ledgers contain no occurrence of arXiv:2610.03103 or the unequal-augmentation claim."
+      ],
+      "reasoning": "The relevant exact formula source was inspected rather than inferred from an abstract. Its second-moment spectrum is reusable, but the Born distribution and estimator normalization are changed by unequal branch weights, so the published table does not already contain the claimed result.",
+      "searches": [
+        "arXiv:2610.03103 unbalanced augmented state overlap estimator variance branch weight",
+        "quantum classical AFQMC overlap estimator augmentation weight variance minimax",
+        "particle preserving shadows coherent reference branch weight complex overlap estimator"
+      ]
+    },
+    "rationale": "The prior same-object papers fix the coherent reference probability at one half. The new theorem changes the measured augmented state, derives the resulting variance law, solves the shared-target average-variance optimization, and proves the equal source choice is uniquely minimax. The claim is therefore not a special case of the published equal-weight theorem.",
+    "residual_risks": [
+      "The anchor is only a few days old, so an unindexed contemporaneous note could independently analyze unequal branch weights.",
+      "The West-Cerezo-Larocca full PDF could not be retrieved in this run; its primary abstract and the anchor's detailed comparison indicate a different squared-overlap observable, but this remains a minor access risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper fixes equal branch amplitudes, derives the exact equal-weight variance and second-moment spectrum, and does not optimize an unequal branch probability.",
+        "evidence": "Eq. (9) fixes the equal augmented state; Eqs. (A62)-(A67) give the Haar and spectrum identities; Eq. (A70) explicitly refers to the fixed reference weight.",
+        "identifier_or_url": "arXiv:2610.03103v1",
+        "material_read": "Full relevant sections: Sec. II B, variance discussion, Theorem 3, and Appendix A through Eqs. (A62)-(A70).",
+        "method": "Primary full-text inspection.",
+        "title": "Orbital-Rotation Shadow Tomography Reduces the Classical Cost of Quantum-Classical Auxiliary-Field Quantum Monte Carlo",
+        "trigger": "Exact same estimator and augmented-reference construction."
+      },
+      {
+        "assessment": "The paper introduces the equal coherent reference and mentions possible variations, but does not analyze unequal branch weights or an average-variance optimizer.",
+        "evidence": "Eqs. (132)-(133) use \\((|\\psi\\rangle+|\\mathbf a\\rangle)/\\sqrt2\\) and convert the desired overlap to one-half of a coherence.",
+        "identifier_or_url": "arXiv:2208.08964v2",
+        "material_read": "Abstract, estimator framework, conclusion overlap application, and Eqs. (132)-(133).",
+        "method": "Primary full-text inspection.",
+        "title": "Classical shadows of fermions with particle number symmetry",
+        "trigger": "Original particle-number-preserving shadow framework and coherent overlap augmentation cited by the anchor."
+      },
+      {
+        "assessment": "This work estimates squared Slater overlaps and does not cover the phase-sensitive coherent-reference estimator optimized here.",
+        "evidence": "Its abstract states squared/expectation-value overlap learning; arXiv:2610.03103v1 lines corresponding to Sec. I distinguish this from the required complex overlap.",
+        "identifier_or_url": "arXiv:2606.27254v1",
+        "material_read": "Primary abstract plus the anchor paper's explicit comparison of its observable with the complex-overlap protocol.",
+        "method": "Abstract and cross-comparison inspection; direct PDF retrieval was unavailable in this run.",
+        "title": "Particle-preserving fermionic shadows with mode-independent sample complexity",
+        "trigger": "Closest recent mode-independent overlap-shadow comparison named by the anchor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1258446-ba20-43f5-8162-8c697b64d848",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies a previously unused design degree of freedom in a new phase-sensitive overlap-shadow protocol. It gives an exact data-reuse-compatible tuning law, a quantitative gain that can approach an order-one fraction of the second moment, and a complementary theorem proving that the original equal superposition is already uniquely optimal for unrestricted worst-case robustness. This is a structural protocol-design result rather than a cosmetic constant recomputation.",
+    "status": "PASS"
+  }
+}
