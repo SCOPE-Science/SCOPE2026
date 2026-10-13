@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For \\(n=pq\\), the equation is exactly \\(4\\sigma(pq+1)=5(p+1)(q+1)\\). The even-number divisor lower bound implies \\((p-5)(q-5)<24\\). It excludes \\(p\\ge11\\) and reduces \\(p=7\\) to two failures. For \\(p=5\\), either \\(\\sigma(t)=t+2\\) for odd \\(t>1\\), impossible, or the divisor lower bound contradicts the required equality. For \\(p=3\\), a sharper bound and prime congruences give exactly the stated equivalent parameterization. For \\(p=2\\), a factorization proof yields \\(4\\mid\\sigma(2q+1)\\), whence \\(16\\mid q+1\\). Direct witnesses and finite corroboration were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Oller-Marcén (arXiv:1206.1823) gives conditions for \\(\\tau(n)\\mid\\sigma(n)\\), including a complete cube-free arithmetic-number criterion, not for the adjacent difference.",
+        "Bateman–Erdős–Pomerance–Straus establish distributional results for \\(\\sigma(n)/\\tau(n)\\), not an identity involving \\(\\sigma(n+1)\\).",
+        "Integrality of \\(\\sigma(n)/\\tau(n)\\) is necessary but plainly not sufficient for the exact A066176 equality."
+      ],
+      "reasoning": "Even a full characterization of arithmetic numbers cannot by itself determine the neighboring divisor sum, so it does not imply the support sieve.",
+      "searches": [
+        "\"On arithmetic numbers\" \"Oller\" pdf 2015",
+        "Antonio M Oller-Marcen On arithmetic numbers 2014 arxiv pdf 201400085",
+        "https://math.dartmouth.edu/~carlp/PDF/31.pdf",
+        "arithmetic numbers average of divisors paper Sándor 2000 2001 11A25"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A066176",
+      "OEIS:A003601",
+      "OEIS:A066177",
+      "arXiv:1206.1823",
+      "Bateman–Erdős–Pomerance–Straus (1981)",
+      "published-result semantic checks of exact formula, semiprime aliases, and congruences",
+      "current and prior owned ledgers for statement overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A nearby published result proves the unique low-multiplicity solution of \\(\\sigma(n+1)=\\sigma(n)\\), the zero-increment condition, not the positive average-divisor increment.",
+        "Another nearby result studies the iterated equation \\(\\sigma(\\sigma(n))=2n+1\\), which has no implication to adjacent increments.",
+        "The current ledger and the previous-week archive ledger contained no exact A066176 or adjacent-increment semiprime statement in their recoverable claim fields."
+      ],
+      "reasoning": "The new implication is a uniform bound on the least prime factor plus congruence and exact odd-argument reductions, none of which follows from the distinct cited equations.",
+      "searches": [
+        "divisor sum neighboring integers sigma(pq+1)=5(p+1)(q+1)/4 semiprimes",
+        "arithmetic numbers n=pq sigma(n+1)=(5/4)sigma(n) p3 q11 mod12",
+        "adjacent divisor sums equal mean divisor size 753 148173 135 147",
+        "OEIS A066176 semiprime average divisor size sigma(n+1)-sigma(n)=sigma(n)/tau(n) smallest prime factor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A066176 defines exactly \\(\\sigma(n+1)-\\sigma(n)=\\sigma(n)/\\tau(n)\\) with examples \\(753\\) and \\(148173\\).",
+        "For squarefree \\(pq\\), this is equivalent to \\(4\\sigma(pq+1)=5(p+1)(q+1)\\).",
+        "No retrieved source supplies the prime-factor restriction or the exact \\(p=3\\) shifted equation."
+      ],
+      "reasoning": "The searches covered the defining sequence, average-divisor alias, consecutive-divisor-sum spelling and the exact squarefree-semiprime formula.",
+      "searches": [
+        "OEIS A066176 semiprime average divisor size sigma(n+1)-sigma(n)=sigma(n)/tau(n) smallest prime factor",
+        "sum of divisors consecutive difference equal average divisor semiprime q=251 753 148173",
+        "A066176 numbers n consecutive sum of divisors difference average divisor sigma(n+1)-sigma(n) squarefree semiprime",
+        "\"A066176\" \"semiprime\" \"3\" \"p q\"",
+        "\"sigma(n+1)-sigma(n)\" \"sigma(n)/tau(n)\" semiprimes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A066176 displays terms and a bounded algorithm; 753 and 148173 are among them, with no proof that every semiprime term has small prime support.",
+        "A003601 classifies integrality of the divisor average, not the extra equality.",
+        "A066177 uses the negative increment and is a distinct predicate."
+      ],
+      "reasoning": "An exact table of early solutions is insufficient to rule out arbitrarily large semiprimes with smaller prime at least five.",
+      "searches": [
+        "https://oeis.org/A066176",
+        "https://oeis.org/A003601",
+        "https://oeis.org/A066177"
+      ]
+    },
+    "rationale": "The defining numerical sequence is not a structural semiprime classification. The primary papers on arithmetic numbers analyze the integrality/distribution of the mean divisor size but do not contain the adjacent-step equality. Closest published-result search matches involve different consecutive divisor equations, and no stronger implication was found.",
+    "residual_risks": [
+      "An elementary equivalent could occur in an unindexed problem note or comment associated with the exact sequence.",
+      "The \\(2q\\) congruence is necessary but does not classify or exclude that entire branch.",
+      "The \\(3q\\) branch involves an unsolved shifted divisor-sum equation; no infinitude is inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_OBJECT_NOT_COVERING",
+        "evidence": "The entry authored 14 December 2001 defines the increment equality and lists numerical terms including 753 and 148173; it contains no semiprime support theorem.",
+        "identifier_or_url": "https://oeis.org/A066176",
+        "material_read": "Definition, terms, comment, exact example, displayed programs, reference links and author date.",
+        "method": "Direct reading of the sequence page.",
+        "title": "OEIS A066176",
+        "trigger": "Exact defining equation and earliest public source date."
+      },
+      {
+        "assessment": "NECESSARY_CLASS_NOT_COVERING",
+        "evidence": "It defines \\(\\tau(n)\\mid\\sigma(n)\\) and cites the main primary papers; it does not constrain \\(\\sigma(n+1)\\).",
+        "identifier_or_url": "https://oeis.org/A003601",
+        "material_read": "Definition, comments, arithmetic-number sources, links, examples, original literature references.",
+        "method": "Direct reading of the sequence page.",
+        "title": "OEIS A003601",
+        "trigger": "Strongest exact database for integrality of the average divisor size, a necessary condition."
+      },
+      {
+        "assessment": "OPPOSITE_SIGN_NOT_COVERING",
+        "evidence": "The defining increment is negative, unlike the positive mean-divisor increment in A066176.",
+        "identifier_or_url": "https://oeis.org/A066177",
+        "material_read": "Definition, sample terms, formula, example, author date and cross references.",
+        "method": "Direct reading of the sequence page.",
+        "title": "OEIS A066177",
+        "trigger": "Adjacent sequence with the opposite increment sign."
+      },
+      {
+        "assessment": "DIVISOR_MEAN_THEOREM_NOT_COVERING",
+        "evidence": "The paper characterizes \\(\\sigma(n)/\\tau(n)\\in\\mathbb Z\\); even its cube-free criterion does not involve \\(\\sigma(n+1)\\) or the A066176 equality.",
+        "identifier_or_url": "arXiv:1206.1823; DOI:10.1002/mana.201400085",
+        "material_read": "All six full-text preprint pages: introduction, prime-power results, cube-free criterion, general theorem, proofs, conclusions, references.",
+        "method": "Open-access arXiv PDF text and rendered pages 1 and 4 inspected.",
+        "title": "On arithmetic numbers",
+        "trigger": "Highly relevant exact arithmetic-mean integrality theorem and verified primary MSC 11A25."
+      },
+      {
+        "assessment": "DISTRIBUTION_CONTEXT_NO_KNOWN_COVERAGE",
+        "evidence": "The stated results concern distribution/integrality and average size of \\(\\sigma(n)/\\tau(n)\\), rather than the equality of that mean with a neighbor difference.",
+        "identifier_or_url": "https://math.dartmouth.edu/~carlp/PDF/31.pdf",
+        "material_read": "24-page author-hosted PDF introduction and summaries of Theorems 2.1–6.1, inspected section headings and searches for consecutive-adjacent conditions.",
+        "method": "Lawful author-hosted full PDF with rendered first page and targeted text inspection.",
+        "title": "The arithmetic mean of the divisors of an integer",
+        "trigger": "Foundational primary literature for arithmetic divisor means."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "814df0e7-9fcb-4c3b-84ea-3854a8aab141",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question is motivated by the natural exact equation between a one-step divisor-sum increase and the divisor mean, recorded publicly for twenty-five years. The theorem excludes all semiprimes with smaller prime at least five without any size cutoff, isolates two rigid congruence classes, and converts the nonempty odd branch into an exact sigma equation on an odd progression. This is a substantial unbounded structural sieve, not an arbitrary parameter slice or finite recomputation.",
+    "status": "PASS"
+  }
+}
