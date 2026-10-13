@@ -1,0 +1,129 @@
+{
+  "claim": "For the equal-temperature two-mode squeezed thermal state \\(\\rho_{\\mathrm{TMST}}(r,\\beta)\\) of Mishra--Morelli--Baksov\\u00e1--Rembold--Friis and their optimized covariance-only fidelity witness with a two-mode squeezed-vacuum target, put \\(u=\\operatorname{coth}(\\beta/2)\\) and \\(\\beta_c=\\log(2+\\sqrt{3})\\). The source quantity obeys the exact identity\n\\[\n\\widetilde R_{\\mathrm{opt}}^2=\\frac{u\\cosh(2r)(u^2-1)}{u\\cosh(2r)+\\sqrt{1+u^2\\sinh^2(2r)}}.\n\\]\nConsequently, if \\(0<\\beta\\le\\beta_c\\), then \\(\\widetilde R_{\\mathrm{opt}}>1\\) for every finite \\(r\\ge0\\), so the source fidelity lower bound \\(\\widetilde F_{\\mathrm{opt}}=[1-\\min\\{1,\\widetilde R_{\\mathrm{opt}}\\}]^2\\) vanishes identically and this fidelity-based covariance witness certifies only the trivial Schmidt-number lower bound \\(1\\), regardless of squeezing. In the same regime the entanglement-of-formation method applied to the same covariance matrix has\n\\[\n\\operatorname{SN}(\\rho_{\\mathrm{TMST}})\\ge \\exp h(ue^{-2r})\\sim \\frac{e}{4u}e^{2r},\n\\]\nso arbitrarily large Schmidt number is nevertheless certifiable from the same second moments as \\(r\\to\\infty\\). If \\(\\beta>\\beta_c\\), then \\(\\widetilde R_{\\mathrm{opt}}\\to a_\\beta=1/(\\sqrt2\\sinh(\\beta/2))<1\\), and the fidelity witness itself eventually certifies an exponentially growing Schmidt number. More precisely, for \\(r>0\\) and \\(\\widetilde F_{\\mathrm{opt}}>0\\), with \\(s_{\\mathrm{opt}}=\\tfrac12\\operatorname{arsinh}(u\\sinh(2r))\\), its certified lower bound is\n\\[\nK_{\\mathrm{fid}}=\\max\\!\\left\\{1,\\left\\lceil\\frac{\\log(1-\\widetilde F_{\\mathrm{opt}})}{\\log(\\tanh^2 s_{\\mathrm{opt}})}\\right\\rceil\\right\\},\n\\]\nand\n\\[\nK_{\\mathrm{fid}}\\sim C_\\beta e^{2r},\\qquad C_\\beta=\\frac{u}{4}\\Bigl[-\\log\\bigl(1-(1-a_\\beta)^2\\bigr)\\Bigr].\n\\]\nThus \\(\\beta_c\\) is an exact all-squeezing thermal threshold separating complete failure of this covariance-to-fidelity Schmidt-number certificate from exponential high-dimensional certification, while the same covariance data retain exponentially growing EoF-based certification on both sides of the threshold.",
+  "correctness": {
+    "rationale": "Starting from the anchor's exact Eqs. (50)--(52), the optimized target can be eliminated exactly. Rationalization gives a positive closed form whose denominator is strictly below twice its leading term, yielding a uniform-in-squeezing lower bound and the exact limiting value. The critical equation is solved exactly. The TMSV threshold in Eq. (53) is an elementary geometric sum, and the strict witness inequality gives the stated ceiling formula. The EoF asymptotic follows from the explicit function in Eq. (33). A standalone script checks the identities and asymptotic constants at representative parameters; the proof itself is analytic.",
+    "risks": [
+      "The EoF asymptotic is used only in the large-squeezing regime where its argument tends to zero.",
+      "No numerical experiment is used to justify an infinite-parameter conclusion."
+    ],
+    "sources": [
+      "arXiv:2610.03113v1, Eqs. (33), (40), and (50)--(54)",
+      "artifacts/verify.py"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shahandeh--Sperling--Vogel (2013) studies a broad Gaussian witness class and squeezed thermal examples.",
+        "Liu et al. (2025) studies infinite-dimensional Bloch-operator covariance witnesses.",
+        "The anchor explicitly distinguishes those witness families from its covariance-to-fidelity lower bound."
+      ],
+      "reasoning": "Broader covariance-based methods can certify the same physical states, but they do not dominate the method-specific claim because the result concerns the exact failure and recovery boundary of a distinct fidelity conversion. The EoF comparison is included precisely to prevent interpreting the boundary as a state or covariance-information limitation.",
+      "searches": [
+        "Operational Gaussian Schmidt-number witnesses squeezed thermal state",
+        "Entanglement Dimensionality of Continuous Variable States From Phase-Space Quasi-Probabilities",
+        "continuous-variable Schmidt number covariance witnesses squeezed thermal"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03113v1 full text",
+      "arXiv:1309.6508 / Phys. Rev. A 88, 062323 abstract",
+      "arXiv:2509.02743v1 abstract",
+      "MSC2020 entry 81P40 for quantum coherence, entanglement, and quantum correlations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ref. [1] gives the source formulas and qualitative/numerical method comparison but does not state the global threshold theorem.",
+        "Ref. [2] predates the Ref. [1] fidelity lower bound and therefore cannot imply its exact failure threshold.",
+        "Ref. [3] employs different observables and does not contain the Ref. [1] fidelity conversion."
+      ],
+      "reasoning": "The anchor contains the ingredients, so it is the closest prior work and the main residual coverage risk. Obtaining the claim requires eliminating the optimized target parameter, proving a global lower bound uniform in squeezing, solving the exact threshold, inverting the strict Schmidt criterion, and deriving two independent asymptotic rates. Those steps produce a new structural phase diagram rather than a parameter instance or a stated corollary.",
+      "searches": [
+        "arXiv:2610.03113v1 Eqs. (50)-(54)",
+        "arXiv:1309.6508 squeezed thermal Schmidt number",
+        "arXiv:2509.02743 continuous variable Schmidt number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact anchor full text was inspected at Eqs. (50)--(54) and the surrounding TMST comparison section.",
+        "No asymptotic theorem or critical inverse-temperature constant appears in the anchor full text.",
+        "The semantic index returned Gaussian-analysis and unrelated phase-transition records rather than an equivalent Schmidt-number statement."
+      ],
+      "reasoning": "The new statement is not a restatement under an alias: it converts the finite-parameter witness into a complete two-regime theorem with a universal boundary and asymptotic certified-dimension laws.",
+      "searches": [
+        "arXiv 2610.03113 Schmidt number covariance fidelity two-mode squeezed thermal",
+        "two-mode squeezed thermal Schmidt number fidelity asymptotic squeezing thermal threshold",
+        "Schmidt-number certification continuous-variable covariance matrix unbounded squeezing",
+        "arXiv:2610.03113v1 full text: searches for asymptotic, 1.316, and the critical radical constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The anchor figures tabulate and plot finitely many inverse temperatures, including a noisy comparison case, but provide no exact all-temperature threshold table or formula.",
+        "Focused web searches returned the anchor rather than an independent source for the critical constant in this context."
+      ],
+      "reasoning": "The claimed boundary and asymptotic coefficients are not a recomputation of a published database entry or table value; they are analytic consequences of a new rationalization and limiting argument.",
+      "searches": [
+        "log(2+sqrt(3)) Schmidt number squeezed thermal",
+        "coth(beta/2) Schmidt number squeezed thermal",
+        "fidelity lower bound two-mode squeezed thermal Schmidt number"
+      ]
+    },
+    "rationale": "The anchor supplies exact finite-parameter ingredients but not the global thermal boundary, the all-squeezing impossibility below it, the closed inversion of its geometric Schmidt thresholds, or the paired large-squeezing rates. Focused semantic searches produced no implication-equivalent published finding. The 2013 Gaussian-witness paper and the 2025 phase-space work use different witness families, so their squeezed-state coverage does not imply a sharp limitation of the new covariance-to-fidelity conversion.",
+    "residual_risks": [
+      "The anchor is only days old, so differently phrased contemporaneous work may not yet be indexed.",
+      "Because the anchor contains the exact finite-parameter formulas, the main originality risk is whether a reader regards the global threshold theorem as an immediate corollary; the review judged the elimination, uniform inequality, exact boundary, strict-threshold inversion, and two-method asymptotics to be a substantive new implication rather than routine substitution.",
+      "Other witness families may have stronger thresholds; no cross-family optimality is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST_NOT_COVERING",
+        "evidence": "The paper supplies finite-parameter formulas and numerical comparisons but no exact all-squeezing critical inverse temperature or the paired exponential asymptotics.",
+        "identifier_or_url": "arXiv:2610.03113v1",
+        "material_read": "Full paper sections III.A--III.C, IV.A, appendix material around the TMST optimization, figures 1--4, and references; equations (33), (40), (50)--(54) were checked directly.",
+        "method": "Full-text PDF inspection plus visual inspection of the page containing Eqs. (50)--(53).",
+        "title": "Certification of high-dimensional entanglement in continuous-variable systems",
+        "trigger": "Exact same state family and witness construction."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "It studies a different Gaussian witness class and predates the covariance-fidelity bound whose sharp failure threshold is analyzed here.",
+        "identifier_or_url": "arXiv:1309.6508 / Phys. Rev. A 88, 062323 (2013)",
+        "material_read": "Abstract and the 2026 anchor's comparison of this method with its own covariance-fidelity construction.",
+        "method": "Publisher abstract plus anchor cross-comparison.",
+        "title": "Operational Gaussian Schmidt-number witnesses",
+        "trigger": "Same broad topic and squeezed thermal examples."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Its infinite-dimensional Bloch-operator covariance witnesses are different observables and do not analyze the TMST fidelity lower bound.",
+        "identifier_or_url": "arXiv:2509.02743v1",
+        "material_read": "Abstract and the 2026 anchor's scope comparison.",
+        "method": "arXiv abstract plus anchor reference discussion.",
+        "title": "Entanglement Dimensionality of Continuous Variable States From Phase-Space Quasi-Probabilities",
+        "trigger": "Recent continuous-variable Schmidt-number certification from experimentally accessible covariance information."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9cc88b4b-952a-43dd-b28f-b7734eb5f4fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The paper motivates high-dimensional certification from easy second-moment measurements and directly compares several methods. The new theorem identifies an exact temperature at which one newly proposed conversion becomes completely powerless for all squeezing, while another certificate from the same covariance data still grows exponentially. Above the threshold it supplies the exact exponential growth coefficient of the fidelity certificate. This separates loss in the conversion theorem from loss in the measured data and gives a sharp design boundary for when that witness can or cannot certify high dimension.",
+    "risks": [
+      "The threshold is method-specific and should not be interpreted as a physical entanglement transition.",
+      "The result does not optimize over arbitrary non-Gaussian target families or stronger moment-based witnesses."
+    ],
+    "sources": [
+      "arXiv:2610.03113v1, introduction and TMST comparison section",
+      "arXiv:1309.6508 abstract for the distinct older Gaussian-witness family"
+    ],
+    "status": "PASS"
+  }
+}
