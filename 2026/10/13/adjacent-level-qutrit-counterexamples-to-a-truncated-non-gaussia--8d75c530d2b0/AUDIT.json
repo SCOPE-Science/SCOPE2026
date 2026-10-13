@@ -1,0 +1,111 @@
+{
+  "claim": "For the Memarzadeh--Mancini channel restricted to the qutrit Fock space \\(\\operatorname{span}\\{|0\\rangle,|1\\rangle,|2\\rangle\\}\\), impose the mean-energy constraint \\(N=3/2\\) and take pure dephasing \\(\\epsilon=1\\). For every \\(0<t\\le \\log(4/3)\\), the admissible adjacent-level state \\(|\\chi\\rangle=(|1\\rangle+|2\\rangle)/\\sqrt2\\) has strictly smaller output von Neumann entropy than every candidate allowed by Conjecture 1 of Memarzadeh and Mancini (2016): the unique admissible binomial state, with \\(M=2\\) and \\(\\mu=3/4\\), and every phase-equivalent endpoint state \\(|\\kappa_\\alpha\\rangle=\\tfrac12|0\\rangle+\\tfrac{\\sqrt3}{2}e^{2i\\alpha}|2\\rangle\\). Hence Conjecture 1 is false already in dimension three, and in fact fails on the whole nontrivial interval \\(0<t\\le\\log(4/3)\\).",
+  "correctness": {
+    "rationale": "At pure dephasing the source channel acts entrywise as exp(-(m-n)^2 t). The witness spectrum is exactly {0,(1-q)/2,(1+q)/2}. For each conjectured candidate, the output purity is computed exactly. Both purities lie below the sharp three-eigenvalue lower bound forced by any largest eigenvalue at least (1+q)/2 throughout q in [3/4,1). This forces a strictly smaller largest eigenvalue and hence strictly larger von Neumann entropy than the witness. The inequalities are symbolic and valid on the full interval; finite sampling is not used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2007.03897 optimizes quantum capacity/coherent information, not the fixed-input output entropy minimization in Conjecture 1.",
+        "arXiv:2111.04173 studies LOCC-assisted capacity and squashed-entanglement bounds, not the conjectured minimum-output candidate family."
+      ],
+      "reasoning": "These broader bosonic-dephasing results do not imply which pure state minimizes output von Neumann entropy in the finite qutrit truncation under the stated energy constraint.",
+      "searches": [
+        "pure dephasing minimum output entropy energy constraint bosonic channel",
+        "quantum capacity bosonic dephasing channel arXiv:2007.03897",
+        "energy-constrained LOCC-assisted bosonic dephasing arXiv:2111.04173"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1605.04525v1",
+      "DOI:10.1103/PhysRevA.94.022341",
+      "arXiv:2007.03897",
+      "DOI:10.1103/PhysRevA.102.042413",
+      "arXiv:2111.04173",
+      "DOI:10.3390/e25071001",
+      "AMS MSC2020 81P47"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 paper explicitly leaves the finite-dimensional candidate-family statement conjectural and reports a random search for K=3, N=0.6.",
+        "The later capacity papers use different optimization functionals and therefore do not dominate the accepted entropy comparison."
+      ],
+      "reasoning": "The accepted statement follows only after evaluating the source channel on a new admissible adjacent-level state and proving a strict entropy ordering throughout an interval.",
+      "searches": [
+        "arXiv:1605.04525 Conjecture 1 K=2 N=3/2 pure dephasing",
+        "arXiv:2007.03897 minimum output entropy",
+        "arXiv:2111.04173 minimum output entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1605.04525v1, Section IV and Conjecture 1",
+        "No returned published-result statement matched the qutrit adjacent-level entropy comparison."
+      ],
+      "reasoning": "The claim is not merely a reparameterization of the source candidates: the witness has support on adjacent levels 1 and 2, whereas the source two-number candidate at K=2 has support on 0 and 2, and the sole admissible binomial state has support on all three levels.",
+      "searches": [
+        "Memarzadeh Mancini Conjecture 1 truncated Hilbert minimum output entropy binomial kappa counterexample",
+        "pure dephasing qutrit minimum output entropy energy constraint adjacent Fock states",
+        "minimum output entropy dephasing channel fixed mean photon number qutrit binomial state",
+        "For K=2 N=3/2 epsilon=1 t=ln(4/3), the adjacent state (|1>+|2>)/sqrt2 has lower output entropy than both binomial and |kappa> candidate states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact source identifier returns the 2016 paper and later citations, but no indexed qutrit counterexample or table covering the displayed parameter interval was located."
+      ],
+      "reasoning": "The result is an analytic contradiction to a conjecture, not a recomputation of a tabulated numerical minimum.",
+      "searches": [
+        "\"1605.04525\" binomial dephasing entropy",
+        "\"PhysRevA.94.022341\" binomial",
+        "\"truncated Hilbert space\" \"binomial states\" \"minimum output entropy\""
+      ]
+    },
+    "rationale": "The motivating paper states the candidate-family assertion as Conjecture 1 and supports it numerically in a different four-dimensional parameter example. The accepted claim supplies an exact continuum of qutrit counterexamples. Later inspected work on bosonic dephasing addresses quantum-capacity objectives rather than minimum output entropy. Targeted source-, alias-, parameter-, and implication-level searches found no equivalent counterexample. Residual risk from poorly indexed or differently phrased later work remains.",
+    "residual_risks": [
+      "A later paper, note, thesis, or informal source may contain the same counterexample under different language and have escaped the searches.",
+      "The accepted claim does not identify the true minimizer; it only proves that neither conjectured family is minimal on the stated interval."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies the conjectured candidate families but not the qutrit adjacent-level counterexample or the interval proof.",
+        "evidence": "At epsilon=1 its coefficient formula gives exp(-(m-n)^2 t) dephasing; Section IV states Conjecture 1 and reports 10^5 random states for a four-dimensional N=0.6 example.",
+        "identifier_or_url": "arXiv:1605.04525v1; DOI:10.1103/PhysRevA.94.022341",
+        "material_read": "Full arXiv PDF sections defining the channel, coefficient evolution, energy constraint, binomial states, Section IV comparison, Conjecture 1, and the random-search support discussion.",
+        "method": "Full-text PDF inspection including rendered pages containing the channel formula and Conjecture 1.",
+        "title": "Minimum output entropy of a non-Gaussian quantum channel",
+        "trigger": "Direct source of the channel and Conjecture 1."
+      },
+      {
+        "assessment": "Different objective: quantum capacity/coherent information, not minimum output entropy of pure qutrit inputs.",
+        "evidence": "The work optimizes quantum capacity and reports a diagonal Fock distribution for that capacity problem.",
+        "identifier_or_url": "arXiv:2007.03897; DOI:10.1103/PhysRevA.102.042413",
+        "material_read": "Abstract and indexed description of the capacity optimization and its Fock-diagonal optimizer.",
+        "method": "Primary-record inspection.",
+        "title": "Quantum capacity of bosonic dephasing channel",
+        "trigger": "Later work by overlapping authors on the pure-dephasing component with an energy constraint."
+      },
+      {
+        "assessment": "Different objective and no implication for the 2016 minimum-output-entropy candidate-family conjecture.",
+        "evidence": "The paper bounds LOCC-assisted capacity via quantum-capacity quantities and discusses dimension truncation for that purpose.",
+        "identifier_or_url": "arXiv:2111.04173; DOI:10.3390/e25071001",
+        "material_read": "Abstract and article passages giving the energy-constrained capacity bounds and truncated-dimension discussion.",
+        "method": "Primary full-web-text inspection of the relevant capacity sections.",
+        "title": "Energy-Constrained LOCC-Assisted Quantum Capacity of the Bosonic Dephasing Channel",
+        "trigger": "Later energy-constrained dephasing work with explicit finite-dimensional truncations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d75c530-d2b0-4d79-9343-5f08c1808ae0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The claim gives an exact continuum of low-dimensional counterexamples to a published minimum-output-entropy conjecture that was supported by a 100,000-state random search. The witness exposes a substantive structural omission in the proposed ansatz: at energies above one quantum, an adjacent pair of excited Fock levels can preserve dephasing coherence better than either the binomial family or the farthest-separated endpoint pair. This directly changes the finite-dimensional optimization problem rather than merely sharpening a decimal value.",
+    "status": "PASS"
+  }
+}
