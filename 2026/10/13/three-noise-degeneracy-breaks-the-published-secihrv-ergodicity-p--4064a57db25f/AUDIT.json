@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The diffusion matrix is a sum of three rank-one outer products whose fifth and sixth entries vanish identically, so \\(e_5\\) and \\(e_6\\) are exact kernel vectors and uniform positive definiteness is impossible. The displayed Lyapunov function has no \\(x_5\\) dependence, giving \\(V(x^*+t e_5)=0\\) on an unbounded positive ray. Eq. (50) has no \\(x_3\\) or \\(x_5\\) term, and an explicit family with either coordinate arbitrarily large remains on the level set. These direct algebraic checks require no numerical approximation and are replayed by verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao et al. (2019), DOI:10.1038/s41598-019-47131-6, explicitly states that its degenerate epidemic diffusion has no uniform ellipticity and therefore uses Markov-semigroup theory.",
+        "Dieu et al. (2016), DOI:10.1137/15M1043315, studies ergodicity for a stochastic SIR system with degenerate diffusion."
+      ],
+      "reasoning": "The broader literature shows that degeneracy can be handled, so the present claim is not that ergodicity is impossible. Those works instead confirm that a separate degenerate-diffusion argument is needed; they do not supply such an argument for the inspected SECIHRV system or repair its noncoercive Lyapunov construction.",
+      "searches": [
+        "degenerate diffusion stationary distribution stochastic epidemic uniform ellipticity Markov semigroup",
+        "stochastic epidemic unique stationary distribution uniformly positive definite diffusion matrix",
+        "degenerate stochastic SIR ergodicity invariant measure"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1186/s13661-026-02256-2",
+      "DOI:10.1038/s41598-019-47131-6",
+      "DOI:10.1137/15M1043315",
+      "Published semantic-database searches for the source title, theorem, uniform ellipticity, rank deficiency, Lyapunov coercivity, and degenerate epidemic stationary distributions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact-source searches returned the motivating article but no public correction or source-specific critique.",
+        "The closest published degenerate-diffusion epidemic papers use different models and different ergodic machinery.",
+        "The closest semantic search hits concerned unrelated stationary laws, covariance rank, or epidemic thresholds and did not imply the inspected theorem defect."
+      ],
+      "reasoning": "No inspected publication or public database record contains a statement from which the three source-specific obstructions follow as a corollary. General rank and degenerate-diffusion facts support the proof but do not subsume the diagnosis of Theorem 4.2.",
+      "searches": [
+        "seven dimensional stochastic epidemic three Brownian motions diffusion matrix rank stationary distribution uniform ellipticity",
+        "SECIHRV unique stationary distribution three Brownian motions ergodicity rank",
+        "Hussain Alharthi SECIHRV Lyapunov radially unbounded"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI:10.1186/s13661-026-02256-2, system (4), Lemma 3.3, Remark 3.4, Theorem 4.2, Eqs. (40)-(42), (49)-(50)",
+        "No exact-title or DOI search located an erratum or source-specific correction."
+      ],
+      "reasoning": "Equivalent phrasings were searched through theorem number, covariance rank, uniform ellipticity, coercivity, and the omitted hospitalized coordinate. None of the located records states the same source-specific proof obstruction.",
+      "searches": [
+        "Hussain Alharthi stochastic SECIHRV stationary distribution ergodicity theorem 4.2",
+        "SECIHRV diffusion matrix rank three uniform ellipticity theorem 4.2",
+        "Lyapunov function omits hospitalized compartment x5 radially unbounded stochastic SECIHRV",
+        "A stochastic SECIHRV dynamical system erratum correction critique"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact objects are the displayed source equations, not a numerical table: system (4), covariance definition (16), condition (19), Lyapunov Eqs. (40)-(42), and level set (50)."
+      ],
+      "reasoning": "No external table controls the claim. Direct comparison of the printed equations is decisive: rows five and six of every diffusion column vanish, \\(x_5\\) is absent from \\(V\\), and \\(x_3,x_5\\) are absent from Eq. (50).",
+      "searches": [
+        "10.1186/s13661-026-02256-2 Theorem 4.2 uniform ellipticity",
+        "10.1186/s13661-026-02256-2 Eq. 50 ellipsoid Lyapunov"
+      ]
+    },
+    "rationale": "The general fact that a seven-dimensional diffusion driven by three Brownian motions has rank at most three, and the fact that degenerate epidemic diffusions need special ergodic arguments, are known. What is new here is the source-specific implication comparison: system (4) has exact kernel directions \\(e_5\\) and \\(e_6\\) that make the article's own Lemma 3.3 ellipticity condition impossible, while Theorem 4.2 simultaneously uses a Lyapunov function omitting \\(x_5\\) and an Eq. (50) level set omitting \\(x_3\\) and \\(x_5\\). Exact source/title/DOI and alias searches found no correction or publication stating these three linked defects.",
+    "residual_risks": [
+      "A valid hypoelliptic, support-theoretic, or Markov-semigroup proof might exist but was not located; such a proof would not erase the defects in the printed argument.",
+      "No claim is made about uniqueness or nonuniqueness of invariant measures outside the published proof route."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "System (4) has no diffusion in coordinates five and six; Lemma 3.3 requires uniform positive definiteness; Theorem 4.2 uses a V with no \\(x_5\\) dependence and calls an \\(x_3\\)/\\(x_5\\)-free level set a boundedly containable ellipsoid.",
+        "evidence": "DOI:10.1186/s13661-026-02256-2, published 2026-03-31, primary MSC 92D30.",
+        "identifier_or_url": "DOI:10.1186/s13661-026-02256-2",
+        "material_read": "Full open-access HTML around system (4), covariance definition (16), Lemma 3.3, Remark 3.4, Theorem 4.2, and Eqs. (40)-(50), plus article metadata and MSC listing.",
+        "method": "Direct full-text equation and theorem comparison.",
+        "title": "A stochastic SECIHRV dynamical system and 3D sensitivity analysis of influenza transmission under environmental uncertainty",
+        "trigger": "The article claims a unique stationary distribution and ergodicity for a seven-dimensional system driven by three independent Wiener processes."
+      },
+      {
+        "assessment": "This paper explicitly treats degeneracy as preventing the usual uniform-ellipticity route and uses a different semigroup argument. It does not analyze the 2026 SECIHRV model or imply the source-specific kernel/coercivity diagnosis.",
+        "evidence": "DOI:10.1038/s41598-019-47131-6.",
+        "identifier_or_url": "DOI:10.1038/s41598-019-47131-6",
+        "material_read": "Open-access full text, especially the introduction and conclusion passages discussing the absence of uniform ellipticity and the use of Markov-semigroup theory.",
+        "method": "Direct full-text methodological comparison.",
+        "title": "A regime-switching SIR epidemic model with a ratio-dependent incidence rate and degenerate diffusion",
+        "trigger": "Highly relevant comparator for stationary distributions of degenerate epidemic diffusions."
+      },
+      {
+        "assessment": "Shows that degenerate epidemic diffusions can be ergodic under a dedicated analysis, so it limits the claim to failure of the printed proof rather than falsity of the theorem.",
+        "evidence": "DOI:10.1137/15M1043315.",
+        "identifier_or_url": "DOI:10.1137/15M1043315",
+        "material_read": "Abstract and bibliographic record describing ergodicity and invariant-measure results for degenerate diffusion.",
+        "method": "Primary-source abstract and metadata inspection.",
+        "title": "Classification of asymptotic behavior in a stochastic SIR model",
+        "trigger": "Primary literature on ergodicity for a stochastic SIR model with degenerate diffusion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4064a57d-b25f-4747-a248-0e82281c4a51",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defect sits in the paper's main unique-stationary-distribution/ergodicity theorem, not in an ancillary calculation. Uniform ellipticity versus degenerate diffusion determines which ergodic machinery is available, while failure of coercivity invalidates the bounded recurrent-set construction as written. A repair would require a genuinely new degenerate-diffusion argument or a materially different Lyapunov/support analysis, so the finding has structural value beyond notation checking.",
+    "status": "PASS"
+  }
+}
