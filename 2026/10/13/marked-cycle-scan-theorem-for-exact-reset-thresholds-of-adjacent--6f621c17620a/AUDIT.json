@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Inverse images of nonempty proper cyclic intervals under a cycle or adjacent idempotent remain cyclic intervals; only marked-left-boundary idempotents expand by exactly one. Tracking every boundary-moving inverse step bounds all reset lengths below by the minimum marked cyclic scan, and a matching backward scan constructs a word of that length. Two-mark parity formulas follow by exact visit counting. Standalone subset-BFS/word replay cross-checks 793 instances and 6083 interval cases; finite tests support, not replace, the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rystsov, 2022, describes a general regular-group upper bound of (n-1)^2, recovering the known one-mark case but not equalities indexed by each marked subset.",
+        "Ferens and Szykuła, arXiv:2208.05956v5, study general completely reachable automata and a quadratic reaching-threshold upper bound."
+      ],
+      "reasoning": "An upper bound or a synchronization theorem across a superclass does not entail the exact location-sensitive scanning invariant or the two-merger parity gap. The known (n-1)^2 single-merger equality is explicitly excluded from the novelty claim.",
+      "searches": [
+        "\"simple idempotent\" \"directed cycle\" \"reset\" length",
+        "Rystsov Cerny conjecture automata simple idempotents regular permutation group quadratic upper bound",
+        "completely reachable automata quadratic reset threshold 2022 Ferens Szykula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.13317v3 (HTML full text)",
+      "arXiv:2307.01302v1 (HTML full text)",
+      "arXiv:2208.05956v5 (HTML primary text)",
+      "DOI:10.1007/s10559-022-00428-3 (abstract only)",
+      "2026 review of completely reachable automata (introductory comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Volkov arXiv:2306.13317v3, Theorem 1 and Corollary 4 establish synchronization under primitivity and defect-one hypotheses but no exact reset threshold.",
+        "Rystsov and Szykuła arXiv:2307.01302v1, Theorem 22 characterizes synchronizability of strongly connected PU automata via the orbital graph.",
+        "The one-letter Černý automata have exact known threshold (n-1)^2, strictly a special case of the scan theorem."
+      ],
+      "reasoning": "A synchronizability criterion gives existence but not minimal word length. A general quadratic upper bound does not force equality, and the one-mark exact case does not settle other marks; the two-mark formula explicitly depends on parity and gap, so the theorem has a surviving new part.",
+      "searches": [
+        "Volkov synchronization primitive automata defect-one unimodal reset theorem arxiv:2306.13317",
+        "Rystsov Szykula Primitive Automata that are Synchronizing Theorem 22 unitary letters",
+        "Rystsov Černý simple idempotent C(A) regular group exact 2022"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rystsov and Szykuła, arXiv:2307.01302v1, Section 4, define unitary simple idempotents, the group/orbital relation, and give synchronizability criterion (Theorem 22), not the exact threshold by marked placements."
+      ],
+      "reasoning": "Equivalent languages of cyclic automata, simple idempotents, unitary transformations, and shortest synchronizing/reset words were compared. A criterion of existence of a reset word is logically weaker than an exact optimum for every marked set.",
+      "searches": [
+        "\"two\" \"simple idempotents\" \"cyclic\" \"reset threshold\" formula",
+        "\"automata\" \"neighbor\" \"idempotents\" \"reset threshold\"",
+        "\"two merging\" \"Cerny\" automata reset threshold cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly relevant available primary papers report structural criteria and bounds, not a complete exact set-parameter table or the stated two-site parity law."
+      ],
+      "reasoning": "Available published/indexed statements did not identify a matching exact formula. Lack of a database match is treated as a residual risk, not proof that no prior equivalent table exists.",
+      "searches": [
+        "\"two\" \"unitary\" \"cycle\" \"reset threshold\" exact table",
+        "\"marked cycle\" \"synchronizing automata\" \"reset\" gap",
+        "automata two idempotents parity circular distance reset threshold"
+      ]
+    },
+    "rationale": "Novelty restricted to the exact arbitrary-mark reset threshold and its two-mark parity-and-gap specialization. The classical one-mark Černý result and general synchronization/bound theorems are credited. Full accessible primary texts on permutation-unitary and completely reachable automata do not imply the exact parameter formula; comparison remains open to unindexed equivalent presentations.",
+    "residual_risks": [
+      "A prior explicit marked-cycle or adjacent-idempotent reset formula may appear in unindexed literature or as a corollary outside the inspected theorems.",
+      "The complete 2022 simple-idempotents paper was not recovered: abstract was compared, but no claim of full-text exclusion is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: synchronizability conditions, no sharp multiple-neighbor reset lengths",
+        "evidence": "Theorem 1 primitive DFA with unimodal letter is synchronizing; Corollary 4 primitive DFA with defect-one letter is synchronizing.",
+        "identifier_or_url": "arXiv:2306.13317; https://arxiv.org/html/2306.13317v3",
+        "material_read": "Whole available arXiv HTML article, especially Introduction and sections on unimodal letters and primitivity",
+        "method": "Read full HTML equations, statements, hypotheses, applications and references",
+        "title": "Synchronization of primitive automata",
+        "trigger": "Primary MSC 68Q45 and defect-one synchronization context"
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem 22 is a criterion for synchronization, not the optimum length formula",
+        "evidence": "Section 4 lines 190-205 defines unitary maps; Section 4.2 Theorem 22 states a graph connectivity iff synchronization.",
+        "identifier_or_url": "arXiv:2307.01302v1; https://arxiv.org/html/2307.01302v1",
+        "material_read": "Full HTML article with particular attention to Introduction and Section 4 (definitions and Theorem 22)",
+        "method": "Read full article and compared PU automata/orbital-graph theorem with exact reset length by marked positions",
+        "title": "Primitive Automata that are Synchronizing",
+        "trigger": "Exact same unitary-letter class and plausible strong coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: general bounds and algorithmic reachability do not determine exact marked-cycle thresholds",
+        "evidence": "The work develops a quadratic decision algorithm and quadratic reaching-threshold upper bound for completely reachable automata.",
+        "identifier_or_url": "arXiv:2208.05956v5; https://arxiv.org/html/2208.05956v5",
+        "material_read": "Available full HTML article, introductory threshold discussion and reachability/upper-bound sections",
+        "method": "Compared general upper bounds and reachability with exact marked-cycle shortest reset word",
+        "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+        "trigger": "Broader reachability theorem could dominate threshold claim"
+      },
+      {
+        "assessment": "ACCESS_RISK: abstract gives regular-group upper bound (n-1)^2, but full-paper priority remains unchecked",
+        "evidence": "Abstract reports C(A) ≤ (n-1)^2 for SI-automata with regular group and equality n-1 with trivial group.",
+        "identifier_or_url": "DOI:10.1007/s10559-022-00428-3; https://doi.org/10.1007/s10559-022-00428-3",
+        "material_read": "Public abstract and accessible descriptive metadata; full article not recovered",
+        "method": "Checked stated scope and two tight bounds in abstract; did not infer whole-document noncoverage",
+        "title": "Černý’s conjecture for automata with simple idempotents",
+        "trigger": "Possibly strongest prior simple-idempotent threshold theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f621c17-620a-4719-ae31-2239a0dc67cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reset thresholds of unitary automata on a natural cyclic graph are a central sharp-length invariant, not arbitrary finite slices. The theorem computes the optimum for every nonempty placement of merges, provides constructive shortest words, and reveals a sharp parity transition with a true geometric gap parameter in the two-site family. This determines a complete natural classification beyond the classical one-site extremal example.",
+    "status": "PASS"
+  }
+}
