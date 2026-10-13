@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For full-column-rank \\(A\\), \\(B=A^{\\mathsf T}A\\) is positive definite and the LM step gives exactly \\(x_{k+1}=\\lambda_k(B+\\lambda_k I)^{-1}x_k\\). Affine exactness makes predicted and current-residual actual reductions coincide, while the nonmonotone window can only increase the numerator, proving \\(\\widehat r_k\\ge1\\) and the exact quartering of \\(\\mu_k\\). The damping bound follows from \\(\\sup_{t\\ge1}t^{1/t}=e^{1/e}\\). The zero quadratic ratio follows from an explicit \\(C\\|x_k\\|^{2+1/\\ln(k+e)}\\) bound plus the resulting double-exponential lower growth of \\(-\\ln\\|x_k\\|\\). A standalone verifier replays representative multi-mode and log-domain calculations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.11948/20220441 uses a fixed exponent in a different general LM parameter and states the general rate \\(\\min\\{1+\\delta,4-\\delta,2\\}\\); it does not contain the 2026 logarithmic exponent or its denominator normalization.",
+        "DOI 10.1155/2021/5608195 uses a different nonmonotone LM parameter and reports at least superlinear convergence, not the exact affine recurrence proved here.",
+        "DOI 10.1016/j.cam.2015.04.040 concerns an accelerated two-step method and is described by its abstract and by the 2026 primary source as a different construction."
+      ],
+      "reasoning": "General nonmonotone LM theory does not dominate the source-specific statement: the new conclusion depends jointly on exact affine modeling, the printed Step-5 quartering rule, the denominator-normalized damping, and the slowly vanishing exponent excess.",
+      "searches": [
+        "Levenberg Marquardt variable exponent tending to one Q superquadratic linear systems",
+        "modified Levenberg-Marquardt linear equations superquadratic",
+        "Levenberg-Marquardt affine exact model nonmonotone ratio"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.3934/math.2026102",
+      "DOI:10.11948/20220441",
+      "DOI:10.1016/j.cam.2015.04.040",
+      "DOI:10.1155/2021/5608195",
+      "Exact-title, exact-DOI, affine-system, exact-model, damping-floor, and superquadratic-alias searches performed on 2026-10-06 UTC."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI 10.3934/math.2026102, Theorem 3.1 and Remark 3.1, give order \\(\\gamma(1+\\nu)\\) and specifically a quadratic rate for \\(\\gamma=\\nu=1\\); that bound does not imply that the quadratic ratio tends to zero.",
+        "The 2024 Zhao--Tang paper's abstract caps its general local order at two and uses a different fixed-exponent parameter.",
+        "The 2015 Amini--Rostami abstract describes cubic convergence for an accelerated two-step algorithm, not the one-step 2026 NMLM recurrence."
+      ],
+      "reasoning": "A big-O quadratic bound permits a positive limiting quadratic constant, so it does not imply the proved zero ratio. The two-step cubic predecessor is algorithmically different and does not determine the 2026 NMLM trust-ratio or damping-floor dynamics.",
+      "searches": [
+        "A modified two steps Levenberg-Marquardt method for nonlinear equations superquadratic",
+        "10.1016/j.cam.2015.04.040 linear 1+1/k",
+        "Levenberg-Marquardt method with a general LM parameter nonmonotone trust region superquadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DOI 10.3934/math.2026102, Algorithm 1 and equation (2.1), define the exact logarithmic-exponent damping and nonmonotone ratio used here; the full text has no matching linear-equation specialization.",
+        "Targeted published-finding searches returned unrelated exact linear-system and Newton results rather than an NMLM affine-collapse statement."
+      ],
+      "reasoning": "The claim was searched as an affine exact-model theorem, a nonmonotone-ratio identity, a damping-floor law, and a Q-superquadratic/vanishing-quadratic-constant statement. These are implication-equivalent descriptions of the new result, not merely title matches.",
+      "searches": [
+        "NMLM full column rank linear system nonmonotone Levenberg Marquardt ratio greater than one mu floor superquadratic",
+        "modified Levenberg Marquardt logarithmic exponent 1 plus 1 over log k affine linear exact model superquadratic",
+        "nonmonotone Levenberg Marquardt affine system exact predicted actual reduction damping decreases by factor four"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary open full text was searched for linear equation, affine, the logarithmic exponent, and the local theorem; no affine theorem or table was present.",
+        "Exact DOI/title and correction searches located the 2026 article and mirrors but no correction or separate affine-result record."
+      ],
+      "reasoning": "This is an analytic specialization rather than a recomputation of a table. Exact-source and exact-claim searches found no database entry already recording the theorem.",
+      "searches": [
+        "10.3934/math.2026102 affine full column rank linear system",
+        "The modified Levenberg-Marquardt method with nonmonotone technique linear equation",
+        "10.3934/math.2026102 correction erratum"
+      ]
+    },
+    "rationale": "The primary paper supplies the algorithm but only a general local rate, and its full text contains no linear-system specialization. Statement-level searches covered the exact source, affine/full-column-rank aliases, exact-model trust-ratio collapse, quartering to the damping floor, and vanishing quadratic-ratio formulations. The closest literature uses different damping laws or different two-step constructions. No inspected source states or implies the complete source-specific affine theorem.",
+    "residual_risks": [
+      "The 2015 Amini--Rostami full text was not lawfully available in the inspected sources; an unindexed affine special-case remark there cannot be excluded, although its different accelerated two-step algorithm does not imply the source-specific NMLM recurrence.",
+      "The result is source-specific and does not claim a general novelty theorem for every Levenberg--Marquardt scheme on affine systems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT_SUPPORT_AND_NOT_COVERING: the source provides all algorithmic premises and only a general quadratic specialization; it does not state the affine exact-model collapse or the vanishing quadratic ratio.",
+        "evidence": "Algorithm 1 has \\(p_2<1\\) and the otherwise branch \\(\\mu_{k+1}=\\max\\{\\mu_k/4,m\\}\\); equation (2.1) has \\(\\delta_k=1+1/\\ln(k+e)\\) near a solution; Remark 3.1 calls the \\(\\gamma=\\nu=1\\) rate quadratic.",
+        "identifier_or_url": "DOI:10.3934/math.2026102",
+        "material_read": "Open publisher full text: introduction equations (1.6)--(1.9), equation (2.1), Algorithm 1, Theorem 3.1 and Remark 3.1, numerical-experiment description, and references.",
+        "method": "Equation-by-equation implication comparison and rendered-PDF inspection of the algorithm page.",
+        "title": "The modified Levenberg--Marquardt method with nonmonotone technique",
+        "trigger": "Primary source defining the exact damping, nonmonotone ratio, acceptance thresholds, and local theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: its exponent is fixed and its parameter differs from the 2026 logarithmic schedule and denominator normalization.",
+        "evidence": "The abstract gives \\(\\lambda_k=\\mu_k[(1-\\theta)\\|F_k\\|^\\delta+\\theta\\|J_k^{\\mathsf T}F_k\\|^\\delta]\\) with fixed \\(\\delta\\in(0,3)\\) and general order \\(\\min\\{1+\\delta,4-\\delta,2\\}\\).",
+        "identifier_or_url": "DOI:10.11948/20220441",
+        "material_read": "Publisher HTML metadata, abstract, parameter formula, stated convergence-order formula, and references.",
+        "method": "Parameter and implication comparison.",
+        "title": "Levenberg--Marquardt method with a general LM parameter and a nonmonotone trust region technique",
+        "trigger": "Closest inspected prior nonmonotone trust-region LM framework with residual and gradient powers."
+      },
+      {
+        "assessment": "DIFFERENT_ALGORITHM_WITH_RESIDUAL_RISK: the inspected material describes an accelerated two-step construction with cubic convergence; it does not establish the one-step 2026 NMLM affine theorem.",
+        "evidence": "The abstract identifies a modified/accelerated two-step LM method; the 2026 source reports its near-solution exponent as \\(1+1/k\\), rather than \\(1+1/\\ln(k+e)\\).",
+        "identifier_or_url": "DOI:10.1016/j.cam.2015.04.040",
+        "material_read": "Bibliographic record and abstract; additionally, the 2026 primary full text's detailed description of its exponent schedule was read. Lawful full text of the 2015 article was not obtained.",
+        "method": "Algorithm-family and implication comparison without making a whole-document negative claim.",
+        "title": "A modified two steps Levenberg--Marquardt method for nonlinear equations",
+        "trigger": "The 2026 source explicitly identifies this paper as inspiration for its adaptive exponent schedule."
+      },
+      {
+        "assessment": "NOT_COVERING: it uses a different parameter and states at least superlinear convergence rather than the exact affine dynamics here.",
+        "evidence": "The inspected text discusses a convex-combination LM parameter and a nonmonotone actual reduction; it does not use the 2026 logarithmic exponent schedule.",
+        "identifier_or_url": "DOI:10.1155/2021/5608195",
+        "material_read": "Open full-text introduction, parameter discussion, nonmonotone-ratio construction, and abstract-level convergence statement.",
+        "method": "Formula and implication comparison.",
+        "title": "A new modified efficient Levenberg--Marquardt method for solving systems of nonlinear equations",
+        "trigger": "Open-access prior work combining a different LM parameter with a nonmonotone technique."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3632d4f-bd18-45b3-957a-9d772e17d2b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies a structurally natural exact-model class on which the source's nonmonotone globalization becomes completely inactive, gives a closed damping-control law and an explicit global contraction, and shows that the slowly vanishing exponent excess produces a zero quadratic constant even though the paper's general theorem only reports quadratic convergence in the smooth full-rank case. This is a useful calibration result for interpreting the new parameter rule, not a cosmetic reparameterization or a table recomputation.",
+    "status": "PASS"
+  }
+}
