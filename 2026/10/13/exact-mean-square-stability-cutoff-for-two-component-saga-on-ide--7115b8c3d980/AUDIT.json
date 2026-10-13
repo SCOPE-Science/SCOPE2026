@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Direct expansion of the 2014 SAGA gradient-table update for identical scalar quadratic components yields x'= (1-s)x+s sigma v, u'=(x+u-sigma v)/2, v'=(v+sigma(x-u))/2. The explicit quadratic V_s has positive leading minor (s+2)/s, positive x-u block determinant 3s+2, and positive v coefficient 3s(s+1). Averaging the exact updates over both signs gives conditional drift (3s^2-4)x^2, checked by symbolic algebra and an exact-rational polynomial-identity checker. For s<2/sqrt(3), telescoping yields summable expected x-squares, while the cached-point averaging recurrences force their mean squares to zero. For s>=2/sqrt(3), expected V_s is nondecreasing, and mean-square iterate convergence would force all memory moments and V_s to zero, contradiction for every nonzero initial triple. Normalization s=eta L, equality case, quantifiers, and independence are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defazio–Bach–Lacoste-Julien define SAGA and present guaranteed rates and stepsizes for broad finite sums.",
+        "Gazagnadou–Gower–Salmon derive optimal mini-batch choices and sufficient stepsize formulas using expected smoothness.",
+        "Taylor–Van Scoy–Lessard study tight Lyapunov constructions for first-order methods without publishing this explicit two-cache SAGA theorem in the inspected record."
+      ],
+      "reasoning": "A broad sufficient convergence theory cannot imply an exact *necessary* threshold without an additional sharpness analysis; the present theorem supplies a positive definite conditional drift identity and a nonconvergence obstruction for every nonzero initial memory state. The source goals and quantified objects are different.",
+      "searches": [
+        "SAGA A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives arxiv:1407.0202 full text",
+        "Optimal mini-batch and step sizes for SAGA arxiv:1902.00071 full text",
+        "Lyapunov Functions for First-Order Methods Tight Automated Convergence Guarantees SAGA"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1407.0202v1",
+      "arxiv:1902.00071v1",
+      "https://proceedings.mlr.press/v80/taylor18a.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original algorithm permits different cached past points even with identical component functions. Its general guarantee does not supply the exact s=2/sqrt(3) boundary.",
+        "The later SAGA parameter-tuning work derives usable sufficient conditions, not an if-and-only-if assertion under all deterministic table initializations.",
+        "The closest published research findings concern OSGM random curvature, delayed randomized Gauss–Seidel, and stochastic subspace descent; they do not use the SAGA cached-component recursion."
+      ],
+      "reasoning": "The sought implication would require a prior result covering the second moment of the full SAGA memory state, including necessity at the threshold, or an explicitly dominating spectral theorem specialized to the same update matrices. None of the compared papers or closest research records establish that conclusion.",
+      "searches": [
+        "SAGA 2014 theorem strong convexity step size mu n L",
+        "Optimal mini-batch and step sizes for SAGA expected smoothness conditions",
+        "SAGA variance-reduced gradient method exact mean-square stability threshold for two identical quadratic components and stepsize two over square root three",
+        "stochastic incremental aggregated gradient two samples covariance energy Lyapunov exact upper learning rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic research searches returned stochastic gradient and quadratic Lyapunov results but no identical-two-component SAGA limit.",
+        "Web searches combining SAGA, identical scalar quadratic components, two samples, exact step threshold, and mean-square stability did not identify the energy drift identity or cutoff.",
+        "The exact conditional drift is (3s^2-4)x^2, hence any equivalent mean-square analysis would imply s<2/sqrt(3) for every nonzero initialization."
+      ],
+      "reasoning": "Equivalent forms include an exact spectral-radius criterion for the SAGA second-moment operator, a mean-square Lyapunov identity in cached-gradient coordinates, or a sharp two-component sample-size threshold. These forms were searched by their variables and implications, not only by the SAGA name.",
+      "searches": [
+        "SAGA variance-reduced gradient method exact mean-square stability threshold for two identical quadratic components and stepsize two over square root three",
+        "SAGA two-sample quadratic Lyapunov moment operator mean square 2/sqrt3 stepsize stability",
+        "SAGA 2 components identical quadratics exact mean squared error spectral radius step size",
+        "SAGA sharp stability threshold identical quadratic two components mean square Lyapunov",
+        "stability SAGA two components same quadratic exact maximum step size",
+        "SAGA Markov jump linear system necessary sufficient mean-square stability quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results did not present a tabulation of SAGA scalar two-component mean-square stability or the exact threshold.",
+        "The result quantifies a continuum of positive stepsizes and arbitrary real initial triples via an algebraic invariant, not numerical samples."
+      ],
+      "reasoning": "No finite computational table alone implies a sharp all-stepsize and all-initialization statement. An exact symbolic database representation of the moment matrix could imply it, but no such covering record was located.",
+      "searches": [
+        "SAGA exact mean square stability two identical quadratic components 2/sqrt(3) stepsize",
+        "SAGA two samples identical functions quadratic exact convergence stepsize memory variance",
+        "SAGA Lyapunov stochastic identical quadratic component maximum learning rate"
+      ]
+    },
+    "rationale": "The 2014 SAGA primary full text defines the control-variate update and gives general sufficient convergence guarantees but not this two-identical-component iff mean-square stability boundary or a conserved sharp-threshold energy. A later full SAGA stepsize paper optimizes expected-smoothness-derived guarantees, again not an all-initialization stochastic-recurrence necessity result. Extensive exact-form, alias, and cross-method searches found no implication-equivalent published claim. Residual risk is older specialized moment-operator or incremental-gradient analyses under alternate terminology; search incompleteness is not taken as novelty proof.",
+    "residual_risks": [
+      "An older SAGA/SAG or stochastic incremental-gradient moment-matrix calculation could encode the same scalar two-component threshold without advertising it in title or abstract.",
+      "A generic discrete-time Markov jump linear-system theorem together with a worked SAGA specialization might imply the result even if this explicit example is not indexed.",
+      "The paper on general tight Lyapunov functions was inspected at the accessible record level, not as a full comparison of every example or appendix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIMARY_ALGORITHM_NOT_COVERING: describes the same SAGA control-variate mechanism but gives general sufficient rates, without an exact two-identical-quadratic necessary-and-sufficient mean-square cutoff.",
+        "evidence": "Uniform component sampling, storing a past gradient per sample, replacing one table entry each iteration, and a stochastic control-variate correction. First public version submitted 2014-07-01.",
+        "identifier_or_url": "https://arxiv.org/abs/1407.0202",
+        "material_read": "The complete openly available preprint text was examined through the algorithm definition, initialization and gradient-table update, and main convergence theorems and stepsize choices.",
+        "method": "Open public full-text paper and original dated arXiv submission record.",
+        "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+        "trigger": "Foundational 2014 archive-era paper specifying the exact SAGA update whose memory mechanism is analyzed."
+      },
+      {
+        "assessment": "RELEVANT_DIFFERENT_OBJECTIVE: establishes sufficient expected-smoothness stepsize guarantees and mini-batch selection rather than the exact stochastic two-cache stability criterion.",
+        "evidence": "The paper explicitly makes SAGA stepsize selection depend on expected smoothness and proposes practical optimal mini-batch settings; the exact critical drift identity is not present in the inspected material.",
+        "identifier_or_url": "https://arxiv.org/abs/1902.00071",
+        "material_read": "The openly available full paper was inspected through the setup, expected-smoothness definitions, convergence/stepsize results, and parameter-selection conclusions. Targeted full-text searches included mean-square, stability threshold, and identical components.",
+        "method": "Public full-text HTML inspection and targeted in-document checks.",
+        "title": "Optimal Mini-Batch and Step Sizes for SAGA",
+        "trigger": "Closest specifically SAGA stepsize-optimization primary paper and potential source of a stronger claim."
+      },
+      {
+        "assessment": "BROAD_METHODOLOGY_ONLY: relevant technique but no located implication to the exact SAGA cache dynamics; full-document noncoverage is not asserted.",
+        "evidence": "Describes constructing Lyapunov functions for precise convergence-rate guarantees in first-order methods.",
+        "identifier_or_url": "https://proceedings.mlr.press/v80/taylor18a.html",
+        "material_read": "Open paper record, abstract, and stated class of first-order optimization algorithms and tight Lyapunov guarantees; the full paper was not material-read in this comparison.",
+        "method": "Open published proceedings record inspection.",
+        "title": "Lyapunov Functions for First-Order Methods: Tight Automated Convergence Guarantees",
+        "trigger": "Possible broader Lyapunov-method coverage and generic exact-moment reasoning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7115b8c3-d980-4c85-960b-4e8e14b0cbe4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "SAGA is a foundational variance-reduced optimizer, and stability limits govern permissible learning-rate tuning. Two identical scalar quadratic losses provide the most symmetric nontrivial SAGA dataset, so the strict penalty from 2 for deterministic gradient descent to 2/sqrt(3) is structurally informative rather than an arbitrary example: stochasticity arises solely from cached historical evaluations, not data heterogeneity. A sharp iff threshold with a positive-definite critical martingale provides a precise diagnostic for SAGA memory mechanisms, distinguishing necessary stability from the standard conservative sufficient stepsizes.",
+    "status": "PASS"
+  }
+}
