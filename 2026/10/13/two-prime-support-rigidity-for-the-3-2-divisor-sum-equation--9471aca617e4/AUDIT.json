@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For \\(m\\) with \\(\\omega(m)\\le2\\), parity excludes even \\(m\\), the unit \\(m=1\\) is checked, and \\(\\sigma(p^e)/p^e<p/(p-1)\\le3/2\\) excludes every odd prime power. For the two primes \\(5\\le p<q\\), the multiplicative ratio is strictly less than \\(35/24<3/2\\). Hence \\(m=3^a q^b\\); exact algebra reduces its equation to \\((3^{a+1}-q)(q^b-1)=4(q-1)\\). The first factor is a positive integer, so \\(b\\ge2\\) would require it to equal \\(4/(1+q+\\cdots+q^{b-1})<1\\), impossible. Thus \\(b=1\\) and \\(q=3^{a+1}-4\\) prime; direct substitution proves the reverse implication. The standalone verifier enumerated 367461 integers with \\(\\omega\\le2\\) through \\(10^6\\), finding exactly \\(15,207,19359\\) in both sets, and certifies the larger witness by exhaustive trial division. There is no finite-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guy–Shanks (1974), equation (4a), requires both \\(q=3^{a+1}-4\\) and \\(r=(3^a q-1)/2\\) prime to construct \\(\\sigma(2r)=\\sigma(2r+1)\\).",
+        "Benito (2007) Introduction, equations (2)–(3), reproduces this special construction and reports bounded enumeration.",
+        "The published low-multiplicity neighbor theorem assumes \\(\\Omega(n),\\Omega(n+1)\\le2\\) and obtains only \\(n=14\\)."
+      ],
+      "reasoning": "None of those statements classifies every \\(m\\) with \\(\\omega(m)\\le2\\) in the standalone equation. For \\(a=20\\), the cofactor is prime but \\((m-1)/2\\) is composite, so demanding a prime neighbor removes a solution; the restriction \\(\\Omega\\le2\\) excludes all cases with repeated powers of \\(3\\) beyond the first.",
+      "searches": [
+        "consecutive integers with same sum of divisors sigma(n)=sigma(n+1) with n twice a prime and n+1 two prime factors, 3 powers cofactor",
+        "3^(k-1)*(3^k-4) is the only two-prime-support solution of generalized perfect numbers",
+        "2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301",
+        "arXiv:0707.2190v1",
+        "doi:10.1080/00150517.1974.12430740"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A063906",
+      "https://oeis.org/A246914",
+      "https://www.fq.math.ca/Scanned/12-3/guy.pdf",
+      "https://arxiv.org/pdf/1008.0155",
+      "https://arxiv.org/pdf/0707.2190",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301",
+      "published-finding corpus semantic queries for the exact equation, aliases, prime-support bounds and the known 3-power family"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published theorem shows the unique pair \\((14,15)\\) if \\(\\Omega(n),\\Omega(n+1)\\le2\\); here \\(m=207\\) has \\(\\omega(m)=2\\) but \\(\\Omega(m)=3\\), and \\(m=36472996363223648799\\) has \\(\\Omega(m)=21\\).",
+        "Guy–Shanks additionally requires primality of the even neighbor; at \\(a=20\\), \\(m=3^{20}(3^{21}-4)\\) with \\(q=10460353199\\) prime but \\(102461\\mid(m-1)/2\\)."
+      ],
+      "reasoning": "The adjacent-pair theorem implies the \\(a=1\\) example under its restricted assumptions, not the \\(a\\ge2\\) necessity or the standalone full solution set. The older family supplies sufficiency only. No inspected work gives the \\(\\omega\\le2\\) converse.",
+      "searches": [
+        "2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301",
+        "sigma(m)/(m+1)=3/2 with m=3^a q prime, necessity and completeness",
+        "OEIS A063906 exact all solutions two sigma(n)=3(n+1) with at most two distinct prime factors classification q=3^(a+1)-4",
+        "3^(k-1)*(3^k-4) is the only two-prime-support solution of generalized perfect numbers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A063906 defines \\(m=2\\sigma(m)/3-1\\), equivalently \\(2\\sigma(m)=3(m+1)\\), and notes \\(\\sigma(m)/(m+1)=3/2\\). It describes \\(3^a(3^{a+1}-4)\\) only as an included family.",
+        "Bege–Fogarasi (2009), section 3.4, tabulates this exact equation, including \\(15,207,19359\\), without an all-exponent prime-support converse."
+      ],
+      "reasoning": "Renormalizing by \\(m+1\\) or expanding the OEIS definition does not prove necessity. The new claim separates the entire \\(\\omega\\le2\\) solution set from membership in the displayed sufficient family.",
+      "searches": [
+        "classification of odd integers m with exactly two distinct prime factors satisfying 2 sigma(m)=3(m+1), sequence A063906, prime power exponents",
+        "sigma(m)/(m+1)=3/2 with m=3^a q prime, necessity and completeness",
+        "OEIS A063906 exact all solutions two sigma(n)=3(n+1) with at most two distinct prime factors classification q=3^(a+1)-4",
+        "sigma(m)/(m+1)=3/2 omega(m)<=2 minimal support two, necessity 3-power times prime q",
+        "OEIS:A063906"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A063906 original entry dated 2001-08-30, sequence beginning 15,207,1023,2975,19359; its prime-family comment explicitly says Includes, not all such solutions.",
+        "Bege–Fogarasi section 3.4 lists \\(15=3\\cdot5\\), \\(207=3^2\\cdot23\\), \\(1023=3\\cdot11\\cdot31\\), \\(2975=5^2\\cdot7\\cdot17\\), and \\(19359=3^4\\cdot239\\), documenting both two-support and larger-support cases."
+      ],
+      "reasoning": "Known tabular entries and a named sufficient subfamily cannot establish that no other shape occurs at arbitrarily large m. The proof proves that exclusion structurally; the finite verifier is secondary.",
+      "searches": [
+        "OEIS:A063906",
+        "OEIS:A246914",
+        "arXiv:1008.0155v1 section 3.4",
+        "classification of odd integers m with exactly two distinct prime factors satisfying 2 sigma(m)=3(m+1), sequence A063906, prime power exponents"
+      ]
+    },
+    "rationale": "The known OEIS/Guy–Shanks family is credited as a sufficient construction, not claimed as new. The theorem adds an unrestricted necessity statement in the entire \\(\\omega\\le2\\) layer. Checked primary works supply finite tables or impose an additional neighbor-primality condition; the closest published result bounds \\(\\Omega\\) on both adjacent integers and cannot cover repeated-power examples. Searches included equivalent normalizations, stronger classifications and exact database statements. Unindexed duplication is a residual risk.",
+    "residual_risks": [
+      "An unindexed earlier classification of this elementary omega<=2 slice might exist.",
+      "The theorem makes no claim of infinitely many primes 3^(a+1)-4 or of completeness for omega>=3."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_OBJECT_WITH_SUFFICIENT_FAMILY_ONLY",
+        "evidence": "The comment explicitly says that the family \\(3^a(3^{a+1}-4)\\) is included, without claiming exhaustiveness under \\(\\omega(m)\\le2\\).",
+        "identifier_or_url": "https://oeis.org/A063906",
+        "material_read": "Definition, complete comments, initial terms, references, original author date and modifications through the displayed page",
+        "method": "Full webpage inspection",
+        "title": "OEIS A063906 — numbers satisfying the 3/2 divisor-sum equation",
+        "trigger": "Exact sequence and existing sufficient prime family"
+      },
+      {
+        "assessment": "SUFFICIENT_CONSTRUCTION_NOT_OMEGA_CLASSIFICATION",
+        "evidence": "Equation (4a) imposes prime \\(q=3^{a+1}-4\\) and also prime \\(r=(3^a q-1)/2\\); the latter is not assumed in this theorem.",
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/12-3/guy.pdf",
+        "material_read": "Entire one-page scanned article; displayed (4), (4a), (4b) and alternative (5) construction",
+        "method": "Lawful journal OA PDF, text extraction and page image inspection",
+        "title": "A Constructed Solution of sigma(n)=sigma(n+1)",
+        "trigger": "Original formula for 3-power prime cofactors and potential broader classification"
+      },
+      {
+        "assessment": "NUMERICAL_EXAMPLES_NO_GLOBAL_CONVERSE",
+        "evidence": "Section 3.4 lists \\(15=3\\cdot5\\), \\(207=3^2\\cdot23\\), \\(19359=3^4\\cdot239\\), and higher-support solutions. Its later prime construction concerns a different hyperperfect equation.",
+        "identifier_or_url": "https://arxiv.org/pdf/1008.0155",
+        "material_read": "Introduction, section 3.4 on page 78, adjoining tables and section 4 statements",
+        "method": "arXiv v1 full-text extraction plus page-78 image inspection",
+        "title": "Generalized perfect numbers",
+        "trigger": "Primary treatment of exact sigma(m)=3(m+1)/2 equation"
+      },
+      {
+        "assessment": "DIFFERENT_EQUATION_AND_EXTRA_PRIMALITY",
+        "evidence": "Guy–Shanks adjacent-equality examples demand two prime cofactors; a bounded enumeration is not a classification of standalone \\(2\\sigma(m)=3(m+1)\\).",
+        "identifier_or_url": "https://arxiv.org/pdf/0707.2190",
+        "material_read": "Abstract and introductory equations (2)–(3) and bounded-count discussion on pages 1–2",
+        "method": "arXiv full-text PDF read",
+        "title": "Solutions of the problem of Erdős–Sierpiński: sigma(n)=sigma(n+1)",
+        "trigger": "Potential converse for Guy–Shanks 3-power family"
+      },
+      {
+        "assessment": "RESTRICTED_PAIR_THEOREM_NOT_COVERING",
+        "evidence": "The conclusion \\(n=14\\) is conditional on both consecutive integers having \\(\\Omega\\le2\\), whereas the present result restricts only \\(\\omega(m)\\le2\\).",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-unique-two-almost-prime-solution-of-the-erd-s-sierpi-ski-equatio--1ea62e4a9301",
+        "material_read": "Complete published RESULT.md, including assumptions, proof, and prior discussion",
+        "method": "Repository file content read",
+        "title": "Unique two-almost-prime solution of the Erdős–Sierpiński equation",
+        "trigger": "Closest exact published low-complexity adjacent-divisor-sum theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9471aca6-17e4-425b-be6c-6fdc2cb00013",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recorded generalized perfect-number equation has numerous examples of differing prime support and a prominent known prime construction. Proving this construction exhaustive for all positive m with at most two distinct prime factors resolves an infinite natural structural stratum, eliminates all competing prime-power and two-support shapes, and removes the unrelated neighbor-primality restriction. The exact distinct-support invariant is motivated by the known families and by the incompleteness of finite tables, not an arbitrary numerical cutoff. The unresolved three-or-more-support problem is explicitly excluded.",
+    "status": "PASS"
+  }
+}
