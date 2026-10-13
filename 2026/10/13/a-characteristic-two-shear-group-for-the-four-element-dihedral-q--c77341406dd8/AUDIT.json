@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "PASS: The linear normal form (1) follows directly from the four-element quandle table. W=Ann_right(E) and its right scalar action force preservation of W and augmentation. All automorphisms therefore have block form (A,C;0,B). Multiplicativity requires B m(h,k)=m(Ah,Ak); diagonal evaluations give ac=bd=0, invertibility plus augmentation forces A=I or the swap P, and off-diagonal evaluations force B=A. Every C is then allowed. This completely establishes the group and finite-field orders for arbitrary characteristic-two fields. A package-local standard-library verifier exhaustively checks all 65,536 binary linear maps (32 automorphisms, exactly the predicted set) and checks all 512 and 8192 constructed automorphisms over GF4 and GF8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "In arXiv:2608.01550v1 Section 4, Theorem 4.13 handles even dihedral order 2n with n odd; Theorem 4.15 treats even n only for integral domains with char k not equal to 2. The authors explicitly describe the remaining even-order case as open in Problem 4.14 (integral).",
+        "Sangare--Ta Theorem 4.2 quotes the integral order-eight automorphism group of Z[R4], whereas the characteristic-two binary group computed here has 32 elements."
+      ],
+      "reasoning": "No displayed source theorem has stronger hypotheses covering arbitrary characteristic-two coefficient fields and R4. In particular the semiring/field change is not a specialization of the integral classification; reduction modulo two can create new automorphisms. The characteristic-excluded source embedding cannot imply the present group equality.",
+      "searches": [
+        "web: Sangare Ta 2026 quandle algebra automorphism even dihedral R4 characteristic two 2608.01550",
+        "dihedral quandle ring even order characteristic two automorphism group",
+        "web: automorphism group quandle ring k[R4] finite field coefficient char two explicit",
+        "arXiv:2608.01550v1 Section 4 Theorems 4.2, 4.13, 4.15"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.01550v1 (full article Sections 2 and 4)",
+      "arXiv:2001.06843 (full text Sections 4 and 6, Theorem 6.4)",
+      "arXiv:1805.05908 (abstract)",
+      "Published mathematical-record search results for R4 quandle algebra and characteristic-two automorphisms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Theorem 4.15 derives injectivity of a restriction map by proving 2c_i=0; that conclusion cannot force c_i=0 in characteristic two. The necessary argument is explicitly absent there.",
+        "The known Aut_Z(Z[R4]) has order 8, versus the present Aut_F2(F2[R4]) of order 32; thus the older integral-group equality cannot imply the full characteristic-two automorphism claim.",
+        "The 2018 right-ideal study concerns invariant right subspaces but gives no stated classification of multiplicative invertible linear endomorphisms of this algebra."
+      ],
+      "reasoning": "The proof here uses the characteristic-two multiplication normal form to recover all possible shears and the exact stabilizer. This is neither a corollary of the cited even-order embedding, which excludes characteristic two, nor an instance of the odd-order or trivial-quandle formula. Related small-quandle automorphism results are mathematically distinct.",
+      "searches": [
+        "arXiv:2608.01550v1 Theorem 4.15 proof hypothesis char != 2",
+        "arXiv:2608.01550v1 Theorem 4.2 Aut(Z[R4])",
+        "arXiv:2001.06843 zero-divisors and idempotents quandle rings automorphisms R4",
+        "arXiv:1805.05908 dihedral quandle ring right ideal classification",
+        "exact automorphism group K-linear dihedral quandle algebra R4 over characteristic 2 any field shear group M2 additive semidirect C2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the original dihedral quandle multiplication in Section 2 and its quandle algebra; Theorem 4.15 considers a right-annihilator decomposition only in characteristic other than 2.",
+        "published-finding corpus returned no R4 characteristic-two group classification for ring-algebra, shear, right-annihilator, or tensor-stabilizer aliases. The nearest automorphism hits concern distinct algebras."
+      ],
+      "reasoning": "The present invariant is the full group of K-linear automorphisms of K[R4], not Aut(R4) as a set quandle, not an integral automorphism group, and not an annihilator ideal description alone. The all-field block stabilizer equivalence was searched under explicit group order, semidirect product, and right-annihilator terminology without an equivalent retrieved claim.",
+      "searches": [
+        "quandle algebra R4 four element dihedral characteristic two automorphism group finite fields size 2q^4 shear",
+        "F_2 R_4 quandle ring automorphism 32 group affine 4 dimensional",
+        "quandle algebra nilpotent square-zero annihilator R4 characteristic 2 automorphism transformations",
+        "exact automorphism group K-linear dihedral quandle algebra R4 over characteristic 2 any field shear group M2 additive semidirect C2",
+        "right annihilator H W decomposition tensor stabilizer dihedral quandle ring R4 automorphisms",
+        "web: \"Aut\" \"F_2\" \"R_4\" \"quandle algebra\"",
+        "web: \"R4\" \"F2\" \"automorphism group\" quandle ring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected source contains an integer R4 group order but not a table of characteristic-two K-linear automorphism counts 32, 512, 8192.",
+        "The available published-finding corpus results include R3 idempotent counts, R8 algebra structures, and other automorphism groups, but no exact R4 characteristic-two automorphism table or semidirect-product formula."
+      ],
+      "reasoning": "The numerical counts are consequences of the all-fields classification, not a borrowed finite-table lookup; no exact database record of these values was found. Search incompleteness remains a historical risk.",
+      "searches": [
+        "F_2 R_4 quandle ring automorphism 32 group affine 4 dimensional",
+        "characteristic two four element quandle algebra R4 automorphisms finite field 32 512 8192",
+        "web: quandle algebra R4 automorphism finite fields F2 F4 four element",
+        "published-finding corpus search: characteristic two four element quandle algebra R4 automorphisms finite field 32 512 8192"
+      ]
+    },
+    "rationale": "PASS: Full inspection of Sangare--Ta arXiv:2608.01550v1 Section 4 shows the closest even-order classification requires char != 2 (Theorem 4.15) and the integral R4 computation has order 8 (Theorem 4.2). These neither state nor imply the complete characteristic-two group, whose binary order is 32. Related 2018 work covers right ideals, not this algebra automorphism group. Searches by R4, finite-field orders, shear group, right annihilator, and equivalent tensor stabilizer found no coverage; explicit residual historical risks are recorded.",
+    "residual_risks": [
+      "An older general bilinear-form/tensor-stabilizer classification could imply this R4 example under a different name.",
+      "The original full text of the 2018 right-ideal paper was not separately inspected; only its bibliographic abstract was available. Any unexpected automorphism result there remains an access risk.",
+      "Search engines and published-result indexes are incomplete; independent external novelty assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for R4 over arbitrary characteristic-two fields: the relevant even-order theorem explicitly excludes characteristic two; the integral R4 count is 8, not the binary automorphism count.",
+        "evidence": "2026 manuscript first public 2026-08-03; introduction lines 150-165 and Section 4 lines 1223-1350 state the scope, hypothesis, and embedding proof.",
+        "identifier_or_url": "arXiv:2608.01550v1; https://www.researchgate.net/publication/411181558_Idempotents_automorphism_groups_and_commutator_widths_of_quandle_algebras",
+        "material_read": "Full public text: introduction, quandle definitions Section 2, automorphism background Theorems 4.1--4.4, Section 4.2, Theorems 4.13 and 4.15, Problem 4.14, proof and Remark 4.16; source and characteristic hypotheses inspected.",
+        "method": "Read the full-text researchgate transcription and check the exact Theorem 4.15 proof, including its explicit 2c_i=0 step; compare all relevant statements/quantifiers.",
+        "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+        "trigger": "Primary recent source defines automorphism problem for even dihedral quandle algebras"
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem 6.4 computes automorphisms of Z[R4] and invokes determinants of integer matrices; it neither states nor implies the full characteristic-two classification.",
+        "evidence": "Earlier paper Theorem 6.4 explicitly gives Aut(Z[R4])=(C2×C2)⋊C2; the proof restricts parameters by integral determinants equal to ±1. The field F2 has more automorphisms (32).",
+        "identifier_or_url": "arXiv:2001.06843 (2020); https://arxiv.org/abs/2001.06843",
+        "material_read": "Full public text of Sections 4 and 6 including Theorem 6.4, its proof, its integral determinant argument, and the paper introduction describing the classes of coefficient rings actually treated.",
+        "method": "Read the public full-text transcription of the 2020 preprint at https://www.researchgate.net/publication/338684974_Zero-divisors_and_idempotents_in_quandle_rings and examine Theorem 6.4 (lines 1613-1800 of the transcript), comparing hypotheses and proof with the present claim.",
+        "title": "Zero-divisors and idempotents in quandle rings",
+        "trigger": "Earlier automorphism calculations including integral R4 are cited by the 2026 primary source"
+      },
+      {
+        "assessment": "NO_EXPLICIT_COVERAGE_IN_ABSTRACT; no whole-document absence claim made.",
+        "evidence": "The abstract names right ideals and ring isomorphism counterexamples rather than the group Aut_K(K[R4]).",
+        "identifier_or_url": "arXiv:1805.05908; https://arxiv.org/abs/1805.05908",
+        "material_read": "Public abstract explicitly describing complete right-ideal classifications for dihedral quandle rings, not full paper.",
+        "method": "Read arXiv abstract; compared scope and object with the present automorphism classification.",
+        "title": "Ring Theoretic Aspects of Quandles",
+        "trigger": "Potential earlier broader results concerning dihedral quandle algebras"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7734140-6dd8-4c21-a24a-e12d7336be4b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: The 2026 primary article highlights incomplete even-order dihedral quandle algebra automorphism theory. The first nontrivial even-order instance acquires a four-parameter shear symmetry group in the otherwise excluded characteristic two. A complete description over every characteristic-two field (including infinite fields), an intrinsic annihilator reduction, and exact finite-field orders resolve a motivated natural structural invariant rather than a sample calculation or routine restatement. It does not purport to solve larger even-order cases.",
+    "status": "PASS"
+  }
+}
