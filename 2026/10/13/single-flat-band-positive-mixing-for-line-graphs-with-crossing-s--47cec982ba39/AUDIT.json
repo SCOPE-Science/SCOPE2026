@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Every four-cycle alternating sign vector lies in ker unsigned incidence and has norm two. Two cycles with sole shared edge e have coordinatewise product +/- delta_e, so |z_e| <= 4||P diag(z) P||_F. Summing over edges and using the exact projector Schur/trace identity proves P◦P >= I/(16m). General Cesaro spectral projector formula proves Mhat >= P◦P; the cube product squares and boundary C4 calculation close the quantifiers. Exact Fraction LDL verification of five root graph cases corroborates but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Coutinho and Guo arxiv:2404.02236 Section 4 poses full-rank questions",
+        "Coutinho et al. arxiv:1709.03591 relates rank and commutants without the square-cycle condition",
+        "Kang arxiv:2605.01953v2 provides -2 flat-band orbital, not a positive lower bound"
+      ],
+      "reasoning": "General arbitrary-graph projector decompositions do not themselves imply the proposed positivity; the new hypotheses prove injectivity on every edge. The line-graph flat-band orbital can exist while a Schur square is singular, so its stronger-looking uniform support cannot dominate the proposed rank theorem.",
+      "searches": [
+        "\"positive definite\" \"average mixing matrix\" \"line graph\"",
+        "\"line graphs\" \"average mixing\" \"-2\" quantum walk",
+        "arxiv:2404.02236 Section 4 rank",
+        "arxiv:1709.03591 arbitrary graph rank"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1103.2578 full PDF",
+      "arxiv:1709.03591 full PDF",
+      "arxiv:2208.08971 full PDF",
+      "arxiv:2404.02236 full PDF Section 4",
+      "arxiv:2605.01953v2 revised full PDF Section 6",
+      "arxiv:2308.16378 full PDF"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kang shows B^TB = 2I + A(L(H)) and -2 orbital, not Schur-square invertibility",
+        "Godsil and Coutinho formulas yield Mhat = sum E◦E and PSD",
+        "Survey poses rank questions rather than classifying line-graph product families"
+      ],
+      "reasoning": "The new two-cycle condition forces span of pairwise coordinate products to contain every edge basis vector and quantitatively controls each diagonal compression. Prior statements imply only existence of the eigenspace and a general PSD sum, not positive definiteness of a single summand. Distinguish the new sufficient condition from claims of necessity or full general classification.",
+      "searches": [
+        "arxiv:2605.01953v2 Proposition 6.1 and Section 6",
+        "arxiv:1103.2578 spectral decomposition",
+        "arxiv:1709.03591 average mixing commutant",
+        "arxiv:2404.02236 full-rank problems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Godsil spectral projector formula arxiv:1103.2578",
+        "Kang arxiv:2605.01953v2 Section 6 incidence flat-band identity",
+        "Coutinho et al. arxiv:1709.03591 commutant rank framework"
+      ],
+      "reasoning": "A Schur-square rank statement would be equivalent to injectivity of compressed diagonal operators on the -2 eigenspace. Kang supplies identification of that eigenspace and full-support orbitals but not the separating coordinatewise products of localized cycle vectors. The commutant rank framework does not assert injectivity for these root graphs.",
+      "searches": [
+        "\"average mixing matrix\" \"line graph\" \"rank\" quantum walk",
+        "\"Schur square\" \"line graph\" quantum",
+        "\"cycle space\" \"average mixing matrix\"",
+        "arxiv:2605.01953v2 Section 6",
+        "arxiv:1709.03591 rank section"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked general Godsil PDF and its spectral tables/sections; no line graph hypercube rank table",
+        "Arxiv and accessible indexed literature returned the related Kang line-graph paper rather than a finite table for L(Q_d)"
+      ],
+      "reasoning": "The result is an all-dimensional structural claim, not an extraction from a known table. A finite tabulation could not establish the universal quantitative 1/(16m) bound, and no covering exact table or database was identified.",
+      "searches": [
+        "line graph hypercube average mixing",
+        "\"average mixing matrix\" \"line graph\" rank",
+        "arxiv:1103.2578 line graph and cycle space full PDF"
+      ]
+    },
+    "rationale": "The localized two-cycle certificate and quantitative line-graph mixing positivity implication were not located in the primary literature or available mathematical findings; strongest relevant line-graph paper supplies only the standard incidence/flat-band identity and a distinct uniform-orbital result. Novelty is not claimed for incidence or Cesaro-projector formulas. Unindexed equivalences are an explicit residual risk.",
+    "residual_risks": [
+      "Unindexed flat-band or association-scheme literature may contain an equivalent Schur-square rank criterion; searching does not demonstrate global priority.",
+      "A stronger general edge-cycle Hadamard-product spanning theorem might subsume the new sufficient condition even without mentioning quantum walks.",
+      "The 2026 Kang preprint has a withdrawn earlier version; comparison relies only on revised v2."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes projector-Schur sum and PSD framework; no root graph crossing-four-cycle line-graph rank theorem.",
+        "evidence": "Section 2, spectral decomposition; searches for line graph, cycle space, positive definite yielded none.",
+        "identifier_or_url": "arxiv:1103.2578",
+        "material_read": "Full PDF, abstract, derivation of spectral projectors, rank discussion",
+        "method": "PDF textual read with page-level visual inspection",
+        "title": "Chris Godsil, Average Mixing of Continuous Quantum Walks",
+        "trigger": "original formula for infinite-time Cesaro average"
+      },
+      {
+        "assessment": "Provides average-state/commutant methodology and rank bounds, but no localized line-graph cycle-square criterion.",
+        "evidence": "Rank and commutant sections, general arbitrary-graph theorem; no explicit line-graph square witness.",
+        "identifier_or_url": "arxiv:1709.03591",
+        "material_read": "Full PDF, introduction and rank/commutant sections",
+        "method": "PDF text read plus page screenshot",
+        "title": "Coutinho, Godsil, Guo, Zhan, A New Perspective on the Average Mixing Matrix",
+        "trigger": "closest general rank characterization"
+      },
+      {
+        "assessment": "Exact spectral averaging in continuous-time quantum walks; no positive line-graph Schur-square result.",
+        "evidence": "Submitted 2022-08-18, primary MSC 81P68; averaging derivation read.",
+        "identifier_or_url": "arxiv:2208.08971",
+        "material_read": "Full PDF including abstract and averaged-walk derivations",
+        "method": "PDF text read and title-page screenshot",
+        "title": "Coutinho et al., Irrational quantum walks",
+        "trigger": "qualifying quantum-walk setting and exact average"
+      },
+      {
+        "assessment": "Raises structural full-rank question for primitive distance-regular graphs; does not furnish a line-graph sufficient certificate.",
+        "evidence": "Section 4, Open Problem 4.1 and positivity discussion on PDF printed pages 11–12.",
+        "identifier_or_url": "arxiv:2404.02236",
+        "material_read": "Full PDF, especially Section 4 and survey references",
+        "method": "PDF text read and Section 4 screenshot",
+        "title": "Coutinho and Guo, Selected Open Problems in Continuous-Time Quantum Walks",
+        "trigger": "explicit motivation for full-rank average mixing"
+      },
+      {
+        "assessment": "States incidence identity and uniform flat-band orbital for even-Eulerian graphs, not Schur-square positive definiteness for all edges under intersecting squares; neither rank nor gap is stated.",
+        "evidence": "Section 6 Proposition 6.1, B transpose B = 2I + A(line graph), and uniform orbital; v1 withdrawn, revised v2 used.",
+        "identifier_or_url": "arxiv:2605.01953v2",
+        "material_read": "Full revised 12-page PDF, particularly Section 6 and conclusions",
+        "method": "PDF text read and page screenshots",
+        "title": "Musung Kang, Schur States and Many-Body Quantum Walks on Line Graphs",
+        "trigger": "direct line-graph flat-band comparison"
+      },
+      {
+        "assessment": "Studies averages with alternative time distributions; no structural line-graph flat-band strict positivity.",
+        "evidence": "Sections 1–3, distinctions between fixed Cesaro average and random-time average.",
+        "identifier_or_url": "arxiv:2308.16378",
+        "material_read": "Full PDF, introduction and temporal averaging results",
+        "method": "PDF text read and page screenshot",
+        "title": "Baptista, Coutinho, Marques, Unexpected Averages of Mixing Matrices",
+        "trigger": "possible stronger average framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47cec982-ba39-4586-b1b5-eb25e9ebf652",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses a prominent full-rank average-mixing question with a checkable root-graph local sufficient criterion, quantitative spectral positivity uniform over each finite graph, and an infinite class of heterogeneous Cartesian-product line graphs. Gives the sharp hypercube dimension threshold between C4 and d>=3. The mechanism is structural rather than a finite census, and the result has a motivated gap and plausible use to certify quantum mixing on broad product networks.",
+    "status": "PASS"
+  }
+}
