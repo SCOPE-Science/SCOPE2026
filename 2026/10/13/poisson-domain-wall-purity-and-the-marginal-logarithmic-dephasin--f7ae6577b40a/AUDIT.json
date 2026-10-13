@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The finite-size channel identity is obtained exactly from positive MPS squared amplitudes and independent XOR Bernoulli bond flips, with h=2g/(1+g)^2. For g=lambda/n the wall number is Bin(n-1,h_n) and tends to Poisson(2lambda). Conditioned on finitely many macroscopically separated walls, C_r=kr for r sufficiently smaller than the minimum wall spacing, and always C_r<=kr; these yield a convergent product for alpha>2 or exponential suppression for alpha<=2. At alpha=2 and p_n=c/log n, sum_r C_r/r^2=k log n+O(1) and the logarithmic expansion proves e^-4ck. Poisson averaging gives equations (2),(3). The zero-factor p=1/2 case and lambda=0 endpoints are handled explicitly; alpha=1 is excluded. The independently reconstructed MPS matrices, channel density matrices, crossing counts, and finite benchmarks pass 5095 checks. Experiments are not a substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.00480v1 Eq. (74) is a generic overlap-based expression for purity, with no g_n=lambda/n asymptotic evaluated; Appendix H Eq. (137) is for g=1 and alpha=0.",
+        "Appendix G Eqs. (125)-(132) already proves decay of a specified linear string-order parameter at alpha<2, and explicitly identifies alpha=2 as an existing range boundary.",
+        "arXiv:cond-mat/0512180v1 studies the original pure matrix-product phase-transition family, without this noisy global-purity computation."
+      ],
+      "reasoning": "The source is broader in model parameters and related diagnostics but does not state the same implication in the dilute double scaling. Its partition-function mappings could enable an independent derivation, so implicit coverage remains a residual risk; direct textual and formula comparison did not reveal a dominating theorem yielding the displayed Poisson limit without further calculation.",
+      "searches": [
+        "decohered Ising matrix product state Poisson domain walls purity thermodynamic limit threshold alpha 2",
+        "Renyi-2 purity limit exp minus twice lambda domain wall infinite product 1 minus 2p over r to alpha",
+        "exact mixed-state purity dilute domain wall dephasing quantum long-range power law 2026",
+        "Primary full-text comparison: arXiv:2610.00480v1 Sec. III, Sec. V, Appendices A, G, H"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "Distinct channel and no matching closed rare-wall purity law found in inspected material; full text not read.",
+        "identifier": "DOI:10.1103/PRXQuantum.4.030318",
+        "material_read": "Abstract, overview of measurement-feedback construction",
+        "title": "Mixed-State Long-Range Order and Criticality from Measurement and Feedback"
+      },
+      {
+        "assessment": "Classical equilibrium long-range Ising, not a theorem for the quantum global-purity double scaling.",
+        "identifier": "Phys. Rev. B 52, 3034 (1995), Cannas",
+        "material_read": "Abstract and cited context",
+        "title": "One-dimensional Ising model with long-range interactions"
+      },
+      {
+        "assessment": "Different circuit and dynamical domain-wall observable, no same input/channel/purity limit identified.",
+        "identifier": "DOI:10.1103/PRXQuantum.5.030327",
+        "material_read": "Sections discussing the boundary-domain-wall mapping and phase transition",
+        "title": "Quantum Coding Transitions in the Presence of Boundary Dissipation"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior paper establishes the pair-crossing mechanism and exponent-2 summability for linear string order; it does not state global purity at g=lambda/n.",
+        "The prior exact g=1, alpha=0 purity sum differs in input and parameter regime and cannot be specialized by substituting g=lambda/n.",
+        "A general random-state overlap formula is a starting point and not the final asymptotic; the essential additional step is that XOR-state domain walls are iid Bernoulli with h, then Poisson, with isolated-wall crossing products and critical harmonic summation."
+      ],
+      "reasoning": "The alpha=2 range division as such is already known and not asserted original. The specific purity result cannot be obtained by setting symbols in the known linear-string or fixed-g product-state formula; the conditional Poisson and log-window limit require separate nontrivial reasoning. No verified stronger prior statement of these exact equations was found.",
+      "searches": [
+        "Primary arXiv:2610.00480v1: compare Sec. II Eqs. (1),(2),(7),(16),(17), Sec. III mappings, Sec. V.3, App. G Eqs. (125)-(132), App. H Eq. (137)",
+        "\"Renyi purity\" \"domain wall\" \"power-law\" dephasing sparse",
+        "power law two-body Z dephasing purity domain-wall dilute limit product r log 1-2p/r^alpha",
+        "weak ferromagnetic domain wall fugacity g=lambda/N Renyi 2 purity pairwise dephasing Kac"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00480v1 Sec. II defines the precise input and pair channel; Sec. V.3 discusses purity experimentally but uses finite-size data at fixed g.",
+        "The exact finite-size representation here is a squared dephasing-coherence average over XOR Bernoulli walls, while the source Appendix G crossing formula is for a linear string expectation."
+      ],
+      "reasoning": "A domain-wall representation for linear string attenuation does not determine the global Hilbert–Schmidt purity: the latter averages squared crossing factors over a random XOR configuration and its Poisson wall count. No equivalently quantified rare-wall global-purity limit or log-window identity was located. Both depend on the specific derived normalization h=2g/(1+g)^2; words matching alpha=2 alone do not imply coverage.",
+      "searches": [
+        "\"Mixed-state phases induced by power-law quantum channels\" purity double scaling GHZ domain walls",
+        "power-law ZZ dephasing matrix product GHZ crossover global purity Poisson rare domain walls alpha=2",
+        "\"dilute domain wall\" \"purity\" dephasing",
+        "\"Poisson\" \"purity\" \"domain wall\" \"quantum channel\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed results involved PEPS local-filter obstructions, critical dyadic quantile bounds, and coarse dynamical recurrence; none implies the specified quantum channel purity formula.",
+        "No exact database of dilute rare-wall quantum-channel purity values or equivalent published table was located in the surveyed references.",
+        "Source Fig. 5 is a numerical decay-rate plot, not an exact infinite-volume product or finite matrix table."
+      ],
+      "reasoning": "No relevant exact table or database entry was identified. The published-record search uses semantic indexing and cannot establish mathematical uniqueness, and local record absence cannot rule out other unpublished work.",
+      "searches": [
+        "arXiv:2610.00480 power-law channel matrix product states symmetry breaking quantum purity",
+        "Fechisin Lu Wei Shah Wang Gorshkov Lin sparse domain walls lambda / N exact mixed-state purity",
+        "critical logarithmic vanishing dephasing probability c log N power law alpha two purity",
+        "Poisson domain-wall dilute GHZ scaling dephasing long range critical exponent two"
+      ]
+    },
+    "rationale": "The exact quantum-state/channels originate in Fechisin et al. Their Appendix G already supplies the alpha=2 crossing-summability principle for a linear string operator, so that threshold alone is explicitly excluded from the novelty claim. The inspected Sec. V.3 supplies only numerical fixed-g purity and Appendix H only the special g=1, alpha=0 sum. The new assertion gives the full dilute g_n=lambda/n global-purity law, its Poisson-specific infinite product for alpha>2, and a c/log n marginal interpolation. No matching or stronger covering theorem was located in primary, published mathematical records, or surveyed related papers. Residual unindexed/implicit-derivation risk remains.",
+    "residual_risks": [
+      "The source general Rényi-2 statistical-mechanics partition function may imply the same asymptotics after transformations not explicitly written; a full implication-level comparison was made but priority cannot be certified.",
+      "A technical note with an equivalent rare-wall Laplace transform may be unindexed or outside accessible published records.",
+      "Other private manuscripts and inaccessible supplementary calculations are not excluded by bibliographic searching."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the model and already discusses alpha=2 summability for linear string order; does not in inspected material evaluate global purity at g=lambda/n or marginal noise c/log n. Explicit provenance/coverage risk remains for implicit consequences of its broader partition-function formulas.",
+        "evidence": [
+          "Sec. II Eq. (16)-(17) pair dephasing and Eq. (7) boundary vectors",
+          "Sec. V.3 Fig. 5 fixed-g numerical purity and shot cost",
+          "Appendix G Eqs. (125)-(132) crossing-string attenuation and alpha=2 mechanism",
+          "Appendix H Eq. (137) different g=1 alpha=0 exact purity"
+        ],
+        "identifier_or_url": "arXiv:2610.00480v1; https://arxiv.org/html/2610.00480v1",
+        "material_read": "Sec. II input MPS, boundaries, and channel Eqs. (1),(2),(7),(16)-(18); Sec. III statistical-mechanics mapping and observables; Sec. V.1-V.3 purity protocol and Fig. 5; Appendix A domain-wall setup; Appendix G pair-crossing analysis; Appendix H exact g=1 alpha=0 purity.",
+        "method": "Direct public open-access HTML primary text inspection and comparison of formula objects, limits, and parameter normalization.",
+        "title": "Mixed-state phases induced by power-law quantum channels",
+        "trigger": "Same input MPS, same channel, and direct high-purity motivation."
+      },
+      {
+        "assessment": "Pure-state transfer-operator phase-transition analysis; no power-law pair-dephasing channel or global mixed-state dilute purity limit in material read. Material not exhaustively read; this is a bounded comparison, not whole-document exclusion.",
+        "evidence": [
+          "Paper title, opening model statements, and source citation to MPS family"
+        ],
+        "identifier_or_url": "arXiv:cond-mat/0512180v1; https://arxiv.org/abs/cond-mat/0512180",
+        "material_read": "Open-access manuscript abstract, model motivation, and beginning including central matrix-product quantum critical construction.",
+        "method": "Original arXiv preprint PDF/text inspection (opening sections).",
+        "title": "Quantum phase transitions in matrix product systems",
+        "trigger": "Original source of the input MPS family cited in Fechisin et al."
+      },
+      {
+        "assessment": "Uses different dephasing channels and critical-state diagnostics, not the MPS pair-channel dilute-wall global purity formula in the material examined.",
+        "evidence": [
+          "Abstract and discussion on Renyi observables and experimental measurement"
+        ],
+        "identifier_or_url": "DOI:10.1038/s41467-026-73814-6; https://doi.org/10.1038/s41467-026-73814-6",
+        "material_read": "Open article abstract and discussion of Renyi correlators, shadow tomography, and variational decoding.",
+        "method": "Published open-access article sections inspected via web.",
+        "title": "Probing mixed-state phases on a quantum computer via Renyi correlators and variational decoding",
+        "trigger": "Recent quantum hardware motivation for quadratic mixed-state diagnostics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7ae6577-b40a-4f4e-aadb-ffcbb968e2be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original paper singles out high purity as the practical control on measurement-shot overhead but only evaluates small fixed-g examples numerically. The scaling g_n=lambda/n has a natural nondegenerate Poisson wall count and yields an exact nonzero thermodynamic global-purity invariant; its alpha>2 crossing product and alpha=2 inverse-logarithmic noise window quantify the precise survival of coherence at finite subsystem-wall intensity. It is a motivated asymptotic classification rather than an arbitrary sample enumeration or a reiteration of the known alpha=2 linear-string threshold. It does not assert mixed-order survival or a hardware advantage.",
+    "status": "PASS"
+  }
+}
