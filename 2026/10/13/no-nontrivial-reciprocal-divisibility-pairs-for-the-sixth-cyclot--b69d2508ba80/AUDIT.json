@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact induction/descent on max(a,b): diagonal and unit cases disposed of by F(t)=1 (mod t); for 2<=a<b let c=F(a)/b with 1<=c<a, then c|F(a) and a|F(c) from c^2F(b) congruent F(c) (mod a). Strictly smaller solution impossible. Euler-totient regrouping yields H(n)=n^-1 sum_{d|n} d phi(d) and the semiprime iff equivalence. Independent finite program tests all proper divisor partners for a<=5000, 200-by-200 pairs, and six product identities, but finite checks are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The main paper treats all integral inputs with an asymptotic bound and uses a counting argument for two-cycles, but does not rule out the squarefree subcase.",
+        "The cyclotomic tau-relative uniqueness record 2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00 treats tau(n)|Phi_{2p^k}(n), not mutual reciprocal divisibility."
+      ],
+      "reasoning": "Asymptotic scarcity of general integral values does not imply a complete elimination of squarefree semiprimes. Separate sigma_2,2 and tau-divisibility statements have different polynomial/operator conditions.",
+      "searches": [
+        "no two cycle reciprocal divisibility x^2-x+1 y^2-y+1 cyclotomic Phi6 descent",
+        "De Koninck Letendre integer values sum reciprocals gcd(n,i) 2-cycles semiprime",
+        "squarefree H(n)=sum_{i=1}^n 1/gcd(n,i) no exactly two prime factors",
+        "published-finding corpus:2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00",
+        "arXiv:2610.10572v1 Section 5 Proposition 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.10572v1 full HTML, published 2026-10-04, primary MSC2020 11N37",
+      "OEIS A317480 sequence and product implementation",
+      "published-finding corpus:2026/10/4/SCOPE-exact-common-cyclotomic-divisor-for-sigma-2-2-prime-pairs--f65bdfb7afa8",
+      "published-finding corpus:2026/9/20/SCOPE-cyclotomic-tau-relative-uniqueness--82452a44ee00",
+      "published-finding corpus:2026/10/4/SCOPE-a-squarefree-generator-theorem-for-exponential-unitary-harmonic--1bc82f915097"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.10572v1, Section 1 says only omega(n)>=2 for n>1 integral H(n).",
+        "arXiv:2610.10572v1, Section 5 Proposition 1 bounds solution count by O(z^(1/3)/(log z)^2).",
+        "Section 5 considers additional higher-exponent cycle cases; these are not ruled out here."
+      ],
+      "reasoning": "A nonzero asymptotic upper bound and omega>=2 neither imply nor contradict omega>=3 for squarefree n. This result proves the exact zero-pair statement by a new descent. It is not simply a parameter choice from a stronger primary theorem.",
+      "searches": [
+        "arXiv:2610.10572v1 Sections 1 and 5 Proposition 1",
+        "De Koninck Letendre integer values sum reciprocals gcd(n,i) 2-cycles semiprime",
+        "prime pairs p divides q^2-q+1 q divides p^2-p+1 impossible Vieta jumping",
+        "https://oeis.org/A317480"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.10572v1, Section 5 Proposition 1 states a count upper bound for reciprocal divisibility of g(t)=t^2-t+1, not an empty set.",
+        "Targeted published research record 2026/10/4/SCOPE-exact-common-cyclotomic-divisor-for-sigma-2-2-prime-pairs--f65bdfb7afa8 concerns t^2+t+1 instead of t^2-t+1."
+      ],
+      "reasoning": "Graph two-cycles, positive-integer reciprocal divisibility and semiprime integral gcd-reciprocal values reduce to the same pair system. The closest relevant primary bound has no zero-solution implication.",
+      "searches": [
+        "no two cycle reciprocal divisibility x^2-x+1 y^2-y+1 cyclotomic Phi6 descent",
+        "prime pairs p divides q^2-q+1 q divides p^2-p+1 impossible Vieta jumping",
+        "p divides q^2-q+1 q divides p^2-p+1 descent no positive integer solution",
+        "\"mutual divisibility\" \"cyclotomic\" \"x^2-x+1\"",
+        "published-finding corpus:2026/10/4/SCOPE-exact-common-cyclotomic-divisor-for-sigma-2-2-prime-pairs--f65bdfb7afa8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A317480 shows an explicit finite list of first values and code for membership, not a universal two-prime impossibility theorem.",
+        "published-finding corpus 2026/10/4/SCOPE-a-squarefree-generator-theorem-for-exponential-unitary-harmonic--1bc82f915097 concerns exponential-unitary harmonic numbers, a different arithmetic function."
+      ],
+      "reasoning": "Finite OEIS observations without semiprimes cannot exclude arbitrarily large two-prime candidates. The product formula in the table yields the equivalence to the pair system, but no full result ruling it out.",
+      "searches": [
+        "OEIS A317480 gcd reciprocal sum integrality",
+        "https://oeis.org/A317480",
+        "squarefree H(n)=sum_{i=1}^n 1/gcd(n,i) no exactly two prime factors",
+        "published-finding corpus:2026/10/4/SCOPE-a-squarefree-generator-theorem-for-exponential-unitary-harmonic--1bc82f915097"
+      ]
+    },
+    "rationale": "Closest full-text arXiv:2610.10572v1 Section 5 Proposition 1 provides only a quantitative upper bound for exactly the distinct-odd-prime two-cycle system, which does not imply emptiness. The proven theorem is an all-positive-integers no-two-cycle theorem and excludes squarefree semiprimes; the cited paper supplies no such exclusion. Searches of published research records, the OEIS sequence, and targeted external literature did not expose an equivalent or stronger result. Unindexed literature remains possible.",
+    "residual_risks": [
+      "Unindexed earlier proof of the same reciprocal-divisibility descent may exist.",
+      "Only the stated squarefree two-prime branch is eliminated; the general counting result and squared-prime cycle cases are not superseded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source handles precisely the pair as a count bounded above, not an impossibility; no all-positive-integer descent stated.",
+        "evidence": [
+          "Section 1 equations H(n)=h(n)/n and h(p)=p^2-p+1; Section 5 lines 288–321, Proposition 1; Section 7 lines 343–373."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.10572v1",
+        "material_read": "HTML full text: Sections 1–3, 5 (entire Proposition 1 and proof), and 7 (cycles and example).",
+        "method": "Read primary public HTML with section and equation comparison to the universal pair statement.",
+        "title": "The Integer Values of the gcd-reciprocal sum",
+        "trigger": "The paper introduces exact polynomial and singles out its mutual-prime-divisor case in a proposition."
+      },
+      {
+        "assessment": "Only tabular/product evidence, not a universal classification of two-prime inputs.",
+        "evidence": [
+          "OEIS A317480, definition, entries, notes and programs."
+        ],
+        "identifier_or_url": "https://oeis.org/A317480",
+        "material_read": "Sequence definition, listed initial terms, comments, references, and Mathematica/PARI membership formulas.",
+        "method": "Read public database entry and compare finite-listed examples and product criterion with universal exclusion.",
+        "title": "OEIS A317480",
+        "trigger": "The primary paper cites this database for sample integral values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b69d2508-ba80-4561-9bcb-e2aef992da7d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The squarefree two-cycle system is a distinguished entire subcase of the source paper’s Section 5; proving its complete emptiness (even for composite operands) removes a natural structural branch rather than giving a small parameter improvement. It yields a new prime-support obstruction for the recently studied integrality set. The result does not claim a changed general asymptotic exponent or rule out higher-power cycles.",
+    "status": "PASS"
+  }
+}
