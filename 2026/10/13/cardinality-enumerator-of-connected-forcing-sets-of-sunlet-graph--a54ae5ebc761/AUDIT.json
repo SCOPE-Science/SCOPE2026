@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Connectivity forces selected leaves to have selected supports and forces the selected cycle vertices to form the whole cycle or one consecutive path. A complementary block of length one is forceable exactly when at least one boundary leaf is selected; a block of length two is forceable exactly when both boundary leaves are selected (with \\(n=3\\) separately excluded); a longer block stalls after the boundary forces. The counting formula follows from these disjoint cases. Exhaustive verification for \\(3\\le n\\le9\\) checks every subset and every coefficient; the infinite result rests on the proof, not the computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1607.00658, Lemmas 3--8 and Theorem 4, characterize enough cycle-segment structure to compute the minimum connected forcing number and find a minimum set, but the stated theorem is a minimum-cardinality result rather than an all-size enumeration.",
+        "arXiv:2507.11194, Section 6.3 assumes an isolate-free/nontrivial attached graph in its corona results, excluding \\(K_1\\); its conclusion lists unicyclic graph families as a future direction."
+      ],
+      "reasoning": "No retrieved broader theorem supplies the arbitrary-leaf multiplicities for every size. The 2016 unicyclic framework is supporting structure, not a dominating all-set result; the 2025 corona result does not apply to the trivial attachment defining a sunlet.",
+      "searches": [
+        "unicyclic connected zero forcing all sets enumeration",
+        "connected forcing density coronas unicyclic graphs",
+        "Complexity and Computation of Connected Zero Forcing unicyclic feasible segments"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.laa.2007.10.009",
+      "arXiv:1604.00740",
+      "arXiv:1607.00658",
+      "arXiv:2507.11194",
+      "Rice University dissertation: Graph Coloring, Zero Forcing, and Related (2026)",
+      "Banot--Baldado, k-FORCING NUMBER OF SOME CYCLE-RELATED GRAPHS (2023)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 of arXiv:1607.00658 determines Z_c for unicyclic graphs and finds a minimum connected forcing set; it does not give \\(z_c(L_n;j)\\) for all j.",
+        "arXiv:2507.11194 gives all-size connected forcing counts for trees, not unicyclic sunlets, and explicitly points to unicyclic families as future work.",
+        "The dissertation scalar \\(Z_c(L_n)=n\\) is recovered as the least exponent of the new enumerator and is not treated as novel."
+      ],
+      "reasoning": "The new claim strictly refines the known scalar parameter and goes beyond the minimum-set construction by classifying every connected forcing set and counting each size. No inspected prior conclusion implies the full coefficient formula without the new boundary-leaf iff analysis and enumeration.",
+      "searches": [
+        "arXiv:1607.00658 Theorem 4 unicyclic connected forcing",
+        "arXiv:2507.11194 zc(G;i) trees unicyclic future directions",
+        "Rice dissertation sunlet connected forcing number Proposition 5.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brimkov, arXiv:1607.00658, uses the terms connected zero forcing/connected forcing and develops the unicyclic cycle-segment framework.",
+        "Brimkov--Davila--Schuerger, arXiv:2507.11194, Definition 1 introduces \\(z_c(G;i)\\) as the number of connected forcing sets of size i.",
+        "Searches also used the aliases sunlet, \\(C_n\\odot K_1\\), and all-size/cardinality enumerator; no equivalent all-size sunlet formula was located."
+      ],
+      "reasoning": "The claim was compared under both connected forcing and connected zero forcing terminology, and under both sunlet and corona descriptions. The retrieved literature contains the scalar minimum and general unicyclic structure, but no statement equivalent to the three-family all-size classification or its coefficient formula.",
+      "searches": [
+        "connected forcing polynomial sunlet graph all connected forcing sets",
+        "cardinality enumerator connected zero forcing sunlet C_n corona K1",
+        "zc(S_n;i) sunlet connected forcing sets every size",
+        "sunlet graph connected forcing density number of distinct connected forcing sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A 2026 Rice dissertation indexed passage gives Proposition 5.2: the connected forcing number of the 2k-vertex sunlet is k.",
+        "Another indexed dissertation passage says certain minimum forcing-set cardinalities for sunlets have polynomial behavior, but the indexed material exposes no all-size connected-forcing table or generating function.",
+        "The 2023 k-forcing paper on sunlets concerns k-forcing numbers, not connected forcing-set enumeration."
+      ],
+      "reasoning": "The same-object sources found record scalar forcing parameters or qualitative counting behavior, not the complete coefficient sequence. No known table located in the searches contains the polynomial stated here.",
+      "searches": [
+        "sunlet graph number of connected forcing sets",
+        "sunlet minimum connected forcing sets count",
+        "sunlet 3n+1 connected forcing",
+        "sunlet graph zc(G;Zc(G))"
+      ]
+    },
+    "rationale": "The closest full-text unicyclic source determines the minimum connected forcing number and a minimum-set construction, while the later counting framework enumerates trees and leaves unicyclic families as a future direction. Same-object indexed literature gives the scalar sunlet minimum but no all-size coefficient formula. The full all-set classification was not found under connected-forcing/connected-zero-forcing or sunlet/corona aliases.",
+    "residual_risks": [
+      "The 2026 Rice dissertation is highly relevant and could not be retrieved in full through the available access path. Indexed excerpts were inspected and show the scalar minimum plus a qualitative counting remark, but unseen passages could contain a more detailed minimum-set census. No indexed evidence of the all-size enumerator was found.",
+      "The 2016 unicyclic lemmas give strong necessary structure; the present all-size formula is a specialization plus a new leaf-sensitive sufficiency/counting argument, so the contribution is narrower than a general unicyclic enumeration theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces ordinary zero forcing; does not concern connected forcing or sunlet connected-set enumeration.",
+        "evidence": "Available online 26 November 2007; AMS classification begins 05C50.",
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009",
+        "material_read": "Front matter and abstract, including online date and AMS classification.",
+        "method": "Lawfully accessible published-version text.",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational source for the zero forcing rule, earliest public date, and slot ownership."
+      },
+      {
+        "assessment": "Gives cycle-segment restrictions and computes the minimum connected forcing number/one minimum set, but does not enumerate connected forcing sets of every cardinality.",
+        "evidence": "Section 5.1 states its goal as a closed formula for the connected forcing number and a linear-time algorithm for finding a minimum set; Theorem 4 is a minimum-cardinality formula.",
+        "identifier_or_url": "arXiv:1607.00658",
+        "material_read": "Full text around Section 5.1, Lemmas 3--8, Theorem 4, and the unicyclic proof; relevant page images were also inspected.",
+        "method": "arXiv full text and PDF page inspection.",
+        "title": "Complexity and Computation of Connected Zero Forcing",
+        "trigger": "Closest broad result on connected forcing in unicyclic graphs."
+      },
+      {
+        "assessment": "Defines \\(z_c(G;i)\\), completely enumerates connected forcing sets in trees, and studies coronas with nontrivial/isolate-free attached graphs. It contains no sunlet occurrence and lists unicyclic families among future directions.",
+        "evidence": "Definition 1 defines \\(z_c(G;i)\\); Section 6.3 requires H nontrivial/isolate-free; conclusion names unicyclic graphs as a future classification direction.",
+        "identifier_or_url": "arXiv:2507.11194",
+        "material_read": "Full text including Definition 1, Sections 3 and 6.3, conclusion, and references; relevant page images were also inspected.",
+        "method": "arXiv full text and PDF page inspection.",
+        "title": "Connected forcing density and related problems",
+        "trigger": "Direct source for the size-counting invariant \\(z_c(G;i)\\) and possible corona/unicyclic coverage."
+      },
+      {
+        "assessment": "The visible material proves the scalar connected forcing number for sunlets and makes a qualitative polynomial-count remark, but does not expose the all-size enumerator claimed here.",
+        "evidence": "Indexed Proposition 5.2 states Z_c of the 2k-vertex sunlet is k; another indexed passage mentions polynomial behavior of certain forcing-set cardinalities for sunlets.",
+        "identifier_or_url": "Rice University dissertation (2026)",
+        "material_read": "Search-indexed passages around Proposition 5.2 and a later discussion of forcing-set count growth. Direct full-PDF retrieval failed in the available access path.",
+        "method": "Repository/search-index excerpts; attempted full-text retrieval was inaccessible.",
+        "title": "Graph Coloring, Zero Forcing, and Related",
+        "trigger": "Same-object source surfaced by exact sunlet/connected-forcing searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a54ae5eb-c761-4cc6-abe2-148c080cf416",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The coefficient sequence \\(z_c(G;i)\\) is explicitly promoted as a natural object in the recent connected-forcing-density literature. Sunlets are a canonical unicyclic family and a boundary case excluded from the nontrivial-attached-graph corona theorem. The result supplies a complete structural classification, every coefficient, the minimum-basis count, and the total count in closed form; it is therefore more than a scalar recomputation and directly addresses a natural enumerative gap.",
+    "status": "PASS"
+  }
+}
