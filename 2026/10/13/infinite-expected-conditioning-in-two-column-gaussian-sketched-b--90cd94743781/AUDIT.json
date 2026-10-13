@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact orthogonal Gaussian rotation gives independent chi-square difference; gamma convolution gives continuous positive density at the origin and sharp inverse-moment cutoff. Direct two-column projection yields d=v-hk/z, triangular output and kappa>=sqrt(|d|/|z|). Nondegenerate joint Gaussian density and transversality of z imply a positive c/t conditioning tail, proving divergent moments for all r>=1. Numeric/rational tests are supplementary; all quantifiers and null events addressed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Simoncini and Wang (2025), DOI:10.1002/nla.70022, Section 6 bases stabilized by whitening the sketch QR rather than by sketched bilinear pivots.",
+        "Grigori et al. arXiv:2509.04386v1, Section 6 gives experimental conditioning, not unconditional moment control."
+      ],
+      "reasoning": "Whitening on a single Krylov basis is distinct from signed biorthogonal paired normalization. Existing subspace-embedding high-probability bounds do not imply integrability over the exceptional complement; no general theorem encompassing the explicit two-column moment blow-up was located.",
+      "searches": [
+        "randomized two-sided Gram Schmidt expected condition number infinite first moment two columns Gaussian oversampling",
+        "Gaussian sketch biorthogonal infinite expectation",
+        "inverse Wishart bilinear infinite moments condition number",
+        "DOI:10.1002/nla.70022 sections 5--7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.04386v1 (primary full text, 27 pages)",
+      "DOI:10.1002/nla.70022 (full-text HTML)",
+      "Published record 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af",
+      "Published record 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee",
+      "Published record 2026/9/19/SCOPE-skewness-splits-flat-chaos-gaussianization--78000fe178d9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grigori et al.: P(|<Omega x,Omega y>|<=delta) <= 202 s delta and high-probability and finite-sample conditioning claims.",
+        "New: P(kappa_2(Q)>t)>=C_s/t for an explicit fixed X,Y and every s>=2; the lower tail cannot be inferred from the prior upper small-ball bound alone.",
+        "Simoncini--Wang: sketched QR whitening produces a structurally different output."
+      ],
+      "reasoning": "The source upper probability estimate is consistent with, but strictly weaker than, a positive lower tail. The original paper mentions near-breakdown spikes without demonstrating divergent expected output conditioning for orthonormal inputs. The new statement neither contradicts typical finite-sample stability nor follows by specializing the source result.",
+      "searches": [
+        "arXiv:2509.04386v1 Algorithm 3.1 Proposition 4.1 Remark 4.2 Section 6 Appendix A",
+        "DOI:10.1002/nla.70022 Proposition 6.1 Section 6",
+        "biorthogonalization Gaussian expected condition number infinite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.04386v1, pp. 8--13, 19--21; establishes P(|Z|<=delta)<=202 s delta, not positive sharp density or E kappa infinite.",
+        "Published result 2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af is a different weak-Gauss--Newton Gram-metric obstruction."
+      ],
+      "reasoning": "Reformulated as a negative-moment cutoff for a Gaussian bilinear form, inverse pivot, and infinite output condition-number mean. A uniform upper small-ball estimate is not an implication of an exact positive lower tail, while a generic matrix-inverse heavy-tail result would need to match the signed two-sided Gram--Schmidt basis and specific orthonormal input. No covering statement found in actual targeted queries.",
+      "searches": [
+        "Gaussian sketch biorthogonalization two-sided Gram Schmidt reciprocal sketched inner product divergent moments infinite variance norm",
+        "negative moments of Gaussian bilinear forms product correlated Gaussian sample covariance off diagonal small ball density at zero",
+        "randomized biorthogonalization near breakdown rank one heavy tails sketch normalization singularity",
+        "sketched biorthogonal infinite moment Gaussian",
+        "Gram Schmidt biorthogonal infinite expectation random sketch",
+        "product normal sum density at zero correlated gaussian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary Table 6.1 and Table 6.2 report sample condition numbers and decompositions; no tabulated unconditional negative moments or exact f_Z(0).",
+        "For s=2 our f_Z(0)=1 follows from a gamma-convolution computation, not from any tabulated finite sample."
+      ],
+      "reasoning": "The value is a quantified analytic tail and all-size integrability boundary, not a recomputation of the numerical condition-number tables. Unindexed analytic tables remain an ordinary residual risk.",
+      "searches": [
+        "arXiv:2509.04386v1 Proposition 4.1 Section 6 Tables 6.1 6.2",
+        "randomized biorthogonalization first pivot exact negative moment boundary Gaussian bilinear forms chi square",
+        "Published Gaussian-chaos near-breakdown moment"
+      ]
+    },
+    "rationale": "Primary 2025 arXiv:2509.04386 proves only an upper O(delta) anti-concentration inequality for Gaussian sketched inner products and reports typical conditioning; the sharp exact zero-density and inverse moments and the explicit two-column infinite-condition-mean lower tail are absent from its inspected Algorithm 3.1, Proposition 4.1, Section 6 and appendices. The 2025 Simoncini--Wang article treats different whitened Krylov processes. Closest published finding records involve different operators. Classical chi-square/product-normal algebra is credited; unindexed equivalent results remain a risk.",
+    "residual_risks": [
+      "The standard gamma and correlated-normal-product distributions are classical and are not novel alone. An unindexed derivation of the exact paired Gram--Schmidt conditioning tail may exist.",
+      "The real signed-square-root normalization is specified explicitly for pivots of either sign; alternative normalization and safeguarded algorithms may behave differently.",
+      "Only one fixed pair of orthonormal input bases is used for the output condition-number lower tail; no universal such statement for all inputs is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST NOT COVERING: formal upper O(s delta) small-ball bound, no sharp density, no inverse-moment classification, no two-column infinite expected condition-number lower tail.",
+        "evidence": [
+          "Algorithm 3.1 p.9; Proposition 4.1 pp.11--13; Remark 4.2 p.13; conditioning discussion in Section 6 pp.18--21; arXiv dated 4 Sep 2025 on p.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.04386",
+        "material_read": "Full 27-page PDF text scanned, with detailed review of the dated first page, Sections 2--4 (algorithm and Gaussian small-ball proof), Section 6 sample conditioning and concluding remarks, and references/appendices; page-image verification of pp. 1, 9 and 13.",
+        "method": "Public arXiv version 1 PDF and visually inspected page images plus full extracted text.",
+        "title": "Randomized biorthogonalization through a two-sided Gram--Schmidt process",
+        "trigger": "Defines exact algorithm, Gaussian pivot and conditioning measurements underlying the new result."
+      },
+      {
+        "assessment": "NOT COVERING: constructs whitened sketched Krylov recurrences, not the two-sided signed sketched Gram--Schmidt normalization.",
+        "evidence": [
+          "Section 6 Proposition 6.1 and 6.2 whiten sketched basis by a QR factor; no inverse first-pivot moments or unconditional two-column basis-condition moments."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.70022",
+        "material_read": "Open full-text HTML: abstract, introductory scope, Sections 3 and 6 and main propositions about QR whitening, plus main conclusions; no moment theorem identified.",
+        "method": "Lawful publisher full-text HTML.",
+        "title": "Stabilized Krylov Subspace Recurrences via Randomized Sketching",
+        "trigger": "Potentially broader stability and whitening theory for sketched nonsymmetric Krylov bases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90cd9474-3781-4500-a754-61ec3ef2b967",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural stability objective, unconditional expected spectral conditioning, differs profoundly from the motivating article’s high-probability embedding metric: a minimal two-column example with individually orthonormal input bases and condition sqrt(2) cross-Gram has no finite mean output condition number for any finite Gaussian sketch dimension. The sharp first-pivot norm moment cutoff quantifies why oversampling changes rarity without changing integrability; a genuine, structurally motivated boundary, not a normalization typo or incidental simulation.",
+    "status": "PASS"
+  }
+}
