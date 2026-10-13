@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The model is three independent exponential component lifetimes with strictly positive rates \(a,a,b\); the parallel lifetime is their maximum. The proof differentiates its exact survival function, derives an exact rational-exponential identity for the hazard curvature, and treats every allowed ratio. The logarithmic inequalities establish strict positivity on the entire infinite time domain when \(b/a\ge2\), while the leading asymptotic term proves strict eventual negativity for \(0<b/a<2\) except at equality. The homogeneous case factors positively. The standalone verifier reproduces the independent differentiation identity and rational diagnostics. A finite computation is not used as a substitute for an infinite proof.
+
+## Originality — PASS, with priority risks
+The primary 2021 reference develops stochastic hazard-rate comparisons for parallel systems with starting devices and a proportional reversed-hazard model, not the absolute IFR property of the specified three-exponential maximum. Yaming Yu (2016) compares hazard rates of heterogeneous and homogeneous order statistics; such an ordering neither establishes nor refutes hazard monotonicity of the heterogeneous statistic. Kochar and Xu (2009) study a convex-transform comparison, likewise not this classification. Joo and Mi (2010) examine two-component exponential-system hazard comparisons, but their full text was not available for verification here. Searches of public titles and statements and mathematical research records identified no covering sharp factor-two theorem; non-detection alone is not evidence of uniqueness. Residual risk: an equivalent criterion or a strong unpublished/older theorem may exist.
+
+## Value — PASS
+It supplies a complete sharp phase diagram for the smallest parallel exponential system in which two identical slow components compete with a potentially faster third. The threshold answers when system aging can remain globally monotone, rather than merely comparing two different reliability distributions. The nonmonotone dependence on component heterogeneity (IFR at equality, failure immediately off equality on one side, and re-entry at a factor two) is substantive for reliability modeling and cannot be inferred from the standard homogeneous IFR preservation statement. No claim is made about arbitrary three distinct rates.
+
+Self-review: passed. Independent audit: not yet performed.
