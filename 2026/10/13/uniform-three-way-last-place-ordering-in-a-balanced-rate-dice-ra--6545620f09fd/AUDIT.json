@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Poisson thinning transforms the exact sequential race into independent Gamma(shape k, rate k) finish times. The two last-place probabilities are obtained by explicit Laplace transforms and a finite Erlang-density integral; both independent integral expansions were cross-checked for integer n=2..32. Their algebraic differences are exact rational functions of n and r_c=(n/(n+c))^n. A reproducible exact-Fraction program checked each of 498 n in [2,499], including both gaps and the n=2 tie. For n>=500, log(1+u) bounds and rational series bounds for e provide two proved lower margins: 20931734927/2484922590000>1/200 and 114949/10353000>1/100. These cover all integers beyond the finite range. No finite enumeration was used as evidence of the unbounded case.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.21424v1 Theorem 34 proves limits under growing goal parameters but does not give a finite integer threshold or uniform margins.",
+        "Kundu, Chowdhury, Nanda and Hazra, arXiv:1410.4724, available abstract discusses stochastic-order comparisons of maxima from heterogeneous generalized exponential/gamma populations, not individual labels attaining the maximum."
+      ],
+      "reasoning": "Source asymptotics do not imply assertions at every finite n. A comparison between the distribution of maxima of two ensembles is not the same as comparing which coordinate achieves a common maximum. The 2014 source was available only at abstract level; possible stronger full-text coverage remains a recorded risk, not treated as definitively excluded.",
+      "searches": [
+        "three gamma distributed completion times equal means probability middle shape is maximum cannot be most likely",
+        "independent gamma random variables same mean unequal shape probability each is maximum ordering",
+        "Ordering Properties of Order Statistics from Heterogeneous Generalized Exponential and Gamma Populations",
+        "gamma race last player probability integer shapes means n1 n2 n3 three 2026"
+      ]
+    },
+    "checked_sources": [
+      "Leobacher and Steinicke, arXiv:2605.21424v1, relevant full-text introduction, definitions, and Section 6 (especially Proposition 30 and Theorem 34)",
+      "Kundu et al., arXiv:1410.4724 (abstract and indexed primary-text excerpts only; complete text unavailable)",
+      "Public mathematical-record semantic searches for independent gamma-rank/three-player dice-race equivalents",
+      "Web literature searches for Erlang rank ordering and normalized gamma maxima"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.21424v1 Proposition 30 gives the exact gamma-rank representation; Section 6 reports both (1,2,3) with increasing last-place probabilities and (4,5,6) with decreasing order.",
+        "arXiv:2605.21424v1 Theorem 34 provides limiting formulae, not a uniform finite-goal inequality."
+      ],
+      "reasoning": "The source representation permits deriving the formulas used here but supplies no inequalities forcing tau_2-tau_1>1/200 and tau_n-tau_2>1/100 at every n>=3. The documented reversal for other triples specifically prevents inferring this assertion from ordered goals alone. The finite certificate and tail inequalities are needed additional arguments, not mere restatement of earlier formulas.",
+      "searches": [
+        "For three players with goals (1,2,n) in multinomial dice game Gamma completion time last probability strict tau_1 < tau_2 < tau_n for every integer n>=3 uniform gaps",
+        "Leobacher Steinicke dice game gamma (1,2,n) last-place finishing order inequalities first smallest middle largest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.21424v1 Proposition 30(2) gives the equivalence of last-place dice-game and independently scaled Gamma maxima; Section 6 equation (13) integrates their CDFs.",
+        "Published mathematical-record search found the closest thematic entry, “Complete ordering polytope for three pairwise-independent continuous observations” (20 September 2026), about dependence-constrained ranks rather than independent unequal-shape Gamma races."
+      ],
+      "reasoning": "Equivalent formulations include last arrival among independent thinned Poisson streams, largest of independent normalized Erlang variables, and last-to-hit among the three multinomial walk goal hyperplanes. The source derives their distribution, but not the claimed consecutive probability gaps. The closest searched observation-ordering record changes the independence assumptions and variable laws; its conclusions do not bound these gap values.",
+      "searches": [
+        "For three players with goals (1,2,n) in multinomial dice game Gamma completion time last probability strict tau_1 < tau_2 < tau_n for every integer n>=3 uniform gaps",
+        "Leobacher Steinicke dice game gamma (1,2,n) last-place finishing order inequalities first smallest middle largest",
+        "Independent Erlang gamma variables common unit mean shapes 1 2 n probability largest rank ordering",
+        "normalized gamma distributions independent shapes 1 2 n probability maximum ordering inequalities ranking"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2605.21424v1 Section 6 reports numerical values for the isolated goal triple (1,2,3), and Table 3 concerns an eleven-player game rather than all (1,2,n).",
+        "The mathematical-record searches above returned no table or exact entry covering the infinitely many uniformly bounded gaps."
+      ],
+      "reasoning": "A finite printed table and an exact formula allowing numerical calculation do not amount to an inequality proved for every n>=3. The new result has a distinct all-integer quantifier with quantitative margins.",
+      "searches": [
+        "For three players with goals (1,2,n) in multinomial dice game Gamma completion time last probability strict tau_1 < tau_2 < tau_n for every integer n>=3 uniform gaps",
+        "Leobacher Steinicke dice game gamma (1,2,n) last-place finishing order inequalities first smallest middle largest",
+        "A dice game a multinomial walk inverted Dirichlet distribution table last place goals (1,2,3)"
+      ]
+    },
+    "rationale": "The complete relevant full-text lead source establishes a general representation (Proposition 30), reports a single (1,2,3) numerical rank (Example 33 discussion), provides nonmonotonicity examples for general triples, and gives asymptotic limits (Theorem 34), but none implies uniform strict finite-n gaps for all (1,2,n). Public mathematical-record and literature searches on equivalent Erlang-rank and three-goal dice-race formulations identified no theorem covering these inequalities. A relevant 2026 cited submitted manuscript could not be read and remains a disclosed priority risk.",
+    "residual_risks": [
+      "Leobacher–Steinicke reference 20 cites a 2026 submitted manuscript by Lerchenberger and Oberhuber (Against All Odds?); a public full-text copy was not located. It could affect priority.",
+      "A differently indexed strong gamma-rank inequality might imply the special case without sharing its words or source title; abstract-only 2014 gamma-order source does not eliminate that possibility.",
+      "The finite certificate is replayable with Python but has not received independent external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The specific all-integer quantitative (1,2,n) ordering is not stated or proved; only one numerical triple, counterexamples to general ordering, and asymptotic comparisons appear.",
+        "evidence": "arXiv:2605.21424v1, introduction, Proposition 30(2), Section 6 equations (13), Example 33, Theorem 34, and reference 20",
+        "identifier_or_url": "https://arxiv.org/html/2605.21424v1",
+        "material_read": "Full-text HTML introduction, probability and gamma-model definitions, and complete relevant Section 6 including Proposition 30, Example 33 and Theorem 34, plus reference 20.",
+        "method": "Direct reading of the publicly available version-one full-text HTML source",
+        "title": "A dice game, a multinomial walk, and the inverted Dirichlet distribution",
+        "trigger": "Identical three-player goal model, last-place ranking, and Gamma formulation"
+      },
+      {
+        "assessment": "Abstract concerns stochastic orders of maxima between heterogeneous samples, not individual-coordinate winning probabilities. A stronger result in the inaccessible full text cannot be excluded.",
+        "evidence": "arXiv:1410.4724 abstract, 17 October 2014",
+        "identifier_or_url": "https://arxiv.org/abs/1410.4724",
+        "material_read": "ArXiv abstract and publicly indexed text excerpts of the introduction and Gamma Model section; direct full-text page access returned HTTP 429.",
+        "method": "Read arXiv metadata and public search-indexed author-uploaded text excerpts; arXiv PDF and direct author-uploaded page fetch did not yield a complete readable copy.",
+        "title": "Ordering Properties of Order Statistics from Heterogeneous Generalized Exponential and Gamma Populations",
+        "trigger": "Potential dominating gamma-order comparison result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6545620f-09fd-414e-855b-8de0f0dbb707",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 lead paper explicitly shows that three-way last-place ordering is subtle and globally nonmonotone, with an observed middle-player never-maximal pattern but no general rule. The goals (1,2,n) are the first strictly unequal three-player family with a free integer parameter, rather than an arbitrary numerical slice. A complete infinite-family ranking, precise n=2 tie, and nonvanishing uniform gaps for every n>=3 answer a natural structural question about these Poisson/Erlang competitions. The exact inequalities are stronger than computing another isolated instance, while not purporting to solve the full arbitrary-goal comparison problem.",
+    "status": "PASS"
+  }
+}
