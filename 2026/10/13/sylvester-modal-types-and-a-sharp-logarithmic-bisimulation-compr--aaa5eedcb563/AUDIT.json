@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Inductive descriptor (color,set of child types) exactly characterizes finite outward-tree bisimilarity, and path-height formulas separate levels. The recurrence counts every realizable nonempty set of at most q types. The binomial estimate for t>=2q and an affine logarithmic recurrence give exp(cq^k)<=t_k<=exp(Cq^k). A logarithmic level split gives universal O(N/log N); independent disjoint subtree colorings realize Omega(N/log N). All boundaries are stated, finite exhaustive tests replayed, and computations are not used as asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ganardi et al. Theorem 10 gives an O(N/log N) ordered-tree-DAG upper bound for balanced binary trees",
+        "Jacobs and Wissmann 2023 addresses general minimization complexity rather than a matching lower construction in its accessible abstract"
+      ],
+      "reasoning": "The prior DAG upper statement dominates our upper estimate at q=2 but not our new lower bound: a large ordinary DAG can collapse under non-graded bisimulation because sibling multiplicity/order vanish. No source checked supplies matching lower bounds with fixed a=2 on complete trees.",
+      "searches": [
+        "\"balanced binary trees\" \"minimal dag\" \"n/log n\" lower bound",
+        "\"bisimulation\" \"complete binary tree\" \"log\" quotient size",
+        "\"maximal\" \"bisimulation quotient\" \"binary tree\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.09679, 2023-07-18 v1 and 2024-08-14 HTML v2",
+      "arxiv:1407.4286 and JCSS 2017 publisher-indexed Section 5.3",
+      "DOI:10.1145/3571245 abstract",
+      "Semantic research-record comparison using three explicit modal compression aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Figueira–Goren-Roig 2023 establishes modal and PPML bisimulation and unravelling, not a fixed-palettte extremum",
+        "Ganardi et al. §5.3 proves an upper DAG compression statement, explicitly ceded to prior work",
+        "The matching lower bound uses exponentially many distinct *ordinary* modal child-set types and disjoint independent subtrees"
+      ],
+      "reasoning": "Prior modal-bisimulation semantics supplies definitions only; prior DAG compression implies an upper bound but cannot imply the lower bound under a coarser equivalence. The exact modal child-set recurrence is a helpful component, while the combined sharp asymptotic and explicit binary specialization are the proposed contribution.",
+      "searches": [
+        "\"Constructing small tree grammars and small circuits for formulas\" Theorem 10 minimal DAG",
+        "arxiv 2307.09679 modal bisimulation graded homomorphism counting",
+        "\"bisimulation\" \"n / log n\" \"tree\" quotient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic searches in published research records returned no identifiable complete-tree ordinary-bisimulation Θ(N/log N) theorem among inspected closest hits",
+        "Web exact-text searches did not expose a modal Sylvester count with the 2,6,42,1806 pattern"
+      ],
+      "reasoning": "Isomorphic ordered subtrees and graded-modal types are strictly finer than ordinary bisimulation. Equivalent claims must bound the greatest color-preserving forward/backward bisimulation quotient, not a DAG or a tree grammar.",
+      "searches": [
+        "On an a-coloured complete q-ary rooted Kripke tree of height h, maximal number of bisimulation equivalence classes is Theta(N/log N), with exact recursion for rooted modal types T_0=a, T_{k+1}=a sum_{j=1}^q binom(T_k,j)",
+        "Bisimulation quotient compression of complete finite binary trees with node colours, tight N/log N lower bound and upper bound",
+        "Type-count recursion for bisimulation equivalence of finite full rooted branching trees with a finite label alphabet: child sets versus multisets",
+        "\"modal\" \"1806\" \"42\" \"6\" bisimulation",
+        "\"bisimulation\" \"Sylvester sequence\" binary trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The numerical Sylvester recurrence is classical and is explicitly not claimed novel",
+        "Search of accessible mathematical research records gave no matching type-census result; the 2,6,42,1806 terms were independently enumerated by the verifier"
+      ],
+      "reasoning": "Recognizing a classical integer sequence does not imply the modal interpretation or the extremal quotient asymptotics. If a prior table gives only numbers, it does not cover the tight compression theorem.",
+      "searches": [
+        "\"bisimulation types\" \"2\" \"6\" \"42\" \"1806\"",
+        "\"bisimulation\" \"Sylvester sequence\" binary trees",
+        "Type-count recursion for bisimulation equivalence of finite full rooted branching trees with a finite label alphabet: child sets versus multisets"
+      ]
+    },
+    "rationale": "The claim is the fixed-color complete-tree *greatest ordinary-bisimulation quotient* Θ(N/log N) extremum together with exact modal-type counts, rather than the known bisimulation concept, common Sylvester sequence or prior balanced-tree-DAG upper bound. A genuine matching lower bound after non-graded modal child-set identification is supplied constructively. Direct comparison with relevant full HTML primary paper, publisher-indexed compression theorem, algorithmic abstract and search records found no coverage; an unindexed or implicit theorem remains possible.",
+    "residual_risks": [
+      "The 2017 complete compression article was not retrieved and inspected in its entirety; section-level theorem evidence is available",
+      "Related unindexed work on bisimulation quotients or hereditarily finite sets may already contain an equivalent fixed-palette lower bound",
+      "Self-review and independent small finite computation do not substitute for an independent mathematical audit"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source supplies semantic foundation for finite Kripke bisimulation and tree models, not palette-specific complete-tree rooted-type recurrence or the worst-case quotient Θ(N/log N) statement",
+        "evidence": [
+          "arxiv:2307.09679v1 first publicly submitted 2023-07-18, MSC first 03B45",
+          "arxiv HTML sec.3.1 Thm 3.9 homomorphism-counting, sec.4.3 comparisons with basic modal logic"
+        ],
+        "identifier_or_url": "arxiv:2307.09679; https://arxiv.org/html/2307.09679v2",
+        "material_read": "Version 2 full-text HTML abstract/introduction contribution summary, Sections 1.1, 2.1 semantics overview, 3.1 homomorphism counting and 4.3 modal translation discussion",
+        "method": "Read directly accessible complete HTML page, including theorem descriptions in sections 2, 3 and 4",
+        "title": "Modal Logic with Relations over Paths: a Theoretical Development through Comonadic Semantics",
+        "trigger": "Primary modal semantics source: tree unravelling, resource-bounded and graded bisimulation"
+      },
+      {
+        "assessment": "Theorem 10 yields a known O(N/log N) upper bound for the DAG of balanced labeled binary trees. This upper bound implies our binary upper estimate, so it is not claimed novel. It does not prove existence of a binary fixed-color full tree with Ω(N/log N) classes under the coarser ordinary modal bisimulation.",
+        "evidence": [
+          "Publisher indexed §5.3 Theorem 10: DAG upper bound on β-balanced trees",
+          "Bisimilarity forgets both ordering and repetition of equal child types, unlike ordered subtree isomorphism"
+        ],
+        "identifier_or_url": "arxiv:1407.4286; DOI 10.1016/j.jcss.2016.12.007",
+        "material_read": "Publisher-indexed full-text excerpts of Sections 4, 5.3 and Theorem 10, plus open-access arXiv abstract; direct full-paper retrieval was not available",
+        "method": "Search-indexed scientific full-text section read plus arXiv abstract lookup",
+        "title": "Constructing Small Tree Grammars and Small Circuits for Formulas",
+        "trigger": "Potential dominating result giving the same N/log N order for tree-DAG compression"
+      },
+      {
+        "assessment": "General efficient minimization algorithm, not an accessible theorem on sharp extremal quotient cardinality of colored complete trees",
+        "evidence": [
+          "Jacobs and Wissmann (POPL 2023) abstract concerns O(m log n) functorial partition refinement"
+        ],
+        "identifier_or_url": "DOI 10.1145/3571245",
+        "material_read": "Publisher accessible abstract and publication information only",
+        "method": "Abstract inspection, not a full-text negative originality clearance",
+        "title": "Fast Coalgebraic Bisimilarity Minimization",
+        "trigger": "Check algorithmic bisimulation-minimization literature for already-derived sharp complete-tree bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aaa5eedc-b563-46c0-9b6e-0c7f46811661",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Greatest-bisimulation quotient cardinality measures actual model-state compression, not an arbitrary numerical slice. Uniform complete q-ary trees with only a fixed finite palette form a natural worst-case family. The matching lower bound settles whether the known balanced-tree ordered-DAG rate survives strictly coarser ordinary modal bisimulation; it does, with explicit realizations, a complete rooted-type census and a one-proposition Sylvester specialization.",
+    "status": "PASS"
+  }
+}
