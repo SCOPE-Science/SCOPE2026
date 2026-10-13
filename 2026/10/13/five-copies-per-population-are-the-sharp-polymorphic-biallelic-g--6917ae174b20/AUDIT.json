@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "With \\(d=|a-b|\\) and \\(t=|a+b-m|\\), direct expansion gives \\(H_T-H_S=d^2/(2m^2)\\), \\(G_{ST}=d^2/(m^2-t^2)\\), and \\(D=2d^2/(m^2+d^2+t^2)\\). For fixed nonzero \\(d\\), the first increases and the second decreases with \\(t\\). Exact enumeration proves the no-reversal lower grid and the unique \\(m=5\\) first layer.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jost explicitly shows that G_ST can misrank population systems in terms of differentiation and states that G_ST can decrease as differentiation increases.",
+        "Meirmans and Hedrick review G_ST, standardized variants, and D, give the D formula in terms of H_S and H_T, and note that pairwise comparisons with small population count can diverge from large-k relationships."
+      ],
+      "reasoning": "These sources dominate any claim of generic non-equivalence. They do not imply the smallest strictly polymorphic biallelic frequency grid or the exact fixed-gap antimonotonicity.",
+      "searches": [
+        "GST and its relatives do not measure differentiation Jost 2008",
+        "Assessing population structure FST related measures Meirmans Hedrick 2011",
+        "G_ST Jost D pairwise comparisons small number populations"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1365-294X.2008.03887.x",
+      "doi:10.1111/j.1755-0998.2010.02927.x",
+      "MSC2020:92D10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jost proves the possibility of misranking, but his example uses a broader multi-allelic construction.",
+        "The review formula shows that G_ST and D normalize the same numerator differently, but does not state the biallelic fixed-gap ordering theorem or finite-grid minimum.",
+        "The accepted claim is therefore a sharp constrained theorem, not a restatement that G_ST and D differ."
+      ],
+      "reasoning": "Generic misranking and denominator differences do not imply universal nonreversal for all positive grids m<=4, uniqueness at m=5, or the all-m explicit family.",
+      "searches": [
+        "Jost GST can misrank populations differentiation Table 1",
+        "Meirmans Hedrick pairwise Jost D GST small k relationship",
+        "G_ST dependence within population heterozygosity Jost D"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For two populations Jost D is exactly 2(H_T-H_S)/(1-H_S).",
+        "On the biallelic equal-denominator slice, the claim is equivalently an ordering comparison in the two invariants d=|a-b| and t=|a+b-m|.",
+        "No checked source gave the denominator-five unique first reversal or the fixed-gap opposite monotonicity."
+      ],
+      "reasoning": "The searches cover the named statistics, their biallelic frequency formulation, the fixed-difference formulation, pooled heterozygosity, and the exact first witness.",
+      "searches": [
+        "G_ST Jost D two biallelic populations fixed allele-frequency difference pooled heterozygosity opposite ranking",
+        "Nei G_ST Jost D exact ranking reversal biallelic population frequencies",
+        "Jost D GST same allele frequency difference mean frequency ranking",
+        "smallest denominator biallelic GST Jost D reversal 1/5 2/5 3/5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-value search located the m=5 witness.",
+        "Jost Table 1 contains a broader multi-allelic misranking example, not the positive biallelic denominator-five boundary.",
+        "The packaged verifier generates the complete lower grids rather than importing a table."
+      ],
+      "reasoning": "Exact-value and biallelic searches test whether the minimal witness already appears as a worked example, benchmark, or table entry.",
+      "searches": [
+        "\"1/21\" \"1/15\" Jost D GST",
+        "\"1/25\" \"1/13\" Jost D GST",
+        "\"biallelic\" \"Jost's D\" \"G_ST\"",
+        "\"rank\" \"G_ST\" \"Jost's D\""
+      ]
+    },
+    "rationale": "Published work already establishes generic misranking by G_ST and the conceptual distinction between G_ST and Jost D. The checked literature and database searches did not state the biallelic fixed-gap antimonotonicity theorem, the positive-grid minimum m=5, or the unique first reversal class.",
+    "residual_risks": [
+      "The fixed-gap algebra may have appeared in unindexed lecture notes or software documentation.",
+      "The result concerns exact population frequencies and not unbiased sample estimators.",
+      "Allowing fixation changes the sharp denominator, so the positivity restriction must remain explicit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers generic G_ST misranking and introduces D, but does not state the sharp positive biallelic grid result.",
+        "evidence": "The paper defines G_ST=(H_T-H_S)/H_T, gives examples where G_ST misranks differentiation, and states that G_ST does not necessarily rank systems correctly.",
+        "identifier_or_url": "doi:10.1111/j.1365-294X.2008.03887.x",
+        "material_read": "Complete article text, including the abstract, the G_ST definition, Table 1 misranking example, the derivation and interpretation of D, and the conclusions.",
+        "method": "Full-text publisher version inspection.",
+        "title": "G_ST and its relatives do not measure differentiation",
+        "trigger": "Foundational source for the differentiation dispute and Jost D."
+      },
+      {
+        "assessment": "Confirms the exact normalization used and that pairwise comparisons can behave differently, without the finite biallelic cutoff.",
+        "evidence": "The article states D=k/(k-1)(H_T-H_S)/(1-H_S) and notes that small k, especially pairwise population comparisons, can diverge from large-k relationships.",
+        "identifier_or_url": "doi:10.1111/j.1755-0998.2010.02927.x",
+        "material_read": "Full article text around the Jost D derivation, equation 2, the G_ST-D relationship, and the discussion of pairwise comparisons.",
+        "method": "Open full-text PDF inspection, including rendered page verification of the formula.",
+        "title": "Assessing population structure: F_ST and related measures",
+        "trigger": "Highly relevant review giving the exact D formula and discussing the G_ST-D relationship for small numbers of populations."
+      },
+      {
+        "assessment": "The theorem concerns mathematical population-genetic differentiation measures at a biallelic locus.",
+        "evidence": "MSC2020 lists 92D10 as Genetics.",
+        "identifier_or_url": "MSC2020:92D10",
+        "material_read": "MSC2020 hierarchy entry naming 92D10.",
+        "method": "Public classification-page inspection.",
+        "title": "MSC2020 database: 92D10 Genetics",
+        "trigger": "Primary subject classification check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6917ae17-4b20-471d-8352-59fdfc46a66f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "G_ST and Jost D are central but conceptually different population-differentiation summaries. The theorem identifies an exact mechanism for opposite rankings even when the absolute allele-frequency difference is held constant, and gives the smallest strictly polymorphic frequency grid on which that mechanism becomes observable. This directly clarifies a known interpretive problem and supplies minimal reproducible test cases.",
+    "status": "PASS"
+  }
+}
