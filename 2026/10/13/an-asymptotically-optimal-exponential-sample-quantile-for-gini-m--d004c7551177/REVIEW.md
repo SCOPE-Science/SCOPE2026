@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The exact covariance is derived from independent exponential gaps with the pairwise-distance combinatorial weights counted explicitly. The Gini and rank variances are exact for all \(n\ge2\). Uniform tail inequalities exclude maximizers approaching either endpoint; compact-uniform harmonic asymptotics and strict monotonicity of \([-p-\log(1-p)]/p^2\) prove the unique asymptotic maximizing fraction. A standalone exact-rational computation checks the identities by a different order-statistic covariance-matrix representation, and simulations provide secondary diagnostics. The infinite claims rely on proof, not finite tests.
+
+**Originality — PASS, with residual risk.** The full Vellaisamy–Zeleke preprint derives exponential spacing marginals rather than Gini/rank mixed moments. The complete Pushkarna–Saran–Tiwari paper treats population Gini indices and censored order-statistic moment recurrences, not this joint statistic. The L-moment framework of Hosking, classical covariance matrices for order statistics, and Gail–Gastwirth's scale-normalized Gini tests remain serious possible sources of an implicit equivalent formula because those full papers were inaccessible. The specific all-ranks limiting optimizer and its uniqueness were not identified in the inspected material or targeted searches. Search absence does not certify priority.
+
+**Value — PASS.** The sample Gini mean difference is a natural scale/dispersion \(L\)-statistic. Which single empirical quantile has maximal linear association with it is a precise, motivated comparison of two familiar distributional summaries. The non-median, non-extreme, sharp limiting rank near \(93\%\), along with its exact finite-sample dependence, is a structural answer not supplied by the separate marginals. This says nothing about nonlinear predictive optimality or other sampling laws.
+
+Self-review: passed. Independent audit: not yet performed.
