@@ -1,0 +1,11 @@
+# Review of exact ten-rank Schemmel-totient census
+
+**Correctness — PASS.** The complete preimage characterization follows from the prime-power formula and unique factorization; every possible prime divisor satisfies \(p-2\mid m\), and every permitted exponent is explicitly enumerated. Unique images provide the disjoint stopping-time recursion. The packaged verifier checks all exact integer states through rank ten, every forward edge, all cardinalities and unique maxima, with deterministic primality testing and an independent low-integer forward recurrence check. It outputs \(275129\) states and maximum \(86472015\) at rank ten. No conclusion beyond rank ten is inferred.
+
+**Originality — PASS, residual risk.** Defant's 2015 paper (Conjecture 20, Section 4) states the universal lower bound and displays a fixed-input numerical plot, not complete inverse stopping-time strata, exact counts or their unique extrema through rank ten. OEIS A241664 tabulates a short initial segment of function values rather than complete rank fibers. Harrington--Jones (2010) analyzes the analogous iteration with domain restrictions; its full PDF was not accessible, so unindexed identical partial results remain a risk. Targeted comparisons with available published literature identified no covering rank-ten census. Failure to find another publication is not a mathematical proof of novelty.
+
+**Value — PASS.** This is a motivated finite-rank resolution of an explicitly published conjecture: the depth parameter, not an arbitrary integer magnitude, defines the exhaustive domain. The certificate determines all ten complete fibers (\(364992\) integers) and sharp unique maxima, proving the conjectured inequality for every number with stopping time at most ten, including inputs far beyond the original source's plotted range. It is a genuine exact stopping-time cutoff, although it does not solve the unrestricted conjecture or imply a next-rank estimate.
+
+**Scientific limitations.** The ten-rank maximum table is finite and computationally certified, not a symbolic proof for arbitrary depth. Harrington--Jones full text was inaccessible. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

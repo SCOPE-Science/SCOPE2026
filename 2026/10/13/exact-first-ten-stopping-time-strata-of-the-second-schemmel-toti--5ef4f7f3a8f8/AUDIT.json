@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every local prime-power contribution p^(a-1)(p-2) must divide the output m, giving complete finite candidate enumeration. Unique factorization makes the multiplicative inverse recursion exhaustive and duplicate-safe. The actual embedded standard-library verifier completed all 364992 states through stopping-time rank 10, independently checked all forward transitions and odds n<=50000, and computed exact counts and unique maxima. The finite result makes no infinite-rank extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defant 2015 p.11 says Harrington--Jones restrict the domain to iterates with no prime factor congruent to 1 mod 3.",
+        "Harrington--Jones 2010 abstract explicitly says its iteration results are restricted to a particular subset of positive integers.",
+        "The proposed maximizers 15*7^(r-2) for r>=3 have the prime divisor 7 congruent to 1 modulo 3, so they are outside the restricted domain described by Defant."
+      ],
+      "reasoning": "The restricted-domain statements do not imply full odd stopping-time strata. Moreover, all proposed maxima from rank three on have prime divisor seven, explicitly excluded by that domain. An unread full source could contain additional applicable results, hence residual risk remains.",
+      "searches": [
+        "Harrington Jones C2 class inverse iterations odd numbers maxima rank distribution",
+        "\"Harrington Jones\" Schemmel iterates upper bound minimum maximum class preimages",
+        "On the iteration of a function related to Euler's phi-function Harrington Jones pdf 2010"
+      ]
+    },
+    "checked_sources": [
+      "Defant 2015 full open-access paper, JIS 18, Article 15.2.1",
+      "OEIS A241664 sequence page",
+      "Harrington--Jones 2010 abstract and opening page (full text unavailable)",
+      "Related previously published results on Schemmel preimages, sparse Schemmel numbers and D_2 fixed points (statement-level comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Defant establishes the definition and inequalities of a different direction; its Conjecture 20 remains a conjecture in the printed work.",
+        "Earlier published findings on Schemmel prime-power inverse fibers and on the D_2 fixed-point census do not determine unrestricted R_2 stopping-time strata."
+      ],
+      "reasoning": "The multiplicative Schemmel formula supplies an enumeration method but does not itself supply the computed exact finite counts and sharp uniqueness; the earlier D_2 fixed-point census does not bound or count R_2 fibers. A proof of the full conjecture, if previously established elsewhere, would dominate the present inequality and must be treated as residual risk.",
+      "searches": [
+        "Pillai R2 iteration lower bound 49/15 7 counterexample 2015",
+        "On Arithmetic Functions Related to Iterates of Schemmel totient conjecture 20",
+        "Schemmel totient backward orbit 3 preimage cardinalities 275129 unique largest 86472015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Defant 2015 pp.10-11 formulates R_2(n) >= log((49/15)n)/log 7; equivalently n <= 15*7^(R_2(n)-2).",
+        "OEIS A241664 repeats the stopping-time conjecture but displays values by n rather than exhaustive inverse-rank classes."
+      ],
+      "reasoning": "The present statement is an exact ten-rank theorem and identifies every class size and unique largest element. The identical inequality is treated as a conjecture in the source, not proved for these entire rank classes.",
+      "searches": [
+        "Schemmel totient iterates exact depth R_2 ten classes maximal 86472015 inverse tree",
+        "Defant 2015 Conjecture 20 R2 lower bound 15 7^k ten strata sharp uniqueness",
+        "\"Schemmel\" \"R_2\" \"15\" \"7\" conjecture rank 2015",
+        "OEIS A241664"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A241664 provides the iteration sequence and links to a table of n,a(n) up to 10000.",
+        "Defant 2015 Figure 1 is a plot for initial n up to 300000; neither resource presents ten complete rank classes."
+      ],
+      "reasoning": "A fixed n-window is not an exhaustive fiber under the stopping-time statistic. The inverse algorithm proves no larger member occurs in ranks at most ten.",
+      "searches": [
+        "\"Schemmel\" \"275129\" \"67816\" \"16693\"",
+        "\"Schemmel\" \"86472015\" \"12353145\" \"1764735\"",
+        "site:oeis.org Schemmel totient iterations lengths 3 15 105 735 5145",
+        "OEIS A241664 number of iterations A058026"
+      ]
+    },
+    "rationale": "Defant 2015 states only a conjectural global bound and plots a fixed input window. Neither that statement nor the values in OEIS A241664 imply exact stopping-time class counts and uniqueness of maximizers at ranks 1 through 10. Exhaustive search of the published record corpus and local preceding work found no stronger theorem. An inaccessible 2010 closely related full text and unindexed prior computations remain risks.",
+    "residual_risks": [
+      "Unindexed proof of Defant Conjecture 20 would dominate the inequality.",
+      "Full Harrington--Jones 2010 paper was not accessible for a decisive whole-document comparison.",
+      "The 10-rank cutoff is finite and offers no universal bound at rank eleven or beyond."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The conjectured global bound and a finite-n plot do not state exact full rank fibers or their cardinality and uniqueness.",
+        "evidence": [
+          "Prime power expression at equation (2).",
+          "Conjecture 20 in Section 4.",
+          "Figure 1 first 300000 inputs and full-text reference to Harrington and Jones."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Defant/defant5.pdf",
+        "material_read": "Full-length 13-page PDF text searched and checked; definition and formula pp.2-3, theorem context pp.4-10, Conjecture 20 and plotted data pp.10-11, references pp.12-13.",
+        "method": "Open-access primary PDF; mathematical statement and scope comparison",
+        "title": "On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions",
+        "trigger": "Identical Schemmel-totient stopping-time function and explicit Conjecture 20"
+      },
+      {
+        "assessment": "Initial stopping-time function values and same conjecture, not exhaustive ten-rank enumeration.",
+        "evidence": [
+          "Comment conjectures Defant lower bound; table provides values indexed by original n."
+        ],
+        "identifier_or_url": "https://oeis.org/A241664",
+        "material_read": "Full visible sequence description, comments and external data-table scope.",
+        "method": "OEIS public page",
+        "title": "OEIS A241664",
+        "trigger": "Potential exact table of iterations and conjectured inequality"
+      },
+      {
+        "assessment": "Study is advertised as restricted domain; absence of a full-text comparison is a residual risk, not proof of noncoverage.",
+        "evidence": [
+          "2010 abstract says iteration on a particular subset; Defant p.11 gives the domain restriction."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/k42/k42.pdf",
+        "material_read": "Public abstract and opening-page snippet; attempted full PDF but source delivery was inaccessible.",
+        "method": "Bibliographic and public abstract comparison, with explicit full-text access failure",
+        "title": "On the Iteration of a Function Related to Euler's phi-Function",
+        "trigger": "2010 directly related exceptional-unit iteration, cited by Defant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ef4f7f3-a8f8-4286-a178-6e6ac917cc87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses the natural depth parameter of Defant's explicit Conjecture 20 rather than a hand-picked small numerical input set. Computes an entire previously undocumented inverse-orbit census at ten nontrivial depths, including 275129 rank-ten elements and unique extremum 86472015. Establishes the conjecture for all odd inputs at these ranks, an unbounded-input finite-depth statement useful for testing further structural approaches. Does not represent the finite result as a proof at arbitrary depths.",
+    "status": "PASS"
+  }
+}
