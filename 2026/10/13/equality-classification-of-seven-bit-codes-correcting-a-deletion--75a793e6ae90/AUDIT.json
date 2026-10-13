@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For every pair of seven-bit words, deletion and at-most-once adjacent-transposition output-set intersection exactly characterizes ambiguous decoding. Python independently constructs all 128 output sets and exhaustive compatibility-graph cliques with provably valid greedy coloring bounds, obtaining optimum 16 and 28 labeled maximizing sets. Distinct C++ bitmask code exhaustively establishes zero deletion-only 17-cliques, 408 deletion-only 16-cliques, and precisely 28 of these also satisfying the transposition constraint. All eight reversal/complement representatives and their orbit sizes are independently reconstructed. Both programs were executed successfully using their actual packaged source paths; the proof is finite, no extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016 manuscript gives a redundancy construction for all n rather than a complete list of finite n=7 equality cases.",
+        "The 2021 manuscript gives existence with redundancy log n + O(log log n) and states the older 2016 argument for log n+O(1) was flawed.",
+        "No 2019 analyzes single-deletion only, giving an upper bound applicable to the mixed channel, without asserting a 28-code mixed optimum classification."
+      ],
+      "reasoning": "General asymptotic existence and numerical deletion-only bounds can constrain size but do not logically imply that 16 is attained simultaneously under transpositions, that precisely 28 deletion-optimal choices survive, or that their eight orbits have sizes 4 and 2. The new count was obtained by independent exhaustive graph searches.",
+      "searches": [
+        "arXiv:1601.06885, Section III Corollary 5 and summary Table II",
+        "arXiv:2112.09971, Theorem 3 and Section 5",
+        "doi:10.3390/e21121202, single deletion binary codes length <=10",
+        "single deletion or transposition correcting codes optimal small n finite length binary"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.06885v3; initial v1 2016-01-26",
+      "arXiv:2112.09971v1",
+      "doi:10.3390/e21121202",
+      "Published published-finding corpus hit 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03 (noncovering, different domain)",
+      "Published published-finding corpus hit 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c (noncovering asymptotic model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known VT single-deletion optimum of 16 bounds the stronger mixed model by 16; it does not supply a mixed-channel 16-word code.",
+        "The 2016 near-optimal construction and the corrected 2021 asymptotic result give no exact n=7 census.",
+        "The computational proof enumerates 408 deletion-only maximizers and filters them to 28 mixed maximizers; no VT residue class passes, while 28 other maximal choices do."
+      ],
+      "reasoning": "The known single-deletion bound implies only M_mixed(7)<=16. It neither implies M_mixed(7)=16 nor the multiplicity 28, nor eight symmetry classes, nor universal failure of the eight VT classes under the additional transposition condition. These are separately computed and checked claims in the one combined equality-classification theorem.",
+      "searches": [
+        "doi:10.3390/e21121202, length-seven single-deletion upper bound and VT optimality",
+        "arXiv:1601.06885, single transposition OR deletion Section III",
+        "arXiv:2112.09971, Theorem 3",
+        "published-finding corpus: single deletion or transposition correcting codes optimal small n finite length binary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2016 source defines a single transposition OR single deletion channel by a union of error balls, identical to the present disjoint two-length output-set model.",
+        "The 2021 source discusses the same alternative-error model and near-optimal asymptotic redundancy, not the 128-word finite equality spectrum."
+      ],
+      "reasoning": "The equivalence check converts the established ball-disjointness definition to compatibility edges among all seven-bit strings, so a code is an exact clique. Unlike the known constructions, the new assertion enumerates all 28 maximizers and eight orbits. Reversal/complement are precisely specified equivalences; arbitrary coordinate permutations are not.",
+      "searches": [
+        "arXiv:1601.06885, Section II Definition 1 and Section III, binary T-or-D output balls",
+        "arXiv:2112.09971, Section 1.3 and Section 5",
+        "binary one deletion and one adjacent transposition simultaneous correction optimal n=5",
+        "\"single deletion or transposition\" \"seven\" optimal codes",
+        "\"transposition\" \"deletion\" \"length 7\" \"16\" codes",
+        "\"deletion\" \"adjacent transposition\" \"28\" \"7\" optimal codes",
+        "7-bit binary codes correcting either one deletion or one adjacent transposition maximum 16 exactly 28 codes eight reversal complement classes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published index hit computes the quinary length-four *single-deletion* optimum 42, different alphabet/length and no adjacent transpositions.",
+        "The broader q-ary result concerns asymptotic t-deletion redundancy, not the joint seven-bit equality structure.",
+        "Full-text searches of the same-channel 2016 and 2021 studies did not identify an n=7 table with exactly 28 extremizers or eight reversal/complement classes."
+      ],
+      "reasoning": "These checked numerical and indexed results address different finite domains or asymptotic constructions and do not dominate the exact mixed length-seven census. Negative retrieval has limited evidentiary weight; an unindexed matching table remains an explicit residual risk.",
+      "searches": [
+        "published-finding corpus: 7-bit binary codes correcting either one deletion or one adjacent transposition maximum 16 exactly 28 codes eight reversal complement classes",
+        "published-finding corpus: size-16 codes in binary length seven Damerau deletion adjacent transposition OR channel",
+        "published-finding corpus: Varshamov Tenengolts length 7 16 code fails transposition all optimal joint codes classification",
+        "published-finding corpus: binary codes correcting either a single deletion or a single adjacent transposition exact length five six classification Damerau Gabrys Yaakobi Milenkovic",
+        "\"deletion\" \"adjacent transposition\" \"28\" \"7\" optimal codes",
+        "published-finding corpus closest ID 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03",
+        "published-finding corpus closest ID 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c"
+      ]
+    },
+    "rationale": "Primary full-text comparisons establish the same error model and known asymptotic/upper-bound results, but none inspected contains the complete length-seven mixed-channel equality classification, its 28 labeled optima and eight reversal/complement types. Known deletion-only size 16 neither proves attainment nor enumerates mixed optima. published-finding corpus and external exact-parameter searches found no covering result; this is evidence of a specific gap rather than proof of absolute novelty. Residual risk: unindexed enumeration.",
+    "residual_risks": [
+      "A prior unindexed finite enumeration of all binary length-seven mixed deletion/transposition codes, potentially with the same symmetry group, could preempt the count.",
+      "Search-result snippets and index misses cannot establish historical uniqueness; only identified high-relevance primary full-text material was used for decisive comparisons."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same channel, published constructions and asymptotic redundancy, but no identified complete n=7 labeled-optimum or eight-orbit equality classification. A later source identifies a flaw in its claimed constant-gap redundancy argument, which is not used here.",
+        "evidence": [
+          "Section II explicitly defines union of D and T output balls (lengths differ).",
+          "Section III constructs codes with redundancy log(6n-3), and Table II lists construction families without n=7 equality counts.",
+          "ArXiv version history records initial submission 2016-01-26 UTC."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1601.06885v3",
+        "material_read": "HTML full text, especially abstract, Sections I–IV, Section VII summary, Table II and appendix headings; v1 public date checked on arXiv abstract history.",
+        "method": "Direct HTML source reading and section/text searches for size, n=7, tables and classifications.",
+        "title": "Codes in the Damerau Distance for Deletion and Adjacent Transposition Correction",
+        "trigger": "Foundational 2016 paper defining the exact deletion-OR-transposition channel and possible preemption of a finite optimum."
+      },
+      {
+        "assessment": "Gives existence with nearly optimal asymptotic redundancy and discusses the flawed earlier construction; no finite n=7 exhaustive equality classification was identified.",
+        "evidence": [
+          "Theorem 3 gives binary one deletion or one transposition correcting codes with log n+O(log log n) redundancy.",
+          "Section 1.3 explains why VT sketches are ineffective for a transposition and notes the 2016 issue."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.09971v1",
+        "material_read": "Full HTML, abstract/introduction, Section 1.3, Section 5 and relevant appendices.",
+        "method": "Direct primary manuscript reading, theorem and section comparisons.",
+        "title": "Beyond Single-Deletion Correcting Codes: Substitutions and Transpositions",
+        "trigger": "Directly studies the same alternative deletion/transposition error regime, plausibly stronger coverage."
+      },
+      {
+        "assessment": "Proves or reports single-deletion-only limits, without the additional adjacent-transposition constraint or mixed equality orbit census.",
+        "evidence": [
+          "Known single-deletion optimum 16 at n=7 is an upper bound for the alternative-error channel, but not a proof of its attainability or equality count."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/e21121202",
+        "material_read": "Open full PDF with abstract, methods, numerical single-deletion bounds and relevant tables including PDF pages 1 and 3.",
+        "method": "PDF textual reading with direct page screenshots for sampled layout and result tables.",
+        "title": "Nonasymptotic Upper Bounds on Binary Single Deletion Codes via Mixed Integer Linear Programming",
+        "trigger": "Potential stronger published exact numerical bound at n=7, a necessary upper-bound input."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75a793e6-ae90-4ef9-950f-a4e0c77f30a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact equality structure at the natural binary length 7 establishes 28 robust mixed-channel optimum designs, just 28 of 408 deletion-optimal choices, with eight sharp symmetry classes. All eight standard VT length-seven optimum-size syndrome classes fail the transposition condition, but the original deletion-correction size 16 is nevertheless retained. This distinguishes numerical capacity from the constructive solution landscape in a practical synchronization-error model; it is more than a textbook deduction or arbitrary unmotivated finite slice.",
+    "status": "PASS"
+  }
+}
