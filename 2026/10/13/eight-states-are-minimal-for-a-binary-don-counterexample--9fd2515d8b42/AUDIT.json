@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "A published structural fact states that every binary completely reachable automaton has a full-cycle letter. Fixing that letter to q->q+1 mod n is therefore exhaustive for the full binary class. The census checks every one of the n^n choices of the second map for each 2<=n<=8. Exact power-automaton BFS finds zero Don violations through n=7 and exactly 544 at n=8; every violation is one six-state subset at distance 17. The displayed representative is independently replayed, reaches all 255 nonempty subsets, and has exact target distance 17.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhu's Example 14 is a circular binary family stated for even n>=10, and Lemma 17 gives the lower bound 5n/2-3 for a subset of size n-2.",
+        "Ferens-Szykuła 2026 give a general upper bound, state that a binary completely reachable automaton necessarily has a full-cycle letter, and summarize the known binary counterexample family without a smallest-state classification.",
+        "Casas-Volkov prove positive results only under additional structural restrictions."
+      ],
+      "reasoning": "The structural full-cycle theorem makes the normalized census exhaustive for all binary completely reachable automata. The broader literature establishes existence from n>=10 and general bounds, but none implies exclusion through seven states or the exact eight-state first layer.",
+      "searches": [
+        "arXiv:2402.19089 Example 14 Lemma 17 n>=10",
+        "DOI:10.1145/3798283 Don conjecture binary completely reachable lower bounds",
+        "arXiv:2311.00077 binary completely reachable Don conjecture restrictions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.19089v1 full text",
+      "DOI:10.1145/3798283 open-access full text sections",
+      "arXiv:2311.00077v1 result summary",
+      "targeted indexed searches for eight-state, smallest, reaching-threshold-17, and circular-counterexample formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published n>=10 family proves no statement about n=8 and gives no lower-size exclusion.",
+        "The 2026 general bound permits larger reaching thresholds and therefore cannot imply the exact n=8 onset.",
+        "The closest codimension-two two-occurrence theorem does not decide overall reachability of exceptional targets; the new hard word uses three occurrences of the singular letter."
+      ],
+      "reasoning": "The new claim requires exhaustive exclusion of every binary completely reachable automaton through n=7 and an exact complete-reachability/threshold census at n=8; the full-cycle structural fact makes the circular normalization exhaustive.",
+      "searches": [
+        "Zhu 2024 circular counterexample n>=10 threshold 5n/2-3",
+        "Ferens Szykula 2026 binary completely reachable n-2 lower bound",
+        "rank n-1 cycle letter codimension two two occurrence reaching threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked indexed record states an eight-state circular completely reachable Don-counterexample or a smallest-state theorem.",
+        "Web searches under both reaching-threshold and Don-conjecture formulations locate Zhu's n>=10 family and general upper-bound work, not an n=8 classification."
+      ],
+      "reasoning": "The searches cover the conjecture name, exact reaching-threshold invariant, circular terminology, smallest-counterexample language, and the concrete eight-state signature.",
+      "searches": [
+        "Don conjecture completely reachable circular automaton eight states counterexample",
+        "smallest counterexample Don conjecture binary completely reachable automata",
+        "8-state completely reachable automaton reaching threshold 17 subset size 6",
+        "circular completely reachable automata Don bound n(n-k) counterexample",
+        "Yinfeng Zhu Around Don conjecture n=8 circular automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected database result reports the normalized count 544, the 68 rotation orbits, or the complete-reachability counts through n=8.",
+        "Closest indexed records concern careful synchronization, slow reset thresholds, and Cerny avoiding thresholds, which are distinct invariants."
+      ],
+      "reasoning": "A small-state census or explicit eight-state threshold table would directly dominate the claim, so exact numerical and classification searches were included.",
+      "searches": [
+        "8-state circular completely reachable Don counterexample 17",
+        "Don conjecture 544 circular automata",
+        "reaching threshold 17 completely reachable automaton",
+        "binary circular automata Don conjecture small state census"
+      ]
+    },
+    "rationale": "Zhu's 2024 source constructs binary completely reachable counterexamples only in an even-state family beginning at n=10. Ferens-Szykuła's 2026 treatment still cites that family as the known binary counterexample mechanism and explicitly notes that a binary completely reachable automaton has a full-cycle letter. Targeted searches found no eight-state or minimal binary counterexample, nor the 544-presentation first layer.",
+    "residual_risks": [
+      "An unindexed computation, thesis, or unpublished automata census may contain the same eight-state boundary.",
+      "The normalized count 544 fixes one standard cycle orientation and is not an abstract automaton isomorphism count.",
+      "The result does not classify binary Don-counterexamples beyond eight states."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The construction is stated for even n>=10; the paper does not state an eight-state witness, minimal state size, or a small-state census.",
+        "identifier_or_url": "arXiv:2402.19089v1 / DOI:10.1007/978-3-031-66159-4_20",
+        "material_read": "Full arXiv HTML through the definitions and main theorems; Section 4 including Example 14, Lemmas 15-17, the n>=10 conclusion, Remark 18, and the conclusion.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "Around Don's conjecture for binary completely reachable automata",
+        "trigger": "Direct source constructing binary completely reachable circular counterexamples."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper states that in the binary completely reachable case one letter must induce a full cycle, summarizes Zhu's infinite codimension-two family as the known counterexample mechanism, and gives general upper bounds, but no smallest binary counterexample or eight-state classification.",
+        "identifier_or_url": "DOI:10.1145/3798283",
+        "material_read": "Open-access abstract, introduction, definitions, Don-conjecture discussion, and the section comparing the general upper bound with known binary lower bounds.",
+        "method": "Primary open-access HTML statement and implication comparison.",
+        "title": "Recognizing Completely Reachable Automata in Quadratic Time",
+        "trigger": "Current 2026 primary treatment of complete reachability and reaching-threshold bounds."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves Don's conjecture only under additional restrictions on the two input letters.",
+        "identifier_or_url": "arXiv:2311.00077v1",
+        "material_read": "Abstract and result summary; comparison through Zhu's discussion of standardized automata.",
+        "method": "Primary-source statement comparison.",
+        "title": "Don's conjecture for binary completely reachable automata: an approach and its limitations",
+        "trigger": "Closest positive result for structured binary completely reachable automata."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fd2515d-8b42-4fe6-b82a-bf6371e8116d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published binary counterexample family begins at ten states, while current literature still treats that family as the relevant lower-bound mechanism. Because every binary completely reachable automaton has a full-cycle letter, the exhaustive normalized census settles the actual binary onset: eight states are possible and seven are impossible. The complete first-layer classification is stronger than an isolated witness.",
+    "status": "PASS"
+  }
+}
