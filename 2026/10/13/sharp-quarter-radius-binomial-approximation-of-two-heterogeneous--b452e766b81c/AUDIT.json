@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For all independent Bernoulli variables with success probabilities \\(p,q\\in[0,1]\\), the three-atom PMF gives exact total-variation distances \\(pq\\) to \\(\\operatorname{Bin}(1,p+q-pq)\\) and \\((\\sqrt p-\\sqrt q)^2\\) to \\(\\operatorname{Bin}(2,\\sqrt{pq})\\). If \\(pq<1/4\\) the former is strict; if \\(pq\\ge1/4\\), order \\(p\\ge q\\) to obtain \\(q\\ge1/(4p)\\ge1/4\\) and \\(\\sqrt p-\\sqrt q\\le1/2\\), with equality only at \\((p,q)=(1,1/4)\\). At that pair, a one-trial binomial misses the \\(1/4\\) mass at two; every binomial with integer trial count \\(m\\ge2\\) has singleton mass \\(P\\{1\\}\\le((m-1)/m)^{m-1}\\le1/2\\), while the source mass at one is \\(3/4\\). These facts prove the universal lower bound and exact extremizers. The maximal singleton inequality follows by calculus and the binomial theorem. The standalone exact-Fraction verifier replayed 655 low-branch, 174 high-branch, and 3250 extremal cases; these finite checks are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Roos, Binomial approximation to the Poisson binomial distribution: The Krawtchouk expansion, Teor. Veroyatnostei i ee Primeneniya 45(2) (2000), Theorems 1–3. The approximation is by \\(\\operatorname{Bin}(n,p)\\) with the same source trial number n; Krawtchouk expansion and bounds, not a minimax radius across n=1,2,...",
+        "Choi and Xia, Approximating the number of successes in independent trials: Binomial versus Poisson, Ann. Appl. Probab. 12 (2002), Theorem 1.1 and introduction. The main monotonicity comparison concerns mean-matched \\(\\operatorname{Bin}(m,\\lambda/m)\\) and requires a large mean, inapplicable to the sharp example with mean 5/4.",
+        "Ehm, Binomial approximation to the Poisson binomial distribution, Stat. Probab. Lett. 11 (1991), abstract only. The abstract fixes the source number of trials and expectation."
+      ],
+      "reasoning": "A general all-input, all-binomial approximation theorem might subsume the two-coin radius even if the parameter values are not named. Roos allows arbitrary success probability but fixes the approximating trial count; Choi–Xia allows different trial count but matches mean and assumes a threshold on the mean for its main theorem. Neither proves the two-regime radius or exclusion of every trial count at the extremizer. Ehm full text was not recovered and noncoverage is not asserted solely from its abstract.",
+      "searches": [
+        "optimal binomial approximation to Poisson-binomial distribution in total variation, two or three unequal Bernoulli summands, arbitrary binomial n and p; exact minimizers",
+        "Roos 2000 Krawtchouk binomial approximation two independent Bernoulli parameters sharp one quarter total variation",
+        "\"Binomial approximation to the Poisson binomial distribution\" Ehm 1991 exact total variation 2 trials",
+        "Jaramillo Melbourne 2022 optimal parameters m p binomial approximation Poisson binomial law TV n=2 sharp uniform radius"
+      ]
+    },
+    "checked_sources": [
+      "Jaramillo and Melbourne, Quantitative limit theorems via relative log-concavity, arXiv:2210.11632v1 (2022), Corollary 2.2 and Remark 2.4. https://arxiv.org/pdf/2210.11632",
+      "Roos, Binomial approximation to the Poisson binomial distribution: The Krawtchouk expansion, Teor. Veroyatnostei i ee Primeneniya 45(2) (2000), Theorems 1–3. https://www.mathnet.ru/eng/tvp466",
+      "Choi and Xia, Approximating the number of successes in independent trials: Binomial versus Poisson, Ann. Appl. Probab. 12 (2002), Theorem 1.1 and introduction. https://doi.org/10.1214/aoap/1037125856",
+      "Tang and Tang, The Poisson binomial distribution—Old & New, Statistical Science 38 (2023), survey of approximation methods. https://doi.org/10.1214/22-STS852",
+      "Ehm, Binomial approximation to the Poisson binomial distribution, Stat. Probab. Lett. 11 (1991), abstract only. https://doi.org/10.1016/0167-7152(91)90170-V",
+      "Related published research-index entries: 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda; 2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff; 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jaramillo and Melbourne, Quantitative limit theorems via relative log-concavity, arXiv:2210.11632v1 (2022), Corollary 2.2 and Remark 2.4. Open problem optimizes m and p for each fixed sum, whereas its Corollary 2.2 supplies a particular same-trial-size approximant.",
+        "Roos, Binomial approximation to the Poisson binomial distribution: The Krawtchouk expansion, Teor. Veroyatnostei i ee Primeneniya 45(2) (2000), Theorems 1–3. Theorems 1–3 give expansion and distance bounds for same-trial-size binomials.",
+        "Choi and Xia, Approximating the number of successes in independent trials: Binomial versus Poisson, Ann. Appl. Probab. 12 (2002), Theorem 1.1 and introduction. The central comparison is to mean-matched binomials.",
+        "Two elementary constructions with 1 or 2 trials give a sharp uniform upper radius. The extremal input has event probability 3/4 at one, while any Bin(m,r) with m>=2 assigns at most 1/2 there, furnishing a lower bound against every m."
+      ],
+      "reasoning": "The final claim is a minimax covering constant plus a complete equality classification, not a bound for one prescribed approximant and not a pointwise minimizer for every source. A fixed-size error inequality or a mean-matched comparison does not yield the universal bound across all binomial trial counts and its irreducible extremizer. The sharp lower bound uses a singleton-mass obstruction that is absent from the inspected comparison statements.",
+      "searches": [
+        "Jaramillo Melbourne 2022 optimal parameters m p binomial approximation Poisson binomial law TV n=2 sharp uniform radius",
+        "Roos 2000 Krawtchouk binomial approximation two independent Bernoulli parameters sharp one quarter total variation",
+        "optimal binomial approximation to Poisson-binomial distribution in total variation, two or three unequal Bernoulli summands, arbitrary binomial n and p; exact minimizers",
+        "\"worst-case\" \"binomial approximation\" \"two Bernoulli\" total variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jaramillo and Melbourne, Quantitative limit theorems via relative log-concavity, arXiv:2210.11632v1 (2022), Corollary 2.2 and Remark 2.4. Remark 2.4 poses the unrestricted pointwise choice as an open problem.",
+        "Jaramillo–Melbourne pp. 4–5 contain no two-coin worst-case constant or complete equality case.",
+        "published-finding corpus ranked searches returned no formula or equivalent covering-radius assertion."
+      ],
+      "reasoning": "The claim can equivalently be formulated as a directed total-variation Hausdorff distance from two-trial Poisson-binomial laws to the entire binomial family or as a sharp minimax replacement guarantee. Search terms include those formulations and the numerical value. None of the inspected primary statements supplies this full radius and unique extremizers. Negative searches alone do not prove novelty.",
+      "searches": [
+        "Two coin Poisson-binomial total-variation radius over all binomial distributions 1/4 unique p1=1 p2=1/4",
+        "Sharp total variation covering radius one quarter of all sums of two independent nonidentical Bernoulli variables by the class of all binomial distributions with arbitrary number of trials",
+        "\"two Bernoulli\" \"binomial\" \"total variation\" \"1/4\" approximation",
+        "Poisson-binomial distribution two trial TV minimax binomial approximation radius 0.25 p1=1 p2=0.25"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published finding 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda bounds cumulant effective trial counts, skewness and kurtosis, not best-binomial TV distance.",
+        "The closest published finding 2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff studies total variation between rare Bernoulli product measures, not best binomial approximations of the sum.",
+        "The related published finding 2026/9/17/SCOPE-sharp-extendible-bernoulli-tail-bounds--829140c11a96 supplies infinite-exchangeability tail envelopes, not a binomial covering radius."
+      ],
+      "reasoning": "The requested \\(1/4\\) exact radius and extremizer pair were queried numerically and semantically. The nearest published entries address distinct statistics or probability metrics on different objects, and their claims do not imply this radius. No exact matching table was identified, which is evidence of search coverage but not an assurance that no such table exists.",
+      "searches": [
+        "Sharp total variation covering radius one quarter of all sums of two independent nonidentical Bernoulli variables by the class of all binomial distributions with arbitrary number of trials",
+        "Poisson-binomial distribution two trial TV minimax binomial approximation radius 0.25 p1=1 p2=0.25",
+        "Two coin Poisson-binomial total-variation radius over all binomial distributions 1/4 unique p1=1 p2=1/4",
+        "Poisson-binomial distribution two trial TV minimax binomial approximation radius 0.25 p1=1 p2=0.25",
+        "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+        "2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff"
+      ]
+    },
+    "rationale": "The complete inspected Jaramillo–Melbourne, Roos, and Choi–Xia texts treat bounds or constructions under fixed trial counts, mean matching, or an open unrestricted parameter-selection question. They do not state, and their cited bounds do not logically deliver, the universal sharp radius \\(1/4\\) for all two-coin sums against the union of binomials of all trial counts, nor uniqueness of the deterministic-quarter extremizers. Searches of indexed primary literature and published mathematical findings found no directly covering statement; this is limited same-model originality screening rather than a proof of global priority. Ehm (1991) and other older literature remain residual risks.",
+    "residual_risks": [
+      "The 1991 Ehm article is strongly thematically relevant but complete text was inaccessible. Its abstract limits the stated program to same-count mean-matched approximation; an unadvertised stronger or equivalent special-case statement cannot be excluded.",
+      "An equivalent exact radius or extremal two-coin calculation may exist in older or unindexed probability-approximation literature, under a different name, or in unpublished work. Database partitioning/search absence does not establish priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same-trial-size bounds and an explicit unrestricted optimization question; no sharp two-summand covering radius identified.",
+        "evidence": "Corollary 2.2 at manuscript p. 4 uses Bin(n,1-1/m_n); Remark 2.4 at p. 5 asks what m and p minimize distance over N x [0,1].",
+        "identifier_or_url": "https://arxiv.org/pdf/2210.11632",
+        "material_read": "Accessible 24-page full text; in particular pp. 1–6, Corollary 2.2, Remarks 2.3–2.4, and searches across remaining theorem and reference sections.",
+        "method": "Public first-version preprint, text extraction and visual inspection of the page with the open problem.",
+        "title": "Quantitative limit theorems via relative log-concavity",
+        "trigger": "Open problem directly asks for optimal binomial m and p for a Poisson-binomial law."
+      },
+      {
+        "assessment": "Fixes approximating binomial trial count to the source count and studies Krawtchouk expansions and distance bounds. No all-count minimax radius or unique two-coin extremizer in inspected results.",
+        "evidence": "Article §1.1 explicitly defines approximation by Bin(n,p) with source n fixed; Theorems 1–3 expand and bound distances to that n-trial binomial.",
+        "identifier_or_url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=tvp&option_lang=eng&paperid=466&what=fullt",
+        "material_read": "Lawful 17-page full original article; introduction, §2 theorem statements and bounds, relevant estimates, and later proof sections examined.",
+        "method": "Publisher/archive supplied full-text PDF at Math-Net.Ru, extracted and read; used original paper rather than abstract alone.",
+        "title": "Binomial approximation to the Poisson binomial distribution: The Krawtchouk expansion",
+        "trigger": "Same Poisson-binomial objects and total-variation comparison, potential stronger result."
+      },
+      {
+        "assessment": "Mean-matched approximations in the form Bin(m,lambda/m), with a large-mean monotonicity theorem; does not settle free-parameter two-coin radius.",
+        "evidence": "Its main theorem is about d_m=d_TV(L(W),Bin(m,lambda/m)) for m at least a threshold with lambda large.",
+        "identifier_or_url": "https://doi.org/10.1214/aoap/1037125856",
+        "material_read": "Complete 10-page author-uploaded article text, including §1 and the principal theorem.",
+        "method": "Author-shared full text and journal bibliographic metadata.",
+        "title": "Approximating the number of successes in independent trials: Binomial versus Poisson",
+        "trigger": "Competing published binomial-vs-Poisson proximity results and trial-number comparison."
+      },
+      {
+        "assessment": "Background and classical Poisson/binomial error comparisons, without the final claim’s exact radius.",
+        "evidence": "Survey discusses Poisson-binomial approximation methods and cites Ehm, Roos, and Choi–Xia without presenting an unrestricted two-coin minimax radius.",
+        "identifier_or_url": "https://www.imstat.org/publications/sts/sts_38_1/sts_38_1.pdf",
+        "material_read": "Public full survey article, especially introduction and approximation sections with classical references.",
+        "method": "Publisher open-access survey PDF and relevant section text.",
+        "title": "The Poisson binomial distribution—Old & New",
+        "trigger": "Survey may summarize a stronger classical binomial approximation theorem."
+      },
+      {
+        "assessment": "Abstract establishes same-trial-size and mean-matched distance bounds; no definitive whole-text noncoverage assessment is made.",
+        "evidence": "The public abstract explicitly states comparison to a Bin(n,p) law with the same expectation; full-text coverage remains unresolved.",
+        "identifier_or_url": "https://doi.org/10.1016/0167-7152(91)90170-V",
+        "material_read": "Bibliographic entry and abstract only; complete paper could not be accessed.",
+        "method": "Search of lawful open/preprint sources followed by authorized institutional-access attempt; full text unavailable.",
+        "title": "Binomial approximation to the Poisson binomial distribution",
+        "trigger": "Classical foundational predecessor on precisely related objects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b452e766-b81c-4ddf-b16d-86b495f86f4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural directed total-variation covering radius from the two-trial heterogeneous Bernoulli-sum family to all binomial laws is a motivated extremal approximation invariant: primary literature explicitly poses optimal binomial parameter choice, while classical bounds do not determine this unrestricted radius. The theorem supplies a nonasymptotic best-possible uniform \\(1/4\\) guarantee, proves that one or two trial binomials suffice for that guarantee, identifies the unique worst input laws up to parameter interchange, and establishes why any larger binomial trial count cannot avoid the obstruction at those inputs. The boundary probability \\(1/4\\) follows from the competing zero-mass and two-mass matchings against a maximal singleton-mass constraint, rather than an arbitrary parameter slice. Pointwise optimization and larger source support remain outside scope.",
+    "status": "PASS"
+  }
+}
