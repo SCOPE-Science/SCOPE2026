@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For the diameter-two rook graph, a forbidden selected triple is exactly a three-edge path in the corresponding complete-bipartite incidence graph. The connected bipartite three-edge-path-free components are stars, giving a literal bijection. Enumerating uniquely typed labeled components yields exp(ue^{vz}+ve^{uz}-uvz); formal differentiation gives the recurrence. The extremal component argument yields all parameter regimes including 2-by-n and 2-by-2. Independent geodesic and incidence-graph tests checked 576650 concrete subsets over 50 boards; exact coefficient and extremal tests checked 484 side-size pairs. These finite tests are corroborative, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2501.19385, survey §§2.3.4 and 2.4.1, states polynomial results for path grids and scalar gp of products of complete graphs (Theorem 2.24).",
+        "doi:10.1016/j.amc.2021.126206 addresses the general-position number for Cartesian products involving a small-diameter factor, not size distribution.",
+        "arxiv:2401.05696, §§3.1-3.5, includes the polynomial for Pr square Ps rather than Km square Kn."
+      ],
+      "reasoning": "Results for gp cardinality imply only the polynomial degree. Cartesian products of paths coincide with rook graphs only in the 2-by-2 boundary case; larger factors have different adjacencies and coefficient sequences. Universal characterizations of admissible subsets do not itself present the requested two-variable enumerator.",
+      "searches": [
+        "\"general position\" \"rook graph\" polynomial enumeration",
+        "\"general position polynomial\" \"Cartesian product\" \"complete graphs\"",
+        "\"star forest polynomial\" complete bipartite graphs",
+        "\"spanning star forests\" \"complete bipartite\" generating function"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2401.05696 full text",
+      "arxiv:1812.08460 full text",
+      "arxiv:2501.19385 pertinent full text sections",
+      "On General Position Sets in Cartesian Products open full text",
+      "doi:10.1016/j.amc.2021.126206 main statements",
+      "Published generalized-windmill general-position enumerator and complete-multipartite dual-GP enumerator checked for logical implication (different graph families/variants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1812.08460: general structure of admissible general-position sets.",
+        "arxiv:2401.05696: general-position polynomial introduced, Cartesian path-grid polynomials computed.",
+        "arxiv:2501.19385, Theorem 2.24: gp(Km square Kn)=m+n-2 for m,n>=2."
+      ],
+      "reasoning": "The scalar theorem covers the maximum degree only, not its coefficient or the interior coefficients. Anand et al. provide a characterization, from which one may derive star restriction, but neither an explicit weighted labeled-component count nor the differential recurrence. Our claim is the enumerator and star-forest EGF; the scalar and C4 subcases are antecedents.",
+      "searches": [
+        "general position polynomial of rook graphs Cartesian products of complete graphs K_m square K_n, star forests of complete bipartite graph, all coefficients",
+        "general position subsets line graphs complete bipartite, induced star forests, bivariate exponential generating function",
+        "general position number of rook graphs maximum sets m+n-2 and count mn",
+        "\"general position\" \"rook graph\" full polynomial",
+        "\"general position polynomial\" \"Cartesian product\" \"complete graphs\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1812.08460, Theorem 3.1, general-position sets via complete-clique components and distance constraints.",
+        "arxiv:2401.05696, Definition 1.1 and Theorem 3.5, polynomial of Cartesian products of paths.",
+        "The star-forest equivalence here concerns absence of a three-edge path as a SUBGRAPH, not induced P4-freeness; induced bipartite P4-free graphs can include C4."
+      ],
+      "reasoning": "Translate a rook cell to an edge of K_{m,n} and a forbidden midpoint to a length-three bipartite path. The literature characterization can lead to the admissible family, but the inspected sources do not count it by size for all m,n. The distinction from induced-P4-free enumerators was considered, preventing an invalid equivalence.",
+      "searches": [
+        "general position polynomial of rook graphs Cartesian products of complete graphs K_m square K_n, star forests of complete bipartite graph, all coefficients",
+        "general position subsets line graphs complete bipartite, induced star forests, bivariate exponential generating function",
+        "all general position subsets of the line graph L(K_{m,n}) correspond to edge-disjoint stars, with exponential generating function exp(u exp(vz)+v exp(uz)-uvz)",
+        "count P4-free edge subsets of complete bipartite graphs K_{m,n} by edges; equivalent star forest edge enumerator",
+        "\"general position polynomial\" \"line graph\" \"complete bipartite\"",
+        "\"P4-free subgraphs\" \"complete bipartite\" enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2401.05696, Corollary 3.4 treats the four-cycle K2 square K2 and longer path ladders; this known boundary polynomial is 1+4z+6z^2.",
+        "arxiv:2501.19385, survey lists path-grid polynomial coefficient tables but not all rook-grid polynomial coefficients."
+      ],
+      "reasoning": "The known four-cycle polynomial is an exact special instance and is credited, not asserted novel. No exact database, coefficient table or full two-parameter rook polynomial was found among searched sources. A negative search alone is not a novelty certificate.",
+      "searches": [
+        "\"general position polynomial\" \"rook\"",
+        "\"general position\" \"rook graph\" polynomial enumeration",
+        "\"star forest\" \"K_{m,n}\" \"generating\" number"
+      ]
+    },
+    "rationale": "Primary full-text comparison shows the 2024 general-position polynomial paper derives path-grid formulas, not the full two-parameter rook graph enumerator; earlier 2019 structural classification does not enumerate the selected stars; the scalar maximum m+n-2 is already in the Cartesian-product literature. Neither the two-sort EGF nor complete coefficient recurrence follows as an already stated theorem in inspected sources. Residual possibility of an unindexed equivalent bipartite star-forest enumeration is explicitly retained.",
+    "residual_risks": [
+      "An equivalent two-sort star-forest EGF or coefficient recurrence might appear in older species-enumeration literature under terminology other than general position.",
+      "The 2019 universal GP-set characterization provides some structural antecedents; only the family-specific complete counting theorem is claimed.",
+      "The abstract-only domination-polynomial source was not inspected in full, but the invariant is demonstrably different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING full rook polynomial; covers path grids, including the coincident 2-by-2 case.",
+        "evidence": "§3 Theorem 3.5 treats Pr square Ps; other sections treat graph operations, Kneser graphs and selected special families.",
+        "identifier_or_url": "arxiv:2401.05696",
+        "material_read": "Abstract, definition, §§2–4, especially §3 and Theorem 3.5 (Cartesian products of paths).",
+        "method": "Full-text arXiv PDF and lawful open full HTML; compared formulas and hypotheses.",
+        "title": "General Position Polynomials",
+        "trigger": "Primary source introducing the precise polynomial and handling Cartesian products."
+      },
+      {
+        "assessment": "PARTIAL_GENERAL_COVERAGE: structural admissibility is known in general; not a complete rook-graph weighted enumerator.",
+        "evidence": "Theorem 3.1 requires clique components and distance-constant intransitive partition; no family-specific exponential generating series for rook graphs.",
+        "identifier_or_url": "arxiv:1812.08460",
+        "material_read": "Abstract and main structural characterization, theorem and applications around §§2–3.",
+        "method": "Full-text open-access arXiv PDF, compared admissibility statements.",
+        "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+        "trigger": "Possible dominating general characterization of all GP sets and its bipartite/line graph duality."
+      },
+      {
+        "assessment": "COVERS scalar gp and mentions unrelated rook parameters, but does not give full rook general-position polynomial.",
+        "evidence": "Theorem 2.24 records gp(Km square Kn)=m+n-2; Theorem 2.20 concerns path-grid polynomial, not complete-factor rook polynomial.",
+        "identifier_or_url": "arxiv:2501.19385",
+        "material_read": "Full paper searchable; §§2.3.4, 2.4.1 and entries for rook graphs, lower GP number and GP games examined.",
+        "method": "Author-hosted open 62-page PDF, text locations and page images.",
+        "title": "The General Position Problem: A Survey",
+        "trigger": "Broad published summary possibly subsuming source family or scalar and coefficient counts."
+      },
+      {
+        "assessment": "EXTREMAL_ANTECEDENT: gp cardinality studied; not full all-coefficient family enumeration.",
+        "evidence": "Establishes bounds and product results for cardinality; strongest two-complete-factor scalar statement is acknowledged.",
+        "identifier_or_url": "https://doi.org/10.1007/s00025-021-01438-x",
+        "material_read": "Open HTML main theorem/results and product examples (not just abstract).",
+        "method": "Full open-access article text.",
+        "title": "On General Position Sets in Cartesian Products",
+        "trigger": "Original Cartesian product results likely to dominate extremal corollary."
+      },
+      {
+        "assessment": "SCALAR_ONLY; no complete rook coefficient polynomial.",
+        "evidence": "General position NUMBER, bounds and equality cases, not the size-generating function.",
+        "identifier_or_url": "doi:10.1016/j.amc.2021.126206",
+        "material_read": "Material including lemmas and main result in author-shared full text.",
+        "method": "Lawful author-provided text, mathematical statement comparison.",
+        "title": "The general position number of Cartesian products involving a factor with small diameter",
+        "trigger": "Potential stronger Cartesian product cardinality results."
+      },
+      {
+        "assessment": "NOT_DECISIVE; domination enumerator counts dominating vertex subsets rather than general-position subsets.",
+        "evidence": "The invariant in its title is domination, not geodesic three-point avoidance.",
+        "identifier_or_url": "https://arxiv.org/search/?query=Domination+Polynomial+of+the+Rook+Graph&searchtype=all",
+        "material_read": "Search result and abstract only; no full-text conclusion claimed.",
+        "method": "Public bibliographic metadata; distinguished mathematical invariant.",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Title overlap with rook polynomial in search results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7a2404c-95fc-48a9-96ab-cdbfff9bf467",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "General-position polynomials were defined as natural enumerative refinements in arxiv:2401.05696. Counting every general-position subset of two-parameter complete-factor products is a motivated complete classification, not a single arbitrary numerical case. The star-forest EGF gives all coefficients and a finite integer-polynomial recurrence, while leading multiplicities sharpen the known scalar gp number. It has clear reusability for labeled weighted counting, even without a downstream theorem or asymptotic result.",
+    "status": "PASS"
+  }
+}
