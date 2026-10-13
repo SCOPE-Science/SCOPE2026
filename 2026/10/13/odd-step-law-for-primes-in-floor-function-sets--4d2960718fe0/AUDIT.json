@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For each prime \\(p\\), the proof identifies membership by the exact integer count \\(D_p(N)=\\lfloor N/p\\rfloor-\\lfloor N/(p+1)\\rfloor\\) and proves the exact increment identity \\(D_p(N)-D_p(N-1)=\\mathbf 1_{p\\mid N}-\\mathbf 1_{p+1\\mid N}\\). Primes below the square-root boundary occur at both steps; at or above the boundary the interval contains at most one integer. Oddness of \\(N\\ge5\\) eliminates every loss term because \\(p+1\\) is even. At most one prime divisor can meet the square-root boundary. The square case and the exceptional \\(N=3\\) are handled explicitly. A separate finite checker through \\(100000\\) agrees with the theorem but is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2111.00408 proves only prime and odd-semiprime one-step cases before Conjecture 4",
+        "arXiv:2112.12426 proves asymptotic formulas and uses the exact floor-difference indicator, without an exact adjacent-step theorem"
+      ],
+      "reasoning": "The known exact cases are special cases of the new odd-integer theorem; the later asymptotic theorem does not imply a pointwise adjacent-step classification.",
+      "searches": [
+        "Primes in floor function sets exact one-step theorem",
+        "On the primes in floor function sets Ma Wu G(x) floor prime count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2111.00408",
+      "arXiv:2112.12426",
+      "OEIS:A067514",
+      "MathDB:352434",
+      "Cambridge DOI 10.1017/S0004972722001277"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heyman 2021 says the three-prime relationship may generalise but presents it only as Conjecture 4",
+        "The new statement implies Heyman Theorem 2 for odd primes at least 5, Theorem 3 for odd semiprimes, and Conjecture 4 for three distinct odd primes"
+      ],
+      "reasoning": "Neither prior exact theorem dominates the new statement: the implication direction is from the new all-odd theorem to the previously proved prime/semiprime cases and to the formerly conjectural three-prime case.",
+      "searches": [
+        "Heyman p1 p2 p3 G(x)=G(x-1)+1 proof",
+        "G(n)-G(n-1) largest prime factor floor function primes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2111.00408, Conjecture 4 and Theorems 2--3",
+        "MathDB problem 352434 currently records the three-prime formula as open"
+      ],
+      "reasoning": "Searches used both the source wording and the equivalent largest-prime-factor step criterion. No result stated the odd-integer law or a logically equivalent condition.",
+      "searches": [
+        "Heyman Primes in floor function sets conjecture p1 p2 p3 proof G(x) G(x-1)",
+        "odd n floor function prime count G(n)-G(n-1) largest prime factor square root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A067514 gives the sequence, a floor-factorial reformulation, and asymptotics but no odd-step criterion",
+        "MathDB 352434 displays exactly the three-prime statement and labels it open"
+      ],
+      "reasoning": "The exact sequence/database records were checked for a formula that already determines these increments by largest prime factor. None was found.",
+      "searches": [
+        "A067514 difference odd n largest prime factor",
+        "A067514 largest prime factor",
+        "MathDB 352434 three-prime floor-function set formula"
+      ]
+    },
+    "rationale": "Heyman explicitly states the three-prime dichotomy as Conjecture 4 after proving only the prime and two-prime cases. The later Ma--Wu paper strengthens asymptotic estimates but does not state an exact one-step criterion. Current MathDB still marks the conjecture open, and OEIS A067514 has no largest-prime-factor step formula. Targeted semantic searches for the conjecture, the odd-step law, and the largest-prime-factor formulation returned no covering result. The new theorem strictly broadens the conjecture from one three-prime shape to every odd integer \\(N\\ge5\\).",
+    "residual_risks": [
+      "An obscure unpublished, non-indexed, or differently phrased proof could exist.",
+      "OEIS gives a global floor-factorial reformulation of the counting sequence; that identity is compatible with the theorem but does not state the adjacent odd-step classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: it proves prime and two-prime cases and explicitly leaves the three-prime dichotomy as Conjecture 4.",
+        "evidence": "arXiv:2111.00408, Theorems 2--3 and Conjecture 4.",
+        "identifier_or_url": "arXiv:2111.00408",
+        "material_read": "Full arXiv text was inspected across the introduction, the exact floor-difference setup, the prime and semiprime proofs, later sections, and references; the page containing Conjecture 4 was also visually inspected.",
+        "method": "Lawful open arXiv full text and rendered PDF page.",
+        "title": "Primes in floor function sets",
+        "trigger": "This is the focal paper containing the exact three-prime conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING: it improves asymptotic estimates for the same counting function but does not state an exact adjacent-step or largest-prime-factor law.",
+        "evidence": "arXiv:2112.12426, equations (2.1)--(2.3) and Theorems 1--2.",
+        "identifier_or_url": "arXiv:2112.12426",
+        "material_read": "The full arXiv text was inspected across the introduction, theorem statements, exact indicator decomposition, proof sections, and conclusion/references; the structured page containing the floor-difference formula was visually inspected.",
+        "method": "Lawful open arXiv full text and rendered PDF page.",
+        "title": "On the primes in floor function sets",
+        "trigger": "Same object and a plausible later source that could subsume the conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING: the entry does not give the odd-step largest-prime-factor criterion.",
+        "evidence": "OEIS A067514 current entry.",
+        "identifier_or_url": "OEIS:A067514",
+        "material_read": "Current sequence entry, formulas, references, and program comments.",
+        "method": "Public database entry.",
+        "title": "A067514",
+        "trigger": "Canonical exact sequence for the same count."
+      },
+      {
+        "assessment": "NOT_COVERING: the exact claim is still marked open and no resolution is recorded.",
+        "evidence": "MathDB problem 352434 current page.",
+        "identifier_or_url": "MathDB:352434",
+        "material_read": "Current problem statement and progress summary.",
+        "method": "Public problem database entry.",
+        "title": "The three-prime floor-function set formula",
+        "trigger": "Exact conjecture statement and status check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d296071-8fe0-4c24-bc3e-0691881b1d53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves a named conjecture from the focal literature and replaces its three-prime case split with a structural theorem valid for every odd integer \\(N\\ge5\\). The proof identifies the exact mechanism of changes in the prime floor set: only a prime factor at the square-root boundary can enter at an odd step, and no large prime can leave. This is a natural strengthening rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
