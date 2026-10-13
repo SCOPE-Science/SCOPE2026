@@ -1,0 +1,15 @@
+# Scientific review: global shift-three totient dynamics
+
+## Correctness (PASS)
+The assertion covers every initial positive integer. The proof first establishes entry into odd states at least five, then uses the known composite-totient inequality \(\varphi(m)\le m-\sqrt m\) to force immediate descent at odd composites \(m\ge27\). At an odd prime \(p\ge29\), either the next odd number is composite and forces descent within two steps, or it is prime and the next number is divisible by three, forcing descent within three steps. Consequently every orbit must enter the forward-invariant eleven-state set, whose displayed table exhausts the three cycles. The cycle \(23\leftrightarrow25\) proves the upper bound is best possible. Independent sieve-based finite tests on 200000 initial states and 24987 large odd states supplement the symbolic argument, without being used as proof of an unbounded assertion.
+
+## Originality (PASS relative to examined literature)
+Leonetti and Luca (arXiv:2302.01783v1) establish general eventual periodicity and an initial-value-dependent orbit bound, not this explicit global cycle classification or minimal eventual bound. The closest previously published mathematical record gives an upper bound depending on a cycle's length and already contains the \(23\leftrightarrow25\) example; that example is not claimed as new. Its bound alone does not enumerate all periods, prohibit further cycles, or imply universal eventual entry into the eleven-state set. The later Danh et al. paper studies a different two-step recurrence. published-finding corpus semantic queries, direct source reading, arithmetic-sequence database queries and claim-level comparisons did not identify a theorem implying the present exhaustive conclusion. Unindexed equivalent results remain a genuine residual originality risk.
+
+## Value (PASS)
+This is a natural complete classification, not an arbitrary isolated numerical example. The shift-three map is a basic case in the published study of shifted totient dynamics, and already exhibits three different minimal periods. The result replaces general eventual-periodicity information and a starting-value-dependent bound by an exact globally exhaustive cycle list and optimal uniform eventual bound. The descent mechanism reduces an infinite family of possible trajectories to eleven explicit states, providing a reusable method for other fixed small shifts. It does not purport to resolve all shifts or attraction-basin densities.
+
+## Scientific limits and nearest comparisons
+The entire arXiv v1 introduction, Theorem 2 and its proof and the publicly available full published-finding corpus result were inspected; related paper summaries and database searches were checked. The strongest remaining risk is an equivalent special-shift orbit classification in unindexed literature or an unpublished later version. Finite verification cannot replace the unbounded descent proof. No independent audit is asserted.
+
+Self-review: passed. Independent audit: not yet performed.

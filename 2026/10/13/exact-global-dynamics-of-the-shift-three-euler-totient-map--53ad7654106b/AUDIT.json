@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For all n≥3, φ(n) is even, so each orbit enters odd states ≥5; initial n=1,2 pass through 4 to 5. For composite m, least prime q≤sqrt(m) gives φ(m)≤m−sqrt(m). Hence odd composite m≥27 decreases in one step. For odd prime p≥29, if p+2 composite, F²(p)≤p+5−sqrt(p+2)<p; otherwise p and p+2 are primes, so 3 divides p+4 and F³(p)≤2(p+4)/3+3<p. Therefore every odd state ≥27 strictly descends to a smaller odd state in ≤3 steps, forcing eventual entry into the positive finite invariant E={5,7,...,25}. All 11 exact transitions are supplied and have only cycles (9), (11,13,15), (23,25); none beyond the list is possible. Since the 23↔25 cycle persists, the universal eventual bound is optimally 25. Code checked initial values 1..200000, but the infinite proof does not depend on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leonetti--Luca Theorem 2 bounds full orbits by max{x0,k^4}+(k+1)^2; for k=3 this is max{x0,81}+16, not an eventual bound of 25 independent of starting point.",
+        "published-finding corpus theorem: a period-T shift-k cycle has maximum ≤[T(k−1)+1]^2 and a special equality pattern; it does not bound all possible T or exclude extra shift-three cycles.",
+        "Danh et al. DOI 10.1017/S0004972723000862 concerns the separate two-step relation x_{j+2}=φ(x_{j+1})+φ(x_j)+k."
+      ],
+      "reasoning": "Neither the general eventual-periodicity theorem nor the period-conditional inequality logically gives the exact three-cycle list or global sharp entry into eleven states. Specializing a general upper bound to k=3 does not imply the asserted optimal universal eventual bound. The two-step recurrence is a different object.",
+      "searches": [
+        "published-finding corpus semantic: Leonetti Luca shifted Euler totient iterates phi(n)+3 complete periodic cycles 9 11 13 15 23 25 sharp absorbing bound",
+        "Web: Leonetti Luca k 3 three periodic orbits Euler shifted function",
+        "Source read: https://arxiv.org/html/2302.01783v1 Theorem 2 and proof",
+        "Source read: https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae/RESULT.md complete RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "Leonetti–Luca arXiv:2302.01783v1 (3 February 2023), relevant whole HTML primary proof inspected",
+      "Public full published-finding corpus finding 2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae",
+      "Danh et al. DOI:10.1017/S0004972723000862 (two-step only; publication record/abstract)",
+      "OEIS A000010 and targeted OEIS searches for φ(n)+3 cycles; no claimed comprehensive database coverage",
+      "Own previous-week and current-week research ledgers inspected for overlap in source/claims/identifiers, not validated or modified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior result 1: f_k(n)=φ(n)+k is eventually periodic with general upper bound depending on initial x0; exact terminal cycle data are not specified.",
+        "Prior result 2: max of a period-T orbit is at most [T(k−1)+1]^2, and equality if all needed neighboring terms are primes, with 23→25→23 exhibited.",
+        "New result: for k=3 every possible initial x0 eventually enters E={5,7,...,25}, the only cycles are (9),(11,13,15),(23,25), and 25 is least eventual bound."
+      ],
+      "reasoning": "The new statement implies eventual periodicity at k=3 and sharpens the bound to a constant for all starting values only after transients, but does not imply the general k theorem. The published theorems do not imply the exact E absorption and exhaustive orbit set without the additional descent at primes p>25 and full terminal transition argument. The already published 23↔25 witness is recognized and not presented as new.",
+      "searches": [
+        "published-finding corpus semantic: Euler totient recurrence phi(n)+k classify cycles for k=3 odd shifts",
+        "published-finding corpus semantic: totient function iterates plus 3 dynamics convergence cycles",
+        "published-finding corpus exact record: 2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae",
+        "Primary full text: https://arxiv.org/html/2302.01783v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Leonetti--Luca arXiv:2302.01783v1 Theorem 2 establishes eventual periodicity for shifts k≥0 and its proof handles composite descent and primes in succession, without a fixed-k orbit classification.",
+        "Closest published-finding corpus 2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae provides a period-dependent inequality and a 23↔25 witness but not all k=3 orbit types."
+      ],
+      "reasoning": "Searching the direct function φ(n)+3, shift-3 orbit, fixed-point, 2-cycle and 3-cycle equivalents yielded no implication-equivalent exact list. Both main sources were inspected at full relevant mathematical text. The known existence of 23↔25 is explicitly excluded from the novelty claim. Search silence alone cannot prove novelty.",
+      "searches": [
+        "published-finding corpus semantic: For the map n -> Euler totient(n)+3, precisely three eventual cycles (9), (11,13,15), (23,25), with sharp absorbing bound 25 for every positive integer",
+        "published-finding corpus semantic: shifted Euler totient k=3 exact global orbit classification fixed point period 2 period 3 absorbing set 25",
+        "published-finding corpus semantic: phi(n)+3 cycles 11 13 15 23 25 9 eventual periodicity all starting values",
+        "Web: \"phi(n)+3\" \"9\" \"11\" \"13\" \"15\" \"23\" \"25\" periodic",
+        "Web: \"shifted Euler\" \"k=3\" cycles 9 11 13 15"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS searches located ordinary totient data, such as A000010, and unshifted totient iteration tables rather than a proof of an exhaustive shift-three orbit list.",
+        "The 2023 primary paper supplies an eventual-periodicity theorem for arbitrary k but no complete k=3 transition table.",
+        "The published-finding corpus full text includes the single k=3 cycle 23↔25 as an example; it does not give the remaining cycles or prove completeness."
+      ],
+      "reasoning": "The exact eleven-state table is arithmetically verifiable, but a finite table by itself is not novelty; its new role is as the complete terminal dynamics justified by the unbounded three-step descent. Searched database snippets cannot guarantee absence of an equivalent table elsewhere, so this remains an acknowledged residual risk.",
+      "searches": [
+        "Web: site:oeis.org \"phi(n)+3\" \"cycle\"",
+        "Web: site:oeis.org \"phi(n) + 3\" \"period\"",
+        "Web: site:oeis.org 9 11 13 15 23 25 totient iterates",
+        "Web: \"phi(n)+3\" \"attractor\" periodic",
+        "Source read: https://arxiv.org/html/2302.01783v1 complete main-results section and relevant proof"
+      ]
+    },
+    "rationale": "Primary arXiv:2302.01783v1 provides all-shift eventual periodicity, not an exhaustive fixed-shift cycle classification. The closest full published-finding corpus source records the already-known 23↔25 orbit and period-T maximum bound but cannot exclude other periods or yield sharp global 25 absorption. Direct semantic searches, web searches for functional/phase aliases and the OEIS search did not locate a statement implying the exact three-cycle classification. The comparison rests on actually read primary full text and does not claim worldwide uniqueness; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "Unindexed or later work may explicitly classify all shift-three orbits; searches and examined source texts cannot rule it out universally.",
+      "The (23,25) orbit, the composite-totient bound, and general eventual periodicity are known and not themselves novel; the stated contribution is their unrestricted global fixed-shift completion.",
+      "The Danh follow-up article was compared at object/abstract level rather than by reading its full body; the identified two-step recurrence is outside the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_CLASSIFICATION",
+        "evidence": "General theorem bounds sup orbit by max{x0,k^4}+(k+1)^2; no claimed exhaustive enumeration for k=3, no minimal uniform eventual bound. Its standard composite inequality is cited as existing.",
+        "identifier_or_url": "arxiv:2302.01783v1 | https://arxiv.org/html/2302.01783v1",
+        "material_read": "Full available HTML main-results and introduction; Theorem 2, inequality (4), complete proof of Theorem 2 and Remark 4; original arXiv v1 headers and publication date",
+        "method": "Full-text browser HTML reading, with direct inspection of proof and assumptions",
+        "title": "On the iterates of shifted Euler’s function",
+        "trigger": "Same one-step map and all-shift eventual periodicity, dated 2023-02-03"
+      },
+      {
+        "assessment": "PARTIAL_PRIOR_K3_EXAMPLE_NOT_EXHAUSTIVE",
+        "evidence": "Proves M≤[T(k−1)+1]^2 for a period-T cycle; explicitly mentions (23,25), but supplies neither an upper bound on all T at k=3 nor a complete 3-cycle classification or globally absorbing E.",
+        "identifier_or_url": "2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae | https://github.com/published-finding corpus/2026/blob/main/2026/10/4/SCOPE-sharp-period-size-bound-and-extremal-structure-for-shifted-euler--02d25ffc40ae/RESULT.md",
+        "material_read": "Entire RESULT.md: Finding, Assumptions and scope, Proof, Verification, Relationship to prior work, Limitations, and References",
+        "method": "Direct retrieval and reading of full publicly available RESULT.md",
+        "title": "Sharp period-size bound and extremal structure for shifted Euler cycles",
+        "trigger": "Most semantically similar research database result; exact same map and explicit k=3 period-two example"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT_TWO_STEP",
+        "evidence": "The source studies x_{j+2}=φ(x_{j+1})+φ(x_j)+k, not F(n)=φ(n)+3; no full-document noncoverage inference is drawn from its abstract.",
+        "identifier_or_url": "DOI:10.1017/S0004972723000862",
+        "material_read": "Available bibliographic description and identification of its two-step recurrence; not full article",
+        "method": "Source metadata and subject comparison",
+        "title": "An improvement to a theorem of Leonetti and Luca",
+        "trigger": "Follow-up title refers to the primary paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53ad7654-106b-44e9-9961-cd7183c87257",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit literature-motivated natural complete classification, not a single parameter-table entry: the earliest small odd shift already has three distinct periods, yet the published general theorem leaves their complete count and terminal bound unspecified. Proving from first principles that every positive orbit enters exactly eleven possible terminal states yields all cycles and the sharp global invariant 25. The prime-composite descent argument is useful for investigating other small shifts. No basin density, general k classification, or unproved consequence is asserted.",
+    "status": "PASS"
+  }
+}
