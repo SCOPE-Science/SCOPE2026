@@ -1,0 +1,88 @@
+{
+  "correctness": {
+    "rationale": "Kimura--Umemoto Theorem 5.2 gives the complete two-branch parametrization. From the exact Pell/Binet identities, the cross-pair differences reduce to \\(1+6E_n^2-2(E_n+E_{n-1})\\) on the positive side and \\(1+6E_k^2-2(E_{k+1}+E_k)\\) on the negative-magnitude side; the first is positive for \\(n\\ge2\\), and the second is positive using \\(E_{k+1}<4E_k\\) with \\(E_k\\ge4\\). The Binet formula then gives the stated branch asymptotics and logarithmic count. A standalone exact-integer verifier independently checks recurrence normalization and finite stress cases, but the proof does not rely on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source's Theorem 5.2 is complete for square-exceptions, so any broader coverage would have to derive additional structure from that parametrization.",
+        "The inspected source introduction calls the set sparse but does not quantify the sparsity."
+      ],
+      "reasoning": "The search looked for stronger classifications or counting laws. The source is broader in classifying which \\(b\\) are square-exceptions, but it does not dominate the new ordering/counting conclusion; conversely the present claim does not replace the source classification.",
+      "searches": [
+        "recent number theory 2025 2026 explicit theorem arithmetic functions Diophantine sequences prime representations exact classification",
+        "On an infinite family of cubic fields with explicit fundamental units square-exception counting law",
+        "eta_b square Pell exceptional parameters number of exceptions up to X logarithmic"
+      ]
+    },
+    "checked_sources": [
+      "Kimura--Umemoto, arXiv:2609.37389v1",
+      "published-finding corpus record 2026/10/4/SCOPE-sharp-coordinate-wise-extraction-bases-for-pell-solutions--d6de3d70a94f",
+      "published-finding corpus record 2026/10/4/SCOPE-pell-rigidity-at-the-five-term-boundary-for-equal-proper-divisor--91ee4d5579bc",
+      "published-finding corpus record 2026/9/20/SCOPE-finite-index-prime-index-lattice-asymptotics--56d261c09b7b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Pell growth explains why each individual branch is exponential.",
+        "Kimura--Umemoto Theorem 5.2 supplies two branches; strict cross-branch ordering is needed to turn them into a collision-free parameter count.",
+        "The prior same-family fourth-power result covers only \\(b=5\\) and \\(b=96\\)."
+      ],
+      "reasoning": "Generic Pell growth alone does not determine how the two source branches overlap or interlace, and the two-parameter power-depth result does not imply a global count. The claimed contribution is restricted to the branch-union geometry and its exact leading counting coefficient.",
+      "searches": [
+        "cubic fields explicit fundamental units square exceptions Pell b_plus b_minus logarithmic counting asymptotic",
+        "Kimura Umemoto cubic field fundamental unit b=5 b=96 square exception Pell counting log X"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kimura--Umemoto, arXiv:2609.37389v1, Theorem 5.2 gives the two branches but no counting theorem.",
+        "No published-finding corpus hit among the inspected closest records states the same branch interlacing or signed count."
+      ],
+      "reasoning": "Queries targeted aliases through the Pell parameter, the literal b_+/b_- search notation, and the dominant unit \\(2+\\sqrt3\\). The closest results concern other Pell applications, not this square-exception set.",
+      "searches": [
+        "cubic fields explicit fundamental units square exceptions Pell b_plus b_minus logarithmic counting asymptotic",
+        "square-exception set b_plus b_minus 2+sqrt3 logarithmic counting interlacing",
+        "web: \"b_+(n)\" \"b_-(n)\" \"2+sqrt(3)\" cubic unit square exceptions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source lists initial values \\(5,9,96,112,\\ldots\\) and \\(-3,-16,-75,-135,\\ldots\\) only as examples.",
+        "published-finding corpus returned no exact table/database record for a counting function of this parameter set."
+      ],
+      "reasoning": "Initial-value tables do not provide the infinite interlacing theorem or the asymptotic coefficient. The verifier reproduces those values only as a normalization check.",
+      "searches": [
+        "Kimura Umemoto cubic field fundamental unit b=5 b=96 square exception Pell counting log X",
+        "square-exception set b_plus b_minus 2+sqrt3 logarithmic counting interlacing"
+      ]
+    },
+    "rationale": "The source classifies the square-exceptions and calls them sparse, but the inspected full text does not state their logarithmic counting function, strict branch interlacing, or the two limiting adjacent scale ratios. Claim-specific published-finding corpus and web searches found the source itself and generic Pell/asymptotic records but no statement covering this object-specific theorem. A prior same-family result concerns exact fourth-power depth only at \\(b=5\\) and \\(b=96\\) and does not imply the global ordering/count.",
+    "residual_risks": [
+      "The asymptotic method is classical Pell/Binet analysis; originality is claimed only for the explicit interlacing, collision-free two-branch geometry, quotient limits, and counting constant of this newly introduced square-exception set.",
+      "A source not indexed by the searched services could independently state the same corollary; no such source was found in the inspected literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 5.2 is the essential premise and is fully compatible with the new proof. The paper states qualitative sparsity and exact parametrization, but no quantitative square-exception counting law or branch-interlacing theorem was found.",
+        "evidence": "arXiv:2609.37389v1, Introduction and Theorem 5.2.",
+        "identifier_or_url": "arXiv:2609.37389v1",
+        "material_read": "Full HTML, including introduction, Theorems B, 5.1, 5.2, 5.5, and the displayed initial exception lists.",
+        "method": "Read the full-text HTML and searched within it for counting/logarithmic formulations and the term sparse.",
+        "title": "On an infinite family of cubic fields with explicit fundamental units",
+        "trigger": "Direct predecessor defining the square-exception set and its Pell parametrization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f3b9331-121c-4720-bf03-08cd1e3cdbe2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly identifies the infinite exceptional set as sparse but does not quantify that sparsity. The exact logarithmic growth constant makes the exceptional set measurable at scale \\(X\\), while strict interlacing explains its internal geometry and rules out hidden branch collisions. The two distinct quotient limits show that the exceptions occur as asymptotically tight pairs separated by a fixed multiplicative jump. This is a natural structural invariant of the new Pell-parametrized exception set, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
