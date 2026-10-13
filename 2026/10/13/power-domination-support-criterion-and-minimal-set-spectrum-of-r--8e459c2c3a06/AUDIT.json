@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For every \\(m,n\\ge2\\), initial unseen cells form the Cartesian product of unused row and column sets. Each observed vertex sees exactly \\(0\\), \\(p\\), or \\(q\\) unseen neighbors where \\(p,q\\) are empty-support counts, so \\(p,q\\ge2\\) prevents any forcing, while \\(p=1\\) or \\(q=1\\) permits simultaneous completion. This proves the full membership equivalence without finite-case assumptions. Exact row/column-support inclusion-exclusion yields the all-set polynomial. For inclusion-minimal sets, deletion must break each currently true threshold; this yields the row-singleton, column-singleton, and square partial-permutation cases and no others. Surjection/Stirling counts and overlap subtraction produce the stated spectra and sharp upper bound. Direct adjacency/propagation code exhaustively checks 107,654 nonempty selections on the nine boards with both dimensions from two through four, and the three-by-five board, all polynomial coefficients, and all inclusion-minimal sets. No large-parameter statement relies solely on computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dorbec et al., DOI:10.1137/060661879, full author-uploaded text: direct and strong products of paths; lexicographic product parameters, not the complete-by-complete Cartesian product cardinality distribution.",
+        "Soh and Koh, DOI:10.1080/09728600.2014.12088762, Theorem 3.3: the established minimum cardinality equals the smaller factor order minus one, not an all-set or minimal-set enumerator in the accessible portions.",
+        "Brimkov et al., arXiv:1805.10984v1 §4: explicit polynomials for complete graphs, paths, cycles, wheels, stars, clique coronas, and threshold graphs, not for rectangular rook graphs."
+      ],
+      "reasoning": "The exact known minimum-number theorem is explicitly preserved as prior art. A result that only fixes the minimum exponent cannot supply the remaining polynomial coefficients or the number and spectrum of all inclusion-minimal placements. General algorithms for arbitrary graphs can compute the quantity, but are not an explicit complete rectangular family formula; no stronger parameterized class result found.",
+      "searches": [
+        "Exact all-set power domination polynomial and inclusion-minimal power dominating sets in rook graphs Cartesian product of two complete graphs K_m square K_n",
+        "\"A Note on Power Domination Problem in Diameter Two Graphs\" \"Theorem 3.3\"",
+        "\"power domination polynomial\" \"cartesian product\" \"complete graph\"",
+        "DOI:10.1137/060661879",
+        "arXiv:1805.10984v1 §4"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1137/060661879 (full author-uploaded article and publisher date)",
+      "DOI:10.1080/09728600.2014.12088762 (substantive indexed sections and 2016 survey; full PDF inaccessible)",
+      "arXiv:1510.02421v1 publication history and v4 HTML scientific content",
+      "arXiv:1805.10984v1 full HTML Sections 1–4",
+      "arXiv:2401.00716 full original PDF Sections 1–3",
+      "OEIS A368831 ordinary rook domination counts",
+      "Published claim IDs 2026/10/4/SCOPE-all-minimum-power-dominating-sets-of-connected-threshold-graphs--215b394cb6b1 and 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4 (different graph families)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Soh and Koh, Theorem 3.3, has consequent scalar \\(\\gamma_P(K_m\\square K_n)=\\min(m,n)-1\\); both the all-set polynomial and upper inclusion-minimal sizes are absent from the inspected excerpts.",
+        "Mertens (2024) proves ordinary domination support requires all rows or all columns; this does not imply the one-round power-forcing threshold without additional analysis.",
+        "Brimkov et al. (2018) give a general definition and finite algorithm, but no expression with exact rook row/column occupancy and no complete inclusion-minimal classification.",
+        "Explicit proof here shows the obstructing unseen rectangle and classifies all inclusion-minimal placements; formulas give \\(\\Gamma_P(R_{3,n})=n-1\\) for \\(n\\ge4\\), while the known minimum remains \\(2\\)."
+      ],
+      "reasoning": "The new result is strictly stronger than the earlier minimum-number theorem. Although occupancy inclusion–exclusion is a general enumerative technique and resembles the ordinary domination enumeration, using it here requires the unproved-in-prior power-forcing threshold; classifying all deletion-minimal sets and proving the unbounded upper/lower gap requires further exact case analysis. A generic algorithm does not amount to a statement of the family formula. The inaccessible complete 2014 paper is a residual overlap risk, not proof of noncoverage.",
+      "searches": [
+        "All minimal power dominating sets of complete graph Cartesian products, upper power domination number, rectangular rook graph",
+        "Rook graph K_m square K_n all power dominating sets characterized by number of distinct rows and columns; polynomial counting minimum power dominating sets",
+        "\"A Note on Power Domination Problem in Diameter Two Graphs\" \"Lemma 3.2\" \"Theorem\"",
+        "arXiv:1510.02421v4 §2.2 Cartesian products",
+        "arXiv:1805.10984v1 §3–4 power domination polynomial",
+        "rectangular rook graph K_m Cartesian K_n complete classification all inclusion-minimal power dominating sets number m n^(m-1), upper power domination max(m,n)-1 and complete power domination polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1510.02421v4 §§1.1 and 3: power domination equals zero forcing of the closed neighborhood, but it does not state the labeled row/column set characterization for complete-by-complete Cartesian products.",
+        "arXiv:2401.00716, §2: ordinary rook domination requires every row or every column occupied, in contrast to the all-but-one threshold for power domination.",
+        "No exact indexed match surfaced in the rook/PMU/support alias searches."
+      ],
+      "reasoning": "The equivalents considered were PMU placement, power-domination/zero-forcing-after-neighborhood, rook placements, and the line graph of a complete bipartite graph. Ordinary domination cannot be substituted: its support thresholds are all rows or all columns, while a power dominating set may omit a row and a column. General equivalences in the graph-product literature do not state or directly count the two distinct minimal-set sizes.",
+      "searches": [
+        "power domination polynomial of rook graphs rectangular Cartesian products of complete graphs; exact number of power dominating sets and minimum monitoring placements",
+        "Power domination monitoring row and column support empty row empty column 2 by 2 fort K_m Cartesian K_n",
+        "\"power domination\" \"rook graph\" \"all power dominating sets\"",
+        "arXiv:1510.02421v1; power domination and zero forcing for graph products"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A368831 records the cardinality counts of ordinary dominating subsets of square rook graphs; Mertens, arXiv:2401.00716, computes their ordinary domination polynomial.",
+        "For \\(R_{3,3}\\), the ordinary minimum dominating-set count is \\(2\\cdot3^3-3!=48\\) at size three, whereas the present power-domination minimum count is \\(2\\cdot3^3-3^2\\cdot2!=36\\) at size two.",
+        "The previously recorded general-position polynomial for rectangular rook graphs counts geodesic general-position sets, which have a different membership condition."
+      ],
+      "reasoning": "The same graph is indeed tabulated for ordinary domination, but that table cannot cover the power-domination polynomial because even the lowest nonzero degree differs. Neither the same-graph general-position polynomial nor power domination polynomials for book/crown/threshold graphs imply the row/column minimality classifications here. A complete power-domination coefficient table for rectangular rook graphs was not identified.",
+      "searches": [
+        "Power domination polynomial rook graph closed form inclusion-exclusion Stirling numbers and upper power domination gap",
+        "\"upper power domination number\" \"rook graph\"",
+        "\"Domination Polynomial of the Rook Graph\" arXiv:2401.00716",
+        "OEIS A368831 rook domination polynomial",
+        "arXiv:2401.00716 complete polynomial rook"
+      ]
+    },
+    "rationale": "The scalar minimum in Soh–Koh 2014 is prior. The evaluated full power-domination polynomial, complete inclusion-minimal classification/count and unbounded upper-to-lower minimal spectrum are not stated or implied as enumerative claims in the inspected primary sources; original support criterion is essential to their derivation. The same-graph Mertens rook polynomial concerns ordinary domination, not propagation; general power-domination polynomial and graph-product papers lack the present family-specific formulas. An inaccessible complete version of the 2014 original remains a specific originality risk, acknowledged without treating a nonhit as proof.",
+    "residual_risks": [
+      "The entire 2014 Soh–Koh five-page original was unavailable for full reading; a less prominently indexed remark might address all-set structure, though the visible lemmas and Theorem 3.3 address minimum number only.",
+      "Other pre-2018 theses, instructional treatments, or alternate rook/line-graph/PMU terminology may contain an equivalent enumeration not surfaced by the searches.",
+      "The inclusion-exclusion counting machinery is standard and appears for ordinary rook domination; originality rests on the new power-forcing support criterion and exact deletion-minimal classification, not on inclusion-exclusion as a method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different products and factors. No all-set or inclusion-minimal power domination count for complete-by-complete Cartesian products.",
+        "evidence": [
+          "Sections 2 and 3 study direct/strong products of paths; Section 4 Theorem 4.1 concerns lexicographic products.",
+          "Publisher records first online date 2008-03-21 and MSC 05C69."
+        ],
+        "identifier_or_url": "DOI:10.1137/060661879; https://www.researchgate.net/publication/220532983_Power_Domination_in_Product_Graphs",
+        "material_read": "Author-uploaded complete article textual rendering: introduction/definitions and Sections 2, 3, 4 with main results",
+        "method": "Read accessible publication text, including product definitions, scope, and Section 4 lexicographic theorem; cross-checked publisher abstract and online publication date.",
+        "title": "Power Domination in Product Graphs",
+        "trigger": "Foundational 05C69 archival graph-product paper, closest general terminology"
+      },
+      {
+        "assessment": "The scalar minimum \\(\\gamma_P(K_n\\square K_m)=n-1\\) is prior and expressly excluded from novelty. No all-set/minimal-set formulas found in accessible original text; full-text overlap remains possible.",
+        "evidence": [
+          "Lemma 3.1 constructs diagonal \\(n-1\\) sensors; Lemma 3.2 inductively bounds minima; Theorem 3.3 gives exact \\(n-1\\) minimum.",
+          "Scope is minimum sensors, not enumeration of every feasible or inclusion-minimal sensor set in the material read."
+        ],
+        "identifier_or_url": "DOI:10.1080/09728600.2014.12088762",
+        "material_read": "Substantive accessible indexed text: original introduction, Lemma 3.1, Lemma 3.2 and its proof, Theorem 3.3. Complete five-page PDF not obtained.",
+        "method": "Compared indexed original sections and theorem with subsequent full-text 2016 survey citing exact minimum; publisher PDF access returned forbidden.",
+        "title": "A Note on Power Domination Problem in Diameter Two Graphs",
+        "trigger": "Same graph and already established numerical invariant; high-priority coverage comparison"
+      },
+      {
+        "assessment": "Studies generalized bounds/numbers and zero forcing for products, not full power-domination cardinality polynomials or inclusion-minimal rook-graph placements.",
+        "evidence": [
+          "Section 2.2 is about zero forcing of Cartesian products.",
+          "Section 3 provides a general minimum bound and applications, without rook all-set counting."
+        ],
+        "identifier_or_url": "arXiv:1510.02421v1; full current HTML https://arxiv.org/html/1510.02421v4",
+        "material_read": "Full available experimental HTML, especially definitions, Section 2.2 on Cartesian-product zero forcing, and Section 3 on general power-domination lower bounds and graph products.",
+        "method": "Read full section-level source and inspect headings and mathematical statements; verified v1 dated 2015-10-08 from arXiv history.",
+        "title": "Zero forcing and power domination for graph products",
+        "trigger": "A primary 05C69/05C50 Cartesian-product and power-domination source"
+      },
+      {
+        "assessment": "General graph power-domination polynomial is prior; special families treated do not contain nondegenerate rectangular rook graphs.",
+        "evidence": [
+          "Section 4 Proposition 20 covers complete graphs, paths, cycles, wheels, stars and clique coronas; subsequent Theorem 21 concerns threshold graphs.",
+          "The general polynomial definition does not give the explicit rectangular support criterion or the inclusion-minimal spectrum."
+        ],
+        "identifier_or_url": "arXiv:1805.10984v1; https://arxiv.org/html/1805.10984v1",
+        "material_read": "Complete arXiv HTML, particularly Sections 3 and 4, including graph-family formulas and general polynomial definitions.",
+        "method": "Read theorem statements and family-classification section, inspected occurrences of Cartesian and rook terminology.",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "Potential broader theorem or already computed rook polynomial"
+      },
+      {
+        "assessment": "This paper counts ordinary dominating subsets; power forcing permits strictly more sets and changes the minimum exponent. No power-domination set or inclusion-minimal classification appears.",
+        "evidence": [
+          "Section 1–2: dominating set requires every row or every column occupied.",
+          "Minimum ordinary domination is \\(\\min(m,n)\\), versus the existing minimum power domination \\(\\min(m,n)-1\\).",
+          "Mertens uses edge-cover enumerations for ordinary domination; present contribution analyzes new forcing-enabled configurations and deletion-minimal spectra."
+        ],
+        "identifier_or_url": "arXiv:2401.00716; https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf",
+        "material_read": "Original ten-page PDF: pages 1–5, including the domination definition, basic minimum count, Theorems 1 and 2 and their support-by-edge-cover enumerations; page 3 rendered and inspected.",
+        "method": "Inspected original paper text and rendered formula page, explicitly compared ordinary domination to power domination.",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Highly plausible same-graph, same-polynomial-style coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8e459c2c-3a06-430b-90fc-c8ff5466cc9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural two-parameter Cartesian-product family now has an exact count at every feasible sensor-set cardinality and a complete combinatorial classification of irreducible layouts, not merely the previously known optimal cardinality. Rectangular \\(3\\times n\\) boards exhibit irreducible layouts with \\(n-1\\) sensors despite optimal size two, an unbounded and operationally motivated distinction. The contrast with squares, where all minimal layouts have one fixed size, is a sharp structural boundary. The work is complete for every \\(m,n\\ge2\\) and has self-contained mathematical value independent of downstream applications.",
+    "status": "PASS"
+  }
+}
