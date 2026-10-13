@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Proof reduces all n>=6 to boundary pairs, uses exact four-state degree-two De Bruijn adjacency. Every b=0..4 case is checked, with sharp P size2 S size5 witness. Standalone standard-library verifier enumerates 256 boundary prefix sets and verifies all four induced-arc claims and concrete n=6..8 codes. No finite test is treated as the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik Proposition 1: general lifting S_t1^t2(q,n)=q^(n-2t2)S_t1^t2(q,2t2), but its exact displayed base maxima concern (1,2).",
+        "Yang-Ding Section 3 Theorem 3.4 counts a specified constructed family, with Section 4 nonexpandability and no global upper bound for (2,3)."
+      ],
+      "reasoning": "The lifting theorem reduces, but does not calculate, the length-six maximum; a construction-family cardinality alone does not dominate the unrestricted maximum. The new arc proof closes that missing sharp upper bound.",
+      "searches": [
+        "Q-Ary (t1,t2)-Overlap-Free Codes 2025 Yang Ding exact binary (2,3) capacity",
+        "doi:10.1587/transfun.2025EAL2050",
+        "arXiv:2411.02899"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2411.02899 (full OA article)",
+      "doi:10.1587/transfun.2025EAL2050 (full online text)",
+      "arXiv:2211.10309 (full PDF primary comparisons)",
+      "doi:10.1109/TIT.2023.3319010 (abstract)",
+      "doi:10.1007/s10623-025-01737-2 (abstract)",
+      "Published exact length-five non-overlapping code result (different restriction)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn et al. Section IV-A: C(3,n)=6*2^(n-6) for (1,3), a strictly stronger forbidden condition.",
+        "Stanovnik Equation (4) multiplies an unspecified length-six optimum by 2^(n-6).",
+        "Our explicit code has 10 boundary words, so it cannot be an (1,3) code; all four-state cases give a matching 10 upper bound."
+      ],
+      "reasoning": "The older (1,3) bound is for a strictly smaller feasible family and does not upper-bound the larger (2,3) family. General upper bounds in Stanovnik/Blackburn are too weak to imply ten. The new theorem establishes the missing base optimum and then applies the previously known reduction.",
+      "searches": [
+        "Exact largest binary (2,3)-overlap-free code length six 10 and any n>=6 10*2^(n-6), prefix suffix non-overlap length 2 and 3",
+        "(2,3)-overlap-free maximum size binary two distinct forbidden prefix suffix lengths multiblock code",
+        "Q-Ary (t1,t2)-Overlap-Free Codes 2025 Yang Ding exact binary (2,3) capacity",
+        "arXiv:2211.10309 (1,k) maximum",
+        "arXiv:2411.02899 Proposition 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Binary two-length exclusion equals disjointness of prefix and suffix three-words plus initial/terminal two-bit factors.",
+        "Blackburn et al., arXiv:2211.10309, Sections III-IV, Table II, address (1,k), including (1,3), not (2,3)."
+      ],
+      "reasoning": "Shifting the overlap interval from (1,3) to (2,3) removes the length-one restriction and changes both capacity and proof; the known 6 times 2^(n-6) result for (1,3) cannot cover 10 times 2^(n-6).",
+      "searches": [
+        "Exact largest binary (2,3)-overlap-free code length six 10 and any n>=6 10*2^(n-6), prefix suffix non-overlap length 2 and 3",
+        "(2,3)-overlap-free maximum size binary two distinct forbidden prefix suffix lengths multiblock code",
+        "\"binary\" \"(2,3)-overlap-free\" maximum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published five-letter non-overlapping tables prohibit every proper overlap, whereas this code has six or more letters and forbids only lengths 2 and 3.",
+        "Blackburn et al. Table II tabulates binary (1,k) for k<=6, not (2,3).",
+        "Yang-Ding Appendix B reports sizes for q=3 and q=4 of named constructions, not this exact binary optimum."
+      ],
+      "reasoning": "No inspected exact table, including the superficially close (1,3) Table II, contains an implication to the distinct (2,3) capacity. Searches not being conclusive by themselves is explicitly acknowledged.",
+      "searches": [
+        "Exact largest binary (2,3)-overlap-free code length six 10 and any n>=6 10*2^(n-6), prefix suffix non-overlap length 2 and 3",
+        "(2,3)-overlap-free maximum size binary two distinct forbidden prefix suffix lengths multiblock code",
+        "\"(2,3)-overlap-free\" \"10\"",
+        "published-finding corpus: exact length-five non-overlapping code optima"
+      ]
+    },
+    "rationale": "The exact maximum for the (2,3) forbidden-overlap interval is not implied by the earlier (1,k) optima: the length-one restriction changes the admissible codes. Stanovnik's general boundary reduction leaves a separate six-bit extremum and the accessible 2025 (t1,t2) paper establishes construction family sizes without the unrestricted sharp bound. The present 10-vertex product optimum is established by new explicit four-state arc inequalities; broad and targeted comparisons with published research records returned no covering statement. An inaccessible potentially related construction paper is noted as residual risk.",
+    "residual_risks": [
+      "Equivalent capacities may exist under another frame-synchronization or directed-de-Bruijn formulation outside indexed searches.",
+      "Full text of Cai–Wang–Feng and Qin–Luo–Chen was not read; available scopes focus on (1,k) and do not give a decisive competing claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: no unrestricted exact binary (2,3) maximum or sharp upper bound",
+        "evidence": [
+          "Theorem 3.4 and Corollary 4.1 count particular constructions; Section 5 bounds sizes of those constructions; Appendix B tabulates q=3,4 construction family sizes."
+        ],
+        "identifier_or_url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+        "material_read": "Open full-text HTML, Sections 1-6 and both Appendix B table descriptions",
+        "method": "Read definitions, all results in Sections 3-5, conclusion and appendices, distinguishing construction sizes from absolute optima",
+        "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+        "trigger": "Exact same restricted-overlap objects, includes t1>1"
+      },
+      {
+        "assessment": "NOT_COVERING: gives the general six-boundary reduction but not exact max ten",
+        "evidence": [
+          "Proposition 1 general reduction; Equations (4)-(6) include exact (1,2) only; Section 4 lower bounds for general intervals."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12190-025-02441-z",
+        "material_read": "Open full-text Springer HTML, Introduction, Sections 2-5, statements and proof of Proposition 1, tables/conclusion",
+        "method": "Compare quantifiers in general lifting theorem and specialized exact formulas",
+        "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+        "trigger": "Broad reductions and bounds might dominate binary (2,3)"
+      },
+      {
+        "assessment": "NOT_COVERING: exact result for (1,3), not (2,3)",
+        "evidence": [
+          "Page 7 Table II: (1,3) maximum six times 2^(n-6); Section IV proof assumes no overlap of length one."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.10309",
+        "material_read": "17-page arXiv PDF, Introduction, Sections II-IV, Table II and Section V construction statements",
+        "method": "Read and compare exact Table II C(k,n) and forbidden length ranges",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "Plausible 2022 foundational binary extremal result"
+      },
+      {
+        "assessment": "No apparent coverage; full text not verified",
+        "evidence": [
+          "Abstract specifies the exact (1,2) case and constructions for (1,k); no claimed (2,3) optimum."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319010",
+        "material_read": "Published abstract and secondary bibliographic synopsis, not full text",
+        "method": "Compare theorem scope stated in abstract with target interval",
+        "title": "Constructions and Bounds for q-Ary (1,k)-Overlap-Free Codes",
+        "trigger": "Earlier exact small forbidden-overlap case"
+      },
+      {
+        "assessment": "Unresolved in full detail, but published scope is different and abstract describes constructions, not global optimum",
+        "evidence": [
+          "Abstract describes new non-expandable (1,k) construction and lower bounds."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-025-01737-2",
+        "material_read": "Publisher abstract, bibliographic and references sections only; full text inaccessible",
+        "method": "Compare stated (1,k) restriction to (2,3)",
+        "title": "New construction of non-expandable (1,k)-overlap-free codes",
+        "trigger": "Recent potentially overlapping 2025 paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "631edc29-77f8-423f-9a21-f41b1b810833",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp capacity for the first natural consecutive overlap interval excluding length one; resolves all n>=6, beyond earlier size-of-construction and general bounds. The 10-word optimal boundary gives 10/64 of available six-bit patterns, compared with six for the stricter (1,3) restriction. Frame-synchronization applications motivate precise restricted-overlap capacity; the four-state extremal inequality supplies a genuine structural reason rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
