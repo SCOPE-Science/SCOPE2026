@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The source theorem gives Hurwitz degree 2p+2g-2 for smooth projective varieties. For the Segre product, the projective degree is the coefficient of A^a B^b in (A+B)^(a+b), and adjunction gives the sectional genus from K=-(a+1)A-(b+1)B. Substitution simplifies exactly to H=(2ab/(a+b))C. Reducing this rational multiplier proves the gcd formula. The coprimality classification then follows by an explicit computation for a=1 and the bound C>=binom(d,2)>d for a,b>=2. The bundled exact checker verifies all formulas for 1<=a,b<=200 without serving as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sturmfels proves the general Hurwitz-degree theorem Hdeg=2p+2g-2 and describes the Hurwitz form as one step from the Chow form.",
+        "A nearby published result on Pluecker Grassmannians gives a Hurwitz-to-Chow ratio for that different homogeneous family.",
+        "A nearby Segre result concerns the gcd of five coisotropic degrees for rank-one 3-by-(n+1) matrices, a stronger sequence-level invariant but only for that different parameter family and not this two-degree formula."
+      ],
+      "reasoning": "The general theorem supplies a reusable input but does not subsume the family-specific arithmetic classification. The nearby homogeneous-family and coisotropic-family results have different degree formulas and implications.",
+      "searches": [
+        "Segre associated hypersurfaces Chow Hurwitz common factor degree",
+        "Hurwitz degree smooth Segre variety degree sectional genus",
+        "polar degree Segre Hurwitz Chow exact ratio"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1410.6703",
+      "doi:10.1016/j.jsc.2016.08.012",
+      "doi:10.1016/j.jsc.2019.12.002",
+      "targeted semantic searches for Segre Chow/Hurwitz gcd, common-divisor, coprimality, exact-ratio, and associated-hypersurface formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 in arXiv:1410.6703 states Hdeg=2p+2g-2 for the relevant smooth case.",
+        "The same paper states that the Hurwitz form is one step from the Chow form and treats P^1 x P^1 as an example.",
+        "The inspected text does not state the closed Segre Hurwitz degree, the reduced multiplier denominator, the gcd formula, or the coprimality classification."
+      ],
+      "reasoning": "The prior theorem determines H after p and g are independently computed. The new claim adds the all-parameter Segre specialization and a sharp arithmetic consequence. No inspected stronger statement was found that logically contains the gcd classification.",
+      "searches": [
+        "\"The Hurwitz Form of a Projective Variety\" Segre Chow degree",
+        "Segre variety sectional genus Hurwitz degree",
+        "Segre Chow Hurwitz common divisor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located source states gcd(C_{a,b},H_{a,b}) or the coprimality criterion for all Segre products.",
+        "The exact formula search did not surface a published statement matching H=(2ab/(a+b))C together with its gcd consequence."
+      ],
+      "reasoning": "These searches cover the geometric names, the explicit closed formula, and the arithmetic equivalent formulations of common divisor and coprimality.",
+      "searches": [
+        "Segre variety Chow degree Hurwitz degree gcd coprime exact common divisor",
+        "P^a x P^b Segre Hurwitz degree 2ab/(a+b) binomial",
+        "Segre Hurwitz Chow degrees arithmetic primitivity",
+        "\"Segre\" \"Hurwitz degree\" \"Chow degree\" gcd",
+        "\"Segre variety\" Hurwitz Chow coprime degree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Software documentation computes Hurwitz forms but does not provide the uniform gcd classification.",
+        "The archival paper gives an explicit P^1 x P^1 example, not a table or formula for the gcd across arbitrary a,b."
+      ],
+      "reasoning": "The final statement is a symbolic formula valid for all positive dimensions, not a pattern inferred from a finite database.",
+      "searches": [
+        "Segre Chow Hurwitz degree table gcd",
+        "Segre variety Hurwitz degree formula P^a P^b",
+        "Macaulay2 hurwitzForm Segre degree"
+      ]
+    },
+    "rationale": "The closest primary source proves the general Hurwitz-degree theorem and places the Hurwitz form next to the Chow form among higher associated hypersurfaces. It does not state the Segre-family gcd or classify when these two degrees are coprime. Targeted semantic and web searches using Segre, Chow, Hurwitz, gcd, common divisor, coprime, and associated-hypersurface formulations found no equivalent statement. Nearby results concern either Pluecker Grassmannians, full Segre coisotropic-degree gcds in a special 3-by-(n+1) family, or Segre-Veronese dual degrees, none of which implies this exact two-degree gcd formula.",
+    "residual_risks": [
+      "Because the arithmetic reduction is short after the general Hurwitz theorem and Segre intersection ring are combined, an unindexed source may contain the same formula.",
+      "A later paper on the full coisotropic-degree sequence of Segre varieties could imply the two-degree gcd in a formulation not surfaced by the targeted searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS_GENERAL_HURWITZ_INPUT_NOT_SEGRE_GCD_CLASSIFICATION",
+        "evidence": "Theorem 1.1 gives Pluecker degree 2p+2g-2 when the singular locus has codimension at least two. The P^1 x P^1 example exhibits both Chow and Hurwitz forms, but the inspected text does not state the all-(a,b) gcd or coprimality result.",
+        "identifier_or_url": "arXiv:1410.6703",
+        "material_read": "ArXiv metadata and full HTML including Theorem 1.1, its proof, the discussion that Hurwitz is one step from Chow among higher associated hypersurfaces, Proposition 2.4, and the P^1 x P^1 Segre example.",
+        "method": "Full-text HTML inspection.",
+        "title": "The Hurwitz Form of a Projective Variety",
+        "trigger": "Primary archival source defining the Hurwitz degree and relating it to the Chow form."
+      },
+      {
+        "assessment": "BROADER_ASSOCIATED_HYPERSURFACE_CONTEXT_NOT_EXACT_GCD",
+        "evidence": "The accessible material concerns equations and coisotropy of associated hypersurfaces, not the exact gcd of the first two Pluecker degrees for arbitrary Segre products.",
+        "identifier_or_url": "doi:10.1016/j.jsc.2019.12.002",
+        "material_read": "Search-accessible article metadata and introduction describing Chow, Hurwitz, coisotropic hypersurfaces, and Segre hyperdeterminants.",
+        "method": "Web text inspection.",
+        "title": "Coisotropic hypersurfaces in Grassmannians",
+        "trigger": "Broader associated-hypersurface literature involving Chow and Hurwitz forms, including Segre varieties."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65ea41a0-0805-4092-851e-220938296135",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Chow and Hurwitz forms are consecutive canonical associated hypersurfaces attached to the same projective variety, encoding generic incidence and first-order nontransversality respectively. Their Pluecker degrees are therefore natural paired enumerative invariants. The exact gcd measures the universal arithmetic factor shared by those two incidence counts, and the theorem completely classifies the primitive cases across the entire two-parameter Segre family. The result distinguishes exactly the scrolls P^1 x P^{2m}, rather than an arbitrary finite or congruence slice.",
+    "status": "PASS"
+  }
+}
