@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Independent Gaussian projector residual is chi-square with nu degrees of freedom. For any pair condition on other m-2 columns: dimension d=nu+1 independent Gaussian radii share Beta((d-1)/2,1/2) squared-sine angular factor; direct second moments give covariance 2nu/(nu+3). Exchangeability yields exact sample-mean and expected proxy variances; fourth-moment bound <=848 and a Cauchy–Schwarz tail bound prove nonconcentration despite Markov-vanishing proxy. The original pseudoinverse formula is exactly I for m>=n+1. Exact rational checks were replayed independently of simulation. Quantifiers and assumptions are explicit in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "XNysTrace Proposition 5 bounds variance by residual approximation quantities; it does not supply a closed exact identity-matrix pairwise covariance, sharp calibration ratio, or nonconcentration probability.",
+        "Normalized probe variant is distinctly defined and performs differently for A=I; its coverage does not dominate a theorem about the unnormalized construction."
+      ],
+      "reasoning": "Both source papers give general quantitative upper bounds or posterior-correlation relationships, but no inspected stronger statement implies the precise flat-spectrum Gaussian correlation or asymptotic variance floor. This is not a global claim of priority.",
+      "searches": [
+        "Exact covariance and variance of leave-one-out Gaussian Nyström Frobenius error estimator for identity matrix A=I, residual chi-square shared projections, nonconcentration near full rank",
+        "Low rank randomized SVD Nyström leave-one-out error estimator fails to concentrate when sketch dimension nearly ambient dimension",
+        "arXiv:2301.07825, Proposition 5, Section 5.6",
+        "arXiv:2207.06342, main error-estimation results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.07825v2 full HTML, XNysTrace Eq. 8/9 and Proposition 2/5, source normalized tests (Section 2.3) and supplements",
+      "arXiv:2207.06342 open full-text related leave-one-out error-estimation theory",
+      "Published mathematical findings database semantic comparisons for source, aliases, pair-covariance and variance-cliff descriptions",
+      "Prior two-dimensional sign-probe and Gaussian-Nyström mathematical results for statement and parameter implication differences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Eq. (8) gives the individual estimator and Proposition 2 gives an algebraic relation parameterized by pairwise correlation; neither states or computes the identity-Gaussian parameter.",
+        "A two-dimensional Rademacher example has a different finite-support law and correlation, not the Gaussian continuous-angle/beta law needed here."
+      ],
+      "reasoning": "The new exact covariance does require analysis beyond substitution into Proposition 2. From the covariance follow a closed calibration ratio, near-full-rank absolute-error nonconcentration, and one-extra-probe exactness. Thus the final claim is not implied as an immediate stated corollary by the inspected sources, although priority beyond them is not guaranteed.",
+      "searches": [
+        "XNysTrace leave one out posterior squared error underestimates mean squared error due to correlated replicates, Gaussian identity covariance",
+        "Epperly Tropp Webber XTrace XNysTrace variance error estimator exact correlation identity matrix",
+        "arXiv:2301.07825 Eq. (8),(9), Proposition 2, Proposition 5",
+        "arXiv:2207.06342 leave-one-out estimators"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Proposition 2 of arXiv:2301.07825 already gives a general identity in terms of unknown pairwise correlation. The new statement supplies rho=1/(nu+3) for the unnormalized real-Gaussian identity case, a value not given in that proposition.",
+        "The exact angular representation uses independent chi-square radii and a shared beta factor, giving an explicit covariance rather than a mere restatement of the generic sample variance identity."
+      ],
+      "reasoning": "A generic exchangeable estimator identity is weaker; it cannot predict the exact correlation without the conditional two-probe angular calculation. Discrete sign-probe analogues do not determine continuous Gaussian residual moments.",
+      "searches": [
+        "Leave one out projection residual jackknife regression Gaussian design pairwise covariance 2 nu/(nu+3) variance of averaged squared residuals",
+        "XNysTrace leave one out posterior squared error underestimates mean squared error due to correlated replicates, Gaussian identity covariance",
+        "\"XNysTrace\" \"identity\" \"pairwise\" correlation",
+        "arXiv:2301.07825, Proposition 2 and Section 5.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Dedicated semantic searches of published mathematical findings yielded no exact matching XNysTrace covariance or diagnostic law. Highest relevant indexed rows concerned other algorithms, including ACA and Haar stochastic subspace descent.",
+        "The inspected source tables/plots compare flat spectra and normalized versus unnormalized probe distributions, but do not tabulate or prove the exact identity-matrix pair covariance or m=n versus n+1 transition."
+      ],
+      "reasoning": "No located table contains the claimed formula; absence in search results is only partial evidence and is not treated as an originality proof.",
+      "searches": [
+        "Epperly Tropp Webber XTrace XNysTrace variance error estimator exact correlation identity matrix",
+        "Leave-one-out Gaussian Nyström residual degrees of freedom pairwise positive correlation and variance cliff",
+        "\"XNysTrace\" \"identity matrix\" \"covariance\"",
+        "arXiv:2301.07825, analytic formulas and appendices"
+      ]
+    },
+    "rationale": "Direct full-primary-text inspection separates the present exact Gaussian flat-spectrum pair-covariance evaluation and high-dimensional variance-cliff conclusion from the prior generic posterior-correlation identity (which is expressly credited) and generalized upper bounds. Closest discrete Rademacher identity case does not imply continuous-Gaussian moments or growing-dimensional limit. Search limitations are acknowledged and neither absence of hits nor partition is taken to certify priority.",
+    "residual_risks": [
+      "A specialized exact identity-Gaussian calculation in unindexed literature might duplicate the theorem.",
+      "Standard angular beta-law, chi-square moments and general sample-variance identity are prior tools; only their concrete combination and consequences are evaluated as a finding.",
+      "The paper itself explicitly recommends normalizing the residual probe; the resulting algorithm is outside this theorem and avoids the exhibited identity-spectrum mechanism."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proposition 2 already gives the general correlation calibration identity; the source does not give the exact Gaussian flat-spectrum correlation 1/(nu+3), fixed-codimension variance floor, or probability-level mismatch. It separately recommends normalizing residuals; the present theorem explicitly excludes that variant.",
+        "evidence": [
+          "arXiv:2301.07825 (2023-01-19 first posting), Eqs. (8),(9),(16), Algorithm 3, Proposition 2, Proposition 5, Section 2.3, Section 5.6"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.07825",
+        "material_read": "Full open-access HTML; definitions in Sections 1.2 and 2, Eqs. (8)–(9), naive Algorithm 3, normalized probe discussion in Section 2.3, Section 3.1 and Proposition 2, general variance Proposition 5 and Section 5.6 proof of Proposition 2, along with relevant numerical examples and supplementary discussion",
+        "method": "Read primary mathematical formulas, assumptions, propositions, and proof material; compared their quantifiers to each statement of the new claim",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "The exact published XNysTrace estimator and posterior diagnostic used by the claim"
+      },
+      {
+        "assessment": "Earlier general leave-one-out error-estimator methods and bounds do not give the identity-matrix XNysTrace pair covariance, exact diagnostic ratio, or full-sketch variance cliff.",
+        "evidence": [
+          "arXiv:2207.06342, published online 2022-07-13; relevant leave-one-out projection and error bounds"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2207.06342",
+        "material_read": "Full-text HTML with leave-one-out estimator definitions, theorem statements, arguments and appendices pertaining to error estimates and Gaussian random matrices",
+        "method": "Compared estimator objects and second-moment bounds with the specific exchangeable XNysTrace basic estimators",
+        "title": "Efficient error and variance estimation for randomized matrix computations",
+        "trigger": "Plausible earlier leave-one-out error-diagnostic and Gaussian projection theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4aed760e-42f3-471d-bff7-05f816dd36b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact dimension-indexed correlation and diagnostic calibration ratio resolve a natural question left parameterized in the original XNysTrace Proposition 2. A sharp near-full-sketch regime exposes a qualitative mismatch between the squared absolute-error proxy (vanishing in probability) and realized absolute trace error (nonconcentrating). One additional Gaussian probe makes the ideal estimator exact. This is a structural benchmark for exchangeable error diagnostics, not a claim about the source-recommended normalized algorithm or fixed relative-error performance.",
+    "status": "PASS"
+  }
+}
