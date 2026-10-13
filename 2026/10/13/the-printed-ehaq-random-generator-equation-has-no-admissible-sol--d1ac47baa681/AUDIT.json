@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The published CDF gives the corrected minus-sign relation by exact algebra. The left side has derivative \\(-\\tau^2(2+\\tau+\\tau x^2/2)e^{-\\tau x}<0\\), so its range is exactly \\((0,(1+\\tau)^2]\\). The printed plus-sign right side lies strictly outside that range, whereas the corrected right side lies strictly inside it and therefore has one unique root. Independent numerical replay reproduces the source's displayed quartiles from the corrected relation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General exponentiated-distribution literature uses a baseline CDF raised to a positive power.",
+        "That framework yields the corrected inversion but does not identify or discuss the 2025 EHaq printed equation.",
+        "No broader source located in the searches states the EHaq-specific range obstruction."
+      ],
+      "reasoning": "The accepted claim is the source-specific incompatibility of Eq. (10) with its own CDF and the resulting failure of the described generator, not the generic exponentiation identity by itself.",
+      "searches": [
+        "Haq distribution exponentiated quantile simulation Eq 10",
+        "exponentiated G quantile F(x)=G(x)^alpha inverse",
+        "Lehmann alternatives exponentiated distribution quantile"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20251002",
+      "doi:10.1080/03610929808832134"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest checked quantile corrections concern different distributions and different inversion failures.",
+        "A Lambert-W correction for a shifted gamma-type model does not imply the EHaq sign error.",
+        "A q-deformed Lindley normalization correction and an r-Lambert inversion for another transformed family likewise do not entail this equation's empty solution set."
+      ],
+      "reasoning": "Similarity at the topic level does not give implication coverage: the models, transformations, equations, and error mechanisms differ.",
+      "searches": [
+        "published quantile correction random generator exponentiated distribution",
+        "exponentiated Haq prior correction",
+        "10.3934/math.20251002 previous findings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No located published result stated the EHaq Eq. (10) sign correction or the empty-solution consequence.",
+        "The rendered primary page visibly prints the plus sign in the inversion and in Eq. (10).",
+        "Exact correction and erratum searches located the original article but no correction notice."
+      ],
+      "reasoning": "The searches cover the exact source, model name, quantile inversion, random generation, the plus-sign defect, and correction aliases.",
+      "searches": [
+        "10.3934/math.20251002 exponentiated Haq quantile random generator equation",
+        "EHaq quantile equation plus sign random number generator",
+        "exponentiated Haq distribution quantile function correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 3.2 prints the plus-sign Eq. (10) and says its solution is obtained numerically.",
+        "Table 1 quartiles are reproduced by the corrected minus-sign equation.",
+        "The simulation section explicitly says random samples are selected using the quantile function in Eq. (10)."
+      ],
+      "reasoning": "These source locations establish both the mathematical defect and its stated computational role while limiting the claim so it does not infer that hidden code used the wrong sign.",
+      "searches": [
+        "10.3934/math.20251002 Eq 10 quantile",
+        "10.3934/math.20251002 Table 1 quantile",
+        "10.3934/math.20251002 simulation Eq 10"
+      ]
+    },
+    "rationale": "The primary article itself prints the impossible equation and later cites it as the method used to generate Monte Carlo samples. Target-specific published-result searches, exact correction searches, comparison with the general exponentiated-distribution construction, and comparison against the closest published quantile corrections located no source-specific correction of this equation.",
+    "residual_risks": [
+      "The unpublished simulation code may already have used the corrected sign.",
+      "A very recent or unindexed correction may exist.",
+      "Other formulas and empirical results were intentionally not reassessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DECISIVELY INCONSISTENT at Eq. (10). The printed right side is outside the left-side range for every nontrivial probability level; the table values instead match the corrected equation.",
+        "evidence": "CDF Eq. (3), Section 3.2 and Eq. (10), Table 1, and the simulation-method statement.",
+        "identifier_or_url": "doi:10.3934/math.20251002",
+        "material_read": "Open full article at the defining CDF and PDF, Section 3.2 quantile/random-number-generator derivation and Eq. (10), Table 1 quartiles, and the simulation statement citing Eq. (10).",
+        "method": "Direct parsed-text and rendered-page inspection of the publisher PDF.",
+        "title": "An exponentiated Haq distribution: Theoretical aspects, estimation, and modeling of radiation and COVID-19 datasets",
+        "trigger": "Primary source defining the EHaq CDF and the printed quantile/random-generator equation."
+      },
+      {
+        "assessment": "GENERAL BACKGROUND ONLY; it contains no EHaq equation or source-specific correction.",
+        "evidence": "The model definition uses a positive power of the baseline distribution function.",
+        "identifier_or_url": "doi:10.1080/03610929808832134",
+        "material_read": "Publisher model statement describing the transformed CDF as a positive power of a baseline CDF.",
+        "method": "Direct publisher-page inspection.",
+        "title": "Modeling failure time data by Lehman alternatives",
+        "trigger": "Classical source for the positive-power CDF construction cited in the EHaq literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1ac47ba-a681-4584-a0c3-29dbc48119a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The equation is presented as the random-number generator, and the simulation section explicitly says Monte Carlo samples are generated from it. As printed, it has no root for any nontrivial probability level, so the stated simulation procedure is not reproducible from the article. The exact sign repair restores a unique generator and reproduces the displayed quartiles, making the correction computationally consequential without overclaiming about hidden code.",
+    "status": "PASS"
+  }
+}
