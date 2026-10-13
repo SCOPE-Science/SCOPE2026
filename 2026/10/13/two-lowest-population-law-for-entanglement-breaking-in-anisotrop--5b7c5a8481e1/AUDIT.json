@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The Choi partial-transpose matrix consists of positive one-dimensional diagonal sectors and explicit 2x2 sectors, giving necessity if and only if s/(1-s) does not exceed every sqrt(p_i p_j). The independent cubic-phase finite product-projector sum reconstructs exactly the Choi offdiagonal sector; its residue is diagonal and coefficientwise nonnegative under precisely those inequalities, giving all-dimensional sufficiency. Trace and normalization are explicit; Lindblad jumps L_ij=sqrt(gamma p_i)|i><j| reproduce the reset generator and s=exp(-gamma t). At s=0 and at the equality boundary the product decomposition still holds. Direct NumPy checks on full package script corroborate the identities in dimensions 3 to 5, not replacing their proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanson-Rouze-Stilck França arXiv:1902.08173, Example 2.12, treats the unital maximally mixed reset and more general time bounds.",
+        "Baitenov DOI:10.4213/tm4375, introduction and Eq. (1.4), defines a shifted depolarizing channel with stationary state p|0><0| + c(I-|0><0|), hence at most two distinct eigenvalues."
+      ],
+      "reasoning": "Neither the unital case nor the explicitly defined two-level stationary family contains the >=3-distinct-eigenvalue target. The later parts of the Baitenov PDF were not completely available; a general lemma inside could still cover the target, and this is the most important unresolved priority risk.",
+      "searches": [
+        "thermal reset quantum channel entanglement-breaking exact threshold",
+        "nonunital depolarizing channel Gibbs state partial transpose separability",
+        "\"nonunital depolarizing\" \"entanglement-breaking\" \"dimension\"",
+        "DOI:10.4213/tm4375",
+        "arXiv:1902.08173"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:quant-ph/0302031",
+      "arXiv:1902.08173",
+      "arXiv:2606.31243",
+      "DOI:10.4213/tm4375",
+      "2026/9/16/SCOPE007 (unrelated PEPS filter result)",
+      "2026/9/9/SCOPE061 (unrelated four-quhex result)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] Choi separable iff entanglement breaking is a premise, not an evaluated threshold.",
+        "[2] Unital isotropic sigma=I/d is excluded; general eventual EB does not determine first time.",
+        "[3] d=2 product noise is excluded and its threshold is acknowledged.",
+        "[4] its channel input family has at most two distinct target populations, excluded by the three-eigenvalue requirement."
+      ],
+      "reasoning": "The present conditional includes a nontrivial spectral minimum over all unordered pairs and a phase-twirl separability construction. These do not follow from the exact statements compared in [1]-[4] as inspected, except that [1] provides the general criterion. The incomplete final pages of [4] and other unlocated literature remain risks.",
+      "searches": [
+        "arXiv:quant-ph/0302031",
+        "arXiv:1902.08173",
+        "arXiv:2606.31243",
+        "DOI:10.4213/tm4375",
+        "entanglement breaking mixing identity channel replacement fixed state spectrum eigenvalues rank 2 PPT separable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.31243 develops Bell-mixing capacities for two qubits; the determinant product-noise formula corresponds to d=2, which is excluded here.",
+        "Horodecki-Shor-Ruskai arXiv:quant-ph/0302031 supplies the Choi separability equivalence, not an evaluated anisotropic reset criterion."
+      ],
+      "reasoning": "The equivalent formulations are PPT-separability of maximally entangled plus I tensor sigma Choi mixtures, identity-replacement channels, and thermal reset semigroups. The d=2 statement is covered by Trinh and is not claimed; the target instead has d>=3 and at least three distinct stationary eigenvalues.",
+      "searches": [
+        "entanglement breaking mixing identity channel replacement fixed state spectrum eigenvalues rank 2 PPT separable",
+        "Choi state maximally entangled projector plus identity tensor arbitrary diagonal state PPT separable threshold",
+        "Choi of replacer and identity mixture sep iff PPT",
+        "For all finite dimensions d at least 3, a mixture s identity channel plus (1-s) replacement by a full-rank state sigma with three distinct eigenvalues is entanglement-breaking iff s/(1-s) <= sqrt(product of two smallest sigma eigenvalues); PPT of Choi is sufficient for separability by phase-twirled product vectors and Lindblad thermal reset first breaking time equals log(1+1/r)/gamma",
+        "\"replacement channel\" \"entanglement breaking\" \"sqrt\" determinant",
+        "arXiv:2606.31243"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A mathematical research-index query returned items 2026/9/16/SCOPE007 (PEPS patch filters) and 2026/9/9/SCOPE061 (four-quhex stabilizer separation), which have no implication for identity–replacer channels.",
+        "The indexed search also included the exact Choi/PPT and Gibbs-time formulations, with no source identified as stating this full-dimensional spectral threshold."
+      ],
+      "reasoning": "No exact numerical database or table is appropriate for this all-dimensional analytic classification. Database/result-index searches found no matching threshold but are not considered a novelty guarantee; implication comparisons, not title matching, decide the cited distinctions.",
+      "searches": [
+        "replacement channel general d spectral PPT",
+        "reset to Gibbs state semigroup entanglement breaking time two smallest Gibbs probabilities",
+        "Choi state maximally entangled projector plus identity tensor arbitrary diagonal state PPT separable threshold",
+        "nonunital depolarizing channel Gibbs state partial transpose separability"
+      ]
+    },
+    "rationale": "The proven full-rank, >=3-eigenvalue and d>=3 exact threshold and explicit finite phase-twirled separable decomposition are not supplied by the comparison texts: [1] is a general criterion, [2] covers ordinary unital depolarization and estimates for general semigroups, [3] covers the d=2 Bell-mixing setting, and [4] defines a closely related family whose stationary state has at most two distinct eigenvalues. None of the matched published records states a stronger result implying the present at-least-three-eigenvalue theorem. The later portions of [4] were not fully accessible, so an unseen general lemma remains a stated residual risk rather than being declared absent.",
+    "residual_risks": [
+      "Part of the 2024 shifted-depolarizing paper could not be inspected beyond its introduction and definition; an unstated general-purpose lemma could have broader implications.",
+      "Other all-dimensional maximally-correlated-plus-diagonal PPT/separability results may imply this channel-specific threshold even if their names differ.",
+      "Search results do not establish global publication priority or exclude unpublished work; independent literature audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies channel/Choi characterization, not the evaluated anisotropic high-dimensional replacement threshold",
+        "evidence": [
+          "Theorem 4 equivalences",
+          "Public v1 date 2003-02-04"
+        ],
+        "identifier_or_url": "arXiv:quant-ph/0302031",
+        "material_read": "Full open HTML main theorem and channel characterizations; public submission history",
+        "method": "arXiv HTML full text and abstract landing page",
+        "title": "General Entanglement Breaking Channels",
+        "trigger": "General Choi-to-EB equivalence and potential implicit exact criterion"
+      },
+      {
+        "assessment": "Unital depolarizing and broad eventual breaking framework; does not state this anisotropic exact spectral rule",
+        "evidence": [
+          "Example 2.12 uses sigma=I/d",
+          "general primitive semigroup characteristic times"
+        ],
+        "identifier_or_url": "arXiv:1902.08173; DOI:10.1007/s00023-020-00906-4",
+        "material_read": "Open-access Springer HTML text including semigroup theorems and Example 2.12",
+        "method": "Full HTML article",
+        "title": "Eventually Entanglement Breaking Markovian Dynamics: Structure and Characteristic Times",
+        "trigger": "General Markovian exact or bounded first breaking times"
+      },
+      {
+        "assessment": "Directly covers d=2 replacement-product situation; the new claim excludes all qubits",
+        "evidence": [
+          "two-qubit Bell reference setting",
+          "product noise formulas and determinant-dependent threshold"
+        ],
+        "identifier_or_url": "arXiv:2606.31243; ResearchGate full text",
+        "material_read": "Open full text, formulas and product-noise subsection for Bell mixing",
+        "method": "Lawful open full-text HTML",
+        "title": "Absorption capacity of separable noise: Bell-mixing thresholds on separability and teleportation",
+        "trigger": "Same Bell-plus-product-noise mixture in dimension two"
+      },
+      {
+        "assessment": "The paper defines a stationary spectrum with at most two distinct eigenvalues. Direct family differs from the claim restricted to >=3 distinct eigenvalues. Cannot exclude an implicit general-purpose lemma in the inaccessible remainder.",
+        "evidence": [
+          "Eq. (1.4) fixed |0> and complement P",
+          "Eq. (1.5) invariant target with two eigenvalue levels",
+          "abstract only states both occurrence and nonoccurrence of entanglement breaking"
+        ],
+        "identifier_or_url": "DOI:10.4213/tm4375; https://www.mathnet.ru/eng/tm4375",
+        "material_read": "Abstract, original Russian-language PDF introductory statements, equations (1.4) and (1.5), and stated scope of Section 4; later section was not retrieved successfully",
+        "method": "Original OA PDF parsed text and HTML bibliographic record; PDF screenshot access attempted but timed out",
+        "title": "On Jensen Gap and Capacity of a Shifted Depolarizing Quantum Channel",
+        "trigger": "A shifted, nonunital depolarizing family with parameter-dependent entanglement-breaking property"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b7c5a84-81e1-4c9e-8e58-4fdbd3f8451e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first time a thermal quantum reset channel necessarily destroys entanglement with any ancilla is an operational memory lifetime. Existing general eventual-EB theorems and the isotropic benchmark do not determine it for genuine multi-level anisotropic stationary spectra. This infinite family is classified by the two smallest populations, with a constructive PPT-to-separable result valid despite PPT generally being insufficient in dimensions >=3. The exact two-smallest-level dependence identifies which thermal excitation tail controls complete entanglement loss; neither a chosen parameter slice nor a bare numerical threshold.",
+    "status": "PASS"
+  }
+}
