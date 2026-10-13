@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces the feasible half-space to its boundary by joint convexity, aligns the transverse Bloch phase by the exact qubit logarithm formula, and obtains a strictly convex scalar objective because -log is strictly operator convex and the arm is faithful. The derivative is negative at the zero-coherence endpoint and diverges positively at the Bloch-ball boundary, giving exactly one root. The bundled checker replays the derivative bracket and numerical specialization; finite computation is not used as the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Olivares--Paris minimize the forward-oriented relative entropy, with the constrained state in the first argument, and obtain an exponential-family path.",
+        "Fawzi--Fawzi provide general numerical optimization methods rather than this qubit analytic half-space solution.",
+        "The owned prior qubit unitary-orbit finding fixes the second-state spectrum and varies only its eigenbasis."
+      ],
+      "reasoning": "These broader results address different feasible geometries or the opposite relative-entropy orientation and therefore do not imply the present minimizer.",
+      "searches": [
+        "qubit quantum relative entropy minimize over half-space fixed Bloch coordinate",
+        "single-copy quantum bandit collective memory cap qubit exact Dinf",
+        "arXiv:0708.0956 minimum Kullback entropy single observable qubit",
+        "arXiv:1705.06671 quantum relative entropy optimization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.40339v1 full-text HTML",
+      "arXiv:0708.0956v3 full-text HTML",
+      "arXiv:1705.06671 public abstract",
+      "owned current ledger g000067",
+      "owned prior-week ledger g000052",
+      "required semantic research index"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ng proves equality conditions and a converse but explicitly leaves collective attainability open and reports numerical values for the running instance.",
+        "Olivares--Paris constrain the first argument of relative entropy, not the second.",
+        "The fixed-spectrum unitary-orbit result cannot optimize the spectrum simultaneously with the reward coordinate."
+      ],
+      "reasoning": "No inspected stronger theorem subsumes the exact reward-boundary reduction and unique scalar minimizer under simultaneous spectrum/eigenbasis variation.",
+      "searches": [
+        "arXiv:2609.40339 Sections VI-VIII Umegaki half-space numerical instantiation",
+        "arXiv:0708.0956 equations 10-17 orientation",
+        "owned-ledger: qubit Umegaki unitary orbit profile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.40339v1 reports the running qubit instance and the Umegaki half-space converse but does not state the scalar minimizer formula or the minimizing Bloch coordinate.",
+        "No source-specific search returned the constants 0.255924326148 or 1.117330054762 in an analytic half-space formula."
+      ],
+      "reasoning": "The new statement is not a renaming of the source's numerical cap: it gives an all-faithful-qubit reduction, proves boundary alignment and uniqueness, and identifies the stationary equation.",
+      "searches": [
+        "2609.40339 qubit Umegaki half-space divergence exact minimizer Bloch projector reward",
+        "quantum bandit D_inf qubit projector reward exact formula Bloch",
+        "reverse relative entropy projection qubit affine expectation constraint Umegaki second argument",
+        "public-web: 2609.40339 one-dimensional D_inf Umegaki qubit minimizer",
+        "public-web: 2609.40339 0.255924 1.117330"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source's table gives measured-relative-entropy and two-copy quantities and quotes the quantum-memory exploration floor numerically; it does not tabulate an analytic Umegaki minimizer.",
+        "The semantic searches returned no database/table containing the claimed minimizer coordinate."
+      ],
+      "reasoning": "The result is an analytic continuum reduction, not a recomputation of a known finite table.",
+      "searches": [
+        "2609.40339 0.255924",
+        "2609.40339 1.117330",
+        "quantum bandit Dinf qubit table exact minimizer"
+      ]
+    },
+    "rationale": "The source paper supplies the operational half-space quantity and a numerical qubit instantiation, but not an analytic minimizer. The closest older constrained-relative-entropy paper minimizes the opposite argument, while fixed-spectrum qubit orbit results keep the second-state spectrum fixed. Neither implies the boundary-and-coherence reduction, unique scalar root, or source-instance analytic cap obtained here. Source-specific and alias searches in the required semantic database and the owned current/prior ledgers found no equivalent claim.",
+    "residual_risks": [
+      "An equivalent reverse-information-projection formula could exist in older specialized quantum information-geometry literature under terminology not surfaced by the searches.",
+      "The theorem is intentionally restricted to faithful qubits and projector rewards; higher-dimensional or multi-eigenvalue effects are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact optimization and gives numerical evidence/cap, but no analytic qubit half-space minimizer or one-dimensional reduction.",
+        "evidence": [
+          "Primary MSC 81P45 and v1 date 2026-09-30.",
+          "Running instance has reward projector, arm Bloch vector (0.9,0,0), threshold Bloch coordinate 0.9, and quotes a 25.7% maximal exploration saving from the Umegaki floor."
+        ],
+        "identifier_or_url": "arXiv:2609.40339v1",
+        "material_read": "Abstract, model/divergence definitions, quantum-memory converse and open problem, block hierarchy, and numerical-instantiation discussion.",
+        "method": "Public arXiv HTML full text.",
+        "title": "The Single-Copy Quantum Bandit Is Classical: An Exact Spectral Collapse",
+        "trigger": "Anchor defining the Umegaki half-space divergence and the running qubit instance."
+      },
+      {
+        "assessment": "Minimizes D(posterior||prior), the opposite argument orientation, so its exponential-family solution does not cover the reverse-oriented relative entropy minimized over sigma.",
+        "evidence": [
+          "Equation 10 defines K(varrho|tau)=D(varrho||tau).",
+          "Equations 13-17 vary varrho under the observable constraint while tau is fixed."
+        ],
+        "identifier_or_url": "arXiv:0708.0956v3",
+        "material_read": "Definition of quantum Kullback entropy and the single-observable constrained construction, equations 10-17.",
+        "method": "Public arXiv full-text HTML.",
+        "title": "Quantum estimation via minimum Kullback entropy principle",
+        "trigger": "Potential broader constrained relative-entropy projection theorem."
+      },
+      {
+        "assessment": "Provides a numerical semidefinite-approximation framework, not this analytic half-space solution.",
+        "evidence": [
+          "The paper's stated contribution is numerical computation of relative-entropy optimizations with SDP solvers."
+        ],
+        "identifier_or_url": "arXiv:1705.06671",
+        "material_read": "Abstract and problem scope.",
+        "method": "Public indexed abstract.",
+        "title": "Efficient optimization of the quantum relative entropy",
+        "trigger": "General optimization could dominate a qubit-specific exact reduction."
+      },
+      {
+        "assessment": "Different feasible set: fixed spectra under unitary conjugation. It does not vary the comparison-state spectrum under a reward half-space constraint.",
+        "evidence": [
+          "The prior claim explicitly concerns fixed-spectrum unitary orbits and excludes broader feasible sets."
+        ],
+        "identifier_or_url": "owned-ledger item fc867526-8da0-45e6-a19b-95239fbe288b",
+        "material_read": "Recoverable claim, relationship-to-prior-work text, and scope limitations from the prior ledger.",
+        "method": "Owned-ledger semantic search for overlap only.",
+        "title": "Prior owned qubit unitary-orbit relative-entropy profile",
+        "trigger": "Own-history overlap risk from a qubit relative-entropy optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b474974-77f0-4696-9fc0-31827c39a184",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's quantum-memory converse depends on the Umegaki half-space divergence and its central numerical qubit example quotes a 25.7% possible exploration saving without an analytic minimizer. The result supplies the exact minimizer structure for the entire faithful qubit/projector-reward class and turns that benchmark from a black-box numerical optimization into a reproducible one-dimensional formula. This directly sharpens interpretation of the source's proposed collective advantage while respecting that attainability remains open.",
+    "status": "PASS"
+  }
+}
