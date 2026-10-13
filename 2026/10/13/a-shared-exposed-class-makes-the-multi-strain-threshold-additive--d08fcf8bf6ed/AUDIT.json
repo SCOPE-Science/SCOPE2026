@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "At the disease-free equilibrium, \\(N^0=S^0+D^0\\), so every infectious class has incidence derivative \\(\\beta\\). With infected variables \\((E,I_1,\\ldots,I_n,C)\\), only incidence into \\(E\\) belongs to the new-infection matrix. Progression \\(E\\to I_j\\) and \\(E\\to C\\) belongs to the transition matrix. The resulting \\(FV^{-1}\\) has rank one and spectral radius \\(\\frac{\\beta}{\\mu+\\phi}[\\alpha\\sum_j\\varphi_j/(\\mu_j+\\gamma_j+\\mu)+(1-\\alpha)\\phi/(\\mu+\\delta_1+\\gamma)]\\). The exact two-strain witness gives published \\(\\mathcal R_{\\mathrm{src}}=9/10\\), corrected \\(\\mathcal R_{\\mathrm{pool}}=27/20\\), and Jacobian eigenvalue \\(-1+3\\sqrt{15}/10>0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khyar and Allali (2020), DOI 10.1007/s11071-020-05929-4, use distinct strain-specific exposed and infectious chains and obtain \\(\\max\\{\\mathcal R_0^1,\\mathcal R_0^2\\}\\).",
+        "Arruda et al. (2021), DOI 10.1371/journal.pone.0257512, obtain a maximum over strain-specific thresholds in a different strain-separated model.",
+        "Van den Driessche and Watmough (2002), DOI 10.1016/S0025-5564(02)00108-6, establish the next-generation spectral-radius framework used for the correction."
+      ],
+      "reasoning": "The broader literature explains when maximum-of-strain thresholds are valid but does not subsume a pooled exposed compartment in which all return pathways contribute to one rank-one next-generation eigenvalue.",
+      "searches": [
+        "Global Dynamics of a Multi-Strain SEIR Epidemic Model with General Incidence Rates reproduction number",
+        "Modelling and optimal control of multi strain epidemics reproduction number max",
+        "Dynamic of a two-strain COVID-19 model with vaccination reproduction number two strain"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.28924/APJM/13-47",
+      "doi:10.1016/S0025-5564(02)00108-6",
+      "doi:10.1007/s11071-020-05929-4",
+      "doi:10.1371/journal.pone.0257512"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source itself cites the next-generation framework but places exposed-to-infectious progression in its displayed new-infection matrix.",
+        "The Khyar-Allali model has separate exposed classes and therefore a block-separated next-generation matrix; its max rule cannot be transferred to the pooled-\\(E\\) system.",
+        "The accepted counterexample directly exhibits a positive eigenvalue in the printed 2026 infected Jacobian while the source threshold is \\(9/10\\)."
+      ],
+      "reasoning": "A general max-over-strains result is not available without structural separation of strain infection chains. The shared exposed state couples all infectious pathways before progression, so the exact source equations must be recomputed.",
+      "searches": [
+        "multi strain SEIR separate exposed classes maximum reproduction number",
+        "shared exposed compartment multiple infectious classes next generation matrix reproduction number",
+        "10.28924/APJM/13-47 disease-free stable if and only if R0 less than one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 article prints one exposed class \\(E\\), all \\(I_j\\) classes, and one common \\(C\\) class, then states \\(\\mathcal R_0=\\max_j\\mathcal R_j^0\\).",
+        "No inspected indexed source stated the rank-one pooled-exposure threshold or the exact two-strain counterexample for DOI 10.28924/APJM/13-47."
+      ],
+      "reasoning": "An equivalent correction would have to account for all strain return paths through the same exposed class. The retrieved multi-strain max-threshold results use separated strain compartments and therefore are not equivalent.",
+      "searches": [
+        "10.28924/APJM/13-47 reproduction number multi-strain COVID chronic diabetes next generation matrix",
+        "Modeling Optimal Control Multi-Strain Epidemic Underlying Chronic Disease reproduction number correction",
+        "APJM 13-47 R0 max R0j stability disease-free",
+        "multi-strain epidemic shared exposed compartment reproduction number sum pathways max strain threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical result concerned a different coupled-SEIR reproduction-number bracketing problem and did not reference the motivating DOI.",
+        "No indexed result located by the source DOI or title supplied the same pooled-exposure threshold correction."
+      ],
+      "reasoning": "Search noncoverage is only supporting evidence. The originality assessment primarily uses direct statement-level comparison with the motivating source and structurally closest multi-strain models.",
+      "searches": [
+        "10.28924/APJM/13-47 reproduction number multi-strain COVID chronic diabetes next generation matrix",
+        "multi strain COVID diabetes common exposed compartment next generation matrix",
+        "APJM 13-47 R0 max R0j stability disease-free"
+      ]
+    },
+    "rationale": "The motivating article explicitly prints one shared exposed class but computes its multi-strain threshold by a strainwise maximum. Exact-DOI and statement-level searches found no source-specific correction. Earlier multi-strain papers do obtain maximum-of-strain thresholds, but their infection chains are separated by strain; that structure does not imply the threshold for the pooled exposed class in the 2026 model.",
+    "residual_risks": [
+      "An unindexed correction could already amend the 2026 reproduction-number formula.",
+      "If the authors intended distinct exposed classes but printed one pooled exposed class, the biological model would need to be re-specified before applying this correction.",
+      "The endemic-equilibrium and optimal-control sections are outside the accepted claim.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_CONTAINS_MULTI_STRAIN_THRESHOLD_ERROR. The displayed model has one shared exposed class, but the threshold is computed strain-by-strain rather than from the full infected subsystem.",
+        "evidence": "The article defines infection incidence through \\(C+\\sum_j I_j\\), a single \\(E\\), progression \\(\u0007lpha\u000barphi_jE\\) into every \\(I_j\\), and \\((1-\u0007lpha)\\phi E\\) into \\(C\\). Equation (3.8) then takes a maximum of separate square-root expressions.",
+        "identifier_or_url": "doi:10.28924/APJM/13-47",
+        "material_read": "Full article sections containing equations (2.1)-(2.7), disease-free equilibrium, Section 3.2.1 next-generation matrices and equation (3.8), Theorem 3.4 and its Jacobian proof, optimal-control state equations, and references; relevant PDF pages were also visually inspected.",
+        "method": "Open-access journal PDF, parsed text, and page images.",
+        "title": "Modeling and Optimal Control of a Multi-Strain Epidemic Applied to COVID-19 with an Underlying Chronic Disease Condition",
+        "trigger": "Exact motivating model, next-generation calculation, and disease-free stability theorem."
+      },
+      {
+        "assessment": "METHOD_PRIOR. It supplies the general spectral-radius framework; the source-specific matrix construction remains the new calculation here.",
+        "evidence": "The paper defines the basic reproduction number for general compartmental ODE models and proves the disease-free threshold property.",
+        "identifier_or_url": "doi:10.1016/S0025-5564(02)00108-6",
+        "material_read": "Primary abstract and openly available author-copy metadata describing the next-generation definition and the \\(\\mathcal R_0<1\\)/\\(\\mathcal R_0>1\\) disease-free threshold.",
+        "method": "Primary bibliographic record and author-hosted copy indexing.",
+        "title": "Reproduction Numbers and Sub-Threshold Endemic Equilibria for Compartmental Models of Disease Transmission",
+        "trigger": "Method source explicitly cited by the motivating paper."
+      },
+      {
+        "assessment": "STRUCTURALLY_DIFFERENT_NOT_COVERING. Its strain-specific exposed/infectious chains are block-separated.",
+        "evidence": "The displayed matrices contain separate \\(E_1,I_1\\) and \\(E_2,I_2\\) chains and yield \\(\\mathcal R_0=\\max\\{\\mathcal R_0^1,\\mathcal R_0^2\\}\\).",
+        "identifier_or_url": "doi:10.1007/s11071-020-05929-4",
+        "material_read": "Publisher article page including the explicit next-generation matrices, separate strain reproduction numbers, max formula, and model summary.",
+        "method": "Publisher full-text indexing.",
+        "title": "Global Dynamics of a Multi-Strain SEIR Epidemic Model with General Incidence Rates: Application to COVID-19 Pandemic",
+        "trigger": "Closest cited deterministic multi-strain SEIR comparison using a maximum threshold."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. The max formula belongs to a strain-separated architecture rather than the pooled exposed class of the motivating system.",
+        "evidence": "The paper reports \\(\\mathcal R_0=\\max_j (1-u)\beta_j\\overline S_j/(\\mu_j+\\gamma_j)\\) for its own model.",
+        "identifier_or_url": "doi:10.1371/journal.pone.0257512",
+        "material_read": "Open full-text indexed material covering the model scope, equilibrium analysis, and reproduction-number formula as a maximum over strain-specific thresholds.",
+        "method": "Open-access full-text indexing.",
+        "title": "Modelling and Optimal Control of Multi Strain Epidemics, with Application to COVID-19",
+        "trigger": "Multi-strain control model cited by the 2026 article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d08fcf8b-f6ed-4115-8ea3-6c8b599b3784",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The basic reproduction number is the central invasion threshold used by the article to classify the disease-free state and motivate control. The error is genuinely multi-strain: several subcritical return pathways can add through the shared exposed compartment and destabilize the disease-free state even though every published strainwise quantity is below one. The exact witness \\(\\mathcal R_{\\mathrm{src}}=9/10\\) versus \\(\\mathcal R_{\\mathrm{pool}}=27/20\\) demonstrates a qualitative reversal rather than a minor numerical adjustment.",
+    "status": "PASS"
+  }
+}
