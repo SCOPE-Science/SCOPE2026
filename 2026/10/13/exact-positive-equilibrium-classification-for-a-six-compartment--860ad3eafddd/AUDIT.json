@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "The six-dimensional equilibrium equations are solved without approximations. Noncompliant-population balance has exactly one interior root because its quadratic has opposite-sign roots and its values at 0 and b/delta have opposite signs. For each positive pressure the susceptible M-matrix and infectious transfer M-matrix possess strictly positive inverses. Differentiating the susceptible equations shows each susceptible component is strictly decreasing in pressure (alpha<1). Therefore the rank-one pressure consistency F(lambda) decreases strictly from the true next-generation spectral radius to zero. Exactly one positive equilibrium exists iff this threshold exceeds 1, and none otherwise. Explicit elimination yields a quadratic, and recovered compartments and total/noncompliant balance are verified independently for self-consistency. Rational script verify.py replays six vector-field residuals, all six fractions, scalar pressure and both threshold values and prints VERIFY_OK. The checker is finite arithmetic; global classification follows from the written analytic proof, not from numeric enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General next-generation methods give local invasion criteria, not a complete global equilibrium count. The spatial and PDE-control papers lack an all-parameter six-dimensional positive-equilibrium uniqueness theorem for this exact equation."
+      ],
+      "reasoning": "A broad spectral-radius inequality alone does not exclude backward bifurcation or multiple endemic equilibria, and a spatial model with different state equations does not automatically dominate the constant-control six-compartment equilibrium classification.",
+      "searches": [
+        "social behavioral SIR epidemiological model optimal control compliance noncompliance endemic equilibrium unique R0 threshold no backward bifurcation",
+        "rank-one force of infection coupled behavioral SIS SIR full endemic equilibria monotone quadratic equilibrium reproduction number",
+        "two behavior group SIR social contagion endemic equilibrium unique no backward bifurcation rank one force of infection 2025",
+        "arXiv:2303.01489v3 model/extinction/persistence results",
+        "arXiv:2407.17298v2 PDE-control results",
+        "van den Driessche--Watmough (2002) global versus local statements"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.09075v3: full model, main text, original PDF model and threshold pages",
+      "arXiv:2509.09075v1: preprint-model version comparison",
+      "arXiv:2507.01046v4: precursor full model and conclusion",
+      "arXiv:2303.01489v3: primary full PDF and conclusions",
+      "arXiv:2407.17298v2: primary full PDF",
+      "van den Driessche and Watmough (2002): complete author-hosted paper",
+      "Pant et al. (2024): abstract/bibliographic evidence only, full article inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing exact correction of the printed v3 disease-free reproduction ratio and a local-instability witness do not determine the positive equilibrium count; that prior analysis explicitly excludes any endemic-equilibrium claim. The source v3 Theorem 2.3 is about disease-free stability and leaves the positive case to future work."
+      ],
+      "reasoning": "Corrected local invasion above threshold is compatible in general epidemic systems with zero, one, or multiple positive equilibria without additional nonlinear structure. The new monotonicity/total-balance proof establishes a global sharp iff statement and hence is not a corollary of the previously established formula correction or generic local next-generation theory. Conversely, the printed-ratio discrepancy and local instability are fully acknowledged as prior work, and the new rational example is used as a witness rather than claimed as an independent novelty.",
+      "searches": [
+        "\"Optimal Control of an SIR Model with Noncompliance as a Social Contagion\" corrected reproduction number mu star minus mu theorem 2.3 counterexample",
+        "two-class epidemic compliance noncompliance rank one force of infection exact quadratic disease endemic equilibria no backward bifurcation",
+        "2025 Parkinson Wang Ngo social contagion reproduction number mismatch alpha mu versus mu star minus mu stable endemic equation",
+        "2025 2026 compliance noncompliance epidemic social contagion endemic equilibria quartic uniqueness Ngo Parkinson Wang",
+        "arXiv:2509.09075v3 Theorem 2.3 and equation (2.6)",
+        "van den Driessche--Watmough (2002) local threshold framework"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target source explicitly anticipates a quartic rather than giving existence/uniqueness for positive equilibria. The related model has different infection/transfer dynamics and future-work statements, not an equivalent transformed scalar condition."
+      ],
+      "reasoning": "Directly compared formulations in infection pressure, noncompliant total and each fixed-control transfer, rather than only titles; the present complete six-equation equilibrium reduction is not equivalent to a local disease-free threshold or a different-coefficient spatial model.",
+      "searches": [
+        "noncompliance social contagion SIR model six compartments Ngo Parkinson Wang unique endemic equilibrium quadratic force of infection",
+        "social behavioral SIR epidemiological model optimal control compliance noncompliance endemic equilibrium unique R0 threshold no backward bifurcation",
+        "rank-one force of infection coupled behavioral SIS SIR full endemic equilibria monotone quadratic equilibrium reproduction number",
+        "arXiv:2509.09075v3 equation (2.2), the paragraph anticipating a quartic, and section 2",
+        "arXiv:2507.01046v4 main model and concluding future work",
+        "\"Ngo\" \"Parkinson\" \"Wang\" \"endemic equilibria\" quadratic uniqueness social contagion SIR 2025 2026",
+        "2025 noncompliant social contagion six compartment SIR 0<xi<1 unique fully endemic equilibrium monotone infection pressure scalar quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No evaluated table of all positive equilibria for the exact v3 six-dimensional model was found in the primary full text; the motivating authors instead describe the unfinished polynomial search. Relevant published mathematical search results concerned distinct epidemic or dynamical systems."
+      ],
+      "reasoning": "The claim is a structural theorem in a continuous parameter family, not a finite database fact. An exact equilibrium formula or parameter table for this model would count as prior coverage, but no such source was identified among materials inspected.",
+      "searches": [
+        "noncompliance social contagion SIR model six compartments Ngo Parkinson Wang unique endemic equilibrium quadratic force of infection",
+        "social behavioral SIR epidemiological model optimal control compliance noncompliance endemic equilibrium unique R0 threshold no backward bifurcation",
+        "rank-one force of infection coupled behavioral SIS SIR full endemic equilibria monotone quadratic equilibrium reproduction number",
+        "two-class epidemic compliance noncompliance rank one force of infection exact quadratic disease endemic equilibria no backward bifurcation",
+        "arXiv:2509.09075v3 discussion of endemic equilibria",
+        "arXiv:2507.01046v4 full text",
+        "\"Ngo\" \"Parkinson\" \"Wang\" \"endemic equilibria\" quadratic uniqueness social contagion SIR 2025 2026"
+      ]
+    },
+    "rationale": "Only the complete strictly positive endemic-equilibrium count and scalar quadratic reduction for the specified source model, with 0<xi<1 and the stated controls, are claimed as new. The source expressly leaves that equilibrium problem unfinished, expecting a quartic. Earlier analysis of the same v3 source already corrected its printed reproduction formula and produced a disease-free local-stability reversal; that earlier claim does not assert endemic existence/uniqueness and its correction is NOT claimed as new. Generic next-generation methods and the closely related author-group models do not imply an exact global positive-equilibrium count without the new noncompliant-total closure and strict M-matrix pressure monotonicity. The full relevant source equations and primary PDFs were compared. Coverage by unindexed work is a residual risk, not a uniqueness proof.",
+    "residual_risks": [
+      "An indexed or unindexed recent paper may have independently solved the full endemic-equilibrium count without using the same terminology.",
+      "A relevant behavioral-epidemic source (Pant et al., Mathematics 2024, DOI:10.3390/math12152434) was unavailable in complete full text; accessible model synopsis is different but no whole-document not-covering claim is inferred.",
+      "Later revisions of the motivating source may revise the open endemic-equilibrium discussion; the compared source is explicitly v3, dated 2026-06-19."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies an explicit disease-free analysis but says finding disease-endemic equilibria requires solving what it anticipates as a quartic. Its results do not state the global uniqueness/nonexistence classification or the quadratic reduction. Its printed disease-free R0 correction is known earlier and is not a novelty claim.",
+        "evidence": [
+          "arXiv:2509.09075v3 equation (2.2), section 2 and equations (2.6); explicit authors’ unfinished endemic-equilibrium paragraph and Theorem 2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.09075v3",
+        "material_read": "Complete main-text model equations (2.2), disease-free results and R0 derivation (2.6), Theorem 2.3 and surrounding equilibrium discussion, introduction and conclusions; original PDF pages containing the relevant equations were visually inspected.",
+        "method": "Direct full-text and original-PDF comparison of equations, hypotheses and theorem implications.",
+        "title": "Optimal Control of an SIR Model with Noncompliance as a Social Contagion, v3",
+        "trigger": "Exact six-compartment target system, the printed threshold, the stated disease-free theorem and an uncompleted endemic-equilibrium calculation."
+      },
+      {
+        "assessment": "Version one used a different infection incidence with fewer compliant-contact reduction factors. Its disease-free formula cannot be silently transferred to the v3 full positive-equilibrium problem.",
+        "evidence": [
+          "arXiv:2509.09075v1 original submitted 2025-09-11; equation (2.2) and disease-free analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.09075v1",
+        "material_read": "Version-one model equations and reproduction-number treatment, compared to v3 model and infected pair.",
+        "method": "Direct original preprint text and equation comparison.",
+        "title": "Optimal Control of an SIR Model with Noncompliance as a Social Contagion, first public v1",
+        "trigger": "Same source versions can hide different infection incidence and change the next-generation threshold."
+      },
+      {
+        "assessment": "Related model has differences including enhanced recovery and notation, and leaves full endemic equilibrium analysis unproved; does not imply the exact theorem for the present six-dimensional v3 system.",
+        "evidence": [
+          "arXiv:2507.01046v4 sections containing the original model, reproduction ratio and future work"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.01046",
+        "material_read": "Main model and disease-free sections, deterministic and stochastic scope, concluding open-problem discussion.",
+        "method": "Full-text HTML equation and conclusion inspection, comparing infected transition mechanisms.",
+        "title": "A Compartmental Model for Epidemiology with Human Behavior and Stochastic Effects",
+        "trigger": "Predecessor by the same researchers with substantially overlapping behavior-changing transfers."
+      },
+      {
+        "assessment": "Addresses spatial and limiting dynamics, not the exact finite-dimensional v3 constant-control positive-equilibrium count and polynomial reduction.",
+        "evidence": [
+          "arXiv:2303.01489v3 mathematical model and main persistence/extinction results"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.01489",
+        "material_read": "Main model definition, extinction/persistence theorems and later discussion of endemic/spatial behavior from full PDF.",
+        "method": "Primary full-PDF reading and comparing dynamical object and hypotheses.",
+        "title": "Analysis of a Reaction-Diffusion SIR Epidemic Model with Noncompliant Behavior",
+        "trigger": "Earlier social-contagion epidemic model with spatial diffusion and possible stronger coverage."
+      },
+      {
+        "assessment": "Different PDE-controlled object; no theorem giving the exact six-variable constant-control positive-equilibrium classification.",
+        "evidence": [
+          "arXiv:2407.17298v2, model and main control/PDE results"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.17298",
+        "material_read": "Full-PDF model equations, optimal-control existence and conclusion, and relevant numerical/persistence discussion.",
+        "method": "Source PDF mathematical assumptions and results examined for an implication to homogeneous v3 equilibria.",
+        "title": "Optimal Control of a Reaction-Diffusion Epidemic Model with Noncompliance",
+        "trigger": "Potentially broader coverage of the same author-group epidemiology and noncompliance dynamics."
+      },
+      {
+        "assessment": "It supplies the general spectral-radius method and local threshold results, but does not prove model-wide existence and uniqueness of positive equilibria for the specialized six-dimensional system.",
+        "evidence": [
+          "P. van den Driessche and J. Watmough, Mathematical Biosciences 180 (2002), next-generation framework and local endemic-bifurcation discussion"
+        ],
+        "identifier_or_url": "https://watmough.ext.unb.ca/papers/mgroup.pdf",
+        "material_read": "Framework, reproduction number constructions and local bifurcation conditions of the complete author-hosted paper.",
+        "method": "Direct PDF theorem-to-theorem implication check.",
+        "title": "Reproduction Numbers and Sub-threshold Endemic Equilibria for Compartmental Models of Disease Transmission",
+        "trigger": "Canonical general next-generation theory might already imply the complete count."
+      },
+      {
+        "assessment": "The accessible description concerns different behavior-change transitions and infection model; because complete text was unavailable, a stronger abstract theorem remains a residual research-literature risk.",
+        "evidence": [
+          "Pant, Safdar, Santillana and Gumel (2024), Mathematics 12, 2434, accessible title/abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math12152434",
+        "material_read": "Accessible title, abstract and source bibliographic/model summary; complete full text was blocked by access controls.",
+        "method": "Accessible abstract and scope comparison only, without treating snippets as full-text negative evidence.",
+        "title": "Effects of Behavior Changes in a Mathematical Model of the Spread of SARS-CoV-2 with Imperfect Vaccination",
+        "trigger": "Near-topic two-behavior-class epidemic equilibria might contain an abstract general domination theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "860ad3ea-fddd-498c-a3e3-5b839a7a280b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating study explicitly leaves the number of endemic equilibria unknown and expects a quartic. A full nontrivial existence-and-uniqueness theorem for every interior behavioral-mixing parameter and fixed control turns this into a sharp one-dimensional quadratic threshold and a checkable physical equilibrium. Local invasion instability alone does not provide any of those facts, so the result is a genuine structural completion, not a notation correction, arbitrary parameter slice or routine numerical example. It supports validation of equilibria and parameter-regime interpretations without claiming global stability or empirical forecasts.",
+    "status": "PASS"
+  }
+}
