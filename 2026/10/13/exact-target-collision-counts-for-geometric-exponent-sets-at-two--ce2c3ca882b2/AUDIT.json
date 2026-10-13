@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For n>=3, reduction modulo P=b^(n-2) gives W=L+sP. Carry minimization among lower powers forces at least n-2+bs lower coins, hence s=0. Lower representations then use either n-2 coins (unique), or in base 3 exactly n coins from one split at one of n-3 lower positions. The top pair contributes two optional target collisions precisely when q divides b-1; ternary splits contribute n-3 more precisely when q divides 4. The n=2 case is enumerated exactly. An independent brute-force standard-library verifier passed 1911 complete finite parameter cases, which corroborate but do not prove the unbounded theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The companion abstract states a general Fourier/permanent coefficient-isolation criterion, not an exact arithmetic count for the family q b^(n-2); its body remained unavailable for comprehensive checking.",
+        "The original theorem concerns minimal valid moduli for a particular binary exponent set, so it does not dominate this nonbinary collision multiplicity statement."
+      ],
+      "reasoning": "The abstract general transform criterion characterizes validity by an underlying uniqueness property, but does not itself evaluate the multiplicity fibers in the specified infinite radix-and-modulus family. Inaccessible companion body is retained as explicit residual risk, not asserted as NOT_COVERING.",
+      "searches": [
+        "single-target multiset sums superincreasing geometric progression base 3 base 4 modular collisions two highest powers",
+        "permanent Fourier coefficient isolation geometric exponents b^i-1 modulus q b^(n-2) optimal",
+        "arXiv:2607.09949v2",
+        "https://github.com/jarfo/min-modulus/blob/master/README.md"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.08366v1 (first submitted 2026-07-09)",
+      "arXiv:2607.08366v2 HTML sections examined",
+      "arXiv:2607.09949v2 accessible abstract",
+      "https://github.com/jarfo/min-modulus/blob/master/README.md",
+      "2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689",
+      "2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fonollosa 2026, main theorem: binary least valid modulus 2^n-2^floor(log2 n); proposed result: nonbinary exact target-fiber cardinality for all q b^(n-2).",
+        "The nearest published semantic records concern divisor subset-sum injectivity or isolated finite sum-free configurations rather than geometric indexed length-n multiset collisions."
+      ],
+      "reasoning": "Neither the binary min-modulus claim nor the generic cyclic Fourier criterion provides the new counting formula without the additional lower-digit-carry rigidity argument. The published-finding corpus nearest records do not encompass the object and parameters, even under the alternate formulations searched.",
+      "searches": [
+        "Fonollosa unique multiset sum modular validity geometric base b>=3 q b^(n-2) classification",
+        "single-target multiset sums superincreasing geometric progression base 3 base 4 modular collisions two highest powers",
+        "unique multiset-sum problem nonbinary base two-top-power moduli divisors b-1",
+        "2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689",
+        "2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full-text sections define the indexed multiset collision condition and prove an exact minimum specifically for the base-two set {2^i-1}; no displayed theorem enumerates geometric-base b>=3 collision counts at q b^(n-2).",
+        "Searches for generalized radix uniqueness returned the binary paper and general multiset-sum literature, not an equivalent nonbinary two-digit fiber enumeration."
+      ],
+      "reasoning": "The new formula counts all multiplicity fibers for b>=3 and every q; substituting b for 2 in a theorem about binary minimum moduli does not imply either the exact number of colliders or the exceptional ternary splitting family. An equivalence in uncatalogued work remains possible.",
+      "searches": [
+        "Fonollosa unique multiset sum modular validity geometric base b>=3 q b^(n-2) classification",
+        "unique multiset-sum problem nonbinary base two-top-power moduli divisors b-1",
+        "\"multiset-sum\" \"base b\" modulus geometric exponents unique",
+        "\"unique multiset sum\" \"b^n\" \"base\" minimum modulus",
+        "arXiv:2607.08366v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper tabulates binary least-valid-modulus values for n=2,...,13, a different statistic from the exact nonbinary number of indexed colliding vectors.",
+        "Published semantic record queries returned no table for C_{b,n}(q) with b>=3."
+      ],
+      "reasoning": "Binary minimum tables do not imply exact counts of all target-summing vectors modulo q b^(n-2). No matching table was located; database incompleteness remains a caveat.",
+      "searches": [
+        "digit sum rigidity representation n powers of b preserving lower n-2 digits modulo b^(n-2) exceptional ternary split",
+        "\"super-increasing\" \"base\" \"multiset\" modulus collision",
+        "\"unique multiset sums\" geometric exponent other bases Fourier permanent 2026",
+        "arXiv:2607.08366v2 Section 2 table"
+      ]
+    },
+    "rationale": "Primary full-text comparison shows binary exact least moduli, not full nonbinary collision cardinalities; the companion abstract states the Fourier extraction criterion but no fiber enumeration. Targeted published-finding corpus, literature, synonym, and own two-week ledger searches found no covering claim. A complete inspection of the inaccessible companion body is not asserted, and unindexed equivalences remain possible.",
+    "residual_risks": [
+      "The highly relevant companion article 2607.09949 was accessible only in abstract and bibliographic form; a full-text equivalent formulation cannot be ruled out.",
+      "Semantic and web indexing do not cover all existing publications or unpublished work.",
+      "The binary digit-sum lemma can inspire a generalization; novelty rests on the exact nonbinary collision-count and ternary exception, not on the standard carry mechanism alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers binary minimum modulus, not the stated exact b>=3 collision multiplicity formula.",
+        "evidence": "arXiv:2607.08366v2 §§1-4, 6-8: A={2^k-1} and N_min(n)=2^n-2^floor(log2 n); Section 7 tabulates binary cases.",
+        "identifier_or_url": "https://arxiv.org/html/2607.08366",
+        "material_read": "HTML introduction, definitions, base-two reduction, digit-sum lemma, step lemma, sharp lower-bound discussion, machine-certification discussion, and open problems; main theorem and dated arXiv abstract.",
+        "method": "Read accessible HTML full-text passages including the stated theorem and related-work/open-problem sections; compared object, base restriction, and conclusion.",
+        "title": "Minimum modulus for the unique multiset-sum problem",
+        "trigger": "Same definition of single-target indexed multiset validity; main motivating result with geometric exponents."
+      },
+      {
+        "assessment": "Accessible abstract states general criterion but does not state exact collision fiber counts. Full-body comparison unresolved and retained as residual risk.",
+        "evidence": "arXiv:2607.09949v2 abstract as indexed by SciRate, July 14, 2026.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.09949",
+        "material_read": "Bibliographic metadata and complete accessible abstract, including criterion for exact DFT/permanent extraction; full body could not be opened.",
+        "method": "ArXiv abstract/HTML attempts and lawful publicly indexed research-abstract alternative.",
+        "title": "Ryser, Glynn, and the discrete Fourier transform: orthogonal schemes for the permanent",
+        "trigger": "Companion paper explicitly named by the primary paper; might contain a dominating transform criterion."
+      },
+      {
+        "assessment": "Explicitly describes binary minimum-modulus and finite-abelian-group subjects; does not give the nonbinary q b^(n-2) fiber count.",
+        "evidence": "Public README statement of nmin_eq and base-two A={2^k-1}; module descriptions.",
+        "identifier_or_url": "https://github.com/jarfo/min-modulus/blob/master/README.md",
+        "material_read": "README title, scope, theorem, module summary, and related result descriptions.",
+        "method": "Inspected public repository README, not third-party paper content or an external certification.",
+        "title": "Minimum modulus formalization repository README",
+        "trigger": "Supporting exposition from the source author relevant to alternative forms and broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce2c3ca8-82b2-408c-be4b-b29d644ad6c3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The modular single-target collision condition is a natural criterion for exact cyclic coefficient extraction. The family q b^(n-2) fixes the two highest radix positions and leaves all lower digits, a structural rather than arbitrarily selected slice. The theorem provides a complete infinite three-parameter fiber count and a sharply exceptional ternary phase caused by exactly one lower coin split; this is stronger than proving bare validity or recomputing binary minimum values. It does not claim a global least modulus or a wider transform-speed improvement.",
+    "status": "PASS"
+  }
+}
