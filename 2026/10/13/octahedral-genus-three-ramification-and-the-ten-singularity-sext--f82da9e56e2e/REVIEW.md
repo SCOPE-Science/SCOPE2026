@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The quotient is the symmetric-fourth-power plane cut out by the defining invariant linear equations. Direct polynomial factorization proves the discriminant identity and rational parametrization, while the genus formula makes the six cusps and four nodes exhaustive. The transposition diagonal is a smooth connected hyperelliptic curve with an eight-point branch divisor, so has genus three. Character parity and powers of four-cycles exclude other divisorial inertia. Exact polynomial checks were run. This is a symbolic and geometric proof, not an inference from finite sampling.
+
+**Originality — PASS, with residual risk.** Nukui proves the symmetric K3 construction and its commuting group actions. Tokunaga's earlier general quartic-discriminant example **already gives** a generic six-cusp/four-node sextic, so that count is specifically NOT a new contribution. The octahedral genus-three equation itself is also classical. The claimed addition is the explicitly realized full permutation quotient of this particular K3 and the identification of each of its six ramification divisors with the octahedral genus-three curve. Targeted published-finding and literature implication comparisons found no covering special realization. An undiscovered equivalent geometric presentation remains a bibliographic risk.
+
+**Value — PASS.** A degree-24 quotient of this exceptional K3 is a naturally motivated algebraic-geometric object. Describing its entire reduced ramification divisor identifies a distinguished curve with octahedral symmetry, and gives a geometrically structural interpretation of a classical hyperelliptic equation. The explicit special branch sextic and fixed-curve description exceed the generic singularity count. The result does not determine embedded branch schemes, non-divisorial inertia, or the full quotient-stack local structure.
+
+**Closest literature.** Nukui, arXiv:2602.11742, builds the K3 but does not identify these special ramification components. Tokunaga, Osaka J. Math. 39 (2002), Example 6.1, covers generic discriminant-section singularity numbers. Classical treatments cover the abstract octahedral hyperelliptic curve. No independent mathematical audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
