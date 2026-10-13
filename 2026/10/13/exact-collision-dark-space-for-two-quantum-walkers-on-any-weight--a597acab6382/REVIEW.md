@@ -1,0 +1,12 @@
+# Scientific assessment
+
+**Correctness — PASS.** The diagonal unique-continuation induction is exact: evaluate the symmetric eigenfunction recurrence first at each diagonal coincidence vertex, then advance along increasing coordinate separation from the left boundary. It proves the absence of symmetric dark eigenvectors for every allowed weighted path, including complex adjacent hopping and arbitrary exchange-symmetric diagonal two-body interactions. Hermitian invariant-subspace duality gives the full diagonal cyclicity dimension; dissipativity and finite-dimensional Jordan bounds give exponential conditional survival convergence. The code checks 48 randomized systems and the decisive four-cycle boundary but is not used to infer an infinite-family theorem.
+
+**Originality — PASS, with substantial antecedents and residual priority risk.** Foss-Feig et al. (arXiv:1207.4741v1) already derive the antisymmetric protected sector for a double well and a harmonic oscillator and suggest extension to one-dimensional Hubbard chains. Marché et al. (arXiv:2405.04789v2) explicitly derive the conserved antisymmetric contribution in uniform periodic Hubbard chains. The present claim is narrowed to the full arbitrary weighted-open-Jacobi, arbitrary diagonal-interaction/rate, symmetric-sector complete observability result, whose strengthened hypotheses and conclusion are not established in inspected material. Quantum walk (arXiv:1402.3349v1) and nearest-neighbor hard-core reaction-diffusion (arXiv:1411.7913v1) have different dynamics and loss supports. A specialized equivalent in broader matrix-control literature is possible.
+
+**Value — PASS.** The result supplies a complete physical and spectral classification of two-walker collision extinction on a natural finite disordered graph family and an exact survival law for every initial state, mixed or pure. The exact dimension of the detector's cyclic span, its independence from arbitrary exchange-symmetric diagonal interactions and positive sitewise rates, and the explicit four-cycle obstruction make this a motivated structural assertion rather than a renaming of the familiar two-site example.
+
+**Limits.** Only finite paths, full-site positive coincidence loss, nonzero adjacent hopping, and exchange-symmetric diagonal pair interactions. The exponential rate has no claimed system-independent lower bound. Publication-priority and independent mathematical validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
+
