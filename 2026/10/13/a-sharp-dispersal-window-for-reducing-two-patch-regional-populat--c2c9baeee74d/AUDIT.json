@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For all a,b,u,v>0 and d>=0, the drift has a strictly positive definite stability matrix. The exact 3x3 Lyapunov solution yields V(d), and the derivative and threshold ratio have independently checked multivariate integer-polynomial identities. The ratio derivative has sign(a-b) everywhere d>=0, while V' has sign(a-b)*sign(R-v/u), proving a strict minimum iff the ratio is inside the endpoint window and excluding maxima. Matched u=a,v=b gives V=1-d(a-b)^2/[2(s+2d)(ab+sd)], the unique optimizer sqrt(ab/2), and an exact positivity certificate for V>1/2; the bound is approached as b/a tends to infinity. The bundled verifier passes symbolic identities and 288 independent rational Lyapunov solutions; finite tests are supplemental, not substitutes for the real-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abbott (2011), Ecology Letters 14:1158–1169, reviews the dispersal–synchrony–stability paradox and analyzes autoregressive, Ricker and other stochastic metapopulation models.",
+        "Wang et al. (2015), pp. 3–10, derive covariance methods for their nonlinear logistic ecological system and compare regional variability with heterogeneity and asymmetric dispersal."
+      ],
+      "reasoning": "Both sources are broader ecologically, and provide the covariance methods and qualitative mechanisms, but their examined principal mathematical assertions do not imply the explicit fixed-intensity all-rate inequality and exact optimizer. Standard general Lyapunov-solvability results compute covariance but give no necessary-and-sufficient classification without the derived derivative/ratio signs.",
+      "searches": [
+        "metapopulation variability dispersal stabilization spatial environmental heterogeneity stochastic linear response variance",
+        "Lyapunov equation two coupled Ornstein Uhlenbeck optimal migration population abundance variance independent stochastic environmental forcing finite dispersal",
+        "doi:10.1111/j.1461-0248.2011.01670.x",
+        "doi:10.7717/peerj.1295"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s10144-005-0248-6",
+      "doi:10.1111/j.1461-0248.2011.01670.x",
+      "doi:10.7717/peerj.1295",
+      "doi:10.1371/journal.pcbi.1000643",
+      "doi:10.1034/j.1600-0706.2000.890119.x",
+      "doi:10.1086/342072"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liebhold et al. (2006), Population Ecology 48:131–138, use second-order stochastic gypsy-moth synchrony comparisons, not stationary variance minimization of additive OU regional sum.",
+        "Wang et al. (2015), Eq. (1) logistic nonlinear dynamics with multiplicative environment and equilibrium-dependent Jacobian, Eq. (3) the covariance Lyapunov equation, Eq. (5) total-population CV, and heterogeneous two-patch numerical Figs. 4–5.",
+        "Ben Zion et al. (2010), PLOS Computational Biology 6:e1000643, optimize persistence time and checkerboard configurations in stochastic logistic/Ricker/Nicholson–Bailey systems, not additive-noise stationary variance."
+      ],
+      "reasoning": "A previous proof of a general covariance equation does not itself state or decide the nonmonotone-versus-monotone parameter partition in the present strictly defined model. The nonlinearly generated, dispersal-dependent Jacobians and noise of the closest ecological comparison prevent direct substitution as an all-rate statement of our fixed-coefficient theorem. The optimized functionals in the other papers differ.",
+      "searches": [
+        "doi:10.1007/s10144-005-0248-6",
+        "doi:10.7717/peerj.1295",
+        "doi:10.1371/journal.pcbi.1000643",
+        "Dispersal and metapopulation stability Wang Haegeman Loreau regional variability symmetric dispersal heterogeneities phase"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Haegeman–Loreau (2015), PeerJ 3:e1295, Methods Eq. (1)–(5), Figs. 4–5, a logistic white-noise covariance formulation; publication DOI 10.7717/peerj.1295.",
+        "The present model instead has fixed additive intensities and regulation coefficients throughout variation of symmetric dispersal; its exact stationary sum variance is rational and admits a sharp noise-ratio crossing criterion."
+      ],
+      "reasoning": "The observed equivalent ecological objective is regional aggregate variability, and the general Lyapunov equation is shared; neither by itself entails a published statement about the number, sign and location of extrema for this distinct fixed-noise OU parameter family. No inspected equivalent formulation states the strict window and the matched-noise half bound.",
+      "searches": [
+        "two patch linear Langevin Ornstein Uhlenbeck symmetric coupling dispersal migration aggregate total variance stationary optimal finite coupling independent noises different damping rates exact critical ratio",
+        "two coupled Ornstein Uhlenbeck processes nonmonotonic variance sum coupling optimal rate",
+        "doi:10.7717/peerj.1295"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wang et al. (2015) Figure 4 shows parameterized colors for two-patch regional gamma variability; Figure 5 shows asymmetric migration sweeps, rather than an exact table of the present noise-ratio thresholds.",
+        "The verifier provides an exact integer-polynomial identity, not a recomputation of a catalogued numerical table."
+      ],
+      "reasoning": "The closest available plots demonstrate context-dependent regional stability but do not tabulate or solve this separate additive-noise optimization problem with the stated necessary-and-sufficient boundary. The claim does not rest on absence from a database alone.",
+      "searches": [
+        "two patch total variance OU dispersal ratio threshold exact quadratic",
+        "metapopulation variance regional total abundance stationary OU optimal migration dispersal heterogeneous local regulation 2 patch variance",
+        "doi:10.7717/peerj.1295 figure 4 figure 5 heterogeneous dispersal"
+      ]
+    },
+    "rationale": "The exact all-parameter noise-ratio window and strict uniqueness for fixed-additive-noise two-patch OU regional variance were not found in the inspected published results. The closely aligned 2015 ecological covariance paper treats equilibrium-dependent logistic coefficients and noise and reports heterogeneous regional variability without this phase theorem. The symbolic method and qualitative stabilizing mechanism are prior knowledge and not claimed as new. Relevant reviews and nonlinear extinction studies address different objectives. Specialized covariance optimization literature and inaccessible older articles remain genuine risks, so no categorical global-uniqueness claim is made.",
+    "residual_risks": [
+      "The full text of Ripa (2000) and Engen–Lande–Sæther (2002) was unavailable through the tried lawful routes.",
+      "A supplemental derivation of Wang–Haegeman–Loreau (2015) or generic stationary-covariance optimization literature could contain an equivalent specialized classification despite its absence in the examined principal results.",
+      "A failed search cannot certify global novelty; independent literature audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates heterogeneity and migration, without an all-rate fixed-additive-noise OU optimization statement",
+        "evidence": [
+          "Article dated online 2006-01-26; pages 1–8 study second-order stochastic spatial synchrony and density dependence; DOI 10.1007/s10144-005-0248-6."
+        ],
+        "identifier_or_url": "https://research.fs.usda.gov/download/treesearch/15589.pdf",
+        "material_read": "Publicly hosted eight-page PDF: full model/results sections and relevant figures and discussion",
+        "method": "Read source text and inspected relevant rendered pages",
+        "title": "Geographic variation in density-dependent dynamics impacts the synchronizing effect of dispersal and regional stochasticity",
+        "trigger": "Earliest verified motivating historical source for ecology of heterogeneous density regulation and dispersal"
+      },
+      {
+        "assessment": "Qualitative dispersal paradox and separate stability measures are established, but the precise regional OU noise-ratio phase law is not stated",
+        "evidence": [
+          "Ecology Letters 14:1158–1169 (2011), DOI 10.1111/j.1461-0248.2011.01670.x; methods refer to autoregressive and nonlinear population models."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2011.01670.x",
+        "material_read": "Accessible article text covering conceptual synthesis, model classes, and stabilization discussion",
+        "method": "Read public article text and examined arguments about intermediate dispersal and alternative stability definitions",
+        "title": "A dispersal-induced paradox: synchrony and stability in stochastic metapopulations",
+        "trigger": "A broad ecological review that could already state a dispersal stabilization threshold"
+      },
+      {
+        "assessment": "Ecological regional fluctuation variance overlaps in motivation and uses a covariance Lyapunov method; no exact fixed-additive-noise two-patch phase criterion or equal-isolated-variance 50-percent theorem identified in main text. Supplemental derivations are not fully inspected and remain a risk.",
+        "evidence": [
+          "PeerJ (2015), DOI 10.7717/peerj.1295; Eq. (1) has nonlinear logistic growth and multiplicative noise; Eq. (3) has a Lyapunov equation; Eq. (5) defines gamma variability; Figures 4–5 concern heterogeneous regulation and dispersal."
+        ],
+        "identifier_or_url": "https://pdfs.semanticscholar.org/e1a3/240b591126fc29c42453d648706f5dee109a.pdf",
+        "material_read": "Full publicly accessible sixteen-page PDF, with Methods pp. 3–5, main results pp. 6–10, Figures 4–5 and Discussion materially inspected; supplementary appendices not fully inspected",
+        "method": "Examined PDF text, source equations and rendered figures, including homogeneous covariance theory and heterogeneous simulations",
+        "title": "Dispersal and metapopulation stability",
+        "trigger": "Closest primary paper: regional variability and heterogeneous two-patch migration in continuous time"
+      },
+      {
+        "assessment": "The already-known intermediate dispersal effect is for nonlinear demographic-extinction times and checkerboard dynamics; it does not subsume additive OU stationary regional variance",
+        "evidence": [
+          "PLOS Computational Biology (2010) 6:e1000643, DOI 10.1371/journal.pcbi.1000643, abstract and Results about stochastic logistic, Ricker and Nicholson–Bailey models."
+        ],
+        "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000643",
+        "material_read": "Freely accessible main-article abstract, model descriptions, Results and relevant discussion",
+        "method": "Inspected article sections and explicit expected extinction-time objective",
+        "title": "Optimizing Metapopulation Sustainability through a Checkerboard Strategy",
+        "trigger": "Intermediate-dispersal optimum for a two-patch metapopulation could imply covered optimality"
+      },
+      {
+        "assessment": "Available description concerns population synchrony, not clearly the exact aggregate variance objective; unavailable full text leaves a genuine prior coverage risk",
+        "evidence": [
+          "Ripa (2000), Oikos 89:175–187, DOI 10.1034/j.1600-0706.2000.890119.x."
+        ],
+        "identifier_or_url": "https://doi.org/10.1034/j.1600-0706.2000.890119.x",
+        "material_read": "Abstract and bibliographic record only; primary full text inaccessible",
+        "method": "Attempted lawful open access, preprint and publisher retrieval; full text not obtained",
+        "title": "Analysing the Moran effect and dispersal: their significance and interaction in synchronous population dynamics",
+        "trigger": "Earlier mathematical spatial synchrony work"
+      },
+      {
+        "assessment": "Could contain a more general covariance comparison but the available account does not settle exact fixed-noise two-patch optimum; residual risk retained",
+        "evidence": [
+          "Engen, Lande and Sæther (2002), American Naturalist, DOI 10.1086/342072."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/342072",
+        "material_read": "Bibliographic evidence/abstract only; primary full text inaccessible",
+        "method": "Attempted lawful open access, preprint and publisher retrieval; full text not obtained",
+        "title": "The spatial scale of population fluctuations and quasi-extinction risk",
+        "trigger": "Potential earlier analytic regional population-variance theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2c9baee-e74d-4e07-a114-fd8277794bcf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The regional sum variance is a natural ecological measure of fluctuations, directly connected to dispersal and heterogeneity mechanisms in 2006–2015 metapopulation literature. The theorem solves the complete two-patch fixed-noise symmetric-dispersal optimization over all positive rates: a sharp noise-ratio phase interval, uniqueness/no maximum, a natural equal-isolated-variance calibration with explicit optimum, and a sharp uniform limiting performance bound. These precise boundaries are ecologically motivated and not merely a numerical scan or renaming of a known covariance formula; 2015 heterogeneous metapopulation diagrams lack an all-rate threshold for this model. Results are limited to the specified OU system and are not passed off as empirical extinction predictions.",
+    "status": "PASS"
+  }
+}
