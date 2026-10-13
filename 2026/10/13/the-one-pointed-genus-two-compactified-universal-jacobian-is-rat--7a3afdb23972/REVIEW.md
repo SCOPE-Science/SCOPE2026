@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness
+PASS. The source gives Tate-type Hodge--Euler polynomial \(L^6+5L^5+15L^4+20L^3+15L^2+5L+1\) for the smooth proper stack \(\overline J_{2,1}\), hence odd rational cohomology vanishes and the even Betti vector is exactly \((1,5,15,20,15,5,1)\). The reduced polynomial modulo \(3\) is checked by the standard finite-field irreducibility criterion in exact arithmetic: the degree-six Frobenius congruence holds and the gcd tests for the prime divisors \(2,3\) of the degree are both \(1\). Therefore the reduced polynomial, and hence the integral polynomial, is irreducible. The Künneth argument is valid because Betti coefficients are nonnegative and connected factors have \(b_0=1\); vanishing of odd cohomology for the product forces vanishing of odd cohomology in each factor, after which the reduced even Poincaré polynomial would factor nontrivially. Positive-dimensional smooth proper factors have nonconstant Poincaré polynomials by Poincaré duality.
+
+## Originality
+PASS. The initiating paper was inspected at Theorem 1.1, Lemma 3.1, Propositions 3.3--3.4, and Lemma 3.6. It computes cohomology and gives stratum-wise/relative product constructions, but does not state irreducibility of the global Poincaré polynomial or global rational product-indecomposability. Full-text searches found no “Lefschetz”, “signature”, or “primitive” statement and no implication-equivalent product obstruction. Targeted web searches for fine compactified universal Jacobians together with “product decomposition”, “irreducible Poincaré polynomial”, and “cohomology product indecomposable” returned classification and genus-one background, not this conclusion. Published-finding searches for the exact genus-two one-pointed product obstruction returned unrelated topology and algebraic-geometry findings, with no covering result.
+
+## Value
+PASS. Product structures are geometrically natural here: the source's Lemma 3.1 proves that compactified Jacobians split over curves glued along a separating node, and the global computation is assembled from many such strata. The new irreducibility theorem shows that this local/stratified product behavior cannot globalize even at the weakest rational-cohomology product level for the one-pointed genus-two compactification. It is therefore a structural boundary on global geometry, not a recomputation of a listed Betti number.
+
+## Closest literature and limitations
+The closest source is arXiv:2610.01829v1 itself, which supplies the exact cohomology and the separating-node product lemma but not the global obstruction. Pagani--Tommasi give genus-one cohomology formulas, and Fava--Pagani--Viviani classify modular compactifications; neither implies this exact irreducibility statement. A residual risk is an unindexed observation deriving product-indecomposability from the same newly published polynomial. The result is rational-cohomological only and does not exclude birational, derived, or motivic decompositions.
+
+Self-review: passed. Independent audit: not yet performed.
