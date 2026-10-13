@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The claim is a metric projection theorem on a closed convex set. Axial twirling is an orthogonal Hilbert--Schmidt projection and reduces every optimizer to the diagonal plane. The symmetric two-qubit PPT calculation gives the exact classical parabola. The weighted Euclidean projection to its upper boundary has derivative \\(\\tfrac12(3y^3+(6b-1)y-2x)\\); physicality and nonclassicality prove the cubic has exactly one root in \\((-1,1)\\). The root-of-unity decomposition and rank argument prove coherent length three. `verify.py` replays all supplementary algebraic and numerical checks with `VERIFY_OK`.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Verstraete--Dehaene--De Moor, arXiv:quant-ph/0107155, studies distance to PPT/all-separable sets and explicitly describes the general closest-separable problem as difficult.",
+        "Pandya--Wieśniak, arXiv:2308.06245, gives an algorithm for the closest separable/PPT state in \\(2\\times2\\) and \\(2\\times3\\), a larger target set than spin-coherent classical states.",
+        "arXiv:1510.07848 notes that the closest separable state to a symmetric state need not be symmetric."
+      ],
+      "reasoning": "All-separable Hilbert--Schmidt projection cannot imply the projection onto the strictly smaller symmetric-separable/classical set. The spin-1 geometry source supplies the feasible body but does not, in the material located, state the distance minimizer.",
+      "searches": [
+        "Hilbert-Schmidt distance closest separable state symmetric two-qubit diagonal",
+        "minimum Hilbert-Schmidt distance closest separable arbitrary 2 x 2 states",
+        "Parametrization of spin-1 classical states Hilbert-Schmidt distance closest"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1002.2158",
+      "MaRDI:Q4594893",
+      "arXiv:1110.0325",
+      "arXiv:1510.07848",
+      "DOI:10.1103/PhysRevA.93.012104",
+      "arXiv:quant-ph/0107155",
+      "arXiv:2308.06245"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1510.07848 proves its conjectured upper bound for segments \\(\\rho=a|\\psi\\rangle\\langle\\psi|+(1-a)\\operatorname{ccs}(|\\psi\\rangle)\\). In the present diagonal family this includes the nonclassical \\(x=0\\) Queen-of-Quantum ray.",
+        "The new theorem determines every off-axis diagonal state \\(x\\ne0\\), its unique classical projection, exact distance, and minimal coherent decomposition.",
+        "The all-separable closest-state literature minimizes over a different set and therefore does not dominate this symmetric-classical claim."
+      ],
+      "reasoning": "The known one-parameter ray is explicitly acknowledged and not claimed as new. It does not imply the two-parameter off-axis projection: those states are not on the Queen/closest-classical segment, and their optimizer varies by the new cubic.",
+      "searches": [
+        "arXiv:1510.07848 Eq. 42 mixed state pure state closest classical state",
+        "arXiv:1110.0325 diagonal classical spin-1 boundary",
+        "arXiv:2308.06245 closest separable arbitrary two qubit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bohnet-Waldraff--Braun--Giraud, arXiv:1510.07848, mixed-state Section IV: general mixed quantumness is obtained by random coherent-state sampling and quadratic programming.",
+        "Giraud--Braun--Braun, arXiv:1110.0325: indexed statement is a parametrization and boundary-geometry result for spin-1 classical states.",
+        "Published-finding database searches returned no claim matching the diagonal cubic projection or the phase-twirled closest classical state."
+      ],
+      "reasoning": "The aliases target the same state class, metric, coherent-state convex set, and cubic/phase-twirl form. The directly inspected 2015 source gives no exact diagonal mixed formula and instead describes a numerical mixed-state procedure.",
+      "searches": [
+        "arXiv:1510.07848 diagonal spin-1 quantumness Hilbert-Schmidt closest classical state cubic",
+        "\"Quantumness of spin-1 states\" mixed diagonal states exact closest classical",
+        "spin-1 diagonal density matrix phase-twirled coherent closest classical state Hilbert-Schmidt"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest database hits were unrelated records such as `SCOPE-a-multiplicity-256-local-model-for-the-eight-sub-hyperdeterminan--390fde7f3d7f`, `SCOPE-canonical-dual-scalability-phase-diagram-for-diagonal-hadamard-p--239f440726b0`, and `SCOPE-exact-hilbertian-dimension-of-s-4-2--1512c2d24fe2`.",
+        "Exact source-ID and phrase searches of the current and prior owned archive ledgers returned no matching finding."
+      ],
+      "reasoning": "No indexed table or published-finding record located states the claimed spin-1 diagonal cubic optimizer. The negative database result is supporting evidence only and is not treated as a proof of novelty.",
+      "searches": [
+        "symmetric two-qubit diagonal state Hilbert-Schmidt distance to symmetric separable states parabola",
+        "quantumness spin coherent diagonal populations b squared 4ac",
+        "1510.07848 closest classical diagonal cubic",
+        "1110.0325 quantumness closest distance"
+      ]
+    },
+    "rationale": "The primary mixed-state spin-1 paper computes general mixed quantumness numerically and states that its arbitrary-mixed proof is missing. Its analytic segment construction covers the diagonal ray \\(x=0\\), but not the off-axis two-parameter diagonal family. The 2011 geometry paper parameterizes the classical body rather than stating this Hilbert--Schmidt projection, while broader closest-separable-state papers optimize over the larger set of all separable two-qubit states.",
+    "residual_risks": [
+      "The full body of arXiv:1110.0325 was not available through the successful text route; its abstract and targeted indexed searches did not expose a Hilbert--Schmidt projection theorem, but an equivalent diagonal calculation could be buried in the paper.",
+      "A later result may formulate the same projection as a Euclidean projection onto the axially symmetric classical slice without using spin-quantumness or closest-classical terminology.",
+      "The \\(x=0\\) nonclassical ray is prior-covered and is included only to state the natural complete diagonal theorem; originality rests on the off-axis two-parameter extension and structural optimizer classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_OVERLAP only: it covers the \\(x=0\\) diagonal ray through its special segment construction, but not the off-axis two-parameter formula or cubic optimizer.",
+        "evidence": "arXiv:1510.07848, especially Eqs. (4)--(8), (40)--(45), and the symmetric-separability discussion.",
+        "identifier_or_url": "arXiv:1510.07848 / DOI:10.1103/PhysRevA.93.012104",
+        "material_read": "Definition of quantumness and coherent states, the spin-1 classicality criterion, Sections III and IV on exact pure states, numerical quadratic programming for mixed states, the mixed-state upper-bound conjecture, the special segment family, and Section V on symmetric two-qubit separability.",
+        "method": "Compared the source optimization domain and quantifiers with the diagonal mixed-state theorem and checked the one-dimensional overlap with the Queen-of-Quantum segment.",
+        "title": "Quantumness of spin-1 states",
+        "trigger": "Direct source treating exact pure-state and numerical mixed-state spin-1 quantumness."
+      },
+      {
+        "assessment": "No covering distance theorem was located; the paper is relevant geometric input. Full-body text was not available through the successful text route, so hidden equivalent phrasing remains a residual risk.",
+        "evidence": "arXiv:1110.0325 abstract and indexed publication descriptions.",
+        "identifier_or_url": "arXiv:1110.0325 / DOI:10.1103/PhysRevA.85.032101",
+        "material_read": "Abstract, indexed result description, and targeted searches for quantumness, closest-state, distance, and diagonal formulations.",
+        "method": "Checked whether the stated contribution includes Hilbert--Schmidt metric projection rather than feasible-set parametrization.",
+        "title": "Parametrization of spin-1 classical states",
+        "trigger": "Closest earlier source on the exact geometry of the same classical set."
+      },
+      {
+        "assessment": "FOUNDATIONAL but NOT_COVERING the final theorem.",
+        "evidence": "arXiv:1002.2158 and MaRDI Q4594893.",
+        "identifier_or_url": "arXiv:1002.2158 / DOI:10.1088/1367-2630/12/6/063005",
+        "material_read": "Abstract, definition/scope summaries, and MaRDI classification record.",
+        "method": "Compared the result class: global extremal quantumness versus pointwise diagonal mixed-state projection.",
+        "title": "Quantifying Quantumness and the Quest for Queens of Quantum",
+        "trigger": "Original source for the Hilbert--Schmidt coherent-state quantumness used in the claim."
+      },
+      {
+        "assessment": "NOT_COVERING because the spin-classical set is the symmetric-separable subset, not the full separable set.",
+        "evidence": "arXiv:quant-ph/0107155 abstract.",
+        "identifier_or_url": "arXiv:quant-ph/0107155 / DOI:10.1080/09500340110115488",
+        "material_read": "Abstract and result summary describing distance to PPT/all-separable comparison sets.",
+        "method": "Compared feasible sets and implication direction.",
+        "title": "On the geometry of entangled states",
+        "trigger": "Potential broader Hilbert--Schmidt closest-separable-state coverage."
+      },
+      {
+        "assessment": "NOT_COVERING for the same feasible-set reason; it addresses all separable/PPT states.",
+        "evidence": "arXiv:2308.06245 abstract.",
+        "identifier_or_url": "arXiv:2308.06245",
+        "material_read": "Abstract and stated algorithmic scope.",
+        "method": "Compared the optimization set to the spin-coherent classical set.",
+        "title": "Minimum Hilbert-Schmidt distance and the Closest Separable state to arbitrary 2 x 2 and 2 x 3 states",
+        "trigger": "Later potentially dominating arbitrary-two-qubit closest-state result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43f21458-906c-4887-9c20-77c51fd687ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Diagonal spin-1 mixtures are the natural axially invariant mixed states and are experimentally/basic-model relevant rather than an arbitrary numerical slice. The source treated general mixed quantumness numerically; the theorem gives a complete exact two-parameter solution on this symmetry class, a unique closest classical state, and the minimal number of coherent states needed to realize it. This supplies an analytic benchmark for mixed-state quantumness and isolates a nontrivial off-axis extension beyond the previously known Queen-of-Quantum segment.",
+    "status": "PASS"
+  }
+}
