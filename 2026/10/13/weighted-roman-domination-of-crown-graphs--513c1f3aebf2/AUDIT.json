@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "For fixed sets of label-2 vertices, every other label is forced to its minimum feasible value by positivity. Any optimum uses at most two label-2 vertices per shore. Three support types are then strictly or weakly dominated, leaving exactly six cases whose costs are C20,C02,C11,C21,C12,C22. The case split covers all quantifiers n>=3 and all positive real weights. Exhaustive finite checks independently agree with the formula but are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.22622v1 Proposition 4.2",
+        "Liu-Chang 2013 weighted (a,b)-Roman algorithms on strongly chordal graphs"
+      ],
+      "reasoning": "The complete-bipartite theorem omits the deleted perfect matching. The strongly chordal algorithm does not cover crowns because Cr_n contains induced Cr_3=C_6.",
+      "searches": [
+        "weighted (a,b)-Roman domination strongly chordal graphs",
+        "weighted Roman domination complete bipartite exact formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.22622v1",
+      "DOI:10.3390/math14030466",
+      "DOI:10.1007/s10878-012-9482-y",
+      "DOI:10.1016/j.disc.2003.06.004"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The indexed unweighted complete-multipartite Roman polynomial classifies a different graph class; Proposition 4.2 of arXiv:2512.22622 handles K_{s,t}, not K_{n,n}-M_n."
+      ],
+      "reasoning": "An unweighted enumerator does not encode arbitrary vertex-specific costs on crowns, and a theorem for the supergraph K_{n,n} does not imply the optimum after deleting a perfect matching.",
+      "searches": [
+        "Roman domination polynomial crown graph",
+        "Roman domination polynomial complete multipartite graphs",
+        "weighted Roman domination crown graph arbitrary vertex weights"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.22622v1, Section 4 and Proposition 4.2",
+        "DOI:10.1007/s10878-012-9482-y"
+      ],
+      "reasoning": "Crown, K_{n,n}-M_n, and matching-deleted biclique aliases were searched. The inspected weighted-Roman source contains no crown or matching treatment.",
+      "searches": [
+        "weighted Roman domination crown graph arbitrary vertex weights",
+        "weighted Roman domination K_n,n minus perfect matching",
+        "Roman domination crown graph weighted"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact weighted-crown database/table statement was returned by the targeted semantic searches; closest hits were different Roman variants and unweighted multipartite enumerators."
+      ],
+      "reasoning": "No source located tabulates or states the six-type formula or an equivalent arbitrary-weight crown optimization.",
+      "searches": [
+        "gamma_wR crown graph",
+        "weighted Roman crown exact formula",
+        "weighted Roman K_n,n-M_n"
+      ]
+    },
+    "rationale": "The defining weighted-Roman paper gives an exact weighted complete-bipartite formula but does not treat crowns or matching deletion. Targeted semantic searches found no weighted-crown exact formula; the closest indexed crown and complete-multipartite results concern different Roman variants or unweighted enumerators, which do not determine the optimum under arbitrary vertex costs. The older weighted (a,b)-Roman algorithm on strongly chordal graphs is inapplicable because every crown with n>=3 contains an induced C6.",
+    "residual_risks": [
+      "A poorly indexed exact result under an alternate name for crown graphs or matching-deleted bicliques may exist.",
+      "The older weighted (a,b)-Roman literature is broader in objective-function notation, although the located strongly-chordal result is structurally inapplicable to crowns."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for crown graphs; it treats complete graphs, complete bipartite graphs, and weighted cycles, and its exact biclique formula is the immediate baseline.",
+        "evidence": "Section 4 states the exact-family scope; Proposition 4.2 gives K_{s,t}; full-text searches returned no crown or matching occurrence.",
+        "identifier_or_url": "arXiv:2512.22622v1",
+        "material_read": "Full searchable 18-page preprint; definition, Section 4 exact-family results, Proposition 4.2, conclusion, and full-text searches for crown and matching.",
+        "method": "Lawful arXiv PDF/HTML inspection.",
+        "title": "Roman domination in weighted graphs",
+        "trigger": "Same invariant and the closest exact family theorem."
+      },
+      {
+        "assessment": "INAPPLICABLE to crowns: the algorithmic class is strongly chordal, whereas Cr_n contains an induced C6 for every n>=3.",
+        "evidence": "The source scope is weighted (a,b)-Roman domination on strongly chordal graphs.",
+        "identifier_or_url": "DOI:10.1007/s10878-012-9482-y",
+        "material_read": "Published abstract and scope statement.",
+        "method": "Publisher/university metadata inspection.",
+        "title": "Roman domination on strongly chordal graphs",
+        "trigger": "Potential broader weighted-Roman algorithmic coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "513c1f3a-ebf2-4664-b8af-5647214b0e9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Weighted Roman domination was introduced specifically to model heterogeneous vertex costs, and the initiating paper emphasizes that weights change the optimal strategy even on complete bipartite graphs. Crowns are the canonical one-factor deletion of balanced bicliques; the theorem gives a complete exact optimization for arbitrary positive costs and shows precisely how one missing matched neighbor creates six competing support regimes. This is structurally informative rather than a routine unweighted substitution.",
+    "status": "PASS"
+  }
+}
