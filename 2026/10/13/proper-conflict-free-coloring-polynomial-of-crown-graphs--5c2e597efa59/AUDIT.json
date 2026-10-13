@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge3\\) and arbitrary nonnegative \\(q\\), each shared color is forced onto a single deleted matched pair by graph adjacency. Every coloring has a unique decomposition into paired shared colors and two disjoint exclusive palettes. The open-neighborhood uniqueness criterion is equivalent to singleton persistence under all one-element punctures; its \\(s=0\\), \\(s=1\\), and \\(s\\ge2\\) cases are exhaustive and disjoint, with a necessary all-doubleton exception in \\(s=0\\). Partial Bell coefficients count precisely the surjective shore colorings. Combinatorial multiplication and summation give the exact full polynomial. The four-color case is derived analytically by exhausting s. Independently, exhaustive direct checks of 28,666,423 maps on 14 profiles match the formula, and recurrence checks through \\(n=12\\) match the classification. No finite check substitutes for the uniform proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pradhan--Sharma arXiv:2608.10874 abstract gives computational complexity and decision algorithms for graph classes, not exact crown coloring counts.",
+        "The complete-multipartite class has every cross-part pair adjacent, while crown graphs delete an entire perfect matching; their color sharing and puncture conditions differ.",
+        "The arXiv:2609.11249 abstract treats sparse high-girth graph list colorings, not dense crown graphs."
+      ],
+      "reasoning": "Minimum-color bounds, decision algorithms, and counts on different graph families cannot determine the entire labeled proper conflict-free coloring polynomial on crowns; no broader published counting theorem covering it was identified.",
+      "searches": [
+        "published-finding corpus: proper conflict-free complete multipartite graphs optimal coloring class partition count singleton r+max(0,2-s)",
+        "web: 2026 proper conflict free coloring counting optimal crown graph coloring",
+        "arxiv:2608.10874 Complexity and algorithms for proper conflict-free coloring in graphs",
+        "arxiv:2609.11249 Proper conflict-free choosability of sparse graphs with girth at least seven"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.10874",
+      "https://arxiv.org/abs/2202.02570",
+      "https://arxiv.org/abs/2609.11249",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published crown-graph theorem gives \\(\\chi_{\\mathrm{pcf}}(\\operatorname{Cr}_n)=4\\) for \\(n\\ge4\\) and the shared-color pair structural fact. Its Limitations section explicitly states it does not characterize all optimal four-colorings when \\(n\\ge4\\).",
+        "The new theorem adds an exact count for every q and identifies the all-doubleton exception when zero colors are shared, absent from the earlier scalar classification.",
+        "The 2022 introductory paper defines the invariant and provides mainly planar bounds."
+      ],
+      "reasoning": "The numerical equality \\(\\chi_{\\mathrm{pcf}}=4\\) is recovered from nonvanishing of \\(P_n(4)\\), so it is covered prior work, not novelty. Conversely, knowing this scalar and the shared-pair restriction alone does not specify which exclusive shore partitions are puncture-admissible, nor their number, so it does not supply the new all-palette polynomial or its exceptional classification.",
+      "searches": [
+        "published-finding corpus: proper conflict-free coloring polynomial crown graph all q colors exact surjection enumeration deleted matching",
+        "GitHub published-finding corpus/2026 2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105/RESULT.md full text",
+        "arxiv:2202.02570 Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditions are equivalent to the constraint that every one-vertex puncture of each shore color multiset retain a singleton; the explicit three-way singleton classification is proved in the new result.",
+        "The 2026 crown-graph RESULT.md treats shared colors and minimum palette, not the count for every q."
+      ],
+      "reasoning": "Searched the equivalent hypergraph view (every punctured shore has a singleton), conflict-free coloring polynomial terminology, and surjection/partition terminology. Found no record whose statement enumerates all palette sizes of the deleted-matching bipartite family.",
+      "searches": [
+        "published-finding corpus: proper conflict-free coloring polynomial crown graph all q colors exact surjection enumeration deleted matching",
+        "published-finding corpus: PCF coloring count chromatic polynomial punctured color class singleton crown graph",
+        "web: proper conflict free crown chromatic polynomial",
+        "web: proper conflict free crown graph number colorings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published-finding corpus count of 384 at order four or 24 times the number of index pairs for all \\(n\\ge5\\) was returned.",
+        "Four-color values were independently obtained by a direct census of labeled graph maps and by a formal partial-Bell coefficient recurrence."
+      ],
+      "reasoning": "Checked exact numerical and structural forms of the count and larger-palette polynomial terminology; the two independently implemented enumerations are evidence for correctness, not by themselves proof of novelty.",
+      "searches": [
+        "published-finding corpus: optimal four colorings crown n>=5 rigidity two shared matched pairs 24 binomial n 2",
+        "web: crown graphs conflict free colorings enumerating four colorings",
+        "web: conflict-free chromatic polynomial count number of conflict-free vertex colorings graph"
+      ]
+    },
+    "rationale": "The exact all-palette proper conflict-free coloring polynomial and the complete four-color rigidity/exceptional-order census are mathematically stronger than the known scalar chromatic-number result. The closest previously public crown-graph work states the color-sharing lemma and minimal number of colors but explicitly does not classify all optimal colorings. The new theorem classifies the punctured multiset singleton obstruction for arbitrary palette sizes, accounting also for all-doubleton configurations. Relevant complexity, ordinary proper-coloring, and complete-multipartite results do not imply this counting polynomial. No equivalent full count was identified in published-finding corpus, or targeted external literature searches; this is not proof that all possible unpublished or unindexed work was excluded.",
+    "residual_risks": [
+      "A differently phrased or unindexed paper might already contain the exact enumeration or an equivalent general theorem.",
+      "Relevant 2026 PCF decision/computational research was assessed from abstracts, not fully inspected; its titles and claims are less directly relevant than the completely read crown-graph theorem.",
+      "The polynomial uses a class-size summation; it is exact but not simplified into a single closed-form product."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides scalar chi_pcf and the shared-color pair lemma; explicit limitation excludes all optimal-coloring classification, and no all-q enumerator is stated",
+        "evidence": "Proof handles 2/3/4 colors and nonexistence below the threshold; no general enumerative formula or four-color census.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+        "material_read": "Entire publicly available RESULT.md, including finding, hypotheses, proof, limitations, and references",
+        "method": "Direct public repository file read",
+        "title": "Proper conflict-free chromatic number of crown graphs",
+        "trigger": "Same crown graphs, same invariant and same minimum palette; most directly plausible dominating result"
+      },
+      {
+        "assessment": "Decision-complexity and algorithms in selected classes; no stated all-palette crown enumeration in material read; full text not assessed",
+        "evidence": "Abstract states bipartite NP-completeness and polynomial-time decisions on block, interval, chain, and pseudo-split graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.10874",
+        "material_read": "Public arXiv abstract, submission history, subject classification",
+        "method": "Public arXiv abstract page",
+        "title": "Complexity and algorithms for proper conflict-free coloring in graphs",
+        "trigger": "Recent primary literature on proper conflict-free coloring and computational classification"
+      },
+      {
+        "assessment": "Defines the coloring notion and discusses planar bounds; full text not assessed and no claim of complete crown counts made",
+        "evidence": "Abstract describes planar and outerplanar coloring bounds.",
+        "identifier_or_url": "https://arxiv.org/abs/2202.02570",
+        "material_read": "Public abstract and bibliographic metadata",
+        "method": "ArXiv indexed abstract",
+        "title": "Proper conflict-free and unique-maximum colorings of planar graphs with respect to neighborhoods",
+        "trigger": "Foundational primary source for the proper conflict-free open-neighborhood definition"
+      },
+      {
+        "assessment": "Counts odd-colorings based on parity in complete multipartite graphs; different invariant and no deleted matching, so cannot imply the crown PCF count",
+        "evidence": "Theorem requires a proper coloring with a color appearing an odd number of times, not necessarily once.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/30/SCOPE-exact-odd-chromatic-number-and-optimal-coloring-count-for-comple--2f4a2e65a3d2",
+        "material_read": "Entire publicly available RESULT.md",
+        "method": "Direct public repository file read",
+        "title": "Exact odd chromatic number and optimal-coloring count for complete multipartite graphs",
+        "trigger": "Superficially similar counts of optimal coloring partitions on multipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c2e597e-fa59-4b0a-8ac6-e453bec368d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete polynomial is a natural exact enumerative invariant that refines the recently studied PCF decision/minimum-color problem on an infinite classical dense bipartite family. The all-doubleton loophole is an intrinsic structural feature of punctured color multisets, not a free parameter choice. In optimal four-colorings the classification changes sharply: order four has three types and 384 labeled maps, while every larger order has one structural type and 24 binomial(n,2) maps. This is a complete classification, supplies all higher-palette counts, and provides reproducible exact independent census checks without overclaiming a general graph counting theorem.",
+    "status": "PASS"
+  }
+}
