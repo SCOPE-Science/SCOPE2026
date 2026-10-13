@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For prime powers v(q^e)<=q^e and v(q^(e+f))<=v(q^e)+v(q^f) by the three exponent cases, so v(ac)<=v(a)+v(c) and v(n)<=n. For odd composite m>=21, factor m=ac with a,c odd >=3; (a-2)(c-2)>=4 implies a+c<=m/2, so v(m)<=m/2. For p odd in even base, the reversal s is odd and <2p because the last digit of p is odd and its leading odd digit d satisfies 2d>=b. If s is a different prime, v(s)=s !=p; if odd composite >=21, v(s)<=s/2<p. The only smaller odd composites 9 and 15 yield v=5 and 8; 15 cannot match a prime, and reversal of p=5 is never 9 in even bases. The only even prime 2 is inadmissible or single-digit. Binary follows. Replayed finite verifier complements rather than replaces proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2405.05267v1 constructs prime examples in bases 16 and 276, and opens an all-base classification problem.",
+        "arXiv:2307.00770v1 Theorem 1.1 restricts only base-10 primes to a twin-prime candidate form."
+      ],
+      "reasoning": "The base-10 theorem is stronger only on its own base, not for all even b. The 2024 constructions establish existence in selected bases and do not classify the odd high leading digit stratum. Known base-16 prime example 109 has even leading digit 6, so it does not contradict the new theorem.",
+      "searches": [
+        "arXiv:2405.05267v1 §1.1 and §6",
+        "arXiv:2307.00770v1 Theorem 1.1 and Lemmas 2.5–2.7",
+        "\"prime v-palindrome\" \"even base\" leading"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.05267v1 (HTML, problem statement, examples and Table 1)",
+      "arXiv:2307.00770v1 (HTML, decimal characterization and v-bound)",
+      "arXiv:2111.10211v1 (HTML, foundational definitions)",
+      "PUMP Journal publication page for the 2024 paper",
+      "A338038 and A338039 as cited in the primary 2024 paper"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 source proves v(n)<=n, but reversal s of prime p may exceed p, so this inequality alone cannot exclude v(s)=p.",
+        "The new proof establishes v(s)<=s/2 for odd composite s>=21 and, for the specified digit stratum, s<2p."
+      ],
+      "reasoning": "The prior general inequality is a critical premise but does not imply the theorem without the new odd-composite refinement and parity-sensitive digit bound. The 2024 Problem 1 is a question rather than stronger coverage.",
+      "searches": [
+        "arXiv:2307.00770v1 Lemma 2.7 v(n)<=n",
+        "arXiv:2405.05267v1 Problem 1 prime v-palindromes by base",
+        "prime v-palindrome digit reversal odd composite bound v(n)<=n/2 except 9 15"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2405.05267v1 §6.1 Problem 1 asks which bases have prime v-palindromes; §6.3 Table 1 gives the least binary v-palindrome as composite 175.",
+        "arXiv:2307.00770v1 Theorem 1.1 treats base ten; no equivalent base-two theorem in inspected mathematical discussion."
+      ],
+      "reasoning": "Both nonexistence of binary prime v-palindromes and the stronger leading-digit even-base exclusion were compared with explicit problem statements and general-base claims. A decimal classification and a table of first examples are not equivalent to a theorem quantifying over all binary primes.",
+      "searches": [
+        "\"binary\" \"prime\" \"v-palindromes\"",
+        "\"prime v-palindrome\" \"base 2\"",
+        "prime v-palindrome binary base 2 impossible first digit parity leading digit",
+        "arXiv:2405.05267v1 Problem 1 and Table 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2405.05267v1 Table 1 reports the least base-2 v-palindrome 175 but does not assert that no prime binary v-palindrome exists.",
+        "The cited sequence A338038 is for the arithmetic function v and A338039 for decimal v-palindromes, not an unrestricted exact binary-prime exclusion."
+      ],
+      "reasoning": "A record of smallest composite examples or a finite sequence cannot imply nonexistence of arbitrary-length prime binary v-palindromes. No checked table supplies the theorem as an exact classification.",
+      "searches": [
+        "arXiv:2405.05267v1 Table 1 smallest v-palindrome base 2",
+        "OEIS A338038",
+        "OEIS A338039",
+        "\"prime v-palindrome\" \"base 2\""
+      ]
+    },
+    "rationale": "The principal 2024 source poses the prime-by-base classification as Problem 1 and supplies only a composite smallest base-2 example (175), not proof of prime nonexistence in base 2. The 2023 characterization applies to decimal prime v-palindromes and gives a weaker general bound v(n)<=n, not the present universal even-base digit exclusion. Full-text passages and targeted mathematical searches disclosed no equivalent stronger theorem. Novelty is relative to checked indexed and published material, not to every possible source.",
+    "residual_risks": [
+      "Unindexed or unpublished elementary arguments might already establish binary nonexistence or the same digit sieve.",
+      "Not every ancillary reference in the 2024 paper was inspected in full; the closest directly relevant papers and their key theorem statements were examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed binary prime nonexistence or the stated even-base digit stratum, though its open problem directly motivates this result.",
+        "evidence": [
+          "§1.1 Definition 2 specifies b∤n, unequal reversal, equal v-values; prime base-16 example is 109.",
+          "§6.1 Problem 1 poses prime v-palindrome existence by base; Table 1 gives binary 175."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.05267v1",
+        "material_read": "§1.1 Definitions 1–2, examples at bases 16 and 276; §5 existence conclusion; §6.1 Problem 1; §6.3 Table 1 and closing remarks.",
+        "method": "Read scholarly open-access full-text HTML passages including precise theorem/problem text and tables.",
+        "title": "v-Palindromes: An Analogy to the Palindromes",
+        "trigger": "Same objects, direct prime-by-base open problem, and first binary example"
+      },
+      {
+        "assessment": "NOT_COVERING all-even-base theorem: an exact decimal restriction and v(n)<=n do not imply binary-prime nonexistence.",
+        "evidence": [
+          "Theorem 1.1 describes candidates 5*10^m-1; Lemma 2.7 proves v(n)<=n."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2307.00770v1",
+        "material_read": "Abstract, §1 definitions and Theorem 1.1; §2 Lemmas 2.5–2.7 and opening proof setup; the source states results explicitly for decimal reversal.",
+        "method": "Read open-access full-text HTML material covering theorem, proof prerequisites and scope; compared implication rather than titles.",
+        "title": "A characterization of prime v-palindromes",
+        "trigger": "Exact prime v-palindrome classification and existing upper bound v(n)<=n"
+      },
+      {
+        "assessment": "NOT_COVERING: an earlier conjecture, moreover false in general bases, is not proof of the newly restricted even-base theorem.",
+        "evidence": [
+          "Later arXiv:2405.05267v1 supplies base-16 and base-276 prime examples contradicting universal nonexistence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.10211v1",
+        "material_read": "Definition of v and reversal, original general-base discussion and conjectural prime nonexistence.",
+        "method": "Read public arXiv HTML version and cross-checked later counterexamples.",
+        "title": "v-palindromes: an analogy to the palindromes",
+        "trigger": "Earliest contextual general-base definition and the former broad no-prime conjecture"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "63e2cb04-1f68-4774-9abc-041d14c69ca5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 foundational general-base study explicitly poses existence of prime v-palindromes by base (Problem 1). This theorem resolves the entire base-2 prime case for arbitrary digit length while leaving known composite binary v-palindromes intact, and establishes a uniform infinite family of parity/leading-digit exclusions for every even base. It distinguishes the permitted prime examples (e.g. 109 in base16) from a provably forbidden natural digit stratum, giving a structural rather than a finite-table observation.",
+    "status": "PASS"
+  }
+}
