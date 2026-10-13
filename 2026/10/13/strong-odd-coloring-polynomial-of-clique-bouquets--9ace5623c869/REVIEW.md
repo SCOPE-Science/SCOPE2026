@@ -1,0 +1,12 @@
+# Review of strong-odd coloring polynomial of clique bouquets
+
+## Correctness
+PASS. For a proper coloring the hub must have its own color and every blade is rainbow. Thus each noncentral vertex has pairwise distinct neighborhood colors and is automatically strong odd. The only parity constraints are at the hub: all peripheral colors must have odd positive multiplicity. The assignment polynomial is exactly the product of \(s_i!e_{s_i}\); the signed \(2^{-k}\)-projector extracts exactly odd exponent vectors. Grouping sign patterns by their number of negative entries yields the full polynomial formula, including palette choice and hub choice. For uniform blades, odd \(t\) attains the clique lower bound, while even \(t\) forces an even number of peripheral colors, each appearing no more than \(t-1\) times. The explicit odd column-degree distribution and decreasing squared-row-sum switches produce a valid incidence matrix meeting the bound. Direct enumeration independently matches the full count in 138 small cases and construction testing in 570 uniform cases.
+
+## Originality
+PASS. Kwon–Park defines strong odd coloring, Caro–Petruševski–Škrekovski–Tuza provides broad graph-family bounds and a claw-free theorem encompassing the two-blade special case, and Manattu–Vinay–Lakshmanan covers special joins of cycles and one-point unions. None of those inspected primary texts determines a full coloring polynomial for arbitrary clique bouquets. A recent abstract by Pradhan–Sharma–Verma announces optimal-coloring algorithms for general block graphs; that is potentially broader for finding the chromatic number but does not state or imply the full coloring enumeration. Its full text could not be obtained, and this remains a recorded residual originality risk. The distinction between a scalar optimization algorithm and a complete named-palette count is material.
+
+## Value
+PASS. The polynomial determines the entire feasible coloring distribution for a natural block-graph operation and simultaneously reveals a nontrivial odd-versus-even blade-number transition in uniform windmills. The formula is not a routine renaming of an ordinary graph-chromatic polynomial: properness alone does not enforce odd multiplicity at the central cut vertex. The signed parity projector and row/column balancing provide reusable structural descriptions of the central incidence obstruction. The optimal chromatic number is a corollary, not the sole contribution.
+
+Self-review: passed. Independent audit: not yet performed.
