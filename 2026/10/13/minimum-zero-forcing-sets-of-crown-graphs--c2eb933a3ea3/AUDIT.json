@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The direct proof establishes a lower bound by a monotonic white-count argument and then gives necessary and sufficient equality conditions. All quantifiers are for integers n>=3 under standard zero forcing. The exhaustive verifier independently agrees for n=3 through 9 but is treated only as corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 graph-products paper proves a broader scalar theorem for even paths times complete graphs, including the crown scalar as t=2.",
+        "Boyer et al. (arXiv:1801.08910) defines and studies counts of zero forcing sets and gives formulas for several families, but the inspected text did not supply a crown/minimum-basis classification."
+      ],
+      "reasoning": "Broader parameter results dominate the numerical part but not the all-minimum-set statement. The retained claim is therefore a structural refinement rather than a rediscovery of the known scalar theorem.",
+      "searches": [
+        "zero forcing number tensor product complete graphs",
+        "zero forcing matching-deleted complete bipartite graph",
+        "zero forcing bipartite complement of a perfect matching crown graph",
+        "arXiv:1801.08910 zero forcing polynomial complete multipartite crown"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.laa.2007.10.009",
+      "Benson et al., Australasian Journal of Combinatorics 70(2) (2018), Theorem 2.4",
+      "arxiv:1801.08910",
+      "published-finding corpus searches under crown, matching-deleted biclique, tensor-product, direct-product, and bipartite-double-cover aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.4 gives M(P_t x K_n)=Z(P_t x K_n)=(n-2)t for even t, and its proof establishes bounds and exhibits forcing sets; it does not state a classification of every minimum set.",
+        "Full-text searches in the graph-products paper found the definition of a minimum zero forcing set and construction language but no all-minimum-set or counting theorem for P_2 x K_n.",
+        "The zero forcing polynomial source establishes the counting framework but no inspected crown formula."
+      ],
+      "reasoning": "The prior theorem implies only the cardinality portion. The retained statement determines exactly which size-(2n-4) candidates force and enumerates them. In the retained theorem the size is 2n-4; this classification and count do not follow from knowing Z alone or from the exhibited construction.",
+      "searches": [
+        "Benson et al. 2018 Theorem 2.4 P_t x K_n",
+        "Benson et al. 2018 minimum zero forcing set all zero forcing sets number of zero forcing sets",
+        "Boyer et al. 2018 zero forcing polynomial minimum coefficients crown"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Crown graph is isomorphic to the tensor/direct product P_2 x K_n and to the bipartite double cover of K_n.",
+        "Benson et al. (2018), Theorem 2.4, states Z(P_t x K_n)=(n-2)t for even t>=2 and n>=3."
+      ],
+      "reasoning": "The product equivalence was explicitly checked rather than treating the crown name as unique. It decisively shows that the scalar value 2n-4 is prior work, so that scalar was removed from the novelty claim. The retained classification of all minimizers is not stated by the product theorem.",
+      "searches": [
+        "zero forcing crown graph K_n,n minus perfect matching",
+        "zero forcing tensor product K_n K_2 crown graph",
+        "zero forcing direct product complete graph K_n times K_2",
+        "zero forcing canonical double cover complete graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected searchable graph-family source or zero-forcing polynomial source returned an exact crown minimum-set table or count.",
+        "The general counting-polynomial source defines z(G;i), so an existing exact leading coefficient would directly cover the count; none was located for crowns."
+      ],
+      "reasoning": "The searches targeted the exact graph and the exact invariant being counted. Absence of a hit is not by itself a novelty proof, so this check is used only together with direct inspection of the closest product and counting papers.",
+      "searches": [
+        "crown graph zero forcing number minimum sets",
+        "K_n,n minus a perfect matching zero forcing bases",
+        "zero forcing polynomial crown graph",
+        "zero forcing K_n,n minus 1-factor"
+      ]
+    },
+    "rationale": "The numerical identity Z(Cr_n)=2n-4 is explicitly recognized as covered by Benson et al. (2018), Theorem 2.4 through Cr_n isomorphic to P_2 x K_n. The retained claim is narrower and genuinely additional: all minimum sets are classified by distinct omitted index pairs and counted exactly. Direct inspection of the closest product theorem and counting source did not reveal that classification.",
+    "residual_risks": [
+      "A specialized catalogue or paper may use an uncommon alias for crown graphs and enumerate minimum zero forcing sets without using the searched terminology.",
+      "The product theorem is decisive for the scalar equality but not for the retained classification; if an uninspected later paper classifies all minimum sets of P_2 x K_n, originality would need reassessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING_CLASSIFICATION",
+        "evidence": "The source supplies standard zero forcing context and lists AMS 05C50 first; its public record says available online 26 November 2007. Targeted searches did not expose the crown minimum-set classification.",
+        "identifier_or_url": "doi:10.1016/j.laa.2007.10.009",
+        "material_read": "Searchable full-text header/definition and targeted family-term searches.",
+        "method": "Read the public full-text mirror and searched for crown, perfect matching, and complete bipartite terminology.",
+        "title": "Zero forcing sets and the minimum rank of graphs",
+        "trigger": "Foundational definition, first public date, and primary subject classification for standard zero forcing."
+      },
+      {
+        "assessment": "COVERS_SCALAR_NOT_CLASSIFICATION",
+        "evidence": "Theorem 2.4 states M(P_t x K_n)=Z(P_t x K_n)=(n-2)t for even t>=2,n>=3, so t=2 covers Z(Cr_n)=2n-4. The paper constructs forcing sets but no inspected statement classifies or counts every minimum set for t=2.",
+        "identifier_or_url": "Australasian Journal of Combinatorics 70(2) (2018), 221-235",
+        "material_read": "Definitions, tensor-product setup, Theorem 2.1, Theorem 2.4 and its proof; targeted searches for minimum-set classification/count language.",
+        "method": "Read the searchable full text of the primary paper around Sections 1.2 and 2.1 and searched for all-zero-forcing-set/count terminology.",
+        "title": "Zero forcing and power domination for graph products",
+        "trigger": "Crown graphs are P_2 x K_n, so any tensor-product theorem could dominate the proposed result."
+      },
+      {
+        "assessment": "COUNTING_FRAMEWORK_NOT_COVERING_CROWN",
+        "evidence": "The paper defines z(G;i) and gives closed forms for several families, including complete multipartite cases, but no inspected crown formula or equivalent matching-deleted-biclique minimum-set coefficient.",
+        "identifier_or_url": "arxiv:1801.08910",
+        "material_read": "Abstract, definition of z(G;i), family-results portions located by full-text search, and searches for crown/perfect-matching terminology.",
+        "method": "Read arXiv HTML/full-text search results and compared the families treated with crown graphs.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "A zero forcing polynomial records counts of zero forcing sets and could directly subsume the exact number of minimum sets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c2eb933a-3ea3-46b5-9161-b106fe04f3f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result converts a known optimum cardinality on a classical symmetric family into a complete structural description and exact enumeration of every minimizer. This is a natural invariant-level refinement, not an arbitrary finite slice, and identifies the precise obstruction I=J among all size-(2n-4) candidates.",
+    "status": "PASS"
+  }
+}
