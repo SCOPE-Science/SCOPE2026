@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "The exact density gives the corrected integral after the substitution \\(y=-\\log x\\). The source's Eq. (5.8) still contains \\(e^{-r y}\\), so its replacement by the single gamma term in Eq. (5.9) is algebraically invalid. At \\(\\alpha=\\beta=1\\), \\(p=1/2\\), the printed series sums analytically to \\(2\\log2\\), while direct integration gives \\(2\\log2-1\\). The support \\((0,1)\\) makes the printed value impossible. The beta-one hypergeometric formula follows by the exact substitution \\(u=x^\\alpha\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Search results concerning generic moments or endpoint asymptotics do not identify the missing exponential factor in the UWG derivation.",
+        "The beta-one reduction is model-specific because the geometric compounding denominator remains in the exact integral.",
+        "General hypergeometric integration supplies a tool but not the source-specific correction."
+      ],
+      "reasoning": "No broader inspected result was found that would already imply the source-specific invalidity of Eq. (5.9) together with the table-compatible correction.",
+      "searches": [
+        "geometric compounded unit Weibull moments hypergeometric",
+        "unit Weibull geometric beta equals 1 exact moment",
+        "unit-Weibull geometric moments hazard endpoint asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.20261171"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eq. (5.8) retains the factor \\(e^{-r y}\\) inside the integral.",
+        "Eq. (5.9) replaces that integral by a single gamma term without an additional summation index.",
+        "Eq. (5.14) explicitly substitutes the Eq. (5.9) moment expression into the MGF series."
+      ],
+      "reasoning": "The accepted claim directly compares the source's consecutive formulas and supplies an exact admissible counterexample. The prior hazard-endpoint result for UWG addresses a different functional and does not imply this moment correction.",
+      "searches": [
+        "UWG Eq 5.8 raw moment integral exp(-r y)",
+        "UWG Eq 5.9 gamma raw moment",
+        "UWG Eq 5.14 moment generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No search result states that Eq. (5.9) gives an impossible mean or supplies the beta-one hypergeometric correction.",
+        "The primary article itself presents Eq. (5.9) as the final raw-moment expression without a correction notice.",
+        "The admissible counterexample distinguishes the corrected claim from generic special-function manipulations."
+      ],
+      "reasoning": "The claim was searched as a formula correction, a beta-one exact-moment identity, and an MGF correction. No equivalent UWG statement was located.",
+      "searches": [
+        "unit-Weibull geometric raw moment formula correction beta=1 hypergeometric",
+        "10.3934/math.20261171 moment formula 5.9 correction",
+        "UWG distribution moment generating function formula wrong"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary Table 2 reports mean 0.5708 at \\(\\alpha=2\\), \\(\\beta=1\\), \\(p=1/2\\).",
+        "The corrected beta-one formula gives \\(\\pi/2-1=0.570796\\ldots\\), agreeing to four decimals.",
+        "No source-specific corrigendum was located."
+      ],
+      "reasoning": "The table comparison narrows the correction: the displayed analytic moment formula fails, but at least one numerical table entry is consistent with the true distribution.",
+      "searches": [
+        "10.3934/math.20261171 Table 2 moments beta 1",
+        "10.3934/math.20261171 correction erratum raw moments",
+        "unit-Weibull geometric Table 2 mean alpha 2 beta 1 p 0.5"
+      ]
+    },
+    "rationale": "The target full text contains the faulty derivation but does not identify it as an error. Targeted searches for the DOI, UWG moment correction, beta-one exact moments, and MGF correction found no published correction. An existing result on the same source concerns terminal hazard behavior and neither states nor implies the raw-moment failure.",
+    "residual_risks": [
+      "A very recent unindexed author correction may exist outside the inspected publisher record.",
+      "A general special-function identity may provide alternative notation for the exact moment integral, but it cannot make the printed counterexample exceed the support bound.",
+      "The numerical procedure used to create Table 2 is not documented closely enough to identify which computation produced its values."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY COVERING BUT INTERNALLY INVALID AT THE FINAL INTEGRATION STEP. The density and intermediate moment integral are consistent, but Eq. (5.9) does not evaluate Eq. (5.8). A Table 2 row agrees with the corrected beta-one moment rather than with the printed formula.",
+        "evidence": "Equation (5.8) contains \\(e^{-r y-\\alpha(1+i-m)y^\\beta}\\); Eq. (5.9) replaces the integral by one gamma term; Table 2 gives mean 0.5708 at \\(\\alpha=2\\), \\(\\beta=1\\), \\(p=1/2\\).",
+        "identifier_or_url": "doi:10.3934/math.20261171",
+        "material_read": "Primary full text covering the unit-Weibull and geometric construction, CDF and density, Section 5.2 equations (5.5)–(5.12), Table 2, and Section 5.3 equations (5.13)–(5.14).",
+        "method": "Direct full-text inspection of the relevant primary sections.",
+        "title": "The unit-Weibull geometric distribution: Mathematical properties, identifiability, and asymptotic analysis with applications to data modeling",
+        "trigger": "Primary 2026 source defining UWG and deriving the disputed raw moments and MGF."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3c32208-f8be-47f8-9f39-9e925946c8c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Raw moments and the MGF are central advertised mathematical properties of the new distribution and feed its mean, variance, skewness, kurtosis, and descriptive interpretation. The correction identifies a concrete impossible published value, supplies an exact valid formula on a natural full parameter slice, and distinguishes the analytic error from numerical table values that may remain correct.",
+    "status": "PASS"
+  }
+}
