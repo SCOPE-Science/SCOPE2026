@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The two-edge completion lemma is proved by contracting open path components of a partial permutation; counting forced cycles over inversion value-pairs gives the exact local covariance. Summation gives the total-inversion covariance, and finite-state differentiation gives the Mallows derivative. Exact enumeration independently reproduces each displayed identity in the tested finite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest Mallows papers cover broad cycle-structure regimes and asymptotics, but the inspected results do not furnish an exact finite-\\(n\\) joint first moment with inversion number or a distance-resolved local kernel."
+      ],
+      "reasoning": "A theorem giving the full joint cycle/inversion generating function, or an exact expected-cycle formula differentiable at \\(q=1\\), could dominate the claim. No such stronger coverage was found in the inspected closest sources.",
+      "searches": [
+        "query: Mallows expected total cycles derivative at q=1 inversion covariance",
+        "arXiv:1601.06991",
+        "arXiv:2201.11610"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1206.0503",
+      "arXiv:1601.06991",
+      "arXiv:2201.11610"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The sorting-index joint equidistribution does not determine \\(\\operatorname{Cov}(\\mathrm{cycles},\\mathrm{inversions})\\). The Mallows cycle papers give cycle-structure information but no inspected result specializes to the exact local kernel or finite-\\(n\\) derivative."
+      ],
+      "reasoning": "Neither a corollary relationship nor a stronger theorem covering the exact statement was identified. The local distance kernel in particular contains information not supplied by aggregate marginal laws.",
+      "searches": [
+        "arXiv:1206.0503",
+        "arXiv:1601.06991",
+        "arXiv:2201.11610",
+        "query: uniform permutation number of cycles inversion count covariance Mallows local sensitivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1601.06991 studies cycle structure under Mallows weighting by inversions and gives expected-cycle results at regime scale, not the displayed finite-\\(n\\) covariance kernel.",
+        "arXiv:2201.11610 studies cycle counts and cycle lengths in Mallows permutations but no matching cycle-count/inversion covariance statement was located in the inspected full text."
+      ],
+      "reasoning": "The covariance identity is exactly the \\(q=1\\) score derivative of expected cycle count in the Mallows exponential family, so the Mallows literature is the most direct equivalence check. The inspected finite and asymptotic statements do not imply the displayed derivative.",
+      "searches": [
+        "query: uniform permutation number of cycles inversion count covariance Mallows local sensitivity",
+        "query: conditioned inversion expected number of cycles uniform permutation",
+        "arXiv:1601.06991",
+        "arXiv:2201.11610"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1206.0503 gives a joint equidistribution between (sorting index, cycles) and (inversions, right-to-left minima), not between inversions and cycles. No exact table or database result located by the targeted searches supplied the claimed mixed moment."
+      ],
+      "reasoning": "The known Stirling/Mahonian factorization involves a different statistic paired with cycle count; therefore it cannot be substituted for the ordinary inversion-cycle covariance without an additional implication, which was not found.",
+      "searches": [
+        "query: number of cycles inversions covariance permutation",
+        "query: Mahonian Stirling inversions cycles joint distribution covariance",
+        "arXiv:1206.0503"
+      ]
+    },
+    "rationale": "Targeted semantic searches and full-text comparison with the closest Mallows-cycle and exact permutation-statistic papers found neither the distance-resolved cycle/inversion covariance nor its finite-size Mallows derivative. The closest exact factorization concerns a different pair of statistics.",
+    "residual_risks": [
+      "An older bivariate permutation enumerator or Mallows identity may encode the same first mixed moment under notation not surfaced by the semantic and exact-formula searches. No decisive unresolved comparison was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the finite-\\(n\\) covariance/linear-response claim; the paper gives broader regime-scale cycle results but no matching exact derivative located.",
+        "evidence": "The inspected expected-cycle theorem is order-of-magnitude across \\(q\\) and \\(n\\) rather than the displayed derivative at \\(q=1\\).",
+        "identifier_or_url": "arXiv:1601.06991",
+        "material_read": "Abstract, theorem statements on expected cycle count, and relevant full-text cycle-structure discussion.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "On the Cycle Structure of Mallows Permutations",
+        "trigger": "Same Mallows weighting and same cycle-count object."
+      },
+      {
+        "assessment": "NOT_COVERING for the displayed finite-\\(n\\) mixed covariance.",
+        "evidence": "No covariance statement or exact finite-size \\(q=1\\) derivative matching the claim was located in the inspected text.",
+        "identifier_or_url": "arXiv:2201.11610",
+        "material_read": "Open full text, including expected-cycle and \\(q\\) near \\(1\\) discussion.",
+        "method": "Lawful open full-text inspection.",
+        "title": "Cycles in Mallows random permutations",
+        "trigger": "Same Mallows model with detailed cycle-count analysis."
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_IMPLYING.",
+        "evidence": "The exact pair is (sorting index, cycles) equidistributed with (inversions, right-to-left minima), not (inversions, cycles).",
+        "identifier_or_url": "arXiv:1206.0503",
+        "material_read": "Abstract, theorem statement giving the joint factorization/equidistribution, and surrounding definitions.",
+        "method": "Lawful arXiv full-text inspection.",
+        "title": "The Sorting Index and Permutation Codes",
+        "trigger": "Exact bivariate permutation-statistic distribution involving cycle count and inversion number through an equidistribution."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d58d938-fb93-451c-ac6d-024fa800b7ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cycle count and inversion count are canonical global topology and rank-disorder statistics. The exact distance-dependent local kernel explains which inversions drive the aggregate dependence, and the summed formula gives a finite-size Mallows linear response; this is structurally informative rather than a routine marginal recomputation.",
+    "status": "PASS"
+  }
+}
