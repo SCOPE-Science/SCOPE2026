@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "The shared-Hessian component gradient step diagonalizes to an affine contraction \\(e^+=q e+t c_i\\); each complete epoch is \\(e_{k+1}=q^n e_k+tZ_k\\) with centered epoch noise. Covariances of two different permutation positions are exactly \\(-v/(n-1)\\), whereas iid covariances vanish. Independent epochs then yield the exact finite \\(K\\) second-moment expression (1). Algebraic factorization of two geometric sums establishes the sign for all \\(-1<q<1\\). Choosing centers along individual eigenvectors proves necessity and mixed ordering. Exact exhaustive enumeration on 123 rational settings corroborated equations, including the reversal witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu (2026), extended full text, Theorem 1, displays \\(\\mathbb E[f(\bar x_K)-f_*]\\) for a weighted all-inner iterate \\(\bar x_K\\), not \\(x_{nK}\\).",
+        "De Sa (NeurIPS 2020), §2, constructs noncommuting matrix products in a noiseless quadratic model.",
+        "Dewasurendra, Theorem 1 and §5, treats all-inner minimax risk under \\(\\eta\\le1/(6L)\\), and cites a common-Hessian cancellation special to that average."
+      ],
+      "reasoning": "None of the distinct objectives or outputs yields the claimed pointwise epoch-terminal comparison on a fixed shared-Hessian finite sum. Large-step reversed ordering is not logically covered by smaller-step averaged-output bounds; the De Sa family has a different noncommuting mechanism.",
+      "searches": [
+        "2026 Liu random reshuffling dominates stochastic gradient descent averaged iterate terminal quadratic counterexample spectral phase transition",
+        "\"random reshuffling\" \"worse\" \"with replacement\" \"common Hessian\"",
+        "The Missing Horizon in Random Reshuffling §5 common Hessian"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.32005v1",
+      "Liu 2026 extended Optimization Online PDF Theorem 1",
+      "Ying 2018 dissertation Lemma 3.1 Theorem 3.2",
+      "De Sa 2020 NeurIPS §2",
+      "Dewasurendra The Missing Horizon §5 and Appendix C",
+      "Shaw and Whalley arXiv:2501.16055 Theorems 3.5–3.6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu gives a bound for a weighted average of inner iterates across epochs; it is a statement about a different random output.",
+        "Ying derives the positive-weight second-moment identity; the negative contraction regime is excluded.",
+        "De Sa disproves a generic noncommuting-product inequality without supplying this sharp instancewise threshold.",
+        "Dewasurendra relates an all-inner averaged output to epoch-end memory under small positive steps, but does not compare terminal IID error at overshooting steps."
+      ],
+      "reasoning": "The new all-horizon terminal formula implies both RR superiority and IID superiority depending on \\(\\eta\\lambda\\), while all-inner averaged rate dominance does not imply either sample-specific inequality. A noncommuting failure example proves existence of some adverse instance, not necessity/sufficiency for shared-Hessian sampled centers. An explicit signed-multiplier comparison and eigenmode witness are required to reach the new claim.",
+      "searches": [
+        "arXiv:2606.32005v1 Theorem 1 weighted average",
+        "Ying 2018 Lemma 3.1 nonnegative beta",
+        "De Sa 2020 Random Reshuffling Is Not Always Better Theorem 1",
+        "Dewasurendra The Missing Horizon in Random Reshuffling equation (21)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ying (2018), Lemma 3.1, pp. 48-49, writes the exact weighted-without-replacement covariance for \\(\beta\\ge0\\), not \\(\beta<0\\).",
+        "The present sign change occurs only when \\(q<0\\), beyond the signed regime authorized by that lemma."
+      ],
+      "reasoning": "The known covariance formula is an algebraic precursor and would evaluate the new expression if extended to signed weights, but its actual stated condition prevents direct implication of the overshoot phase. The finite-horizon terminal comparison with replacement and both iff claims require the additional signed analysis.",
+      "searches": [
+        "\"random reshuffling\" \"negative\" \"contraction factor\" variance iid SGD",
+        "negative contraction signed geometric weights without replacement finite population covariance terminal gradient descent dominance reversal",
+        "Ying 2018 Chapter 3 Lemma 3.1 equations (3.46)-(3.51)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record semantic searches surfaced adjacent stochastic-optimizer curvature results, but no tabulation of a last-epoch RR-vs-IID signed-variance frontier.",
+        "The exact rational two-component witness produces expected squared terminal errors \\(81/16\\) versus \\(45/16\\)."
+      ],
+      "reasoning": "No inspected database/table gives the same sample-specific terminal expected-error differences or the full reciprocal-curvature phase chart. Negative search evidence alone is insufficient to certify novelty; primary texts and their differing implications are also compared.",
+      "searches": [
+        "random reshuffling versus independent sampling sharp terminal expected objective difference common Hessian strongly convex quadratics q=1-eta lambda negative crossover eta=1/L",
+        "random reshuffling finite sum last epoch iterate larger error than with-replacement SGD two point quadratic eta greater than reciprocal curvature",
+        "\"epoch end\" \"random reshuffling\" \"larger\" \"stochastic gradient\" variance stepsize"
+      ]
+    },
+    "rationale": "The motivating 2026 RR guarantee concerns weighted all-inner averages and comparative RATE BOUNDS, not expected individual epoch-terminal objectives. Ying (2018) credits the precursor finite-population covariance identity only for nonnegative scalar or positive-semidefinite matrix weights; its hypothesis excludes the negative multiplier \\(q=1-\\eta\\lambda\\). De Sa (2020) provides a general noncommuting counterexample in a noiseless setting, and Dewasurendra treats an all-inner output at small steps. The presently assessed combination of exact signed spectral last-iterate formula and data-uniform iff threshold was not found in inspected sources. The extensive known covariance precursor and possible unindexed equivalent signed-weight calculations are material residual risks.",
+    "residual_risks": [
+      "Ying (2018) already supplies the core covariance polynomial for nonnegative weights; extension to negative weights is algebraically immediate, although the resulting sharp signed phase classification and output comparison are not stated there.",
+      "Unindexed or inaccessible publications could derive the same terminal overshoot comparison through signed covariance or linear-recursion analysis.",
+      "Only a relevant PDF passage, not the full Shaw–Whalley manuscript, was inspected; it appears bounded to steps below the reciprocal-curvature transition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Rate upper bound is for a weighted all-inner average; it does not order terminal expected objectives.",
+        "evidence": [
+          "Theorem 1 explicitly defines a weighted average of within-epoch iterates.",
+          "Remark 2 gives another inner-average weighting, not an epoch terminal comparison."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/09/Random-Reshuffling-for-Smooth-Convex-Optimization.pdf",
+        "material_read": "Full-text PDF: abstract, introduction, Algorithm 1, assumptions, Theorem 1, Corollary 1, relevant comparisons, and conclusion; Theorem 1 PDF page visually inspected.",
+        "method": "PDF text and page-image inspection",
+        "title": "Random Reshuffling for Smooth Convex Optimization: Dominates Stochastic Gradient Descent",
+        "trigger": "Direct motivating 2026 theorem and purported general dominance"
+      },
+      {
+        "assessment": "Contains the exact underlying weighted covariance precursor but explicitly restricts scalar weight to nonnegative and studies small-step stationary behavior.",
+        "evidence": [
+          "Lemma 3.1 states \\(\beta\\) any nonnegative constant and \\(B\\) symmetric positive semidefinite.",
+          "Equations (3.50)–(3.51) express the without-replacement weighted second moment; Theorem 3.2 assumes sufficiently small steps."
+        ],
+        "identifier_or_url": "https://escholarship.org/content/qt76r7c14r/qt76r7c14r.pdf",
+        "material_read": "Full-text 2018 dissertation, Chapter 3 sections 3.4.1–3.4.2, pages 48–50, equations (3.45)–(3.57), Lemma 3.1 and Theorem 3.2; material inspected as text and page images.",
+        "method": "PDF text and page-image inspection",
+        "title": "Learning Under Random Reshuffling and Distributed Features",
+        "trigger": "Strongest relevant historical finite-population covariance and small-step RR literature"
+      },
+      {
+        "assessment": "Noncommuting random products and noiseless quadratics do not imply the shared-Hessian additive-noise signed threshold.",
+        "evidence": [
+          "Section 2 builds a counterexample using permutation-dependent products of different positive-semidefinite operators."
+        ],
+        "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2020/file/42299f06ee419aa5d9d07798b56779e2-Paper.pdf",
+        "material_read": "Full-text proceedings PDF: abstract, mathematical setup, related work and §2 counterexample construction, including page-image inspection.",
+        "method": "PDF text and page-image inspection",
+        "title": "Random Reshuffling Is Not Always Better",
+        "trigger": "Prior random reshuffling disadvantage/counterexample"
+      },
+      {
+        "assessment": "Explicitly studies pre-update all-inner averages and \\(\\eta\\le1/(6L)\\), not exact terminal IID comparison when contraction is negative.",
+        "evidence": [
+          "Equation (4) defines all-inner average, (20) relates average to endpoint, (21) yields variance for the former, and Theorem 1 restricts steps."
+        ],
+        "identifier_or_url": "https://andotheror.github.io/pdf/the-missing-horizon-in-random-reshuffling.pdf",
+        "material_read": "Full-text PDF: abstract, theorem setup, §5 common-Hessian construction and Appendix C formula passages; inspected as full document text.",
+        "method": "PDF text inspection",
+        "title": "The Missing Horizon in Random Reshuffling",
+        "trigger": "Highly relevant recent all-inner output and common-Hessian construction"
+      },
+      {
+        "assessment": "Available stated SGD-RR and with-replacement upper bounds require steps below \\(1/L\\); no decisive equivalent signed comparison found in the inspected passage.",
+        "evidence": [
+          "Theorem 3.6 states RR bound with \\(0<h<1/L\\); Theorem 3.5 gives an iid bound with \\(0<h<1/(2L)\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2501.16055",
+        "material_read": "Accessible PDF text around Theorems 3.5 and 3.6 (not complete paper).",
+        "method": "Search-indexed PDF passage inspection",
+        "title": "Random Reshuffling for Stochastic Gradient Langevin Dynamics",
+        "trigger": "Possible stronger SGD-RR versus iid terminal comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4354fb22-c6bf-4f42-890a-b9696c386a72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a sharp, natural robustness/ordering boundary for two standard sampling strategies on the fundamental shared-curvature noisy quadratic model, directly illuminating the difference between the 2026 averaged-output dominance result and a terminal-checkpoint claim. The all-horizon iff classification and a two-sample sign-reversal witness establish that neither sampling method universally wins in the mixed spectral regime. The value is not the elementary covariance formula itself but the exact decision boundary and its dimension-independent sharpness for the terminal observable. No end-to-end convergence-rate gain or generalization to nonlinear losses is claimed.",
+    "status": "PASS"
+  }
+}
