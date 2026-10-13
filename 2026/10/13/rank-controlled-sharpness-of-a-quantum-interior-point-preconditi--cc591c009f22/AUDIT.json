@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The source central-path identities imply D1=mu diag(x_J^-2), D2^-1=mu diag(s_N^-2). The source resolvent formula gives G=C(C+mu*hhat*I)^-1 with fixed range ran(A_J), so G is I+O(mu) on that range and zero on its orthogonal complement. The block expansion of Y is [[I+O(mu),O(mu^2)],[O(mu),mu Q_perp/h0+o(mu)]]. Q_perp is positive definite because A has full row rank and s_N*>0. Near-identity block Gaussian elimination proves that its m-r small singular values divided by mu converge to eigenvalues of Q_perp/h0; in full-rank support Y tends to I. The 2x3 integer LP exactly satisfies all feasibility, basis, central-path, and partition conditions and yields a diagonal Y with limit gamma1/2. This is a complete analytic proof, with exact fractional finite replay as a secondary check.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chai--Toh 2007, Theorem 1, writes the general preconditioned Y spectrum. Propositions 6.1 and 6.2 analyze hhat=mu I and hhat=diag(H), not the Wu--Yang--Terlaky fixed scalar hhat determined by sigma_min(A)/omega.",
+        "Wu--Yang--Terlaky Lemma 3.6 bounds singular values in big-O/big-Omega but does not give the support-rank equivalence or leading constant."
+      ],
+      "reasoning": "The Chai--Toh qualitative rank-clustering mechanisms are fully acknowledged and dominate some general ideas but do not directly imply the exact fixed-proxy limit or integer-program sharpness statement. The proof depends on the prescribed scalar normalization and the limiting projected nonbasic Gram matrix.",
+      "searches": [
+        "Chai Toh preconditioned reduced augmented system exact spectral eigenvalue sharp conditioning linear 1/mu degenerate linear program",
+        "Quantum interior-point reduced preconditioned system rank positive primal support full row rank condition number tends 1 as duality gap tends zero",
+        "Preconditioned reduced augmented matrix Y G+(I-G)H/h fixed scalar h asymptotic condition number rank deficient optimal face inverse mu",
+        "strict complementarity central path optimal primal support span constraint rows spectral asymptotics quantum IPM preconditioner",
+        "Chai Toh preconditioner fixed scalar h degeneracy rank A1 smallest singular theta mu condition number exact coefficient",
+        "\"Chai\" \"Toh\" \"2007\" \"degenerate\" preconditioning condition number interior point"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2412.11307v1",
+      "DOI:10.1007/s10589-025-00750-4",
+      "DOI:10.1007/s10589-006-9006-8",
+      "https://pith.science/paper/2412.11307",
+      "Public literature on preconditioned interior point conditioning and central-path limiting spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The quantum source fixes hhat=gamma1*sigma0(A)^2/omega^2 (Section 3.1) and proves only the O(1/mu) statement (Lemma 3.6); no lower-bound construction is shown.",
+        "Chai--Toh 2007, Section 6, gives eigenvalue clusters for hhat=mu I or hhat=diag(H), but not for the present fixed hhat with leading Q_perp coefficient; it gives general formula Y as a known ingredient.",
+        "The exact integral LP has A_B=I_2 as an admissible basis but rank(A_J)=1; no located source writes its particular central path or preconditioned spectrum."
+      ],
+      "reasoning": "Generic spectral clustering and an O(1/mu) upper bound do not imply that the chosen quantum preconditioner actually attains 1/mu, nor the iff support-rank classification and exact constant. Both are proved for the specific source normalization, not claimed as generic unknown principles.",
+      "searches": [
+        "arXiv 2412.11307 preconditioned inexact infeasible quantum interior point LP condition number 1/mu worst case example exact central path optimal partition",
+        "Chai Toh preconditioned reduced augmented system exact spectral eigenvalue sharp conditioning linear 1/mu degenerate linear program",
+        "two constraint three variable central path degenerate LP A=(1 0 0;0 1 -1) Y matrix 1/mu condition number after preconditioning",
+        "preconditioning condition numbers zero positive optimal basic rank deficient central path order mu 1/mu reduced augmented system",
+        "Quantum interior-point reduced preconditioned system rank positive primal support full row rank condition number tends 1 as duality gap tends zero",
+        "Preconditioned reduced augmented matrix Y G+(I-G)H/h fixed scalar h asymptotic condition number rank deficient optimal face inverse mu",
+        "strict complementarity central path optimal primal support span constraint rows spectral asymptotics quantum IPM preconditioner",
+        "Chai Toh preconditioner fixed scalar h degeneracy rank A1 smallest singular theta mu condition number exact coefficient",
+        "arXiv 2412.11307 quantum interior point preconditioned rank",
+        "\"2412.11307\" \"tight\" preconditioned condition number",
+        "\"preconditioned inexact infeasible quantum\" \"sharp\" \"condition number\"",
+        "\"Chai\" \"Toh\" \"fixed\" \"scalar\" \"preconditioner\" \"condition number\" \"mu\"",
+        "asymptotic spectra preconditioned augmented LP zero singulars optimal partition rank deficient h identity QIPM"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source arXiv:2412.11307 / DOI:10.1007/s10589-025-00750-4, Lemma 3.6, gives kappa(Y)=O(1/mu) and no sharp witness.",
+        "Semantic-index results near these queries included sharp row-coherence and Krylov-method examples in unrelated optimization models; none describes the stated rank-dependent quantum LP reduced matrix.",
+        "Web searches with the exact arXiv identifier and sharp/condition-number aliases did not find the claimed limit."
+      ],
+      "reasoning": "Looked for exact quantum-interior-point source, inverse-duality-gap sharpness, smallest-singular asymptotics, support-rank classification, and the explicit two-constraint LP. Existing near-title records do not contain equivalent statements.",
+      "searches": [
+        "arXiv 2412.11307 preconditioned inexact infeasible quantum interior point LP condition number 1/mu worst case example exact central path optimal partition",
+        "Chai Toh preconditioned reduced augmented system exact spectral eigenvalue sharp conditioning linear 1/mu degenerate linear program",
+        "two constraint three variable central path degenerate LP A=(1 0 0;0 1 -1) Y matrix 1/mu condition number after preconditioning",
+        "preconditioning condition numbers zero positive optimal basic rank deficient central path order mu 1/mu reduced augmented system",
+        "\"2412.11307\" \"tight\" preconditioned condition number",
+        "\"preconditioned inexact infeasible quantum\" \"sharp\" \"condition number\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source and Chai--Toh papers present theoretical bounds and numerical LP test instances, not an exact 2-by-3 integer-data central path with the asserted Y spectrum.",
+        "No relevant semantic-index record supplied a precomputed exact condition-number constant for this instance."
+      ],
+      "reasoning": "This is a continuum singular-value asymptotic theorem with an explicit symbolic integer witness, not extraction of a numerical benchmark table.",
+      "searches": [
+        "two constraint three variable central path degenerate LP A=(1 0 0;0 1 -1) Y matrix 1/mu condition number after preconditioning",
+        "arXiv 2412.11307 preconditioned inexact infeasible quantum interior point LP condition number 1/mu worst case example exact central path optimal partition",
+        "\"2412.11307\" \"tight\" preconditioned condition number"
+      ]
+    },
+    "rationale": "The 2024/2025 quantum-interior-point anchor supplies an O(1/mu) upper bound for its prescribed fixed scalar reduced preconditioner, but neither a rank-sensitive limit nor a sharp exact-central-path witness. Chai--Toh 2007 supplies a broader framework and spectral clustering for different scalar or diagonal proxies, not the exact limiting coefficient of the fixed proxy used in the quantum method. Nine actual semantic searches and targeted primary-literature comparisons found no dominating implication-equivalent theorem. The mathematical contribution is the asymptotic rank dichotomy and coefficient, not the known generic fact that degenerate LP systems can be poorly conditioned.",
+    "residual_risks": [
+      "Earlier spectral preconditioning work may contain an equivalent rank-asymptotic result in different notation despite the examined Chai--Toh propositions.",
+      "The exact coefficient applies only when a strictly complementary limit exists, not necessarily to all infeasible-IPM trajectories.",
+      "The finding is about condition numbers, not a lower bound on algorithmic quantum query or wall-clock complexity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES the matrix formulas, prescribed hhat, and O(1/mu) bound but DOES_NOT_COVER the limiting rank dichotomy, exact constant, or integral sharpness witness.",
+        "evidence": "Definition 2 identifies partition by x_i>=sqrt(((1-gamma1)n+gamma1)mu); Section 3.1 sets hhat=gamma1*sigma0(A)^2/omega^2 and Y=G+(I-G)H/hhat; Lemma 3.6 proves kappa(Y)=O(1/mu).",
+        "identifier_or_url": "arXiv:2412.11307v1; DOI:10.1007/s10589-025-00750-4",
+        "material_read": "Full lawful open-access publisher HTML: Sections 2.1--2.3, 3.1--3.2, definitions of the central neighborhood and partition, Assumptions 1--3, RAS/P-RAS/RP-RAS matrices, definition of G and Y, Lemmas 3.2--3.7, Section 4, and Appendix A; arXiv abstract/version page inspected for first public date.",
+        "method": "Direct reading of primary full-text open-access HTML and original arXiv version metadata.",
+        "title": "A preconditioned inexact infeasible quantum interior point method for linear optimization",
+        "trigger": "Primary quantum-interior-point source defining the exact scalar preconditioner and linear reciprocal-duality-gap bound."
+      },
+      {
+        "assessment": "SUPPLIES the general Y identity and rank-related eigenvalue clustering for other preconditioner choices, but DOES_NOT_COVER the source-specific fixed-scalar singular-value limit and exact sharpness witness.",
+        "evidence": "Theorem 1 defines general Y; Proposition 6.1 assumes Hhat=mu I; Proposition 6.2 assumes Hhat=diag(H). Neither states h0/lambda_min(Q_perp) for the later fixed hhat.",
+        "identifier_or_url": "DOI:10.1007/s10589-006-9006-8",
+        "material_read": "Public full text read through Sections 4 and 6, including Proposition 4.1, Theorem 1, Propositions 6.1 and 6.2, and the comparison of diagonal preconditioner choices.",
+        "method": "Direct author-uploaded public full text in ResearchGate web rendering.",
+        "title": "Preconditioning and iterative solution of symmetric indefinite linear systems arising from interior point methods for linear programming",
+        "trigger": "Closest foundational preconditioner using the same reduced-augmented structure and potentially dominating rank-asymptotic theorems."
+      },
+      {
+        "assessment": "Acknowledges the conditioning result but DOES_NOT_COVER its sharpness or rank-limit theorem.",
+        "evidence": "The review summarizes the O(1/mu) preconditioned estimate; its main objection concerns accuracy propagation to the MNES residual, not asymptotic singular-value lower bounds.",
+        "identifier_or_url": "https://pith.science/paper/2412.11307",
+        "material_read": "Public review summary and detailed statements on the role of the RP-RAS conditioning lemma and the separate quantum-accuracy-propagation issue.",
+        "method": "Direct public review web-text inspection.",
+        "title": "Public technical review of A preconditioned inexact infeasible quantum interior point method for linear optimization",
+        "trigger": "Relevant source-specific prior critique that may have addressed the source sharpness claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc591c00-9f22-4584-871f-8bbae12e7e5f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original quantum algorithm explicitly emphasizes reducing ill-conditioning from quadratic to linear reciprocal duality gap but leaves open when that linear dependence is necessary. The theorem gives a natural support-rank criterion: nondegenerate positive support makes its own reduced matrix asymptotically perfectly conditioned, whereas rank-deficient support forces exactly linear blow-up with an explicit coefficient. A minimal integer LP demonstrates that the O(1/mu) rate is sharp even with oracle-perfect partition and exact centrality; this pinpoints which geometric degeneracies require a different preconditioning design. It is a motivated structural boundary, not a generic observation that LPs can be ill-conditioned.",
+    "status": "PASS"
+  }
+}
