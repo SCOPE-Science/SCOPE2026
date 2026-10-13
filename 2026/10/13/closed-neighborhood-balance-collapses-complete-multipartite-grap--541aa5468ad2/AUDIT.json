@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Each multipartite part is monochromatic because its vertices have the same open neighborhood. Writing global color totals gives exact closed-neighborhood balance equations. Comparing two differently colored parts forces both to be singletons, with separate valid arguments for \\(k=2\\) and \\(k\\ge3\\); comparing any remaining same-colored part to a singleton then forces it to be a singleton too. The graph is therefore \\(K_r\\), and balance reduces exactly to equal global color-class sizes. The direct-definition verifier exhaustively agrees on \\(583627\\) small labeled assignments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "No semantic literature-database hit among the targeted searches stated closed neighborhood-balanced \\(k\\)-colorability for complete multipartite graphs.",
+        "arXiv:2510.16666v1 treats necessary conditions, complete graphs, Hamming graphs, constructions, products, and hardness, but the inspected text does not give this family classification."
+      ],
+      "reasoning": "The available general necessary conditions do not themselves imply the classification without exploiting the complete-multipartite neighborhood equations. No broader exact theorem located specializes to the claimed all-\\(k\\) formula.",
+      "searches": [
+        "\"Closed Neighborhood Balanced k-Coloring of Graphs\" 2510.16666",
+        "\"complete multipartite\" \"closed neighborhood balanced\"",
+        "closed neighborhood-balanced coloring complete multipartite colorings count"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.16666v1",
+      "arXiv:2412.02800",
+      "DOI:10.1007/s00373-025-02950-5",
+      "Semantic literature-database searches under exact, alias, family, and neighborhood-twin formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Collins et al. prove only the two-color complete-bipartite boundary \\(K_{m,n}\\): only \\(K_{1,1}\\) works.",
+        "Almeida et al. prove the complete-graph divisibility criterion for general \\(k\\) and the equal-open-neighborhood color constraint."
+      ],
+      "reasoning": "The prior results cover proper subfamilies or ingredients. The arbitrary complete-multipartite theorem requires showing that once two colors occur, every part must be a singleton; that implication is not stated in the inspected sources. The counting formula then follows only after this structural collapse.",
+      "searches": [
+        "\"Closed Neighborhood Balanced k-Coloring of Graphs\" 2510.16666",
+        "Collins et al. Closed Neighborhood Balanced Coloring of Graphs: complete bipartite; complete multipartite",
+        "closed neighborhood balanced k-coloring true twins false twins multipartite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.16666v1 defines closed neighborhood-balanced \\(k\\)-coloring and states the same-open-neighborhood lemma.",
+        "The same source states \\(K_n\\) is \\(k\\)-CNBC exactly when \\(k\\mid n\\), but a targeted full-text search returns no occurrence of 'multipartite'.",
+        "The earlier two-color paper states \\(K_{m,n}\\) is CNBC exactly when \\(m=n=1\\)."
+      ],
+      "reasoning": "Complete multipartite graphs consist of false-twin parts, so the same-neighborhood lemma is relevant, but neither the complete-graph theorem nor the bipartite two-color boundary logically supplies the cross-color part-size argument for arbitrary numbers of parts and arbitrary \\(k\\). The new statement proves that argument and counts all labeled solutions.",
+      "searches": [
+        "closed neighborhood balanced k-coloring complete multipartite graphs exact characterization",
+        "CNBC complete bipartite complete multipartite k colors",
+        "closed neighborhood balanced k-coloring true twins false twins multipartite",
+        "arXiv:2510.16666v1 full-text searches: multipartite; bipartite; complete graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic literature-database complete-multipartite records concern unrelated invariants such as odd coloring and bicoloured-interval representations.",
+        "No exact table or record for \\(k\\)-CNBC complete multipartite graphs appeared in the targeted searches."
+      ],
+      "reasoning": "The verifier's finite counts were generated directly from the definition and are not imported from a known table. The database comparison found no table or exact record containing the claimed values.",
+      "searches": [
+        "closed neighborhood balanced k-coloring complete multipartite graphs exact characterization",
+        "\"complete multipartite\" \"closed neighborhood balanced\""
+      ]
+    },
+    "rationale": "The initiating \\(k\\)-color paper supplies the invariant, the same-open-neighborhood lemma, and the complete-graph criterion, but does not state a complete-multipartite classification; its full text has no occurrence of 'multipartite'. The earlier two-color paper explicitly settles complete bipartite graphs but not arbitrary complete multipartite graphs. Six semantic literature-database searches under exact and alias formulations returned no same-invariant covering statement.",
+    "residual_risks": [
+      "An unindexed equivalent result could use different terminology for balanced closed-neighborhood color partitions.",
+      "The classification is structurally short once the same-open-neighborhood lemma is known; this increases the possibility of an unstated folklore corollary, though no covering statement was located in the inspected primary sources or database searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the invariant and key same-neighborhood lemma and states the complete-graph criterion, but no complete-multipartite theorem was found; 'multipartite' does not occur in the inspected full text.",
+        "evidence": "The source states that vertices with identical open neighborhoods receive the same color and that \\(K_n\\) is \\(k\\)-CNBC iff \\(k\\mid n\\).",
+        "identifier_or_url": "arXiv:2510.16666v1",
+        "material_read": "Abstract; MSC and submission metadata; Section 2 definition/necessary observations; complete-graph criterion; counting section; conclusion/open problems; targeted full-text searches for multipartite, bipartite, and complete graph.",
+        "method": "Lawful arXiv abstract and HTML full-text inspection.",
+        "title": "Closed Neighborhood Balanced \\(k\\)-Coloring of Graphs",
+        "trigger": "Primary recent source defining the \\(k\\)-color invariant and therefore the closest plausible covering source."
+      },
+      {
+        "assessment": "Explicitly states that \\(K_{m,n}\\) is CNBC iff \\(m=n=1\\), but no complete-multipartite classification was found.",
+        "evidence": "Observation 2 gives the complete-bipartite boundary and the full text has no 'complete multipartite' match.",
+        "identifier_or_url": "arXiv:2412.02800; DOI:10.1007/s00373-025-02950-5",
+        "material_read": "Definitions and introductory observations; complete graph and complete bipartite examples; article organization; targeted full-text search for complete multipartite.",
+        "method": "Open-access publisher full-text inspection.",
+        "title": "Closed Neighborhood Balanced Coloring of Graphs",
+        "trigger": "The two-color predecessor could cover the \\(k=2\\) specialization or a stronger multipartite statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "541aa546-8ad2-4970-966f-f6a20d3afb90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete infinite-family classification for a newly generalized coloring notion on the canonical complete-multipartite class. It sharpens the known two-color biclique obstruction into an all-\\(k\\) structural collapse, identifies the exact divisibility boundary, and counts all labeled solutions. The result is not a finite table or parameter increment; it explains why every non-complete multipartite perturbation destroys closed-neighborhood balance.",
+    "status": "PASS"
+  }
+}
