@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source defines \\(\\gamma\\) and \\(q\\) as probabilities strictly between zero and one. Solving its tradeoff for \\(\\gamma\\) makes the feasible \\(\\beta_2\\) interval explicit. Differentiating the source's \\(\\mathcal R_{0,a}\\) after that substitution gives a unique unconstrained stationary point \\(\\beta_1/p\\), which lies in the feasible interval exactly when \\(2\\beta_1<(1+p)\\sqrt{q/(pc)}\\). The exact witness makes the source point require \\(\\gamma=16/9\\), while the objective is strictly increasing on the entire valid interval.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shirreff et al. model an established transmission-duration tradeoff selecting intermediate HIV-1 virulence under an explicitly modeled trait setting.",
+        "General virulence-tradeoff literature establishes the mechanism of intermediate fitness optima but does not use the motivating discrete Markov probabilities or its quadratic constraint.",
+        "No broader source inspected supplies the exact boundary \\(2\\beta_1=(1+p)\\sqrt{q/(pc)}\\) for this model."
+      ],
+      "reasoning": "Prior theory covers why intermediate virulence may be selected. It does not subsume the accepted claim, which is about whether the source's stationary point belongs to the stated discrete-time probability domain.",
+      "searches": [
+        "virulence transmission tradeoff intermediate optimum reproduction number epidemic model",
+        "\"Transmission selects for HIV-1 strains of intermediate virulence\" constraints evolution",
+        "transmission virulence tradeoff constrained optimum epidemic model"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/math11051092",
+      "doi:10.1371/journal.pcbi.1002185"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No indexed erratum or source-specific feasibility correction was located.",
+        "The motivating article's own numerical example does not reveal the defect because its optimum has admissible \\(\\gamma^*\\).",
+        "The supporting HIV paper establishes a different intermediate-virulence model and therefore does not imply the source-specific constrained formula."
+      ],
+      "reasoning": "A prior demonstration of intermediate virulence does not imply this correction. The accepted result requires enforcing the exact probability domain of the motivating Markov chain against the later quadratic tradeoff and then re-solving its optimization.",
+      "searches": [
+        "\"10.3390/math11051092\" correction erratum virulence",
+        "\"A Discrete Model for the Evolution of Infection Prior to Symptom Onset\" correction",
+        "\"10.3390/math11051092\" optimal virulence probability gamma",
+        "\"10.3390/math11051092\" symptomatic transmission always higher"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article defines \\(0<\\gamma,q<1\\), imposes the quadratic virulence tradeoff, and reports \\(\\beta_2^*=\\beta_1/p\\).",
+        "The exact domain calculation yields the additional condition \\(2\\beta_1<(1+p)\\sqrt{q/(pc)}\\).",
+        "No checked indexed source states this feasibility condition as a correction to the motivating article."
+      ],
+      "reasoning": "The same issue can be phrased as an inadmissible virulence optimum, a missing probability constraint, a constrained transmission-rate optimum, or failure of the universal symptomatic-transmission ordering. The searches covered these equivalent formulations.",
+      "searches": [
+        "\"10.3390/math11051092\" beta2 star beta1 over p virulence tradeoff admissibility gamma q correction",
+        "\"A Discrete Model for the Evolution of Infection Prior to Symptom Onset\" virulence optimum constraint gamma",
+        "within-host discrete infection symptom onset beta2 beta1 p optimal virulence correction",
+        "\"beta2\" \"beta1/p\" \"q gamma\" virulence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open publisher full text states that \\(\\alpha,\\delta,\\gamma,p,q\\) are probabilities strictly between zero and one.",
+        "Section 5 defines \\(\\bar\\beta=(\\beta_1+p\\beta_2)/(1+p)\\), imposes \\(q\\gamma=pc\\bar\\beta^2\\), and reports the common optimum \\(\\beta_2^*=\\beta_1/p\\).",
+        "The source's Figure 3 uses \\(p=0.7\\), \\(q=0.2\\), and a parameter set for which the reported optimum is feasible.",
+        "Publisher metadata gives first publication on 22 February 2023 and lists MSC 92D25 first."
+      ],
+      "reasoning": "The correction follows from combining two exact statements in the same primary source: the Markov probability domain and the later evolutionary tradeoff.",
+      "searches": [
+        "doi:10.3390/math11051092 model probabilities gamma q",
+        "doi:10.3390/math11051092 Section 5 virulence transmission tradeoff",
+        "doi:10.3390/math11051092 Figure 3 beta2 beta1 p optimal virulence"
+      ]
+    },
+    "rationale": "Intermediate-virulence tradeoff optima are established prior work and are not claimed as new. The accepted contribution is the source-specific probability-domain correction and exact constrained phase classification for Ripoll and Font's Section 5 optimization. Source-identity, optimizer-formula, feasibility, correction, and prior-ledger searches found no equivalent published correction.",
+    "residual_risks": [
+      "An unindexed author note could contain the same constrained-domain correction.",
+      "The correction does not change the motivating article's displayed Figure 3 example because that parameter set is feasible.",
+      "If \\(\\gamma\\) is reinterpreted as an unrestricted positive rate rather than the probability stated in the model, the obstruction disappears, but that changes the source's model domain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNCONSTRAINED_OPTIMUM_CAN_LIE_OUTSIDE_STATED_PROBABILITY_DOMAIN",
+        "evidence": "The source simultaneously requires \\(0<\\gamma<1\\) and reports \\(\\beta_2^*=\\beta_1/p\\) from a tradeoff that can make the corresponding \\(\\gamma^*\\) exceed one.",
+        "identifier_or_url": "doi:10.3390/math11051092",
+        "material_read": "Open full text at the Markov-chain parameter definitions, reproduction-number formulas, Section 5 equations (12)-(14), and Figures 3-5.",
+        "method": "Solved the quadratic tradeoff for the symptomatic progression probability, intersected it with the model's probability domain, then differentiated the resulting reproduction-number function on that constrained interval.",
+        "title": "A Discrete Model for the Evolution of Infection Prior to Symptom Onset",
+        "trigger": "Primary source containing the target probability model and virulence-transmission optimization."
+      },
+      {
+        "assessment": "INTERMEDIATE_VIRULENCE_MECHANISM_IS_PRIOR_BUT_MODEL_SPECIFIC",
+        "evidence": "The paper demonstrates an intermediate virulence optimum in a different HIV-1 trait model; it does not state the motivating Markov model's feasibility boundary.",
+        "identifier_or_url": "doi:10.1371/journal.pcbi.1002185",
+        "material_read": "Open full text at the model motivation, results, and discussion of transmission selecting an intermediate virulence level under the modeled constraints.",
+        "method": "Compared the implication and trait-domain role rather than numerical parameter values.",
+        "title": "Transmission Selects for HIV-1 Strains of Intermediate Virulence: A Modelling Approach",
+        "trigger": "Primary evolutionary-epidemiology comparison for intermediate virulence under a transmission-duration tradeoff."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7ba76bc-3c43-4938-a386-fa7f5a6fdcf7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's headline evolutionary conclusion is that optimal symptomatic transmission is always higher and that the quadratic tradeoff yields an intermediate virulence optimum. The missing feasibility condition separates parameter sets where that statement is valid from a nonempty regime where the reported optimizer is impossible, the objective remains monotone up to the probability boundary, and every feasible symptomatic transmission rate can be below the asymptomatic rate. This is a structural correction to the biological optimization rather than a cosmetic bound.",
+    "status": "PASS"
+  }
+}

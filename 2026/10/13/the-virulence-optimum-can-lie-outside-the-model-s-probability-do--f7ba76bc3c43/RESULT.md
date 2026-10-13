@@ -1,0 +1,268 @@
+# The virulence optimum can lie outside the model's probability domain
+
+## Finding
+
+The discrete epidemic model assumes
+\[
+0<\gamma<1
+\]
+for the daily progression probability out of the symptomatic infectious stage and
+\[
+0<q<1
+\]
+for the fraction of symptomatic infections that result in death.
+
+Section 5 then imposes
+\[
+q\gamma
+=
+pc\left(
+\frac{\beta_1+p\beta_2}{1+p}
+\right)^2
+\]
+and reports the transmission-rate optimizer
+\[
+\beta_2^*=\frac{\beta_1}{p}.
+\]
+
+That optimizer is not always admissible under the model's own probability constraint. Put
+\[
+B=(1+p)\sqrt{\frac{q}{pc}}.
+\]
+The condition \(\gamma<1\) is exactly
+\[
+\beta_1+p\beta_2<B.
+\]
+Hence the reported optimizer is feasible only when
+\[
+2\beta_1<B.
+\]
+
+If
+\[
+\frac B2<\beta_1<B,
+\]
+positive admissible symptomatic transmission rates exist, but all satisfy
+\[
+0<\beta_2<
+\frac{B-\beta_1}{p}
+<
+\frac{\beta_1}{p}.
+\]
+In that regime the asymptomatic-view reproduction number is strictly increasing throughout the entire admissible interval. Thus the strict-probability model has no interior optimum; the supremum is approached as \(\gamma\uparrow1\). If the boundary \(\gamma=1\) is allowed, the constrained maximum is attained at the boundary rather than at the source's unconstrained stationary point.
+
+For the exact parameter choice
+\[
+p=q=\frac12,\qquad
+c=1,\qquad
+\beta_1=1,\qquad
+\delta=\frac12,
+\]
+every admissible symptomatic transmission rate satisfies
+\[
+0<\beta_2<1=\beta_1,
+\]
+while the published formula gives
+\[
+\beta_2^*=2.
+\]
+At that point the tradeoff would require
+\[
+\gamma=\frac{16}{9},
+\]
+which is not a probability.
+
+The source's numerical Figure 3 parameter set does satisfy the missing feasibility condition, so this finding does not alter that particular plotted optimum. It corrects the unrestricted analytical conclusion.
+
+## Assumptions and scope
+
+The probabilities \(p\), \(q\), \(\gamma\), and \(\delta\) are those of the source's discrete Markov model, with values strictly between zero and one. The transmission rates \(\beta_1\) and \(\beta_2\) and proportionality constant \(c\) are positive.
+
+The source treats \(q\) as fixed during the Section 5 transmission-rate optimization. Under the displayed tradeoff, \(\gamma\) is therefore determined by \(\beta_2\).
+
+The finding concerns feasibility of the evolutionary optimization under the stated model domain. It does not dispute the algebra of the unconstrained derivative calculation. It also does not claim that every parameter set loses an interior optimum.
+
+## Proof
+
+The tradeoff is
+\[
+q\gamma
+=
+pc\left(
+\frac{\beta_1+p\beta_2}{1+p}
+\right)^2.
+\]
+Solving for \(\gamma\) gives
+\[
+\gamma
+=
+\frac{pc}{q}
+\left(
+\frac{\beta_1+p\beta_2}{1+p}
+\right)^2.
+\]
+Therefore
+\[
+\gamma<1
+\]
+is equivalent to
+\[
+\beta_1+p\beta_2
+<
+(1+p)\sqrt{\frac{q}{pc}}
+=
+B.
+\]
+
+If \(\beta_1<B\), the admissible interval is
+\[
+0<\beta_2<\beta_{\max},
+\qquad
+\beta_{\max}
+=
+\frac{B-\beta_1}{p}.
+\]
+The source's stationary point
+\[
+\beta_u=\frac{\beta_1}{p}
+\]
+belongs to this interval exactly when
+\[
+2\beta_1<B.
+\]
+
+After eliminating \(\gamma\), the asymptomatic-view reproduction number is
+\[
+\mathcal R_{0,a}(\beta_2)
+=
+\frac{\beta_1}{\delta}
++
+\frac{q(1+p)^2}{c}
+\frac{\beta_2}{(\beta_1+p\beta_2)^2}.
+\]
+Differentiation gives
+\[
+\mathcal R_{0,a}'(\beta_2)
+=
+\frac{q(1+p)^2}{c}
+\frac{\beta_1-p\beta_2}{(\beta_1+p\beta_2)^3}.
+\]
+Thus the unconstrained maximum occurs at
+\[
+\beta_u=\frac{\beta_1}{p}.
+\]
+
+When
+\[
+\frac B2<\beta_1<B,
+\]
+one has
+\[
+\beta_{\max}<\beta_u.
+\]
+Hence
+\[
+\mathcal R_{0,a}'(\beta_2)>0
+\]
+for every admissible \(\beta_2\). The strict domain has only a supremum at the boundary. If \(\gamma=1\) is adjoined, the constrained maximizer is \(\beta_{\max}\).
+
+For
+\[
+p=q=\frac12,\qquad
+c=1,\qquad
+\beta_1=1,
+\]
+one gets
+\[
+B=\frac32
+\]
+and
+\[
+\gamma(\beta_2)
+=
+\left(\frac{2+\beta_2}{3}\right)^2.
+\]
+So admissibility is exactly
+\[
+0<\beta_2<1.
+\]
+The reported point
+\[
+\beta_u=2
+\]
+instead gives
+\[
+\gamma(2)=\frac{16}{9}.
+\]
+
+With
+\[
+\delta=\frac12,
+\]
+the reproduction number becomes
+\[
+\mathcal R_{0,a}(\beta_2)
+=
+2+\frac{9\beta_2}{2(\beta_2+2)^2}.
+\]
+It is strictly increasing for \(0<\beta_2<1\), with
+\[
+\sup\mathcal R_{0,a}
+=
+\frac52.
+\]
+
+## Verification
+
+The bundled `verify.py` performs the elimination and differentiation symbolically.
+
+It checks the exact feasibility boundary, verifies the three parameter regimes separated by
+\[
+2\beta_1=B,
+\]
+and replays the rational witness
+\[
+p=q=\frac12,\quad
+c=1,\quad
+\beta_1=1,\quad
+\delta=\frac12.
+\]
+
+For that witness it verifies
+\[
+\gamma(2)=\frac{16}{9},
+\]
+the admissible interval \(0<\beta_2<1\), strict monotonicity of \(\mathcal R_{0,a}\) on that interval, and the boundary supremum \(5/2\).
+
+No finite parameter scan is used to prove the classification.
+
+## Relationship to prior work
+
+Intermediate virulence generated by a transmission-duration tradeoff is established evolutionary-epidemiology theory. For example, Shirreff, Pellis, Laeyendecker, and Fraser model HIV-1 genotypes whose transmission success and infection duration select for an intermediate virulence level. That general mechanism is not claimed as new here.
+
+The motivating paper specializes the mechanism to pre-symptomatic and symptomatic transmission, treats \(\gamma\) as a probability in its Markov chain, and reports the common optimizer
+\[
+\beta_2^*=\frac{\beta_1}{p}
+\]
+for its reproduction-number formulations. Its displayed example happens to keep the resulting \(\gamma^*\) inside the probability domain.
+
+The new content is the source-specific constrained classification: the optimizer exists in the strict model only if
+\[
+2\beta_1<(1+p)\sqrt{\frac{q}{pc}},
+\]
+while a nonempty complementary parameter regime has no interior optimum and can force every admissible \(\beta_2\) to be no larger than \(\beta_1\).
+
+Searches by DOI, exact title, the optimizer formula, virulence-tradeoff terminology, probability-domain terminology, and correction or erratum terminology did not locate a published correction of this feasibility issue.
+
+## Limitations
+
+The finding does not alter the paper's Figure 3 numerical optimum, whose parameters satisfy the added feasibility condition.
+
+It does not assess evolutionary objectives other than the reproduction-number optimization adopted by the source.
+
+If one abandons the interpretation of \(\gamma\) as a discrete-time probability and instead treats it as an unrestricted positive rate, the feasibility obstruction disappears, but that is a different parameter domain from the model stated in the paper.
+
+## References
+
+1. J. Ripoll, J. Font, “A Discrete Model for the Evolution of Infection Prior to Symptom Onset,” Mathematics 11 (2023), 1092. DOI: 10.3390/math11051092.
+2. G. Shirreff, L. Pellis, O. Laeyendecker, C. Fraser, “Transmission Selects for HIV-1 Strains of Intermediate Virulence: A Modelling Approach,” PLoS Computational Biology 7 (2011), e1002185. DOI: 10.1371/journal.pcbi.1002185.
