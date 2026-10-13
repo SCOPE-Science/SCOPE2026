@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "At a positive equilibrium, direct differentiation gives the Jacobian with trace 1-rx+A and determinant (1-rx)A+B. The predator-nullcline derivative satisfies g'(y)=x(1-A)/y and the prey-nullcline derivative satisfies B=-r y f'(y), so det(I-J)=r y(g'-f')=-r y H'. In an exactly-two-root regime a simple lower root crosses H from negative to positive, hence H'>0 and p(1)<0. A monic real quadratic with p(1)<0 has a real root above 1. If rx<=2, p(-1)=(2-rx)(1+A)+B>0, placing the other real root in (-1,1). The source examples were independently replayed from the printed map.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chow, Jang, and Wang (2019), DOI 10.1080/17513758.2018.1555339, analytically prove a saddle result for one of two interior equilibria in a no-refuge Beverton-Holt-type cooperative-hunting model.",
+        "Jang and Yousef (2023), DOI 10.1080/17513758.2023.2242372, study prey refuge with Beverton-Holt growth and numerically describe a lower saddle branch in an example.",
+        "De Silva and Jang (2026) explicitly state that their Ricker-plus-refuge lower-equilibrium classification remained analytically unresolved."
+      ],
+      "reasoning": "The older results show that lower-branch saddle behavior is structurally plausible, but their maps and Jacobians differ. They do not imply the Ricker-refuge determinant identity or the r x <= 2 saddle refinement.",
+      "searches": [
+        "Cooperative hunting in a discrete predator-prey system II lower equilibrium always saddle",
+        "A Ricker-type predator-prey system with hunting cooperation in discrete time lower equilibrium saddle",
+        "Effects of prey refuge and predator cooperation on a predator-prey system lower branch saddle"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2026868",
+      "doi:10.1080/17513758.2018.1555339",
+      "doi:10.1080/17513758.2023.2242372"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper's Proposition 3.6 gives only a sufficient stability condition for the upper equilibrium and then states that lower-equilibrium classification is left open.",
+        "The 2019 saddle theorem is for a model without prey refuge and with a different prey-growth map.",
+        "The 2023 refuge paper uses Beverton-Holt growth rather than the 2026 Ricker factor."
+      ],
+      "reasoning": "A saddle result in a structurally related but different discrete map does not imply the spectrum of the 2026 Ricker-refuge equilibrium. The new determinant identity uses the exact 2026 equilibrium relations to bridge nullcline geometry and its Jury polynomial.",
+      "searches": [
+        "10.3934/math.2026868 lower equilibrium E21 open problem",
+        "Cooperative hunting in a discrete predator-prey system II saddle point proof",
+        "Effects prey refuge predator cooperation lower equilibrium saddle analytic proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 source states that E21 appears numerically as a saddle or repeller and explicitly leaves rigorous classification open.",
+        "The accepted identity evaluates the first Jury polynomial at lambda=1 directly from the source's nullcline slopes.",
+        "No published-finding corpus hit stated the same source-specific nullcline-slope factorization or lower-equilibrium theorem."
+      ],
+      "reasoning": "Equivalent wording would need to establish the instability of the lower equilibrium in the 2026 Ricker-plus-refuge system, not merely in another cooperative-hunting map. The closest indexed findings concern different dynamical systems.",
+      "searches": [
+        "10.3934/math.2026868 lower equilibrium unstable saddle proof H(y) nullcline Jury",
+        "Persistence extinction chaotic predator prey cooperation refuge lower equilibrium E21 instability open problem",
+        "discrete predator prey nullcline slope det(I-J) lower equilibrium saddle cooperation refuge",
+        "Effects prey refuge predator cooperation lower equilibrium saddle analytic proof 2242372"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus hit was `2026/9/17/SCOPE-determinant-sign-stability-exchange-predator-dependent-replicator--e8d30d2f6175`, concerning a different replicator model.",
+        "Other close hits concerned unrelated equilibrium-geometry and stability-classification problems and did not reference DOI 10.3934/math.2026868."
+      ],
+      "reasoning": "Database noncoverage is supporting evidence only. Originality is based on direct statement-level comparison with the motivating full text and the closest cooperative-hunting predecessors.",
+      "searches": [
+        "10.3934/math.2026868 lower equilibrium unstable saddle proof H(y) nullcline Jury",
+        "Persistence extinction chaotic predator prey cooperation refuge lower equilibrium E21 instability open problem",
+        "discrete predator prey nullcline slope det(I-J) lower equilibrium saddle cooperation refuge"
+      ]
+    },
+    "rationale": "The motivating 2026 article explicitly says that numerical evidence makes the lower equilibrium a saddle or repeller but that it could not establish a complete analytical proof. The 2019 no-refuge cooperative-hunting model proves a saddle result for a different map, and the 2023 refuge model uses Beverton-Holt prey growth and presents numerical two-equilibrium behavior. Neither inspected source contains the Ricker-plus-refuge identity det(I-J)=-r y H' or its resulting generic instability theorem. Source-specific published-finding corpus searches found no equivalent published finding.",
+    "residual_risks": [
+      "A later erratum or unindexed manuscript could contain the same nullcline-slope factorization.",
+      "The degenerate lower crossing with H'(y1)=0 is not nonlinearly classified.",
+      "The proof distinguishes generic instability from a complete saddle/source partition when r x1>2.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_LEAVES_GAP. It numerically labels the lower equilibrium as a saddle or source in examples but does not prove generic lower-equilibrium instability.",
+        "evidence": "Section 3.2.2 states that numerical evidence consistently indicates E21 is unstable but that a complete analytical proof was not established. The printed formulas provide all identities used in the accepted proof.",
+        "identifier_or_url": "doi:10.3934/math.2026868",
+        "material_read": "Full 29-page article: model derivation and nondimensionalization; nullclines and their derivatives; Jacobian; two-equilibrium regime; Jury analysis; Proposition 3.6; paragraph explicitly leaving E21 classification open; numerical examples at r=1 and r=3; conclusions and references.",
+        "method": "Open-access publisher source, supplemented after direct OA extraction limitations by authorized full-text retrieval.",
+        "title": "Persistence, extinction, and chaotic dynamics in a predator-prey system with cooperative hunting and prey refuge",
+        "trigger": "Exact motivating source and explicit open lower-equilibrium classification."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It proves an analogous saddle phenomenon for a different no-refuge prey-growth model.",
+        "evidence": "The article states that one of two interior steady states is always a saddle, but its map is not the 2026 Ricker-plus-refuge system.",
+        "identifier_or_url": "doi:10.1080/17513758.2018.1555339",
+        "material_read": "Open full-text abstract, introduction, model description, and summary statements describing the analytic saddle classification for one of two coexisting equilibria.",
+        "method": "Open-access publisher HTML.",
+        "title": "Cooperative hunting in a discrete predator-prey system II",
+        "trigger": "Closest analytic predecessor proving a lower/interior saddle in a cooperative-hunting map."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING. It uses Beverton-Holt prey growth and reports lower-branch saddle behavior numerically rather than deriving the 2026 Ricker identity.",
+        "evidence": "The model and nullclines differ from the Ricker system; its numerical section reports a lower saddle branch after an unproved saddle-node transition.",
+        "identifier_or_url": "doi:10.1080/17513758.2023.2242372",
+        "material_read": "Open full-text model section, positive-equilibrium discussion, numerical lower/upper branch example, and conclusions.",
+        "method": "Open-access publisher HTML.",
+        "title": "Effects of prey refuge and predator cooperation on a predator-prey system",
+        "trigger": "Closest predecessor combining prey refuge with cooperative hunting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cde52934-78bb-4e2d-98bf-3b5a1947050f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result directly addresses an open analytical point identified by the motivating article. It converts a difficult-looking pair of Jury inequalities into a single exact nullcline-slope identity, proving instability for every transverse lower coexistence equilibrium and giving a clean saddle criterion. This explains both source examples with one structural mechanism and sharpens interpretation of the bistable extinction-coexistence threshold without requiring a global basin theorem.",
+    "status": "PASS"
+  }
+}
