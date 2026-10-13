@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For the explicitly normalized F16 Fourier-zero code, the rank of 5+2 characters gives dimension 282. A Vandermonde argument excludes support below four. Rectangles force nonzero new exponents; Lagrange interpolation constructs legal F16 four-words from vanishing four-subset divided differences. Exact GF256 arithmetic exhausts all 2380 four-subsets for every exponent 0..16, yielding 16 necessary (u,v) pairs in two symmetry orbits. Two explicitly stated and directly replay-verified nonzero four-position words obstruct the representatives (3,6) and (6,8); sign inversion and coordinate swap cover the rest. These checks, not random samples, are carried out in the embedded verifier and paired with an analytic completeness proof. No conclusion beyond the fixed one-orbit family is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feng, Hollmann, Xiang arXiv:1804.00367 analyzes general abelian shift bounds rather than the q=16 single-orbit classification in the inspected sections.",
+        "Yu et al. arXiv:2608.18664 Theorem V.3 specifies [(q+1)^2,(q+1)^2-5,4]_q with defining cosets C(0,0),C(1,0),C(0,1).",
+        "Questions V.4–V.5 pose precisely the four-support rank condition after adjoining C(u,v); Theorem V.13 reduces it to nonvanishing and collinearity tests.",
+        "Corollary V.15 treats q=2,4,8, and Example 3 gives q=8 successful extension, but no q=16 answer is stated; the available complete manuscript was searched for q=16."
+      ],
+      "reasoning": "General Fourier and shift-bound machinery as well as the parent necessary-and-sufficient test do not logically settle its q=16 instance: the exact four-subset vanishing profile and explicit remaining obstructions are needed. A general lower bound on minimum distance would not imply the nonexistence claim here.",
+      "searches": [
+        "2025 2026 coding theory new families of linear codes exact higher generalized Hamming weights local support spectra",
+        "2025 2026 cyclic codes automorphism groups coordinate puncturing MDS GRS structure",
+        "Yu Chen Sun Zhu 2026 abelian code theorem V.3 q=16 q+1=17 extension single two-element cyclotomic orbit distance 5 no pairs",
+        "Feng Hollmann Xiang arXiv:1804.00367 shift bound abelian codes full paper",
+        "Yu et al. Theorem V.13 and Corollary V.15"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.18664 full available preprint",
+      "arXiv:1804.00367 introduction and structural results",
+      "CodeTables descriptions",
+      "Published mathematical findings on four-point Fourier zeros and q-ary mirror-vanishing counterexamples"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu et al. arXiv:2608.18664 Theorem V.3 specifies [(q+1)^2,(q+1)^2-5,4]_q with defining cosets C(0,0),C(1,0),C(0,1).",
+        "Questions V.4–V.5 pose precisely the four-support rank condition after adjoining C(u,v); Theorem V.13 reduces it to nonvanishing and collinearity tests.",
+        "Corollary V.15 treats q=2,4,8, and Example 3 gives q=8 successful extension, but no q=16 answer is stated; the available complete manuscript was searched for q=16.",
+        "An explicit exact finite-field calculation at q=16 leaves 16 necessary pairs and produces two four-supported codewords representing the two symmetry orbits.",
+        "The computed field test gives H_w zero counts [2380,2380,2380,0,0,68,34,0,34,0,0,34,0,34,68,0,0]; two witnessed candidate orbits of size eight each survive the necessary test but fail the desired distance."
+      ],
+      "reasoning": "The parent theorem is a conditional criterion: it does not say q=16 has no admissible orbit. The older shift-bound theorem proves bounds in different generality. This result completes a specific new q=16 exhaustive test and proves an exact impossibility for this fixed one-orbit construction, which neither previous statement implies without the new arithmetic.",
+      "searches": [
+        "Yu Chen Sun Zhu 2026 abelian code theorem V.3 q=16 q+1=17 extension single two-element cyclotomic orbit distance 5 no pairs",
+        "abelian codes length (q+1)^2 code defining zero set 1 X Y X^uY^v q=16 17x17 minimum distance five obstruction",
+        "q16 289 length 16-ary abelian code parity checks root norm one torus distance five",
+        "Cong Yu Hao Chen Zhonghua Sun Shixin Zhu 2026 abelian codes Question V.4 V.5 q=16 cyclotomic orbit extension impossible",
+        "code over F16 Z17 times Z17 base 5 Fourier zeros all one-coset extensions distance exactly four",
+        "arXiv:2608.18664 Section V Theorem V.13, Corollary V.15, Example 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yu et al. arXiv:2608.18664 Theorem V.3 specifies [(q+1)^2,(q+1)^2-5,4]_q with defining cosets C(0,0),C(1,0),C(0,1).",
+        "Questions V.4–V.5 pose precisely the four-support rank condition after adjoining C(u,v); Theorem V.13 reduces it to nonvanishing and collinearity tests.",
+        "Corollary V.15 treats q=2,4,8, and Example 3 gives q=8 successful extension, but no q=16 answer is stated; the available complete manuscript was searched for q=16.",
+        "The equivalence \\(16\\equiv-1\\pmod{17}\\) identifies each new orbit with a sign-pair; the claimed no-extension statement rules out all such sign-pairs, not simply a named exponent."
+      ],
+      "reasoning": "Aliases include single new q-cyclotomic coset, norm-one torus evaluation, Fourier check matrix [1,X,Y,X^uY^v], four-sparse words, and a group-algebra defining-set extension. The parent discusses their equivalence but evaluates q=2,4,8 rather than the complete q=16 case.",
+      "searches": [
+        "Yu Chen Sun Zhu 2026 abelian code theorem V.3 q=16 q+1=17 extension single two-element cyclotomic orbit distance 5 no pairs",
+        "abelian codes length (q+1)^2 code defining zero set 1 X Y X^uY^v q=16 17x17 minimum distance five obstruction",
+        "Cong Yu Hao Chen Zhonghua Sun Shixin Zhu 2026 abelian codes Question V.4 V.5 q=16 cyclotomic orbit extension impossible",
+        "code over F16 Z17 times Z17 base 5 Fourier zeros all one-coset extensions distance exactly four",
+        "Web: \"q=16\" \"Theorem V.13\" \"u\" \"v\" abelian",
+        "arXiv:2608.18664 Sections V.3–V.15"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Yu et al. tabulate construction examples over smaller fields, including a successful q=8 one-orbit extension; their tables do not tabulate the complete q=16 obstruction.",
+        "CodeTables concerns bounds/constructions of unrestricted linear codes, not full one-cyclotomic-orbit classifications for a fixed length-289 base."
+      ],
+      "reasoning": "Even a numerical table entry for unrestricted [289,282] 16-ary codes would not establish impossibility for every new orbit of this particular base. No located exact table provides the two-orbit obstruction.",
+      "searches": [
+        "Grassl CodeTables abelian codes length 289 over 16",
+        "Web: \"16\" \"17\" \"abelian code\" \"distance 5\" defining set",
+        "Yu et al. Tables I–III and Example 3"
+      ]
+    },
+    "rationale": "Primary full-text comparison distinguishes the present all-orbit q=16 impossibility from Yu et al. Theorem V.3 base family, their general conditional Theorem V.13, and Corollary V.15 q=2,4,8. The finite obstruction is not implied without the new q=16 exact four-subset census and representative witnesses. Comparisons with identified published finite-Fourier and shift-bound literature found no coverage. Residual literature-index risk persists.",
+    "residual_risks": [
+      "Semantic search and indexed literature searches cannot rule out all earlier or unpublished equivalent results.",
+      "The general 2018 predecessor was not checked exhaustively page by page.",
+      "No independent scholarly audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sets up and partly classifies the extension question; settles q=2,4,8, including q=8 positive, but does not state or prove the all-pair q=16 negative conclusion",
+        "evidence": [
+          "Theorem V.3 length (q+1)^2 base d=4; Questions V.4-5 ask for one added C(u,v); Theorem V.13 conditional test; Corollary V.15 q=2,4,8 only; Example 3 q=8 positive."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.18664",
+        "material_read": "Available full preprint text, especially Section V Theorems V.3, V.13, Questions V.4-V.5, Corollary V.15, Example 3; checked tables and related concluding paragraphs, queried q=16 occurrence",
+        "method": "Read arXiv-linked lawful available full preprint text, locate theorem statements and compare implication with finite q=16 theorem",
+        "title": "Constructing Good Abelian Codes via Shift Bounds and Genetic Algorithms",
+        "trigger": "Direct source of the base code and one-orbit extension question"
+      },
+      {
+        "assessment": "Provides a general abelian-code distance bound, not a q=16 one-orbit exact nonexistence result in inspected material",
+        "evidence": [
+          "General shift-bound setting is distinct from finite q=16 interpolation census; uninspected portions remain a qualified residual risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.00367",
+        "material_read": "Introduction and foundational shift-bound formulation and available results summaries, not every page of the manuscript",
+        "method": "Read lawful open preprint material and compare its structural scope against the concrete length-289 one-orbit parameter question",
+        "title": "The shift bound for abelian codes and generalizations of the Donoho–Stark uncertainty principle",
+        "trigger": "General predecessor shift-bound framework invoked by the recent paper"
+      },
+      {
+        "assessment": "No table evidence located that determines all q=16 single-orbit extensions of this fixed base",
+        "evidence": [
+          "Tables of optimum bounds for general linear codes do not classify the chosen abelian code by defining-set orbit."
+        ],
+        "identifier_or_url": "https://www.codetables.de/",
+        "material_read": "Published table descriptions and parameter/search coverage available on the public site, not a hidden computation backend",
+        "method": "Compare table objects (unrestricted code bounds) with restricted Fourier-orbit extension classification",
+        "title": "CodeTables",
+        "trigger": "Potential exact parameter database dominating an explicit code claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "648fbdd5-0fbc-408e-8faa-a00591cdb23f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating paper poses the natural task of adding one Fourier cyclotomic orbit to raise the basic abelian code distance to five and demonstrates success for q=8. Resolving the next power-of-two field q=16 in the opposite direction, for every possible added orbit, identifies a genuine construction boundary. The finite exact vanishing profile and explicit symmetry-class witnesses give a motivated complete classification beyond substituting a number into a published formula; the result is useful for deciding when this canonical extension method cannot produce a better code.",
+    "status": "PASS"
+  }
+}
