@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the iterate reduces the problem to uniform sampling without replacement from the complement of the persistent set. Indicator inclusion probabilities give \\(\\mathbb E\\|\\bar g_S-b\\|^2=(M-s)V/[s(M-1)]\\). The practical and corrected estimators are affine functions of the same sample mean, so their exact biases and variances follow by coefficient comparison. The interpolation MSE is a convex quadratic in \\(t\\); direct differentiation yields the stated constrained minimizer and shows \\(\\operatorname{MSE}'(1)=2Dp\\sigma^2>0\\) whenever \\(\\sigma^2>0\\). The \\(50\\%\\)-overlap formulas follow by exact substitution.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Horvitz--Thompson theory establishes inverse-probability unbiased estimation for finite populations but does not state the persistent-set interpolation frontier.",
+        "The mini-batch-variance literature studies stochastic-gradient variance as batch size changes, not the bias-variance tradeoff created by retaining a deterministic persistent subset.",
+        "No inspected broader source supplied the exact factor \\((p/q)^2\\), the source-specific MSE threshold, or the oracle \\(t_*\\)."
+      ],
+      "reasoning": "The generic finite-population variance identity is known background; the accepted claim is the exact consequence for the source's two-weight estimator and its partial correction family.",
+      "searches": [
+        "DOI:10.1080/01621459.1952.10483446 Horvitz Thompson sampling without replacement",
+        "arXiv:2004.13146 mini-batch size gradient variance",
+        "mini-batch persistency unbiased correction variance stochastic gradient data persistency",
+        "Horvitz-Thompson stochastic gradient mini-batch without replacement variance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2411.07102v1",
+      "DOI:10.1007/s10589-026-00776-2",
+      "DOI:10.1080/01621459.1952.10483446",
+      "arXiv:2004.13146v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 5.1 proves conditional unbiasedness of the corrected estimator; it does not compare its conditional variance with the uncorrected estimator.",
+        "Remark 2 says correction substantially weakens the desired persistency effect and is slower in experiments, but leaves biased-estimator analysis open.",
+        "General finite-population and mini-batch variance results do not select the interpolation between these two source estimators or give its MSE-optimal weight."
+      ],
+      "reasoning": "The final claim is not a corollary of unbiasedness alone: it requires an exact variance calculation for the common random fresh subset and optimization of the resulting bias-plus-variance quadratic.",
+      "searches": [
+        "Primary full text: Section 5.1.1, equation (12), Proposition 5.1, Remark 2, and variance assumption (15)",
+        "DOI:10.1080/01621459.1952.10483446",
+        "arXiv:2004.13146v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary paper states the biased persistent estimator and the fully corrected unbiased estimator but no interpolation or exact MSE formula.",
+        "The closest published findings concern other variance-allocation, stochastic-gradient, or bias-cancellation mechanisms rather than this persistent-batch estimator."
+      ],
+      "reasoning": "Equivalent forms checked included inverse-probability reweighting, overlap-induced bias, finite-population variance inflation, shrinkage between biased and unbiased estimators, and conditional gradient-estimator MSE.",
+      "searches": [
+        "2411.07102 data persistency unbiased estimator variance inflation correction mini-batch",
+        "MBCG-DP bias correction mean squared error overlap shrinkage estimator",
+        "stochastic line search data persistency Horvitz Thompson correction variance overlap",
+        "persistent mini-batch unbiased correction bias variance finite population gradient",
+        "momentum stochastic line search partial debiasing estimator persistency"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed published result matched the primary identifier together with variance inflation, MSE shrinkage, or the \\(50\\%\\)-overlap factor.",
+        "The finding is an analytic estimator theorem and not a recomputation of a reported experiment or table."
+      ],
+      "reasoning": "Database-nearest results concern different stochastic estimators and do not imply the formulas for this fixed-persistent-plus-random-fresh design.",
+      "searches": [
+        "2411.07102 data persistency unbiased estimator variance inflation correction mini-batch",
+        "persistent mini-batch unbiased correction bias variance finite population gradient",
+        "stochastic line search data persistency Horvitz Thompson correction variance overlap"
+      ]
+    },
+    "rationale": "The primary full text was inspected at the persistent-batch bias calculation, Proposition 5.1, Remark 2, and the convergence assumptions. The source proves unbiasedness and reports a practical cost, but does not calculate the variance inflation, an MSE comparison, or a partial-debiasing optimum. Classical inverse-probability sampling and mini-batch-variance literature provide broader ingredients but not the source-specific frontier. Targeted published-research and public literature searches did not locate an equivalent result.",
+    "residual_risks": [
+      "The interpolation is a source-specific application of classical bias-variance shrinkage; related estimator shrinkage formulas may exist in survey-sampling literature under different notation.",
+      "The oracle interpolation weight depends on population quantities unavailable to a practical mini-batch method without additional estimation.",
+      "Lower conditional gradient MSE does not by itself establish faster optimization convergence or higher line-search acceptance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source identifies the bias, supplies a fully unbiased reweighting, and observes a practical degradation from that correction. It does not quantify the variance penalty or analyze partial correction.",
+        "evidence": "Proposition 5.1 weights fresh samples by \\((N-|R|)/|S|\\); Remark 2 states that this unbiasedness correction heavily alleviates the desired persistency effects and leaves biased-estimator theory for future work.",
+        "identifier_or_url": "arXiv:2411.07102v1 / DOI:10.1007/s10589-026-00776-2",
+        "material_read": "Open-access full text covering mini-batch persistency, Algorithm 1, Section 5.1.1, equation (12), Proposition 5.1 with proof, Remark 2, and the subsequent convergence assumptions; first-public metadata was cross-checked against arXiv v1.",
+        "method": "Public arXiv metadata and open-access version-of-record full-text inspection.",
+        "title": "Effectively leveraging momentum terms in stochastic line search frameworks for fast optimization of finite-sum problems",
+        "trigger": "Primary recent source introducing persistent mini-batches and the unbiased correction."
+      },
+      {
+        "assessment": "Provides general sampling-theory context but not the source-specific persistent-set MSE interpolation.",
+        "evidence": "The work develops unbiased estimation for finite-universe sampling without replacement using selection probabilities.",
+        "identifier_or_url": "DOI:10.1080/01621459.1952.10483446",
+        "material_read": "Published abstract, bibliographic metadata, and description of unbiased finite-population estimation and variance under sampling without replacement.",
+        "method": "Public journal metadata and abstract inspection.",
+        "title": "A Generalization of Sampling Without Replacement from a Finite Universe",
+        "trigger": "Foundational inverse-probability sampling literature potentially covering the corrected estimator."
+      },
+      {
+        "assessment": "Studies mini-batch-size effects on stochastic-gradient variance in model classes, not deterministic persistency bias or the reweighting interpolation considered here.",
+        "evidence": "The abstract focuses on gradient variance as a function of mini-batch size in linear models and deep linear networks.",
+        "identifier_or_url": "arXiv:2004.13146v1",
+        "material_read": "Public abstract and metadata.",
+        "method": "Public arXiv abstract inspection.",
+        "title": "The Impact of the Mini-batch Size on the Variance of Gradients in Stochastic Gradient Descent",
+        "trigger": "Broader stochastic-optimization literature on gradient-estimator variance."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3377c84-2ce5-4c01-b158-707081b7423e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary source makes persistent mini-batches central to reconciling momentum with stochastic line search, but its convergence repair requires a reweighting that it explicitly reports as computationally harmful. The exact variance multiplier explains a concrete cost of that repair, the MSE threshold states when full debiasing is statistically worthwhile, and the partial-debiasing optimizer identifies a mathematically natural continuum between the practical and theorem-friendly endpoints. The \\(50\\%\\)-overlap specialization directly matches the source's prominent implementation pattern and shows that small batch fractions can nearly quadruple sampling variance.",
+    "status": "PASS"
+  }
+}
