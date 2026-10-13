@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Uniform independent continuous chords give uniform matchings on ordered endpoints. Exact conditional kernels q_C=2l(1-l), q_N=l^2+2a(1-b) yield projection means 1/3, variance 1/45 each and cross projection covariance 0 by exact integration. Same-pair exclusivity gives -1/9, and all distinct shared-chord mixed covariances vanish; exact finite Cov(C,N)=-n(n-1)/18 and Var=n(n-1)(n+3)/45 follow. Bounded degenerate U-statistic remainders have variance O(n^2); multivariate iid CLT for first projection yields independent centered normals of variance 1/45. The independent recursive matching enumerator checks 146599 instances and 84 exact identities (n<=7); a separate 90-word triple-interleaving check and exact symbolic integration pass. No finite check is treated as proof of convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A. Kasraoui and J. Zeng, arXiv:math/0601081v1 (2006-01-04), pp. 1-4 and 9-12, Proposition 3.8: the exact full bivariate crossing/nesting generating polynomial for every finite matching size, no asymptotic or Gaussian statement located.",
+        "N. Khare, R. Lorentz, C. H. Yan, Moments of Matching Statistics, author-hosted PDF, Sections 1, 2, 4, 5: exact moments including marginal crossings/nestings; no bivariate Gaussian limit found.",
+        "Kasraoui-Zeng Proposition 3.8 is broader for *finite enumerative* information; its series determines all finite joint distributions. No asymptotic independent limit is stated, and deriving joint Gaussianity from exact coefficients requires additional analytic work."
+      ],
+      "reasoning": "Finite covariance, means, and marginal moments are covered or implied by prior enumeration and are explicitly not offered as new. The chosen single claim is a multivariate asymptotic theorem with a separate orthogonality mechanism, outside the stated scope of the inspected earlier enumeration. Residual risk: some other historical article or implicit multivariate asymptotics could dominate this limit.",
+      "searches": [
+        "Kasraoui Zeng matching crossing nesting CLT variance (published-finding corpus)",
+        "\"matching statistics\" \"joint normal\" crossings nestings (web)",
+        "\"crossings\" \"nestings\" \"asymptotically independent\" perfect matchings counts (web)",
+        "arxiv:math/0601081v1 Proposition 3.8 (primary full text)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0601081v1 (Kasraoui-Zeng full preprint, proposition 3.8)",
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf (Flajolet-Noy)",
+      "https://people.tamu.edu/~huafei-yan/Files/final_joc158.pdf (Khare-Lorentz-Yan)",
+      "https://doi.org/10.1016/j.disc.2016.11.004 (Acan)",
+      "Published published-finding corpus nearest result 2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91 (different random ordering law)",
+      "Published published-finding corpus nearest result 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac (different occupancy process)",
+      "Published published-finding corpus nearest result 2026/10/4/SCOPE-perfect-matching-trichotomy-for-perfect-grid-states--7ed1871c3028 (deterministic perfect grid states, different statistic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A. Kasraoui and J. Zeng, arXiv:math/0601081v1 (2006-01-04), pp. 1-4 and 9-12, Proposition 3.8: the exact full bivariate crossing/nesting generating polynomial for every finite matching size, no asymptotic or Gaussian statement located.",
+        "P. Flajolet and M. Noy, Analytic Combinatorics of Chord Diagrams, author-hosted PDF 2000, Theorem 3: marginal crossing normality and exact variance; no joint crossing-nesting limit.",
+        "N. Khare, R. Lorentz, C. H. Yan, Moments of Matching Statistics, author-hosted PDF, Sections 1, 2, 4, 5: exact moments including marginal crossings/nestings; no bivariate Gaussian limit found.",
+        "From q_C(a,b)=2(b-a)(1-b+a) and q_N(a,b)=(b-a)^2+2a(1-b), exact triangle integration gives Cov(q_C,q_N)=0 and both projection variances 1/45. Applying a bivariate U-statistic decomposition proves the new joint Gaussian weak limit."
+      ],
+      "reasoning": "The finite covariance and one-dimensional Gaussian limit belong to, or follow from, previous stronger finite enumerations and one-dimensional limit theory. They cannot alone entail asymptotic independence because zero limiting correlation does not establish joint Gaussianity. The new claim adds the missing bivariate first-projection orthogonality and a genuine joint CLT; prior full texts inspected do not assert it. General Hoeffding theory is used as a standard method, not claimed as a new lemma.",
+      "searches": [
+        "published-finding corpus: Uniform perfect matching 2n chord diagrams number of crossing pairs and nesting pairs jointly converge to independent Gaussian normal random variables (central limit theorem) despite negative covariance",
+        "published-finding corpus: Random chord matchings two-edge crossing nesting Hoeffding orthogonal projections zero leading covariance exact correlation -5 over 2(n+3)",
+        "Flajolet-Noy Theorem 3 and Kasraoui-Zeng Proposition 3.8 (full text comparison)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A. Kasraoui and J. Zeng, arXiv:math/0601081v1 (2006-01-04), pp. 1-4 and 9-12, Proposition 3.8: the exact full bivariate crossing/nesting generating polynomial for every finite matching size, no asymptotic or Gaussian statement located.",
+        "P. Flajolet and M. Noy, Analytic Combinatorics of Chord Diagrams, author-hosted PDF 2000, Theorem 3: marginal crossing normality and exact variance; no joint crossing-nesting limit.",
+        "The underlying statistic is the number of unordered crossing/nesting edge *pairs*, not maximum crossing/nesting size. Acan Section 7 explicitly denotes maximum nested/crossing configurations, a distinct statistic."
+      ],
+      "reasoning": "No inspected source states the equivalent two-dimensional weak-convergence law. The closest marginal theorem (Flajolet-Noy) is strictly weaker: marginal Gaussianity and correlation decay do not logically establish a jointly Gaussian limit; independence requires the new first-order projection calculation.",
+      "searches": [
+        "\"random matchings\" \"joint central limit\" \"crossings\" \"nestings\" (web)",
+        "\"number of crossings\" \"number of nestings\" \"asymptotically independent\" (web)",
+        "\"chord diagrams\" \"crossings\" \"nestings\" \"independent\" \"Gaussian\" (web)",
+        "published-finding corpus: Pair crossings pair nestings matchings bivariate normal independent fluctuations order n^(3/2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A. Kasraoui and J. Zeng, arXiv:math/0601081v1 (2006-01-04), pp. 1-4 and 9-12, Proposition 3.8: the exact full bivariate crossing/nesting generating polynomial for every finite matching size, no asymptotic or Gaussian statement located.",
+        "N. Khare, R. Lorentz, C. H. Yan, Moments of Matching Statistics, author-hosted PDF, Sections 1, 2, 4, 5: exact moments including marginal crossings/nestings; no bivariate Gaussian limit found.",
+        "For finite n, the generating polynomial L_n(p,q) enumerates every joint coefficient, hence an arbitrary finite table is not an original contribution. No claim about previously uncatalogued finite cells is made."
+      ],
+      "reasoning": "The proposed result is an infinite weak-convergence law, not a finite count or unknown tabular cell; matching the published finite generating function alone does not provide the independent bivariate Gaussian weak limit without analytic asymptotics.",
+      "searches": [
+        "arxiv:math/0601081v1 Proposition 3.8 and table L2,L3",
+        "Moments of Matching Statistics Sections 4-5 and moment tables",
+        "published-finding corpus: Random chord diagrams perfect matching joint crossing nesting number covariance"
+      ]
+    },
+    "rationale": "Novelty is narrowly the joint independent Gaussian weak limit through orthogonality of the first-order crossing and nesting projections. The complete bivariate finite enumerator already appears in Kasraoui-Zeng 2006, so exact finite moments are not claimed original. Flajolet-Noy 2000 proves only marginal crossing normality and Khare-Lorentz-Yan provide moment formulas, not a two-dimensional weak limit. The plausible historical-priority risk of an implicit or unindexed multivariate limit remains, notwithstanding specific primary full text comparisons and published-finding corpus searches. No independent priority certification is claimed.",
+    "residual_risks": [
+      "An earlier full bivariate generating function determines the entire finite joint distribution and may implicitly yield the claimed weak limit under nontrivial asymptotic manipulation; primary priority remains provisional.",
+      "Web and semantic-index search are not exhaustive of all historical specialized multivariate fluctuation literature.",
+      "The joint limit has not received independent proof or expert audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS finite distributions and derived finite moments; DOES NOT STATE proposed asymptotic independent bivariate Gaussian limit in inspected material.",
+        "evidence": [
+          "A. Kasraoui and J. Zeng, arXiv:math/0601081v1 (2006-01-04), pp. 1-4 and 9-12, Proposition 3.8: the exact full bivariate crossing/nesting generating polynomial for every finite matching size, no asymptotic or Gaussian statement located.",
+          "Proposition 3.8 displays a continued fraction for sum_n L_n(p,q)z^n; early L_n(p,q) tables are given."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0601081",
+        "material_read": "Original preprint pages 1-4, 9-12 (definitions, main results, full matching enumerator and bibliography); searched full-text for asymptotic and normal.",
+        "method": "Authoritative arXiv full-text and page-image inspection of Proposition 3.8.",
+        "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+        "trigger": "Exactly the same crossing/nesting two-edge statistics and an existing full bivariate generating function."
+      },
+      {
+        "assessment": "COVERS marginal crossing variance and Gaussian limit, not joint crossing and nesting weak convergence.",
+        "evidence": [
+          "P. Flajolet and M. Noy, Analytic Combinatorics of Chord Diagrams, author-hosted PDF 2000, Theorem 3: marginal crossing normality and exact variance; no joint crossing-nesting limit."
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Author-hosted full text, overview and central limit theorem/variance pages; theorem and proof-scope inspection.",
+        "method": "Author-hosted PDF text and pages.",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Source of established Gaussian limit for crossing counts on exactly the same uniform matching model."
+      },
+      {
+        "assessment": "COVERS moment formalisms and marginal second moments, not proposed joint Gaussian independent limit.",
+        "evidence": [
+          "N. Khare, R. Lorentz, C. H. Yan, Moments of Matching Statistics, author-hosted PDF, Sections 1, 2, 4, 5: exact moments including marginal crossings/nestings; no bivariate Gaussian limit found.",
+          "The paper explicitly cites Chern et al. for CLTs on set partitions, a different probability ensemble."
+        ],
+        "identifier_or_url": "https://people.tamu.edu/~huafei-yan/Files/final_joc158.pdf",
+        "material_read": "Full source pages including introduction, general moment theorem, crossing/nesting moments, Section 5, and references; text searched for CLT/asymptotic.",
+        "method": "Author-hosted PDF, text and page-image inspection.",
+        "title": "Moments of Matching Statistics",
+        "trigger": "General moment theorem and exact crossing/nesting moments may imply the proposed finite formulas."
+      },
+      {
+        "assessment": "Marginal or intersection graph observables, with maximal crossing/nesting lengths distinct from pair counts; does not cover bivariate pair-count Gaussian independence.",
+        "evidence": [
+          "H. Acan, On a uniformly random chord diagram and its intersection graph, DOI 10.1016/j.disc.2016.11.004, online full article Introduction and Section 7: crossing-intersection graphs and maximal crossing/nesting configurations, not counts of all pair crossings and nestings jointly."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2016.11.004",
+        "material_read": "Publisher full HTML Introduction, major results, and Section 7 maximal crossing/nesting discussion.",
+        "method": "Publisher open full-article text.",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Exact same random matching model, and possibly an implied joint CLT."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5803970b-1b8b-4dd7-af6c-0006b8461b7a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crossing and nesting counts are naturally paired geometric statistics on random chord diagrams. At every finite size they have a strictly negative covariance, yet their order-n^(3/2) fluctuations are asymptotically independent. The zero mixed first-order chord projection and the universal diagonal limiting covariance matrix identify a mathematically meaningful structural separation, permitting simultaneous asymptotic calibration of these counts. This is not merely an enumeration of cells in the prior finite generating polynomial. It does not establish a convergence rate or generalize to nonuniform matchings.",
+    "status": "PASS"
+  }
+}
