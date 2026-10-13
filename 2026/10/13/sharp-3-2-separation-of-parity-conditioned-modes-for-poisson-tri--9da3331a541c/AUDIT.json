@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For strictly positive L,T,W, the product of Hurwitz-stable quadratic probability polynomials is Hurwitz stable. Strict Hermite--Biehler interlaces the negative roots of the even polynomial P and odd polynomial Q, and the ratio Q/P has positive residues. Normalizing its partial fractions gives an exact convex mixture of the n Bernoulli-deletion distributions of P/P(1). The convolution identity s(k)=(1-p)d(k)+pd(k-1) proves every deletion mode lies in [a-1,b] if the full Bernoulli sum has modal interval [a,b]. Unimodality therefore confines mixture modes to the same interval. Boundary probability vectors follow by compactness of n Bernoulli parameters and mixture weights; the proof does not rely on continuity of argmax sets. The resulting parity-score distance is at most 3/2, is 1/2 if P has one mode, and is exactly attained by the explicit two-trial polynomial G(w)=(w+3w^2)(1+w^2)/8. The standalone checker completed 52686 admissible exact integer-grid cases, including all tied and zero-probability cases on the quarter grid for n<=4. Crucial infinite steps are analytical; finite tests are only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ellard--Smigoc, arXiv:1701.07912v1, Theorem 1.1 (full paper): strict Hermite--Biehler interlacing",
+        "Broadie--Petkova, arXiv:2603.09019v1, Theorem 1, Section 3, Proposition 3 (full nine-page primary text)",
+        "Darroch (1964), Theorem 2 and Theorem 4 as cited in Broadie--Petkova, control a single Poisson-binomial mode relative to its mean."
+      ],
+      "reasoning": "The general interlacing theorem supplies the root configuration but no score-space separation. Darroch bounds each conditional mode relative to its own mean, and Broadie--Petkova combines those estimates into 5/2. Neither implies 3/2 from the statements they formulate without the separate deletion-mixture comparison. Thus these broader inputs are part of the present proof, not broader statements covering the final conclusion.",
+      "searches": [
+        "binomial Poisson binomial deletion one summand mode interlacing modes",
+        "mixture of delete one Bernoulli convolution interlacing polynomial mode alignment",
+        "Hermite Biehler theorem even and odd polynomials interlace negative real roots stable polynomial rational Stieltjes partial fractions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.09019v1, complete primary probability paper, nine pages",
+      "arXiv:1701.07912v1, Hermite--Biehler theorem and relevant introduction, mathematical primary source",
+      "J. N. Darroch, Ann. Math. Stat. 35 (1964) 1317-1321, as explicitly quoted in arXiv:2603.09019v1",
+      "SSRN:6401838, public abstract only; full text inaccessible, treated as unresolved, not ruled out"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Broadie--Petkova, arXiv:2603.09019v1, Theorem 1, Section 3, Proposition 3 (full nine-page primary text)",
+        "Broadie--Petkova Theorem 1 and Proposition 3: absolute separation at most 5/2 for all conditional-mode choices.",
+        "New theorem: entire odd index modal set lies in [a-1,b] with b-a<=1, yielding an attained 3/2 separation and forced half-step when a=b."
+      ],
+      "reasoning": "The earlier 5/2 estimate follows from independent distances of two conditional means from the unconditional mean and hence leaves 3/2 and 5/2 both logically possible. The new 3/2 assertion implies the old upper bound, strictly strengthens it, and is sharp via two summands. The modal-index containment supplies additional information not expressible as the earlier mean comparison alone.",
+      "searches": [
+        "\"On the structure of the Poisson trinomial distribution\" \"modes\" 5/2",
+        "\"Broadie\" \"Petkova\" parity modes 3/2 sharp Poisson trinomial",
+        "\"Poisson trinomial\" \"mode\" improved bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Broadie--Petkova, arXiv:2603.09019v1, Theorem 1, Section 3, Proposition 3 (full nine-page primary text)",
+        "Ellard--Smigoc, arXiv:1701.07912v1, Theorem 1.1 (full paper): strict Hermite--Biehler interlacing",
+        "Classical Hermite--Biehler describes the real negative interlaced roots of P and Q; the additional Bernoulli-deletion mixture and exact modal displacement are not its literal conclusion."
+      ],
+      "reasoning": "The plausible equivalent formulations are the Stieltjes positivity of Q/P, total-positivity interlacing of coefficient polynomials, and the mode of a mixture of one-factor-deleted Poisson-binomial sums. Root interlacing itself is fully covered by prior literature and is credited. To obtain the new cross-lattice modal bound one must still prove the convolution mode envelope and its preservation by the positive mixture. No inspected primary statement directly reports this resulting 3/2 sharp constant or its equality case.",
+      "searches": [
+        "Poisson trinomial conditional modes parity split Hermite Biehler interlacing",
+        "\"Poisson trinomial\" \"interlacing\" conditional modes",
+        "even odd part polynomial interlacing Bernoulli deletion mixtures modes sharp neighbor constraint"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary arXiv:2603.09019v1 contains no tabulated sharp 3/2 constant; its Proposition 3 explicitly gives 5/2.",
+        "The extremal distribution is exhibited by a direct 2-variable calculation with even coefficient maxima 3/8 at integers 1 and 2, odd coefficient maxima 1/8 at half-integers 1/2 and 3/2."
+      ],
+      "reasoning": "This is a uniform mathematical extremal bound, not a precomputed database entry. The simple boundary witness makes sharpness transparent but would not itself prove the general bound. The indexed published-record hits closest in subject concern Poisson-binomial cumulants, multinomial modes, and pairwise-independent ordering polyhedra, not this exact even/odd conditional modal envelope.",
+      "searches": [
+        "sharp bound three-halves for distance between even and odd conditional modes of Poisson-trinomial distribution independent 0 half 1 summands",
+        "Broadie Petkova 2603.09019 improve five halves gap three halves modal synchronization",
+        "\"Poisson trinomial\" \"modal\" \"1.5\""
+      ]
+    },
+    "rationale": "Direct statement-by-statement comparison of the complete Broadie--Petkova article finds only the 5/2 general modal bound, not the attained 3/2 optimum or the unique-integer-mode half-step localization. The Hermite--Biehler root-interlacing property and separate Poisson-binomial modes were already known and are not claimed as discoveries. The additional positive-residue Bernoulli-deletion mixture and its modal-localization implication are proved here. Searches of mathematical records for equivalent root, coefficient, deletion, mode and parity formulations located no covering statement; a literature search alone cannot certify priority.",
+    "residual_risks": [
+      "An earlier unpublished, unindexed or differently titled modal consequence of interlacing/total positivity could duplicate the precise bound.",
+      "The related game-optimization companion paper has not been compared in full due to access denial. Its title and abstract make exact duplication less likely but do not settle it.",
+      "The proof uses the classical strict interlacing theorem and a finite-dimensional compactness argument; they were reconstructed and independently checked, but no external review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING final 3/2 claim: gives 5/2 bound, separate conditional Poisson-binomial laws, and classical Hurwitz stability; no sharp cross-parity comparison or positive deletion mixture.",
+        "evidence": "Theorem 1 at PDF page 1 gives 5/2; Proposition 3 on page 7 repeats 5/2; Section 3.1-3.2 pages 5-6 factors even and odd polynomials separately.",
+        "identifier_or_url": "arXiv:2603.09019v1 | https://arxiv.org/pdf/2603.09019",
+        "material_read": "Full nine-page PDF, including Theorem 1, entire Section 3 (generating polynomials, real-rootedness, modal means), Proposition 3, Sections 4-5, and references.",
+        "method": "Direct full-text reading and cross-comparison of conditional modal statements, exact normalization, parameter boundaries and proofs.",
+        "title": "On the structure of the Poisson trinomial distribution",
+        "trigger": "Exact same distribution, conditional probabilities and modal-distance theorem; direct strongest prior candidate."
+      },
+      {
+        "assessment": "COVERS the classical polynomial interlacing input but NOT_COVERING the full probability modal separation result; has no Poisson-trinomial modes or attained bound.",
+        "evidence": "Theorem 1.1 requires stable even/odd extraction and interlaced real zeros; the document then treats root counts and coefficient-sign problems.",
+        "identifier_or_url": "arXiv:1701.07912v1 | https://arxiv.org/pdf/1701.07912",
+        "material_read": "PDF introduction and Theorem 1.1, including the strict alternating-root conditions and subsequent discussion of applications.",
+        "method": "Direct full-text theorem and hypothesis inspection.",
+        "title": "An extension of the Hermite-Biehler theorem with application to polynomials with one positive root",
+        "trigger": "Strong general root-interlacing statement potentially subsuming the zero part of the argument."
+      },
+      {
+        "assessment": "UNRESOLVED_MATERIAL_ACCESS; abstract focuses on lineup optimization rather than parity-conditioned mode bounds, but no NOT_COVERING conclusion is claimed for inaccessible pages.",
+        "evidence": "Public abstract describes variance and order optimizations; exact modal theorem cannot be excluded from unavailable full text.",
+        "identifier_or_url": "SSRN:6401838 | https://papers.ssrn.com/sol3/Delivery.cfm/6401838.pdf?abstractid=6401838&mirid=1",
+        "material_read": "Public research abstract and source metadata only; attempted direct PDF access returned 403, so no full text.",
+        "method": "Title/abstract search and one direct full-text access attempt; incomplete inspection.",
+        "title": "Ryder Cup Singles Ordering",
+        "trigger": "Companion application by the same authors with three-outcome game probabilities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9da3331a-541c-4e9b-9bf4-15a643f61f53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is a natural exact win/tie/loss sum with an explicit quantitative 5/2 modal-distance bound central to the source paper. The new 3/2 bound is both sharp and forty percent smaller, and it holds for all independent nonidentical summands including zero-probability outcome faces, without bounded n. More structurally, it proves that a unique even conditional mode pins every odd conditional mode to an adjacent half-step; the only larger cross-parity gap is tied to an adjacent two-point integer modal interval. A complete exact extremal classification and explanation are mathematically useful and non-routine, not an arbitrary finite tabulation or a relabeling.",
+    "status": "PASS"
+  }
+}
