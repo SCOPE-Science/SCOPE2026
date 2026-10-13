@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For prime squares, coprimality to p rules out the required divisibility. For pq with p=2, reduction mod q+1 gives q+1|4 and q=3. For odd p<q the exact equivalence AB|pq(A-1)(B-1), with A=(p+1)/2 and B=(q+1)/2, yields B|p(A-1) and A|B-1. Since B>A and gcd(p,A-1)=1, B=pd for d|A-1; reduction modulo A forces d=A-1. The converse holds because gcd(A,B)=1, B|p(A-1), A|B-1. Computation is only corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A001599 replaces Euler totient with divisor count; OEIS A011775 reverses the direction of divisibility.",
+        "Published mathematical records concerning semiprime sigma equations involve other target expressions."
+      ],
+      "reasoning": "The cross-referenced nearby statements do not imply the tested divisibility or classify the prime pairs.",
+      "searches": [
+        "\"divisor sum\" \"divides n phi(n)\" semiprimes",
+        "\"sigma(n) divides n phi(n)\" research",
+        "published-finding corpus: sigma(n) divides n times phi(n) for n product of two distinct primes, classification q=p(p-1)-1 prime"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A066995",
+      "https://oeis.org/A001599",
+      "https://oeis.org/A011775",
+      "Targeted mathematical publication searches and indexed published finding searches for exact aliases and q=p(p-1)-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact OEIS source supplies a membership predicate and examples, not a classification.",
+        "The two cross-referenced sequences give neither a stronger implication nor the same direction of divisibility."
+      ],
+      "reasoning": "No located statement logically includes the precise classification; possible unindexed elementary notes remain a genuine residual risk.",
+      "searches": [
+        "published-finding corpus: OEIS A066995 squarefree semiprime classification sigma(pq)|pq phi(pq) prime polynomial p²-p-1",
+        "published-finding corpus: divisor sum sigma(pq) divides pq(p-1)(q-1) semiprimes prime pair p and p²-p-1",
+        "\"sigma(pq)\" \"p(p-1)-1\" divisibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A066995 records the exact condition but gives examples and executable tests, not an implication characterizing all semiprimes."
+      ],
+      "reasoning": "The equivalent integer relation (p+1)(q+1)|pq(p-1)(q-1) and the polynomial condition q=p(p-1)-1 were searched; no prior theorem giving the equivalence was identified.",
+      "searches": [
+        "\"sigma(n)\" \"n*phi(n)\" \"semiprime\" characterization",
+        "\"sigma(pq)\" \"p(p-1)-1\" divisibility",
+        "OEIS A066995 squarefree semiprime classification sigma(pq)|pq phi(pq) prime polynomial p²-p-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A066995 explicitly begins 1,6,15,28,84,95,140,182,190,248,270,287; it does not supply the unrestricted semiprime equivalence."
+      ],
+      "reasoning": "Agreement with all listed semiprime examples is evidence for relevance, not proof of originality. The proof supplies a universal if-and-only-if rather than a table extension.",
+      "searches": [
+        "OEIS:A066995 full entry and linked 1000-term table",
+        "OEIS A066995 p^2-p-1 prime pattern",
+        "OEIS A001599 and A011775 cross-reference entries"
+      ]
+    },
+    "rationale": "The 2002 source defines this exact divisor-sum/totient condition without the if-and-only-if semiprime classification. Related harmonic and reversed-divisibility conditions are mathematically distinct; targeted mathematical and indexed-record searches found no covering result. This is self-review only.",
+    "residual_risks": [
+      "An unindexed elementary observation could already identify the polynomial semiprime family.",
+      "Infinitude of the prime-polynomial family is not shown and should not be inferred from the examples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering universal semiprime criterion",
+        "evidence": "Shows membership examples and computational predicates, no prime-pair characterization.",
+        "identifier_or_url": "https://oeis.org/A066995",
+        "material_read": "Full public entry: definitions, terms, code, date, crossrefs",
+        "method": "Read full HTML entry and compared displayed conditions",
+        "title": "OEIS A066995 — sigma(n) divides n phi(n)",
+        "trigger": "Exact defining arithmetic condition and earliest public date"
+      },
+      {
+        "assessment": "Different arithmetic condition",
+        "evidence": "Harmonic divisor mean uses divisor count tau, not phi.",
+        "identifier_or_url": "https://oeis.org/A001599",
+        "material_read": "Full public entry, description and supporting literature list",
+        "method": "Compared sigma(n)|n tau(n) against sigma(n)|n phi(n)",
+        "title": "OEIS A001599 — harmonic or Ore numbers",
+        "trigger": "Explicit cross-reference from exact sequence"
+      },
+      {
+        "assessment": "Does not imply target",
+        "evidence": "States n|phi(n)sigma(n), while target requires sigma(n)|n phi(n).",
+        "identifier_or_url": "https://oeis.org/A011775",
+        "material_read": "Full public entry with formal condition and notes",
+        "method": "Compared direction of divisibility and examples",
+        "title": "OEIS A011775 — reverse divisor/totient condition",
+        "trigger": "Explicit cross-reference from exact sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c53b1cc7-9946-4348-b694-9a9f5cffbe45",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete classification of an infinite natural factorization stratum for a long-recorded divisibility sequence. It identifies an exact prime-polynomial construction, shows every prime square fails, and isolates the infinitude question for q=p(p-1)-1; it goes beyond a numerical table or an arbitrary cutoff.",
+    "status": "PASS"
+  }
+}
