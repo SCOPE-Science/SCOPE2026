@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Complete finite product-of-nonempty-subsets BFS establishes minimal path length for each of all 45 pairs; two distinct implementations (bitmask dictionary Python, explicit bit-by-bit integer state C++) agree on all optimal words and lengths, with independent witness replay. Exact proof identifies full domain and forbids extrapolation beyond n=11.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kisielewicz–Kowalski–Szykuła 2012, arxiv:1203.2822, finite-state exact shortest reset algorithm for a single automaton.",
+        "Kisielewicz–Kowalski–Szykuła 2016, arxiv:1607.04025, small binary automata experiments and distributions."
+      ],
+      "reasoning": "Generic shortest-word algorithms apply to product automata but their existence is not a prior report of the 45 values; a census of single automata up to 11 states does not encompass direct products of size as large as 110.",
+      "searches": [
+        "arxiv:1203.2822",
+        "arxiv:1607.04025"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1203.2822",
+      "arxiv:1404.6731",
+      "arxiv:1405.3576",
+      "arxiv:1607.04025"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gusev 2014, arxiv:1404.6731, section 3 concerns random input to synchronize a pair of states within one fixed Černý automaton.",
+        "Maslennikova 2014, arxiv:1405.3576, compares reset-language equality and establishes product intersection."
+      ],
+      "reasoning": "A shortest individual reset word generally fails to reset the other size; language intersection and general algorithmic decidability do not imply the specific numeric spectrum. Gusev uses a different notion of a pair. The new contribution is restricted to the independently enumerated parameter table and finite exact overhead classification.",
+      "searches": [
+        "arxiv:1404.6731",
+        "arxiv:1405.3576",
+        "arxiv:1203.2822"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maslennikova 2014, arxiv:1405.3576, product automaton reset language is an intersection (relevant proof and introductory sections).",
+        "Product of two Černý automata has a reset word exactly when a common word resets both, proved in RESULT.md."
+      ],
+      "reasoning": "The shortest intersection word and shortest reset word of the direct product are genuinely equivalent; the cited prior work studies language equality/complexity and does not tabulate the exact thresholds of this explicit pair family.",
+      "searches": [
+        "simultaneous synchronization two Černý automata shortest reset word C_n C_m",
+        "common reset words Cerny automata families reset language intersection",
+        "arxiv:1405.3576"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked numerical tables and stated conclusions in arxiv:1607.04025.",
+        "Checked finite-state illustrations and main statements in arxiv:1203.2822."
+      ],
+      "reasoning": "The located tables concern thresholds of individual automata and experiments in their distribution; no published table of minimum common word lengths for all pairs \\(2\\le m<n\\le11\\) was located. Earlier unpublished/unindexed tables cannot be excluded.",
+      "searches": [
+        "Černý automata direct product synchronization threshold two different cycles",
+        "simultaneous synchronizing of two Černý automata common word exact length",
+        "shortest reset word for Cerny automata family C_m C_n simultaneous"
+      ]
+    },
+    "rationale": "Four relevant full-text primary works were compared for implication of common shortest reset thresholds: classical shortest individual reset words, single-automaton BFS, language intersection via product, random pair-of-states coalescence, and census experiments. None of their examined claims contains or implies the specific 45-entry pair spectrum without further finite computation. The original product identity and single-size results are expressly excluded from novelty; an unindexed exact enumeration remains a residual risk.",
+    "residual_risks": [
+      "An unindexed exact enumeration of shortest common reset words for the Černý pair family may exist; full-text coverage cannot exclude all historical sources.",
+      "The numerically observed finite maximum-overhead pattern might hold beyond n=11, but no such general theorem is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General single-automaton algorithm applies in principle, but it does not give the 45 simultaneous thresholds",
+        "evidence": [
+          "arxiv:1203.2822, introduction and algorithm sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1203.2822",
+        "material_read": "Introduction, subset-BFS method, proof and experiments sections of the 17-page full-text PDF",
+        "method": "Full-text PDF section examination, statement and numerical-table comparison",
+        "title": "A Fast Algorithm Finding the Shortest Reset Words",
+        "trigger": "Foundational exact shortest-word algorithm and possible general coverage"
+      },
+      {
+        "assessment": "Studies coalescence of two states of one C_n under random inputs, not a deterministic common reset word for distinct C_m and C_n",
+        "evidence": [
+          "arxiv:1404.6731, pages 1–5, especially section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1404.6731",
+        "material_read": "Introduction and section 3 formulation in the full PDF, including the explicit C_n transition convention and pair automaton definition",
+        "method": "Full-text proof-object disambiguation",
+        "title": "Synchronizing automata with random inputs",
+        "trigger": "Ambiguous abstract reference to synchronizing any pair of Černý automata"
+      },
+      {
+        "assessment": "Proves a general intersection identity and complexity of language equality; no exact simultaneous Černý pair threshold table identified",
+        "evidence": [
+          "arxiv:1405.3576, product construction and Theorem 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.3576",
+        "material_read": "Introduction, product construction and section with Theorem 3 in 12-page full text",
+        "method": "Detailed implication check of product intersection against shortest word lengths",
+        "title": "Complexity of checking whether two automata are synchronized by the same language",
+        "trigger": "Direct-product equivalence, possible stronger coverage"
+      },
+      {
+        "assessment": "Census of individual small automata, not 45 differently sized direct products",
+        "evidence": [
+          "arxiv:1607.04025, numerical results and methodology"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1607.04025",
+        "material_read": "Introduction, sections 2–3 and numerical tables and conclusion of the 12-page PDF",
+        "method": "Comparison of parameter universe and displayed tables",
+        "title": "Experiments with Synchronizing Automata",
+        "trigger": "Possible pre-existing exact enumeration for small automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46765b03-d598-4157-a32f-ef94695e4d2b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact complete natural 45-case classification of simultaneous two-device reset latency, a resource distinct from single-system Černý thresholds. The finite sharp overhead maximum is \\(n-3\\) for each \\(3\\le n\\le11\\); nonmonotone smaller-partner dependence and a provable arithmetic zero-overhead baseline are useful design distinctions; no general formula is alleged.",
+    "status": "PASS"
+  }
+}
