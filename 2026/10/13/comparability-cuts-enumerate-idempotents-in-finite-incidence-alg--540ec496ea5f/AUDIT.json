@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For each diagonal zero-one diagonal pattern, the 2008 conjugacy theorem gives transitivity under \\(1+J\\). Its stabilizer consists exactly of radical coordinates whose comparable endpoints have equal diagonal values, so orbit-stabilizer gives the field order raised to the cut-size power. Distinct diagonal patterns are disjoint and exhaustive. A standalone brute-force convolution check agrees for 60 finite poset-field cases. The finite check corroborates but does not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khripchenko--Novikov Theorem 3 proves conjugacy of every idempotent to its diagonal and gives an explicit conjugator in \\(1+J\\), but does not enumerate the conjugacy fibers.",
+        "Hou's abstract explicitly states a count for upper triangular matrices over finite rings; this covers only the chain specialization and therefore does not imply the arbitrary-poset cut formula.",
+        "Kolegov's abstract computes the minimum number of idempotent generators of a finite-poset incidence algebra, a different invariant."
+      ],
+      "reasoning": "The strongest exact-object source supplies the key structural lemma but stops before the orbit count; the strongest enumeration source is restricted to the chain/full-triangular case. Neither dominates the final theorem.",
+      "searches": [
+        "Finitary incidence algebras Khripchenko Novikov idempotents Theorem 3",
+        "Idempotents in triangular matrix rings finite count Hou",
+        "Idempotent generators of incidence algebras Kolegov",
+        "structural matrix rings idempotents finite field enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0803.0069",
+      "doi:10.1080/03081087.2019.1596223",
+      "doi:10.1017/S0004972724000078",
+      "doi:10.1006/JABR.1999.8008"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 theorem implies transitivity on each diagonal fiber after observing that its explicit conjugator lies in \\(1+J\\), but it does not determine the stabilizer dimension or sum the orbit sizes.",
+        "The chain counting literature cannot imply the formula for arbitrary comparability graphs, since chains realize only complete comparability graphs.",
+        "The 2024 generator-number theorem concerns a minimum generating set and does not determine total idempotent cardinality."
+      ],
+      "reasoning": "The final theorem requires the additional stabilizer calculation identifying crossed comparable pairs. This step converts the structural conjugacy result into a graph-cut enumerator and is not a special case of the compared generator or chain-enumeration statements.",
+      "searches": [
+        "idempotents of incidence algebra conjugate diagonal orbit stabilizer",
+        "finite poset incidence algebra idempotents conjugacy diagonal count",
+        "structural matrix algebra idempotent orbit finite field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved database result states that the full idempotent-count polynomial is the comparability-graph cut-size enumerator.",
+        "The closest incidence-algebra database hits concern interval-endomorphism dimensions, topological incidence posets, or idempotent generator number rather than total idempotent cardinality."
+      ],
+      "reasoning": "The claim was searched both algebraically and through its equivalent graph-cut formulation; no implication-equivalent statement was retrieved.",
+      "searches": [
+        "finite poset incidence algebra number of idempotents cut enumerator comparability graph",
+        "incidence algebra idempotent count maximum cut comparability graph",
+        "incidence algebra number of idempotents finite field",
+        "cut incidence algebra idempotents finite field"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published abstracts show explicit triangular-matrix enumeration literature, so the chain consequence is treated as covered prior territory.",
+        "No retrieved table or formula covers arbitrary finite-poset incidence algebras by comparability cut sizes."
+      ],
+      "reasoning": "The database comparison separates a known special case from the broader final statement instead of using absence of exact numeric wording as a novelty argument.",
+      "searches": [
+        "upper triangular idempotents sum binomial q r(n-r)",
+        "number of idempotents upper triangular matrix finite field",
+        "number of idempotents incidence algebra finite field",
+        "complete blocked triangular matrix algebra numbers of idempotents"
+      ]
+    },
+    "rationale": "The 2008 full text gives the conjugacy theorem but no finite-field orbit enumeration or comparability-cut polynomial. The full upper-triangular chain case is known and is not claimed as new. Searches across incidence-algebra, structural-matrix, graph-cut, idempotent-count, and generator formulations found no source implying the arbitrary finite-poset formula.",
+    "residual_risks": [
+      "An unindexed structural-matrix source may contain an equivalent arbitrary-poset enumeration.",
+      "The full text of the blocked-triangular comparison was not retrieved; its indexed scope is narrower, but it remains a literature-access risk.",
+      "The theorem does not extend the stated formula from finite fields to arbitrary finite coefficient rings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 3 states that each idempotent is conjugate to the diagonal idempotent with the same diagonal and constructs the conjugator as \\(1\\) plus a radical element. No finite-field orbit cardinality, comparability cut, or idempotent-count polynomial is stated.",
+        "identifier_or_url": "arXiv:0803.0069",
+        "material_read": "Full open HTML around the Jacobson-radical characterization and Theorem 3, including the displayed construction of the conjugating unit.",
+        "method": "Open-access full-text inspection.",
+        "title": "Finitary incidence algebras",
+        "trigger": "Exact-object archive source and critical idempotent-conjugacy lemma."
+      },
+      {
+        "assessment": "PARTIAL_SPECIAL_CASE",
+        "evidence": "The abstract states that the paper describes triangular idempotents and calculates their number for finite coefficient rings. Its object is the full upper-triangular ring, corresponding to a chain, not an arbitrary finite-poset incidence algebra.",
+        "identifier_or_url": "doi:10.1080/03081087.2019.1596223",
+        "material_read": "Publisher abstract and bibliographic metadata.",
+        "method": "Publisher abstract inspection; full article was not accessible in the retrieved material.",
+        "title": "Idempotents in triangular matrix rings",
+        "trigger": "Closest enumeration source for the chain specialization."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper computes the minimum number of idempotent generators via a Hasse-diagram embedding criterion; it does not claim a count of the full idempotent set.",
+        "identifier_or_url": "doi:10.1017/S0004972724000078",
+        "material_read": "Publisher abstract, keywords, and classification metadata.",
+        "method": "Publisher abstract inspection.",
+        "title": "Idempotent generators of incidence algebras",
+        "trigger": "Closest recent paper combining finite-poset incidence algebras and idempotents."
+      },
+      {
+        "assessment": "RESIDUAL_RISK_NARROWER_OBJECT",
+        "evidence": "The indexed object is a complete blocked triangular matrix algebra rather than arbitrary incidence algebras. Its metadata does not establish an arbitrary-poset comparability-cut formula.",
+        "identifier_or_url": "doi:10.1006/JABR.1999.8008",
+        "material_read": "Bibliographic metadata and subject keywords only.",
+        "method": "Index-record inspection; full text was not retrieved.",
+        "title": "The minimum number of idempotent generators of a complete blocked triangular matrix algebra",
+        "trigger": "Bibliographic keywords include numbers of idempotents, making it a plausible triangular-family comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "540ec496-ea5f-4a7c-be81-47683c1061bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The formula identifies the entire finite-field idempotent-count polynomial with the cut-size enumerator of the comparability graph. It therefore recovers a natural extremal graph invariant, MaxCut, and its maximizing subset multiplicity from a natural algebraic census, while showing orientation-independence within a fixed comparability graph. This is structurally stronger than the known chain count and materially different from idempotent-generator questions.",
+    "status": "PASS"
+  }
+}
