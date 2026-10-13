@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The reflection-orbit de Bruijn multigraph has degrees 3,5,2,5,2,3 and therefore no Euler trail, excluding the only otherwise possible lengths 22 and 23. Mirror-factor count excludes shorter lengths. Every length-24 palindrome corresponds bijectively to a 14-symbol prefix with palindromic last four bits and all ten orbit classes. An exhaustive ten-bit-mask dynamic program generates all 16384 prefixes once and yields exactly six complete palindromes. Independent direct enumeration over every palindrome length 4 through 24 reproduces the six examples and minimum. The proof is finite and no assertion for arbitrary order is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burris--Motta--Shipman (2016), Theorem 4.3 proves four-odd-vertex non-Eulerian obstruction; Section 5 exhibits a length-14 unoriented cover with one duplicated orbit.",
+        "A 2026 general de Bruijn sequence reference lists ordinary cyclic universal words, not the six globally palindromic length-24 equality cases."
+      ],
+      "reasoning": "The known graph construction covers the minimum length and one example, and the ordinary de Bruijn existence/count theorem is for non-palindromic cyclic words. These do not imply the exact multiplicity six or the complete equality-case list without additional enumeration.",
+      "searches": [
+        "published-finding corpus: palindromic universal superstring reversal orbit Euler four-mer optimal multiplicity",
+        "Web: shortest palindrome containing all binary 4-mers 24 six",
+        "arXiv:1608.08480 full text Sections 4 and 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1608.08480 Sections 1-5 and references",
+      "arxiv:1002.2723 article on palindrome complexity",
+      "doi:10.1093/bioinformatics/btt230 full open-access article",
+      "doi:10.1089/cmb.2019.0448 abstract only",
+      "published-finding corpus published search records: 2026/9/8/SCOPE079; 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 5 of arXiv:1608.08480 explicitly supplies the unoriented example 00001100101111, whose mirrored full word is one of the six cases. The four-odd-degree obstruction establishes the 24 lower bound.",
+        "Anisiu--Anisiu--Kása study counts of palindromic factors in arbitrary words, not a palindrome containing all length-four factors.",
+        "Orenstein--Shamir use reverse-complement coverage; the ordinary reversal is different."
+      ],
+      "reasoning": "Minimum length 24 and existence of a witness are logically covered by Burris et al. and expressly excluded from claimed originality. A given single example does not determine all equality cases or their number, and the examined sources do not imply the sixfold classification. The 2020 paper is unresolved at full-text level and so is not characterized as definitively non-covering.",
+      "searches": [
+        "arXiv:1608.08480 Section 5 example 00001100101111; graph parity argument",
+        "arXiv:1002.2723 Properties of palindromes in finite words",
+        "DOI:10.1093/bioinformatics/btt230 reverse complement coverage",
+        "DOI:10.1089/cmb.2019.0448 reverse de Bruijn"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burris--Motta--Shipman, arXiv:1608.08480, Section 2 and Section 5: reversal-orbit covers are defined by one factor from each reflected pair; a full palindrome doubles those factors.",
+        "published-finding corpus closest generic palindromic context: 2026/9/8/SCOPE079 concerns attractors of automatic words, not globally palindromic universal covers."
+      ],
+      "reasoning": "The nearest equivalent formulation is a length-14 unoriented four-mer covering prefix whose last four positions must be a palindrome, extended symmetrically. The paper supplies a possible prefix, but not the set of all such prefixes or all full palindrome equality cases. Searches found no exact six-word classification.",
+      "searches": [
+        "published-finding corpus: shortest palindrome containing every binary k-mer as factor universal palindrome de Bruijn",
+        "published-finding corpus: complete classification six minimum length 24 binary palindrome containing every 4-bit substring",
+        "Web: palindromic de Bruijn sequences linear palindrome order four minimal length"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published mathematical record contained the six optimal palindromes, their number six, or a table indexed by binary palindromic universal 4-mer covers.",
+        "The 2016 unoriented sequence reference gives one explicit fourteen-symbol example but no six-case table."
+      ],
+      "reasoning": "The published-source and database searches did not show an exact-cover count. This absence is not proof of global novelty, and an unindexed enumeration remains a documented risk.",
+      "searches": [
+        "published-finding corpus: palindromic de Bruijn sequence order 4 shortest 24 six solutions",
+        "published-finding corpus: complete classification six minimum length 24 binary palindrome containing every 4-bit substring",
+        "Web: palindromic superstring binary order 4 contains every four bit substring exactly six length 24"
+      ]
+    },
+    "rationale": "The closest primary 2016 result covers the bound 24 and one witness but not the equality-case classification of all six indexed palindromes. Distinct object and coverage comparisons were made against palindromic-factor complexity, double-stranded reverse-complement covering, and reversed-peptide covers. Exact database/source searches did not identify the six-case classification; unindexed prior work and the unavailable related full text remain material risks.",
+    "residual_risks": [
+      "The complete 2020 reverse de Bruijn paper and any related supplement were not inspectable; the publicly readable abstract alone cannot exclude a hidden binary equality-case table.",
+      "An earlier unpublished or unindexed finite enumeration could give the same six palindromic optimums.",
+      "The minimum length 24 is strongly covered by 2016 prior art; originality applies only to the exact equality-case classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong prior coverage of the minimum length and one example; not six equality cases",
+        "evidence": [
+          "Section 5: order-four graph has four odd vertices and exhibits 00001100101111; no complete enumeration of global palindrome completions is stated."
+        ],
+        "identifier_or_url": "arxiv:1608.08480",
+        "material_read": "Full 13-page open-access preprint text, especially definitions, reflected graph sections, Theorem 4.3, Section 5 example and references; page images consulted",
+        "method": "full-text mathematical implication comparison and figure inspection",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "same reversal-orbit objects, graph parity, order-four example"
+      },
+      {
+        "assessment": "Counts palindromic factors and finite-word palindromic complexity, not full-palindrome four-mer cover classification",
+        "evidence": [
+          "Abstract explicitly describes displaying palindromic factors and counting palindromes of given length in a word, including general factor complexity comparisons."
+        ],
+        "identifier_or_url": "arxiv:1002.2723",
+        "material_read": "Open-access article, abstract and main palindrome-factor-complexity discussion",
+        "method": "read primary mathematical definitions and scope",
+        "title": "Properties of palindromes in finite words",
+        "trigger": "palindromes and de Bruijn sequences, possible broad coverage"
+      },
+      {
+        "assessment": "Different involution and structural constraint; not a six-word palindrome count",
+        "evidence": [
+          "Model identifies a DNA k-mer with its reverse complement, whereas ordinary palindrome reversal reverses order without exchanging symbols."
+        ],
+        "identifier_or_url": "doi:10.1093/bioinformatics/btt230",
+        "material_read": "Open-access full text, definitions and methods on reverse-complement cover strings",
+        "method": "compare reverse-complement observation to ordinary reversal of a globally palindromic word",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers",
+        "trigger": "reversal-related k-mer coverage in double-stranded DNA"
+      },
+      {
+        "assessment": "Unresolved full-text overlap risk; no claim that the whole document lacks a six-word table",
+        "evidence": [
+          "Accessible abstract concerns sequences read in both directions for peptide coverage, not an explicit count of all globally palindromic binary four-mer words."
+        ],
+        "identifier_or_url": "doi:10.1089/cmb.2019.0448",
+        "material_read": "Abstract and bibliographic information only; primary full text unavailable",
+        "method": "abstract-level scope comparison and explicit uncertainty",
+        "title": "Reverse de Bruijn: Utilizing Reverse Peptide Synthesis to Cover All Amino Acid k-mers",
+        "trigger": "reversed sequence observation and potentially overlapping shortest universal word designs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77161789-2c96-42ce-9538-86e3f63c5cb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The count identifies all equality cases for the natural smallest-palindromic-superstring design problem at the first binary order with a non-Eulerian reversal quotient. Earlier results give an optimum length and an example, but not whether there are other optimal words or how they fall into complement classes. Exactly six indexed designs in three complement pairs answers that motivated classification fully without treating repeated order increments or trivial renamings as separate findings.",
+    "status": "PASS"
+  }
+}
