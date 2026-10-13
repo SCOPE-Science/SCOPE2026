@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For an edge uv, triangle inequality forces |d(w,u)-d(w,v)|<=1. Thus local resolution, defined by unequal distances, is equivalent to distance difference one. That equality is exactly the geodesic condition for strong resolution of an adjacent pair, in either direction. Therefore L_S(u,v)=L(u,v) edge by edge, making the two feasible function classes identical. The finite checker directly confirms this for all connected labeled graphs on 2..6 vertices and verifies C4 as a value-one counterexample to the path-only claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 source defines local resolving neighborhoods by unequal distances and proves ldim_f(G)=1 exactly for bipartite graphs; its published version lists MSC 05C12.",
+        "The 2021 source defines local strong resolving neighborhoods on adjacent pairs by the geodesic strong-resolution condition, states ldim_f(G)<=lsdim_f(G), and asserts lsdim_f(G)=1 exactly for paths.",
+        "The 2023 source repeats the local-strong definition and reports value one for even cycles, consistent with the new universal equality."
+      ],
+      "reasoning": "The earlier and later sources do not dominate the claim: they retain the parameters as separate notions. Comparing the definitions on a single adjacent pair yields the universal identity and exposes the path-only statement as incompatible with the definitions.",
+      "searches": [
+        "full text arXiv:1810.02882v1 / DOI 10.55016/ojs/cdm.v19i3.62807",
+        "full-text material DOI 10.1109/ACCESS.2021.3131311",
+        "full publisher text DOI 10.1155/2023/3635342"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.02882v1",
+      "DOI:10.55016/ojs/cdm.v19i3.62807",
+      "DOI:10.1109/ACCESS.2021.3131311",
+      "DOI:10.1155/2023/3635342",
+      "targeted exact web searches for equality, correction, neighborhood equivalence, and symbolic abbreviations",
+      "semantic published-results searches for the same equivalence and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The local-fractional source gives the ordinary local feasible constraints but does not discuss local strong resolution.",
+        "The introducing LFSMD source gives only the inequality ldim_f<=lsdim_f rather than equality.",
+        "The 2021 path-only value-one characterization conflicts with C4 under the stated definitions.",
+        "The 2023 even-cycle value one is consistent with the new equality and with the older bipartite LFMD theorem."
+      ],
+      "reasoning": "Neither prior statement implies universal equality. The new proof identifies the precise missing equivalence: for adjacent endpoints, unequal distances and strong resolution are the same condition.",
+      "searches": [
+        "inspect Definition 1.1 and Observation 2.1 of arXiv:1810.02882v1",
+        "inspect Observation 1 and Lemma II-D in DOI 10.1109/ACCESS.2021.3131311",
+        "inspect LFSMD definitions and cycle theorem in DOI 10.1155/2023/3635342"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No retrieved record states universal equality of the two parameters.",
+        "Searches returned the 2021 and 2023 LFSMD papers as separate-parameter treatments rather than an equivalence theorem.",
+        "The exact defining conditions in the primary sources reduce to the same condition for adjacent endpoints."
+      ],
+      "reasoning": "Both parameter names, neighborhood names, and symbolic abbreviations were searched. The theorem is stronger than equality of optimum values because it identifies every constraint and hence every feasible and optimal function.",
+      "searches": [
+        "semantic database: local fractional strong metric dimension equals local fractional metric dimension",
+        "semantic database: local strong resolving neighborhood adjacent vertices equals local resolving neighborhood",
+        "semantic database: LFSMD LFMD equivalence graph",
+        "web: \"local fractional strong metric dimension\" \"local fractional metric dimension\"",
+        "web: \"local strong resolving neighborhood\" \"local resolving neighborhood\" equality",
+        "web: \"lsdim_f\" \"ldim_f\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No database hit or retrieved table identified LFSMD with LFMD for all graphs.",
+        "No retrieved correction note states the bipartite value-one characterization for LFSMD."
+      ],
+      "reasoning": "The theorem is a definition-level equivalence, so exact family tables are subsumed once the equality is established.",
+      "searches": [
+        "semantic database: local fractional strong metric dimension graph",
+        "semantic database: fractional local metric dimension correction",
+        "web: \"local fractional strong metric dimension\" correction",
+        "web: \"local fractional strong metric dimension\" bipartite path"
+      ]
+    },
+    "rationale": "No inspected source states the universal neighborhood equality or the resulting identity of the two fractional parameters. The 2021 introducing paper instead presents only ldim_f<=lsdim_f and a path-only value-one statement, while the 2023 continuation continues to treat LFSMD as a separate parameter.",
+    "residual_risks": [
+      "A differently named or non-indexed note may already observe the edgewise equivalence.",
+      "The result is tied to the published adjacent-pair definition of local strong resolution; other notions using the word local would need separate comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines LFMD exactly as used here and proves value one precisely for bipartite graphs; does not mention the later local-strong parameter.",
+        "evidence": [
+          "arXiv version 1 is dated 5 October 2018.",
+          "The journal text lists Mathematics Subject Classification 05C12.",
+          "Definition 1.1 uses L(uv)={x:d(u,x)!=d(v,x)} for edges uv.",
+          "Observation 2.1 states ldim_f(G)=1 exactly for bipartite graphs."
+        ],
+        "identifier_or_url": "arXiv:1810.02882v1; DOI:10.55016/ojs/cdm.v19i3.62807",
+        "material_read": "Accessible full text covering the local resolving neighborhood, Definition 1.1, Observation 2.1, the stated MSC classification, and surrounding bounds.",
+        "method": "Primary full-text definition and theorem comparison.",
+        "title": "The Fractional Local Metric Dimension of Graphs",
+        "trigger": "Foundational primary source for the older parameter and its exact local resolving constraints."
+      },
+      {
+        "assessment": "Uses strong resolution restricted to adjacent pairs, states only ldim_f<=lsdim_f, and gives a path-only characterization at value one. Under its own definition, the local-strong neighborhood equals the ordinary local neighborhood for every edge.",
+        "evidence": [
+          "The article appeared in IEEE Access volume 9 (2021), pages 159326-159333.",
+          "Its LSRN definition is the standard strong-geodesic condition applied to adjacent pairs.",
+          "Observation 1 states ldim_f(F)<=lsdim_f(F).",
+          "Lemma II-D states lsdim_f(F)=1 exactly for paths."
+        ],
+        "identifier_or_url": "DOI:10.1109/ACCESS.2021.3131311",
+        "material_read": "Accessible full-text material covering the local strong resolving neighborhood definition, Observation 1 comparing the two fractional parameters, Lemma II-D, and representative neighborhood computations.",
+        "method": "Primary definition-level and implication comparison.",
+        "title": "Local Fractional Strong Metric Dimension of Certain Rotationally Symmetric Planer Networks",
+        "trigger": "Introducing primary source for the local fractional strong metric dimension."
+      },
+      {
+        "assessment": "Continues to treat LFSMD as a distinct parameter; reports value one for even cycles, which agrees with the universal equality.",
+        "evidence": [
+          "First published 5 May 2023.",
+          "The paper repeats the local-strong definition for adjacent pairs.",
+          "Its cycle result gives LFSMD equal to one for even cycles."
+        ],
+        "identifier_or_url": "DOI:10.1155/2023/3635342",
+        "material_read": "Publisher full text covering the introduction, LSRN and LFSMD definitions, main cycle theorem, conclusion, and cited predecessor literature.",
+        "method": "Later primary-source terminology and theorem comparison.",
+        "title": "Local Fractional Strong Metric Dimension of Certain Complex Networks",
+        "trigger": "Later same-parameter paper testing whether the distinction or equality had already been recognized."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6809230d-1f5b-4f19-9da3-5222bd60a1b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem collapses an entire separately introduced fractional invariant to an existing parameter on every connected graph. It identifies the feasible polytopes, not just their minima, so all optimizer structure and all previous LFMD theorems transfer immediately. It also corrects the basic value-one classification under the published LFSMD definition. This is a structural simplification of the theory rather than a family-specific computation.",
+    "status": "PASS"
+  }
+}
