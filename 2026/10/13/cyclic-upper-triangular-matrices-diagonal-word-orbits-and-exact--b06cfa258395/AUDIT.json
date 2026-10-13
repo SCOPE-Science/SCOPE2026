@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For a cyclic Fq[t]/(f)-module each divisor f_i identifies one invariant submodule. The prefix flag therefore forces any similarity between cyclic matrices with the same ordered diagonal to preserve that flag; orbit-stabilizer in B and local-unit cardinalities prove the exact fixed-word formula. Nonemptiness is given by one Jordan chain on the positions of each eigenvalue. Stirling partitions and a finite binomial EGF give the total count and the j=q dominant-term asymptotic. The actual packaged checker independently enumerates all prescribed diagonals for eleven field/dimension pairs (including GF4) and checks two independent closed forms. Finite tests corroborate but do not replace the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown et al. 2011: primary 62-page arXiv paper §4.3 analyzes parabolic algebras fixing one subspace.",
+        "Yip 2013, pp.1017–1028: all nilpotent Jordan-type counts; one-block stratum is explicit.",
+        "Wall 1999: source abstract addresses unrestricted matrices, not the full-flag fixed-word question."
+      ],
+      "reasoning": "Yip is quantitatively stronger on the nilpotent locus, including the one-block special case, but does not enumerate arbitrary diagonal words with multiple eigenvalues or their B-orbits. A single-subspace parabolic is strictly larger than the full-flag algebra, so parabolic marginal counts do not determine the constrained intersection. No directly dominating full-flag mixed-eigenvalue formula was identified.",
+      "searches": [
+        "Brown Praeger Giudici proportions cyclic matrices maximal reducible matrix groups algebras",
+        "q-Rook placements and Jordan forms of upper-triangular nilpotent matrices",
+        "Counting cyclic and separable matrices over a finite field Wall"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1105.4078",
+      "https://www.jstage.jst.go.jp/article/jmath/65/3/65_967/_pdf/-char/en",
+      "https://dmtcs.episciences.org/en/articles/2362/download",
+      "https://doi.org/10.1112/jlms/52.2.263",
+      "https://doi.org/10.1017/S000497270003639X",
+      "https://oeis.org/A008964"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fresse 2013: regular nilpotent case is already a single B-orbit.",
+        "Yip 2013 p.1018 explicitly gives F_(n)(q)=(q-1)^(n-1) q^((n-1)(n-2)/2), coinciding with the theorem at all-zero diagonal.",
+        "Brown et al. 2011 prove cyclic invariant-submodule lemma but the main counts involve stabilizing one proper subspace."
+      ],
+      "reasoning": "Specialization to a one-valued diagonal is covered and not asserted original. The all-word result is a joint refinement distinguishing q^n complete-flag conjugacy strata and yielding an asymptotic that is not a corollary of the cited one-subspace marginal alone. Its proof additionally combines cyclic-module flag uniqueness, Borel centralizers and labeled Stirling partitions.",
+      "searches": [
+        "2013 Fresse Upper triangular parts of conjugacy classes of nilpotent matrices B-orbits",
+        "2011 Brown Praeger Giudici proportions cyclic matrices maximal reducible matrix groups",
+        "Martha Yip Jordan forms upper triangular nilpotent matrix rank q 2013"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fresse 2013, §4.2: the regular-nilpotent orbit is a single Borel orbit; Yip 2013 p.1018: explicit one-Jordan-block count. These cover the single-eigenvalue special case.",
+        "Brown et al. 2011, Lemma 2.4: unique invariant submodule of cyclic operator at prescribed divisor."
+      ],
+      "reasoning": "The name regular matrix is equivalent to cyclic in gl_n; replacing the terminology was explicitly considered. Known nilpotent regular-stratum results are acknowledged as covered rather than claimed new. No inspected publication stated the all-words finite-field orbit decomposition or its aggregate density.",
+      "searches": [
+        "\"cyclic upper triangular matrices\" count",
+        "\"regular\" \"upper triangular\" \"Borel\" conjugacy matrix",
+        "\"cyclic\" \"upper triangular\" \"Borel\" \"one orbit\" finite field"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A008964 counts order-at-most-two upper triangular group elements/square-zero matrices and includes 192 at dimension four, whereas the cyclic count is 240 for q=2,n=4.",
+        "Direct full-field/diagonal enumeration of the new formula yielded q=2 totals 6,28,240,3968 in dimensions 2 through 5."
+      ],
+      "reasoning": "The identified tempting OEIS sequence is a different invariant. Targeted integer-sequence and matrix-table searches identified no table that subsumes the new fixed-diagonal orbit data; negative search results alone do not prove historical uniqueness.",
+      "searches": [
+        "OEIS 2 6 28 240 3968 cyclic upper triangular",
+        "site:oeis.org \"upper triangular\" \"cyclic\" matrices",
+        "OEIS A008964"
+      ]
+    },
+    "rationale": "Explicit nilpotent one-block orbit and count are already present in Fresse (2013) and Yip (2013), so neither is claimed new. Brown–Praeger–Giudici (2011) counts cyclic operators preserving only one subspace. The complete mixed-diagonal word-specific Borel orbit formula, all split-polynomial multiplicities, Stirling density and exponential rate were not located in the inspected full texts or other targeted results. Published stronger formulas that automatically imply all these assertions were not found. Equivalent statements in inaccessible early literature remain possible.",
+    "residual_risks": [
+      "Neumann and Praeger (1995) and Wall (1999) full texts were not available for material review, so an equivalent full-flag enumeration in a subsidiary result is a residual bibliographic risk.",
+      "General algebraic-group literature may present equivalent regular Borel-orbit parametrizations under different terminology.",
+      "The nilpotent single-eigenvalue stratum is already known and is not the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ONE_SUBSPACE_ONLY; provides cyclic-module uniqueness as known input but not complete-flag exact density",
+        "evidence": "Lemma 2.4 and Theorem 4.30; full-flag algebra is smaller than maximal reducible single-subspace parabolic.",
+        "identifier_or_url": "https://arxiv.org/pdf/1105.4078",
+        "material_read": "Primary 62-page paper: Introduction, §2.1 invariant-subspace lemma, §4.3 and Theorem 4.30, including full page renderings",
+        "method": "Open-access arXiv PDF text and page images",
+        "title": "Proportions of Cyclic Matrices in Maximal Reducible Matrix Groups and Algebras",
+        "trigger": "Same cyclicity invariant in a reducible matrix algebra, plausible stronger theorem"
+      },
+      {
+        "assessment": "COVERS_SPECIAL_CASE: regular nilpotent one-orbit statement known; does not count mixed eigenvalue words over finite fields",
+        "evidence": "Fresse (2013), §4.2 Remark 3.",
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/jmath/65/3/65_967/_pdf/-char/en",
+        "material_read": "Primary 26-page PDF: introduction and §4.2 regular-nilpotent case including page renderings",
+        "method": "Lawful open-access publisher PDF text and page images",
+        "title": "Upper triangular parts of conjugacy classes of nilpotent matrices with finite number of B-orbits",
+        "trigger": "Exactly the Borel orbit action, at least on nilpotent matrices"
+      },
+      {
+        "assessment": "COVERS_SPECIAL_CASE: the fixed all-zero diagonal one-block formula is explicitly known, but not the arbitrary mixed-diagonal orbit and Stirling distribution",
+        "evidence": "Yip 2013, p.1018: F_(n)(q)=(q-1)^(n-1)q^binom(n-1,2).",
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2362/download",
+        "material_read": "Primary 12-page article: pp.1017–1020, p.1018 Eq.(1) and one-block count; remaining sections surveyed",
+        "method": "Open-access journal PDF text and page image of the exact formula",
+        "title": "q-Rook placements and Jordan forms of upper-triangular nilpotent matrices",
+        "trigger": "Full enumeration of upper-triangular nilpotent Jordan types can cover all-zero diagonal"
+      },
+      {
+        "assessment": "ACCESS_LIMITED; concerns unrestricted finite-field matrices but cannot rule out a subsidiary upper-triangular theorem without full text",
+        "evidence": "1995 Journal of the London Mathematical Society 52(2), 263–284; first published October 1995 (exact day unverified).",
+        "identifier_or_url": "https://doi.org/10.1112/jlms/52.2.263",
+        "material_read": "Publisher abstract, bibliographic metadata and contextual citations only; full text not available in this execution",
+        "method": "Publisher catalog; arXiv/OA lookup unsuccessful, authorized institutional access required non-interactive approval and could not be completed",
+        "title": "Cyclic Matrices Over Finite Fields",
+        "trigger": "Foundational exact same matrix cyclicity invariant, plausible earlier enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b06cfa25-8395-422f-9263-579a1f9c85a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full-flag upper triangular algebra is a canonical family, not an arbitrary slice. The result completely classifies the cyclic locus into Borel conjugacy strata, determines each exact orbit size and each split-polynomial count, and reveals a sharp exponentially vanishing cyclicity density at fixed q. This separates complete-flag stabilization from maximal reducible algebras in the primary literature and is a natural structural and probabilistic classification over every finite field; the previously known nilpotent slice is specifically excluded from the originality claim.",
+    "status": "PASS"
+  }
+}
