@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For all integer n>=3, represent the matching by uniform repeated-label endpoint words. The restriction of a uniform word to any chosen labels is uniform, and disjoint restrictions are independent. Exhaustive integer counts of all (2r)!/2^r relative words with 2<=r<=5 prove every distinct local joint probability used. The edge/triangle overlap counts give the stated exact variances and mixed covariance for every n, not merely enumerated sample sizes; asymptotic leading coefficients yield correlation squared 20/21. The standalone exact checker reproduces finite coefficients and global n=3..7 as a separate consistency test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pilaud and Rue, arXiv:1307.6440v1: section 2 matching results are organized by a fixed total crossing number, not the mixed 2-/3-crossing moments in unrestricted matching diagrams.",
+        "Paguyo, arXiv:2104.01134: separates crossing-number normal approximation from simple-chord Poisson approximation.",
+        "Acan, arXiv:1501.01489v1, sections 2, 3 and 7: degrees, monolithic components and clique number, but no variance of the number of 3-cliques."
+      ],
+      "reasoning": "The inspected frameworks cover related marginal and restrictive regimes but the stated mixed finite moments do not follow as explicit special cases of their theorems. Generic bounded-pattern moment machinery might imply these results; this remains a recorded historical risk.",
+      "searches": [
+        "joint central limit theorem subgraph counts random chord intersection graphs triangles crossings",
+        "random chord diagrams clique count triangle variance asymptotic normal",
+        "arxiv:1307.6440v1 matchings k crossings generating function"
+      ]
+    },
+    "checked_sources": [
+      "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+      "https://arxiv.org/pdf/1501.01489",
+      "https://arxiv.org/pdf/1307.6440",
+      "https://arxiv.org/pdf/2104.01134",
+      "https://webdoc.sub.gwdg.de/ebook/diss/2003/fu-berlin/1999/21/kap3.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet--Noy marginal crossing-count variance n(n-1)(n+3)/45 is acknowledged as previously known.",
+        "Acan supplies a primary probabilistic source (60C05) for the same uniform perfect-matching model, as well as the interpretation of 3-cliques.",
+        "Pilaud--Rue handle generating functions indexed by a fixed number of crossings and do not report a second parameter for 3-crossing count."
+      ],
+      "reasoning": "Known E[X] and Var(X) do not determine E[T], Var(T), or Cov(X,T). Acan also determines or discusses maximum clique size, not the number of triangle cliques. The present calculations require distinct 4- and 5-chord overlap probabilities. We do not claim novelty for the already-known marginal crossing moments.",
+      "searches": [
+        "Flajolet Noy Analytic Combinatorics of Chord Diagrams crossings components moments",
+        "Huseyin Acan On a uniformly random chord diagram clique degree variance",
+        "Stoimenow On the number of chord diagrams isolated chord enumeration",
+        "random chord diagram clique triangle moment variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan, arXiv:1501.01489v1: circle intersection graphs use crossings as edges, and a 3-clique is three pairwise crossing chords.",
+        "Flajolet and Noy 2000: marginal number of crossings treated; no joint triple statistic in inspected results."
+      ],
+      "reasoning": "The triangle count is equivalently the number of 3-crossings / 3-cliques, and the edge count is the number of 2-crossings. The claim was compared under these aliases. A prior formula for crossing count alone cannot specify Cov(2-crossings,3-crossings); an explicit joint or all-pattern second-moment theorem would be required.",
+      "searches": [
+        "random circle graph triangle edge covariance",
+        "random chord diagram number of triangles variance",
+        "chord diagram graph triangle count variance overlapping triangles interleaving matching circle graph 1/63 2/315"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched primary articles and accessible chord-enumeration chapter have no table of the four- or five-label joint probabilities used here.",
+        "Stoimenow 1999 dissertation Ch. 3, sections 3.6-3.8: isolated chord enumeration, not crossing-triangle moment tables."
+      ],
+      "reasoning": "The 6/90, 72/2520, 40/2520 and 720/113400 counts are calculated for the relevant labeled repeated-letter conditions, then assembled into all-size polynomials; the searches did not identify a covering published table. This negative result does not by itself certify novelty.",
+      "searches": [
+        "random chord diagram triangle count variance edge triangle covariance circle intersection graph",
+        "triangle 3-crossing count chord diagrams exact mixed moments",
+        "random chord diagram 20/21 edge triangle correlation"
+      ]
+    },
+    "rationale": "The distinctive claim is the unrestricted random-chord-graph triangle variance together with its mixed covariance against the edge crossing count and nontrivial 20/21 limiting explained variance. Primary full-text comparisons reveal marginal crossings, sparse fixed-crossing enumerators, degrees and isolated chord statistics, but not this mixed triangle second-moment law. More general pattern-count moment literature could imply it, so absolute historical priority is not certified.",
+    "residual_risks": [
+      "Broader historical joint-pattern cumulant formulas might entail the new finite-moment polynomials implicitly, even without matching titles or numerical tables.",
+      "The archival publication search and compared primary literature do not establish exhaustive historical priority; independent literature review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides crossing-count moments; inspected statements do not provide triangle-count variance or crossing–triangle covariance.",
+        "evidence": [
+          "Paper abstract and theorem for number of crossings and components; no term match for covariance or clique in PDF."
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Relevant results on crossing counts and component enumeration, plus document-wide term searches and page inspection.",
+        "method": "Publicly accessible 14-page PDF, extracted text and page image",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Marginal crossing count moments in exactly the same uniform-matching setting"
+      },
+      {
+        "assessment": "Defines the same graph and gives structural and maximal-clique results, not joint second moments of edge and triangle counts.",
+        "evidence": [
+          "Title-page primary classification 60C05; Section 1 introduction; Section 7 defines r-cliques as r-crossings; no covariance term in PDF text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Pages 1-3, sections on degrees and components, Section 7 clique interpretation, searchable PDF-wide text, and title page image.",
+        "method": "arXiv public full PDF text and image, version 1 metadata first posted 2015-01-07",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Exact model, probabilistic MSC ownership and clique interpretation"
+      },
+      {
+        "assessment": "Fixed-crossing enumerators and crossing-restricted configurations do not state the unrestricted 2-/3-crossing count covariance.",
+        "evidence": [
+          "Intro section 1.1 distinguishes k crossings from a forbidden (k+2)-clique; Theorem 1.1 fixed-k generating-function result."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.6440",
+        "material_read": "Abstract, full contents, introduction and statements of main fixed-crossing generating-function results; PDF-wide searches for triangle, clique and moments.",
+        "method": "arXiv open full PDF text and page image",
+        "title": "Analytic combinatorics of chord and hyperchord diagrams with k crossings",
+        "trigger": "Potential stronger generating-function coverage"
+      },
+      {
+        "assessment": "Studies crossings and simple chords separately, with no number-of-triangles second-moment claim in inspected results.",
+        "evidence": [
+          "Theorems 1.1, 1.2 on the separate marginals; crossing variance cited as Flajolet--Noy Lemma 2.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+        "material_read": "Introduction and statements, proof section for crossing count, section for simple-chord count; PDF-wide covariance search.",
+        "method": "Open arXiv full PDF text",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Recent followup on dependence and limit laws for the same matching model"
+      },
+      {
+        "assessment": "Studies symmetry classes and isolated / noncrossing chord enumerations. No crossing-triangle mixed moments in the inspected sections.",
+        "evidence": [
+          "Definition 3.8 and inclusion-exclusion for degenerate chord diagrams, and Section 3.8 Catalan count."
+        ],
+        "identifier_or_url": "https://webdoc.sub.gwdg.de/ebook/diss/2003/fu-berlin/1999/21/kap3.pdf",
+        "material_read": "Chapter 3 introduction, sections 3.6 and 3.8, text searched for crossings, page images for sections 3.6 and 3.8.",
+        "method": "Open institutional dissertation PDF text and images",
+        "title": "On enumeration of chord diagrams and asymptotics of Vassiliev invariants, Chapter 3",
+        "trigger": "Historical isolated-chord and diagram enumeration potentially dominating local statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b9f4434-8870-4345-ba90-2b0554678f04",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of edges (2-crossings) and triangles (3-crossings) are fundamental, graph-invariant local-density and clustering statistics of a random circle graph. Their complete all-n moment matrix yields a nontrivial sharp asymptotic regression statement: unlike independent-edge dense random graphs, the squared correlation tends to strictly less than one (20/21), with a 1/21 triangle-variance residual under optimal affine prediction. This is a motivated structural relationship, not an arbitrary parameter slice or a restatement of old crossing variance.",
+    "status": "PASS"
+  }
+}
