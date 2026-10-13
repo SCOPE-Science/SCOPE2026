@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The distance cases, upper bound, n=3 boundary, and equality classification are complete; the verifier directly confirms all near-maximum candidates through n=10.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper gives mu(K_{m,n})=m+n-2.",
+        "The 2023 paper computes a maximum mutual-visibility set in linear time for distance-hereditary graphs but has no half/chain specialization.",
+        "The 2025 paper gives generic enumeration but no half/chain formula."
+      ],
+      "reasoning": "The 2023 result genuinely covers scalar computation on half graphs, but it does not classify all maxima or imply uniqueness without new family-specific reasoning.",
+      "searches": [
+        "Di Stefano 2021, Theorem 4.9 and full-text half/chain search",
+        "Cicerone--Di Stefano 2023 distance-hereditary algorithm and full-text half/chain search",
+        "Tonny--Shikhi 2025 generic visibility-polynomial enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2105.02722v1",
+      "arXiv:2307.10661v1",
+      "arXiv:2507.01851v1",
+      "targeted literature searches under half-graph, chain-graph, maximum-set, and visibility-polynomial formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete-bipartite theorem gives the same scalar benchmark and n^2 maxima, but H_n is not complete bipartite.",
+        "The distance-hereditary algorithm outputs a maximum set but does not assert uniqueness for H_n.",
+        "The generic enumeration algorithm contains no symbolic half-graph theorem."
+      ],
+      "reasoning": "The decisive unique-maximum classification is not implied by any inspected statement.",
+      "searches": [
+        "Theorem 4.9 of arXiv:2105.02722",
+        "Algorithm A of arXiv:2307.10661",
+        "enumeration framework of arXiv:2507.01851"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact half/chain theorem was retrieved.",
+        "The 2025 visibility-polynomial full text contains no half or chain occurrence."
+      ],
+      "reasoning": "The target invariant, graph-family aliases, and the later counting terminology were checked; total, connected, outer, and mobile visibility are different parameters.",
+      "searches": [
+        "\"mutual visibility\" \"half graph\"",
+        "\"mutual visibility\" \"chain graph\"",
+        "\"visibility polynomial\" \"half graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact half-graph table or maximum-set count was found.",
+        "The complete-bipartite benchmark is not a half-graph table."
+      ],
+      "reasoning": "The formula and uniqueness are proved symbolically; finite enumeration is only corroborative.",
+      "searches": [
+        "\"mutual visibility number\" \"half graph\"",
+        "half graph mutual visibility maximum sets",
+        "\"visibility polynomial\" \"chain graph\""
+      ]
+    },
+    "rationale": "No inspected source states the half-graph formula together with uniqueness. Broader algorithms provide computability but not this explicit extremal classification.",
+    "residual_risks": [
+      "A differently phrased or non-indexed half-graph treatment may exist.",
+      "The distance-hereditary algorithm covers instance computation; novelty is the explicit all-orders value plus uniqueness.",
+      "The full visibility polynomial of H_n is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the invariant, lists MSC 05C99 and 90C27, gives complete-bipartite values, and has no half/chain specialization.",
+        "evidence": [
+          "Version 1 dated 6 May 2021.",
+          "Theorem 4.9 gives mu(K_{m,n})=m+n-2 for m,n at least three.",
+          "No half or chain occurrence."
+        ],
+        "identifier_or_url": "arXiv:2105.02722v1",
+        "material_read": "Full searchable PDF at the definition and Theorem 4.9; opening page visually inspected; half/chain searches performed.",
+        "method": "Primary full-text statement and implication comparison.",
+        "title": "Mutual Visibility in Graphs",
+        "trigger": "Introducing source and closest exact complete-bipartite benchmark."
+      },
+      {
+        "assessment": "Gives a linear-time maximum-set algorithm for distance-hereditary graphs but no half-graph formula or uniqueness theorem.",
+        "evidence": [
+          "Version 1 dated 20 July 2023.",
+          "Main result is linear-time computation on distance-hereditary graphs.",
+          "No half or chain occurrence."
+        ],
+        "identifier_or_url": "arXiv:2307.10661v1",
+        "material_read": "Full searchable PDF at the main theorem and Algorithm A; opening page visually inspected; half/chain searches performed.",
+        "method": "Broader-coverage comparison.",
+        "title": "Mutual-visibility in distance-hereditary graphs: a linear-time algorithm",
+        "trigger": "Broader class result potentially covering half graphs."
+      },
+      {
+        "assessment": "Provides generic visibility enumeration but no half/chain formula.",
+        "evidence": [
+          "Version 1 dated 2 July 2025.",
+          "No half or chain occurrence."
+        ],
+        "identifier_or_url": "arXiv:2507.01851v1",
+        "material_read": "Full searchable PDF at the definition and generic algorithm; opening page visually inspected; half/chain searches performed.",
+        "method": "Counting/database coverage comparison.",
+        "title": "On the Visibility Polynomial of Graphs",
+        "trigger": "Later counting framework that could contain a stronger enumeration result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7dbcfc6e-970b-464d-b4fd-cd2640ac1f05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Half graphs are a canonical nested-neighborhood family. The theorem preserves the complete-bipartite optimum size but collapses the n^2 extremizers to a unique set, giving a motivated structural classification rather than a routine scalar evaluation.",
+    "status": "PASS"
+  }
+}
