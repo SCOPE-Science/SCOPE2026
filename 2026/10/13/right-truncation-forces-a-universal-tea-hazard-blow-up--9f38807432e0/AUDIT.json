@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The published CDF is a positive power of a smooth function B_theta(x) normalized by B_theta(1), with B_theta prime at one strictly positive. Taylor expansion gives survival linear in 1-x with a positive coefficient and a finite positive endpoint density; their ratio is asymptotic to 1/(1-x). A second-order expansion gives h prime asymptotic to 1/(1-x)^2. The packaged checker independently verifies the endpoint ratios and a representative interior-decline example.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Generic bounded-support reasoning explains why a positive endpoint density produces reciprocal-distance hazard growth.",
+        "The accepted result instantiates that mechanism exactly for the TEA/TUEA formulas and computes the model-specific endpoint coefficient for survival and density.",
+        "No broader searched result was found that already applied this endpoint implication to the target model's advertised hazard classes."
+      ],
+      "reasoning": "The general mechanism does not make the model-specific correction redundant because the source explicitly claims a hazard class ruled out by its own truncated CDF.",
+      "searches": [
+        "right truncated distribution hazard endpoint bounded support Ailamujia",
+        "TUEA hazard endpoint one over 1-x",
+        "bounded support smooth positive density hazard endpoint"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3934/math.2025914",
+      "doi:10.3934/math.2026589"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "No checked earlier published finding supplied the target reciprocal-distance endpoint law for this model.",
+        "The closest search hits concerned unrelated endpoint phenomena or proportional-hazard identification.",
+        "The 2026 follow-up repeats the same parent distribution rather than deriving a new endpoint classification."
+      ],
+      "reasoning": "No inspected prior statement implies the TEA reciprocal-distance endpoint hazard together with the exclusion of globally decreasing hazards.",
+      "searches": [
+        "10.3934/math.2025914 endpoint hazard theorem",
+        "truncated exponentiated Ailamujia decreasing hazard correction",
+        "TUEA reciprocal endpoint hazard"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No searched published-result record identified the target DOI with a right-endpoint hazard correction.",
+        "The primary article advertises decreasing hazard behavior while defining a smooth positive-density right truncation at one.",
+        "The later TUEA article reuses the same CDF and hazard without an endpoint correction."
+      ],
+      "reasoning": "The searches covered the exact source, both common model acronyms, decreasing-hazard language, and endpoint-hazard formulations. No equivalent model-specific theorem was located.",
+      "searches": [
+        "10.3934/math.2025914 truncated exponentiated Ailamujia hazard endpoint",
+        "TEA distribution hazard decreasing bounded support",
+        "truncated exponentiated Ailamujia hazard rate decreasing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2025 source gives the normalized CDF and the corresponding hazard on the right-truncated support.",
+        "Its abstract and introduction list increasing, decreasing, and bathtub hazard shapes; its later figure discussion emphasizes increasing and U-shaped examples.",
+        "The 2026 follow-up gives the same CDF and hazard and discusses flexible hazard shapes."
+      ],
+      "reasoning": "The exact defining equations determine the endpoint asymptotics independently of finite plotting windows, so the conflict with a globally decreasing hazard is decisive.",
+      "searches": [
+        "10.3934/math.2025914 hazard Figure 2 decreasing bathtub",
+        "10.3934/math.2025914 Eq 2.5 Eq 2.7",
+        "10.3934/math.2026589 hazard decreasing unimodal"
+      ]
+    },
+    "rationale": "The primary article advertises decreasing hazard flexibility but does not state the universal right-endpoint blow-up imposed by its own truncation. The 2026 follow-up reuses the same parent law and likewise does not state the endpoint theorem. Five focused searches and direct source comparisons found no covering model-specific correction.",
+    "residual_risks": [
+      "A very recent unindexed model-specific correction may exist.",
+      "The source may have intended “decreasing” only over a finite plotting window rather than as a global support-wide class.",
+      "A complete interior turning-point phase diagram remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY CONTRADICTED. The defining CDF forces h(x) to diverge like 1/(1-x), excluding a globally decreasing hazard.",
+        "evidence": "The displayed right-truncated CDF, PDF, survival, and hazard formulas together with the hazard-shape claims.",
+        "identifier_or_url": "doi:10.3934/math.2025914",
+        "material_read": "Full article text at the abstract and introduction hazard claims, the right-truncated PDF and CDF, the survival and hazard equations, the hazard-plot discussion, conclusion, and MSC metadata.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "A new truncated unit exponentiated Ailamujia distribution with ranked-based inference and engineering applications",
+        "trigger": "Primary source defining the TEA law and advertising decreasing hazard flexibility."
+      },
+      {
+        "assessment": "RELATED AND SUBJECT TO THE SAME ENDPOINT CONSTRAINT; censoring does not alter the parent hazard.",
+        "evidence": "The follow-up reproduces the same normalized CDF and hazard on 0<x<1.",
+        "identifier_or_url": "doi:10.3934/math.2026589",
+        "material_read": "Full article text at the parent PDF/CDF/survival/hazard formulas and the hazard-shape discussion.",
+        "method": "Direct publisher full-text inspection.",
+        "title": "Statistical analysis for the truncated unit exponentiated Ailamujia distribution under progressive Type-II censoring",
+        "trigger": "Later paper reusing the same truncated parent law under a censoring design."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f388074-32e0-4b6f-b6a1-05ad281a7aa9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hazard-shape flexibility is a central advertised feature of the TEA model for reliability data. The endpoint theorem removes one entire claimed global hazard class and explains why finite-range plots can be misleading near a hard truncation boundary. The correction also applies unchanged to the later progressive-censoring analysis, so it materially affects reliability interpretation across both papers.",
+    "status": "PASS"
+  }
+}
