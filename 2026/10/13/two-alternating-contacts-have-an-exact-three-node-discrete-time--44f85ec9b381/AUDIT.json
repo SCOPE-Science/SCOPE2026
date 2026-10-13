@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The one-period matrix is multiplied directly from the two SIS linearization factors. Its unit-eigenvalue determinant has exactly one nonnegative-parameter zero because the second factor is strictly negative, and the Perron root starts below one and increases strictly with transmission probability. The aggregate threshold and the three-node minimality are exact.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Valdano et al. derive the arbitrary-temporal-network discrete-time SIS threshold from the spectral radius of a product of factors (1-μ)I+λA(t).",
+        "Valdano et al. identify the time-averaged adjacency matrix as the aggregate comparator in the slow-disease limit.",
+        "Speidel et al. prove that, under random snapshot sampling with replacement, the discrete-time threshold is at least the aggregate threshold and explicitly contrast this with their continuous-time result."
+      ],
+      "reasoning": "These results provide a general framework and a qualitative inequality in a stochastic sampling protocol. They do not supply the deterministic period-two single-edge closed form or the smallest-node classification.",
+      "searches": [
+        "Valdano Analytical computation epidemic threshold temporal networks discrete time SIS infection propagator 2015",
+        "Speidel temporal interactions facilitate endemicity discrete time appendix SIS aggregate threshold 2016",
+        "\"single-link snapshots\" epidemic threshold discrete time"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1406.4815",
+      "doi:10.1103/PhysRevX.5.021005",
+      "arxiv:1602.00859",
+      "doi:10.1088/1367-2630/18/7/073013",
+      "MSC2020:92D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Valdano product criterion implies that this special case is calculable but does not itself state its evaluated closed form or minimality.",
+        "Speidel Appendix I assumes snapshots are randomly sampled with replacement; the accepted claim fixes a deterministic alternating period.",
+        "Speidel discusses single-link snapshots but does not identify the three-node deterministic period-two exact ratio."
+      ],
+      "reasoning": "A general spectral criterion is not a statement of the special-case evaluation, and the random-replacement inequality does not identify the exact deterministic penalty. The final claim is therefore restricted to the new closed-form minimal case.",
+      "searches": [
+        "discrete-time SIS temporal network threshold aggregate random sampling replacement",
+        "infection propagator temporal network product spectral radius threshold",
+        "single-link snapshots discrete time SIS aggregate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked result stated the exact threshold μ sqrt((2-μ)/(1-μ)) for the deterministic alternating two-edge path.",
+        "No checked result stated three nodes as the minimum distinct-single-edge period-two temporal network for which the aggregate and temporal SIS thresholds differ.",
+        "Searches covered infection-propagator, alternating-contact, single-link-snapshot, path, exact-formula, and aggregate-comparison formulations."
+      ],
+      "reasoning": "The same claim can appear as a smallest temporal network, a two-factor infection-propagator calculation, a discrete-time aggregate-bias example, or an alternating-edge path formula. The search set explicitly covered these aliases.",
+      "searches": [
+        "temporal network epidemic threshold alternating two edges three nodes infection propagator static aggregate exact",
+        "SIS temporal path three nodes alternating contacts threshold aggregate network",
+        "noncommuting adjacency matrices epidemic threshold smallest temporal network",
+        "infection propagator two snapshots single edge exact threshold",
+        "\"three nodes\" \"single-link snapshots\" epidemic threshold temporal network",
+        "\"alternating edges\" SIS \"epidemic threshold\" temporal network",
+        "\"sqrt((2-mu)/(1-mu))\" epidemic threshold",
+        "\"single-link snapshots\" SIS temporal network threshold",
+        "\"three-node path\" temporal SIS threshold discrete time",
+        "\"two single-edge snapshots\" epidemic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula search located the displayed square-root threshold.",
+        "No exact-small-network search located an alternating three-node two-contact threshold table.",
+        "The packaged verifier derives the formula from the model equations rather than importing a table."
+      ],
+      "reasoning": "Formula-level and object-level searches test whether the proposed result already appears as a worked example, benchmark, or tabulated special case.",
+      "searches": [
+        "\"three nodes\" \"single-link snapshots\" epidemic threshold temporal network",
+        "\"alternating contacts\" \"three nodes\" SIS",
+        "\"two single-edge snapshots\" epidemic",
+        "\"sqrt((2-mu)/(1-mu))\" epidemic threshold"
+      ]
+    },
+    "rationale": "The general infection-propagator criterion and qualitative aggregate comparisons are prior work. The checked literature and searches did not contain the exact deterministic two-single-edge three-node formula, the minimality statement, or the closed-form penalty ratio.",
+    "residual_risks": [
+      "An unindexed lecture note, textbook exercise, or software benchmark could contain the same three-node matrix calculation.",
+      "The random-replacement inequality in Speidel et al. is adjacent but does not cover the deterministic sequence claimed here.",
+      "The result is for the individual-based mean-field threshold, not the exact stochastic extinction transition on three individuals."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies the model and general threshold machinery. The inspected text does not evaluate the deterministic three-node two-edge period into the closed form claimed here.",
+        "evidence": "The paper defines recovery probability μ and transmission probability λ, gives the temporal factor in its Eq. (4), the threshold condition in Eq. (7), and the product representation in Eq. (8).",
+        "identifier_or_url": "arxiv:1406.4815",
+        "material_read": "Full arXiv text covering the discrete-time SIS definition, the temporal snapshot sequence, the linearized tensor factor (1-μ)I+λA(t), the spectral-radius threshold condition, the period product, and the aggregate/annealed limit.",
+        "method": "Open full-text arXiv inspection.",
+        "title": "Analytical computation of the epidemic threshold on temporal networks",
+        "trigger": "Primary source for the discrete-time temporal SIS infection-propagator criterion."
+      },
+      {
+        "assessment": "Covers the qualitative direction for discrete time under random sampling with replacement and contrasts it with continuous time. It does not state the exact deterministic period-two three-node formula.",
+        "evidence": "Appendix I states β_c,disc at least β*_c under random snapshot sampling with replacement; the main text notes single-link snapshots as a special sparse regime.",
+        "identifier_or_url": "arxiv:1602.00859",
+        "material_read": "Full arXiv HTML including the aggregate comparator, discussion of single-link snapshots, noncommuting snapshots, and Appendix I equations (69)-(71) for the discrete-time random-replacement protocol.",
+        "method": "Open full-text arXiv HTML inspection.",
+        "title": "Temporal interactions facilitate endemicity in the susceptible-infected-susceptible epidemic model",
+        "trigger": "Closest comparison of temporal and aggregate SIS thresholds, including a discrete-time appendix and single-link discussion."
+      },
+      {
+        "assessment": "92D30 is explicitly labeled Epidemiology and is the natural primary classification for an SIS epidemic-threshold result.",
+        "evidence": "The MSC2020 entry lists 92D30 as Epidemiology.",
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=92D25",
+        "material_read": "MSC2020 hierarchy entry for 92Dxx and 92D30.",
+        "method": "Public classification-page inspection.",
+        "title": "MSC2020 database: 92D30 Epidemiology",
+        "trigger": "Verification of primary subject ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44f85ec9-b381-458b-be13-08935f355495",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Replacing temporal contacts by a static aggregate is a common modeling simplification. The theorem isolates its first deterministic single-contact discrepancy at the smallest possible network size, quantifies the bias exactly for every recovery probability, and supplies a compact benchmark that separates temporal-order effects from large-network complexity.",
+    "status": "PASS"
+  }
+}
