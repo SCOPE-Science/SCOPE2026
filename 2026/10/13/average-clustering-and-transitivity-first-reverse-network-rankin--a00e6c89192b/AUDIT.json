@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The definitions reduce transitivity to a triple-weighted average of local clustering. Exact canonical enumeration of every connected graph through five vertices proves the lower bound and census, and independent hand counts reproduce the witness values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Watts and Strogatz introduced the clustering coefficient for network analysis and their article was published 4 June 1998.",
+        "Schank and Wagner define average local clustering and transitivity, state that their values differ in general, and derive transitivity as the connected-triple-weighted clustering coefficient.",
+        "Schank and Wagner identify \\(K_4\\) with one edge removed as the smallest graph where the two statistic values are unequal."
+      ],
+      "reasoning": "This literature supplies the definitions and the strongest directly adjacent finite statement found. Pointwise inequality at four vertices does not imply an opposite ordering between two graphs, which requires comparing two metric differences simultaneously.",
+      "searches": [
+        "Collective dynamics small-world networks Watts Strogatz clustering coefficient",
+        "Approximating Clustering Coefficient and Transitivity Schank Wagner",
+        "average clustering coefficient transitivity network definition paper"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1038/30918",
+      "doi:10.7155/jgaa.00108"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The identity \\(T=C_\tau\\) explains how weighting can alter rankings but does not determine the minimum graph order at which a reversal is realizable.",
+        "The four-vertex smallest inequality counterexample proves only \\(C(G)\ne T(G)\\) for one graph.",
+        "The accepted claim needs exhaustive exclusion of every pair through four vertices and an explicit opposite-sign pair at five."
+      ],
+      "reasoning": "A single-graph equality failure and a two-graph ranking reversal are logically different. The latter is not a corollary of the former without additional finite classification.",
+      "searches": [
+        "Schank Wagner transitivity triple weighted clustering coefficient",
+        "transitivity weighted average local clustering coefficient",
+        "smallest counterexample clustering coefficient transitivity K4 edge removed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No checked published-result record stated a five-vertex first strict ranking reversal.",
+        "Searches by both 'global clustering' and 'transitivity', and by both 'average local clustering' and 'clustering coefficient', did not locate the matched witness.",
+        "The exact ordering question is distinct from merely finding one graph with unequal metric values."
+      ],
+      "reasoning": "Equivalent formulations include reversal of two network orderings, Simpson-style aggregation reversal between unweighted and wedge-weighted local clustering, and opposite ranking by average local clustering versus global transitivity. The query set covers those aliases and the minimum-order formulation.",
+      "searches": [
+        "network transitivity average clustering coefficient ranking reversal graph",
+        "global clustering coefficient average local clustering coefficient graph comparison",
+        "transitivity clustering coefficient smallest graph disagreement",
+        "clustering coefficient transitivity rank networks",
+        "average clustering coefficient transitivity ordering graphs",
+        "clustering coefficient transitivity smallest graph reversal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked source explicitly tabulates the four-vertex pointwise distinction conceptually but not a five-vertex ranking census.",
+        "No checked source gave the connected-unlabeled reversal count \\(13\\) under the principal convention.",
+        "The packaged verifier derives the \\(21\\)-type five-vertex domain by full labeled enumeration and exact permutation quotienting rather than importing a graph table."
+      ],
+      "reasoning": "Exact small-graph and witness-structure searches directly test whether the finite boundary is already recorded as an example or table.",
+      "searches": [
+        "K4 one edge removed clustering coefficient transitivity smallest counterexample",
+        "five vertex graph average clustering transitivity reversal",
+        "triangle two leaves clustering coefficient transitivity"
+      ]
+    },
+    "rationale": "Prior literature covers the definitions, their general inequality, the weighting relation, and the smallest graph on which the two values differ. The inspected literature and targeted searches did not cover the distinct question of the first strict reversal in rankings of two same-order connected graphs.",
+    "residual_risks": [
+      "An unindexed exercise, software regression test, or small-graph note could contain the same five-vertex witness.",
+      "Different conventions for degree-zero and degree-one vertices change the number of five-vertex reversing pairs, though not the sharp order or witness.",
+      "The theorem is for connected simple undirected graphs at fixed order; other network classes can have different boundaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "This is the closest prior source. It covers numerical non-equivalence and the four-vertex first graph with unequal values, but it does not state the first strict reversal of graph rankings or the five-vertex census.",
+        "evidence": "The paper defines \\(C\\) as the average over vertices of degree at least two, defines \\(T=3\\Delta/\tau\\), states that \\(K_4\\) minus one edge is the smallest graph with \\(C\ne T\\), and proves that transitivity is triple-weighted clustering.",
+        "identifier_or_url": "doi:10.7155/jgaa.00108",
+        "material_read": "Full-text introduction and Definitions and Properties sections, including local clustering, graph average clustering, transitivity, the \\(K_4\\)-minus-edge smallest value counterexample, the weighted-clustering formulation, and the identity \\(T=C_\tau\\).",
+        "method": "Open journal PDF inspection, including rendered-page verification of the definitions and weighting identity.",
+        "title": "Approximating Clustering Coefficient and Transitivity",
+        "trigger": "Direct full-text comparison of exactly the two network statistics used in the claim."
+      },
+      {
+        "assessment": "Establishes the foundational clustering context and exact public date; it does not address the later transitivity-ranking boundary.",
+        "evidence": "Nature records publication and issue date as 4 June 1998.",
+        "identifier_or_url": "doi:10.1038/30918",
+        "material_read": "Publisher article record and abstract, including publication date, network motivation, and clustering role in small-world networks.",
+        "method": "Publisher record inspection.",
+        "title": "Collective dynamics of ‘small-world’ networks",
+        "trigger": "Foundational source for the clustering coefficient and earliest verified public date used for archive classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a00e6c89-192b-4cff-8fb0-580f1c55aa58",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two coefficients are standard competing network-level summaries and differ only by how local clustering is aggregated. A sharp first ranking reversal therefore isolates a practically relevant aggregation effect. The matched witness has the same number of vertices, edges, and triangles on both sides, showing that leaf placement and induced wedge weighting alone can flip the conclusion.",
+    "status": "PASS"
+  }
+}
