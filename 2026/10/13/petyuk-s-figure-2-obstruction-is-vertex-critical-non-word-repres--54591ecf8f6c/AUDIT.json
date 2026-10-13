@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The undeleted 17-vertex graph is non-word-representable by Petyuk's published Theorem 5 proof. For each vertex deletion, an explicit 16-vertex total order is supplied. Reorienting every overlap edge forward in that order is acyclic by construction, and exhaustive path replay finds no shortcut. By the standard semi-transitive characterization, all 17 deletions are word-representable. Every proper induced subgraph lies inside one of these deletions, so hereditary closure proves the full criticality claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022/2023 paper proves the graph S itself non-word-representable and asks a stronger ambient minimum-order question, but supplies no positive orientations after vertex deletion.",
+        "The 2024 paper develops homomorphism-based word-representability for other induced subgraphs and concludes with different threshold questions."
+      ],
+      "reasoning": "A solution of the stronger ambient minimum-order problem would imply this claim, so both the originating paper and the principal follow-up on simplified de Bruijn induced subgraphs were inspected in full text.",
+      "searches": [
+        "arXiv:2210.14762 Theorem 5 Problem 1 Figure 2",
+        "arXiv:2312.10377 simplified de Bruijn induced subgraphs minimal",
+        "DOI:10.1016/j.dam.2023.12.017 conclusion simplified de Bruijn"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.14762 full PDF and Figure 2",
+      "arXiv:2312.10377 / DOI:10.1016/j.dam.2023.12.017 full open PDF",
+      "DOI:10.1016/j.dam.2015.07.033 theorem text",
+      "five focused database searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Non-word-representability of S alone does not imply any deletion is word-representable.",
+        "The open minimum-order question also does not imply vertex-criticality; a displayed obstruction can fail to be minimal even while the ambient minimum remains unknown.",
+        "The later positive results concern parameterized subgraphs S_m(n,k), not the 17 specific deletions."
+      ],
+      "reasoning": "The new statement needs 17 positive semi-transitive-orientation witnesses; neither the negative theorem nor the later embedding bounds supply them.",
+      "searches": [
+        "Petyuk non-word-representability S Figure 2 minimal by number vertices",
+        "Huang Kitaev Pyatkin induced subgraphs simplified de Bruijn S(3,3)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Petyuk formulates the open question as minimum order among non-word-representable induced subgraphs of S(3,3).",
+        "The new claim is the weaker but exact induced-subgraph-minimal/vertex-critical property of the specific displayed graph.",
+        "No targeted search result states that all 17 one-vertex deletions are word-representable."
+      ],
+      "reasoning": "Vertex-critical, induced-subgraph-minimal, every one-vertex deletion word-representable, and Figure-2 minimality are the natural equivalent or near-equivalent formulations that could cover the claim.",
+      "searches": [
+        "simplified de Bruijn S(3,3) minimal non-word-representable induced subgraph Figure 2",
+        "vertex-critical non-word-representable subgraph S(3,3)",
+        "minimal induced non-word-representable simplified de Bruijn graph 17 vertices",
+        "Petyuk Problem 1 Figure 2 S(3,3) minimal",
+        "deleting any vertex Figure 2 word-representable S(3,3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper gives the 17 labeled vertices graphically but no deletion table or orientation table.",
+        "No indexed result returned the 17-deletion certificate recorded here."
+      ],
+      "reasoning": "A deletion table, list of semi-transitive orders, or explicit statement of criticality would exactly cover the finite claim.",
+      "searches": [
+        "Figure 2 S(3,3) 17 vertices word representable deletion",
+        "17 vertex Petyuk obstruction semi-transitive orientation deletion",
+        "simplified de Bruijn minimal obstruction 17"
+      ]
+    },
+    "rationale": "Petyuk explicitly asks whether the 17-vertex Figure-2 graph is minimum by order inside S(3,3), but does not state that the displayed obstruction is even induced-subgraph-minimal. The 2024 embedding follow-up studies other structured induced subgraphs and does not report a deletion-minimality certificate. Focused database and web searches for vertex-criticality, vertex deletion, Figure 2, and minimal induced obstructions found no covering statement.",
+    "residual_risks": [
+      "An unindexed software experiment or private note may already record the same 17 deletion orientations.",
+      "The stronger ambient minimum-order question remains open here; a smaller obstruction may exist on a different vertex set."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves the 17-vertex graph non-word-representable and asks whether it is minimum in S(3,3), but gives no claim or certificate that every vertex deletion is word-representable.",
+        "identifier_or_url": "arXiv:2210.14762v2",
+        "material_read": "Full open PDF: definitions, Theorems 4-5, rendered Figure 2, concluding Problem 1, and appendix context for the non-word-representability proof.",
+        "method": "Full-text PDF and rendered-page inspection.",
+        "title": "On word-representability of simplified de Bruijn graphs",
+        "trigger": "Direct source of the 17-vertex obstruction and the explicit minimal-obstruction open problem."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper treats structured subgraphs S_m(n,k) and leaves different threshold questions open; it does not analyze the 17 one-vertex deletions of Petyuk Figure 2.",
+        "identifier_or_url": "arXiv:2312.10377v1 / DOI:10.1016/j.dam.2023.12.017",
+        "material_read": "Full open PDF: definitions, restatement of Petyuk results and conjecture, Theorem 5, and conclusion/open problems; in-document searches for minimality and S(3,3).",
+        "method": "Full-text open PDF inspection.",
+        "title": "An embedding technique in the study of word-representability of graphs",
+        "trigger": "Main later paper specifically studying induced subgraphs of simplified de Bruijn graphs."
+      },
+      {
+        "assessment": "SUPPORTING",
+        "evidence": "A graph is word-representable if and only if it has a semi-transitive orientation.",
+        "identifier_or_url": "DOI:10.1016/j.dam.2015.07.033",
+        "material_read": "Statement of the characterization theorem and shortcut-free orientation criterion in accessible publication text.",
+        "method": "Primary-source theorem inspection.",
+        "title": "Semi-transitive orientations and word-representable graphs",
+        "trigger": "Foundational equivalence needed to turn explicit shortcut-free orientations into word-representability certificates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54591ecf-8f6c-4e69-9884-334cad5916f6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating paper explicitly asks whether its 17-vertex obstruction is minimum inside S(3,3). Proving the displayed obstruction is itself induced-subgraph-minimal is a natural structural first step: it rules out every attempt to shorten the existing proof by simply deleting vertices and shows that any smaller ambient obstruction must use a genuinely different vertex set. The result is a complete finite boundary statement with explicit positive certificates rather than a routine recount.",
+    "status": "PASS"
+  }
+}
