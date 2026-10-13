@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The exact identity \\(Q=ab(1-\\operatorname{Ncut})/(2m^2)\\) follows directly from the standard bipartition formulas. The exhaustive exact-rational verifier checks all connected labeled simple graphs through \\(6\\) vertices and every bipartition with at least two vertices per side and \\(Q>0\\). It proves zero strict reversals through \\(5\\), \\(420\\) labeled strict reversals at \\(6\\), and exactly two classes after canonicalization under vertex relabeling and partition symmetries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shi and Malik introduce normalized cut as a global graph-partitioning criterion balancing between-group dissimilarity against within-group association.",
+        "Newman and Girvan introduce modularity as an objective measure for community structure.",
+        "Newman 2013 treats modularity maximization and normalized-cut graph partitioning together and proves equivalence of suitably chosen spectral algorithms."
+      ],
+      "reasoning": "These sources strongly cover the two objectives and their algorithmic relationship, but spectral-algorithm equivalence does not imply identical ordering of the original discrete bipartitions.",
+      "searches": [
+        "Shi Malik Normalized Cuts and Image Segmentation normalized cut graph partitioning",
+        "Newman Girvan Finding and evaluating community structure modularity 2004",
+        "Spectral methods network community detection graph partitioning normalized cut modularity 2013"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/34.868688",
+      "arxiv:cond-mat/0308217",
+      "doi:10.1103/PhysRevE.69.026113",
+      "arxiv:1307.7729",
+      "MSC2020:91D30"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Newman 2013 explicitly limits the equivalence to the spectral approach taken there.",
+        "The exact discrete identity contains a partition-dependent prefactor \\(ab\\), so identical spectral machinery does not force identical discrete rankings.",
+        "The current and prior ledgers contain no modularity-versus-normalized-cut finding."
+      ],
+      "reasoning": "The prior equivalence result is algorithmic after relaxation. The accepted claim instead gives a discrete if-fixed-balance agreement mechanism and a finite sharp counterboundary when balance varies.",
+      "searches": [
+        "normalized cut modularity spectral methods equivalent",
+        "modularity maximization graph partition normalized cut balance",
+        "Newman 2013 modularity normalized cut identical spectral algorithms"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a bipartition, the theorem is equivalently about ordering pairs \\((c,ab)\\), because normalized cut is \\(2mc/(ab)\\) and modularity is \\(ab/(2m^2)-c/m\\).",
+        "Searches covered modularity, normalized cut, graph partitioning, community detection, volume balance, reversal, and smallest-graph formulations.",
+        "No checked result stated the two six-vertex isomorphism classes."
+      ],
+      "reasoning": "The exact algebraic reduction means that formulations using cut size, side volumes, normalized cut, or bipartition modularity can all cover the claim, so each was included in the overlap search.",
+      "searches": [
+        "modularity normalized cut bipartition ranking reversal smallest graph",
+        "Newman Girvan modularity normalized cut equivalence bipartition volume",
+        "community detection modularity normalized cut relation graph partition",
+        "modularity conductance normalized cut opposite ranking partitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No checked exact-value or small-graph search located either first-layer witness.",
+        "The verifier generates the complete graph and partition census directly rather than importing a benchmark table."
+      ],
+      "reasoning": "Exact rational values and graph descriptions were searched to test whether the small witnesses already occur in examples, software tests, or tables.",
+      "searches": [
+        "\"modularity\" \"normalized cut\" \"six vertices\"",
+        "\"19/98\" \"14/33\" modularity",
+        "\"10/81\" \"9/14\" normalized cut",
+        "\"K4\" \"K3\" \"normalized cut\" modularity"
+      ]
+    },
+    "rationale": "Prior work establishes normalized cut, modularity, and a close relationship between their spectral relaxations. The checked literature and database searches did not state the exact discrete ranking identity in the present form together with the sharp six-vertex positive-modularity reversal boundary and complete first layer.",
+    "residual_risks": [
+      "The original Shi–Malik full text was not inspected in a complete open copy in this run; publisher abstract and metadata were inspected.",
+      "A specialist note, exercise, or software regression test could contain one of the two small witnesses.",
+      "The result concerns exact discrete bipartitions with positive modularity and does not classify multiway partitions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes normalized cut and its motivation. A complete open full text was not available in the checked route, so no whole-document novelty claim is made from this source alone.",
+        "evidence": "The publisher abstract states that normalized cut is a global graph-partitioning criterion and gives the publication date as 31 August 2000.",
+        "identifier_or_url": "doi:10.1109/34.868688",
+        "material_read": "Publisher abstract and metadata, including the graph-partitioning interpretation, the role of normalized cut, and the exact publication date.",
+        "method": "IEEE publisher-page inspection.",
+        "title": "Normalized Cuts and Image Segmentation",
+        "trigger": "Foundational source for the normalized-cut objective."
+      },
+      {
+        "assessment": "Establishes the modularity setting and community-detection motivation; the sharp discrete comparison with normalized cut is not stated in the inspected material.",
+        "evidence": "The paper proposes a measure for the strength of community structure and was publicly submitted to arXiv on 11 August 2003, with journal publication on 26 February 2004.",
+        "identifier_or_url": "arxiv:cond-mat/0308217; doi:10.1103/PhysRevE.69.026113",
+        "material_read": "ArXiv abstract and APS publication record describing the proposed objective measure for choosing community divisions.",
+        "method": "Open-preprint metadata and publisher abstract inspection.",
+        "title": "Finding and evaluating community structure in networks",
+        "trigger": "Foundational source for modularity as a community-quality objective."
+      },
+      {
+        "assessment": "Closest conceptual prior art. It proves equivalence of particular spectral algorithms, explicitly within the spectral approximation, not equality of the original discrete objective orderings.",
+        "evidence": "The paper calls modularity maximization and normalized-cut graph partitioning distinct well-studied problems and states that their spectral algorithms become identical for suitable choices.",
+        "identifier_or_url": "arxiv:1307.7729",
+        "material_read": "Open arXiv full-text rendering covering the introduction, modularity definition and bipartition setup, spectral relaxation, and the stated comparison with normalized-cut graph partitioning.",
+        "method": "Open arXiv full-text inspection.",
+        "title": "Spectral methods for network community detection and graph partitioning",
+        "trigger": "Closest source directly treating modularity maximization and normalized-cut graph partitioning in one mathematical framework."
+      },
+      {
+        "assessment": "The theorem concerns community divisions of social-network graphs.",
+        "evidence": "MSC2020 lists 91D30 as Social networks; opinion dynamics.",
+        "identifier_or_url": "MSC2020:91D30",
+        "material_read": "Public MSC2020 hierarchy entry.",
+        "method": "Classification-page inspection.",
+        "title": "MSC2020 database: 91D30 Social networks; opinion dynamics",
+        "trigger": "Primary classification ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57e1dd90-429f-419a-b29c-e7605442de49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Modularity and normalized cut are standard community-quality objectives with different balance behavior. The structural identity explains exactly why equal-volume comparisons agree, while the sharp six-vertex classification shows the smallest community-like case where balance changes overturn the choice. This gives a natural diagnostic benchmark for comparing community-detection objectives.",
+    "status": "PASS"
+  }
+}
