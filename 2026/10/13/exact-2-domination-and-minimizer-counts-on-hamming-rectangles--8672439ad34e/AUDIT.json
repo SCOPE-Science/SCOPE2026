@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every unchosen cell, the 2-domination condition is exactly \\(r_i+c_j\\ge2\\). The lower bound splits exhaustively according to whether a zero column exists, yielding \\(|D|\\ge n\\) or \\(|D|\\ge2m\\), while matching constructions achieve the smaller bound. Equality analysis gives the stated minimum-set families, and inclusion-exclusion gives the boundary count. Direct exhaustive verification for all \\(1\\le m\\le n\\le4\\) reproduces both minimum sizes and counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2501.03788 states its exact triangular theorem for \\(m=n\\) and explicitly describes domination variants on Hamming graphs as relatively unexplored.",
+        "arXiv:2001.07850 requires every vertex, including selected vertices, to have two selected neighbors and therefore studies total rather than ordinary 2-domination."
+      ],
+      "reasoning": "The square theorem is a specialization of the new formula but does not imply the unbalanced phase transition or minimizer counts. Total 2-domination is a different, stronger feasibility condition and has different numerical behavior, so it does not dominate the accepted statement.",
+      "searches": [
+        "arXiv:2501.03788 Theorem 1.3 Hamming squares",
+        "arXiv:2001.07850 total 2-domination Cartesian product complete graphs",
+        "2-dominating set Cartesian product complete graphs K_m K_n"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2501.03788v3",
+      "arXiv:2001.07850v4",
+      "Burchett-Lane-Lachniet 2009 abstract/metadata",
+      "published-finding corpus semantic index under six claim/alias queries",
+      "targeted public-web searches under rectangular rook, Hamming rectangle, Cartesian-product, and 2-domination aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.3 of arXiv:2501.03788 yields \\(\\gamma_2(K_n\\mathbin{\\Box}K_n)=n\\) from its even-a square formula.",
+        "The 2009 abstract concerns \\(\\gamma_k(R_n)\\), the square rook graph, and the recent paper cites it as the square predecessor.",
+        "Carballosa-Wisby total 2-domination has selected-vertex constraints absent from ordinary 2-domination."
+      ],
+      "reasoning": "The accepted theorem strictly extends the known square value in aspect ratio and adds all-minimizer structure. Neither the square statements nor the total-2-domination results imply the rectangular ordinary theorem.",
+      "searches": [
+        "arXiv:2501.03788v3 Sections 1.2-1.5 and Theorem 1.3",
+        "arXiv:2001.07850v4 main results",
+        "Burchett Lane Lachniet 2009 rook graph abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2501.03788 identifies \\(T_a\\) at latency one with ordinary a-domination on \\(K_m\\mathbin{\\Box}K_n\\).",
+        "For \\(a=2\\), an unchosen array cell is admissible exactly when its row-count plus column-count is at least two."
+      ],
+      "reasoning": "The accepted claim was compared under the Young-domination T_2 formulation, ordinary 2-domination, rook-graph language, Hamming-rectangle language, and Cartesian-product language. No searched equivalent formulation supplied the unbalanced value plus minimizer classification.",
+      "searches": [
+        "2-domination Hamming rectangle K_m square K_n",
+        "Young domination triangular T_2 unbalanced Hamming rectangle",
+        "2-dominating set Cartesian product complete graphs K_m K_n",
+        "rook graph rectangle 2-domination",
+        "arXiv:2501.03788"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no semantically matching finding for ordinary 2-domination of Hamming rectangles or its minimizer count.",
+        "Targeted web searches for the exact parameter and rectangular rook aliases located square k-domination and total 2-domination sources, not the claimed two-parameter ordinary formula."
+      ],
+      "reasoning": "Search failure alone is not treated as novelty proof. It is combined with direct inspection of the recent primary paper and the closest total-domination paper; the remaining older-source access risk is recorded separately.",
+      "searches": [
+        "minimum 2-dominating sets Hamming rectangle minimizer count surjection",
+        "2-domination K_m square K_n min max phase transition",
+        "published-finding corpus semantic search: 2-domination Hamming rectangle K_m square K_n"
+      ]
+    },
+    "rationale": "The closest recent primary source proves the triangular Young-domination formula only for Hamming squares, so its \\(a=2\\) result is the \\(m=n\\) specialization. The closest Cartesian-product 2-domination paper studies total 2-domination, a different invariant. published-finding corpus and web searches using Hamming-rectangle, rook-graph, Cartesian-product, T_2, phase-transition, and minimizer-count formulations found no result covering the rectangular ordinary 2-domination theorem. The inaccessible full text of the 2009 square-rook predecessor remains an explicit residual risk.",
+    "residual_risks": [
+      "The full text of Burchett--Lane--Lachniet (2009) was not available in the inspected open sources; an unadvertised rectangular special case under different notation remains possible.",
+      "Older chessboard-domination literature may use rectangular rook terminology that is poorly indexed; targeted searches found no covering statement, but absence from search is not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves exact triangular Young domination only for equal factor orders. Its \\(a=2\\) case is the square specialization and does not state the unbalanced formula or minimizer enumeration.",
+        "evidence": "The abstract says k-domination is computed for Cartesian products of two complete graphs of the same order; Theorem 1.3 is stated for gamma(\\(T_a\\),n,n), and Section 5 is titled exact results on Hamming squares.",
+        "identifier_or_url": "arXiv:2501.03788v3",
+        "material_read": "Abstract; Sections 1.2-1.5; Theorem 1.3; Section 3 formulation; open-problem discussion; references.",
+        "method": "Lawful arXiv HTML full text.",
+        "title": "Young domination on Hamming rectangles",
+        "trigger": "Same Hamming-rectangle objects and explicit identification of triangular Young domination with ordinary k-domination."
+      },
+      {
+        "assessment": "Not covering: total 2-domination requires the two-neighbor condition for every vertex, including members of the chosen set, so its bounds and formulas do not imply ordinary 2-domination.",
+        "evidence": "The source defines total k-domination using every vertex and obtains, for example, \\(\\gamma_{2t}(K_2\\mathbin{\\Box}K_m)=4\\), while ordinary 2-domination here is \\(\\min\\{m,4\\}\\).",
+        "identifier_or_url": "arXiv:2001.07850v4; doi:10.1016/j.dam.2023.04.008",
+        "material_read": "Abstract and main-results section on total 2-domination, including Lemma 2.1, Proposition 2.4, and nearby exact formulas.",
+        "method": "arXiv HTML/text view.",
+        "title": "Total k-domination in Cartesian product of complete graphs",
+        "trigger": "Same graph family and threshold two, but potentially stronger domination requirement."
+      },
+      {
+        "assessment": "The accessible material describes the one-parameter square rook graph R_n, not a rectangular \\(K_m\\mathbin{\\Box}K_n\\) classification. Because full text was unavailable, hidden rectangular overlap cannot be excluded and is retained as residual risk.",
+        "evidence": "The abstract describes bounds for \\(\\gamma_k(R_n)\\); arXiv:2501.03788 describes its own contribution as extending those square-rook results.",
+        "identifier_or_url": "Congressus Numerantium 199 (2009), 187-204",
+        "material_read": "Abstract and bibliographic metadata only; full text was not obtained in the inspected open sources.",
+        "method": "Search-index abstract plus citation context in arXiv:2501.03788.",
+        "title": "k-domination and k-tuple domination on the rook's graph and other results",
+        "trigger": "Direct predecessor for k-domination on rook graphs cited by the recent paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8672439a-d34e-4537-bb56-65c42e6a9b8b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification for the first nontrivial threshold in a two-parameter family emphasized by a recent paper. The exact phase transition \\(n=2m\\) changes the structure of every optimizer, and the closed optimizer counts add reusable structural information beyond the square value. It is not a routine numerical increment or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
