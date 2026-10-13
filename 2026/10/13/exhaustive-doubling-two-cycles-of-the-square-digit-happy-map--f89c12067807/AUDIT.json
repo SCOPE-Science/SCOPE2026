@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Let X=ab+c. No carry under doubling would imply S_b(2X)=4S_b(X)=8X, impossible because S_b(2X)=X. With the forced carry, exact elimination from the two cycle equations gives (b^2+1)(5a-b+3)(13a-b+5)=0. The 13a+5 branch contradicts the carry; the 5a+3 branch gives c=3a+2. The converse identities and all digit bounds are explicit. The accompanying exhaustive finite check agrees with the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hargreaves--Siksek investigate generalized happy cycles, give a cycle-size bound, and give a complete fixed-point count; accessible abstract material does not advertise a two-cycle ratio classification.",
+        "Wu--Dang--Zhang enumerate periodic points in selected bases and record (13,26) in base 8 and (34,68) in base 13, but do not state an all-base converse.",
+        "The 2025 tree paper treats cycles of length two and gives the same infinite family as a construction."
+      ],
+      "reasoning": "The inspected broader literature covers arbitrary cycles, fixed points, and finite-base cycle tables. Those results do not imply that imposing both two digits and the exact ratio two forces one family; that is a separate structural statement.",
+      "searches": [
+        "\"Cycles and fixed points of happy functions\" Hargreaves Siksek",
+        "\"Periodic Points Under Iteration of Sum of Squares or Cubes of Digits\"",
+        "happy numbers cycles arbitrary base b congruent 3 mod 5",
+        "sum squares digits base b 2-cycle double n 2n"
+      ]
+    },
+    "checked_sources": [
+      "JCNT:Hargreaves-Siksek-2010-Cycles-Fixed-Points-Happy-Functions",
+      "OEIS:A193585",
+      "DOI:10.2991/ic3me-15.2015.327",
+      "DOI:10.1007/s44007-025-00157-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goedhart--Gurtas--Harris give: choose digits x_1=t, x_0=3t+2, y_1=2t+1, y_0=t+1 in base b=5t+3, and note Y=2X.",
+        "The source does not state that a general two-digit pair with Y=2X must have those digits.",
+        "No searched archival or indexed source returned a stronger theorem dominating the converse."
+      ],
+      "reasoning": "Prior work proves existence for every t. The present theorem proves necessity and uniqueness of t under stated hypotheses. Existence does not imply necessity, while the new statement strictly contains the published family as its converse direction plus the already-known construction.",
+      "searches": [
+        "\"base b=5t+3\" happy",
+        "\"Y=2X\" happy function",
+        "\"Cycles and fixed points of happy functions\" \"2X\"",
+        "base congruent 3 mod 5 happy two-cycle doubling exhaustive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 full-text section on cycles of length two gives the b=5t+3 construction and states Y=2X, but phrases it as a formula that generates such pairs.",
+        "Targeted formula-level and implication-level searches did not locate a statement asserting that every two-digit doubling two-cycle belongs to that family.",
+        "The exact algebraic converse obtained here rules out a second formal elimination branch by the necessary-carry condition."
+      ],
+      "reasoning": "The closest equivalent formulation is precisely the published parameterized construction. The new implication runs in the reverse direction: from an arbitrary two-digit cycle satisfying Y=2X to the unique parameter t and the base congruence. A construction alone does not imply that converse.",
+      "searches": [
+        "two digit doubling cycles happy function converse exhaustive b=5t+3",
+        "S_b(X)=2X S_b(2X)=X happy function",
+        "ratio two 2-cycle happy function classification",
+        "\"5t+3\" \"happy function\"",
+        "\"Y=2X\" \"happy function\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A193585 tabulates the number of cycles of the square-digit map by base and cites generalized happy-number literature; it does not parameterize individual ratio-two cycles.",
+        "The 2015 periodic-point table explicitly lists the base-8 two-cycle (13,26) and the base-13 two-cycle (34,68), matching t=1 and t=2 in the claimed family."
+      ],
+      "reasoning": "Counts and selected-base tables confirm examples but cannot imply the infinite converse. They are exact comparison points showing that the first visible data agree with the classified family.",
+      "searches": [
+        "OEIS A193585 happy cycles base",
+        "Periodic Points base 8 13 26 base 13 34 68"
+      ]
+    },
+    "rationale": "The 2025 source constructs the same b=5t+3 family and notes Y=2X, but does not state its converse. Archival finite-base tables and the cycle-count database record examples/counts rather than an exhaustive ratio-two classification. Targeted statement and formula searches found no stronger source covering the converse.",
+    "residual_risks": [
+      "The complete body of Hargreaves--Siksek (2010) was inaccessible through the inspected path; an equivalent short observation there cannot be ruled out from abstract-level access alone.",
+      "An equivalent converse may occur in unindexed recreational or pedagogical happy-number literature.",
+      "The theorem does not classify two-cycles outside the two-digit, exact-ratio-two stratum.",
+      "Older publication metadata encountered in comparison lacked an exact public calendar day, so the structured date uses the earliest exact public date verified among inspected archival sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE. It contains the construction but not the converse classification under the two-digit doubling hypotheses.",
+        "evidence": "Section 4.2 calls the formula one that generates such pairs, then gives the digits and notes Y=2X.",
+        "identifier_or_url": "DOI:10.1007/s44007-025-00157-x",
+        "material_read": "Full accessible HTML around Section 4.2, including the base-8 example, the complete displayed one-parameter construction, and the transition to longer cycles.",
+        "method": "Direct full-text HTML inspection and exact-phrase searches.",
+        "title": "A Tree Approach to the Happy Function",
+        "trigger": "Closest source because its section on length-two cycles states the exact b=5t+3 family and Y=2X."
+      },
+      {
+        "assessment": "NOT_COVERING. It gives selected-base cycle data, not an all-base doubling converse.",
+        "evidence": "The paper lists (13,26) in base 8 and (34,68) in base 13 among two-cycles.",
+        "identifier_or_url": "DOI:10.2991/ic3me-15.2015.327",
+        "material_read": "Abstract and the square-digit periodic-point discussion and tables through the bases containing the base-8 and base-13 examples; page images were also inspected.",
+        "method": "Direct PDF text and page-image inspection.",
+        "title": "Periodic Points Under Iteration of Sum of Squares or Cubes of Digits in Some Positional Systems",
+        "trigger": "Finite-base periodic-point census that could already tabulate or classify the relevant two-cycles."
+      },
+      {
+        "assessment": "ACCESS_LIMITED. The accessible material emphasizes general cycle bounds and fixed-point counts and does not state the claimed converse, but the inaccessible body remains a residual risk.",
+        "evidence": "The abstract states a cycle-size upper bound and an exact fixed-point count; the title page gives primary MSC 11A63.",
+        "identifier_or_url": "JCNT:Hargreaves-Siksek-2010-Cycles-Fixed-Points-Happy-Functions",
+        "material_read": "Accessible title-page text, abstract, bibliographic metadata, and subject-classification statement; the body was not retrievable through the inspected path.",
+        "method": "Indexed author copy metadata and abstract inspection; body fetch attempt was unavailable.",
+        "title": "Cycles and Fixed Points of Happy Functions",
+        "trigger": "Foundational archival paper on cycles for the same generalized happy map and source of the verified primary classification 11A63."
+      },
+      {
+        "assessment": "NOT_COVERING. The entry tabulates cycle counts, not individual ratio-two digit patterns or a converse theorem.",
+        "evidence": "The entry is authored 31 July 2011 and defines a(b) only as the number of cycles in base b.",
+        "identifier_or_url": "OEIS:A193585",
+        "material_read": "Sequence definition, comments, example, references, author/date field, and linked scope description.",
+        "method": "Direct database-page inspection.",
+        "title": "OEIS A193585: Number of cycles under iteration of sum of squares of digits in base b",
+        "trigger": "Exact public cycle-count database spanning many bases and archival exact-date evidence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f89c1206-7807-42ae-b802-85ac7ed9906e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The modern literature explicitly highlights the doubling family, making its converse a motivated gap rather than an arbitrary slice. The theorem converts an infinite construction into a complete normal form on the smallest nontrivial digit stratum: the base congruence, all four digits, and uniqueness of the parameter are forced. The proof identifies carry behavior as the rigidity mechanism, providing structural information beyond a finite census.",
+    "status": "PASS"
+  }
+}
