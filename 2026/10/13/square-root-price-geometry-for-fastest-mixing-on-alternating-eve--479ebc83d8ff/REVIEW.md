@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For every integer \(m\ge2\) and prices \(c,d>0\), the proof defines the unit-budget Laplacian and a nonconstant complex circle vector orthogonal to constants. Its squared chords equal a common factor times the respective edge prices, giving the same upper bound on the spectral gap for **every** feasible allocation, without presupposing equal conductances within a price class. The displayed positive candidate meets the cost budget; its Bloch eigenvalue is the smallest positive one and equals that bound. Equality forces the fixed circle vector to be an eigenvector, and real linear independence of adjacent circle chords forces the optimizer to coincide edge-by-edge with the candidate. The four-cycle and multiplicity-two cases are included. Limits follow by elementary trigonometric convergence. The packaged checker verified 75 finite spectrum cases, 1,350 edge chords, 600 asymmetric allocations, and two exact rational identities. Finite tests do not prove the universal claim.
+
+## Originality — PASS, conditional on the inspected literature
+Sun, Boyd, Xiao and Diaconis (2006), Section 5.3, solve the uniform-cost cycle and prove a dimensional property of the general-cost dual geometric configuration, not the present explicit alternating-cost maximizer and global uniqueness theorem. The 2009 Boyd–Diaconis–Parrilo–Xiao unweighted-cycle treatment concerns the different discrete-time SLEM criterion, while Gerencsér–Hendrickx–Van Dooren (2015) study discrete-time homogeneous cycle spectral perturbations. Searches for the alternating-cost closed form, price-normalized algebraic connectivity, and period-two cycle conductance optimization did not identify a stronger covering formula. This noncoverage assessment comes from actual available full-text sections, not merely titles. Historical specialized equivalence remains a nonzero residual risk and is not ruled out by unsuccessful search alone.
+
+## Value — PASS
+An alternating positive-cost ring is a natural and explicitly identified unsolved-cost specialization of the classical fastest-mixing continuous-time eigenvalue allocation problem. This result solves every even cycle size and every cost ratio without an SDP, classifies the **unique** optimizer among asymmetric designs and gives a square-root inverse-price rule as the ring grows, with a constructive geometric global certificate. The contribution is a complete motivated infinite family, not an arbitrary finite table or a renaming of the uniform-price theorem.
+
+## Source boundaries and limitations
+The 2006 original paper provides the general optimization framework and the unit-price cycle calculation. The 2009 and 2015 original full texts treat related but different discrete-time objective or symmetry conditions. An unpublished or hard-to-find paper could contain an equivalent special case. The proof does not extend without more work to arbitrary individual price vectors, nonuniform stationary masses, odd cycles or nonreversible chains.
+
+Self-review: passed. Independent audit: not yet performed.
