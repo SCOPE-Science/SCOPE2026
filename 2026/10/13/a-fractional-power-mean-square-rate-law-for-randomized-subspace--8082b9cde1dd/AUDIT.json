@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact source update substitution produces the two conditional matrices, and independent coordinate sampling gives an exact three-component symmetric covariance transfer at all finite steps. Its Taylor matrix has two order-t upper-superdiagonal links and a positive order-t^2 closing link, yielding the characteristic limit z^3=2(d-1)/d^4 under lambda=1-2t/d+t^(4/3)z. Distinct eigenvalue branches and nonvanishing positive left/right projections of the specified initialized expectation make the positive branch the actual asymptotic expected-objective ratio. Rational enumeration (168 finite identities) and 12 numerical spectral cases ran successfully, but are only corroboration. Fixed-dimension/small-positive-curvature and order-of-limits restrictions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Result 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 deals with a nonaccelerated, rotationally invariant subspace-descent method, not the strongly convex three-sequence iteration.",
+        "Result 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 establishes sampling optimality for ordinary coordinate descent, not second-moment acceleration.",
+        "arXiv:2605.00740v1 provides a broader algorithmic convergence theorem but only an upper bound; this statement resolves a different fine asymptotic observable."
+      ],
+      "reasoning": "Broader classes of methods and convergence estimates do not dominate an exact second-moment spectral coefficient unless they supply either that coefficient or an implication fixing it. The closest inspected upper bound allows many possible positive subleading corrections and cannot recover this one.",
+      "searches": [
+        "accelerated randomized coordinate gradient three-sequence method low curvature diagonal quadratic sharp decay 1 - 2 sqrt(mu/L)/d",
+        "stochastic momentum mean square spectral radius nonanalytic 2/3 fractional exponent coordinate descent",
+        "accelerated randomized coordinate descent Puiseux sqrt curvature 4/3 mean-square asymptotic Nesterov RS NAG"
+      ]
+    },
+    "checked_sources": [
+      "Omiya, Poirion, Takeda, arXiv:2605.00740v1 (full relevant HTML mathematical sections); first submitted 2026-05-01.",
+      "Fercoq and Richtárik, arXiv:1312.5799 (abstract/methodological summary; not full-text inspected).",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 (published indexed abstract).",
+      "2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad (published indexed abstract).",
+      "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (published indexed abstract).",
+      "2026/9/19/SCOPE-near-jordan-rate-law-single-loop-minimax-feedback--1495aba8a836 (published indexed abstract)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Omiya–Poirion–Takeda, arXiv:2605.00740v1: theorem bounds E gap by a constant times (1-t/d)^k. Here, the observed rate on a fixed curvature mode is 1-2t/d + C_d t^(4/3)+higher order.",
+        "Fercoq–Richtárik APPROX: rates are about another accelerated coordinate scheme; there is no demonstrated algebraic reduction that equates its covariance map with the displayed K0,K1.",
+        "Indexed 2026/9/19/SCOPE-near-jordan-rate-law-single-loop-minimax-feedback--1495aba8a836 obtains a different matrix root phenomenon for a different feedback minimax algorithm."
+      ],
+      "reasoning": "The published global contraction inequality implies only an upper bound on possible rates, not the equality, factor-two asymptotic deficit, or the exact fractional-power positive coefficient. The moment-cycle calculation therefore supplies information logically independent of the inspected prior statements.",
+      "searches": [
+        "\"Randomized Subspace Nesterov Accelerated Gradient\" exact covariance transfer 3x3 spectral radius fractional 2/3 coefficient diagonal coordinate sketch",
+        "accelerated randomized coordinate descent Puiseux sqrt curvature 4/3 mean-square asymptotic Nesterov RS NAG",
+        "randomized accelerated coordinate descent exact second moment covariance spectral radius quadratic Puiseux cube root",
+        "stochastic momentum accelerated randomized coordinate rate asymptotic noninteger correction 2/3 ill conditioning"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.00740v1, Algorithm 2 and strong-convexity theorem, examined full HTML, establish the sketched three-sequence iteration and global (1-theta)^k upper bound, not a covariance spectrum.",
+        "Fercoq–Richtárik arXiv:1312.5799, bibliographic abstract establishes APPROX as a related but not identical accelerated coordinate algorithm; no formula from that abstract implies this recurrence.",
+        "Indexed result 2026/9/20/SCOPE-nesterov-three-dimensional-objective-spike-barrier--6979da6f15ad concerns deterministic objective spikes for different eigenmodes."
+      ],
+      "reasoning": "Coordinate descent and Nesterov acceleration share square-root leading rate scales but the exact stochastic quadratic moment map depends on two specific conditional matrices. The cubic-root eigenvalue splitting of that map is not equivalent to a generic O(sqrt(kappa)) convergence guarantee, nor to deterministic spectral-iteration results.",
+      "searches": [
+        "Randomized Subspace Nesterov Accelerated Gradient Omiya Poirion Takeda exact small strong convexity asymptotic mean-square spectral radius diagonal",
+        "RS-NAG-SC coordinate sketch quadratic curvature ratio cube root Puiseux eigenvalue variance convergence",
+        "randomized accelerated coordinate descent exact second moment covariance spectral radius quadratic Puiseux cube root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source treats numerical diagonal examples and sketch-parameter tables but does not tabulate this 3x3 exact covariance transfer or its eigenvalues.",
+        "Published mathematical database returns nearby titles on ordinary coordinate sampling, Haar moments, and deterministic acceleration, with no matching closed-form low-curvature transfer."
+      ],
+      "reasoning": "This statement is not a recomputation of a numerical eigenvalue table or a finite catalog; it is a continuum theorem for every integer d>=2 with a noninteger asymptotic exponent proved analytically. Searches cannot establish the absence of older unpublished or differently indexed material.",
+      "searches": [
+        "Randomized Subspace Nesterov Accelerated Gradient Omiya Poirion Takeda exact small strong convexity asymptotic mean-square spectral radius diagonal",
+        "RS-NAG-SC coordinate sketch quadratic curvature ratio cube root Puiseux eigenvalue variance convergence",
+        "\"Randomized Subspace Nesterov Accelerated Gradient\" exact covariance transfer 3x3 spectral radius fractional 2/3 coefficient diagonal coordinate sketch"
+      ]
+    },
+    "rationale": "The closest exact algorithmic primary work (Omiya–Poirion–Takeda, arXiv:2605.00740v1, Algorithm 2, strongly convex rate theorem, coordinate-sketch discussion and appendices) provides a general potential-based contraction bound rather than the exact three-moment transfer and fractional-power sharp asymptotic coefficient for this diagonal model. Other sampled-coordinate and acceleration records concern different transitions, different observables, or general inequalities that do not imply the cubic-root correction. A possible unindexed equivalence remains a residual risk, not proof of novelty.",
+    "residual_risks": [
+      "An unindexed older stochastic-momentum or random-product treatment could derive the same three-dimensional moment spectral asymptotic under different notation.",
+      "APPROX and other classical accelerated coordinate research were checked at title/abstract level only, not all full texts; their different algorithm definitions reduce but do not logically eliminate equivalence risk.",
+      "The theorem is a precise fixed-dimension modewise asymptotic, not a general accelerator-runtime theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_SOURCE_ITERATION_AND_UPPER_BOUND; no exact covariance spectral asymptotic stated in examined sections.",
+        "evidence": [
+          "Algorithm 2 uses y=(x+theta z)/(1+theta), sketched-gradient x- and z-updates; the general expected objective is upper-bounded by a (1-theta)^k term.",
+          "The source diagonal quadratic experiments do not derive a cubic-root splitting of a 3x3 second-moment transfer."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.00740 (arXiv:2605.00740v1)",
+        "material_read": "Open-access arXiv HTML: Algorithm 2 update and parameter selection, strongly convex theorem, coordinate-sketch discussion, numerical diagonal-quadratic experiments, and relevant appendices including parameter details and related work.",
+        "method": "Read mathematical statements and update formulas, compared their objects, parameters, and implications with the exact covariance recurrence.",
+        "title": "Randomized Subspace Nesterov Accelerated Gradient",
+        "trigger": "Same algorithm, identical strongly convex three-sequence update and coordinate sketches."
+      },
+      {
+        "assessment": "RELATED_BUT_DIFFERENT_METHOD; limited inspection leaves residual risk.",
+        "evidence": [
+          "The public abstract introduces APPROX using coordinate-descent updates with separability-dependent accelerated O(1/k^2) guarantees, not the specific strongly convex sketch recurrence here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1312.5799",
+        "material_read": "Public preprint abstract and methodological summary; full proof and all appendices not inspected.",
+        "method": "Compared scope and published headline guarantee; no stronger whole-document noncoverage assertion made.",
+        "title": "Accelerated, Parallel and Proximal Coordinate Descent",
+        "trigger": "Classical closely related accelerated stochastic coordinate optimization algorithm."
+      },
+      {
+        "assessment": "RELATED_BUT_DIFFERENT_SKETCH_ALGORITHM; full-document inspection not asserted.",
+        "evidence": [
+          "States exact Haar moments for a nonaccelerated stochastic subspace descent stationary-rate bound, whereas this theorem concerns a two-state accelerated Bernoulli transfer."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248",
+        "material_read": "Indexed published title and mathematical result summary, not complete source document.",
+        "method": "Compared stated algorithm, sketch distribution, and output quantities with the new claim.",
+        "title": "Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent",
+        "trigger": "Nearby indexed mathematical result about exact randomized subspace moments."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8082b9cd-e1dd-4250-a1d3-9275370c6433",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source algorithm is designed for low-dimensional directional-gradient cost, but its global expected-objective rate bound leaves the exact mean-square behavior undetermined. Resolving this natural, analytically tractable diagonal low-curvature mode reveals a structurally motivated fractional-power correction and the gap between potential bounds and actual spectral decay; the complete covariance recurrence provides a reusable benchmark for stochastic acceleration. This is not a merely finite table, routine reformulation, or trivial parameter substitution.",
+    "status": "PASS"
+  }
+}
