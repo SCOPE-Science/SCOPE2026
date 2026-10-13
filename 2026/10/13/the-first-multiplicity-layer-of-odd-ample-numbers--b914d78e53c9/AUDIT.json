@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each prime-exponent partition the exponent partition, the recursive-divisor value the recursive-divisor value of the signature is computed exactly from the defining proper-divisor recurrence. A rearrangement argument proves that the least odd integer of that signature is the least odd representative of the signature, obtained by assigning the largest exponents to the smallest odd primes. Thus the signature value does not exceed its least odd representative excludes every odd integer of that signature. The verifier exhausts all 1211 integer partitions of sizes 1 through 17: every partition through size 16 is excluded, and exactly three size-17 signatures satisfy the signature value exceeds its least odd representative. The least boundary representative is 488462349375 and its exact value is 523830280192. Separate direct recurrences on all 1080 divisors of that integer and all 720 divisors of the source example reproduce the signature-based values.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2307.16691v1 gives closed-form representations for the recursive-divisor function and notes its dependence on prime signature, but does not classify odd ample signatures by total prime-factor multiplicity.",
+        "arXiv:2307.09140v1 gives Dirichlet-series and convolution identities for the function, with no ample multiplicity theorem.",
+        "The previously published result identified by opaque record 3a5bff12-f682-47c6-8cdc-83c761a9ab2e proves existence of ample integers on sufficiently abundant finite supports, not a minimum total prime-factor multiplicity."
+      ],
+      "reasoning": "General formulas for evaluating the recursive-divisor function do not themselves imply which of the finitely many low-multiplicity signatures cross the inequality the ample inequality. The support-existence theorem goes in the opposite logical direction and does not exclude low multiplicity.",
+      "searches": [
+        "Number of ordered factorizations and recursive divisors ample prime factors",
+        "Properties of the recursive divisor function number ordered factorizations ample",
+        "finite abundant prime supports force ample numbers",
+        "odd recursively abundant minimal number prime factor multiplicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.07979v1",
+      "arXiv:2008.10398v1",
+      "arXiv:2307.09140v1",
+      "arXiv:2307.16691v1",
+      "DOI:10.1016/j.jnt.2023.08.008",
+      "OEIS:A067824",
+      "OEIS:A171080",
+      "opaque:3a5bff12-f682-47c6-8cdc-83c761a9ab2e",
+      "opaque:83eeec34-7b08-4fe3-9be3-e7638e63af80"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2008.10398v1 supplies the definitions, source example, and prime-avoidance question but no argument excluding all low-multiplicity signatures.",
+        "Opaque prior record 3a5bff12-f682-47c6-8cdc-83c761a9ab2e proves an all-support existence criterion for ample numbers; existence on some supports does not imply a lower bound on total prime-factor multiplicity.",
+        "Opaque prior record 83eeec34-7b08-4fe3-9be3-e7638e63af80 gives a high-multiplicity prime-avoidance witness and explicitly makes no minimality claim."
+      ],
+      "reasoning": "The new theorem requires a global exclusion of every odd exponent partition below total size 17 and an exact census at size 17. Neither the source examples nor the prior existence results entail those exclusions.",
+      "searches": [
+        "recursive divisor function odd ample minimum Omega 17",
+        "a(n)>n recursive divisors exponent pattern 8 4 2 1 1 1",
+        "finite abundant prime supports force ample numbers",
+        "ample number coprime to 30 recursive divisor"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2008.10398v1 defines ample numbers and states that odd ample numbers exist but are rare; no total-multiplicity threshold is stated.",
+        "OEIS:A067824 gives the exact recurrence for the same function and cross-references Fink, but contains no low-multiplicity classification.",
+        "No searched statement used the aliases recursively abundant, ample, prime-factor multiplicity, or exponent signature to state the boundary theorem."
+      ],
+      "reasoning": "The claim is equivalent to saying that every odd signature of total size at most 16 is depleted and that exactly three total-size-17 signatures admit an ample representative. The searches covered both the total prime-factor multiplicity formulation and the exponent-signature formulation.",
+      "searches": [
+        "odd ample minimum Omega recursive divisor 17 488462349375",
+        "recursive divisor a(n)>n at most 16 prime factors multiplicity",
+        "recursively abundant prime factor multiplicity boundary",
+        "least prime-factor multiplicity odd ample number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A067824 is the exact recursive-divisor sequence but does not state the claimed multiplicity threshold.",
+        "The primary 2020 paper gives the least odd ample integer by value with exponent multiset (9,5,2,1,1), whose total multiplicity is 18.",
+        "The integer 488462349375 occurs in OEIS:A171080 under an unrelated product formula; that exact numerical hit contains no recursive-divisor or ample assertion."
+      ],
+      "reasoning": "Exact-value and table checks distinguish a coincidental occurrence of the boundary integer from a statement about recursive abundance. The source table/example and the exact function database do not supply the total-multiplicity bound.",
+      "searches": [
+        "OEIS A067824 recursive divisor ample",
+        "488462349375 ample recursive divisor",
+        "3^8 5^4 7^2 11 13 17 ample",
+        "Fink odd ample smallest 3^9 5^5 7^2 11 13"
+      ]
+    },
+    "rationale": "The inspected primary and later sources define the function, introduce ample numbers, give odd examples, and provide general evaluation formulas, but none states a minimum total-prime-factor multiplicity or the three-signature boundary. Focused exact, alias, implication, and database checks found no covering statement. The closest previously published ample-number findings prove support-existence or prime-avoidance, which are logically independent of a lower bound on total prime-factor multiplicity.",
+    "residual_risks": [
+      "An unindexed historical note or private computation may already have observed the same minimum-multiplicity boundary.",
+      "The proof is computer-assisted through an exact finite partition census; an implementation error is mitigated by simple exhaustive generation, expected partition-count assertions, a machine-readable certificate, and independent direct divisor-lattice checks.",
+      "The theorem does not classify higher multiplicity layers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source gives the least odd ample number by value and a prime-avoidance conjecture, but no minimum-multiplicity theorem or boundary exponent classification.",
+        "identifier_or_url": "arXiv:2008.10398v1",
+        "material_read": "Full open-access text around the definition of the recursive-divisor function, the statement that the value depends only on prime exponents, the ample-number section, the odd-ample section, its displayed least odd example, and the concluding problem discussion; the odd-ample PDF page was also visually inspected.",
+        "method": "Open-access HTML/PDF full-text inspection with targeted page-image inspection.",
+        "title": "Recursively abundant and recursively perfect numbers",
+        "trigger": "Primary source introducing ample numbers and discussing odd ample examples."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper supplies general exact evaluation formulas but no odd-ample total-multiplicity threshold or first-layer classification.",
+        "identifier_or_url": "arXiv:2307.16691v1",
+        "material_read": "Full available text covering the recursive definition, dependence on prime signature, the identity with ordered factorizations, the statement of the closed forms, and the proofs.",
+        "method": "Open-access full-text inspection.",
+        "title": "Number of ordered factorizations and recursive divisors",
+        "trigger": "Later primary paper giving closed forms for the exact same arithmetic function."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper proves Dirichlet-series and convolution identities and contains no classification of odd ample numbers by total prime-factor multiplicity.",
+        "identifier_or_url": "arXiv:2307.09140v1",
+        "material_read": "Complete five-page open-access PDF, including theorem statements and proofs; the first page was visually inspected.",
+        "method": "Full PDF text inspection with page-image check.",
+        "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+        "trigger": "Later primary paper on identities and Dirichlet series for the same function."
+      },
+      {
+        "assessment": "CORROBORATING_ONLY",
+        "evidence": "The entry confirms the recurrence and references but does not state the new boundary theorem.",
+        "identifier_or_url": "OEIS:A067824",
+        "material_read": "Definition, comments, references, formulas, examples, and cross-references.",
+        "method": "Direct database-entry inspection.",
+        "title": "OEIS A067824",
+        "trigger": "Exact sequence database for the recursive-divisor function."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY",
+        "evidence": "The source introduces the function; journal metadata lists 11A25 among the Mathematics Subject Classification codes.",
+        "identifier_or_url": "arXiv:1912.07979v1; DOI:10.1016/j.jnt.2023.08.008",
+        "material_read": "Abstract/metadata for the original preprint and journal metadata including subject classification.",
+        "method": "Primary preprint metadata plus journal-index metadata.",
+        "title": "Recursively divisible numbers",
+        "trigger": "Foundational source defining the recursive-divisor function and source used to verify subject ownership."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b914d78e-53c9-4e04-acbb-1fbb43a6f214",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Odd ample numbers are explicitly identified as rare in the primary source, so total prime-factor multiplicity is a natural structural measure. The result determines the exact first possible total-multiplicity layer, supplies a sharp witness, and classifies the three exponent signatures capable of occurring there. This is a natural complete boundary classification rather than a chosen numerical search cutoff, and it distinguishes structural complexity from the already-known least odd ample integer by numerical size.",
+    "status": "PASS"
+  }
+}
