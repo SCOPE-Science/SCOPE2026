@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on the two extremes leaves a simple random sample of n-2 points from the r-1 interior lattice sites. The exact interior first moment, second raw moment, and finite-population correction to the sample-sum variance determine E[Q] and E[T^2], hence E[S^2]. The resulting expression is independent of the minimum, so conditioning only on the range is valid. Exhaustive exact-rational enumeration independently checks every range stratum for populations through endpoint 17. The finite enumeration is supplementary; the proof covers all admissible M,n,r.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Takahasi–Futatsuya (1998), DOI 10.1023/A:1003497213823, is classified in finite-population sampling and order statistics and studies dependence among sample order statistics.",
+        "Balakrishnan–Charalambides–Papadatos (2003), DOI 10.1016/S0378-3758(01)00321-4, states sharp expectation bounds for order statistics and sample range, plus covariance results for sample size two."
+      ],
+      "reasoning": "These sources are broader in finite-population order-statistic questions but their inspected descriptions do not supply a sample-variance conditional regression. The 2003 article is retained as a residual risk because its full text was not accessible.",
+      "searches": [
+        "Dependence between order statistics in samples from finite population and its application to ranked set sampling",
+        "Bounds on expectation of order statistics from a finite population",
+        "sampling from finite populations order statistics range variance"
+      ]
+    },
+    "checked_sources": [
+      "Takahasi and Futatsuya (1998), DOI 10.1023/A:1003497213823.",
+      "Balakrishnan, Charalambides, and Papadatos (2003), DOI 10.1016/S0378-3758(01)00321-4.",
+      "Current and prior scientific ledgers for range/variance and finite-population overlap.",
+      "Published-record searches for conditional variance-on-range and without-replacement aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The continuous-uniform endpoint-normalization result has coefficient (n+1)(n+2)/(12n(n-1)) multiplying r^2 and no linear term.",
+        "The finite-population formula contains the additional term -(n+1)(n-2)r/(12n(n-1)), which comes from the without-replacement finite-population correction."
+      ],
+      "reasoning": "The continuous result does not imply the lattice theorem: its conditional interior sample is iid continuous uniform after normalization, whereas here the interior points are sampled without replacement from finitely many lattice sites. The different conditional law is exactly what generates the correction.",
+      "searches": [
+        "continuous uniform sample variance conditional on range",
+        "finite population sample range expectation variance order statistics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches covered conditional variance-on-range, simple random sampling without replacement, finite-population order statistics, and consecutive-integer formulations.",
+        "No retrieved scientific record stated the displayed conditional mean or its linear lattice correction."
+      ],
+      "reasoning": "The searched aliases include range/extremes, sample variance/dispersion, simple random sample/without replacement, and discrete uniform/consecutive lattice. The claim is an exact conditional regression, not merely a marginal range or variance identity.",
+      "searches": [
+        "simple random sample finite population range sample variance covariance exact",
+        "without replacement sample range variance conditional expectation",
+        "finite population order statistics sample variance range",
+        "discrete uniform without replacement range variance",
+        "\"sample variance\" \"given the range\" discrete uniform without replacement",
+        "\"conditional expectation\" sample variance range finite population",
+        "\"sample range\" \"sample variance\" \"without replacement\" uniform",
+        "\"E[S^2|R]\" finite population uniform integers",
+        "\"sample variance\" \"range\" \"simple random sample\" \"consecutive integers\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-record searches returned finite-population order-statistic bounds and unrelated covariance results rather than a conditional variance table or formula.",
+        "The new checker derives its values from complete subset enumeration rather than from any pre-existing table."
+      ],
+      "reasoning": "The result is symbolic for every admissible population endpoint, sample size, and range. Finite enumeration is only a replay of the formula and is not the source of the theorem.",
+      "searches": [
+        "\"conditional mean\" \"sample variance\" \"sample range\" discrete uniform",
+        "\"without replacement\" \"sample variance\" \"sample range\" consecutive",
+        "finite population range sample variance exact formula"
+      ]
+    },
+    "rationale": "The closest inspected finite-population literature concerns dependence or expectation bounds for order statistics and sample ranges. No checked statement gives the conditional mean of sample variance given range on a consecutive lattice. A prior continuous-uniform regression has a purely quadratic form and does not imply the finite-population result because conditioning without replacement leaves a finite interior sample and produces a nonzero linear lattice correction.",
+    "residual_risks": [
+      "The complete 2003 finite-population range article was not available for direct inspection; an equivalent identity in its full text or in older sampling literature cannot be excluded.",
+      "The theorem is structurally close to a continuous-uniform range regression, although the finite-population conditional law and nonzero lattice correction are distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_IDENTIFIED_CLAIM",
+        "evidence": "The accessible record concerns dependence of order statistics and ranked-set sampling, not conditional sample variance given range.",
+        "identifier_or_url": "doi:10.1023/A:1003497213823",
+        "material_read": "Bibliographic record, abstract-level description, keywords, classifications, and citation context.",
+        "method": "Public bibliographic/abstract inspection.",
+        "title": "Dependence between order statistics in samples from finite population and its application to ranked set sampling",
+        "trigger": "Direct finite-population order-statistic dependence source."
+      },
+      {
+        "assessment": "PLAUSIBLE_BUT_UNRESOLVED_FULL_TEXT",
+        "evidence": "The abstract states bounds for expected order statistics and sample range and covariance results for n=2, but does not state conditional sample-variance moments.",
+        "identifier_or_url": "doi:10.1016/S0378-3758(01)00321-4",
+        "material_read": "Full abstract, publication metadata, repository description, and author-profile record; complete article text was not obtainable from the attempted open and institutional retrieval paths.",
+        "method": "Public repository and author-profile inspection, followed by bounded full-text retrieval attempts.",
+        "title": "Bounds on expectation of order statistics from a finite population",
+        "trigger": "Closest title and abstract for simple random sampling without replacement and the sample range."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "67663f46-0e87-4650-aacd-063684049821",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Range and sample variance are canonical dispersion summaries, and simple random sampling without replacement is the basic finite-population design. Conditioning on an observed range is a natural finite-sample calibration problem. The theorem shows that for an arithmetic population the ambient population size disappears completely after conditioning, while discreteness leaves an exact first-order lattice correction to the continuous-uniform regression. This is a structural finite-population identity rather than a recomputation of a known marginal moment.",
+    "status": "PASS"
+  }
+}
