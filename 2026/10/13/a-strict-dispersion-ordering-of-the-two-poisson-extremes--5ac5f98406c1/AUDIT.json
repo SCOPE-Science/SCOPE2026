@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For iid Pois(λ) counts, Skellam and Poisson size bias derive E min/max=λ(1∓c) and Var min/max=λ(1∓a−λc²). Thus the Fano difference equals 2(b−λc³)/(1−c²). Beta-gamma independence and strict conditional Jensen show c<(1+2λ)^(-1/2) for every λ>0. Bessel recurrences yield c′=−b/λ, b′=2c−(4+1/λ)b. If F=b−λc³ first vanished, F′=c[2−(2+4λ)c²+3λc⁴]>0 using c²<(1+2λ)^(-1), contradicting a first zero after F=λ²+O(λ³)>0 near zero. Hence universal strict positivity. Direct independent Poisson-PMF tests passed all 17 positive grid points; these do not replace the analytic proof. Asymptotic gap follows from Bessel expansions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Badiella, del Castillo and Puig, DOI:10.1016/j.spl.2023.109900, Theorem 2 and Corollary 1: ultra log-concavity and underdispersion for each rank separately.",
+        "Lederman and Schein, arXiv:2507.09032, Proposition 3.1 and Corollary 3.1: convergence and asymptotic symmetry of opposed ranks, not strict global ordering.",
+        "The order-marginal identification finding concerns recovery of heterogeneous parent laws; Poisson-binomial effective-trial hierarchy concerns sums of Bernoulli counts."
+      ],
+      "reasoning": "An individual upper bound D_L<1 and D_U<1 cannot compare D_L and D_U. The common limit as λ→∞ likewise does not give the sign for finite λ. The higher-rank and heterogeneity records do not specialize to a theorem ordering two-Poisson Fano ratios.",
+      "searches": [
+        "Poisson order statistic minimum maximum dispersion index global comparison 2023 Badiella Castillo Puig 2025 Lederman Schein Steutel Thiemann",
+        "Fano index for Poisson order statistics rank r 1 versus 2: exact all-rate ordering despite higher maximum variance",
+        "\"variance-to-mean ratio\" \"minimum\" \"maximum\" \"Poisson\" two order statistics inequality",
+        "2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4",
+        "2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda",
+        "2026/9/21/SCOPE-heterogeneous-order-marginals-analytic-identification--096d7231c1a9"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1016/j.spl.2023.109900",
+      "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+      "arXiv:2507.09032",
+      "https://arxiv.org/pdf/2507.09032",
+      "https://research.tue.nl/en/publications/the-gamma-process-and-the-poisson-distribution-2",
+      "https://arxiv.org/abs/1708.04018",
+      "https://dlmf.nist.gov/10.29",
+      "https://dlmf.nist.gov/10.40"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously recorded two-Poisson finding 918e94e7-8ac2-46bc-9c15-9affea9130b2 gives exact moments and opposite first-order asymptotic corrections, sufficient to establish ranking only at large intensity.",
+        "Previously recorded finding 066cdb28-c97e-4f52-b9d9-3b210bbb892f gives a unique crossover of Var(max) versus parent variance; it does not involve the minimum Fano ratio.",
+        "The present all-parameter assertion follows from a strict beta-gamma Laplace bound and new first-zero argument; these are not consequences of the cited prior statements."
+      ],
+      "reasoning": "Asymptotic opposite approaches and individual underdispersion leave all bounded positive parameter ranges open. A unique crossover against λ concerns a different benchmark. The exact moment formulas reduce the open sign to a nontrivial Bessel inequality; the new proof supplies that sign. No priority claim is inferred from indexing completeness.",
+      "searches": [
+        "Two iid Poisson order statistics: minimum has strictly larger variance-to-mean ratio Fano factor than maximum for every intensity; Bessel inequality I1 e^-2lambda > lambda [e^-2lambda(I0+I1)]^3",
+        "Poisson order statistic minimum maximum dispersion index global comparison 2023 Badiella Castillo Puig 2025 Lederman Schein Steutel Thiemann",
+        "Fano index for Poisson order statistics rank r 1 versus 2: exact all-rate ordering despite higher maximum variance",
+        "\"minimum\" \"maximum\" \"variance-to-mean\" \"order statistic\" Poisson",
+        "arXiv:2507.09032 Section 3 Figure 4 Proposition 3.1",
+        "DOI:10.1016/j.spl.2023.109900 Theorem 2 Corollary 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new theorem is exactly equivalent to b(λ)>λ c(λ)^3, with b=e^{-2λ}I_1(2λ), c=e^{-2λ}(I_0(2λ)+I_1(2λ)).",
+        "Lederman and Schein, arXiv:2507.09032, Section 3 displays both moment formulas, but gives no proof of this sign.",
+        "Targeted published-finding corpus search for this inequality retrieved an unrelated Bessel-complete-monotonicity counterexample rather than the strict cubic inequality."
+      ],
+      "reasoning": "Algebraic equivalence was established by subtracting exact ratios; known formulas by themselves leave the cubic sign unsettled. The returned Bessel result concerns a different function and does not imply the sign. Absence from searches is not claimed to prove novelty.",
+      "searches": [
+        "Two iid Poisson order statistics: minimum has strictly larger variance-to-mean ratio Fano factor than maximum for every intensity; Bessel inequality I1 e^-2lambda > lambda [e^-2lambda(I0+I1)]^3",
+        "min and max of two independent Poisson variables Fano ratio strict global order for all lambda, ultra log concave",
+        "equivalent Bessel integral beta gamma convex-order strict I1(2t) > t e^-4t (I0(2t)+I1(2t))^3",
+        "\"Bessel\" \"I1\" \"I0\" \"cube\" inequality Poisson",
+        "2026/9/20/SCOPE-baricz-bessel-scm-counterexample--ac079dddc4e2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Steutel and Thiemann 1989 report is bibliographically verified; the 2025 paper attributes to it the two-Poisson exact first moments.",
+        "Lederman and Schein (2025) Figure 4 presents numerical/exact curves for two-point order statistics and their common large-intensity limit.",
+        "Prior indexed published-finding corpus exact min-max correlation table concerns iid observations on three-point fixed lattice, not Poisson index-of-dispersion comparisons."
+      ],
+      "reasoning": "The exact special-function expression for each Fano ratio is published and not claimed new. Neither a displayed curve nor moment expressions constitute a proof that their difference has one strict sign at every real positive λ. Source-wide results from relevant inspectable texts were compared for this precise inequality.",
+      "searches": [
+        "min and max of two independent Poisson variables Fano ratio strict global order for all lambda, ultra log concave",
+        "\"Poisson order statistics\" \"minimum\" \"maximum\" \"more\" \"dispersed\"",
+        "\"Fano factor\" \"min\" \"max\" iid \"Poisson\" order",
+        "Steutel Thiemann 1989 The gamma process and the Poisson distribution PDF",
+        "2026/9/20/SCOPE-uniform-maximizes-three-point-minmax-correlation--92f0f4188ee4"
+      ]
+    },
+    "rationale": "The 2023 ultra-log-concavity theorem implies each Poisson extreme is individually underdispersed, not a mutual Fano ranking. Steutel–Thiemann (1989) supplies the exact moments, reproduced in Lederman–Schein (2025), but none of the inspectable results proves the strict relative sign at every positive intensity. Existing prior asymptotics distinguish the two ratios for sufficiently large intensities only. The nontrivial missing step is a strict cubic Bessel inequality established by a beta-gamma Jensen comparison and a global first-zero obstruction. Literature and mathematical-record searches revealed no stronger coverage; risk remains from inaccessible 1989 full text and older special-function aliases.",
+    "residual_risks": [
+      "The full 1989 Eindhoven report could not be read, so an older exact-order comparison is not conclusively excluded.",
+      "Earlier equivalent modified-Bessel inequalities under special-function nomenclature could give a shorter deduction.",
+      "Figure 4 of the 2025 treatment visualizes an ordering consistent with the theorem; visual suggestion is acknowledged, not asserted to be absent.",
+      "Index searches do not cover all published or unpublished mathematics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves marginal ultra-log-concavity and underdispersion; no cross-rank Fano comparison or strict cubic Bessel bound",
+        "evidence": [
+          "Theorem 2 pp.3–4 and Corollary 1 p.4",
+          "First public online date June 26 2023 on first page"
+        ],
+        "identifier_or_url": "https://ddd.uab.cat/pub/artpub/2023/283158/StaProLet_a2023v201n109900.pdf",
+        "material_read": "Complete four-page lawful open-access PDF; Theorem 2, Corollary 1 and proof examined",
+        "method": "Full-text PDF text and page images inspected",
+        "title": "Ultra log-concavity of discrete order statistics",
+        "trigger": "Direct published motivation for Poisson-order-statistic underdispersion and middle-date ownership"
+      },
+      {
+        "assessment": "Includes exact D=2 moments and curves, and common asymptotic limit; not a proof of global strict comparison for each positive rate",
+        "evidence": [
+          "Figure 4 p.9",
+          "Proposition 3.1 and Corollary 3.1 pp.9–10",
+          "1989 moment attribution on p.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.09032",
+        "material_read": "Section 3, especially pp.7–11, Figure 4, Proposition 3.1 and Corollary 3.1; searchable full-text rendering inspected for terminology and related results.",
+        "method": "Lawful arXiv full text, PDF page inspection and global term search",
+        "title": "Modeling Latent Underdispersion with Discrete Order Statistics",
+        "trigger": "Closest modern full treatment of Poisson minimum versus maximum dispersion"
+      },
+      {
+        "assessment": "Known exact moment coverage conceded; cannot rule out further inequality content from unavailable original report",
+        "evidence": [
+          "Eindhoven institutional record of COSOR report 89-24 (1989)",
+          "Lederman–Schein 2025, Section 3 formula explicitly attributes moments to Steutel–Thiemann"
+        ],
+        "identifier_or_url": "https://research.tue.nl/files/2026800/338273.pdf",
+        "material_read": "No original full-text pages could be retrieved; institutional bibliography and secondary primary-paper attribution inspected",
+        "method": "Inspected university publication catalog and secondary quotation of the exact moments; original report itself was not available for full-text review.",
+        "title": "The gamma process and the Poisson distribution",
+        "trigger": "Original exact two-Poisson moment calculations cited by the 2025 text"
+      },
+      {
+        "assessment": "Approximation error for Poisson-like differences rather than dispersion ordering; full-text noncoverage is not certified",
+        "evidence": [
+          "ArXiv abstract 1708.04018, first version August 14 2017"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.04018",
+        "material_read": "Abstract and bibliographic record; not relied upon for noncoverage of complete paper",
+        "method": "arXiv abstract, date, subject, and statement comparison",
+        "title": "Approximation of the difference of two Poisson-like counts with Skellam",
+        "trigger": "Potentially stronger Skellam result linked from earlier probability treatments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ac5f984-06c1-49db-9d12-a97f58a88e64",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Dispersion indices quantify conditional count variability. For the smallest nontrivial Poisson order-statistic family, a globally strict rank ordering was not established by known ultra-log-concavity, exact moment, or high-intensity limit results. The theorem supplies an all-intensity comparison with a surprising opposite ordinary-variance ranking and endpoint rate; the beta-gamma convex-order route to a cubic Bessel inequality is an independent structural proof. The scope is natural and not an arbitrary parameter slice; no broader sample-size or other-parent theorem is claimed.",
+    "status": "PASS"
+  }
+}
