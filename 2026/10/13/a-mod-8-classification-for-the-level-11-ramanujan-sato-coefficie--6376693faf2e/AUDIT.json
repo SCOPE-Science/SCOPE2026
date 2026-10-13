@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Campbell’s double sum is partitioned by \\(a=0\\) and \\(a>0\\). On \\(a=0\\), Kummer/Legendre gives the exact summand valuation \\(3A-2s_2(n)\\), yielding residue \\(4\\) only at one-bit indices. For \\(a>0\\), an odd squared middle binomial forces disjoint binary supports; the position \\(\\nu_2(a)\\) then gives at least two carries in one remaining binomial coefficient, so every summand is divisible by \\(4\\). Pairing under \\(b\\leftrightarrow n-3a-b\\) kills nonfixed terms modulo \\(8\\), and Lucas’ theorem classifies the only surviving fixed point as \\((a,b,n)=(2^k,0,3\\cdot2^k)\\). Exact replay checks all formulas on large finite ranges without being used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2510.23298v1, Section 3.3/Table 2, includes A284756 in a mod-prime factorization framework.",
+        "That table concerns the truncated generating series modulo primes and does not state a lift modulo 8."
+      ],
+      "reasoning": "Prime-level Lucas/Galois information is broader in one direction but does not determine residues modulo a prime power. No inspected theorem turns those mod-prime facts into the exact mod-8 support proved here.",
+      "searches": [
+        "A284756 Apéry-like Lucas congruences modulo primes",
+        "A284756 Galois Groups of Apéry-like Series Modulo Primes",
+        "level 11 c11 Lucas congruence p-adic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00551v1",
+      "OEIS:A284756",
+      "arXiv:2510.23298v1",
+      "DOI:10.1016/j.jmaa.2014.07.061"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.00551v1 proves the binomial representation used as the premise.",
+        "arXiv:2510.23298v1 describes A284756 modulo primes, not modulo 8."
+      ],
+      "reasoning": "The new theorem is neither a restatement of the binomial formula nor a special case of the mod-prime factorization result. Its conclusion requires an additional binary carry analysis of individual binomial summands and their involutive pairing.",
+      "searches": [
+        "2610.00551 c11 congruence divisibility",
+        "2510.23298 A284756 level 11 modulo primes",
+        "c11 exact 2-adic valuation Ramanujan-Sato"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.00551v1 gives the explicit double sum and recurrence but no mod-8 theorem.",
+        "OEIS:A284756 records the sequence and recurrence without the dyadic-ray classification."
+      ],
+      "reasoning": "The equivalent formulation is that the positive indices of exact valuation two are precisely two dyadic rays. Searches used both the congruence and valuation wording and found no source stating or implying that classification.",
+      "searches": [
+        "Ramanujan-Sato level 11 coefficients c_11(n) modulo 8 powers of two three times powers of two",
+        "A284756 2-adic valuation equals 2 iff n power of 2 or 3 times power of 2",
+        "A284756 modulo 8 c11(n) congruent 4",
+        "level 11 Apéry-like sequence exact parity of c_n/4",
+        "binomial formula c11 2-adic valuation Ramanujan Sato",
+        "For the level-11 Ramanujan-Sato coefficients A284756 c11(n), c11(n) is 4 mod 8 iff n is a power of 2 or 3 times a power of 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A284756 gives the recurrence, initial terms, asymptotic formula, code, and references; no mod-8 classification appears in the inspected entry."
+      ],
+      "reasoning": "A finite list of terms is compatible with the claim but cannot imply the all-index theorem; the database entry supplies no stated congruence of this form.",
+      "searches": [
+        "OEIS A284756 comments formula congruence",
+        "A284756 mod 8 table"
+      ]
+    },
+    "rationale": "The exact mod-8 statement is absent from the newly inspected binomial-formula source, the OEIS record, and the closest inspected mod-prime Apéry-like literature; targeted exact and equivalent-formulation searches found no covering statement.",
+    "residual_risks": [
+      "An unindexed or differently phrased source could contain an equivalent 2-adic congruence; targeted searches did not locate one.",
+      "General prime-power congruence machinery may yield related consequences after additional specialization, but no inspected source supplied the exact support classification.",
+      "Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTS PREMISE; DOES NOT STATE CLAIM",
+        "evidence": "The source identifies A284756, proves the double-binomial formula, and has primary MSC 11F03; no mod-8 classification is stated in the inspected text.",
+        "identifier_or_url": "arXiv:2610.00551v1",
+        "material_read": "Abstract; recurrence and modular definition; explicit formula (5); constant-term construction and surrounding proof sections.",
+        "method": "Full-text HTML inspection with targeted searches for congruence, divisibility, and the exact coefficient formula.",
+        "title": "On a problem on Ramanujan–Sato series of level 11",
+        "trigger": "Primary recent source introducing the fixed double-binomial formula for the exact coefficient sequence."
+      },
+      {
+        "assessment": "CONSISTENT; NOT COVERING",
+        "evidence": "The entry records the D-finite recurrence and initial terms but no mod-8 or exact 2-adic minimum-valuation theorem.",
+        "identifier_or_url": "OEIS:A284756",
+        "material_read": "Sequence definition, comments, links, formula, recurrence code, and cross-references.",
+        "method": "Direct database-entry inspection.",
+        "title": "A284756",
+        "trigger": "Exact database record for the same coefficient sequence."
+      },
+      {
+        "assessment": "RELATED MOD-PRIME COVERAGE; DOES NOT IMPLY CLAIM",
+        "evidence": "The A284756 row gives a factorization pattern depending on the quadratic character of -11 modulo an odd prime; it does not provide a mod-8 lift or the two-ray valuation classification.",
+        "identifier_or_url": "arXiv:2510.23298v1",
+        "material_read": "Introduction on Lucas congruences; Section 3.3; Table 2 rows for A284756 and level 11.",
+        "method": "Full-text HTML inspection with exact-sequence search.",
+        "title": "Galois Groups of Apéry-like Series Modulo Primes",
+        "trigger": "Closest primary source linked directly from A284756 and explicitly analyzing this sequence modulo primes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6376693f-af2e-4572-8f4b-5e3a6621e21e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact set of indices attaining the minimum positive dyadic valuation is a natural invariant of the level-\\(11\\) Ramanujan–Sato coefficient sequence. The classification is infinite and structural—two binary rays rather than a finite slice—and the proof reveals a nontrivial involution plus Kummer-carry mechanism made available by the recent explicit formula. It is not a routine table extension or a mere recomputation of known residues.",
+    "status": "PASS"
+  }
+}
