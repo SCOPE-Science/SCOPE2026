@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact Poisson factorial-moment identities give the nuisance-corrected influence psi and strictly positive s_u². The mean-preserving ZIP pgf yields the exact nonnull residual, and a fixed-lambda triangular-array CLT proves the local normal shift. The derivative sign identity was verified symbolically by the separate exact checker; near-zero t positivity and at-one negativity prove interior maxima. Uniform small-lambda series has a unique quadratic maximizer at t=2/3. For large lambda, global exponential comparison forces all maxima t→1, and the stationary identity gives lambda(1-t)→1, yielding the maximum-value envelope. Finite tests stress-test rather than prove the continuum claim. The original extracted verify.py executed successfully and passed 96 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Weiß–Puig–Aleksandrov Theorem 1 derives normal asymptotics and alternative power for general Stein weights and arbitrary fixed alternative distributions; Example 1 numerically optimizes exponential ZIP weights at mean 2, with weights around 0.48 or 0.32.",
+        "Weiß–Nik (2025) studies K-point discretized pgf discrepancies, including null covariance and chi-square-type mixture limits, but its materially available sections introduce no asymptotic λ-extreme ZIP weight-tuning theorem."
+      ],
+      "reasoning": "The earlier general distribution/weight asymptotics can be specialized to Poisson ZIP and the pointwise variance, which this package explicitly credits. Their conclusions do not contain the uniform small-mean optimization or large-mean variational localization needed for the two proven parameter limits. Claim is restricted to the resulting sharpened endpoint law and not the broad parent test method.",
+      "searches": [
+        "Sharp local asymptotic power and optimum exponential weight u^X in Poisson Stein goodness of fit against contiguous zero inflated Poisson alternatives; small and large mean scaling",
+        "Poisson zero inflation statistic optimum parameter t=1-u has small intensity two thirds limit and high intensity λu tends to one",
+        "DOI 10.1002/bimj.202200073 Theorem 1 and Example 1",
+        "DOI 10.1080/00949655.2025.2604785 §2"
+      ]
+    },
+    "checked_sources": [
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200073",
+      "https://onlinelibrary.wiley.com/doi/abs/10.1111/stan.12252",
+      "https://doi.org/10.1016/0167-7152(92)90033-2",
+      "https://www.tandfonline.com/doi/full/10.1080/00949655.2025.2604785",
+      "https://www.rdocumentation.org/packages/vcdExtra/versions/0.9.1/topics/zero.test"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier Stein work supplies the test statistic, a general delta-method formula, ZIP pgf, and numerical maximizers but no theorem on small-/large-mean optimal tuning.",
+        "The later discrete-grid pgf paper provides covariance calculations, which may subsume the fixed-u variance, not the optimizer boundary-layer statement.",
+        "Current analytic proof requires uniform Taylor convergence for λ→0, global exclusion of t away from 1 as λ→∞, and a stationary equation forcing λ(1-t)→1."
+      ],
+      "reasoning": "The general Stein–Chen theorem implies the null asymptotics once specialized; those are credited. The new claim is not that known general theorem restated or one of its direct fixed-parameter consequences: proving limits for every moving-mean maximizing sequence requires separate global calculus arguments not supplied by the prior statements. Residual possibility of an unlocated prior specialization is reported below.",
+      "searches": [
+        "Poisson Stein Chen zero inflated Poisson exponential family weight u^x local asymptotic power efficiency noncentrality (exp(lambda*(1-u))-1)^2 / ((1+lambda*(1-u)^2)*exp(lambda*(1-u)^2)-1) optimal u",
+        "Stein-Chen empirical probability generating function derivative optimal test weights local zero inflated alternatives",
+        "DOI 10.1002/bimj.202200073 eqs (11),(13),(14), Theorem 1, Example 1, Tables 2–3",
+        "DOI 10.1080/00949655.2025.2604785 pointwise pgf grid K=1 covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Weiß–Puig–Aleksandrov (2023) equation (11) equates exponential Stein ratio to logarithmic-pgf derivative; equations (13)–(14) derive ZIP population ratio. Baringhaus–Henze (1992) use an integrated derivative pgf residual, a related but different statistic.",
+        "Published published-finding corpus nearest search hit 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda is about Bernoulli cumulants and not this Poisson local-power problem."
+      ],
+      "reasoning": "The pointwise empirical-pgf differential test and the exponential Stein ratio are asymptotically equivalent at each fixed u; those identities are treated as established rather than new. Neither materially inspected statement identifies the sharp small-mean optimizer u→1/3 and large-mean boundary layer λu→1 for mean-preserving contiguous ZIP alternatives. The new object is that optimization law.",
+      "searches": [
+        "Poisson Stein Chen zero inflated Poisson exponential family weight u^x local asymptotic power efficiency noncentrality (exp(lambda*(1-u))-1)^2 / ((1+lambda*(1-u)^2)*exp(lambda*(1-u)^2)-1) optimal u",
+        "Empirical probability generating function Stein Chen differential equation one point local zero inflation optimal score parameter asymptotic",
+        "pointwise Poisson empirical-pgf derivative test",
+        "DOI 10.1002/bimj.202200073 §§2–3; DOI 10.1016/0167-7152(92)90033-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2023 paper reports finite-sample numerical optima at individual means and zero-inflation strengths, not a sharp continuous-parameter asymptotic table for λ→0 and λ→∞.",
+        "The 2022 Stein–Chen time-series table uses a fixed exp(-x) weighting, with numerical size/power columns.",
+        "published-finding corpus semantic results mention Poisson-binomial cumulant envelopes and other unrelated count statistics, but no located table with this pair of asymptotic scales."
+      ],
+      "reasoning": "Known numerical optima at a few fixed model parameters neither exhaust the continuous mean parameter nor imply the rigorous 1/λ scale. No exact database, table, or software certificate providing the full two-limit theorem was located; search absence alone is not proof of novelty.",
+      "searches": [
+        "Poisson zero inflation Stein goodness fit tuning u small intensity 1/3 large intensity asymptotically 1/lambda",
+        "Poisson zero inflation Stein goodness fit tuning u small intensity 1/3 large intensity asymptotically 1/lambda",
+        "DOI 10.1002/bimj.202200073 Tables 2–3; 10.1111/stan.12252 Table 3",
+        "published-finding corpus search for Poisson local zero-inflation Stein u opt 1/lambda"
+      ]
+    },
+    "rationale": "The 2022 primary source provides the same Stein test and broad normal-power apparatus; the exact additional theorem here is two *proved* intensity-extreme laws for local mean-preserving ZIP tuning within one exponential family. Its numeric u optimizations at μ=2 do not establish these limits. published-finding corpus targeted searches and comparisons to older empirical-pgf derivative tests, the 1995 zero-count score, the 2022 time-series Stein paper and 2025 finite-grid pgf work did not locate a stronger result actually covering these two optimum scales. The stationary boundary-layer derivation is substantive, not a simple wording specialization. Bibliographic priority is not independently certified and inaccessibility is recorded.",
+    "residual_risks": [
+      "Earlier empirical generating-function or local asymptotic testing manuscripts not available in complete full text may have the same intensity-optimality result.",
+      "General arbitrary-alternative delta-method formulae already yield the null variance and pointwise contiguous power when specialized; those subresults are prior and not separately claimed novel.",
+      "No bibliographic search can establish priority or rule out unpublished overlapping manuscripts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers original statistic and generalized fixed-alternative asymptotic power; NOT identified as a statement of the two λ-endpoint scaling limits for a contiguous, mean-preserving ZIP alternative.",
+        "evidence": [
+          "Stein ratio equation (3), exponential pgf equation (11), ZIP equation (14), Section 3 Example 1 u≈0.48 or 0.32 at μ=2; first public date stated in publisher header."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/bimj.202200073",
+        "material_read": "Full open-access publisher HTML: introduction, §§2–3, Theorem 1, Example 1, reported numerical weights/Tables 2–3, discussion/conclusion and Poisson identity proof.",
+        "method": "Publisher full-text HTML, matching formulae and actual numerical claims.",
+        "title": "Optimal Stein-type goodness-of-fit tests for count data",
+        "trigger": "Exact source object, general Poisson Stein test, ZIP alternative, and exponential u^x parameter optimality; first online 2022-09-27."
+      },
+      {
+        "assessment": "Proposes fixed exponential weight and studies finite-sample ZIP power, not the paired intensity-optimal limit laws.",
+        "evidence": [
+          "Table 3 reports simulation size, power and local power at means 2 and 5 with exp(-x) fixed weight."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1111/stan.12252",
+        "material_read": "Publisher-indexed abstract, article excerpt and Table 3 headings/numeric comparisons.",
+        "method": "Lawfully indexed source excerpt; not represented as complete article full-text inspection.",
+        "title": "Goodness-of-fit tests for Poisson count time series based on the Stein–Chen identity",
+        "trigger": "Earlier Poisson Stein testing, exponential weight and ZIP power benchmarks."
+      },
+      {
+        "assessment": "Integrated discrepancy is related and prior but no reviewed evidence of an exact optimum for the contiguous mean-preserving ZIP single-point statistic.",
+        "evidence": [
+          "The 2023 primary paper Section 2 specifically relates its equation (11) to Baringhaus–Henze 1992 integrated L2 test."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0167-7152(92)90033-2",
+        "material_read": "Bibliographic abstract and precise attribution of integrated derivative-pgf GoF construction in Weiß–Puig–Aleksandrov Section 2.",
+        "method": "Bibliographic source and later full-text historical exposition; original complete article not accessible in material inspected.",
+        "title": "A goodness of fit test for the Poisson distribution based on the empirical generating function",
+        "trigger": "Earlier equivalent pointwise/derivative empirical generating function statistics."
+      },
+      {
+        "assessment": "The K-point framework covers fixed-grid moments and null covariance, but the examined material does not derive local ZIP-exponential weight optimum or the two mean-extreme limits.",
+        "evidence": [
+          "Online publication 2025-12-21; §1 describes discretizing integrated squared pgf discrepancies; later text details general K-grid covariance and null asymptotics."
+        ],
+        "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/00949655.2025.2604785",
+        "material_read": "Extensive publicly indexed full-text excerpts, including introduction, finite-grid test construction and general-covariance derivation; direct full-page request restricted.",
+        "method": "Indexed scientific text search and original article snippets, not entire full manuscript inspection.",
+        "title": "Computationally efficient pgf-based goodness-of-fit tests for Poisson counts and beyond",
+        "trigger": "Potentially dominating K=1 pgf covariance and asymptotic test coverage."
+      },
+      {
+        "assessment": "Tests the same null/alternative boundary but uses zero-count score, not optimization of exponential Stein pointwise weights; cannot claim unrestricted most powerful power.",
+        "evidence": [
+          "Score statistic based on observed versus fitted expected zeros and nuisance adjustment."
+        ],
+        "identifier_or_url": "J. van den Broek (1995), Biometrics 51(2):738–743, JSTOR 2532959",
+        "material_read": "Bibliographic description and displayed zero-count score statistic from vcdExtra zero.test documentation.",
+        "method": "Original bibliographic attribution and accurately identified formula in statistical software documentation.",
+        "title": "A Score Test for Zero Inflation in a Poisson Distribution",
+        "trigger": "Alternative equivalent efficient local zero-inflation score tests."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51f9c1aa-b535-4eac-972f-3d287f8f96d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2022 reference explicitly motivates selecting u^x for zero inflation and optimizing power, but gives mainly numerical parameter choices. The sharp u→1/3 and lambda*u→1 laws identify different practical tuning regimes under small and large Poisson means, with their limiting noncentrality envelopes. The fixed-u nuisance cancellation and moving-global-optimizer analysis supply substantive statistical structure, avoiding an arbitrary parameter slice; useful precisely where routine fixed-u suggestions are inadequate. The result remains restricted to one nontrivial model and is not a claimed universal test optimality.",
+    "status": "PASS"
+  }
+}
