@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The matrix proof is complete for all stated parameters. The consecutive-window matrix W has full column rank ell-k, so D=WW^T has nullity k and exactly the within-leg path-power support. The cross-leg matrix C has support a+b<=k, and the center vector has support a<=k, so the assembled block matrix has exactly the spider-power off-diagonal pattern. Vectors with leg components in ker(D) summing to zero form a kernel subspace of dimension (m-1)k. Therefore M>=(m-1)k; the standard M<=Z inequality and published Proposition 9 give the reverse chain. Exact-arithmetic and direct zero-forcing checks corroborate the construction on finite profiles but are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DeAlba et al. (2012), Theorem 3.2, determines minimum rank of ordinary path powers.",
+        "The general-tree section of DeAlba et al. studies strict powers, with its main general-tree theorem for the strict square; it does not give the ordinary equal-leg-spider power formula.",
+        "arXiv:2610.03892v1 explicitly says that beyond paths and cycles it gives upper bounds for spiders and then poses equality as Conjecture 10."
+      ],
+      "reasoning": "The plausible older broader source does not imply the claimed ordinary spider-power formula. The motivating source itself distinguishes its exact path/cycle results from spider upper bounds.",
+      "searches": [
+        "minimum rank powers of spiders equal legs",
+        "maximum nullity power of spider graph S_m(l)^k"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03892v1",
+      "DOI:10.13001/1081-3810.1511",
+      "2026/9/17/SCOPE002",
+      "2026/9/19/SCOPE-curvature-distortion-spider-trees--7ee8f1c6b217"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 9 of arXiv:2610.03892v1 gives only Z(S_m(ell)^k) <= (m-1)k.",
+        "The general inequality M(G)<=Z(G) runs in the wrong direction to derive a lower bound from Proposition 9.",
+        "The new explicit matrix gives M(S_m(ell)^k)>=(m-1)k, which together with the prior upper bound forces equality."
+      ],
+      "reasoning": "The prior upper bound does not logically imply the theorem. The new matrix certificate supplies exactly the missing implication and also proves a stronger equality with maximum nullity.",
+      "searches": [
+        "Conjecture 10 zero forcing powers spider S_m(l) (m-1)k",
+        "minimum rank powers of spiders equal legs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.03892v1 states Conjecture 10 as Z(S_m(ell)^k)=(m-1)k for m>=2, k>=1, ell>=k+1.",
+        "Searches using zero forcing, maximum nullity, spider power, and the explicit (m-1)k formula returned no statement equivalent to the theorem."
+      ],
+      "reasoning": "The maximum-nullity formulation is not merely a renaming: it supplies the lower bound that closes the conjecture. Searches explicitly covered both invariant names and the exact parameterized formula.",
+      "searches": [
+        "zero forcing number powers of spiders exact formula",
+        "Conjecture 10 zero forcing powers spider S_m(l) (m-1)k",
+        "maximum nullity power of spider graph S_m(l)^k",
+        "zero forcing spider power (m-1)k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed same-area result 2026/9/17/SCOPE002 concerns zero-forcing polynomials of trees, not powers or maximum nullity.",
+        "The indexed spider result 2026/9/19/SCOPE-curvature-distortion-spider-trees--7ee8f1c6b217 concerns a different invariant.",
+        "The motivating preprint reports only finite exhaustive equality checks for 2<=m<=5, ell in {4,5}, and 1<=k<=3 before stating the conjecture."
+      ],
+      "reasoning": "Neither a finite table nor the closest indexed records covers the universal theorem. The proof is not inferred from the finite checks.",
+      "searches": [
+        "zero forcing number powers of spiders exact formula",
+        "Conjecture 10 zero forcing powers spider S_m(l) (m-1)k",
+        "maximum nullity power of spider graph S_m(l)^k",
+        "zero forcing spider power (m-1)k",
+        "minimum rank powers of spiders equal legs"
+      ]
+    },
+    "rationale": "The motivating 2026 preprint states exactly the zero-forcing equality as Conjecture 10 after proving only the matching upper bound. Full-text comparison with the 2012 minimum-rank paper found exact ordinary path-power minimum rank and results on strict powers of general trees, but no ordinary equal-leg-spider power theorem. Targeted semantic searches under the claim, maximum-nullity formulation, and spider-power aliases found no covering result. The new block-matrix argument proves the conjecture and the stronger maximum-nullity equality.",
+    "residual_risks": [
+      "The motivating preprint is only days old, so an unindexed independent solution or later revision may appear quickly.",
+      "Searches cannot exclude a differently worded unpublished or poorly indexed solution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves the matching upper bound and explicitly leaves equality as Conjecture 10.",
+        "evidence": [
+          "Proposition 9 states Z(S_m(ell)^k) <= (m-1)k in the claimed range.",
+          "Conjecture 10 states equality in exactly that range after bounded exhaustive checks.",
+          "The paper records M(G)<=Z(G), so its upper bound alone cannot furnish the needed lower bound."
+        ],
+        "identifier_or_url": "arXiv:2610.03892v1",
+        "material_read": "Full preprint with focused reading of the preliminaries, Proposition 7, Proposition 9, Conjecture 10, and later spectral examples.",
+        "method": "Statement-level and implication-level full-text comparison.",
+        "title": "The Zero Forcing Number of Graph Powers",
+        "trigger": "This is the motivating primary source and contains the exact spider-power conjecture."
+      },
+      {
+        "assessment": "NOT_COVERING: gives ordinary path-power minimum rank and strict-power results for trees, not the ordinary equal-leg-spider power theorem.",
+        "evidence": [
+          "Theorem 3.2 gives mr(P_n^r)=n-r in the noncomplete range.",
+          "Section 4 is explicitly about strict powers of trees; no spider theorem is stated."
+        ],
+        "identifier_or_url": "DOI:10.13001/1081-3810.1511",
+        "material_read": "Full article, including ordinary path powers in Section 3 and the general-tree results in Section 4.",
+        "method": "Full-text theorem and scope comparison, including the displayed path-power minimum-rank theorem and the strict-power tree section.",
+        "title": "Minimum rank of powers of trees",
+        "trigger": "The title suggests potentially broader minimum-rank coverage that could dominate the maximum-nullity part of the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8e9d1cb3-73f9-476e-8bc3-17750a59cf39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves an explicit conjecture in a new systematic study of zero forcing on graph powers for a canonical tree family, and strengthens the conjectured zero-forcing equality to simultaneous equality with maximum nullity. The certificate is structural, uniform in all parameters, and reusable as a block-matrix method rather than a routine finite increment.",
+    "status": "PASS"
+  }
+}
