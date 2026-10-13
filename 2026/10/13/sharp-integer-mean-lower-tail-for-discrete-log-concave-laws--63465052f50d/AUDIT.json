@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "For fixed integer \\(k\\) and \\(n>2k\\), the truncated geometric mean \\(\\mu_n(r)\\) is continuous and strictly increasing because its derivative with respect to \\(\\log r\\) is the positive variance. At \\(r=k/(k+1)\\), truncation strictly lowers the mean below \\(k\\), while the limit at \\(r\\uparrow1\\) is \\(n/2>k\\), giving a unique integer-mean parameter. For fixed \\(k\\), that parameter converges to \\(k/(k+1)\\); the exact tail formula then converges to \\((k/(k+1))^k\\), and the latter tends to \\(e^{-1}\\). Reversal of the support preserves log-affinity and converts the tail into the event at or below the integer mean. Combined with the published lower bound, this proves the exact infimum. The checker only supplements the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.12702 proves the broader lower bound \\(\\Pr\\{X<\\mathbb E[X]+1\\}\\ge e^{-1}\\) and sharpness over all discrete log-concave laws, but its displayed sharpness family does not satisfy the additional integer-mean constraint used here.",
+        "arXiv:2004.12005 proves localization and large-deviation results for discrete log-concave laws and contains monotonicity of the truncated-geometric mean, but no inspected theorem fixes an integer mean and identifies \\(e^{-1}\\) as the exact lower-tail infimum."
+      ],
+      "reasoning": "A sharp constant over a larger class does not imply that the same constant is sharp after imposing an arithmetic mean constraint. The new construction is precisely what transfers sharpness into the restricted subclass.",
+      "searches": [
+        "On a Conjecture of Feige for Discrete Log-Concave Distributions sharpness integer mean",
+        "Geometric and Functional Inequalities for Log-concave Probability Sequences integer mean geometric",
+        "discrete log-concave mean median one-sided mass sharp constant"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.12702v1",
+      "DOI:10.1137/22M1539514",
+      "arXiv:2004.12005v4",
+      "DOI:10.1007/s00454-023-00528-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source separates the unrestricted sharpness discussion from the integer-mean corollary and does not assert restricted sharpness.",
+        "The localization source provides ingredients but no implication that produces integer-mean near-extremizers for the Feige lower-tail functional."
+      ],
+      "reasoning": "Neither prior statement logically supplies a sequence inside the integer-mean subclass whose lower-tail mass approaches \\(e^{-1}\\). The new mean-calibration and reversal argument supplies the missing implication.",
+      "searches": [
+        "arXiv:2208.12702 Corollary 1.2 integer mean and Remark 2.2 sharpness",
+        "arXiv:2004.12005 Lemma 3.14 truncated geometric mean monotonicity",
+        "web exact phrase: \"integer mean\" \"discrete log-concave\" \"1/e\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2208.12702, Corollary 1.2 states the integer-mean lower bound but the surrounding discussion only rules out a universal one-half bound by an eight-point example.",
+        "No searched semantic result stated the restricted infimum or the mean-calibrated truncated-geometric construction."
+      ],
+      "reasoning": "Equivalent formulations include sharpness of the integer-mean corollary, an infimum of mass at or below the mean, and a calibrated truncated-geometric tail problem. Searches used all three formulations and found no covering statement.",
+      "searches": [
+        "discrete log-concave integer mean sharp 1/e mean probability P(X <= E X)",
+        "finitely supported log-affine integer mean P(X<=EX) infimum",
+        "truncated geometric integer mean tail e^{-1} log-concave",
+        "web exact phrase: \"P(X <= E[X])\" \"integer mean\" log-concave"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Candidate-specific semantic searches returned only unrelated sharp-constant records; no database or table entry gave the restricted sharpness statement.",
+        "The construction requires solving a mean constraint and passing two limits; it is not a lookup of a tabulated distributional probability."
+      ],
+      "reasoning": "The exact value follows from a proof combining a published lower bound with a new admissible approximating family rather than from an existing numerical table.",
+      "searches": [
+        "Corollary 1.2 Feige discrete log-concave integer mean sharpness",
+        "probability at or below mean discrete log-concave integer mean sharp constant",
+        "truncated geometric integer mean log-concave 1/e"
+      ]
+    },
+    "rationale": "The direct source states the integer-mean \\(e^{-1}\\) lower bound, shows only that \\(1/2\\) fails in the full log-concave class, and gives unrestricted sharpness examples whose means are not constrained to be integers. The inspected localization paper supplies general log-affine extremal structure and truncated-geometric mean monotonicity but not the restricted sharpness statement. Exact-phrase web searches and candidate-specific semantic database searches did not locate a covering theorem. A residual risk from older median terminology is recorded.",
+    "residual_risks": [
+      "The restricted sharpness observation is short enough that an equivalent construction may exist in older work on medians or one-sided mass bounds for discrete log-concave sequences under different terminology; targeted searches did not locate it.",
+      "The claim is only about the exact infimum. It does not classify all near-extremizers or prove nonattainment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The source proves the lower bound and unrestricted sharpness, but in the integer-mean paragraph it only shows that one-half is not universal; it does not state that the lower constant \\(e^{-1}\\) is sharp under the integer-mean restriction.",
+        "identifier_or_url": "arXiv:2208.12702v1; DOI:10.1137/22M1539514",
+        "material_read": "Full arXiv text, including Theorem 1.1, Corollary 1.2, its discussion, the proof reduction to log-affine laws, and Remark 2.2 on sharpness; journal metadata for MSC classification.",
+        "method": "Compared the domain of the stated sharpness examples with the additional condition that the mean be an integer.",
+        "title": "On a Conjecture of Feige for Discrete Log-Concave Distributions",
+        "trigger": "Direct source of the integer-mean lower bound and unrestricted sharpness construction."
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "The paper develops the relevant extremal machinery and mean monotonicity but does not state the integer-mean \\(e^{-1}\\) sharpness result or this approximating family.",
+        "identifier_or_url": "arXiv:2004.12005v4; DOI:10.1007/s00454-023-00528-7",
+        "material_read": "Full arXiv text, especially the localization theorem, the large-deviation section, and the truncated-geometric mean monotonicity lemma.",
+        "method": "Checked whether fixed-mean tail extremizers or mean-monotonicity results imply or state the exact integer-mean lower-tail infimum.",
+        "title": "Geometric and Functional Inequalities for Log-Concave Probability Sequences",
+        "trigger": "Main discrete-localization source used by the direct paper and a plausible source for an equivalent truncated-geometric extremal statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "63465052-f50d-439a-ba04-b636387d2162",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The direct paper singles out the integer-mean case because it converts the Feige threshold into mass at or below the mean, compares it with stronger one-half bounds for classical families, and supplies a counterexample to one-half. Determining that the published \\(e^{-1}\\) lower bound is itself exactly sharp in this restricted subclass resolves the remaining quantitative gap with an explicit natural log-affine family. The result is structural rather than a finite numerical slice and clarifies that the arithmetic integrality constraint yields no universal improvement.",
+    "status": "PASS"
+  }
+}
