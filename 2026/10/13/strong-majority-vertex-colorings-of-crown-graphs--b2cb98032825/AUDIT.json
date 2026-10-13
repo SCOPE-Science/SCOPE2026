@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For a vertex a_i, the color-alpha multiplicity in its neighborhood is B_alpha minus the indicator that b_i has color alpha. If B_alpha exceeds floor((n-1)/2) but is less than n, choosing a non-alpha b_i exposes all B_alpha copies and violates the condition; if B_alpha=n, every a_i sees n-1 copies and also violates it. This proves necessity, while the capacity bound immediately proves sufficiency. The minimum follows from bin capacity on each side, and exact counts follow from independent multinomial assignments plus inclusion-exclusion. Direct exhaustive checks agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Observation 5 determines cycles, so it covers the scalar Cr_3=C_6 case.",
+        "Observation 6 determines complete graphs, a non-containing family.",
+        "Theorem 9 constructs bipartite graphs with arbitrarily large strong majority number but does not specialize to crowns.",
+        "No crown, matching, complete-bipartite, cube, or hypercube occurrence was found in the inspected initiating paper.",
+        "The later 2607.00212 paper studies strong majority edge-coloring, not vertex-coloring."
+      ],
+      "reasoning": "The strongest primary-source results neither contain the crown family as an exact theorem nor imply the sidewise multiplicity cap. The only direct special-case implication is Cr_3 through the cycle theorem, which is credited.",
+      "searches": [
+        "Full-text inspection of arXiv:2605.23828v1, especially Section 2, Observations 5 and 6, Theorem 9, and Theorem 10",
+        "Full-text searches in arXiv:2605.23828v1 for crown, matching, complete bipartite, cube, and hypercube",
+        "ArXiv abstract inspection of arXiv:2607.00212v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.23828v1",
+      "arXiv:2607.00212v1",
+      "published-finding corpus:2026/9/17/SCOPE005",
+      "published-finding corpus:2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105",
+      "published-finding corpus:2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Observation 5 gives Maj(C_6)=3 and therefore only the n=3 scalar crown case.",
+        "The complete-graph result has no subgraph-monotonic implication for strong-majority colorings because both neighborhoods and half-degree thresholds change under edge deletion.",
+        "Theorem 9 is an existence construction for different bipartite incidence graphs, not an upper or exact result for crowns.",
+        "SCOPE005 is an edge-coloring threshold and uses a different local object."
+      ],
+      "reasoning": "None of the prior statements determines the two independent side capacities, the exact all-n crown number, the spectrum, or the coloring enumerator. The already implied n=3 scalar endpoint is separated as prior coverage.",
+      "searches": [
+        "arXiv:2605.23828v1 Observation 5 on cycles",
+        "arXiv:2605.23828v1 Observation 6 on complete graphs",
+        "arXiv:2605.23828v1 Theorem 9 on high-Maj bipartite constructions",
+        "published-finding corpus id 2026/9/17/SCOPE005"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-finding corpus hit stated the crown strong-majority vertex number or side-capacity criterion.",
+        "Web searches returned the initiating strong-majority paper and edge-coloring literature rather than a crown vertex-coloring theorem."
+      ],
+      "reasoning": "The searches use the standard crown name, the deleted-matching representation, the invariant notation, and the natural side-capacity reformulation. No equivalent vertex-coloring statement was located.",
+      "searches": [
+        "published-finding corpus: strong majority vertex coloring crown graph exact strong majority number",
+        "published-finding corpus: strong majority coloring K_n,n minus perfect matching crown",
+        "published-finding corpus: Maj crown graph vertex coloring strong majority",
+        "published-finding corpus: strong majority crown graph color class side capacity",
+        "Web: \"strong majority\" crown graph",
+        "Web: \"strong majority coloring\" \"K_{n,n}\" matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus id 2026/9/17/SCOPE005 concerns generalized strong-majority edge coloring of bipartite graphs.",
+        "Closest same-family id 2026/9/30/SCOPE-exact-proper-conflict-free-chromatic-number-of-crown-graphs--24fe2313d105 concerns proper conflict-free coloring.",
+        "Another crown record, 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa, concerns restrained domination."
+      ],
+      "reasoning": "The database neighbors match either the family or the words strong-majority, but not the same vertex-coloring invariant, so none implies the claim.",
+      "searches": [
+        "published-finding corpus: strong majority vertex coloring crown graph exact strong majority number",
+        "published-finding corpus: strong majority coloring K_n,n minus perfect matching crown",
+        "published-finding corpus: strong majority crown graph color class side capacity"
+      ]
+    },
+    "rationale": "The initiating strong-majority paper defines the invariant and gives exact cycle and complete-graph examples, but targeted full-text searches found no crown, matching, or complete-bipartite theorem. published-finding corpus searches for crown/K_{n,n}-M vertex strong-majority formulations returned only edge-coloring or different-invariant crown results. The n=3 scalar special case is explicitly treated as prior via the cycle theorem; the final claim is the all-n side-capacity theorem, spectrum, and enumeration.",
+    "residual_risks": [
+      "Crown graphs are also written K_{n,n}-M and Cr_n, and alternate terminology could hide an equivalent exact result.",
+      "The invariant was introduced in 2026, so concurrent follow-up work may not yet be indexed.",
+      "The n=3 scalar endpoint is not new; it follows from the initiating paper’s cycle theorem and is included only as part of the uniform classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same invariant and supplies neighboring exact examples, but no crown-family theorem or enumeration was located.",
+        "evidence": "First public 2026-05-22; MSC classes 05C15,05C70. Section 2 defines Maj(G), Observation 5 treats cycles, Observation 6 complete graphs, and Theorem 9 constructs other bipartite graphs with large Maj.",
+        "identifier_or_url": "arXiv:2605.23828v1",
+        "material_read": "ArXiv metadata and submission history; full PDF abstract and motivation; Section 2 definition; Observations 5 and 6; Theorems 9 and 10; targeted full-text searches for crown, matching, complete bipartite, cube, and hypercube; the Section 2 definition page was also visually inspected.",
+        "method": "Direct primary PDF text inspection, targeted term search, and page-image inspection.",
+        "title": "Strong majority colorings of graphs",
+        "trigger": "Fresh primary source introducing the exact vertex-coloring invariant and carrying primary MSC 05C15."
+      },
+      {
+        "assessment": "Studies edge colorings and improves a universal edge-color bound; it does not cover strong-majority vertex colorings of crowns.",
+        "evidence": "First public 2026-06-30; the abstract explicitly defines its coloring on E(G), not V(G).",
+        "identifier_or_url": "arXiv:2607.00212v1",
+        "material_read": "ArXiv abstract and stated scope.",
+        "method": "Invariant and implication comparison.",
+        "title": "Strong Majority Edge-Coloring",
+        "trigger": "Recent follow-up with nearly identical terminology that could be confused with the crown claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2cb9803-2825-47cd-b86a-35d991441bb6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crown graphs are a canonical near-complete bipartite family. The result is not just a small scalar evaluation: it gives an iff structural theorem reducing strong-majority feasibility to independent bounded color classes on the two sides, a sharp exceptional n=4 transition, every feasible number of used colors, and exact labeled coloring counts. This provides reusable structure for comparisons with other deleted-matching families and with the distinct strong-majority edge invariant.",
+    "status": "PASS"
+  }
+}
