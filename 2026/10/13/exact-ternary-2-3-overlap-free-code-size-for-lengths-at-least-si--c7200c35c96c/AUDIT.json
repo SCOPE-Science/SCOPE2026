@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge6\\) the injection of words into three-prefix, middle, and three-suffix blocks proves \\(|C|\\le|P||T|\\,3^{n-6}\\). The overlap-2 and overlap-3 restrictions imply disjoint A,B of pair ends and disjoint P,T triple ends. For each of \\(3^9\\) pair assignments, the integer optimum of allocating h common candidate triples is F(A,B); standard-library exhaustive verifier evaluates every assignment and an independent bitmask implementation confirms maximum 132. Construction has \\(|P|=11\\), \\(|T|=12\\), matching these bounds with disjoint two- and three-overlap sets. All quantifiers, end-index conventions, \\(n\\ge6\\) boundary, and finite loops verified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanovnik arXiv:2411.02899v1 Proposition 3 explicitly gives \\(q^{n-2t_2}\\) scaling for \\(n>2t_2\\); section 3 gives a general bound, while its computed tables concern (1,n-2) and (1,n-3).",
+        "Blackburn et al. arXiv:2211.10309v4 Theorems 1 and 2 give bounds for (k,n-1) and (1,k), and Theorem 5 concerns (1,k) Cartesian boundary codes.",
+        "Yang--Ding DOI:10.1587/transfun.2025EAL2050 Theorem 3.4 determines the size of one construction family, not the unrestricted maximum."
+      ],
+      "reasoning": "The length reduction is broader in n but stops short of the unknown base-six parameter. Existing general bounds or restricted construction sizes do not imply the numerical optimum 132.",
+      "searches": [
+        "Codes with restricted overlaps Stanovnik Proposition 3 q=3 t1=2 t2=3 exact S",
+        "Q-Ary (t1,t2)-Overlap-Free Codes Yang Ding 2026 2 3 ternary 132",
+        "ternary length six overlapping code optimal 132 three-prefix two-prefix suffix de Bruijn"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1587/transfun.2025EAL2050",
+      "arXiv:2411.02899v1",
+      "arXiv:2211.10309v4",
+      "DOI:10.1016/j.disc.2024.114236 (abstract and conclusion only; (1,k) restrictions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang--Ding Theorem 3.4 at \\(q=3,t_1=2,t_2=3\\),k=1 or 2 and \\(n\\ge6\\) gives at most \\(108\\cdot3^{n-6}\\) in these construction cases, strictly below \\(132\\cdot3^{n-6}\\).",
+        "Stanovnik Proposition 3 implies the arbitrary-length extension once the base-six maximum is supplied, not the base optimum itself.",
+        "Blackburn et al. Theorem 5 gives the disjoint prefix/suffix criterion for their (1,k) construction, but its binary extremal constructions do not establish the ternary (2,3) maximum."
+      ],
+      "reasoning": "The new base-six exact optimum and full-code upper bound are not corollaries of a 108-size construction or a length-scaling theorem with unknown base. The boundary-set method is prior technique, and only the new exact ternary optimization is claimed.",
+      "searches": [
+        "Restricted overlaps q-ary code optimize de Bruijn graph three-letter prefix suffix disjoint sets 132",
+        "(2,3)-overlap-free code 132 108 ternary",
+        "Codes with restricted overlaps Stanovnik Proposition 3 q=3 t1=2 t2=3 exact S",
+        "Q-Ary (t1,t2)-Overlap-Free Codes Yang Ding 2026 2 3 ternary 132"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang--Ding DOI:10.1587/transfun.2025EAL2050 Definition 2.1 matches exact forbidden prefix/suffix conditions.",
+        "Stanovnik arXiv:2411.02899v1 Proposition 3 writes the invariant as an S with upper/lower interval indices and reduces arbitrary lengths \\(n>6\\) to the base n=6."
+      ],
+      "reasoning": "No inspected equivalent formulation fixes the ternary base optimum 132. Alternate notations for the same forbidden pair and reduction in length were checked; the scaling identity by itself leaves the value at length six unknown.",
+      "searches": [
+        "Ternary (2,3)-overlap-free code maximum size 132 times 3^(n-6), q=3",
+        "Ternary forbidden overlaps of lengths two and three optimal words size length six",
+        "\"ternary\" \"(2,3)-overlap-free\" \"132\"",
+        "\"restricted overlaps\" \"132\" ternary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual inspected tabulations in Stanovnik arXiv:2411.02899v1 Tables 1--2 are for (1,n-2) and (1,n-3), not (2,3) at ternary n=6.",
+        "Yang--Ding DOI:10.1587/transfun.2025EAL2050 appendix tables are for (1,t) parameters, not the forbidden interval (2,3)."
+      ],
+      "reasoning": "Searches and inspected tables did not yield an exact entry for \\(S_2^3(3,6)\\). A not-indexed finite code database or previous unpublished computation may still contain one.",
+      "searches": [
+        "ternary S_2^3(3,n) 132 3^(n-6) maximum restricted overlap 2 to 3",
+        "\"maximum\" \"ternary\" \"(2,3)\" \"overlap-free\"",
+        "\"2,3\" \"overlap-free\" \"ternary\" exact"
+      ]
+    },
+    "rationale": "The exact maximum at ternary base length six is not determined by the inspected interval-restricted-code papers. The length-scaling identity for \\(n>6\\) is explicitly credited to Stanovnik Proposition 3; the sharp 132 base value and attaining ternary extremal boundary sets require a new finite optimization. Yang--Ding give construction counts, Blackburn et al. the Cartesian prefix/suffix technique, and Stanovnik broad parameter bounds, none of which implies the exact \\(q=3,t_1=2,t_2=3\\) optimum without the missing finite calculation. Search failures are not novelty proofs; unindexed equivalent optimization remains a risk.",
+    "residual_risks": [
+      "An earlier unindexed exact ternary (2,3) base-six table or independently proved enumeration may exist.",
+      "Only inspected relevant sections of the two broader arXiv papers; other unindexed appendix material could contain equivalent special cases, although consulted tables use different parameters.",
+      "The (1,k)-focused Wang--Fang--Feng work was not fully inspected; its stated scope does not imply the (2,3) result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE; general construction is known, but no exact unrestricted maximum 132 is stated or implied",
+        "evidence": [
+          "Theorem 3.4 is a count for the authors' construction S_{I,J}; appendix tables specialize t1=1.",
+          "First public online date is September 22, 2025, as the publisher records."
+        ],
+        "identifier_or_url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+        "material_read": "Official open full-text HTML: definitions, Construction 3.5, Theorem 3.4, non-expandability and upper-bound sections, appendices for (1,t)",
+        "method": "Direct full-text mathematical comparison and specialization of the displayed construction count to \\(q=3,t_1=2,t_2=3\\)",
+        "title": "Q-Ary (t1,t2)-Overlap-Free Codes",
+        "trigger": "Same forbidden overlap interval, ternary alphabet, emerging general construction"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE; Proposition 3 establishes the n-scaling, but does not establish base-six ternary 132",
+        "evidence": [
+          "Proposition 3 states \\(S_{t_1}^{t_2}(q,n)=q^{n-2t_2}S_{t_1}^{t_2}(q,2t_2)\\) for \\(n>2t_2\\).",
+          "Tables 1--2 concern intervals starting with 1, with parameter choices depending on n."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.02899",
+        "material_read": "Open arXiv PDF: introduction, Section 3 including Proposition 3, relevant constructions, and tabulated parameter results in Tables 1--2",
+        "method": "Direct PDF text and page-image inspection plus statement implication comparison",
+        "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+        "trigger": "Prior broad bounds and arbitrary-length reduction could subsume a base-specific claim"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE; boundary decomposition was established previously, but ternary (2,3) sharp constant was not stated",
+        "evidence": [
+          "Theorems 1 and 2 address (k,n-1) or (1,k) intervals.",
+          "Theorem 5 gives a disjointness criterion for codes with all overlap lengths 1 through k forbidden; subsequent explicit constructions specialize to binary."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.10309",
+        "material_read": "Open arXiv PDF: definitions, Section II general bounds, Section III Theorem 5 and related binary constructions, section overview and cited scope",
+        "method": "Direct PDF text and page-image inspection, checking parameter and alphabet inclusion",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "Original restricted-overlap bounds and Cartesian prefix/suffix construction might imply the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7200c35-c96c-45e8-aae8-77cac057a7e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact optimum for the smallest stable base length of the ternary (2,3) synchronization-code invariant determines the optimal size for every \\(n\\ge6\\) and improves a natural published alphabet-bipartition construction from 108 to 132 at \\(n=6\\). It optimizes over all admissible codes instead of merely counting words of a previously proposed construction. Length scaling is existing literature and not claimed new.",
+    "status": "PASS"
+  }
+}
