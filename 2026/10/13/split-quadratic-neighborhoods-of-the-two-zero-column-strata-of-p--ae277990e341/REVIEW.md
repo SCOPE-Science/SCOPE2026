@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Expansion along two columns yields the exact polynomial \(u^{\mathsf T}A(B)v\). The all-ones specialization gives an explicitly nonzero determinant for every \(n\ge3\), making \(v\mapsto A(B)v\) invertible on a dense principal open. This proves a genuine scheme isomorphism, not merely equality of tangent cones. Jacobian differentiation of the split quadratic equation proves reducedness and the component claim on that open; the normal Hessian determinant gives the degeneration divisor. The exact integer checker corroborates small cases. The rank-drop locus is not globally classified.
+
+**Originality — PASS, with risk.** Alper--Bogart--Velasco (arXiv:1505.02205, Remark 1.5) already identifies the two-zero-column singular points and obtains the \(2n\) codimension upper bound. Boralevi--Carlini--Michałek--Ventura (arXiv:2402.17839, Section 4.5) studies related global codimension problems and does not give the explicit all-size open product normal form or transverse Hessian discriminant. Laubenbacher--Swanson (arXiv:math/9812112) treats two-by-two permanental ideals; it does not supply the all-size claim. These known containment/upper-bound results are excluded from novelty. There is residual risk of an equivalent unindexed local calculation and incomplete review of von zur Gathen (1987).
+
+**Value — PASS.** The permanent hypersurface's singular-component problem is a longstanding geometric issue. Exact local scheme structure, a full-rank transverse quadratic model for infinitely many natural linear components, and the explicit equation and degree of the degeneration locus constrain future classifications and distinguish actual ordinary-node regions from more degenerate intersections. This is more than a low-degree example or a restatement of singular containment, but does not solve the complete singular-locus problem.
+
+Self-review: passed. Independent audit: not yet performed.
