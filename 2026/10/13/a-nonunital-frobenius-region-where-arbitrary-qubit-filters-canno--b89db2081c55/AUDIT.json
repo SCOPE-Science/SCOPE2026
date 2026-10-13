@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Direct Bloch composition, Schatten Hölder, Lemma 7 of arXiv:1411.2517, and Proposition 5 of that paper yield \\(\\|A\\|_1+\\|b\\|_2\\le1\\) for every CPTP filter whenever \\(\\|M\\|_{\\mathrm F}+\\|c\\|_2\\le1\\). The non-entanglement-breaking hypothesis then forces all three indices to equal two. Exact arithmetic verifies the nonunital generalized amplitude-damping witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1707.00161 studies selected unitary filters between two rotated damping maps and experimentally observes entanglement revival; it does not optimize over arbitrary CPTP filters.",
+        "arXiv:1604.08350 studies reshuffling and alternating distinct noisy channel segments, rather than the arbitrary-filter index of one fixed qubit channel."
+      ],
+      "reasoning": "The closest later works address amendment by unitaries or reordering. They neither state nor imply a universal upper bound against every CPTP intermediate filter under the displayed Bloch norm condition.",
+      "searches": [
+        "Lami Giovannetti Conjecture 1 nonunital qubit N equals NU sufficient condition",
+        "generalized amplitude damping filtered index nonunitary filter qubit",
+        "Amending entanglement-breaking channels via intermediate unitary operations arXiv",
+        "Cut-and-paste restoration entanglement transmission 1604.08350"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1411.2517",
+      "DOI:10.1063/1.4931482",
+      "arXiv:1707.00161",
+      "DOI:10.1103/PhysRevA.96.022322",
+      "arXiv:1604.08350",
+      "DOI:10.1103/PhysRevA.96.012314"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 8 of arXiv:1411.2517 assumes \\(c=0\\) and derives a bound on the linear Bloch part; the new theorem allows \\(c\\ne0\\) under \\(\\|M\\|_{\\mathrm F}+\\|c\\|_2\\le1\\).",
+        "The later amendment and cut-and-paste papers exhibit ways to preserve entanglement under particular unitary/reordering interventions; they do not provide an all-CPTP-filter impossibility theorem for this region."
+      ],
+      "reasoning": "Prior results provide ingredients and neighboring phenomena, but none inspected has assumptions that imply the new nonunital theorem. The explicit nonunital witness excludes subsumption by the source's unital result.",
+      "searches": [
+        "arXiv:1411.2517 Proposition 5 Lemma 7 Theorem 8",
+        "arXiv:1707.00161 unitary filter amplitude damping",
+        "arXiv:1604.08350 entanglement breaking order qubit amplitude damping"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1411.2517 states Conjecture 1 for qubits and, in Theorem 8, proves the index-two implication only for unital channels.",
+        "No Frobenius-norm or nonunital affine-region formulation was found in the inspected primary source; its full-text search contains no occurrence of 'Frobenius' or 'non-unital'."
+      ],
+      "reasoning": "The new claim is not a renaming of the source theorem: its hypothesis allows nonzero translations and is witnessed by an explicit nonunital generalized amplitude-damping channel. Searches also used the filtered-index and Bloch-affine aliases.",
+      "searches": [
+        "qubit channel filtered entanglement-breaking index nonunital Frobenius norm translation N=2",
+        "entanglement-breaking indices qubit affine Bloch norm arbitrary CPTP filters",
+        "Frobenius norm entanglement-breaking qubit filtering Lami",
+        "arXiv:1411.2517 Conjecture 1 nonunital qubit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Example 1 and Eq. (27) of arXiv:1411.2517 give the exact generalized amplitude-damping entanglement-breaking boundary.",
+        "For \\(p=1/5\\) and \\(\\gamma=3/5\\), the exact comparison is \\(125/625>96/625\\), so the witness is outside the entanglement-breaking region."
+      ],
+      "reasoning": "The source's exact damping table/boundary verifies the witness but does not tabulate or derive the arbitrary-filter Frobenius region. No exact-table entry located subsumes the theorem.",
+      "searches": [
+        "arXiv:1411.2517 generalized amplitude damping entanglement breaking criterion",
+        "GAD p=1/5 gamma=3/5 entanglement breaking filtered index",
+        "phi psi phi entanglement breaking qubit Bloch Frobenius norm"
+      ]
+    },
+    "rationale": "The primary source leaves unitary-filter optimality as Conjecture 1 and proves the index-two implication only for unital qubit channels. Inspected later amendment work treats selected unitaries or channel reordering, not arbitrary CPTP filters. Querying source, claim, norm, damping-family, and implication aliases found no equivalent or stronger theorem.",
+    "residual_risks": [
+      "A later result may state the same sufficient region using different affine-map norms or amendability terminology and be poorly indexed. No such implication-equivalent statement was located in the checked primary sources or claim/alias searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the paper proves the relevant index-two implication only in the unital case and explicitly leaves the general qubit conjecture open. It supplies proof ingredients but not the nonunital Frobenius region.",
+        "evidence": "Conjecture 1, Eq. (73); Proposition 5, Eq. (77); Lemma 7, Eq. (83); Theorem 8, Eq. (86); Example 1, Eqs. (23) and (27).",
+        "identifier_or_url": "arXiv:1411.2517; DOI:10.1063/1.4931482",
+        "material_read": "Primary arXiv full text: Bloch representation and index definitions; generalized amplitude-damping example and exact PPT boundary; Conjecture 1; Proposition 5; Lemma 7; Theorem 8; surrounding discussion.",
+        "method": "Lawful arXiv full text, including rendered PDF pages for the conjecture and the two key lemmas/theorems.",
+        "title": "Entanglement--Breaking Indices",
+        "trigger": "Defining source for the indices and Conjecture 1; contains the exact lemmas used in the proof."
+      },
+      {
+        "assessment": "NOT_COVERING: it demonstrates entanglement revival under chosen unitary filters; it does not compare arbitrary CPTP and unitary filtered indices or state the affine Frobenius criterion.",
+        "evidence": "The paper's setup and conclusions consistently specify an intermediate unitary operation and experimentally implemented unitary phase-plate filters.",
+        "identifier_or_url": "arXiv:1707.00161; DOI:10.1103/PhysRevA.96.022322",
+        "material_read": "Open full text, including the theoretical setup, rotated phase/amplitude-damping examples, experimental results, conclusions, and reference context.",
+        "method": "Lawful open full-text PDF.",
+        "title": "Amending entanglement-breaking channels via intermediate unitary operations",
+        "trigger": "Closest later single-qubit amendment paper using an intermediate filter."
+      },
+      {
+        "assessment": "NOT_COVERING: its mechanism alternates or reorders different channel segments; it does not quantify the general CPTP-filtered index of one fixed channel under a Bloch-norm hypothesis.",
+        "evidence": "The construction uses alternating maps \\(\\Phi\\) and \\(\\Psi\\) built from damping and unitary pieces to change the ordering of a communication line.",
+        "identifier_or_url": "arXiv:1604.08350; DOI:10.1103/PhysRevA.96.012314",
+        "material_read": "Primary arXiv full text through the theoretical analysis of the cut-and-paste mechanism, including its amplitude- and phase-damping examples and EB-order discussion.",
+        "method": "Lawful arXiv full text.",
+        "title": "Cut-and-paste restoration of entanglement transmission",
+        "trigger": "Related pre-2016 work on extending entanglement transmission with noisy qubit channel components."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b89db208-1c55-4dd1-b5ad-a4f04e6758ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem proves a published qubit filtering conjecture on a continuum of genuinely nonunital channels, rules out every intermediate CPTP correction at the second use, and gives a simple rotation-invariant sufficient condition plus an exact thermal damping witness. This is structural progress beyond a routine calculation or isolated numerical example.",
+    "status": "PASS"
+  }
+}
