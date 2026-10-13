@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Every budget-one candidate is upper bounded by the centered-edge-length Rayleigh trace certificate. For both price branches, the explicitly constructed centered embedding attains all edge lengths and the exact claimed total squared norm, and its unscaled optimal Laplacian has those embedding coordinates as eigenvalue-one vectors. On the low-price side, a principal submatrix of L-I is positive semidefinite, forcing exactly one eigenvalue below one by interlacing; on the high-price side the leaf-eliminated two-by-two Schur complement has inertia (negative,zero), forcing a unique eigenvalue below one and a simple second eigenvalue. Equality conditions at individual leaves determine every spoke rate and the budget determines the bridge rate. A standalone standard-library checker passed 299 exact-rational low/high/boundary cases. Quantified proof is algebraic, not inferred from computation; no independent audit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun–Boyd–Xiao–Diaconis, SIAM Review 48 (2006), pp. 681–699, full PDF: sections 1–4 set arbitrary positive linear costs and a dual Euclidean embedding formulation; worked explicit graph classes in the later sections include paths and cycles, not the nonuniformly priced double-star formula.",
+        "Richter–Rocha, 2014, full PDF: the path length parameter is an integer graph distance and their optimization uses equal edge-price geometry."
+      ],
+      "reasoning": "The general optimization framework covers the problem computationally but does not imply the closed-form split, its exact threshold, or its multiplicity classification without additional nontrivial solution of this instance. The uniform-price double-broom formula subsumes only the one-price specialization, not the independent real bridge-price parameter.",
+      "searches": [
+        "\"double star\" \"nonuniform edge costs\" \"fastest mixing\"",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. (2006) doi:10.1137/S0036144504443821, accessible primary PDF fully inspected",
+      "Richter and Rocha (2014) full primary preprint https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+      "Wappler (2013) thesis official repository abstract and contents (PDF not accessible)",
+      "Fiedler (1990) doi:10.1080/03081089008817967, bibliographic-level inspection",
+      "Additional targeted web search phrases quoted in the four originality check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new \\(t=1\\) instance can reproduce known uniform-price absolute-connectivity formulas; this is a prior-implied special case and expressly excluded from the originality assertion.",
+        "Neither the abstract of Wappler (2013) nor the text of Sun et al. (2006) states the derivative jump at \\(\\sqrt t=(k-\\ell)/(\\ell+1)\\) or spectral multiplicity \\(k\\) versus one."
+      ],
+      "reasoning": "One cannot elevate a known special case to a novel claim by renaming. The assessed assertion is the complete \\(t>0\\) optimizer and exact price-induced phase diagram, and the current proof furnishes a distinct closed-form spectral-inertia analysis. Since inaccessible primary sections could contain a hidden equivalent result, residual historical risk is substantive, not erased by the searches.",
+      "searches": [
+        "\"double star\" \"nonuniform edge costs\" \"fastest mixing\"",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+        "https://monarch.qucosa.de/landing-page/?tx_dlf%5Bid%5D=https%3A%2F%2Fmonarch.qucosa.de%2Fapi%2Fqucosa%253A19916%2Fmets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Richter–Rocha (2014) full PDF, pp. 1–5, Theorems 1 and 3: exact absolute connectivity/eigenvectors of unpriced double brooms, hence the current theorem at bridge price one is included in published prior art.",
+        "The Wappler 2013 thesis repository abstract states explicitly that it generalizes the graph spectral-gap embedding problem to node significances and arbitrary edge lengths; the linked full-text attachment could not be retrieved."
+      ],
+      "reasoning": "The price-one case is definitely not original. An all-real positive bridge-price closed form and sharp transition are mathematically stronger than this fixed-price slice. General node-significance/edge-length formulations are closely related but a mere SDP solvability statement is not the new parametric closed-form theorem. The inaccessible thesis is recorded as a specific remaining risk.",
+      "searches": [
+        "\"double star\" \"bridge\" \"absolute algebraic connectivity\" edge lengths",
+        "\"double broom\" \"variable\" \"edge lengths\" \"algebraic connectivity\"",
+        "\"Wappler\" \"double star\" \"edge length\" algebraic connectivity",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+        "https://monarch.qucosa.de/landing-page/?tx_dlf%5Bid%5D=https%3A%2F%2Fmonarch.qucosa.de%2Fapi%2Fqucosa%253A19916%2Fmets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly relevant inspected Richter–Rocha theorems concern uniform edge lengths and an integer structural diameter; no table of arbitrary real bridge prices or breakpoint appears in the inspected manuscript.",
+        "The Sun et al. primary full text gives general SDP formulations, not a tabulated price-dependent double-star solution."
+      ],
+      "reasoning": "A parameter-matched uniform-price graph result is not a covering table for an entire price axis. No matching explicit table appeared in the inspected primary texts or topical search results; this negative finding does not prove global absence.",
+      "searches": [
+        "\"double star\" \"bridge\" \"absolute algebraic connectivity\" edge lengths",
+        "\"double broom\" \"variable\" \"edge lengths\" \"algebraic connectivity\"",
+        "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf"
+      ]
+    },
+    "rationale": "The verified primary full texts contain the general FMMP semidefinite/embedding framework with arbitrary costs (Sun et al., 2006) and a complete uniform-price double-broom classification (Richter and Rocha, 2014), but do not give the asserted all-positive-real bridge-price phase law, complete rate formulas, or its eigenvalue multiplicity transition. The prior general numerical optimization method does not itself state these explicit price-dependent identities. This is narrowly assessed originality with residual uncertainty about inaccessible historical exact formulas, not a uniqueness guarantee.",
+    "residual_risks": [
+      "Richter–Rocha establishes the entire uniform-price subcase; the general t-dependent theorem alone is assessed as novel.",
+      "The official Wappler 2013 thesis record says the treatment allows arbitrary edge lengths, but its PDF body was inaccessible: an exact graph-specific formula therein remains a risk.",
+      "The full body of Fiedler (1990) was unavailable; source-level exclusion is not claimed.",
+      "Specialized older spectral-optimization research may use terminology such as rooted bistar or two-cluster mixing instead of double-star, so missed equivalence remains possible.",
+      "Search and local database coverage cannot rule out private or unpublished work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general mathematical framework and use of the dual geometry but not the explicit asymmetric double-star price-dependent phase classification.",
+        "evidence": [
+          "p. 681: published electronically 2006-11-02 and MSC 90C22.",
+          "pp. 682–683: symmetric continuous-time rate model and arbitrary positive edge costs.",
+          "Later worked examples: path and cycle."
+        ],
+        "identifier_or_url": "doi:10.1137/S0036144504443821; https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full accessible nineteen-page primary PDF, especially Sections 1–4 on weighted rate-budget and dual embedding and Sections 5–6 on examples; reference section.",
+        "method": "Primary full-text search and page inspection.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same weighted spectral-gap objective, explicit positive edge price and embedding dual; most direct general antecedent."
+      },
+      {
+        "assessment": "Genuinely covers the uniform-price slice and its eigenspace phase, but treats unit length on every edge and does not supply the arbitrary continuous bridge-price formulas.",
+        "evidence": [
+          "pp. 1–4: Theorems 1 and 3 and unit-price embedding (1).",
+          "The discrete diameter parameter is the number of graph edges, not a continuously priced bridge."
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+        "material_read": "Complete twelve-page original preprint with theorem statements, geometric proof development, special graph parameters, and eigenvector descriptions.",
+        "method": "Primary lawful open PDF text and theorem/figure inspection.",
+        "title": "Absolute algebraic connectivity of double brooms",
+        "trigger": "Potential exact prior coverage: double stars are diameter-three double brooms."
+      },
+      {
+        "assessment": "Confirms general weighted-edge embedding theory, but unavailable body prevents an exclusion claim for hidden double-star specialized formulas.",
+        "evidence": [
+          "Qucosa public release date 2013-06-07.",
+          "Abstract generalizes eigenvalue maximization to edge lengths; contents include tree applications.",
+          "Repository PDF URL returned 404, so full text was not read."
+        ],
+        "identifier_or_url": "urn:nbn:de:bsz:ch1-qucosa-115518; https://monarch.qucosa.de/landing-page/?tx_dlf%5Bid%5D=https%3A%2F%2Fmonarch.qucosa.de%2Fapi%2Fqucosa%253A19916%2Fmets",
+        "material_read": "Full public repository landing page: author, dated metadata, abstract, and chapter table of contents. Full PDF attachment could not be accessed (404).",
+        "method": "Official repository metadata and PDF link; direct attachment retrieval failed.",
+        "title": "On Graph Embeddings and a new Minor Monotone Graph Parameter associated with the Algebraic Connectivity of a Graph",
+        "trigger": "Explicitly mentions arbitrary edge lengths and structural optimal graph embeddings, potentially dominating the optimization framework."
+      },
+      {
+        "assessment": "Covers earlier equal-price tree optimization theory; not sufficient to rule out hidden equivalent weighted double-star formulas.",
+        "evidence": [
+          "Linear and Multilinear Algebra 26 (1990), 85–106.",
+          "Both later full-text primary articles explicitly cite Fiedler as an antecedent."
+        ],
+        "identifier_or_url": "doi:10.1080/03081089008817967",
+        "material_read": "Bibliographic record and cited description from Sun et al. and Richter–Rocha; primary full-text unavailable.",
+        "method": "Bibliographic abstract/reference-level comparison.",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "Classical tree absolute-algebraic-connectivity predecessor."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce2d9d2c-11c2-4e86-8294-a1da5ce36e78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The double-star is the smallest nontrivial hub-and-spoke topology with an intercluster bottleneck; a separate bridge price naturally arises in budgeted network design. The result characterizes the exact optimal spectral gap and each individual edge rate for all asymmetric leaf sizes and all positive real bridge prices, and discovers a genuine threshold in eigenvalue multiplicity (and a second-derivative kink). This parametric classification has mathematical utility beyond numerical SDP solvability and beyond the previously solved single unit-price case; its scope and residual literature risk are explicitly delimited.",
+    "status": "PASS"
+  }
+}
