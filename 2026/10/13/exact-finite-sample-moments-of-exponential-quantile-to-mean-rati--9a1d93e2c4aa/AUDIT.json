@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof rewrites exponential order spacings as iid exponential variables, expresses the total sample sum as their sum, and therefore reduces the normalized order statistic to a linear form in a Dirichlet(1,...,1) vector independent of the total. The stated first and second moments follow from explicit Dirichlet moments, and the asymptotics are ordinary Riemann-sum limits. The median monotonicity decrement is an exact rational identity. Exact arithmetic checks the algebra for every admissible pair through sample size 300 and the median decrement through m=1000. The finite checks are not used as proof of the all-sample-size result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin–Wu–Ahmad (1980), pages 51–60, was inspected in full; Theorem 2.2 and surrounding discussion are explicitly limiting/asymptotic.",
+        "Scannell et al. (2000), DOI 10.1098/rstb.2000.0547, was inspected through its full article text; Figure 4 gives an expected exponential median-to-mean curve and \\(\\log 2\\) limit, but no all-order-statistic finite variance theorem.",
+        "Classical Rényi spacing sources state the independent normalized exponential spacings used in the proof."
+      ],
+      "reasoning": "A general asymptotic theorem does not imply the finite moments. A finite median expectation curve overlaps one special case, but it does not determine the exact variance, the all-order-statistic formulas, or the exact independence statement. The final claim is therefore narrowed to the stronger exact finite theorem and explicitly credits the overlapping curve.",
+      "searches": [
+        "Asymptotic joint distribution of sample quantiles and sample mean with applications",
+        "\"Rényi representation\" exponential order statistics normalized spacings Dirichlet",
+        "\"exponential order statistics\" \"Dirichlet\" normalized spacings"
+      ]
+    },
+    "checked_sources": [
+      "Lin, Wu, and Ahmad (1980), DOI 10.1080/03610928008827858.",
+      "Scannell, Grant, Payne, and Baddeley (2000), DOI 10.1098/rstb.2000.0547.",
+      "Lévy (2008), arXiv:0804.0606.",
+      "Primary-MSC comparison: order-statistics literature classifies the subject under MSC 62G30.",
+      "Published-finding semantic searches for median/mean, quantile/mean, normalized exponential order statistics, and spacing aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published-finding searches returned no result whose statement gives a finite exponential quantile-to-mean moment formula.",
+        "Own-ledger claim search found no prior exponential median/mean-ratio claim.",
+        "Lin–Wu–Ahmad gives asymptotic covariance/ratio theory; Scannell et al. gives a special-case expected curve; neither statement implies the exact finite variance formula."
+      ],
+      "reasoning": "The final theorem cannot be recovered as a corollary of the checked asymptotic statements without introducing the exponential spacing/Dirichlet finite-sample structure. The exact variance and all-order-statistic quantifier are the decisive noncovered components.",
+      "searches": [
+        "exponential sample mean sample median covariance harmonic exact finite sample",
+        "sample mean order statistic exponential covariance harmonic",
+        "mean median dependence exponential order spacings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complete inspection of Lin–Wu–Ahmad (1980), DOI 10.1080/03610928008827858, found the quantile-to-mean ratio formulated through asymptotic distributions.",
+        "Exact-formula searches using the harmonic tails \\(H_n-H_{n-k}\\) and \\(H_{2m+1}-H_m\\) did not return a prior statement of the finite ratio moments.",
+        "The exponential spacing representation was separately identified as a classical representation rather than treated as a new lemma."
+      ],
+      "reasoning": "Searches covered median/mean, quantile/mean, normalized order-statistic, and exponential-spacing aliases. The direct ratio literature located is asymptotic; the classical spacing representation supplies an ingredient but does not itself state the finite ratio moments.",
+      "searches": [
+        "exponential sample mean sample median covariance harmonic exact finite sample",
+        "sample mean order statistic exponential covariance harmonic",
+        "mean median dependence exponential order spacings",
+        "\"X_(k) / sample mean\" exponential order statistic exact",
+        "\"sample median\" \"sample mean\" exponential exact ratio",
+        "\"quantile-to-mean ratio\" exponential sample finite",
+        "\"\\(H_n-H_{n-k}\\)\" exponential sample mean order statistic ratio",
+        "\"\\(H_{2m+1}-H_m\\)\" median mean exponential sample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scannell et al. (2000) Figure 4 is a directly relevant finite-sample graphical benchmark: it plots the expected exponential median-to-mean ratio and states convergence to \\(\\log 2\\).",
+        "The inspected article does not print the harmonic closed form or an exact variance table/formula.",
+        "No checked published-finding record states the exact all-order-statistic formulas in the present claim."
+      ],
+      "reasoning": "The finite median expectation is partially covered graphically for small sample sizes, so those plotted values are not presented as novel. The exact closed form for all odd n, the exact variance, and the all-order-statistic theorem are not supplied by that graph.",
+      "searches": [
+        "\"median to mean ratio\" exponential sample",
+        "\"expected median to mean ratio\" exponential",
+        "\"\\(H_{2m+1}-H_m\\)\" median mean exponential sample"
+      ]
+    },
+    "rationale": "The closest complete primary article found, Lin–Wu–Ahmad (1980), derives asymptotic joint laws for sample quantiles, the sample mean, and their ratios, not exact finite exponential moments. Scannell et al. (2000) already display the expected exponential median-to-mean curve and its \\(\\log 2\\) limit, so that special-case graphical expectation is treated as prior coverage rather than novelty. The surviving claim is stronger: exact all-order-statistic finite mean and variance, independence from the sample mean, and the exact odd-median formula.",
+    "residual_risks": [
+      "Classical order-statistics literature is large; an unindexed historical formula for the same normalized exponential order statistic may exist.",
+      "The exact expectation of the odd-sample median ratio overlaps a prior plotted finite-sample expectation curve; originality rests on the exact all-sample-size closed form together with exact variance and the all-order-statistic theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_FINITE_CLAIM",
+        "evidence": "The paper's results are explicitly asymptotic as sample size tends to infinity; it does not derive finite exponential ratio moments.",
+        "identifier_or_url": "doi:10.1080/03610928008827858",
+        "material_read": "Complete 11-page article, including Theorems 2.1 and 2.2, the ratio application, estimation section, and references.",
+        "method": "Full-text article inspection after open-web retrieval exposed only the abstract.",
+        "title": "Asymptotic joint distribution of sample quantiles and sample mean with applications",
+        "trigger": "The title and abstract exactly match quantile-to-mean ratios and therefore posed the strongest possible coverage risk."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE",
+        "evidence": "Figure 4 displays the expected exponential median-to-mean ratio and states its \\(\\log 2\\) limit; it does not state the harmonic formula, exact variance, or general k-th order-statistic theorem.",
+        "identifier_or_url": "doi:10.1098/rstb.2000.0547",
+        "material_read": "Full article text, including the median/mean discussion, Figure 4 caption, exponential-model discussion, and Appendix A.",
+        "method": "Full-text public article inspection.",
+        "title": "On variability in the density of corticocortical and thalamocortical connections",
+        "trigger": "The paper uses median-to-mean ratio as a skew measure and plots the exponential finite-sample benchmark."
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "The work concerns general asymptotic mean/median dependence rather than exact finite exponential quantile-to-mean ratios.",
+        "identifier_or_url": "arXiv:0804.0606",
+        "material_read": "Abstract and substantive sections on the asymptotic joint distribution of sample mean and median.",
+        "method": "Public preprint inspection.",
+        "title": "Use of the median in Physics and Astronomy",
+        "trigger": "General mean/median dependence source with an accessible preprint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a1d93e2-c4aa-4049-adb6-856b653d8e5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The ratio of a sample quantile to the sample mean is a scale-free skew diagnostic with established asymptotic theory and an explicit applied use of the median/mean version under an exponential model. The result replaces a finite-sample benchmark curve by closed forms, supplies exact uncertainty through the variance, and extends the calibration to every order statistic. The strict finite-sample upward bias of the median/mean ratio and its exact convergence to \\(\\log 2\\) are directly interpretable for small samples.",
+    "status": "PASS"
+  }
+}
