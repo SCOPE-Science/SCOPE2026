@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For each selected rook cell x, a failure to see a distance-two cell is exactly the presence of a three-edge path in the selected row-column bipartite graph. P4-free bipartite graphs are star forests. Distinct nontrivial components cannot be joined without creating P4. An isolated vertex on each side makes any forest nonmaximal; a one-sided isolate forces all opposite-side degrees one and all active same-side degrees >=2, and these constraints suffice. This proves three disjoint families. The labeled-star component EGF and restricted Stirling partitions enumerate them with exact edge weights; the minimum multiplicities follow from covering all vertices of each part. Small boundaries m=n=2 and m=2,n>=2 are explicit. A separate direct-pairwise geodesic verifier tested 108688 subsets on eleven boards, and 121 m,n pairs for symbolic checks. Finite experiments are support, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Welton et al derive lower GP cardinality min(m,n) for arbitrary Cartesian products of complete graphs, a broader domain but only a scalar.",
+        "Cicerone et al derive largest outer MV cardinality m+n-2 in the two-factor case.",
+        "Bujtas et al give a general inclusion-exclusion relation using maximal sets, but not rook-graph maximal sets."
+      ],
+      "reasoning": "All general-domain or stronger-domain prior statements are scalar bounds, all-set polynomial identities, or structural principles. None of the inspected claims numerically specifies coefficients for the inclusion-maximal-set polynomial for all m,n. The previously known minimum and maximum sizes are openly not counted as new.",
+      "searches": [
+        "lower outer mutual visibility number rook graphs K_m Cartesian K_n smallest maximal outer mutual visibility set",
+        "minimal maximal star forest subgraphs K_mn spanning bipartite outer mutual visibility",
+        "\"lower general position\" \"rook graph\" saturation 2023",
+        "\"inclusion-wise maximal\" \"general position\" \"Cartesian\" complete graphs",
+        "Welton-Khudairi-Tuite Theorem 2",
+        "Cicerone et al Theorem 2.1(ii)",
+        "Bujtas et al Proposition 3.5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.02373v1 (Cicerone et al, Sec.2 Thm2.1)",
+      "Welton-Khudairi-Tuite 2025/2023 preprint (Sec.2 Thm2)",
+      "Carraher et al Game Saturation Number of a Graph (Sec.3)",
+      "Bujtas-Klavzar-Tian 2025 doi:10.1007/s00010-025-01197-y (Sec.3 Prop3.5)",
+      "Earlier full all-general-position-set enumerator for rook graphs",
+      "Published graph-theory comparanda on adjacent families (scientific comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.1(ii): only largest size m+n-2.",
+        "Welton Theorem 2: only lower size min(m,n).",
+        "Carraher Section 3: identifies star-only/no-isolate saturation regimes and saturation numbers; the labeled exhaustive profile and restricted-Stirling multipliers are not supplied.",
+        "Earlier all-set rook GP enumerator: counts ALL stars and subforests by cardinality, not saturated ones."
+      ],
+      "reasoning": "The claimed counting formula requires proving a three-way maximality criterion and counting no-isolate components and one-sided-isolate blocks. It is not a corollary of an extremal scalar, nor a parameter substitution into the all-admissible-set polynomial. It is a natural complete saturation-census extension of known P4-free structure, with possible uncatalogued overlap explicitly retained.",
+      "searches": [
+        "arXiv:2401.02373 Section 2",
+        "Welton et al Theorem 2",
+        "Carraher et al P4-saturated Kmn Lemma 3.1",
+        "Bujtas et al Proposition 3.5",
+        "minimal maximal star forest subgraphs K_mn spanning bipartite outer mutual visibility",
+        "prior rook-graph all-general-position-set enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Outer mutual visibility in rook graphs is equivalent to no selected three-edge P4 in Kmn, and also to ordinary GP feasibility on this particular graph family.",
+        "Earlier rook-graph GP work gives the all-feasible-set polynomial, but not maximal-set census.",
+        "Carraher et al Sec.3 studies P4-saturated Kmn, the exact equivalent condition to inclusion-maximality here."
+      ],
+      "reasoning": "Equivalence was followed rather than counted as novelty. The same feasible family appears under outer mutual visibility, lower GP, and P4 saturation; the new object is specifically its inclusion-maximal size-distribution. All-feasible-set coefficients cannot be specialized into maximal-set coefficients without classifying edge-addition obstructions. The older saturation results give structural insight and extreme cardinalities but no complete size distribution as inspected.",
+      "searches": [
+        "Mutual visibility polynomial of rook graphs K_m Cartesian K_n C4-free bipartite graph enumeration degree",
+        "maximal P4-free bipartite graph edge sets complete bipartite graph minimal maximal star forest counting associated Stirling",
+        "outer mutual visibility polynomial Hamming rook graph star forest counts by size",
+        "\"inclusion-wise maximal\" \"general position\" \"Cartesian\" complete graphs",
+        "\"maximal star forests\" \"complete bipartite\" enumerating",
+        "prior rook-graph all-general-position-set enumerator",
+        "arXiv:2401.02373"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Carraher et al Table/Theorem 3.2 concerns P4-saturation game values, not the number of maximal Kmn edge sets by size.",
+        "Bujtas et al Proposition 3.5 and Petersen example count maximal sets on a different graph.",
+        "A previously obtained rook-graph GP polynomial counts all admissible subsets, including nonmaximal ones; it is not a maximality table."
+      ],
+      "reasoning": "No matching exact coefficient table for maximal P4-free labeled subgraphs of all complete bipartite graphs was found in the primary works or query results. Absence in search does not itself certify novelty; the positive comparisons identify different counted objects.",
+      "searches": [
+        "maximal P4-free bipartite graph edge sets complete bipartite graph minimal maximal star forest counting associated Stirling",
+        "outer mutual visibility polynomial Hamming rook graph star forest counts by size",
+        "\"maximal star forests\" \"complete bipartite\" enumerating",
+        "\"P4 saturated\" \"complete bipartite\" count generating polynomial",
+        "Carraher et al Section 3 tables",
+        "Bujtas et al Section 3 maximal Petersen sets"
+      ]
+    },
+    "rationale": "This claim is limited to the complete inclusion-MAXIMAL outer-visibility size profile, three-family saturation census, minimum-set multiplicities and 2-by-n spectrum gaps. Earlier results already provide the outer-visibility upper cardinality, the lower general-position minimum, a full ALL-SET rook GP polynomial, and some P4 saturation structural facts; none of the inspected statements/tabulations provides the complete coefficient formula or its exact Stirling corrections. A possible equivalent older saturation enumerator remains a residual risk.",
+    "residual_risks": [
+      "An older or unindexed enumerative paper about P4-saturated labeled complete bipartite graphs could state the same polynomial under saturation-profile or star-forest terminology.",
+      "The equivalence to general-position and all-feasible-set star forests is already known; originality applies only to inclusion-maximal enumeration, not feasibility, maximum, or lower size.",
+      "Self-review and mathematical review are not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_MAXIMUM_SCALAR_NOT_MAXIMAL_CENSUS",
+        "evidence": "First posted 2024-01-04; Thm 2.1(ii) states mu_o(Km square Kn)=m+n-2.",
+        "identifier_or_url": "https://arxiv.org/html/2401.02373v1",
+        "material_read": "Full HTML sections 1-2, including the outer-visibility definition and complete proof of Theorem 2.1(ii), with surrounding sections and references browsed.",
+        "method": "Open access arXiv HTML read",
+        "title": "Mutual-visibility problems on graphs of diameter two",
+        "trigger": "Same exact rook-graph family and outer visibility invariant"
+      },
+      {
+        "assessment": "COVERS_MINIMUM_SCALAR_NOT_MULTIPLICITIES",
+        "evidence": "Theorem 2 gives gp^-(Kn1 square ... square Knk)=min(ni), including rook graphs. It does not enumerate minimum or other maximal sets.",
+        "identifier_or_url": "https://oro.open.ac.uk/98050/9/98050final.pdf",
+        "material_read": "PDF abstract, background and Section 2, especially pages 5-6 and complete Theorem 2 proof; actual page rendering inspected.",
+        "method": "Lawful open-access institutional repository PDF and page image",
+        "title": "Lower general position in Cartesian products",
+        "trigger": "General position and outer visibility are equivalent for this rook-graph family, so lower GP may dominate a minimum claim"
+      },
+      {
+        "assessment": "RELEVANT_STRUCTURAL_COVERAGE_NO_EXACT_PROFILE",
+        "evidence": "Identifies P4-saturated bipartite star forests and saturation game numbers, including known minimum; no Stirling correction or complete coefficient profile in inspected material.",
+        "identifier_or_url": "https://dwest.web.illinois.edu/pubs/gamesat.pdf",
+        "material_read": "PDF Section 3, pages 10-12 including Lemma 3.1, structural saturation discussion and Theorem 3.2, with page image inspected.",
+        "method": "Author-hosted open PDF, extracted text and rendered page",
+        "title": "The Game Saturation Number of a Graph",
+        "trigger": "P4-free saturation of Kmn is equivalent to inclusion-maximal outer visibility"
+      },
+      {
+        "assessment": "GENERAL_PRINCIPLE_NOT_ROOK_ENUMERATOR",
+        "evidence": "Proposition 3.5 reconstructs ordinary visibility polynomials from all maximal sets, and the worked maximal-set census is Petersen, not rook graphs.",
+        "identifier_or_url": "https://doi.org/10.1007/s00010-025-01197-y",
+        "material_read": "Full available HTML Section 3, Proposition 3.5 proof and Petersen maximal-set example with adjoining definitions and results.",
+        "method": "Publisher open HTML read",
+        "title": "Visibility polynomials, dual visibility spectrum, and characterization of total mutual-visibility sets",
+        "trigger": "Could dominate maximal outer visibility enumeration by general inclusion-exclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85d0a033-a988-4def-a211-7c7ec2288258",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete maximal-set size distribution for an unrestricted two-parameter family is a natural invariant describing all terminal outcomes of greedy outer visibility/general-position selection. The 2025 visibility-polynomial inclusion-exclusion theorem specifically motivates knowledge of maximal sets. The formula separates spanning star-forest and asymmetric one-sided-isolate saturation, counts exactly how many distinct worst-case minimum-size terminal sets exist, and exhibits arbitrarily long internal spectrum gaps through \\(M_{2,n}(z)=nz^2+2^nz^n\\). This is not just the known minimum/maximum cardinality or a relabeling of all-subset counting.",
+    "status": "PASS"
+  }
+}
