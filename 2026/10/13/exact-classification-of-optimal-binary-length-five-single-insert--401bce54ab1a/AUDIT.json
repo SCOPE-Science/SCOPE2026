@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The domain is all 32 binary centers of length five and 64 binary targets of length six. Each target has exactly its genuine distinct one-deletion predecessors; a covering must select one when that target remains uncovered. Branching over every predecessor is exhaustive. A candidate covers exactly seven targets, so an uncovered count larger than seven times the remaining capacity safely prunes the branch. Complete C++ and independently implemented Python searches rule out cardinalities at most eleven; both obtain exactly six canonical coverings at size twelve, verify every target of every covering and independently obtain three orbit pairs under complementation and reversal. No inference from a partial search or timeout is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Sun–Ge give general lower insertion-covering bounds, not this exact cardinality plus equality-case classification.",
+        "Pikhurko et al. study limiting density for fixed center length as alphabet grows, cite an exact center-length-three table, and do not state the six-code length-five classification in inspected sections.",
+        "Lenz et al. prove general ball-size formulas and broad non-sharp bounds."
+      ],
+      "reasoning": "A general covering lower bound and an asymptotic density result cannot determine exact size twelve with six equality cases. Existing tabulations of Hamming covering codes are not applicable: the insertion relation is not the Hamming radius-one relation.",
+      "searches": [
+        "published-finding corpus: binary 5-word code covering all length-6 binary words by one insertion, six optimal codes, twelve codewords",
+        "published-finding corpus: Grozea covering insertion codes r=5 binary alphabet size optimal",
+        "Xie–Sun–Ge arXiv:2606.15379 contributions and conclusion",
+        "Pikhurko et al. arXiv:2409.06425 Theorems 3,14, §V",
+        "Lenz et al. arXiv:1911.09944 Table I and construction results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379 (v1 June 13, 2026)",
+      "arXiv:2409.06425 (initial 2024)",
+      "arXiv:1911.09944 (2021 publication)",
+      "Grozea public combinatorial data (center length 3)",
+      "Published published-finding corpus semantic results: 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a; 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The present classification gives the exact value \\(12\\) and six optimizers for \\(I(2,5,1)\\). The Xie–Sun–Ge general insertion-covering bound yields only \\(I(2,5,1)\\ge 7\\) and the sphere-covering bound yields only \\(I(2,5,1)\\ge 10\\); neither determines this exact parameter or the optimizer count.",
+        "Pikhurko et al. report \\(S(3,4,3)=12\\) and its alphabet-renaming uniqueness, which uses ternary center length three, not binary center length five.",
+        "Grozea original listed data do not state the length-five problem."
+      ],
+      "reasoning": "Neither a general nonsharp numerical bound nor an optimum for a different center length implies the six exact optimizers here. Potential unindexed same-parameter finite searches remain a residual risk.",
+      "searches": [
+        "Xie–Sun–Ge arXiv:2606.15379 §I, insertion bound (4)",
+        "Pikhurko–Verbitsky–Zhukovskii arXiv:2409.06425 Example 2 and Theorem 3",
+        "Grozea original public data N=2..5 for strings of 4 symbols",
+        "published-finding corpus: single-insertion covering codes binary alphabet length five exactly twelve cardinality classification six optimal codebooks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Xie–Sun–Ge arXiv:2606.15379 §I defines I(q,n,R), where this object is I(2,5,1).",
+        "Pikhurko–Verbitsky–Zhukovskii arXiv:2409.06425 §I Definition 1 uses S(n,k,r), making this S(2,6,5); Example 2 concerns S(3,4,3), a distinct word length.",
+        "Grozea public table covers center length three only, for alphabet sizes two through five."
+      ],
+      "reasoning": "Translated exact source notation I(2,5,1) to S(2,6,5) and checked both aliases, but neither the published three-symbol center classification nor the visible coding bound statements imply six exact five-symbol optimizers.",
+      "searches": [
+        "published-finding corpus: single-insertion covering codes binary alphabet length five exactly twelve cardinality classification six optimal codebooks",
+        "published-finding corpus: covering insertion code S(2,6,5) equals 12 binary minimum 5",
+        "web: \"S(2,6,5)\" \"12\" covering",
+        "Grozea exact S(3,4,3) in arXiv:2409.06425 §I"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Grozea public table explicitly says \"strings of 4 symbols\" from 3-symbol centers, with N=2..5 giving 4,12,30,...; it is not a length-five center table.",
+        "published-finding corpus 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03 concerns deletion-*correcting* codes, not insertion-*covering* codes.",
+        "published-finding corpus 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a concerns non-overlap, a different predicate."
+      ],
+      "reasoning": "Parameter-matched table comparisons distinguish the three-symbol center length in Grozea from five-symbol centers here. No exact-table row matching binary length-five insertion covering was identified, which is a residual priority uncertainty rather than affirmative proof of novelty.",
+      "searches": [
+        "Grozea: https://www.brainsignals.de/users/cristian.grozea/combinatorial.html",
+        "web: single insertion covering code length 3 alphabet 3 minimum size",
+        "published-finding corpus: binary length-five one-insertion covering code length six 12 optimal classes 3",
+        "published-finding corpus: exact-quinary length-four single-deletion code"
+      ]
+    },
+    "rationale": "The exact length-five binary one-insertion covering optimum and six-code, three-class complete classification differ from asymptotic large-alphabet covering-density theorems and the published complete ternary alphabet/center-length-three table. The full finite predecessor classification was not identified in the inspected primary sources or indexed mathematical record searches, but unindexed finite enumerations remain possible.",
+    "residual_risks": [
+      "A prior unindexed or privately circulated exact enumeration of binary one-insertion coverings of center length five may already determine six optimizers.",
+      "The source inspections focus on sections containing code definitions, bounds, constructions and known finite computations; unmatched appendices or related older finite tabulations remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant problem definitions and bounds, but no same-parameter exact optimizer classification located in inspected material.",
+        "evidence": [
+          "arXiv:2606.15379 v1 dated June 13, 2026, §I formula for I(q,n,R), §I.B improved lower bound, concluding section."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.15379.pdf",
+        "material_read": "Abstract, definitions and known results, main contributions, theorem on insertion lower bound, discussion and open problems",
+        "method": "Lawful arXiv public PDF text with visual page inspection",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "New June 2026 covering-codes results for insertion/deletion channel"
+      },
+      {
+        "assessment": "Example 2 explicitly covers S(3,4,3), distinct from S(2,6,5), and cites full existing exact data only for center length three. Density theorems do not subsume the optimizer census.",
+        "evidence": [
+          "arXiv:2409.06425 §I Example 2 states exact S(3,4,3)=12 and unique optimizer up to alphabet renaming; §V treats s(3,2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.06425v3",
+        "material_read": "Introduction Definition 1 and Example 2, main bounds, §II, §V and §VI relevant sections, and references",
+        "method": "Open-access arXiv HTML primary manuscript inspection",
+        "title": "New bounds for the optimal density of covering single-insertion codes via the Turán density",
+        "trigger": "Asymptotic insertion-covering density and explicit Grozea finite table references"
+      },
+      {
+        "assessment": "All displayed codewords have length three and target length four, not center length five; cannot subsume the present parameter.",
+        "evidence": [
+          "Grozea public table header \"3 symbols covering all strings of 4 symbols\" and entries N=2..5."
+        ],
+        "identifier_or_url": "https://www.brainsignals.de/users/cristian.grozea/combinatorial.html",
+        "material_read": "Entire publicly accessible 12-line data page, covering alphabet sizes 2,3,4,5",
+        "method": "Primary author public data page read directly",
+        "title": "Combinatorial data: optimal density of minimal size single-insertion codes of 3 symbols",
+        "trigger": "High-risk plausible previous exact finite insertion-covering codes"
+      },
+      {
+        "assessment": "Bounds and constructions have no inspected statement determining six binary center-length-five optimizers.",
+        "evidence": [
+          "IEEE Trans. Inform. Theory 67 (2021), 3376–3388, especially Table I and insertion-covering definitions."
+        ],
+        "identifier_or_url": "https://cmrr-star.ucsd.edu/static/pubs/Covering_Codes_Using_Insertions_or_Deletions.pdf",
+        "material_read": "Introduction, Table I, single-insertion bounds and construction sections",
+        "method": "Lawful open-access primary PDF parsed and visually inspected",
+        "title": "Covering Codes Using Insertions or Deletions",
+        "trigger": "Original general covering-code introduction and upper/lower bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "401bce54-ab1a-4ad9-8da1-6d62ef5e6554",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a natural exact single-insertion covering capacity at binary center length five and classifies all optimal constructions, identifying three genuinely different symmetry classes and exact labeled count six. The structural equality-case information is absent from the adjacent short-center Grozea table and is useful as a sharp benchmark for finite-alphabet insertion-covering constructions. This is not a routine restatement of large-alphabet bounds or a random isolated numerical computation; no asymptotic or general-length significance is claimed.",
+    "status": "PASS"
+  }
+}

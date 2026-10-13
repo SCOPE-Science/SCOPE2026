@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact quantifiers are binary centers of length five and targets of length six under a one-position deletion relation. Every target-to-center predecessor is considered; the recursive search cannot miss a covering because it branches on every predecessor of an uncovered target. Pruning uses the exact seven-target insertion-ball size and is mathematically sound. Two differently implemented searches exclude every code of size at most eleven, enumerate six codes of size twelve and verify their covering property. The complement/reversal orbit computation yields three disjoint pairs.
+
+**Originality — PASS, with residual risk.** The closest sources are the 2026 large-alphabet covering-bounds work of Xie–Sun–Ge, the density work of Pikhurko–Verbitsky–Zhukovskii, the general 2021 insertion/deletion covering paper, and Grozea's small-alphabet table for center length three. The exact binary center-length-five cardinality **plus all-optima classification** is not asserted in the inspected relevant results. Searches of mathematical records for the parameter and six-code classification did not identify an equivalent claim. Unindexed earlier finite enumerations are the main residual originality risk; failure to find them is not proof of priority.
+
+**Value — PASS.** This is an exact natural finite code-design capacity, not a change of notation or a restriction picked after an arbitrary parameter sweep. In addition to the sharp cardinality, it determines all optimal designs and exhibits three genuinely inequivalent designs even under the natural channel symmetries. It extends the line of exact small-parameter calculations beyond the previously tabulated three-symbol center examples, providing a non-asymptotic benchmark for single-insertion covering constructions. The statement does not claim a general bound or asymptotic improvement.
+
+Self-review: passed. Independent audit: not yet performed.
