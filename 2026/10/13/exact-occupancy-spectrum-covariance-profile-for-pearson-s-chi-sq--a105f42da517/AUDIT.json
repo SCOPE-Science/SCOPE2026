@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on one specified cell having occupancy r leaves a uniform allocation of the remaining n-r observations across m-1 cells, giving the conditional expected collision count exactly. Pearson chi-square is affine in pair collisions, so the covariance polynomial follows algebraically. Pair-collision indicators are pairwise independent, yielding the exact Pearson variance. The K_r variance comes from one-cell and two-cell multinomial probabilities. The fixed-load limit follows from fixed-r factorial expansions. Exact allocation enumeration independently reproduces every finite covariance on a parameter grid.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barbour and Gnedin define the exact r-counts and study their joint normal approximation and moment/covariance structure in occupancy schemes.",
+        "Nakata studies exact collision distributions, factorial moments, negative association, and collision limit theory in occupancy models."
+      ],
+      "reasoning": "These sources are broader on occupancy frequency vectors or collision theory, but their inspected statements do not imply the mixed finite covariance with Pearson chi-square without the additional conditional-collision calculation.",
+      "searches": [
+        "arXiv:0809.4387",
+        "DOI:10.1239/aap/1396360108"
+      ]
+    },
+    "checked_sources": [
+      "Barbour and Gnedin, arXiv:0809.4387, complete article.",
+      "Nakata, DOI 10.1239/aap/1396360108, complete article.",
+      "Earlier scientific results on richness-versus-r-count covariance, richness-versus-collision covariance, and Pearson moments conditional on empty cells.",
+      "Published searches under occupancy counts, frequency of frequencies, singletons, collisions, Pearson chi-square, and fixed-load formulations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A prior finite uniform result compares total observed richness with K_r and gives a different sign transition; it does not determine Cov(K_r,Q).",
+        "A prior richness/collision result aggregates across all occupancy levels and therefore does not identify which K_r layers drive Pearson fluctuation.",
+        "A prior Pearson result conditions on the number of empty cells rather than deriving the all-r mixed covariance profile."
+      ],
+      "reasoning": "The identities sum_r K_r=m and sum_r r K_r=n impose two linear constraints but leave the K_r/Pearson covariance vector undetermined. The accepted theorem supplies that missing coordinate-wise profile.",
+      "searches": [
+        "richness versus occupancy r-count covariance sign",
+        "richness pair-collision covariance occupancy",
+        "Pearson statistic conditional empty cells multinomial",
+        "occupied-cell indicator covariance occupancy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The mixed moment is equivalently a covariance with the pair-collision count because Pearson chi-square is affine in total pair collisions under the equal-cell null.",
+        "Searches using frequency-of-frequencies, singleton, collision, and Pearson terminology did not locate the finite covariance polynomial or the singleton sign reversal."
+      ],
+      "reasoning": "The comparison covered both natural formulations: K_r versus Pearson chi-square and K_r versus pair-collision count. It also covered the singleton specialization and the full occupancy-frequency terminology.",
+      "searches": [
+        "occupancy count K_r Pearson chi-square covariance multinomial exact",
+        "singleton count Pearson chi-square covariance uniform multinomial",
+        "number of boxes with exactly r balls collision count covariance",
+        "frequency of frequencies Pearson goodness of fit chi-square occupancy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-formula source matching the factor n-2m for singleton covariance or the general polynomial Delta_{n,m,r} was located.",
+        "The verification values are generated from full allocation enumeration and exact formulas, not from a numerical table."
+      ],
+      "reasoning": "The claim is symbolic for all finite m,n,r and includes a fixed-load sign law, so a finite table would not subsume it.",
+      "searches": [
+        "\"singleton\" \"Pearson chi-square\" multinomial occupancy",
+        "\"occupancy count\" \"Pearson\" chi-square covariance",
+        "\"n-2m\" singleton chi-square covariance multinomial",
+        "\"frequency spectrum\" Pearson chi-square occupancy"
+      ]
+    },
+    "rationale": "The closest full occupancy source develops the same r-count coordinates and their covariance structure but does not introduce Pearson chi-square or the displayed mixed covariance. A full collision source develops exact occupancy collision laws but not frequency-count/Pearson coupling. Targeted searches under occupancy-count, singleton, collision, Pearson, chi-square, and fixed-load formulations found no statement covering the exact finite polynomial or its load-dependent sign profile. The main residual risk is classical finite-urn or goodness-of-fit literature under alternate notation.",
+    "residual_risks": [
+      "Classical finite-occupancy monographs may encode the same mixed moment in factorial-moment notation.",
+      "Goodness-of-fit literature may contain the singleton or r-count covariance under cell-frequency rather than occupancy terminology.",
+      "No claim is made for unequal cell probabilities or growing r."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "R_COUNT_COVARIANCE_BACKGROUND_NOT_MIXED_PEARSON_PROFILE",
+        "evidence": "The article studies numbers of boxes hit exactly r times and gives moment and covariance formulas for those counts. The inspected text contains no Pearson chi-square statistic and no covariance between an r-count and a quadratic goodness-of-fit statistic.",
+        "identifier_or_url": "arXiv:0809.4387",
+        "material_read": "Complete article with focused inspection of the definition of r-counts, de-Poissonization setup, joint normal approximation, and the moment/covariance section.",
+        "method": "Full-text statement comparison with targeted searches for Pearson, chi-square, and collision terminology.",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Closest full primary source on the same occupancy frequency counts K_r and their covariance structure."
+      },
+      {
+        "assessment": "COLLISION_THEORY_DIFFERENT_OBJECT_NOT_FREQUENCY_PEARSON_COVARIANCE",
+        "evidence": "The article studies collision urns in a two-color occupancy model and develops their exact distribution and moments. It does not state the single-multinomial K_r versus Pearson covariance profile.",
+        "identifier_or_url": "DOI:10.1239/aap/1396360108",
+        "material_read": "Complete article, focused on the introduction, exact distribution and factorial-moment sections, and the negative-association treatment.",
+        "method": "Full-text comparison of the collision object, conditioning structure, and stated moment results.",
+        "title": "The Number of Collisions for the Occupancy Problem with Unequal Probabilities",
+        "trigger": "Primary occupancy-collision source with verified primary classification 60C05."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a105f42d-a517-484b-8682-a529d98e9857",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Frequency-of-frequencies counts are canonical occupancy/species-sampling summaries, while Pearson chi-square is the canonical quadratic equal-cell goodness-of-fit statistic. The theorem resolves their full finite coordinate-wise second-moment coupling and exposes a load-dependent sign phase that aggregate richness/collision results cannot show. The singleton threshold n=2m and the fixed-load polynomial provide directly interpretable diagnostics for which occupancy layers drive Pearson fluctuation.",
+    "status": "PASS"
+  }
+}
