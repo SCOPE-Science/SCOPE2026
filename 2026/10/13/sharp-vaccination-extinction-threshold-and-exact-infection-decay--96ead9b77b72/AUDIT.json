@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Global nonnegative dynamics follow from the host population bound and scalar environmental decay. The susceptible/vaccinated linear subsystem is a Hurwitz Metzler matrix, so its infection-free solution dominates actual susceptible states entrywise with exponentially decaying discrepancy to DFE. Subcritical infection is bounded by a Hurwitz positive linear semigroup. At Rc=1 a positive left eigenvector yields exact negative -a(t)C^2/[kappa(kappa+C)] saturation dissipation plus integrable error; a positive eventual susceptible floor and Barbalat imply C,I,E ->0. Explicit small-data Gronwall and stable convolution give Lyapunov stability at equality. Linear sandwich with irreducible Metzler B+- and B-- tending to B0 establishes the exact infected log-rate s(B0). Rc>1 implies linear instability. Replayed verify.py gives exact fractions and non-proof trajectory spot checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Penitente-Forys-Gurbuz arXiv:2603.28285v1 Theorem 1 uses Kamgang-Sallet 2005 criterion",
+        "Gokce-Gurbuz-Rendall original 2023 Sections 2-4",
+        "2026/9/14/SCOPE021 concerns 2-patch SEIR movement",
+        "https://www.numdam.org/item/10.1016/j.crma.2005.07.015.pdf, Theorem 2.1 and Corollary 2.2, pp. 435-436",
+        "Original full-text Corollary 2.2 explicitly requires infected matrix upper bound attained at DFE; the source SVEIR has susceptible values exceeding DFE for permitted initial states, so this hypothesis does not hold globally."
+      ],
+      "reasoning": "The model-independent Metzler/Perron-Frobenius comparison and Kamgang-Sallet criteria are acknowledged general antecedents, but the full source model has an infection-dependent S,V coupling; the prior explicit published sufficient condition is Jc <= 1. The new time-decaying infection-free componentwise upper envelope proves a stronger parameter coverage and critical equality for this exact model. General abstract propositions may conceivably imply it when suitably specialized, a residual risk, but the concrete full claim is not covered by any inspected named theorem. The full Kamgang-Sallet paper was directly examined: its Corollary 2.2 yields a sharp threshold only when the infected matrix is globally dominated by its disease-free matrix, a condition violated by states with S>S0 in this model. The time-decaying asymptotic envelope is a distinct mathematical argument even though it uses established positive-system comparisons.",
+      "searches": [
+        "2025 2026 epidemic multi-strain vaccination equilibrium threshold network model rigorous finite population",
+        "2026 age structured infectious disease delay epidemic threshold equilibrium vaccination",
+        "Global sharp control reproduction threshold vaccine saturating fomite SVEIR n=1, disease-free global stability for R_c<1 via susceptible vaccinated comparison",
+        "sharp disease-free global extinction if and only if control reproduction number less than or equal to one Holling II vaccinated contaminated fomites Penitente Forys Gurbuz",
+        "Kamgang Sallet Global asymptotic stability disease-free equilibrium epidemiological models 2005 Comptes Rendus 341 433 438",
+        "published SCOPE 2026/9/14/SCOPE021"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.28285v1",
+      "https://openscience.ub.uni-mainz.de/server/api/core/bitstreams/f1c57520-9683-4d6a-bfc7-5469950e85fe/content",
+      "https://arxiv.org/abs/2307.12707",
+      "https://doi.org/10.1007/s11587-026-01159-9",
+      "2026/9/14/SCOPE021 published result summary",
+      "2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf published result summary",
+      "https://www.numdam.org/item/10.1016/j.crma.2005.07.015.pdf (full 2005 primary PDF read)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For m=1: Rc=15/31 but Jc=3/2, so new GAS conclusion does not follow from prior Jc<=1 statement",
+        "For m=31/15: Rc=1 and Jc=31/10, new critical GAS and log rate zero do not follow from source sufficient condition",
+        "Original 2023 studies local eigenvalue stability and Holling-III backward bifurcations"
+      ],
+      "reasoning": "Logically the prior sufficient statement Jc<=1 => GAS and local Rc<1 => local stability do not entail GAS whenever Rc<=1. The stated exact rational witnesses are outside its global-certification region while satisfying the new theorem. The source supercritical persistence result supplies the impossibility of GAS for Rc>1 but does not cover the upgraded subcritical or critical global proof.",
+      "searches": [
+        "Global sharp control reproduction threshold vaccine saturating fomite SVEIR n=1, disease-free global stability for R_c<1 via susceptible vaccinated comparison",
+        "Penitente Forys Gurbuz Holling-II direct fomite vaccination improve J_c sufficient extinction to R_c sharp global",
+        "sharp disease-free global extinction if and only if control reproduction number less than or equal to one Holling II vaccinated contaminated fomites Penitente Forys Gurbuz",
+        "arXiv:2603.28285v1 Theorem 1 Remark 1 Corollary 1 Section 4",
+        "arXiv:2307.12707v1 bifurcation and local stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2603.28285v1#S3.SS2",
+        "https://arxiv.org/html/2603.28285v1#S3.SS1",
+        "https://openscience.ub.uni-mainz.de/server/api/core/bitstreams/f1c57520-9683-4d6a-bfc7-5469950e85fe/content"
+      ],
+      "reasoning": "Compared the equivalent disease-free stability statement, spectral-bound threshold and full vaccinated SVEIR equations rather than title matches. The 2026 source proves an upper sufficient Jc condition, explicitly describes the sharp Rc global result only for no vaccination, and does not state the equality-case infected logarithmic exponent; the 2023 original develops local and bifurcation results.",
+      "searches": [
+        "Global sharp control reproduction threshold vaccine saturating fomite SVEIR n=1, disease-free global stability for R_c<1 via susceptible vaccinated comparison",
+        "global extinction at R_c=1 Holling type II saturated environmental transmission vaccination comparison",
+        "sharp disease-free global extinction if and only if control reproduction number less than or equal to one Holling II vaccinated contaminated fomites Penitente Forys Gurbuz",
+        "SVEIR fomite environmental infection asymptotic growth exponent Metzler Perron eigenvalue vaccination sharp Rc Jc",
+        "arXiv:2603.28285v1 Section 3.2",
+        "arXiv:2307.12707v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own prior ledger dedup scan: 100 prior accepted claim/source entries; no fomite, Penitente, 2603.28285, SVEIR match",
+        "Published records 2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf and 2026/9/17/SCOPE-all-rate-growth-weighted-mutation-chemostat--23a37c2c63fd are different mathematical models"
+      ],
+      "reasoning": "This is a global analytical theorem, not an exact combinatorial database entry or computational-table result. The numerical rational example verifies non-coverage by Jc, not novelty alone. Actual searches of owned prior claims and ranked published results did not identify the same system/theorem.",
+      "searches": [
+        "2025 2026 ecological spatial dispersal Allee effect metapopulation analytical extinction threshold",
+        "Penitente Forys Gurbuz Holling-II direct fomite vaccination improve J_c sufficient extinction to R_c sharp global",
+        "SVEIR fomite environmental infection asymptotic growth exponent Metzler Perron eigenvalue vaccination sharp Rc Jc",
+        "Own prior ledger exact lower-case matching: fomite;2603.28285;Penitente;SVEIR;Holling type II vaccination"
+      ]
+    },
+    "rationale": "Inspected full arXiv 2603.28285v1 Sections 2-5 and appendix: its Theorem 1 gives global vaccinated extinction only for Jc <= 1, Remark 1 explicitly distinguishes Rc < Jc and sharp unvaccinated Rc = R0, and its Section 3.1 gives vaccinated Rc for local stability. Exact admissible positive-parameter witnesses Rc=15/31, Jc=3/2 and Rc=1, Jc=31/10 show strictly broader actual coverage. The original Gokce-Gurbuz-Rendall paper studies local stability and bifurcation. General Metzler comparison and the checked 2005 Kamgang-Sallet paper are antecedents, but the latter’s global DFE-matrix upper-bound condition fails for this model; no identified source states the combined sharp vaccinated global threshold including equality and exact trajectory exponent for this fomite system. Published-research and indexed-web searches do not prove uniqueness; possible general-theorem antecedents or unindexed overlap are recorded.",
+    "residual_risks": [
+      "Unindexed or unpublished research may already establish the same vaccinated global equality-case theorem.",
+      "The motivating journal version is open, but the full arXiv v1 was the primary version inspected; possible later substantive journal additions not exhaustively compared.",
+      "Other more general epidemiological global-threshold results beyond the directly checked 2005 Kamgang-Sallet framework could specialize to the SVEIR model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Claims local Rc threshold, sufficient global Jc<=1 with vaccination, and sharp R0 nonvaccination. Does not assert new sharp global vaccinated Rc<=1 theorem or individual log exponent.",
+        "evidence": [
+          "Sections 2 equations (2a)-(2e); 3.1 equation (5); 3.2 Theorem 1, Remark 1, Corollary 1; Section 4 Theorem 2; Appendix B",
+          "https://arxiv.org/html/2603.28285v1"
+        ],
+        "identifier_or_url": "arXiv:2603.28285v1; https://arxiv.org/html/2603.28285v1",
+        "material_read": "Full open HTML: model equations and assumptions Section 2, Proposition 2 and reproduction number Section 3.1, Theorem 1/Remark 1/Corollary 1 Section 3.2, Section 4 persistence, concluding discussion and Kamgang-Sallet appendix.",
+        "method": "Primary open preprint complete HTML read with equation-by-equation and implication comparison.",
+        "title": "Global stability and uniform persistence in an epidemic model with saturating fomite-mediated transmission",
+        "trigger": "Identical six-compartment model, threshold and fomite/Holling-II thesis."
+      },
+      {
+        "assessment": "Identical model ancestor, but local equilibrium and bifurcation analysis do not give globally attracting vaccinated disease-free state for all Rc<=1 or the spectral log exponent.",
+        "evidence": [
+          "https://openscience.ub.uni-mainz.de/server/api/core/bitstreams/f1c57520-9683-4d6a-bfc7-5469950e85fe/content",
+          "arXiv:2307.12707v1"
+        ],
+        "identifier_or_url": "arXiv:2307.12707v1; https://openscience.ub.uni-mainz.de/server/api/core/bitstreams/f1c57520-9683-4d6a-bfc7-5469950e85fe/content",
+        "material_read": "Open publisher-repository PDF, mathematical model and equilibrium/local stability/bifurcation sections, relevant formulas and Holling-II/Holling-III distinction.",
+        "method": "Open-access full-text PDF text plus selected rendered pages, compared hypotheses and claims.",
+        "title": "Dynamics of a mathematical model of virus spreading incorporating the effect of a vaccine",
+        "trigger": "Original source model with direct and fomite infection and vaccination."
+      },
+      {
+        "assessment": "General GAS framework and Corollary 2.2 are antecedents, but the corollary requires the DFE infected matrix to dominate all other infected matrices on the invariant domain. Here an allowed initial state with S>S0 yields b(S,V)>b0; the condition fails. The new time-decaying comparison handles such trajectories. The theorem gives no exact individual infection logarithmic exponent.",
+        "evidence": [
+          "https://www.numdam.org/item/10.1016/j.crma.2005.07.015.pdf",
+          "Theorem 2.1 and Corollary 2.2 on printed page 435, equations 1 and proof sketch; examples pp. 436-438."
+        ],
+        "identifier_or_url": "Kamgang and Sallet (2005), C. R. Math. Acad. Sci. Paris 341, 433-438",
+        "material_read": "Full six-page 2005 open-access PDF read directly: abstract, Theorem 2.1 hypotheses (especially global upper Metzler matrix), Corollary 2.2 condition that upper matrix equal the DFE matrix, sketch of proof, Proposition 3.1 and illustrative applications.",
+        "method": "Direct primary open-access six-page PDF text plus rendered inspection of pages 3-4 (zero-indexed pages 2 and 3), compared its hypotheses with source SVEIR coefficients.",
+        "title": "Global asymptotic stability for the disease-free equilibrium for epidemiological models",
+        "trigger": "General Metzler sufficient criterion used in the motivating article."
+      },
+      {
+        "assessment": "Results address nonsmooth dengue switching geometry and two-patch SEIR movement, respectively; their summarized conclusions cannot subsume an analytical six-compartment fomite-vaccination sharp extinction theorem.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/tree/main/2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf",
+          "https://github.com/published-finding corpus/2026/tree/main/2026/9/14/SCOPE021"
+        ],
+        "identifier_or_url": "2026/9/17/SCOPE-crossing-only-dengue-switching--e6abca835bbf; 2026/9/14/SCOPE021",
+        "material_read": "Published title and scientific result summary, not underlying full mathematical documents.",
+        "method": "Semantic published-claim implication comparison.",
+        "title": "Published related research on dengue switching and two-patch SEIR movement",
+        "trigger": "Highest semantically relevant ranked results for related epidemic threshold searches."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96ead9b7-7b72-4fe9-862c-c56da3498367",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp vaccinated disease-free extinction criterion depends on actual vaccine effectiveness, instead of the motivating article's vaccination-independent conservative Jc; two exact rational configurations have Rc<=1 while Jc>1, demonstrating genuinely enlarged global-certification scope. Critical extinction despite a neutral invasion eigenvalue and the exact observed infected logarithmic rate give actionable mathematical distinctions between elimination, critical slowing and persistence. This is motivated by explicit published global-stability gap, not a name change or arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
