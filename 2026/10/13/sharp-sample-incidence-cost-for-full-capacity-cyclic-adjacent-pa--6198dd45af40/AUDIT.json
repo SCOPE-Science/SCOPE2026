@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "Nonzero-distinct n edge outputs exhaust all \\(2^m-1\\) nonzero masks, giving \\(2^{m-1}\\) positive edges per coordinate. Each selected item covers two edges, hence each pool >=\\(2^{m-2}\\), equality iff pool independent. Explicit item integer masks i for even i, 1 for \\(i\\equiv1\\pmod4\\), 0 for \\(i\\equiv3\\pmod4\\) produce blocks of OR outputs (4r+1,4r+3,4r+2,4r+4), final cyclic output n-1. Each bit pool has exactly \\(2^{m-2}\\) pairwise nonadjacent items. Complete all-m proof and verifier runs for m=2..13 from the packaged verify.py; finite checks are not extrapolated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Müller–Jimbo (2004) define 2CPD matrices to distinguish every individual column as well as adjacent OR, a strictly stronger requirement; source abstract and 2006 exposition were inspectable; complete 2004 text not retrieved.",
+        "He et al. (Bioinformatics 2025), full HTML sections 2–6, fix constant item weight and special adjacent pair weights/distance; they optimize balance deviation and do not give this variable-weight all-output minimum.",
+        "published-finding corpus published 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 concerns cover-free families on paths/cycles, protecting more general defective configurations and a different matrix invariant."
+      ],
+      "reasoning": "A stronger admissibility condition could imply a weaker existence statement if its parameters matched, so mere distinction of names is insufficient. Here individual-column distinctness and constant-weight constraints exclude the exhibited mask family and impose different attainable capacities; the inspected claims do not entail \\(W_{\\min}=m2^{m-2}\\) for unrestricted cyclic adjacent-pair diagnosis. Full coverage by uninspected passages is a residual risk, not ruled out by query failure.",
+      "searches": [
+        "published-finding corpus: \"Optimal minimum total number of ones or incidence weight in nonadaptive cyclic consecutive-pair group testing with exactly 2^m-1 items, m tests, all distinct OR adjacent outcomes, optimal m 2^(m-2)\"",
+        "web: \"group testing\" \"consecutive positives\" \"number of ones\" matrices",
+        "web: \"consecutive positives\" \"sum\" \"pools\" \"circulant\" minimal",
+        "doi:10.1016/S0012-365X(03)00282-6; doi:10.1093/bioinformatics/btaf611",
+        "published-finding corpus: \"Nonadaptive Boolean OR group testing on a cycle with either no defectives or exactly two adjacent defective vertices; exact minimum ceil(log2(n+1)) and universal edge labels\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1605.02588 (full author manuscript via ResearchGate indexed primary text; cycle Theorem 10 and proof)",
+      "https://daillya.github.io/Summary.pdf (author thesis, Section 2.2, cycle minimum-palette proof)",
+      "doi:10.1016/S0012-365X(03)00282-6 (abstract and searchable excerpts; full PDF not inspected)",
+      "doi:10.1016/j.disc.2006.11.062 (abstract and theorem excerpt; full PDF not inspected)",
+      "doi:10.1093/bioinformatics/btaf611 (full OA HTML)",
+      "doi:10.1109/ISIT62367.2026.11653620 (conference abstract only)",
+      "arxiv:1001.1445 (full HTML overview)",
+      "published-finding corpus 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+      "published-finding corpus 2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bousquet et al. solve palette-size minimization, not sum-of-set-sizes optimization; our per-coordinate \\(2^{m-2}\\) incidence lower bound is not a consequence of their palette theorem alone.",
+        "Müller–Jimbo 2CPD uniqueness of each column and neighboring OR forbids the repeated/zero columns in the new construction, so their construction cannot directly be reused as this extremizer.",
+        "He et al. require constant item address weight and minimum adjacent distance 2, contrasting with item weights 0, 1, and larger here.",
+        "Thao–Vu abstract discusses low-weight Gray-code ranking/unranking; closed full text leaves exact cost-overlap unresolved as a bibliographic risk."
+      ],
+      "reasoning": "Numerical matching of the number of tests is already covered. The submitted claim is restricted to a distinct scalar cost (sum of incidences) plus equality characterization in the exact-pair cycle model; available published theorems do not logically imply its sharp value. Some otherwise plausible full texts were not available, so the originality judgment is qualified.",
+      "searches": [
+        "Bousquet et al. author-uploaded full text: Theorem 10 / Lemma 12 / cycle proof",
+        "Jimbo and Müller 2006 journal article abstract: constant-weight maximal 2CPD construction",
+        "He et al. 2025 full text: equations for constant-weight addresses and balance vector",
+        "Thao and Vu 2026 ISIT abstract: low-weight Gray codes and ranking/unranking",
+        "published-finding corpus: \"minimum total number of ones or incidence weight in nonadaptive cyclic consecutive-pair group testing\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bousquet et al. full article (ResearchGate author-uploaded full text), Theorem 10 and Lemma 12, determines the number of colors needed for cycles using unions of incident edge subsets.",
+        "The same article defines coloring using nonempty subsets and does not optimize the sum of sizes of assigned subsets.",
+        "The equivalence is exact for the OR decoding mechanism under identifying cycle edges with our indexed items; the additional objective and allowance of zero masks differ."
+      ],
+      "reasoning": "A union vertex-distinguishing edge coloring of C_n is an adjacent-OR testing matrix after swapping the cycle edge and item labels. This does cover the known m-test count (except empty-mask edge cases) but the older statement does not determine or bound the minimum total number of incidences among minimum-test matrices, and its particular constructions do not assert this result. Nonempty edge assignments differ from the permitted zero item mask.",
+      "searches": [
+        "published-finding corpus: \"Cycle union vertex-distinguishing edge colorings total number of assigned colors minimizing sum of sizes, independent color classes balanced 2^(m-2)\"",
+        "published-finding corpus: \"Every nonzero m-bit edge OR outcome exactly once along odd cycle, assign m-bit masks to vertices, minimal incidence per coordinate\"",
+        "web: \"A Vizing-like theorem for union vertex-distinguishing edge coloring\"",
+        "arxiv:1605.02588; DOI 10.1016/j.dam.2017.07.002"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus near match 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 lists test numbers for cover-free families, not an incidence table for exact cyclic adjacent pairs.",
+        "Bousquet et al. cycle tables/figures give example color-label sets at cycle lengths but not minimum aggregate label size.",
+        "The included verifier checks derived values m=2..13 from the construction, not an external database lookup."
+      ],
+      "reasoning": "No examined exact table or record provides the all-m sample-incidence optimum. Failed searches are not proof of novelty; the theorem is established internally by proof, while prior overlap risk is explicitly retained.",
+      "searches": [
+        "published-finding corpus: \"Optimal minimum total number of ones or incidence weight in nonadaptive cyclic consecutive-pair group testing with exactly 2^m-1 items\"",
+        "published-finding corpus: \"Group testing adjacency defective pair cycle sparse pools exactly m 2^(m-2) item-test incidences\"",
+        "web: \"consecutive positives\" \"minimum\" \"weight\" \"cyclic\" group testing",
+        "web: \"union vertex distinguishing\" \"sum\" sizes edges cycles minimum weight"
+      ]
+    },
+    "rationale": "The exact number m of tests for cycles is not claimed new: Bousquet et al. (arXiv:1605.02588) already optimize the union-distinguishing palette for most cycles with nonempty edge labels. The new precise objective is total item-to-pool incidence under a related but weaker empty-or-exactly-adjacent-pair model, with a sharp \\(m2^{m-2}\\) lower bound, equality structure, and uniform balanced construction. Their accessible full text presents the cycle minimum palette, not this incidence objective. Müller–Jimbo 2CPD has stronger individual-column disjointness; balanced constant-weight Gray-code constructions use restrictions incompatible with our variable-weight masks. Plausible inaccessible older/conference sources and unindexed results remain a risk; this is not an independence certification.",
+    "residual_risks": [
+      "The original full 2004 Müller–Jimbo manuscript could not be fetched from a public author-hosted listing; subsidiary results or appendices could overlap.",
+      "The related 2008 Müller–Jimbo full PDF was not downloaded; it concerns constant-weight cyclic sequences but an ancillary variable-weight observation cannot be excluded.",
+      "The 2026 Thao–Vu conference text is closed; its abstract is about low-weight Gray-code ranking/unranking, but an uninspected total-incidence remark could overlap.",
+      "No search establishes priority against all unpublished or unindexed sources; closeness of Bousquet et al. cycle union-coloring makes equivalent earlier formulation conceivable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers minimum number of colors / tests for nonempty labels, but does not provide minimum summed label sizes or the claimed equality characterization",
+        "evidence": [
+          "Theorem 10 states cycles of \\(n\\ge4\\) except C7 are optimally palette-colorable; C3 and C7 are excluded.",
+          "Definition at beginning maps every graph edge to a nonempty subset of colors and distinguishes union codes on vertices.",
+          "Cycle proof constructs palette-optimal colorings but states no minimization of total incidences."
+        ],
+        "identifier_or_url": "arxiv:1605.02588; https://www.researchgate.net/publication/302568395_A_Vizing-like_theorem_for_union_vertex-distinguishing_edge_coloring",
+        "material_read": "Full author-uploaded 2016-era manuscript in indexed HTML, especially definitions and cycle Theorem 10, Lemmas 11–12, and proofs through cycle section; corroborating author thesis https://daillya.github.io/Summary.pdf Section 2.2",
+        "method": "Read primary prose and formulas, distinguish required nonempty edge labels, compare objective functions and logical implications",
+        "title": "A Vizing-like theorem for union vertex-distinguishing edge coloring",
+        "trigger": "Exact dual OR-union mechanism on a cycle and possible all-n theorem domination"
+      },
+      {
+        "assessment": "Stronger coding requirements and a different optimization; full-text inability prevents a categorical NOT_COVERING conclusion for incidental material",
+        "evidence": [
+          "Abstract specifically requires individual columns and every adjacent OR all pairwise distinct.",
+          "The 2006 exposition describes constant-column-weight and perfectly balanced designs for the stronger 2CPD model."
+        ],
+        "identifier_or_url": "doi:10.1016/S0012-365X(03)00282-6; https://www.audiolabs-erlangen.de/content/05_fau/professor/00_mueller/03_publications/2004_MuellerJimbo_ConsecutivePositiveGroupTesting_DM.pdf",
+        "material_read": "Primary article abstract and indexed introductory excerpt; 2006 journal exposition summary; full primary PDF could not be fetched despite public author-hosted PDF listing",
+        "method": "Compare formal abstract requirement that all columns and their successive unions be pairwise distinct; review the public full-text listing and other accessible descriptions; complete full text was not available",
+        "title": "Consecutive positive detectable matrices and group testing for consecutive positives",
+        "trigger": "Closest foundational group-testing design with adjacent OR and balanced pooling"
+      },
+      {
+        "assessment": "A closely related but stronger constant-weight, all-subset cyclic sequence problem; no retrieved statement of unrestricted minimal total incidence",
+        "evidence": [
+          "Requires all k-subsets exactly once, and pairwise distinct unions of successive k-subsets.",
+          "The stated existence constructions concern fixed subset sizes 2 through 7 and related conditions."
+        ],
+        "identifier_or_url": "https://www.audiolabs-erlangen.de/content/05_fau/professor/00_mueller/03_publications/2008_MuellerJimbo_CyclicSequences_DM.pdf; doi:10.1016/j.disc.2006.11.062",
+        "material_read": "Primary abstract and public search-indexed theorem/excerpt, including the all-k-subsets condition and Theorem 4.3; full PDF was not available for complete inspection",
+        "method": "Compare constant-k-subset enumeration to variable-size integer mask construction",
+        "title": "Cyclic sequences of k-subsets with distinct consecutive unions",
+        "trigger": "Same cyclic order and adjacent union distinctness"
+      },
+      {
+        "assessment": "Addresses complementary balance problem with every item address of fixed positive weight; cannot directly assert the variable-weight full-capacity minimal sample-incidence theorem",
+        "evidence": [
+          "The article requires item address weight r and consecutive OR weight r+1, with adjacent Hamming distance two.",
+          "Balance vector denotes pool sizes and aim is low deviation at a prescribed constant weight."
+        ],
+        "identifier_or_url": "doi:10.1093/bioinformatics/btaf611; https://academic.oup.com/bioinformatics/article/41/12/btaf611/8322746",
+        "material_read": "Full open-access HTML, introduction and sections 2–6, including definitions of constant-weight code addresses, balance vectors, and construction algorithms",
+        "method": "Compare exact admissibility constraints, tested objectives, and implication of constant-weight requirements",
+        "title": "Unbiased and error-detecting combinatorial pooling experiments with balanced constant-weight Gray codes for consecutive positives detection",
+        "trigger": "Explicit optimization of pool balance, item weight and consecutive OR distinctions"
+      },
+      {
+        "assessment": "No exact claim in abstract subsumes ours; full-text inaccessible and therefore retained as an originality risk",
+        "evidence": [
+          "Abstract centers on low-weight Gray-code existence and efficient ranking/unranking.",
+          "The indexed work concerns linearly ordered consecutive positives, not the stated cyclic full-output construction."
+        ],
+        "identifier_or_url": "doi:10.1109/ISIT62367.2026.11653620; https://eurekamag.com/research/110/325/110325845.php",
+        "material_read": "Conference abstract/summary and metadata only; publisher full text unavailable",
+        "method": "Compare stated ranking/unranking of low-weight monotone Gray codes to exact cyclic total-incidence minimization",
+        "title": "Low-Weight Gray Codes for Limited Resources Group Testing of Consecutive Positives",
+        "trigger": "Recent low sample repetition and consecutive-positive group tests could conceal same cost optimization"
+      },
+      {
+        "assessment": "Constrains feasible pools to graph paths while allowing arbitrary sparse defect sets; does not yield the exact cycle-pair sample-incidence result",
+        "evidence": [
+          "Test groups obey graph connectivity/path limitations and the defective locations are not restricted to a single cycle edge."
+        ],
+        "identifier_or_url": "arxiv:1001.1445; https://arxiv.org/abs/1001.1445",
+        "material_read": "Full arXiv HTML overview and problem formulation",
+        "method": "Compare graph restriction on test pools with restriction on feasible defective sets",
+        "title": "Graph-Constrained Group Testing",
+        "trigger": "Possible earlier group-testing bounds under a graph restriction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6198dd45-af40-4317-9176-7ae152d1dccd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The quantity minimized is the physical count of sample uses in a cyclic nonadaptive pooled screening experiment at information-theoretically full outcome capacity. It simultaneously minimizes per-test pool size and achieves exact perfect balance. The infinite family, forced equality structure and explicit closed-form construction provide a natural exact resource benchmark beyond the previously studied minimum number of tests, while limited to a specific defect model and noiseless assays.",
+    "status": "PASS"
+  }
+}
