@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The deletion-critical-edge lemma is proved in all three unused-side regimes. Each component type is necessary and sufficient, and its labeled combinatorial weight gives the EGF by the exponential formula. The deficit argument yields a sharp upper bound, exact maximal-set multiplicity and penultimate-cardinality exclusion. Two separately implemented exact finite checks agree with enumeration and seven published ungraded totals; finite checks are expressly not the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kazemi–Pahlavsay–Stones arXiv:1509.08208, Theorem 6 and Proposition 1, give extremal k-tuple total-domination cardinalities, especially k=2.",
+        "Mertens Journal of Integer Sequences 27 (2024), Article 24.3.7, Theorem 4, counts all ordinary dominating sets."
+      ],
+      "reasoning": "Minimum k-tuple cardinalities do not classify inclusion-minimal ordinary total dominating sets, while all ordinary dominating sets include sets that are not total or not inclusion-minimal. Neither larger stated invariant dominates the graded cardinality claim by a direct implication.",
+      "searches": [
+        "arXiv:1509.08208",
+        "JIS:24.3.7",
+        "\"upper total domination\" \"rook graph\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1509.08208",
+      "https://oeis.org/A384118",
+      "https://oeis.org/A384116",
+      "https://oeis.org/A384117",
+      "https://oeis.org/A303211",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mertens explicitly defines all ordinary dominating rook placements, without inclusion-minimal total restriction (PDF, Section 3).",
+        "OEIS A384118 provides a numerical recurrence in board dimensions, without a weight variable; its output equals the new polynomial evaluated at one."
+      ],
+      "reasoning": "The present claim implies the earlier ungraded minimal-set counts; the reverse implication does not follow from the statements as published. Their recurrence may conceal a structurally equivalent counting argument that could be weighted, so implicit prior coverage remains the principal residual originality risk.",
+      "searches": [
+        "JIS:24.3.7",
+        "OEIS:A384118",
+        "minimal total dominating rook graph components subdivided stars bivariate exponential generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A384118 https://oeis.org/A384118 reports ungraded total minimal-set counts, including 7310 on a 5 by 5 board.",
+        "No full-cardinality formula appears in the inspected page or its PARI program, which stores dimension-indexed totals."
+      ],
+      "reasoning": "An ungraded function of two board dimensions is not equivalent to the three-variable graded polynomial; its evaluation at z=1 is one consequence, not the full claim. A different prior weighted formulation remains a risk.",
+      "searches": [
+        "rook graph inclusion-minimal total domination polynomial exponential generating function",
+        "minimal total domination cardinality polynomial of rook graphs rectangular board using induced bipartite stars and subdivided stars",
+        "\"total domination polynomial\" \"rook graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A384118 contains values M(3,3;1)=51, M(4,4;1)=368, M(5,5;1)=7310 and a recurrence for ungraded totals.",
+        "A384116 tabulates all total dominating set counts and A384117/A303211 tabulate minimum-size counts; all of these specific previously recorded totals are acknowledged."
+      ],
+      "reasoning": "The published table fixes sums of coefficients, and minimum-size tables fix only one coefficient. The displayed graded examples and the uniform forbidden-cardinality theorem are additional information, not reproduction of one of these numbers.",
+      "searches": [
+        "OEIS:A384118",
+        "OEIS:A384116",
+        "OEIS:A384117",
+        "OEIS:A303211"
+      ]
+    },
+    "rationale": "The directly closest OEIS A384118 provides only total counts by board shape and an ungraded recurrence; the new statement grades all minimal sets and proves the square-board forbidden near-maximum cardinality and exact extremal multiplicity. Mertens treats ordinary domination and Kazemi–Pahlavsay–Stones treat minimum k-tuple total domination, not this all-cardinalities inclusion-minimal problem.",
+    "residual_risks": [
+      "The combinatorial recurrence for A384118 may implicitly encode the same component decomposition and admit a nontrivial weight refinement.",
+      "A published or unpublished source using bipartite component terminology rather than rook-graph terms could contain the complete polynomial; searches do not establish absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS ungraded total and dimension recurrence; does not state graded polynomial or square-board near-top gap",
+        "evidence": [
+          "Values 51, 368, 7310 for square board sizes 3,4,5",
+          "B(n,m) and A(n,m) recurrence returns a two-parameter number, no cardinality indeterminate"
+        ],
+        "identifier_or_url": "https://oeis.org/A384118",
+        "material_read": "Entire accessible entry including definitions, ungraded table, and PARI program lines 12–87",
+        "method": "HTML text and mathematical comparison at z=1",
+        "title": "A384118: Number of minimal total dominating sets in rectangular rook graphs",
+        "trigger": "Exact same minimal total domination object, rectangular board"
+      },
+      {
+        "assessment": "STUDIES minimum k-tuple total dominating sets, especially k=2, rather than all inclusion-minimal ordinary total dominating sets",
+        "evidence": [
+          "Public version 1 submitted 2015-09-28 UTC",
+          "Proposition 1 specifies gamma for k=2 and is not a minimal-set polynomial"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.08208",
+        "material_read": "PDF abstract/introduction, relevant Theorem 6, Proposition 1 and component discussion; full text searched for minimal",
+        "method": "Open-access arXiv PDF, page screenshots and parsed text",
+        "title": "Cartesian product graphs and k-tuple total domination",
+        "trigger": "2015 public combinatorics primary source on total domination of rook graphs and MSC 05C69"
+      },
+      {
+        "assessment": "COVERS polynomial of all ordinary dominating sets only; no stated graded minimal total dominating classification",
+        "evidence": [
+          "Theorem 4 counts all ordinary dominating sets",
+          "No occurrence of the exact minimal or total-domination phrases in the searched PDF text"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf",
+        "material_read": "PDF abstract and Section 3 Theorem 4, search for the words minimal and total domination",
+        "method": "Open-access publisher-hosted PDF and page images",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Exact rook-graph family and complete polynomial, possible dominating-superfamily coverage"
+      },
+      {
+        "assessment": "COUNTS all total dominating sets, without inclusion-minimality or cardinality distribution",
+        "evidence": [
+          "OEIS gives a two-index array and its ungraded inclusion-exclusion formula"
+        ],
+        "identifier_or_url": "https://oeis.org/A384116",
+        "material_read": "Entry definition, two-parameter table and formula",
+        "method": "HTML page comparison",
+        "title": "A384116: Number of total dominating sets in rook graphs",
+        "trigger": "Total domination superclass; potential stronger exact table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e5d921c-2b2c-4a90-9760-2df9a8ec61c3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete cardinality distribution of inclusion-minimal total dominating sets determines both the lower and upper sizes, intermediate-size gaps and precise multiplicities. For n>=5 the penultimate possible cardinality is absent, and for n>=4 exactly 2n*n! labeled minimal sets attain size 2n-2; none of these facts can be recovered from the prior ungraded total without extra structural work.",
+    "status": "PASS"
+  }
+}
